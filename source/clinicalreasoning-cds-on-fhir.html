@@ -51,7 +51,7 @@
 
 <p>The first phase in consuming a CDS Service using CDS Hooks is to configure the integration from the EHR. The CDS Service publishes a set of endpoints to advertise available functionality using the <a href="http://cds-hooks.org/specification/1.0/#discovery"><i>discovery</i></a> endpoint. For each endpoint, the service declares the <i>hook</i> during which it expects to be invoked, and optionally, any <i>prefetch</i> information that could be provided to the service.</p>
 
-<p>Each <a href="http://cds-hooks.org/hooks/"><i>hook</i></a> identifies contextual information that is available within the EHR. For example, the <code>medication-prescribe</code> hook specifies the patient in context, as well as the medications being prescribed. When invoking the service from this hook, the EHR is expected to provide this contextual information as part of the request.</p>
+<p>Each <a href="http://cds-hooks.org/hooks/"><i>hook</i></a> identifies contextual information that is available within the EHR. For example, the <code>order-sign</code> hook specifies the patient in context, as well as the orders being signed. When invoking the service from this hook, the EHR is expected to provide this contextual information as part of the request.</p>
 
 <p>In addition, the CDS Service may specify additional information using <a href="http://cds-hooks.org/specification/1.0/#prefetch-template"><i>prefetch</i></a> templates. Each prefetch template is a FHIR query URL, parameterized by the data available in context, and describing information needed by the CDS Service to perform its processing. By providing this information as part of the request, the EHR alleviates the need for the CDS Service to request the additional information.</p>
 
@@ -60,7 +60,7 @@
 <pre><code>{
   "services": [
     {
-      "hook": "medication-prescribe",
+      "hook": "order-sign",
       "prefetch": {
         "medication": "MedicationOrder?patient\u003d{{context.patientId}}\u0026status\u003dactive"
       },
@@ -89,16 +89,22 @@
 <pre><code>{
   "hookInstance": "d1577c69-dfbe-44ad-ba6d-3e05e953b2ea",
   "fhirServer": "https://example.org/fhir",
-  "hook": "medication-prescribe",
+  "hook": "order-sign",
   "context":
     {
-      "medications": [
-        {
-          "resourceType": "MedicationOrder",
-          "id": "medrx001",
-          ... &lt;FHIR Resource - snipped for brevity&gt;
-        }
-      ],
+      "draftOrders": {
+        "resourceType": "Bundle",
+        "entry": [
+          {
+            "resource": 
+              {
+                "resourceType": "MedicationOrder",
+                "id": "medrx001",
+                ... &lt;FHIR Resource - snipped for brevity&gt;
+              }
+          }
+        ]
+      },
       "patientId": "Patient/Patient-12214",
       "userId": "Practitioner/example"
     },
@@ -177,7 +183,7 @@
 <ul>
   <li><b>summary</b> - A short description of the result</li>
   <li><b>detail</b> - A more detailed description of the information for the card</li>
-  <li><b>indicator</b> - The urgency/importance of the card, <code>info</code>, <code>warning</code> or <code>hard-stop</code></li>
+  <li><b>indicator</b> - The urgency/importance of the card, <code>info</code>, <code>warning</code> or <code>critical</code></li>
   <li><b>source</b> - The source of the information</li>
   <li><b>suggestions</b> - An array of suggestions, allowing the service to suggest a set of changes in the context of the current activity</li>
   <li><b>selectionBehavior</b> - A selection behavior among returned suggestions for the card.</li>
@@ -220,8 +226,6 @@
   <tr><td>Response.card.suggestion.action.description</td><td>RequestOrchestration.action.action.action.description</td></tr>
   <tr><td>Response.card.suggestion.action.resource</td><td>RequestOrchestration.action.action.action.resource</td></tr>
 </table>
-
-<p>Note that these examples all assume a FHIR DSTU2 service is being used.</p>
 
 <p>To support these scenarios, this module defines the <a href="guidanceresponse-cdshooks.html">CDS Hooks GuidanceResponse</a> and <a href="requestorchestration-cdshooks.html">CDS Hooks RequestOrchestration</a> profiles.</p>
 
@@ -300,7 +304,7 @@
 
 <p>As depicted in the above diagram, an EHR invokes a CDS Hooks request at the appropriate point in the workflow, providing the requested context and data. The CDS Service responds by performing an $apply operation against the specified PlanDefinition, and transforming the resulting RequestOrchestration into a CDS Hooks response.</p>
 
-<p>Because PlanDefinitions can be used in a broad range of use cases, this module defines the <a href="library-cqf.html">CQL Library</a> and <a href="computableplandefinition.html">Computable PlanDefinition</a> profiles to describe the special case of a PlanDefinition being used as an event-condition-action rule with conditions and other dynamic behavior specified in a CQL Library. This arrangement provides a common and consistent pattern for describing decision support that can be easily integrated using the CDS Hooks specification.</p>
+<p>For more detailed descriptions of how PlanDefinitions and CQL can be used to represent computable clinical recommendation logic, see the <a href="http://hl7.org/fhir/uv/cpg">FHIR Clinical Guidelines</a>. implementation guide. Specifically, the implementation guide describes the special case of a PlanDefinition being used as an event-condition-action rule with conditions and other dynamic behavior specified in a CQL Library. This arrangement provides a common and consistent pattern for describing decision support that can be easily integrated using the CDS Hooks specification.</p>
 [%file newfooter%]
 </body>
 </html>

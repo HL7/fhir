@@ -5,7 +5,7 @@
 		</h2>
 		<a name="dstu"></a>
 		<p>Vital signs is one of the first areas where there is a need for a single, global vocabulary to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vital Signs profiles set the minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient.  These include the "primary" vital signs of heart rate, respiratory rate, blood pressure (systolic and diastolic) and body temperature, plus additional measurements such as body height, body weight, BMI and oxygen saturation. Support for basic mandatory searching of resources is defined below in the <a href="#Quick_Start">Quick Start</a> section. When a FHIR implementation supports any of the vital signs observations listed below, the implementation <strong>SHALL</strong> conform to the vital signs base profile and also the profile for the specific vital sign observation.</p>
-		<p><i>[Note: These requirements were originally developed, balloted, and published in FHIR DSTU2 as part of the ONC sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project and were subsequently updated to define the minimum mandatory conformance requirements needed for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations.]</i></p>
+		<p><i>[Note: These profiles have been updated and were originally derived from and based on the minimum mandatory conformance requirements for accessing patient data as defined by the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">Argonaut</a> pilot implementations that were developed, balloted, and published in the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">U.S. Data Access Framework (DAF) FHIR Implementation Guide (IG) DSTU2</a> as part of the ONC sponsored <a href="https://oncprojectracking.healthit.gov/wiki/spaces/TechLabSC/pages/16123301/DAF+Home">Data Access Framework (DAF)</a> project.]</i></p>
 	</div>
 	<div>
 		<a name="bnc"></a>
@@ -27,9 +27,12 @@
 		<ol>
 			<li>a status</li>
 			<li>a 'category' code of 'vital-signs'</li>
-			<li>an additional "interoperability category" LOINC code in the 'category' element which specifies the high level (methodless) category for what is being measured
+			<ul>
+				<li>When needed, one or more additional category codes (from the preferred HL7 observation-category or a different code system) may also be included along with the 'vital-signs' category code.</li>
+			</ul>
+		<li>an additional "interoperability standard" high level (methodless LOINC) code for what is being measured
 <ul>
-					<li>The code for the actual measurement is specified in the 'code' element.  This code (which may be from LOINC or a different code system) typically will be more specific than the "interoperability category" LOINC code.</li>
+					<li>The selected code for the actual measurement will often be different from (usually more specific than) the "interoperability standard" code.  When that is the case, the selected code (from LOINC or a different code system) is expected to also be included in the 'code' element, as a repetition of 'code.coding', in addition to the "interoperability standard" code.  Potentially other codes (from the same or different code systems) may also be included as appropriate (also as additional 'code.coding' repetitions).</li>
 				</ul>
 			</li>
 			<li>a patient</li>
@@ -42,10 +45,20 @@
 		</ol>
 	</div>
 	<div>
+		<a name="must-support"></a>
+		<h2>Must Support Expectations for Vital Signs Profiles</h2>
+		<p>When a Vital Signs profile element is marked as mustSupport, the minimum expectations are:
+		<ul>
+			<li>Senders must populate the mustSupport element if the data is available and permissions allow.</li>
+			<li>Receivers must be capable of consuming the mustSupport element if the element is relevant to their business case.</li>
+		</ul>
+		</p>
+	</div>
+	<div>
 		<a name="vitals-table"></a>
 		<h2>Formal View of Specific Vital Signs Profile Content</h2>
 		<ul>
-			<li>The table below represents the set of vital sign concepts and the profiles that have been defined for representing them in the Observation resource, along with the associated required high level (methodless) LOINC "interoperability category" codes, and the UCUM units of measure codes that are used for representing the vital signs observations. These terminology bindings are <a href="terminologies.html#extensible">extensible</a> and require that when a system supports any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
+			<li>The table below represents the set of vital sign concepts and the profiles that have been defined for representing them in the Observation resource, along with the associated required high level (methodless) LOINC "interoperability standard" codes, and the UCUM units of measure codes that are used for representing the vital signs observations. These terminology bindings are <a href="terminologies.html#extensible">extensible</a> and require that when a system supports any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
 			<li>The first column of this table links to the formal views of the individual profile for each vital sign.</li>
 			<li>Other profiles may make rules about which vital sign must be present, or must be present as part of a panel, or may expand the list to include other vital signs.</li>
 		</ul>
@@ -54,7 +67,7 @@
 			<thead>
 				<tr>
 					<th>Profile Name</th>
-					<th>"Interoperability Category" (LOINC)</th>
+					<th>"Interoperability Standard" Code (LOINC)</th>
 					<th>LOINC Name and Comments</th>
 					<th>UCUM Unit Code</th>
 					<th id="example">Examples</th>
@@ -67,7 +80,8 @@
 					</td>
 					<td>85353-1</td>
 					<td>
-						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em> - It represent a panel of vital signs listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.    When used, Observation.valueQuantity is not present; instead, related links (with type=has-member) reference the vital signs observations  (e.g. respiratory rate, heart rate, BP, etc.).  This code replaces the deprecated code 8716-3  - <em>Vital signs</em>  which is used in the Argonaut Data Query Implementation Guide. </td>
+						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em>
+						<p>This represents a panel of vital signs, e.g. those listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.  In this panel, Observation.valueQuantity is not present - instead, it uses Observation.hasMember to reference individual vital signs observations (e.g. respiratory rate, heart rate, BP, etc.).</p></td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-vitals-panel.html">Vital Signs Panel Example</a>
@@ -92,7 +106,8 @@
 					</td>
 					<td>8867-4</td>
 					<td>
-						<em>Heart rate</em> - To supplement this vital sign observation, 8887-2  -<em> Heart rate device type</em> MAY be included as an additional observation.</td>
+						<em>Heart rate</em>
+						<p>To supplement this vital sign observation, 8887-2  -<em> Heart rate device type</em> MAY be included as an additional component observation.</p></td>
 					<td>/min</td>
 					<td>
 						<a href="observation-example-heart-rate.html">Heart Rate Example</a>
@@ -104,7 +119,8 @@
 					</td>
 					<td>2708-6</td>
 					<td>
-						<em>Oxygen saturation in Arterial blood</em> - This code replaces 59408-5 <em>Oxygen saturation in Arterial blood by Pulse oximetry as the "interoperability category" code</em> (but MAY be used in Observation.code).</td>
+						<em>Oxygen saturation in Arterial blood</em>
+						<p>The 2708-6 code or the more specific 59408-5 <em>Oxygen saturation in Arterial blood by Pulse oximetry</em> code (or another appropriate code for arterial oxygen saturation) may be used in Observation.code to specify the actual measurement that was performed.</p></td>
 					<td>%</td>
 					<td>
 						<a href="observation-example-satO2.html">Oxygen Saturation Example</a>
@@ -116,7 +132,8 @@
 					</td>
 					<td>8310-5</td>
 					<td>
-						<em>Body temperature</em> - To supplement this vital sign observation, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.)  and 8326-1  -<em>Type of body temperature device</em> MAY be used as additional observations.</td>
+						<em>Body temperature</em>
+						<p>To supplement this vital sign observation, 8327-9 - <em>Body temperature measurement site</em> (oral, forehead, rectal, etc.)  and 8326-1  -<em>Type of body temperature device</em> MAY be used as additional component observations.</p></td>
 					<td>Cel, [degF]</td>
 					<td>
 						<a href="observation-example-body-temperature.html">Body Temperature Example</a>
@@ -128,28 +145,14 @@
 					</td>
 					<td>8302-2</td>
 					<td>
-						<em>Body height</em> - The more specific code 8306-3 -<em>Body height - lying</em> (i.e., body length - typically used for infants) MAY also be used in Observation.code.
+						<em>Body height</em>
+						<p>The more specific code 8306-3 -<em>Body height - lying</em> (i.e., body length - typically used for infants) MAY also be used in Observation.code to specify the actual measurement that was performed.</p>
 					</td>
 					<td>cm, [in_i]</td>
 					<td>
 						<a href="observation-example-body-height.html">Body height Example</a>
 					</td>
 				</tr>
-				<!--
-				<tr>
-					<td>
-						<a href="bodylength.html">Body length</a>
-					</td>
-					<td>8306-3</td>
-					<td>
-						<em>Body height -lying</em> - Like height, but lying down, typically this is used for infants</td>
-					<td>cm, [in_i]</td>
-					<td>
-						<a href="observation-example-body-length.html">Body Length Example</a>
-					</td>
-				</tr>
-				-->
-
 				<tr>
 					<td>
 						<a href="headcircum.html">Head circumference</a>
@@ -169,8 +172,9 @@
 					</td>
 					<td>29463-7</td>
 					<td>
-						<em>Body weight</em> - The more specific code 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY also be used in Observation.code.</td>
-					<td>g, kg,[lb_av]</td>
+						<em>Body weight</em>
+						<p>The more specific code 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY also be used in Observation.code to specify the actual measurement that was performed.</p></td>
+					<td>g, kg,[lb_av], [oz_av]</td>
 					<td>
 						<a href="observation-example.html">Body Weight Example</a>
 					</td>
@@ -194,7 +198,8 @@
 					</td>
 					<td>85354-9</td>
 					<td>
-						<em>Blood pressure panel with all children optional</em> - This is a component observation.  It has no value in Observation.valueQuantity and  contains at least one component (systolic and/or diastolic).  To supplement this vital sign observation, 8478-0  - <em>Mean blood pressure</em>, 8357-6 - <em>Blood pressure method</em>, 41904-4 - <em>Blood pressure measurement site</em>, 8358-4 - <em>Blood pressure device cuff size</em>, 41901-0 - <em>Type of blood pressure device</em>  MAY be used as additional observations.</td>
+						<em>Blood pressure panel with all children optional</em>
+						<p>This is a component observation.  It has no value in Observation.value[x] and  contains at least one component (systolic and/or diastolic).  To supplement this vital sign observation, 8478-0  - <em>Mean blood pressure</em>, 8357-6 - <em>Blood pressure method</em>, 41904-4 - <em>Blood pressure measurement site</em>, 8358-4 - <em>Blood pressure device cuff size</em>, 41901-0 - <em>Type of blood pressure device</em>  MAY be used as additional component observations.</p></td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>,  <a href="observation-example-bloodpressure-dar.html"> Blood Pressure Example with missing Diastolic measurement</a>
@@ -206,7 +211,8 @@
 					</td>
 					<td>8480-6</td>
 					<td>
-						<em>Systolic blood pressure</em> - Observation.component code for a blood pressure Observation</td>
+						<em>Systolic blood pressure</em>
+						<p>Observation.component code for a blood pressure Observation</p></td>
 					<td>mm[Hg]</td>
 					<td>
 						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>
@@ -218,24 +224,13 @@
 					</td>
 					<td>8462-4</td>
 					<td>
-						<em>Diastolic blood pressure</em> - Observation.component code for a blood pressure Observation</td>
+						<em>Diastolic blood pressure</em>
+						<p>Observation.component code for a blood pressure Observation</p></td>
 					<td>mm[Hg]</td>
 					<td>
 						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>
 					</td>
 				</tr>
-				<!--				<tr>
-					<td>
-						<a href="mbp.html">Mean blood pressure</a>
-					</td>
-					<td>8478-0</td>
-					<td>mm[Hg]</td>
-					<td>The mean blood pressure is most commonly a direct average taken off of an instrument.</td>
-					<td>
-						<a href="observation-example-mbp.html">Mean Blood Pressure Example</a>
-					</td>
-				</tr>
--->
 			</tbody>
 		</table>
 		<p></p>

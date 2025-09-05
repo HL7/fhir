@@ -16,7 +16,6 @@
       <display value="General"/>
     </item>
   </entry>
-  <!--
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Fuji apples with skin"/>
@@ -53,5 +52,28 @@
       <display value="Peanut Butter"/>
     </item>
   </entry>
-  -->
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="High Protein Formula"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionproduct-example-highprotein-enteral"/>
+    </extension>
+    <item>
+      <reference value="NutritionProduct/high-protein-enteral-supplement"/>
+      <display value="High Protein Enteral Formula"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Adult Formula"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionproduct-example-adultformula"/>
+    </extension>
+    <item>
+      <reference value="NutritionProduct/adult-formula-supplement"/>
+      <display value="Adult Formula"/>
+    </item>
+  </entry>
 </List>

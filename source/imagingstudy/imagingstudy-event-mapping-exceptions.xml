@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="ImagingStudy"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="ImagingStudy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="ImagingStudy.identifier">
         <commentsUnmatched reason="Unknown">
@@ -9,8 +8,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="ImagingStudy.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Fulfills plan or order"/>
@@ -23,31 +21,17 @@
     <divergentElement patternPath="Event.partOf" resourcePath="ImagingStudy.partOf">
         <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
         <extraTypes _resource="Reference(Procedure)" reason="Unknown"/>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A larger event of which this particular imaging study is a component or step."/>
-            <resource value="A larger event of which this particular ImagingStudy is a component or step.  For example,  an ImagingStudy as part of a procedure."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an imaging study to an Encounter - use 'context' for that."/>
-            <resource value="To link an ImagingStudy to an Encounter use `encounter`."/>
-        </commentsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Event.partOf" resourcePath="ImagingStudy.procedure">
-        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
-        <extraTypes
-            _resource="CodeableReference(PlanDefinition,ActivityDefinition)" reason="Unknown"/>
-        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Part of referenced event"/>
-            <resource value="Associated procedure(s)"/>
+            <resource value="Imaging performed procedure(s)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A larger event of which this particular imaging study is a component or step."/>
-            <resource value="A procedure or set of procedures during which this imaging study data was created."/>
+            <resource value="The performed procedure(s) during which the data associated with this imaging study was created."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Not to be used to link an imaging study to an Encounter - use 'context' for that."/>
-            <resource value=""/>
+            <resource value="To link an imaging study to an Encounter use `encounter`."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="ImagingStudy.status">
@@ -56,7 +40,7 @@
             <resource value="registered | available | cancelled | entered-in-error | unknown | inactive"/>
         </shortUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
         </commentsUnmatched>
     </divergentElement>
@@ -82,11 +66,11 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The Encounter during which this imaging study was created or to which the creation of this record is tightly associated."/>
-            <resource value="The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made."/>
+            <resource value="The healthcare event (e.g. a patient and healthcare provider interaction) during which the imaging data represented by this imaging study was acquired."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This will typically be the encounter the imaging study was created during, but some imaging studys may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
-            <resource value="This will typically be the encounter the event occurred within, but some events MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission test)."/>
+            <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the imaging study to the Encounter context.  May also affect access control."/>
@@ -104,7 +88,7 @@
             <resource value="Date and time the study started."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -126,7 +110,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>
-            <resource value=""/>
+            <resource value="This MAY correspond to the indications or reasons encoded in an associated service request."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.note" resourcePath="ImagingStudy.note">

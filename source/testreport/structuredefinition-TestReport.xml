@@ -153,7 +153,7 @@
     </element>
     <element id="TestReport.testScript">
       <path value="TestReport.testScript"/>
-      <short value="Canonical URL to the  version-specific TestScript that was executed to produce this TestReport"/>
+      <short value="Canonical URL to the version-specific TestScript that was executed to produce this TestReport"/>
       <definition value="Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`."/>
       <min value="1"/>
       <max value="1"/>
@@ -188,10 +188,12 @@
     </element>
     <element id="TestReport.score">
       <path value="TestReport.score"/>
-      <short value="The final score (percentage of tests passed) resulting from the execution of the TestScript"/>
-      <definition value="The final score (percentage of tests passed) resulting from the execution of the TestScript."/>
+      <short value="The final score (percentage of tests passed, so 0..100) resulting from the execution of the TestScript"/>
+      <definition value="The final score (percentage of tests passed in the range of 0 to 100) resulting from the execution of the TestScript."/>
       <min value="0"/>
       <max value="1"/>
+      <minValueDecimal value="0"/>
+      <maxValueDecimal value="100"/>
       <type>
         <code value="decimal"/>
       </type>
@@ -265,7 +267,17 @@
       <path value="TestReport.participant.uri"/>
       <short value="The uri of the participant. An absolute URL is preferred"/>
       <definition value="The uri of the participant. An absolute URL is preferred."/>
-      <min value="1"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="TestReport.participant.version">
+      <path value="TestReport.participant.version"/>
+      <short value="The version of the participant, if known/applicable"/>
+      <definition value="The version of the participant, if a version is known and/or applicable."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
@@ -280,6 +292,36 @@
       <type>
         <code value="string"/>
       </type>
+    </element>
+    <element id="TestReport.parameter">
+      <path value="TestReport.parameter"/>
+      <short value="A parameter passed to the runner performing the test"/>
+      <definition value="A parameter passed in to the runner performing the test. The parameter is expected to relate to input parameters defined by the test script."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestReport.parameter.name">
+      <path value="TestReport.parameter.name"/>
+      <short value="Name of the parameter passed in"/>
+      <definition value="The name of the parameter passed in to the test runner."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestReport.parameter.documentation">
+      <path value="TestReport.parameter.documentation"/>
+      <short value="Documentation about the impact of the parameter"/>
+      <definition value="Documentation about the impact of the parameter, as supplied by the test runner engine to explain the way it impacted on the tests."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type> 
     </element>
     <element id="TestReport.setup">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -330,8 +372,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="tr-1"/>
-      <condition value="tr-2"/>
+      <condition value="tr-0"/>
     </element>
     <element id="TestReport.setup.action.operation.result">
       <path value="TestReport.setup.action.operation.result"/>
@@ -386,8 +427,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="tr-1"/>
-      <condition value="tr-2"/>
+      <condition value="tr-0"/>
     </element>
     <element id="TestReport.setup.action.assert.result">
       <path value="TestReport.setup.action.assert.result"/>
@@ -470,8 +510,8 @@
     </element>
     <element id="TestReport.test.name">
       <path value="TestReport.test.name"/>
-      <short value="Tracking/logging name of this test"/>
-      <definition value="The name of this test used for tracking/logging purposes by test engines."/>
+      <short value="Tracking/logging name of this test (link to test in TestScript)"/>
+      <definition value="The name of this test used for tracking/logging purposes by test engines. This name links back to the test in the test script, so it must be directly linked (usually the same)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -486,6 +526,37 @@
       <max value="1"/>
       <type>
         <code value="string"/>
+      </type>
+    </element>
+    <element id="TestReport.test.result">
+      <path value="TestReport.test.result"/>
+      <short value="pass | skip | fail | warning | error"/>
+      <definition value="The overall result of this test."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TestReportActionResult"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="The results of executing the test."/>
+        </extension>
+        <strength value="required"/>
+        <description value="The result of the execution of the test."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/report-action-result-codes"/>
+      </binding>
+    </element>
+    <element id="TestReport.test.period">
+      <path value="TestReport.test.period"/>
+      <short value="Start and End times running the test (accurate to milliseconds)"/>
+      <definition value="The start and end times running the test, to allow time taken to be tracked. Accurate to at least milliseconds)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
       </type>
     </element>
     <element id="TestReport.test.action">
@@ -528,6 +599,16 @@
       <max value="1"/>
       <contentReference value="#TestReport.setup.action.assert"/>
     </element>
+    <element id="TestReport.test.log">
+      <path value="TestReport.test.log"/>
+      <short value="Text log of the internal execution of the tests"/>
+      <definition value="A log of the internal execution of the tests, which might be useful for subsequent investigations. The format is expected to be some kind of text log, or at least comprehensible in a text editor."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+    </element>
     <element id="TestReport.teardown">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="70,290"/>
@@ -565,6 +646,26 @@
       <min value="1"/>
       <max value="1"/>
       <contentReference value="#TestReport.setup.action.operation"/>
+    </element>
+    <element id="TestReport.presentedForm">
+      <path value="TestReport.presentedForm"/>
+      <short value="A document presentation of the test outcomes (e.g. PDF)"/>
+      <definition value="A document presentation of the test outcomes such as PDF document."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+    </element>
+    <element id="TestReport.log">
+      <path value="TestReport.log"/>
+      <short value="Text log of the internal execution of the tests"/>
+      <definition value="A log of the internal execution of the tests, which might be useful for subsequent investigations. The format is expected to be some kind of text log, or at least comprehensible in a text editor."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

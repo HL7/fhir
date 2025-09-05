@@ -321,7 +321,7 @@ signatures.html
       <page type="resource" resource="CarePlan"/>
       <page type="resource" resource="Goal"/>
       <page type="resource" resource="CareTeam"/>
-      <page type="resource" resource="ClinicalImpression"/>
+      <page type="resource" resource="ClinicalAssessment"/>
 
       <page type="resource" resource="AdverseEvent"/>
       <page type="resource" resource="DetectedIssue"/>
@@ -335,7 +335,6 @@ signatures.html
        <page type="resource" resource="GenomicStudy"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingSelection"/>
-      <page type="resource" resource="MolecularSequence"/>
       <page type="resource" resource="MolecularDefinition"/>
       <page type="resource" resource="Specimen"/>
       <page type="resource" resource="BodyStructure"/>
@@ -480,6 +479,15 @@ signatures.html
       <page title="Biologically Derived Product" filename="biologically-derived-product-module.html">
 		<!--<page type="resource" resource="BiologicallyDerivedProduct"/>-->
       </page>
+
+      <page title="Nutrition" filename="nutrition-module.html">
+		<!--<page type="resource" resource="Nutrition"/>-->
+      </page>
+
+      <page title="Device" filename="device-module.html">
+		<!--<page type="resource" resource="Device"/>-->
+      </page>
+
 
   </page>
 

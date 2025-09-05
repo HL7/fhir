@@ -15,7 +15,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Bundle-composition"/>
         <description value="The first resource in the bundle, if the bundle type is &quot;document&quot; - this is a composition, and this parameter provides access to search its contents"/>
         <code value="composition"/>
-        <type value="reference"/>
+        <type value="resource"/>
         <expression value="Bundle.entry[0].resource as Composition"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -53,7 +53,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Bundle-message"/>
         <description value="The first resource in the bundle, if the bundle type is &quot;message&quot; - this is a message header, and this parameter provides access to search its contents"/>
         <code value="message"/>
-        <type value="reference"/>
+        <type value="resource"/>
         <expression value="Bundle.entry[0].resource as MessageHeader"/>
         <processingMode value="normal"/>
       </SearchParameter>

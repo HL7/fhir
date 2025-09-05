@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-  <a name="usage"></a>
+  <a name="usage"> </a>
   <h2>Usage</h2>
   <p>
     The RequestOrchestration resource is used when there are temporal, co-occurrence or other dependencies between
@@ -25,11 +25,31 @@
     elements within the "option" resource for referencing in other "option" resources.  These extensions are:
   </p>
   <ul>
-    <li>TODO</li>
+    <li>TODO</li> <!--This should refer to the relativeTime extension but that is still in progress due to cross-version extension issues-->
   </ul>
   <p>
     The RequestOrchestration and all of its referenced "option" Requests are treated as a single integrated Request whose
     status is the status of the RequestOrchestration.  If there is a need to manage statuses of the different parts, separately,
     refer to the guidance <a href="request.html#requestorchestration">here</a>.
+  </p>
+
+  <a name="documenting-choices"> </a>
+  <h3>Documenting Choices</h3>
+  <p>
+  A RequestOrchestration can be used to document (wholly or in part) options that are to be chosen by the order filler when actually 
+  delivering care.  There is no expectation for systems that fulfill a RequestOrchestration to specifically document which choices 
+  were made among the options defined.  However, if this is needed, it could be accomplished with a 'filler-order' RequestOrchestration 
+  basedOn the 'original-order' RequestOrchestration that narrows the order to reflect the filling clinician's choices.
+  </p>
+
+  <p>
+  NOTE: The 'intent' of the requests referenced by a RequestOrchestration are never changed from Option to Order or some other value to convey 'selection'.
+  </p>
+
+  <a name="completion"> </a>
+  <h3>Completion</h3>
+  <p>
+  A RequestOrchestration is deemed to be complete when the requirements of the request options needed to satisfy at least 
+  one path through the overall request have been met or when the author of the RequestOrchestration deems it to be sufficiently complete.
   </p>
 </div>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="deviceassociation-relationship"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/deviceassociation-relationship"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAssociation"/>
+  <title value="DeviceAssociation Relationship Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="DeviceAssociation Relationship Codes"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-relationship"/>
+  <content value="complete"/>
+  <concept>
+    <code value="owner"/>
+    <display value="Owner"/>
+    <definition value="Owner of the device."/>
+  </concept>
+  <concept>
+    <code value="custodian"/>
+    <display value="Custodian"/>
+    <definition value="The individual or organization who has responsibility for taking care of the device."/>
+  </concept>
+  <concept>
+    <code value="maintainer"/>
+    <display value="Maintainer"/>
+    <definition value="The individual or organization that keeps the device in an appropriate condition."/>
+  </concept>
+  <concept>
+    <code value="patient"/>
+    <display value="Patient"/>
+    <definition value="The patient in which the device is implanted, or to which the device is associated."/>
+  </concept>
+  <concept>
+    <code value="operator"/>
+    <display value="Operator"/>
+    <definition value="The person operating the device."/>
+  </concept>
+  </CodeSystem>

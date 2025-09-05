@@ -532,6 +532,9 @@
       </mapping>
     </element>
     <element id="FamilyMemberHistory.condition">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#47829"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
@@ -543,6 +546,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION, value&lt;Diagnosis]"/>
@@ -557,6 +561,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+	  <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionCode"/>

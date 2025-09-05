@@ -145,9 +145,9 @@
     <Cell><Data ss:Type="String">ClaimResponse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClinicalImpression</Data></Cell>
-    <Cell><Data ss:Type="String">ClinicalImpression</Data></Cell>
-    <Cell><Data ss:Type="String">ClinicalImpression</Data></Cell>
+    <Cell><Data ss:Type="String">ClinicalAssessment</Data></Cell>
+    <Cell><Data ss:Type="String">ClinicalAssessment</Data></Cell>
+    <Cell><Data ss:Type="String">ClinicalAssessment</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="2"><Data ss:Type="String">CodeSystem</Data></Cell>
@@ -466,10 +466,6 @@
     <Cell><Data ss:Type="String">MessageHeader</Data></Cell>
     <Cell><Data ss:Type="String">MessageHeader</Data></Cell>
     <Cell><Data ss:Type="String">MessageHeader</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2"><Data ss:Type="String">Sequence</Data></Cell>
-    <Cell><Data ss:Type="String">MolecularSequence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NamingSystem</Data></Cell>

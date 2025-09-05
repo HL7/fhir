@@ -218,10 +218,14 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.packaging.cost.cost as Quantity"/>
+        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-packaging-cost"/>
         <description value="The cost of the packaged medication, if the cost is Money"/>
         <code value="packaging-cost"/>
         <type value="quantity"/>
+        <expression value="MedicationKnowledge.packaging.cost.cost as Quantity"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -233,10 +237,14 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationKnowledge.packaging.cost.cost as CodeableConcept"/>
+        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationKnowledge-packaging-cost-concept"/>
         <description value="The cost of the packaged medication, if the cost is a CodeableConcept"/>
         <code value="packaging-cost-concept"/>
         <type value="token"/>
+        <expression value="MedicationKnowledge.packaging.cost.cost as CodeableConcept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

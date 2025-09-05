@@ -74,22 +74,6 @@ Major Milestones:
     <td>DSTU1 (First Draft Standard for Trial Use)</td>
   </tr>
 </table>
-<p><b>About Normative content in this R5 release</b></p>
-<a name="normative"> </a>
-<p>
-This 5th Major release of the FHIR specification is labeled as 'trial-use' because 
-the entire ballot cycle that led to this release was performed under the HL7 STU 
-(Standard for Trial Use). None of the content in this specification is considered 
-<a href="versions.html#normative">"Normative"</a>, but the content that was previously
-normative in <a href="http://hl7.org/fhir/R4/index.html">Release 4</a> is still 
-labelled as Normative to preserve the status through the publication and implementation
-of this release. HL7 plans to publish the next release as a normative specification.
-</p>
-<p>
-A few new artifacts (such as <a href="canonicalresource.html">CanonicalResource</a>) are
-labelled as Normative because they were created by moving existing normative content 
-to a new type. 
-</p>
 
 <table class="grid">
  <tr>
@@ -109,6 +93,43 @@ template:
 
 notes: do not list revision in the version
 -->
+<tr>
+  <td>6.0.0-ballot3<a name="v6.0.0-ballot3"></a></td>
+  <td>
+    <p>R6 3rd Draft Ballot. Significant changes:</p>
+    <ul>
+      <li><a href="resource.html#additional">Additional Resources</a>: Allowing for development of FHIR Resources in other specifications </li>
+      <li><a href="group.html">Group</a>: Allowing for groups to act collectively, or receive care collectively - change made based on feedback from LMICs countries, and also for social care</li>
+      <li>New data types: <a href="datatypes.html#relativetime">RelativeTime</a></li>
+      <li>New Resources: <a href="devicealert.html">DeviceAlert</a>, <a href="insuranceproduct.html">InsuranceProduct</a>, <a href="moleculardefinition.html">MolecularDefinition</a>, <a href="personalrelationship.html">PersonalRelationship</a></li>
+      <li>Removed Resources: EvidenceReport</li>
+      <li>Significant changes have been made to the <a href="observation-vitalsigns.html">Vital Signs Profiles</a>, and the profile <a href="medicalproductofhumanorigin.html">Medical Product of Human Origin</a> profile has been added</li>
+      <li>The following resources have been updated: <a href="researchstudy.html">ResearchStudy</a>, <a href="researchsubject.html">ResearchSubject</a>,
+        <a href="measure.html">Measure</a>, <a href="measurereport.html">MeasureReport</a>, <a href="servicerequest.html">ServiceRequest</a>, <a href="task.html">Task</a>,
+        <a href="specimen.html">Specimen</a>, <a href="observation.html">Observation</a>, <a href="diagnosticreport.html">DiagnosticReport</a>, 
+        <a href="device.html">Device</a>, <a href="deviceassociation.html">DeviceAssociation</a>, <a href="devicedefinition.html">DeviceDefinition</a>, 
+        <a href="devicemetric.html">DeviceMetric</a>, <a href="devicealert.html">DeviceAlert</a>, <a href="nutritionproduct.html">NutritionProduct</a>, 
+        <a href="nutritionintake.html">NutritionIntake</a>, <a href="nutritionorder.html">NutritionOrder</a>, 
+        <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, 
+        <a href="biologicallyderivedproductdispense.html">BiologicallyDerivedProductDispense</a>, 
+        <a href="supplydelivery.html">SupplyDelivery</a>, <a href="supplyrequest.html">SupplyRequest</a>, <a href="documentreference.html">DocumentReference</a></li>
+      <li>The following Module Pages have been added or updated: <a href="diagnostics-module.html">Diagnostics</a>, <a href="device-module.html">Device</a>,
+        <a href="nutrition-module.html">Nutrition</a>, <a href="biologically-derived-product-module.html">BDP</a></li>
+    </ul>
+  </td>
+</tr>
+<tr>
+  <td>6.0.0-ballot2<a name="v6.0.0-ballot2"></a></td>
+  <td>
+    Version Information was not generated for this release
+  </td>
+</tr>
+<tr>
+  <td>6.0.0-ballot1<a name="v6.0.0-ballot1"></a></td>
+  <td>
+    Version Information was not generated for this release
+  </td>
+</tr>
 <tr>
   <td>5.0.0<a name="v5.0.0"></a></td>
   <td>
@@ -184,6 +205,23 @@ notes: do not list revision in the version
       <li>Documented <a href="packages.html">FHIR NPM Packages</a></li>
       <li>Changes to <a href="messaging.html#async">reliable messaging</a> (which identifier elements are used)</li>
     </ul>
+    
+<p><b>About Normative content in the R5 release</b></p>
+<a name="normative"> </a>
+<p>
+The 5th Major release of the FHIR specification is labeled as 'trial-use' because 
+the entire ballot cycle that led to this release was performed under the HL7 STU 
+(Standard for Trial Use). None of the content in this specification is considered 
+<a href="versions.html#normative">"Normative"</a>, but the content that was previously
+normative in <a href="http://hl7.org/fhir/R4/index.html">Release 4</a> is still 
+labelled as Normative to preserve the status through the publication and implementation
+of this release.
+</p>
+<p>
+A few new artifacts (such as <a href="canonicalresource.html">CanonicalResource</a>) are
+labelled as Normative because they were created by moving existing normative content 
+to a new type. 
+</p>
   </td>
 </tr>
 <tr>
@@ -377,7 +415,7 @@ notes: do not list revision in the version
            <li><code>BodySite</code> -&gt; <a href="bodystructure.html">BodyStructure</a></li>
            <li><code>EligibilityRequest</code> -&gt;  <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
            <li><code>EligibilityResponse</code> -&gt;  <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
-           <li><code>Sequence</code> -&gt; <a href="molecularsequence.html">MolecularSequence</a></li>
+           <li><code>Sequence</code> -&gt; MolecularSequence</li>
            <li><code>ReferralRequest</code> &amp; <code>ProcedureRequest</code> -&gt; <a href="servicerequest.html">ServiceRequest</a></li>
          </ul>
        </li>
@@ -699,7 +737,6 @@ notes: do not list revision in the version
           <li><a href="provenance.html">Provenance</a></li>
          <li>ReferralRequest</li>
          <li><a href="schedule.html">Schedule</a></li>
-         <li><a href="molecularsequence.html">MolecularSequence</a></li>
          <li><a href="slot.html">Slot</a></li>
          <li><a href="structuredefinition.html">StructureDefinition</a></li>
          <li><a href="testscript.html">TestScript</a></li>
@@ -734,7 +771,7 @@ notes: do not list revision in the version
       </p>
       <ul>
        <li>Remove GuidanceRequest</li>
-       <li>Add new <b>draft</b> resources: <a href="molecularsequence.html">MolecularSequence</a>, ExpansionProfile</li>
+       <li>Add new <b>draft</b> resource: ExpansionProfile</li>
        <li>Modifications to Financial Resource &amp; TestScript resource</li>
       </ul>
       <p>
@@ -880,7 +917,7 @@ notes: do not list revision in the version
         <li><a href="auditevent.html">AuditEvent</a> - add .event.purposeOfEvent, participant.location, .policy, and .purposeOfUse</li>
         <li><a href="bundle.html">Bundle</a> - major reorganization</li>
         <li><a href="careplan.html">CarePlan</a> - pull goal out + other reorganization</li>
-        <li><a href="clinicalimpression.html">ClinicalImpression</a> - add status, replace careplan &amp; referral with trigger, rename diagnosis to finding, make plan 0..*, </li>
+        <li><a href="clinicalassessment.html">ClinicalImpression</a> - add status, replace careplan &amp; referral with trigger, rename diagnosis to finding, make plan 0..*, </li>
         <li><a href="composition.html">Composition</a> - change .section.content to refer to List only, not any </li>
         <li><a href="conceptmap.html">ConceptMap</a> - change identifier to url, add useContext, change telecom to contact, </li>
         <li><a href="condition.html">Condition</a> - rename subject to patient, rename status to clinicalStatus, change to bodySite = code or Reference(BodySite), rename .codeableConcept to .code</li>
@@ -980,7 +1017,7 @@ notes: do not list revision in the version
         <li><a href="appointmentresponse.html">AppointmentResponse</a></li>
         <li><a href="basic.html">Basic</a></li>
         <li><a href="claimresponse.html">ClaimResponse</a></li>
-        <li><a href="clinicalimpression.html">ClinicalImpression</a></li>
+        <li><a href="clinicalassessment.html">ClinicalImpression</a></li>
         <li><a href="communication.html">Communication</a></li>
         <li><a href="communicationrequest.html">CommunicationRequest</a></li>
         <li><a href="contract.html">Contract</a></li>

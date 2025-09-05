@@ -179,18 +179,23 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <strength value="example"/>
+        <description value="A coded concept that defines the type of a medication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition.subject"/>
@@ -209,6 +214,8 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -320,8 +327,8 @@
     </element>
     <element id="ClinicalUseDefinition.contraindication.indication">
       <path value="ClinicalUseDefinition.contraindication.indication"/>
-      <short value="The indication which this is a contraidication for"/>
-      <definition value="The indication which this is a contraidication for."/>
+      <short value="The indication which this is a contraindication for"/>
+      <definition value="The indication which this is a contraindication for."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -400,7 +407,6 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
@@ -441,8 +447,8 @@
     </element>
     <element id="ClinicalUseDefinition.indication.diseaseSymptomProcedure">
       <path value="ClinicalUseDefinition.indication.diseaseSymptomProcedure"/>
-      <short value="The situation that is being documented as an indicaton for this item"/>
-      <definition value="The situation that is being documented as an indicaton for this item."/>
+      <short value="The situation that is being documented as an indication for this item"/>
+      <definition value="The situation that is being documented as an indication for this item."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -516,7 +522,7 @@
       <short value="The intended effect, aim or strategy to be achieved"/>
       <definition value="The intended effect, aim or strategy to be achieved."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
@@ -644,7 +650,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
@@ -728,7 +734,7 @@
           <valueString value="UndesirableEffectSymptom"/>
         </extension>
         <strength value="example"/>
-        <description value="A categorisation for incidence of occurence of an interaction."/>
+        <description value="A categorisation for incidence of occurrence of an interaction."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/interaction-incidence"/>
       </binding>
       <mapping>
@@ -872,7 +878,7 @@
           <valueString value="UndesirablEffectFrequency"/>
         </extension>
         <strength value="example"/>
-        <description value="A categorisation for a frequency of occurence of an undesirable effect."/>
+        <description value="A categorisation for a frequency of occurrence of an undesirable effect."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-frequency"/>
       </binding>
       <mapping>

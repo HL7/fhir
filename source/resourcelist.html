@@ -8,9 +8,7 @@
 <body>
 [%file newnavbar%]
 
-
-
-<h2>Resource Index</h2>
+<h2>Resource Type Index</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 <p>Types Framework Cross Reference:
   <a href="types.html">Base Types</a>
@@ -23,7 +21,9 @@
 </p>
 
 <p>
-This page is provided to help find what you are looking for quickly - there are <%res-type-count%> resources. There is also a more <a href="resourceguide.html">detailed classification, ontology, and description</a>. For background
+This page is provided to help navigate through the resources defined in this specification easily - there are <%res-type-count%> resources.
+Additional resources may be defined in other specifications - see the discussion on <a href="resource.html#additional">Resource</a>.
+There is also a more <a href="resourceguide.html">detailed classification, ontology, and description</a>. For background
 to the layout on the layers in this page, see the <a href="overview-arch.html#frameworks">Architect's Overview</a>, and <a href="security.html#SecPrivConsiderations">Security Category Considerations</a>.
 See also the abstract Base Resources <a href="resource.html">Resource</a> and <a href="domainresource.html">DomainResource</a>.
 </p>
@@ -159,7 +159,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
     <li><a title="[%resdesc Condition%]" href="condition.html">Condition</a> (Problem)[%fmmshort Condition%]</li>
     <li><a title="[%resdesc Procedure%]" href="procedure.html">Procedure</a>[%fmmshort Procedure%]</li>
     <li><a title="[%resdesc FamilyMemberHistory%]" href="familymemberhistory.html">FamilyMemberHistory</a>[%fmmshort FamilyMemberHistory%]</li>
-    <li><a title="[%resdesc ClinicalImpression%]" href="clinicalimpression.html">ClinicalImpression</a>[%fmmshort ClinicalImpression%]</li>
+    <li><a title="[%resdesc ClinicalAssessment%]" href="clinicalassessment.html">ClinicalAssessment</a>[%fmmshort ClinicalAssessment%]</li>
     <li><a title="[%resdesc DetectedIssue%]" href="detectedissue.html">DetectedIssue</a>[%fmmshort DetectedIssue%]</li>
   </ul></td>
   <td class="frm-set"><ul class="frm-set">[%rescat Clinical.Diagnostics%]
@@ -171,7 +171,6 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
     <li><a title="[%resdesc ImagingSelection%]" href="imagingselection.html">ImagingSelection</a>[%fmmshort ImagingSelection%]</li>
     <li><a title="[%resdesc ImagingStudy%]" href="imagingstudy.html">ImagingStudy</a>[%fmmshort ImagingStudy%]</li>
     <li><a title="[%resdesc QuestionnaireResponse%]" href="questionnaireresponse.html">QuestionnaireResponse</a>[%fmmshort QuestionnaireResponse%]</li>
-    <li><a title="[%resdesc MolecularSequence%]" href="molecularsequence.html">MolecularSequence</a>[%fmmshort MolecularSequence%]</li>
     <li><a title="[%resdesc MolecularDefinition%]" href="moleculardefinition.html">MolecularDefinition</a>[%fmmshort MolecularDefinition%]</li>
     <li><a title="[%resdesc GenomicStudy%]" href="genomicstudy.html">GenomicStudy</a>[%fmmshort GenomicStudy%]</li>
   </ul></td>
@@ -344,7 +343,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc Citation%]" href="citation.html">Citation</a>[%fmmshort Citation%]</li>
   <li><a title="[%resdesc Claim%]" href="claim.html">Claim</a>[%fmmshort Claim%]</li>
   <li><a title="[%resdesc ClaimResponse%]" href="claimresponse.html">ClaimResponse</a>[%fmmshort ClaimResponse%]</li>
-  <li><a title="[%resdesc ClinicalImpression%]" href="clinicalimpression.html">ClinicalImpression</a>[%fmmshort ClinicalImpression%]</li>
+  <li><a title="[%resdesc ClinicalAssessment%]" href="clinicalassessment.html">ClinicalAssessment</a>[%fmmshort ClinicalAssessment%]</li>
   <li><a title="[%resdesc ClinicalUseDefinition%]" href="clinicalusedefinition.html">ClinicalUseDefinition</a>[%fmmshort ClinicalUseDefinition%]</li>
   <li><a title="[%resdesc CodeSystem%]" href="codesystem.html">CodeSystem</a>[%fmmshort CodeSystem%]</li>
   <li><a title="[%resdesc Communication%]" href="communication.html">Communication</a>[%fmmshort Communication%]</li>
@@ -426,7 +425,6 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc MedicinalProductDefinition%]" href="medicinalproductdefinition.html">MedicinalProductDefinition</a>[%fmmshort MedicinalProductDefinition%]</li>
   <li><a title="[%resdesc MessageDefinition%]" href="messagedefinition.html">MessageDefinition</a>[%fmmshort MessageDefinition%]</li>
   <li><a title="[%resdesc MessageHeader%]" href="messageheader.html">MessageHeader</a>[%fmmshort MessageHeader%]</li>
-  <li><a title="[%resdesc MolecularSequence%]" href="molecularsequence.html">MolecularSequence</a>[%fmmshort MolecularSequence%]</li>
   <li><a title="[%resdesc MolecularDefinition%]" href="moleculardefinition.html">MolecularDefinition</a>[%fmmshort MolecularDefinition%]</li>
   <li><a title="[%resdesc NamingSystem%]" href="namingsystem.html">NamingSystem</a>[%fmmshort NamingSystem%]</li>
   <li><a title="[%resdesc NutritionIntake%]" href="nutritionintake.html">NutritionIntake</a>[%fmmshort NutritionIntake%]</li>
@@ -507,7 +505,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
   <li><a title="[%resdesc AllergyIntolerance%]" href="allergyintolerance.html">AllergyIntolerance</a>[%fmmshort AllergyIntolerance%]</li>
   <li><a title="[%resdesc Condition%]" href="condition.html">Condition</a> (Problem)[%fmmshort Condition%]</li>
   <li><a title="[%resdesc Procedure%]" href="procedure.html">Procedure</a>[%fmmshort Procedure%]</li>
-  <li><a title="[%resdesc ClinicalImpression%]" href="clinicalimpression.html">ClinicalImpression</a>[%fmmshort ClinicalImpression%]</li>
+  <li><a title="[%resdesc ClinicalAssessment%]" href="clinicalassessment.html">ClinicalAssessment</a>[%fmmshort ClinicalAssessment%]</li>
   <li><a title="[%resdesc FamilyMemberHistory%]" href="familymemberhistory.html">FamilyMemberHistory</a>[%fmmshort FamilyMemberHistory%]</li>
   <li><a title="[%resdesc RiskAssessment%]" href="riskassessment.html">RiskAssessment</a>[%fmmshort RiskAssessment%]</li>
   <li><a title="[%resdesc DetectedIssue%]" href="detectedissue.html">DetectedIssue</a>[%fmmshort DetectedIssue%]</li>
@@ -606,7 +604,7 @@ See also the abstract Base Resources <a href="resource.html">Resource</a> and <a
 <p><b>Workflow #1:</b></p>
 <ul>
   <li><a title="[%resdesc Task%]" href="task.html">Task</a>[%fmmshort Task%]</li>
-  <li><a title="[%resdesc Transport%]" href="transport.html">Task</a>[%fmmshort Transport%]</li>
+  <li><a title="[%resdesc Transport%]" href="transport.html">Transport</a>[%fmmshort Transport%]</li>
   <li><a title="[%resdesc CommunicationRequest%]" href="communicationrequest.html">CommunicationRequest</a>[%fmmshort CommunicationRequest%]</li>
   <li><a title="[%resdesc DeviceRequest%]" href="devicerequest.html">DeviceRequest</a>[%fmmshort DeviceRequest%]</li>
   <li><a title="[%resdesc DeviceDispense%]" href="devicedispense.html">DeviceDispense</a>[%fmmshort DeviceDispense%]</li>
@@ -762,8 +760,8 @@ of the <a href="http://www.hl7.org/Special/committees/index.cfm">HL7 Work Groups
 
 [%file newfooter%]
 
-<script src="external/jquery/jquery.js"> </script>
-<script src="jquery-ui.min.js"> </script>
+<script src="assets/js/jquery.js"> </script>
+<script src="assets/js/jquery-ui.min.js"> </script>
 <script>
 try {
   var currentTabIndex = sessionStorage.getItem('fhir-resourcelist-tab-index');

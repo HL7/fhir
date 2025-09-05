@@ -67,7 +67,9 @@
 		<h5>Updating Data that References the source Patient</h5>
 			<p>
 				The merge data processing SHALL update all references that refer to the source patient to reference the target patient.<br/>
-				While updating resources that reference the source patient, ensure that the target patient link value isn't also accidentally updated (don't make it point at itself).
+				While updating resources that reference the source patient, ensure that the target patient link value isn't also accidentally updated (don't make it point at itself).<br/>
+				The server MAY also perform de-duplication, including merging or deleting duplicate data, at the server's discretion to prevent a search from returning duplicate clinical content post-merge.
+				(This could occur if the copies of the same clinical records were found in both patient records)
 			</p>
 			<p>
 				A Provenance resource SHOULD be created that references the source and target patient resources (or just the target-resource if the source was deleted, or the source patient's old identifier) indicating that the merge has occurred (see example <a href="#examples">below</a>).<br/>

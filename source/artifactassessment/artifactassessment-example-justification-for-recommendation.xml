@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ArtifactAssessment xmlns="http://hl7.org/fhir">
+  <id value="example-justification-for-recommendation"/>
+  <meta>
+    <versionId value="22"/>
+    <lastUpdated value="2025-03-17T22:12:11.071Z"/>
+    <profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/recommendation-justification"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p><b>Title: </b>Justification for Recommendation: ADA Obesity Management Recommendation 8.16</p><br/><p><b>Justification for Recommendation: </b>Recommendation: ADA Obesity Management Recommendation 8.16</p><br/><table><tr><th>Concept</th><th>Summary</th><th>Rating</th></tr><tr><td>Recommendation Specification (coded as: RJCS-content0 from https://fevir.net/resources/CodeSystem/27834); Recommendation Rating (coded as: recommendation-rating from https://fevir.net/resources/CodeSystem/179423)</td><td>8.16 Metabolic surgery should be a recommended option to treat type 2 diabetes in screened surgical candidates with BMI ≥40 kg/m2 (BMI ≥37.5 kg/m2 in Asian Americans) and in adults with BMI 35.0–39.9 kg/m2 (32.5–37.4 kg/m2 in Asian Americans) who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods. A</td><td>undefined</td></tr><tr><td>Rating System (coded as: rating-system from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>ADA Level of Evidence</td></tr><tr><td>Strength of Recommendation (coded as: RJCS-1000 from https://fevir.net/resources/CodeSystem/27834); Strength of Recommendation (coded as: strength-of-recommendation from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Direction of Recommendation (coded as: RJCS-1014 from https://fevir.net/resources/CodeSystem/27834); Direction of Recommendation (coded as: direction-of-recommendation from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>Favors intervention (coded as: RJCS-2021 from https://fevir.net/resources/CodeSystem/27834)</td></tr><tr><td>Ratings (coded as: ratings from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>A</td></tr><tr><td>Evidence (coded as: RJCS-content1 from https://fevir.net/resources/CodeSystem/27834); Evidence (coded as: evidence from https://fevir.net/resources/CodeSystem/179423)</td><td>ADA Level of Evidence A. A substantial body of evidence has now been accumulated, including data from numerous randomized controlled (nonblinded) clinical trials, demonstrating that metabolic surgery achieves superior glycemic control and reduction of cardiovascular risk factors in patients with type 2 diabetes and obesity compared with various lifestyle/medical interventions.</td><td>undefined</td></tr><tr><td>Summary of Findings (coded as: summary-of-findings from https://fevir.net/resources/CodeSystem/179423)</td><td>ADA Level of Evidence A. A substantial body of evidence has now been accumulated, including data from numerous randomized controlled (nonblinded) clinical trials, demonstrating that metabolic surgery achieves superior glycemic control and reduction of cardiovascular risk factors in patients with type 2 diabetes and obesity compared with various lifestyle/medical interventions.</td><td>undefined</td></tr><tr><td>Desirable Effects (coded as: RJCS-1004 from https://fevir.net/resources/CodeSystem/27834); Desirable Effects (coded as: desirable-effects from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Undesirable Effects (coded as: RJCS-1005 from https://fevir.net/resources/CodeSystem/27834); Undesirable Effects (coded as: undesirable-effects from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Discussion (coded as: discussion from https://fevir.net/resources/CodeSystem/179423)</td><td>A substantial body of evidence has now been accumulated, including data from numerous randomized controlled (nonblinded) clinical trials, demonstrating that metabolic surgery achieves superior glycemic control and reduction of cardiovascular risk factors in patients with type 2 diabetes and obesity compared with various lifestyle/medical interventions.<br/>In extended follow-up of obese adults with type 2 diabetes randomized to adding gastric bypass compared with lifestyle and intensive medical management alone, there remained a significantly better composite triple end point in the surgical group at 5 years. However, because the effect size diminished over 5 years, further follow-up is needed to understand the durability of the improvement.</td><td>undefined</td></tr><tr><td>Net Effect (coded as: RJCS-1007 from https://fevir.net/resources/CodeSystem/27834); Net Effect (coded as: net-effect from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Values/Preferences (coded as: RJCS-1006 from https://fevir.net/resources/CodeSystem/27834); Preferences (coded as: preferences from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Discussion (coded as: discussion from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Judgments (coded as: RJCS-content2 from https://fevir.net/resources/CodeSystem/27834); Judgments (coded as: judgments from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Justification (coded as: justification from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Problem Importance (coded as: RJCS-1003 from https://fevir.net/resources/CodeSystem/27834); Problem Importance (coded as: problem-importance from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Resources/Costs (coded as: RJCS-1008 from https://fevir.net/resources/CodeSystem/27834); Costs (coded as: costs from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Cost-effectiveness (coded as: RJCS-1009 from https://fevir.net/resources/CodeSystem/27834); Cost-effectiveness (coded as: cost-effectiveness from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Equity (coded as: RJCS-1010 from https://fevir.net/resources/CodeSystem/27834); Equity (coded as: equity from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Acceptability (coded as: RJCS-1011 from https://fevir.net/resources/CodeSystem/27834); Acceptability (coded as: acceptability from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Feasibility (coded as: RJCS-1012 from https://fevir.net/resources/CodeSystem/27834); Feasibility (coded as: feasibility from https://fevir.net/resources/CodeSystem/179423)</td><td>undefined</td><td>undefined</td></tr><tr><td>Competing Interests (coded as: RJCS-1002 from https://fevir.net/resources/CodeSystem/27834); Competing Interests (coded as: competing-interests from https://fevir.net/resources/CodeSystem/179423)</td><td>All members of the PPC are required to disclose potential conflicts of interest with industry and other relevant organizations. These disclosures are discussed at the outset of each Standards of Care revision meeting. Members of the committee, their employers, and their disclosed conflicts of interest are listed in 'Disclosures: Standards of Medical Care in Diabetes—2021' (https://doi.org/10.2337/dc21-SPPC). The ADA funds development of the Standards of Care out of its general revenues and does not use industry support for this purpose. NOTE: The disclosed conflicts of interest was not found at the suggested URL</td><td>undefined</td></tr></table><br/></div>
+  </text>
+  <!-- artifact-url is not allowed on ArtifactAssessment. Should it be? -->
+  <!--
+  <extension url="http://hl7.org/fhir/StructureDefinition/artifact-url">
+    <valueUri value="https://fevir.net/resources/ArtifactAssessment/179469"/>
+  </extension>
+  -->
+  <!-- artifact-description is not allowed on ArtifactAsssessment. Should it be? -->
+  <!--
+  <extension url="http://hl7.org/fhir/StructureDefinition/artifact-description">
+    <valueMarkdown value="An example using the ArtifactAssessment Resource for representation of the many judgments and concepts used to justify a recommendation."/>
+  </extension>
+  -->
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="ACSN"/>
+        <display value="Accession ID"/>
+      </coding>
+      <text value="FEvIR Object Identifier"/>
+    </type>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="https://fevir.net/FOI/179469"/>
+    <assigner>
+      <display value="Computable Publishing LLC"/>
+    </assigner>
+  </identifier>
+  <title value="Justification for Recommendation: ADA Obesity Management Recommendation 8.16"/>
+  <citeAsMarkdown value="Justification for Recommendation: ADA Obesity Management Recommendation 8.16 [Database Entry: FHIR ArtifactAssessment Resource]. Contributors: In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 179469. Revised 2024-07-02. Available at: https://fevir.net/resources/ArtifactAssessment/179469. Computable resource at: TBD#json."/>
+  <artifactReference>
+    <reference value="Composition/179466"/>
+    <type value="Composition"/>
+    <display value="Recommendation: ADA Obesity Management Recommendation 8.16"/>
+  </artifactReference>
+  <content>
+    <summary value="8.16 Metabolic surgery should be a recommended option to treat type 2 diabetes in screened surgical candidates with BMI ≥40 kg/m2 (BMI ≥37.5 kg/m2 in Asian Americans) and in adults with BMI 35.0–39.9 kg/m2 (32.5–37.4 kg/m2 in Asian Americans) who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods. A"/>
+    <type>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/27834"/>
+        <code value="RJCS-content0"/>
+        <display value="Recommendation Specification"/>
+      </coding>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/179423"/>
+        <code value="recommendation-rating"/>
+        <display value="Recommendation Rating"/>
+      </coding>
+    </type>
+	<relatesTo>
+		<type value="derived-from"/>
+        <targetReference>
+          <reference value="Citation/32137"/>
+          <type value="Citation"/>
+          <display value="JournalArticleCitation: ADA 2021 Standards of Medical Care 8. Obesity Management for the Treatment of Type 2 Diabetes"/>
+        </targetReference>
+    </relatesTo>
+    <freeToShare value="true"/>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="rating-system"/>
+          <display value="Rating System"/>
+        </coding>
+      </type>
+      <classifier>
+        <text value="ADA Level of Evidence"/>
+      </classifier>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1000"/>
+          <display value="Strength of Recommendation"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="strength-of-recommendation"/>
+          <display value="Strength of Recommendation"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1014"/>
+          <display value="Direction of Recommendation"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="direction-of-recommendation"/>
+          <display value="Direction of Recommendation"/>
+        </coding>
+      </type>
+      <classifier>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-2021"/>
+          <display value="Favors intervention"/>
+        </coding>
+      </classifier>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="ratings"/>
+          <display value="Ratings"/>
+        </coding>
+      </type>
+      <classifier>
+        <text value="A"/>
+      </classifier>
+      <freeToShare value="true"/>
+    </component>
+  </content>
+  <content>
+    <summary value="ADA Level of Evidence A. A substantial body of evidence has now been accumulated, including data from numerous randomized controlled (nonblinded) clinical trials, demonstrating that metabolic surgery achieves superior glycemic control and reduction of cardiovascular risk factors in patients with type 2 diabetes and obesity compared with various lifestyle/medical interventions."/>
+    <type>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/27834"/>
+        <code value="RJCS-content1"/>
+        <display value="Evidence"/>
+      </coding>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/179423"/>
+        <code value="evidence"/>
+        <display value="Evidence"/>
+      </coding>
+    </type>
+	<relatesTo>
+		<type value="justification"/>
+        <targetReference>
+          <reference value="Citation/33089"/>
+          <type value="Citation"/>
+          <display value="JournalArticleCitation: Metabolic Surgery in the Treatment Algorithm for Type 2 Diabetes: A Joint Statement by International Diabetes Organizations"/>
+        </targetReference>
+    </relatesTo>
+	<relatesTo>
+		<type value="justification"/>
+        <targetReference>
+          <reference value="Evidence/33244"/>
+          <type value="Evidence"/>
+          <display value="ComparativeEvidence: Mean difference in HbA1c effect of bariatric surgery in 2016 meta-analysis"/>
+        </targetReference>
+    </relatesTo>
+    <freeToShare value="true"/>
+    <component>
+      <summary value="ADA Level of Evidence A. A substantial body of evidence has now been accumulated, including data from numerous randomized controlled (nonblinded) clinical trials, demonstrating that metabolic surgery achieves superior glycemic control and reduction of cardiovascular risk factors in patients with type 2 diabetes and obesity compared with various lifestyle/medical interventions."/>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="summary-of-findings"/>
+          <display value="Summary of Findings"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1004"/>
+          <display value="Desirable Effects"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="desirable-effects"/>
+          <display value="Desirable Effects"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1005"/>
+          <display value="Undesirable Effects"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="undesirable-effects"/>
+          <display value="Undesirable Effects"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <summary value="A substantial body of evidence has now been accumulated, including data from numerous randomized controlled (nonblinded) clinical trials, demonstrating that metabolic surgery achieves superior glycemic control and reduction of cardiovascular risk factors in patients with type 2 diabetes and obesity compared with various lifestyle/medical interventions.&lt;br/&gt;In extended follow-up of obese adults with type 2 diabetes randomized to adding gastric bypass compared with lifestyle and intensive medical management alone, there remained a significantly better composite triple end point in the surgical group at 5 years. However, because the effect size diminished over 5 years, further follow-up is needed to understand the durability of the improvement."/>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="discussion"/>
+          <display value="Discussion"/>
+        </coding>
+      </type>
+      <relatesTo>
+        <type value="justification"/>
+        <targetMarkdown value="Sjöström L, Peltonen M, Jacobson P, et al. Association of bariatric surgery with long-term remission of type 2 diabetes and with microvascular and macrovascular complications. JAMA 2014;311:2297–2304"/>
+      </relatesTo>
+      <relatesTo>
+        <type value="justification"/>
+        <targetReference>
+          <reference value="Evidence/32144"/>
+          <type value="Evidence"/>
+          <display value="ComparativeEvidence: Bariatric Surgery effect for ADA triple outcome at 5 years (Diabetes Surgery Study)"/>
+        </targetReference>
+      </relatesTo>
+      <freeToShare value="true"/>
+    </component>
+  </content>
+  <content>
+    <type>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/27834"/>
+        <code value="RJCS-1007"/>
+        <display value="Net Effect"/>
+      </coding>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/179423"/>
+        <code value="net-effect"/>
+        <display value="Net Effect"/>
+      </coding>
+    </type>
+    <freeToShare value="true"/>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1006"/>
+          <display value="Values/Preferences"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="preferences"/>
+          <display value="Preferences"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="discussion"/>
+          <display value="Discussion"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+  </content>
+  <content>
+    <type>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/27834"/>
+        <code value="RJCS-content2"/>
+        <display value="Judgments"/>
+      </coding>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/179423"/>
+        <code value="judgments"/>
+        <display value="Judgments"/>
+      </coding>
+    </type>
+    <freeToShare value="true"/>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="justification"/>
+          <display value="Justification"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1003"/>
+          <display value="Problem Importance"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="problem-importance"/>
+          <display value="Problem Importance"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1008"/>
+          <display value="Resources/Costs"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="costs"/>
+          <display value="Costs"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1009"/>
+          <display value="Cost-effectiveness"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="cost-effectiveness"/>
+          <display value="Cost-effectiveness"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1010"/>
+          <display value="Equity"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="equity"/>
+          <display value="Equity"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1011"/>
+          <display value="Acceptability"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="acceptability"/>
+          <display value="Acceptability"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+    <component>
+      <type>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/27834"/>
+          <code value="RJCS-1012"/>
+          <display value="Feasibility"/>
+        </coding>
+        <coding>
+          <system value="https://fevir.net/resources/CodeSystem/179423"/>
+          <code value="feasibility"/>
+          <display value="Feasibility"/>
+        </coding>
+      </type>
+      <freeToShare value="true"/>
+    </component>
+  </content>
+  <content>
+    <summary value="All members of the PPC are required to disclose potential conflicts of interest with industry and other relevant organizations. These disclosures are discussed at the outset of each Standards of Care revision meeting. Members of the committee, their employers, and their disclosed conflicts of interest are listed in 'Disclosures: Standards of Medical Care in Diabetes—2021' (https://doi.org/10.2337/dc21-SPPC). The ADA funds development of the Standards of Care out of its general revenues and does not use industry support for this purpose. NOTE: The disclosed conflicts of interest was not found at the suggested URL"/>
+    <type>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/27834"/>
+        <code value="RJCS-1002"/>
+        <display value="Competing Interests"/>
+      </coding>
+      <coding>
+        <system value="https://fevir.net/resources/CodeSystem/179423"/>
+        <code value="competing-interests"/>
+        <display value="Competing Interests"/>
+      </coding>
+    </type>
+    <freeToShare value="true"/>
+  </content>
+</ArtifactAssessment>

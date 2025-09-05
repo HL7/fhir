@@ -9,15 +9,12 @@
 			<display value="Vital Signs"/>
 		</coding>
 	</category>
-	<!-- "interoperability category" code -->
-	<category>
-		<coding>
+	<code><!-- Kind of observation = Temperature --><!-- local code here -->
+		<coding> <!-- "interoperability standard" code -->
 			<system value="http://loinc.org"/>
 			<code value="8310-5"/>
 			<display value="Body temperature"/>
 		</coding>
-	</category>
-	<code><!-- Kind of observation = Temperature --><!-- local code here -->
 		<coding>
 			<system value="http://acme.lab"/>
 			<code value="BT"/>
@@ -36,13 +33,12 @@
 		</coding>
 		<text value="Temperature"/>
 	</code>
-
-
 	<!-- No identifier could be provided to this observation -->
 	<subject>
 		<reference value="Patient/f201"/>
 		<display value="Roel"/>
 	</subject>
+	<effectiveDateTime value="2013-04-04T13:27:00+01:00"/>
 	<issued value="2013-04-04T13:27:00+01:00"/>
 	<performer>
 		<reference value="Practitioner/f201"/>

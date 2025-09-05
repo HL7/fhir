@@ -7,7 +7,7 @@
 		<lastUpdated value="2025-03-10T13:18:16.608Z"/>
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/participant-flow-evidence-variable"/>
 	</meta>
-	<url value="https://fevir.net/resources/EvidenceVariable/346779"/>
+	<url value="http://hl7.org/fhir/EvidenceVariable/example-participant-flow"/>
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>
@@ -19,6 +19,7 @@
 		</assigner>
 	</identifier>
 	<title value="PARACHUTE Trial Participants that declined randomization - Example EvidenceVariable"/>
+	<citeAs value="PARACHUTE Trial Participants that declined randomization - Example EvidenceVariable [Database Entry: FHIR EvidenceVariable Resource]. Contributors: Brian S. Alper, MD, MSPH [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 346779. Revised 2025-03-10. Available at: https://fevir.net/resources/EvidenceVariable/346779. Computable resource at: https://fevir.net/resources/EvidenceVariable/346779#json."/>
 	<status value="active"/>
 	<author>
 		<name value="Brian S. Alper, MD, MSPH"/>
@@ -46,19 +47,6 @@
 		</valueCodeableConcept>
 	</useContext>
 	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-	<relatedArtifact>
-		<type value="cite-as"/>
-		<citation value="PARACHUTE Trial Participants that declined randomization - Example EvidenceVariable [Database Entry: FHIR EvidenceVariable Resource]. Contributors: Brian S. Alper, MD, MSPH [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 346779. Revised 2025-03-10. Available at: https://fevir.net/resources/EvidenceVariable/346779. Computable resource at: https://fevir.net/resources/EvidenceVariable/346779#json."/>
-	</relatedArtifact>
-	<relatedArtifact>
-		<type value="derived-from"/>
-		<label value="Cloned from"/>
-		<resourceReference>
-			<reference value="EvidenceVariable/297948"/>
-			<type value="EvidenceVariable"/>
-			<display value="PARACHUTE Trial Participants that declined randomization"/>
-		</resourceReference>
-	</relatedArtifact>
 	<actual value="true"/>
 	<definition>
 		<concept>

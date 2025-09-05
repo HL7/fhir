@@ -1,0 +1,56 @@
+<NutritionOrder xmlns='http://hl7.org/fhir'>
+  <id value='malnutritionlongtermcare'/>
+  <status value='active'/>
+  <intent value='order'/>
+  <subject>
+    <reference value='Patient/example'/>
+    <display value='Malnutrition Patient'/>
+  </subject>
+	<dateTime value='2024-10-23T00:00:00Z'/>
+  <oralDiet>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='435771000124106'/>
+        <display value='General healthful diet'/>
+      </coding>
+    </type>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='436721000124103'/>
+        <display value='Increased energy diet'/>
+      </coding>
+    </type>
+    <type>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <code value='1055200005'/>
+        <display value='Increased protein diet'/>
+      </coding>
+    </type>
+  </oralDiet>
+	<supplement>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="442921000124101"/>
+				<display value="Adult standard supplement"/>
+			</coding>
+		</type>
+		<schedule>
+			<timing>
+				<repeat>
+					<frequency value="3"/>
+					<period value="1"/>
+					<periodUnit value="d"/>
+				</repeat>
+			</timing>
+		</schedule>
+		<quantity>
+			<value value="1"/>
+			<unit value="serving"/>
+		</quantity>
+		<instruction value="Ensure pudding 4oz cup, 1 serving 3 times per day with meals."/>
+	</supplement>
+</NutritionOrder>

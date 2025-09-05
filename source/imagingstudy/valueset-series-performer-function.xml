@@ -50,6 +50,12 @@
         <code value="REF"/>
         <display value="referrer"/>
       </concept>
+      <concept>
+        <code value="DEV"/>
+      </concept>
+      <concept>
+        <code value="LOC"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

@@ -109,6 +109,7 @@
 	<contained>
 		<DeviceDefinition>
 			<id value="syringeDevice"/>
+			<status value="active"/>
 			<classification>
 				<type>
 					<text value="syringe"/>

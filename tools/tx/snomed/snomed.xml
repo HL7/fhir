@@ -77,6 +77,9 @@
   <concept id="118598001" display="Property (qualifier value)">
     <display value="Property (qualifier value)"/>
   </concept>
+  <concept id="118956008" display="Morphologically altered structure">
+    <display value="Morphologically altered structure"/>
+  </concept>
   <concept id="122474001" display="Medial condyle of femur">
     <display value="Medial condyle of femur"/>
   </concept>
@@ -128,8 +131,12 @@
   <concept id="133932002" display="Caregiver">
     <display value="Caregiver"/>
   </concept>
+
   <concept id="1354565009" display="Device containing specimen broken (finding)">
     <display value="Device containing specimen broken (finding)"/>
+  <concept id="1354492001" display="Nutritional protein and/or protein derivative">
+    <display value="Nutritional protein and/or protein derivative"/>
+
   </concept>
   <concept id="14168008" display="Rabies">
     <display value="Rabies"/>
@@ -292,6 +299,30 @@
   </concept>
   <concept id="228018009" display="Food temperature">
     <display value="Food temperature"/>
+  </concept>
+  <concept id="228049004" display="Chopped food">
+    <display value="Chopped food"/>
+  </concept>
+  <concept id="228053002" display="Cut-up food">
+    <display value="Cut-up food"/>
+  </concept>
+  <concept id="228055009" display="Liquidized food">
+    <display value="Liquidized food"/>
+  </concept>
+  <concept id="228056005" display="Lumpy food">
+    <display value="Lumpy food"/>
+  </concept>
+  <concept id="228057001" display="Semi-solid food">
+    <display value="Semi-solid food"/>
+  </concept>
+  <concept id="228058006" display="Single texture food">
+    <display value="Single texture food"/>
+  </concept>
+  <concept id="228059003" display="Soft food">
+    <display value="Soft food"/>
+  </concept>
+  <concept id="228060008" display="Solid food">
+    <display value="Solid food"/>
   </concept>
   <concept id="22836000" display="Vegetable">
     <display value="Vegetable"/>
@@ -1343,9 +1374,29 @@
   <concept id="433146000" display="Chronic kidney disease stage 5 (disorder)">
     <display value="Chronic kidney disease stage 5 (disorder)"/>
   </concept>
+  <concept id="434711009" display="Specimen container (physical object)">
+    <display value="Specimen container (physical object)"/>
+  </concept>
+  <concept id="439091000124107" display="Easy to chew food (substance)">
+    <display value="Easy to chew food (substance)"/>
+  </concept>
   <concept id="44027008" display="Seafood">
     <display value="Seafood"/>
   </concept>
+
+  <concept id="441751000124100" display="Mashed food (substance)">
+    <display value="Mashed food (substance)"/>
+  </concept>
+  <concept id="441761000124103" display="Minced food (substance)">
+    <display value="Minced food (substance)"/>
+  </concept>
+  <concept id="441771000124105" display="Moist food (substance)">
+    <display value="Moist food (substance)"/>
+  </concept>
+  <concept id="441791000124106" display="Strained food (substance)">
+    <display value="Strained food (substance)"/>
+  </concept>
+
   <concept id="441881000124103" display="Ground food (substance)">
     <display value="Ground food (substance)"/>
   </concept>

@@ -7,7 +7,7 @@
 		<lastUpdated value="2025-03-10T14:59:32.227Z"/>
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/statistic-model"/>
 	</meta>
-	<url value="https://fevir.net/resources/Evidence/346428"/>
+	<url value="http://hl7.org/fhir/Evidence/example-statistic-model-include-if"/>
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>

@@ -116,6 +116,7 @@
       <path value="Patient.identifier"/>
       <short value="An identifier for this patient"/>
       <definition value="An identifier for this patient."/>
+      <comment value="Systems MAY use identifier for user identities (using the type='USER'). Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="Patients are almost always assigned specific numerical identifiers."/>
       <min value="0"/>
       <max value="*"/>
@@ -209,7 +210,7 @@
       <path value="Patient.telecom"/>
       <short value="A contact detail for the individual"/>
       <definition value="A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted."/>
-      <comment value="A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address might not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner's phone)."/>
+      <comment value="A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address might not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner's phone).&#xD;&#xD;DO NOT use .telecom properties to represent user identities. Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="People have (primary) ways to contact them in some way such as phone, email."/>
       <min value="0"/>
       <max value="*"/>

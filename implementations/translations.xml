@@ -183,8 +183,8 @@
 		<translation lang="fr">RéponseARéclamation</translation>
 		<translation lang="zh">赔单请求</translation>
 	</item>
-	<item id="ClinicalImpression">
-		<translation lang="en">ClinicalImpression</translation>
+	<item id="ClinicalAssessment">
+		<translation lang="en">ClinicalAssessment</translation>
 		<translation lang="es">HallazgoClinico</translation>
 		<translation lang="fr">ImpressionClinique</translation>
 		<translation lang="it">ImpressioneClinica</translation>

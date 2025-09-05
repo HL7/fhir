@@ -1,10 +1,8 @@
-<mappingExceptions pattern="Request" resource="Transport"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Request" resource="Transport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Request.basedOn" resourcePath="Transport.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(Task,ServiceRequest,DeviceRequest,MedicationRequest,RequestOrchestration,SupplyRequest,VisionPrescription)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Task,ServiceRequest,DeviceRequest,MedicationRequest,RequestOrchestration,SupplyRequest,VisionPrescription)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Request fulfilled by this transport"/>
@@ -14,30 +12,12 @@
             <resource value="BasedOn refers to a higher-level authorization that triggered the creation of the transport.  It references a &quot;request&quot; resource such as a ServiceRequest or Transport, which is distinct from the &quot;request&quot; resource the Transport is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a transport is created to fulfill a procedureRequest ( = FocusOn ) to transport a specimen to the lab."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#xa;."/>
+            <_pattern value="basedOn represents the 'authorization' chain for an action, not the 'reason for action'.  For example, an order might be placed on hold under the authorization for a surgery.  However the 'reason' for placing the hold is &quot;to avoid interaction with anesthesia medications&quot;&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows tracing of authorization for the request and tracking whether proposals/recommendations were acted upon."/>
             <resource value=""/>
-        </requirementsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Request.groupIdentifier" resourcePath="Transport.groupIdentifier">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Composite request this is part of"/>
-            <resource value="Requisition or grouper id"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
-            <resource value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
-            <resource value=""/>
-        </commentsUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
-            <resource value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.code" resourcePath="Transport.code">
@@ -50,17 +30,17 @@
             <resource value="A name or code (or both) briefly describing what the transport involves."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.subject" resourcePath="Transport.for">
+    <divergentElement patternPath="Request.subject" resourcePath="Transport.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
         <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual the service is ordered/prohibited for"/>
-            <resource value="Beneficiary of the Transport"/>
+            <resource value="Beneficiary of the Transport (such as patient or subject)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
-            <resource value="The entity who benefits from the performance of the service specified in the transport (e.g., the patient)."/>
+            <resource value="The entity who benefits from the performance of the service specified in the transport (such as patient or subject)."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the request to the Patient context."/>
@@ -96,40 +76,15 @@
             <resource value="The date and time this transport was created."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.requester" resourcePath="Transport.requester">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Who/what is requesting service"/>
-            <resource value="Who is asking for transport to be done"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
-            <resource value="The creator of the transport."/>
-        </definitionUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Request.performerType" resourcePath="Transport.performerType">
+    <divergentElement patternPath="Request.performer" resourcePath="Transport.performer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Desired kind of service performer"/>
-            <resource value="Requested performer"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="The type of individual that is desired to act upon/ not act upon the {{request}}."/>
-            <resource value="The kind of participant that should perform the transport."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="If specified without indicating a performer, this indicates that the performer must be (or can't be) of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.  If doNotPerform is true, then only one of performerType and performer should be present."/>
-            <resource value=""/>
-        </commentsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Request.performer" resourcePath="Transport.owner">
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
-            <resource value="Responsible individual"/>
+            <resource value="Who or what performs the transport"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
-            <resource value="Individual organization or Device currently responsible for transport execution."/>
+            <resource value="Identifies the entity expected to perform the transport."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.reason" resourcePath="Transport.reason">
@@ -178,7 +133,7 @@
             <resource value="Links to Provenance records for past versions of this Transport that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the transport."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.  Referenced provenances SHOULD adhere to the [provenance-relevant-history profile](provenance-relevant-history.html).&#xa;&#xa;See additional guidance [here](request.html#history)."/>
+            <_pattern value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.  Referenced provenances SHOULD adhere to the [provenance-relevant-history profile](provenance-relevant-history.html).&#10;&#10;See additional guidance [here](request.html#history)."/>
             <resource value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude."/>
         </commentsUnmatched>
     </divergentElement>
@@ -186,13 +141,16 @@
     <unmappedElement patternPath="Request.priority" reason="Unknown"/>
     <unmappedElement patternPath="Request.occurrence" reason="Unknown"/>
     <unmappedElement patternPath="Request.status" reason="Unknown"/>
+    <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
     <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
     <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.requester" reason="Unknown"/>
     <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.identifier" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
     <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
     <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
     <unmappedElement patternPath="Request.product" reason="Unknown"/>
 </mappingExceptions>

@@ -81,38 +81,24 @@
       <path value="Observation"/>
       <short value="FHIR Body Height Profile"/>
       <definition value="This profile defines  how to represent Body Height observations in FHIR using a standard LOINC code and UCUM units of measure."/>
-      <min value="0"/>
-      <max value="*"/>
+      <constraint>
+        <key value="vs-4"/>
+        <severity value="error"/>
+        <human value="For single vital signs observations (that do not require use of components or hasMember), then either a value[x] or a data absent reason must be present."/>
+        <expression value="dataAbsentReason.exists() or value.exists()"/>
+      </constraint>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <slicing>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="$this"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:BodyHeightCode">
-      <path value="Observation.category"/>
-      <sliceName value="BodyHeightCode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Body Height"/>
+      <definition value="Body Height"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="8302-2"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Body Height"/>
-      <definition value="Body Height."/>
-      <alias value="Test"/>
-      <alias value="Name"/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignsBodyHeight"/>
@@ -124,44 +110,7 @@
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>
-    </element>
-    <element id="Observation.valueQuantity.value">
-      <path value="Observation.valueQuantity.value"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="decimal"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.valueQuantity.unit">
-      <path value="Observation.valueQuantity.unit"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.valueQuantity.system">
-      <path value="Observation.valueQuantity.system"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <fixedUri value="http://unitsofmeasure.org"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Observation.valueQuantity.code">
-      <path value="Observation.valueQuantity.code"/>
-      <short value="Coded responses from the common UCUM units for vital signs value set."/>
-      <definition value="Coded responses from the common UCUM units for vital signs value set."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
+      <condition value="vsp-4"/>
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
@@ -174,6 +123,11 @@
         <description value="cm | [in_i]"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ucum-bodylength"/>
       </binding>
+    </element>
+    <element id="Observation.dataAbsentReason">
+      <path value="Observation.dataAbsentReason"/>
+      <condition value="vsp-4"/>
+      <mustSupport value="true"/>
     </element>
   </differential>
 </StructureDefinition>

@@ -6,17 +6,7 @@
   <mode value="working"/>
   <entry>
     <item>
-      <reference value="ImplementationGuide/PlanDefinition-core"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
       <reference value="ImplementationGuide/PlanDefinition-cdshooks"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="ImplementationGuide/PlanDefinition-cqf"/>
     </item>
   </entry>
 </List>

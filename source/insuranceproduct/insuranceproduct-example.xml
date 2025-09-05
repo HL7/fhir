@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <InsuranceProduct xmlns="http://hl7.org/fhir"  >
-<id value = "example"></id>
-<name value="foo"/>
-
+  <id value = "example"></id>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.33.2"/>
+  </identifier>
+  <name value="foo"/>
   
 </InsuranceProduct>

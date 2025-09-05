@@ -1623,6 +1623,13 @@
     <Cell><Data ss:Type="String">6.0.0-ballot2</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">R6 2nd Draft Ballot</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">59</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-ballot3</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-ballot3</Data></Cell>
+    <Cell ss:StyleID="s102"><Data ss:Type="String">R6 3rd Draft Ballot</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -3056,12 +3063,12 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">resource</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">A search parameter defined to chain through into embedded resources</Data></Cell>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s126"/>
     <Cell ss:StyleID="s128"/>

@@ -5,132 +5,74 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      
       <h2>Measure Calculation Service Conformance Statement</h2>
-      
       <div>
-        
         <p>Basic conformance statement for a Measure Processor Service. A server can support more functionality
            than defined here, but this is the minimum amount</p>
-
-      
       </div>
-      
       <table>
-        
         <tr>
-          
           <td>Mode</td>
-          
           <td>SERVER</td>
-        
         </tr>
-        
         <tr>
-          
           <td>Description</td>
-          
           <td>RESTful Measure Processor Server</td>
-        
         </tr>
-        
         <tr>
-          
           <td>Transaction</td>
-          
           <td/>
-        
         </tr>
-        
         <tr>
-          
           <td>System History</td>
-          
           <td/>
-        
         </tr>
-        
         <tr>
-          
           <td>System Search</td>
-          
           <td/>
-        
         </tr>
-      
       </table>
-      
       <table>
-        
         <tr>
-          
           <th>
-            
             <b>Resource Type</b>
-          
           </th>
-          
           <th>
-            
             <b>Profile</b>
-          
           </th>
-          
           <th>
-            
             <b>Read</b>
-          
           </th>
-          
           <th>
-            
             <b>V-Read</b>
-          
           </th>
-          
           <th>
-            
             <b>Search</b>
-          
           </th>
-          
           <th>
-            
             <b>Update</b>
-          
           </th>
-          
           <th>
-            
             <b>Updates</b>
-          
           </th>
-          
           <th>
-            
             <b>Create</b>
-          
           </th>
-          
           <th>
-            
             <b>Delete</b>
-          
           </th>
-          
           <th>
-            
             <b>History</b>
-          
           </th>
-        
         </tr>
-      
       </table>
-    
     </div>
   </text>
   <url value="http://hl7.org/fhir/measure-processor"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.34.4"/>
+  </identifier>
   <name value="MeasureProcessorServiceConformanceStatement"/>
   <title value="Measure Processor Service Conformance Statement"/>
   <status value="draft"/>

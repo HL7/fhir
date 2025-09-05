@@ -216,10 +216,23 @@
 			</type>
 			<isSummary value="true"/>
 		</element>
+		<element id="EvidenceVariable.citeAs">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="490,150"/>
+			</extension>
+			<path value="EvidenceVariable.citeAs"/>
+			<short value="Display of how to cite this EvidenceVariable"/>
+			<definition value="Display of the suggested method of how to cite this EvidenceVariable."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
 		<element id="EvidenceVariable.status">
 			<path value="EvidenceVariable.status"/>
 			<short value="draft | active | retired | unknown"/>
-			<definition value="The status of this evidence variable. Enables tracking the life-cycle of the content."/>
+			<definition value="The status of this EvidenceVariable. Enables tracking the life-cycle of the content."/>
 			<comment value="Allows filtering of evidence variables that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -485,16 +498,59 @@
 				<code value="Period"/>
 			</type>
 		</element>
-		<element id="EvidenceVariable.relatedArtifact">
-			<path value="EvidenceVariable.relatedArtifact"/>
-			<short value="Additional documentation, citations, etc"/>
-			<definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
-			<requirements value="EvidenceVariables must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
-			<min value="0"/>
-			<max value="*"/>
+		<element id="EvidenceVariable.relatesTo">
+		  <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+			<valueCode value="400,0"/>
+		  </extension>
+		  <path value="EvidenceVariable.relatesTo"/>
+		  <short value="Relationships to other Resources"/>
+		  <definition value="Relationships that this EvidenceVariable has with other FHIR or non-FHIR resources that already exist."/>
+		  <min value="0"/>
+		  <max value="*"/>
+		  <type>
+			<code value="BackboneElement"/>
+		  </type>
+		</element>
+		<element id="EvidenceVariable.relatesTo.type">
+		  <path value="EvidenceVariable.relatesTo.type"/>
+		  <short value="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as | reprint | reprint-of | summarizes"/>
+		  <definition value="The type of relationship to the related artifact."/>
+		  <min value="1"/>
+		  <max value="1"/>
+		  <type>
+			<code value="code"/>
+		  </type>
+		  <binding>
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+			  <valueString value="ArtifactRelationshipType"/>
+			</extension>
+			<strength value="required"/>
+			<description value="The type of relationship to the related artifact."/>
+			<valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
+		  </binding>
+		</element>
+		<element id="EvidenceVariable.relatesTo.target[x]">
+			<path value="EvidenceVariable.relatesTo.target[x]"/>
+			<short value="The artifact that is related to this EvidenceVariable"/>
+			<definition value="The artifact that is related to this EvidenceVariable Resource."/>
+			<min value="1"/>
+			<max value="1"/>
 			<type>
-				<code value="RelatedArtifact"/>
+				<code value="uri"/>
+			</type>
+			<type>
+				<code value="Attachment"/>
+			</type>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<type>
+				<code value="markdown"/>
 			</type>
 		</element>
 		<element id="EvidenceVariable.actual">
@@ -564,7 +620,7 @@
 			</type>
 			<type>
 				<code value="Quantity"/>
-			</type> 
+			</type>
 			<type>
 				<code value="Range"/>
 			</type>
@@ -587,18 +643,18 @@
 		</element>
 		<element id="EvidenceVariable.handling">
 			<path value="EvidenceVariable.handling"/>
-			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | extension"/>
+			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | time-to-event | not-specified"/>
 			<definition value="The method of handling in statistical analysis."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="code"/>
+				<code value="CodeableConcept"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="EvidenceVariableHandling"/>
 				</extension>
-				<strength value="required"/>
+				<strength value="extensible"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
 			</binding>
 		</element>
@@ -686,7 +742,7 @@
 			<max value="1"/>
 			<type>
 				<code value="CodeableConcept"/>
-			</type>			
+			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="FHIRTypes"/>

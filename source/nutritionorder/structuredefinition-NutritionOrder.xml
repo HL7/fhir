@@ -221,7 +221,7 @@
         <valueString value="[#3720],[#14414]."/>
       </extension>
       <path value="NutritionOrder.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="The workflow status of the nutrition order/request."/>
       <comment value="Typically the system placing the order sets the status to &quot;requested&quot;. Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
@@ -751,7 +751,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -795,11 +794,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="NutritionProductCategory"/>
+          <valueString value="TextureModifierCodes"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Codes identifying classes of nutrition products."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/nutrition-product-category"/>
+        <description value="Texture modifications for oral diets."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/texture-code"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -825,10 +824,10 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TextureModifiedFoodType"/>
+          <valueString value="Modified Food Types"/>
         </extension>
-        <strength value="example"/>
-        <description value="Codes for types of foods that are texture-modified."/>
+        <strength value="preferred"/>
+        <description value="Codes identifying food types that undergo texture modification."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/modified-foodtype"/>
       </binding>
       <mapping>
@@ -875,7 +874,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="SimpleQuantity"/>
+        <code value="Quantity"/>
       </type>
     </element>
     <element id="NutritionOrder.supplement">
@@ -1034,7 +1033,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1079,7 +1077,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="SimpleQuantity"/>
+        <code value="Quantity"/>
       </type>
     </element>
     <element id="NutritionOrder.enteralFormula">
@@ -1177,7 +1175,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1319,7 +1316,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1342,7 +1338,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <type>
         <code value="Ratio"/>
@@ -1364,7 +1359,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -1476,7 +1470,6 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
     </element>
     <element id="NutritionOrder.additive.routeOfAdministration">

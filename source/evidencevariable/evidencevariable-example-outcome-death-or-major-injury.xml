@@ -2,7 +2,7 @@
 
 <EvidenceVariable xmlns="http://hl7.org/fhir">
 	<id value="example-outcome-death-or-major-injury"/>
-	<url value="https://fevir.net/resources/EvidenceVariable/297743"/>
+	<url value="http://hl7.org/fhir/EvidenceVariable/example-outcome-death-or-major-injury"/>
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>
@@ -15,6 +15,7 @@
 	</identifier>
 	<title value="Outcome: Death or Major Traumatic Injury on Impact"/>
 	<shortTitle value="Death or Major Traumatic Injury on Impact"/>
+	<citeAs value="Outcome: Death or Major Traumatic Injury on Impact [Database Entry: FHIR EvidenceVariable Resource]. Contributors: Joanne Dehnbostel [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 297743. Revised 2025-02-15. Available at: https://fevir.net/resources/EvidenceVariable/297743. Computable resource at: https://fevir.net/resources/EvidenceVariable/297743#json."/>
 	<status value="active"/>
 	<author>
 		<name value="Joanne Dehnbostel"/>
@@ -42,10 +43,6 @@
 		</valueCodeableConcept>
 	</useContext>
 	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
-	<relatedArtifact>
-		<type value="cite-as"/>
-		<citation value="Outcome: Death or Major Traumatic Injury on Impact [Database Entry: FHIR EvidenceVariable Resource]. Contributors: Joanne Dehnbostel [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 297743. Revised 2025-02-15. Available at: https://fevir.net/resources/EvidenceVariable/297743. Computable resource at: https://fevir.net/resources/EvidenceVariable/297743#json."/>
-	</relatedArtifact>
 	<actual value="true"/>
 	<definition>
 		<concept>

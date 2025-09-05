@@ -84,11 +84,13 @@
       </extension>
       <path value="ServiceRequest"/>
       <short value="A request for a service to be performed"/>
-      <definition value="A record of a request for service such as diagnostic investigations, treatments, or operations to be performed."/>
+      <definition value="A record of a request for service such as diagnostic investigations, treatments, or operations to be performed. When the ServiceRequest is active, it represents an authorization to perform the service."/>
       <alias value="diagnostic request"/>
       <alias value="referral"/>
       <alias value="referral request"/>
       <alias value="transfer of care request"/>
+      <alias value="order"/>
+      <alias value="test ordered"/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -267,6 +269,14 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -317,7 +327,7 @@
         <valueString value="[#3720][#10296][#11119]#13196]."/>
       </extension>
       <path value="ServiceRequest.status"/>
-      <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
+      <short value="draft | active | on-hold | entered-in-error | ended | completed | revoked | unknown"/>
       <definition value="The status of the order."/>
       <comment value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, revoked or placed on-hold. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource."/>
       <min value="1"/>
@@ -357,6 +367,29 @@
         <map value="Action.currentStatus"/>
       </mapping>
     </element>
+    <element id="ServiceRequest.statusReason">
+      <path value="ServiceRequest.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Provides reason why the service request status is what it is. The statusReason can be used to explain why a service request is suspended, cancelled, or on hold, including administrative and clinical reasons."/>
+      <comment value="This is generally not present when the service request has a status of 'active' or 'completed'. There is potential overlap between ServiceRequest.reason (why the service is being requested) and ServiceRequest.statusReason (why the request is in its current status) early in the performance of the request when the reason for the service request might influence the initial status."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceRequestStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes that describe the reason why the service request is in its current status."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.statusReason"/>
+      </mapping>
+    </element>
     <element id="ServiceRequest.intent">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3720][#10296][#11119]#13196]."/>
@@ -364,7 +397,7 @@
       <path value="ServiceRequest.intent"/>
       <short value="proposal | plan | directive | order +"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
-      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance. For child ServiceRequests, the default statuses could be the same as the parent ServiceRequest but does not need to be."/>
+      <comment value="This element is expected to be immutable. E.g. A 'proposal' instance should never change to be a 'plan' instance or 'order' instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xA;&#xA;One exception to this is that the granularity of ServiceRequest.intent is allowed to change. For example, a ServiceRequest identified as an 'order' might later be clarified to be a 'filler-order'. Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1183,10 +1216,13 @@
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10589][#11119]#13196][#13821]."/>
       </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="ServiceRequest.specimen"/>
       <short value="Procedure Samples"/>
       <definition value="One or more specimens that the laboratory procedure will use."/>
-      <comment value="The purpose of the ServiceRequest.specimen is to reflect the actual specimen that the requested test/procedure is asked to be performed on, whether the lab already has it or not.  References to specimens for purposes other than to perform a test/procedure on should be made using the ServiceRequest.supportingInfo or the Specimen.parent where the Specimen.parent would enable descendency and ServiceRequest.supportingInfo a general reference for context."/>
+      <comment value="Most commonly the association between the Specimen and ServiceRequest resources will be from the Specimen to the ServiceRequest, as usually the ServiceRequest is created first and provides the authorization for the specimen to be collected, and the reference to the ServiceRequest is recorded using the Specimen.request element.  The ServiceRequest.specimen element, on the other hand, is being deprecated and is discouraged from use and is intended to be removed in a future release.  In the less common cases where the specimen to be used to perform the test is already known and available and needs to be specified at the time the ServiceRequest is created, it is preferable to use the new 'specimenSuggestion' extension on the ServiceRequest resource, which enables specifying a particular specimen to be used either by a direct reference, more generally by a coded concept specifying the specimen type, or by the context of another ServiceRequest and any existing specimen(s) that may be associated with that request.  When a specimen is referenced, it is expected to be used.  If for some reason the specified specimen is unable to be used (doesn't exist, wrong specimen type, insufficient quantity or quality, etc.), the decision to collect another specimen or to not perform the test must be based on established policies or determined by some other means agreed to with the requester.  References to specimens for purposes other than performing a test/procedure should be made using ServiceRequest.supportingInfo or the Specimen.parent, where the Specimen.parent would enable descendency and ServiceRequest.supportingInfo provides a general reference for context."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1210,7 +1246,7 @@
       <path value="ServiceRequest.bodySite"/>
       <short value="Coded location on Body"/>
       <definition value="Anatomic location where the procedure should be performed. This is the target site."/>
-      <comment value="Only used if not implicit in the code found in ServiceRequest.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/procedure-targetBodyStructure]]]."/>
+      <comment value="ServiceRequest.bodyStructure is the preferred way to codify the target site of the requested service. Instead of using .bodySite.code, use .bodyStructure.includedStructure.structure.  Note that laterality in bodyStructure would use .bodyStructure.includedStructure.laterality, and the BodyStructure.includedStructure.structure code should not precoordinate the laterality."/>
       <requirements value="Knowing where the procedure is performed is important for tracking if multiple sites are possible."/>
       <alias value="location"/>
       <min value="0"/>

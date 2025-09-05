@@ -79,7 +79,7 @@
       <constraint>
         <key value="mrp-2"/>
         <severity value="error"/>
-        <human value="Stratifiers SHALL be either a single criteria or a set of criteria components"/>
+        <human value="Stratifiers SHALL be either a single criteria element or a set of criteria components"/>
         <expression value="group.stratifier.stratum.all(value.exists() xor component.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
@@ -89,7 +89,7 @@
         <human value="Measure Reports used for data collection SHALL NOT communicate group and score information"/>
         <expression value="(type != 'data-exchange') or group.exists().not()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
-      </constraint>
+      </constraint>  
       <mapping>
         <identity value="rim"/>
         <map value="Observation[classCode=OBS, moodCode=EVN]"/>
@@ -121,7 +121,7 @@
     </element>
     <element id="MeasureReport.category">
       <path value="MeasureReport.category"/>
-      <short value="The category of measure report instance this is (e.g. deqm, ra, vbp)"/>
+      <short value="The category of measure report instance this is (example codes include deqm, ra, vbp)"/>
       <definition value="The category of measure report instance this is such as Data Exchange for Quality Measures (DEQM), Risk Adjustment, or Value-Based Performance."/>
       <min value="0"/>
       <max value="1"/>
@@ -139,6 +139,18 @@
         <identity value="rim"/>
         <map value="methodCode"/>
       </mapping>
+    </element>
+    <element id="MeasureReport.messages">
+      <path value="MeasureReport.messages"/>
+      <short value="Evaluation messages"/>
+      <definition value="A reference to an OperationOutcome that contains any information, warning, and/or error messages that were generated while processing an operation such as $evaluate."/>
+      <comment value="Operation processing often generates information, warning, or error messages that don't necessarily stop processing (so would not result in an OperationOutcome as the overall result of the operation) but still need to be communicated as part of the result. This element allows for these messages to be included as a reference to an OperationOutcome resource (typically included as a contained resource in the result of the operation)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
+      </type>
     </element>
     <element id="MeasureReport.status">
       <path value="MeasureReport.status"/>
@@ -319,7 +331,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -393,9 +404,12 @@
       </mapping>
     </element>
     <element id="MeasureReport.scoring">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>        
       <path value="MeasureReport.scoring"/>
-      <short value="What scoring method (e.g. proportion, ratio, continuous-variable)"/>
-      <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented. It is expected to be the same as the scoring element on the referenced Measure."/>
+      <short value="What scoring method (e.g. proportion, ratio, continuous-variable) (deprecated, use group.scoring)"/>
+      <definition value="Deprecated, use group.scoring. Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented. It is expected to be the same as the scoring element on the referenced Measure."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -420,10 +434,13 @@
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Improvement notation is included in MeasureReport because it is critical to interpreting the measure, but it must match the improvementNotation of the measure being reported."/>
       </extension>
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>        
       <path value="MeasureReport.improvementNotation"/>
       <short value="increase | decrease"/>
-      <definition value="Whether improvement in the measure is noted by an increase or decrease in the measure score."/>
-      <comment value="This element is typically defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score. Note also that a MeasureReport instance includes the improvementNotation as defined by the Measure being reported. It is duplicated in the MeasureReport because it is a critical aspect of interpreting the measure score but it is not intended to reflect whether the measure report is an increase or decrease. It helps interpret if the measure score is an increase or decrease, I.e., moving in the direction of the desired outcome."/>
+      <definition value="Deprecated, use group.improvementNotation. Whether improvement in the measure is noted by an increase or decrease in the measure score."/>
+      <comment value="This element is defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score. Note also that a MeasureReport instance includes the improvementNotation as defined by the Measure being reported. It is duplicated in the MeasureReport because it is a critical aspect of interpreting the measure score but it is not intended to reflect whether the measure report is an increase or decrease. It helps interpret if the measure score is an increase or decrease, I.e., moving in the direction of the desired outcome."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -441,20 +458,20 @@
         </extension>
         <strength value="required"/>
         <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-improvement-notation"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
         <identity value="rim"/>
         <map value="interpretationCode"/>
       </mapping>
-    </element>
+    </element>    
     <element id="MeasureReport.group">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="360,0"/>
       </extension>
       <path value="MeasureReport.group"/>
       <short value="Measure results for each group"/>
-      <definition value="The results of the calculation, one for each population group in the measure."/>
+      <definition value="The results of the calculation, one for each population group in the measure. A MeasureReport SHALL have a group element corresponding to each group element defined in the Measure being reported."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -470,7 +487,8 @@
     <element id="MeasureReport.group.linkId">
       <path value="MeasureReport.group.linkId"/>
       <short value="Pointer to specific group from Measure"/>
-      <definition value="The group from the Measure that corresponds to this group in the MeasureReport resource."/>
+      <definition value="The group from the Measure that corresponds to this group in the MeasureReport resource. This element SHALL be populated based on the corresponding element in the Measure being reported."/>
+      <comment value="Note that in previous versions of FHIR, the id element was used to determine corresponding groups between Measure and MeasureReport. Systems MAY support this for backwards-compatibility."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -494,11 +512,11 @@
         <identity value="rim"/>
         <map value="participation[typeCode=AUT].time"/>
       </mapping>
-    </element>
+    </element>    
     <element id="MeasureReport.group.code">
       <path value="MeasureReport.group.code"/>
       <short value="Meaning of the group"/>
-      <definition value="The meaning of the population group as defined in the measure definition."/>
+      <definition value="The meaning of the population group as defined in the measure definition. This element SHALL be populated with at least the codings in the code of the corresponding group in the Measure being reported."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -516,6 +534,20 @@
       <mapping>
         <identity value="rim"/>
         <map value="code"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.description">
+      <path value="MeasureReport.group.description"/>
+      <short value="Summary description"/>
+      <definition value="The human readable description of this population group. This element SHOULD be populated based on the description of the corresponding group in the Measure being reported."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.subject">
@@ -550,15 +582,95 @@
         <map value="participation[typeCode=SBJ]"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.scoring">
+      <path value="MeasureReport.group.scoring"/>
+      <short value="What scoring method (e.g. proportion, ratio, continuous-variable)"/>
+      <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented. It is expected to be the same as the scoring element on the referenced Measure."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Scoring determines what method was used to calculate the measure score and is required for correct interpretation of the score"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureScoring"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-scoring"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="methodCode"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.improvementNotation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Improvement notation is included in MeasureReport because it is critical to interpreting the measure, but it must match the improvementNotation of the measure being reported."/>
+      </extension>    
+      <path value="MeasureReport.group.improvementNotation"/>
+      <short value="increase | decrease"/>
+      <definition value="Whether improvement in the measure is noted by an increase or decrease in the measure score. Exercise caution when using any values besides increase or decrease for improvementNotation."/>
+      <comment value="This element is typically defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score. Note also that a MeasureReport instance includes the improvementNotation as defined by the Measure being reported. It is duplicated in the MeasureReport because it is a critical aspect of interpreting the measure score but it is not intended to reflect whether the measure report is an increase or decrease. It helps interpret if the measure score is an increase or decrease, I.e., moving in the direction of the desired outcome. This element SHALL be populated based on the improvementNotation element of the corresponding group in the Measure being reported."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Improvement notation determines how to interpret the measure score (i.e. whether an increase is an improvement)"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureImprovementNotation"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interpretationCode"/>
+      </mapping>
+    </element>    
+    <element id="MeasureReport.group.improvementNotationGuidance">
+      <path value="MeasureReport.group.improvementNotationGuidance"/>
+      <short value="Explanation of improvement notation"/>
+      <definition value="Narrative text to explain the improvement notation and how to interpret it."/>
+      <comment value="This element allows explanation to the improvementNotation be provided. In some cases, additional guidance is required to clearly communicate measure intent around improvement notation. For example, a measure looking at Ceasarean-section births may have an improvement notation of “decrease”, but it is critical to be able to communicate that a measure score of 0 is not the intent."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="interpretationCode"/>
+      </mapping>
+    </element>       
     <element id="MeasureReport.group.population">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,240"/>
       </extension>
       <path value="MeasureReport.group.population"/>
       <short value="The populations in the group"/>
-      <definition value="The populations that make up the population group, one for each type of population appropriate for the measure."/>
+      <definition value="The populations that make up the population group, one for each type of population appropriate for the measure. Each group in the MeasureReport SHALL have populations as defined in the corresponding group of the Measure being reported."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="mrp-3"/>
+        <severity value="error"/>
+        <human value="The count and countQuantity elements SHALL be mutually exclusive"/>
+        <expression value="count.exists() xor countQuantity.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+      </constraint>         
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -570,7 +682,8 @@
     <element id="MeasureReport.group.population.linkId">
       <path value="MeasureReport.group.population.linkId"/>
       <short value="Pointer to specific population from Measure"/>
-      <definition value="The population from the Measure that corresponds to this population in the MeasureReport resource."/>
+      <definition value="The population from the Measure that corresponds to this population in the MeasureReport resource. This element SHALL be populated based on the corresponding element in the Measure being reported."/>
+      <comment value="Note that in previous versions of FHIR, the id element was used to determine corresponding populations between Measure and MeasureReport. Systems MAY support this for backwards-compatibility."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -584,7 +697,7 @@
     <element id="MeasureReport.group.population.code">
       <path value="MeasureReport.group.population.code"/>
       <short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
-      <definition value="The type of the population."/>
+      <definition value="The type of the population. This element SHALL be populated with at least the codings in the code element of the corresponding population in the Measure group being reported."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -597,11 +710,25 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
       </binding>
       <mapping>
         <identity value="rim"/>
         <map value="code"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.population.description">
+      <path value="MeasureReport.group.population.description"/>
+      <short value="The human readable description of this population criteria"/>
+      <definition value="The human readable description of this population criteria. This element SHOULD be populated based on the description element of the corresponding population in the Measure group being reported."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.population.count">
@@ -613,11 +740,30 @@
       <type>
         <code value="integer"/>
       </type>
+      <condition value="mrp-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="value"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.population.countQuantity">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>    
+      <path value="MeasureReport.group.population.countQuantity"/>
+      <short value="Size of the population as a quantity"/>
+      <definition value="The number of members of the population, specified as a quantity to support identifying units, as well as to support some composite measure calculation use cases where the resulting count of the population is a decimal value."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <condition value="mrp-3"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
+    </element>    
     <element id="MeasureReport.group.population.subjectResults">
       <path value="MeasureReport.group.population.subjectResults"/>
       <short value="For subject-list reports, the subject results in this population"/>
@@ -637,7 +783,7 @@
       <path value="MeasureReport.group.population.subjectReport"/>
       <short value="For subject-list reports, references to the individual reports for subjects in this population"/>
       <definition value="A reference to an individual level MeasureReport resource for a member of the population."/>
-      <comment value="This element SHALL NOT be used in with subjectResults, either systems provide results as a List of MeasureReport, or as references to individual MeasureReports. Note that using this element introduces a constraint on the size of the subject-list MeasureReport; implementations would be free to return a TOO-COSTLY response if a request is made for a subject-list report with too many subjects."/>
+      <comment value="This element SHALL NOT be used with subjectResults. Either systems provide results as a List of MeasureReport, or as references to individual MeasureReports. Note that using this element introduces a constraint on the size of the subject-list MeasureReport; implementations would be free to return a TOO-COSTLY response if a request is made for a subject-list report with too many subjects."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -708,7 +854,7 @@
       </extension>
       <path value="MeasureReport.group.stratifier"/>
       <short value="Stratification results"/>
-      <definition value="When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure."/>
+      <definition value="The stratification results for this measure group, calculated as defined by the stratifier element of the measure being reported. Each group in the MeasureReport SHALL have stratifiers as defined in the corresponding group of the Measure being reported."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -723,7 +869,8 @@
     <element id="MeasureReport.group.stratifier.linkId">
       <path value="MeasureReport.group.stratifier.linkId"/>
       <short value="Pointer to specific stratifier from Measure"/>
-      <definition value="The stratifier from the Measure that corresponds to this stratifier in the MeasureReport resource."/>
+      <definition value="The stratifier from the Measure that corresponds to this stratifier in the MeasureReport resource. This element SHALL be populated based on the corresponding element in the Measure being reported."/>
+      <comment value="Note that in previous versions of FHIR, the id element was used to determine corresponding stratifiers between Measure and MeasureReport. Systems MAY support this as well as linkId for backwards-compatibility."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -737,7 +884,7 @@
     <element id="MeasureReport.group.stratifier.code">
       <path value="MeasureReport.group.stratifier.code"/>
       <short value="What stratifier of the group"/>
-      <definition value="The meaning of this stratifier, as defined in the measure definition."/>
+      <definition value="The meaning of this stratifier, as defined in the measure definition. This element SHALL be populated with at least the codings in the code element of the corresponding stratifier in the Measure group being reported."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -754,6 +901,21 @@
       <mapping>
         <identity value="rim"/>
         <map value="code"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.stratifier.description">
+      <path value="MeasureReport.group.stratifier.description"/>
+      <short value="The human readable description of this stratifier"/>
+      <definition value="The human readable description of this stratifier criteria. This element SHOULD be populated with the description element of the corresponding stratifier in the Measure group being reported."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <condition value="mea-1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum">
@@ -829,7 +991,7 @@
     <element id="MeasureReport.group.stratifier.stratum.component.linkId">
       <path value="MeasureReport.group.stratifier.stratum.component.linkId"/>
       <short value="Pointer to specific stratifier component from Measure"/>
-      <definition value="The stratifier component from the Measure that corresponds to this stratifier component in the MeasureReport resource."/>
+      <definition value="The stratifier component from the Measure that corresponds to this stratifier component in the MeasureReport resource. This element SHALL be populated based on the corresponding element in the Measure being reported."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -843,7 +1005,7 @@
     <element id="MeasureReport.group.stratifier.stratum.component.code">
       <path value="MeasureReport.group.stratifier.stratum.component.code"/>
       <short value="What stratifier component of the group"/>
-      <definition value="The code for the stratum component value."/>
+      <definition value="The code for the stratum component value. This element SHALL be populated with at least the codings in the code element of the corresponding component of the stratifier being reported."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -860,6 +1022,20 @@
       <mapping>
         <identity value="rim"/>
         <map value="code"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.stratifier.stratum.component.description">
+      <path value="MeasureReport.group.stratifier.stratum.component.description"/>
+      <short value="The human readable description of this stratifier component"/>
+      <definition value="The human readable description of this stratifier criteria component. This element MAY be populated with the description of the corresponding component of the stratifier being reported."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component.value[x]">
@@ -904,12 +1080,19 @@
       </extension>
       <path value="MeasureReport.group.stratifier.stratum.population"/>
       <short value="Population results in this stratum"/>
-      <definition value="The populations that make up the stratum, one for each type of population appropriate to the measure."/>
+      <definition value="The populations that make up the stratum, one for each type of population appropriate to the measure. For each stratifier, systems MAY provide population breakdowns in addition to the stratified scores."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="*"/>    
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="mrp-4"/>
+        <severity value="error"/>
+        <human value="The count and countQuantity elements for a statum population SHALL be mutually exclusive"/>
+        <expression value="count.exists() xor countQuantity.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+      </constraint>         
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
@@ -918,7 +1101,7 @@
     <element id="MeasureReport.group.stratifier.stratum.population.linkId">
       <path value="MeasureReport.group.stratifier.stratum.population.linkId"/>
       <short value="Pointer to specific population from Measure"/>
-      <definition value="The population from the Measure that corresponds to this population in the MeasureReport resource."/>
+      <definition value="The population from the Measure that corresponds to this population in the MeasureReport resource. This element SHALL be populated with the linkId corresponding to the population being reported."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -932,7 +1115,7 @@
     <element id="MeasureReport.group.stratifier.stratum.population.code">
       <path value="MeasureReport.group.stratifier.stratum.population.code"/>
       <short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
-      <definition value="The type of the population."/>
+      <definition value="The type of the population. This element SHALL be populated with at least the codings in the code element of the corresponding population being reported."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -944,7 +1127,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -960,11 +1143,30 @@
       <type>
         <code value="integer"/>
       </type>
+      <condition value="mrp-4"/>
       <mapping>
         <identity value="rim"/>
         <map value="value"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.stratifier.stratum.population.countQuantity">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="trial-use"/>
+			</extension>    
+      <path value="MeasureReport.group.stratifier.stratum.population.countQuantity"/>
+      <short value="Size of the population as a quantity"/>
+      <definition value="The number of members of the population in this stratum, specified as a quantity to support identifying units, as well as to support some composite measure calculation use cases where the resulting count of the population is a decimal value."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <condition value="mrp-4"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="value"/>
+      </mapping>
+    </element>        
     <element id="MeasureReport.group.stratifier.stratum.population.subjectResults">
       <path value="MeasureReport.group.stratifier.stratum.population.subjectResults"/>
       <short value="For subject-list reports, the subject results in this population"/>

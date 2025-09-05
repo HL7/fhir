@@ -7,7 +7,7 @@
 		<lastUpdated value="2024-12-17T19:40:19.291Z"/>
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/group-assignment"/>
 	</meta>
-	<url value="https://fevir.net/resources/EvidenceVariable/297490"/>
+	<url value="http://hl7.org/fhir/EvidenceVariable/example-group-assignment"/>
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>

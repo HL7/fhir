@@ -1,0 +1,75 @@
+<Observation xmlns="http://hl7.org/fhir">
+  
+  <!-- scenario -->
+  <!-- 2 components, both with Observation.component.dataAbsentReason AND Observation.component.valueQuantity -->
+  
+  <id value="bloodpressure-example-test"/>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="vital-signs"/>
+      <display value="Vital Signs"/>
+    </coding>
+    <text value="Vital Signs"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="85354-9"/>
+      <display value="Blood pressure panel with all children optional"/>
+    </coding>
+    <text value="Blood pressure systolic and diastolic"/>
+  </code>
+  <subject>
+    <display value="Patient John"/>
+  </subject>
+  <encounter>
+    <display value="GP Visit"/>
+  </encounter>
+  <effectiveDateTime value="1999-07-02"/>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="8480-6"/>
+        <display value="Systolic blood pressure"/>
+      </coding>
+      <text value="Systolic blood pressure"/>
+    </code>
+    <valueQuantity>
+      <value value="109"/>
+      <unit value="mmHg"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mm[Hg]"/>
+    </valueQuantity>
+    <dataAbsentReason>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
+        <code value="unknown"/>
+      </coding>
+    </dataAbsentReason>
+  </component>
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="8462-4"/>
+        <display value="Diastolic blood pressure"/>
+      </coding>
+      <text value="Diastolic blood pressure"/>
+    </code>
+    <valueQuantity>
+      <value value="44"/>
+      <unit value="mmHg"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mm[Hg]"/>
+    </valueQuantity>
+    <dataAbsentReason>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
+        <code value="unknown"/>
+      </coding>
+    </dataAbsentReason>
+  </component>
+</Observation>

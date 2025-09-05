@@ -12,6 +12,10 @@
       <display value="Computable Publishing LLC"/>
     </assigner>
   </identifier>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.8.6"/>
+  </identifier>
   <name value="NInFEACitation"/>
   <title value="NInFEA Citation"/>
   <status value="active"/>
@@ -34,7 +38,7 @@
   <summary>
     <style>
       <coding>
-        <system value="http://terminology.hl7.org/ValueSet/citation-summary-style"/>
+        <system value="http://terminology.hl7.org/CodeSystem/citation-summary-style"/>
         <code value="comppub"/>
         <display value="Computable Publishing"/>
       </coding>
@@ -62,7 +66,7 @@
     <abstract>
       <type>
         <coding>
-          <system value="http://hl7.org/fhir/cited-artifact-abstract-type"/>
+          <system value="http://terminology.hl7.org/CodeSystem/cited-artifact-abstract-type"/>
           <code value="primary-human-use"/>
           <display value="Primary human use"/>
         </coding>
@@ -94,7 +98,7 @@
       <publishedIn>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/published-in-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/published-in-type"/>
             <version value="6.0.0"/>
             <code value="D019991"/>
             <display value="Database"/>
@@ -112,7 +116,7 @@
     <webLocation>
       <classifier>
         <coding>
-          <system value="http://hl7.org/fhir/artifact-url-classifier"/>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
           <version value="6.0.0"/>
           <code value="webpage"/>
           <display value="Webpage"/>
@@ -123,7 +127,7 @@
     <webLocation>
       <classifier>
         <coding>
-          <system value="http://hl7.org/fhir/artifact-url-classifier"/>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
           <version value="6.0.0"/>
           <code value="doi-based"/>
           <display value="DOI Based"/>
@@ -134,7 +138,7 @@
     <webLocation>
       <classifier>
         <coding>
-          <system value="http://hl7.org/fhir/artifact-url-classifier"/>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
           <version value="6.0.0"/>
           <code value="doi-based"/>
           <display value="DOI Based"/>
@@ -146,7 +150,7 @@
     <webLocation>
       <classifier>
         <coding>
-          <system value="http://hl7.org/fhir/artifact-url-classifier"/>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
           <version value="6.0.0"/>
           <code value="compressed-file"/>
           <display value="Compressed file"/>
@@ -163,14 +167,14 @@
     <classification>
       <classifier>
         <coding>
-          <system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
+          <system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
           <code value="knowledge-artifact-type"/>
           <display value="Knowledge Artifact Type"/>
         </coding>
       </classifier>
       <classifier>
         <coding>
-          <system value="http://hl7.org/fhir/citation-artifact-classifier"/>
+          <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
           <version value="6.0.0"/>
           <code value="D064886"/>
           <display value="Dataset"/>
@@ -350,7 +354,7 @@
       <summary>
         <type>
           <coding>
-            <system value="http://hl7.org/fhir/contributor-summary-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/contributor-summary-type"/>
             <version value="6.0.0"/>
             <code value="author-string"/>
             <display value="Author string"/>

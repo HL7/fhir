@@ -613,7 +613,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="??"/>
+          <valueString value="versionAlgorithm"/>
         </extension>
         <strength value="required"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/conformance-expectation"/>
@@ -706,7 +706,7 @@
       <path value="Requirements.statement.satisfiedBy"/>
       <short value="Design artifact that satisfies this requirement"/>
       <definition value="A reference to another artifact that satisfies this requirement. This could be a profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Libary etc."/>
-      <comment value="This is for use when the requirement is met be a pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide. It is more typical to point from the FHIR artifact satisfying the requirement to the requirement (using the [satisfies-requirement](https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-satisfies-requirement.html) extension) to the Requirements resource.  However, in some cases the author of the Requirements and satisfying resource(s) won't be coordinated in that manner and this element allows assertion of satisfaction without involvement from those managing the implementing artifacts."/>
+      <comment value="This is for use when the requirement is met be a pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide. It is more typical to point from the FHIR artifact satisfying the requirement to the requirement (using the [satisfies-requirement](https://hl7.org/fhir/extensions/StructureDefinition-satisfies-requirement.html) extension) to the Requirements resource.  However, in some cases the author of the Requirements and satisfying resource(s) won't be coordinated in that manner and this element allows assertion of satisfaction without involvement from those managing the implementing artifacts."/>
       <min value="0"/>
       <max value="*"/>
       <type>

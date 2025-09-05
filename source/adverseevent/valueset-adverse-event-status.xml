@@ -16,7 +16,7 @@
   <name value="AdverseEventStatus"/>
   <title value="Adverse Event Status"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>
     <telecom>

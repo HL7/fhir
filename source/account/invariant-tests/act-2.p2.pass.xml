@@ -38,6 +38,11 @@
 		<reference value="Organization/hl7"/>
 	</owner>
 	<description value="Hospital charges"/>
+	<guarantor>
+		<account>
+			<reference value="Account/ewg"/>
+		</account>
+	</guarantor>
 	<procedure>
 		<code>
 			<coding>
@@ -46,15 +51,4 @@
 			</coding>
 		</code>
 	</procedure>
-	<relatedAccount>
-		<relationship>
-			<coding>
-				<system value="http://hl7.org/fhir/account-relationship"/>
-				<code value="guarantor"/>
-			</coding>
-		</relationship>
-		<account>
-			<reference value="Account/ewg"/>
-		</account>
-	</relatedAccount>
 </Account>

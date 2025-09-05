@@ -11,4 +11,13 @@
 			For example, if an Endpoint is only available during business hours (9-5), the lack of availability during the night would not be reflected in Endpoint.period.
 		</li>
 	</ul>
+
+	<h3>Payload Advertising</h3>
+	<p>
+		The <code>Endpoint.payload.type</code> is intended to be a description of the semantic content, for example, does this endpoint support exchanging care plans, discharge summaries, referrals, appointment bookings, etc.
+		The "how" that content is exchanged is described elsewhere, via the <code>mimeType</code> (what format) and <code>connectionType</code> (what exchange method).
+	</p>
+	<p>
+		The <code>Endpoint.profileCanonical</code>/<code>profileUri</code> describes the detailed type of content that is handles/available at the endpoint. (Such as canonicals of FHIR resource profiles, or other non-fhir based profile references)
+	</p>
 </div>

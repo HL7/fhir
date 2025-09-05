@@ -8,10 +8,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-warning">
     <valueMarkdown value="Types are for general categories of identifiers. See [the identifier registry](identifier-registry.html) for a list of common identifier systems"/>
   </extension>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.45"/>
+  </identifier>
   <name value="IdentifierTypeCodes"/>
   <title value="Identifier Type Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

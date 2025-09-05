@@ -1,12 +1,29 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="stu"></a>
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>The Measure resource specifies calculation of a score using the following elements: basis, scoring, scoringUnit, scoringPrecision, improvementNotation, and improvementNotationGuidance, as well as compositeScoring and components for composite measures. </p>
+
+<p>The Measure resource is currently structured to allow these elements to be specified at the root, or individually on each group.</p>
+
+<p>The CQI Work Group is seeking implementer feedback on the following potential options:</p>
+
+<ul>
+  <li><b>Option 1:</b>Keep the current structure, along with the current semantics that the group level elements are overrides (e.g. scoring may be specified at the root for all groups, optionally overridden by scoring at each group)</li>
+  <li><b>Option 2:</b>Keep the current structure, and clarify that the calculation of a score must be specified at the root, or on each group (e.g. scoring can be specified at the root, or on all groups, but not both)</li>
+  <li><b>Option 3:</b>Remove the calculation elements from the root, requiring that they be specified on each group. The elements are all marked as "deprecated" in this ballot, the question is whether they should just be removed.</li>
+</ul>
+</blockquote>
+
 <div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 
-<p>The Measure resource represents a structured, computable definition of a health-related measure such as a clinical quality measure, public health indicator, or population analytics measure. A quality measure is a quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</p>
+<p>The Measure resource represents a structured, potentially computable, definition of a health-related measure such as a clinical quality measure, public health indicator, or population analytics measure. A quality measure is a quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</p>
 
-<p>Note that the Measure itself does not typically contain any logic; rather a <a href="library.html">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as population criteria, reference named expressions within that library (or libraries). In addition, if the Measure references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression.</p>
+<p>Note that the Measure itself does not typically contain any logic; rather a <a href="library.html">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as population criteria, reference named expressions within that library (or libraries). In addition, if the Measure references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression. Different measure types will contain different population criteria. Some measures may contain multiple rates. Measures can also specify stratifications to subdivide the measure population and/or supplemental data to communicate additional information about a population.</p>
+
+<p>The data of interest for a measure is described as a set of data requirements, and include the specific data type, as well as any constraints. If the measure is specified computably, this information may be inferred by static analysis of the logic used to defined the population criteria. This capability is exposed via the $data-requirements operation.</p>
 
 <p>This resource is a definition resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 
@@ -20,7 +37,7 @@
 
 <p>A Measure is also similar to an <a href="observationdefinition.html">ObservationDefinition</a> resource, in that it is purely definitional, it contains no actual measurements, only a description of how to calculate a particular measurement or set of measurements. Measure is different from ObservationDefinition in that Measure is intended to provide a computable specification.</p>
 
-<p>A Measure is also similar to a clinical document, but as with the relationship to Observation, a Document is specific to a particular subject.</p>
+<p>A Measure is also similar to a clinical document, however a FHIR <a href="documents.html">Document</a> is specific to a particular subject, whereas the Measure resource is definitional.</p>
 </div>
 
 <!-- (optional):

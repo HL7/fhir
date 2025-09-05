@@ -15,6 +15,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/supplydelivery-stage"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2131"/>
+  </identifier>
   <version value="6.0.0"/>
   <name value="SupplyDeliveryStage"/>
   <title value="Supply Delivery Stage"/>
@@ -45,5 +49,5 @@
     <code value="reception"/>
     <display value="Reception"/>
     <definition value="This is about a Reception."/>
-  </concept>  
+  </concept>
 </CodeSystem>

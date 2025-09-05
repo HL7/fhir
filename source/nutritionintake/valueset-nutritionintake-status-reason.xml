@@ -9,6 +9,10 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/nutritionintake-status-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3337"/>
+  </identifier>
   <version value="6.0.0"/>
   <name value="NutritionIntakeStatusReason"/>
   <title value="Nutrition Intake Status Reason"/>
@@ -27,8 +31,8 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-				<code value="397709008"/>
-			</concept>
+        <code value="397709008"/>
+      </concept>
     </include>
     <include>
       <system value="http://hl7.org/fhir/CodeSystem/nutritionintake-status-reason"/>

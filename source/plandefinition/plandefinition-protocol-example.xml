@@ -7,46 +7,31 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
 
       <p>
-    
         <b>id: </b>example, 
       </p>
 
-  
       <p>
-    
         <b>identifier: </b>, 
         <b>system: </b>http://acme.org, 
         <b>value: </b>example-1, 
       </p>
-  
       <p>
-    
         <b>title: </b>Obesity Assessment Protocol, 
       </p>
-  
       <p>
-    
         <b>status: </b>draft, 
       </p>
-  
       <p>
-    
         <b>type: </b>condition, 
       </p>
-  
       <p>
-    
         <b>purpose: </b>Example of A medical algorithm for assessment and treatment of overweight and obesity, 
       </p>
-  
       <p>
-    
         <b>author: </b>, 
         <b>display: </b>National Heart, Lung, and Blood Institute http://www.nhlbi.nih.gov/health-pro/guidelines/current/obesity-guidelines/e_textbook/txgd/algorthm/algorthm.htm, 
       </p>
-  
       <p>
-    
         <b>step: </b>, 
         <b>name: </b>Measure BMI, 
         <b>description: </b>Measure, Weight, Height, Waist, Circumference; Calculate BMI  Weight must be measured so that the BMI can be calculated. Most charts are based on weights obtained with the patient wearing undergarments and no shoes. BMI can be manually calculated (kg/[height in meters]2), but is more easily obtained from a nomogram. Waist circumference is important because evidence suggests that abdominal fat is a particularly strong determinant of cardiovascular risk in those with a BMI of 25 to 34.9 kg/m2. Increased waist circumference can also be a marker of increased risk even in persons of normal weight. The technique for measuring waist circumference is described in the text. A nutrition assessment will also help to assess the diet and physical activity habits of overweight patients, 
@@ -78,7 +63,6 @@
         <b>display: </b>Nurse Ratched, 
         <b>description: </b>Extra information on activity , 
       </p>
-    
     </div>
   </text>
   <contained>
@@ -109,6 +93,10 @@
   <identifier>
     <system value="http://acme.org"/>
     <value value="example-1"/>
+  </identifier>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.11.14"/>
   </identifier>
   <name value="ObesityAssessmentProtocol"/>
   <title value="Obesity Assessment Protocol"/>

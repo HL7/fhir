@@ -1555,8 +1555,22 @@
       <start value="2014-01-01" />
       <end value="2014-03-31" />
   </period>
-  <group id="CMS146-group-1">
+  <group>
+    <linkId value="CMS146-group-1"/>
+    <scoring>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+        <code value="proportion"/>
+      </coding>
+    </scoring>
+    <improvementNotation>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+        <code value="increase"/>
+      </coding>
+    </improvementNotation>
     <population>
+      <linkId value="CMS146-group-1-ip"/>
       <code><coding><code value="initial-population"/></coding></code>
       <count value="500"/>
       <!-- The list references a patient-level MeasureReport for each member of the population -->
@@ -1565,6 +1579,7 @@
       </subjectResults>
     </population>
     <population>
+      <linkId value="CMS146-group-1-num"/>
       <code><coding><code value="numerator"/></coding></code>
       <count value="200"/>
       <subjectResults>
@@ -1572,6 +1587,7 @@
       </subjectResults>
     </population>
     <population>
+      <linkId value="CMS146-group-1-den"/>
       <code><coding><code value="denominator"/></coding></code>
       <count value="500"/>
       <subjectResults>
@@ -1579,13 +1595,18 @@
       </subjectResults>
     </population>
     <population>
+      <linkId value="CMS146-group-1-denex"/>
       <code><coding><code value="denominator-exclusion"/></coding></code>
       <count value="100"/>
       <subjectResults>
         <reference value="List/CMS146-denominator-exclusions"/>
       </subjectResults>
     </population>
+    <measureScoreQuantity>
+      <value value="0.5"/>
+    </measureScoreQuantity>
     <stratifier>
+      <linkId value="CMS146-group-1-stratifier-ages-up-to-9"/>
       <code><text value="stratifier-ages-up-to-9"/></code>
       <stratum>
         <valueBoolean value="true"/>
@@ -1651,6 +1672,7 @@
       </stratum>
     </stratifier>
     <stratifier>
+      <linkId value="CMS146-group-1-stratifier-ages-10-plus"/>
       <code><text value="stratifier-ages-10-plus"/></code>
       <stratum>
         <valueBoolean value="true"/>
@@ -1716,6 +1738,7 @@
       </stratum>
     </stratifier>
     <stratifier>
+      <linkId value="CMS146-group-1-stratifier-gender"/>
       <code><text value="stratifier-gender"/></code>
       <stratum>
         <valueCodeableConcept><text value="male"/></valueCodeableConcept>

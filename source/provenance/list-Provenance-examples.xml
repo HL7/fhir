@@ -78,30 +78,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence recorded by a Biocompute objects"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="provenance-example-biocompute-object"/>
-    </extension>
-    <item>
-      <reference value="Provenance/example-biocompute-object"/>
-      <display value="Biocompute Object"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence for CWL workflow project"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="provenance-example-cwl"/>
-    </extension>
-    <item>
-      <reference value="Provenance/example-cwl"/>
-      <display value="CWL Workflow"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Creation of a Consent from a Questionnaire"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -170,6 +146,18 @@
     <item>
       <reference value="Provenance/example-anon0"/>
       <display value="De-Identification / Re-Identificaiton using Provenance"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of using Provenance in a SearchSet Bundle to indicate the source of the entries, where Provenance is targeting version specific resources."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-bundle-allergyintolerance"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-bundle-allergyintolerance"/>
+      <display value="Provenance in a SearchSet Bundle for AllergyIntolerance"/>
     </item>
   </entry>
 </List>

@@ -12,7 +12,6 @@
   <name value="VitalSignsBodyHeight"/>
   <title value="Vital Signs - Body Height"/>
   <status value="active"/>
-  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>

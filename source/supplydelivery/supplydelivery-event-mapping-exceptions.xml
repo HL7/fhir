@@ -1,5 +1,4 @@
-<mappingExceptions pattern="Event" resource="SupplyDelivery"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Event" resource="SupplyDelivery" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="SupplyDelivery.identifier">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
@@ -41,7 +40,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Not to be used to link an supply delivery to an Encounter - use 'context' for that."/>
-            <resource value="Not to be used to link an event to an Encounter - use Event.context for that.&#xd;&#xd;[The allowed reference resources may be adjusted as appropriate for the event resource]."/>
+            <resource value="Not to be used to link an event to an Encounter - use Event.context for that.&#13;&#13;[The allowed reference resources may be adjusted as appropriate for the event resource]."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="SupplyDelivery.status">
@@ -54,7 +53,7 @@
             <resource value="A code specifying the state of the dispense event."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
@@ -70,13 +69,13 @@
             <resource value="Indicates the type of supply being provided.  Examples include: Medication, Device, Biologically Derived Product."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.subject" resourcePath="SupplyDelivery.patient">
+    <divergentElement patternPath="Event.subject" resourcePath="SupplyDelivery.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Organization)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="Patient for whom the item is supplied"/>
+            <resource value="Individual(s) or organization  for whom the item is supplied"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
@@ -97,14 +96,13 @@
             <resource value="The date or time(s) the activity occurred."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xa;."/>
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="[The list of types may be constrained as appropriate for the type of event]."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="SupplyDelivery.supplier">
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
-        <extraTypes
-            _resource="Reference(Practitioner,PractitionerRole,Organization)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Practitioner,PractitionerRole,Organization)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed supply delivery and what they did"/>
