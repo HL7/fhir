@@ -10,16 +10,15 @@
 	<p><b>Note to Implementers:</b> The owner has been removed from Device and is now included in DeviceAssociation as .relationship of the subject.  Please comment on the revision if there are issues with removing the identification of individuals in the Device resource.</p>
 </blockquote>
 <blockquote class="stu-note">
-<p><strong>Note to Implementers:</strong> Extensions have been created and are now available to represent previously removed <code>Device</code> elements and new concepts. These include:</p>
+ <p><strong>Note to Implementers:</strong> Extensions have been created and are now available to represent previously removed <code>Device</code> elements and new concepts. These include:</p>
 
-<ul>
-  <li><code>device-mode</code>, <code>device-cycle</code>, <code>device-duration</code>, <code>device-gateway</code>, and <code>device-endpoint</code></li>
-  <li><code>device-alertDetection</code> – describes the alert detection activation states for the overall device</li>
-  <li><code>device-conformsTo-source</code> – represents the source of the device specification</li>
-</ul>
+  <ul>
+    <li><code>device-mode</code>, <code>device-cycle</code>, <code>device-duration</code>, <code>device-gateway</code>, and <code>device-endpoint</code></li>
+    <li><code>device-alertDetection</code> – describes the alert detection activation states for the overall device</li>
+    <li><code>device-conformsTo-source</code> – represents the source of the device specification</li>
+  </ul>
 
-<p>Links to these extensions can be found in the <a href="https://build.fhir.org/ig/HL7/fhir-extensions/extensions-Device.html">FHIR Extension Pack</a>. Feedback from implementers is welcomed to inform further refinement and usage guidance.</p>
-
+ <p>Links to these extensions can be found in the <a href="https://build.fhir.org/ig/HL7/fhir-extensions/extensions-Device.html">FHIR Extension Pack</a>. Feedback from implementers is welcomed to inform further refinement and usage guidance.</p>
 	</blockquote>
 <h2>Scope and Usage</h2>
 <p>This is a base resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, which device was implanted in or explanted from a patient, dispensing a device to a patient for their use, managing inventory, or when requesting a specific device for a patient's use. Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health. Medical devices may also include some types of software.</p>
@@ -39,8 +38,9 @@ In a Procedure, reporting the use of a pump for which we have no instance data -
 When a device gets replaced by another device of the same type. In this case, a procedure indicates that one instance of the device is removed/explanted/discarded, and another instance is used. These are physical instances for which instance data might exist and be known, or not.
 </li>
 </ol>
+</div>
 
-
+<div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 
