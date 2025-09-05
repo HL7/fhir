@@ -88,49 +88,56 @@
         <key value="isl-2"/>
         <severity value="error"/>
         <human value="seriesUid SHALL only be present if studyUid is present"/>
-        <expression value="seriesUid.empty() or studyUid.exists()"/>
+        <expression value="seriesUid.exists() implies studyUid.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-3"/>
         <severity value="error"/>
         <human value="seriesNumber SHALL only be present if seriesUid is present"/>
-        <expression value="seriesNumber.empty() or seriesUid.exists()"/>
+        <expression value="seriesNumber.exists() implies seriesUid.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-4"/>
         <severity value="error"/>
         <human value="instance SHALL only be present if seriesUid is present"/>
-        <expression value="instance.empty() or seriesUid.exists()"/>
+        <expression value="instance.exists() implies seriesUid.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-5"/>
         <severity value="error"/>
         <human value="imageRegion3D SHALL only be present if frameOfReferenceUid is present"/>
-        <expression value="imageRegion3D.empty() or frameOfReferenceUid.exists()"/>
+        <expression value="imageRegion3D.exists() implies frameOfReferenceUid.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-6"/>
         <severity value="error"/>
         <human value="imageRegion3D SHALL only be present if instance.imageRegion2D is not present"/>
-        <expression value="imageRegion3D.empty() or instance.imageRegion2D.empty()"/>
+        <expression value="imageRegion3D.exists() implies instance.imageRegion2D.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-7"/>
         <severity value="error"/>
         <human value="if present, instance.imageRegion2D.coordinate shall have a value count that is a multiple of 2"/>
-        <expression value="instance.imageRegion2D.coordinate.empty() or instance.imageRegion2D.coordinate.count() mod 2 = 0"/>
+        <expression value="instance.imageRegion2D.coordinate.exists() implies instance.imageRegion2D.coordinate.count() mod 2 = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
         <key value="isl-8"/>
         <severity value="error"/>
         <human value="	if present, imageRegion3D.coordinate shall have a value count that is a multiple of 3"/>
-        <expression value="imageRegion3D.coordinate.empty() or imageRegion3D.coordinate.count() mod 3 = 0"/>
+        <expression value="imageRegion3D.coordinate.exists() implies imageRegion3D.coordinate.count() mod 3 = 0"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-9"/>
+        <severity value="error"/>
+        <human value="modality SHALL only be present if seriesUid is present"/>
+        <expression value="modality.exists() implies seriesUid.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <mapping>
@@ -223,6 +230,34 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="ImagingSelection.modality">
+      <path value="ImagingSelection.modality"/>
+      <short value="The distinct modality"/>
+      <definition value="The distinct modality for this selected series. This may be either an acquisition modality (e.g. CT, MR) or a non-acquisition modality (e.g. segmentation, presentation state)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <condition value="isl-9"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingSelectionModality"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Type of acquired data in the instance."/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"/>
+      </binding>
+
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Modalities in Study (0008,0061) or Modality (0008,0060)"/>
       </mapping>
     </element>
     <element id="ImagingSelection.code">
@@ -458,6 +493,7 @@
       <condition value="isl-2"/>
       <condition value="isl-3"/>
       <condition value="isl-4"/>
+      <condition value="isl-9"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>

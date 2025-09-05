@@ -17,7 +17,10 @@ business identifier - in this case the same as the request id
 		<display value="Central Supply Restock"/>
 	</partOf>
 	<status value="completed"/>
-	<intent value="order"/>
+	<period>
+		 <start value="2025-08-10T09:00:00Z"/> 
+         <end value="2025-08-10T11:00:00Z"/> 
+	</period>
 	<to>
              <reference value="Transport/location-hospitalLab" />
 			 <display value="Requested location for item at City Hospital Lab"/>  

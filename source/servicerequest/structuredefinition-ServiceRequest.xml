@@ -89,6 +89,8 @@
       <alias value="referral"/>
       <alias value="referral request"/>
       <alias value="transfer of care request"/>
+      <alias value="order"/>
+      <alias value="test ordered"/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
