@@ -282,7 +282,7 @@
     </element>
     <element id="BiologicallyDerivedProduct.collection.collector">
       <path value="BiologicallyDerivedProduct.collection.collector"/>
-      <short value="Individual performing collection"/>
+      <short value="Individual performing the collection"/>
       <definition value="Healthcare professional who is performing the collection."/>
       <min value="0"/>
       <max value="1"/>
