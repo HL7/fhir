@@ -1406,6 +1406,9 @@
   <concept id="4834000" display="Typhoid fever">
     <display value="Typhoid fever"/>
   </concept>
+  <concept id="48883003" display="Specimen satisfactory for diagnosis">
+    <display value="Specimen satisfactory for diagnosis"/>
+  </concept>
   <concept id="49062001" display="Device">
     <display value="Device"/>
   </concept>
