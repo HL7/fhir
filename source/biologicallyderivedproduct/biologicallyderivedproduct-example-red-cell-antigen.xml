@@ -28,10 +28,12 @@
  </biologicalSourceEvent>
  <division value="A00000"/>
  <expirationDate value="2024-02-02T23:59:00-05:00"/>
-  <property>
+ <property>
     <type>
+      <coding>
       <system value="https://www.isbt128.org/uri"/>
       <code value="RedCellAntigen"/>
+      </coding>
     </type>
     <valueCodeableConcept>
       <coding>
@@ -43,8 +45,10 @@
   </property>
   <property>
     <type>
+      <coding>
       <system value="https://www.isbt128.org/uri"/>
       <code value="RedCellAntigen"/>
+      </coding>
     </type>
     <valueCodeableConcept>
       <coding>
@@ -56,8 +60,10 @@
   </property>
   <property>
     <type>
+      <coding>
       <system value="https://www.isbt128.org/uri"/>
       <code value="RedCellAntigen"/>
+      </coding>
     </type>
     <valueCodeableConcept>
       <coding>
@@ -69,8 +75,10 @@
   </property>
   <property>
     <type>
+      <coding>
       <system value="https://www.isbt128.org/uri"/>
       <code value="RedCellAntigen"/>
+      </coding>
     </type>
     <valueCodeableConcept>
       <coding>
@@ -82,8 +90,10 @@
  </property>
  <property>
     <type>
+      <coding>
       <system value="https://www.isbt128.org/uri"/>
       <code value="RedCellAntigen"/>
+      </coding>
     </type>
     <valueCodeableConcept>
       <coding>
