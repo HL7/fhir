@@ -244,7 +244,7 @@
       <path value="DeviceDispense.subject"/>
       <short value="Who the dispense is for"/>
       <definition value="A link to a resource representing the person to whom the device is intended."/>
-      <comment value="What about 'this measuring Device is now asigned to Dr X who needs it now'? Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="1"/>
       <max value="1"/>
       <type>
