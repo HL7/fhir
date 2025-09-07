@@ -4,7 +4,7 @@
   <id value="NutritionOrder-core"/>
   <version value="0.1"/>
   <name value="NutritionOrderHL7Extensions"/>
-  <title value="Nutrition Order  H L7  Extensions"/>
+  <title value="Nutrition Order  HL7  Extensions"/>
   <status value="draft"/>
   <date value="2017-10-18T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - Orders and Observations WG"/>

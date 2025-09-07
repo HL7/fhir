@@ -4,7 +4,7 @@
   <id value="Device-core"/>
   <version value="0.1"/>
   <name value="DeviceHL7Extensions"/>
-  <title value="Device  H L7  Extensions"/>
+  <title value="Device  HL7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
