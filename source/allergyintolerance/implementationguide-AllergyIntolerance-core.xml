@@ -4,7 +4,7 @@
   <id value="AllergyIntolerance-core"/>
   <version value="0.1"/>
   <name value="AllergyIntoleranceHL7Extensions"/>
-  <title value="Allergy Intolerance  H L7  Extensions"/>
+  <title value="Allergy Intolerance  HL7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>

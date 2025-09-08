@@ -4,7 +4,7 @@
   <id value="Encounter-core"/>
   <version value="0.1"/>
   <name value="EncounterHL7Extensions"/>
-  <title value="Encounter  H L7  Extensions"/>
+  <title value="Encounter  HL7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>

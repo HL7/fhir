@@ -4,7 +4,7 @@
   <id value="ServiceRequest-core"/>
   <version value="0.1"/>
   <name value="ServiceRequestHL7Extensions"/>
-  <title value="Service  Request  H L7  Extensions"/>
+  <title value="Service  Request  HL7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-12T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
