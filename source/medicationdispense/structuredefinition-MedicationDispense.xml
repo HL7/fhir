@@ -681,7 +681,7 @@
       </extension>
       <path value="MedicationDispense.receiver"/>
       <short value="Who collected the medication or where the medication was delivered"/>
-      <definition value="Identifies the person who picked up the medication or the location of where the medication was delivered.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional or a location."/>
+      <definition value="Identifies the person who picked up the medication or the location or organization where the medication was delivered. This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional or a location, or organization."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -691,6 +691,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
