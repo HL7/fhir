@@ -201,7 +201,7 @@
     <element id="MedicationAdministration.statusReason">
       <path value="MedicationAdministration.statusReason"/>
       <short value="Reason administration not performed"/>
-      <definition value="A code indicating why the administration was not performed."/>
+      <definition value="A code indicating why the status of the administration changed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
