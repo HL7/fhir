@@ -143,7 +143,7 @@
     <divergentElement patternPath="Event.performer.function" resourcePath="Task.requestedPerformer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson,Group)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Type of performance"/>
@@ -161,6 +161,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="Task.owner">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <missingTypes _pattern="Reference(Device)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed task"/>
             <resource value="Responsible individual"/>

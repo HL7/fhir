@@ -168,8 +168,11 @@
   </Names>
   <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="142" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="224.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="66.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="70.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="126.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="127.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="69.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="88.0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="111.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="10" ss:Width="55.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="87.0"/>
    <Row ss:AutoFitHeight="0">
@@ -965,7 +968,6 @@
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClinicalAssessment.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s64"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1686,7 +1688,7 @@
     <Cell><Data ss:Type="String">DeviceUsage.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3" ss:StyleID="s64"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s70"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s70"><Data ss:Type="String">intended</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">intended,preparation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4541,7 +4543,6 @@
     <Footer x:Data="&amp;Z&#xD;&amp;1#&amp;&#34;Calibri&#34;&amp;9&amp;M000000 Internal Use Only" x:Margin="0.78749999999999998"/>
     <PageMargins x:Bottom="1.05277777777778" x:Left="0.78749999999999998" x:Right="0.78749999999999998" x:Top="1.05277777777778"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>300</HorizontalResolution>
@@ -4551,7 +4552,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>5</SplitHorizontal>
-   <TopRowBottomPane>11</TopRowBottomPane>
+   <TopRowBottomPane>21</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

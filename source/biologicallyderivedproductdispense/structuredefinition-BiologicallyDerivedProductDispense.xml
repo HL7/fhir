@@ -9,7 +9,7 @@
     <valueInteger value="0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="business"/>
+    <valueCode value="patient"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -74,6 +74,10 @@
         <identity value="w5"/>
         <map value="administrative.device"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.identifier">
       <path value="BiologicallyDerivedProductDispense.identifier"/>
@@ -98,7 +102,7 @@
     </element>
     <element id="BiologicallyDerivedProductDispense.partOf">
       <path value="BiologicallyDerivedProductDispense.partOf"/>
-      <short value="Short description"/>
+      <short value="Part of referenced event"/>
       <definition value="A larger event of which this particular event is a component."/>
       <min value="0"/>
       <max value="*"/>

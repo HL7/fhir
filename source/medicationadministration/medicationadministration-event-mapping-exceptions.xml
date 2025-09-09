@@ -71,7 +71,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Captures the reason for the current state of the medication administration."/>
-            <resource value="A code indicating why the administration was not performed."/>
+            <resource value="A code indicating why the status of the administration changed."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>

@@ -90,6 +90,16 @@
             <resource value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, revoked or placed on-hold. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.statusReason" resourcePath="ServiceRequest.statusReason">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the service request. Note that any change to the state requires the removal of any existing statusReasons, and, if appropriate, populating new statusReasons."/>
+            <resource value="Provides reason why the service request status is what it is. The statusReason can be used to explain why a service request is suspended, cancelled, or on hold, including administrative and clinical reasons."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;suspended&quot; or &quot;cancelled&quot;.  The reason why the service request was created at all is captured in reasonCode, not here. ."/>
+            <resource value="This is generally not present when the service request has a status of 'active' or 'completed'. There is potential overlap between ServiceRequest.reason (why the service is being requested) and ServiceRequest.statusReason (why the request is in its current status) early in the performance of the request when the reason for the service request might influence the initial status."/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.intent" resourcePath="ServiceRequest.intent">
         <shortUnmatched reason="Unknown">
             <_pattern value="proposal | plan | order (immutable)"/>
@@ -297,6 +307,5 @@
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
     <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
-    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Request.product" reason="Unknown"/>
 </mappingExceptions>

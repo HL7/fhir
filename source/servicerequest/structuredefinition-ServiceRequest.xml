@@ -89,6 +89,8 @@
       <alias value="referral"/>
       <alias value="referral request"/>
       <alias value="transfer of care request"/>
+      <alias value="order"/>
+      <alias value="test ordered"/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -363,6 +365,29 @@
       <mapping>
         <identity value="quick"/>
         <map value="Action.currentStatus"/>
+      </mapping>
+    </element>
+    <element id="ServiceRequest.statusReason">
+      <path value="ServiceRequest.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Provides reason why the service request status is what it is. The statusReason can be used to explain why a service request is suspended, cancelled, or on hold, including administrative and clinical reasons."/>
+      <comment value="This is generally not present when the service request has a status of 'active' or 'completed'. There is potential overlap between ServiceRequest.reason (why the service is being requested) and ServiceRequest.statusReason (why the request is in its current status) early in the performance of the request when the reason for the service request might influence the initial status."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceRequestStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes that describe the reason why the service request is in its current status."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.statusReason"/>
       </mapping>
     </element>
     <element id="ServiceRequest.intent">

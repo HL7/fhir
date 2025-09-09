@@ -89,6 +89,7 @@
       <alias value="Results"/>
       <alias value="Labs"/>
       <alias value="Laboratory"/>
+      <alias value="Test Report"/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
