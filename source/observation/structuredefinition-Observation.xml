@@ -93,10 +93,11 @@
       <short value="Measurements and simple assertions"/>
       <definition value="Measurements and simple assertions made about a patient, device or other subject."/>
       <comment value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc."/>
-      <alias value="Vital Signs"/>
+      <alias value="Vital Sign"/>
       <alias value="Measurement"/>
-      <alias value="Results"/>
-      <alias value="Tests"/>
+      <alias value="Result"/>
+      <alias value="Test Performed"/>
+      <alias value="Observable"/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -132,6 +133,13 @@
         <severity value="error"/>
         <human value="if organizer exists and organizer = true, then value[x], dataAbsentReason and component SHALL NOT be present"/>
         <expression value="(organizer.exists() and organizer.allTrue()) implies (value.empty() and dataAbsentReason.empty() and component.empty())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </constraint>
+      <constraint>
+        <key value="obs-12"/>
+        <severity value="warning"/>
+        <human value="All observations SHOULD have a performer"/>
+        <expression value="performer.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
       <mapping>
