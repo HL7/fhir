@@ -129,8 +129,8 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="Task.instantiatesCanonical">
-      <path value="Task.instantiatesCanonical"/>
+    <element id="Task.instantiates">
+      <path value="Task.instantiates"/>
       <short value="Formal definition of task"/>
       <definition value="The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
       <requirements value="Enables a formal definition of how the task is to be performed, enabling automation."/>
@@ -144,26 +144,6 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Request.instantiatesCanonical, Event.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="Task.instantiatesUri">
-      <path value="Task.instantiatesUri"/>
-      <short value="Formal definition of task"/>
-      <definition value="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
-      <requirements value="Enables a formal definition of how the task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation to be associated with a task), enabling automation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesUri"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

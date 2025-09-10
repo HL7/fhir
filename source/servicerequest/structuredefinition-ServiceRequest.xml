@@ -166,11 +166,11 @@
         <map value="ClinicalStatement.identifier"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.instantiatesCanonical">
+    <element id="ServiceRequest.instantiates">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10296][#11119]#13196]."/>
       </extension>
-      <path value="ServiceRequest.instantiatesCanonical"/>
+      <path value="ServiceRequest.instantiates"/>
       <short value="Instantiates FHIR protocol or definition"/>
       <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this ServiceRequest."/>
       <comment value="The PlanDefinition resource is used to describe series, sequences, or groups of actions to be taken, while the ActivityDefinition resource is used to define each specific step or activity to be performed. More information can be found in the [Boundaries and Relationships](plandefinition.html#12.23.2) section for PlanDefinition."/>
@@ -185,33 +185,6 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Request.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="ServiceRequest.instantiatesUri">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#10296][#11119]#13196]."/>
-      </extension>
-      <path value="ServiceRequest.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition"/>
-      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this ServiceRequest."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesUri"/>
       </mapping>
       <mapping>
         <identity value="v2"/>

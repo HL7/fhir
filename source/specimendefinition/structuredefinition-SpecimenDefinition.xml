@@ -172,8 +172,8 @@
 			</type>
 			<isSummary value="true"/>
 		</element>
-		<element id="SpecimenDefinition.derivedFromCanonical">
-			<path value="SpecimenDefinition.derivedFromCanonical"/>
+		<element id="SpecimenDefinition.derivedFrom">
+			<path value="SpecimenDefinition.derivedFrom"/>
 			<short value="Based on FHIR definition of another SpecimenDefinition"/>
 			<definition value="The canonical URL pointing to another FHIR-defined SpecimenDefinition that is adhered to in whole or in part by this definition."/>
 			<min value="0"/>
@@ -181,18 +181,6 @@
 			<type>
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.derivedFromUri">
-			<path value="SpecimenDefinition.derivedFromUri"/>
-			<short value="Based on external definition"/>
-			<definition value="The URL pointing to an externally-defined type of specimen, guideline or other definition that is adhered to in whole or in part by this definition."/>
-			<requirements value="Specimen definitions may be refinements of other definitions."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="uri"/>
 			</type>
 			<isSummary value="true"/>
 		</element>

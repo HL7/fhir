@@ -162,32 +162,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceRequest.instantiatesCanonical"/>
+          <valueString value="DeviceRequest.instantiates"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-instantiates-canonical"/>
         <description value="Instantiates FHIR protocol or definition"/>
         <code value="instantiates-canonical"/>
         <type value="reference"/>
-        <expression value="DeviceRequest.instantiatesCanonical"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="DeviceRequest-instantiates-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceRequest.instantiatesUri"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-instantiates-uri"/>
-        <description value="Instantiates external protocol or definition"/>
-        <code value="instantiates-uri"/>
-        <type value="uri"/>
-        <expression value="DeviceRequest.instantiatesUri"/>
+        <expression value="DeviceRequest.instantiates"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
