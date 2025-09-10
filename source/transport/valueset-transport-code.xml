@@ -28,7 +28,7 @@
   <description value="Codes indicating the type of action that is expected to be performed"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/CodeSystem/transport-code"/>
+      <system value="http://hl7.org/fhir/transport-code"/>
     </include>
   </compose>
 </ValueSet>
