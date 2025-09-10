@@ -610,7 +610,7 @@
     </element>
     <element id="Transport.priorTransport">
       <path value="Transport.priorTransport"/>
-      <short value="Prior Transport"/>
+      <short value="THe prior transport"/>
       <definition value="The immediatly preceding Transport event."/>
       <min value="0"/>
       <max value="1"/>
