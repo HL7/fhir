@@ -822,21 +822,6 @@
     <Cell><Data ss:Type="String">SubstanceDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceNucleicAcid</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstancePolymer</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceProtein</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceReferenceInformation</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceSourceMaterial</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>
     <Cell><Data ss:Type="String">patient | subject</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">supplier | receiver</Data></Cell>

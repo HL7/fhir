@@ -1027,13 +1027,13 @@
 		<translation lang="it">Sostanza</translation>
 		<translation lang="es">Sustancia</translation>
 	</item>
-    <item id="SubstanceReferenceInformation">
+    <!--item id="SubstanceReferenceInformation">
         <translation lang="en">SubstanceReferenceInformation</translation>
-    </item>
+    </item-->
 	<item id="SubstanceDefinition">
 		<translation lang="en">SubstanceDefinition</translation>
 	</item>
-	<item id="SubstanceSourceMaterial">
+	<!--item id="SubstanceSourceMaterial">
 		<translation lang="en">SubstanceSourceMaterial</translation>
 	</item>
     <item id="SubstancePolymer">
@@ -1044,7 +1044,7 @@
 	</item>
 	<item id="SubstanceNucleicAcid">
 		<translation lang="en">SubstanceNucleicAcid</translation>
-    </item>
+    </item-->
 	<item id="SupplyDelivery">
 		<translation lang="en">SupplyDelivery</translation>
 		<translation lang="zh">供应交付</translation>
