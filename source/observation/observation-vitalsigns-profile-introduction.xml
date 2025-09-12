@@ -194,7 +194,7 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="bp.html">Blood pressure systolic and diastolic</a>
+						<a href="bp.html">Blood pressure arterial systolic and diastolic</a>
 					</td>
 					<td>85354-9</td>
 					<td>
@@ -207,11 +207,11 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="bp.html">Systolic blood pressure</a>
+						<a href="bp.html">Systolic arterial blood pressure</a>
 					</td>
 					<td>8480-6</td>
 					<td>
-						<em>Systolic blood pressure</em>
+						<em>Systolic arterial blood pressure</em>
 						<p>Observation.component code for a blood pressure Observation</p></td>
 					<td>mm[Hg]</td>
 					<td>
@@ -220,11 +220,11 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="bp.html">Diastolic blood pressure</a>
+						<a href="bp.html">Diastolic arterial blood pressure</a>
 					</td>
 					<td>8462-4</td>
 					<td>
-						<em>Diastolic blood pressure</em>
+						<em>Diastolic arterial blood pressure</em>
 						<p>Observation.component code for a blood pressure Observation</p></td>
 					<td>mm[Hg]</td>
 					<td>
