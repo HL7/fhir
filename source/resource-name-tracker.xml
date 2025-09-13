@@ -666,9 +666,6 @@
     <Cell><Data ss:Type="String">Substance</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3"><Data ss:Type="String">SubstancePolymer</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">SubstanceReferenceInformation</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
