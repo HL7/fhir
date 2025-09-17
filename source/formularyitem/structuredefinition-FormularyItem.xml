@@ -102,35 +102,12 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="FormularyItem.code">
-      <path value="FormularyItem.code"/>
-      <short value="Codes that identify this formulary item"/>
-      <definition value="A code (or set of codes) that specify the product or service that is identified by this formulary item."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FormularyItemFormalRepresentation"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A coded concept that defines the product or service identified by this formulary item."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".code"/>
-      </mapping>
-    </element>
     <element id="FormularyItem.status">
       <path value="FormularyItem.status"/>
       <short value="active | entered-in-error | inactive"/>
       <definition value="The validity about the information of the formulary item and not of the underlying product or service itself."/>
       <comment value="This status is intended to identify if the formulary item in a local system is in active use within the formulary.  For example, a formulary might include a medicinal product and the status relates to its inclusion.  At some point in the future, if the status of the formulary item is changed to &quot;inactive&quot; that means that it is no longer valid in the formulary.  But the product itself might still be in active use and might be included in other formularies."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -150,6 +127,501 @@
         <identity value="rim"/>
         <map value=".statusCode"/>
       </mapping>
+    </element>
+    <element id="FormularyItem.category">
+      <path value="FormularyItem.category"/>
+      <short value="Categorization of this formulary item"/>
+      <definition value="Categorization for this formulary item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.context">
+      <path value="FormularyItem.context"/>
+      <short value="Owner of the formulary that this item was created for"/>
+      <definition value="The owner of the formulary that this item was created for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="FormularyItem.subject">
+      <path value="FormularyItem.subject"/>
+      <short value="Information that this item is about"/>
+      <definition value="The information that this item is about."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="FormularyItem.author">
+      <path value="FormularyItem.author"/>
+      <short value="Creator or owner of the information about the item"/>
+      <definition value="The creator or owner of the information about the item."/>
+      <min value="0"/>
+      <max value="1"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="ManufacturedProduct.subjectOf.DocumentEvent.author"/>
+      </mapping>
+    </element>
+    <element id="FormularyItem.cost">
+      <path value="FormularyItem.cost"/>
+      <short value="The pricing of the underlying item"/>
+      <definition value="The price of the underlying item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.cost.effectiveDate">
+      <path value="FormularyItem.cost.effectiveDate"/>
+      <short value="The date range for which the cost is effective"/>
+      <definition value="The date range for which the cost information of the medication is effective."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="FormularyItem.cost.type">
+      <path value="FormularyItem.cost.type"/>
+      <short value="The category of the cost information"/>
+      <definition value="The category of the cost information.  For example, manufacturers' cost, patient cost, claim reimbursement cost, actual acquisition cost."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.cost.source">
+      <path value="FormularyItem.cost.source"/>
+      <short value="The source or owner for the price information"/>
+      <definition value="The source or owner that assigns the price to the medication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="FormularyItem.cost.cost[x]">
+      <path value="FormularyItem.cost.cost[x]"/>
+      <short value="The price or category of the cost of the medication"/>
+      <definition value="The price or representation of the cost (for example, Band A, Band B or $, $$) of the item."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationCostCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept defining the category of a medication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-cost-category"/>
+      </binding>
+    </element>
+    <element id="FormularyItem.specialPrecaution">
+      <path value="FormularyItem.specialPrecaution"/>
+      <short value="Any precautions that affect the item"/>
+      <definition value="Any precautions that affect the item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.monitoringProgram">
+      <path value="FormularyItem.monitoringProgram"/>
+      <short value="Program under which a item is reviewed"/>
+      <definition value="The program under which the item is reviewed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="FormularyItem.monitoringProgram.type">
+      <path value="FormularyItem.monitoringProgram.type"/>
+      <short value="Type of program under which the item is monitored"/>
+      <definition value="Type of program under which the item is monitored."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.monitoringProgram.name">
+      <path value="FormularyItem.monitoringProgram.name"/>
+      <short value="Name of the reviewing program"/>
+      <definition value="Name of the reviewing program."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline">
+      <path value="FormularyItem.indicationGuideline"/>
+      <short value="Guidelines or protocols for administration of the medication for an indication"/>
+      <definition value="Guidelines or protocols that are applicable for the administration of the medication based on indication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.indication">
+      <path value="FormularyItem.indicationGuideline.indication"/>
+      <short value="Indication for use that applies to the specific administration guideline"/>
+      <definition value="Indication or reason for use of the medication that applies to the specific administration guideline."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.dosingGuideline">
+      <path value="FormularyItem.indicationGuideline.dosingGuideline"/>
+      <short value="Guidelines for dosage of the medication"/>
+      <definition value="The guidelines for the dosage of the medication for the indication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.dosingGuideline.treatmentIntent">
+      <path value="FormularyItem.indicationGuideline.dosingGuideline.treatmentIntent"/>
+      <short value="Intention of the treatment"/>
+      <definition value="The overall intention of the treatment, for example, prophylactic, supporative, curative, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.dosingGuideline.dosage">
+      <path value="FormularyItem.indicationGuideline.dosingGuideline.dosage"/>
+      <short value="Dosage for the medication for the specific guidelines"/>
+      <definition value="Dosage for the medication for the specific guidelines."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.dosingGuideline.dosage.type">
+      <path value="FormularyItem.indicationGuideline.dosingGuideline.dosage.type"/>
+      <short value="Category of dosage for a medication"/>
+      <definition value="The type or category of dosage for a given medication (for example, prophylaxis, maintenance, therapeutic, etc.)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.dosingGuideline.dosage.dosage">
+      <path value="FormularyItem.indicationGuideline.dosingGuideline.dosage.dosage"/>
+      <short value="Dosage for the medication for the specific guidelines"/>
+      <definition value="Dosage for the medication for the specific guidelines."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Dosage"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.dosingGuideline.administrationTreatment">
+      <path value="FormularyItem.indicationGuideline.dosingGuideline.administrationTreatment"/>
+      <short value="Type of treatment the guideline applies to"/>
+      <definition value="The type of the treatment that the guideline applies to, for example, long term therapy, first line treatment, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic">
+      <path value="FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic"/>
+      <short value="Characteristics of the patient that are relevant to the administration guidelines"/>
+      <definition value="Characteristics of the patient that are relevant to the administration guidelines (for example, height, weight, gender, etc.)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic.type">
+      <path value="FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic.type"/>
+      <short value="Categorization of specific characteristic that is relevant to the administration guideline"/>
+      <definition value="The categorization of the specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic.value[x]">
+      <path value="FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic.value[x]"/>
+      <short value="The specific characteristic"/>
+      <definition value="The specific characteristic (e.g. height, weight, gender, etc.)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+    </element>
+    <element id="FormularyItem.associatedDocuments">
+      <path value="FormularyItem.associatedDocuments"/>
+      <short value="Documents that provide more information about the item"/>
+      <definition value="Documents that provide more information about the item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+    </element>
+    <element id="FormularyItem.characteristic">
+      <path value="FormularyItem.characteristic"/>
+      <short value="Specifies descriptive properties of the item"/>
+      <definition value="Specifies descriptive properties of the item, such as color, shape, imprints, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.characteristic.type">
+      <path value="FormularyItem.characteristic.type"/>
+      <short value="Code specifying the type of characteristic of item"/>
+      <definition value="A code specifying which characteristic of the item is being described (for example, colour, shape, imprint)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.characteristic.value[x]">
+      <path value="FormularyItem.characteristic.value[x]"/>
+      <short value="Description of the characteristic"/>
+      <definition value="Description of the characteristic."/>
+      <comment value="The description should be provided as a CodeableConcept, SimpleQuantity or an image.  The description can be a string only when these others are not available."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <type>
+        <code value="base64Binary"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+    </element>
+    <element id="FormularyItem.availabilityStatus">
+      <path value="FormularyItem.availabilityStatus"/>
+      <short value="active | entered-in-error | inactive"/>
+      <definition value="Status of the availability of the item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FormularyItemStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="A coded concept defining if the medication is in active use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/formularyitem-status"/>
+      </binding>
+    </element>
+    <element id="FormularyItem.availabilityPeriod">
+      <path value="FormularyItem.availabilityPeriod"/>
+      <short value="Time period of the availability of the item"/>
+      <definition value="Time period of the availability of the item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="FormularyItem.coverageInformation">
+      <path value="FormularyItem.coverageInformation"/>
+      <short value="Specific coverage information about the item"/>
+      <definition value="Specific coverage information about the item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.coverageInformation.type">
+      <path value="FormularyItem.coverageInformation.type"/>
+      <short value="Code specifying the type of coverage information"/>
+      <definition value="A code specifying the type of coverage information."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.coverageInformation.coverage">
+      <path value="FormularyItem.coverageInformation.coverage"/>
+      <short value="Description of the coverage"/>
+      <definition value="Description of the coverage."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Coverage"/>
+      </type>
+    </element>
+    <element id="FormularyItem.substitution">
+      <path value="FormularyItem.substitution"/>
+      <short value="Specifies if changes are allowed when dispensing a medication from a regulatory perspective"/>
+      <definition value="Specifies if changes are allowed when dispensing a medication from a regulatory perspective."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.substitution.type">
+      <path value="FormularyItem.substitution.type"/>
+      <short value="Specifies the type of substitution allowed"/>
+      <definition value="Specifies the type of substitution allowed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.substitution.allowed">
+      <path value="FormularyItem.substitution.allowed"/>
+      <short value="Specifies if regulation allows for changes in the medication when dispensing"/>
+      <definition value="Specifies if regulation allows for changes in the medication when dispensing."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="FormularyItem.schedule">
+      <path value="FormularyItem.schedule"/>
+      <short value="Specifies the schedule of a medication in jurisdiction"/>
+      <definition value="Specifies the schedule of a medication in jurisdiction."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.maxDispense">
+      <path value="FormularyItem.maxDispense"/>
+      <short value="The maximum number of units of the medication that can be dispensed in a period"/>
+      <definition value="The maximum number of units of the medication that can be dispensed in a period."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.maxDispense.quantity">
+      <path value="FormularyItem.maxDispense.quantity"/>
+      <short value="The maximum number of units of the medication that can be dispensed"/>
+      <definition value="The maximum number of units of the medication that can be dispensed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+    </element>
+    <element id="FormularyItem.maxDispense.period">
+      <path value="FormularyItem.maxDispense.period"/>
+      <short value="The period that applies to the maximum number of units"/>
+      <definition value="The period that applies to the maximum number of units."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+    </element>
+    <element id="FormularyItem.associatedItems">
+      <path value="FormularyItem.associatedItems"/>
+      <short value="Associated or related formulary items"/>
+      <definition value="Associated or related items. For example, if the item is about a branded product (e.g. Crestor), this could link to the generic medication (e.g. Rosuvastatin)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="FormularyItem.associatedItems.type">
+      <path value="FormularyItem.associatedItems.type"/>
+      <short value="Category of formulary item"/>
+      <definition value="The category of the associated formulary item reference."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="FormularyItem.associatedItems.reference">
+      <path value="FormularyItem.associatedItems.reference"/>
+      <short value="Associated items about the formulary item"/>
+      <definition value="Associated items about the formulary item."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/FormularyItem"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>
