@@ -173,7 +173,7 @@
 					<td>29463-7</td>
 					<td>
 						<em>Body weight</em>
-						<p>The more specific code 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY also be used in Observation.code to specify the actual measurement that was performed.</p></td>
+						<p>The more specific code 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY be used as an additional Observation.component or as a linked Observation (e.g, using hasMember).</p></td>
 					<td>g, kg,[lb_av], [oz_av]</td>
 					<td>
 						<a href="observation-example.html">Body Weight Example</a>
