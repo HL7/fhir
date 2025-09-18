@@ -1,0 +1,357 @@
+
+	<a name="process"></a>
+	<h4>Merge Processing</h4>
+		<p>
+			The merge operation will have multiple stages, and some of these may take additional time for processing and thus be done asynchronously.
+		</p>
+		<table  class="grid">
+			<tr>
+				<td><b>Stage</b></td>
+				<td><b>Description</b></td>
+			</tr>
+			<tr>
+				<td>Preview Merge</td>
+				<td>(Optional)<br/>This is a call to the operation (with preview=true) that simply checks for potential errors and warnings, without committing any changes.<br/>This might not be able to capture all possible causes of errors that could be encountered during the processing of the data patching.<br/>The returned Encounter resource is a preview only and has not been committed. Hence the version number and last_modified date would be cleared/absent. </td>
+			</tr>
+			<tr>
+				<td>Initiate Merge</td>
+				<td>This stage processes the input parameters checking for errors/warnings and <b>prepares</b> to make changes to the encounter resources.<br/>If the system is able to complete the processing of all reference data to the target encounter, then <b>the merge process may complete immediately where no Task is needed and the data processing stage occurs as part of the Initiate Merge action</b>. Otherwise a Task for tracking would be created and monitor the progress of the merge.</td>
+			</tr>
+			<tr>
+				<td>Data Processing</td>
+				<td>The REST operation may have returned, and processing is ongoing to patch any other resource that references the source encounter to reference the target encounter.<br/>This may take a considerable period of time in some systems where the volume of records being updated is large.<br/>The source encounter record will be marked as inactive, and add the link property to the target encounter (except where systems delete the record)</td>
+			</tr>
+			<tr>
+				<td>Completed (or failed)</td>
+				<td>All data processing is complete, and the Task is marked as completed (maybe with errors)</td>
+			</tr>		
+		</table>	
+		<p>
+			During the Data Processing stage any of the related encounter resources (source, target, and result) and any resources referencing any of these encounters may be indeterminate until the merge processing operation completes. 
+			These resources may be in the process of being changed or deleted, or having references updated, and there is no implied sequence for these updates to be made. 
+			There is also no implication that these changes are happening within a single transaction. 
+			Data consumers should wait until the merge process completes before querying for data about any of the relevant encounters.
+		</p>
+		<blockquote>
+			<p>
+				<b>Note:</b> Some servers may also update the inactive source encounter resource to remove most of the data to make it more clear that the resource should not be used, and the record-linkage extension is the key information.
+			</p>
+		</blockquote>
+		<blockquote>
+			<p>
+				<b>Note:</b> Systems may do any other internal checks or business rule validation when preparing for or performing a merge.
+			</p>
+		</blockquote>
+
+		<h5>Merging Identifiers</h5>
+			<p>
+				The server may also migrate identifiers (and properties) from the source encounter at its discretion, and choose to mark these as old or not.
+			</p>
+			[%stu-note dstu%]
+				<p>
+					The handling of identifiers is different to the corresponding description at patient merge, since Encounters probably do not contain any important business identifiers like Patient does. Please provide feedback if this assumption should not be correct.
+				</p>
+			[%end-note%]
+
+		<h5>Updating Data that References the source Encounter</h5>
+			<p>
+				The merge data processing SHALL update all references that refer to the source encounter to reference the target encounter.<br/>
+				While updating resources that reference the source encounter, ensure that the target encounter link value isn't also accidentally updated (don't make it point at itself).
+			</p>
+			<p>
+				A Provenance resource SHOULD be created that references the source and target encounter resources (or just the target-resource if the source was deleted, or the source encounter's old identifier) indicating that the merge has occurred (see example <a href="#examples">below</a>).<br/>
+				A Provenance resource MAY be created to link all of the resources that referenced the source encounter that could then provide information to a potential un-merge operation.
+			</p>
+			<blockquote>
+				<p>
+					<b>Note:</b> Some resources that have been updated as a result of the merge, such as AuditEvent, Provenance, may have been digitally signed, and this change would invalidate the signature. There may be other reasons impacting the updates that should be considered, further feedback on this specific use case is required.
+				</p>
+			</blockquote>
+			[%stu-note dstu%]
+				<p>
+					Are there other implications of these reference updates that should be identified relating to versions - (such as where a version specific reference was included)?
+				</p>
+			[%end-note%]	
+			<blockquote>
+				<p>
+					<b>Note:</b> While this processing is occurring, if a client requests clinical data for either source or target encounter, an OperationOutcome with an informative message MAY be included in the resulting bundle indicating this processing is ongoing.
+				</p>
+			</blockquote>
+			[%stu-note dstu%]
+				<p>
+					Considering updating <a href="http://hl7.org/fhir/valueset-issue-type.html">http://hl7.org/fhir/valueset-issue-type.html</a> to extended with a new child to the transient concept to indicate that merge processing is occurring.
+				</p>
+			[%end-note%]
+
+		<h5>Post Merge Expectations</h5>
+			<h6>Once the encounter resources have been merged:</h6>
+				<p>
+					A GET on the source Encounter resource ID (e.g. <code>GET [base]/Encounter/enc01</code>) will return either:
+				</p>
+				<ul>
+					<li>200 OK and returns the source encounter which is now marked as inactive, and has the link (replaced-by) populated with the target Encounter ID (Note: some systems may have cleared all the other properties making this a stub resource)</li>
+					<li>404 not found (when the merge system deleted the resource)</li>
+				</ul>
+				<blockquote>
+					<p>
+						<b>Note:</b> Security implications such as those from SMART tokens could restrict access here.
+					</p>
+				</blockquote>
+				<p>
+					When performing a SEARCH by the source encounter resource ID return (e.g. <code>GET [base]/Encounter?_id=enc01</code>):<br/> 
+					(often used as a substitute for direct GET when doing _include for the managing org/general practitioner)
+				</p>
+				<ul>
+					<li>200 Ok Bundle with the inactive encounter which is marked as inactive and has the link (replaced-by) populated in it (that you'll need to follow to get any further data)</li>
+					<li>200 Ok Bundle with no encounter resource (case where the source encounter was deleted)</li>
+					<li>200 Ok Bundle with the target encounter resource (with the link to the one from the search) and not include the source encounter resource</li>
+					<li>200 Ok Bundle with both the target and source encounter resources</li>
+				</ul>
+				<p>
+					Accessing the Encounter $everything operation on the source encounter resource (now marked as inactive) will return an OperationOutcome and http status of 400 Bad Request. The error message should inform that the encounter has been merged and should follow the Encounter record-linkage extension to access the $everything content.
+				</p>
+				[%stu-note dstu%]
+					<p>
+						Considering updating the <a href="http://hl7.org/fhir/valueset-issue-type.html">http://hl7.org/fhir/valueset-issue-type.html</a> to extended with a new child to the processing concept to indicate that additional content may be associated with a linked encounter.
+					</p>
+				[%end-note%]
+				<p>
+					Searching content (e.g. Observations) based on Encounter ID:
+				</p>
+				<ul>
+					<li><code>Observation?encounter=Encounter/enc01</code> would return a 200 Ok Bundle with no results (as all have been moved to Encounter/enc02), an OperationOutcome may be included indicating that the encounter was merged into encounter xxx</li>
+					<li><code>Observation?encounter=Encounter/enc02</code> would return all the data that is referencing enc02, and all the data that was referencing enc01 (which was updated by the merge operation to reference enc02)</li>
+				</ul>
+				<p>
+					Searching content (e.g. Observations) based on Encounter ID and time ranges:
+				</p>
+				<ul>
+					<li><code>Observation?encounter=Encounter/enc02</code> (initial client call at start of year, gets all encounter obs)</li>
+					<li><code>Observation?encounter=Encounter/enc02&amp;_lastupdated=ge2019-03</code> (client calls at start of march to detect any new encounter obs)</li>
+					<li>(Encounter enc01 is merged into enc02 during April)</li>
+					<li><code>Observation?encounter=Encounter/enc02&amp;_lastupdated=ge2019-06</code> (client calls at start of june to detect any new encounter obs, but misses all the enc01 observations prior to June)</li>
+					<li>Client needs to check for a provenance record of the merge having taken place to determine that they need to refresh the local content to see the older data</li>				
+				</ul>
+				<p>
+					In the case where a client needs to be aware of all relevant resources, including those that were added to an encounter as the result of a merge, the client would need to be notified via some channel other than a RESTful polling process that a merge has occurred. There are a few options for how a client may detect that a fresh retrieval of all content for an encounter may be needed:
+				</p>
+				<ul>
+					<li>Monitor the Encounter resource for creation of or updates to the record-linkage extension</li>
+					<li>Monitor Provenance resources that could be created as part of a merge process</li>
+				</ul>
+				[%stu-note dstu%]
+					<p>
+						Creating/Updating content (e.g. Observations) that reference the source encounter ID (feedback on this required):
+					</p>
+					<ul>
+						<li>422 Unprocessable Entity with an OperationOutcome indicating that the encounter referenced was merged into encounter xxx (this is also the existing behavior if the encounter resource was deleted)</li>
+						<li>201 Created if the service is able to automatically process the request and reallocate, this could occur during the merge data processing stage, otherwise the above code should be returned</li>
+					</ul>
+				[%end-note%]			
+
+	<a name="notification"></a>
+	<h4>Merge Notification Mechanisms</h4>
+		<p>
+			The indication that a merge has been completed can be notified through several ways:
+		</p>
+		<ul>
+			<li>Using FHIR Messaging to invoke the same operation, see <a href="#messaging">below</a></li>
+			<li>An integration engine sending HL7v2 A42 merge message</li>
+			<li>Directly calling the $merge operation on the dependent systems (requires the system to have both encounter resources)</li>
+			<li>Client data refresh notification (to be defined, could be triggered by merge, security changes, system migrations, consent changes, etc...)</li>
+			<li>Using Subscriptions to detect the merge operation has occurred (on Provenance and/or Encounter)</li>
+			<li>Polling the Merge Provenance resource (or the Encounter resource for the relevant record-linkage extension change)</li>
+			<li>(other non standard notification channels)</li>
+		</ul>
+		<p>
+			These notifications can be sent to other downstream systems, partners, or other applications (including EMPIs). An EMPI could expose the merge operation, and therefore be a notification sender.<br/>
+			Consideration should be taken to ensure that the correct data is acted on.<br/>
+			The downstream systems might not have all identifiers that the notifying system has, the notifier may be configured to know what "types" of identifiers should be propagated to which systems.
+		</p>
+		<blockquote>
+			<p>
+				<b>Note:</b> When using the identifier parameters (rather than id) you should be using the same assigner (which in the example above would be the PAS/ADT or clinical system), this may be configured in the sending notification system, such as an EMPI based on local business rules.
+			</p>
+		</blockquote>
+
+	<a name="subscription"></a>
+	<h4>Impact on Subscriptions</h4>
+		<p>
+			Subscriptions on merges are most likely to be used by applications connecting directly to the system. Many use cases could consider using FHIR Messaging (or other messaging e.g. v2 messages) to communicate the merge occurred.
+		</p>
+		[%stu-note dstu%]
+			<p>
+				Interaction with the Subscription v2 resources requires additional review and implementer feedback considering:
+			</p>
+			<ul>
+				<li>What can be used as triggers for the subscription:</li>
+				<ul class="dense">
+					<li>Encounter update with new link values</li>
+					<li>Provenance(s) as an event</li>
+					<li>operation itself as an event (the Task resource, although that might not exist, so just a pre-defined topic)</li>
+				</ul>
+				<li>Will all the data that is patched over to the target encounter ID be notified:</li>
+				<ul class="dense">
+					<li>Systems might not notify that the content was changed, and rely on the merge notification to advise if required</li>
+					<li>Also note the Client data refresh notification discussion above</li>
+				</ul>
+			</ul>
+		[%end-note%]
+
+	<a name="messaging"></a>
+	<h4>FHIR Messaging</h4>
+		<p>
+			The FHIR Request Message should be a Bundle with:
+		</p>
+		<table class="grid">
+			<tr>
+				<td><b>Resource</b></td>
+				<td><b>Cardinality</b></td>
+				<td><b>Description</b></td>
+			</tr>
+			<tr>
+				<td>MessageHeader</td>
+				<td>1..1</td>
+				<td>The Messaging header<br/>The focus of the message will be the Parameters resource.</td>
+			</tr>
+			<tr>
+				<td>Parameters</td>
+				<td>1..1</td>
+				<td>The same Parameters object that would be passed to the $merge operation.</td>
+			</tr>
+			<tr>
+				<td>Encounter (source)</td>
+				<td>0..1</td>
+				<td>Source Encounter resource (may not be complete, but should have enough to be able to identify the source record)<br/> This is the Encounter resource that will be marked as inactive after the merge.</td>
+			</tr>
+			<tr>
+				<td>Encounter (target)</td>
+				<td>0..1</td>
+				<td>Target Encounter resource (may not be complete, but should have enough to be able to identify the target record)<br/>This is the Encounter resource that will remain active after the merge operation is complete.</td>
+			</tr>
+		</table>
+		<p>
+			The FHIR Response Message should be a bundle with:
+		</p>
+		<table class="grid">
+			<tr>
+				<td><b>Resource</b></td>
+				<td><b>Cardinality</b></td>
+				<td><b>Description</b></td>
+			</tr>
+			<tr>
+				<td>MessageHeader</td>
+				<td>1..1</td>
+				<td>The Messaging header<br/>The focus of the message will be the Parameters resource.</td>
+			</tr>
+			<tr>
+				<td>Parameters</td>
+				<td>1..1</td>
+				<td>The parameters resource that was included in the request.</td>
+			</tr>
+			<tr>
+				<td>OperationOutcome</td>
+				<td>1..1</td>
+				<td>The results of the merge operation.</td>
+			</tr>
+			<tr>
+				<td>Encounter</td>
+				<td>0..1</td>
+				<td>The resulting Encounter resource from the merge operation.<br/>(required when the result was a successful operation)</td>
+			</tr>
+			<tr>
+				<td>AuditEvent</td>
+				<td>0..1</td>
+				<td>An operation event that includes the full details of the operation, including references to all the resources that were updated as a result of the merge.</td>
+			</tr>
+		</table>
+
+		<a name="error-codes"></a>
+		<h4>Reporting Errors/Outcomes</h4>
+		<p>
+			Any errors will be reported with an OperationOutcome resource and could include:
+		</p>
+			<table class="grid">
+			<thead>
+				<tr>
+					<th><div>Issue</div></th>
+					<th><div>Description</div></th>
+					<th><div>Http Status</div></th>
+				</tr>
+			</thead>
+			<tbody aria-live="polite" aria-relevant="all">
+				<tr>
+					<td>err: Same resource</td>
+					<td>The Source and Target matching resulted in the same FHIR Encounter resource, likely already merged.</td>
+					<td>422 Unprocessable Entity</td>
+				</tr>
+				<tr>
+					<td>err: Missing Source Parameters</td>
+					<td>There are no source Encounter parameters, please include either a source-encounter, source-encounter-identifier parameter (or both)</td>
+					<td>Bad Request</td>
+				</tr>
+				<tr>
+					<td>err: Missing Target Parameters</td>
+					<td>There are no target Encounter parameters, please include either a target-encounter, target-encounter-identifier parameter (or both)</td>
+					<td>Bad Request</td>
+				</tr>
+				<tr>
+					<td>err: Target Encounter Id mismatch</td>
+					<td><p>The target Encounter id does not match the Encounter id in the result-encounter resource</p></td>
+					<td>Bad Request</td>
+				</tr>
+				<tr>
+					<td>err: Source Encounter not found</td>
+					<td>The source Encounter was not found based on the provided parameters</td>
+					<td>422 Unprocessable Entity</td>
+				</tr>
+				<tr>
+					<td>err: Target Encounter not found</td>
+					<td>The target Encounter was not found based on the provided parameters</td>
+					<td>422 Unprocessable Entity</td>
+				</tr>
+				<tr>
+					<td>err: Target/Source not duplicates</td>
+					<td><p>Attempt to merge 2 records that are known to not be duplicates of each other.</p><p><em>(Previous manual marking of the resources was done, and will need to be removed before retrying)</em></p></td>
+					<td>422 Unprocessable Entity</td>
+				</tr>
+				<tr>
+					<td>err: Target Encounter already merged</td>
+					<td>The Target Encounter resource was previously merged into another encounter record, and is not a suitable target for merging.</td>
+					<td>422 Unprocessable Entity</td>
+				</tr>
+				<tr>
+					<td>err: Target Encounter inactive</td>
+					<td><p>The Target Encounter resource is marked as inactive</p><p><span style="color: rgb(255,0,0);">Note: Further feedback on this case?</span></p></td>
+					<td>422 Unprocessable Entity</td>
+				</tr>
+				<tr>
+					<td>info: Target Encounter updated</td>
+					<td>Additional notes on what happened to the target Encounter resource on update, such as if fields weren't updated as requested due to internal business rules etc</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>info: Update summary</td>
+					<td>Other notes that are included reporting on what changed, such as how many resources were/may be effected</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>warn: Recommend reverse merge</td>
+					<td><p>The source resource is much larger than the target resource (in terms of resources that reference it) and recommend that the merge occur in the other direction</p><p>Note: This would likely be returned/evaluated during the preview stage/mode if implemented.</p></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td><span style="color: rgb(255,0,0);">info: Encounter merge in progress</span></td>
+					<td><p><span style="color: rgb(255,0,0);">Note: This is applicable to other search operations on resources referencing these Encounter resource(s), and not specifically the merge operation itself</span></p><p>The encounter record referenced by these records is currently being merged to/from another Encounter resource. Data may be incomplete, or inconsistent.</p><p><em>(this MAY be returned during a clinical data search using the Encounter ID as a search parameter)</em></p></td>
+					<td>-</td>
+				</tr>
+			</tbody>
+		</table>
+			
+	<a name="safety"></a>
+	<h4>Safety Checklist</h4>
+		[%stu-note dstu%]
+			<p>
+				Seeking implementer feedback on safety checklist items to include.
+			</p>
+		[%end-note%]
