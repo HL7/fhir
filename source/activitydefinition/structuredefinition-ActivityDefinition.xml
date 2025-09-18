@@ -916,7 +916,7 @@
 		</element>
 		<element id="ActivityDefinition.intent">
 			<path value="ActivityDefinition.intent"/>
-			<short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+			<short value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
 			<definition value="Indicates the level of authority/intentionality associated with the activity and where the request should fit into the workflow chain."/>
 			<min value="0"/>
 			<max value="1"/>
