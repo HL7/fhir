@@ -68,6 +68,11 @@
     <uri value="http://hl7.org/v2"/>
     <name value="HL7 V2 Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="dicom"/>
+    <uri value="https://dicomstandard.org/current"/>
+    <name value="DICOM Tag Mapping"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="BodyStructure"/>
@@ -219,6 +224,10 @@
         <identity value="openehr"/>
         <map value="Name of location"/>
       </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Body Part Examined (0018,0015) or Anatomic Region Sequence (0008,2218)"/>
+      </mapping>
     </element>
     <element id="BodyStructure.includedStructure.laterality">
       <path value="BodyStructure.includedStructure.laterality"/>
@@ -252,6 +261,10 @@
       <mapping>
         <identity value="openehr"/>
         <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Laterality (0020,0060)"/>
       </mapping>
     </element>
     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation">
