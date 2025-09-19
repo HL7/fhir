@@ -182,6 +182,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
     </element>
     <element id="DeviceAssociation.bodyStructure">
