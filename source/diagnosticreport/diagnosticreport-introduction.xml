@@ -3,7 +3,7 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-<p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.   It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow pattern for <a href="workflow.html#event"><em>event</em> resources</a>.</strong></p>
+<p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>. This resource is an <a href="workflow.html#event"><em>event</em> resource</a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong></p>
 <p>
 A diagnostic report is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,

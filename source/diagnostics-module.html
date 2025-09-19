@@ -18,8 +18,7 @@ in order to support consistent definitions for schema and UML derived code.
 
     <table class="colsi">
         <tr>
-            <td id="wg">Work Group <a target="_blank" href="[%wg oo%]">[%wgt oo%]</a> &amp; <a target="_blank"
-                    href="[%wg cg%]">[%wgt cg%]</a> </td>
+            <td id="wg">Work Group <a target="_blank" href="[%wg oo%]">[%wgt oo%]</a></td>
             <td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a
                     href="versions.html#std-process">Informative</a></td>
         </tr>
@@ -87,23 +86,30 @@ in order to support consistent definitions for schema and UML derived code.
     Diagnostic resources for Clinical Genomic Reporting and Analysis.
     [%end-note%]
 
-    <table class="bare">
-        <tr>
-            <td><b>Name</b></td>
-            <td><b>Aliases</b></td>
-            <td><b>Description</b></td>
-        </tr>
-        [%res-item Observation%]
-        [%res-item DiagnosticReport%]
-        [%res-item ServiceRequest%]
-        [%res-item DocumentReference%]
-        [%res-item ImagingSelection%]
-        [%res-item ImagingStudy%]
-        [%res-item MolecularDefinition%]
-        [%res-item GenomicsStudy%]
-        [%res-item Specimen%]
-        [%res-item BodyStructure%]
-    </table>
+    <div>
+        <table class="bare">
+            <tr>
+                <td><b>Name</b></td>
+                <td><b>Aliases</b></td>
+                <td><b>Description</b></td>
+            </tr>
+            [%res-item Observation%]
+            [%res-item DiagnosticReport%]
+            [%res-item ServiceRequest%]
+            [%res-item DocumentReference%]
+            [%res-item ImagingSelection%]
+            [%res-item ImagingStudy%]
+            [%res-item MolecularDefinition%]
+            [%res-item GenomicStudy%]
+            [%res-item Specimen%]
+            [%res-item BodyStructure%]
+        </table>
+        <figure>Table 1: Indicates the FHIR Resources that are involved in Diagnostics.</figure>
+
+        [%impl-note%]
+        MolecularSequence resource has been replaced by the <a href="moleculardefinition.html">Molecular Definition</a> resource.
+        [%end-note%]
+    </div>
 
     <a name="org-dr-obs"></a>
     <h3>Organizing Related DiagnosticReport and Observation Resources</h3>
@@ -305,7 +311,7 @@ in order to support consistent definitions for schema and UML derived code.
         <li>Recommending diagnostics such as is done by Clinical Decision Support tools. See the <a
                 href="clinicalreasoning-module.html">Clinical Reasoning module</a> for more information.</li>
         <li>Ordering a Laboratory Test such as a <a href="servicerequest-example-lipid.html">lipid panel</a></li>
-        <li>Reporting a Laboratory Test such as a <a href="diagnosticreport-core.html">lipid panel</a></li>
+        <li>Reporting a Laboratory Test such as a <a href="diagnosticreport-example-lipid-panel.html">lipid panel</a></li>
         <li>Ordering an imaging study such as a <a href="servicerequest-example-di.html">CT study</a></li>
         <li>Reporting an imaging study such as a <a href="imagingstudy-example.html">CT study</a></li>
     </ul>
@@ -350,7 +356,7 @@ in order to support consistent definitions for schema and UML derived code.
         <li>The <em>Specimen</em> resource is expected to undergo further development as a focus of ongoing work group efforts. We expect to see more widespread use of this resource which will help to increase its maturity(currently at FMM=2).</li>
         <li>The <em>ImagingStudy</em> resource has been tested and used in production tooling and has reached maturity level FMM=4.</li>
         <li>The <em>ImagingSelection</em> resource is relatively immature at FMM=1 (added in R5). We are looking for implementer feedback to advance its maturity.</li>
-        <li>The <em>MolecularDefinition</em> resource has had some limited testing and use. Changes have been made to improve the ability to represent genomic concepts. It remains at FMM=0.</li>
+        <li>The <em>MolecularDefinition</em> resource is replacing MolecularSequence. It includes definitional content for a molecular entity, such as a nucleotide or protein sequence. This resource is in trial-use and is relatively immature at FMM=0.</li>
         <li>The <em>GenomicStudy</em> resource was introduced in R5. It represents a set of analyses performed to analyze and generate genomic data and is at FMM=1. Further use of this resource in production tooling is needed for it to reach a more stable FMM level.</li>
         <li>The <em>BodyStructure</em> resource is relatively immature at FMM=1. Changes have been made to support greater precision of body location identification based on feedback that has been received, and we expect to receive additional implementation feedback which will help increase the resource maturity level.</li>
     </ul>

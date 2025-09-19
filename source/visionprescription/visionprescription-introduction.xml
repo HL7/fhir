@@ -34,7 +34,7 @@ Additional information regarding resources conveying electronic claims content a
 		<table border="1" cellpadding="1" cellspacing="2" frame="box">
 			<tr>
 				<td>VisionPrescription (this resource)</td>
-				<td>The VisionPrescription resource is used to provide the authorized specification of lenses for glasses and contacts.</td>
+				<td>This resource is used to prescribe, authorize, and request provision of lenses for glasses or contacts.</td>
 			</tr>
 			<tr>
 				<td><a href="devicerequest.html">DeviceRequest</a></td>

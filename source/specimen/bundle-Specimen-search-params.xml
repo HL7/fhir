@@ -81,25 +81,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Specimen-organization"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.container.device.reference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/SearchParameter/Specimen-organization"/>
-        <description value="The organization where the specimen is located"/>
-        <code value="organization"/>
-        <type value="reference"/>
-        <expression value="Specimen.container.device.reference.resolve().owner"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Specimen-procedure"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -164,7 +145,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Specimen.container.device.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/SearchParameter/Specimen-container-location"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-location"/>
         <description value="The location of the specimen container"/>
         <code value="container-location"/>
         <type value="reference"/>

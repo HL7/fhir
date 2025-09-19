@@ -27,6 +27,16 @@
       details. </p>
 <p>If a Task is seeking to instantiate or modify something, the entity to be instantiated or modified SHALL be pointed to by the Task.focus.</p>
 
+[%stu-note dstu%]
+ <code>Task.instantiatesCanonical</code> and <code>Task.instantiatesURI</code> have been removed from the core elements. Instead, use the following workflow extensions:
+  <ul>
+    <li><a href="http://hl7.org/fhir/StructureDefinition/workflow-triggeredBy">workflow-triggeredBy</a></li>
+    <li><a href="http://hl7.org/fhir/StructureDefinition/workflow-generatedFrom">workflow-generatedFrom</a></li>
+    <li><a href="http://hl7.org/fhir/StructureDefinition/workflow-compliesWith">workflow-compliesWith</a></li>
+    <li><a href="http://hl7.org/fhir/StructureDefinition/workflow-shallComplyWith">workflow-shallComplyWith</a></li>
+  </ul>
+[%end-note%]
+
   </div>
   <div>
     <a name="bnc"></a>
