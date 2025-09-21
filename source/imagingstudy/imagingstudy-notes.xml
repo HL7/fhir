@@ -33,7 +33,7 @@ The ImagingStudy's DICOM Study Instance UID is encoded in the <code>ImagingStudy
 <a name="accession-number"></a>
 <h3>Accession Number</h3>
 <p>
-The accession number of the service request associated with the study is encoded as <a href="https://build.fhir.org/references.html#reference">Reference.identifier</a> element using the <code>ACSN</code> identifier type, e.g.:
+The study accession number is encoded as <a href="references.html#reference">Reference.identifier</a> element using the <code>ACSN</code> identifier type, e.g.:
 <pre class="json">
 
 "basedOn": [
@@ -504,6 +504,26 @@ An ImagingStudy may be created to represent the content of:
 </ul>
 <p>
 The set of ImagingStudy elements is broadly aligned with these three information models.
+</p>
+
+
+
+<a name="procedures"></a>
+<h3>Imaging Study Procedures</h3>
+<p>
+In DICOM, a Study may be related to two types of "procedures": requested procedures and performed procedures.
+</p>
+<p>
+In the FHIR model, "requested procedures" are represented by the <code>ActivityDefinition</code> resource while "performed procedures" are represented by the <code>Procedure</code> resource.
+</p>
+<p>
+Therefore, the requested procedure associated with a particular imaging study would typically be the encoded as the <code>ServiceRequest.code</code> that the imaging study is basedOn, where that code may contain a coded value or may reference an <code>ActivityDefinition</code> resource.
+</p>
+<p>
+Similarly, the performed procedure would be encoded as the <code>Procedure</code> that the imaging study is partOf.
+</p>
+<p>
+Searching for an imaging study by its requested procedure can be done by including based-on as a search parameters, and by its performed procedure by including procedure as a search parameters.
 </p>
 
 </div>

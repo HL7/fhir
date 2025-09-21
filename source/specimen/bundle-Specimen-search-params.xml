@@ -81,25 +81,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Specimen-organization"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.container.device.reference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/SearchParameter/Specimen-organization"/>
-        <description value="The organization where the specimen is located"/>
-        <code value="organization"/>
-        <type value="reference"/>
-        <expression value="Specimen.container.device.reference.resolve().owner"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Specimen-procedure"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -119,20 +100,38 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Specimen-container-device"/>
+        <id value="Specimen-container-device-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Specimen.container.device.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-device"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-device-reference"/>
         <description value="The unique identifier associated with the specimen container"/>
-        <code value="container-device"/>
+        <code value="container-device-reference"/>
         <type value="reference"/>
-        <expression value="Specimen.container.device.reference.where(resolve() is Device)"/>
+        <expression value="Specimen.container.device.reference.where(resolve() is Device or resolve() is DeviceDefinition)"/>
         <processingMode value="normal"/>
-        <target value="Device"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-container-device-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.container.device.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-device-code"/>
+        <description value="The code associated with the specimen container"/>
+        <code value="container-device-code"/>
+        <type value="token"/>
+        <expression value="Specimen.container.device.concept"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -146,7 +145,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Specimen.container.device.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/SearchParameter/Specimen-container-location"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-location"/>
         <description value="The location of the specimen container"/>
         <code value="container-location"/>
         <type value="reference"/>
@@ -285,6 +284,82 @@
         <code value="request"/>
         <type value="reference"/>
         <expression value="Specimen.request"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-processing-device-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.processing.device.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-processing-device-reference"/>
+        <description value="The unique identifier associated with the processing device"/>
+        <code value="processing-device-reference"/>
+        <type value="reference"/>
+        <expression value="Specimen.processing.device.reference.where(resolve() is Device or resolve() is DeviceDefinition)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-processing-device-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.processing.device.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-processing-device-code"/>
+        <description value="The code associated with the processing device"/>
+        <code value="processing-device-code"/>
+        <type value="token"/>
+        <expression value="Specimen.processing.device.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-collection-device-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.collection.device.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-collection-device-reference"/>
+        <description value="The unique identifier associated with the collection device"/>
+        <code value="collection-device-reference"/>
+        <type value="reference"/>
+        <expression value="Specimen.collection.device.reference.where(resolve() is Device or resolve() is DeviceDefinition)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-collection-device-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.collection.device.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-collection-device-code"/>
+        <description value="The code associated with the collection device"/>
+        <code value="collection-device-code"/>
+        <type value="token"/>
+        <expression value="Specimen.collection.device.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

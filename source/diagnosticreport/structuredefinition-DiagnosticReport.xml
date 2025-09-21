@@ -89,6 +89,7 @@
       <alias value="Results"/>
       <alias value="Labs"/>
       <alias value="Laboratory"/>
+      <alias value="Test Report"/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -358,7 +359,7 @@
       <short value="Encounter associated with the DiagnosticReport"/>
       <definition value="The encounter (e.g. a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
       <comment value="This will typically be the encounter, when it exists, during which the data or specimens (e.g. imaging, blood draw, or assessment procedure) that are being reported by the DiagnosticReport were obtained/acquired. When a DiagnosticReport is based on a ServiceRequest (order), the ServiceRequest.encounter referenced in DiagnosticReport.basedOn may be used to associate the two."/>
-      <requirements value="Links the request to the Encounter context."/>
+      <requirements value="Links the report to the Encounter context."/>
       <alias value="Context"/>
       <min value="0"/>
       <max value="1"/>

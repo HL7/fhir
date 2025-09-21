@@ -31,8 +31,8 @@
 		<!--  LOINC - always recommended to have a LOINC code  -->
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="3141-9"/><!-- more specific method = measured LOINC-->
-			<display value="Body weight Measured"/>
+			<code value="29463-7"/>
+			<display value="Body weight"/>
 		</coding>
 		<!--  SNOMED CT Codes - becoming more common  -->
 		<coding>
@@ -69,4 +69,20 @@
 		<system value="http://unitsofmeasure.org"/>
 		<code value="[lb_av]"/>
 	</valueQuantity>
+	<component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="8361-8"/>
+        <display value="Body position with respect to gravity"/>
+      </coding>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="10904000"/>
+        <display value="Standing position"/>
+      </coding>
+    </valueCodeableConcept>
+  </component>
 </Observation>

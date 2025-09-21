@@ -143,9 +143,9 @@
     </element>
     <element id="DeviceMetric.device">
       <path value="DeviceMetric.device"/>
-      <short value="Describes the link to the Device"/>
-      <definition value="Describes the link to the Device. This is also known as a channel device."/>
-      <comment value="Note if this is not the top level device - also know as the source device, it may be referenced in the device.parent element."/>
+      <short value="The device to which this DeviceMetric applies"/>
+      <definition value="The device to which this DeviceMetric applies. The referenced device may be a top-level device or a component of a device."/>
+      <comment value="If the reference is not to a top-level device, the top-level device may be reached through the device's `parent` element (possibly recursively)."/>
       <min value="1"/>
       <max value="1"/>
       <type>

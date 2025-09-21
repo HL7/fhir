@@ -15,6 +15,19 @@ repositories {
         // Only search this repository for the specific dependency
         content {
             includeModule("org.hl7.fhir", "kindling")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.core")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.utilities")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu2")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu2016may")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu3")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu3.support")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.r4")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.r4b")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.r5")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.convertors")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.validation")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.model")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.support")
         }
     }
     maven {

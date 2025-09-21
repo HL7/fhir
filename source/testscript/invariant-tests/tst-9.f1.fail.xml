@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TestScript xmlns="http://hl7.org/fhir">
+  <id value="testscript-example"/>
+  <url value="http://hl7.org/fhir/TestScript/testscript-example"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.12.4"/>
+  </identifier>
+  <version value="1.0"/>
+  <name value="TestScriptExample"/>
+  <title value="TestScript Example"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2017-01-18"/>
+  <publisher value="HL7"/>
+  <contact>
+    <name value="Support"/>
+    <telecom>
+      <system value="email"/>
+      <value value="support@HL7.org"/>
+      <use value="work"/>
+    </telecom>
+  </contact>
+  <description value="TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to read the created Patient with various asserts."/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
+        <code value="positive"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="program"/>
+    </code>
+    <valueRange>
+      <low>
+        <value value="2018"/>
+        <unit value="year"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </low>
+    </valueRange>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="Patient Conditional Create (Update), Read and Delete Operations"/>
+  <copyright value="© HL7.org 2011+"/>
+  <metadata>
+    <link>
+      <url value="http://hl7.org/fhir/patient.html"/>
+      <description value="Demographics and other administrative information about an individual or animal receiving care or other health-related services."/>
+    </link>
+    <capability>
+      <required value="true"/>
+      <validated value="false"/>
+      <description value="Patient Update, Read and Delete Operations"/>
+      <link value="http://hl7.org/fhir/http.html#delete"/>
+      <link value="http://hl7.org/fhir/http.html#read"/>
+      <link value="http://hl7.org/fhir/http.html#update"/>
+      <capabilities value="http://hl7.org/fhir/CapabilityStatement/example"/>
+    </capability>
+  </metadata>
+  <fixture id="fixture-patient-create">
+    <autocreate value="false"/>
+    <autodelete value="false"/>
+    <resource>
+      <reference value="Patient/example"/>
+      <display value="Peter Chalmers"/>
+    </resource>
+  </fixture>
+  <fixture id="fixture-patient-minimum">
+    <autocreate value="false"/>
+    <autodelete value="false"/>
+    <resource>
+      <reference value="Patient/example"/>
+      <display value="Peter Chalmers (minimum)"/>
+    </resource>
+  </fixture>
+  <profile id="patient-profile" value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+  <variable>
+    <name value="createResourceId"/>
+    <expression>
+      <language value="application/xml"/>
+      <expression value="Patient/id"/>
+    </expression>
+    <sourceId value="fixture-patient-create"/>
+  </variable>
+  <setup>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
+          <code value="delete"/>
+        </type>
+        <resource value="Patient"/>
+        <label value="SetupDeletePatient"/>
+        <description value="Execute a delete operation to insure the patient does not exist on the server."/>
+        <accept value="json"/>
+        <encodeRequestUrl value="true"/>
+        <params value="/${createResourceId}"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+        <direction value="response"/>
+        <operator value="in"/>
+        <responseCode value="200,204"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
+          <code value="update"/>
+        </type>
+        <resource value="Patient"/>
+        <label value="SetupCreatePatient"/>
+        <description value="Create patient resource on test server using the contents of fixture-patient-create"/>
+        <accept value="json"/>
+        <contentType value="json"/>
+        <encodeRequestUrl value="true"/>
+        <params value="/${createResourceId}"/>
+        <sourceId value="fixture-patient-create"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 201(Created)."/>
+        <direction value="response"/>
+        <responseCode value="201"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
+          <code value="read"/>
+        </type>
+        <resource value="Patient"/>
+        <description value="Read the created patient resource on the test server using the id from fixture-patient-create. Verify contents."/>
+        <encodeRequestUrl value="true"/>
+        <targetId value="fixture-patient-create"/>
+      </operation>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP status is 200(OK)."/>
+        <direction value="response"/>
+        <response value="okay"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient."/>
+        <compareToSourceId value="fixture-patient-create"/>
+        <compareToSourceExpression>
+          <language value="text/fhirpath"/>
+          <expression value="Patient.name.first().family"/>
+        </compareToSourceExpression>
+        <operator value="equals"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+  </setup>
+  <test id="01-ReadPatient">
+    <name value="Read Patient"/>
+    <description value="Read a Patient and validate response."/>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
+          <code value="read"/>
+        </type>
+        <resource value="Patient"/>
+        <description value="Read the patient resource on the test server using the id from fixture-patient-create. Prevent URL encoding of the request."/>
+        <encodeRequestUrl value="false"/>
+        <responseId value="fixture-patient-read"/>
+        <targetId value="fixture-patient-create"/>
+      </operation>
+      <assert>
+        <label value="SetupDeletePatient-1"/>
+        <description value="Confirm that the returned HTTP status is 200(OK) or 204(No Content)."/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <label value="01-ReadPatientOK"/>
+        <description value="Confirm that the returned HTTP status is 200(OK)."/>
+        <direction value="response"/>
+        <response value="okay"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned HTTP Header Last-Modified is present. Warning only as the server might not support versioning."/>
+        <direction value="response"/>
+        <headerField value="Last-Modified"/>
+        <operator value="notEmpty"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned resource type is Patient."/>
+        <resource value="Patient"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned Patient conforms to the base FHIR specification."/>
+        <stopTestOnFail value="false"/>
+        <validateProfileId value="patient-profile"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit sourceId reference to read responseId fixture."/>
+        <expression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:family/@value"/>
+        </expression>
+        <operator value="equals"/>
+        <sourceId value="fixture-patient-read"/>
+        <stopTestOnFail value="false"/>
+        <value value="Chalmers"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned Patient contains the expected given name 'Peter'. Uses explicit sourceId reference to read responseId fixture."/>
+        <expression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:given/@value"/>
+        </expression>
+        <operator value="equals"/>
+        <sourceId value="fixture-patient-read"/>
+        <stopTestOnFail value="false"/>
+        <value value="Peter"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and implicit reference to read response payload."/>
+        <compareToSourceId value="fixture-patient-create"/>
+        <compareToSourceExpression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:family/@value"/>
+        </compareToSourceExpression>
+        <expression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:family/@value"/>
+        </expression>
+        <operator value="equals"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and explicit reference to read response payload and default operator of 'equals'."/>
+        <compareToSourceId value="fixture-patient-create"/>
+        <compareToSourceExpression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:given/@value"/>
+        </compareToSourceExpression>
+        <expression>
+          <language value="application/xml"/>
+          <expression value="fhir:Patient/fhir:name/fhir:given/@value"/>
+        </expression>
+        <sourceId value="fixture-patient-read"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="false"/>
+      </assert>
+    </action>
+    <action>
+      <assert>
+        <description value="Confirm that the returned resource contains the expected retained elements and values. Warning only to provide users with reviewable results."/>
+        <minimumId value="fixture-patient-minimum"/>
+        <stopTestOnFail value="false"/>
+        <warningOnly value="true"/>
+      </assert>
+    </action>
+  </test>
+  <teardown>
+    <action>
+      <operation>
+        <type>
+          <system value="http://hl7.org/fhir/restful-interaction"/>
+          <code value="delete"/>
+        </type>
+        <resource value="Patient"/>
+        <description value="Delete the patient resource on the test server using the id from fixture-patient-create."/>
+        <encodeRequestUrl value="true"/>
+        <targetId value="fixture-patient-create"/>
+      </operation>
+    </action>
+  </teardown>
+</TestScript>

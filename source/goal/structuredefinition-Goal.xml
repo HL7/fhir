@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc."/>
+  <description value="Describes the intended objective(s) for a patient, group, or organizational care.  Examples include a patient's weight loss, restoration of an activity of daily living for a patient, obtaining herd immunity via immunization for a group, meeting a process improvement objective for an organization, etc."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="v2"/>
@@ -74,8 +74,8 @@
         <valueCode value="0,0"/>
       </extension>
       <path value="Goal"/>
-      <short value="Describes the intended objective(s) for a patient, group or organization"/>
-      <definition value="Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc."/>
+      <short value="Describes the intended objective(s) for a patient, group, or organizational care"/>
+      <definition value="Describes the intended objective(s) for a patient, group, or organizational care. Examples include a patient's weight loss, restoration of an activity of daily living for a patient, obtaining herd immunity via immunization for a group, meeting a process improvement objective for an organization, etc."/>
       <comment value="Goal can be achieving a particular change or merely maintaining a current state or even slowing a decline."/>
       <min value="0"/>
       <max value="*"/>

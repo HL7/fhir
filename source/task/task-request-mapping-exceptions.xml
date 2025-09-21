@@ -180,6 +180,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="Task.requester">
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
             <resource value="Who is asking for task to be done"/>
@@ -192,7 +193,7 @@
     <divergentElement patternPath="Request.performerType" resourcePath="Task.requestedPerformer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson,Group)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Desired kind of service performer"/>
@@ -204,11 +205,12 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="If specified without indicating a performer, this indicates that the performer must be (or can't be) of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.  If doNotPerform is true, then only one of performerType and performer should be present."/>
-            <resource value=""/>
+            <resource value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="Task.owner">
         <missingTypes _pattern="Reference(HealthcareService,Device)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
             <resource value="Responsible individual"/>

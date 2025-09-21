@@ -111,11 +111,7 @@
       <slicing>
         <discriminator>
           <type value="value"/>
-          <path value="extension.url"/>
-        </discriminator>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="extension.value"/>
+          <path value="code"/>
         </discriminator>
         <ordered value="false"/>
         <rules value="open"/>

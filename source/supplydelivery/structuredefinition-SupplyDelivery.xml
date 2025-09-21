@@ -200,15 +200,18 @@
         <map value=".statusCode, also existence of fulfillment events"/>
       </mapping>
     </element>
-    <element id="SupplyDelivery.patient">
-      <path value="SupplyDelivery.patient"/>
-      <short value="Patient for whom the item is supplied"/>
+    <element id="SupplyDelivery.subject">
+      <path value="SupplyDelivery.subject"/>
+      <short value="Individual(s) or organization  for whom the item is supplied"/>
       <definition value="A link to a resource representing the person whom the delivered item is for."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -426,7 +429,8 @@
     <element id="SupplyDelivery.receiver">
       <path value="SupplyDelivery.receiver"/>
       <short value="Who received the delivery"/>
-      <definition value="Identifies the individual or organization that received the delivery."/>
+      <definition value="Identifies the individual(s) or organization that received the delivery."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -434,6 +438,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="rim"/>

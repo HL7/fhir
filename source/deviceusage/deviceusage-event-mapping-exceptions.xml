@@ -30,10 +30,26 @@
             <resource value="Allows tracing of authorization for the DeviceUsage and tracking whether proposals/recommendations were acted upon."/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.partOf" resourcePath="DeviceUsage.partOf">
+        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
+        <extraTypes _resource="Reference(DeviceUsage)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Part of referenced event"/>
+            <resource value="Part of referenced device usage"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A larger event of which this particular device usage is a component or step."/>
+            <resource value="A larger event of which this particular device usage is one part the usage."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Not to be used to link an device usage to an Encounter - use 'context' for that."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="DeviceUsage.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
-            <resource value="active | completed | not-done | entered-in-error +"/>
+            <resource value="preparation | active | completed | not-done | entered-in-error +"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the device usage."/>
@@ -41,18 +57,17 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).&#13;&#13;This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid."/>
+            <resource value="DeviceUsage is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).&#13;&#13;This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid. When the status is 'not-done', the [event-statusReason](http://hl7.org/fhir/StructureDefinition/event-statusReason) extension should be used to indicate why the DeviceUsage was not done."/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.subject" resourcePath="DeviceUsage.patient">
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+    <divergentElement patternPath="Event.subject" resourcePath="DeviceUsage.subject">
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="Patient using device"/>
+            <resource value="Individuals(s) who used the device"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The patient who used the device."/>
+            <resource value="The individual(s) who used the device."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the device usage to the Patient context.  May also affect access control."/>
@@ -95,6 +110,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="DeviceUsage.informationSource">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <missingTypes _pattern="Reference(CareTeam,Device)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed device usage"/>
             <resource value="Who made the statement"/>
@@ -144,7 +160,6 @@
             <resource value="Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement."/>
         </definitionUnmatched>
     </divergentElement>
-    <unmappedElement patternPath="Event.partOf" reason="Unknown"/>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
     <unmappedElement patternPath="Event.code" reason="Unknown"/>

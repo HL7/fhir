@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="example-bundle-allergyintolerance"/>
+  <type value="searchset"/>
+  <total value="1"/>
+  <link>
+    <relation value="self"/>
+    <url value="http://example.org/fhir/AllergyIntolerance?_id=79613&amp;_revinclude=Provenance:target"/>
+  </link>
+  <entry>
+    <fullUrl value="http://example.org/fhir/AllergyIntolerance/79613"/>
+    <resource>
+      <AllergyIntolerance>
+        <id value="79613"/>
+        <meta>
+          <versionId value="1"/>
+          <lastUpdated value="2019-07-09T15:26:23.217+00:00"/>
+        </meta>
+        <clinicalStatus>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"/>
+            <code value="active"/>
+            <display value="Active"/>
+          </coding>
+        </clinicalStatus>
+        <verificationStatus>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"/>
+            <code value="confirmed"/>
+            <display value="Confirmed"/>
+          </coding>
+        </verificationStatus>
+        <category value="medication"/>
+        <criticality value="high"/>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <version value="http://snomed.info/sct/731000124108"/>
+            <code value="762952008"/>
+            <display value="Peanuts"/>
+          </coding>
+          <text value="Peanuts"/>
+        </code>
+        <patient>
+          <reference value="Patient/example"/>
+        </patient>
+        <onsetDateTime value="2017-06-09"/>
+        <reaction>
+          <manifestation>
+          <concept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <version value="http://snomed.info/sct/731000124108"/>
+              <code value="247472004"/>
+              <display value="Hives"/>
+            </coding>
+          </concept>
+          </manifestation>
+          <onset value="2017-06-09"/>
+        </reaction>
+      </AllergyIntolerance>
+    </resource>
+    <search>
+      <mode value="match"/>
+    </search>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/fhir/Provenance/79614"/>
+    <resource>
+      <Provenance>
+        <id value="79614"/>
+        <target>
+          <reference value="AllergyIntolerance/79613/_history/1"/>
+        </target>
+        <recorded value="2019-07-09T15:26:23.217+00:00"/>
+        <agent>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+              <code value="custodian"/>
+              <display value="Custodian"/>
+            </coding>
+          </type>
+          <who>
+            <reference value="Organization/example"/>
+          </who>
+        </agent>
+        <agent>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+              <code value="author"/>
+              <display value="Author"/>
+            </coding>
+          </type>
+          <who>
+            <reference value="Practitioner/f004"/>
+          </who>
+          <onBehalfOf>
+            <reference value="Organization/example"/>
+          </onBehalfOf>
+        </agent>
+      </Provenance>
+    </resource>
+    <search>
+      <mode value="include"/>
+    </search>
+  </entry>
+</Bundle>
