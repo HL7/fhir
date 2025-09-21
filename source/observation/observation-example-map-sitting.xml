@@ -1,26 +1,5 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
 	<id value="map-sitting"/>
-
-	<!--	To be used only when the body position in not precoordinated in the observation code.-->
-	<extension url="http://hl7.org/fhir/StructureDefinition/observation-bodyPosition">
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="33586001"/>
-				<display value="Sitting position (finding)"/>
-			</coding>
-		</valueCodeableConcept>
-	</extension>
-		<!--	The qualitative change in the value relative to the previous measurement. Usually only recorded if the change is clinically significant.-->
-	<extension url="http://hl7.org/fhir/StructureDefinition/observation-delta">
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="1250004"/>
-				<display value="Decreased (qualifier value)"/>
-			</coding>
-		</valueCodeableConcept>
-	</extension>
 	<status value="final"/>
 	<category>
 		<coding>

@@ -22,7 +22,6 @@
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <missingTypes _pattern="code" reason="Unknown"/>
         <extraTypes _resource="CodeableConcept" reason="Unknown"/>
-        <modifier _pattern="true" _resource="false" reason="Unknown"/>
         <bindingStrength _pattern="required" _resource="preferred" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="draft | active | retired | unknown"/>
@@ -42,9 +41,6 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.subject" resourcePath="ClinicalUseDefinition.subject">
-        <missingTypes _pattern="CodeableReference(Group)" reason="Unknown"/>
-        <extraTypes _resource="Reference(MedicinalProductDefinition,Medication,ActivityDefinition,PlanDefinition,Device,DeviceDefinition,SubstanceDefinition,NutritionProduct,BiologicallyDerivedProduct)" reason="Unknown"/>
-        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Type of individual the defined service is for"/>
             <resource value="The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning"/>

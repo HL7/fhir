@@ -184,6 +184,10 @@
 				<strength value="extensible"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
 			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.versionAlgorithm[x]"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.name">
 			<path value="ObservationDefinition.name"/>
@@ -430,6 +434,10 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.coyprightLabel"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.approvalDate">
 			<path value="ObservationDefinition.approvalDate"/>
@@ -488,6 +496,10 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.derivedFromCanonical"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.derivedFromUri">
 			<path value="ObservationDefinition.derivedFromUri"/>
@@ -500,6 +512,10 @@
 				<code value="uri"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.derivedFromUri"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.subject">
 			<path value="ObservationDefinition.subject"/>
@@ -512,6 +528,10 @@
 				<code value="CodeableConcept"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.subject"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.performerType">
 			<path value="ObservationDefinition.performerType"/>
@@ -523,6 +543,10 @@
 				<code value="CodeableConcept"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.performerType"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.category">
 			<path value="ObservationDefinition.category"/>
@@ -583,6 +607,10 @@
 			<mapping>
 				<identity value="rim"/>
 				<map value="code"/>
+			</mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.code"/>
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.permittedDataType">
@@ -789,10 +817,10 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/referencerange-appliesto"/>
 			</binding>
 		</element>
-		<element id="ObservationDefinition.qualifiedValue.gender">
-			<path value="ObservationDefinition.qualifiedValue.gender"/>
+		<element id="ObservationDefinition.qualifiedValue.sexParameterForClinicalUse">
+			<path value="ObservationDefinition.qualifiedValue.sexParameterForClinicalUse"/>
 			<short value="male | female | other | unknown"/>
-			<definition value="The gender this  set of qualified values applies to."/>
+			<definition value="The sex parameter for clinical use this set of qualified values applies to."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -839,8 +867,8 @@
 		</element>
 		<element id="ObservationDefinition.qualifiedValue.condition">
 			<path value="ObservationDefinition.qualifiedValue.condition"/>
-			<short value="Condition associated with the set of qualified values"/>
-			<definition value="Text based condition for which the the set of qualified values is valid."/>
+			<short value="Validity criterion for the qualified value"/>
+			<definition value="Description of the criterion for which the qualified value is valid."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

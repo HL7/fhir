@@ -169,7 +169,7 @@
 
     <element id="SupplyRequest.intent">
       <path value="SupplyRequest.intent"/>
-      <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+      <short value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Whether the request is a proposal, plan, or an original order."/>
       <comment value="This element is immutable. It cannot be changed for the same resource instance. It is expected that the type of requester will be restricted for different stages of a SupplyRequest. For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#xD;&#xD;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#xD;&#xD;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
       <min value="1"/>
@@ -216,6 +216,27 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Request.basedOn"/>
+      </mapping>
+    </element>
+    <element id="SupplyRequest.groupIdentifier">
+      <path value="SupplyRequest.groupIdentifier"/>
+      <short value="Composite request this is part of"/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <alias value="grouperId"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.groupIdentifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=COMP].source[moodCode=INT].identifier"/>
       </mapping>
     </element>
     <element id="SupplyRequest.category">

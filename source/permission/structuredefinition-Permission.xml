@@ -257,7 +257,7 @@
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="per-1"/>
+        <key value="prm-1"/>
         <severity value="error"/>
         <human value="If the import element is populated then the type, data, and activity shall not be populated"/>
         <expression value="import.exists() implies type.exists().not() and data.exists().not() and activity.exists().not()"/>
@@ -275,7 +275,7 @@
       <definition value="This rule is expressed in another Permission resource."/>
       <min value="0"/>
       <max value="1"/>
-      <condition value="per-1" />
+      <condition value="prm-1" />
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Permission"/>
@@ -289,7 +289,7 @@
       <definition value="deny | permit."/>
       <min value="0"/>
       <max value="1"/>
-      <condition value="per-1" />
+      <condition value="prm-1" />
       <type>
         <code value="code"/>
       </type>
@@ -319,7 +319,7 @@
       <comment value="Within a `.rule` any repetitions of the `.data` element are in an OR relationship. That is to say that the data identified by the rule is all the data identified by all repetitions of `.data`. Thus to identify one rule that applies to data tagged with `STD` and data that is tagged with `HIV`, one would repeat this at the `.data` level. Within the `.data` element, all elements and all repetitions of elements, are in an AND relationship. Thus to select data that has both `STD` and `HIV` one puts both into one `.rule`. To have different rules for `STD` from `HIV`, one would need to have two `.rule` elements. To have a rule that applies to both, those that have just `STD` and just `HIV`, this repetition may also be done at the data level as described above."/>
       <min value="0"/>
       <max value="*"/>
-      <condition value="per-1" />
+      <condition value="prm-1" />
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -373,6 +373,24 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="Permission.rule.data.resourceType">
+      <path value="Permission.rule.data.resourceType"/>
+      <short value="e.g. Resource Type, Profile, etc"/>
+      <definition value="The resourceType(s) covered by this rule. The type can be a FHIR resource type or a profile on a type that indicates what information the rule applies to."/>
+      <comment value="The intention of the resourceType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <description value="The resource types a consent provision covers."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+      </binding>
+    </element>
+
     <element id="Permission.rule.data.security">
       <path value="Permission.rule.data.security"/>
       <short value="Security tag code on .meta.security"/>
@@ -430,7 +448,7 @@
       <comment value="Within a `.rule` any repetitions of the `.activity` element are in an OR relationship. That is to say that the rule applies to all the repetitions of `.activity`. Thus to identify one rule that applies to both `TREAT` and `HOPERAT`, one would have one rule with repetitions at the .activity level. Within the `.activity` element, all elements and all repetitions of elements, are in an AND relationship. Thus to control an actity that is covering purpose of both `TREAT` and `HOPERAT`, one rule with an `.activity` `.purpose` holding both `TREAT` and `HOPERAT` can define that rule. However this will not cover activities covering only `TREAT`, for that repeat at the `.activity` with just a `.purpose` of `TREAT`."/>
       <min value="0"/>
       <max value="*"/>
-      <condition value="per-1" />
+      <condition value="prm-1" />
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -491,7 +509,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>

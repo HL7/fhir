@@ -40,7 +40,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.replaces" resourcePath="ServiceRequest.replaces">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(ServiceRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(ServiceRequest,MedicationRequest,RequestOrchestration,CarePlan,DeviceRequest,CommunicationRequest,NutritionOrder,VisionPrescription,SupplyRequest)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Request(s) replaced by this service request"/>
             <resource value="What request replaces"/>
@@ -90,6 +90,16 @@
             <resource value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, revoked or placed on-hold. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.statusReason" resourcePath="ServiceRequest.statusReason">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the service request. Note that any change to the state requires the removal of any existing statusReasons, and, if appropriate, populating new statusReasons."/>
+            <resource value="Provides reason why the service request status is what it is. The statusReason can be used to explain why a service request is suspended, cancelled, or on hold, including administrative and clinical reasons."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;suspended&quot; or &quot;cancelled&quot;.  The reason why the service request was created at all is captured in reasonCode, not here. ."/>
+            <resource value="This is generally not present when the service request has a status of 'active' or 'completed'. There is potential overlap between ServiceRequest.reason (why the service is being requested) and ServiceRequest.statusReason (why the request is in its current status) early in the performance of the request when the reason for the service request might influence the initial status."/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.intent" resourcePath="ServiceRequest.intent">
         <shortUnmatched reason="Unknown">
             <_pattern value="proposal | plan | order (immutable)"/>
@@ -101,7 +111,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#10;&#10;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#10;&#10;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
-            <resource value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance. For child ServiceRequests, the default statuses could be the same as the parent ServiceRequest but does not need to be."/>
+            <resource value="This element is expected to be immutable. E.g. A 'proposal' instance should never change to be a 'plan' instance or 'order' instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#10;&#10;One exception to this is that the granularity of ServiceRequest.intent is allowed to change. For example, a ServiceRequest identified as an 'order' might later be clarified to be a 'filler-order'. Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
@@ -297,6 +307,5 @@
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
     <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
-    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Request.product" reason="Unknown"/>
 </mappingExceptions>

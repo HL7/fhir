@@ -129,47 +129,6 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="Task.instantiatesCanonical">
-      <path value="Task.instantiatesCanonical"/>
-      <short value="Formal definition of task"/>
-      <definition value="The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
-      <requirements value="Enables a formal definition of how the task is to be performed, enabling automation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesCanonical, Event.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="Task.instantiatesUri">
-      <path value="Task.instantiatesUri"/>
-      <short value="Formal definition of task"/>
-      <definition value="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
-      <requirements value="Enables a formal definition of how the task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation to be associated with a task), enabling automation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesUri"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
     <element id="Task.basedOn">
       <path value="Task.basedOn"/>
       <short value="Request fulfilled by this task"/>
@@ -276,7 +235,7 @@
       <definition value="An explanation as to why this task is held, failed, was refused, etc."/>
       <comment value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
       </type>
@@ -462,10 +421,10 @@
       <path value="Task.focus"/>
       <short value="What task is acting on"/>
       <definition value="The request being fulfilled or the resource being manipulated (changed, suspended, etc.) by this task."/>
-      <comment value="If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.)."/>
+      <comment value="If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.). Typically a Task should only have one focus.  If multiple focuses are provided, then action must be taken on the complete set as a whole (i.e,. all must be accepted, rejected, cancelled, held, completed, etc. as a whole). If there is a possibility to have different statuses for different focuses, then there SHALL be a separate Task instance for each focus."/>
       <requirements value="Used to identify the thing to be done."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
@@ -623,12 +582,14 @@
       <path value="Task.requester"/>
       <short value="Who is asking for task to be done"/>
       <definition value="The creator of the task."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <requirements value="Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
@@ -653,6 +614,7 @@
       <path value="Task.requestedPerformer"/>
       <short value="Who should perform the Task"/>
       <definition value="The kind of participant or specific participant that should perform the task."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <requirements value="Use to distinguish tasks on different activity queues."/>
       <min value="0"/>
       <max value="*"/>
@@ -666,6 +628,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -692,7 +655,7 @@
       <path value="Task.owner"/>
       <short value="Responsible individual"/>
       <definition value="Party responsible for managing task execution."/>
-      <comment value="Tasks may be created with an owner not yet identified."/>
+      <comment value="Tasks may be created with an owner not yet identified. Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <requirements value="Identifies who is expected to perform this task."/>
       <alias value="Performer"/>
       <alias value="Executer"/>
@@ -706,6 +669,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -758,6 +722,7 @@
       <path value="Task.performer.actor"/>
       <short value="Who performed the task"/>
       <definition value="The actor or entity who performed the task."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -766,10 +731,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
     </element>

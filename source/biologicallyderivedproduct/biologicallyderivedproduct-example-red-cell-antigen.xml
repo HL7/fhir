@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BiologicallyDerivedProduct xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/BiologicallyDerivedProduct.xsd">
+  <id value="example-red-cell-antigen"/>  
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/medicalproductofhumanorigin"/>
+  </meta>
+  <productCategory>
+    <coding>
+      <system value="http://hl7.org/fhir/product-category"/>
+      <code value="mpho"/>
+    </coding>
+    <text value="Medical Product of Human Origin"/>
+  </productCategory>
+  <productCode>
+    <coding>
+     <system value="https://www.isbt128/org/uri/ProductDescriptionCode"/>
+     <code value="E0398"/>
+   </coding>
+  <text value=" RED BLOOD CELLS|CPD-AS5/450mL/refg|Irradiated|ResLeu: Less than 5E6"/>
+ </productCode>
+  <identifier>
+    <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier"/>
+    <value value="00000E0398A999924123456A00000"/> 
+  </identifier>
+ <biologicalSourceEvent>
+   <system value="https://www.isbt128.org/uri/DonationIdentificationNumber"/>
+   <value value="A999924123456"/>
+ </biologicalSourceEvent>
+ <division value="A00000"/>
+ <expirationDate value="2024-02-02T23:59:00-05:00"/>
+ <property>
+    <type>
+      <coding>
+      <system value="https://www.isbt128.org/uri"/>
+      <code value="RedCellAntigen"/>
+      </coding>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://www.isbt128.org/uri/RedCellAntigen"/>
+        <code value="0040020206"/>
+        <display value="C+"/>
+      </coding>
+    </valueCodeableConcept>  
+  </property>
+  <property>
+    <type>
+      <coding>
+      <system value="https://www.isbt128.org/uri"/>
+      <code value="RedCellAntigen"/>
+      </coding>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://www.isbt128.org/uri/RedCellAntigen"/>
+        <code value="0040040106"/>
+        <display value="c-"/>
+      </coding>
+    </valueCodeableConcept>  
+  </property>
+  <property>
+    <type>
+      <coding>
+      <system value="https://www.isbt128.org/uri"/>
+      <code value="RedCellAntigen"/>
+      </coding>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://www.isbt128.org/uri/RedCellAntigen"/>
+        <code value="0040030106"/>
+        <display value="E-"/>
+      </coding>
+    </valueCodeableConcept>  
+  </property>
+  <property>
+    <type>
+      <coding>
+      <system value="https://www.isbt128.org/uri"/>
+      <code value="RedCellAntigen"/>
+      </coding>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://www.isbt128.org/uri/RedCellAntigen"/>
+        <code value="0040050206"/>
+        <display value="e+"/>
+     </coding>
+   </valueCodeableConcept>  
+ </property>
+ <property>
+    <type>
+      <coding>
+      <system value="https://www.isbt128.org/uri"/>
+      <code value="RedCellAntigen"/>
+      </coding>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://www.isbt128.org/uri/RedCellAntigen"/>
+        <code value="0060010106"/>
+        <display value="K-"/>
+      </coding>
+    </valueCodeableConcept>  
+  </property>
+</BiologicallyDerivedProduct>

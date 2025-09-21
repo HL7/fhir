@@ -1,25 +1,40 @@
-
 plugins {
     java
     application
 }
 
 repositories {
-    jcenter()
+
     google()
     mavenLocal()
     mavenCentral()
+    maven {
+        name = "Central Portal Snapshots"
+        url = uri("https://central.sonatype.com/repository/maven-snapshots/")
+
+        // Only search this repository for the specific dependency
+        content {
+            includeModule("org.hl7.fhir", "kindling")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.core")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.utilities")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu2")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu2016may")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu3")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.dstu3.support")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.r4")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.r4b")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.r5")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.convertors")
+            includeModule("ca.uhn.hapi.fhir", "org.hl7.fhir.validation")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.model")
+            includeModule("ca.uhn.hapi.fhir","org.hl7.fhir.support")
+        }
+    }
     maven {
         url = uri("https://jitpack.io")
     }
     maven {
         url = uri("https://plugins.gradle.org/m2/")
-    }
-    maven {
-        url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
-    }
-    maven {
-        url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
     }
 }
 
@@ -61,6 +76,6 @@ task("printVersion") {
 }
 
 configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }

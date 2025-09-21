@@ -13,13 +13,6 @@
 		</coding>
 		<text value="Vital Signs"/>
 	</category>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="8302-2"/>
-			<display value="Body height"/>
-		</coding>
-	</category>
 	<!--  This example demonstrates a measurement code for "Body Length" ( typically used for infants) which is more specific than the "interoperability category" code for "Body height". -->
 	<code>
 		<coding>
@@ -27,6 +20,12 @@
 			<code value="8306-3"/>
 			<display value="Body height --lying"/>
 			<userSelected value="true"></userSelected>
+		</coding>
+		<coding>
+		  <!-- for the vital signs profile -->
+			<system value="http://loinc.org"/>
+			<code value="8302-2"/>
+			<display value="Body height"/>
 		</coding>
 		<text value="Body Length"/>
 	</code>
