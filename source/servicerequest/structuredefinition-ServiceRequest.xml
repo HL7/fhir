@@ -301,8 +301,6 @@
       <definition value="A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier."/>
       <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <requirements value="Some business processes need to know if multiple items were ordered as part of the same &quot;requisition&quot; for billing or other purposes."/>
-      <alias value="grouperId"/>
-      <alias value="groupIdentifier"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -395,7 +393,7 @@
         <valueString value="[#3720][#10296][#11119]#13196]."/>
       </extension>
       <path value="ServiceRequest.intent"/>
-      <short value="proposal | plan | directive | order +"/>
+      <short value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
       <comment value="This element is expected to be immutable. E.g. A 'proposal' instance should never change to be a 'plan' instance or 'order' instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xA;&#xA;One exception to this is that the granularity of ServiceRequest.intent is allowed to change. For example, a ServiceRequest identified as an 'order' might later be clarified to be a 'filler-order'. Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
       <min value="1"/>
