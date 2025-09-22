@@ -84,4 +84,3 @@ This project is maintained by [Grahame Grieve][Link-grahameGithub] and [Mark Ian
 [Link-markGithub]: https://github.com/markiantorno
 [Badge-AzureMasterPipeline]: https://dev.azure.com/fhir-pipelines/fhir-publisher/_apis/build/status/Master%20Branch%20Pipeline?branchName=refs%2Fpull%2F1084%2Fmerge
 [Badge-AzureR4BPipeline]: https://dev.azure.com/fhir-pipelines/fhir-publisher/_apis/build/status/R4B%20Pipeline?branchName=R4B
-
