@@ -607,22 +607,6 @@
         <map value="Physical Characteristics, attribute's value"/>
       </mapping>
     </element>
-    <!--element id="SubstanceDefinition.referenceInformation">
-      <path value="SubstanceDefinition.referenceInformation"/>
-      <short value="General information detailing this substance"/>
-      <definition value="General information detailing this substance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp-substance"/>
-        <map value="Reference_Information"/>
-      </mapping>
-    </element-->
     <element id="SubstanceDefinition.molecularWeight">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="750,640"/>
