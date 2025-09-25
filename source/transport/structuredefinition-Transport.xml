@@ -283,7 +283,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -608,10 +608,10 @@
         <map value=".outboundRelationship[typeCode=RSON].target"/>
       </mapping>
     </element>
-    <element id="Transport.history">
-      <path value="Transport.history"/>
-      <short value="Parent (or preceding) transport"/>
-      <definition value="The transport event prior to this one."/>
+    <element id="Transport.priorTransport">
+      <path value="Transport.priorTransport"/>
+      <short value="THe most recent transport"/>
+      <definition value="The immediately preceding Transport event."/>
       <min value="0"/>
       <max value="1"/>
       <type>
