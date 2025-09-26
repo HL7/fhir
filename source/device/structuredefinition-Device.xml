@@ -75,6 +75,21 @@
     <uri value="https://www.bluetooth.com"/>
     <name value="Bluetooth Technology"/>
   </mapping>
+  <mapping>
+    <identity value="11073-10206"/>
+    <uri value="https://www.iso.org/obp/ui/en/#iso:std:iso-ieee:11073:-10206:ed-1:v1:en)"/>
+    <name value="IEEE 11073-10206 ACOM PHD "/>
+  </mapping>
+   <mapping>
+    <identity value="11073-10201"/>
+    <uri value="https://www.iso.org/standard/77339.html"/>
+    <name value="IEEE 11073-10201 DIM VMS,MDS, VMD"/>
+  </mapping>
+  <mapping>
+    <identity value="11073-10207"/>
+    <uri value="https://www.iso.org/standard/76538.html"/>
+    <name value="IEEE 11073-10207 SDC MDS, VMD, Channel"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="Device"/>
@@ -147,6 +162,18 @@
       <mapping>
         <identity value="btle"/>
         <map value="system = urn:oid &#xA; value = DIS System ID characteristic value (8 octets hexadecimal string)"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10206"/>
+        <map value="identifier.system = IEEE EUI-64 or similar and identifier.value = SystemInfo.system-identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10201"/>
+        <map value="identifier.system = IEEE EUI-64 or a local system and identifier.value = VMS::System-Id, MDS::Soft-ID"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10207"/>
+        <map value="identifier.system = .../ProductionSpecification/ComponentId/Root and identifier.value = .../ProductionSpecification/ComponentId/Extension"/>
       </mapping>
     </element>
     <!-- <element id="Device.displayName">
@@ -455,6 +482,18 @@
         <identity value="btle"/>
         <map value="DIS Manufacturer Name String characteristic value"/>
       </mapping>
+      <mapping>
+        <identity value="11073-10206"/>
+        <map value="manufacturer = SystemInfo.system-manufacturer"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10201"/>
+        <map value="manufacturer = VMS::System-Model::manufacturer, VMD::Vmd-Model::manufacturer"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10207"/>
+        <map value="manufacturer = MdsDescriptor/MetaData/Manufacturer"/>
+      </mapping>
     </element>
     <element id="Device.manufactureDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -555,6 +594,18 @@
       <mapping>
         <identity value="btle"/>
         <map value="DIS Serial Number String characteristic value"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10206"/>
+        <map value="serialNumber = SystemInfo.serial-number"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10201"/>
+        <map value="serialNumber = VMS::Production-Specification[spec-type=serial-number]::prod-spec"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10207"/>
+        <map value="serialNumber = MdsDescriptor/MetaData/SerialNumber"/>
       </mapping>
     </element>
     <element id="Device.name">
@@ -667,6 +718,18 @@
         <identity value="btle"/>
         <map value="DIS Model Number String characteristic value"/>
       </mapping>
+      <mapping>
+        <identity value="11073-10206"/>
+        <map value="modelNumber = SystemInfo.system-model-number"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10201"/>
+        <map value="modelNumber = VMS::System-Model::model-number, VMD::Vmd-Model::model-number"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10207"/>
+        <map value="modelNumber = MdsDescriptor/MetaData/ModelNumber and name = MdsDescriptor/MetaData/ModelName"/>
+      </mapping>
     </element>
     <element id="Device.partNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -733,6 +796,18 @@
       <mapping>
         <identity value="btle"/>
         <map value="text = Appearance Value name or Primary Service name &#xA; coding = Appearance Value or Primary Service UUID"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10206"/>
+        <map value="type = MDC_MOC_VMS_MDS_SIMP (fixed value for PHD)"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10201"/>
+        <map value="type = VMO::Type, VMS::System-Type and type.text = VMO::Label-String"/>
+      </mapping>
+      <mapping>
+        <identity value="11073-10207"/>
+        <map value="type = MdsDescriptor/Type,MdsDescriptor/Vmd/Type, MdsDescriptor/Vmd/Channel/Type"/>
       </mapping>
     </element>
     <element id="Device.deviceVersion">
@@ -842,6 +917,10 @@
         <description value="The kind of standards used by the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
       </binding>
+      <mapping>
+        <identity value="11073-10206"/>
+        <map value="conformsTo.category = communication (fixed value)"/>
+      </mapping>
     </element>
     <element id="Device.conformsTo.specification">
       <path value="Device.conformsTo.specification"/>
@@ -860,6 +939,10 @@
         <description value="The type of version indicated for the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-type"/>
       </binding>
+      <mapping>
+        <identity value="11073-10206"/>
+        <map value="conformsTo.specification = SystemInfo.System-Type-Spec-List[i].type"/>
+      </mapping>
     </element>
     <element id="Device.conformsTo.version">
       <path value="Device.conformsTo.version"/>
@@ -870,6 +953,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="11073-10206"/>
+        <map value="conformsTo.version = SystemInfo.System-Type-Spec-List[i].version"/>
+      </mapping>
     </element>
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
