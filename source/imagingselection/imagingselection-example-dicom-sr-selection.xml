@@ -16,6 +16,24 @@
     <value value="RNKZPSBNZLNADAZV"/>
   </identifier>
 </subject>
+<basedOn>
+  <type value="ServiceRequest"/>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="ACSN"/>
+      </coding>
+    </type>
+    <value value="W12342398"/>
+    <assigner>
+      <reference value="Organization/dicom-organization"/>
+    </assigner>
+  </identifier>
+</basedOn>
+<basedOn>
+  <reference value="ServiceRequest/example"/>
+</basedOn>
 <issued value="2011-01-01T11:01:20+03:00"/>
 <derivedFrom>
   <type value="ImagingStudy"/>
@@ -38,6 +56,9 @@
 <instance>
   <uid value="1.2.840.113747.20080222.95946058738699434359950275.1.0"/>
   <sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.88.22"/>
-  <subset value="1.2.840.113747.20080222.95946058738699434572916359950275.10.1"/>
+  <referencedContentItemIdentifier value="1"/>
+  <referencedContentItemIdentifier value="1"/>
+  <referencedContentItemIdentifier value="2"/>
+  <referencedContentItemIdentifier value="4"/>
 </instance>
 </ImagingSelection>
