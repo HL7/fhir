@@ -451,11 +451,6 @@ signatures.html
       <page type="resource" resource="ClinicalUseDefinition"/>
       <page type="resource" resource="Ingredient"/>
       <page type="resource" resource="SubstanceDefinition"/>
-      <page type="resource" resource="SubstancePolymer"/>
-      <page type="resource" resource="SubstanceProtein"/>
-      <page type="resource" resource="SubstanceNucleicAcid"/>
-      <page type="resource" resource="SubstanceReferenceInformation"/>
-      <page type="resource" resource="SubstanceSourceMaterial"/>
       <page title="MarketingStatus" filename="marketingstatus.html">
         <page title="Examples" filename="marketingstatus-examples.html"/>
         <page title="Detailed Descriptions" filename="marketingstatus-definitions.html"/>
