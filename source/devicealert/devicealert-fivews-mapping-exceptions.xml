@@ -1,8 +1,5 @@
 <mappingExceptions pattern="FiveWs" resource="DeviceAlert" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
-    <divergentElement patternPath="FiveWs.context" resourcePath="DeviceAlert.partOf">
-        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-    </divergentElement>
     <unmappedElement patternPath="FiveWs.recorded" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.author" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.actor" reason="Unknown"/>
