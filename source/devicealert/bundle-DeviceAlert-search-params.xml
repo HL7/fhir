@@ -87,6 +87,7 @@
         <type value="reference" />
         <target value="Patient" />
         <target value="Device" />
+        <expression value="DeviceAlert.subject" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
