@@ -8,13 +8,14 @@
 <p>CommunicationRequest is one of the <a href="workflow.html#request">request</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
 
 <p>
-This resource is a record of a request for a communication to be performed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The requester requests the sender to send the payload to the recipient. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Uses of communication request include:
+This resource is a record of a request for a communication to be performed. A communication is a conveyance of information from one entity, a sender, to another entity, a receiver. The requester requests the sender to send the payload to the recipient. The sender and receivers may be patients, practitioners, related persons, organizations, and devices. Some uses of communication request include:
 </p>
 <ul>
 <li>A computer-based decision-support system requesting a reminder or alert be delivered to a responsible provider</li>
 <li>A physician requesting notification from the nurse if a patient's temperature exceeds a value</li>
 <li>A monitoring system or a provider requesting a staff member or department to notify a public health agency of a patient presenting with a communicable disease reportable to the public health agency</li>
 <li>A computer-based decision-support system proposes to send educational material to a patient</li>
+<li>A physician requesting that the results of an imaging order they placed are also sent to a third party (provider, organization, etc.)</li>
 </ul>
 </div>
 
