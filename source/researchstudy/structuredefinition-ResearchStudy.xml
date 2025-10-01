@@ -579,7 +579,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
         <identity value="BRIDG5.1"/>

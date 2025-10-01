@@ -371,12 +371,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ExampleScenario.jurisdiction">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
       <path value="ExampleScenario.jurisdiction"/>
-      <short value="Intended jurisdiction for example scenario (if applicable)"/>
-      <definition value="A legal or geographic region in which the example scenario is intended to be used."/>
+      <short value="Jurisdiction of the authority that maintains the example scenario (if applicable)"/>
+      <definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
       <comment value="It may be possible for the example scenario to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
@@ -393,7 +390,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
       </binding>
     </element>
     <element id="ExampleScenario.purpose">
@@ -1007,7 +1004,7 @@
       </type>
       <binding>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/testscript-operation-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/examplescenario-operation-codes"/>
       </binding>
     </element>
     <element id="ExampleScenario.process.step.operation.title">

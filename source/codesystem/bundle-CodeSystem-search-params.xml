@@ -213,7 +213,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-jurisdiction"/>
-        <description value="Intended jurisdiction for the code system"/>
+        <description value="Jurisdiction of the authority that maintains the the code system"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="CodeSystem.jurisdiction"/>
