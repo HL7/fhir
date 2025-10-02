@@ -20,6 +20,8 @@
 
  <p>Links to these extensions can be found in the <a href="https://build.fhir.org/ig/HL7/fhir-extensions/extensions-Device.html">FHIR Extension Pack</a>. Feedback from implementers is welcomed to inform further refinement and usage guidance.</p>
 	</blockquote>
+</div>  
+<div>  
 <h2>Scope and Usage</h2>
 <p>This is a base resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, which device was implanted in or explanted from a patient, dispensing a device to a patient for their use, managing inventory, or when requesting a specific device for a patient's use. Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health. Medical devices may also include some types of software.</p>
 <p>Non-medical devices may include items such as a machine, cellphone, computer, software application or algorithm, etc. In short, a Device can range from a tongue depressor to an MRI. The fields in the Device resource must be flexible enough to cover this range.</p>
@@ -40,7 +42,8 @@ When a device gets replaced by another device of the same type. In this case, a 
 </ol>
 </div>
 
-<div>
+
+<div>  
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 
