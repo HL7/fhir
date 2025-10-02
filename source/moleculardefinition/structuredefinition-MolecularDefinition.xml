@@ -464,17 +464,14 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand[x]">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand[x]"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand"/>
       <short value="SuBand"/>
       <definition value="The sub-band of this end interval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>
