@@ -175,7 +175,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-jurisdiction"/>
-        <description value="Intended jurisdiction for the requirements"/>
+        <description value="Jurisdiction of the authority that maintains the the requirements"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="Requirements.jurisdiction"/>
