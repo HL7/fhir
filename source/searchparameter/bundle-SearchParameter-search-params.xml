@@ -270,7 +270,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/SearchParameter-jurisdiction"/>
-        <description value="Intended jurisdiction for the search parameter"/>
+        <description value="Jurisdiction of the authority that maintains the the search parameter"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="SearchParameter.jurisdiction"/>

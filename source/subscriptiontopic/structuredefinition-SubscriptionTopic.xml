@@ -443,9 +443,6 @@
 			</mapping>
 		</element>
 		<element id="SubscriptionTopic.jurisdiction">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
 			<path value="SubscriptionTopic.jurisdiction"/>
 			<short value="Intended jurisdiction of the SubscriptionTopic (if applicable)"/>
 			<definition value="A jurisdiction in which the Topic is intended to be used."/>
@@ -465,7 +462,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="Countries and regions within which this artifact is targeted for use."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
 			</binding>
 			<mapping>
 				<identity value="workflow"/>
