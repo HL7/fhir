@@ -527,7 +527,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="trial-use" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -540,6 +540,7 @@
         <description value="Procedure during which the alert occurred" />
         <code value="procedure" />
         <type value="reference" />
+        <status value="active" />
         <target value="Procedure" />
         <expression value="DeviceAlert.procedure" />
         <processingMode value="normal" />
@@ -556,7 +557,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="trial-use" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -569,6 +570,7 @@
         <description value="Encounter during which the alert occurred" />
         <code value="encounter" />
         <type value="reference" />
+        <status value="active" />
         <target value="Encounter" />
         <expression value="DeviceAlert.encounter" />
         <processingMode value="normal" />
