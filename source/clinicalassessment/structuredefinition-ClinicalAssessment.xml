@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalAssessment&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score."/>
+  <description value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -80,7 +80,7 @@
       </extension>
       <path value="ClinicalAssessment"/>
       <short value="A clinical assessment performed when planning treatments and management strategies for a patient"/>
-      <definition value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called &quot;ClinicalAssessment&quot; rather than &quot;ClinicalAssessment&quot; to avoid confusion with the recording of assessment tools such as Apgar score."/>
+      <definition value="A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -447,14 +447,18 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="ClinicalAssessment.prognosisCodeableConcept">
-      <path value="ClinicalAssessment.prognosisCodeableConcept"/>
+    <element id="ClinicalAssessment.prognosis">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#50412"/>
+      </extension>
+      <path value="ClinicalAssessment.prognosis"/>
       <short value="Estimate of likely outcome"/>
       <definition value="Estimate of likely outcome."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -468,17 +472,6 @@
         <identity value="v2"/>
         <map value="PRB-22"/>
       </mapping>
-    </element>
-    <element id="ClinicalAssessment.prognosisReference">
-      <path value="ClinicalAssessment.prognosisReference"/>
-      <short value="RiskAssessment expressing likely outcome"/>
-      <definition value="RiskAssessment expressing likely outcome."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
-      </type>
     </element>
     <element id="ClinicalAssessment.supportingInfo">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
