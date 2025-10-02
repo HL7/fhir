@@ -213,7 +213,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-jurisdiction"/>
-        <description value="Intended jurisdiction for the value set"/>
+        <description value="Jurisdiction of the authority that maintains the the value set"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ValueSet.jurisdiction"/>

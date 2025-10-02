@@ -222,7 +222,7 @@
     <divergentElement patternPath="Definition.jurisdiction" resourcePath="ObservationDefinition.jurisdiction">
         <shortUnmatched reason="Unknown">
             <_pattern value="Intended jurisdiction for observation definition (if applicable)"/>
-            <resource value="Intended jurisdiction for this ObservationDefinition (if applicable)"/>
+            <resource value="Jurisdiction of the authority that maintains the this ObservationDefinition (if applicable)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A legal or geographic region in which the observation definition is intended to be used."/>
