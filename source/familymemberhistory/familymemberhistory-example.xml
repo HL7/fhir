@@ -15,18 +15,9 @@
   </patient>
 
   <date value="2011-03-18"/>
-  <participant> 
-    <function> 
-      <coding> 
-        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
-        <code value="verifier"/> 
-        <display value="Verifier"/> 
-      </coding> 
-    </function> 
-    <actor> 
-      <reference value="Practitioner/f201"/> 
-    </actor> 
-  </participant>
+  <recorder> 
+    <reference value="Practitioner/f201"/> 
+  </recorder>
   <relationship>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>

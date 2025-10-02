@@ -247,6 +247,71 @@
         <map value="participation[typeCode=AUT].time"/>
       </mapping>
     </element>
+	
+	<element id="FamilyMemberHistory.recorder">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#14007, J#34394, J#39602, J#41403, J#52911"/>
+      </extension>
+      <path value="FamilyMemberHistory.recorder"/>
+      <short value="Who recorded the family member history"/>
+      <definition value="Individual who recorded the record and takes responsibility for its content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role"/>
+      </mapping>
+    </element>
+    <element id="FamilyMemberHistory.asserter">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11089, GF#22270, J#39602, J#41403, J#52911"/>
+      </extension>
+      <path value="FamilyMemberHistory.asserter"/>
+      <short value="Person or device that asserts this family member history"/>
+      <definition value="Individual or device that is making the family member history statement."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="REL-7.1 identifier + REL-7.12 type code"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=INF].role"/>
+      </mapping>
+    </element>
+<!--	
     <element id="FamilyMemberHistory.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J#37477"/>
@@ -265,7 +330,7 @@
         <map value=".participation[typeCode=PRF]"/>
       </mapping>
     </element>
-    <element id="FamilyMemberHistory.participant.function">
+	<element id="FamilyMemberHistory.participant.function">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J#37477"/>
       </extension>
@@ -321,6 +386,7 @@
         <map value=".player"/>
       </mapping>
     </element>
+-->
     <element id="FamilyMemberHistory.name">
       <path value="FamilyMemberHistory.name"/>
       <short value="The family member described"/>
