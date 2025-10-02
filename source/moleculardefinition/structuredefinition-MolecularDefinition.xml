@@ -376,59 +376,47 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm[x]">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm[x]"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm"/>
       <short value="Arm"/>
       <definition value="The arm of this start interval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region[x]">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region[x]"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region"/>
       <short value="Region"/>
       <definition value="The region of this start interval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band[x]">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band[x]"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band"/>
       <short value="Band"/>
       <definition value="The band of this start interval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand[x]">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand[x]"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand"/>
       <short value="Sub-band"/>
       <definition value="The sub-band of this start interval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>
@@ -443,59 +431,47 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm[x]">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm[x]"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm"/>
       <short value="Arm"/>
       <definition value="The arm of this end interval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region[x]">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region[x]"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region"/>
       <short value="Region"/>
       <definition value="The region of this end interval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band[x]">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band[x]"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band"/>
       <short value="Band"/>
       <definition value="The band of this end interval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand[x]">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand[x]"/>
-      <short value="SuBand"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand"/>
+      <short value="Sub-band"/>
       <definition value="The sub-band of this end interval."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
-      </type>
-      <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
     </element>
