@@ -466,7 +466,7 @@
     </element>
     <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand">
       <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand"/>
-      <short value="SuBand"/>
+      <short value="Sub-Band"/>
       <definition value="The sub-band of this end interval."/>
       <min value="0"/>
       <max value="1"/>
