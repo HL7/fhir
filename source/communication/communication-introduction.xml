@@ -47,6 +47,9 @@ audit mechanism to track every disclosure of every record.  Rather, it is used w
 a record of a particular communication is itself maintained as part of the reviewable health record.
 </p>
 <p>
+<a href="devicealert.html">DeviceAlert</a> resources are not necessarily (or even usually) targeted at a specific intended receiver, and they are often continuous and ongoing. In Communication there is a specific intended sender and receiver, and the information is delivered only once. Another difference is that <a href="devicealert.html">DeviceAlert</a> is not sent with the purpose of “adherence to guidelines or protocols or to provide business documentation of actions taken.”
+</p>
+<p>
 <a href="flag.html">Flag</a> resources represent a continuous ongoing "communication" alerting anyone dealing with the patient
 of certain precautions to take or issues to be aware of.  The flags are continuously present as an ongoing reminder.  This is 
 distinct from <b>Communication</b> where there is a specific intended sender and receiver and the information is delivered only
