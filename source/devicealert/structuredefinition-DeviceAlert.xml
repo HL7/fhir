@@ -190,10 +190,10 @@
                 <map value="AlertConditionDescriptor/Kind" />
             </mapping>
             <type>
-                <code value="code" />
+                <code value="CodeableConcept" />
             </type>
             <binding>
-                <strength value="required" />
+                <strength value="extensible" />
                 <!-- <description value="physiological | technical" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type" />
             </binding>
@@ -220,10 +220,10 @@
                 <map value="If present, AlertConditionState/ActualPriority; otherwise AlertConditionDescriptor/Priority" />
             </mapping>
             <type>
-                <code value="code" />
+                <code value="CodeableConcept" />
             </type>
             <binding>
-                <strength value="required" />
+                <strength value="extensible" />
                 <!-- <description value="high | medium | low | info" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-priority" />
             </binding>
@@ -505,10 +505,10 @@
                 <map value="AlertSignalState/ActivationState" />
             </mapping>
             <type>
-                <code value="code" />
+                <code value="CodeableConcept" />
             </type>
             <binding>
-                <strength value="required" />
+                <strength value="extensible" />
                 <!-- <description value="on | off | paused" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-activationState" />
             </binding>
@@ -526,10 +526,10 @@
                 <map value="AlertSignalState/Presence" />
             </mapping>
             <type>
-                <code value="code" />
+                <code value="CodeableConcept" />
             </type>
             <binding>
-                <strength value="required" />
+                <strength value="extensible" />
                 <!-- <description value="on | off | latched | acknowledged" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-presence" />
             </binding>
