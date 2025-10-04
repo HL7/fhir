@@ -1119,6 +1119,7 @@
       <path value="Device.additive"/>
       <short value="Material added to a container device"/>
       <definition value="Material added to a container device (typically used in specimen collection or initial processing).  The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
+      <comment value="A Procedure can be used to document details of the addition of a substance to the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1177,47 +1178,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".playedRole[classCode=CONT].quantity"/>
-      </mapping>
-    </element>
-    <element id="Device.additive.performer">
-      <path value="Device.additive.performer"/>
-      <short value="Entity adding substance to the container"/>
-      <definition value="The performer who adds the substance to the container."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PFM].role"/>
-      </mapping>
-    </element>
-    <element id="Device.additive.performed">
-      <path value="Device.additive.performed"/>
-      <short value="When the additive substance was added to the container"/>
-      <definition value="Time when the additive substance was placed into the container by the performer."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.done[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
       </mapping>
     </element>
     <element id="Device.contact">
