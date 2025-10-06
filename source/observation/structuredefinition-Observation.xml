@@ -1092,14 +1092,21 @@
       </extension>
       <path value="Observation.referenceRange.low"/>
       <short value="Low Range, if relevant"/>
-      <definition value="The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is &lt;=2.3)."/>
+      <definition value="The value of the low bound of the reference range."/>
+      <comment value="When low.comparator is not populated, the low bound of the reference range endpoint is inclusive of the value (e.g., reference range is '&gt;=5' - '&lt;=9').  Alternatively, this can be specified explicitly by populating low.comparator = '&gt;='.  When the low bound of the reference range endpoint is intended to be exclusive of the value (e.g., reference range is '&gt;5' - '&lt;9'), this is specified with low.comparator = '&gt;'.  If the low bound is omitted,  it is assumed to be meaningless (e.g., reference range is '&lt;=2.3')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <condition value="obs-3"/>
+      <constraint>
+        <key value="obs-13"/>
+        <severity value="error"/>
+        <human value="If low.comparator exists, it must be '&gt;=' or '&gt;'."/>
+        <expression value="comparator.exists() implies (comparator = '&gt;=' or comparator = '&gt;')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="OBX-7"/>
@@ -1112,14 +1119,21 @@
     <element id="Observation.referenceRange.high">
       <path value="Observation.referenceRange.high"/>
       <short value="High Range, if relevant"/>
-      <definition value="The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is &gt;= 2.3)."/>
+      <definition value="The value of the high bound of the reference range."/>
+      <comment value="When high.comparator is not populated, the high bound of the reference range endpoint is inclusive of the value (e.g., reference range is '&gt;=5' - '&lt;=9').  Alternatively, this can be specified explicitly by populating high.comparator = '&lt;='.  When the high bound of the reference range endpoint is intended to be exclusive of the value (e.g., reference range is '&gt;5' - '&lt;9'), this is specified with high.comparator = '&lt;'.  If the high bound is omitted,  it is assumed to be meaningless (e.g., reference range is '&gt;=2.3')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
       <condition value="obs-3"/>
+      <constraint>
+        <key value="obs-14"/>
+        <severity value="error"/>
+        <human value="If high.comparator exists, it must be '&lt;=' or '&lt;'."/>
+        <expression value="comparator.exists() implies (comparator = '&lt;=' or comparator = '&lt;')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="OBX-7"/>
