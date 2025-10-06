@@ -186,11 +186,11 @@ in order to support consistent definitions for schema and UML derived code.
         Observation is also linked to through the Obervation.hasMember of the identified organism Observation.
     </p>
     <p>
-        If a new authorization was needed to perform the susceptibility panel as sometimes the overall ServiceRequest
-        covers it, and other times a new authorization is required, the Susceptibility Panel Observation.basedOn will
-        reference the
-        appropriate ServiceRequest, while, if present, the Susceptibility Panel ServiceRequest.basedOn will reference
-        the initial ServiceRequest.
+        If a new authorization is required:
+        <ul>
+            <li>A new ServiceRequest is created which is basedOn the original SerivceRequest; and</li>
+            <li>Observation.basedOn points to the new ServiceRequest</li>
+        </ul>
     </p>
     <p>
         The individual susceptibility observations are linked to the Susceptibility Panel by the Observation.hasMember
