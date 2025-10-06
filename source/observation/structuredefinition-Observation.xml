@@ -194,22 +194,18 @@
         <map value="id"/>
       </mapping>
     </element>
-    <element id="Observation.instantiates[x]">
+    <element id="Observation.instantiates">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
       </extension>
-      <path value="Observation.instantiates[x]"/>
+      <path value="Observation.instantiates"/>
       <short value="Instantiates FHIR ObservationDefinition"/>
       <definition value="The reference to a FHIR ObservationDefinition resource that provides the definition that is adhered to in whole or in part by this Observation instance."/>
-      <comment value="ObservationDefinition can be referenced by its canonical url using instantiatesCanonical, or by a name or an identifier using the appropriate sub-elements of instantiatesReference."/>
+      <comment value="ObservationDefinition is referenced by its canonical url."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
-      </type>
-      <type>
-        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <isSummary value="true"/>

@@ -482,8 +482,8 @@
 				<map value="Definition.effectivePeriod"/>
 			</mapping>
 		</element>
-		<element id="ObservationDefinition.derivedFromCanonical">
-			<path value="ObservationDefinition.derivedFromCanonical"/>
+		<element id="ObservationDefinition.derivedFrom">
+			<path value="ObservationDefinition.derivedFrom"/>
 			<short value="Based on FHIR definition of another observation"/>
 			<definition value="The canonical URL pointing to another FHIR-defined ObservationDefinition that is adhered to in whole or in part by this definition."/>
 			<min value="0"/>
@@ -496,22 +496,6 @@
 			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.derivedFromCanonical"/>
-			</mapping>
-		</element>
-		<element id="ObservationDefinition.derivedFromUri">
-			<path value="ObservationDefinition.derivedFromUri"/>
-			<short value="Based on external definition"/>
-			<definition value="The URL pointing to an externally-defined observation definition, guideline or other definition that is adhered to in whole or in part by this definition."/>
-			<requirements value="Observation definitions may be refinements of other definitions."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.derivedFromUri"/>
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.subject">
