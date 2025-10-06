@@ -293,7 +293,7 @@
     </element>
     <element id="DeviceRequest.intent">
       <path value="DeviceRequest.intent"/>
-      <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+      <short value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
       <comment value="This element is immutable. It cannot be changed for the same resource instance."/>
       <min value="1"/>

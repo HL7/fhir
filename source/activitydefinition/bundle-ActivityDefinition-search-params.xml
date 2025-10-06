@@ -251,7 +251,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-jurisdiction"/>
-        <description value="Intended jurisdiction for the activity definition"/>
+        <description value="Jurisdiction of the authority that maintains the the activity definition"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ActivityDefinition.jurisdiction"/>

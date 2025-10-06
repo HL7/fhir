@@ -62,6 +62,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="ServiceRequest-replaces"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SupplyRequest.replaces"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-replaces"/>
+        <description value="What request replaces"/>
+        <code value="replaces"/>
+        <type value="reference"/>
+        <expression value="SupplyRequest.replaces"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="SupplyRequest-requester"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

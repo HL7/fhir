@@ -184,6 +184,10 @@
 				<strength value="extensible"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
 			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.versionAlgorithm[x]"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.name">
 			<path value="ObservationDefinition.name"/>
@@ -352,11 +356,8 @@
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.jurisdiction">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
 			<path value="ObservationDefinition.jurisdiction"/>
-			<short value="Intended jurisdiction for this ObservationDefinition (if applicable)"/>
+			<short value="Jurisdiction of the authority that maintains the this ObservationDefinition (if applicable)"/>
 			<definition value="A jurisdiction in which the ObservationDefinition is intended to be used."/>
 			<comment value="It may be possible for the ObservationDefinition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
@@ -371,7 +372,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="Codes for country, country subdivision and region for indicating where a resource is intended to be used."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
 			</binding>
 			<mapping>
 				<identity value="workflow"/>
@@ -430,6 +431,10 @@
 			<type>
 				<code value="string"/>
 			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.coyprightLabel"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.approvalDate">
 			<path value="ObservationDefinition.approvalDate"/>
@@ -488,6 +493,10 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.derivedFromCanonical"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.subject">
 			<path value="ObservationDefinition.subject"/>
@@ -500,6 +509,10 @@
 				<code value="CodeableConcept"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.subject"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.performerType">
 			<path value="ObservationDefinition.performerType"/>
@@ -511,6 +524,10 @@
 				<code value="CodeableConcept"/>
 			</type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.performerType"/>
+			</mapping>
 		</element>
 		<element id="ObservationDefinition.category">
 			<path value="ObservationDefinition.category"/>
@@ -571,6 +588,10 @@
 			<mapping>
 				<identity value="rim"/>
 				<map value="code"/>
+			</mapping>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.code"/>
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.permittedDataType">
