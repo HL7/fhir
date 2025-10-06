@@ -879,7 +879,7 @@
     <Cell ss:StyleID="s68"><Data ss:Type="String">Countries and regions within which this artifact is targeted for use</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">valueset-jurisdiction</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/jurisdiction</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s79"/>
     <Cell ss:Index="14" ss:StyleID="s77"/>

@@ -4060,7 +4060,7 @@
     <Cell><Data ss:Type="String"/></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/ValueSet/jurisdiction</Data></Cell>
+    <Cell><Data ss:Type="String">http://terminology.hl7.org/ValueSet/jurisdiction</Data></Cell>
     <Cell><Data ss:Type="String">Countries and regions within which this artifact is targeted for use.</Data></Cell>
     <Cell><Data ss:Type="String"/></Cell>
     <Cell><Data ss:Type="String"/></Cell>
