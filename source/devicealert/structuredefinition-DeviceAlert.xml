@@ -115,6 +115,22 @@
                 <map value="AlertOccurrenceIdentifier" />
             </mapping>
         </element>
+        <element id="DeviceAlert.procedure">
+            <path value="DeviceAlert.procedure" />
+            <short value="Procedure during which the alert occurred" />
+            <definition value="The procedure (or procedures) during which the alert condition was raised." />
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure" />
+            </type>
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event.partOf" />
+            </mapping>
+        </element>
         <element id="DeviceAlert.status">
             <path value="DeviceAlert.status" />
             <short value="in-progress | completed | entered-in-error" />
@@ -190,10 +206,10 @@
                 <map value="AlertConditionDescriptor/Kind" />
             </mapping>
             <type>
-                <code value="code" />
+                <code value="CodeableConcept" />
             </type>
             <binding>
-                <strength value="required" />
+                <strength value="extensible" />
                 <!-- <description value="physiological | technical" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type" />
             </binding>
@@ -220,10 +236,10 @@
                 <map value="If present, AlertConditionState/ActualPriority; otherwise AlertConditionDescriptor/Priority" />
             </mapping>
             <type>
-                <code value="code" />
+                <code value="CodeableConcept" />
             </type>
             <binding>
-                <strength value="required" />
+                <strength value="extensible" />
                 <!-- <description value="high | medium | low | info" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-priority" />
             </binding>
@@ -280,6 +296,26 @@
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
             </type>
+        </element>
+        <element id="DeviceAlert.encounter">
+            <path value="DeviceAlert.encounter" />
+            <short value="Encounter during which the alert occurred" />
+            <definition value="The encounter during which the alert condition was raised." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter" />
+            </type>
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.context" />
+            </mapping>
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event.encounter" />
+            </mapping>
         </element>
         <element id="DeviceAlert.presence">
             <path value="DeviceAlert.presence" />
@@ -422,7 +458,6 @@
                 <code value="Range" />
             </type>
         </element>
-        <!-- insert encounter/partOf/procedure here -->
         <element id="DeviceAlert.acknowledged">
             <path value="DeviceAlert.acknowledged" />
             <short value="Whether the alert condition has been acknowledged" />
@@ -505,10 +540,10 @@
                 <map value="AlertSignalState/ActivationState" />
             </mapping>
             <type>
-                <code value="code" />
+                <code value="CodeableConcept" />
             </type>
             <binding>
-                <strength value="required" />
+                <strength value="extensible" />
                 <!-- <description value="on | off | paused" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-activationState" />
             </binding>
@@ -526,10 +561,10 @@
                 <map value="AlertSignalState/Presence" />
             </mapping>
             <type>
-                <code value="code" />
+                <code value="CodeableConcept" />
             </type>
             <binding>
-                <strength value="required" />
+                <strength value="extensible" />
                 <!-- <description value="on | off | latched | acknowledged" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-presence" />
             </binding>

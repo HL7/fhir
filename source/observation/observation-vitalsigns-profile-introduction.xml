@@ -17,7 +17,7 @@
 		<ul>
 			<li>Query for vital signs of a particular patient</li>
 		</ul>
-		<h5>Mandatory Data Elements and Terminology</h5>
+		<h3>Mandatory Data Elements and Terminology</h3>
 		<p>The following data-elements are mandatory (i.e. data SHALL be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content">
 				<strong>Profile Definitions</strong>
 			</a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
@@ -266,9 +266,9 @@
 			<li>A server has rejected any unauthorized requests by returning an HTTP 401 Unauthorized response code.</li>
 		</ul>
 		<hr/>
-		<h4>
+		<h3>
 			GET [base]/Observation?patient=[id]&amp;category=vital-signs
-		</h4>
+		</h3>
 		<p>
 			<strong>Example:</strong>
 			Search for all Vital Signs measurements for a patient
@@ -290,9 +290,9 @@
 			<li>(Status 403): insufficient scope</li>
 		</ul>
 		<hr/>
-		<h4>
+		<h3>
 			GET [base]/Observation?patient=[id]&amp;code=[vital sign LOINC{,LOINC2,LOINC3,...}]
-		</h4>
+		</h3>
 		<p>
 			<strong>Example:</strong>
 Search for all heart rate observations for a patient:</p>
@@ -319,9 +319,9 @@ Search for all heart rate, respiratory rate and blood pressure observations for 
 			<li>(Status 403): insufficient scope</li>
 		</ul>
 		<hr/>
-		<h4>
+		<h3>
 			GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[date]{&amp;date=[date]}
-		</h4>
+		</h3>
 		<p>
 			<strong>Example:</strong>
 Find all the blood pressures after 2015-01-14</p>
