@@ -259,6 +259,10 @@
         <identity value="rim"/>
         <map value="inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code &lt; LabService].code"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
     </element>
     <element id="DiagnosticReport.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -613,6 +617,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="unknown"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.study">
