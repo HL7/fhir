@@ -18,7 +18,7 @@
             <resource value="A plan or order that is fulfilled in whole or in part by this imaging study."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.partOf" resourcePath="ImagingStudy.partOf">
+    <divergentElement patternPath="Event.partOf" resourcePath="ImagingStudy.procedure">
         <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
         <extraTypes _resource="Reference(Procedure)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">

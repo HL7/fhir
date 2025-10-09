@@ -520,7 +520,7 @@ In the FHIR model, "requested procedures" are represented by the <code>ActivityD
 Therefore, the requested procedure associated with a particular imaging study would typically be the encoded as the <code>ServiceRequest.code</code> that the imaging study is basedOn, where that code may contain a coded value or may reference an <code>ActivityDefinition</code> resource.
 </p>
 <p>
-Similarly, the performed procedure would be encoded as the <code>Procedure</code> that the imaging study is partOf.
+Similarly, the performed procedure would be encoded as the <code>ImagingStudy.procedure</code>that the imaging study is part of.
 </p>
 <p>
 Searching for an imaging study by its requested procedure can be done by including based-on as a search parameters, and by its performed procedure by including procedure as a search parameters.

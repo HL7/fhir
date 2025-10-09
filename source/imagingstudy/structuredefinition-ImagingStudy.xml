@@ -384,8 +384,8 @@
         <map value="Accession Number (0080,0050) and Issuer of Accession Number Sequence (0080,0051) and / or Requested Procedure Code Sequence (0032,1064)"/>
       </mapping>
     </element>
-    <element id="ImagingStudy.partOf">
-      <path value="ImagingStudy.partOf"/>
+    <element id="ImagingStudy.procedure">
+      <path value="ImagingStudy.procedure"/>
       <short value="Imaging performed procedure(s)"/>
       <definition value="The performed procedure(s) during which the data associated with this imaging study was created."/>
       <comment value="To link an imaging study to an Encounter use `encounter`."/>
@@ -750,6 +750,7 @@
         <code value="unsignedInt"/>
       </type>
       <condition value="ist-5"/>
+      <condition value="ist-6"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
