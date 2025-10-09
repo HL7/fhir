@@ -399,7 +399,8 @@ href="fhir.shex">fhir.shex</a>
           <h4>Representing References</h4>
           <p> A <a href="references.html#Reference">Reference</a>
             element is represented using the same rules as above: </p>
-          <pre class="rdf">  fhir:subjectReference [
+          <pre class="rdf">  fhir:subject [
+     a fhir:Reference ;
      fhir:reference [ fhir:v "Patient/example" ];
      fhir:display [ fhir:v "Example Patient" ];
   ];</pre>
@@ -409,8 +410,9 @@ href="fhir.shex">fhir.shex</a>
             graph links to the target of the reference directly. This
             can be represented using the (optional) fhir:link property:
           </p>
-          <pre class="rdf">  fhir:subjectReference [
+          <pre class="rdf">  fhir:subject [
      <b>fhir:link &lt;http://example.org/fhir/Patient/example&gt; ;</b>
+     a fhir:Reference ;
      fhir:reference [ fhir:v "Patient/example" ];
      fhir:display [ fhir:v "Example Patient" ];
   ];</pre>
