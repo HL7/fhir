@@ -218,7 +218,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.status"/>
+        <map value="Request.status, Event.status"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -363,7 +363,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code, Event.code"/>
+        <map value="Request.doNotPerform, Event.doNotPerform"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
