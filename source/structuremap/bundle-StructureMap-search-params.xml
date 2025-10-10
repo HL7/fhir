@@ -175,7 +175,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/StructureMap-jurisdiction"/>
-        <description value="Intended jurisdiction for the structure map"/>
+        <description value="Jurisdiction of the authority that maintains the the structure map"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="StructureMap.jurisdiction"/>
