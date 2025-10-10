@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="servicerequest-orderdetail-parameter-code"/>
+  <id value="request-orderdetail-parameter-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,10 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/servicerequest-orderdetail-parameter-code"/>
+  <url value="http://hl7.org/fhir/request-orderdetail-parameter-code"/>
   <version value="6.0.0"/>
-  <name value="ServiceRequestOrderDetailParameterCode"/>
-  <title value="Service Request Order Detail Parameter Code"/>
+  <name value="RequestOrderDetailParameterCode"/>
+  <title value="Request Order Detail Parameter Code"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -32,9 +32,9 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Codes providing the parameter codes for service request details."/>
+  <description value="Codes providing the parameter codes for request details."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/request-orderdetail-parameter-code"/>
   <content value="complete"/>
   <concept>
     <code value="catheter-insertion"/>

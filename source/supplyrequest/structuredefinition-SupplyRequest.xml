@@ -460,6 +460,14 @@
         <strength value="example"/>
         <description value="A code that identifies the device detail."/>
       </binding>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RequestOrderDetailParameterCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for order detail parameters."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-orderdetail-parameter-code"/>
+      </binding>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>

@@ -677,11 +677,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ServiceRequestOrderDetailParameterCode"/>
+          <valueString value="RequestOrderDetailParameterCode"/>
         </extension>
         <strength value="example"/>
         <description value="Codes for order detail parameters."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-orderdetail-parameter-code"/>
       </binding>
     </element>    
     <element id="ServiceRequest.orderDetail.parameter.value[x]">

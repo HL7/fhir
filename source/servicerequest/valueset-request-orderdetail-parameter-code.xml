@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="servicerequest-orderdetail-parameter-code"/>
+  <id value="request-orderdetail-parameter-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -14,10 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code"/>
+  <url value="http://hl7.org/fhir/ValueSet/request-orderdetail-parameter-code"/>
   <version value="6.0.0"/>
-  <name value="ServiceRequestOrderDetailParameterCode"/>
-  <title value="Servicerequest OrderDetail Parameter Code"/>
+  <name value="RequestOrderDetailParameterCode"/>
+  <title value="Request OrderDetail Parameter Code"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -36,7 +36,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/servicerequest-orderdetail-parameter-code"/>
+      <system value="http://hl7.org/fhir/request-orderdetail-parameter-code"/>
     </include>
   </compose>
 </ValueSet>
