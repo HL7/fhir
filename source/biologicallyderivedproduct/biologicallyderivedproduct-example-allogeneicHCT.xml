@@ -10,10 +10,10 @@
     <display value="Service Request for HCT Collection"/>    
   </request>
   <collection>
-    <source>
-		  <reference value="Patient/pat2"/>
+    <sourcePatient>
+	  <reference value="Patient/pat2"/>
 	  <display value="HCT Donor"/>
-    </source>
+    </sourcePatient>
   </collection>
 </BiologicallyDerivedProduct>
   
