@@ -165,15 +165,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="identifier.system = IEEE EUI-64 or similar and identifier.value = SystemInfo.system-identifier"/>
+        <map value="system = IEEE EUI-64 or similar &#xA; value = SystemInfo.system-identifier"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="identifier.system = IEEE EUI-64 or a local system and identifier.value = VMS::System-Id, MDS::Soft-ID"/>
+        <map value="system = IEEE EUI-64 or a local system &#xA; value = VMS::System-Id, MDS::Soft-ID"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="identifier.system = .../ProductionSpecification/ComponentId/Root and identifier.value = .../ProductionSpecification/ComponentId/Extension"/>
+        <map value="system = .../ProductionSpecification/ComponentId/Root &#xA; value = .../ProductionSpecification/ComponentId/Extension"/>
       </mapping>
     </element>
     <!-- <element id="Device.displayName">
@@ -254,15 +254,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="udiCarrier.deviceIdentifier = SystemInfo.udi.deviceIdentifier"/>
+        <map value="SystemInfo.udi.deviceIdentifier"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="udiCarrier.deviceIdentifier = VMS::Production-Specification[spec-type=device-identifier]::prod-spec"/>
+        <map value="VMS::Production-Specification[spec-type=device-identifier]::prod-spec"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="udiCarrier.deviceIdentifier = MdsDescriptor/MetaData/UDI/DeviceIdentifier"/>
+        <map value="MdsDescriptor/MetaData/UDI/DeviceIdentifier"/>
       </mapping>
     </element>
     <element id="Device.udiCarrier.deviceIdentifierSystem">
@@ -300,15 +300,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="udiCarrier.issuer = SystemInfo.udi.issuer"/>
+        <map value="SystemInfo.udi.issuer"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="udiCarrier.issuer = VMS::Udi::udi-issuer"/>
+        <map value="VMS::Udi::udi-issuer"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="udiCarrier.issuer = MdsDescriptor/MetaData/UDI/Issuer"/>
+        <map value="MdsDescriptor/MetaData/UDI/Issuer"/>
       </mapping>
     </element>
     <element id="Device.udiCarrier.jurisdiction">
@@ -331,15 +331,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="udiCarrier.jurisdiction = SystemInfo.udi.authority"/>
+        <map value="SystemInfo.udi.authority"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="udiCarrier.jurisdiction = VMS::Udi::udi-authority"/>
+        <map value="VMS::Udi::udi-authority"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="udiCarrier.jurisdiction = MdsDescriptor/MetaData/UDI/Jurisdictions"/>
+        <map value="MdsDescriptor/MetaData/UDI/Jurisdictions"/>
       </mapping>
     </element>
     <element id="Device.udiCarrier.carrierAIDC">
@@ -389,15 +389,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="udiCarrier.carrierHRF = SystemInfo.udi.label"/>
+        <map value="SystemInfo.udi.label"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="udiCarrier.carrierHRF = VMS::Udi::udi-label"/>
+        <map value="VMS::Udi::udi-label"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="udiCarrier.carrierHRF = MdsDescriptor/MetaData/UDI/HumanReadableForm"/>
+        <map value="MdsDescriptor/MetaData/UDI/HumanReadableForm"/>
       </mapping>
     </element>
     <element id="Device.udiCarrier.entryType">
@@ -532,15 +532,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="manufacturer = SystemInfo.system-manufacturer"/>
+        <map value="SystemInfo.system-manufacturer"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="manufacturer = VMS::System-Model::manufacturer, VMD::Vmd-Model::manufacturer"/>
+        <map value="VMS::System-Model::manufacturer, VMD::Vmd-Model::manufacturer"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="manufacturer = MdsDescriptor/MetaData/Manufacturer"/>
+        <map value="MdsDescriptor/MetaData/Manufacturer"/>
       </mapping>
     </element>
     <element id="Device.manufactureDate">
@@ -569,11 +569,11 @@
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="manufactureDate = VMS::Production-Specification[spec-type=manufacture-date]::prod-spec"/>
+        <map value="VMS::Production-Specification[spec-type=manufacture-date]::prod-spec"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="manufactureDate = MdsDescriptor/MetaData/ManufactureDate"/>
+        <map value="MdsDescriptor/MetaData/ManufactureDate"/>
       </mapping>
     </element>
     <element id="Device.expirationDate">
@@ -602,11 +602,11 @@
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="expirationDate = VMS::Production-Specification[spec-type=expiry-date]::prod-spec"/>
+        <map value="VMS::Production-Specification[spec-type=expiry-date]::prod-spec"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="expirationDate = MdsDescriptor/MetaData/ExpirationDate"/>
+        <map value="MdsDescriptor/MetaData/ExpirationDate"/>
       </mapping>
     </element>
     <element id="Device.lotNumber">
@@ -635,11 +635,11 @@
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="lotNumber = VMS::Production-Specification[spec-type=lot-number]::prod-spec"/>
+        <map value="VMS::Production-Specification[spec-type=lot-number]::prod-spec"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="lotNumber = MdsDescriptor/MetaData/LotNumber"/>
+        <map value="MdsDescriptor/MetaData/LotNumber"/>
       </mapping>
     </element>
     <element id="Device.serialNumber">
@@ -669,15 +669,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="serialNumber = SystemInfo.serial-number"/>
+        <map value="SystemInfo.serial-number"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="serialNumber = VMS::Production-Specification[spec-type=serial-number]::prod-spec"/>
+        <map value="VMS::Production-Specification[spec-type=serial-number]::prod-spec"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="serialNumber = MdsDescriptor/MetaData/SerialNumber"/>
+        <map value="MdsDescriptor/MetaData/SerialNumber"/>
       </mapping>
     </element>
     <element id="Device.name">
@@ -792,15 +792,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="modelNumber = SystemInfo.system-model-number"/>
+        <map value="SystemInfo.system-model-number"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="modelNumber = VMS::System-Model::model-number, VMD::Vmd-Model::model-number"/>
+        <map value="VMS::System-Model::model-number, VMD::Vmd-Model::model-number"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="modelNumber = MdsDescriptor/MetaData/ModelNumber and name = MdsDescriptor/MetaData/ModelName"/>
+        <map value="modelNumber = MdsDescriptor/MetaData/ModelNumber &#xA; name = MdsDescriptor/MetaData/ModelName"/>
       </mapping>
     </element>
     <element id="Device.partNumber">
@@ -826,11 +826,11 @@
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="partNumber = VMS::Production-Specification[spec-type=part-number]::prod-spec"/>
+        <map value="VMS::Production-Specification[spec-type=part-number]::prod-spec"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="partNumber = MdsDescriptor/MetaData/PartNumber"/>
+        <map value="MdsDescriptor/MetaData/PartNumber"/>
       </mapping>
     </element>
     <element id="Device.category">
@@ -879,15 +879,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="type = MDC_MOC_VMS_MDS_SIMP (fixed value for PHD)"/>
+        <map value="MDC_MOC_VMS_MDS_SIMP (fixed value for PHD)"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="type = VMO::Type, VMS::System-Type and type.text = VMO::Label-String"/>
+        <map value="type = VMO::Type, VMS::System-Type &#xA; type.text = VMO::Label-String"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="type = MdsDescriptor/Type,MdsDescriptor/Vmd/Type, MdsDescriptor/Vmd/Channel/Type"/>
+        <map value="MdsDescriptor/Type, MdsDescriptor/Vmd/Type, MdsDescriptor/Vmd/Channel/Type"/>
       </mapping>
     </element>
     <element id="Device.deviceVersion">
@@ -928,15 +928,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="deviceVersion.type = MDC code for a version (MDC_ID_PROD_SPEC_FW, MDC_ID_PROD_SPEC_HW, MDC_ID_PROD_SPEC_SW)"/>
+        <map value="MDC code for a version (MDC_ID_PROD_SPEC_FW, MDC_ID_PROD_SPEC_HW, MDC_ID_PROD_SPEC_SW)"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="deviceVersion.type = VMS::Production-Specification[spec-type=xx-revision]::spec-type (with xx replaced by hw, sw or fw)"/>
+        <map value="VMS::Production-Specification[spec-type=xx-revision]::spec-type (with xx replaced by hw, sw or fw)"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="deviceVersion.type = .../ProductionSpecification/SpecType"/>
+        <map value=".../ProductionSpecification/SpecType"/>
       </mapping>
     </element>
     <element id="Device.deviceVersion.component">
@@ -955,11 +955,11 @@
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="deviceVersion.component = VMS::Production-Specification[spec-type=xx-revision]::component-id (with xx replaced by hw, sw or fw)"/>
+        <map value="VMS::Production-Specification[spec-type=xx-revision]::component-id (with xx replaced by hw, sw or fw)"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="deviceVersion.component = /ProductionSpecification/ComponentId"/>
+        <map value="/ProductionSpecification/ComponentId"/>
       </mapping>
     </element>
     <element id="Device.deviceVersion.installDate">
@@ -991,15 +991,15 @@
       </mapping>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="deviceVersion.value = SystemInfo.firmware-, hardware-, software-revision"/>
+        <map value="SystemInfo.firmware-, hardware-, software-revision"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="deviceVersion.value = VMS::Production-Specification[spec-type=xx-revision]::prod-spec (with xx replaced by hw, sw or fw)"/>
+        <map value="VMS::Production-Specification[spec-type=xx-revision]::prod-spec (with xx replaced by hw, sw or fw)"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="deviceVersion.value = .../ProductionSpecification/ProductionSpec"/>
+        <map value=".../ProductionSpecification/ProductionSpec"/>
       </mapping>
     </element>
     <element id="Device.conformsTo">
@@ -1031,7 +1031,7 @@
       </binding>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="conformsTo.category = communication (fixed value)"/>
+        <map value="communication (fixed value)"/>
       </mapping>
     </element>
     <element id="Device.conformsTo.specification">
@@ -1053,7 +1053,7 @@
       </binding>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="conformsTo.specification = SystemInfo.System-Type-Spec-List[i].type"/>
+        <map value="SystemInfo.System-Type-Spec-List[i].type"/>
       </mapping>
     </element>
     <element id="Device.conformsTo.version">
@@ -1067,7 +1067,7 @@
       </type>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="conformsTo.version = SystemInfo.System-Type-Spec-List[i].version"/>
+        <map value="SystemInfo.System-Type-Spec-List[i].version"/>
       </mapping>
     </element>
     <element id="Device.property">
@@ -1085,15 +1085,15 @@
       </type>
       <mapping>
         <identity value="11073-10206"/>
-        <map value="property = clock attributes (as ASN1ToHL7 code)"/>
+        <map value="clock attributes (as ASN1ToHL7 code)"/>
       </mapping>
       <mapping>
         <identity value="11073-10201"/>
-        <map value="property = MDS::Clock::time-support attributes"/>
+        <map value="MDS::Clock::time-support attributes"/>
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="property = MdsDescriptor/Clock/TimeProtocol, MdsDescriptor/Clock/Type"/>
+        <map value="MdsDescriptor/Clock/TimeProtocol, MdsDescriptor/Clock/Type"/>
       </mapping>
     </element>
     <element id="Device.property.type">
@@ -1556,7 +1556,7 @@
       </mapping>
       <mapping>
         <identity value="11073-10207"/>
-        <map value="safety = MdsDescriptor/Vmd/Channel/SafetyClassification"/>
+        <map value="MdsDescriptor/Vmd/Channel/SafetyClassification"/>
       </mapping>
     </element>
     <element id="Device.parent">
