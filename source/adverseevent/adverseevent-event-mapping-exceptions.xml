@@ -71,21 +71,6 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.occurrence[x]" resourcePath="AdverseEvent.cause[x]">
-        <missingTypes _pattern="Timing" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="When adverse event occurred/is occurring"/>
-            <resource value="When the cause of the AdverseEvent occurred"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="The date, period or timing when the adverse event did occur or is occurring."/>
-            <resource value="The date (and perhaps time) when the cause of the AdverseEvent occurred."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value=""/>
-        </commentsUnmatched>
-    </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="AdverseEvent.effect[x]">
         <missingTypes _pattern="Timing" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -95,6 +80,21 @@
         <definitionUnmatched reason="Unknown">
             <_pattern value="The date, period or timing when the adverse event did occur or is occurring."/>
             <resource value="The date (and perhaps time) when the effect of the AdverseEvent occurred."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="AdverseEvent.suspectEntity.occurrence[x]">
+        <missingTypes _pattern="Timing" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When adverse event occurred/is occurring"/>
+            <resource value="When the suspect entity occurred"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date, period or timing when the adverse event did occur or is occurring."/>
+            <resource value="The date (and perhaps time) when the suspect entity occurred."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
