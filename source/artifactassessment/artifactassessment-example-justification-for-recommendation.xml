@@ -58,8 +58,14 @@
         <display value="Recommendation Rating"/>
       </coding>
     </type>
-	<relatesTo>
-		<type value="derived-from"/>
+    <relatesTo>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+            <code value="derived-from" />
+            <display value="Derived From" />
+          </coding>
+        </type>
         <targetReference>
           <reference value="Citation/32137"/>
           <type value="Citation"/>
@@ -145,16 +151,28 @@
         <display value="Evidence"/>
       </coding>
     </type>
-	<relatesTo>
-		<type value="justification"/>
+    <relatesTo>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+            <code value="justification" />
+            <display value="Justification" />
+          </coding>
+        </type>
         <targetReference>
           <reference value="Citation/33089"/>
           <type value="Citation"/>
           <display value="JournalArticleCitation: Metabolic Surgery in the Treatment Algorithm for Type 2 Diabetes: A Joint Statement by International Diabetes Organizations"/>
         </targetReference>
     </relatesTo>
-	<relatesTo>
-		<type value="justification"/>
+    <relatesTo>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+            <code value="justification" />
+            <display value="Justification" />
+          </coding>
+        </type>
         <targetReference>
           <reference value="Evidence/33244"/>
           <type value="Evidence"/>
@@ -213,11 +231,23 @@
         </coding>
       </type>
       <relatesTo>
-        <type value="justification"/>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+            <code value="justification" />
+            <display value="Justification" />
+          </coding>
+        </type>
         <targetMarkdown value="Sjöström L, Peltonen M, Jacobson P, et al. Association of bariatric surgery with long-term remission of type 2 diabetes and with microvascular and macrovascular complications. JAMA 2014;311:2297–2304"/>
       </relatesTo>
       <relatesTo>
-        <type value="justification"/>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+            <code value="justification" />
+            <display value="Justification" />
+          </coding>
+        </type>
         <targetReference>
           <reference value="Evidence/32144"/>
           <type value="Evidence"/>
