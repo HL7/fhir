@@ -531,8 +531,8 @@
 	<space>
 		<url>https://www.iso.org/obp/ui/en/#iso:std:iso-ieee:11073:-10206:ed-1:v1:en</url>
 		<link>https://www.iso.org/obp/ui/en/#iso:std:iso-ieee:11073:-10206:ed-1:v1:en</link>
-		<columnName>"IEEE 11073-10206 ACOM PHD</columnName>
-		<title>"IEEE 11073-10206 ACOM PHD</title>
+		<columnName>IEEE 11073-10206 ACOM PHD</columnName>
+		<title>IEEE 11073-10206 ACOM PHD</title>
 		<id>11073-10206</id>
 		<sort>46</sort>
     	<publish>true</publish>
@@ -540,8 +540,8 @@
 	<space>
 		<url>https://www.iso.org/standard/77339.html</url>
 		<link>https://www.iso.org/standard/77339.html</link>
-		<columnName>IEEE 11073-10201 DIM VMS,MDS, VMD</columnName>
-		<title>IEEE 11073-10201 DIM VMS,MDS, VMD</title>
+		<columnName>IEEE 11073-10201 DIM VMS, MDS, VMD</columnName>
+		<title>IEEE 11073-10201 DIM VMS, MDS, VMD</title>
 		<id>11073-10201</id>
 		<sort>47</sort>
     	<publish>true</publish>
@@ -549,8 +549,8 @@
 	<space>
 		<url>https://www.iso.org/standard/76538.html</url>
 		<link>https://www.iso.org/standard/76538.html</link>
-		<columnName>IEEE 11073-10207 SDC MDS, VMD, Channe</columnName>
-		<title>IEEE 11073-10207 SDC MDS, VMD, Channe</title>
+		<columnName>IEEE 11073-10207 SDC MDS, VMD, Channel</columnName>
+		<title>IEEE 11073-10207 SDC MDS, VMD, Channel</title>
 		<id>11073-10207</id>
 		<sort>48</sort>
     	<publish>true</publish>
