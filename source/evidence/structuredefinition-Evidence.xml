@@ -1052,13 +1052,13 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="code"/>
+				<code value="CodeableConcept"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="EvidenceVariableHandling"/>
 				</extension>
-				<strength value="required"/>
+				<strength value="extensible"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
 			</binding>
 		</element>
