@@ -4,41 +4,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Observation-instantiates-reference"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Observation.instantiatesReference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-instantiates-reference"/>
-        <description value="Reference contained in instantiatesReference."/>
-        <code value="instantiates-reference"/>
-        <type value="reference"/>
-        <expression value="Observation.instantiates.ofType(Reference)"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Observation-instantiates-canonical"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-instantiates-canonical"/>
-        <description value="URL contained in instantiatesCanonical."/>
-        <code value="instantiates-canonical"/>
-        <type value="uri"/>
-        <expression value="Observation.instantiates.ofType(canonical)"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Observation-based-on"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
