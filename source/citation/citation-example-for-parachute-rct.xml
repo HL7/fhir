@@ -1201,6 +1201,7 @@
         </identifier>
       </resourceReference>
     </relatesTo>
+    <relatesTo>
       <type>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
