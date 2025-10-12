@@ -63,4 +63,9 @@
     <display value="Natural"/>
     <definition value="Sorted according to the algorithm defined here: [naturalordersort.org](http://www.naturalordersort.org/)"/>
   </concept>
+  <concept>
+    <code value="major-minor"/>
+    <display value="Major/Minor"/>
+    <definition value="Similar to semver, but having only two components - i.e. a major and minor (integer) version number separated by a '.'.  The specific nature of what constitutes a major vs. minor increment is locally defined."/>
+  </concept>
 </CodeSystem>
