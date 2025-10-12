@@ -56,7 +56,7 @@
   <concept>
     <code value="date"/>
     <display value="Date"/>
-    <definition value="Versions are expressed as an ISO date/time syntax (including syntaxes with only portions of a date)"/>
+    <definition value="Versions are expressed as an ISO date/time syntax (including syntaxes with only portions of a date) in the general format of YYYY-MM-DD (with or without separators). Inclusion of the time portion is optional."/>
   </concept>
   <concept>
     <code value="natural"/>
@@ -72,5 +72,10 @@
     <code value="sct-url"/>
     <display value="SNOMED-CT URL"/>
     <definition value="Versions are expressed according to the SNOMED URL scheme. See the [Versions](https://terminology.hl7.org/SNOMEDCT.html#versions) topic for more details."/>
+  </concept>
+  <concept>
+    <code value="us-date"/>
+    <display value="US Date"/>
+    <definition value="Versions are expressed as an US date format, i.e. MMDDYYYY (with or without separators)."/>
   </concept>
 </CodeSystem>
