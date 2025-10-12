@@ -797,6 +797,10 @@
         <code value="BackboneElement"/>
       </type>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
+      <mapping>
         <identity value="fhircomposition"/>
         <map value="Composition.attester"/>
       </mapping>
@@ -831,6 +835,10 @@
         <description value="The way in which a person authenticated a document."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.function"/>
+      </mapping>
       <mapping>
         <identity value="fhircomposition"/>
         <map value="Composition.attester.mode"/>
@@ -884,6 +892,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.witness"/>

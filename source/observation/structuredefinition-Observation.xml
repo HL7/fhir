@@ -487,10 +487,6 @@
         <identity value="rim"/>
         <map value="code"/>
       </mapping>
-      <mapping>
-        <identity value="sct-attr"/>
-        <map value="116680003 |Is a|"/>
-      </mapping>
     </element>
     <element id="Observation.subject">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">

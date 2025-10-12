@@ -36,10 +36,10 @@
   </productStatus>
   <expirationDate value="2028-08-02T23:59:00-05:00"/>
   <collection>
-    <source>
-		  <reference value="Patient/pat1"/>
+    <sourcePatient>
+	  <reference value="Patient/pat1"/>
 	  <display value="HCT Collection"/>
-    </source>
+    </sourcePatient>
   </collection>
   <storageTempRequirements>
     <high>
