@@ -365,8 +365,52 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.simple">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.simple"/>
+      <short value="Simple"/>
+      <definition value="The cytoband Interval expressed as start and end code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.simple.startCytoband">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.simple.startCytoband"/>
+      <short value="Start"/>
+      <definition value="The start of this cytoband Interval expressed as a single code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.simple.endCytoband">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.simple.endCytoband"/>
+      <short value="End"/>
+      <definition value="The end of this cytoband Interval expressed as a single code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured"/>
+      <short value="Structured"/>
+      <definition value="The cytoband Interval expressed as a set of discrete codes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband"/>
       <short value="Start"/>
       <definition value="The start of this cytoband Interval."/>
       <min value="0"/>
@@ -376,8 +420,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.arm"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband.arm">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband.arm"/>
       <short value="Arm"/>
       <definition value="The arm of this start interval."/>
       <min value="0"/>
@@ -387,8 +431,8 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.region"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband.region">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband.region"/>
       <short value="Region"/>
       <definition value="The region of this start interval."/>
       <min value="0"/>
@@ -398,8 +442,8 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.band"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband.band">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband.band"/>
       <short value="Band"/>
       <definition value="The band of this start interval."/>
       <min value="0"/>
@@ -409,8 +453,8 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.startCytoband.subBand"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband.subBand">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.startCytoband.subBand"/>
       <short value="Sub-band"/>
       <definition value="The sub-band of this start interval."/>
       <min value="0"/>
@@ -420,8 +464,8 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband"/>
       <short value="End"/>
       <definition value="The end of this cytoband Interval."/>
       <min value="0"/>
@@ -431,8 +475,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.arm"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband.arm">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband.arm"/>
       <short value="Arm"/>
       <definition value="The arm of this end interval."/>
       <min value="0"/>
@@ -442,8 +486,8 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.region"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband.region">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband.region"/>
       <short value="Region"/>
       <definition value="The region of this end interval."/>
       <min value="0"/>
@@ -453,8 +497,8 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.band"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband.band">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband.band"/>
       <short value="Band"/>
       <definition value="The band of this end interval."/>
       <min value="0"/>
@@ -464,8 +508,8 @@
       </type>
       <isSummary value="false"/>
     </element>
-    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand">
-      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.endCytoband.subBand"/>
+    <element id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband.subBand">
+      <path value="MolecularDefinition.location.cytobandLocation.cytobandInterval.structured.endCytoband.subBand"/>
       <short value="Sub-band"/>
       <definition value="The sub-band of this end interval."/>
       <min value="0"/>
