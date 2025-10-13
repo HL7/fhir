@@ -103,7 +103,7 @@ href="#turtle-template">Turtle
   fhir:nodeRole fhir:treeRoot;     # if this is the parser root
   # from Resource: id; meta; implicitRules; and language
   # from DomainResource: text; contained; extension; and modifierExtension
-  fhir:identifier [ <a href="datatypes.html#Identifier">Identifier</a> ];  # 0..* Unique Id for this particular observation
+  fhir:identifier ( [ <a href="datatypes.html#Identifier">Identifier</a> ] ... ) ;  # 0..* Business Identifier for observation
   fhir:status [ fhir:v "&lt;code&gt;" ]; # R!  registered | preliminary | final | amended +
   fhir:code [ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ];   # 1..1 R!  Type of observation (code / type)
   fhir:subject [ fhir:reference [ <a href="patient.html#Patient">Patient</a>|<a href="group.html#Group">Group</a>|<a href="device.html#Device">Device</a>|<a href="location.html#Location">Location</a> ... ] ]; # 0..1 Who and/or what this is about
@@ -128,9 +128,9 @@ href="extensibility.html">extensions</a>
           <li>The <span style="color: brown"><b>R!</b></span> denotes
             that a relationship is mandatory: it must be present (or in
             an array, at least one item must be present).</li>
-          <li>Note that this specification produces Turtle that is
-            nicely formatted and well laid out, but this is not required
-            or expected.</li>
+          <li>Note that examples in this specification show Turtle that is
+            nicely formatted and well laid out, but that is not required
+            or expected in conforming FHIR Turtle.</li>
         </ul>
 
         <h3><a name="example"></a>FHIR RDF Example<br/>
@@ -181,28 +181,51 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
   owl:versionIRI &lt;http://example.org/fhir/Observation/Obs123.ttl&gt;.</pre>
         <p> In this example, </p>
         <ul>
-          <li>the subject <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> is wrapped with '<code class="rdf">&lt; ... &gt;</code>'.</li>
+          <li>the subject <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> is wrapped with '<code class="rdf">&lt; ... &gt;</code>',</li>
           <li>the type (<code class="rdf">fhir:Observation</code>) and
             following properties (e.g. <code class="rdf">fhir:status</code>)
             are prefixed names (like XML namespaced names),</li>
           <li>assertions following a ';' re-use the same subject,</li>
           <li>anonymous nodes are declared with '<code class="rdf">[ ... ]</code>'s,</li>
-          <li>and literals with a quoted value and an optional datatype
-            preceded by '^^' (e.g. <code class="rdf">"final"</code>).</li>
+          <li>literal values that cannot be represented using Turtle shorthand 
+            notation must indicate the value in quotes, with the datatype
+            explicitly indicated after '^^', such as <code class="rdf">"185"^^xsd:decimal</code> , and</li>
+          <li>literal values that can be represented using Turtle shorthand notation
+            for xsd:string, xsd:integer, xsd:decimal, xsd:double or xsd:boolean
+            may optionally use Turtle shorthand.  However, there are
+            some slight differences between what is permitted in FHIR,
+            Turtle shorthand syntax, and XML Schema Datatype literals:
+            <ul>
+              <li>The FHIR 
+                <a href="datatypes.html#decimal">decimal</a> datatype
+                is represented by <a href="https://www.w3.org/TR/xmlschema11-2/#decimal">xsd:decimal</a> 
+                in Turtle, but Turtle shorthand for an xsd:decimal value
+                requires a decimal point, whereas the xsd:decimal type does not.
+                Therefore, a FHIR <a href="datatypes.html#decimal">decimal</a>
+                value of 185 must either have a decimal point explicitly
+                added, like 185.0, or the type must be explicitly indicated,
+                like <code class="rdf">"185"^^xsd:decimal</code>.
+                Otherwise 185 in Turtle would be parsed as an xsd:integer.</li>
+              <li>Neither the FHIR 
+                <a href="datatypes.html#boolean">boolean</a> datatype nor the
+		Turtle shorthand for an xsd:boolean allows a literal value of
+                0 or 1, though
+                <a href="https://www.w3.org/TR/xmlschema11-2/#boolean">xsd:boolean</a> does.</li>
+            </ul></li>
         </ul>
 
         <h3><a name="serialization-conventions"></a>FHIR RDF
           Serialization Conventions</h3>
-        FHIR RDF imposes additional conventions to simplify recognition
+        <p>FHIR RDF imposes additional conventions to simplify recognition
         and manipulation of FHIR RDF graphs.&nbsp; Although RDF graphs
         in general may be serialized in various RDF formats, FHIR RDF
         mandates support specifically for <a
           href="https://www.w3.org/TR/turtle/">Turtle</a>. All FHIR RDF
         documentation is expressed in Turtle.&nbsp;&nbsp; And while the
         standard media type for Turtle is <code>text/turtle</code>, the
-        use of Turtle for FHIR RDF uses the specialized media type <code>application/fhir+turtle</code>.<br/>
+        use of Turtle for FHIR RDF uses the specialized media type <code>application/fhir+turtle</code>.</p>
         <p> FHIR uses <a href="https://shex.io/shex-semantics/">Shape
-            Expressions (ShEx)</a> to define and validate FHIR RDF. See
+            Expressions (ShEx)</a> to help define and validate FHIR RDF. See
           <a
 href="fhir.shex">fhir.shex</a>
           for the complete FHIR RDF schema. Each Resource page includes
@@ -263,7 +286,7 @@ href="fhir.shex">fhir.shex</a>
           <h4>Property Names and Polymorphism</h4>
           <p> Property names in FHIR RDF are shared across resources:
             the same property may be used in several different resources.
-            For example, <span class="rdf">fhir:status</span> is spelled
+            For example, <code class="rdf">fhir:status</code> is spelled
             the same way
             regardless of whether it appears in an Observation,
             Diagnosis, or any other FHIR Resource. </p>
@@ -285,15 +308,29 @@ href="fhir.shex">fhir.shex</a>
             Observation's structure definition</a>.)
             In other formats (XML, JSON), a FHIR property with a choice
             of value types has the value type appended to the property name,
-            e.g. <span class="json">valueQuantity</span>.
-            But in FHIR RDF, it is written as a polymorphic <span class="rdf">fhir:value</span> property,
-            and the object asserts its type explicitly, as in the <a href="#value">above
-            Observation example</a>:<br/>
+            e.g. <span class="json">valueQuantity</span> if the value is a 
+            <a href="datatypes.html#Quantity">Quantity</a> (Observation.valueQuantity).
+            But in FHIR RDF, it is written as a polymorphic <code class="rdf">fhir:value</code> property,
+            and the object asserts its type explicitly, as shown in the
+            following excerpt from an <a href="observation-example.ttl.html">Observation body weight example</a>.
+            Confusingly, this excerpt also includes a second <code class="rdf">fhir:value</code> 
+            property, which is a property of the 
+            <a href="datatypes.html#Quantity">Quantity</a> datatype (Quantity.value), 
+            and whose type
+            is indicated directly by the xsd:decimal datatype attached to
+            its <code class="rdf">fhir:v</code> literal value.
           </p>
-          <pre class="rdf">  fhir:value [ a fhir:Quantity; ... ]</pre>
+          <pre class="rdf">
+  <b>fhir:value</b> [  # From Observation.value[x] (Observation.valueQuantity)
+     <b>a fhir:Quantity ;</b>
+     fhir:value [ fhir:v "185"^^xsd:decimal ] ;   # From Quantity.value
+     fhir:unit [ fhir:v "lbs" ] ;
+     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
+     fhir:code [ fhir:v "[lb_av]" ]
+  ] ;
+</pre>
 
-          <p> The <code class="rdf">fhir:instantiates</code> property in the
-            Observation resource is unusual in that its value may either
+          <p> The <a href="observation.html#tabs-ttl">Observation.instantiates[x]</a> property -- <code class="rdf">fhir:instantiates</code> in Turtle -- is unusual in that its value may either
             be the complex type <code class="rdf">fhir:Reference</code> or
             the primitve type <code class="rdf">fhir:canonical</code>.  But
             in either case, the type is specified, such as:
@@ -361,15 +398,15 @@ href="fhir.shex">fhir.shex</a>
             <li>gYearMonth</li>
             <li>time</li>
           </ul>
-          <p> In the <a href="#v-decimal">Observation example above</a>, the
-            Quantity has a fhir:value that is an anonymous node with a
+          <p> For example, a value of type <a href="datatypes.html#Quantity">Quantity</a>
+            is an anonymous node with a
             <code class="rdf">fhir:v</code> in it: </p>
           <pre class="rdf">    [ fhir:v "185"^^xsd:decimal ]</pre>
           <p> Note that the correct XSD type for a FHIR <a
               href="datatypes.html#decimal">decimal</a>,
             <a href="datatypes.html#date">date</a>,
             or <a href="datatypes.html#dateTime">dateTime</a>
-            must be determined by inspecting the value of the date for
+            must be determined by inspecting the instance value for
             conformance with one of the union types for that type. In
             the case of FHIR <a
               href="datatypes.html#decimal">decimal</a>,
@@ -377,8 +414,11 @@ href="fhir.shex">fhir.shex</a>
               href="https://www.w3.org/TR/xmlschema-2/#decimal">decimal</a>
             and <a href="https://www.w3.org/TR/xmlschema-2/#double">double</a>,
             any value with an 'e' or 'E' in it is a double, otherwise it
-            is a decimal. For example, the lexical value <span
-              class="rdf">"185"</span> is given the datatype <code>xsd:decimal</code>.
+            is a decimal. For example, for a FHIR property whose value
+            is a FHIR <a href="datatypes.html#decimal">decimal</a>,
+            an instance value of <code
+              class="rdf">"185"</code> is given the datatype <code>xsd:decimal</code>
+            because it does not contain 'e' or 'E'.
           </p>
 
           <p> The fhir:v property can never be empty. Either the
@@ -386,6 +426,19 @@ href="fhir.shex">fhir.shex</a>
             character of content. XHTML is represented as an escaped
             xsd:string.&nbsp; <br/>
           </p>
+
+          <p> If a primitive has FHIR type <a href="datatypes.html#uri">uri</a>
+            or one of its subtypes (url, canonical, uuid, oid), then
+            a <code class="rdf">fhir:link</code> property is optionally
+            included as a sibling of the 
+            <code class="rdf">fhir:v</code> property.
+            The value of the <code class="rdf">fhir:link</code> property is 
+            an RDF node having the same URI as the URI given in the
+            <code class="rdf">fhir:v</code> property, with one exception.
+            If the <code class="rdf">fhir:v</code> URI contains a 
+            vertical bar ("|", aka pipe symbol) then it represents a 
+            version indicator, which is stripped off and converted into
+            a "?version=" query string, like this:</p>
 
           <pre class="rdf">
 &lt;Observation/123&gt; fhir:instantiates [
