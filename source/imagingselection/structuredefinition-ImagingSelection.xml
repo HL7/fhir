@@ -390,6 +390,10 @@
         <description value="The type of involvement of the performer."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/series-performer-function"/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.function"/>
+      </mapping>
     </element>
     <element id="ImagingSelection.performer.actor">
       <path value="ImagingSelection.performer.actor"/>
@@ -409,6 +413,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
     </element>
     <element id="ImagingSelection.basedOn">
       <path value="ImagingSelection.basedOn"/>
