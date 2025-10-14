@@ -149,14 +149,14 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
   fhir:code [                     <span class="xmlcomment"># (subject) as a code</span>
     <span id="ex-list">fhir:coding (                 <span class="xmlcomment">#  which has codings</span>
       [                           <span class="xmlcomment">#   with a concept IRI, system and code</span>
-        a &lt;http://loinc.org/rdf#29463-7&gt; ;
+        a &lt;http://loinc.org/rdf/29463-7&gt; ;  # See Appendix 1 &lt;#concept-iri-algorithm&gt;
         fhir:system [
           fhir:v "http://loinc.org"^^xsd:anyURI
         ];
         fhir:code [ fhir:v "29463-7" ]
       ]
       [                           <span class="xmlcomment">#  and another with display text</span>
-        a &lt;http://loinc.org/rdf#3141-9&gt; ;
+        a &lt;http://loinc.org/rdf/3141-9&gt; ;  # See Appendix 1 &lt;#concept-iri-algorithm&gt;
         fhir:system [
           fhir:v "http://loinc.org"^^xsd:anyURI
         ];
@@ -247,8 +247,8 @@ href="fhir.shex">fhir.shex</a>
             assumed that the first encountered element represents the
             resource of interest that is being represented by the set of
             Turtle statements. The focal resource -- where to start when
-            parsing -- is the resource with the relationship <code>fhir:nodeRole</code>
-            to <code>fhir:treeRoot</code>. If there is more than one
+            parsing -- is the resource with a <code>fhir:nodeRole</code>
+            of <code>fhir:treeRoot</code>. If there is more than one
             node labeled as a 'treeRoot' in a set of Turtle statements,
             it cannot be determined how to parse them as a single
             resource. </p>
@@ -257,16 +257,15 @@ href="fhir.shex">fhir.shex</a>
           <h4>Case Sensitivity</h4>
           <p> While RDF property names are case-sensitive, FHIR avoids
             confusion by assuring that there are no properties that
-            differ only in case. For example, there will be no <span
-              class="rdf">fhir:Code</span> property because there is
-            already a fhir:code property. <br/>
+            differ only in case.  
           </p>
+	  <p> @@ TODO: Add issue 178 resolution if needed @@ </p>
 
         <a name="nestedNodes"></a>
           <h4>Nested Anonymous Nodes</h4>
-          <p> Content within a resource is always represented with
-            anonymous nodes (a/k/a "blank nodes").&nbsp; Only FHIR
-            Resource nodes can be <a href="https://www.rfc-editor.org/rfc/rfc3987">IRIs</a>. For example, this Turtle:
+          <p> Content within a resource is usually represented with
+            anonymous nodes (a/k/a "blank nodes").&nbsp; Usuall only FHIR
+            Resource nodes are <a href="https://www.rfc-editor.org/rfc/rfc3987">IRIs</a>. For example, this Turtle:
           </p>
 
           <pre class="rdf">
@@ -307,15 +306,15 @@ href="fhir.shex">fhir.shex</a>
             <a href="observation.profile.json.html">
             Observation's structure definition</a>.)
             In other formats (XML, JSON), a FHIR property with a choice
-            of value types has the value type appended to the property name,
+            of value types has the type appended to the property name,
             e.g. <span class="json">valueQuantity</span> if the value is a 
-            <a href="datatypes.html#Quantity">Quantity</a> (Observation.valueQuantity).
+            <a href="datatypes.html#Quantity">Quantity</a> (i.e., Observation.valueQuantity).
             But in FHIR RDF, it is written as a polymorphic <code class="rdf">fhir:value</code> property,
             and the object asserts its type explicitly, as shown in the
             following excerpt from an <a href="observation-example.ttl.html">Observation body weight example</a>.
-            Confusingly, this excerpt also includes a second <code class="rdf">fhir:value</code> 
+            Confusingly, this excerpt happens to include a second (nested) <code class="rdf">fhir:value</code> 
             property, which is a property of the 
-            <a href="datatypes.html#Quantity">Quantity</a> datatype (Quantity.value), 
+            <a href="datatypes.html#Quantity">Quantity</a> datatype (i.e., Quantity.value), 
             and whose type
             is indicated directly by the xsd:decimal datatype attached to
             its <code class="rdf">fhir:v</code> literal value.
@@ -363,8 +362,8 @@ href="fhir.shex">fhir.shex</a>
               example</a> of a FHIR Observation, the <code>fhir:code</code> has a <code>fhir:coding</code>
             with two members in an RDF list: </p>
           <pre class="rdf">    fhir:coding <b>(</b>
-      [ a &lt;http://loinc.org/rdf#29463-7&gt; ... ]
-      [ a &lt;http://loinc.org/rdf#3141-9&gt; ... ]
+      [ a &lt;http://loinc.org/rdf/29463-7&gt; ... ]
+      [ a &lt;http://loinc.org/rdf/3141-9&gt; ... ]
     <b>)</b></pre>
           <p> Since RDF lists can cause problems for OWL users, a 
 	    <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a> can
