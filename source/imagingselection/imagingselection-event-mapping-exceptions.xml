@@ -71,7 +71,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="ImagingSelection.subject">
-        <lowerCardinality _pattern="1" _resource="0" reason="Subject may not always be present"/>
+        <lowerCardinality _pattern="1" _resource="0" reason="Subject might not always be present"/>
         <extraTypes _resource="Reference(Device,Procedure,Practitioner,Medication,Substance,Specimen)" reason="Phantoms and other non-patient subjects can be subjects of imaging selections"/>
         <shortUnmatched reason="More specific definition used">
             <_pattern value="Individual service was done for/to"/>
@@ -97,14 +97,39 @@
             <resource value="Selectors of the instances – human or machine."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.performer.function" resourcePath="ImagingSelection.performer.function">
+        <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Type of performance"/>
+            <resource value="Type of performer"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Distinguishes the type of involvement of the performer in the imaging selection.."/>
+            <resource value="Distinguishes the type of involvement of the performer."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
+            <resource value="Allows disambiguation of the types and involvement of different performers."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingSelection.performer.actor">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed imaging selection"/>
+            <resource value="Author (human or machine)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the imaging selection."/>
+            <resource value="Author - human or machine."/>
+        </definitionUnmatched>
+    </divergentElement>
     <unmappedElement patternPath="Event.partOf" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.reported" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.reason" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.location" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.statusReason" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
-    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
     <unmappedElement patternPath="Event.note" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.encounter" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.recorded" reason="Not relevant for this resource"/>
