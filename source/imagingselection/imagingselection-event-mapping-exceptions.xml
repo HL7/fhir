@@ -1,23 +1,5 @@
 <mappingExceptions pattern="Event" resource="ImagingSelection" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
-    <divergentElement patternPath="Event.identifier" resourcePath="ImagingSelection.identifier">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Business identifier for imaging selection"/>
-            <resource value="Business Identifiers for Imaging Selection"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Business identifiers assigned to this imaging selection by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
-            <resource value="Unique identifiers assigned to this imaging selection."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-            <resource value="This is a business identifiers, not a resource identifier -- see discussion under [Business Identifiers](resource.html#identifiers). "/>
-        </commentsUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows identification of the imaging selection as it is known by various participating systems and in a way that remains consistent across servers."/>
-            <resource value="Allows imaging selections to be distinguished and referenced."/>
-        </requirementsUnmatched>
-    </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="ImagingSelection.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Reference type not relevant to resource"/>
         <extraTypes _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Additional reference types are relevant to resource"/>
@@ -99,18 +81,6 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="ImagingSelection.performer.function">
         <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Type of performance"/>
-            <resource value="Type of performer"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Distinguishes the type of involvement of the performer in the imaging selection.."/>
-            <resource value="Distinguishes the type of involvement of the performer."/>
-        </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
-            <resource value="Allows disambiguation of the types and involvement of different performers."/>
-        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingSelection.performer.actor">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>

@@ -105,21 +105,13 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="ImagingStudy.series.performer.function">
         <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Distinguishes the type of involvement of the performer in the imaging study.."/>
-            <resource value="Distinguishes the type of involvement of the performer in the series."/>
-        </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingStudy.series.performer.actor">
         <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed imaging study"/>
-            <resource value="Who performed the series"/>
+            <resource value="Who performed the imaging study"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Indicates who or what performed the imaging study."/>
-            <resource value="Indicates who or what performed the series."/>
-        </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="ImagingStudy.reason">
         <definitionUnmatched reason="Patterns has unnecessary capital">
