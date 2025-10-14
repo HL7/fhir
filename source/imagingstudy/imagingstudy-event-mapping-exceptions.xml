@@ -18,7 +18,7 @@
             <resource value="A plan or order that is fulfilled in whole or in part by this imaging study."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.partOf" resourcePath="ImagingStudy.partOf">
+    <divergentElement patternPath="Event.procedure" resourcePath="ImagingStudy.procedure">
         <missingTypes _pattern="Reference(Event)" reason="Reference type not relevant to resource"/>
         <extraTypes _resource="Reference(Procedure)" reason="Additional reference type is relevant to resource"/>
         <shortUnmatched reason="Meaning is more specific in this resource">
@@ -131,3 +131,4 @@
     <unmappedElement patternPath="Event.product" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.researchStudy" reason="Not relevant for this resource"/>
 </mappingExceptions>
+
