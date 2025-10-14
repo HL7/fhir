@@ -675,7 +675,7 @@
       </type>
       <example>
         <label value="General"/>
-        <valueId value="1.2.840.10008.5.1.4.1.1.2"/>
+        <valueId value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
       </example>
       <mapping>
         <identity value="dicom"/>
