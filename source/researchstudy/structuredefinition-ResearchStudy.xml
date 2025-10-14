@@ -323,13 +323,13 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ArtifactRelationshipType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of relationship to the related artifact."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
