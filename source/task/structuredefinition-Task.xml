@@ -252,6 +252,10 @@
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.statusReason, Event.statusReason"/>
+      </mapping>
     </element>
     <element id="Task.businessStatus">
       <path value="Task.businessStatus"/>
@@ -359,7 +363,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code, Event.code"/>
+        <map value="Request.doNotPerform, Event.doNotPerform"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -438,6 +442,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=SUBJ].target"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.product, Event.product"/>
       </mapping>
     </element>
     <element id="Task.for">
@@ -547,7 +555,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.authoredOn"/>
+        <map value="Request.authoredOn, Event.recorded"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -758,6 +766,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
       </mapping>
     </element>
     <element id="Task.reason">
@@ -1136,6 +1148,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="???"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.supportingInfo"/>
       </mapping>
     </element>
     <element id="Task.output">

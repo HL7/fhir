@@ -883,7 +883,7 @@
     <element id="ImagingStudy.series.performer.function">
       <path value="ImagingStudy.series.performer.function"/>
       <short value="Type of performance"/>
-      <definition value="Distinguishes the type of involvement of the performer in the series."/>
+      <definition value="Distinguishes the type of involvement of the performer in the imaging study.."/>
       <requirements value="Allows disambiguation of the types of involvement of different performers."/>
       <min value="0"/>
       <max value="1"/>
@@ -914,8 +914,8 @@
     </element>
     <element id="ImagingStudy.series.performer.actor">
       <path value="ImagingStudy.series.performer.actor"/>
-      <short value="Who performed the series"/>
-      <definition value="Indicates who or what performed the series."/>
+      <short value="Who performed the imaging study"/>
+      <definition value="Indicates who or what performed the imaging study."/>
       <min value="1"/>
       <max value="1"/>
       <type>
