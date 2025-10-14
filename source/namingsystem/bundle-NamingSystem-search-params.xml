@@ -213,7 +213,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-jurisdiction"/>
-        <description value="Intended jurisdiction for the naming system"/>
+        <description value="Jurisdiction of the authority that maintains the the naming system"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="NamingSystem.jurisdiction"/>

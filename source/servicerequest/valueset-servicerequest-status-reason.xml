@@ -26,14 +26,6 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/CodeSystem/servicerequest-status-reason"/>
-      <concept>
-        <code value="no-longer-clinically-necessary"/>
-        <display value="No longer clinically necessary"/>
-      </concept>
-      <concept>
-        <code value="pre-approval-denied"/>
-        <display value="Pre-approval denied"/>
-      </concept>
     </include>
   </compose>
 </ValueSet>

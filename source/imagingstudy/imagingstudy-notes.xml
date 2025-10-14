@@ -514,13 +514,13 @@ The set of ImagingStudy elements is broadly aligned with these three information
 In DICOM, a Study may be related to two types of "procedures": requested procedures and performed procedures.
 </p>
 <p>
-In the FHIR model, "requested procedures" are represented by the <code>ActivityDefinition</code> resource while "performed procedures" are represented by the <code>Procedure</code> resource.
+In the FHIR model, "requested procedures" are represented by the <code>ServiceRequest</code> resource while "performed procedures" are represented by the <code>Procedure</code> resource.
 </p>
 <p>
-Therefore, the requested procedure associated with a particular imaging study would typically be the encoded as the <code>ServiceRequest.code</code> that the imaging study is basedOn, where that code may contain a coded value or may reference an <code>ActivityDefinition</code> resource.
+Therefore, the requested procedure associated with a particular imaging study would typically be encoded as the <code>ServiceRequest</code> that the imaging study is basedOn.
 </p>
 <p>
-Similarly, the performed procedure would be encoded as the <code>Procedure</code> that the imaging study is partOf.
+Similarly, the performed procedure would be encoded as the <code>ImagingStudy.procedure</code>that the imaging study is part of.
 </p>
 <p>
 Searching for an imaging study by its requested procedure can be done by including based-on as a search parameters, and by its performed procedure by including procedure as a search parameters.

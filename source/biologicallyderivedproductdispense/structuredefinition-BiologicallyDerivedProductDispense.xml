@@ -3,7 +3,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="BiologicallyDerivedProductDispense"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft"/>
+    <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -88,6 +88,10 @@
       <type>
         <code value="Identifier"/>
       </type>
+        <mapping>
+          <identity value="workflow"/>
+          <map value="Event.identifier"/>
+        </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.basedOn">
       <path value="BiologicallyDerivedProductDispense.basedOn"/>
@@ -99,6 +103,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </type>
+       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.partOf">
       <path value="BiologicallyDerivedProductDispense.partOf"/>
@@ -113,6 +121,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.status">
       <path value="BiologicallyDerivedProductDispense.status"/>
@@ -137,6 +149,10 @@
         <description value="Describes the lifecycle of the dispense."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
       </binding>
+        <mapping>
+          <identity value="workflow"/>
+          <map value="Event.status"/>
+        </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.originRelationshipType">
       <path value="BiologicallyDerivedProductDispense.originRelationshipType"/>
@@ -172,6 +188,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.product"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.subject">
       <path value="BiologicallyDerivedProductDispense.subject"/>
@@ -185,6 +205,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.matchStatus">
       <path value="BiologicallyDerivedProductDispense.matchStatus"/>
@@ -219,6 +243,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.performer.function">
       <path value="BiologicallyDerivedProductDispense.performer.function"/>
@@ -265,6 +293,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.quantity">
       <path value="BiologicallyDerivedProductDispense.quantity"/>
@@ -317,6 +349,10 @@
       <type>
         <code value="Annotation"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.usageInstruction">
       <path value="BiologicallyDerivedProductDispense.usageInstruction"/>

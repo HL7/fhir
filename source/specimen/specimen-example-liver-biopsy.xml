@@ -77,7 +77,7 @@
             <concept>
                 <coding>
                     <system value="http://terminology.hl7.org/CodeSystem/v2-0371"/>
-                    <code value="FORM10"/>
+                    <code value="F10"/>
                     <display value="10% Formalin"/>
                 </coding>
             </concept>

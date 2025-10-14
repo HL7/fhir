@@ -2,9 +2,6 @@
 
 <Observation xmlns="http://hl7.org/fhir">
   <id value="ldl"/>
-  <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation ldl</b></p><a name="ldl"> </a><a name="hcldl"> </a><a name="ldl-en-US"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}">Laboratory</span>, <span title="Codes:{urn:oid:1.2.840.114350.1.13.177.2.7.10.798268.30 Lab}">Lab</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 2089-1}">LDL</span></p><p><b>subject</b>: <a href="Patient/pat2">Donald, Duck</a></p><p><b>effective</b>: 2015-08-16T06:40:17Z</p><p><b>issued</b>: 2015-08-16T08:40:17Z</p><p><b>value</b>: 161 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  code = 'mg/dL')</span></p><p><b>interpretation</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation H}">High</span></p><p><b>specimen</b>: <a href="Specimen/sst">Serum sample</a></p><h3>ReferenceRanges</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Text</b></td></tr><tr><td style="display: none">*</td><td>&lt;100</td></tr></table></div>
-  </text>
   <status value="final"/>
   <category>
     <coding>
@@ -54,6 +51,12 @@
     <display value="Serum sample"/>
   </specimen>
   <referenceRange>
-    <text value="&lt;100"/>
+    <high>
+      <value value="100"/>
+      <comparator value="&lt;"/>
+      <unit value="mg/dL"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg/dL"/>
+    </high>
   </referenceRange>
 </Observation>

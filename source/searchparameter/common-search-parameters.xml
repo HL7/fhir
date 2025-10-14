@@ -326,6 +326,7 @@
         <base value="AppointmentResponse"/>
         <base value="AuditEvent"/>
         <base value="Basic"/>
+        <base value="BiologicallyDerivedProduct"/>
         <base value="BiologicallyDerivedProductDispense"/>
         <base value="BodyStructure"/>
         <base value="CarePlan"/>

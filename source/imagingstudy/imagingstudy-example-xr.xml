@@ -57,11 +57,9 @@
 		<reference value="Endpoint/example-wadors"/>
 	</endpoint>
 	<procedure>
-		<reference>
 			<reference value="Procedure/example"/>
-		</reference>
 	</procedure>
-	<procedure>
+	<reason>
 		<concept>
 			<coding>
 				<system value="http://www.radlex.org"/>
@@ -70,7 +68,7 @@
 			</coding>
 			<text value="XR Wrist 3+ Views"/>
 		</concept>
-	</procedure>
+	</reason>
 	<reason>
 		<concept>
 			<coding>

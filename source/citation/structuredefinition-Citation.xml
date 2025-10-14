@@ -343,12 +343,9 @@
       <isSummary value="true"/>
     </element>
     <element id="Citation.jurisdiction">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
-      </extension>
       <path value="Citation.jurisdiction"/>
-      <short value="Intended jurisdiction for citation record (if applicable)"/>
-      <definition value="A legal or geographic region in which the citation record is intended to be used."/>
+      <short value="Jurisdiction of the authority that maintains the citation record (if applicable)"/>
+      <definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
       <comment value="It may be possible for the citation record to be used in jurisdictions other than those for which it was originally designed or intended.&#xA;&#xA;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
@@ -361,7 +358,7 @@
           <valueString value="Jurisdiction"/>
         </extension>
         <strength value="extensible"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
       </binding>
     </element>
     <element id="Citation.purpose">
@@ -680,13 +677,13 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ArtifactRelationshipType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of relationship to the related artifact."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
@@ -1027,13 +1024,13 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ArtifactRelationshipType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of relationship to the related artifact."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
