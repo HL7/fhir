@@ -780,7 +780,7 @@
     <element id="ImagingStudy.series.bodySite">
       <path value="ImagingStudy.series.bodySite"/>
       <short value="Body part examined"/>
-      <definition value="The anatomic structures examined. See [DICOM Part 16 Annex L](http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite MAY indicate the laterality of body part imaged; if so, it SHALL be consistent with any content of ImagingStudy.series.laterality."/>
+      <definition value="The anatomic structures examined. See [DICOM Part 16 Annex L](http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite MAY include the laterality of body part imaged."/>
       <alias value="BodyPartExamined"/>
       <min value="0"/>
       <max value="1"/>
@@ -806,38 +806,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Body Part Examined (0018,0015) or Anatomic Region Sequence (0008,2218)"/>
-      </mapping>
-    </element>
-    <element id="ImagingStudy.series.laterality">
-      <path value="ImagingStudy.series.laterality"/>
-      <short value="Body part laterality"/>
-      <definition value="The laterality of the (possibly paired) anatomic structures examined. E.g., the left knee, both lungs, or unpaired abdomen. If present, SHALL be consistent with any laterality information indicated in ImagingStudy.series.bodySite."/>
-      <requirement value="If ImagingStudy.series.bodySite is present and specifies laterality - either as part of a coded value or a referenced Body Structure resource - then this value shall be consistent."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Laterality"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes describing body site laterality (left, right, etc.)."/>
-        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_244.html"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".targetSiteCode"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="Laterality (0020,0060)"/>
+        <map value="Body Part Examined (0018,0015) or Anatomic Region Sequence (0008,2218) and Laterality (0020,0060)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.specimen">
