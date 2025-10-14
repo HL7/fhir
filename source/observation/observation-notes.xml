@@ -41,7 +41,7 @@
 				<code>$stats</code> operation</a>).  Therefore <strong>all</strong> code-value and component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.  Components should only be used when there is only one method, one observation, one performer, one device, and one time.  Some use cases for using this structure include:
 			</p>
 		<ol>
-			<li>Observations that are commonly produced and interpreted together. For example, systolic and diastolic blood pressure are represented as a single <a href="observation-example-bloodpressure.html">Blood pressure panel</a>.</li>
+			<li>Observations that are commonly produced and interpreted together. For example, systolic and diastolic blood pressure are represented as a single <a href="observation-example-bloodpressure.html">Blood pressure panel</a>. Another example are ST segment measurements from the different ECG leads (e.g.,  ST I, ST II, etc.).</li>
 			<li>Assessment tool results that are commonly produced and interpreted together.  For example, a newborn <a href="observation-example-5minute-apgar-score.html">Apgar score</a>  that is a single Observation with five components.</li>
 			<li>Representing multiple answers to a question (<a href="questionnaireresponse.html#bnr">relationship and boundaries</a> between Observation and Questionnaire/QuestionnaireResponse). For example, reporting the <a href="observation-example-alcohol-type.html">types of alcohol</a> consumed by a patient</li>
 		</ol>
