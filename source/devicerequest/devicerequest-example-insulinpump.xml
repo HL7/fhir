@@ -14,7 +14,6 @@
 <identifier>
   <value value="ip_request1.1"/>
 </identifier>
-<instantiatesCanonical value="http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set"/>
 <basedOn>
   <display value="Homecare - DM follow-up"/>
 </basedOn>
@@ -27,7 +26,7 @@
 <status value="active"/>
 <intent value="instance-order"/>
 <priority value="routine"/>
-<code>
+<product>
 <concept>
   <coding>
     <system value="http://loinc.org"/>
@@ -35,7 +34,7 @@
   </coding>
   <text value="Insulin delivery device panel"/>
 </concept>
-</code>
+</product>
 <subject>
   <reference value="Patient/dicom"/>
 </subject>
