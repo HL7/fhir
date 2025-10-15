@@ -60,14 +60,14 @@ href="#turtle-template">Turtle
             Conventions</a>
 	   <ul>
             <li><a href="#resources">Representing Resources</a></li>
-            <li><a href="#caseSensitivity">Case Sensitivity</a></li>
             <li><a href="#nestedNodes">Nested Anonymous Nodes</a></li>
             <li><a href="#propertyNames">Property Names and Polymorphism</a></li>
-            <li><a href="#rdflist">Representing Repeating Elements -- RDF Lists</a></li>
-            <li><a href="#primitive">Representing Primitive Elements</a></li>
-            <li><a href="#reference">Representing References</a></li>
-            <li><a href="#contained">Representing Inline (Contained) Resources</a></li>
-            <li><a href="#representing-concepts">Representing Concepts</a></li>
+            <li><a href="#caseSensitivity">Case Sensitivity</a></li>
+            <li><a href="#rdflist">Repeating Elements -- RDF Lists</a></li>
+            <li><a href="#primitive">Primitive Elements</a></li>
+            <li><a href="#reference">References</a></li>
+            <li><a href="#contained">Inline (Contained) Resources</a></li>
+            <li><a href="#identifying-concepts">Identifying Concepts</a></li>
             <li><a href="#iri-stem">Concept IRIs and IRI Stems</a></li>
             <li><a href="#extension">Non-modifier Extensions</a></li>
             <li><a href="#modifierExtension">Modifier Extensions</a></li>
@@ -98,6 +98,7 @@ href="#turtle-template">Turtle
           representation for a resource is described using this
           format: 
         </p>
+        <mark>@@ TODO: Update this example to bgpanel or similar @@ </mark>
         <pre class="spec">
 [ a fhir:Observation; 
   fhir:nodeRole fhir:treeRoot;     # if this is the parser root
@@ -192,7 +193,7 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
             explicitly indicated after '^^', such as <code class="rdf">"185"^^xsd:decimal</code> , and</li>
           <li>literal values that can be represented using Turtle shorthand notation
             for xsd:string, xsd:integer, xsd:decimal, xsd:double or xsd:boolean
-            may optionally use Turtle shorthand.  However, there are
+            may optionally use it.  However, there are
             some slight differences between what is permitted in FHIR,
             Turtle shorthand syntax, and XML Schema Datatype literals:
             <ul>
@@ -231,8 +232,9 @@ href="fhir.shex">fhir.shex</a>
           for the complete FHIR RDF schema. Each Resource page includes
           a link for the subset of fhir.shex needed to describe that
           Resource. The media type for ShEx is <code>text/shex.</code></p>
+
         <a name="resources"></a>
-          <h4>Representing Resources</h4>
+        <h4>Representing Resources</h4>
           <p> Each resource is represented as a set of RDF triples. When
             a resource has a persistent identity (e.g. it can be found
             at a particular URL -- usually a FHIR RESTful server), then
@@ -241,7 +243,8 @@ href="fhir.shex">fhir.shex</a>
             identity of the root document -- "&lt;&gt;" in Turtle syntax.
             In the above example, the resource is the subject: <code
               class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</code>.
-          </p>
+	  <mark>@@ TODO: update subject URI for new example @@</mark>
+            </p>
           <p> Some resources can contain other resources. Given that the
             relationships can appear in any order in RDF, it cannot be
             assumed that the first encountered element represents the
@@ -253,18 +256,11 @@ href="fhir.shex">fhir.shex</a>
             it cannot be determined how to parse them as a single
             resource. </p>
 
-        <a name="caseSensitivity"></a>
-          <h4>Case Sensitivity</h4>
-          <p> While RDF property names are case-sensitive, FHIR avoids
-            confusion by assuring that there are no properties that
-            differ only in case.  
-          </p>
-	  <p> @@ TODO: Add issue 178 resolution if needed @@ </p>
-
         <a name="nestedNodes"></a>
           <h4>Nested Anonymous Nodes</h4>
-          <p> Content within a resource is usually represented with
-            anonymous nodes (a/k/a "blank nodes").&nbsp; Usuall only FHIR
+          <p> Content within a resource is normally represented with
+            anonymous nodes (a/k/a "blank nodes"), unless something
+            else needs to reference that content.&nbsp; Normally only FHIR
             Resource nodes are <a href="https://www.rfc-editor.org/rfc/rfc3987">IRIs</a>. For example, this Turtle:
           </p>
 
@@ -276,9 +272,10 @@ href="fhir.shex">fhir.shex</a>
           <ul>
             <li><code class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt;</code>
                 has a <code class="rdf">status</code> of some anonymous node.</li>
-            <li>That anonymous node has a <code class="rdf">fhir:v</code>
-              of <code class="rdf">"final"</code> (the literal
-              "final").</li>
+            <li>That anonymous node has a value
+              of <code class="rdf">"final"</code> (a literal),
+              indicated by the <code class="rdf">fhir:v</code> property.
+              (See <a href="#primitive">Primitive Elements</a> below.)</li>
           </ul>
 
         <a name="propertyNames"></a>
@@ -302,9 +299,9 @@ href="fhir.shex">fhir.shex</a>
             property in the resource's structure definition shows
             a list of two or more types for a given property's value,
             then the property is polymorphic in FHIR RDF.  For example, see the
-            <i>instantiates</i> property in
+            <code class="json">instantiates</code> property in
             <a href="observation.profile.json.html">
-            Observation's structure definition</a>.)
+            Observation's JSON structure definition</a>.)
             In other formats (XML, JSON), a FHIR property with a choice
             of value types has the type appended to the property name,
             e.g. <span class="json">valueQuantity</span> if the value is a 
@@ -333,12 +330,13 @@ href="fhir.shex">fhir.shex</a>
             be the complex type <code class="rdf">fhir:Reference</code> or
             the primitve type <code class="rdf">fhir:canonical</code>.  But
             in either case, the type is specified, such as:
+          <mark>@@ TODO: Update fhir:canonical --> fhir:Canonical if we decide on that option @@ </mark>
           </p>
           <pre class="rdf">
   &lt;Observation/123&gt;
     fhir:instantiates [
        a fhir:Reference ;
-       fhir:link &lt;http://example.org/fhir/PlanDefinition/KDN5&gt; ;
+       fhir:l &lt;http://example.org/fhir/PlanDefinition/KDN5&gt; ;
        fhir:reference [
          fhir:v "http://example.org/fhir/PlanDefinition/KDN5"^^xsd:anyURI
       ]
@@ -349,13 +347,22 @@ href="fhir.shex">fhir.shex</a>
   &lt;Observation/123&gt;
     fhir:instantiates [
        a fhir:canonical ;
-       fhir:link &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
+       fhir:l &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
        fhir:v "http://example.org/fhir/PlanDefinition/KDN5|v123"^^xsd:anyURI ;
     ] ;
           </pre>
 
+
+        <a name="caseSensitivity"></a>
+          <h4>Case Sensitivity</h4>
+          <p> While RDF property names are case-sensitive, FHIR avoids
+            confusion by assuring that there are no properties that
+            differ only in case.  
+          </p>
+
+	  <p> <mark>@@ TODO: Add issue 178 resolution if needed @@</mark> </p>
         <a name="rdflist"></a>
-          <h4>Representing Repeating Elements -- RDF Lists</h4>
+          <h4>Repeating Elements -- RDF Lists</h4>
           <p> Elements that can repeat are represented with <a href="https://www.w3.org/TR/turtle/#collections">RDF lists</a>
             (officially called "RDF collections") in order to retain the
             order of their elements.  In the <a href="#ex-list">above
@@ -371,7 +378,7 @@ href="fhir.shex">fhir.shex</a>
 	    See <a href="#fhir-rdf-with-owl">Using FHIR RDF with OWL</a> for more info.</p>
 
         <a name="primitive"></a>
-          <h4>Representing Primitive Elements</h4>
+          <h4>Primitive Elements</h4>
           <p> Primitive elements -- elements with a primitive type -- are
             represented as anonymous nodes, both so that element
             extensions can be attached and so that they can consistently
@@ -428,10 +435,10 @@ href="fhir.shex">fhir.shex</a>
 
           <p> If a primitive has FHIR type <a href="datatypes.html#uri">uri</a>
             or one of its subtypes (url, canonical, uuid, oid), then
-            a <code class="rdf">fhir:link</code> property is optionally
+            a <code class="rdf">fhir:l</code> property is optionally
             included as a sibling of the 
             <code class="rdf">fhir:v</code> property.
-            The value of the <code class="rdf">fhir:link</code> property is 
+            The value of the <code class="rdf">fhir:l</code> property is 
             an RDF node having the same URI as the URI given in the
             <code class="rdf">fhir:v</code> property, with one exception.
             If the <code class="rdf">fhir:v</code> URI contains a 
@@ -442,13 +449,13 @@ href="fhir.shex">fhir.shex</a>
           <pre class="rdf">
 &lt;Observation/123&gt; fhir:instantiates [
       a fhir:canonical ;
-       fhir:link &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
+       fhir:l &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
        fhir:v "http://example.org/fhir/PlanDefinition/KDN5|v123"^^xsd:anyURI ;
     ] ;
           </pre>
 
         <a name="reference"></a>
-          <h4>Representing References</h4>
+          <h4>References</h4>
           <p> A <a href="references.html#Reference">Reference</a>
             element is represented using the same rules as above: </p>
           <pre class="rdf">  fhir:subject [
@@ -460,26 +467,26 @@ href="fhir.shex">fhir.shex</a>
             between the Turtle format and the JSON and XML formats.
             However, it's very useful for an RDF processor if the RDF
             graph links to the target of the reference directly. This
-            can be represented using the (optional) fhir:link property:
+            can be represented using the (optional) fhir:l property:
           </p>
           <pre class="rdf">  fhir:subject [
-     <b>fhir:link &lt;http://example.org/fhir/Patient/example&gt; ;</b>
+     <b>fhir:l &lt;http://example.org/fhir/Patient/example&gt; ;</b>
      a fhir:Reference ;
      fhir:reference [ fhir:v "Patient/example" ];
      fhir:display [ fhir:v "Example Patient" ];
   ];</pre>
-          <p> The correct value for the fhir:link relationship must be
+          <p> The correct value for the fhir:l relationship must be
             determined by resolving the <a href="references.html">rules
               for resolving references</a> for the various reference
             types to a literal URL that refers to the correct content in
             the local RDF context. </p>
-          <p> The fhir:link relationship can be added automatically as
+          <p> The fhir:l relationship can be added automatically as
             part of generating the resource representation, or it can be
             injected by a post-processor that knows how to convert the
             raw references into RDF-suitable references. </p>
 
         <a name="contained"></a>
-          <h4>Representing Inline (Contained) Resources</h4>
+          <h4>Inline (Contained) Resources</h4>
           <p> Inline resources -- when a resource is contained directly
             in another element -- occur in the following places: </p>
           <ul>
@@ -500,41 +507,28 @@ href="fhir.shex">fhir.shex</a>
             0..*, so an <a href="#rdflist">RDF List</a> is used to
             order the array. </p>
 
-          <a name="representing-concepts"></a>
-          <h4>Representing Concepts</h4>
+          <a name="identifying-concepts"></a>
+          <a name="representing-concepts"></a> <!-- Keep old anchor too -->
+          <h4>Identifying Concepts</h4>
           <p> The same logic applies to the <a
               href="datatypes.html#Coding">Coding</a> data type. These
             are represented directly in Turtle by serializing their
-            properties as specified above: </p>
-          <pre class="rdf">fhir:code [
-    fhir:coding (
-        [
-            fhir:system [ fhir:v "http://loinc.org" ];
-            fhir:code [ fhir:v "29463-7" ];
-            fhir:display [ fhir:v "Body Weight" ]
-        ]
-        [
-            fhir:system [ fhir:v "http://snomed.info/sct" ];
-            fhir:code [ fhir:v "27113001" ];
-            fhir:display [ fhir:v "Body weight" ]
-        ]
-    )
-];</pre>
-          <p> For reasoners using the RDF graph, it's very useful to
+            properties as above.
+            However, for reasoners using the RDF graph, it's also useful to
             make the implicit concept references in these Codings
-            explicit, by specifying a <i>concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a></i> in an
-            (optional) rdf:type assertion, written as <b><code class="rdf" style="font-size: larger">a</code></b> in
+            explicit, by specifying an optional <i>concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a></i> in an
+            rdf:type assertion, written as <b><code class="rdf" style="font-size: larger">a</code></b> in
             Turtle: </p>
           <pre class="rdf">fhir:code [
     fhir:coding (
         [
-            <b>a loinc:29463-7</b>;
+            <b>a loinc:29463-7</b>;    # Optional, but recommended
             fhir:system [ fhir:v "http://loinc.org" ];
             fhir:code [ fhir:v "29463-7" ];
             fhir:display [ fhir:v "Body Weight" ]
         ]
         [
-            <b>a sct:27113001</b>;
+            <b>a sct:27113001</b>;    # Optional, but recommended
             fhir:system [ fhir:v "http://snomed.info/sct" ];
             fhir:code [ fhir:v "27113001" ];
             fhir:display [ fhir:v "Body weight" ]
@@ -548,19 +542,20 @@ href="fhir.shex">fhir.shex</a>
           <p> 
           A concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> uniquely identifies a concept that would otherwise
           be identified by a &lt;<code>Coding.system, Coding.code</code>&gt; pair.  A concept
-          IRI has two parts: an IRI stem and a code.
+          IRI normally has two parts -- an IRI stem and a code --
+          though concept IRIs that do not follow this pattern can be used.
 	  </p>
 
           <p>
           An <i>IRI stem</i> is the initial substring of the concept IRIs
-          that correspond to the codes in a particular vocabulary.
+          that correspond to all codes in a particular Code System or terminology.
           The concept IRI is formed by concatenating the IRI stem with
           the code (after percent-encoding any reserved characters
           -- see <a href="#concept-iri-algorithm">Appendix 1: Algorithm for Creating a Concept IRI</a>
           for details).  The IRI stem is typically used to define an
           IRI prefix in Turtle and SPARQL, such as <code class="rdf">loinc:</code> or <code class="rdf">sct:</code> in
           the above example.   This approach allows the Compact URI
-          <code class="rdf">loinc:29463-7</code> (in Turtle or SPARQL) to be translated into the
+          <code class="rdf">loinc:29463-7</code> (in Turtle or SPARQL) to be easily translated into the
           concept IRI <code class="rdf">http://loinc.org/rdf/29463-7</code> by concatenating
           the IRI stem <code class="rdf">http://loinc.org/rdf/</code> with the code
           <code class="rdf">29463-7</code>. This particular IRI stem is defined in the
@@ -587,12 +582,12 @@ href="fhir.shex">fhir.shex</a>
 
           <p>
           One might wonder why the <code>Coding.system</code> is not used directly
-          as the IRI stem for a given vocabulary.  One reason is that 
+          as the IRI stem for a given terminology.  One reason is that 
           <code>Coding.system</code>s often lack a convenient separator
           character as their final character, such as "/" or "#", which
           could cause problems if they were directly concatenated with codes,
           leading to erroneous concept IRIs such as <code class="rdf">http://loinc.org35217-9</code>.
-          But the main reason is that the <code>Coding.system</code> and the IRI stem of some vocabularies
+          But the main reason is that the <code>Coding.system</code> and the IRI stem of some terminologies
           were chosen independently and differ in unpredictable ways.
           Hence, there is no simple formula for determining the correct
           IRI stem from a <code>Coding.system</code>.
@@ -604,6 +599,7 @@ href="fhir.shex">fhir.shex</a>
           to IRI stems: IRI stems can be registered and looked
           up in the HL7 terminology website, based on the desired
           <code>Coding.system</code>.
+	  <mark>@@ TODO: Add link to HL7 terminology website @@</mark>
           </p>
 
           <p>
@@ -917,6 +913,11 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
 
         <h3><a name="concept-iri-algorithm"></a>Appendix 1: Algorithm for
           Creating a Concept IRI</h3>
+
+        <p><i>For background on concept IRIs, IRI stems, and their
+          relationship to Code Systems, 
+          see <a href="iri-stem">Concept IRIs and IRI Stems</a> above.</i></p>
+
         <p>This section defines a standard algorithm for generating a
           Concept IRI from a &lt;<code>Coding.system</code>, <code>Coding.code</code>&gt;
           pair.&nbsp; In many cases it involves merely concatenating the
@@ -924,8 +925,9 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
           But because a <code>Coding.code</code> could contain reserved
           characters that are used to delineate different parts of the
           IRI, percent-encoding of reserved characters is required, as
-          defined below.<br/>
-          <br/>
+          defined below.</p>
+
+        <p>
           Given:<br/>
         </p>
         <ul>
@@ -1029,10 +1031,10 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
                 <p><code class="rdf" style="font-size: larger"><b><span>Coding.system</span></b></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code class="rdf" style="font-size: larger"><b><span>Coding.code</span></b></code></p>
+                <p><b><span>IRI Stem</span></b></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><b><span>IRI Stem</span></b></p>
+                <p><code class="rdf" style="font-size: larger"><b><span>Coding.code</span></b></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
                 <p><b><span>Concept IRI</span></b></p>
@@ -1044,10 +1046,10 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
                     </span></code><code><span>http://hl7.org/fhir/sid/icd-10</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>G44.1</span></code></p>
+                <p><code><span>http://purl.bioontology.org/ontology/ICD10/</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>http://purl.bioontology.org/ontology/ICD10/</span></code></p>
+                <p><code><span>G44.1</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
                 <p><code><span>http://purl.bioontology.org/ontology/ICD10/G44.1</span></code><code><span>&nbsp;</span></code></p>
@@ -1059,10 +1061,10 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
                     </span></code><code><span>http://snomed.info/sct</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>128045006</span></code></p>
+                <p><code><span>http://snomed.info/id/</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>http://snomed.info/id/</span></code></p>
+                <p><code><span>128045006</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
                 <p><code><span>http://snomed.info/id/128045006</span></code></p>
@@ -1074,10 +1076,10 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
                 <p>MeSH: <code><span>https://www.nlm.nih.gov/mesh</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>D000305</span></code></p>
+                <p><code><span>https://id.nlm.nih.gov/mesh/ </span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>https://id.nlm.nih.gov/mesh/ </span></code></p>
+                <p><code><span>D000305</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
                 <p><code><span>https://id.nlm.nih.gov/mesh/D000305 </span></code></p>
@@ -1088,10 +1090,10 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
                 <p>LOINC: <code><span>http://loinc.org</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>35217-9</span></code></p>
+                <p><code><span>https://loinc.org/rdf/</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>https://loinc.org/rdf/</span></code></p>
+                <p><code><span>35217-9</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
                 <p><code><span>https://loinc.org/rdf/35217-9</span></code></p>
@@ -1104,10 +1106,10 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
                     </span></code><code><span>http://example.org/</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code class="rdf"><span style="font-size: larger"><span style="font-size: larger">☺</span></span></code></p>
+                <p><code><span>http://example.org/</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>http://example.org/</span></code></p>
+                <p><code class="rdf"><span style="font-size: larger"><span style="font-size: larger">☺</span></span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
                 <p><code class="rdf">http://example.org/<span style="font-size: larger"><span style="font-size: larger">☺</span></span></code></p>
@@ -1125,10 +1127,10 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
                     </span></code><code><span>http://example.org/</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code class="rdf"><span style="font-size: larger">👋🏾</span></code></p>
+                <p><code><span>http://example.org/ </span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>http://example.org/ </span></code></p>
+                <p><code class="rdf"><span style="font-size: larger">👋🏾</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
                 <p><code class="rdf">http://example.org/<span style="font-size: larger">👋🏾</span></code><code><span>&nbsp;</span></code></p>
@@ -1142,6 +1144,10 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
 
         <a name="registering-iri-stems"></a>
           <h3>Appendix 2: Registering an IRI Stem on the HL7 Terminology Website</h3>
+
+          <p>This section is intended for those who are helping to add or 
+          maintain IRI stem registrations at the
+          <a href="https://terminology.hl7.org/">HL7 Terminology website</a>.</p>
 
           <p>
           IRI stems have not been standardized for all FHIR
