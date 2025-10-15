@@ -169,10 +169,10 @@
     </element>
     <element id="ImagingSelection.identifier">
       <path value="ImagingSelection.identifier"/>
-      <short value="Business Identifiers for Imaging Selection"/>
-      <definition value="Unique identifiers assigned to this imaging selection."/>
-      <comment value="This is a business identifiers, not a resource identifier -- see discussion under [Business Identifiers](resource.html#identifiers). "/>
-      <requirements value="Allows imaging selections to be distinguished and referenced."/>
+      <short value="Business identifier for imaging selection"/>
+      <definition value="Business identifiers assigned to this imaging selection by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the imaging selection as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -387,9 +387,9 @@
     </element>
     <element id="ImagingSelection.performer.function">
       <path value="ImagingSelection.performer.function"/>
-      <short value="Type of performer"/>
-      <definition value="Distinguishes the type of involvement of the performer."/>
-      <requirements value="Allows disambiguation of the types and involvement of different performers."/>
+      <short value="Type of performance"/>
+      <definition value="Distinguishes the type of involvement of the performer in the imaging selection.."/>
+      <requirements value="Allows disambiguation of the types of involvement of different performers."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -689,7 +689,7 @@
       </type>
       <example>
         <label value="General"/>
-        <valueId value="1.2.840.10008.5.1.4.1.1.2"/>
+        <valueId value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
       </example>
       <mapping>
         <identity value="dicom"/>
