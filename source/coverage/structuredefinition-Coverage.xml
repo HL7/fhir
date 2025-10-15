@@ -442,7 +442,7 @@
     <element id="Coverage.period">
       <path value="Coverage.period"/>
       <short value="Coverage start and end dates"/>
-      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force."/>
+      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force. When non-contiguous periods of coverage need to be documented it is recommended that this is accomplished through the use of an extension,rather than complicating coverage period calculations for many users of the Coverage resource."/>
       <requirements value="Some insurers require the submission of the coverage term."/>
       <min value="0"/>
       <max value="1"/>
