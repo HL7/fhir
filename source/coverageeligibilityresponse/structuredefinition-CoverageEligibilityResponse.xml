@@ -293,7 +293,7 @@
       <short value="Eligibility request reference"/>
       <definition value="Reference to the original request resource."/>
       <requirements value="Needed to allow the response to be linked to the request."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
@@ -830,7 +830,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-error"/>
       </binding>
 	  <isSummary value="true"/>
-	</element>  
+	</element>
     <element id="CoverageEligibilityResponse.error.expression">
       <path value="CoverageEligibilityResponse.error.expression"/>
       <short value="FHIRPath of element(s) related to issue"/>
