@@ -484,7 +484,26 @@
             </type>
             <isModifier value="false" />
         </element> -->
-        <!-- insert location here -->
+        <element id="DeviceAlert.location">
+            <path value="DeviceAlert.location" />
+            <short value="Location of the subject when the alert was raised" />
+            <definition value="The location of the subject of the alert at the time that the alert was raised." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.location" />
+            </mapping>
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event.location" />
+            </mapping>
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+            </type>
+        </element>
         <element id="DeviceAlert.label">
             <path value="DeviceAlert.label" />
             <short value="Text to be displayed for the alert condition" />

@@ -577,4 +577,34 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAlert-location" />
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+          <valueCode value="dev" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+          <valueInteger value="2" />
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAlert.location" />
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-location" />
+        <description value="Location of the subject at time of alert" />
+        <code value="location" />
+        <type value="reference" />
+        <status value="active" />
+        <target value="Location" />
+        <expression value="DeviceAlert.location" />
+        <processingMode value="normal" />
+      </SearchParameter>
+    </resource>
+  </entry>  
 </Bundle>
