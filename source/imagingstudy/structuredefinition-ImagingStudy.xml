@@ -914,7 +914,7 @@
     </element>
     <element id="ImagingStudy.series.performer.actor">
       <path value="ImagingStudy.series.performer.actor"/>
-      <short value="Who performed the imaging study"/>
+      <short value="Who performed imaging study"/>
       <definition value="Indicates who or what performed the imaging study."/>
       <min value="1"/>
       <max value="1"/>
