@@ -108,10 +108,6 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingStudy.series.performer.actor">
         <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Who performed imaging study"/>
-            <resource value="Who performed the imaging study"/>
-        </shortUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="ImagingStudy.reason">
         <definitionUnmatched reason="Patterns has unnecessary capital">

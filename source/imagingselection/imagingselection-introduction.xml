@@ -46,7 +46,7 @@
           <li><a href="observation.html">Observation.partOf</a> references an <a href="imagingstudy.html">ImagingStudy</a></li>
           <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to an identified subset of a study</li>
           <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to an identified subset of a study</li>
-          <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of an identified subset of a study</a></li>
+          <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of an identified subset of a study</li>
         </ul>
       
     
