@@ -95,7 +95,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="ImagingSelection.performer.function">
         <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Don't want extra space at the end.">
             <_pattern value="Distinguishes the type of involvement of the performer in the imaging selection.."/>
             <resource value="Distinguishes the type of involvement of the performer in the imaging selection."/>
         </definitionUnmatched>

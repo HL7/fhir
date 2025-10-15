@@ -172,8 +172,8 @@
     <element id="ImagingSelection.identifier">
       <path value="ImagingSelection.identifier"/>
       <short value="Business identifier for imaging selection"/>
-      <definition value="Business identifiers assigned to this imaging selection by the performer and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)). It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types. For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <definition value="Business identifiers assigned to this imaging selection by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
       <requirements value="Allows identification of the imaging selection as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>
       <max value="*"/>
@@ -366,7 +366,7 @@
         <valueCode value="right"/>
       </extension>
       <path value="ImagingSelection.performer"/>
-      <short value="Who performed the imaging selection"/>
+      <short value="Who performed imaging selection"/>
       <definition value="Indicates who or what performed the imaging selection and how they were involved."/>
       <min value="0"/>
       <max value="*"/>
