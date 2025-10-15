@@ -858,23 +858,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="Attachment"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <type>
-        <code value="Identifier"/>
+        <code value="*"/>
       </type>
     </element>
     <element id="Claim.supportingInfo.reason">
