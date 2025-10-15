@@ -78,7 +78,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="ImagingStudy.started">
-        <missingTypes _pattern="Period, Timing" reason="Imgaging study started is always an instant"/>
+        <missingTypes _pattern="Period, Timing" reason="Imaging study started is always an instant"/>
         <shortUnmatched reason="Started is more specific than occurrence">
             <_pattern value="When imaging study occurred/is occurring"/>
             <resource value="When the study was started"/>
