@@ -129,7 +129,7 @@
       <constraint>
         <key value="isl-8"/>
         <severity value="error"/>
-        <human value="	if present, imageRegion3D.coordinate shall have a value count that is a multiple of 3"/>
+        <human value="if present, imageRegion3D.coordinate shall have a value count that is a multiple of 3"/>
         <expression value="imageRegion3D.coordinate.exists() implies imageRegion3D.coordinate.count() mod 3 = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
@@ -138,6 +138,20 @@
         <severity value="error"/>
         <human value="modality SHALL only be present if seriesUid is present"/>
         <expression value="modality.exists() implies seriesUid.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-10"/>
+        <severity value="error"/>
+        <human value="only one of instance.frameNumber, instance.referencedContentItemIdentifier, instance.segmentNumber, instance.regionOfInterest and instance.waveFormChannel shall be present"></human>
+        <expression value="instance.frameNumber.exists() xor instance.referencedContentItemIdentifier.exists() xor instance.segmentNumber.exists() xor instance.regionOfInterest.exists() xor instance.waveFormChannel.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </constraint>
+      <constraint>
+        <key value="isl-11"/>
+        <severity value="error"/>
+        <human value="if present, instance.waveFormChannel shall have a value count that is a multiple of 2"/>
+        <expression value="instance.waveFormChannel.exists() implies instance.waveFormChannel.count() mod 2 = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <mapping>
@@ -552,7 +566,7 @@
     <element id="ImagingSelection.bodySite">
       <path value="ImagingSelection.bodySite"/>
       <short value="Body part examined"/>
-      <definition value="The anatomic structures examined. See [DICOM Part 16 Annex L](http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings."/>
+      <definition value="The anatomic structures examined. See [DICOM Part 16 Annex L](http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite MAY include the laterality of body part imaged."/>
       <alias value="BodyPartExamined"/>
       <alias value="AnatomicRegionSequence"/>
       <min value="0"/>
@@ -575,7 +589,7 @@
       </binding>
       <mapping>
         <identity value="dicom"/>
-        <map value="Body Part Examined (0018,0015) or Anatomic Region Sequence (0008,2218)"/>
+        <map value="Body Part Examined (0018,0015) or Anatomic Region Sequence (0008,2218) and Laterality (0020,0060)"/>
       </mapping>
     </element>
     <element id="ImagingSelection.focus">
@@ -682,23 +696,64 @@
         <map value="SOP Class UID (0008,0016)"/>
       </mapping>
     </element>
-    <element id="ImagingSelection.instance.subset">
-      <path value="ImagingSelection.instance.subset"/>
-      <short value="The selected subset of the SOP Instance"/>
-      <definition value="Selected subset of the SOP Instance. The type of the subset item is determined by the `instance.sopClass` value.&#xA;May be one of:&#xA;- A list of frame numbers selected from a multiframe SOP Instance (See [DICOM PS 3.3 Table 10.3](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html#table_10-3)).&#xA;- A list of Referenced Content Item Identifier values selected from a DICOM SR or other structured document SOP Instance (See [DICOM PS 3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html)).&#xA;- A list of segment numbers selected from a segmentation SOP Instance (See [DICOM PS 3.3 Table C.8.20-4](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.20.4.html#table_C.8.20-4)).&#xA;- A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance (See [DICOM PS 3.3 C.8.8.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html))."/>
+    <element id="ImagingSelection.instance.frameNumber">
+      <path value="ImagingSelection.instance.frameNumber"/>
+      <short value="Selected frames"/>
+      <definition value="A list of frame numbers selected from a multiframe SOP Instance (See [DICOM PS 3.3 Table 10.3](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html#table_10-3))."/>
+      <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a multiframe SOP Class."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="positiveInt"/>
       </type>
-      <example>
-        <label value="Frame Number"/>
-        <valueString value="6"/>
-      </example>
-      <example>
-        <label value="Observation UID"/>
-        <valueString value="1.2.840.113747.20080222.324856729726854657132726086516575"/>
-      </example>
+      <isSummary value="false"/>
+    </element>
+    <element id="ImagingSelection.instance.referencedContentItemIdentifier">
+      <path value="ImagingSelection.instance.referencedContentItemIdentifier"/>
+      <short value="Selected content items"/>
+      <definition value="A list of Referenced Content Item Identifier values selected from a DICOM SR or other structured document SOP Instance (See [DICOM PS 3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html))."/>
+      <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a DICOM SR or other structured document SOP Class."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="ImagingSelection.instance.segmentNumber">
+      <path value="ImagingSelection.instance.segmentNumber"/>
+      <short value="Selected segments"/>
+      <definition value="A list of segment numbers selected from a segmentation SOP Instance (See [DICOM PS 3.3 Table C.8.20-4](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.20.4.html#table_C.8.20-4))."/>
+      <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a segmentation SOP Class."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="ImagingSelection.instance.regionOfInterest ">
+      <path value="ImagingSelection.instance.regionOfInterest "/>
+      <short value="Selected regions of interest"/>
+      <definition value="A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance (See [DICOM PS 3.3 C.8.8.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html))."/>
+      <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a radiotherapy structure set SOP Class."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
+    <element id="ImagingSelection.instance.waveFormChannel ">
+      <path value="ImagingSelection.instance.waveFormChannel "/>
+      <short value="Selected waveform channel"/>
+      <definition value="A list of channels in a Waveform selected from an instance of a waveform SOP Class.&#xA;Each channel is specified as a pair of values where the first value is the Multiplex Group Number, and the second value is the Channel Number within the multiplex group (See [DICOM PS 3.3 C.18.5.1.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.5.html#sect_C.18.5.1.1))."/>
+      <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a waveform  structure set SOP Class."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
       <isSummary value="false"/>
     </element>
     <element id="ImagingSelection.instance.imageRegion2D">

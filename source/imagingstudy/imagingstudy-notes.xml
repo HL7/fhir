@@ -526,4 +526,27 @@ Similarly, the performed procedure would be encoded as the <code>ImagingStudy.pr
 Searching for an imaging study by its requested procedure can be done by including based-on as a search parameters, and by its performed procedure by including procedure as a search parameters.
 </p>
 
+<a name="laterality"></a>
+<h3>Body Site and Laterality</h3>
+<p>
+The <code>series.bodySite</code> element may include the laterality of the (possibly paired) anatomic structures examined – e.g. left knee, bilateral lungs, etc. This can be conveyed in several ways:
+</p>
+<ul>
+  <li><code>series.bodySite</code> contains an anatomic code that includes laterality, e.g
+    <pre class="json">
+"bodySite": {
+  "concept": {
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "5951000",
+      "display": "Left wrist"
+    }]
+  }
+}
+    </pre>
+  </li>
+  <li><code>series.bodySite</code> contains a reference to a <code>BodyStructure</code> resource whose <code>includedStructure.structure</code> element contains an anatomic code that includes laterality</li>
+  <li><code>series.bodySite</code> contains a reference to a <code>BodyStructure</code> resource whose <code>includedStructure</code> element includes a laterality value. See this <a href="bodystructure-example-dicom-includedStructure.html">example BodyStructure representation of the Left Wrist, with laterality and SNOMED coding for anatomical structure</a>.</li>
+</ul>
+
 </div>
