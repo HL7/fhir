@@ -354,7 +354,7 @@
     </element>
     <element id="Invoice.issuer">
       <path value="Invoice.issuer"/>
-      <short value="Issuing Organization of Invoice"/>
+      <short value="Issuing entity"/>
       <definition value="The organizationissuing the Invoice."/>
       <comment value="Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered."/>
       <min value="0"/>
@@ -362,6 +362,8 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
       </type>
       <isSummary value="false"/>
       <mapping>
