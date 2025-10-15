@@ -21,7 +21,13 @@
   <title value="Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior"/>
   <status value="draft"/>
   <relatesTo>
-    <type value="cites"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+        <code value="cites" />
+        <display value="Cites" />
+      </coding>
+    </type>
     <targetMarkdown value="Figure 2 Lees 2016 &lt;b&gt;Citation:&lt;/b&gt; Lees KR, Emberson J, Blackwell L, Bluhmki E, Davis SM, Donnan GA, et al; Stroke Thrombolysis Trialists’ Collaborators Group. Effects of alteplase for acute stroke on the distribution of functional outcomes: a pooled analysis of 9 trials. Stroke. 2016;47:2373-2379. PMID 27507856 &lt;b&gt;URL:&lt;/b&gt; https://doi.org/10.1161/STROKEAHA.116.013644"/>
   </relatesTo>
   <description value="mRS 0-2 at 90 days Odds Ratio 1.2 for Alteplase vs. No Alteplase in patients with acute ischemic stroke 3-4.5 hours prior"/>
