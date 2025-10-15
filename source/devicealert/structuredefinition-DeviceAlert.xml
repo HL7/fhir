@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
     <id value="DeviceAlert" />
     <meta>
@@ -85,6 +84,14 @@
             <mapping>
                 <identity value="workflow" />
                 <map value="Event" />
+            </mapping>
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition, AlertState" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionDescriptor, AlertSignalState, AlertConditionState" />
             </mapping>
         </element>
         <element id="DeviceAlert.identifier">
@@ -278,7 +285,7 @@
         </element>
         <element id="DeviceAlert.subject">
             <path value="DeviceAlert.subject" />
-            <short value="The who or what the alert is about" />
+            <short value="Who or what the alert is about" />
             <!--       <definition value="" /> -->
             <min value="1" />
             <max value="1" />
@@ -295,6 +302,11 @@
                 <code value="Reference" />
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct" />
             </type>
         </element>
         <element id="DeviceAlert.encounter">
@@ -393,6 +405,26 @@
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric" />
             </type>
         </element>
+        <element id="DeviceAlert.location">
+            <path value="DeviceAlert.location" />
+            <short value="Location of the subject when the alert was raised" />
+            <definition value="The location of the subject of the alert at the time that the alert was raised." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+            </type>
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.where[x]" />
+            </mapping>
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event.location" />
+            </mapping>
+        </element>
         <element id="DeviceAlert.derivedFrom">
             <path value="DeviceAlert.derivedFrom" />
             <short value="The value causing the alert condition" />
@@ -484,7 +516,6 @@
             </type>
             <isModifier value="false" />
         </element> -->
-        <!-- insert location here -->
         <element id="DeviceAlert.label">
             <path value="DeviceAlert.label" />
             <short value="Text to be displayed for the alert condition" />
@@ -648,7 +679,7 @@
             <isSummary value="false" />
             <mapping>
                 <identity value="IEEESDC" />
-                <map value="Start: AlertConditionState/DeterminationTime + AlertConditionState/ActualConditionGenerationDelay + AlertSignalState/ActualSignalGenerationDelay&lt;br&gt;End: Change of AlertConditionState/DeterminationTime" />
+                <map value="Start: AlertConditionState/DeterminationTime + AlertConditionState/ActualConditionGenerationDelay + AlertSignalState/ActualSignalGenerationDelay&#xA;End: Change of AlertConditionState/DeterminationTime" />
             </mapping>
             <type>
                 <code value="Period" />
