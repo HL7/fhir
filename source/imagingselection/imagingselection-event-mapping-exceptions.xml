@@ -3,13 +3,13 @@
     <divergentElement patternPath="Event.basedOn" resourcePath="ImagingSelection.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Reference type not relevant to resource"/>
         <extraTypes _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Additional reference types are relevant to resource"/>
-        <shortUnmatched reason="Unknown">
+        <shortUnmatched reason="Imaging selection not typically based on a proposal">
             <!--Old resource: Associated requests-->
             <!--Old reason: Proposal not relevant for this resource-->
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Fulfills plan or order"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Imaging selection not typically based on a proposal">
             <!--Old resource: A list of the diagnostic requests that resulted in this imaging selection being performed.-->
             <!--Old reason: Proposal not relevant for this resource-->
             <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this imaging selection."/>
@@ -21,7 +21,7 @@
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
             <resource value="available | entered-in-error | inactive | unknown"/>
         </shortUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="State diagram does not apply to imaging selection">
             <!--Old resource: Unknown does not represent "other" - one of the defined statuses SHALL apply.  Unknown is used when the authoring system is not sure what the current status is.-->
             <!--Old reason: State diagram is not applicable for this resource-->
             <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
@@ -57,13 +57,13 @@
     <divergentElement patternPath="Event.subject" resourcePath="ImagingSelection.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Subject might not always be present"/>
         <extraTypes _resource="Reference(Device,Procedure,Practitioner,Medication,Substance,Specimen)" reason="Phantoms and other non-patient subjects can be subjects of imaging selections"/>
-        <shortUnmatched reason="Unknown">
+        <shortUnmatched reason="Resource value is more specific">
             <!--Old resource: Subject of the selected instances-->
             <!--Old reason: More specific definition used-->
             <_pattern value="Individual service was done for/to"/>
             <resource value="Who or what is the subject of the imaging selection"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Resource value is more specific">
             <!--Old resource: The patient, or group of patients, location, device, organization, procedure or practitioner this imaging selection is about and into whose or what record the imaging selection is placed.-->
             <!--Old reason: More specific definition used-->
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
@@ -84,7 +84,7 @@
         </shortUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="ImagingSelection.performer.function">
-        <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
+        <bindingStrength _pattern="example" _resource="extensible" reason="Specific codes almost always applicable"/>
         <definitionUnmatched reason="Don't want extra space at the end.">
             <_pattern value="Distinguishes the type of involvement of the performer in the imaging selection.."/>
             <resource value="Distinguishes the type of involvement of the performer in the imaging selection."/>
@@ -92,7 +92,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingSelection.performer.actor">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
+        <extraTypes _resource="Reference(HealthcareService)" reason="HealthcareService is a possible performer for an imaging selection"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed imaging selection"/>
             <resource value="Who performed the imaging selection"/>

@@ -366,7 +366,7 @@
         <valueCode value="right"/>
       </extension>
       <path value="ImagingSelection.performer"/>
-      <short value="Who performed imaging selection"/>
+      <short value="Who performed imaging selection and what they did"/>
       <definition value="Indicates who or what performed the imaging selection and how they were involved."/>
       <min value="0"/>
       <max value="*"/>
