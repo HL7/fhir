@@ -706,6 +706,7 @@
       <type>
         <code value="positiveInt"/>
       </type>
+      <condition value="isl-10"/>
       <isSummary value="false"/>
     </element>
     <element id="ImagingSelection.instance.referencedContentItemIdentifier">
@@ -718,6 +719,7 @@
       <type>
         <code value="positiveInt"/>
       </type>
+      <condition value="isl-10"/>
       <isSummary value="false"/>
     </element>
     <element id="ImagingSelection.instance.segmentNumber">
@@ -730,10 +732,11 @@
       <type>
         <code value="positiveInt"/>
       </type>
+      <condition value="isl-10"/>
       <isSummary value="false"/>
     </element>
-    <element id="ImagingSelection.instance.regionOfInterest ">
-      <path value="ImagingSelection.instance.regionOfInterest "/>
+    <element id="ImagingSelection.instance.regionOfInterest">
+      <path value="ImagingSelection.instance.regionOfInterest"/>
       <short value="Selected regions of interest"/>
       <definition value="A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance (See [DICOM PS 3.3 C.8.8.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a radiotherapy structure set SOP Class."/>
@@ -742,10 +745,11 @@
       <type>
         <code value="positiveInt"/>
       </type>
+      <condition value="isl-10"/>
       <isSummary value="false"/>
     </element>
-    <element id="ImagingSelection.instance.waveFormChannel ">
-      <path value="ImagingSelection.instance.waveFormChannel "/>
+    <element id="ImagingSelection.instance.waveFormChannel">
+      <path value="ImagingSelection.instance.waveFormChannel"/>
       <short value="Selected waveform channel"/>
       <definition value="A list of channels in a Waveform selected from an instance of a waveform SOP Class.&#xA;Each channel is specified as a pair of values where the first value is the Multiplex Group Number, and the second value is the Channel Number within the multiplex group (See [DICOM PS 3.3 C.18.5.1.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.5.html#sect_C.18.5.1.1))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a waveform  structure set SOP Class."/>
@@ -754,6 +758,8 @@
       <type>
         <code value="positiveInt"/>
       </type>
+      <condition value="isl-10"/>
+      <condition value="isl-11"/>
       <isSummary value="false"/>
     </element>
     <element id="ImagingSelection.instance.imageRegion2D">
