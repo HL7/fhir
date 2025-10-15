@@ -284,7 +284,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Patient ID (0010,0020) and Issuer of Patient ID (0010,0021) and / or Issuer of Patient ID Qualifiers Sequence (0010,0024). Patient Name 90010,0010)"/>
+        <map value="Patient ID (0010,0020) and Issuer of Patient ID (0010,0021) and / or Issuer of Patient ID Qualifiers Sequence (0010,0024) and / or Patient Name (0010,0010)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.encounter">
