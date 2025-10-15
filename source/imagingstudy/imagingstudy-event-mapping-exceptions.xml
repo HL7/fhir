@@ -78,7 +78,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="ImagingStudy.started">
-        <missingTypes _pattern="Period, Timing" reason="Imgaging study started is always an instant"/>
+        <missingTypes _pattern="Period, Timing" reason="Imaging study started is always an instant"/>
         <shortUnmatched reason="Started is more specific than occurrence">
             <_pattern value="When imaging study occurred/is occurring"/>
             <resource value="When the study was started"/>
@@ -108,10 +108,6 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingStudy.series.performer.actor">
         <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Who performed imaging study"/>
-            <resource value="Who performed the imaging study"/>
-        </shortUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="ImagingStudy.reason">
         <definitionUnmatched reason="Patterns has unnecessary capital">
