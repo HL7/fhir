@@ -286,7 +286,7 @@
         </element>
         <element id="DeviceAlert.subject">
             <path value="DeviceAlert.subject" />
-            <short value="The who or what the alert is about" />
+            <short value="Who or what the alert is about" />
             <!--       <definition value="" /> -->
             <min value="1" />
             <max value="1" />
@@ -303,6 +303,11 @@
                 <code value="Reference" />
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct" />
             </type>
         </element>
         <element id="DeviceAlert.encounter">

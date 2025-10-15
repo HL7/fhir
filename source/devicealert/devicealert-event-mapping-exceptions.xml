@@ -90,14 +90,14 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="DeviceAlert.subject">
         <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Device)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,Location,Medication,BiologicallyDerivedProduct,Specimen,NutritionProduct)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="The who or what the alert is about"/>
+            <resource value="Who or what the alert is about"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The who or what the alert is about."/>
+            <resource value="Who or what the alert is about."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the device alert to the Patient context.  May also affect access control."/>
