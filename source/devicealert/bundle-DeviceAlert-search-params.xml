@@ -82,11 +82,16 @@
           <valueString value="DeviceAlert.subject" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-subject" />
-        <description value="Subject (patient or device) of the alert" />
+        <description value="Subject of the alert" />
         <code value="subject" />
         <type value="reference" />
         <target value="Patient" />
         <target value="Device" />
+        <target value="Location" />
+        <target value="Medication" />
+        <target value="BiologicallyDerivedProduct" />
+        <target value="Specimen" />
+        <target value="NutritionProduct" />
         <expression value="DeviceAlert.subject" />
         <processingMode value="normal" />
       </SearchParameter>
