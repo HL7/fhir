@@ -354,8 +354,8 @@
       <path value="ImagingStudy.basedOn"/>
       <short value="Fulfills plan or order"/>
       <definition value="A plan or order that is fulfilled in whole or in part by this imaging study."/>
-      <requirements value="Allows tracing of authorization for the imaging study and tracking whether proposals/recommendations were acted upon. If the ImagingStudy is associated with an Accession Number, this field should include a reference to that value in the form: identifier.value = (Accession Number Value) identifier.type = ACSN. A reference value pointing to a ServiceRequest resource is allowed but is not required."/>
       <comment value="One imaging study MAY be based on multiple ordered procedures, e.g. chest/abdomen/pelvis CT orders being fulfilled by a single imaging study."/>
+      <requirements value="Allows tracing of authorization for the imaging study and tracking whether proposals/recommendations were acted upon. If the ImagingStudy is associated with an Accession Number, this field should include a reference to that value in the form: identifier.value = (Accession Number Value) identifier.type = ACSN. A reference value pointing to a ServiceRequest resource is allowed but is not required."/>
       <alias value="AccessionNumber"/>
       <min value="0"/>
       <max value="*"/>

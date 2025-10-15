@@ -104,10 +104,10 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="ImagingStudy.series.performer.function">
-        <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
+        <bindingStrength _pattern="example" _resource="extensible" reason="Specific codes almost always applicable"/>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingStudy.series.performer.actor">
-        <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
+        <extraTypes _resource="Reference(HealthcareService)" reason="HealthcareService is a possible performer for an ImagingStudy.series"/>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="ImagingStudy.reason">
         <definitionUnmatched reason="Patterns has unnecessary capital">
