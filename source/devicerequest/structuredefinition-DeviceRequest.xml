@@ -139,62 +139,6 @@
         <map value="ClinicalStatement.identifier"/>
       </mapping>
     </element>
-    <element id="DeviceRequest.instantiatesCanonical">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#10296][#11119]#13196]."/>
-      </extension>
-      <path value="DeviceRequest.instantiatesCanonical"/>
-      <short value="Instantiates FHIR protocol or definition"/>
-      <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this DeviceRequest."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="DeviceRequest.instantiatesUri">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#10296][#11119]#13196]."/>
-      </extension>
-      <path value="DeviceRequest.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition"/>
-      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this DeviceRequest."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesUri"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
     <element id="DeviceRequest.basedOn">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="DeviceRequest.prnReason."/>
@@ -405,12 +349,16 @@
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc.)"/>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.doNotPerform"/>
+      </mapping>
     </element>
-    <element id="DeviceRequest.code">
+    <element id="DeviceRequest.product">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#14271]."/>
       </extension>
-      <path value="DeviceRequest.code"/>
+      <path value="DeviceRequest.product"/>
       <short value="Device requested"/>
       <definition value="The details of the device to be used."/>
       <min value="1"/>
@@ -431,7 +379,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code"/>
+        <map value="Request.product"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -511,6 +459,14 @@
         </extension>
         <strength value="example"/>
         <description value="A code that identifies the device detail."/>
+      </binding>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RequestOrderDetailParameterCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for order detail parameters."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-orderdetail-parameter-code"/>
       </binding>
       <mapping>
         <identity value="w5"/>
