@@ -76,7 +76,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingSelection.performer.actor">
         <extraTypes _resource="Reference(HealthcareService)" reason="HealthcareService is a possible performer for an imaging selection"/>
-        <shortUnmatched reason="Unknown">
+        <shortUnmatched reason="Better english">
             <_pattern value="Who performed imaging selection"/>
             <resource value="Who performed the imaging selection"/>
         </shortUnmatched>
