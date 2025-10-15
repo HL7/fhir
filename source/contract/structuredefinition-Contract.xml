@@ -418,6 +418,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
 			</type>
 		</element>
 		<element id="Contract.scope">
