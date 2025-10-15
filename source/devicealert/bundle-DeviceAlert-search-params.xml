@@ -82,11 +82,16 @@
           <valueString value="DeviceAlert.subject" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-subject" />
-        <description value="Subject (patient or device) of the alert" />
+        <description value="Subject of the alert" />
         <code value="subject" />
         <type value="reference" />
         <target value="Patient" />
         <target value="Device" />
+        <target value="Location" />
+        <target value="Medication" />
+        <target value="BiologicallyDerivedProduct" />
+        <target value="Specimen" />
+        <target value="NutritionProduct" />
         <expression value="DeviceAlert.subject" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -573,6 +578,36 @@
         <status value="active" />
         <target value="Encounter" />
         <expression value="DeviceAlert.encounter" />
+        <processingMode value="normal" />
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAlert-location" />
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+          <valueCode value="dev" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+          <valueInteger value="2" />
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAlert.location" />
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-location" />
+        <description value="Location of the subject at time of alert" />
+        <code value="location" />
+        <type value="reference" />
+        <status value="active" />
+        <target value="Location" />
+        <expression value="DeviceAlert.location" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
