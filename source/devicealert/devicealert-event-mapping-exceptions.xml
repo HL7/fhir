@@ -90,14 +90,14 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="DeviceAlert.subject">
         <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Device)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,Location,Medication,BiologicallyDerivedProduct,Specimen,NutritionProduct)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="The who or what the alert is about"/>
+            <resource value="Who or what the alert is about"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The who or what the alert is about."/>
+            <resource value="Who or what the alert is about."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the device alert to the Patient context.  May also affect access control."/>
@@ -120,6 +120,21 @@
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the device alert to the Encounter context.  May also affect access control."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.location" resourcePath="DeviceAlert.location">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Where device alert occurred"/>
+            <resource value="Location of the subject when the alert was raised"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The principal physical location where the device alert was performed."/>
+            <resource value="The location of the subject of the alert at the time that the alert was raised."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -163,7 +178,6 @@
     </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
-    <unmappedElement patternPath="Event.location" reason="Unknown"/>
     <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>

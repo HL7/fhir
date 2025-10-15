@@ -144,7 +144,9 @@
         <key value="isl-10"/>
         <severity value="error"/>
         <human value="only one of instance.frameNumber, instance.referencedContentItemIdentifier, instance.segmentNumber, instance.regionOfInterest and instance.waveFormChannel shall be present"></human>
-        <expression value="instance.frameNumber.exists() xor instance.referencedContentItemIdentifier.exists() xor instance.segmentNumber.exists() xor instance.regionOfInterest.exists() xor instance.waveFormChannel.exists()"/>
+<!--        <expression value="instance.frameNumber.exists() xor instance.referencedContentItemIdentifier.exists() xor instance.segmentNumber.exists() xor instance.regionOfInterest.exists() xor instance.waveFormChannel.exists()"/> -->
+<!--        <expression value="(instance.frameNumber.exists() and not(instance.referencedContentItemIdentifier.exists() or instance.segmentNumber.exists() or instance.regionOfInterest.exists() or instance.waveFormChannel.exists())) or (instance.referencedContentItemIdentifier.exists() and not(instance.frameNumber.exists() or instance.segmentNumber.exists() or instance.regionOfInterest.exists() or instance.waveFormChannel.exists())) or (instance.segmentNumber.exists() and not(instance.frameNumber.exists() or instance.referencedContentItemIdentifier.exists() or instance.regionOfInterest.exists() or instance.waveFormChannel.exists())) or (instance.regionOfInterest.exists() and not(instance.frameNumber.exists() or instance.referencedContentItemIdentifier.exists() or instance.segmentNumber.exists() or instance.waveFormChannel.exists())) or (instance.waveFormChannel.exists() and not(instance.frameNumber.exists() or instance.referencedContentItemIdentifier.exists() or instance.segmentNumber.exists() or instance.regionOfInterest.exists()))"/> -->
+        <expression value="(instance.frameNumber.exists() implies (instance.referencedContentItemIdentifier.exists() or instance.segmentNumber.exists() or instance.regionOfInterest.exists() or instance.waveFormChannel.exists()).not()) and (instance.referencedContentItemIdentifier.exists() implies (instance.frameNumber.exists() or instance.segmentNumber.exists() or instance.regionOfInterest.exists() or instance.waveFormChannel.exists()).not()) and (instance.segmentNumber.exists() implies (instance.frameNumber.exists() or instance.referencedContentItemIdentifier.exists() or instance.regionOfInterest.exists() or instance.waveFormChannel.exists()).not()) and (instance.regionOfInterest.exists() implies (instance.frameNumber.exists() or instance.referencedContentItemIdentifier.exists() or instance.segmentNumber.exists() or instance.waveFormChannel.exists()).not()) and (instance.waveFormChannel.exists() implies (instance.frameNumber.exists() or instance.referencedContentItemIdentifier.exists() or instance.segmentNumber.exists() or instance.regionOfInterest.exists()).not())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
       </constraint>
       <constraint>
@@ -767,7 +769,6 @@
         <code value="positiveInt"/>
       </type>
       <condition value="isl-10"/>
-      <condition value="isl-11"/>
       <isSummary value="false"/>
     </element>
     <element id="ImagingSelection.instance.imageRegion2D">
