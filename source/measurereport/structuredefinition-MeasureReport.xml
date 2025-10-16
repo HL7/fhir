@@ -746,10 +746,7 @@
         <map value="value"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.population.countQuantity">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>    
+    <element id="MeasureReport.group.population.countQuantity">   
       <path value="MeasureReport.group.population.countQuantity"/>
       <short value="Size of the population as a quantity"/>
       <definition value="The number of members of the population, specified as a quantity to support identifying units, as well as to support some composite measure calculation use cases where the resulting count of the population is a decimal value."/>
@@ -1149,10 +1146,7 @@
         <map value="value"/>
       </mapping>
     </element>
-    <element id="MeasureReport.group.stratifier.stratum.population.countQuantity">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>    
+    <element id="MeasureReport.group.stratifier.stratum.population.countQuantity">    
       <path value="MeasureReport.group.stratifier.stratum.population.countQuantity"/>
       <short value="Size of the population as a quantity"/>
       <definition value="The number of members of the population in this stratum, specified as a quantity to support identifying units, as well as to support some composite measure calculation use cases where the resulting count of the population is a decimal value."/>
