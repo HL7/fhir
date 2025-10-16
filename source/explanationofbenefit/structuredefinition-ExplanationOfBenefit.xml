@@ -934,7 +934,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InformationCategory"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="The valuset used for additional information category codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
       </binding>
