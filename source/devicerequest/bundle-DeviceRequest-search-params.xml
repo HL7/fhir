@@ -327,4 +327,23 @@
       </SearchParameter>
     </resource>
   </entry>
+   <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-location-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.location.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-location-code"/>
+        <description value="The preferred location specified in the DeviceRequest (coded)"/>
+        <code value="location-code"/>
+        <type value="token"/>
+        <expression value="DeviceRequest.location.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
