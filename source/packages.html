@@ -45,6 +45,13 @@ and each <a href="implementationguide.html">Implementation Guide</a> is
 published as a package, but this is not the only use for package, and other 
 packages exist.
 </p>
+<p>
+NPM FHIR Packages SHOULD contain an ImplementationGuide resource with the url:
+<code>{package-canonical}/ImplementationGuide/{packageId}</code> and the version to match the package version.
+</p>
+<p>
+It is reasonable for tooling to resolve a canonical reference to an implementation guide resource as the NPM FHIR Package matching that definition (e.g., per the dependsOn element of the implementation guide.
+</p>
 <h3>package.json</h3>
 <p>
 The format of the package.json file is defined by the 
