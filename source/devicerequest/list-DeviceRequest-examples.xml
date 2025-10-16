@@ -52,4 +52,16 @@
       <display value="Left lens"/>
     </item>
   </entry>
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Standard wheelchair request"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="devicerequest-wheelchair-request"/>
+    </extension>
+    <item>
+      <reference value="DeviceRequest/wheelchair-request"/>
+      <display value="Wheelchair Request"/>
+    </item>
+  </entry>
 </List>
