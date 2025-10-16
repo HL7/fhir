@@ -417,7 +417,7 @@
     </element>
     <element id="ImagingSelection.performer.actor">
       <path value="ImagingSelection.performer.actor"/>
-      <short value="Who performed imaging selection"/>
+      <short value="Who performed the imaging selection"/>
       <definition value="Indicates who or what performed the imaging selection."/>
       <min value="1"/>
       <max value="1"/>
