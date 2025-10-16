@@ -44,13 +44,13 @@ One ImagingStudy SHALL reference one DICOM Study.
 		The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference to a subset of a study. Instances of this resource are created for specific clinical purposes and are unlikely to change once created.
 		</p>
 		<p>
-		An <a href="observation.html">Observation</a> MAY be related to a set of images in the following ways.
+		An <a href="observation.html">Observation</a> typically relates to a set of images in the following ways.
 		</p>
 		<ul>
-		  <li><a href="observation.html">Observation.partOf</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a></li>
-		  <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to a subset of a study.</li>
-		  <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to a subset of a study</li>
-		  <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of a subset of a study described by the <a href="imagingselection.html">ImagingSelection</a></li>
+		  <li><a href="observation.html">Observation.partOf</a> references an <a href="imagingstudy.html">ImagingStudy</a></li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to an identified subset of a study</li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to an identified subset of a study.</li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of an identified subset of a study described by the <a href="imagingselection.html">ImagingSelection</a></li>
 		</ul>
 	
 
