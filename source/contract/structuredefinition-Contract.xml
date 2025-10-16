@@ -605,7 +605,7 @@
 		<element id="Contract.contentDefinition.copyright">
 			<path value="Contract.contentDefinition.copyright"/>
 			<short value="Publication Ownership"/>
-			<definition value="A copyright statement relating to Contract precursor content. Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content."/>
+			<definition value="A copyright statement relating to Contract precursor content. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the Contract precursor content."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
