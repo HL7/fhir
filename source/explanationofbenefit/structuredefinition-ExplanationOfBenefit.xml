@@ -367,7 +367,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessPriority"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="The timeliness with which processing is required: stat, normal, deferred."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
@@ -1880,7 +1880,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-reason"/>
       </binding>
     </element>
-    <element id="ExplanationOfBenefit.item.adjudication.amount"> 
+    <element id="ExplanationOfBenefit.item.adjudication.amount">
       <path value="ExplanationOfBenefit.item.adjudication.amount"/>
       <short value="Monetary amount"/>
       <definition value="Monetary amount associated with the category."/>
@@ -1889,7 +1889,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Money"/> 
+        <code value="Money"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.adjudication.quantity">
