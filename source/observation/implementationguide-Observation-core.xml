@@ -15,7 +15,6 @@
   <definition>
     <resource>
       <reference>
-        <reference value="StructureDefinition/devicemetricobservation"/>
       </reference>
     </resource>
   </definition>
