@@ -363,13 +363,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ImagingStudy.partOf"/>
+          <valueString value="ImagingStudy.procedure"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-procedure"/>
         <description value="The performed procedure for the study"/>
         <code value="procedure"/>
         <type value="reference"/>
-        <expression value="ImagingStudy.partOf"/>
+        <expression value="ImagingStudy.procedure"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
