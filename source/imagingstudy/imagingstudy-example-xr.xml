@@ -57,11 +57,9 @@
 		<reference value="Endpoint/example-wadors"/>
 	</endpoint>
 	<procedure>
-		<reference>
 			<reference value="Procedure/example"/>
-		</reference>
 	</procedure>
-	<procedure>
+	<reason>
 		<concept>
 			<coding>
 				<system value="http://www.radlex.org"/>
@@ -70,7 +68,7 @@
 			</coding>
 			<text value="XR Wrist 3+ Views"/>
 		</concept>
-	</procedure>
+	</reason>
 	<reason>
 		<concept>
 			<coding>
@@ -109,13 +107,6 @@
 				</coding>
 			</concept>
 		</bodySite>
-		<laterality>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="419161000"/>
-				<display value="Unilateral left"/>
-			</coding>
-		</laterality>
 		<started value="2011-01-01T11:01:20+03:00"/>
 		<performer>
 			<function>
