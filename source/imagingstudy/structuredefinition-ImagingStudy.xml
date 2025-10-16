@@ -1040,7 +1040,7 @@
     </element>
     <element id="ImagingStudy.series.instance.title">
       <path value="ImagingStudy.series.instance.title"/>
-      <short value="Name or tile of the instance"/>
+      <short value="Name or title of the instance"/>
       <definition value="The title of the instance."/>
       <comment value="Particularly for post-acquisition analytic objects, such as SR, presentation states, value mapping, etc."/>
       <min value="0"/>
