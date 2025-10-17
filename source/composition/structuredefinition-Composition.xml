@@ -180,6 +180,31 @@
         <map value="DocumentReference.version"/>
       </mapping>
     </element>
+    <element id="Composition.basedOn">
+      <path value="Composition.basedOn"/>
+      <short value="Procedure that caused this media to be created"/>
+      <definition value="A procedure that is fulfilled in whole or in part by the creation of this media."/>
+      <requirements value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
+      <alias value="fulfills"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Request"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".inFulfillmentOf"/>
+      </mapping>
+    </element>
     <element id="Composition.status">
       <path value="Composition.status"/>
       <short value="registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown"/>
