@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
-  <id value="variable-handling"/>
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="study-design-example"/>
   <meta>
+    <lastUpdated value="2022-05-12T12:40:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -12,19 +11,15 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/variable-handling"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3062"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/study-design-example"/>
   <version value="6.0.0"/>
-  <name value="EvidenceVariableHandling"/>
-  <title value="Evidence Variable Handling"/>
+  <name value="StudyDesignExample"/>
+  <title value="Study Design Example"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2022-08-24T12:40:00+00:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -36,11 +31,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)."/>
+  <description value="This is a set of terms for study design characteristics."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/variable-handling"/>
+      <system value="http://hl7.org/fhir/study-design-example"/>
     </include>
   </compose>
 </ValueSet>
