@@ -1470,7 +1470,7 @@
       <path value="ExplanationOfBenefit.item.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2008,7 +2008,7 @@
       <path value="ExplanationOfBenefit.item.detail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2277,7 +2277,7 @@
       <path value="ExplanationOfBenefit.item.detail.subDetail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2573,7 +2573,7 @@
       <path value="ExplanationOfBenefit.addItem.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2927,7 +2927,7 @@
       <path value="ExplanationOfBenefit.addItem.detail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -3139,7 +3139,7 @@
       <path value="ExplanationOfBenefit.addItem.detail.subDetail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
