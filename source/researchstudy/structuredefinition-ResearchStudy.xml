@@ -464,11 +464,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StudyDesign"/>
+          <valueString value="StudyDesignExample"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="This is a set of terms for study design characteristics."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/study-design-example"/>
       </binding>
       <mapping>
         <identity value="clinicaltrials-gov"/>
@@ -1203,7 +1203,7 @@
         </extension>
         <strength value="example"/>
         <description value="The type of a statistic, e.g. relative risk or mean."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/statistic-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.objective.outcomeMeasure.endpointAnalysisPlan">
