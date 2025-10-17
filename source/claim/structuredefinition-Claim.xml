@@ -1141,7 +1141,7 @@
       <short value="Pre-assigned Claim number"/>
       <definition value="The business identifier to be used when the claim is sent for adjudication against this insurance policy."/>
       <comment value="Only required in jurisdictions where insurers, rather than the provider, are required to send claims to  insurers that appear after them in the list. This element is not required when 'subrogation=true'."/>
-      <requirements value="This will be the claim number should it be necessary to create this claim in the future. This is provided so that payors may forward claims to other payors in the Coordination of Benefit for adjudication rather than the provider being required to initiate each adjudication."/>
+      <requirements value="This will be the claim number should it be necessary to create this claim in the future. This is provided so that payers may forward claims to other payers in the Coordination of Benefit for adjudication rather than the provider being required to initiate each adjudication."/>
       <min value="0"/>
       <max value="1"/>
       <type>
