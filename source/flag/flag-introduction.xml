@@ -86,7 +86,7 @@ Flags are not raised as a result of a reported or proposed action (e.g. drug-dru
 These are handled using <a href="detectedissue.html">DetectedIssue</a>.
 </p>
 <p>
-Flag are not used for alerts or alarm conditions detected and signaled by a patient-connected health/medical device. These are handled using <a href="devicealert.html">DeviceAlert</a>.
+Flag is not used for alerts or alarm conditions detected and signaled by a patient-connected health/medical device. These are handled using <a href="devicealert.html">DeviceAlert</a>.
 </p>
 </div>
 
