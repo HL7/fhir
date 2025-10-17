@@ -40,7 +40,18 @@
 	<li><b>Supplemental Data:</b> Additional descriptive information providing additional context to the population group being measured. Supplemental data is specified alongside the calculated measure scores, allowing a more nuanced analysis of performance.</li>
 </ul>
 
-<p>Population Quality Measures are often focused on evaluating from a patient perspective, but this is not always the case. The <code>subject</code> element of the Measure indicates the intended subjects of a measure. If no <code>subject</code> is specified, the measure subject is Patient, but Practitioners, Organizations, Locations, or even Devices can also be the subject of a measure.</p>
+<p>At their most basic, Measures evaluate items within a defined perspective and assign those items to populations. The type of the evaluated items that make up the populations is called the Measure's "basis," and one can say that a Measure is "based" on a FHIR resource type. The perspective within which those items are counted is the Measure's "subject."</p>
+	
+<p>The <code>subject</code> element of the Measure indicates the intended subjects of a measure, or "who" the measure is about. While measures are often focused on evaluating from a patient perspective, this is not always the case. If no subject is specified, the measure subject is Patient, but Practitioners, Organizations, Locations, or even Devices can also be the subject of a measure.</p>
+
+<p>The <code>group.basis</code> element, referred to as the "population basis" or just "basis," specifies the type of elements in the population(s) as a result of measure calculation. Population Quality Measures generally fall into two categories: subject-based, and non-subject-based. In general, subject-based measures count the number of subjects in each population, while non-subject-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for subject-based measures indicates whether a subject matches the population criteria (true) or not (false). Non-subject-based measures return the item to be counted such as an encounter or procedure. For example:</p>
+<ul>
+	<li>A measure may calculate for which encounters the blood pressure was taken for all patients over the age of 50. This measure has a subject of Patient and a basis of Encounter, it is an encounter-based measure, and the populations will be lists of Encounters that pertain to the Patients that meet the age requirement.</li>
+	<li>A measure may count the number of available beds in a hospital location. This measure has a subject of Location, a basis of Device (for beds), so the populations would be the calculated number of beds for the Locations that are available from the data source.</li>
+</ul>
+<p>When the intended population type matches the <code>subject</code> type, the measure is referred to as "subject-based." For a subject-based measure, the <code>basis</code> is boolean because the subject and the population basis are the same, and the population criteria define yes/no values for each element in the population. For measures that have a population basis that is different than the subject, the <code>basis</code> element specifies the type of elements in the population. </p>
+
+<p>To summarize, the context of a measure is indicated using the <code>subject</code> element of the FHIR resource, and it indicates what types of resources the measure is about. The <code>basis</code> indicates what is being included in the measure populations during measure calculation. If the subject's type is the same as the intended population type, then the <code>basis</code> is boolean and indicates if a subject instance is included in a population or not.</p>
 
 <a name="measure-metadata"> </a>
 <h5>Measure Metadata</h5>
@@ -323,7 +334,7 @@ The next example demonstrates how to obtain the results of evaluating the measur
 <p>When using a MeasureReport resource to represent a subject-list, the MeasureReport SHALL have a type-code of "subject-list" and if a subject reference is present, it SHALL be a reference to a Group. In addition, the resource SHALL</p>
 
 <ul>
-	<li>either include for each population, using the <code>MeasureReport.group.population.subjectResults</code> element, a reference to a List resource that references individual-level MeasureReport resources for the same measure, one for each subject in the overall population. For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the subjects that make up that population. For each of those subjects, the List will contain a reference to an individual-level report for that subject.</li>
+	<li>either include for each population, using the <code>MeasureReport.group.population.subjectResults</code> element, a reference to a List resource that references individual-level MeasureReport resources for the same measure, one for each subject instance in the population. For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the subjects that make up that population. For each of those subjects, the List will contain a reference to an individual-level report for that subject.</li>
 	<li>or include for each population, using the <code>MeasureReport.group.population.subjectReport</code> element, references to individual-level MeasureReport resources for the same measure directly.</li>
 </ul>
 
