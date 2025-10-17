@@ -450,7 +450,7 @@
           <valueBoolean value="true"/>
         </extension>
       <path value="Account.guarantor.limit"/>
-      <short value="Responsible financial limit."/>
+      <short value="Responsible financial limit"/>
       <definition value="The maximum amount the guarantee will pay."/>
       <min value="0"/>
       <max value="1"/>
@@ -463,7 +463,7 @@
           <valueBoolean value="true"/>
         </extension>
       <path value="Account.guarantor.rank"/>
-      <short value="Rank order of guarator."/>
+      <short value="Rank order of guarator"/>
       <definition value="The order in which guarantors will be held responsible."/>
       <min value="0"/>
       <max value="1"/>
