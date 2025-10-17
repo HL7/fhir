@@ -858,7 +858,7 @@
       </extension>
       <path value="ClaimResponse.addItem"/>
       <short value="Insurer added line items"/>
-      <definition value="The first-tier service adjudications for payor added product or service lines."/>
+      <definition value="The first-tier service adjudications for payer added product or service lines."/>
       <requirements value="Insurers may redefine the provided product or service or may package and/or decompose groups of products and services. The addItems allows the insurer to provide their line item list with linkage to the submitted items/details/sub-details. In a preauthorization the insurer may use the addItem structure to provide additional information on authorized products and services."/>
       <min value="0"/>
       <max value="*"/>
@@ -1265,7 +1265,7 @@
       </extension>
       <path value="ClaimResponse.addItem.detail"/>
       <short value="Insurer added line details"/>
-      <definition value="The second-tier service adjudications for payor added services."/>
+      <definition value="The second-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1469,7 +1469,7 @@
       </extension>
       <path value="ClaimResponse.addItem.detail.subDetail"/>
       <short value="Insurer added line items"/>
-      <definition value="The third-tier service adjudications for payor added services."/>
+      <definition value="The third-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
