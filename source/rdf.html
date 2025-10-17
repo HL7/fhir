@@ -16,7 +16,7 @@ in order to support consistent definitions for schema and UML derived code.
 <%fmtheader rdf%>
 
 <a name="root"></a>
-<h2>Resource Description Framework (RDF) Representation </h2>
+<h2>Resource Description Framework (RDF) / Turtle Representation </h2>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 [%normative page infrastructure%]
@@ -27,7 +27,7 @@ in order to support consistent definitions for schema and UML derived code.
  <td><a href="http://www.w3.org/2001/sw/wiki/RDF"><img src="https://www.w3.org/Icons/SW/Buttons/sw-rdf-blue-v.svg" width="150" alt="W3C RDF"/></a></td>
  <td>
 <p>
-This page and the RDF forms are jointly maintained
+This page and the RDF Turtle forms are jointly maintained
 by the HL7 FHIR project -- especially the
 <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=66922543">RDF subgroup</a> of the
 <a href="http://www.hl7.org/Special/committees/xml/index.cfm">ITS work group</a> -- and the
@@ -39,24 +39,22 @@ Web Health Care and Life Sciences Interest Group</a>.
 
       <p> FHIR resources can be represented as an <a
           href="http://www.w3.org/RDF/">RDF graph</a> serialized in the <a
-          href="https://www.w3.org/TR/turtle/">Turtle format</a>. The RDF format is
+          href="https://www.w3.org/TR/turtle/">Turtle format</a>. The Turtle format is
         defined to assist the process of bridging between operational
         data exchange and formal knowledge processing systems. While the
-        RDF form offers a fully functional representation of FHIR
+        Turtle form offers a fully functional representation of FHIR
         resources, it has different operational characteristics from the
         <a href="json.html">JSON</a> and <a href="xml.html">XML</a>
         representations, and would be used for different reasons.
         Systems focused on operational exchange of data would not
-        usually choose to use RDF.<br/>
+        usually choose to use Turtle.<br/>
       </p>
       <p> This page describes:</p>
       <ul>
-        <li><a
-href="#turtle-template">Turtle
-
+        <li><a href="#turtle-template">Turtle
             Template for Resources</a></li>
-        <li><a href="#example">FHIR RDF Example</a></li>
-        <li><a href="#serialization-conventions">FHIR RDF Serialization
+        <li><a href="#example">FHIR Turtle Example</a></li>
+        <li><a href="#serialization-conventions">FHIR Turtle Serialization
             Conventions</a>
 	   <ul>
             <li><a href="#resources">Representing Resources</a></li>
@@ -65,15 +63,18 @@ href="#turtle-template">Turtle
             <li><a href="#caseSensitivity">Case Sensitivity</a></li>
             <li><a href="#rdflist">Repeating Elements -- RDF Lists</a></li>
             <li><a href="#primitive">Primitive Elements</a></li>
+            <li><a href="#union-types">Primitive Elements with Union Types</a></li>
+            <li><a href="#turtle-shorthand">Turtle Shorthand for Primitive Literals</a></li>
+            <li><a href="#primitive-uris">Primitive URI Types</a></li>
             <li><a href="#reference">References</a></li>
             <li><a href="#contained">Inline (Contained) Resources</a></li>
-            <li><a href="#identifying-concepts">Identifying Concepts</a></li>
+            <li><a href="#identifying-concepts">Identifying Concepts in a Terminology</a></li>
             <li><a href="#iri-stem">Concept IRIs and IRI Stems</a></li>
             <li><a href="#extension">Non-modifier Extensions</a></li>
             <li><a href="#modifierExtension">Modifier Extensions</a></li>
 	   </ul>
 	</li>
-        <li><a href="#fhir-definitions">RDF Representation of FHIR
+        <li><a href="#fhir-definitions">Turtle Representation of FHIR
             Definitions</a></li>
         <li><a href="#relationship">Relationship between RDF, FHIR, and
             ontologies</a></li>
@@ -86,7 +87,7 @@ href="#turtle-template">Turtle
         <li><a href="#concept-iri-algorithm">Appendix 1: Algorithm for
             creating a Concept IRI</a><br/>
         </li>
-        <li><a href="#registering-iri-stems">Appendix 2: Registering an 
+        <li><a href="#registering-iri-stems">Appendix 2: Registering an
 		IRI Stem on the HL7 Terminology Website</a><br/>
         </li>
 
@@ -96,11 +97,11 @@ href="#turtle-template">Turtle
         <p> Each resource page has a set of language templates
           describing the FHIR expression in that language. The Turtle
           representation for a resource is described using this
-          format: 
+          format:
         </p>
         <mark>@@ TODO: Update this example to bgpanel or similar @@ </mark>
         <pre class="spec">
-[ a fhir:Observation; 
+[ a fhir:Observation;
   fhir:nodeRole fhir:treeRoot;     # if this is the parser root
   # from Resource: id; meta; implicitRules; and language
   # from DomainResource: text; contained; extension; and modifierExtension
@@ -129,15 +130,15 @@ href="extensibility.html">extensions</a>
           <li>The <span style="color: brown"><b>R!</b></span> denotes
             that a relationship is mandatory: it must be present (or in
             an array, at least one item must be present).</li>
-          <li>Note that examples in this specification show Turtle that is
-            nicely formatted and well laid out, but that is not required
-            or expected in conforming FHIR Turtle.</li>
         </ul>
+        <p>Note that examples in this specification show Turtle that is
+          nicely formatted and well laid out, but that is not required
+          or expected in conforming FHIR Turtle.</p>
 
-        <h3><a name="example"></a>FHIR RDF Example<br/>
+        <h3><a name="example"></a>FHIR Turtle Example<br/>
         </h3>
-        <p> An example FHIR RDF Observation illustrates the Turtle
-          language and the additional conventions used by FHIR RDF: </p>
+        <p> An example FHIR Turtle Observation illustrates the Turtle
+          language and the additional conventions used by FHIR Turtle: </p>
         <pre class="rdf">PREFIX fhir: &lt;http://hl7.org/fhir/&gt;
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
@@ -186,38 +187,13 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
           <li>the type (<code class="rdf">fhir:Observation</code>) and
             following properties (e.g. <code class="rdf">fhir:status</code>)
             are prefixed names (like XML namespaced names),</li>
-          <li>assertions following a ';' re-use the same subject,</li>
-          <li>anonymous nodes are declared with '<code class="rdf">[ ... ]</code>'s,</li>
-          <li>literal values that cannot be represented using Turtle shorthand 
-            notation must indicate the value in quotes, with the datatype
-            explicitly indicated after '^^', such as <code class="rdf">"185"^^xsd:decimal</code> , and</li>
-          <li>literal values that can be represented using Turtle shorthand notation
-            for xsd:string, xsd:integer, xsd:decimal, xsd:double or xsd:boolean
-            may optionally use it.  However, there are
-            some slight differences between what is permitted in FHIR,
-            Turtle shorthand syntax, and XML Schema Datatype literals:
-            <ul>
-              <li>The FHIR 
-                <a href="datatypes.html#decimal">decimal</a> datatype
-                is represented by <a href="https://www.w3.org/TR/xmlschema11-2/#decimal">xsd:decimal</a> 
-                in Turtle, but Turtle shorthand for an xsd:decimal value
-                requires a decimal point, whereas the xsd:decimal type does not.
-                Therefore, a FHIR <a href="datatypes.html#decimal">decimal</a>
-                value of 185 must either have a decimal point explicitly
-                added, like 185.0, or the type must be explicitly indicated,
-                like <code class="rdf">"185"^^xsd:decimal</code>.
-                Otherwise 185 in Turtle would be parsed as an xsd:integer.</li>
-              <li>Neither the FHIR 
-                <a href="datatypes.html#boolean">boolean</a> datatype nor the
-		Turtle shorthand for an xsd:boolean allows a literal value of
-                0 or 1, though
-                <a href="https://www.w3.org/TR/xmlschema11-2/#boolean">xsd:boolean</a> does.</li>
-            </ul></li>
+          <li>assertions following a ';' re-use the same subject, and</li>
+          <li>anonymous nodes are declared with '<code class="rdf">[ ... ]</code>'s.</li>
         </ul>
 
-        <h3><a name="serialization-conventions"></a>FHIR RDF
+        <h3><a name="serialization-conventions"></a>FHIR Turtle
           Serialization Conventions</h3>
-        <p>FHIR RDF imposes additional conventions to simplify recognition
+        <p>FHIR Turtle imposes additional conventions to simplify recognition
         and manipulation of FHIR RDF graphs.&nbsp; Although RDF graphs
         in general may be serialized in various RDF formats, FHIR RDF
         mandates support specifically for <a
@@ -304,14 +280,14 @@ href="fhir.shex">fhir.shex</a>
             Observation's JSON structure definition</a>.)
             In other formats (XML, JSON), a FHIR property with a choice
             of value types has the type appended to the property name,
-            e.g. <span class="json">valueQuantity</span> if the value is a 
+            e.g. <span class="json">valueQuantity</span> if the value is a
             <a href="datatypes.html#Quantity">Quantity</a> (i.e., Observation.valueQuantity).
             But in FHIR RDF, it is written as a polymorphic <code class="rdf">fhir:value</code> property,
             and the object asserts its type explicitly, as shown in the
             following excerpt from an <a href="observation-example.ttl.html">Observation body weight example</a>.
-            Confusingly, this excerpt happens to include a second (nested) <code class="rdf">fhir:value</code> 
-            property, which is a property of the 
-            <a href="datatypes.html#Quantity">Quantity</a> datatype (i.e., Quantity.value), 
+            Confusingly, this excerpt happens to include a second (nested) <code class="rdf">fhir:value</code>
+            property, which is a property of the
+            <a href="datatypes.html#Quantity">Quantity</a> datatype (i.e., Quantity.value),
             and whose type
             is indicated directly by the xsd:decimal datatype attached to
             its <code class="rdf">fhir:v</code> literal value.
@@ -357,7 +333,7 @@ href="fhir.shex">fhir.shex</a>
           <h4>Case Sensitivity</h4>
           <p> While RDF property names are case-sensitive, FHIR avoids
             confusion by assuring that there are no properties that
-            differ only in case.  
+            differ only in case.
           </p>
 
 	  <p> <mark>@@ TODO: Add issue 178 resolution if needed @@</mark> </p>
@@ -372,7 +348,7 @@ href="fhir.shex">fhir.shex</a>
       [ a &lt;http://loinc.org/rdf/29463-7&gt; ... ]
       [ a &lt;http://loinc.org/rdf/3141-9&gt; ... ]
     <b>)</b></pre>
-          <p> Since RDF lists can cause problems for OWL users, a 
+          <p> Since RDF lists can cause problems for OWL users, a
 	    <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a> can
             convert RDF lists to an alternate representation.
 	    See <a href="#fhir-rdf-with-owl">Using FHIR RDF with OWL</a> for more info.</p>
@@ -380,52 +356,36 @@ href="fhir.shex">fhir.shex</a>
         <a name="primitive"></a>
           <h4>Primitive Elements</h4>
           <p> Primitive elements -- elements with a primitive type -- are
-            represented as anonymous nodes, both so that element
-            extensions can be attached and so that they can consistently
-	    be treated as OWL object properties (versus sometimes being datatype properties).&nbsp; The actual value of the
-            primitive type is represented as an RDF Literal using the <span
-              class="rdf">fhir:v</span> property.&nbsp; fhir:v is the
-            only FHIR property that directly holds an RDF literal -- i.e., it
-	    is the only OWL datatype property in FHIR RDF -- and
-            it always holds an RDF Literal: </p>
+            represented as anonymous nodes, both so that
+            extensions can be attached and so that they can be consistently
+	    treated as OWL object properties (versus sometimes being
+            datatype properties).&nbsp; The actual value of the
+            primitive type is represented as an RDF Literal using the
+            <code class="rdf">fhir:v</code> property.&nbsp; fhir:v and
+            <a href="https://build.fhir.org/narrative.html#Narrative">fhir:div</a> are the
+            only FHIR properties that directly hold an RDF literal -- i.e., they
+	    are the only OWL datatype properties in FHIR RDF -- and
+            they always hold an RDF Literal.</p>
+          <p>A fhir:v literal has two parts: a literal string that contains
+            the value, and a schema type:<br/>
           <pre class="rdf">  fhir:v "[value]"^^xsd:type</pre>
-          <p> The value has two parts: a literal string that contains
-            the value, and, if applicable, one of the following schema
-            types:<br/>
+            The schema type may be one of the following
+            <a href="https://www.w3.org/TR/xmlschema11-2/">XML Schema Datatypes (XSD)</a>, typically written with an <code class="rdf">xsd:</code> or <code class="rdf">xs:</code> prefix:
+            <a href="https://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a>,
+            <a href="https://www.w3.org/TR/xmlschema11-2/#integer">integer</a>,
+            <a href="https://www.w3.org/TR/xmlschema11-2/#decimal">decimal</a>,
+            <a href="https://www.w3.org/TR/xmlschema11-2/#base64Binary">base64Binary</a>,
+            <a href="https://www.w3.org/TR/xmlschema11-2/#dateTime">dateTime</a>,
+            <a href="https://www.w3.org/TR/xmlschema11-2/#date">date</a>,
+            <a href="https://www.w3.org/TR/xmlschema11-2/#gYear">gYear</a>,
+            <a href="https://www.w3.org/TR/xmlschema11-2/#gYearMonth">gYearMonth</a> or
+            <a href="https://www.w3.org/TR/xmlschema11-2/#time">time</a>.
           </p>
-          <ul>
-            <li>boolean</li>
-            <li>integer</li>
-            <li>decimal</li>
-            <li>base64Binary</li>
-            <li>dateTime</li>
-            <li>date</li>
-            <li>gYear</li>
-            <li>gYearMonth</li>
-            <li>time</li>
-          </ul>
-          <p> For example, a value of type <a href="datatypes.html#Quantity">Quantity</a>
+          <p>
+            For example, a value of FHIR type <a href="datatypes.html#Quantity">Quantity</a>
             is an anonymous node with a
             <code class="rdf">fhir:v</code> in it: </p>
           <pre class="rdf">    [ fhir:v "185"^^xsd:decimal ]</pre>
-          <p> Note that the correct XSD type for a FHIR <a
-              href="datatypes.html#decimal">decimal</a>,
-            <a href="datatypes.html#date">date</a>,
-            or <a href="datatypes.html#dateTime">dateTime</a>
-            must be determined by inspecting the instance value for
-            conformance with one of the union types for that type. In
-            the case of FHIR <a
-              href="datatypes.html#decimal">decimal</a>,
-            which is a union of XSD <a
-              href="https://www.w3.org/TR/xmlschema-2/#decimal">decimal</a>
-            and <a href="https://www.w3.org/TR/xmlschema-2/#double">double</a>,
-            any value with an 'e' or 'E' in it is a double, otherwise it
-            is a decimal. For example, for a FHIR property whose value
-            is a FHIR <a href="datatypes.html#decimal">decimal</a>,
-            an instance value of <code
-              class="rdf">"185"</code> is given the datatype <code>xsd:decimal</code>
-            because it does not contain 'e' or 'E'.
-          </p>
 
           <p> The fhir:v property can never be empty. Either the
             relationship is absent, or it is present with at least one
@@ -433,16 +393,79 @@ href="fhir.shex">fhir.shex</a>
             xsd:string.&nbsp; <br/>
           </p>
 
-          <p> If a primitive has FHIR type <a href="datatypes.html#uri">uri</a>
+          <a name="union-types"></a>
+          <h4>Primitive Elements with Union Types</h4>
+
+          <p> Some FHIR primitive datatypes are defined as a union
+            of multiple XML Schema datatypes:
+          </p>
+            <ul>
+              <li>FHIR <a href="datatypes#date">date</a> (union of xsd:date, xsd:gYearMonth, xsd:gYear);</li>
+              <li>FHIR <a href="datatypes#dateTime">dateTime</a> (union of xsd:dateTime, xsd:date, xsd:gYearMonth, xsd:gYear); and</li>
+              <li>FHIR <a href="datatypes#decimal">decimal</a> (union of xsd:decimal, xsd:double).</li>
+            </ul>
+            <p> In such cases, the correct XSD type
+            must be determined by inspecting the literal value for
+            conformance with one of the union XSD types for that FHIR type.
+            For example, since a FHIR <a href="datatypes.html#decimal">decimal</a>
+            is a union of <a
+              href="https://www.w3.org/TR/xmlschema-2/#decimal">xsd:decimal</a>
+            and <a href="https://www.w3.org/TR/xmlschema-2/#double">xsd:double</a>,
+            any value with an 'e' or 'E' in it is an xsd:double, otherwise it
+            is an xsd:decimal. For example, for a property whose value
+            is a FHIR <a href="datatypes.html#decimal">decimal</a>,
+            an literal value of <code
+              class="rdf">"185"</code> must be given the XSD datatype <code>xsd:decimal</code>
+            because it does not contain 'e' or 'E'.
+            Values of other FHIR union types --
+            <a href="datatypes#date">date</a> or <a href="datatypes#dateTime">dateTime</a>
+            must be handled similarly, to assign the most specific XSD type
+            that matches the given literal value.
+          </p>
+
+        <a name="turtle-shorthand"></a>
+          <h4>Turtle Shorthand for Primitive Literals</h4>
+          <p>Literal values that can be represented using Turtle shorthand
+            notation for xsd:string, xsd:integer, xsd:decimal, xsd:double
+            or xsd:boolean may optionally use shorthand instead of the long
+            form described above.  However, authors of FHIR Turtle
+            serializers should be aware that there are
+            some differences between what is permitted in FHIR,
+            Turtle shorthand, and XSD literals, and these differences
+            can affect Turtle serialization of FHIR.  For example:
+            </p>
+            <ul>
+              <li>The FHIR
+                <a href="datatypes.html#decimal">decimal</a> datatype
+                is represented by <a href="https://www.w3.org/TR/xmlschema11-2/#decimal">xsd:decimal</a>
+                in Turtle.  Turtle shorthand for an xsd:decimal value
+                requires a decimal point, whereas the xsd:decimal type does not.
+                Therefore, a FHIR <a href="datatypes.html#decimal">decimal</a>
+                value of 185 must either have a decimal point explicitly
+                added, like 185.0, or the type must be explicitly indicated,
+                like <code class="rdf">"185"^^xsd:decimal</code>.
+                Otherwise 185 in Turtle would be parsed as an xsd:integer.</li>
+              <li>Neither the FHIR
+                <a href="datatypes.html#boolean">boolean</a> datatype nor the
+		Turtle shorthand for an xsd:boolean allows a literal value of
+                0 or 1, though
+                <a href="https://www.w3.org/TR/xmlschema11-2/#boolean">xsd:boolean</a> does.</li>
+            </ul>
+
+        <a name="primitive-uris"></a>
+          <h4>Primitive URI Types</h4>
+          <p> To facilitate linkage in RDF graphs,
+            if a primitive has FHIR type <a href="datatypes.html#uri">uri</a>
             or one of its subtypes (url, canonical, uuid, oid), then
-            a <code class="rdf">fhir:l</code> property is optionally
-            included as a sibling of the 
+            a <code class="rdf">fhir:l</code> property --
+            previously named <code class="rdf">fhir:link</code> --
+            is also optionally included as a sibling of the
             <code class="rdf">fhir:v</code> property.
-            The value of the <code class="rdf">fhir:l</code> property is 
+            The value of the <code class="rdf">fhir:l</code> property is
             an RDF node having the same URI as the URI given in the
             <code class="rdf">fhir:v</code> property, with one exception.
-            If the <code class="rdf">fhir:v</code> URI contains a 
-            vertical bar ("|", aka pipe symbol) then it represents a 
+            If the <code class="rdf">fhir:v</code> URI contains a
+            vertical bar ("|", aka pipe symbol) then it represents a
             version indicator, which is stripped off and converted into
             a "?version=" query string, like this:</p>
 
@@ -509,7 +532,7 @@ href="fhir.shex">fhir.shex</a>
 
           <a name="identifying-concepts"></a>
           <a name="representing-concepts"></a> <!-- Keep old anchor too -->
-          <h4>Identifying Concepts</h4>
+          <h4>Identifying Concepts in a Terminology</h4>
           <p> The same logic applies to the <a
               href="datatypes.html#Coding">Coding</a> data type. These
             are represented directly in Turtle by serializing their
@@ -539,7 +562,7 @@ href="fhir.shex">fhir.shex</a>
         <a name="iri-stem"></a>
           <h4>Concept IRIs and IRI Stems</h4>
 
-          <p> 
+          <p>
           A concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> uniquely identifies a concept that would otherwise
           be identified by a &lt;<code>Coding.system, Coding.code</code>&gt; pair.  A concept
           IRI normally has two parts -- an IRI stem and a code --
@@ -582,7 +605,7 @@ href="fhir.shex">fhir.shex</a>
 
           <p>
           One might wonder why the <code>Coding.system</code> is not used directly
-          as the IRI stem for a given terminology.  One reason is that 
+          as the IRI stem for a given terminology.  One reason is that
           <code>Coding.system</code>s often lack a convenient separator
           character as their final character, such as "/" or "#", which
           could cause problems if they were directly concatenated with codes,
@@ -737,7 +760,7 @@ fhir:value <b>fhir:modifierExtensionProperty</b> fhir:_value .
 <p>See <a href="extensibility.html#modifierExtension">Modifier Extensions</a> for
 additional requirements around modifier extensions.
 </p>
-          
+       
           <h3><a name="fhir-definitions"></a>RDF Representation of FHIR
             Definitions</h3>
       <a name="class"></a>
@@ -875,12 +898,12 @@ href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7
 
         <a name="fhir-rdf-with-owl"></a>
         <h4>Using FHIR RDF with OWL</h4>
-        <p>RDF lists use a ladder of rdf:first and rdf:rest properties. 
+        <p>RDF lists use a ladder of rdf:first and rdf:rest properties.
            This can cause problems in OWL DL, which disallows axioms
            over the rdf: namespace.  To work around this problem, OWL users
            can convert RDF lists in their FHIR data to a different list
-	   representation. 
-	   A <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a> 
+	   representation.
+	   A <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a>
            is available for doing such a conversion.
            </p>
 
@@ -906,7 +929,7 @@ href="https://yosemiteproject.org/fhir-rdf-as-a-bridge-to-the-semantic-web-in-he
           ontology</a> to recognize a cancer diagnosis.&nbsp; An <a
 href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-web-in-healthcare/">associated
           tutorial</a> details the steps used.&nbsp; <i>Caveat: This
-          webinar and tutorial were based on a previous version of FHIR RDF, 
+          webinar and tutorial were based on a previous version of FHIR RDF,
 	  so some specifics may have changed.<br/>
         </i>
         </p>
@@ -915,7 +938,7 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
           Creating a Concept IRI</h3>
 
         <p><i>For background on concept IRIs, IRI stems, and their
-          relationship to Code Systems, 
+          relationship to Code Systems,
           see <a href="iri-stem">Concept IRIs and IRI Stems</a> above.</i></p>
 
         <p>This section defines a standard algorithm for generating a
@@ -1145,7 +1168,7 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
         <a name="registering-iri-stems"></a>
           <h3>Appendix 2: Registering an IRI Stem on the HL7 Terminology Website</h3>
 
-          <p>This section is intended for those who are helping to add or 
+          <p>This section is intended for those who are helping to add or
           maintain IRI stem registrations at the
           <a href="https://terminology.hl7.org/">HL7 Terminology website</a>.</p>
 
@@ -1154,18 +1177,18 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
           <code>Coding.system</code>s.  But any that have been
           standardized should be registered in the HL7 terminology
           website by adding appropriate CodeSystem and NamingSystem
-          entries, using the system "urn:ietf:rfc:3987" and 
-          <a href="valueset-identifier-type.html">identifier type</a> 
+          entries, using the system "urn:ietf:rfc:3987" and
+          <a href="valueset-identifier-type.html">identifier type</a>
           of "iri-stem". You can see an
-          example of this in the HL7 description of the 
-          <a href="https://terminology.hl7.org/CodeSystem-v3-loinc.json.html">LOINC CodeSystem</a> 
-          and the 
-          <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html">LOINC NamingSystem</a>. 
+          example of this in the HL7 description of the
+          <a href="https://terminology.hl7.org/CodeSystem-v3-loinc.json.html">LOINC CodeSystem</a>
+          and the
+          <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html">LOINC NamingSystem</a>.
           Assuming that the <code>Coding.system</code>
           for your desired IRI stem has already been registered, the
           process for registering an IRI stem for it includes:
           </p>
-          
+       
           <ol>
           <li>Select the most authoritative, community-supported IRI stem
           available for this Coding.system.  The IRI stem SHOULD be taken
@@ -1177,14 +1200,14 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
           in the foreseeable future, then a community-defined IRI stem
           MAY be registered.  In this case, it should be an IRI stem
           most commonly used by the community as recorded by several
-          RDF IRI stem repositories, such as 
+          RDF IRI stem repositories, such as
           <a href="https://bioregistry.io/">Bioregistry</a>,
-          <a href="https://prefix.cc/">prefix.cc</a>, 
-          <a href="https://obofoundry.org/">OBO Foundry</a> or Wikidata 
+          <a href="https://prefix.cc/">prefix.cc</a>,
+          <a href="https://obofoundry.org/">OBO Foundry</a> or Wikidata
           (by means of <a href="https://www.wikidata.org/wiki/Property:P1921">wdt:P1921</a>).
           </li>
 
-          <li>The IRI stem MUST be in the form of an IRI as defined by the 
+          <li>The IRI stem MUST be in the form of an IRI as defined by the
           <a href="http://tools.ietf.org/html/rfc3987#section-2.2">IRI
           production in RFC 3987</a>. This means that the IRI stem
           MUST start with a "scheme:" string, such as "http:",
@@ -1203,14 +1226,14 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
 
           <li>
           The IRI stem MUST be intended to be used by concatenating it
-          with a FHIR code as described in the 
-          <a href="#concept-iri-algorithm">Appendix 1: Algorithm for creating a Concept IRI"</a>.  
+          with a FHIR code as described in the
+          <a href="#concept-iri-algorithm">Appendix 1: Algorithm for creating a Concept IRI"</a>.
           Therefore, care must be taken
           to ensure that the code can be concatenated to the IRI stem
           without altering the IRI stem's meaning, including:
             <ol>
             <li>The IRI stem SHOULD end with a delimiter character (one
-            of the <code>gen-delims</code> or <code>sub-delims</code> productions from 
+            of the <code>gen-delims</code> or <code>sub-delims</code> productions from
             <a href="https://datatracker.ietf.org/doc/html/rfc3987#section-2.2">section 2.2 of RFC 3987</a>
             or one of the characters "-", ".", "_"
             or "~") . An IRI stem that ends with an alphanumeric
@@ -1247,8 +1270,8 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
 
 	   <p>As of this writing (17-Dec-2022), the change proposal
 	   process for doing this included the following steps.  However,
-	   since the process may have later changed, you should 
-	   <a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">verify it</a> 
+	   since the process may have later changed, you should
+	   <a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">verify it</a>
 	   prior to proceeding.  You can also see an example of such
 	   a change proposal, including the associated changes in the
 	   XML files, in the <a href="https://jira.hl7.org/browse/UP-377">MeSH IRI stem change proposal</a>.
@@ -1282,10 +1305,10 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
 
 	 <li>If the current process for registering an IRI stem differs from the above steps, please:
 	   <ol>
-	     <li><a href="https://jira.hl7.org/issues/?jql=text%20~%20%22Registering%20an%20IRI%20Stem%20(RDF%20Subgroup)%22">Search the Jira issue tracker</a> 
+	     <li><a href="https://jira.hl7.org/issues/?jql=text%20~%20%22Registering%20an%20IRI%20Stem%20(RDF%20Subgroup)%22">Search the Jira issue tracker</a>
 	       for an issue titled "Registering an IRI Stem (RDF Subgroup)".
              </li>
-	     <li>If no such issue is found, <a href="https://jira.hl7.org/secure/CreateIssue!default.jspa">file an issue</a> 
+	     <li>If no such issue is found, <a href="https://jira.hl7.org/secure/CreateIssue!default.jspa">file an issue</a>
 	        with that title, describing how the above steps should be updated.
 	     </li>
             </ol>
