@@ -2540,6 +2540,17 @@
         <code value="Identifier"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.item.informationSequence">
+      <path value="ExplanationOfBenefit.item.informationSequence"/>
+      <short value="Applicable exception and supporting information"/>
+      <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>
+      <requirements value="Need to reference the supporting information items that relate directly to this product or service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.addItem.provider">
       <path value="ExplanationOfBenefit.addItem.provider"/>
       <short value="Authorized providers"/>
