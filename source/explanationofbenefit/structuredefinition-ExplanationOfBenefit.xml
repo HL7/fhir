@@ -154,6 +154,19 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
+    <element id="ExplanationOfBenefit.statusReason">
+      <path value="ExplanationOfBenefit.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="ExplanationOfBenefit.type">
       <path value="ExplanationOfBenefit.type"/>
       <short value="Category or discipline"/>
@@ -924,6 +937,24 @@
         <strength value="extensible"/>
         <description value="The valuset used for additional information category codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
+      </binding>
+    </element>
+    <element id="Claim.supportingInfo.subCategory">
+      <path value="Claim.supportingInfo.subCategory"/>
+      <short value="Finer-grained classification of the supplied information"/>
+      <definition value="A finer classification within the more general category."/>
+      <requirements value="Required to provide more detailed categorization, for example lab-test grouping: blood, tissue etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InformationSubCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The valuset used for additional information subcategory codes."/>
       </binding>
     </element>
     <element id="ExplanationOfBenefit.supportingInfo.code">
