@@ -456,7 +456,7 @@
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
         <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
       </binding>
