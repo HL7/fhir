@@ -760,7 +760,7 @@
       <path value="Composition.event.detail"/>
       <short value="The event(s) being documented, as code(s), reference(s), or both"/>
       <definition value="Represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which case the procedure being documented is necessarily a &quot;History and Physical&quot; act. The events may be included as a code or as a reference to an other resource."/>
-      <comment value="An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more events are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries."/>
+      <comment value="An event can further specialize the act inherent in Composition.type, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more events are included, they SHALL NOT conflict with the values inherent in Composition.type as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries."/>
       <min value="0"/>
       <max value="*"/>
       <type>
