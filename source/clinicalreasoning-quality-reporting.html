@@ -271,6 +271,27 @@ The next example demonstrates how to obtain the results of evaluating the measur
 
 <pre><code>GET [base]/Basic/CMS146/$evaluate-measure?subject=124&amp;periodStart=2014-01&amp;periodEnd=2014-03</code></pre>
 
+<a name="data-exchange-for-reporting"> </a>
+<h4>Data Exchange for Reporting</h4>
+	
+<a name="bundles-organized-by-subject"> </a>
+<h5>Bundles Organized by Subject</h5>
+	
+<p>The Bundles used in the quality reporting operations enable the evaluation and exchange of data for multiple measures, while also constraining duplicate data. Bundles <b>SHOULD</b> be organized by subject, meaning that a Bundle <b>SHOULD</b> contain the resources, the including MeasureReport(s) and data of interest (in MeasureReport.evaluatedResources), for all of the measures that apply to a single subject. Resources that are not unique to the subject, such as Practitioner or Organization, may still be duplicated across Bundles.</p>
+	
+<a name="duplicate-data"> </a>
+<h5>Duplicate Data</h5>
+	
+<p>Implementations <b>SHOULD</b> avoid sending duplicate data (identical FHIR resources or identical resolvable references) in data exchanges ($collect-data or $submit-data) in MeasureReport.evaluatedResources.</p>
+	
+<p>Duplicate data is a concern in data exchanges because the operations support multiple measures per subject. The same resource instance could be referenced by multiple MeasureReports, or multiple measures may use different elements within the same resource. Another situation to consider when evaluating a measure is when multiple value sets have overlapping codes, then two different CQL retrieve operations can return the same resource instance because it matches two codes from the overlap.</p>
+	
+<p>Note that the $data-requirements operation is currently defined for a single Measure or Library, so it is a responsibility of the data producer to check for, and address, duplicate data.</p>
+	
+<p>As described in the section "Bundles Organized by Subject," Bundles utilized in data exchange operations <b>SHOULD</b> be organized by subject. This reduces the potential for proliferation of duplicate data because resources common to the subject, such as Encounters, would not be repeated across Bundles. As described in "<a href="https://hl7.org/fhir/R4/bundle.html#bundle-unique">Resource URL and Uniqueness rules in a bundle</a>", a given version of a resource <b>SHALL</b> occur only once in a Bundle, and in data exchange that requires consideration of the data-of-interest and evaluated resources within the Bundle.</p>
+	
+<p>Receiving systems need to consider the possibility that some duplicate data may be present across Bundles, such as an Organization resource that is relevant to more than one subject.</p>
+
 <a name="measure-report"> </a>
 <h4>Measure Report</h4>
 
@@ -316,6 +337,7 @@ The next example demonstrates how to obtain the results of evaluating the measur
 <h5>Evaluation Messages</h5>
 
 <p>As part of the evaluation of a Measure to produce a MeasureReport, systems may report information messages, warnings, and errors using the <code>messages</code> element. The <code>messages</code> can be used to reference an OperationOutcome resource describing issues that have occurred during the evaluation. Note that the OperationOutcome resource referenced is typically contained within the returned MeasureReport.</p>
+
 
 <a name="references"> </a>
 <h4>References</h4>
