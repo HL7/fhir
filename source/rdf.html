@@ -482,6 +482,7 @@ href="fhir.shex">fhir.shex</a>
           <p> A <a href="references.html#Reference">Reference</a>
             element is represented using the same rules as above: </p>
           <pre class="rdf">  fhir:subject [
+     # a fhir:Reference ; 
      fhir:reference [ fhir:v "Patient/example" ];
      fhir:display [ fhir:v "Example Patient" ];
   ];</pre>
@@ -489,18 +490,26 @@ href="fhir.shex">fhir.shex</a>
             between the Turtle format and the JSON and XML formats.
             However, it's very useful for an RDF processor if the RDF
             graph links to the target of the reference directly. This
-            can be represented using the (optional) fhir:l property:
+            can be represented using the optional fhir:l property:
           </p>
           <pre class="rdf">  fhir:subject [
+     # a fhir:Reference ; 
      <b>fhir:l &lt;http://example.org/fhir/Patient/example&gt; ;</b>
      fhir:reference [ fhir:v "Patient/example" ];
      fhir:display [ fhir:v "Example Patient" ];
   ];</pre>
           <p> The correct value for the fhir:l relationship must be
             determined by resolving the <a href="references.html">rules
-              for resolving references</a> for the various reference
-            types to a literal URL that refers to the correct content in
-            the local RDF context. </p>
+              for resolving references</a>, for the various reference
+            types, to a literal URL that refers to the correct content in
+            the local RDF context.  Although the target type of the
+            <code class="rdf">fhir:reference</code> property is specified
+            as xsd:string, it is 
+            <a href="https://build.fhir.org/references.html#literal">
+              required to be an absolute or relative URI or fragment 
+              identifier,</a> so it can always be used for a fhir:l link.
+          </p>
+
           <p> The fhir:l relationship can be added automatically as
             part of generating the resource representation, or it can be
             injected by a post-processor that knows how to convert the
@@ -538,7 +547,7 @@ href="fhir.shex">fhir.shex</a>
             However, for reasoners using the RDF graph, it's also useful to
             make the implicit concept references in these Codings
             explicit, by specifying an optional <i>concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a></i> in an
-            rdf:type assertion, written as <b><code class="rdf" style="font-size: larger">a</code></b> in
+            rdf:type assertion, written using shorthand <b><code class="rdf" style="font-size: larger">a</code></b> in
             Turtle: </p>
           <pre class="rdf">fhir:code [
     fhir:coding (
