@@ -154,6 +154,19 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
+    <element id="ExplanationOfBenefit.statusReason">
+      <path value="ExplanationOfBenefit.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="ExplanationOfBenefit.type">
       <path value="ExplanationOfBenefit.type"/>
       <short value="Category or discipline"/>
@@ -926,6 +939,24 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
       </binding>
     </element>
+    <element id="Claim.supportingInfo.subCategory">
+      <path value="Claim.supportingInfo.subCategory"/>
+      <short value="Finer-grained classification of the supplied information"/>
+      <definition value="A finer classification within the more general category."/>
+      <requirements value="Required to provide more detailed categorization, for example lab-test grouping: blood, tissue etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InformationSubCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The valuset used for additional information subcategory codes."/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.supportingInfo.code">
       <path value="ExplanationOfBenefit.supportingInfo.code"/>
       <short value="Type of information"/>
@@ -1470,7 +1501,7 @@
       <path value="ExplanationOfBenefit.item.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1880,7 +1911,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-reason"/>
       </binding>
     </element>
-    <element id="ExplanationOfBenefit.item.adjudication.amount"> 
+    <element id="ExplanationOfBenefit.item.adjudication.amount">
       <path value="ExplanationOfBenefit.item.adjudication.amount"/>
       <short value="Monetary amount"/>
       <definition value="Monetary amount associated with the category."/>
@@ -1889,7 +1920,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Money"/> 
+        <code value="Money"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.adjudication.quantity">
@@ -2008,7 +2039,7 @@
       <path value="ExplanationOfBenefit.item.detail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2277,7 +2308,7 @@
       <path value="ExplanationOfBenefit.item.detail.subDetail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2457,7 +2488,7 @@
       </extension>
       <path value="ExplanationOfBenefit.addItem"/>
       <short value="Insurer added line items"/>
-      <definition value="The first-tier service adjudications for payor added product or service lines."/>
+      <definition value="The first-tier service adjudications for payer added product or service lines."/>
       <requirements value="Insurers may redefine the provided product or service or may package and/or decompose groups of products and services. The addItems allows the insurer to provide their line item list with linkage to the submitted items/details/sub-details. In a preauthorization the insurer may use the addItem structure to provide additional information on authorized products and services."/>
       <min value="0"/>
       <max value="*"/>
@@ -2573,7 +2604,7 @@
       <path value="ExplanationOfBenefit.addItem.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2863,7 +2894,7 @@
       </extension>
       <path value="ExplanationOfBenefit.addItem.detail"/>
       <short value="Insurer added line items"/>
-      <definition value="The second-tier service adjudications for payor added services."/>
+      <definition value="The second-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -2927,7 +2958,7 @@
       <path value="ExplanationOfBenefit.addItem.detail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -3075,7 +3106,7 @@
       </extension>
       <path value="ExplanationOfBenefit.addItem.detail.subDetail"/>
       <short value="Insurer added line items"/>
-      <definition value="The third-tier service adjudications for payor added services."/>
+      <definition value="The third-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -3139,7 +3170,7 @@
       <path value="ExplanationOfBenefit.addItem.detail.subDetail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
