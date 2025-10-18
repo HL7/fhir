@@ -173,6 +173,7 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
       [                           <span class="xmlcomment">#   with a concept IRI, system and code</span>
         a &lt;http://loinc.org/rdf/29463-7&gt; ;  # See Appendix 1 &lt;#concept-iri-algorithm&gt;
         fhir:system [
+          fhir:l &lt;http://loinc.org&gt; ;
           fhir:v "http://loinc.org"^^xsd:anyURI
         ];
         fhir:code [ fhir:v "29463-7" ]
@@ -180,6 +181,7 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
       [                           <span class="xmlcomment">#  and another with display text</span>
         a &lt;http://loinc.org/rdf/3141-9&gt; ;  # See Appendix 1 &lt;#concept-iri-algorithm&gt;
         fhir:system [
+          fhir:l &lt;http://loinc.org&gt; ;
           fhir:v "http://loinc.org"^^xsd:anyURI
         ];
         fhir:code [ fhir:v "3141-9" ];
@@ -192,6 +194,7 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
     <span id="v-decimal">fhir:value [ fhir:v "185"^^xsd:decimal ]</span>;
     fhir:unit [ fhir:v "lbs" ];
     fhir:system [
+      fhir:l &lt;http://unitsofmeasure.org&gt; ;
       fhir:v "http://unitsofmeasure.org"^^xsd:anyURI
     ];
     fhir:code [ fhir:v "[lb_av]" ]
@@ -317,7 +320,8 @@ href="fhir.shex">fhir.shex</a>
      <b>a fhir:Quantity ;</b>
      fhir:value [ fhir:v "185"^^xsd:decimal ] ;   # From Quantity.value
      fhir:unit [ fhir:v "lbs" ] ;
-     fhir:system [ fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
+     fhir:system [ fhir:l &lt;http://unitsofmeasure.org&gt; ;
+                   fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
      fhir:code [ fhir:v "[lb_av]" ]
   ] ;
 </pre>
@@ -334,7 +338,7 @@ href="fhir.shex">fhir.shex</a>
        a fhir:Reference ;
        fhir:l &lt;http://example.org/fhir/PlanDefinition/KDN5&gt; ;
        fhir:reference [
-         fhir:v "http://example.org/fhir/PlanDefinition/KDN5"^^xsd:anyURI
+         fhir:v "http://example.org/fhir/PlanDefinition/KDN5"
       ]
     ] ;
           </pre>
@@ -671,19 +675,25 @@ href="fhir.shex">fhir.shex</a>
           <pre class="rdf">&lt;http://example.org/fhir/MedicationRequest/MR321&gt; a fhir:Observation;
   fhir:nodeRole fhir:treeRoot;
   <b>fhir:extension (</b>
-    [ fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/observation-bodyPosition"^^xsd:anyURI ] ;
+    [ fhir:url [ 
+         fhir:l &lt;http://example.org/fhir/StructureDefinition/observation-bodyPosition&gt; ;
+         fhir:v "http://example.org/fhir/StructureDefinition/observation-bodyPosition"^^xsd:anyURI ] ;
       fhir:value [
         fhir:coding (
           a sct:33586001;
-          fhir:system [ fhir:v "http://snomed.info/sct" ];
+          fhir:system [ fhir:l &lt;http://snomed.info/sct&gt; ;
+                        fhir:v "http://snomed.info/sct"^^xsd:anyURI ];
           fhir:code [ fhir:v "33586001" ];
           fhir:display [ fhir:v "Sitting position (finding)" ]
         ) ] ]
-    [ fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/observation-delta"^^xsd:anyURI ] ;
+    [ fhir:url [ 
+        fhir:l &lt;http://example.org/fhir/StructureDefinition/observation-delta&gt; ;
+        fhir:v "http://example.org/fhir/StructureDefinition/observation-delta"^^xsd:anyURI ] ;
       fhir:value [
         fhir:coding (
           a sct:1250004;
-          fhir:system [ fhir:v "http://snomed.info/sct" ];
+          fhir:system [ fhir:l &lt;http://snomed.info/sct&gt; ;
+                        fhir:v "http://snomed.info/sct"^^xsd:anyURI ];
           fhir:code [ fhir:v "1250004" ];
           fhir:display [ fhir:v "Decreased (qualifier value)" ]
         ) ] ]
@@ -701,6 +711,7 @@ fhir:birthDate [
   <b>fhir:extension (</b>
     [
       fhir:url [
+        fhir:l &lt;http://example.org/fhir/StructureDefinition/text&gt; ;
         fhir:v "http://example.org/fhir/StructureDefinition/text"^^xsd:anyURI
       ] ;
       fhir:value [
@@ -736,7 +747,9 @@ fhir:birthDate [
   fhir:extension ( ... );           <span class="xmlcomment"># above bodyPosition and delta extensions</span>
   <b>fhir:modifierExtension</b> (
     [
-      fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/anti-prescription"^^xsd:anyURI ] ;
+      fhir:url [ 
+        fhir:l &lt;http://example.org/fhir/StructureDefinition/anti-prescription&gt; ;
+        fhir:v "http://example.org/fhir/StructureDefinition/anti-prescription"^^xsd:anyURI ] ;
       fhir:value [ a fhir:boolean ; fhir:v true ]
     ]
   )
@@ -766,12 +779,15 @@ fhir:MedicationRequest <b>fhir:modifierExtensionClass</b> fhir:_MedicationReques
     fhir:value [ fhir:v "185"^^xsd:decimal ];
     fhir:unit [ fhir:v "lbs" ];
     fhir:system [
+      fhir:l &lt;<http://unitsofmeasure.org&gt; ;
       fhir:v "http://unitsofmeasure.org"^^xsd:anyURI
     ];
     fhir:code [ fhir:v "[lb_av]" ];
     <b>fhir:modifierExtension</b> (
       [
-        fhir:url [ fhir:v "http://example.org/fhir/StructureDefinition/anti-observation"^^xsd:anyURI ] ;
+        fhir:url [ 
+          fhir:l &lt;<http://example.org/fhir/StructureDefinition/anti-observation&gt; ;
+          fhir:v "http://example.org/fhir/StructureDefinition/anti-observation"^^xsd:anyURI ] ;
         fhir:value [ a fhir:boolean ; fhir:v true ]
       ]
     ) ;
