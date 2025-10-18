@@ -163,7 +163,7 @@ Web Health Care and Life Sciences Interest Group</a>.
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
 
-<span class="xmlcomment">                                  # Obs123 (subject) hasType (property) fhir:Observation</span>
+<span class="xmlcomment">                                  # Obs123 (subject) has type fhir:Observation</span>
 &lt;http://example.org/fhir/Observation/Obs123&gt; a fhir:Observation;
   fhir:nodeRole fhir:treeRoot;    <span class="xmlcomment"># (subject) is the serialization root of this document</span>
   fhir:id [ fhir:v "Obs123" ];    <span class="xmlcomment"># (subject) has an id of "Obs123"</span>
@@ -198,7 +198,7 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
   ]</span>.
 
                                   <span class="xmlcomment"># Metadata to help OWL interpretation</span>
-&lt;http://example.org/fhir/Observation/Obs123.ttl&gt; an owl:Ontology;
+&lt;http://example.org/fhir/Observation/Obs123.ttl&gt; a owl:Ontology;
   owl:imports fhir:fhir.ttl;
   owl:versionIRI &lt;http://example.org/fhir/Observation/Obs123.ttl&gt;.</pre>
         <p> In this example, </p>
