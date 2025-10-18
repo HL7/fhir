@@ -2070,7 +2070,7 @@
     <element id="ClaimResponse.processNote.class">
       <path value="ClaimResponse.processNote.class"/>
       <short value="Business kind of note"/>
-      <definition value="A code to indicate the business purose of the note.."/>
+      <definition value="A code to indicate the business purpose of the note."/>
       <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
       <min value="0"/>
       <max value="1"/>
