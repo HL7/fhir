@@ -2084,7 +2084,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="Business class of the process note."/>
       </binding>
     </element>
