@@ -99,22 +99,23 @@ Web Health Care and Life Sciences Interest Group</a>.
           representation for a resource is described using this
           format:
         </p>
-        <mark>@@ TODO: Update this example to bgpanel or similar @@ </mark>
+        <mark>@@ TODO: Align this with current Observation type @@ </mark>
         <pre class="spec">
 [ a fhir:Observation;
   fhir:nodeRole fhir:treeRoot;     # if this is the parser root
-  # from Resource: id; meta; implicitRules; and language
-  # from DomainResource: text; contained; extension; and modifierExtension
+  # from Resource: fhir:id; fhir:meta; fhir:implicitRules; and fhir:language
+  # from DomainResource: fhir:text; fhir:contained; fhir:extension; and fhir:modifierExtension
   fhir:identifier ( [ <a href="datatypes.html#Identifier">Identifier</a> ] ... ) ;  # 0..* Business Identifier for observation
-  fhir:status [ fhir:v "&lt;code&gt;" ]; # R!  registered | preliminary | final | amended +
-  fhir:code [ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ];   # 1..1 R!  Type of observation (code / type)
-  fhir:subject [ fhir:reference [ <a href="patient.html#Patient">Patient</a>|<a href="group.html#Group">Group</a>|<a href="device.html#Device">Device</a>|<a href="location.html#Location">Location</a> ... ] ]; # 0..1 Who and/or what this is about
-  fhir:encounter [ fhir:reference [ <a href="encounter.html#Encounter">Encounter</a> ] ]; # 0..1 Healthcare event during which this observation is made
+  fhir:status [ <a href="datatypes.html#code">code</a> ]; # 1..1 registered | preliminary | final | amended ...
+  fhir:code [ <a href="datatypes.html#CodeableConcept">CodeableConcept</a> ];   # 1..1 Type of observation (code / type)
+  fhir:subject [ <a href="references.html#Reference">Reference</a>(<a href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a href="device.html#Device">Device</a>|<a href="group.html#Group">Group</a>...) ]; # 0..1 Who and/or what this is about
+  fhir:encounter [ <a href="references.html#Reference">Reference</a>(<a href="encounter.html#Encounter">Encounter</a>) ]; # 0..1 Healthcare event during which this observation is made
   # effective[x]: 0..1 Clinically relevant time/time-period for observation. One of these 4:
-    fhir:effective [ a fhir:dateTime ; fhir:v "&lt;dateTime&gt;" ];
+    fhir:effective [ a fhir:dateTime ; <a href="datatypes.html#dateTime">dateTime</a> ];
     fhir:effective [ a fhir:Period ; <a href="datatypes.html#Period">Period</a> ];
     fhir:effective [ a fhir:Timing ; <a href="datatypes.html#Timing">Timing</a> ];
-    fhir:effective [ a fhir:instant ; fhir:v "&lt;instant&gt;" ];
+    fhir:effective [ a fhir:instant ; <a href="datatypes.html#instant">instant</a> ];
+  ...
 ]</pre>
         <p> Using this format: </p>
         <ul>
@@ -124,12 +125,30 @@ Web Health Care and Life Sciences Interest Group</a>.
             the property value for each element. </li>
           <li> Nodes are never empty. If an element is present in the
             resource, it SHALL have properties as defined for its type,
-            or 1 or more <a
-href="extensibility.html">extensions</a>
+            or 1 or more <a href="extensibility.html">extensions</a>.
           </li>
-          <li>The <span style="color: brown"><b>R!</b></span> denotes
-            that a relationship is mandatory: it must be present (or in
-            an array, at least one item must be present).</li>
+          <li><code class="spec"><b>0..1</b></code> indicates an
+            optional element, i.e., minimum cardinality 0 and maximum 
+            cardinality 1.</li>
+          <li><code class="rdf"><b>1..1</b></code> indicates a
+            required element.</li>
+          <li><code class="rdf"><b>0..*</b></code> indicates an
+            optional element with no maximum cardinality.  Any element
+            that allows more than one value is represented as an
+            RDF list (see <a href="#rdflist">below</a>).  If an RDF list
+            is provided, it SHALL NOT be empty.  </li>
+          <li>Content type shown as
+             <code class="rdf"><a href="references.html#Reference">Reference</a>(<a href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a href="device.html#Device">Device</a>|<a href="group.html#Group">Group</a>...)</code>
+            means that it must be a
+            <a href="references.html#Reference">Reference</a>
+            to a <a href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>,
+            or a <a href="device.html#Device">Device</a>,
+            or a <a href="group.html#Group">Group</a>, etc.</li>
+          <li><b><code class="rdf"># effective[x]</code></b> indicates
+            a polymorphic property (<a href="#propertyNames">see below</a>),
+            whose value (in this example) may be a fhir:dateTime,
+            fhir:Period, fhir:Timing or fhir:instant.
+</li>
         </ul>
         <p>Note that examples in this specification show Turtle that is
           nicely formatted and well laid out, but that is not required
@@ -139,6 +158,7 @@ href="extensibility.html">extensions</a>
         </h3>
         <p> An example FHIR Turtle Observation illustrates the Turtle
           language and the additional conventions used by FHIR Turtle: </p>
+        <mark>@@ TODO: Update this example to bgpanel or similar @@ </mark>
         <pre class="rdf">PREFIX fhir: &lt;http://hl7.org/fhir/&gt;
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
