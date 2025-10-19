@@ -56,36 +56,7 @@
 <a name="measure-metadata"> </a>
 <h5>Measure Metadata</h5>
 
-<p>The following table provides a requirements mapping from the content of an <a href="https://ecqi.healthit.gov/sites/default/files/2025-Guide-for-Reading-eCQMs.pdf">electronic Clinical Quality Measure (eCQM)</a> to the elements defined in the <a href="measure.html">Measure</a> resource:</p>
-
-<table class="grid">
-	<thead>
-		<tr><th>Metadata Element</th><th>Cardinality</th><th>Element</th><th>Notes</th></tr>
-	</thead>
-	<tbody>
-		<tr><td>Title</td><td>0..1</td><td>Measure.title</td><td></td></tr>
-		<tr><td>Identifier</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms</td></tr>
-		<tr><td>Version Number</td><td>0..1</td><td>Measure.version</td><td></td></tr>
-		<tr><td>NQF Number</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf</td></tr>
-		<tr><td>GUID</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid</td></tr>
-		<tr><td>Measure Steward</td><td>0..1</td><td>Measure.publisher</td><td></td></tr>
-		<tr><td>Measure Developer</td><td>0..1</td><td>Measure.author</td><td></td></tr>
-		<tr><td>Endorser</td><td>0..1</td><td>Measure.endorser</td><td></td></tr>
-		<tr><td>Description</td><td>0..1</td><td>Measure.description</td><td></td></tr>
-		<tr><td>Copyright</td><td>0..1</td><td>Measure.copyright</td><td></td></tr>
-		<tr><td>Reference</td><td>0..*</td><td>Measure.relatedArtifact</td><td>type.code of citation</td></tr>
-		<tr><td>Disclaimer</td><td>0..1</td><td>disclaimer</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Measure Scoring</td><td>0..1</td><td>scoring</td><td>Code, e.g. proportion, CV</td></tr>
-		<tr><td>Measure Type</td><td>0..1</td><td>type</td><td>Code, e.g. process, outcome</td></tr>
-		<tr><td>Risk Adjustment</td><td>0..1</td><td>riskAdjustment</td><td>String</td></tr>
-		<tr><td>Rate Aggregation</td><td>0..1</td><td>rateAggregation</td><td>String</td></tr>
-		<tr><td>Rationale</td><td>0..1</td><td>rationale</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Clinical Recommendation Statement</td><td>0..1</td><td>clinicalRecommendationStatement</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Improvement Notation</td><td>0..1</td><td>improvementNotation</td><td>String, e.g. Higher score indicates better quality</td></tr>
-		<tr><td>Definition</td><td>0..1</td><td>definition</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Guidance</td><td>0..1</td><td>Measure.usage</td><td>String (containing Markdown)</td></tr>
-	</tbody>
-</table>
+<p>Measures have metadata just like any other conformance or knowledge artifact in FHIR.  This includes metadata elements that are specific to measures and not needed for other knowledge artifacts.  For example metadata elements that are common across many knowledge artifacts including measures, are identifier, version and date.  Metadata elements that are specific to measures include measure scoring, rate aggregation, clinical recommendation statement and improvement notation.  For more information about each metadata element see the Measure Resource.</p>
 
 <a name="measure-logic"> </a>
 <h5>Measure Logic</h5>
