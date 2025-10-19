@@ -1,0 +1,66 @@
+<ImagingSelection xmlns="http://hl7.org/fhir">
+    <id value="isl-10.f7.fail"/>
+    <identifier>
+        <system value="urn:dicom:uid"/>
+        <value value="urn:oid:1.2.840.113747.20080222.95946059916364657859950275.2.1"/>
+    </identifier>
+    <status value="available"/>
+    <code>
+        <text value="Observation within a DICOM SR"/>
+    </code>
+    <subject>
+        <type value="Patient"/>
+        <identifier>
+            <system value="https://fhirhospital.org"/>
+            <value value="RNKZPSBNZLNADAZV"/>
+        </identifier>
+    </subject>
+    <basedOn>
+        <type value="ServiceRequest"/>
+        <identifier>
+            <type>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+                    <code value="ACSN"/>
+                </coding>
+            </type>
+            <value value="W12342398"/>
+            <assigner>
+                <reference value="Organization/dicom-organization"/>
+            </assigner>
+        </identifier>
+    </basedOn>
+    <basedOn>
+        <reference value="ServiceRequest/example"/>
+    </basedOn>
+    <issued value="2011-01-01T11:01:20+03:00"/>
+    <derivedFrom>
+        <type value="ImagingStudy"/>
+        <identifier>
+            <system value="urn:dicom:uid"/>
+            <value value="urn:oid:1.2.840.113747.20080222.95946072916364657859950275"/>
+        </identifier>
+    </derivedFrom>
+    <studyUid value="1.2.840.113747.20080222.95946058738694657859950275"/>
+    <seriesUid value="1.2.840.113747.20080222.95946058738664657859950275.1"/>
+    <frameOfReferenceUid value="1.2.840.113747.20080222.95946058736364657859950275.0"/>
+    <bodySite>
+        <reference>
+            <reference value="BodyStructure/tumor"/>
+        </reference>
+    </bodySite>
+    <focus>
+        <reference value="ImagingSelection/example-basic-image-selection"/>
+    </focus>
+    <instance>
+        <uid value="1.2.840.113747.20080222.95946058738699434359950275.1.0"/>
+        <sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.88.22"/>
+        <referencedContentItemIdentifier value="1"/>
+        <referencedContentItemIdentifier value="1"/>
+        <referencedContentItemIdentifier value="2"/>
+        <referencedContentItemIdentifier value="4"/>
+        <!-- Cannot include waveFormChannel with referencedContentItemIdentifier -->
+        <waveFormChannel value="2"/>
+        <waveFormChannel value="1"/>
+    </instance>
+</ImagingSelection>

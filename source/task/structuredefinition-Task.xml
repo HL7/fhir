@@ -252,6 +252,10 @@
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.statusReason, Event.statusReason"/>
+      </mapping>
     </element>
     <element id="Task.businessStatus">
       <path value="Task.businessStatus"/>
@@ -359,7 +363,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code, Event.code"/>
+        <map value="Request.doNotPerform, Event.doNotPerform"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -438,6 +442,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=SUBJ].target"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.product, Event.product"/>
       </mapping>
     </element>
     <element id="Task.for">
@@ -547,7 +555,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.authoredOn"/>
+        <map value="Request.authoredOn, Event.recorded"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -759,6 +767,10 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=LOC].role"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
+      </mapping>
     </element>
     <element id="Task.reason">
       <path value="Task.reason"/>
@@ -866,7 +878,7 @@
       <path value="Task.restriction"/>
       <short value="Constraints on fulfillment tasks"/>
       <definition value="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
-      <comment value="Task.restriction can only be present if the Task is seeking fulfillment of another Request resource, and the restriction identifies what subset of the authorization conveyed by the request is supposed to be fulfilled by this Task. A possible example could be a standing order (the request) covering a significant time period and/or individuals, while the Task seeks fulfillment for only a subset of that time-period and a single individual."/>
+      <comment value="This element should only be used when the Task is seeking fulfillment of a request resource that authorizes a broader set of subjects, repetitions and/or time-period than the Task itself is seeking execution against.  It is not used otherwise."/>
       <requirements value="Sometimes when fulfillment is sought, you don't want full fulfillment."/>
       <min value="0"/>
       <max value="1"/>
@@ -912,8 +924,9 @@
     </element>
     <element id="Task.restriction.recipient">
       <path value="Task.restriction.recipient"/>
-      <short value="For whom is fulfillment sought?"/>
-      <definition value="For requests that are targeted to more than one potential recipient/target, to identify who is fulfillment is sought for."/>
+      <short value="Individual or entity from whom fulfillment is being sought"/>
+      <definition value="For requests directed at multiple potential recipients or targets, this is used to specify the individual or entity from whom fulfillment is being sought."/>
+      <comment value="If seeking fulfillment of a ServiceRequest where the ServiceRequest.subject was a Group of devices, but the Task was only seeking execution against a single device. If just creating a Task that is to manipulate a device in the absence of a broader order, there's no need for restriction.recipient.  The Device to be manipulated would be the Task.focus (and potentially the Task.for - if the action wasn't for the benefit of a Patient or some other record)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -924,6 +937,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -1136,6 +1150,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="???"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.supportingInfo"/>
       </mapping>
     </element>
     <element id="Task.output">
