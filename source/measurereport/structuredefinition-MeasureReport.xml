@@ -839,6 +839,9 @@
       <type>
         <code value="boolean"/>
       </type>
+      <type>
+        <code value="Ratio"/>
+      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -1238,6 +1241,9 @@
       </type>
       <type>
         <code value="boolean"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
       </type>
       <mapping>
         <identity value="rim"/>
