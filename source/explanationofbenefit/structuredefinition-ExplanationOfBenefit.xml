@@ -3563,6 +3563,27 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.processNote.class">
+      <path value="ExplanationOfBenefit.processNote.class"/>
+      <short value="Business kind of note"/>
+      <definition value="A code to indicate the business purpose of the note."/>
+      <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessNoteClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Business class of the process note."/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.processNote.number">
       <path value="ExplanationOfBenefit.processNote.number"/>
       <short value="Note instance identifier"/>
