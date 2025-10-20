@@ -360,10 +360,10 @@ capable DICOM viewing software.
 <p>
 Depending on the modality and procedure type, a DICOM study can range from having one or two instances (as in many X-ray procedures) to several thousand instances (for some CT exams) or even tens of thousands (for functional MRI studies). The number of series within a study has far less variability, and is usually under twenty, although post-processing, computer-aided detection, and AI applications could cause modest increases. An ImagingStudy resource describing a large DICOM study would itself be of significant size.
 </p><p>
-Issuing narrowly tailored queries can help a client avoid search results containing many ImagingStudy resources. The _summary=true query parameter will omit several resource elements, including all instance-level elements; this can be used to examine search results before retrieving the full instances. If a server limits the byte size of search bundle, this could impact the number of ImagingStudy resources returned per search result page; a client can use the _count query parameter to influence the number of resources per search result page.
+Issuing narrowly tailored queries can help a client avoid search results containing many ImagingStudy resources. The _summary=true query parameter will omit several resource elements, including all instance-level elements; this can be used to examine search results before retrieving the full instances. If a server limits the byte size of search bundle, this can impact the number of ImagingStudy resources returned per search result page; a client can use the _count query parameter to influence the number of resources per search result page.
 </p><p>
 Although not reflected in the ImagingStudy resource, the size of an individual referenced instance can be anywhere from a few kilobytes (a compressed 256x256 pixel MR or 640x480 pixel ultrasound image) to a gigabyte or more (for digital breast tomography imaging). When retrieving the referenced content of an ImagingStudy,
-applications could consider methods to reduce transfer time, such as:
+applications can consider methods to reduce transfer time, such as:
 </p>
 <ul>
 <li>Loading only specific instances or series</li>
@@ -547,7 +547,7 @@ Similarly, the performed procedure would be encoded as the <code>ImagingStudy.pr
 <a name="laterality"></a>
 <h3>Body Site and Laterality</h3>
 <p>
-The <code>series.bodySite</code> element could include the laterality of the (possibly paired) anatomic structures examined – e.g. left knee, bilateral lungs, etc. This can be conveyed in several ways:
+The <code>series.bodySite</code> element can include the laterality of the (possibly paired) anatomic structures examined – e.g. left knee, bilateral lungs, etc. This can be conveyed in several ways:
 </p>
 <ul>
   <li><code>series.bodySite</code> contains an anatomic code that includes laterality, e.g.
