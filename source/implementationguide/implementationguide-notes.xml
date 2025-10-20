@@ -37,7 +37,7 @@ documentation (html). The resources typically specify some combination of:
 <li>API Details: <a href="capabilitystatement.html">Capability Statement</a>, <a href="operationdefinition.html">operation definitions</a> and 
 additional <a href="searchparameter.html">search parameters</a></li>
 <li>Clinical Logic: <a href="questionnaire.html">Questionnaires</a>, <a href="library.html">logic libraries</a> and <a href="measure.html">measure definitions</a></li>
-<li>Test Information: <a href="testscript.html">Test Scripts</a></li>
+<li>Test Information: Test Scripts</li>
 <li>Supporting Examples</li>
 </ul>
 <p>

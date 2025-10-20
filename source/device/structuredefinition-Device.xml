@@ -70,6 +70,11 @@
     <uri value="http://fda.gov/UDI"/>
     <name value="UDI Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="btle"/>
+    <uri value="https://www.bluetooth.com"/>
+    <name value="Bluetooth Technology"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="Device"/>
@@ -139,6 +144,10 @@
         <identity value="udi"/>
         <map value="The serial number which is a component of the production identifier (PI), a conditional, variable portion of a UDI.   The identifier.type code should be set to “SNO”(Serial Number) and the system left empty."/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="system = urn:oid &#xA; value = DIS System ID characteristic value (8 octets hexadecimal string)"/>
+      </mapping>
     </element>
     <!-- <element id="Device.displayName">
       <path value="Device.displayName"/>
@@ -183,6 +192,11 @@
         <identity value="rim"/>
         <map value=".id and .code"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS UDI for Medical Devices characteristic value fields - See Bluetooth GATT Specification Supplement (https://www.bluetooth.com/specifications/gss/) for details)"/>
+        <comment value="See [Bluetooth GATT Specification Supplement](https://www.bluetooth.com/specifications/gss/) for details)"/>
+      </mapping>
     </element>
     <element id="Device.udiCarrier.deviceIdentifier">
       <path value="Device.udiCarrier.deviceIdentifier"/>
@@ -207,11 +221,15 @@
         <identity value="udi"/>
         <map value="The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Device Identifier field from DIS UDI for Medical Devices characteristic"/>
+      </mapping>
     </element>
     <element id="Device.udiCarrier.deviceIdentifierSystem">
       <path value="Device.udiCarrier.deviceIdentifierSystem"/>
       <short value="The namespace for the device identifier value"/>
-      <definition value="Establishes the namespace for the device identifier value that is an URL, OID, urn or uuid."/>
+      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the device identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -237,6 +255,10 @@
         <identity value="udi"/>
         <map value="All UDIs are to be issued under a system operated by an Jurisdiction-accredited issuing agency.&#xA;GS1 DIs: &#xA; http://hl7.org/fhir/NamingSystem/gs1&#xA;HIBCC DIs:&#xA; http://hl7.org/fhir/NamingSystem/hibcc&#xA;ICCBBA DIs for blood containers:&#xA; http://hl7.org/fhir/NamingSystem/iccbba-blood&#xA;ICCBA DIs for other devices:&#xA; http://hl7.org/fhir/NamingSystem/iccbba-other"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Issuer field from DIS UDI for Medical Devices characteristic"/>
+      </mapping>
     </element>
     <element id="Device.udiCarrier.jurisdiction">
       <path value="Device.udiCarrier.jurisdiction"/>
@@ -251,6 +273,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="Role.scoper"/>
+      </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Authority field from DIS UDI for Medical Devices characteristic"/>
       </mapping>
     </element>
     <element id="Device.udiCarrier.carrierAIDC">
@@ -294,6 +320,10 @@
         <identity value="udi"/>
         <map value="A unique device identifier (UDI) on a device label in plain text"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Label field from DIS UDI for Medical Devices characteristic"/>
+      </mapping>
     </element>
     <element id="Device.udiCarrier.entryType">
       <path value="Device.udiCarrier.entryType"/>
@@ -316,6 +346,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="NA"/>
+      </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="electronic-transmission"/>
       </mapping>
     </element>
     <element id="Device.status">
@@ -417,6 +451,10 @@
         <identity value="udi"/>
         <map value="N/A"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS Manufacturer Name String characteristic value"/>
+      </mapping>
     </element>
     <element id="Device.manufactureDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -513,6 +551,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".playedRole[typeCode=MANU].id"/>
+      </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS Serial Number String characteristic value"/>
       </mapping>
     </element>
     <element id="Device.name">
@@ -621,6 +663,10 @@
         <identity value="rim"/>
         <map value=".softwareName (included as part)"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS Model Number String characteristic value"/>
+      </mapping>
     </element>
     <element id="Device.partNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -684,6 +730,10 @@
         <description value="Codes to identify medical devices."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
+      <mapping>
+        <identity value="btle"/>
+        <map value="text = Appearance Value name or Primary Service name &#xA; coding = Appearance Value or Primary Service UUID"/>
+      </mapping>
     </element>
     <element id="Device.deviceVersion">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -717,6 +767,10 @@
         <description value="The type of version indicated for the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
       </binding>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Bluetooth-UUID"/>
+      </mapping>
     </element>
     <element id="Device.deviceVersion.component">
       <path value="Device.deviceVersion.component"/>
@@ -756,6 +810,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS Firmware Revision characteristic value or DIS Hardware Revision characteristic value or DIS Software Revision characteristic value"/>
+      </mapping>
     </element>
     <element id="Device.conformsTo">
       <path value="Device.conformsTo"/>
@@ -1061,6 +1119,7 @@
       <path value="Device.additive"/>
       <short value="Material added to a container device"/>
       <definition value="Material added to a container device (typically used in specimen collection or initial processing).  The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
+      <comment value="A Procedure can be used to document details of the addition of a substance to the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1119,47 +1178,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".playedRole[classCode=CONT].quantity"/>
-      </mapping>
-    </element>
-    <element id="Device.additive.performer">
-      <path value="Device.additive.performer"/>
-      <short value="Entity adding substance to the container"/>
-      <definition value="The performer who adds the substance to the container."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PFM].role"/>
-      </mapping>
-    </element>
-    <element id="Device.additive.performed">
-      <path value="Device.additive.performed"/>
-      <short value="When the additive substance was added to the container"/>
-      <definition value="Time when the additive substance was placed into the container by the performer."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.done[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
       </mapping>
     </element>
     <element id="Device.contact">

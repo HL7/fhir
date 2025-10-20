@@ -4,7 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-Devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health, as well as devices such as a machine, cellphone, computer, software, application, etc.  The DeviceDefinition resource is used to describe the common characteristics and capabilities of a device of a certain type or kind, e.g., a certain model or class of a device such as a x-ray model or personal wearable device model, whereas a Device resource documents an actual instance of a device such as the actual x-ray machine that is installed or the personal wearable device being worn.
+The DeviceDefinition resource is used to describe the common characteristics and capabilities of a device of a certain type or kind, e.g., a certain model or class of a device such as a x-ray model or personal wearable device model, whereas a Device resource documents an actual instance of a device such as the actual x-ray machine that is installed or the personal wearable device being worn. Devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health, as well as devices such as a machine, cellphone, computer, software, application, etc.
 </p>
 <p>Devices can also be subdivided into the following categories:</p>
 
@@ -25,7 +25,7 @@ Devices include durable (reusable) medical equipment, implantable devices, as we
 </ul>
 <h3 id="DeviceScopeBoundaryRelationships-Implantabledevice">Implantable device</h3>
 <p>Implant means a device that is placed into a surgically or naturally formed cavity of the human body. A device is regarded as an implant for the purpose of this part only if it is intended to remain implanted continuously for a period of 30 days or more, unless the Commissioner determines otherwise to protect human health.  <a class="external-link" href="https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfcfr/cfrsearch.cfm?fr=860.3" rel="nofollow">21CFR Part 860.3</a> Accessed 12 May 2022</p>
-<p>'Implantable device' means any device, including those that are partially or wholly absorbed by the body, which is intended:</p>
+<p>'Implantable device' means any device, including those that are partially or wholly absorbed (i.e., a bioresorbable substance which is taken in or degraded) by the body, which is intended:</p>
 <ul>
 <li>to be totally introduced into the human body, or</li>
 <li>to replace an epithelial surface or the surface of the eye,</li>
@@ -51,7 +51,9 @@ Devices include durable (reusable) medical equipment, implantable devices, as we
 <h3 id="DeviceScopeBoundaryRelationships-Reusabledevice">Reusable device</h3>
 <p>Reusable medical devices are devices that health care providers can reuse to diagnose and treat one or multiple patients. Examples of reusable medical devices include surgical forceps, endoscopes and laryngoscopes. <a class="external-link" href="https://www.fda.gov/medical-devices/reprocessing-reusable-medical-devices/what-are-reusable-medical-devices" rel="nofollow">US Food and Drug Administration Center for Devices and Radiological Health Reusable Medical Devices</a></p>
 <h3 id="DeviceScopeBoundaryRelationships-Software">Software </h3>
-<p>The Device resource can represent an instance of a software component or application. A software item like a data transformer or converter, or a clinical support algorithm, may be an independently deployed, managed and configured entity that contributes to patient care and needs to be documented just a surely as, say, a physical cardiac monitor. The FHIR Device resource can contain instance data such as version information and operational attributes. It can also represent the relationship of the software item to other device and information system components through reference linkages.  This category includes software regardless of whether or not is regulated.  Device resource instances documenting software items are important to traceability of data and analyzing adverse events, and so have important patient safety roles.</p>
+<p>A Device may be a software component or application. A software item like a data transformer or converter, or a clinical support algorithm, may be an independently deployed, managed and configured entity that contributes to patient care and needs to be documented just a surely as, say, a physical cardiac monitor. It can also represent the relationship of the software item to other device and information system components through reference linkages. This category includes software regardless of whether or not is regulated. Device instances documenting software items are important to traceability of data and analyzing adverse events, and so have important patient safety roles. These may also be considered Digital therapeutics (DTx) in some contexts.</p>
+<p><strong>Software as a medical device</strong> may include not only traditional applications but also standalone algorithms, rule engines, artificial intelligence (AI), machine learning (ML) components, and decision-support modules. These software-based devices may operate independently or be embedded within physical hardware to be used in clinical and non-clinical contexts.
+</p>
 
 </div>
 

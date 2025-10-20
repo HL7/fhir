@@ -313,11 +313,8 @@
 			</type>
 		</element>
 		<element id="SpecimenDefinition.jurisdiction">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
 			<path value="SpecimenDefinition.jurisdiction"/>
-			<short value="Intended jurisdiction for this SpecimenDefinition (if applicable)"/>
+			<short value="Jurisdiction of the authority that maintains the this SpecimenDefinition (if applicable)"/>
 			<definition value="A jurisdiction in which the SpecimenDefinition is intended to be used."/>
 			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
@@ -332,7 +329,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="Codes for country, country subdivision and region for indicating where a resource is intended to be used."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
 			</binding>
 		</element>
 		<element id="SpecimenDefinition.purpose">
@@ -354,8 +351,8 @@
 				<valueBoolean value="true"/>
 			</extension>
 			<path value="SpecimenDefinition.copyright"/>
-			<short value="Use and/or publishing restrictions"/>
-			<definition value="Copyright statement relating to the SpecimenDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SpecimenDefinition."/>
+			<short value="Notice about intellectual property ownership, can include restrictions on use"/>
+			<definition value="Copyright statement relating to the SpecimenDefinition and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the SpecimenDefinition."/>
 			<requirements value="Consumers of the SpecimenDefinition must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
 			<alias value="License"/>
 			<alias value="Restrictions"/>
@@ -371,8 +368,8 @@
 			</extension>
 			<path value="SpecimenDefinition.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
 			<max value="1"/>

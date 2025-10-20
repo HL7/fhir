@@ -89,6 +89,7 @@
       <alias value="Results"/>
       <alias value="Labs"/>
       <alias value="Laboratory"/>
+      <alias value="Test Report"/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -258,6 +259,10 @@
         <identity value="rim"/>
         <map value="inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code &lt; LabService].code"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
     </element>
     <element id="DiagnosticReport.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -358,7 +363,7 @@
       <short value="Encounter associated with the DiagnosticReport"/>
       <definition value="The encounter (e.g. a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
       <comment value="This will typically be the encounter, when it exists, during which the data or specimens (e.g. imaging, blood draw, or assessment procedure) that are being reported by the DiagnosticReport were obtained/acquired. When a DiagnosticReport is based on a ServiceRequest (order), the ServiceRequest.encounter referenced in DiagnosticReport.basedOn may be used to associate the two."/>
-      <requirements value="Links the request to the Encounter context."/>
+      <requirements value="Links the report to the Encounter context."/>
       <alias value="Context"/>
       <min value="0"/>
       <max value="1"/>
@@ -613,6 +618,10 @@
         <identity value="rim"/>
         <map value="unknown"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
     </element>
     <element id="DiagnosticReport.study">
       <path value="DiagnosticReport.study"/>
@@ -631,6 +640,7 @@
       <path value="DiagnosticReport.supportingInfo"/>
       <short value="Additional information supporting the diagnostic report"/>
       <definition value="This backbone element contains supporting information that was used in the creation of the report not included in the results already included in the report."/>
+      <comment value="Supporting information should only be used for resources that are not referenced elsewhere within the same DiagnosticReport, e.g., DiagnosticReport.comparison."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -859,6 +869,18 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Communication"/>
       </type>
        <isSummary value="false"/>
+    </element>
+    <element id="DiagnosticReport.comparison">
+      <path value="DiagnosticReport.comparison"/>
+      <short value="Prior data and findings for comparison"/>
+      <definition value="Prior data and findings made available for comparison when determining the current interpretation."/>
+      <comment value="The List.entry.item can be profiled down to indicate a ImagingStudy | DiagnosticReport | Observation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/List"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

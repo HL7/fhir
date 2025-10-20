@@ -768,7 +768,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
       <mapping>
@@ -868,7 +868,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SpecimenCondition"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Codes describing the state of the specimen."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0493"/>
       </binding>

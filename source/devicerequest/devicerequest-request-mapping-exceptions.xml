@@ -94,7 +94,7 @@
     <divergentElement patternPath="Request.intent" resourcePath="DeviceRequest.intent">
         <shortUnmatched reason="Unknown">
             <_pattern value="proposal | plan | order (immutable)"/>
-            <resource value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+            <resource value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates the level of authority/intentionality associated with the device request and where the request fits into the workflow chain."/>
@@ -115,16 +115,33 @@
             <resource value="Indicates how quickly the request should be addressed with respect to other requests."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.code" resourcePath="DeviceRequest.code">
-        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(Device,DeviceDefinition)" reason="Unknown"/>
+    <divergentElement patternPath="Request.doNotPerform" resourcePath="DeviceRequest.doNotPerform">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Service requested/ordered"/>
+            <_pattern value="true if request is prohibiting action"/>
+            <resource value="True if the request is to stop or not to start using the device"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="If true indicates that the device request is asking for the specified action to *not* occur."/>
+            <resource value="If true, indicates that the provider is asking for the patient to either stop using or to not start using the specified device or category of devices. For example, the patient has undergone surgery and the provider is indicating that the patient should not wear contact lenses."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The attributes provided with the request qualify what is not to be done.  For example, if an effectiveTime is provided, the &quot;do not&quot; request only applies within the specified time.  If a performerType is specified then the &quot;do not&quot; request only applies to performers of that type.  Qualifiers include: code, subject, occurrence, performerType and performer.&#10;&#10;In some cases, the Request.code may pre-coordinate prohibition into the requested action.  E.g. &quot;NPO&quot; (nothing by mouth), &quot;DNR&quot; (do not recussitate).  If this happens, doNotPerform SHALL NOT be set to true.  I.e. The resource shall not have double negation. (E.g. &quot;Do not DNR&quot;)."/>
+            <resource value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;. DeviceRequest.reason includes the reason for marking the DeviceRequest as 'do not perform'."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Supports things like Do Not Recussitate, Nothing by mouth, etc."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.product" resourcePath="DeviceRequest.product">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product requested/ordered"/>
             <resource value="Device requested"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <_pattern value="Indicates the product whose supply or manipulation is authorized by this device request."/>
             <resource value="The details of the device to be used."/>
         </definitionUnmatched>
     </divergentElement>
@@ -183,6 +200,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="DeviceRequest.requester">
         <missingTypes _pattern="Reference(Patient,RelatedPerson)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CareTeam,Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
             <resource value="Who/what submitted the device request"/>
@@ -271,8 +289,7 @@
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
     <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Request.code" reason="Unknown"/>
     <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
-    <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
-    <unmappedElement patternPath="Request.product" reason="Unknown"/>
 </mappingExceptions>

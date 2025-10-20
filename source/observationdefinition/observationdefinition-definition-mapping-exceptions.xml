@@ -83,6 +83,40 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Definition.derivedFromCanonical" resourcePath="ObservationDefinition.derivedFromCanonical">
+        <missingTypes _pattern="canonical(Definition)" reason="Unknown"/>
+        <extraTypes _resource="canonical(ObservationDefinition)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Based on FHIR protocol or definition"/>
+            <resource value="Based on FHIR definition of another observation"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The canonical URL pointing to another FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this definition."/>
+            <resource value="The canonical URL pointing to another FHIR-defined ObservationDefinition that is adhered to in whole or in part by this definition."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Protocols and order sets may be refinements of more generic protocols and order sets."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.derivedFromUri" resourcePath="ObservationDefinition.derivedFromUri">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Based on external protocol or definition"/>
+            <resource value="Based on external definition"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The URL pointing to an externally-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this definition."/>
+            <resource value="The URL pointing to an externally-defined observation definition, guideline or other definition that is adhered to in whole or in part by this definition."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Protocols and order sets may be refinements of more generic protocols and order sets."/>
+            <resource value="Observation definitions may be refinements of other definitions."/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Definition.status" resourcePath="ObservationDefinition.status">
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of this observation definition."/>
@@ -108,6 +142,23 @@
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level observation definition."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.subject" resourcePath="ObservationDefinition.subject">
+        <missingTypes _pattern="CodeableReference(Group)" reason="Unknown"/>
+        <extraTypes _resource="CodeableConcept" reason="Unknown"/>
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Type of individual the defined service is for"/>
+            <resource value="Type of subject for the defined observation"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code or group definition that describes the intended subject of instantiations of this definition."/>
+            <resource value="A code that describes the intended kind of subject of Observation instances conforming to this ObservationDefinition."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Many protocols, order sets and guidelines are intended for use only with specific types of patients or subjects."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
@@ -171,7 +222,7 @@
     <divergentElement patternPath="Definition.jurisdiction" resourcePath="ObservationDefinition.jurisdiction">
         <shortUnmatched reason="Unknown">
             <_pattern value="Intended jurisdiction for observation definition (if applicable)"/>
-            <resource value="Intended jurisdiction for this ObservationDefinition (if applicable)"/>
+            <resource value="Jurisdiction of the authority that maintains the this ObservationDefinition (if applicable)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A legal or geographic region in which the observation definition is intended to be used."/>
@@ -198,8 +249,8 @@
     </divergentElement>
     <divergentElement patternPath="Definition.copyright" resourcePath="ObservationDefinition.copyright">
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A copyright statement relating to the observation definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the observation definition."/>
-            <resource value="Copyright statement relating to the ObservationDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the ObservationDefinition."/>
+            <_pattern value="A copyright statement relating to the observation definition and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the observation definition."/>
+            <resource value="Copyright statement relating to the ObservationDefinition and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the ObservationDefinition."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Consumers of the observation definition must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
@@ -256,14 +307,31 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
-    <unmappedElement patternPath="Definition.derivedFromCanonical" reason="Unknown"/>
+    <divergentElement patternPath="Definition.performerType" resourcePath="ObservationDefinition.performerType">
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Desired kind of service performer"/>
+            <resource value="Desired kind of performer for such kind of observation"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The type of individual that is expected to act upon instances of this definition."/>
+            <resource value="The type of individual/organization/device that is expected to act upon instances of this definition."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Definition.code" resourcePath="ObservationDefinition.code">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Service to be done"/>
+            <resource value="Type of observation"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="Describes what will be observed. Sometimes this is called the observation &quot;name&quot;."/>
+        </definitionUnmatched>
+    </divergentElement>
     <unmappedElement patternPath="Definition.copyrightLabel" reason="Unknown"/>
     <unmappedElement patternPath="Definition.product" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.code" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.subject" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.derivedFromUri" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.versionAlgorithm" reason="Unknown"/>
-    <unmappedElement patternPath="Definition.performerType" reason="Unknown"/>
     <unmappedElement patternPath="Definition.partOf" reason="Unknown"/>
     <unmappedElement patternPath="Definition.topic" reason="Unknown"/>
 </mappingExceptions>

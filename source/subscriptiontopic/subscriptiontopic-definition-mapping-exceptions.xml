@@ -172,8 +172,8 @@
     </divergentElement>
     <divergentElement patternPath="Definition.copyright" resourcePath="SubscriptionTopic.copyright">
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A copyright statement relating to the subscription topic and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the subscription topic."/>
-            <resource value="A copyright statement relating to the SubscriptionTopic and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SubscriptionTopic."/>
+            <_pattern value="A copyright statement relating to the subscription topic and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the subscription topic."/>
+            <resource value="A copyright statement relating to the SubscriptionTopic and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the SubscriptionTopic."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Consumers of the subscription topic must be able to determine any legal restrictions on the use of the artifact and/or its content."/>

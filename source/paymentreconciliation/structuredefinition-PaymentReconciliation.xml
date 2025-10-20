@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="PaymentReconciliation"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -156,6 +156,19 @@
         <identity value="w5"/>
         <map value="FiveWs.status"/>
       </mapping>
+    </element>
+    <element id="PaymentReconciliation.statusReason">
+      <path value="PaymentReconciliation.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="PaymentReconciliation.kind">
       <path value="PaymentReconciliation.kind"/>
@@ -452,6 +465,7 @@
       <path value="PaymentReconciliation.returnedAmount"/>
       <short value="Amount returned by the receiver"/>
       <definition value="The amount returned by the receiver which is excess to the amount payable, often referred to as 'change'."/>
+      <comment value="For profiles where the intention is to support actual payment advice then the cardinality must be set to 1..1."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -463,7 +477,7 @@
       <short value="Total amount of Payment"/>
       <definition value="Total payment amount as indicated on the financial instrument."/>
       <requirements value="Needed to provide the actual payment amount."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Money"/>
@@ -732,7 +746,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="cdanetv4"/>

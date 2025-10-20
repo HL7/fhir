@@ -152,7 +152,7 @@
     <type value="code"/>
     <binding> 
       <strength value="extensible"/> 
-      <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/> 
+      <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/> 
     </binding> 
   </parameter>
   <parameter>

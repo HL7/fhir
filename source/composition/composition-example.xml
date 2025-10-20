@@ -59,13 +59,25 @@
 		<display value="Good Health Clinic"/>
 	</custodian>
 	<relatesTo>
-		<type value="replaces" />
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type"/>
+				<code value="replaces"/>
+				<display value="Replaces"/>
+			</coding>
+		</type>
 		<targetReference>
 			<reference value="Composition/old-example" />
 		</targetReference>
 	</relatesTo>
 	<relatesTo>
-		<type value="appends" />
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type"/>
+				<code value="appends"/>
+				<display value="Appends"/>
+			</coding>
+		</type>
 		<targetReference>
 			<identifier>
 				<system value="http://example.org/fhir/NamingSystem/document-ids"/>
@@ -97,7 +109,7 @@
 			<coding>
 				<system value="http://loinc.org"/>
 				<code value="11348-0"/>
-				<display value="History of past illness Narrative"/>
+				<display value="History of Past illness note"/>
 			</coding>
 		</code>
 		<text>
@@ -168,7 +180,7 @@
 			<coding>
 				<system value="http://loinc.org"/>
 				<code value="10157-6"/>
-				<display value="History of family member diseases Narrative"/>
+				<display value="History of family member diseases note"/>
 			</coding>
 		</code>
 		<text>
@@ -186,3 +198,5 @@
 		</emptyReason>
 	</section>
 </Composition>
+
+

@@ -1,0 +1,190 @@
+<mappingExceptions pattern="Event" resource="DeviceAlert" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="DeviceAlert.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business identifier for device alert"/>
+            <resource value="Instance identifier"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this device alert by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Instance identifiers assigned to a device, by the device or gateway software, manufacturers, other organizations or owners. For example, handle ID."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="For identifiers assigned to a device by the device or gateway software, the `system` element of the identifier should be set to any identifier of the device."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the device alert as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.partOf" resourcePath="DeviceAlert.procedure">
+        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Procedure)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Part of referenced event"/>
+            <resource value="Procedure during which the alert occurred"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A larger event of which this particular device alert is a component or step."/>
+            <resource value="The procedure (or procedures) during which the alert condition was raised."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Not to be used to link an device alert to an Encounter - use 'context' for that."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.status" resourcePath="DeviceAlert.status">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <resource value="in-progress | completed | entered-in-error"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the device alert."/>
+            <resource value="in-progress | completed | entered-in-error."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.category" resourcePath="DeviceAlert.category">
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="High level categorization of device alert"/>
+            <resource value="High-level categorization of the DeviceAlert"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Partitions the device alert into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="Partitions the DeviceAlert into one or more categories that can be used to filter searching, to govern access control, or guide system behavior."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.code" resourcePath="DeviceAlert.code">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="What service was done"/>
+            <resource value="The meaning of the alert"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <resource value="The DeviceAlert.code indicates the specific condition that triggered the alert. It may correspond to a DeviceMetric.alert.code or Device.alert.code."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.product" resourcePath="DeviceAlert.device">
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct,Device,DeviceDefinition,Medication,NutritionProduct,Substance)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,DeviceMetric)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product used/provided"/>
+            <resource value="The Device (or DeviceMetric) that detected the alert condition"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the product supplied or manipulated by this device alert."/>
+            <resource value="A top-level or component Device (such as a MDS, VMD, or Channel) that detected the alert condition; or, within such a Device, the specific DeviceMetric (e.g. a heart rate reading) that was in an alert condition."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="DeviceAlert.subject">
+        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,Location,Medication,BiologicallyDerivedProduct,Specimen,NutritionProduct)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual service was done for/to"/>
+            <resource value="Who or what the alert is about"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
+            <resource value="Who or what the alert is about."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the device alert to the Patient context.  May also affect access control."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.encounter" resourcePath="DeviceAlert.encounter">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Encounter the device alert is part of"/>
+            <resource value="Encounter during which the alert occurred"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The Encounter during which this device alert was created or to which the creation of this record is tightly associated."/>
+            <resource value="The encounter during which the alert condition was raised."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter the device alert was created during, but some device alerts may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the device alert to the Encounter context.  May also affect access control."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.location" resourcePath="DeviceAlert.location">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Where device alert occurred"/>
+            <resource value="Location of the subject when the alert was raised"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The principal physical location where the device alert was performed."/>
+            <resource value="The location of the subject of the alert at the time that the alert was raised."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.reason" resourcePath="DeviceAlert.derivedFrom">
+        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Unknown"/>
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why was device alert performed?"/>
+            <resource value="The value causing the alert condition"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the device alert occurred in coded or textual form or Indicates another resource whose existence justifies this device alert."/>
+            <resource value="The value causing the alert condition."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.reason" resourcePath="DeviceAlert.derivedFrom.observation">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Observation)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Why was device alert performed?"/>
+            <resource value="The Observation having a value causing the alert condition"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Describes why the device alert occurred in coded or textual form or Indicates another resource whose existence justifies this device alert."/>
+            <resource value="The Observation whose value is causing the alert condition; or, if `component` is present, the Observation with a component causing the alert condition."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Textual reasons can be captured using reasonCode.text."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
+    <unmappedElement patternPath="Event.note" reason="Unknown"/>
+    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
+    <unmappedElement patternPath="Event.occurrence" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer" reason="Unknown"/>
+    <unmappedElement patternPath="Event.basedOn" reason="Unknown"/>
+    <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
+</mappingExceptions>

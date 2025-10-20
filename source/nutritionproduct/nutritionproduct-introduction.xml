@@ -1,9 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-	<a name="bnc"></a>
+	<a name="scope"></a>
 	<h2>Scope and Usage</h2>
-
 	<blockquote class="stu-note">
 	<p><b>Note to Implementers:</b> For an overview of this resource and others in the Nutrition domain, also see the <a href="nutrition-module.html">module page</a>.
 	</p>
@@ -14,34 +13,16 @@
 	</p>
 </div>
 
-
 <div>
-<h2>Boundaries and Relationships</h2>
-<ul>
-	<li>Oral intake of food (i.e., solid and/or liquid), oral nutritional supplements, enteral nutrition, and infant formula should be recorded using the NutritionIntake resource.</li>
-	<li>Supplements, such as vitamins, minerals, and herbals, should be recorded using the medication resources</li>
-	<li>Parenteral nutrition should be recorded using the medication resources</li>
-</ul>
-
-<p>
-<h3>Biologically Derived Product</h3>
-A biologically derived product may be the biological entity that is the source of the Nutrition Product, e.g., pooled human milk, that needs to be traced.  The NutritionProduct represents the dietary administration that, while still maintaining the original source of the NutritionProduct.
-</p>
-<p>	
-<h3>Medication</h3>
-Medication covers products such as supplements (e.g., vitamins, minerals, and herbals) or parenteral nutrition (e.g., TPN).
-</p>
-
-<p>
-<h3>Biologically Derived Product</h3>
-If the product is for dietary administration it is represented as a NutritionProduct. If the product is for transplant, infusion, or injection it is represented as a BiologicallyDerivedProduct. We note that this is remains a grey area, particularly around certain uses of donated human milk, and additional use cases may need to be clarified to determine the appropriate representation.  Local implementation guidance may provide further direction.
-</p>
-
-<p>
-<h3>NutritionIntake</h3>
-NutritionIntake should be used to record the Oral intake of food (i.e., solid and/or liquid), oral nutritional supplements, enteral nutrition, and infant formula.
-</p>
-
+	<a name="bnr"></a>
+	<h2>Boundaries and Relationships</h2>
+	<ul>
+		<li><a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a> - If the product is for transplant, infusion, therapeutic administration, or injection it is represented as a BiologicallyDerivedProduct. If the product is for dietary administration it is represented as a NutritionProduct.  We note that this remains ambiguous, particularly around certain uses of donated human milk, and additional use cases may need to be clarified to determine the appropriate representation. Local implementation guidance may provide further direction.</li>
+		<li><a href="medication.html">Medication</a> - Products such as supplements (e.g., vitamins, minerals, and herbals) or parenteral nutrition (e.g., TPN) should be recorded using the medication resources.</li>
+    <li><a href="administrableproductdefinition.html">AdministrableProductDefinition</a> - Used when describing regulated medicinal products (including parenteral nutrition) intended for administration as a drug or infusion.</li>
+		<li><a href="nutritionintake.html">NutritionIntake</a> - Used for recording oral intake of food (i.e., solid and/or liquid), oral nutritional supplements, enteral nutrition, and infant formula should be recorded using the NutritionIntake resource.</li>
+    <li><a href="nutritionorder.html">NutritionOrder</a> - Used when requesting oral diets, oral nutrition supplements, enteral feedings, nutrition products, and infant formula.</li>
+	</ul>
 </div>
 
 <!-- (optional):

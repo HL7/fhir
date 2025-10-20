@@ -231,4 +231,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingSelection-modality"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingSelection.modality"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-modality"/>
+        <description value="The modality of the selection"/>
+        <code value="modality"/>
+        <type value="token"/>
+        <expression value="ImagingSelection.modality"/>
+        <processingMode value="normal"/>
+        <multipleAnd value="false"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

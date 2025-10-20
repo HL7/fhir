@@ -4,11 +4,11 @@
   <!-- insert contents here -->
   <status value="completed"/>
   <intent value="original-order"/>
-  <code>
+  <product>
     <reference>
       <reference value="Device/example"/>
     </reference>
-  </code>
+  </product>
   <subject>
     <reference value="Patient/example"/>
   </subject>

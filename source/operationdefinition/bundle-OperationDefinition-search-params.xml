@@ -251,7 +251,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/OperationDefinition-jurisdiction"/>
-        <description value="Intended jurisdiction for the operation definition"/>
+        <description value="Jurisdiction of the authority that maintains the the operation definition"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="OperationDefinition.jurisdiction"/>
