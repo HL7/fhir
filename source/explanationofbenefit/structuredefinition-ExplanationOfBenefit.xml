@@ -380,7 +380,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessPriority"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="The timeliness with which processing is required: stat, normal, deferred."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
@@ -2540,6 +2540,17 @@
         <code value="Identifier"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.item.informationSequence">
+      <path value="ExplanationOfBenefit.item.informationSequence"/>
+      <short value="Applicable exception and supporting information"/>
+      <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>
+      <requirements value="Need to reference the supporting information items that relate directly to this product or service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.addItem.provider">
       <path value="ExplanationOfBenefit.addItem.provider"/>
       <short value="Authorized providers"/>
@@ -2575,6 +2586,26 @@
         <strength value="example"/>
         <description value="Codes for the revenue or cost centers supplying the service and/or products."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
+      </binding>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.category">
+      <path value="ExplanationOfBenefit.addItem.category"/>
+      <short value="Benefit classification"/>
+      <definition value="Code to identify the general type of benefits under which products and services are provided."/>
+      <comment value="Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage."/>
+      <requirements value="Needed in the processing of institutional claims as this allows the insurer to determine whether a facial X-Ray is for dental, orthopedic, or facial surgery purposes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Benefit categories such as: oral-basic, major, glasses."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>
     <element id="ExplanationOfBenefit.addItem.productOrService">
@@ -3531,6 +3562,27 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+    </element>
+    <element id="ExplanationOfBenefit.processNote.class">
+      <path value="ExplanationOfBenefit.processNote.class"/>
+      <short value="Business kind of note"/>
+      <definition value="A code to indicate the business purpose of the note."/>
+      <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessNoteClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Business class of the process note."/>
+      </binding>
     </element>
     <element id="ExplanationOfBenefit.processNote.number">
       <path value="ExplanationOfBenefit.processNote.number"/>
