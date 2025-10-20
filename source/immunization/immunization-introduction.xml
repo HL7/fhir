@@ -29,7 +29,7 @@ Similarly, MedicationAdministration.medication references a <a href="medication.
 Immunization.reaction may be an indication of an allergy or intolerance. If this is deemed to be the case, a separate AllergyIntolerance resource instance should be created to indicate it, as most systems will not query against past Immunization.reaction.
 </p>
 <p>
-Some workflows may require documenting that specific educational materials were presented to the patient (or other responsible party) at the time of or before the immunization event. Conveyance of this information should be accomplished using the <a href="communication.html">Communication</a> resource. This resource can be linked to an Immunization resource and indicate the timing and nature of the educational material provided. The Communication resource may be a standalone resource or may be contained within the Immunization resource as appropriate. Feedback on this approach is welcome.
+Some workflows may require documenting that specific educational materials were presented to the patient (or other responsible party) at the time of or before the immunization event. Conveyance of this information should be accomplished using the <a href="communication.html">Communication</a> resource. This resource can be linked to an Immunization resource and indicate the timing and nature of the educational material provided. The Communication resource may be a standalone resource or may be contained within the Immunization resource as appropriate.
 </p>
 </div>
 
