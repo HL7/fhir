@@ -173,7 +173,7 @@
       <path value="ImagingSelection.identifier"/>
       <short value="Business identifier for imaging selection"/>
       <definition value="Business identifiers assigned to this imaging selection by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
       <requirements value="Allows identification of the imaging selection as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>
       <max value="*"/>
@@ -251,7 +251,7 @@
     <element id="ImagingSelection.modality">
       <path value="ImagingSelection.modality"/>
       <short value="The distinct modality"/>
-      <definition value="The distinct modality for this selected series. This may be either an acquisition modality (e.g. CT, MR) or a non-acquisition modality (e.g. segmentation, presentation state)."/>
+      <definition value="The distinct modality for this selected series. This MAY be either an acquisition modality (e.g. CT, MR) or a non-acquisition modality (e.g. segmentation, presentation state)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -592,7 +592,7 @@
           <valueString value="BodySite"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical locations. May include laterality."/>
+          <valueString value="Codes describing anatomical locations. MAY include laterality."/>
         </extension>
         <strength value="example"/>
         <description value="SNOMED CT Body site concepts"/>
