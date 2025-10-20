@@ -154,6 +154,19 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
+    <element id="ExplanationOfBenefit.statusReason">
+      <path value="ExplanationOfBenefit.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="ExplanationOfBenefit.type">
       <path value="ExplanationOfBenefit.type"/>
       <short value="Category or discipline"/>
@@ -367,7 +380,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessPriority"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="The timeliness with which processing is required: stat, normal, deferred."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
@@ -924,6 +937,24 @@
         <strength value="extensible"/>
         <description value="The valuset used for additional information category codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
+      </binding>
+    </element>
+    <element id="Claim.supportingInfo.subCategory">
+      <path value="Claim.supportingInfo.subCategory"/>
+      <short value="Finer-grained classification of the supplied information"/>
+      <definition value="A finer classification within the more general category."/>
+      <requirements value="Required to provide more detailed categorization, for example lab-test grouping: blood, tissue etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InformationSubCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The valuset used for additional information subcategory codes."/>
       </binding>
     </element>
     <element id="ExplanationOfBenefit.supportingInfo.code">
@@ -2457,7 +2488,7 @@
       </extension>
       <path value="ExplanationOfBenefit.addItem"/>
       <short value="Insurer added line items"/>
-      <definition value="The first-tier service adjudications for payor added product or service lines."/>
+      <definition value="The first-tier service adjudications for payer added product or service lines."/>
       <requirements value="Insurers may redefine the provided product or service or may package and/or decompose groups of products and services. The addItems allows the insurer to provide their line item list with linkage to the submitted items/details/sub-details. In a preauthorization the insurer may use the addItem structure to provide additional information on authorized products and services."/>
       <min value="0"/>
       <max value="*"/>
@@ -2509,6 +2540,17 @@
         <code value="Identifier"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.item.informationSequence">
+      <path value="ExplanationOfBenefit.item.informationSequence"/>
+      <short value="Applicable exception and supporting information"/>
+      <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>
+      <requirements value="Need to reference the supporting information items that relate directly to this product or service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.addItem.provider">
       <path value="ExplanationOfBenefit.addItem.provider"/>
       <short value="Authorized providers"/>
@@ -2544,6 +2586,26 @@
         <strength value="example"/>
         <description value="Codes for the revenue or cost centers supplying the service and/or products."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
+      </binding>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.category">
+      <path value="ExplanationOfBenefit.addItem.category"/>
+      <short value="Benefit classification"/>
+      <definition value="Code to identify the general type of benefits under which products and services are provided."/>
+      <comment value="Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage."/>
+      <requirements value="Needed in the processing of institutional claims as this allows the insurer to determine whether a facial X-Ray is for dental, orthopedic, or facial surgery purposes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Benefit categories such as: oral-basic, major, glasses."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>
     <element id="ExplanationOfBenefit.addItem.productOrService">
@@ -2863,7 +2925,7 @@
       </extension>
       <path value="ExplanationOfBenefit.addItem.detail"/>
       <short value="Insurer added line items"/>
-      <definition value="The second-tier service adjudications for payor added services."/>
+      <definition value="The second-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -3075,7 +3137,7 @@
       </extension>
       <path value="ExplanationOfBenefit.addItem.detail.subDetail"/>
       <short value="Insurer added line items"/>
-      <definition value="The third-tier service adjudications for payor added services."/>
+      <definition value="The third-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -3501,6 +3563,27 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.processNote.class">
+      <path value="ExplanationOfBenefit.processNote.class"/>
+      <short value="Business kind of note"/>
+      <definition value="A code to indicate the business purpose of the note."/>
+      <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessNoteClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Business class of the process note."/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.processNote.number">
       <path value="ExplanationOfBenefit.processNote.number"/>
       <short value="Note instance identifier"/>
@@ -3542,7 +3625,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.processNote.language">
