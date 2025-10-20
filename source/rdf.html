@@ -75,15 +75,10 @@ Web Health Care and Life Sciences Interest Group</a>.
             <li><a href="#modifierExtension">Modifier Extensions</a></li>
 	   </ul>
 	</li>
-        <li><a href="#fhir-definitions">Turtle Representation of FHIR
-            Definitions</a></li>
-        <li><a href="#relationship">Relationship between RDF, FHIR, and
-            ontologies</a></li>
-        <li><a href="#guidance">Usage Guidance, OWL Ontology and ShEx Schema</a>
-	  <ul>
-          <li><a href="#fhir-rdf-with-owl">Using FHIR RDF with OWL</a></li>
-          <li><a href="#tutorials">Tutorials</a></li>
-	  </ul>
+        <li><a href="#owl-shex-rim">OWL Ontology, ShEx Schema and HL7 v3 RIM Ontology</a></li>
+        <li><a href="#guidance">Usage Guidance for OWL and ShEx</a>
+        <li><a href="#relationship">Relationship Between RDF, FHIR and Other Ontologies</a>
+        <li><a href="#tutorials">Tutorials</a></li>
         </li>
         <li><a href="#concept-iri-algorithm">Appendix 1: Algorithm for
             creating a Concept IRI</a><br/>
@@ -945,34 +940,120 @@ fhir:value <b>fhir:modifierExtensionProperty</b> fhir:_value .
 additional requirements around modifier extensions.
 </p>
 
-          <h3><a name="fhir-definitions"></a>RDF Representation of FHIR
-            Definitions</h3>
-      <a name="class"></a>
+          <a name="fhir-definitions"></a>  <!-- Old anchor -->
+          <a name="class"></a>  <!-- Old anchor -->
+          <a name="owl-shex-rim"></a>
+          <h3>OWL Ontology, ShEx Schema and HL7 v3 RIM Ontology</h3>
         <p> In addition to the basic representation of FHIR resources in
-          Turtle format, a Turtle representation of the FHIR
-          infrastructure and definitions is also published, for the
-          following purposes: </p>
+          Turtle format, a Turtle representations of the following
+          are available from the <a href="downloads.html">downloads page</a>: </p>
         <ul>
-          <li>Providing the class definitions to support RDF based
-            representation of resource instances</li>
-          <li>Supporting knowledge-based analysis of the FHIR
-            specification itself</li>
-          <li>Providing knowledge of use at run-time for converting
-            between FHIR and other content models</li>
-          <li>Supporting reasoning across the information/terminology
-            model boundary</li>
-        </ul>
-        <p> The RDF definitions are published as a series of Turtle
-          files: <a href="rim.ttl">HL7 v3 RIM</a> (Reference
-          Information Model) and <a href="fhir.ttl">FHIR</a>.&nbsp; <a
-href="downloads.html">ShEx</a>
-          schemas that describe FHIR's RDF format are also available.<br/>
-        </p>
+          <li><p>OWL Ontology <a href="https://build.fhir.org/fhir.rdf.ttl.zip">fhir.ttl</a> (NORMATIVE).
+            This describes the classes and properties that are used to
+            represent FHIR RDF data.  It is normative in the sense that
+            if an OWL reasoner finds some purported FHIR RDF data to be
+            logically inconsistent with the ontology, then that data
+            is known to be invalid, i.e., not conforming to the FHIR
+            specification.  However, consistency with the ontology does
+            not guarantee that the data is fully valid, because there
+            are many requirements of FHIR data that are not captured in
+            the ontology.</p>
 
-      <a name="ontologies"></a>
-        <h3><a name="relationship"></a>Relationship Between RDF, FHIR,
-          and Ontologies</h3> <span
-            style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>
+            <p>Although the logical meaning of the OWL ontology is
+            normative, the <i>expression</i> of the ontology in OWL/Turtle
+            is <b>NOT NORMATIVE</b>: it may be changed or enhanced at any
+            time.  For example, class and property names that only appear
+            in the ontology may change.</p></li>
+
+          <li><p>ShEx schema fhir.shex (NORMATIVE).
+            This schema is intended to help users validate FHIR RDF data.
+            It is normative in the sense that
+            if some purported FHIR RDF data is
+            inconsistent with the ShEx schema, then that data
+            is known to be invalid.
+            However, consistency with the ShEx schema does
+            not guarantee that the data is fully valid, because there
+            are additional semantic requirements of FHIR data that are
+            not captured in the ShEx schema.</p>
+
+            <p>Although the logical meaning of the ShEx schema is
+            normative, its <i>expression</i> is
+            <b>NOT NORMATIVE</b>: it may be changed or enhanced at any
+            time.  For example, shape names that only appear
+            in the ShEx may change.</p></li>
+
+          <li><p>W5 Ontology <a href="https://build.fhir.org/fhir.rdf.ttl.zip">fhir.ttl</a> (INFORMATIVE).
+            This ontology attempts to capture relationships expressed in the
+            <a href="fivews.html">Five Ws Mappings</a> (formerly called W5 Report) -- Who, What, When, Where, Why.
+            It has not been well vetted, and may be
+            changed at any time.
+            </p></li>
+
+          <li><p>v3 RIM ontology<a href="https://build.fhir.org/fhir.rdf.ttl.zip">rim.ttl</a> (INFORMATIVE).
+            This ontology attempts to capture semantic relationships between 
+            <a href="https://dev3.hl7.org/implement/standards/product_brief.cfm?product_id=77">HL7 v3 RIM</a>
+            and FHIR.  It has not been well vetted, and may be
+            changed at any time.
+            </p></li>
+        </ul>
+
+      <a name="using"></a>
+        <h3><a name="guidance"></a>Usage Guidance for OWL and ShEx</h3> 
+        <span style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>
+        <p> Application developers wishing to use FHIR RDF will often
+          need to perform the following rough steps, though exact steps
+          will depend on your application: </p>
+        <ol>
+          <li>Convert FHIR XML or FHIR JSON data to/from FHIR RDF. Open
+            source implementations that can perform this conversion
+            include:
+            <ul>
+              <li><a href="https://hapifhir.io/">HAPI java reference
+                  library</a> (Same code as
+                used in the FHIR specification build process)</li>
+              <li><a href="http://github.com/grahamegrieve/fhirserver">Delphi
+                  reference implementation</a></li>
+              <li>Check the <a
+href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7
+                  Open Source FHIR Implementations page,</a> in case new
+                implementations have become available</li>
+            </ul>
+	    The <a href="https://fhircat.github.io/fhir-rdf-playground/">FHIR RDF Playground</a>
+	    is also a handy browser-based tool for experimenting with
+	    conversion of FHIR JSON to FHIR RDF.   It is not for production use.
+          </li>
+          <li> <a href="downloads.html">Download</a> the FHIR ontology.
+          </li>
+          <li> Download other ontologies that you wish to use with your
+            application, such as the SNOMED-CT ontology. ( Because of
+            license restrictions, the process of obtaining the SNOMED-CT
+            ontology is more complex than a simple download. Some <a
+              href="http://owl.cs.manchester.ac.uk/research/snomed/">guidance
+              is provided here</a>. ) </li>
+          <li> Create or obtain a bridge ontology that relates terms in
+            the FHIR ontology to terms in your other ontologies. </li>
+          <li> Load your FHIR RDF instance data and your ontologies into
+            a reasoner and/or a triplestore, and perform SPARQL queries
+            and/or reasoning. </li>
+          <li> If you are creating FHIR RDF then you might also wish to
+            validate it, using <a href="http://shex.io/">ShEx</a>. You can <a
+              href="fhir.shex">download the ShEx schema</a> for FHIR RDF.
+          </li>
+        </ol>
+
+        <a name="fhir-rdf-with-owl"></a>
+        <p><b>OWL Caveat:</b> RDF lists use a ladder of rdf:first and rdf:rest properties.
+           This can cause problems in OWL DL, which disallows axioms
+           over the rdf: namespace.  To work around this problem, OWL users
+           can convert RDF lists in their FHIR data to a different list
+	   representation.
+	   A <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a>
+           is available for doing such a conversion.
+           </p>
+
+        <a name="ontologies"></a>  <!-- OLD anchor? -->
+        <h3><a name="relationship"></a>Relationship Between RDF, FHIR, and Other Ontologies</h3> 
+        <span style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>
         <p> This page documents an RDF format that can be used to
           exchange FHIR data, on the basis that RDF is a universal
           information representation. Using RDF enables FHIR data to be
@@ -1036,63 +1117,9 @@ href="downloads.html">ShEx</a>
           created accidentally and should be ignored for most purposes.<br/>
         </p>
 
-      <a name="using"></a>
-        <h3><a name="guidance"></a>Usage Guidance, OWL Ontology and ShEx Schema</h3> <span
-          style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>
-        <p> Application developers wishing to use FHIR RDF will often
-          need to perform the following rough steps, though exact steps
-          will depend on your application: </p>
-        <ol>
-          <li>Convert FHIR XML or FHIR JSON data to/from FHIR RDF. Open
-            source implementations that can perform this conversion
-            include:
-            <ul>
-              <li><a href="https://hapifhir.io/">HAPI java reference
-                  library</a> (Same code as
-                used in the FHIR specification build process)</li>
-              <li><a href="http://github.com/grahamegrieve/fhirserver">Delphi
-                  reference implementation</a></li>
-              <li>Check the <a
-href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7
-                  Open Source FHIR Implementations page,</a> in case new
-                implementations have become available</li>
-            </ul>
-	    The <a href="https://fhircat.github.io/fhir-rdf-playground/">FHIR RDF Playground</a>
-	    is also a handy browser-based tool for experimenting with
-	    conversion of FHIR JSON to FHIR RDF.   It is not for production use.
-          </li>
-          <li> <a href="downloads.html">Download</a> the FHIR ontology.
-          </li>
-          <li> Download other ontologies that you wish to use with your
-            application, such as the SNOMED-CT ontology. ( Because of
-            license restrictions, the process of obtaining the SNOMED-CT
-            ontology is more complex than a simple download. Some <a
-              href="http://owl.cs.manchester.ac.uk/research/snomed/">guidance
-              is provided here</a>. ) </li>
-          <li> Create or obtain a bridge ontology that relates terms in
-            the FHIR ontology to terms in your other ontologies. </li>
-          <li> Load your FHIR RDF instance data and your ontologies into
-            a reasoner and/or a triplestore, and perform SPARQL queries
-            and/or reasoning. </li>
-          <li> If you are creating FHIR RDF then you might also wish to
-            validate it, using <a href="http://shex.io/">ShEx</a>. You can <a
-              href="fhir.shex">download the ShEx schema</a> for FHIR RDF.
-          </li>
-        </ol>
-
-        <a name="fhir-rdf-with-owl"></a>
-        <h4>Using FHIR RDF with OWL</h4>
-        <p>RDF lists use a ladder of rdf:first and rdf:rest properties.
-           This can cause problems in OWL DL, which disallows axioms
-           over the rdf: namespace.  To work around this problem, OWL users
-           can convert RDF lists in their FHIR data to a different list
-	   representation.
-	   A <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a>
-           is available for doing such a conversion.
-           </p>
-
         <a name="tutorials"></a>
-        <h4>Tutorials</h4>
+        <h3>Tutorials</h3>
+        <span style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>
         <p> <a
             href="https://www.w3.org/2016/Talks/1205-swat4ls-egp/reasoning">Slides
             by Eric Prud'hommeaux</a> illustrate how
