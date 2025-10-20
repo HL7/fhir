@@ -512,27 +512,10 @@ The full representation, with id, extensions and value, showing the id and exten
 </pre>
 <p><b>RDF</b></p>
 <p>
-The value is represented in RDF as a relationship with the URI "http://hl7.org/fhir/value". Using the normal prefix, this becomes:
-</p>
-<pre class="rdf">
-  fhir:Type.count [ fhir:value "2"^^xsd:integer ]
-</pre>
+See <a href="rdf.html>Resource Description Framework (RDF) Representation</a>.
+
 <p>
-For the types date and DateTime, the type must be specified explicitly.
-For all other types, it is optional. The full representation, with id, extensions and value:
-</p>
-<pre class="rdf">
-  fhir:Type.count [
-    Element.id "a1";
-    fhir:value "2"^^xsd:integer;
-    Element.extension [
-      fhir:Extension.url "..";
-      fhir:Extension.valueXX...
-    ]
-  ]
-</pre>
-<p>
-For additional details, see the <a href="xml.html">XML</a>, <a href="json.html">JSON</a> and <a href="rdf.html">Turtle</a> format definitions.
+For additional details, see the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> format definitions.
 When the value is missing, and there are no extensions, the element is not represented at all. This means that
 in xml, attributes are never present with a length of 0 (value=""), and properties are never a 0 length string or null in JSON ("name" : "" is not valid).
 (note: there is one specific <a href="json.html#null">use of the null</a> in the JSON representation).
