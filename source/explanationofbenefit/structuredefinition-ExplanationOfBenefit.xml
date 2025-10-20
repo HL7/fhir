@@ -2588,6 +2588,26 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
       </binding>
     </element>
+    <element id="ExplanationOfBenefit.addItem.category">
+      <path value="ExplanationOfBenefit.addItem.category"/>
+      <short value="Benefit classification"/>
+      <definition value="Code to identify the general type of benefits under which products and services are provided."/>
+      <comment value="Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage."/>
+      <requirements value="Needed in the processing of institutional claims as this allows the insurer to determine whether a facial X-Ray is for dental, orthopedic, or facial surgery purposes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Benefit categories such as: oral-basic, major, glasses."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.addItem.productOrService">
       <path value="ExplanationOfBenefit.addItem.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
@@ -3543,6 +3563,27 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.processNote.class">
+      <path value="ExplanationOfBenefit.processNote.class"/>
+      <short value="Business kind of note"/>
+      <definition value="A code to indicate the business purpose of the note."/>
+      <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessNoteClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Business class of the process note."/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.processNote.number">
       <path value="ExplanationOfBenefit.processNote.number"/>
       <short value="Note instance identifier"/>
@@ -3584,7 +3625,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.processNote.language">

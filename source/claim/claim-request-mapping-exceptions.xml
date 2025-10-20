@@ -32,7 +32,7 @@
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows identification of the claim as it is known by various participating systems and in a way that remains consistent across servers."/>
-            <resource value="This will be the claim number should it be necessary to create this claim in the future. This is provided so that payors may forward claims to other payors in the Coordination of Benefit for adjudication rather than the provider being required to initiate each adjudication."/>
+            <resource value="This will be the claim number should it be necessary to create this claim in the future. This is provided so that payers may forward claims to other payers in the Coordination of Benefit for adjudication rather than the provider being required to initiate each adjudication."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.replaces" resourcePath="Claim.related.claim">
@@ -74,7 +74,7 @@
     <divergentElement patternPath="Request.priority" resourcePath="Claim.priority">
         <missingTypes _pattern="code" reason="Unknown"/>
         <extraTypes _resource="CodeableConcept" reason="Unknown"/>
-        <bindingStrength _pattern="required" _resource="example" reason="Unknown"/>
+        <bindingStrength _pattern="required" _resource="extensible" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="routine | urgent | asap | stat"/>
             <resource value="Desired processing urgency"/>
