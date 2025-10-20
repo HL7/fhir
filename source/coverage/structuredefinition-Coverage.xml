@@ -759,7 +759,7 @@
     </element>
     <element id="Coverage.costToBeneficiary.exception">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Exemption"/>
+        <valueString value="Exception"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="430,230"/>

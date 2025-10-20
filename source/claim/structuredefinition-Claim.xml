@@ -373,7 +373,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessPriority"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="The timeliness with which processing is required: stat, normal, deferred."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
