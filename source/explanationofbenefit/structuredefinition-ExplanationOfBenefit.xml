@@ -507,7 +507,9 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
@@ -521,7 +523,10 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.event">
@@ -2551,8 +2556,8 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.item.informationSequence">
-      <path value="ExplanationOfBenefit.item.informationSequence"/>
+    <element id="ExplanationOfBenefit.addItem.informationSequence">
+      <path value="ExplanationOfBenefit.addItem.informationSequence"/>
       <short value="Applicable exception and supporting information"/>
       <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>
       <requirements value="Need to reference the supporting information items that relate directly to this product or service."/>
