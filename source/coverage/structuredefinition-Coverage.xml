@@ -144,7 +144,7 @@
     <element id="Coverage.status">
       <path value="Coverage.status"/>
       <short value="active | cancelled | draft | entered-in-error"/>
-      <definition value="The status of the resource instance."/>
+      <definition value="The status of the resource instance. The status element does not indicate whether the policy reflected in the instance is in-force at any particular point in time, that would be conveyed via the 'period' element."/>
       <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid."/>
       <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
