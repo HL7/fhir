@@ -500,10 +500,10 @@
         <map value="Action.indication.reason"/>
       </mapping>
     </element>
-    <element id="DeviceUsage.bodySite">
-      <path value="DeviceUsage.bodySite"/>
-      <short value="Target body site"/>
-      <definition value="Indicates the anotomic location on the subject's body where the device was used ( i.e. the target)."/>
+    <element id="DeviceUsage.bodyStructure">
+      <path value="DeviceUsage.bodyStructure"/>
+      <short value="Target body structure"/>
+      <definition value="Indicates the anatomic location on the subject's body where the device was used (i.e. the target)."/>
       <requirements value="Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]]."/>
       <min value="0"/>
       <max value="1"/>
@@ -514,13 +514,13 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite"/>
+          <valueString value="BodyStructure"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical locations. May include laterality."/>
+          <valueString value="Codes describing anatomical body structures. May include laterality."/>
         </extension>
         <strength value="example"/>
-        <description value="SNOMED CT Body site concepts"/>
+        <description value="SNOMED CT Body Structures"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
       </binding>
       <mapping>

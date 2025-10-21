@@ -967,5 +967,63 @@
       </SearchParameter>
     </resource>
   </entry> -->
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-body-site"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="deprecated"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.bodySite"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-body-site"/>
+        <description value="DEPRECATED: Observed body part"/>
+        <code value="body-site"/>
+        <type value="token"/>
+        <expression value="Observation.bodySite"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-body-structure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.bodyStructure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-body-structure"/>
+        <description value="Observed body structure"/>
+        <code value="body-structure"/>
+        <type value="reference"/>
+        <expression value="Observation.bodyStructure.reference"/>
+        <processingMode value="normal"/>
+        <target value="BodyStructure"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-body-structure-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.bodyStructure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-body-structure-code"/>
+        <description value="Code for observed body structure"/>
+        <code value="body-structure-code"/>
+        <type value="token"/>
+        <expression value="Observation.bodyStructure.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 
 </Bundle>
