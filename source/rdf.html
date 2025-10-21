@@ -947,22 +947,6 @@ additional requirements around modifier extensions.
           Turtle format, a Turtle representations of the following
           are available from the <a href="downloads.html">downloads page</a>: </p>
         <ul>
-          <li><p>OWL Ontology <a href="https://build.fhir.org/fhir.rdf.ttl.zip">fhir.ttl</a> (NORMATIVE).
-            This describes the classes and properties that are used to
-            represent FHIR RDF data.  It is normative in the sense that
-            if an OWL reasoner finds some purported FHIR RDF data to be
-            logically inconsistent with the ontology, then that data
-            is known to be invalid, i.e., not conforming to the FHIR
-            specification.  However, consistency with the ontology does
-            not guarantee that the data is fully valid, because there
-            are many requirements of FHIR data that are not captured in
-            the ontology.</p>
-
-            <p>Although the logical meaning of the OWL ontology is
-            normative, the <i>expression</i> of the ontology in OWL/Turtle
-            is <b>NOT NORMATIVE</b>: it may be changed or enhanced at any
-            time.  For example, class and property names that only appear
-            in the ontology may change.</p></li>
 
           <li><p>ShEx schema fhir.shex (NORMATIVE).
             This schema is intended to help users validate FHIR RDF data.
@@ -976,10 +960,27 @@ additional requirements around modifier extensions.
             not captured in the ShEx schema.</p>
 
             <p>Although the logical meaning of the ShEx schema is
-            normative, its <i>expression</i> is
+            normative, the <i>expression</i> of that meaning is
             <b>NOT NORMATIVE</b>: it may be changed or enhanced at any
-            time.  For example, shape names that only appear
-            in the ShEx may change.</p></li>
+            time.  For example, the schema may be refactored, or
+            shape names that only appear in the ShEx may change.</p></li>
+
+          <li><p>OWL Ontology <a href="https://build.fhir.org/fhir.rdf.ttl.zip">fhir.ttl</a> (NORMATIVE).
+            This describes the classes and properties that are used to
+            represent FHIR RDF data.  It is normative in the sense that
+            if an OWL reasoner finds some purported FHIR RDF data to be
+            logically inconsistent with the ontology, then that data
+            is known to be invalid, i.e., not conforming to the FHIR
+            specification.  However, consistency with the ontology does
+            not guarantee that the data is fully valid, because there
+            are many requirements of FHIR data that are not captured in
+            the ontology.</p>
+
+            <p>Although the logical meaning of the OWL ontology is
+            normative, its <i>expression</i> in OWL/Turtle
+            is <b>NOT NORMATIVE</b>: it may be changed or enhanced at any
+            time.  For example, it may be refactored, or class or property 
+            names that only appear in the ontology may change.</p></li>
 
           <li><p>W5 Ontology <a href="https://build.fhir.org/fhir.rdf.ttl.zip">fhir.ttl</a> (INFORMATIVE).
             This ontology attempts to capture relationships expressed in the
