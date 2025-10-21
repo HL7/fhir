@@ -119,6 +119,7 @@
     <element id="Observation.category:VSCat">
       <path value="Observation.category"/>
       <sliceName value="VSCat"/>
+      <definition value="A code that classifies the general type of observation being made as a vital sign related observation, whether a point-in-time or calculated vital sign observation. "/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>
