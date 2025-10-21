@@ -906,9 +906,6 @@
       </mapping>
     </element>
     <element id="Observation.bodyStructure">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Observation.bodyStructure"/>
       <short value="Observed body structure"/>
       <definition value="Indicates the body structure on the subject's body where the observation was made (i.e. the target site)."/>
