@@ -54,7 +54,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The evaluate operation processes the given Measure(s) to produce the corresponding MeasureReport(s). This operation expects that Measure resources used have a computable representation."/>
+  <description value="The evaluate operation processes the given Measure(s) to produce the corresponding MeasureReport(s). This operation expects that Measure resources used have a computable representation. The value of title elements in the resulting [MeasureReport](clinicalreasoning-quality-reporting.html#measure-report) should be copied from the corresponding elements on the Measure."/>
   <affectsState value="false"/>
   <code value="evaluate"/>
   <comment value="The effect of invoking this operation is to calculate the measure for the given subject, or all subjects if no subject is supplied, and return the results as a MeasureReport resource of the appropriate type. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>

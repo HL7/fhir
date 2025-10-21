@@ -1102,6 +1102,16 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="Measure.group.title">
+      <path value="Measure.group.title"/>
+      <short value="Title of the group. This title is expected in the corresponding MeasureReport.group.title"/>
+      <definition value="Indicates the title for the group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Measure.group.code">
       <path value="Measure.group.code"/>
       <short value="Meaning of the group"/>
@@ -1463,6 +1473,16 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="Measure.group.population.title">
+      <path value="Measure.group.population.title"/>
+      <short value="Title of the group's population. This title is expected in the corresponding MeasureReport.group.population.title"/>
+      <definition value="Indicates the title for the group's population."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Measure.group.population.code">
       <path value="Measure.group.population.code"/>
       <short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
@@ -1611,6 +1631,16 @@
         <identity value="rim"/>
         <map value=".id"/>
       </mapping>
+    </element>
+    <element id="Measure.group.stratifier.title">
+      <path value="Measure.group.stratifier.title"/>
+      <short value="Title of a group's stratifier. This title is expected in the corresponding MeasureReport.group.title"/>
+      <definition value="Indicates the title for the stratifier of the group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="Measure.group.stratifier.code">
       <path value="Measure.group.stratifier.code"/>
