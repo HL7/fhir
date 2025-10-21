@@ -150,11 +150,13 @@ Web Health Care and Life Sciences Interest Group</a>.
           </li>
           <li><code class="spec"><b>0..1</b></code> indicates an
             optional element, i.e., minimum cardinality 0 and maximum
-            cardinality 1.</li>
-          <li><code class="rdf"><b>1..1</b></code> indicates a
-            required element.</li>
-          <li><code class="rdf"><b>0..*</b></code> indicates an
-            optional element with no maximum cardinality.  Any element
+            cardinality 1.  Similarly <code class="rdf"><b>1..1</b></code> 
+            indicates a required element.</li>
+          <li><code class="rdf"><b>0..*</b></code> or 
+            <code class="rdf"><b>1..*</b></code> indicates an
+            optional or require element (respectively) with no 
+            maximum cardinality.</li>
+          <li>Any element
             that allows more than one value is represented as an
             RDF list (see <a href="#rdflist">below</a>).  If an RDF list
             is provided, it SHALL NOT be empty.  </li>
