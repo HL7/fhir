@@ -187,10 +187,10 @@ Web Health Care and Life Sciences Interest Group</a>.
   fhir:nodeRole fhir:treeRoot ;   # and is the root of this document.
   fhir:id [ fhir:v "bgpanel"] ;   # Its id is bgpanel.
   fhir:status [ fhir:v "final"] ; # It has an (extensible) status of final.
-  fhir:code [                     # It has a code, 
-     fhir:coding ( [              # given by a list of codings,
+  fhir:code [                     # It has code, 
+     fhir:coding ( [              # given by a list of Codings,
        a loinc:34532-2 ;          # each having an optional concept IRI (see below)
-       fhir:system [              # plus a CodeSystem URI
+       fhir:system [              # plus a code system URI
          fhir:l &lt;http://loinc.org&gt; ;               # (optionally as an RDF node,
          fhir:v "http://loinc.org"^^xsd:anyURI ] ; # but always as a literal),
                                   # and a code:
@@ -771,10 +771,22 @@ href="fhir.shex">fhir.shex</a>
           To address this problem, and to facilitate ease of use,
           HL7 maintains a mapping from <code>Coding.system</code>s
           to IRI stems: IRI stems can be registered and looked
-          up in the HL7 terminology website, based on the desired
-          <code>Coding.system</code>.
-          <mark>@@ TODO: Add link to HL7 terminology website @@</mark>
+          up in the 
+          <a href="https://terminology.hl7.org/">HL7 Terminology (THO) website</a>,
+          based on the desired <code>Coding.system</code>.
+          To look up the correct IRI stem for a given terminology, 
+          such as LOINC:
           </p>
+          <ol>
+            <li>navigate to the <a href="https://terminology.hl7.org/toc.html">
+              Table of Contents</a>; </li>
+            <li>search within the page for an appropriate link that includes 
+              "NamingSystem" in its URL, such as this one, for LOINC: 
+              <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html">https://terminology.hl7.org/NamingSystem-v3-loinc.html</a> ; then</li>
+            <li>scroll down to the 
+              <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html#identifiers">Identifiers section</a>, 
+              and look for the "IRI stem" entry: <code class="rdf">http://loinc.org/rdf/</code> .</li>
+          </ol>
 
           <p>
           If an IRI stem for a <code>Coding.system</code> is published at
