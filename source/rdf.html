@@ -150,11 +150,11 @@ Web Health Care and Life Sciences Interest Group</a>.
           </li>
           <li><code class="spec"><b>0..1</b></code> indicates an
             optional element, i.e., minimum cardinality 0 and maximum
-            cardinality 1.  Similarly <code class="rdf"><b>1..1</b></code> 
+            cardinality 1.  Similarly <code class="rdf"><b>1..1</b></code>
             indicates a required element.</li>
-          <li><code class="rdf"><b>0..*</b></code> or 
+          <li><code class="rdf"><b>0..*</b></code> or
             <code class="rdf"><b>1..*</b></code> indicates an
-            optional or require element (respectively) with no 
+            optional or require element (respectively) with no
             maximum cardinality.</li>
           <li>Any element
             that allows more than one value is represented as an
@@ -188,7 +188,7 @@ Web Health Care and Life Sciences Interest Group</a>.
   fhir:nodeRole fhir:treeRoot ;   # and is the root of this document.
   fhir:id [ fhir:v "bgpanel"] ;   # Its id is bgpanel.
   fhir:status [ fhir:v "final"] ; # It has an (extensible) status of final.
-  fhir:code [                     # It has code, 
+  fhir:code [                     # It has code,
      fhir:coding ( [              # given by a list of Codings,
        a loinc:34532-2 ;          # each having an optional concept IRI (see below)
        fhir:system [              # plus a code system URI
@@ -201,7 +201,7 @@ Web Health Care and Life Sciences Interest Group</a>.
   fhir:subject [
      fhir:l &lt;http://hl7.org/fhir/Patient/infant&gt; ;
      fhir:reference [ fhir:v "Patient/infant" ]
-  ] ; # 
+  ] ; #
   ...
 </pre>
 
@@ -452,9 +452,9 @@ href="fhir.shex">fhir.shex</a>
 
           <p>Literal values that can be represented using Turtle shorthand
             notation for xsd:string, xsd:integer, xsd:decimal, xsd:double
-            or xsd:boolean may optionally use shorthand instead of the long
+            or xsd:boolean MAY optionally use shorthand instead of the long
             form described above.  However, authors of FHIR Turtle
-            serializers should be aware that there are
+            serializers are advised to be aware that there are
             some differences between what is permitted in FHIR,
             Turtle shorthand, and XSD literals, and these differences
             can affect Turtle serialization of FHIR.  For example:
@@ -555,7 +555,7 @@ href="fhir.shex">fhir.shex</a>
           </ul>
 
           <p> The following example (derived from
-            <a href="https://build.fhir.org/bundle-references.ttl.html">this example</a>) shows a
+            <a href="bundle-references.ttl.html">this example</a>) shows a
             <a href="bundle.html">Bundle</a>. The Bundle holds a list
             of <code class="rdf">fhir:entry</code>s, each of which specifies
             a Resource that is a member of that Bundle.  Although Turtle
@@ -605,7 +605,7 @@ href="fhir.shex">fhir.shex</a>
 
           <p>If a
             <a href="domainresource-definitions.html#DomainResource.contained">contained</a>
-            resource has a fhir:id property, then its value may be used
+            resource has a fhir:id property, then its value MAY be used
             in generating a URI for that contained resource, following
             <a href="references.html#contained">
               rules for Contained Resources</a>. Local references
@@ -614,7 +614,7 @@ href="fhir.shex">fhir.shex</a>
             resource's URI will be represented in Turtle as a relative URI.
             Since relative URIs in Turtle are relative to the document's
             <a href="https://www.w3.org/TR/turtle/#sec-iri-references">
-              base URI</a>, users should be sure to define distinct base
+              base URI</a>, users are advised be sure to define distinct base
             URIs when merging FHIR RDF data that might otherwise use the same
             local reference for different purposes.</p>
 
@@ -771,20 +771,20 @@ href="fhir.shex">fhir.shex</a>
           To address this problem, and to facilitate ease of use,
           HL7 maintains a mapping from <code>Coding.system</code>s
           to IRI stems: IRI stems can be registered and looked
-          up in the 
+          up in the
           <a href="https://terminology.hl7.org/">HL7 Terminology (THO) website</a>,
           based on the desired <code>Coding.system</code>.
-          To look up the correct IRI stem for a given terminology, 
+          To look up the correct IRI stem for a given terminology,
           such as LOINC:
           </p>
           <ol>
             <li>navigate to the <a href="https://terminology.hl7.org/toc.html">
               Table of Contents</a>; </li>
-            <li>search within the page for an appropriate link that includes 
-              "NamingSystem" in its URL, such as this one, for LOINC: 
+            <li>search within the page for an appropriate link that includes
+              "NamingSystem" in its URL, such as this one, for LOINC:
               <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html">https://terminology.hl7.org/NamingSystem-v3-loinc.html</a> ; then</li>
-            <li>scroll down to the 
-              <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html#identifiers">Identifiers section</a>, 
+            <li>scroll down to the
+              <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html#identifiers">Identifiers section</a>,
               and look for the "IRI stem" entry: <code class="rdf">http://loinc.org/rdf/</code> .</li>
           </ol>
 
@@ -799,7 +799,7 @@ href="fhir.shex">fhir.shex</a>
 
         <a name="extension"></a>
           <h4>Non-modifier Extensions</h4>
-          <p> A Resource may have any number of non-modifier extensions,
+          <p> A Resource might have any number of non-modifier extensions,
           represented as an RDF list like this:
           </p>
 
@@ -942,9 +942,14 @@ additional requirements around modifier extensions.
           <a name="class"></a>  <!-- Old anchor -->
           <a name="owl-shex-rim"></a>
           <h3>ShEx Schema and FHIR RDF, W5 and HL7 v3 RIM Ontologies</h3>
-        <p> In addition to the basic representation of FHIR resources in
-          Turtle format, a Turtle representations of the following
-          are available from the <a href="downloads.html">downloads page</a>: </p>
+        <p> To facilitate FHIR RDF creation and processing, the following
+          additional artifacts are available from the
+          <a href="downloads.html">downloads page</a>.  While the
+          <a href="https://fhir.hl7.org/fhir/downloads.html">fhir.hl7.org site<a>
+          holds the official released versions of these artifacts, unreleased
+          INFORMATIVE versions may also be available from the
+          <a href="https://build.fhir.org/downloads.html">build.fhir.org site<a>.
+        </p>
         <ul>
 
           <li><p>ShEx schema fhir.shex (NORMATIVE).
@@ -960,11 +965,13 @@ additional requirements around modifier extensions.
 
             <p>Although the logical meaning of the ShEx schema is
             normative, the <i>expression</i> of that meaning is
-            <b>NOT NORMATIVE</b>: it may be changed or enhanced at any
-            time.  For example, the schema may be refactored, or
-            shape names that only appear in the ShEx may change.</p></li>
+            <b>INFORMATIVE</b> (i.e., not normative):
+            it MAY be changed or enhanced at any
+            time.  For example, the schema MAY be refactored, or
+            shape names that only appear in the ShEx MAY change.
+            </p></li>
 
-          <li><p>OWL Ontology <a href="https://build.fhir.org/fhir.rdf.ttl.zip">fhir.ttl</a> (NORMATIVE).
+          <li><p>OWL Ontology <a href="fhir.rdf.ttl.zip">fhir.ttl</a> (NORMATIVE).
             This describes the classes and properties that are used to
             represent FHIR RDF data.  It is normative in the sense that
             if an OWL reasoner finds some purported FHIR RDF data to be
@@ -977,19 +984,20 @@ additional requirements around modifier extensions.
 
             <p>Although the logical meaning of the OWL ontology is
             normative, its <i>expression</i> in OWL/Turtle
-            is <b>NOT NORMATIVE</b>: it may be changed or enhanced at any
-            time.  For example, it may be refactored, or class or property 
-            names that only appear in the ontology may change.</p></li>
-
-          <li><p>W5 Ontology <a href="https://build.fhir.org/fhir.rdf.ttl.zip">w5.ttl</a> (INFORMATIVE).
-            This ontology attempts to capture relationships expressed in the
-            <a href="fivews.html">Five Ws Mappings</a> (formerly called W5 Report) -- Who, What, When, Where, Why.
-            It has not been well vetted, and may be
-            changed at any time.
+            is <b>INFORMATIVE</b> (i.e., not normative):
+            it MAY be changed or enhanced at any
+            time.  For example, it MAY be refactored, or class or property
+            names that only appear in the ontology MAY change.
             </p></li>
 
-          <li><p>v3 RIM ontology <a href="https://build.fhir.org/fhir.rdf.ttl.zip">rim.ttl</a> (INFORMATIVE).
-            This ontology attempts to capture semantic relationships between 
+          <li><p>W5 Ontology <a href="fhir.rdf.ttl.zip">w5.ttl</a> (INFORMATIVE).
+            This ontology attempts to capture relationships expressed in the
+            <a href="fivews.html">Five Ws Mappings</a> (formerly called W5 Report) -- Who, What, When, Where, Why.
+            It has not been well vetted, and MAY be changed at any time.
+            </p></li>
+
+          <li><p>v3 RIM ontology <a href="fhir.rdf.ttl.zip">rim.ttl</a> (INFORMATIVE).
+            This ontology attempts to capture semantic relationships between
             <a href="https://dev3.hl7.org/implement/standards/product_brief.cfm?product_id=77">HL7 v3 RIM</a>
             and FHIR.  It has not been well vetted, and may be
             changed at any time.
@@ -997,7 +1005,7 @@ additional requirements around modifier extensions.
         </ul>
 
       <a name="using"></a>
-        <h3><a name="guidance"></a>Usage Guidance for OWL and ShEx</h3> 
+        <h3><a name="guidance"></a>Usage Guidance for OWL and ShEx</h3>
         <span style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>
         <p> Application developers wishing to use FHIR RDF will often
           need to perform the following rough steps, though exact steps
@@ -1014,11 +1022,11 @@ additional requirements around modifier extensions.
               <li>The <a href="https://fhircat.github.io/fhir-rdf-playground/">
                 FHIR RDF Playground</a>
                 is a handy browser-based tool for experimenting with
-                conversion of FHIR JSON to FHIR RDF.   It is not for 
+                conversion of FHIR JSON to FHIR RDF.   It is not for
                 production use.</li>
             </ul>
-            Check the 
-            <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Open Source FHIR Implementations page</a>, 
+            Check the
+            <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Open Source FHIR Implementations page</a>,
             in case new implementations have become available.</li>
           </li>
           <li> <a href="downloads.html">Download</a> the FHIR ontology, fhir.ttl .
@@ -1051,7 +1059,7 @@ additional requirements around modifier extensions.
            </p>
 
         <a name="ontologies"></a>  <!-- OLD anchor? -->
-        <h3><a name="relationship"></a>Relationship Between RDF, FHIR, and Other Ontologies</h3> 
+        <h3><a name="relationship"></a>Relationship Between RDF, FHIR, and Other Ontologies</h3>
         <span style="background-color: #ffffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Informative</b></span>
         <p> This page documents an RDF format that can be used to
           exchange FHIR data, on the basis that RDF is a universal
@@ -1060,7 +1068,7 @@ additional requirements around modifier extensions.
           inference, shared semantics across multiple standards and data
           formats, data integration, semantic data validation,
           compliance enforcement, SPARQL queries and other uses.
-          Implementers using FHIR in this fashion should be aware of the
+          Implementers using FHIR in this fashion are advised to be aware of the
           relationship between FHIR's RDF format and other uses of
           ontologies. </p>
         <p> FHIR's RDF format is based on the same abstract information
@@ -1104,16 +1112,17 @@ additional requirements around modifier extensions.
             extension is not understood. </li>
         </ul>
         <p> For both of these reasons, to maintain monotonicity in RDF,
-          FHIR RDF should not be directly interpreted as stating facts.
-          Transformations are required to remove or isolate
+          users are advised to avoid directly interpreting FHIR RDF
+          as stating facts.
+          Transformations may be needed to remove or isolate
           non-monotonic elements and reconcile the records across time
           and perspective. </p>
-        <p> Application developers should also be aware that some FHIR
+        <p> Application developers are also advised to be aware that some FHIR
           data attributes have a major impact on the interpretation of
           the enclosing data element: the meaning of the enclosing
           element cannot be determined in isolation. For example, a
           status of 'entered-in-error' means that the resource was
-          created accidentally and should be ignored for most purposes.<br/>
+          created accidentally and is not clinically relevant.<br/>
         </p>
 
         <a name="tutorials"></a>
@@ -1372,7 +1381,7 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
           </tbody>
         </table>
 <p>
-*As of this writing (5-Sep-2022) it is not clear what IRI stem should be used when writing a SNOMED CT post-coordinated code expression.
+*As of this writing (5-Sep-2022) it is not clear what IRI stem is most appropriate when writing a SNOMED CT post-coordinated code expression.
 </p>
 
         <a name="registering-iri-stems"></a>
@@ -1385,7 +1394,7 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
           <p>
           IRI stems have not been standardized for all FHIR
           <code>Coding.system</code>s.  But any that have been
-          standardized should be registered in the HL7 terminology
+          standardized SHOULD be registered in the HL7 terminology
           website by adding appropriate CodeSystem and NamingSystem
           entries, using the system "urn:ietf:rfc:3987" and
           <a href="valueset-identifier-type.html">identifier type</a>
@@ -1408,7 +1417,7 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
           organization fails to define or endorse one even after repeated
           requests, and the organization appears unlikely to define one
           in the foreseeable future, then a community-defined IRI stem
-          MAY be registered.  In this case, it should be an IRI stem
+          MAY be registered.  In this case, it SHOULD be an IRI stem
           most commonly used by the community as recorded by several
           RDF IRI stem repositories, such as
           <a href="https://bioregistry.io/">Bioregistry</a>,
@@ -1480,7 +1489,7 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
 
            <p>As of this writing (17-Dec-2022), the change proposal
            process for doing this included the following steps.  However,
-           since the process may have later changed, you should
+           since the process may have later changed, readers are advised to
            <a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">verify it</a>
            prior to proceeding.  You can also see an example of such
            a change proposal, including the associated changes in the
@@ -1519,7 +1528,7 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
                for an issue titled "Registering an IRI Stem (RDF Subgroup)".
              </li>
              <li>If no such issue is found, <a href="https://jira.hl7.org/secure/CreateIssue!default.jspa">file an issue</a>
-                with that title, describing how the above steps should be updated.
+                with that title, describing how to improve the above steps.
              </li>
             </ol>
          </li>
