@@ -375,7 +375,7 @@
     </element>
     <element id="BodyStructure.includedStructure.image">
       <path value="BodyStructure.includedStructure.image"/>
-      <short value="Image of the structure"/>
+      <short value="Image(s) of structural aspects"/>
       <definition value="Image(s) used to identify aspects of an included or excluded structure."/>
       <min value="0"/>
       <max value="*"/>
