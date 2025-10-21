@@ -383,11 +383,10 @@ href="fhir.shex">fhir.shex</a>
             treated as OWL object properties (versus sometimes being
             datatype properties).&nbsp; The actual value of the
             primitive type is represented as an RDF Literal using the
-            <code class="rdf">fhir:v</code> property.&nbsp; fhir:v and
-            <a href="narrative.html#Narrative">fhir:div</a> are the
-            only FHIR properties that directly hold an RDF literal -- i.e., they
-            are the only OWL datatype properties in FHIR RDF -- and
-            they always hold an RDF Literal.</p>
+            <code class="rdf">fhir:v</code> property, which is the
+            only FHIR property that directly holds an RDF literal -- i.e.,
+            it is the only OWL datatype property in FHIR RDF -- and
+            it always holds an RDF Literal.</p>
 
           <p>A fhir:v literal has two parts: a literal string that contains
             the value, and a schema type:<br/>
@@ -582,7 +581,7 @@ href="fhir.shex">fhir.shex</a>
   fhir:id [ fhir:v "23"] ;
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div "..."^^rdf:XMLLiteral
+     fhir:div [ fhir:v "..."^^rdf:XMLLiteral ]
   ] ;
   fhir:identifier ( [
      fhir:system [
