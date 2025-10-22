@@ -425,7 +425,7 @@
       <path value="Observation.code"/>
       <short value="Type of observation (code / type)"/>
       <definition value="Describes what was observed. Sometimes this is called the observation &quot;name&quot;."/>
-      <comment value="*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
+      <comment value="*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation. All codings in Observation.code are expected to be sufficiently precise to allow a user with the code and value to be able to understand the value - though not all codes will necessarily convey the same level of detail. Codings in Observation.category SHOULD be concepts that are too broad to be able to understand the meaning of the Observation.value without also having an Observation.code."/>
       <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
       <alias value="Name"/>
       <min value="1"/>
