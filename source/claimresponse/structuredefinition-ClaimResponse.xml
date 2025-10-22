@@ -843,7 +843,7 @@
     <element id="ClaimResponse.item.adjudication.decisionDate">
       <path value="ClaimResponse.item.adjudication.decisionDate"/>
       <short value="Date of decision"/>
-      <definition value="The date (and optionally time) the adjudication decision occured."/>
+      <definition value="The date (and time) the adjudication decision occured."/>
       <comment value="Implementation Guide authors may choose to require this element based on local regulatory requirements."/>
       <min value="0"/>
       <max value="1"/>
