@@ -68,6 +68,6 @@
   <concept>
     <code value="inactive"/>
     <display value="Inactive"/>
-    <definition value="The resource describes information that is no longer valid. This may include an ImagingStudy that was removed for retention policy reasons."/>
+    <definition value="The resource describes information that is no longer valid. This MAY include an ImagingStudy that was removed for retention policy reasons."/>
   </concept>
 </CodeSystem>
