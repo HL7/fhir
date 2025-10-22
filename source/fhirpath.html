@@ -285,11 +285,6 @@ In addition to the general purpose functions below, additional functions functio
 
   <hr/>
   
-<p><b>ofType(type : identifier) : collection</b><a name="fn-ofType1"> </a></p>
-<p>An alias for ofType() maintained purely for backwards compatibility.</p>
-
-<hr/>
-  
 <p><b>ofType(type : identifier) : collection</b><a name="fn-ofType2"> </a></p>
 <p>Returns a collection that contains all items in the input collection that are of the given type or a subclass thereof.
   This works the same as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
@@ -297,7 +292,7 @@ In addition to the general purpose functions below, additional functions functio
   types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
 
-  <hr/>
+<hr/>
 
 <p><b>elementDefinition() : collection</b><a name="fn-elementDefinition"> </a></p>
 <p>Returns the FHIR element definition information for each element in the input collection. If the 
