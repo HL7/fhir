@@ -182,8 +182,8 @@
     </element>
     <element id="Composition.basedOn">
       <path value="Composition.basedOn"/>
-      <short value="Procedure that caused this media to be created"/>
-      <definition value="A procedure that is fulfilled in whole or in part by the creation of this media."/>
+      <short value="Service request that caused this media to be created"/>
+      <definition value="A service request that is fulfilled in whole or in part by the creation of this media."/>
       <requirements value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
       <alias value="fulfills"/>
       <min value="0"/>
