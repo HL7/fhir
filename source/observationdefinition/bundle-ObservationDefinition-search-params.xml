@@ -162,11 +162,11 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ObservationDefinition.bodyStructure"/>
+          <valueString value="ObservationDefinition.bodyStructure.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-body-structure-reference"/>
         <description value="Body structure to be observed (reference)"/>
-        <code value="body-structure-reference"/>
+        <code value="reference"/>
         <type value="reference"/>
         <expression value="ObservationDefinition.bodyStructure.reference"/>
         <processingMode value="normal"/>
@@ -182,7 +182,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ObservationDefinition.bodyStructure"/>
+          <valueString value="ObservationDefinition.bodyStructure.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-body-structure-code"/>
         <description value="Code for body structure to be observed"/>

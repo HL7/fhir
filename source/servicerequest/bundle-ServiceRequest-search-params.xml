@@ -67,11 +67,11 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ServiceRequest.bodyStructure"/>
+          <valueString value="ServiceRequest.bodyStructure.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-body-structure-reference"/>
         <description value="Body structure where procedure is going to be done (reference)"/>
-        <code value="body-structure-reference"/>
+        <code value="reference"/>
         <type value="reference"/>
         <expression value="ServiceRequest.bodyStructure.reference"/>
         <processingMode value="normal"/>
@@ -87,7 +87,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ServiceRequest.bodyStructure"/>
+          <valueString value="ServiceRequest.bodyStructure.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-body-structure-code"/>
         <description value="Code for body structure where procedure is going to be done"/>

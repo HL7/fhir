@@ -106,11 +106,11 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceUsage.bodyStructure"/>
+          <valueString value="DeviceUsage.bodyStructure.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-body-structure-reference"/>
         <description value="Target body structure (reference)"/>
-        <code value="body-structure-reference"/>
+        <code value="reference"/>
         <type value="reference"/>
         <expression value="DeviceUsage.bodyStructure.reference"/>
         <processingMode value="normal"/>
@@ -126,7 +126,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceUsage.bodyStructure"/>
+          <valueString value="DeviceUsage.bodyStructure.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-body-structure-code"/>
         <description value="Code for target body structure"/>
