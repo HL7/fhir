@@ -885,35 +885,6 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Measure.type">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Type is deprecated at the root and must be specified per group"/>
-      </extension>
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.type"/>
-      <short value="process | outcome | structure | patient-reported-outcome | composite (deprecated, use group.type)"/>
-      <definition value="Deprecated, use group.type. Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of what the measure applies to }"/>
-      </mapping>
-    </element>
     <element id="Measure.riskAdjustment">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Although risk adjustment is characterized narratively here, there is active work to describe risk adjustment models formally."/>
