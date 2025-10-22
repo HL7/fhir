@@ -9,10 +9,13 @@
     <valueString value="Clinical.Diagnostics"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="6.0.0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="6"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -28,7 +31,7 @@
   <version value="6.0.0"/>
   <name value="ImagingSelection"/>
   <title value="Imaging Selection"/>
-  <status value="draft"/>
+  <status value="active"/>
   <date value="2022-06-29T08:58:31+11:00"/>
   <publisher value="HL7 International / Imaging Integration"/>
   <contact>
