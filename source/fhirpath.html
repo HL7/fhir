@@ -259,8 +259,8 @@ In addition to the general purpose functions below, additional functions functio
 <p><b>extension(url : string) : collection</b><a name="fn-extension"> </a></p>
 <p>Will filter the input collection for items named "extension" with the given url. 
   This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
-  but is simpler to write. Will return an empty collection if the input collection is 
-  empty or the url is empty.</p>
+  but is simpler to write. If the input collection is empty or the url is empty, 
+  the return value will be an empty collection.</p>
 
 <hr/>
 
@@ -280,7 +280,7 @@ In addition to the general purpose functions below, additional functions functio
 
 <p><b>getValue() : System.[type]</b><a name="fn-getValue"> </a></p>
 <p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
-  and it has a primitive value (see discussion for hasValue()). Otherwise the return value is empty.</p>
+  and it has a primitive value (see discussion for hasValue()). Otherwise, the return value is empty.</p>
 
   <hr/>
 
@@ -290,7 +290,7 @@ In addition to the general purpose functions below, additional functions functio
    target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
    the item is ignored and nothing is added to the output collection.</p>
 <p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
-  If the input is empty, the output will be empty.</p>
+  If the input is empty, the return value will be an empty collection.</p>
 
   <hr/>
   
@@ -305,7 +305,7 @@ In addition to the general purpose functions below, additional functions functio
 
 <p><b>elementDefinition() : collection</b><a name="fn-elementDefinition"> </a></p>
 <p>Returns the FHIR element definition information for each element in the input collection. If the 
-  input collection is empty, the return value will be empty.
+  input collection is empty, the return value will be an empty collection.
 </p>
 
 <hr/>
@@ -316,9 +316,9 @@ In addition to the general purpose functions below, additional functions functio
   structure argument is a uri that resolves to the structure definition, and 
   the name must be the name of a slice within that structure definition. 
   If the structure cannot be resolved, or the name of the slice within the resolved structure is not present, or those parameters are empty, 
-  and empty value is returned.
+  the return value will be an empty collection.
 </p>
-<p>For every element in the input collection, if the resolved slice is present on the element, it will be returned. If the slice does not match any element in the input collection, or if the input collection is empty, the result is an empty collection (<code>{ }</code>).</p>
+<p>For every element in the input collection, if the resolved slice is present on the element, it will be returned. If the slice does not match any element in the input collection, or if the input collection is empty, the return value will be an empty collection.</p>
 
 <hr/>
 
@@ -332,7 +332,7 @@ In addition to the general purpose functions below, additional functions functio
 <p><b>conformsTo(structure : string) : Boolean</b><a name="fn-conformsTo"> </a></p>
 <p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, 
   and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
-  the result is empty.</p>
+  the return value is empty.</p>
 
   <hr/>
 
@@ -359,7 +359,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p><b>subsumes(code : Coding | CodeableConcept) : Boolean</b><a name="fn-subsumes"> </a></p>
 
 <p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
-<p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or the return value is an empty value.</p>
+<p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or the return value is empty.</p>
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumes the given code.</p>
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
@@ -446,7 +446,7 @@ These functions are added to FHIRPath as part of this ballot.  This content has 
 
 <p><b>weight() : decimal</b><a name="fn-weight"> </a></p>
 
-This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the result will be an empty set. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
+This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the return value is empty. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
 
 This function will typically be used to support scoring of Questionnaires, but it can be used with observations or potentially other elements as well.
 
@@ -823,9 +823,8 @@ Summary:
 </pre>
 
 <p>
-All these functions return an empty value if any of the parameters 
-are empty, or a collection with more than one value, or one or
-more of the parameters are not valid.
+For all these functions, if any of the parameters are empty, or a collection with more than one value, or one or
+more of the parameters are not valid, the return value is empty.
 </p>
 
 <p><b>expand</b><a name="fn-expand"> </a></p>
@@ -844,7 +843,7 @@ Parameters:
  <li><b>params</b>: a URL encoded string with other parameters for the expand operation (e.g. 'displayLanguage=en&amp;activeOnly=true')</li>
 </ul>
 <p>
-<b>Return Value:</b> a <a href="valueset.html">ValueSet</a> with an expansion, or an empty value if an error occurs.
+<b>Return Value:</b> a <a href="valueset.html">ValueSet</a> with an expansion. If an error occurs, the return value is empty.
 </p>
 
 <p><b>lookup</b><a name="fn-lookup"> </a></p>
@@ -1006,7 +1005,7 @@ Parameters:
   <li><b>type</b>: The type of the resource to read.</li>
   <li><b>id</b>: The id of the resource to read.</li>
 </ul>
-<p><b>Return Value:</b> The resource at type/id, or empty <code>{}</code>.</p>
+<p><b>Return Value:</b> The resource at type/id. If not found, the return value is empty.</p>
 
 
 <pre class="fhirpath">
@@ -1021,7 +1020,7 @@ Parameters:
 <ul>
   <li><b>resource</b>: The resource to create. If the resource has an id, it will be ignored.</li>
 </ul>
-<p><b>Return Value:</b> The resource after it was stored, or empty <code>{}</code> if the create operation failed.</p>
+<p><b>Return Value:</b> The resource after it was stored. If the create operation failed, the return value is empty.</p>
 
 <pre class="fhirpath">
   %server.update(resource) : Resource
@@ -1035,7 +1034,7 @@ Parameters:
 <ul>
   <li><b>resource</b>: The resource to create. The resource must have an id.</li>
 </ul>
-<p><b>Return Value:</b> The resource after it was stored, or empty <code>{}</code> if the create operation failed.</p>
+<p><b>Return Value:</b> The resource after it was stored. If the create operation failed, the return value is empty.</p>
 
 <pre class="fhirpath">
   %server.delete(resource) : boolean
@@ -1064,7 +1063,7 @@ Parameters:
   <li><b>doPost</b>: A boolean value - true to use a POST, false to use a GET</li>
   <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
-<p><b>Return Value:</b> A bundle with the search results, or empty <code>{}</code>.</p>
+<p><b>Return Value:</b> A bundle with the search results. If the search fails, the return value is empty.</p>
 
 <pre class="fhirpath">
   %server.patch(parameters) : Resource
@@ -1078,7 +1077,7 @@ Parameters:
 <ul>
   <li><b>parameters</b>: A parameters resource for <a href="fhirpatch.html">FHIRPath Patch</a></li>
 </ul>
-<p><b>Return Value:</b> The resource after the patch, or empty <code>{}</code>.</p>
+<p><b>Return Value:</b> The resource after the patch. If the patch fails, the return value is empty.</p>
 
 <pre class="fhirpath">
   %server.capabilities(mode) : Resource
@@ -1092,7 +1091,7 @@ Parameters:
 <ul>
   <li><b>mode</b>: Optional: the mode to fetch.</li>
 </ul>
-<p><b>Return Value:</b> The resource returned (CapabilitiesStatement or TerminologyCapabilities resource), or empty <code>{}</code>.</p>
+<p><b>Return Value:</b> The resource returned (CapabilitiesStatement or TerminologyCapabilities resource). If not available, the return value is empty.</p>
 
 <pre class="fhirpath">
   %server.validate(resource, mode, parameters) : OperationOutcome
@@ -1108,7 +1107,7 @@ Parameters:
   <li><b>mode</b>: how to validate - see <a href="resource-operation-validate.html">Validation Operation</a>.</li>
   <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
-<p><b>Return Value:</b> An operation outcome with issues, or empty <code>{}</code> if the validation couldn't be performed.</p>
+<p><b>Return Value:</b> An operation outcome with issues. If the validation couldn't be performed, the return value is empty.</p>
 
 <pre class="fhirpath">
   %server.transform(source, content) : Resource
@@ -1123,7 +1122,7 @@ Parameters:
   <li><b>source</b>: The structure map to use.</li>
   <li><b>content</b>: The resource to convert (often a binary)</li>
 </ul>
-<p><b>Return Value:</b> The resource returned from the transform, or empty <code>{}</code>.</p>
+<p><b>Return Value:</b> The resource returned from the transform. If the transform fails, the return value is empty.</p>
 
 <pre class="fhirpath">
   %server.everything(type, id, parameters) : Bundle
@@ -1139,7 +1138,7 @@ Parameters:
   <li><b>id</b>: The id of the resource to read.</li>
   <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
-<p><b>Return Value:</b> The Bundle for type/id, or empty <code>{}</code>.</p>
+<p><b>Return Value:</b> The Bundle for type/id. If not available, the return value is empty.</p>
 
 <pre class="fhirpath">
   %server.apply(resource, subject, parameters) : Bundle
@@ -1155,7 +1154,7 @@ Parameters:
   <li><b>subject</b>: The subject top apply to - can be a resource, or a string containing type/id for the subject.</li>
   <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
-<p><b>Return Value:</b> The bundle from $apply, or empty <code>{}</code>.</p>
+<p><b>Return Value:</b> The bundle from $apply. If the operation fails, the return value is empty.</p>
 
 
 </div>
