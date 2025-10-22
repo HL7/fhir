@@ -63,7 +63,7 @@ of primitives).
 For <a href="formats.html#choice">choice elements</a>, where elements can be one of multiple types, e.g. <code>Patient.deceased[x]</code>.
 In actual instances these will be present as either <code>Patient.deceasedBoolean</code> or <code>Patient.deceasedDateTime</code>.
 In FHIRPath, choice elements are labeled according to the name without the '[x]' suffix, and children can be explicitly treated
-as a specific type using the <code>as</code> operation:</p>
+as a specific type using the <code>ofType</code> function:</p>
 
 <pre class="fhirpath">
 (Observation.value.ofType(Quantity)).unit
