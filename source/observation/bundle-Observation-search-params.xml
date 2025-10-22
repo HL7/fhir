@@ -994,11 +994,11 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Observation.bodyStructure"/>
+          <valueString value="Observation.bodyStructure.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-body-structure-reference"/>
         <description value="Observed body structure (reference)"/>
-        <code value="body-structure-reference"/>
+        <code value="reference"/>
         <type value="reference"/>
         <expression value="Observation.bodyStructure.reference"/>
         <processingMode value="normal"/>
@@ -1014,7 +1014,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Observation.bodyStructure"/>
+          <valueString value="Observation.bodyStructure.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-body-structure-code"/>
         <description value="Code for observed body structure"/>
