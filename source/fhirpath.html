@@ -549,11 +549,12 @@ but when the underlying element referred to is a singleton element, the collecti
 contain more than one item. Use the value <code>{}</code> if there is no value to provide.
 </p>
 
-<p><b>primitives</b><a name="fn-factory-primitives"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-factory-primitives"></a>
+<h4>
 %factory.{primitive}(value, extensions) : {primitive}
-</pre>
+</h4>
 <p>
 Create an instance of the type with the value and possibly one or more extensions. e.g. <code>%factory.code('final')</code>.
 </p>
@@ -568,11 +569,12 @@ Parameters:
 <b>Return Value:</b> the primitive type, or an error.
 </p>
 
-<p><b></b><a name="fn-factory-"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-factory-Extension"></a>
+<h4>
 %factory.Extension(url, value) : Extension
-</pre>
+</h4>
 <p>
 Creates an extension with the given url and value: <code>%factory.extension('http://hl7.org/fhir/StructureDefinition/artifact-copyrightLabel', 'CC0-1.0')</code>.
 </p>
@@ -587,11 +589,12 @@ Parameters:
 <b>Return Value:</b> An extension with the specified properties.
 </p>
 
-<p><b>Identifier</b><a name="fn-factory-Identifier"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
-%factory.Identifier{system, value, use, type) : Identifier
-</pre>
+<a name="fn-factory-Identifier"></a>
+<h4>
+%factory.Identifier(system, value, use, type) : Identifier
+</h4>
 <p>
 Creates an identifier with the given properties: <code>%factory.Identifier('urn:ietf:rfc:3986', 'urn:oid:1.2.3.4.5', 'official')</code>.
 </p>
@@ -608,11 +611,12 @@ Parameters:
 <b>Return Value:</b> An identifier with the specified properties .
 </p>
 
-<p><b>HumanName</b><a name="fn-factory-HumanName"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-factory-HumanName"></a>
+<h4>
 %factory.HumanName(family, given, prefix, suffix, text, use) : HumanName
-</pre>
+</h4>
 <p>
 Create a human name with the given properties: <code>%factory.HumanName('Smith', 'Julia', {}, {}, 'Julia Smith')</code>.
 </p>
@@ -631,11 +635,12 @@ Parameters:
 <b>Return Value:</b> a HumanName.
 </p>
 
-<p><b>ContactPoint</b><a name="fn-factory-ContactPoint"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-factory-ContactPoint"></a>
+<h4>
 %factory.ContactPoint(system, value, use) : ContactPoint
-</pre>
+</h4>
 <p>
 Creates a ContactPoint: <code>%factory.ContactPoint('email', 'coyote@acme.com', 'work')</code>
 </p>
@@ -651,11 +656,12 @@ Parameters:
 <b>Return Value:</b> a ContactPoint.
 </p> 
 
-<p><b>Address</b><a name="fn-factory-Address"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-factory-Address"></a>
+<h4>
 %factory.Address(line, city, state, postalCode, country, use, type) : Address
-</pre>
+</h4>
 <p>
   Creates an Address: <code>%factory.Address('5 Nowhere Road', 'coyote@acme.com', 'EW', '0000', {}, 'home', 'physical')</code>
 </p>
@@ -675,11 +681,12 @@ Parameters:
 <b>Return Value:</b> An address.
 </p>
 
-<p><b>Quantity</b><a name="fn-factory-Quantity"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-factory-Quantity"></a>
+<h4>
 %factory.Quantity(system, code, value, unit) : Quantity
-</pre>
+</h4>
 <p>
   Creates a Quantity: <code>%factory.Quantity('http://unitsofmeasure.org', 'mg/dL', '5.03', 'mg/dL')</code>
 </p>
@@ -696,11 +703,12 @@ Parameters:
 <b>Return Value:</b> a Quantity.
 </p>
 
-<p><b>Coding</b><a name="fn-factory-Coding"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-factory-Coding"></a>
+<h4>
 %factory.Coding(system, code, display, version) : Coding
-</pre>
+</h4>
 <p>
   Creates a Coding: <code>%factory.Coding('http://loinc.org', '1234-5, 'An example test', '1.02')</code>
 </p>
@@ -717,11 +725,12 @@ Parameters:
 <b>Return Value:</b> A coding.
 </p>
 
-<p><b>CodeableConcept</b><a name="fn-factory-CodeableConcept"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
-%factory.CodeableConcept(value, extensions) : 
-</pre>
+<a name="fn-factory-CodeableConcept"></a>
+<h4>
+%factory.CodeableConcept(coding, text) : CodeableConcept
+</h4>
 <p>
   Creates a CodeableConcept: <code>%factory.CodeableConcept(%factory.Coding(...), "Example Test")</code>
 </p>
@@ -743,11 +752,12 @@ Parameters:
   but when the underlying property referred to is a singleton element, the collection cannot 
   contain more than one item. Use the value <code>{}</code> if there is no value to provide.
 </p>
-<p><b></b><a name="fn-factory-"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
-  %factory.create(type) : {type} 
-</pre>
+<a name="fn-factory-create"></a>
+<h4>
+%factory.create(type) : {type}
+</h4>
 <p>
 Create an instance of the named type: <code>%factory.create(SampledData)</code>
 </p>
@@ -762,11 +772,12 @@ Parameters:
 </p>
 
 
-<p><b>withExtension</b><a name="fn-factory-withExtension"> </a></p>
-  
-<pre class="fhirpath">
-%factory.withExtension(instance, url, value) : 
-</pre>
+<hr/>
+
+<a name="fn-factory-withExtension"></a>
+<h4>
+%factory.withExtension(instance : T, url : string, value) : T
+</h4>
 <p>
 Add an extension, and return the new type: <code>%factory.withExtension(%factory.create(Money), 'http:/acme.com/extension/example', %factory.code('test'))</code>
 </p>
@@ -782,11 +793,12 @@ Parameters:
 <b>Return Value:</b> A copy of the instance of the type with the extension added. Extensions that already exist with the same url are not removed.
 </p>
 
-<p><b>withProperty</b><a name="fn-factory-withProperty"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
-%factory.withProperty(instance, name, value) : T
-</pre>
+<a name="fn-factory-withProperty"></a>
+<h4>
+%factory.withProperty(instance : T, name : string, value) : T
+</h4>
 <p>
   Set a property value, and return the new type: <code>%factory.withProperty(%factory.create(Address), 'http:/acme.com/extension/example', %factory.create(Period))</code>
 </p>
@@ -830,11 +842,12 @@ For all these functions, if any of the parameters are empty, or a collection wit
 more of the parameters are not valid, the return value is empty.
 </p>
 
-<p><b>at</b><a name="fn-at"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-terminologies-at"></a>
+<h4>
 %terminologies.at(url) : TerminologyServer
-</pre>
+</h4>
 <p>
 Get a terminology server object pointing at a particular server. Note: The %terminologies object points to the default terminology server as specified by the application evaluating the FHIRPath.
 </p>
@@ -848,11 +861,12 @@ Parameters:
 <b>Return Value:</b> A terminology server that points at the specified URL. No errors - they will come when/if the terminology server object is used.
 </p>
 
-<p><b>expand</b><a name="fn-expand"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
-%terminologes.expand(valueSet, params) : ValueSet
-</pre>
+<a name="fn-expand"></a>
+<h4>
+%terminologies.expand(valueSet, params) : ValueSet
+</h4>
 <p>
 This calls the <a href="terminology-service.html#expand">Terminology Service $expand</a> operation (<a href="valueset-operation-expand.html">formal definition</a>).
 </p>
@@ -867,11 +881,14 @@ Parameters:
 <b>Return Value:</b> a <a href="valueset.html">ValueSet</a> with an expansion. If an error occurs, the return value is empty.
 </p>
 
-<p><b>lookup</b><a name="fn-lookup"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-lookup"></a>
+<h4>
 %terminologies.lookup(coded, params) : Parameters
-</pre>
+</h4>
 <p>
 This calls the <a href="terminology-service.html#lookup">Terminology Service $lookup</a> operation (<a href="codesystem-operation-lookup.html">formal definition</a>).
 </p>
@@ -886,11 +903,12 @@ Parameters:
 <b>Return Value:</b>
 </p>
 
-<p><b>validateVS</b><a name="fn-validateVS"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-validateVS"></a>
+<h4>
 %terminologies.validateVS(valueSet, coded, params) : Parameters
-</pre>
+</h4>
 <p>
 This calls the <a href="terminology-service.html#expand">Terminology Service $validate-code</a> operation on a value set
 (<a href="valueset-operation-validate-code.html">formal definition</a>).
@@ -907,11 +925,12 @@ Parameters:
 <b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the validation operation.
 </p>
 
-<p><b>validateCS</b><a name="fn-validateCS"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-validateCS"></a>
+<h4>
 %terminologies.validateCS(codeSystem, coded, params) : Parameters
-</pre>
+</h4>
 <p>
 This calls the <a href="terminology-service.html#expand">Terminology Service $validate-code</a> operation on a code system
 (<a href="codesystem-operation-validate-code.html">formal definition</a>).
@@ -928,11 +947,12 @@ Parameters:
 <b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the validation operation.
 </p>
 
-<p><b>subsumes</b><a name="fn-subsumes"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-subsumes"></a>
+<h4>
 %terminologies.subsumes(system, coded1, coded2, params) : code
-</pre>
+</h4>
 <p>
 This calls the <a href="terminology-service.html#subsumes">Terminology Service $subsumes</a> operation (<a href="codesystem-operation-subsumes.html">formal definition</a>).
 </p>
@@ -949,11 +969,12 @@ Parameters:
 <b>Return Value:</b> a code as specified for the subsumes operation.
 </p>
 
-<p><b>translate</b><a name="fn-translate"> </a></p>
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-translate"></a>
+<h4>
 %terminologies.translate(conceptMap, coded, params) : Parameters
-</pre>
+</h4>
 <p>
 This calls the <a href="terminology-service.html#translate">Terminology Service $translate</a> operation (<a href="conceptmap-operation-translate.html">formal definition</a>).
 </p>
@@ -997,9 +1018,12 @@ Summary:
 %server.apply(resource, subject, parameters) : Bundle
 </pre>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-at"></a>
+<h4>
 %server.at(url) : Server
-</pre>
+</h4>
 <p>
 Get a server object pointing at a particular server.
 Note: The %server object points to the default server as specified by the application evaluating the FHIRPath.
@@ -1011,11 +1035,13 @@ Parameters:
   <li><b>url</b>: A URL that points to a FHIR RESTful API.</li>
 </ul>
 <p><b>Return Value:</b> A server that points at the specified URL. No errors - they will come when/if the server object is used.</p>
-  
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-read"></a>
+<h4>
 %server.read(type, id) : Resource
-</pre>
+</h4>
 <p>
 Get a resource from the server.
 </p>
@@ -1028,10 +1054,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> The resource at type/id. If not found, the return value is empty.</p>
 
+<hr/>
 
-<pre class="fhirpath">
+<a name="fn-server-create"></a>
+<h4>
 %server.create(resource) : Resource
-</pre>
+</h4>
 <p>
 Create a resource on the server.
 </p>
@@ -1043,9 +1071,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> The resource after it was stored. If the create operation failed, the return value is empty.</p>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-update"></a>
+<h4>
 %server.update(resource) : Resource
-</pre>
+</h4>
 <p>
 Store a resource on the server.
 </p>
@@ -1057,9 +1088,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> The resource after it was stored. If the create operation failed, the return value is empty.</p>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-delete"></a>
+<h4>
 %server.delete(resource) : boolean
-</pre>
+</h4>
 <p>
 Delete a resource on the server.
 </p>
@@ -1071,9 +1105,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> true if the resource was deleted, or false.</p>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-search"></a>
+<h4>
 %server.search(doPost, parameters) : Bundle
-</pre>
+</h4>
 <p>
 Perform a search on the server.
 </p>
@@ -1086,9 +1123,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> A bundle with the search results. If the search fails, the return value is empty.</p>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-patch"></a>
+<h4>
 %server.patch(parameters) : Resource
-</pre>
+</h4>
 <p>
 Perform a patch operation on the server.
 </p>
@@ -1100,9 +1140,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> The resource after the patch. If the patch fails, the return value is empty.</p>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-capabilities"></a>
+<h4>
 %server.capabilities(mode) : Resource
-</pre>
+</h4>
 <p>
 Get the capabilities from the server
 </p>
@@ -1114,9 +1157,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> The resource returned (CapabilitiesStatement or TerminologyCapabilities resource). If not available, the return value is empty.</p>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-validate"></a>
+<h4>
 %server.validate(resource, mode, parameters) : OperationOutcome
-</pre>
+</h4>
 <p>
 Validate a resource on the server.
 </p>
@@ -1130,9 +1176,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> An operation outcome with issues. If the validation couldn't be performed, the return value is empty.</p>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-transform"></a>
+<h4>
 %server.transform(source, content) : Resource
-</pre>
+</h4>
 <p>
 Run the $transform operation on the server.
 </p>
@@ -1145,9 +1194,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> The resource returned from the transform. If the transform fails, the return value is empty.</p>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-everything"></a>
+<h4>
 %server.everything(type, id, parameters) : Bundle
-</pre>
+</h4>
 <p>
 Get a resource from the server.
 </p>
@@ -1161,9 +1213,12 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> The Bundle for type/id. If not available, the return value is empty.</p>
 
-<pre class="fhirpath">
+<hr/>
+
+<a name="fn-server-apply"></a>
+<h4>
 %server.apply(resource, subject, parameters) : Bundle
-</pre>
+</h4>
 <p>
 Get a resource from the server.
 </p>
