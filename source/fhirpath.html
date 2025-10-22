@@ -32,6 +32,15 @@ FHIRPath is used in several places in the FHIR and related specifications:
 FHIRPath is used and extended in many other contexts beyond those listed above. For additional examples and information about other usage patterns and extensions, refer to the <a href="https://confluence.hl7.org/spaces/FHIRI/pages/391650086/FHIRPath+Usage+and+Extensions">FHIRPath Usage and Extensions page</a> on HL7's confluence.
 </p>
 
+[%dragons-start%]
+<h4>FHIR Inter-version issues</h4>
+<p>
+FHIR inter-version compatibility rules allow for non-repeating elements to be made repeating in future FHIR versions.
+For this reason, FHIRPath expressions SHOULD be written presuming all elements will repeat, even if the current version
+of the model has a maximum cardinality of '1'.
+</p>
+[%dragons-end%]
+
 <a name="rules"></a>
 <h3>Using FHIRPath with Resources</h3>
 
