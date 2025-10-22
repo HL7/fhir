@@ -20,7 +20,6 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="CoverageEligibilityResponse.request">
-        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
         <extraTypes _resource="Reference(CoverageEligibilityRequest)" reason="Unknown"/>
