@@ -101,21 +101,39 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceUsage-body-structure"/>
+        <id value="DeviceUsage-body-structure-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceUsage.bodyStructure"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-body-structure"/>
-        <description value="Target body structure"/>
-        <code value="body-structure"/>
-        <type value="special"/>
-        <expression value="DeviceUsage.bodyStructure"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-body-structure-reference"/>
+        <description value="Target body structure (reference)"/>
+        <code value="body-structure-reference"/>
+        <type value="reference"/>
+        <expression value="DeviceUsage.bodyStructure.reference"/>
         <processingMode value="normal"/>
-        <multipleOr value="true"/>
-        <multipleAnd value="true"/>
+        <target value="BodyStructure"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceUsage-body-structure-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceUsage.bodyStructure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-body-structure-code"/>
+        <description value="Code for target body structure"/>
+        <code value="body-structure-code"/>
+        <type value="token"/>
+        <expression value="DeviceUsage.bodyStructure.concept"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

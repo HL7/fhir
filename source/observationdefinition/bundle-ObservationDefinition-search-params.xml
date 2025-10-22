@@ -157,21 +157,39 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ObservationDefinition-body-structure"/>
+        <id value="ObservationDefinition-body-structure-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ObservationDefinition.bodyStructure"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-body-structure"/>
-        <description value="Body structure to be observed"/>
-        <code value="body-structure"/>
-        <type value="special"/>
-        <expression value="ObservationDefinition.bodyStructure"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-body-structure-reference"/>
+        <description value="Body structure to be observed (reference)"/>
+        <code value="body-structure-reference"/>
+        <type value="reference"/>
+        <expression value="ObservationDefinition.bodyStructure.reference"/>
         <processingMode value="normal"/>
-        <multipleOr value="true"/>
-        <multipleAnd value="true"/>
+        <target value="BodyStructure"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ObservationDefinition-body-structure-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ObservationDefinition.bodyStructure"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ObservationDefinition-body-structure-code"/>
+        <description value="Code for body structure to be observed"/>
+        <code value="body-structure-code"/>
+        <type value="token"/>
+        <expression value="ObservationDefinition.bodyStructure.concept"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
