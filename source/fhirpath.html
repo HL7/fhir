@@ -1002,7 +1002,7 @@ Parameters:
   <li><b>type</b>: The type of the resource to read.</li>
   <li><b>id</b>: The id of the resource to read.</li>
 </ul>
-<p><b>Return Value:</b> The resource at type/id, or null.</p>
+<p><b>Return Value:</b> The resource at type/id, or empty <code>{}</code>.</p>
 
 
 <pre class="fhirpath">
@@ -1017,7 +1017,7 @@ Parameters:
 <ul>
   <li><b>resource</b>: The resource to create. If the resource has an id, it will be ignored.</li>
 </ul>
-<p><b>Return Value:</b> The resource after it was stored, or null if the create operation failed.</p>
+<p><b>Return Value:</b> The resource after it was stored, or empty <code>{}</code> if the create operation failed.</p>
 
 <pre class="fhirpath">
   %server.update(resource) : Resource
@@ -1031,7 +1031,7 @@ Parameters:
 <ul>
   <li><b>resource</b>: The resource to create. The resource must have an id.</li>
 </ul>
-<p><b>Return Value:</b> The resource after it was stored, or null if the create operation failed.</p>
+<p><b>Return Value:</b> The resource after it was stored, or empty <code>{}</code> if the create operation failed.</p>
 
 <pre class="fhirpath">
   %server.delete(resource) : boolean
@@ -1060,7 +1060,7 @@ Parameters:
   <li><b>doPost</b>: A boolean value - true to use a POST, false to use a GET</li>
   <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
-<p><b>Return Value:</b> A bundle with the search results, or null.</p>
+<p><b>Return Value:</b> A bundle with the search results, or empty <code>{}</code>.</p>
 
 <pre class="fhirpath">
   %server.patch(parameters) : Resource
@@ -1074,7 +1074,7 @@ Parameters:
 <ul>
   <li><b>parameters</b>: A parameters resource for <a href="fhirpatch.html">FHIRPath Patch</a></li>
 </ul>
-<p><b>Return Value:</b> The resource after the patch, or null.</p>
+<p><b>Return Value:</b> The resource after the patch, or empty <code>{}</code>.</p>
 
 <pre class="fhirpath">
   %server.capabilities(mode) : Resource
@@ -1088,7 +1088,7 @@ Parameters:
 <ul>
   <li><b>mode</b>: Optional: the mode to fetch.</li>
 </ul>
-<p><b>Return Value:</b> The resource returned (CapabilitiesStatement or TerminologyCapabilities resource), or null.</p>
+<p><b>Return Value:</b> The resource returned (CapabilitiesStatement or TerminologyCapabilities resource), or empty <code>{}</code>.</p>
 
 <pre class="fhirpath">
   %server.validate(resource, mode, parameters) : OperationOutcome
@@ -1104,7 +1104,7 @@ Parameters:
   <li><b>mode</b>: how to validate - see <a href="resource-operation-validate.html">Validation Operation</a>.</li>
   <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
-<p><b>Return Value:</b> An operation outcome with issues, or null if the validation couldn't be performed.</p>
+<p><b>Return Value:</b> An operation outcome with issues, or empty <code>{}</code> if the validation couldn't be performed.</p>
 
 <pre class="fhirpath">
   %server.transform(source, content) : Resource
@@ -1119,7 +1119,7 @@ Parameters:
   <li><b>source</b>: The structure map to use.</li>
   <li><b>content</b>: The resource to convert (often a binary)</li>
 </ul>
-<p><b>Return Value:</b> The resource returned from the transform, or null.</p>
+<p><b>Return Value:</b> The resource returned from the transform, or empty <code>{}</code>.</p>
 
 <pre class="fhirpath">
   %server.everything(type, id, parameters) : Bundle
@@ -1135,7 +1135,7 @@ Parameters:
   <li><b>id</b>: The id of the resource to read.</li>
   <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
-<p><b>Return Value:</b> The Bundle for type/id, or null.</p>
+<p><b>Return Value:</b> The Bundle for type/id, or empty <code>{}</code>.</p>
 
 <pre class="fhirpath">
   %server.apply(resource, subject, parameters) : Bundle
@@ -1151,7 +1151,7 @@ Parameters:
   <li><b>subject</b>: The subject top apply to - can be a resource, or a string containing type/id for the subject.</li>
   <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
-<p><b>Return Value:</b> The bundle from $apply, or null.</p>
+<p><b>Return Value:</b> The bundle from $apply, or empty <code>{}</code>.</p>
 
 
 </div>
