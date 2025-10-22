@@ -112,7 +112,7 @@
       <path value="Coverage.identifier"/>
       <short value="Business identifier(s) for this coverage"/>
       <definition value="The identifier of the coverage as issued by the insurer."/>
-      <comment value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependant. Note that not all insurers issue unique member IDs therefore searches may result in multiple responses."/>
+      <comment value="The main (and possibly only) identifier for the coverage - often referred to as a Member Id, Certificate number, Personal Health Number or Case ID. May be constructed as the concatenation of the Coverage.SubscriberID and the Coverage.dependent. Note that not all insurers issue unique member IDs therefore searches may result in multiple responses."/>
       <requirements value="Allows coverages to be distinguished and referenced."/>
       <min value="0"/>
       <max value="*"/>
@@ -144,7 +144,7 @@
     <element id="Coverage.status">
       <path value="Coverage.status"/>
       <short value="active | cancelled | draft | entered-in-error"/>
-      <definition value="The status of the resource instance."/>
+      <definition value="The status of the resource instance. The status element does not indicate whether the policy reflected in the instance is in-force at any particular point in time, that would be conveyed via the 'period' element."/>
       <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid."/>
       <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
@@ -175,6 +175,19 @@
         <identity value="rim"/>
         <map value="Act.status"/>
       </mapping>
+    </element>
+    <element id="Coverage.statusReason">
+      <path value="Coverage.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="Coverage.kind">
       <path value="Coverage.kind"/>
@@ -300,7 +313,7 @@
       <path value="Coverage.subscriber"/>
       <short value="Subscriber to the policy"/>
       <definition value="The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due."/>
-      <comment value="May be self or a parent in the case of dependants. A subscriber is only required on certain types of policies not all policies and that it is appropriate to have just a policyholder and a beneficiary when not other party can join that policy instance."/>
+      <comment value="May be self or a parent in the case of dependents. A subscriber is only required on certain types of policies not all policies and that it is appropriate to have just a policyholder and a beneficiary when no other party can join that policy instance."/>
       <requirements value="This is the party who is entitled to the benfits under the policy."/>
       <min value="0"/>
       <max value="1"/>
@@ -398,7 +411,7 @@
       <path value="Coverage.dependent"/>
       <short value="Dependent number"/>
       <definition value="A designator for a dependent under the coverage."/>
-      <comment value="Sometimes the member number is constructed from the subscriberId and the dependant number."/>
+      <comment value="Sometimes the member number is constructed from the subscriberId and the dependent number."/>
       <requirements value="For some coverages a single identifier is issued to the Subscriber and then an additional dependent number is issued to each beneficiary."/>
       <min value="0"/>
       <max value="1"/>
@@ -442,7 +455,7 @@
     <element id="Coverage.period">
       <path value="Coverage.period"/>
       <short value="Coverage start and end dates"/>
-      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force."/>
+      <definition value="Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force. When non-contiguous periods of coverage need to be documented it is recommended that this is accomplished through the use of an extension,rather than complicating coverage period calculations for many users of the Coverage resource."/>
       <requirements value="Some insurers require the submission of the coverage term."/>
       <min value="0"/>
       <max value="1"/>
@@ -746,7 +759,7 @@
     </element>
     <element id="Coverage.costToBeneficiary.exception">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="Exemption"/>
+        <valueString value="Exception"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="430,230"/>

@@ -42,7 +42,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="A ClaimResponse demonstrating Payor service code substitutions"/>
+      <valueString value="A ClaimResponse demonstrating payer service code substitutions"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="claimresponse-example-additem"/>

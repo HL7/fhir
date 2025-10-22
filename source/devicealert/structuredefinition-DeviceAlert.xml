@@ -85,6 +85,14 @@
                 <identity value="workflow" />
                 <map value="Event" />
             </mapping>
+            <mapping>
+                <identity value="DIM" />
+                <map value="AlertCondition, AlertState" />
+            </mapping>
+            <mapping>
+                <identity value="IEEESDC" />
+                <map value="AlertConditionDescriptor, AlertSignalState, AlertConditionState" />
+            </mapping>
         </element>
         <element id="DeviceAlert.identifier">
             <path value="DeviceAlert.identifier" />
@@ -671,7 +679,7 @@
             <isSummary value="false" />
             <mapping>
                 <identity value="IEEESDC" />
-                <map value="Start: AlertConditionState/DeterminationTime + AlertConditionState/ActualConditionGenerationDelay + AlertSignalState/ActualSignalGenerationDelay&lt;br&gt;End: Change of AlertConditionState/DeterminationTime" />
+                <map value="Start: AlertConditionState/DeterminationTime + AlertConditionState/ActualConditionGenerationDelay + AlertSignalState/ActualSignalGenerationDelay&#xA;End: Change of AlertConditionState/DeterminationTime" />
             </mapping>
             <type>
                 <code value="Period" />

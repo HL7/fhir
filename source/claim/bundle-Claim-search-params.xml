@@ -146,7 +146,7 @@
           <valueString value="Claim.insurer"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Claim-insurer"/>
-        <description value="The target payor/insurer for the Claim"/>
+        <description value="The target payer/insurer for the Claim"/>
         <code value="insurer"/>
         <type value="reference"/>
         <expression value="Claim.insurer"/>
