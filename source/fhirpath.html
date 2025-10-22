@@ -814,6 +814,9 @@ Calls to this object are passed through a <a href="terminology-service.html">sta
 Summary:
 </p>
 <pre class="fhirpath">
+%terminologies : TerminologyServer // default terminology server (application controls context)
+%terminologies.at(url) : TerminologyServer // terminology server at specified address
+
 %terminologies.expand(valueSet, params) : ValueSet
 %terminologies.lookup(coded, params) : Parameters
 %terminologies.validateVS(valueSet, coded, params) : Parameters
@@ -825,6 +828,24 @@ Summary:
 <p>
 For all these functions, if any of the parameters are empty, or a collection with more than one value, or one or
 more of the parameters are not valid, the return value is empty.
+</p>
+
+<p><b>at</b><a name="fn-at"> </a></p>
+
+<pre class="fhirpath">
+%terminologies.at(url) : TerminologyServer
+</pre>
+<p>
+Get a terminology server object pointing at a particular server. Note: The %terminologies object points to the default terminology server as specified by the application evaluating the FHIRPath.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+ <li><b>url</b>: A URL that points to a FHIR RESTful API.</li>
+</ul>
+<p>
+<b>Return Value:</b> A terminology server that points at the specified URL. No errors - they will come when/if the terminology server object is used.
 </p>
 
 <p><b>expand</b><a name="fn-expand"> </a></p>
@@ -977,7 +998,7 @@ Summary:
 </pre>
 
 <pre class="fhirpath">
-  %terminologies.at(url) : Server
+%server.at(url) : Server
 </pre>
 <p>
 Get a server object pointing at a particular server.
@@ -993,7 +1014,7 @@ Parameters:
   
 
 <pre class="fhirpath">
-  %server.read(type, id) : Resource
+%server.read(type, id) : Resource
 </pre>
 <p>
 Get a resource from the server.
@@ -1009,7 +1030,7 @@ Parameters:
 
 
 <pre class="fhirpath">
-  %server.create(resource) : Resource
+%server.create(resource) : Resource
 </pre>
 <p>
 Create a resource on the server.
@@ -1023,7 +1044,7 @@ Parameters:
 <p><b>Return Value:</b> The resource after it was stored. If the create operation failed, the return value is empty.</p>
 
 <pre class="fhirpath">
-  %server.update(resource) : Resource
+%server.update(resource) : Resource
 </pre>
 <p>
 Store a resource on the server.
@@ -1037,7 +1058,7 @@ Parameters:
 <p><b>Return Value:</b> The resource after it was stored. If the create operation failed, the return value is empty.</p>
 
 <pre class="fhirpath">
-  %server.delete(resource) : boolean
+%server.delete(resource) : boolean
 </pre>
 <p>
 Delete a resource on the server.
@@ -1051,7 +1072,7 @@ Parameters:
 <p><b>Return Value:</b> true if the resource was deleted, or false.</p>
 
 <pre class="fhirpath">
-  %server.search(doPost, parameters) : Bundle
+%server.search(doPost, parameters) : Bundle
 </pre>
 <p>
 Perform a search on the server.
@@ -1066,7 +1087,7 @@ Parameters:
 <p><b>Return Value:</b> A bundle with the search results. If the search fails, the return value is empty.</p>
 
 <pre class="fhirpath">
-  %server.patch(parameters) : Resource
+%server.patch(parameters) : Resource
 </pre>
 <p>
 Perform a patch operation on the server.
@@ -1080,7 +1101,7 @@ Parameters:
 <p><b>Return Value:</b> The resource after the patch. If the patch fails, the return value is empty.</p>
 
 <pre class="fhirpath">
-  %server.capabilities(mode) : Resource
+%server.capabilities(mode) : Resource
 </pre>
 <p>
 Get the capabilities from the server
@@ -1094,7 +1115,7 @@ Parameters:
 <p><b>Return Value:</b> The resource returned (CapabilitiesStatement or TerminologyCapabilities resource). If not available, the return value is empty.</p>
 
 <pre class="fhirpath">
-  %server.validate(resource, mode, parameters) : OperationOutcome
+%server.validate(resource, mode, parameters) : OperationOutcome
 </pre>
 <p>
 Validate a resource on the server.
@@ -1110,7 +1131,7 @@ Parameters:
 <p><b>Return Value:</b> An operation outcome with issues. If the validation couldn't be performed, the return value is empty.</p>
 
 <pre class="fhirpath">
-  %server.transform(source, content) : Resource
+%server.transform(source, content) : Resource
 </pre>
 <p>
 Run the $transform operation on the server.
@@ -1125,7 +1146,7 @@ Parameters:
 <p><b>Return Value:</b> The resource returned from the transform. If the transform fails, the return value is empty.</p>
 
 <pre class="fhirpath">
-  %server.everything(type, id, parameters) : Bundle
+%server.everything(type, id, parameters) : Bundle
 </pre>
 <p>
 Get a resource from the server.
@@ -1141,7 +1162,7 @@ Parameters:
 <p><b>Return Value:</b> The Bundle for type/id. If not available, the return value is empty.</p>
 
 <pre class="fhirpath">
-  %server.apply(resource, subject, parameters) : Bundle
+%server.apply(resource, subject, parameters) : Bundle
 </pre>
 <p>
 Get a resource from the server.
@@ -1151,7 +1172,7 @@ Parameters:
 </p>
 <ul>
   <li><b>resource</b>: The resource to drive the $apply operation (PlanDefinition, ActivityDefinition).</li>
-  <li><b>subject</b>: The subject top apply to - can be a resource, or a string containing type/id for the subject.</li>
+  <li><b>subject</b>: The subject to apply to - can be a resource, or a string containing type/id for the subject.</li>
   <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
 <p><b>Return Value:</b> The bundle from $apply. If the operation fails, the return value is empty.</p>
