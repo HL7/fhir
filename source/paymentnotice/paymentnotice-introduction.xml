@@ -7,8 +7,8 @@
 The PaymentNotice resource indicates the resource for which the payment has been indicated and 
 reports the current status information of that payment. The payment notice may be used by providers and payers 
 to advise the provider or regulatory bodies of the state of a payment (check in the mail/EFT sent, 
-payment cashed, payment canceled). Employers or Insurance Exchanges may use this to advise payers of 
-premium payment.
+payment cashed, payment canceled)for example to provide payment status information or to document the forwarding or receipt of payment to support regulatory
+requirements. Employers or Insurance Exchanges may also use this to advise payers of premium payment.
 </p>
 <p>
 Payers and/or providers may have the need to advise providers and/or regulators of the status of claim settlement and payment completion. 
@@ -35,7 +35,7 @@ Additional information regarding electronic payment notice content and usage may
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-	The PaymentNotice resource is used to indicate that a payment is, or is about to occur. The resource is used commonly when tracking of payment occurences is required for regulatory or business purposes, such as ensuring that payment of claim adjudications occurs within a specific timeframe. The PaymentNotice is not used to report adjudicated amounts (see <a href="claimresponse.html">ClaimResponse</a>) or to reconcile adjudicated amounts against actual payment (see <a href="paymentreconciliation.html">PaymentReconciliation</a>) 
+	The PaymentNotice resource is used to indicate that a payment has been initiated. The resource is used commonly when tracking of payment occurences is required for regulatory or business purposes, such as ensuring that payment of claim adjudications occurs within a specific timeframe. The PaymentNotice is not used to report adjudicated amounts (see <a href="claimresponse.html">ClaimResponse</a>) or to reconcile adjudicated amounts against actual payment (see <a href="paymentreconciliation.html">PaymentReconciliation</a>) 
 </p>
 
 <p>
@@ -52,7 +52,7 @@ The <a href="claimresponse.html">ClaimResponse</a> resource is an insurer's adju
 		<table border="1" cellpadding="1" cellspacing="2" frame="box">
 			<tr>
 				<td>PaymentNotice</td>
-				<td>An indication that a payment has occured, is about to occur, or has been cancelled.</td>
+				<td>An indication that a payment has been initiated or has been cancelled.</td>
 			</tr>
 			<tr>
 				<td><a href="claimresponse.html">ClaimResponse</a></td>
