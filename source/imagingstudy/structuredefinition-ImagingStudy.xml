@@ -601,7 +601,6 @@
       </type>
       <condition value="ist-4"/>
       <condition value="ist-5"/>
-      <condition value="ist-6"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
