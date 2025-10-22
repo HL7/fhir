@@ -11,7 +11,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="2"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="anonymous"/>
@@ -57,6 +57,21 @@
     <uri value="http://hl7.org/v3"/>
     <name value="RIM Mapping"/>
   </mapping>
+    <mapping>
+        <identity value="DIM" />
+        <uri value="urn:iso:std:iso:11073:10201" />
+        <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
+    </mapping>
+    <mapping>
+        <identity value="IEEESDC" />
+        <uri value="urn:iso:std:iso:11073:20701" />
+        <name value="ISO/IEEE 11073-10201 Service-Oriented Device Connectivity (SDC)" />
+    </mapping>
+    <mapping>
+      <identity value="ACOM" />
+      <uri value="urn:iso:std:iso:11073:10206"/>
+      <name value="ISO/IEEE 11073-10206 Abstract Content Information Model (ACOM)"/>
+    </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="DeviceMetric"/>
@@ -73,6 +88,14 @@
       <mapping>
         <identity value="w5"/>
         <map value="administrative.device"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM" />
+        <map value="Metric" />
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC" />
+        <map value="MetricDescriptor" />
       </mapping>
     </element>
     <element id="DeviceMetric.identifier">
@@ -117,6 +140,18 @@
         <identity value="w5"/>
         <map value="FiveWs.class"/>
       </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="type = VMO::Type&#xA;type.text = VMO::Label-String"/>
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC"/>
+        <map value="MetricDescriptor/Type"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.observation-type-list[i]"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.unit">
       <path value="DeviceMetric.unit"/>
@@ -140,6 +175,18 @@
         <description value="IEEE 11073-10101"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units" />
       </binding>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="unit = Metric::Unit-Code&#xA;unit.text = Unit::Label-String"/>
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC"/>
+        <map value="MetricDescriptor/Unit"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="UCUM unit used for SystemInfo.observation-type-list[i] observations"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.device">
       <path value="DeviceMetric.device"/>
@@ -172,6 +219,14 @@
         <description value="Describes the operational status of the DeviceMetric."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-operational-status"/>
       </binding>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Status"/>
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC"/>
+        <map value="Metric/ActivationState"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.color">
       <path value="DeviceMetric.color" />
@@ -189,6 +244,10 @@
         <description value="Describes the typical color of representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/color-codes"/>
       </binding>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Color"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.category">
       <path value="DeviceMetric.category"/>
@@ -212,6 +271,18 @@
         <identity value="w5"/>
         <map value="FiveWs.class"/>
       </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Specification::category"/>
+      </mapping>
+      <mapping >
+        <identity value="IEEESDC"/>
+        <map value="MetricDescriptor/MetricCategory"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="Filled in when this can be derived from SystemInfo.observation-type-list[i]"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.measurementFrequency">
       <path value="DeviceMetric.measurementFrequency"/>
@@ -223,6 +294,14 @@
         <code value="Quantity"/>
       </type>
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM"/>
+        <map value="value = Metric::Measure-Period::value or Metric::Metric-Specification::update-period&#xA;unit = Metric::Measure-Period::unit-code"/>
+      </mapping>
+      <mapping>
+        <identity value="IEEESDC"/>
+        <map value="MetricDescriptor/DeterminationPeriod"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.availability">
       <path value="DeviceMetric.availability"/>
@@ -243,6 +322,10 @@
         <description value="Describes the availability of the metric"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
       </binding>
+      <mapping>
+        <identity value="IEEESDC"/>
+        <map value="MetricDescriptor/MetricAvailability"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.calibration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
@@ -276,6 +359,10 @@
         <description value="Describes the type of a metric calibration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-type"/>
       </binding>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Calibration::cal-type"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.calibration.state">
       <path value="DeviceMetric.calibration.state"/>
@@ -295,6 +382,10 @@
         <description value="Describes the state of a metric calibration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-state"/>
       </binding>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Calibration::cal-state"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.calibration.time">
       <path value="DeviceMetric.calibration.time"/>
@@ -306,6 +397,10 @@
         <code value="instant"/>
       </type>
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Calibration::cal-time"/>
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

@@ -119,6 +119,7 @@
     <element id="Observation.category:VSCat">
       <path value="Observation.category"/>
       <sliceName value="VSCat"/>
+      <definition value="A code that classifies the general type of observation being made as a vital sign related observation, whether a point-in-time or calculated vital sign observation. "/>
       <min value="1"/>
       <max value="1"/>
       <patternCodeableConcept>
@@ -169,8 +170,8 @@
     </element>
     <element id="Observation.value[x]">
       <path value="Observation.value[x]"/>
-      <short value="Vital Signs values are recorded using the Quantity data type. For supporting component observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
-      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting component observations recorded as a component, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <short value="The quantity for the vital sign being observed."/>
+      <definition value="The quantity for the vital sign being observed."/>
       <type>
         <code value="Quantity"/>
       </type>
@@ -218,8 +219,8 @@
     </element>
     <element id="Observation.component.value[x]">
       <path value="Observation.component.value[x]"/>
-      <short value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
-      <definition value="Vital Signs values are recorded using the Quantity data type. For supporting component observations, such as blood pressure cuff size, other datatypes such as CodeableConcept could be used."/>
+      <short value="The value for the vital sign component being observed."/>
+      <definition value="The value for the vital sign component being observed."/>
     </element>
     <element id="Observation.component.value[x]:valueQuantity">
       <path value="Observation.component.value[x]"/>

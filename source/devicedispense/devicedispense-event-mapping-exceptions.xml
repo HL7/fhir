@@ -1,5 +1,40 @@
 <mappingExceptions pattern="Event" resource="DeviceDispense" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="DeviceDispense.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business identifier for device dispense"/>
+            <resource value="Business identifier for this dispensation"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this device dispense by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Business identifier for this dispensation."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="This is a business identifier, not a resource identifier."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the device dispense as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.basedOn" resourcePath="DeviceDispense.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,DeviceRequest)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="The order or request that this dispense is fulfilling"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this device dispense."/>
+            <resource value="The order or request that this dispense is fulfilling."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the device dispense and tracking whether proposals/recommendations were acted upon."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.partOf" resourcePath="DeviceDispense.partOf">
         <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
         <extraTypes _resource="Reference(Procedure)" reason="Unknown"/>
@@ -47,17 +82,29 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.code" resourcePath="DeviceDispense.device">
-        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(Device,DeviceDefinition)" reason="Unknown"/>
-        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+    <divergentElement patternPath="Event.category" resourcePath="DeviceDispense.category">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="What service was done"/>
+            <_pattern value="High level categorization of device dispense"/>
+            <resource value="Type of device dispense"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Partitions the device dispense into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="Indicates the type of device dispense."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value="The category can be used to include where the device is expected to be consumed or other types of dispenses.  Invariants can be used to bind to different value sets when profiling to bind."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.product" resourcePath="DeviceDispense.device">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product used/provided"/>
             <resource value="What device was supplied"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <_pattern value="Indicates the product supplied or manipulated by this device dispense."/>
             <resource value="Identifies the device being dispensed. This is either a link to a resource representing the details of the device or a simple attribute carrying a code that identifies the device from a known list of devices."/>
         </definitionUnmatched>
     </divergentElement>
@@ -135,6 +182,21 @@
             <resource value="The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the device."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.location" resourcePath="DeviceDispense.location">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Where device dispense occurred"/>
+            <resource value="Where the dispense occurred"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The principal physical location where the device dispense was performed."/>
+            <resource value="The principal physical location where the dispense was performed."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.note" resourcePath="DeviceDispense.note">
         <shortUnmatched reason="Unknown">
             <_pattern value="Comments made about the event"/>
@@ -145,15 +207,24 @@
             <resource value="Extra information about the dispense that could not be conveyed in the other attributes."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.relevantHistory" resourcePath="DeviceDispense.relevantHistory">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Key events in history of device dispense"/>
+            <resource value="A list of relevant lifecycle events"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Links to Provenance records for past versions of this resource or component resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource."/>
+            <resource value="A summary of the events of interest that have occurred, such as when the dispense was verified."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.  Referenced provenances should adhere to the provenance-relevant-history profile.&#10;&#10;See additional guidance [here](event.html#history)."/>
+            <resource value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
+        </commentsUnmatched>
+    </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.reason" reason="Unknown"/>
-    <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
-    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.code" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
-    <unmappedElement patternPath="Event.category" reason="Unknown"/>
     <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="Event.product" reason="Unknown"/>
-    <unmappedElement patternPath="Event.identifier" reason="Unknown"/>
-    <unmappedElement patternPath="Event.basedOn" reason="Unknown"/>
     <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
 </mappingExceptions>
