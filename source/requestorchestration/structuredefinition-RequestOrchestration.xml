@@ -1078,7 +1078,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of action to be performed."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/action-type"/>
       </binding>
     </element>
 		<element id="RequestOrchestration.action.applicabilityBehavior">
