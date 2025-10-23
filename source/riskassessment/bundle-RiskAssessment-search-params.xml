@@ -169,7 +169,7 @@
         <description value="Likelihood of specified outcome (as a Quantity or Range)"/>
         <code value="probability-quantity"/>
         <type value="quantity"/>
-        <expression value="RiskAssessment.prediction.probability.ofType(Quantity) | RiskAssessment.prediction.proability.ofType(Range)"/>
+        <expression value="RiskAssessment.prediction.probability.ofType(Quantity) | RiskAssessment.prediction.probability.ofType(Range)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
