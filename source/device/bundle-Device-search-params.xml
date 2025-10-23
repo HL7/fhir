@@ -364,7 +364,7 @@
         <description value="The type of the device"/>
         <code value="type"/>
         <type value="token"/>
-        <expression value="Device.type |  Device.definition.resolve().classification.type "/>
+        <expression value="Device.type"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
