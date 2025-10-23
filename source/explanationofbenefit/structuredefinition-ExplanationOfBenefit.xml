@@ -507,7 +507,9 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
@@ -521,7 +523,10 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.event">
@@ -574,8 +579,8 @@
       <path value="ExplanationOfBenefit.payee"/>
       <short value="Recipient of benefits payable"/>
       <definition value="The party to be reimbursed for cost of the products and services according to the terms of the policy."/>
-      <comment value="Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead."/>
-      <requirements value="The provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
+      <comment value="Often billing providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead."/>
+      <requirements value="The billing provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -585,8 +590,8 @@
     <element id="ExplanationOfBenefit.payee.type">
       <path value="ExplanationOfBenefit.payee.type"/>
       <short value="Category of recipient"/>
-      <definition value="Type of Party to be reimbursed: Subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <definition value="Type of Party to be reimbursed: Subscriber, billing provider, other."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2540,8 +2545,8 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.item.informationSequence">
-      <path value="ExplanationOfBenefit.item.informationSequence"/>
+    <element id="ExplanationOfBenefit.addItem.informationSequence">
+      <path value="ExplanationOfBenefit.addItem.informationSequence"/>
       <short value="Applicable exception and supporting information"/>
       <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>
       <requirements value="Need to reference the supporting information items that relate directly to this product or service."/>
@@ -3563,6 +3568,27 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.processNote.class">
+      <path value="ExplanationOfBenefit.processNote.class"/>
+      <short value="Business kind of note"/>
+      <definition value="A code to indicate the business purpose of the note."/>
+      <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessNoteClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Business class of the process note."/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.processNote.number">
       <path value="ExplanationOfBenefit.processNote.number"/>
       <short value="Note instance identifier"/>
@@ -3604,7 +3630,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.processNote.language">

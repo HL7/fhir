@@ -12,10 +12,6 @@
 		<system value="http://acme.com/labs/accession-ids"/>
 		<value value="20150816-00124"/>
 	</identifier>
-	<accessionIdentifier>
-		<system value="http://acme.com/labs/accession-ids"/>
-		<value value="20150816-00124"/>
-	</accessionIdentifier>
 	<type>
 		<coding>
 			<system value="http://snomed.info/sct"/>

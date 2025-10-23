@@ -450,8 +450,8 @@
     <element id="ClaimResponse.payeeType">
       <path value="ClaimResponse.payeeType"/>
       <short value="Party to be paid any benefits payable"/>
-      <definition value="Type of Party to be reimbursed: subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <definition value="Type of Party to be reimbursed: subscriber, billing provider, other."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1997,7 +1997,7 @@
       <short value="Funds reserved status"/>
       <definition value="A code, used only on a response to a preauthorization, to indicate whether the benefits payable have been reserved and for whom."/>
       <comment value="Fund would be release by a future claim quoting the preAuthRef of this response. Examples of values include: provider, patient, none."/>
-      <requirements value="Needed to advise the submitting provider on whether the rquest for reservation of funds has been honored."/>
+      <requirements value="Needed to advise the submitting provider on whether the request for reservation of funds has been honored."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2067,6 +2067,27 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="ClaimResponse.processNote.class">
+      <path value="ClaimResponse.processNote.class"/>
+      <short value="Business kind of note"/>
+      <definition value="A code to indicate the business purpose of the note."/>
+      <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessNoteClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Business class of the process note."/>
+      </binding>
+    </element>
     <element id="ClaimResponse.processNote.number">
       <path value="ClaimResponse.processNote.number"/>
       <short value="Note instance identifier"/>
@@ -2108,7 +2129,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ClaimResponse.processNote.language">

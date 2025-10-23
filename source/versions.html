@@ -418,9 +418,10 @@ has a process allowing violation of these rules in <a href="https://confluence.h
       <a name="f-compat-cardianality"></a>
       Minimum element cardinalities will not be changed.  Upper cardinality may change from 1 to * only in circumstances
       where all elements except for the first repetition can be safely ignored. Note that this may change the path to the element in some 
-      syntaxes (e.g. JSON). This may mean that an order is assigned to the repeating items or that there is no preference as to which 
+      syntaxes (e.g. JSON) and may also break FHIRPath expressions that don't allow for the possibility of repetitions.
+      This may mean that an order is assigned to the repeating items or that there is no preference as to which 
       element is retained.  Systems should follow the <a href="#f-compat">rules above</a> for unexpected elements.
-      Because of the JSON issue, changes to cardinality for normative elements will be minimized whenever possible, e.g. by defining new 
+      Because of the JSON and FHIRPath issues, changes to cardinality for normative elements will be minimized whenever possible, e.g. by defining new 
       sibling elements.
       </td>
     </tr>
