@@ -16,10 +16,6 @@
         <system value="http://pathology.acme.org/accession"/>
         <value value="PB24-00789"/>
     </identifier>
-    <accessionIdentifier>
-        <system value="http://pathology.acme.org/accession"/>
-        <value value="PB24-00789"/>
-    </accessionIdentifier>
     <status value="available"/>
     <type>
         <coding>
