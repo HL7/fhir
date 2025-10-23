@@ -1,0 +1,2 @@
+//The first example with a subject of group 124.
+GET [base]/Measure/$care-gaps?measureId=EXM130-7.3.000&periodStart=2014-01&periodEnd=2014-03&status=open-gap&subject=Group/124
