@@ -88,7 +88,7 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EnrollmentResponse.candidate"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentResponse-group"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentResponse-group"/> 
         <description value="The parties to be enrolled"/>
         <code value="group"/>
         <type value="reference"/>

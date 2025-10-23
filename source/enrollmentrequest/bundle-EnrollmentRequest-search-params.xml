@@ -63,7 +63,7 @@
     <resource>
       <SearchParameter>
         <id value="EnrollmentRequest-status"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"> 
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
