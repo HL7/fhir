@@ -5,25 +5,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Specimen-accession"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.accessionIdentifier"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-accession"/>
-        <description value="The accession number associated with the specimen"/>
-        <code value="accession"/>
-        <type value="token"/>
-        <expression value="Specimen.accessionIdentifier"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Specimen-bodysite"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
