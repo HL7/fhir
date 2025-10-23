@@ -54,14 +54,14 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The submit-data operation is used to submit data-of-interest for a measure. There is no expectation that the submitted data represents all the data-of-interest, only that all the data submitted is relevant to the calculation of the measure for a particular subject or population. The dataUpdateType element of the MeasureReport resource is used to indicate whether the data being submitted is a snapshot or incremental update. Additional guidance about data exchange for quality reporting can be found in the Data Exchange for Quality Measures implementation guide. Note that the use of the [X-Provenance header data](provenance.html#header) with data that establishes provenance being submitted/collected **SHOULD** be supported.  This provides the capability for associating the provider with the data submitted through the $submit-data transaction. If the X-Provenance header is used it should be consistent with the `reporter` element in the DEQM Data Exchange MeasureReport Profile."/>
+  <description value="The submit-data operation is used to submit data-of-interest for one or more measures for one or more subjects. Each submitted Bundle **SHOULD** contain resources for a single subject and **SHOULD** contain all of the MeasureReports and data of interest related to that subject. There is no expectation that the submitted data represents all the data-of-interest, only that all the data submitted is relevant to the calculation of the measure for a particular subject or population. The dataUpdateType element of the MeasureReport resource is used to indicate whether the data being submitted is a snapshot or incremental update. Additional guidance about data exchange for quality reporting can be found in the Data Exchange for Quality Measures implementation guide. Note that the use of the [X-Provenance header data](https://hl7.org/fhir/6.0.0-ballot3/provenance.html#header) with data that establishes provenance being submitted/collected **SHOULD** be supported. This provides the capability for associating the provider with the data submitted through the $submit-data transaction. If the X-Provenance header is used it should be consistent with the reporter element in the DEQM Data Exchange MeasureReport Profile. This operation is purposefully not allowed on a Measure instance because the MeasureReport included in the Bundle specifies the measure."/>
   <affectsState value="false"/>
   <code value="submit-data"/>
   <comment value="The effect of invoking this operation is that the submitted data is posted to the receiving system and can be used for subsequent calculation of the relevant quality measure. The data-of-interest for a measure can be determined by examining the measure definition, or by invoking the $data-requirements operation"/>
   <resource value="Measure"/>
   <system value="false"/>
   <type value="true"/>
-  <instance value="true"/>
+  <instance value="false"/>
   <parameter>
     <name value="measureReport"/>
     <use value="in"/>
