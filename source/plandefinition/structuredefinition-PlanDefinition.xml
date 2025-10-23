@@ -1290,6 +1290,7 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
+			<orderMeaning value="The order of actions is the sequence in which the actions are to be evaluated and performed. This is true of both the actions in the root as well as child actions of each action."/>
 			<condition value="pld-3"/>
 			<condition value="pld-4"/>
 			<mapping>
@@ -2056,6 +2057,29 @@
 			<mapping>
 				<identity value="rim"/>
 				<map value=".moodCode { Maybe? this is effectively Create, Update, or Delete }"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.applicabilityBehavior">
+			<path value="PlanDefinition.action.applicabilityBehavior"/>
+			<short value="all | any"/>
+			<definition value="All - meaning the applicability of each child action is evaluated independently; if a child action is applicable according to the applicability criteria, it is applied. Any - meaning that each child action is evaluated in order, and the first action that returns an applicability of true will be applied, and processing of the parent action will stop. If not specified, the default behavior of All is used."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="If no applicability behavior is specified but the action has children, the default applicability criteria of All is assumed, meaning that each child action is evaluated independently."/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionApplicabilityBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines applicability behavior of a group."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-applicability-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
 			</mapping>
 		</element>
 		<element id="PlanDefinition.action.groupingBehavior">
