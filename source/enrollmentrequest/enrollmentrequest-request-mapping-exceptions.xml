@@ -36,15 +36,14 @@
     </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="EnrollmentRequest.candidate">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual the service is ordered/prohibited for"/>
-            <resource value="The subject to be enrolled"/>
+            <resource value="The subject(s)to be enrolled"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
-            <resource value="Patient Resource."/>
+            <resource value="The subject or group of subjects to be enrolled."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the request to the Patient context."/>
