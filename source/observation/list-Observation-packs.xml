@@ -6,11 +6,6 @@
   <mode value="working"/>
   <entry>
     <item>
-      <reference value="ImplementationGuide/Observation-core"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
       <reference value="ImplementationGuide/Observation-vitalsigns"/>
     </item>
   </entry>
