@@ -132,9 +132,9 @@
     </element>
     <element id="DetectedIssue.status">
       <path value="DetectedIssue.status"/>
-      <short value="preliminary | final | entered-in-error | unknown | mitigated"/>
+      <short value="preliminary | final | entered-in-error | unknown | mitigated | processing-error"/>
       <definition value="The current state of the detected issue."/>
-      <comment value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is. Processing error is used to indicate that an error occurred attempting to evaluate a detected issue. For example, a DetectedIssue with a code of drug-drug interaction could have a status of processing-error to indicate that an error was encountered attempting to determine whether there was a drug-drug interaction."/>
       <alias value="status"/>
       <min value="1"/>
       <max value="1"/>
