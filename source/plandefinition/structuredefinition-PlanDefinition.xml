@@ -307,7 +307,7 @@
 		</element>
 		<element id="PlanDefinition.type">
 			<path value="PlanDefinition.type"/>
-			<short value="order-set | protocol | eca-rule | workflow-definition"/>
+			<short value="order-set | protocol | eca-rule | workflow-definition | etc."/>
 			<definition value="A high-level category for the plan definition that distinguishes the kinds of systems that would be interested in the plan definition."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -2039,7 +2039,7 @@
 		</element>
 		<element id="PlanDefinition.action.type">
 			<path value="PlanDefinition.action.type"/>
-			<short value="create | update | remove | fire-event"/>
+			<short value="create | update | remove | fire-event | etc."/>
 			<definition value="The type of action to perform (create, update, remove)."/>
 			<min value="0"/>
 			<max value="1"/>
