@@ -249,6 +249,58 @@
     </part>
   </parameter>
   <parameter>
+    <name value="supplementalData"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation
+      value="What additional supplemental data should be reported with the measure. This additional data is specified in the same was as supplemental data in the Measure resource, and is reported in the same way in the MeasureReport."/>
+    <part>
+      <name value="code"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation
+        value="Meaning of the supplemental data."/>
+      <type value="CodeableConcept"/>
+      <binding>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-supplemental-data-example"/>
+      </binding>
+    </part>
+    <part>
+      <name value="usage"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation
+        value="supplemental-data | risk-adjustment | factor"/>
+      <type value="CodeableConcept"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-data-usage"/>
+      </binding>
+    </part>
+    <part>
+      <name value="description"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation
+        value="Human readable description of this supplemental data element"/>
+      <type value="markdown"/>
+    </part>
+    <part>
+      <name value="criteria"/>
+      <use value="in"/>
+      <min value="1"/>
+      <max value="1"/>
+      <documentation
+        value="Expression describing the additional data to be reported. This may be the name of an expression in a library, or it may be a path to a specific data element, reachable from the subject being evaluated."/>
+      <type value="Expression"/>
+    </part>
+  </parameter>
+  <parameter>
     <name value="return"/>
     <use value="out"/>
     <min value="0"/>
