@@ -75,6 +75,7 @@
         <type value="reference"/>
         <expression value="EnrollmentResponse.candidate.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
+		<target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -94,6 +95,7 @@
         <type value="reference"/>
         <expression value="EnrollmentResponse.candidate.where(resolve() is Group)"/>
         <processingMode value="normal"/>
+		<target value="Group"/>
       </SearchParameter>
     </resource>
   </entry>
