@@ -180,6 +180,17 @@
         <map value="DocumentReference.version"/>
       </mapping>
     </element>
+    <element id="Composition.consent">
+      <path value="Composition.consent"/>
+      <short value="Refers to a FHIR Consent instance that indicates a patient's consent"/>
+      <definition value="Refers to a FHIR Consent instance that indicates a patient's consent."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Consent"/>
+      </type>
+    </element>
     <element id="Composition.basedOn">
       <path value="Composition.basedOn"/>
       <short value="Service request that caused this media to be created"/>
@@ -461,6 +472,7 @@
       <path value="Composition.author"/>
       <short value="Who and/or what authored the composition"/>
       <definition value="Identifies who is responsible for the information in the composition, not necessarily who typed it in."/>
+	  <comment value="When the Composition is software-generated, a Device can be referenced. When a software-generated Composition is verified by a human (but not authored by that human), use the attester element to identify the human(s) who performed the verification."/>
       <requirements value="Identifies who is responsible for the content."/>
       <min value="1"/>
       <max value="*"/>
@@ -667,6 +679,8 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -984,6 +998,16 @@
         <identity value="cda"/>
         <map value=".text"/>
       </mapping>
+    </element>
+    <element id="Composition.section.note">
+      <path value="Composition.section.note"/>
+      <short value="Information about the section contents that is not represented by any of the section entries"/>
+      <comment value="A comment, general note or annotation not coded elsewhere in the section."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
     </element>
     <element id="Composition.section.orderedBy">
       <path value="Composition.section.orderedBy"/>
