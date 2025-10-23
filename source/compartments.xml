@@ -195,6 +195,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BiologicallyDerivedProduct</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">collector</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BiologicallyDerivedProductDispense</Data></Cell>
@@ -348,6 +350,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceAlert</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">subject | device | annunciator-device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -377,7 +380,7 @@
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">requester | performer</Data></Cell>
     <Cell><Data ss:Type="String">subject | requester | performer | device</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">subject | requester</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceUsage</Data></Cell>
@@ -874,7 +877,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>123</TopRowBottomPane>
+   <TopRowBottomPane>33</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

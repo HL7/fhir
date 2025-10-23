@@ -4,41 +4,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Observation-instantiates-reference"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Observation.instantiatesReference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-instantiates-reference"/>
-        <description value="Reference contained in instantiatesReference."/>
-        <code value="instantiates-reference"/>
-        <type value="reference"/>
-        <expression value="Observation.instantiates.ofType(Reference)"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Observation-instantiates-canonical"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-instantiates-canonical"/>
-        <description value="URL contained in instantiatesCanonical."/>
-        <code value="instantiates-canonical"/>
-        <type value="uri"/>
-        <expression value="Observation.instantiates.ofType(canonical)"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Observation-based-on"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -791,10 +756,10 @@
           <valueString value="Observation.value[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-string"/>
-        <description value="The value of the observation, if the value is a string, and also searches in CodeableConcept.text"/>
+        <description value="The value of the observation, if the value is a string."/>
         <code value="value-string"/>
         <type value="string"/>
-        <expression value="Observation.value.ofType(string) | Observation.value.ofType(CodeableConcept).text"/>
+        <expression value="Observation.value.ofType(string)"/>
         <processingMode value="normal"/>
       </SearchParameter>
    </resource>
@@ -859,25 +824,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Observation-component-value-canonical"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Observation.component.value[x]"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-canonical"/>
-        <description value="URL contained in valueCanonical."/>
-        <code value="component-value-canonical"/>
-        <type value="reference"/>
-        <expression value="Observation.component.value.ofType(canonical)"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-   </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="Observation-value-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -890,38 +836,6 @@
         <code value="value-reference"/>
         <type value="reference"/>
         <expression value="Observation.value.ofType(Reference)"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Observation-value-canonical"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-canonical"/>
-        <description value="URL contained in valueCanonical."/>
-        <code value="value-canonical"/>
-        <type value="uri"/>
-        <expression value="Observation.value.ofType(canonical)"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="Observation-value-string"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-string"/>
-        <description value="String in valueString."/>
-        <code value="value-string"/>
-        <type value="string"/>
-        <expression value="value.ofType(string)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

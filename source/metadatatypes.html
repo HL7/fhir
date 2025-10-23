@@ -227,6 +227,17 @@ RelatedArtifact is used in the following places: [%dtusage RelatedArtifact%]
 The RelatedArtifact type is used in a variety of contexts, and supports flexible description of relationships between artifacts. For example, the type can be used to describe both successor and predecessor relationships. This flexibility is needed to support use cases where only one side or other of the relationship is represented in FHIR. In practice, this datatype SHALL NOT be used to create bi-directional linking between FHIR resources.
 </p>
 
+<a name="relatedartifactguidance"></a>
+<h4>Guidance on RelatedArtifact Usage</h4>
+
+<p>
+  For resources that make use of RelatedArtifact, the relevant work group SHALL decide which relationships and target types are 'core' for the resource, which would historically have been handled as extensions, and which are not relevant at all. They SHALL define invariants that prohibit the use of relationships and/or target types for their resource that are never relevant or are redundant with other core elements or long-used extensions. (And if there is overlap with extensions that are not long-used, will ensure that the context for those extensions excludes the resource.) They will also add documentation to the element referencing RelatedArtifact calling out those relationship types that are considered 'core'.
+</p>
+
+<p>
+  Work groups considering the adoption of the RelatedArtifact data type, may only do so after evaluating what proportion of the incorporated elements are core for their resource and determining that the majority of the relationship types meet those criteria. They would still need to impose invariants around nonsensical or redundant relationship types and targets and provide documentation about which types were considered core. The note will also indicate that addition of new relationship types requires agreement that those relationships are 'core' to the majority of resources using the RelatedArtifactType and approval of the FHIR Infrastructure work group (from a methodology perspective).
+</p>
+
 <p>
 &nbsp;
 </p>

@@ -15,6 +15,24 @@
 			<value value="KUTGIQCVCDRHVBUK"/>
 		</identifier>
 	</subject>
+	<basedOn>
+		<type value="ServiceRequest"/>
+		<identifier>
+			<type>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+					<code value="ACSN"/>
+				</coding>
+			</type>
+			<value value="W12342398"/>
+			<assigner>
+				<reference value="Organization/dicom-organization"/>
+			</assigner>
+		</identifier>
+	</basedOn>
+	<basedOn>
+		<reference value="ServiceRequest/example"/>
+	</basedOn>
 	<derivedFrom>
 		<type value="ImagingStudy"/>
 		<identifier>
