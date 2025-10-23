@@ -95,7 +95,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Subject for which the measure will be calculated. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter will be resolved as the subject of the measure based on the type of the subject. If multiple subjects of the same type are provided, the behavior is implementation-defined"/>
+    <documentation value="Subject for which the measure will be calculated. The subject must be an instance of a type that is consistent with the subjectType of the Measure being evaluated (e.g. Patient, Practitioner, Location...). The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. If the subject is a Group, it must be an actual Group, not a definitional one. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated (i.e. if the Measure.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, the evaluation will be performed for all subjects appropriate to the Measure.subjectType (possibly constrained further by the provider parameter)."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -120,7 +120,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The type of measure report: individual, subject-list, or summary. If not specified, a default value of individual will be used if the subject parameter is supplied, otherwise, summary will be used. NOTE: Implementations should support the use of `subject` for individual and `population` for summary for backwards compatibility with existing implementations."/>
+    <documentation value="The type of measure report: individual, subject-list, or summary. If not specified, a default value of subject will be used if the subject parameter is supplied and is not a Group, otherwise, summary will be used. NOTE: Implementations should support the use of `subject` for individual and `population` for summary for backwards compatibility with existing implementations."/>
     <type value="code"/>
     <binding>
       <strength value="required"/>
