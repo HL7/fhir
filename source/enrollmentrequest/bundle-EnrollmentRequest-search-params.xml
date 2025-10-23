@@ -43,6 +43,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="EnrollmentRequest-group"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EnrollmentRequest.candidate"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EnrollmentRequest-group"/>
+        <description value="The partys to be enrolled"/>
+        <code value="group"/>
+        <type value="reference"/>
+        <expression value="EnrollmentRequest.candidate"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="EnrollmentRequest-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

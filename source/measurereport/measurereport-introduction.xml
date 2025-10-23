@@ -19,17 +19,7 @@ The resource draws requirements from the HL7 CDA R2 Implementation Guide: Qualit
 </div>
 
 <a name="stu"></a>
-<blockquote class="ballot-note">
-<p><b>Note to Balloters:</b>
 
-A new <code>countQuantity</code> element is added in this ballot. The CQI Work Group is seeking reviewers and implementers feedback on these two options addressing the need to support decimal-valued count. 
-</p>
-			<ol>
-				<li>Option 1: generalize the <code>count</code> element itself (i.e. change the <code>count</code> element to a Quantity, a breaking change)</li>
-				<li>Option 2: keep the approach of defining a new <code>countQuantity</code> element to maintain backwards compatibility</li>
-			</ol>
-<p>
-</p></blockquote>
 
 <div>
 <h2>Boundaries and Relationships</h2>
