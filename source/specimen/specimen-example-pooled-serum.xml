@@ -27,10 +27,6 @@
 		<system value="https://vetmed.iastate.edu/vdl"/>
 		<value value="20171120-1234"/>
 	</identifier>
-	<accessionIdentifier>
-		<system value="https://vetmed.iastate.edu/vdl"/>
-		<value value="20171120-1234"/>
-	</accessionIdentifier>
 	<!-- Pooled serum sample from 30 individuals in the herd- no Snomed Code for this - used a made up local code-->
 	<type>
 		<coding>
