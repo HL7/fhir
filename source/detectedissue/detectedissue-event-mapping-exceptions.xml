@@ -1,9 +1,11 @@
 <mappingExceptions pattern="Event" resource="DetectedIssue" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.status" resourcePath="DetectedIssue.status">
-        <shortUnmatched reason="Specialization">
+        <shortUnmatched reason="Unknown">
+            <!--Old resource: preliminary | final | entered-in-error | unknown | mitigated-->
+            <!--Old reason: Specialization-->
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
-            <resource value="preliminary | final | entered-in-error | unknown | mitigated"/>
+            <resource value="preliminary | final | entered-in-error | unknown | mitigated | processing-error"/>
         </shortUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.category" resourcePath="DetectedIssue.category">
