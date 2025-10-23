@@ -207,45 +207,45 @@
       <max value="*"/>
       <documentation
         value="One or more components of the stratifier definition. Additional stratifiers are reported in the MeasureReport in the same way as stratifiers defined in the Measure."/>
-    </part>
-    <part>
-      <name value="component.code"/>
-      <use value="in"/>
-      <min value="0"/>
-      <max value="1"/>
-      <documentation value="Meaning of the stratifier component."/>
-      <type value="code"/>
-      <binding>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
-      </binding>
-    </part>
-    <part>
-      <name value="component.description"/>
-      <use value="in"/>
-      <min value="0"/>
-      <max value="1"/>
-      <documentation value="Human readable description of the stratifier component"/>
-      <type value="markdown"/>
-    </part>
-    <part>
-      <name value="component.valueSet"/>
-      <use value="in"/>
-      <min value="0"/>
-      <max value="1"/>
-      <documentation
-        value="A value set defining possible stratifier values. If both expression and valueset are specified, they SHALL be consistent (i.e. the expression SHALL evaluate to a code that is a member of the specified valueset)."/>
-      <type value="canonical"/>
-      <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/> 
-    </part>
-    <part>
-      <name value="component.unit"/>
-      <use value="in"/>
-      <min value="0"/>
-      <max value="1"/>
-      <documentation
-        value="Indicates what units, if any, stratifier values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units. This information SHOULD be provided if it cannot be inferred from the stsratifier expression directly."/>
-      <type value="string"/>
+      <part>
+        <name value="code"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="Meaning of the stratifier component."/>
+        <type value="code"/>
+        <binding>
+          <strength value="example"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+        </binding>
+      </part>
+      <part>
+        <name value="description"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="Human readable description of the stratifier component"/>
+        <type value="markdown"/>
+      </part>
+      <part>
+        <name value="valueSet"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation
+          value="A value set defining possible stratifier values. If both expression and valueset are specified, they SHALL be consistent (i.e. the expression SHALL evaluate to a code that is a member of the specified valueset)."/>
+        <type value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </part>
+      <part>
+        <name value="unit"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation
+          value="Indicates what units, if any, stratifier values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units. This information SHOULD be provided if it cannot be inferred from the stsratifier expression directly."/>
+        <type value="string"/>
+      </part>
     </part>
   </parameter>
   <parameter>
@@ -260,8 +260,7 @@
       <use value="in"/>
       <min value="0"/>
       <max value="1"/>
-      <documentation
-        value="Meaning of the supplemental data."/>
+      <documentation value="Meaning of the supplemental data."/>
       <type value="CodeableConcept"/>
       <binding>
         <strength value="example"/>
@@ -273,8 +272,7 @@
       <use value="in"/>
       <min value="0"/>
       <max value="*"/>
-      <documentation
-        value="supplemental-data | risk-adjustment | factor"/>
+      <documentation value="supplemental-data | risk-adjustment | factor"/>
       <type value="CodeableConcept"/>
       <binding>
         <strength value="extensible"/>
@@ -286,8 +284,7 @@
       <use value="in"/>
       <min value="0"/>
       <max value="1"/>
-      <documentation
-        value="Human readable description of this supplemental data element"/>
+      <documentation value="Human readable description of this supplemental data element"/>
       <type value="markdown"/>
     </part>
     <part>
