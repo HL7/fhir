@@ -144,7 +144,7 @@
     <element id="Coverage.status">
       <path value="Coverage.status"/>
       <short value="active | cancelled | draft | entered-in-error"/>
-      <definition value="The status of the resource instance."/>
+      <definition value="The status of the resource instance. The status element does not indicate whether the policy reflected in the instance is in-force at any particular point in time, that would be conveyed via the 'period' element."/>
       <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid."/>
       <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
@@ -313,7 +313,7 @@
       <path value="Coverage.subscriber"/>
       <short value="Subscriber to the policy"/>
       <definition value="The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due."/>
-      <comment value="May be self or a parent in the case of dependents. A subscriber is only required on certain types of policies not all policies and that it is appropriate to have just a policyholder and a beneficiary when not other party can join that policy instance."/>
+      <comment value="May be self or a parent in the case of dependents. A subscriber is only required on certain types of policies not all policies and that it is appropriate to have just a policyholder and a beneficiary when no other party can join that policy instance."/>
       <requirements value="This is the party who is entitled to the benfits under the policy."/>
       <min value="0"/>
       <max value="1"/>

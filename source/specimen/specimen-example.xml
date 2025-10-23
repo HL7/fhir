@@ -23,10 +23,6 @@
 		<system value="http://lab.acme.org/specimens/2011"/>
 		<value value="X352356"/>
 	</identifier>
-	<accessionIdentifier>
-		<system value="http://lab.acme.org/specimens/2011"/>
-		<value value="X352356"/>
-	</accessionIdentifier>
 	<status value="available"/>
 	<type>
 		<!--
