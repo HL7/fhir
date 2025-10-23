@@ -647,6 +647,8 @@
       <condition value="isl-6"/>
       <condition value="isl-4"/>
       <condition value="isl-7"/>
+      <condition value="isl-10"/>
+      <condition value="isl-11"/>
       <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.instance.uid">
@@ -772,6 +774,7 @@
         <code value="positiveInt"/>
       </type>
       <condition value="isl-10"/>
+      <condition value="isl-11"/>
       <isSummary value="false"/>
     </element>
     <element id="ImagingSelection.instance.imageRegion2D">
