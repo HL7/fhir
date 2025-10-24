@@ -87,6 +87,13 @@
       <comment value="While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="cmp-3"/>
+        <severity value="error"/>
+        <human value="If attester exists then the Composition either needs a text or a section"/>
+        <expression value="attester.empty() or text.exists() or section.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -474,7 +481,7 @@
       <definition value="Identifies who is responsible for the information in the composition, not necessarily who typed it in."/>
 	  <comment value="When the Composition is software-generated, a Device can be referenced. When a software-generated Composition is verified by a human (but not authored by that human), use the attester element to identify the human(s) who performed the verification."/>
       <requirements value="Identifies who is responsible for the content."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
@@ -596,7 +603,7 @@
       <short value="Human Readable name/title"/>
       <definition value="Official human-readable label for the composition."/>
       <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
@@ -639,6 +646,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <condition value="cmp-3"/>
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
@@ -720,6 +728,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="w5"/>
@@ -929,6 +938,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <condition value="cmp-3"/>
       <constraint>
         <key value="cmp-1"/>
         <severity value="error"/>
@@ -1096,7 +1106,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="What order applies to the items in the entry."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-order"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/list-order"/>
       </binding>
       <mapping>
         <identity value="rim"/>
