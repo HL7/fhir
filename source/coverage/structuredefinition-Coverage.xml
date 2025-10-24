@@ -588,7 +588,7 @@
     <element id="Coverage.order">
       <path value="Coverage.order"/>
       <short value="Relative order of the coverage"/>
-      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicatble and would apply in the order specified in parenthesis."/>
+      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicable and would apply in the order specified in parenthesis. Coverage.order conveys the Coordination of Benefit (COB) ordering of coverage independent of use-case, for a use-case dependent set of Coverages see Account.coverage.priority."/>
       <requirements value="Used in managing the coordination of benefits."/>
       <min value="0"/>
       <max value="1"/>
