@@ -1,2 +1,2 @@
-// Request evaluation of the CMS146 measure for all patients over a measurement period of all of 2014
+// 1) Evaluation of the CMS146 measure for all patients over a measurement period of all of 2014
 GET [base]/Measure/CMS146/$evaluate-measure?periodStart=2014&periodEnd=2014
