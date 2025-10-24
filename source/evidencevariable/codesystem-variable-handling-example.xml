@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="variable-handling"/>
+  <id value="variable-handling-example"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,14 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
   </extension>
-  <url value="http://hl7.org/fhir/variable-handling"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.1956"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/variable-handling-example"/>
   <version value="6.0.0"/>
-  <name value="EvidenceVariableHandling"/>
-  <title value="Evidence Variable Handling"/>
+  <name value="EvidenceVariableHandlingExample"/>
+  <title value="Evidence Variable Handling Example"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -38,7 +34,7 @@
   </contact>
   <description value="The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
   <content value="complete"/>
   <concept>
     <code value="boolean"/>
