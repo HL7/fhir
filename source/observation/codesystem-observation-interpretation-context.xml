@@ -9,8 +9,7 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/CodeSystem/observation-interpretation-context"/>
-  <identifier>
-      </identifier>
+ 
   <version value="6.0.0"/>
   <name value="ObservationInterpretationContextCodes"/>
   <title value="Observation Interpretation Context Codes"/>
