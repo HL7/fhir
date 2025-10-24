@@ -101,7 +101,12 @@
     <outcome>
       <text value="Heart Attack"/>
     </outcome>
-    <probabilityDecimal value="0.02"/>
+    <probabilityQuantity>
+      <value value="0.02"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <low>
         <value value="39"/>

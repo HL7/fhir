@@ -43,4 +43,9 @@
     <display value="Mitigated"/>
     <definition value="Indicates the detected issue has been mitigated"/>
   </concept>
+  <concept>
+    <code value="processing-error"/>
+    <display value="Processing error"/>
+    <definition value="Indicates that an error occurred in the evaluation of the proposed action. For example, a drug/drug interaction detected issue could have a status of processing-error to indicate that an error was encountered attempting to determine whether there was a drug-drug interaction."/>
+  </concept>
 </CodeSystem>
