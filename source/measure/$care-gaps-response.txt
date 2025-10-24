@@ -1,4 +1,4 @@
-// Returned on successful evaluation
+// Returned on successful evaluation for request for a care gaps report for a patient for all Preventive Care and Screening measures
 HTTP/1.1 200 OK
 
 $include care-gaps-response.xml
