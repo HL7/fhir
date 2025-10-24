@@ -200,7 +200,7 @@ Web Health Care and Life Sciences Interest Group</a>.
      fhir:l &lt;http://hl7.org/fhir/Patient/infant&gt; ;
      fhir:reference [ fhir:v "Patient/infant" ]
   ] ; #
-  ...
+  …
 </pre>
 
         <p> In this example, </p>
@@ -209,15 +209,17 @@ Web Health Care and Life Sciences Interest Group</a>.
           <li>the type (<code class="rdf">fhir:Observation</code>) and
             following properties (e.g. <code class="rdf">fhir:status</code>)
             are prefixed names (like XML namespaced names),</li>
-          <li>assertions following a ';' re-use the same subject, and</li>
-          <li>anonymous nodes are declared with '<code class="rdf">[ ... ]</code>'s.</li>
+          <li>assertions following a ';' re-use the same subject,</li>
+          <li>anonymous nodes are declared with '<code class="rdf">[ ... ]</code>'s,</li>
+          <li>and literals with a quoted value and an optional datatype
+            preceded by '^^' (e.g. <code class="rdf">"http://loinc.org"^^xsd:anyURI</code>).</li>
         </ul>
 
         <h3><a name="serialization-conventions"></a>FHIR Turtle
           Serialization Conventions</h3>
         <p>FHIR Turtle imposes additional conventions to simplify recognition
         and manipulation of FHIR RDF graphs.&nbsp; Although RDF graphs
-        in general may be serialized in various RDF formats, FHIR RDF
+        in general may be serialized in any RDF format, FHIR RDF
         mandates support specifically for <a
           href="https://www.w3.org/TR/turtle/">Turtle</a>. All FHIR RDF
         documentation is expressed in Turtle.&nbsp;&nbsp; And while the
@@ -246,11 +248,12 @@ href="fhir.shex">fhir.shex</a>
             relationships can appear in any order in RDF, it cannot be
             assumed that the first encountered element represents the
             resource of interest that is being represented by the set of
-            Turtle statements. The focal resource -- where to start when
-            parsing in XML or JSON -- is the resource with a <code>fhir:nodeRole</code>
+            Turtle statements. The focal resource -- the Resource that is not contained in any other Resource
+             -- is indicated by having a <code>fhir:nodeRole</code> property with a value
             of <code>fhir:treeRoot</code>. If there is more than one
             node labeled as a 'treeRoot' in a set of Turtle statements,
-            the focal resources cannot be determined. </p>
+            it may be impossible to deterimine which is the outermost
+            Resource. </p>
 
         <a name="nestedNodes"></a>
           <h4>Nested Anonymous Nodes</h4>
@@ -325,7 +328,7 @@ href="fhir.shex">fhir.shex</a>
 
           <p> The <a href="observation.html#tabs-ttl">Observation.instantiates[x]</a> property -- <code class="rdf">fhir:instantiates</code> in Turtle -- is unusual in that its value may either
             be the complex type <code class="rdf">fhir:Reference</code>
-            (<a href="references.html#Reference>Reference</a>)
+            (<a href="references.html#Reference">Reference</a>)
             or the primitve type <code class="rdf">fhir:Canonical</code>
             (<a href="datatypes.html#canonical">canonical</a>).
             But in either case, the type is specified, such as:
@@ -365,8 +368,8 @@ href="fhir.shex">fhir.shex</a>
             order of their elements.  For example this 
             <code>fhir:coding</code> property holds a list of two members: /p>
           <pre class="rdf">    fhir:coding <b>(</b>
-      [ a &lt;http://loinc.org/rdf/29463-7&gt; ... ]
-      [ a &lt;http://loinc.org/rdf/3141-9&gt; ... ]
+      [ a &lt;http://loinc.org/rdf/29463-7&gt; … ]
+      [ a &lt;http://loinc.org/rdf/3141-9&gt; … ]
     <b>)</b></pre>
           <p> Since RDF lists can cause problems for OWL users, a
             <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a> can
@@ -609,13 +612,13 @@ href="fhir.shex">fhir.shex</a>
         fhir:v "http://example.org/fhir/Patient/23"^^xsd:anyURI ] ;
       fhir:resource &lt;http://example.org/fhir/Patient/23&gt;
     ] )
-...
+…
 # This is a member of the above Bundle:
 &lt;http://example.org/fhir/Patient/23&gt; a fhir:Patient ;
   fhir:id [ fhir:v "23"] ;
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "..."^^rdf:XMLLiteral ]
+     fhir:div [ fhir:v "…"^^rdf:XMLLiteral ]
   ] ;
   fhir:identifier ( [
      fhir:system [
@@ -631,11 +634,27 @@ href="fhir.shex">fhir.shex</a>
               has a URI</a> that is determined from its
             <a href="bundle-definitions.html#Bundle.entry.fullUrl">fhir:fullUrl property</a>
             as described in
-            <a href="bundle.html#references">Resolving references in Bundles</a>,
-            and that URI will normally be unique, though see
+            <a href="bundle.html#references">Resolving references in Bundles</a>.
+            Systems are responsible for
             <a href="bundle.html#bundle-unique">
-              caveats about URI uniqueness</a>
-            in the case of multiple versions of a resource.</p>
+              ensuring a unique mapping from fullUrl to Resource</a>,
+            including in the case of multiple versions of a resource.</p>
+
+          <p>
+            When parsed into RDF, all URIs are absolute, e.g. <code>http://example.org/some/path.ext</code>.
+            The Turtle syntax for RDF leverages the same <a href="https://datatracker.ietf.org/doc/html/rfc3986#section-5.2">relative URL resolution</a> as HTML.
+            The FHIR examples (available from the downloads page) and this document follow some conventions described below with the goal of
+          </p>
+          <ul>
+            <li>illustrating the process of relative URL resolution,</li>
+            <li>leveraging the uniqueness of the identifiers afforded by Web architecture,</li>
+            <li>presenting terse and readable examples.</li>
+          </ul>
+          <p>
+            URLs are constructed from the fhir:id property if it is given in the example.
+            These are presumed to be Resources in a server compliant with the FHIR REST API served from <code>http://example.org/</code>.
+            Thusly, a <code>PlanDefinition</code> with id "KDN5" is assumed to have a URL of <code>http://example.org/PlanDefinition/KDN5</code>.
+          </p>
 
           <p>If a
             <a href="domainresource-definitions.html#DomainResource.contained">contained</a>
@@ -644,20 +663,14 @@ href="fhir.shex">fhir.shex</a>
             <a href="references.html#contained">
               rules for Contained Resources</a>. Local references
             (i.e., starting with "#") are relative to the parent (containing)
-            resource.  If no parent URI can be determined, the contained
-            resource's URI will be represented in Turtle as a relative URI.
-            Since relative URIs in Turtle are relative to the document's
-            <a href="https://www.w3.org/TR/turtle/#sec-iri-references">
-              base URI</a>, users are advised be sure to define distinct base
-            URIs when merging FHIR RDF data that might otherwise use the same
-            local reference for different purposes.</p>
+            resource.  If the example does not include a containing Resource with an apparent URL, we will
+            represent that resource's URI in Turtle as a relative URI.</p>
 
-          <p>In the following example (derived from the
-            <a href="plandefinition-example-kdn5-simplified.ttl.html">
-              KDN5 example</a>) the parent URI is known, so the contained
-            resource (having fhir:id "1111") is given a URI
-            based on its parent URI.  A "#" character is prepended to
-            the child's fhir:id when it is used as a local reference.  </p>
+          <p>In the following example (derived from the <a href="plandefinition-example-kdn5-simplified.ttl.html">KDN5 example</a>), the FHIR id is given ("KDN5") so we assume a base URL of <code>http://example.org/PlanDefinition/KDN5</code>.
+            The contained resource (having fhir:id "1111") is given a URL relative to that base.
+            As in HTML, a "#" character is prepended to the child's fhir:id when it is used as a local reference.
+            Given the asssumed base, the contained <code>ActivityDefintion</code> and the <code>fhir:l</code> and <code>fhir:contained</code> properties which reference it could be written as <code>&lt;#1111&gt;</code> but they are resolved here to their absolute URI, <code>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</code> for clarity:
+          </p>
 
 <pre>
 # KDN5 is the parent resource in this example:
@@ -666,53 +679,52 @@ href="fhir.shex">fhir.shex</a>
   fhir:id [ fhir:v "KDN5"] ;
   # fhir:contained gives a list of resources that are logically contained
   # inside this (KDN5) resource, though Turtle serializes them separately:
-  fhir:contained ( &lt;http://example.org/PlanDefinition/KDN5#1111&gt; ) ; # Absolute URI
+fhir:contained ( <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ) ; # assertion of containership
   fhir:action ( [
     fhir:textEquivalent [ fhir:v "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" ] ;
     fhir:definition [
       a fhir:Canonical ;
       # Here the KDN5 parent references the contained resource:
-      fhir:l &lt;http://example.org/PlanDefinition/KDN5#1111&gt; ;
+fhir:l <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ; # use of the contained Resource
       fhir:v "#1111"^^xsd:anyURI ;     # Local reference starts with "#"
     ]
   ] ) ;
-...
-# The body of the (logically) contained resource 1111 is here, and receives
-# a URI derived from its parent's URI:
-&lt;http://example.org/PlanDefinition/KDN5#1111&gt; a fhir:ActivityDefinition ;
+…
+# The definition of the (logically) contained resource #1111 is here:
+<b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> a fhir:ActivityDefinition ;
      fhir:id [ fhir:v "1111" ] ;   # Local identifier
      fhir:status [ fhir:v "draft" ] .
-...
+…
 </pre>
 
-          <p>In contrast, in the following example, the parent does not
-            have a URI, so the contained resource 2222 is given a
-            relative URI.</p>
+          <p>
+            In contrast, in the following example, the parent does not have an id so we would need information to know how this Resource is uniquely addressed.
+            In the absense of that information, we will simply express the contained Resource as a relative URL, <code>#2222</code>, with an unstated base.
+          </p>
 
 <pre>
 # KDN5 is the parent resource in this example, but has no URI:
 [] a fhir:PlanDefinition ; # No URI
   fhir:nodeRole fhir:treeRoot ;
-  fhir:id [ fhir:v "KDN5"] ;
   # fhir:contained gives a list of resources that are logically contained
   # inside this (KDN5) resource, though Turtle serializes them separately:
-  fhir:contained ( &lt;#2222&gt; ) ; # Relative URI
+fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
   fhir:action ( [
     fhir:textEquivalent [ fhir:v "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" ] ;
     fhir:definition [
       a fhir:Canonical ;
       # Here the KDN5 parent references the contained resource:
-      fhir:l &lt;#2222&gt; ;
+fhir:l <b>&lt;#2222&gt;</b> ;
       fhir:v "#2222"^^xsd:anyURI ;     # Local reference starts with "#"
     ]
   ] ) ;
-...
+…
 # The body of the (logically) contained resource 2222 is here, and receives
 # a URI derived from its parent's URI:
-&lt;#2222&gt; a fhir:ActivityDefinition ;
+<b>&lt;#2222&gt;</b> a fhir:ActivityDefinition ;
      fhir:id [ fhir:v "2222" ] ;   # Local identifier
      fhir:status [ fhir:v "draft" ] .
-...
+…
 </pre>
 
           <a name="identifying-concepts"></a>
@@ -863,7 +875,7 @@ href="fhir.shex">fhir.shex</a>
           fhir:display [ fhir:v "Decreased (qualifier value)" ]
         ) ] ]
   <b>)</b>
-  ...
+  …
 </pre>
 
           <a name="primitiveExtension"></a>
@@ -871,7 +883,7 @@ href="fhir.shex">fhir.shex</a>
           </p>
 
           <pre>
-   ...
+   …
      fhir:birthDate [
        fhir:v "2016-05-18"^^xsd:date ;
        <b>fhir:extension (</b> [
@@ -916,7 +928,7 @@ href="fhir.shex">fhir.shex</a>
       fhir:value [ a fhir:Boolean ; fhir:v true ]
     ]
   )
-  ...
+  …
 </pre>
 
           <p> The <a href="#owl-shex-rim">FHIR ontology</a> includes a
@@ -938,7 +950,7 @@ fhir:MedicationRequest <b>fhir:modifierExtensionClass</b> fhir:_MedicationReques
 
 <pre class="rdf">
 &lt;http://example.org/fhir/Observation/Obs123&gt; a fhir:Observation;
-  ...
+  …
   fhir:<b>_value</b> [
     a fhir:Quantity;
     fhir:value [ fhir:v "185"^^xsd:decimal ];
