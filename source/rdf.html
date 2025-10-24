@@ -679,19 +679,19 @@ href="fhir.shex">fhir.shex</a>
   fhir:id [ fhir:v "KDN5"] ;
   # fhir:contained gives a list of resources that are logically contained
   # inside this (KDN5) resource, though Turtle serializes them separately:
-fhir:contained ( <span class="stu">&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</span> ) ; # assertion of containership
+fhir:contained ( <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ) ; # assertion of containership
   fhir:action ( [
     fhir:textEquivalent [ fhir:v "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" ] ;
     fhir:definition [
       a fhir:Canonical ;
       # Here the KDN5 parent references the contained resource:
-fhir:l <span class="stu">&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</span> ; # use of the contained Resource
+fhir:l <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ; # use of the contained Resource
       fhir:v "#1111"^^xsd:anyURI ;     # Local reference starts with "#"
     ]
   ] ) ;
 …
 # The definition of the (logically) contained resource #1111 is here:
-<span class="stu">&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</span> a fhir:ActivityDefinition ;
+<b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> a fhir:ActivityDefinition ;
      fhir:id [ fhir:v "1111" ] ;   # Local identifier
      fhir:status [ fhir:v "draft" ] .
 …
@@ -708,20 +708,20 @@ fhir:l <span class="stu">&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</sp
   fhir:nodeRole fhir:treeRoot ;
   # fhir:contained gives a list of resources that are logically contained
   # inside this (KDN5) resource, though Turtle serializes them separately:
-fhir:contained ( <span class="stu">&lt;#2222&gt;</span> ) ; # Relative URI
+fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
   fhir:action ( [
     fhir:textEquivalent [ fhir:v "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" ] ;
     fhir:definition [
       a fhir:Canonical ;
       # Here the KDN5 parent references the contained resource:
-fhir:l <span class="stu">&lt;#2222&gt;</span> ;
+fhir:l <b>&lt;#2222&gt;</b> ;
       fhir:v "#2222"^^xsd:anyURI ;     # Local reference starts with "#"
     ]
   ] ) ;
 …
 # The body of the (logically) contained resource 2222 is here, and receives
 # a URI derived from its parent's URI:
-<span class="stu">&lt;#2222&gt;</span> a fhir:ActivityDefinition ;
+<b>&lt;#2222&gt;</b> a fhir:ActivityDefinition ;
      fhir:id [ fhir:v "2222" ] ;   # Local identifier
      fhir:status [ fhir:v "draft" ] .
 …
