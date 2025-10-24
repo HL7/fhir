@@ -608,13 +608,13 @@ href="fhir.shex">fhir.shex</a>
   fhir:type [ fhir:v "collection"] ;
   fhir:entry ( [
       fhir:fullUrl [
-        fhir:l &lt;http://example.org/fhir/Patient/23&gt; ;
+        fhir:l <b>&lt;http://example.org/fhir/Patient/23&gt;</b> ;
         fhir:v "http://example.org/fhir/Patient/23"^^xsd:anyURI ] ;
       fhir:resource &lt;http://example.org/fhir/Patient/23&gt;
     ] )
 …
 # This is a member of the above Bundle:
-&lt;http://example.org/fhir/Patient/23&gt; a fhir:Patient ;
+<b>&lt;http://example.org/fhir/Patient/23&gt;</b> a fhir:Patient ;
   fhir:id [ fhir:v "23"] ;
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
@@ -668,7 +668,7 @@ href="fhir.shex">fhir.shex</a>
 
           <p>In the following example (derived from the <a href="plandefinition-example-kdn5-simplified.ttl.html">KDN5 example</a>), the FHIR id is given ("KDN5") so we assume a base URL of <code>http://example.org/PlanDefinition/KDN5</code>.
             The contained resource (having fhir:id "1111") is given a URL relative to that base.
-            As in HTML, a "#" character is prepended to the child's fhir:id when it is used as a local reference.
+            As in HTML, a "#" character is prepended to the child's <code class="rdf">fhir:id</code> when it is used as a local reference.
             Given the asssumed base, the contained <code>ActivityDefintion</code> and the <code>fhir:l</code> and <code>fhir:contained</code> properties which reference it could be written as <code>&lt;#1111&gt;</code> but they are resolved here to their absolute URI, <code>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</code> for clarity:
           </p>
 
@@ -699,12 +699,13 @@ fhir:l <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ; # use of the
 
           <p>
             In contrast, in the following example, the parent does not have an id so we would need information to know how this Resource is uniquely addressed.
-            In the absense of that information, we will simply express the contained Resource as a relative URL, <code>#2222</code>, with an unstated base.
+            In the absense of that information, we will simply express the contained Resource as a relative URL, <code>&lt;#2222&gt;</code>, with an unstated base.
           </p>
 
+<a name="example-no-parent-id"></a>
 <pre>
-# KDN5 is the parent resource in this example, but has no URI:
-[] a fhir:PlanDefinition ; # No URI
+# KDN5 is the parent resource in this example:
+&lt;&gt; a fhir:PlanDefinition ; # URI is relative to unspecified base URI
   fhir:nodeRole fhir:treeRoot ;
   # fhir:contained gives a list of resources that are logically contained
   # inside this (KDN5) resource, though Turtle serializes them separately:
@@ -714,7 +715,7 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
     fhir:definition [
       a fhir:Canonical ;
       # Here the KDN5 parent references the contained resource:
-fhir:l <b>&lt;#2222&gt;</b> ;
+      fhir:l <b>&lt;#2222&gt;</b> ;
       fhir:v "#2222"^^xsd:anyURI ;     # Local reference starts with "#"
     ]
   ] ) ;
