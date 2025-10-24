@@ -7,12 +7,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-based-on"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.basedOn"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-based-on"/>
+        <status value="active"/>
         <description value="Reference to the service request."/>
         <code value="based-on"/>
         <type value="reference"/>
@@ -26,12 +27,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.category"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-category"/>
+        <status value="active"/>
         <description value="Which diagnostic discipline/department created the report"/>
         <code value="category"/>
         <type value="token"/>
@@ -45,12 +47,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-code"/>
+        <status value="active"/>
         <description value="The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result"/>
         <code value="code"/>
         <type value="token"/>
@@ -64,12 +67,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-conclusioncode-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.conclusionCode.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-conclusioncode-code"/>
+        <status value="active"/>
         <description value="A coded conclusion (interpretation/impression) on the report"/>
         <code value="conclusioncode-code"/>
         <type value="token"/>
@@ -83,12 +87,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-conclusioncode-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.conclusionCode.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-conclusionCode-reference"/>
+        <status value="active"/>
         <description value="A reference for the conclusion (interpretation/impression) on the report"/>
         <code value="conclusioncode-reference"/>
         <type value="reference"/>
@@ -102,12 +107,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.effective[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-date"/>
+        <status value="active"/>
         <description value="The clinically relevant time of the report"/>
         <code value="date"/>
         <type value="date"/>
@@ -121,12 +127,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.encounter"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-encounter"/>
+        <status value="active"/>
         <description value="The Encounter when the order was made"/>
         <code value="encounter"/>
         <type value="reference"/>
@@ -140,12 +147,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-identifier"/>
+        <status value="active"/>
         <description value="An identifier for the report"/>
         <code value="identifier"/>
         <type value="token"/>
@@ -159,12 +167,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-issued"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.issued"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-issued"/>
+        <status value="active"/>
         <description value="When the report was issued"/>
         <code value="issued"/>
         <type value="date"/>
@@ -178,12 +187,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-media"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.media.link"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-media"/>
+        <status value="active"/>
         <description value="A reference to the image source."/>
         <code value="media"/>
         <type value="reference"/>
@@ -197,12 +207,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-patient"/>
+        <status value="active"/>
         <description value="The subject of the report if a patient"/>
         <code value="patient"/>
         <type value="reference"/>
@@ -217,12 +228,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-performer"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.performer"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-performer"/>
+        <status value="active"/>
         <description value="Who is responsible for the report"/>
         <code value="performer"/>
         <type value="reference"/>
@@ -236,12 +248,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-result"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.result"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-result"/>
+        <status value="active"/>
         <description value="Link to an atomic result (observation resource)"/>
         <code value="result"/>
         <type value="reference"/>
@@ -255,12 +268,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-results-interpreter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.resultsInterpreter"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-results-interpreter"/>
+        <status value="active"/>
         <description value="Who was the source of the report"/>
         <code value="results-interpreter"/>
         <type value="reference"/>
@@ -274,12 +288,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-specimen"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.specimen"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-specimen"/>
+        <status value="active"/>
         <description value="The specimen details"/>
         <code value="specimen"/>
         <type value="reference"/>
@@ -293,12 +308,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-status"/>
+        <status value="active"/>
         <description value="The status of the report"/>
         <code value="status"/>
         <type value="token"/>
@@ -312,12 +328,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-study"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.study"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-study"/>
+        <status value="active"/>
         <description value="Studies associated with the diagnostic report"/>
         <code value="study"/>
         <type value="reference"/>
@@ -331,12 +348,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-subject"/>
+        <status value="active"/>
         <description value="The subject of the report"/>
         <code value="subject"/>
         <type value="reference"/>
@@ -350,12 +368,13 @@
       <SearchParameter>
         <id value="DiagnosticReport-procedure"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DiagnosticReport.procedure"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DiagnosticReport-procedure"/>
+        <status value="active"/>
         <description value="The procedure(s) from which the report was produced."/>
         <code value="procedure"/>
         <type value="reference"/>
