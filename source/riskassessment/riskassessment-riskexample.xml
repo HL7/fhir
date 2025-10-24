@@ -49,7 +49,12 @@
     <outcome>
       <text value="Breast Cancer"/>
     </outcome>
-    <probabilityDecimal value="0.000368"/>
+    <probabilityQuantity>
+      <value value="0.000368"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <low>
         <value value="54"/>
