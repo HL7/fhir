@@ -151,6 +151,8 @@
 
 <p>Knowledge artifacts with a <code>subject</code> element, such as Measure, establish the evaluation context based on that subject. For example, when the subject is <code>Patient</code>, the expression is evaluated in the context of a patient, passed in as an argument to the operation performing the evaluation. For example, the <code>Measure/$evaluate</code> operation takes a subject parameter that establishes the subject context for the evaluation. In CQL, this corresponds to the <code>context</code> for the expression.</p>
 
+<p>Note that subject at the root of Measure is being deprecated because it is more flexible to provide it on each group. If group.subject is not present then the CQL context is 'unfiltered'.</p>
+
 <a name="parameters"> </a>
 <h5>Parameters</h5>
 <p>In addition to the evaluation context, the expression may access parameters defined by referenced libraries. As with expression identifier resolution, the name of a parameter can be used directly so long as there is only one library referenced by the resource. Otherwise, the name of the library must be used to qualify the parameter name to avoid ambiguity.</p>
