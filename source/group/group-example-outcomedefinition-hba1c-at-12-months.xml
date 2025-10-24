@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Group xmlns="http://hl7.org/fhir">
+	<id value="example-outcomedefinition-hba1c-at-12-months"/>
+	<meta>
+		<versionId value="6"/>
+		<lastUpdated value="2025-03-15T21:09:28.653Z"/>
+		<profile value="https://hl7.org/fhir/uv/ebm/StructureDefinition/outcome-definition"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/artifact-author">
+		<valueContactDetail>
+			<name value="Brian S. Alper"/>
+		</valueContactDetail>
+	</extension>
+	<url value="http://hl7.org/fhir/Group/example-outcomedefinition-hba1c-at-12-months"/>
+	<name value="HbA1c at 12 months"/>
+	<title value="OutcomeDefinition: HbA1c at 12 months"/>
+	<status value="active"/>
+	<publisher value="Computable Publishing LLC"/>
+	<contact>
+		<telecom>
+			<system value="email"/>
+			<value value="support@computablepublishing.com"/>
+		</telecom>
+	</contact>
+	<description value="HbA1c at 12 months as the endpoint (outcome measure)"/>
+	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+	<membership value="conceptual"/>
+	<characteristic>
+		<code>
+			<text value="Observation"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="4548-4"/>
+				<display value="Hemoglobin A1c/Hemoglobin.total in Blood"/>
+			</coding>
+		</valueCodeableConcept>
+		<exclude value="false"/>
+		<description value="HbA1c at 12 months"/>
+		<timing>
+			<contextCode>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="709491003"/>
+					<display value="Enrollment in clinical trial"/>
+				</coding>
+			</contextCode>
+			<offsetDuration>
+				<value value="12"/>
+				<unit value="months"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mo"/>
+			</offsetDuration>
+			<text value="at 12 months"/>
+		</timing>
+	</characteristic>
+</Group>
