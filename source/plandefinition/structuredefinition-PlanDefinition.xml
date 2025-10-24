@@ -1846,6 +1846,9 @@
 			<type>
 				<code value="Timing"/>
 			</type>
+			<type>
+				<code value="RelativeTime"/>
+			</type>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".effectiveTime"/>

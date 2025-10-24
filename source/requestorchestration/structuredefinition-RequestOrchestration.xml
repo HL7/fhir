@@ -884,6 +884,9 @@
       <type>
         <code value="Timing"/>
       </type>
+      <type>
+        <code value="RelativeTime"/>
+      </type>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.occurrence[x]"/>
