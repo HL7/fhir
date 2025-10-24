@@ -1089,7 +1089,12 @@
 			<max value="1"/>
 			<type>
 				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1108,9 +1113,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
@@ -1121,6 +1124,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
