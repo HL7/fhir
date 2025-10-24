@@ -8,7 +8,12 @@
   "name" : "John's herd",
   "membership" : "conceptual",
   "code" : {
-    "text" : "Horse"
+    "coding": [{
+      "system": "http://hl7.org/fhir/group-code",
+      "code": "herd",
+      "display": "Herd"
+    }],
+    "text": "Horse"
   },
   "quantity" : 25,
   "characteristic" : [{
@@ -21,7 +26,8 @@
     "exclude" : false,
     "instancesRange" : {
       "low" : {
-        "value" : -1
+        "value" : -1,
+        "code": "1"
       }
     }
   },

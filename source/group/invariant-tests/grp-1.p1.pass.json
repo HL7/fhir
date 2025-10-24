@@ -1,11 +1,12 @@
 {
     "resourceType": "Group",
-    "id": "grp-2.f1.fail.json",
+    "id": "grp-1.p1.pass.json",
     "identifier" : [{
     "system" : "http://someveterinarianclinic.org/fhir/NamingSystem/herds",
-    "value" : "123456"
+    "value" : "1234"
   }],
   "name" : "John's herd",
+  "type" : "animal",
   "membership" : "enumerated",
   "code" : {
     "coding": [{
@@ -26,7 +27,7 @@
     "exclude" : false,
     "instancesRange" : {
       "low" : {
-        "value" : -1,
+        "value" : 5,
         "code": "1"
       }
     }
