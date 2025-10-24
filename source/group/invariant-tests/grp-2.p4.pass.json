@@ -1,0 +1,38 @@
+{
+    "resourceType": "Group",
+    "id": "grp-2.p4.pass.json",
+    "identifier" : [{
+    "system" : "http://someveterinarianclinic.org/fhir/NamingSystem/herds",
+    "value" : "1234567890"
+  }],
+  "name" : "John's herd",
+  "type" : "animal",
+  "membership" : "enumerated",
+  "code" : {
+    "text" : "Horse"
+  },
+  "quantity" : 25,
+  "characteristic" : [{
+    "code" : {
+      "text" : "gender"
+    },
+    "valueCodeableConcept" : {
+      "text" : "mixed"
+    },
+    "exclude" : false,
+    "instancesRange" : {
+      "low" : {
+        "value" : -1
+      }
+    }
+  },
+  {
+    "code" : {
+      "text" : "owner"
+    },
+    "valueCodeableConcept" : {
+      "text" : "John Smith"
+    },
+    "exclude" : false
+  }]
+}
