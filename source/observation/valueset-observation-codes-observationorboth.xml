@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-codes-observationorboth"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
+  <version value="6.0.0-ballot3"/>
+  <name value="LOINCObsOrBoth"/>
+  <title value="LOINC codes with Observation or Both"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="LOINC concepts whose ORDER_OBS property is 'Observation' (Obs only) or 'Both'."/>
+   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <compose>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="ORDER_OBS"/>
+        <op value="="/>
+        <value value="Observation"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="ORDER_OBS"/>
+        <op value="="/>
+        <value value="Both"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
