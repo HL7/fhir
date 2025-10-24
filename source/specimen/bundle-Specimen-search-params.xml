@@ -13,6 +13,7 @@
           <valueString value="Specimen.collection.bodySite.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-bodysite"/>
+        <status value="active"/>
         <description value="Reference to a resource (by instance)"/>
         <code value="bodysite"/>
         <type value="reference"/>
@@ -32,6 +33,7 @@
           <valueString value="Specimen.collection.collected[x]"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-collected"/>
+        <status value="active"/>
         <description value="The date the specimen was collected"/>
         <code value="collected"/>
         <type value="date"/>
@@ -51,6 +53,7 @@
           <valueString value="Specimen.collection.collector"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-collector"/>
+        <status value="active"/>
         <description value="Who collected the specimen"/>
         <code value="collector"/>
         <type value="reference"/>
@@ -70,6 +73,7 @@
           <valueString value="Specimen.collection.procedure"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-procedure"/>
+        <status value="active"/>
         <description value="The procedure that collected the specimen"/>
         <code value="procedure"/>
         <type value="reference"/>
@@ -89,6 +93,7 @@
           <valueString value="Specimen.container.device.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-device-code"/>
+        <status value="active"/>
         <description value="The code associated with the specimen container"/>
         <code value="container-device-code"/>
         <type value="token"/>
@@ -108,6 +113,7 @@
           <valueString value="Specimen.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-identifier"/>
+        <status value="active"/>
         <description value="The unique identifier associated with the specimen"/>
         <code value="identifier"/>
         <type value="token"/>
@@ -127,6 +133,7 @@
           <valueString value="Specimen.parent"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-parent"/>
+        <status value="active"/>
         <description value="The parent of the specimen"/>
         <code value="parent"/>
         <type value="reference"/>
@@ -146,6 +153,7 @@
           <valueString value="Specimen.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-patient"/>
+        <status value="active"/>
         <description value="The patient the specimen comes from"/>
         <code value="patient"/>
         <type value="reference"/>
@@ -166,6 +174,7 @@
           <valueString value="Specimen.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-status"/>
+        <status value="active"/>
         <description value="available | unavailable | unsatisfactory | entered-in-error"/>
         <code value="status"/>
         <type value="token"/>
@@ -185,6 +194,7 @@
           <valueString value="Specimen.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-subject"/>
+        <status value="active"/>
         <description value="The subject of the specimen"/>
         <code value="subject"/>
         <type value="reference"/>
@@ -204,6 +214,7 @@
           <valueString value="Specimen.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-type"/>
+        <status value="active"/>
         <description value="The specimen type"/>
         <code value="type"/>
         <type value="token"/>
@@ -223,6 +234,7 @@
           <valueString value="Specimen.request"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-request"/>
+        <status value="active"/>
         <description value="The request/order associated with the specimen"/>
         <code value="request"/>
         <type value="reference"/>
@@ -242,6 +254,7 @@
           <valueString value="Specimen.processing.device.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-processing-device-code"/>
+        <status value="active"/>
         <description value="The code associated with the processing device"/>
         <code value="processing-device-code"/>
         <type value="token"/>
@@ -261,6 +274,7 @@
           <valueString value="Specimen.collection.device.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-collection-device-code"/>
+        <status value="active"/>
         <description value="The code associated with the collection device"/>
         <code value="collection-device-code"/>
         <type value="token"/>
