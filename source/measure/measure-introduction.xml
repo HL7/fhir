@@ -27,6 +27,8 @@
 <p>A Measure is also similar to a clinical document, however a FHIR <a href="documents.html">Document</a> is specific to a particular subject, whereas the Measure resource is definitional.</p>
 </div>
 
+<p>Mappings from the V3 to the FHIR terminologies can be found in the <a href="https://hl7.org/fhir/uv/cqm/artifacts.html#terminology-concept-maps">Quality Measure IG</a>.</p>
+
 <!-- (optional):
 <div>
 <h2>Background and Context</h2>
