@@ -1,0 +1,2 @@
+//Evaluation with a status of open, closed, or prospective gap.
+GET [base]/Measure/$care-gaps?measureId=EXM130-7.3.000&periodStart=2014-01&periodEnd=2014-03&subject=Patient/124&status=open-gap&status=closed-gap&status=prospective-gap
