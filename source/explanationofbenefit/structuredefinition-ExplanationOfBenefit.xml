@@ -845,18 +845,6 @@
         <map value="FiveWs.actor"/>
       </mapping>
     </element>
-    <element id="ExplanationOfBenefit.careTeam.responsible">
-      <path value="ExplanationOfBenefit.careTeam.responsible"/>
-      <short value="Indicator of the lead practitioner"/>
-      <definition value="The party who is billing and/or responsible for the claimed products or services."/>
-      <comment value="Responsible might not be required when there is only a single provider listed."/>
-      <requirements value="When multiple parties are present it is required to distinguish the lead or responsible individual."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
     <element id="ExplanationOfBenefit.careTeam.role">
       <path value="ExplanationOfBenefit.careTeam.role"/>
       <short value="Function within the team"/>
