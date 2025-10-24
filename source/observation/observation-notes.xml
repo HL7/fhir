@@ -365,6 +365,14 @@
 		<a name="cancelled"></a>
 	  <h3>Cancelled or Not Performed Observations</h3>
 		<p>If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "cancelled" and the specific details given - preferably as coded  values in the dataAbsentReason or valueCodeableConcept element.  Additional information may be provided in the `note` element as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.</p>
+		<p>For Observations that will not or were not performed:</p>
+		<ul>
+		    <li>We create one Observation for each Test result or Panel that was requested that will not be performed</li>
+    		<li>Observation.code to identify each Test result or Panel requested to be performed</li>
+    		<li>Observation.dataAbsentReason with an appropriate Reason</li>
+    		<li>Observation.note with a human readable explanation</li>
+    		<li>If the reason is a specific specimen condition, reference this via Specimen.condition</li>
+		</ul>
 		<a name="observation-operations">
 		</a>
 		<a name="genetics"></a>
