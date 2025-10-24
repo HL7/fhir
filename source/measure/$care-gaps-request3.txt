@@ -1,0 +1,3 @@
+//The first example with a topic of 57024-2.
+GET [base]/Measure/$care-gaps?measureId=EXM130-7.3.000&periodStart=2014-01&periodEnd=2014-03&status=open-gap&subject=Patient/124&topic=57024-2
+
