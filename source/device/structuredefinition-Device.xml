@@ -80,14 +80,14 @@
       <uri value="urn:iso:std:iso:11073:10206"/>
       <name value="ISO/IEEE 11073-10206 Abstract Content Information Model (ACOM)"/>
     </mapping>
-   <mapping>
-    <identity value="DIM"/>
-    <uri value="https://standards.ieee.org/ieee/11073-10201/6847"/>
-    <name value="ISO/IEEE 11073-10201: Domain Information Model"/>
-  </mapping>
+    <mapping>
+        <identity value="DIM" />
+        <uri value="urn:iso:std:iso:11073:10201" />
+        <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
+    </mapping>
   <mapping>
     <identity value="BICEPS"/>
-    <uri value="https://standards.ieee.org/ieee/11073-10207/10075"/>
+    <uri value="urn:iso:std:iso:11073:10207"/>
     <name value="ISO/IEEE 11073-10207: Domain Information and Service Model for Service-Oriented Point-of-Care Medical Device Communication"/>
   </mapping>
   <kind value="resource"/>
