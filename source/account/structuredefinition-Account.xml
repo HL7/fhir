@@ -431,7 +431,46 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
       </type>
     </element>
-
+    <element id="Account.guarantor.responsibility">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
+      <path value="Account.guarantor.responsibility"/>
+      <short value="Responsible %'age of charges"/>
+      <definition value="The amount (as a percentage) of the charges the guarantor is responsible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+    </element>
+    <element id="Account.guarantor.limit">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
+      <path value="Account.guarantor.limit"/>
+      <short value="Responsible financial limit"/>
+      <definition value="The maximum amount the guarantee will pay."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Money"/>
+      </type>
+    </element>
+    <element id="Account.guarantor.rank">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
+      <path value="Account.guarantor.rank"/>
+      <short value="Rank order of guarator"/>
+      <definition value="The order in which guarantors will be held responsible."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="Account.diagnosis">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>

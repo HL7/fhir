@@ -137,6 +137,23 @@
     <resource>
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Coverage.period"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <description value="Dates that the Coverage is active"/>
+        <code value="period"/>
+        <type value="date"/>
+        <expression value="Coverage.period"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.insurer"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">

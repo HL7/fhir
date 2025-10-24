@@ -156,6 +156,19 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="PaymentNotice.statusReason">
+      <path value="PaymentNotice.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="PaymentNotice.request">
       <path value="PaymentNotice.request"/>
       <short value="Request reference"/>
@@ -182,7 +195,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/> 
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <mapping>

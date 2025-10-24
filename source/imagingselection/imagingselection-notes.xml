@@ -5,13 +5,13 @@
 <h2>Notes</h2>
   <h3>Imaging Selection Subsets</h3>
   <p>Some DICOM SOP Instances contain sub-resources, such as frames, segments, etc.</p>
-  <p>An Imaging Selection resource MAY specify the subset of these that are included in the selection using the following elements.</p>
+  <p>An Imaging Selection resource can specify the subset of these that are included in the selection using the following elements.</p>
   <ul>
     <li><code>instance.frameNumber</code> - Frames selected from a multiframe SOP Instance
       <ul>
         <li>Corresponds to the value of DICOM Referenced Frame Number (0008,1160) </li>
         <li>Each value specifies a frame included in the selection</li>
-        <li>Note: Frame number is implicit and the first frame is denoted as frame 1</li>
+        <li>Note: Frame number is implicit, and the first frame is denoted as frame 1</li>
       </ul>
     </li>
     <li><code>instance.referencedContentItemIdentifier</code> - Referenced Content Item Identifiers selected from a DICOM SR or other structured document SOP Instance
@@ -40,7 +40,7 @@
       </ul>
     </li>
   </ul>
-  <p>The value of the <code>instance.sopClass</code> element determines which type of subset may be present.</p>
+  <p>The value of the <code>instance.sopClass</code> element determines which type of subset can be present.</p>
   <p>For example:</p>
   <ul>
     <li>If <code>instance.sopClass</code> has a value of <code>urn:oid:1.2.840.10008.5.1.4.1.1.2.1</code>, this indicates that the instance is Enhanced CT, which is a multiframe image instance and therefore <code>instance.frameNumber</code> can be included to specify a list of frames</li>
@@ -85,7 +85,7 @@
 </pre>
 
 <a name="req-by-type"></a>
-<h3>Element Requirements By Selection Type</h3>
+<h3>Element Requirements by Selection Type</h3>
 
 <p>
 This section outlines several imaging selection types, each listing a set of resource elements that are required and/or typically present in the selection. Some types require only a minimal set of elements, while others require a comprehensive list to ensure clarity.
@@ -125,7 +125,7 @@ An imaging selection that points to frames in a multiframe image requires:
 <li><code>instance</code> containing a single entry that specifies:
   <ul>
     <li><code>uid</code> to identify the SOP Instance UID of the selected image</li>
-    <li><code>frameNumber</code> to identify the list of frames includes in the selection</li>
+    <li><code>frameNumber</code> to identify the list of frames included in the selection</li>
   </ul>
 </li>
 </ul>
@@ -184,7 +184,7 @@ An imaging selection that points to a 3D region requires:
 </li>
 </ul>
 <p>
-This type of selection may also specify a set of images but this is not required. The 3D region selection can be applied to any images that share the same Frame of Reference UID.
+This type of selection can also specify a set of images but this is not required. The 3D region selection can be applied to any images that share the same Frame of Reference UID.
 </p>
 <p>
 See <a href="imagingselection-example-3d-image-region-selection.html">3D Image Region Selection example</a>.
@@ -198,11 +198,11 @@ services that can be used to access the imaging data referenced by the imaging s
 Systems can determine if the relevant imaging data is available or offline by interacting with the endpoint.
 </p>
 <p>
-Different Endpoint connection types MAY have different capabilities, protocols or requirements.
+Different Endpoint connection types can have different capabilities, protocols or requirements.
 Furthermore, the specified 
 <code>Endpoint.address</code> 
 identifies the DICOM Web Service Base URI (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.2.html">DICOM PS 3.18 Section 8.2</a> ). 
-The URL needed to retrieve image data may need to be constructed from this base URL. See below for the details on use of imaging-related Endpoint connection types.
+The URL needed to retrieve image data might need to be constructed from this base URL. See below for the details on use of imaging-related Endpoint connection types.
 </p>
 <a name="wado-rs"></a>
 <h4>WADO-RS</h4>
@@ -224,7 +224,7 @@ The path to retrieve a DICOM instance is constructed by appending the appropriat
 <p>
 For example, using the following information in a fictional ImagingSelection resource:
 <ul>
-<li>the WADO-RS service base url of <code>https://pacs.hospital.org/wado-rs</code> found in an <code>ImagingSelection.endpoint.address</code>,</li>
+<li>the WADO-RS service base URL of <code>https://pacs.hospital.org/wado-rs</code> found in an <code>ImagingSelection.endpoint.address</code>,</li>
 <li>the DICOM Study Instance UID of <code>1.2.250.1.59.40211.12345678.678910</code> found in an <code>ImagingSelection.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
 <li>the DICOM Series Instance UID of <code>1.2.250.1.59.40211.789001276.14556172.67789</code> found in <code>ImagingSelection.series.uid</code>, and</li>
 <li>the DICOM SOP Instance UID of <code>1.2.250.1.59.40211.2678810.87991027.899772.2</code> found in <code>ImagingSelection.series.instance.uid</code></li>
@@ -253,7 +253,7 @@ The query to retrieve a DICOM instance is constructed by appending the appropria
 <p>
 For example, using the following information in a fictional ImagingSelection resource:
 <ul>
-<li>the WADO-URI service base url of <code>https://pacs.hospital.org/wado-uri</code> found in an <code>ImagingSelection.endpoint.address</code>,</li>
+<li>the WADO-URI service base URL of <code>https://pacs.hospital.org/wado-uri</code> found in an <code>ImagingSelection.endpoint.address</code>,</li>
 <li>the DICOM Study Instance UID of <code>1.2.250.1.59.40211.12345678.678910</code> found in an <code>ImagingSelection.identifier</code> having <code>Identifier.system</code> of <code>urn:dicom:uid</code>,</li>
 <li>the DICOM Series Instance UID of <code>1.2.250.1.59.40211.789001276.14556172.67789</code> found in <code>ImagingSelection.series.uid</code>, and</li>
 <li>the DICOM SOP Instance UID of <code>1.2.250.1.59.40211.2678810.87991027.899772.2</code> found in <code>ImagingSelection.series.instance.uid</code></li>
@@ -269,10 +269,10 @@ https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40
   <a name="laterality"></a>
   <h3>Body Site and Laterality</h3>
   <p>
-    The <code>bodySite</code> element may include the laterality of the (possibly paired) anatomic structures examined – e.g. left knee, bilateral lungs, etc. This can be conveyed in several ways:
+    The <code>bodySite</code> element can include the laterality of the (possibly paired) anatomic structures examined – e.g. left knee, bilateral lungs, etc. This can be conveyed in several ways:
   </p>
   <ul>
-    <li><code>bodySite</code> contains an anatomic code that includes laterality, e.g
+    <li><code>bodySite</code> contains an anatomic code that includes laterality, e.g.
       <pre class="json">
 "bodySite": {
   "concept": {

@@ -4380,7 +4380,7 @@
      class="diagram-class-linkage"><a
        id="n5721"
        xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail"><title
-   id="title75818">The third-tier service adjudications for payor added services</title>subDetail</a></text>
+   id="title75818">The third-tier service adjudications for payer added services</title>subDetail</a></text>
   <text
      id="n5722"
      x="750.261217"
@@ -4414,7 +4414,7 @@
      class="diagram-class-linkage"><a
        id="n5727"
        xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail"><title
-   id="title75826">The second-tier service adjudications for payor added services</title>detail</a></text>
+   id="title75826">The second-tier service adjudications for payer added services</title>detail</a></text>
   <text
      id="n5728"
      x="940.5057718039836"
@@ -4448,7 +4448,7 @@
      class="diagram-class-linkage"><a
        id="n5733"
        xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem"><title
-   id="title75834">The first-tier service adjudications for payor added product or service lines</title>addItem</a></text>
+   id="title75834">The first-tier service adjudications for payer added product or service lines</title>addItem</a></text>
   <text
      id="n5734"
      x="813.9796966747826"

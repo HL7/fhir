@@ -154,6 +154,19 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
+    <element id="Claim.statusReason">
+      <path value="Claim.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="Claim.type">
       <path value="Claim.type"/>
       <short value="Category or discipline"/>
@@ -360,7 +373,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessPriority"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="The timeliness with which processing is required: stat, normal, deferred."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
@@ -473,6 +486,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
@@ -488,6 +502,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
@@ -501,8 +516,8 @@
       <path value="Claim.payee"/>
       <short value="Recipient of benefits payable"/>
       <definition value="The party to be reimbursed for cost of the products and services according to the terms of the policy."/>
-      <comment value="Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and choose to pay the subscriber instead."/>
-      <requirements value="The provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
+      <comment value="Often billing providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and choose to pay the subscriber instead."/>
+      <requirements value="The billing provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -513,7 +528,7 @@
       <path value="Claim.payee.type"/>
       <short value="Category of recipient"/>
       <definition value="Type of Party to be reimbursed: subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -799,9 +814,27 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InformationCategory"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="The valuset used for additional information category codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
+      </binding>
+    </element>
+    <element id="Claim.supportingInfo.subCategory">
+      <path value="Claim.supportingInfo.subCategory"/>
+      <short value="Finer-grained classification of the supplied information"/>
+      <definition value="A finer classification within the more general category."/>
+      <requirements value="Required to provide more detailed categorization, for example lab-test grouping: blood, tissue etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InformationSubCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The valuset used for additional information subcategory codes."/>
       </binding>
     </element>
     <element id="Claim.supportingInfo.code">
@@ -1110,7 +1143,7 @@
       <short value="Pre-assigned Claim number"/>
       <definition value="The business identifier to be used when the claim is sent for adjudication against this insurance policy."/>
       <comment value="Only required in jurisdictions where insurers, rather than the provider, are required to send claims to  insurers that appear after them in the list. This element is not required when 'subrogation=true'."/>
-      <requirements value="This will be the claim number should it be necessary to create this claim in the future. This is provided so that payors may forward claims to other payors in the Coordination of Benefit for adjudication rather than the provider being required to initiate each adjudication."/>
+      <requirements value="This will be the claim number should it be necessary to create this claim in the future. This is provided so that payers may forward claims to other payers in the Coordination of Benefit for adjudication rather than the provider being required to initiate each adjudication."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1400,7 +1433,7 @@
       <path value="Claim.item.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1411,9 +1444,9 @@
           <valueString value="ServiceProduct"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/> 
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
-    </element> 
+    </element>
     <element id="Claim.item.request">
       <path value="Claim.item.request"/>
       <short value="Request or Referral for Service"/>
@@ -1776,7 +1809,7 @@
       <path value="Claim.item.detail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2013,7 +2046,7 @@
       <path value="Claim.item.detail.subDetail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
