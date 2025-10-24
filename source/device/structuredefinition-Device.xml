@@ -75,11 +75,11 @@
     <uri value="https://www.bluetooth.com"/>
     <name value="Bluetooth Technology"/>
   </mapping>
-  <mapping>
-    <identity value="ACOM"/>
-    <uri value="https://standards.ieee.org/ieee/11073-10206/11702"/>
-    <name value="ISO/IEEE 11073-10206: Personal health device communication--Abstract content information model"/>
-  </mapping>
+    <mapping>
+      <identity value="ACOM" />
+      <uri value="urn:iso:std:iso:11073:10206"/>
+      <name value="ISO/IEEE 11073-10206 Abstract Content Information Model (ACOM)"/>
+    </mapping>
    <mapping>
     <identity value="DIM"/>
     <uri value="https://standards.ieee.org/ieee/11073-10201/6847"/>
