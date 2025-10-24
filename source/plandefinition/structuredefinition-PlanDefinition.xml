@@ -1246,7 +1246,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1987,7 +1987,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
