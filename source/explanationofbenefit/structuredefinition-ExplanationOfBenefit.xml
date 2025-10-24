@@ -579,8 +579,8 @@
       <path value="ExplanationOfBenefit.payee"/>
       <short value="Recipient of benefits payable"/>
       <definition value="The party to be reimbursed for cost of the products and services according to the terms of the policy."/>
-      <comment value="Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead."/>
-      <requirements value="The provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
+      <comment value="Often billing providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead."/>
+      <requirements value="The billing provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -590,8 +590,8 @@
     <element id="ExplanationOfBenefit.payee.type">
       <path value="ExplanationOfBenefit.payee.type"/>
       <short value="Category of recipient"/>
-      <definition value="Type of Party to be reimbursed: Subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <definition value="Type of Party to be reimbursed: Subscriber, billing provider, other."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1938,6 +1938,17 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.adjudication.decisionDate">
+      <path value="ExplanationOfBenefit.item.adjudication.decisionDate"/>
+      <short value="When was adjudication performed"/>
+      <definition value="The date and time the adjudication decision occured."/>
+      <comment value="Implementation Guide authors may choose to require this element based on local regulatory requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail">

@@ -307,7 +307,7 @@
 		</element>
 		<element id="PlanDefinition.type">
 			<path value="PlanDefinition.type"/>
-			<short value="order-set | clinical-protocol | eca-rule | workflow-definition"/>
+			<short value="order-set | protocol | eca-rule | workflow-definition | etc."/>
 			<definition value="A high-level category for the plan definition that distinguishes the kinds of systems that would be interested in the plan definition."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -321,7 +321,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="The type of PlanDefinition."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/plan-definition-type"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/plan-definition-type"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
@@ -1290,6 +1290,7 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
+			<orderMeaning value="The order of actions is the sequence in which the actions are to be evaluated and performed. This is true of both the actions in the root as well as child actions of each action."/>
 			<condition value="pld-3"/>
 			<condition value="pld-4"/>
 			<mapping>
@@ -2038,7 +2039,7 @@
 		</element>
 		<element id="PlanDefinition.action.type">
 			<path value="PlanDefinition.action.type"/>
-			<short value="create | update | remove | fire-event"/>
+			<short value="create | update | remove | fire-event | etc."/>
 			<definition value="The type of action to perform (create, update, remove)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -2051,11 +2052,34 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="The type of action to be performed."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/action-type"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".moodCode { Maybe? this is effectively Create, Update, or Delete }"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.applicabilityBehavior">
+			<path value="PlanDefinition.action.applicabilityBehavior"/>
+			<short value="all | any"/>
+			<definition value="All - meaning the applicability of each child action is evaluated independently; if a child action is applicable according to the applicability criteria, it is applied. Any - meaning that each child action is evaluated in order, and the first action that returns an applicability of true will be applied, and processing of the parent action will stop. If not specified, the default behavior of All is used."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="If no applicability behavior is specified but the action has children, the default applicability criteria of All is assumed, meaning that each child action is evaluated independently."/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionApplicabilityBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines applicability behavior of a group."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-applicability-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
 			</mapping>
 		</element>
 		<element id="PlanDefinition.action.groupingBehavior">
@@ -2176,8 +2200,8 @@
 		<element id="PlanDefinition.action.definition[x]">
 			<path value="PlanDefinition.action.definition[x]"/>
 			<short value="Description of the activity to be performed"/>
-			<definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a MessageDefinition describing a message to be snet, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
-			<comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically."/>
+			<definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a MessageDefinition describing a message to be sent, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
+			<comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically. If the reference is to an ActivityDefinition or a PlanDefinition, the realization processing documented in those resources is followed. For the other definitional resource types, implementations SHOULD realize the action as a Task resource with a focus of the definitional resource to indicate that the activity should be carried out (e.g. gathering a specimen, filling out a questionnaire, sending a message, invoking an operation, etc.)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

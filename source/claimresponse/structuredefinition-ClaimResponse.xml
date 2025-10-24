@@ -450,8 +450,8 @@
     <element id="ClaimResponse.payeeType">
       <path value="ClaimResponse.payeeType"/>
       <short value="Party to be paid any benefits payable"/>
-      <definition value="Type of Party to be reimbursed: subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <definition value="Type of Party to be reimbursed: subscriber, billing provider, other."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -838,6 +838,17 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.item.adjudication.decisionDate">
+      <path value="ClaimResponse.item.adjudication.decisionDate"/>
+      <short value="When was adjudication performed"/>
+      <definition value="The date and time the adjudication decision occured."/>
+      <comment value="Implementation Guide authors may choose to require this element based on local regulatory requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
       </type>
     </element>
     <element id="ClaimResponse.item.detail">

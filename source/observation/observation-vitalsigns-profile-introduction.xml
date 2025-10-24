@@ -124,9 +124,6 @@
 						<em>Oxygen saturation in Arterial blood</em>
 						<p>The 2708-6 code or the more specific 59408-5 <em>Oxygen saturation in Arterial blood by Pulse oximetry</em> code (or another appropriate code for arterial oxygen saturation) may be used in Observation.code to specify the actual measurement that was performed.</p></td>
 					<td>%</td>
-					<td>
-						<a href="observation-example-satO2.html">Oxygen Saturation Example</a>
-					</td>
 				</tr>
 				<tr>
 					<td>
