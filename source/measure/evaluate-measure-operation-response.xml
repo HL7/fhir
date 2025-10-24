@@ -4,6 +4,7 @@
     <name value="return"/>
     <resource>
       <Bundle>
+        <type value="transaction-response"/>
         <entry>
           <resource>
             <MeasureReport>
