@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="detectedissue-expected-onset-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/detectedissue-expected-onset-type"/>
+  <version value="6.0.0"/>
+  <name value="DetectedIssueExpectedOnsetType"/>
+  <title value="Detected Issue Expected Onset Type"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Example value set illustrating the expected onset type."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="385315009"/>
+        <display value="Sudden onset (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="788800008"/>
+        <display value="Delayed onset (qualifier value)"/>
+      </concept>
+      <!-- Note that there is an active request to establish a "Rapid onset" code for SNOMED that would be used here. -->
+    </include>
+  </compose>
+</ValueSet>
