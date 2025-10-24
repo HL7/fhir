@@ -14,8 +14,7 @@
       <li>Imaging results like  <a href="observation-example-bmd.html">bone density</a> or fetal measurements</li>
       <li>Clinical Findings<sup>*</sup> such as  <a href="observation-example-abdo-tender.html">abdominal tenderness</a>
       </li>
-      <li>Device measurements such as  <a href="observation-example-sample-data.html">EKG data</a> or  <a href="observation-example-satO2.html">Pulse Oximetry data</a>
-      </li>
+      <li>Device measurements such as  <a href="observation-example-sample-data.html">EKG data</a></li>
       <li>Device Settings such as mechanical ventilator parameters.</li>
       <li>Clinical assessment tools such as <a href="observation-example-5minute-apgar-score.html">APGAR</a> or a <a href="observation-example-glasgow.html">Glasgow Coma Score</a>
       </li>
