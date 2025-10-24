@@ -158,6 +158,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="RiskAssessment-probability-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RiskAssessment.prediction.probability[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RiskAssessment-probability-quantity"/>
+        <description value="Likelihood of specified outcome (as a Quantity or Range)"/>
+        <code value="probability-quantity"/>
+        <type value="quantity"/>
+        <expression value="RiskAssessment.prediction.probability.ofType(Quantity) | RiskAssessment.prediction.probability.ofType(Range)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="RiskAssessment-risk"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
