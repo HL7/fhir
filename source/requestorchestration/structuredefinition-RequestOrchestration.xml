@@ -1078,9 +1078,32 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of action to be performed."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/action-type"/>
       </binding>
     </element>
+		<element id="RequestOrchestration.action.applicabilityBehavior">
+			<path value="RequestOrchestration.action.applicabilityBehavior"/>
+			<short value="all | any"/>
+			<definition value="All - meaning the applicability of each child action is evaluated independently; if a child action is applicable according to the applicability criteria, it is applied. Any - meaning that each child action is evaluated in order, and the first action that returns an applicability of true will be applied, and processing of the parent action will stop. If not specified, the default behavior of All is used."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="If no applicability behavior is specified but the action has children, the default applicability criteria of All is assumed, meaning that each child action is evaluated independently."/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionApplicabilityBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines applicability behavior of a group."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-applicability-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
     <element id="RequestOrchestration.action.groupingBehavior">
       <path value="RequestOrchestration.action.groupingBehavior"/>
       <short value="visual-group | logical-group | sentence-group"/>
