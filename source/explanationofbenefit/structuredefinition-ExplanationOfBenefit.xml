@@ -247,13 +247,15 @@
     <element id="ExplanationOfBenefit.patient">
       <path value="ExplanationOfBenefit.patient"/>
       <short value="The recipient of the products and services"/>
-      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
-      <requirements value="The patient must be supplied to the insurer so that confirmation of coverage and service history may be considered as part of the authorization and/or adjudiction."/>
+      <definition value="The party or group to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
+      <comment value="Implementers should profile 'Group' out in circumstances where the recording of healthcare interventions are individual based."/>
+      <requirements value="The patient or group must be supplied to the insurer so that confirmation of coverage and service history may be considered as part of the authorization and/or adjudiction."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>

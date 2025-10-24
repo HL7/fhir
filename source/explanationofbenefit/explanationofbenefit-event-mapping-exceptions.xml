@@ -46,18 +46,17 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="ExplanationOfBenefit.patient">
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
             <resource value="The recipient of the products and services"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
+            <resource value="The party or group to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the explanation of benefit to the Patient context.  May also affect access control."/>
-            <resource value="The patient must be supplied to the insurer so that confirmation of coverage and service history may be considered as part of the authorization and/or adjudiction."/>
+            <resource value="The patient or group must be supplied to the insurer so that confirmation of coverage and service history may be considered as part of the authorization and/or adjudiction."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="ExplanationOfBenefit.created">
