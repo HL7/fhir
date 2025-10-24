@@ -1210,7 +1210,7 @@
     <element id="RequestOrchestration.action.definition[x]">
       <path value="RequestOrchestration.action.definition[x]"/>
       <short value="Description of the activity to be performed"/>
-      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a Measure that specifies a measure to be evaluated, a MessageDefinition that specifies a message to be sent, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
+      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a Measure that specifies a measure to be evaluated, a MessageDefinition that specifies a message to be sent, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, an ObservationDefinition that specifies what observation should be captured, or an OperationDefinition that specifies what operation should be invoked."/>
       <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically. If the reference is to an ActivityDefinition or a PlanDefinition, the realization processing documented in those resources is followed. For the other definitional resource types, implementations SHOULD realize the action as a Task resource with a focus of the definitional resource to indicate that the activity should be carried out (e.g. evaluating a measure, gathering a specimen, filling out a questionnaire, sending a message, invoking an operation, etc.)."/>
       <min value="0"/>
       <max value="1"/>
@@ -1220,6 +1220,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
