@@ -22,7 +22,7 @@
               </reporter>
               <period>
                   <start value="2014-01-01" />
-                  <end value="2014-03-31" />
+                  <end value="2014-12-31" />
               </period>
               <group id="CMS146-group-1">
                 <population>

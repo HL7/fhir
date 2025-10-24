@@ -33,6 +33,28 @@
       <valueString value="$evaluate-measure-response.txt"/>
     </extension>
   </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$evaluate-measure-request2.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$evaluate-measure-response2.txt"/>
+    </extension>
+  </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
     <valueMarkdown value="The effect of invoking this operation is to calculate the measure for the given subject(s), or all subjects if no subject is supplied. For individual and subject-list reports, the result is a set of Bundles, one for each evaluated subject, where the first entry in each bundle is a MeasureReport resource, and subsequent entries in the Bundle are resources evaluated or created as part of the measure evaluation. For the summary report, the result of this operation is a single bundle with a single MeasureReport of type summary. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>
   </extension>
