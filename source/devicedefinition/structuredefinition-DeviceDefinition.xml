@@ -657,10 +657,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-regulatory-identifier-type"/>
       </binding>
     </element>
-    <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifier">
-      <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifier"/>
+    <element id="DeviceDefinition.regulatoryIdentifier.identifier">
+      <path value="DeviceDefinition.regulatoryIdentifier.identifier"/>
       <short value="The identifier itself"/>
-      <definition value="The identifier itself."/>
+      <definition value="The  identifier used in the associated regulatory context."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -679,18 +679,18 @@
     </element>
     <element id="DeviceDefinition.regulatoryIdentifier.jurisdiction">
       <path value="DeviceDefinition.regulatoryIdentifier.jurisdiction"/>
-      <short value="The jurisdiction to which the deviceIdentifier applies"/>
-      <definition value="The jurisdiction to which the deviceIdentifier applies."/>
+      <short value="Relevant jurisdiction governing the identifier"/>
+      <definition value="The applicable jurisdiction overseeing the enforcement of the Identifier."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
       </type>
     </element>
-    <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifierSystem">
-      <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifierSystem"/>
+    <element id="DeviceDefinition.regulatoryIdentifier.identifierSystem">
+      <path value="DeviceDefinition.regulatoryIdentifier.identifierSystem"/>
       <short value="The namespace for the device identifier value"/>
-      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the device identifier."/>
+      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
