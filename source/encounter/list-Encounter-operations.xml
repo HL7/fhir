@@ -9,4 +9,9 @@
       <reference value="OperationDefinition/Encounter-everything"/>
     </item>
   </entry>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/Encounter-merge"/>
+    </item>
+  </entry>
 </List>
