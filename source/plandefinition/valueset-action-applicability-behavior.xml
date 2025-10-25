@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="action-type"/>
+  <id value="action-applicability-behavior"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -14,19 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/action-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.809"/>
-  </identifier>
-  <identifier>
-    <use value="old"/>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.792"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/action-applicability-behavior"/>
   <version value="6.0.0"/>
-  <name value="ActionType"/>
-  <title value="Action Type"/>
+  <name value="ActionApplicabilityBehavior"/>
+  <title value="Action Applicability Behavior"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -41,11 +32,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of action to be performed."/>
+  <description value="Defines applicability behavior of a group."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/action-type"/>
+      <system value="http://hl7.org/fhir/action-applicability-behavior"/>
     </include>
   </compose>
 </ValueSet>
