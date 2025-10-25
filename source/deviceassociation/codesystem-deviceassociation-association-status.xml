@@ -52,4 +52,9 @@
     <display value="Defective"/>
     <definition value="The device is defective."/>
   </concept>
+  <concept>
+  <code value="abandoned"/>
+  <display value="Abandoned"/>
+  <definition value="The implanted device remains in the patient's body and is no longer in use."/>
+</concept>
 </CodeSystem>
