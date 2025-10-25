@@ -169,7 +169,7 @@
     <element id="DeviceUsage.status">
       <path value="DeviceUsage.status"/>
       <short value="preparation | active | completed | not-done | entered-in-error +"/>
-      <definition value="A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed."/>
+      <definition value="The current state of the device usage."/>
       <comment value="DeviceUsage is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).&#xD;&#xD;This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid. When the status is 'not-done', the [event-statusReason](http://hl7.org/fhir/StructureDefinition/event-statusReason) extension should be used to indicate why the DeviceUsage was not done."/>
       <min value="1"/>
       <max value="1"/>
