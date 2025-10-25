@@ -232,7 +232,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MessageDefinition-jurisdiction"/>
-        <description value="Intended jurisdiction for the message definition"/>
+        <description value="Jurisdiction of the authority that maintains the the message definition"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="MessageDefinition.jurisdiction"/>

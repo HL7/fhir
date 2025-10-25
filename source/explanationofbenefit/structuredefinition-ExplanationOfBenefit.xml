@@ -154,6 +154,19 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
+    <element id="ExplanationOfBenefit.statusReason">
+      <path value="ExplanationOfBenefit.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="ExplanationOfBenefit.type">
       <path value="ExplanationOfBenefit.type"/>
       <short value="Category or discipline"/>
@@ -367,7 +380,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessPriority"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="The timeliness with which processing is required: stat, normal, deferred."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
@@ -444,13 +457,14 @@
     <element id="ExplanationOfBenefit.related.claim">
       <path value="ExplanationOfBenefit.related.claim"/>
       <short value="Reference to the related claim"/>
-      <definition value="Reference to a related claim."/>
+      <definition value="Reference to a related Claim or ExplanationOfBenefit as a representation of a claim."/>
       <requirements value="For workplace or other accidents it is common to relate separate claims arising from the same event."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.related.relationship">
@@ -494,7 +508,9 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
@@ -508,7 +524,10 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.event">
@@ -561,8 +580,8 @@
       <path value="ExplanationOfBenefit.payee"/>
       <short value="Recipient of benefits payable"/>
       <definition value="The party to be reimbursed for cost of the products and services according to the terms of the policy."/>
-      <comment value="Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead."/>
-      <requirements value="The provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
+      <comment value="Often billing providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead."/>
+      <requirements value="The billing provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -572,8 +591,8 @@
     <element id="ExplanationOfBenefit.payee.type">
       <path value="ExplanationOfBenefit.payee.type"/>
       <short value="Category of recipient"/>
-      <definition value="Type of Party to be reimbursed: Subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <definition value="Type of Party to be reimbursed: Subscriber, billing provider, other."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -921,9 +940,27 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InformationCategory"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="The valuset used for additional information category codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
+      </binding>
+    </element>
+    <element id="Claim.supportingInfo.subCategory">
+      <path value="Claim.supportingInfo.subCategory"/>
+      <short value="Finer-grained classification of the supplied information"/>
+      <definition value="A finer classification within the more general category."/>
+      <requirements value="Required to provide more detailed categorization, for example lab-test grouping: blood, tissue etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InformationSubCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The valuset used for additional information subcategory codes."/>
       </binding>
     </element>
     <element id="ExplanationOfBenefit.supportingInfo.code">
@@ -968,23 +1005,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="Quantity"/>
-      </type>
-      <type>
-        <code value="Attachment"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <type>
-        <code value="Identifier"/>
+        <code value="*"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.supportingInfo.reason">
@@ -1486,7 +1507,7 @@
       <path value="ExplanationOfBenefit.item.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1896,7 +1917,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-reason"/>
       </binding>
     </element>
-    <element id="ExplanationOfBenefit.item.adjudication.amount"> 
+    <element id="ExplanationOfBenefit.item.adjudication.amount">
       <path value="ExplanationOfBenefit.item.adjudication.amount"/>
       <short value="Monetary amount"/>
       <definition value="Monetary amount associated with the category."/>
@@ -1905,7 +1926,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Money"/> 
+        <code value="Money"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.adjudication.quantity">
@@ -1918,6 +1939,17 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.adjudication.decisionDate">
+      <path value="ExplanationOfBenefit.item.adjudication.decisionDate"/>
+      <short value="When was adjudication performed"/>
+      <definition value="The date and time the adjudication decision occured."/>
+      <comment value="Implementation Guide authors may choose to require this element based on local regulatory requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail">
@@ -2024,7 +2056,7 @@
       <path value="ExplanationOfBenefit.item.detail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2293,7 +2325,7 @@
       <path value="ExplanationOfBenefit.item.detail.subDetail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2473,7 +2505,7 @@
       </extension>
       <path value="ExplanationOfBenefit.addItem"/>
       <short value="Insurer added line items"/>
-      <definition value="The first-tier service adjudications for payor added product or service lines."/>
+      <definition value="The first-tier service adjudications for payer added product or service lines."/>
       <requirements value="Insurers may redefine the provided product or service or may package and/or decompose groups of products and services. The addItems allows the insurer to provide their line item list with linkage to the submitted items/details/sub-details. In a preauthorization the insurer may use the addItem structure to provide additional information on authorized products and services."/>
       <min value="0"/>
       <max value="*"/>
@@ -2525,6 +2557,17 @@
         <code value="Identifier"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.addItem.informationSequence">
+      <path value="ExplanationOfBenefit.addItem.informationSequence"/>
+      <short value="Applicable exception and supporting information"/>
+      <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>
+      <requirements value="Need to reference the supporting information items that relate directly to this product or service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.addItem.provider">
       <path value="ExplanationOfBenefit.addItem.provider"/>
       <short value="Authorized providers"/>
@@ -2562,6 +2605,26 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
       </binding>
     </element>
+    <element id="ExplanationOfBenefit.addItem.category">
+      <path value="ExplanationOfBenefit.addItem.category"/>
+      <short value="Benefit classification"/>
+      <definition value="Code to identify the general type of benefits under which products and services are provided."/>
+      <comment value="Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage."/>
+      <requirements value="Needed in the processing of institutional claims as this allows the insurer to determine whether a facial X-Ray is for dental, orthopedic, or facial surgery purposes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Benefit categories such as: oral-basic, major, glasses."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.addItem.productOrService">
       <path value="ExplanationOfBenefit.addItem.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
@@ -2589,7 +2652,7 @@
       <path value="ExplanationOfBenefit.addItem.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -2879,7 +2942,7 @@
       </extension>
       <path value="ExplanationOfBenefit.addItem.detail"/>
       <short value="Insurer added line items"/>
-      <definition value="The second-tier service adjudications for payor added services."/>
+      <definition value="The second-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -2943,7 +3006,7 @@
       <path value="ExplanationOfBenefit.addItem.detail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -3091,7 +3154,7 @@
       </extension>
       <path value="ExplanationOfBenefit.addItem.detail.subDetail"/>
       <short value="Insurer added line items"/>
-      <definition value="The third-tier service adjudications for payor added services."/>
+      <definition value="The third-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -3155,7 +3218,7 @@
       <path value="ExplanationOfBenefit.addItem.detail.subDetail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -3517,6 +3580,27 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="ExplanationOfBenefit.processNote.class">
+      <path value="ExplanationOfBenefit.processNote.class"/>
+      <short value="Business kind of note"/>
+      <definition value="A code to indicate the business purpose of the note."/>
+      <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessNoteClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Business class of the process note."/>
+      </binding>
+    </element>
     <element id="ExplanationOfBenefit.processNote.number">
       <path value="ExplanationOfBenefit.processNote.number"/>
       <short value="Note instance identifier"/>
@@ -3558,7 +3642,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.processNote.language">

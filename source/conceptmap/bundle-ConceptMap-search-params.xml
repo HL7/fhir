@@ -194,7 +194,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ConceptMap-jurisdiction"/>
-        <description value="Intended jurisdiction for the concept map"/>
+        <description value="Jurisdiction of the authority that maintains the the concept map"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ConceptMap.jurisdiction"/>

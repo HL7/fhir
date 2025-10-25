@@ -91,6 +91,14 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.jurisdiction" resourcePath="EventDefinition.jurisdiction">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Intended jurisdiction for event definition (if applicable)"/>
+            <resource value="Jurisdiction of the authority that maintains the event definition (if applicable)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A legal or geographic region in which the event definition is intended to be used."/>
+            <resource value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
+        </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="It may be possible for the event definition to be used in jurisdictions other than those for which it was originally designed or intended&#10;&#10;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
             <resource value="It may be possible for the event definition to be used in jurisdictions other than those for which it was originally designed or intended.&#10;&#10;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>

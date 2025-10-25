@@ -175,7 +175,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-jurisdiction"/>
-        <description value="Intended jurisdiction for the terminology capabilities"/>
+        <description value="Jurisdiction of the authority that maintains the the terminology capabilities"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="TerminologyCapabilities.jurisdiction"/>

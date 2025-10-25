@@ -251,7 +251,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Measure-jurisdiction"/>
-        <description value="Intended jurisdiction for the measure"/>
+        <description value="Jurisdiction of the authority that maintains the the measure"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="Measure.jurisdiction"/>

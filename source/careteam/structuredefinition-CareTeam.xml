@@ -303,7 +303,7 @@
     </element>
     <element id="CareTeam.participant.member">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14334, J#48432"/>
+        <valueString value="GF#14334, J#48432, J#51595"/>
       </extension>
       <path value="CareTeam.participant.member"/>
       <short value="Who is involved"/>
@@ -320,6 +320,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <condition value="ctm-2"/>
       <isSummary value="true"/>
@@ -338,7 +339,7 @@
     </element>
     <element id="CareTeam.participant.onBehalfOf">
 	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#42928, J#48432"/>
+        <valueString value="J#42928, J#48432, J#51595"/>
       </extension>
       <path value="CareTeam.participant.onBehalfOf"/>
       <short value="Entity that the participant is acting as a proxy of, or an agent of, or in the interest of, or as a representative of"/>
@@ -356,6 +357,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -376,6 +378,22 @@
       <type>
         <code value="Timing"/>
       </type>
+    </element>
+	 <element id="CareTeam.participant.supportingInfo">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#50097"/>
+      </extension>
+      <path value="CareTeam.participant.supportingInfo"/>
+      <short value="Basis for the member's participation"/>
+      <definition value="The basis for the member's role participation in care team.  For example, supporting documentation that establishes legal power of attorney or court ordered guardianship."/>
+	  <comment value="Enables care providers a more efficient path to review the participation, if necessary."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="true"/>
     </element>
     <element id="CareTeam.reason">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">

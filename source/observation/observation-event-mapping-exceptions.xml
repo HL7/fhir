@@ -56,6 +56,22 @@
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.category" resourcePath="Observation.category">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="High level categorization of observation"/>
+            <resource value="Classification of  type of observation"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Partitions the observation into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="A code that classifies the general type of observation being made."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value="In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set."/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="Observation.code">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -130,12 +146,20 @@
             <resource value="Who was responsible for asserting the observed value as &quot;true&quot;."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.note" resourcePath="Observation.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about the event"/>
+            <resource value="Comments about the observation"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the observation by the performer, subject or other participants."/>
+            <resource value="Comments about the observation or the results."/>
+        </definitionUnmatched>
+    </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.reason" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
-    <unmappedElement patternPath="Event.note" reason="Unknown"/>
-    <unmappedElement patternPath="Event.category" reason="Unknown"/>
     <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
     <unmappedElement patternPath="Event.product" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer" reason="Unknown"/>

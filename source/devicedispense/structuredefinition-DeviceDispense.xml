@@ -107,6 +107,10 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
     </element>
     <element id="DeviceDispense.basedOn">
       <path value="DeviceDispense.basedOn"/>
@@ -119,6 +123,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
     </element>
     <element id="DeviceDispense.partOf">
       <path value="DeviceDispense.partOf"/>
@@ -218,6 +226,10 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
     </element>
     <element id="DeviceDispense.device">
       <path value="DeviceDispense.device"/>
@@ -238,6 +250,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.product"/>
       </mapping>
     </element>
     <element id="DeviceDispense.subject">
@@ -400,6 +416,10 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=LOC].role"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
+      </mapping>
     </element>
     <element id="DeviceDispense.type">
       <path value="DeviceDispense.type"/>
@@ -512,8 +532,8 @@
         <code value="markdown"/>
       </type>
     </element>
-    <element id="DeviceDispense.eventHistory">
-      <path value="DeviceDispense.eventHistory"/>
+    <element id="DeviceDispense.relevantHistory">
+      <path value="DeviceDispense.relevantHistory"/>
       <short value="A list of relevant lifecycle events"/>
       <definition value="A summary of the events of interest that have occurred, such as when the dispense was verified."/>
       <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
@@ -526,6 +546,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.relevantHistory"/>
       </mapping>
     </element>
   </differential>

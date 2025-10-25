@@ -45,6 +45,13 @@ and each <a href="implementationguide.html">Implementation Guide</a> is
 published as a package, but this is not the only use for package, and other 
 packages exist.
 </p>
+<p>
+NPM FHIR Packages SHOULD contain an ImplementationGuide resource with the url:
+<code>{package-canonical}/ImplementationGuide/{packageId}</code> and the version to match the package version.
+</p>
+<p>
+It is reasonable for tooling to resolve a canonical reference to an implementation guide resource as the NPM FHIR Package matching that definition (e.g., per the dependsOn element of the implementation guide.
+</p>
 <h3>package.json</h3>
 <p>
 The format of the package.json file is defined by the 
@@ -133,7 +140,7 @@ specification, and defines some additional FHIR specific properties.
   <tr>
     <td><b>jurisdiction</b></td>
     <td>optional</td>
-    <td>A URL with the syntax <code>{system}#{code}</code>, from the <a href="valueset-jurisdiction.html">Jurisdiction</a> ValueSet. This value is provided to help users find the right package in the package registry</td>
+    <td>A URL with the syntax <code>{system}#{code}</code>, from the <a href="https://terminology.hl7.org/ValueSet-jurisdiction.html">Jurisdiction</a> ValueSet. This value is provided to help users find the right package in the package registry</td>
   </tr>
   <tr>
     <td><b>fhirVersions</b></td>

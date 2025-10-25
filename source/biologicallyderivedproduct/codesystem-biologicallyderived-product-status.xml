@@ -61,16 +61,16 @@
   <concept>
     <code value="processed"/>
     <display value="Processed"/>
-    <definition value="The biologically derived product has been further processed to one or more other products. Canonical map to replaced."/>
+    <definition value="The biologically derived product has been further processed to one or more other products."/>
   </concept>
   <concept>
     <code value="applied"/>
     <display value="Applied"/>
-    <definition value="The biologically derived product has been clinically applied. Canonical map to complete."/>
+    <definition value="The biologically derived product has been clinically applied."/>
   </concept>
   <concept>
     <code value="discarded"/>
     <display value="Discarded"/>
-    <definition value="The biologically derived product has been discarded. Canonical map to abandoned."/>
+    <definition value="The biologically derived product has been discarded."/>
   </concept>
 </CodeSystem>

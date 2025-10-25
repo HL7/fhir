@@ -10,23 +10,23 @@
 	<p><b>Note to Implementers:</b> The owner has been removed from Device and is now included in DeviceAssociation as .relationship of the subject.  Please comment on the revision if there are issues with removing the identification of individuals in the Device resource.</p>
 </blockquote>
 <blockquote class="stu-note">
-<p><strong>Note to Implementers:</strong> Extensions have been created and are now available to represent previously removed <code>Device</code> elements and new concepts. These include:</p>
+ <p><strong>Note to Implementers:</strong> Extensions have been created and are now available to represent previously removed <code>Device</code> elements and new concepts. These include:</p>
 
-<ul>
-  <li><code>device-mode</code>, <code>device-cycle</code>, <code>device-duration</code>, <code>device-gateway</code>, and <code>device-endpoint</code></li>
-  <li><code>device-alertDetection</code> – describes the alert detection activation states for the overall device</li>
-  <li><code>device-conformsTo-source</code> – represents the source of the device specification</li>
-</ul>
+  <ul>
+    <li><code>device-mode</code>, <code>device-cycle</code>, <code>device-duration</code>, <code>device-gateway</code>, and <code>device-endpoint</code></li>
+    <li><code>device-alertDetection</code> – describes the alert detection activation states for the overall device</li>
+    <li><code>device-conformsTo-source</code> – represents the source of the device specification</li>
+  </ul>
 
-<p>Links to these extensions can be found in the <a href="https://build.fhir.org/ig/HL7/fhir-extensions/extensions-Device.html">FHIR Extension Pack</a>. Feedback from implementers is welcomed to inform further refinement and usage guidance.</p>
-
+ <p>Links to these extensions can be found in the <a href="https://build.fhir.org/ig/HL7/fhir-extensions/extensions-Device.html">FHIR Extension Pack</a>. Feedback from implementers is welcomed to inform further refinement and usage guidance.</p>
 	</blockquote>
+</div>  
+<div>  
 <h2>Scope and Usage</h2>
 <p>This is a base resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, which device was implanted in or explanted from a patient, dispensing a device to a patient for their use, managing inventory, or when requesting a specific device for a patient's use. Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health. Medical devices may also include some types of software.</p>
 <p>Non-medical devices may include items such as a machine, cellphone, computer, software application or algorithm, etc. In short, a Device can range from a tongue depressor to an MRI. The fields in the Device resource must be flexible enough to cover this range.</p>
 <p>The resource may be used to document the Unique Device Identifier (UDI) and information about a device where appropriate or necessary according to local jurisdictions over time. Additional information about UDI is provided in the <a class="external-link" href="device.html#udi" rel="nofollow">Unique Device Identifier (UDI)</a> section.</p>
 <p>Devices may be categorized and may be associated with one or more categories. Device category examples include, but are not limited to: active, communicating, durable medical equipment, home use, implantable, InVitro diagnostics, personal health, point-of-care, single use, re-usable, and software. See <a class="external-link" href="devicedefinition.html" rel="nofollow">DeviceDefinition</a> for detailed descriptions of device categories.</p>
-<p><strong>Software as a device</strong> may include not only traditional applications but also standalone algorithms, rule engines, artificial intelligence (AI), machine learning (ML) components, and decision-support modules. These software-based devices may operate independently or be embedded within physical hardware to be used in clinical and non-clinical contexts.</p>
 
 <h3 id="DeviceScopeBoundaryRelationships-Device-DeviceDefinition">Device and DeviceDefinition</h3>
 <p>When referring to a specific instance, even without specific instance details, Device is to be used, not a DeviceDefinition. The context of a data exchange indicates whether the data is representing a physical instance or a &quot;kind&quot;, not the presence of instance data such as lot and serial numbers. </p>
@@ -39,8 +39,10 @@ In a Procedure, reporting the use of a pump for which we have no instance data -
 When a device gets replaced by another device of the same type. In this case, a procedure indicates that one instance of the device is removed/explanted/discarded, and another instance is used. These are physical instances for which instance data might exist and be known, or not.
 </li>
 </ol>
+</div>
 
 
+<div>  
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 
@@ -63,7 +65,7 @@ The module pages under development by Orders and Observations will further descr
 <li><a class="external-link" href="deviceusage.html" rel="nofollow">DeviceUsage</a> - To record the use of a device that is not covered by a procedure - i.e., patient reported use of a device.</li>
 <li><a class="external-link" href="nutritionorder.html" rel="nofollow">NutritionOrder</a>&nbsp;- An order for nutrition can request to a specific device to administer enteral feeding.</li>
 <li><a class="external-link" href="observation.html" rel="nofollow">Observation</a>&nbsp;- A measurement can be generated by many types of devices. It may be linked to and supplemented by data about the current structure and status of the device itself in one or more Device or DeviceMetric resources.</li>
-<li><a class="external-link" href="procedure.html" rel="nofollow">Procedure</a>&nbsp;- A procedure can be performed using a variety of devices, or a device can be implanted or otherwise associated with a patient.</li>
+<li><a class="external-link" href="procedure.html" rel="nofollow">Procedure</a>&nbsp;- A procedure can be performed using a variety of devices, or a device can be implanted or otherwise associated with a patient. A procedure may also record the inclusion of an additive.</li>
 <li><a class="external-link" href="medicationadministration.html" rel="nofollow">MedicationAdministration</a>&nbsp;- A medication administration can be performed using a variety of devices.</li>
 </ul>
 <p>In FHIR, the Device represents either the device in total, or a component of an encapsulating device when there is a need for individual tracking of a component. A Device as a component then points to the parent device it is part of. The top-level Device captures the actual data about the instance of the device and the instances of all its children that either provides identifying characteristics of the Device (including applicable UDI &ndash; unique device identification) and data that can vary dynamically by device, e.g., specific settings at a particular point in time.</p>

@@ -259,6 +259,10 @@
         <identity value="rim"/>
         <map value="inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code &lt; LabService].code"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
     </element>
     <element id="DiagnosticReport.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -614,6 +618,10 @@
         <identity value="rim"/>
         <map value="unknown"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
     </element>
     <element id="DiagnosticReport.study">
       <path value="DiagnosticReport.study"/>
@@ -632,6 +640,7 @@
       <path value="DiagnosticReport.supportingInfo"/>
       <short value="Additional information supporting the diagnostic report"/>
       <definition value="This backbone element contains supporting information that was used in the creation of the report not included in the results already included in the report."/>
+      <comment value="Supporting information should only be used for resources that are not referenced elsewhere within the same DiagnosticReport, e.g., DiagnosticReport.comparison."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -860,6 +869,18 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Communication"/>
       </type>
        <isSummary value="false"/>
+    </element>
+    <element id="DiagnosticReport.comparison">
+      <path value="DiagnosticReport.comparison"/>
+      <short value="Prior data and findings for comparison"/>
+      <definition value="Prior data and findings made available for comparison when determining the current interpretation."/>
+      <comment value="The List.entry.item can be profiled down to indicate a ImagingStudy | DiagnosticReport | Observation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/List"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

@@ -60,6 +60,32 @@
             <resource value="DeviceUsage is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).&#13;&#13;This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid. When the status is 'not-done', the [event-statusReason](http://hl7.org/fhir/StructureDefinition/event-statusReason) extension should be used to indicate why the DeviceUsage was not done."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.category" resourcePath="DeviceUsage.category">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="High level categorization of device usage"/>
+            <resource value="The category of the statement - classifying how the statement is made"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Partitions the device usage into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="This attribute indicates a category for the statement - The device statement may be made in an inpatient or outpatient settting (inpatient | outpatient | community | patientspecified)."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.product" resourcePath="DeviceUsage.device">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product used/provided"/>
+            <resource value="Code or Reference to device used"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the product supplied or manipulated by this device usage."/>
+            <resource value="Code or Reference to device used."/>
+        </definitionUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="DeviceUsage.subject">
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
@@ -107,18 +133,35 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.performer.actor" resourcePath="DeviceUsage.informationSource">
-        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(CareTeam,Device)" reason="Unknown"/>
+    <divergentElement patternPath="Event.recorded" resourcePath="DeviceUsage.dateAsserted">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When device usage was first captured in the subject's record"/>
+            <resource value="When the statement was made (and recorded)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date the occurrence of the device usage was first captured in the record - potentially significantly after the occurrence of the event."/>
+            <resource value="The time at which the statement was recorded by informationSource."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.reported[x]" resourcePath="DeviceUsage.informationSource">
+        <missingTypes _pattern="boolean" reason="Unknown"/>
         <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Who performed device usage"/>
+            <_pattern value="Reported rather than primary record"/>
             <resource value="Who made the statement"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="Indicates who or what performed the device usage."/>
+            <_pattern value="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report."/>
             <resource value="Who reported the device was being used by the patient."/>
         </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Reported data may have different rules on editing and may be visually distinguished from primary data."/>
+            <resource value=""/>
+        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="DeviceUsage.reason">
         <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
@@ -160,13 +203,10 @@
             <resource value="Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement."/>
         </definitionUnmatched>
     </divergentElement>
-    <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
     <unmappedElement patternPath="Event.code" reason="Unknown"/>
     <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
-    <unmappedElement patternPath="Event.category" reason="Unknown"/>
-    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="Event.product" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer" reason="Unknown"/>
 </mappingExceptions>

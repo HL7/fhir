@@ -38,6 +38,26 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.replaces" resourcePath="SupplyRequest.replaces">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(ServiceRequest,MedicationRequest,RequestOrchestration,CarePlan,DeviceRequest,CommunicationRequest,NutritionOrder,VisionPrescription,SupplyRequest)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Request(s) replaced by this supply request"/>
+            <resource value="What request replaces"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Completed or terminated request(s) whose function is taken by this new supply request."/>
+            <resource value="The request takes the place of the referenced completed or terminated request(s)."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The replacement could be because the initial request was immediately rejected (due to an issue) or because the previous request was completed, but the need for the action described by the request remains ongoing."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.groupIdentifier" resourcePath="SupplyRequest.groupIdentifier">
         <definitionUnmatched reason="Unknown">
             <_pattern value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
@@ -66,7 +86,7 @@
     <divergentElement patternPath="Request.intent" resourcePath="SupplyRequest.intent">
         <shortUnmatched reason="Unknown">
             <_pattern value="proposal | plan | order (immutable)"/>
-            <resource value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+            <resource value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates the level of authority/intentionality associated with the supply request and where the request fits into the workflow chain."/>
@@ -87,18 +107,50 @@
             <resource value="Indicates how quickly this SupplyRequest should be addressed with respect to other requests."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.code" resourcePath="SupplyRequest.item">
-        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(Medication,Substance,Device,DeviceDefinition,BiologicallyDerivedProduct,NutritionProduct,InventoryItem)" reason="Unknown"/>
+    <divergentElement patternPath="Request.category" resourcePath="SupplyRequest.category">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Service requested/ordered"/>
+            <_pattern value="Partitions the supply request into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="The kind of supply (central, non-stock, etc.)"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Partitions the supply request into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.product" resourcePath="SupplyRequest.item">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product requested/ordered"/>
             <resource value="Medication, Substance, or Device requested to be supplied"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <_pattern value="Indicates the product whose supply or manipulation is authorized by this supply request."/>
             <resource value="The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list."/>
         </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.subject" resourcePath="SupplyRequest.deliverFor">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="The patient for who the supply request is for"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="The patient to whom the supply will be given or for whom they will be used."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.occurrence[x]" resourcePath="SupplyRequest.occurrence[x]">
         <shortUnmatched reason="Unknown">
@@ -143,6 +195,19 @@
             <resource value="Who is intended to fulfill the request."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.deliverTo" resourcePath="SupplyRequest.deliverTo">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,HealthcareService,CareTeam,Device,Endpoint)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who should receive result of supply request"/>
+            <resource value="The destination of the supply"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Identifies the entity(ies) who should receive the results of executing the supply request (or the location to which the results should be delivered)."/>
+            <resource value="Where the supply is destined to go."/>
+        </definitionUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.reason" resourcePath="SupplyRequest.reason">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -159,17 +224,13 @@
         </commentsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
-    <unmappedElement patternPath="Request.subject" reason="Unknown"/>
-    <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
-    <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
     <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>
     <unmappedElement patternPath="Request.note" reason="Unknown"/>
     <unmappedElement patternPath="Request.encounter" reason="Unknown"/>
-    <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
     <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Request.code" reason="Unknown"/>
     <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
     <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
-    <unmappedElement patternPath="Request.product" reason="Unknown"/>
 </mappingExceptions>

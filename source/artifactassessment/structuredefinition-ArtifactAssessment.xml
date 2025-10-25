@@ -179,13 +179,13 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ArtifactRelationshipType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of relationship to the related artifact."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
@@ -240,8 +240,8 @@
         <valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
       </extension>
       <path value="ArtifactAssessment.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the artifact assessment and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the artifact assessment."/>
+      <short value="Notice about intellectual property ownership, can include restrictions on use"/>
+      <definition value="A copyright statement relating to the artifact assessment and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the artifact assessment."/>
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the artifact assessment and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>

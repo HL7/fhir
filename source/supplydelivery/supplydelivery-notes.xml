@@ -5,7 +5,11 @@
 
 <p>The SupplyDelivery resource captures events associated with the movement of bulk supplies. It is used to document supply chain events including dispatch and reception.
 </p>
+<p>
+The SupplyDelivery.stage element shall be used to indicate which workflow stage is being represented.
+</p>
 
+<p>Returns are handled in a similar way as a dispatch and reception events.</p>
 
 <p>
 For some SupplyDelivery instances there is a specific need to articulate if the event represents a dispatch or receipt, due to unique traceability requirements inherent to some transported products. This is particularly true when dispatch and receipt occurs across organizational boundaries with each party only having their "half" of the conversation. SupplyDelivery can be used for these events through the use of the <code>SupplyDelivery.stage</code> element.
@@ -14,8 +18,13 @@ For some SupplyDelivery instances there is a specific need to articulate if the 
 It is intended that a delivery and subsequent return would be documented as two different instances of the SupplyDelivery resource. In workflow terms a SupplyDelivery is the response to a SupplyRequest, and in the case of a return, you would still have a SupplyRequest initiating that return. The SupplyDelivery instances represent one or more distinct stages of the response to a SupplyRequest from beginning to end, and receiving the product (even if you will ultimately ship it back) is a terminal event.
 </p>
 <p>
-Examples:
+Some connected systems would see both instances of the SupplyDelivery events while others would only see the portion their organization is responsible for.
 </p>
+
+<h3>Examples:</h3>
+
+
+<p>Blood stock replenishment:</p>
 <ol>
 <li>A hospital transfusion laboratory places a SupplyRequest order for blood stock replenishment. The order is for 40 x O+ red blood cells, 35 x A+ red cells, 10 x O- red cells and 10 x A- red cells.</li>
 <li>The community blood bank receives the order and prepares the consignment. A SupplyDelivery representing a dispatch event is created that corresponds to the physical dispatch advice note.</li>
@@ -24,6 +33,7 @@ Examples:
 
 
 
+<p>Hospital consumables:</p>
 <ol>
 <li>A service unit (hospital ward) needs to re-stock a number of consumables - 5 packs disposable hand towels, 200 disposable cups, and 100 disposable plates.</li>
 <li>A request is issued from the ward manager to materials management (SupplyRequest). The SupplyRequest has identifier MM278145.</li>
@@ -32,8 +42,5 @@ Examples:
 <li>Ward staff receive the delivery, check the physical items against the dispatch record and document the receipt (SupplyDelivery stage=reception).</li>
 </ol>
  
-<p>
-Some connected systems would see both instances of the SupplyDelivery events while others would only see the portion their organization is responsible for.
-</p>
 
 </div>

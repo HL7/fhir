@@ -397,9 +397,14 @@ This pseudo specimen management is supplied by a trusted-third-party that mainta
 </p><p>
 Care should be taken when modifying an isModifier elements, as the modification will change the meaning of the Resource.
 </p><p>
+De-Identified data might not be compliant with commonly imposed constraints on non-de-identified data, such as clinical 
+Profiles (e.g. VitalSigns). For example in VitalSigns profile there is a requirement to populate the <code>.effectiveDateTime</code>; 
+which would be an Indirect-Identifier; for which elimination, generalization, fuzzing, and/or timezone change 
+might be called for in the De-Identification analysis algorithm.
+</p><p>
 In practice, then, the de-identification process depends on the intended use of the data, the scope of the data being 
 extracted, and the risk associated with the release of the data (e.g. data released into the public domain has a 
-different risk than internal sharing of data within a tightly managed organization with strong information security policies.
+different risk than internal sharing of data within a tightly managed organization with strong information security policies.)
 </p><p>
 <em>Security-label:</em> The resulting Resource should be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
 </p><p>

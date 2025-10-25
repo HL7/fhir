@@ -109,10 +109,10 @@ href="#turtle-template">Turtle
   fhir:subject [ fhir:reference [ <a href="patient.html#Patient">Patient</a>|<a href="group.html#Group">Group</a>|<a href="device.html#Device">Device</a>|<a href="location.html#Location">Location</a> ... ] ]; # 0..1 Who and/or what this is about
   fhir:encounter [ fhir:reference [ <a href="encounter.html#Encounter">Encounter</a> ] ]; # 0..1 Healthcare event during which this observation is made
   # effective[x]: 0..1 Clinically relevant time/time-period for observation. One of these 4:
-    fhir:effectiveDateTime [ fhir:v "&lt;dateTime&gt;" ];
-    fhir:effectivePeriod [ <a href="datatypes.html#Period">Period</a> ];
-    fhir:effectiveTiming [ <a href="datatypes.html#Timing">Timing</a> ];
-    fhir:effectiveInstant [ fhir:v "&lt;instant&gt;" ];
+    fhir:effective [ a fhir:dateTime ; fhir:v "&lt;dateTime&gt;" ];
+    fhir:effective [ a fhir:Period ; <a href="datatypes.html#Period">Period</a> ];
+    fhir:effective [ a fhir:Timing ; <a href="datatypes.html#Timing">Timing</a> ];
+    fhir:effective [ a fhir:instant ; fhir:v "&lt;instant&gt;" ];
 ]</pre>
         <p> Using this format: </p>
         <ul>

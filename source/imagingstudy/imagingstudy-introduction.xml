@@ -30,8 +30,8 @@ resource; use of a DICOM service is needed (e.g., a DICOMweb retrieve transactio
 <p> 
 One ImagingStudy SHALL reference one DICOM Study.
 </p>
-<p>This resource may change as additional information is added to the related DICOM Study.</p>
-<p>See notes for guidance on <a href="imagingstudy.html#source">how imaging study element values can be populated</a> and <a href="imagingstudy.html#workflow">when imaging studies may be created and updated</a>.</p>
+<p>This resource can change as additional information is added to the related DICOM Study.</p>
+<p>See notes for guidance on <a href="imagingstudy.html#source">how imaging study element values can be populated</a> and <a href="imagingstudy.html#workflow">when imaging studies are typically created and updated</a>.</p>
 </div>
 
 <div>
@@ -44,13 +44,13 @@ One ImagingStudy SHALL reference one DICOM Study.
 		The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference to a subset of a study. Instances of this resource are created for specific clinical purposes and are unlikely to change once created.
 		</p>
 		<p>
-		An <a href="observation.html">Observation</a> MAY be related to a set of images in the following ways.
+		An <a href="observation.html">Observation</a> typically relates to a set of images in the following ways.
 		</p>
 		<ul>
-		  <li><a href="observation.html">Observation.partOf</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a></li>
-		  <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to a subset of a study.</li>
-		  <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to a subset of a study</li>
-		  <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of a subset of a study described by the <a href="imagingselection.html">ImagingSelection</a></li>
+		  <li><a href="observation.html">Observation.partOf</a> references an <a href="imagingstudy.html">ImagingStudy</a></li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to an identified subset of a study</li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to an identified subset of a study.</li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of an identified subset of a study described by the <a href="imagingselection.html">ImagingSelection</a></li>
 		</ul>
 	
 

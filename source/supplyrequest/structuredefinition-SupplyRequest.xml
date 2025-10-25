@@ -169,7 +169,7 @@
 
     <element id="SupplyRequest.intent">
       <path value="SupplyRequest.intent"/>
-      <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+      <short value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Whether the request is a proposal, plan, or an original order."/>
       <comment value="This element is immutable. It cannot be changed for the same resource instance. It is expected that the type of requester will be restricted for different stages of a SupplyRequest. For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#xD;&#xD;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#xD;&#xD;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
       <min value="1"/>
@@ -201,7 +201,6 @@
         <map value=".moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)"/>
       </mapping>
     </element>
-
     <element id="SupplyRequest.basedOn">
       <path value="SupplyRequest.basedOn"/>
       <short value="What other request is fulfilled by this supply request"/>
@@ -216,6 +215,41 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Request.basedOn"/>
+      </mapping>
+    </element>
+    <element id="SupplyRequest.replaces">
+      <path value="SupplyRequest.replaces"/>
+      <short value="What request replaces"/>
+      <definition value="The request takes the place of the referenced completed or terminated request(s)."/>
+      <alias value="supersedes"/>
+      <alias value="prior"/>
+      <alias value="renewed order"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.replaces"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Handled by message location of ORC (ORC-1=RO or RU)"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=RPLC].target"/>
       </mapping>
     </element>
     <element id="SupplyRequest.groupIdentifier">
@@ -261,6 +295,10 @@
         <description value="Category of supply request."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/supplyrequest-kind"/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.category"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.class"/>
@@ -321,6 +359,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.subject"/>
+      </mapping>
     </element>
     <element id="SupplyRequest.item">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -353,7 +395,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code"/>
+        <map value="Request.product"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -417,6 +459,14 @@
         </extension>
         <strength value="example"/>
         <description value="A code that identifies the device detail."/>
+      </binding>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RequestOrderDetailParameterCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for order detail parameters."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-orderdetail-parameter-code"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -669,6 +719,11 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Request.deliverTo"/>
+        <comment value="This is about who should receive a result, not who should get the supply"/>
+      </mapping>
+      <mapping>
         <identity value="v2"/>
         <map value="PRT"/>
       </mapping>
@@ -676,6 +731,42 @@
         <identity value="rim"/>
         <map value=".participation"/>
       </mapping>
+    </element>
+    <element id="SupplyRequest.requestedPerformer">
+      <path value="SupplyRequest.requestedPerformer"/>
+      <short value="Who should perform the SupplyRequest"/>
+      <definition value="The kind of participant or specific participant that should perform the supply request."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
+      <requirements value="Use to distinguish supply requests on different activity queues."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <extension url="http://hl7.org/fhir/StructureDefinition/request-performerOrder">
+        <valueString value="SupplyRequestPerformerOrder"/>
+      </extension>
+  <!--<mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.function, Request.performerType"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF].role.code"/>
+      </mapping> -->
     </element>
   </differential>
 </StructureDefinition>

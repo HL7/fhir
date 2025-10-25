@@ -166,7 +166,7 @@ notes: do not list revision in the version
         <a href="nutritionintake.html">NutritionIntake</a>,
         <a href="nutritionproduct.html">NutritionProduct</a>,
         <a href="permission.html">Permission</a>,
-        <a href="testplan.html">TestPlan</a> and
+        TestPlan and
         <a href="transport.html">Transport</a> + New types: 
         <a href="datatypes.html#integer64">integer64</a>,
         <a href="metadatatypes.html#Availability">Availability</a> and 
@@ -196,7 +196,7 @@ notes: do not list revision in the version
             SubstanceSpecification -&gt; [[%SubstanceDefinition%]]</li>
           <li>Collapsed into [[%ClinicalUseDefinition%]] in R4B: MedicinalProductContraindication, MedicinalProductIndication, MedicinalProductInteraction, MedicinalProductUndesirableEffect</li>
           <li>Removed in R4B: types ProdCharacteristic and SubstanceAmount</li>
-          <li>Omitted from R4B due to limited scope: [[%SubstanceNucleicAcid%]], [[%SubstancePolymer%]], [[%SubstanceProtein%]], [[%SubstanceReferenceInformation%]], [[%SubstanceSourceMaterial%]]</li>
+          <li>Omitted from R4B due to limited scope: SubstanceNucleicAcid, SubstancePolymer, SubstanceProtein, SubstanceReferenceInformation, SubstanceSourceMaterial</li>
         </ul>
       </li>
       <li>Moved many code systems and value sets to <a href="http://terminology.hl7.org">terminology.hl7.org</a></li>
@@ -403,9 +403,9 @@ to a new type.
            <li>ResearchElementDefinition</li>
            <li>RiskEvidenceSynthesis</li>
            <li><a href="specimendefinition.html">SpecimenDefinition</a></li>
-           <li><a href="substancepolymer.html">SubstancePolymer</a></li>
-           <li><a href="substancereferenceinformation.html">SubstanceReferenceInformation</a></li>
-           <li><!--a href="substancespecification.html"-->SubstanceSpecification<!--/a--></li>
+           <li>SubstancePolymer</li>
+           <li>SubstanceReferenceInformation</li>
+           <li>SubstanceSpecification</li>
            <li><a href="terminologycapabilities.html">TerminologyCapabilities</a></li>
            <li><a href="verificationresult.html">VerificationResult</a></li>
          </ul>
@@ -540,8 +540,8 @@ to a new type.
        MedicinalProductPackaged,
        MedicinalProductPharmaceutical,
        <a href="insuranceplan.html">InsurancePlan</a>,
-       <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->,
-       <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a> and
+       SubstancePolymer,
+       SubstanceReferenceInformation and
          SubstanceSpecification.
        </li>
        <li>Renamed Resources: ProcedureRequest to <a href="servicerequest.html">ServiceRequest</a> &amp; BodySite to <a href="bodystructure.html">BodyStructure</a></li>
@@ -560,10 +560,10 @@ to a new type.
        <li>New Resources: <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
           <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>, 
           <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>, 
-          MedicinalProduct, MedicinalProductAuthorization <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->, 
+          MedicinalProduct, MedicinalProductAuthorization, MedicinalProductClinicals, 
           MedicinalProductIngredient, MedicinalProductPackaged, 
-          <!-- a href="medicinalproductpharmaceutical.html"-->MedicinalProductPharmaceutical<!--/a--> <!--a href="medicinalproductdevicespec.html"-->MedicinalProductDeviceSpec<!--/a-->, 
-          <!--a href="substancespecification.html"-->SubstanceSpecification<!--/a-->, <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->, <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a>, 
+          MedicinalProductPharmaceutical, MedicinalProductDeviceSpec, 
+          SubstanceSpecification, SubstancePolymer, SubstanceReferenceInformation, 
           <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, ItemInstance 
        </li>
        <li>Add draft support for bulk data (<a href="async.html">Asynchronous API</a> + <a href="nd-json.html">nd-json format</a>)</li>
@@ -739,7 +739,7 @@ to a new type.
          <li><a href="schedule.html">Schedule</a></li>
          <li><a href="slot.html">Slot</a></li>
          <li><a href="structuredefinition.html">StructureDefinition</a></li>
-         <li><a href="testscript.html">TestScript</a></li>
+         <li>TestScript</li>
          <li><a href="valueset.html">ValueSet</a></li>
         </ul>
         <p>
@@ -845,7 +845,7 @@ to a new type.
         </li>
         <li>Resources:
           <ul>
-            <li>New resources: <a href="account.html">Account</a>, <a href="implementationguide.html">ImplementationGuide</a>, <a href="testscript.html">TestScript</a></li>
+            <li>New resources: <a href="account.html">Account</a>, <a href="implementationguide.html">ImplementationGuide</a>, TestScript</li>
             <li>renamed: Contraindication -&gt; <a href="detectedissue.html">DetectedIssue</a>, MedicationPrescription -&gt; <a href="medicationrequest.html">MedicationRequest</a>, QuestionnaireAnswers -&gt; <a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
             <li>removed: Supply</li>
             <li>changed: almost all resources - too many to list (1317 tasks worth of changes) - add, remove elements, change types, references, definitions &amp; value sets, re-order elements, provide much more documentation and new examples</li>

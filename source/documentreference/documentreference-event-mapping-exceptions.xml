@@ -111,15 +111,43 @@
             <_pattern value="The date the occurrence of the document reference was first captured in the record - potentially significantly after the occurrence of the event."/>
             <resource value="When the document reference was created."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="More specific to this resource">
             <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
             <resource value="Referencing/indexing time is used for tracking, organizing versions and searching. Provide the most precise timestamp available."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.performer" resourcePath="DocumentReference.attester">
+        <extraTypes _resource="BackboneElement" reason="Element is specific to the use-case need"/>
+        <summary _pattern="true" _resource="false" reason="Not considered summary worthy"/>
+        <shortUnmatched reason="More specific to the use-case need">
+            <_pattern value="Who performed document reference and what they did"/>
+            <resource value="Attests to accuracy of the document"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="More specific to the use-case need">
+            <_pattern value="Indicates who or what performed the document reference and how they were involved."/>
+            <resource value="A participant who has authenticated the accuracy of the document."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.function" resourcePath="DocumentReference.attester.mode">
+        <lowerCardinality _pattern="0" _resource="1" reason="must know role of attester"/>
+        <summary _pattern="true" _resource="false" reason="Not considered summary worthy"/>
+        <shortUnmatched reason="More specific to the use-case need">
+            <_pattern value="Type of performance"/>
+            <resource value="personal | professional | legal | official"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="More specific to the use-case need">
+            <_pattern value="Distinguishes the type of involvement of the performer in the document reference.."/>
+            <resource value="The type of attestation the authenticator offers."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="More specific to the use-case need">
+            <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
+            <resource value="Indicates the level of authority of the attestation."/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="DocumentReference.author">
         <lowerCardinality _pattern="1" _resource="0" reason="Not always known"/>
         <upperCardinality _pattern="1" _resource="*" reason="Need more than one to enable broad use."/>
-        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="More specific to the use-case need"/>
         <shortUnmatched reason="Not always a who, sometimes a what.">
             <_pattern value="Who performed document reference"/>
             <resource value="Who and/or what authored the document"/>
@@ -129,12 +157,24 @@
             <resource value="Identifies who is responsible for adding the information to the document."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="DocumentReference.attester.party">
+        <lowerCardinality _pattern="1" _resource="0" reason="Not always known or relevant"/>
+        <missingTypes _pattern="Reference(CareTeam,Device)" reason="Attestation requires specific actors"/>
+        <extraTypes _resource="Reference(Group)" reason="More specific to the use-case need"/>
+        <summary _pattern="true" _resource="false" reason="Not considered summary worthy"/>
+        <shortUnmatched reason="More specific to the use-case need">
+            <_pattern value="Who performed document reference"/>
+            <resource value="Who attested the document"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="More specific to the use-case need">
+            <_pattern value="Indicates who or what performed the document reference."/>
+            <resource value="Who attested the document in the specified way."/>
+        </definitionUnmatched>
+    </divergentElement>
     <unmappedElement patternPath="Event.partOf" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.reported" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.reason" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="Event.performer.function" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.note" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.product" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="Event.performer" reason="Not relevant for this resource"/>
 </mappingExceptions>

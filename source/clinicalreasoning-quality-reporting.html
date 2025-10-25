@@ -40,41 +40,25 @@
 	<li><b>Supplemental Data:</b> Additional descriptive information providing additional context to the population group being measured. Supplemental data is specified alongside the calculated measure scores, allowing a more nuanced analysis of performance.</li>
 </ul>
 
-<p>Population Quality Measures are often focused on evaluating from a patient perspective, but this is not always the case. The <code>subject</code> element of the Measure indicates the intended subjects of a measure. If no <code>subject</code> is specified, the measure subject is Patient, but Practitioners, Organizations, Locations, or even Devices can also be the subject of a measure.</p>
+<p>At their most basic, Measures evaluate items within a defined perspective and assign those items to populations. The type of the evaluated items that make up the populations is called the Measure's "basis," and one can say that a Measure is "based" on a FHIR resource type. The perspective within which those items are counted is the Measure's "subject."</p>
+	
+<p>The <code>subject</code> element of the Measure indicates the intended subjects of a measure, or "who" the measure is about. While measures are often focused on evaluating from a patient perspective, this is not always the case. If no subject is specified, the measure subject is Patient, but Practitioners, Organizations, Locations, or even Devices can also be the subject of a measure.</p>
+
+<p>The <code>group.basis</code> element, referred to as the "population basis" or just "basis," specifies the type of elements in the population(s) as a result of measure calculation. Population Quality Measures generally fall into two categories: subject-based, and non-subject-based. In general, subject-based measures count the number of subjects in each population, while non-subject-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for subject-based measures indicates whether a subject matches the population criteria (true) or not (false). Non-subject-based measures return the item to be counted such as an encounter or procedure. For example:</p>
+<ul>
+	<li>A measure may calculate for which encounters the blood pressure was taken for all patients over the age of 50. This measure has a subject of Patient and a basis of Encounter, it is an encounter-based measure, and the populations will be lists of Encounters that pertain to the Patients that meet the age requirement.</li>
+	<li>A measure may count the number of available beds in a hospital location. This measure has a subject of Location, a basis of Device (for beds), so the populations would be the calculated number of beds for the Locations that are available from the data source.</li>
+</ul>
+<p>When the intended population type matches the <code>subject</code> type, the measure is referred to as "subject-based." For a subject-based measure, the <code>basis</code> is boolean because the subject and the population basis are the same, and the population criteria define yes/no values for each element in the population. For measures that have a population basis that is different than the subject, the <code>basis</code> element specifies the type of elements in the population. </p>
+
+<p>To summarize, the context of a measure is indicated using the <code>subject</code> element of the FHIR resource, and it indicates what types of resources the measure is about. The <code>basis</code> indicates what is being included in the measure populations during measure calculation. If the subject's type is the same as the intended population type, then the <code>basis</code> is boolean and indicates if a subject instance is included in a population or not.</p>
 
 <a name="measure-metadata"> </a>
 <h5>Measure Metadata</h5>
 
-<p>The following table provides a requirements mapping from the content of an <a href="https://ecqi.healthit.gov/sites/default/files/2025-Guide-for-Reading-eCQMs.pdf">electronic Clinical Quality Measure (eCQM)</a> to the elements defined in the <a href="measure.html">Measure</a> resource:</p>
+<p>Measures have metadata just like any other conformance or knowledge artifact in FHIR.  This includes metadata elements that are specific to measures and not needed for other knowledge artifacts.  For example metadata elements that are common across many knowledge artifacts including measures, are identifier, version and date.  Metadata elements that are specific to measures include measure scoring, rate aggregation, clinical recommendation statement and improvement notation.  For more information about each metadata element see the Measure Resource.</p>
 
-<table class="grid">
-	<thead>
-		<tr><th>Metadata Element</th><th>Cardinality</th><th>Element</th><th>Notes</th></tr>
-	</thead>
-	<tbody>
-		<tr><td>Title</td><td>0..1</td><td>Measure.title</td><td></td></tr>
-		<tr><td>Identifier</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms</td></tr>
-		<tr><td>Version Number</td><td>0..1</td><td>Measure.version</td><td></td></tr>
-		<tr><td>NQF Number</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf</td></tr>
-		<tr><td>GUID</td><td>0..1</td><td>Measure.identifier</td><td>identifier type code as http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid</td></tr>
-		<tr><td>Measure Steward</td><td>0..1</td><td>Measure.publisher</td><td></td></tr>
-		<tr><td>Measure Developer</td><td>0..1</td><td>Measure.author</td><td></td></tr>
-		<tr><td>Endorser</td><td>0..1</td><td>Measure.endorser</td><td></td></tr>
-		<tr><td>Description</td><td>0..1</td><td>Measure.description</td><td></td></tr>
-		<tr><td>Copyright</td><td>0..1</td><td>Measure.copyright</td><td></td></tr>
-		<tr><td>Reference</td><td>0..*</td><td>Measure.relatedArtifact</td><td>type.code of citation</td></tr>
-		<tr><td>Disclaimer</td><td>0..1</td><td>disclaimer</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Measure Scoring</td><td>0..1</td><td>scoring</td><td>Code, e.g. proportion, CV</td></tr>
-		<tr><td>Measure Type</td><td>0..1</td><td>type</td><td>Code, e.g. process, outcome</td></tr>
-		<tr><td>Risk Adjustment</td><td>0..1</td><td>riskAdjustment</td><td>String</td></tr>
-		<tr><td>Rate Aggregation</td><td>0..1</td><td>rateAggregation</td><td>String</td></tr>
-		<tr><td>Rationale</td><td>0..1</td><td>rationale</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Clinical Recommendation Statement</td><td>0..1</td><td>clinicalRecommendationStatement</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Improvement Notation</td><td>0..1</td><td>improvementNotation</td><td>String, e.g. Higher score indicates better quality</td></tr>
-		<tr><td>Definition</td><td>0..1</td><td>definition</td><td>String (containing Markdown)</td></tr>
-		<tr><td>Guidance</td><td>0..1</td><td>Measure.usage</td><td>String (containing Markdown)</td></tr>
-	</tbody>
-</table>
+<p>Mappings from the V3 to the FHIR terminologies can be found in the <a href="https://hl7.org/fhir/uv/cqm/artifacts.html#terminology-concept-maps">Quality Measure IG</a>.</p>
 
 <a name="measure-logic"> </a>
 <h5>Measure Logic</h5>
@@ -271,6 +255,27 @@ The next example demonstrates how to obtain the results of evaluating the measur
 
 <pre><code>GET [base]/Basic/CMS146/$evaluate-measure?subject=124&amp;periodStart=2014-01&amp;periodEnd=2014-03</code></pre>
 
+<a name="data-exchange-for-reporting"> </a>
+<h4>Data Exchange for Reporting</h4>
+	
+<a name="bundles-organized-by-subject"> </a>
+<h5>Bundles Organized by Subject</h5>
+	
+<p>The Bundles used in the quality reporting operations enable the evaluation and exchange of data for multiple measures, while also constraining duplicate data. Bundles <b>SHOULD</b> be organized by subject, meaning that a Bundle <b>SHOULD</b> contain the resources, the including MeasureReport(s) and data of interest (in MeasureReport.evaluatedResources), for all of the measures that apply to a single subject. Resources that are not unique to the subject, such as Practitioner or Organization, may still be duplicated across Bundles.</p>
+	
+<a name="duplicate-data"> </a>
+<h5>Duplicate Data</h5>
+	
+<p>Implementations <b>SHOULD</b> avoid sending duplicate data (identical FHIR resources or identical resolvable references) in data exchanges ($collect-data or $submit-data) in MeasureReport.evaluatedResources.</p>
+	
+<p>Duplicate data is a concern in data exchanges because the operations support multiple measures per subject. The same resource instance could be referenced by multiple MeasureReports, or multiple measures may use different elements within the same resource. Another situation to consider when evaluating a measure is when multiple value sets have overlapping codes, then two different CQL retrieve operations can return the same resource instance because it matches two codes from the overlap.</p>
+	
+<p>Note that the $data-requirements operation is currently defined for a single Measure or Library, so it is a responsibility of the data producer to check for, and address, duplicate data.</p>
+	
+<p>As described in the section "Bundles Organized by Subject," Bundles utilized in data exchange operations <b>SHOULD</b> be organized by subject. This reduces the potential for proliferation of duplicate data because resources common to the subject, such as Encounters, would not be repeated across Bundles. As described in "<a href="https://hl7.org/fhir/R4/bundle.html#bundle-unique">Resource URL and Uniqueness rules in a bundle</a>", a given version of a resource <b>SHALL</b> occur only once in a Bundle, and in data exchange that requires consideration of the data-of-interest and evaluated resources within the Bundle.</p>
+	
+<p>Receiving systems need to consider the possibility that some duplicate data may be present across Bundles, such as an Organization resource that is relevant to more than one subject.</p>
+
 <a name="measure-report"> </a>
 <h4>Measure Report</h4>
 
@@ -302,7 +307,7 @@ The next example demonstrates how to obtain the results of evaluating the measur
 <p>When using a MeasureReport resource to represent a subject-list, the MeasureReport SHALL have a type-code of "subject-list" and if a subject reference is present, it SHALL be a reference to a Group. In addition, the resource SHALL</p>
 
 <ul>
-	<li>either include for each population, using the <code>MeasureReport.group.population.subjectResults</code> element, a reference to a List resource that references individual-level MeasureReport resources for the same measure, one for each subject in the overall population. For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the subjects that make up that population. For each of those subjects, the List will contain a reference to an individual-level report for that subject.</li>
+	<li>either include for each population, using the <code>MeasureReport.group.population.subjectResults</code> element, a reference to a List resource that references individual-level MeasureReport resources for the same measure, one for each subject instance in the population. For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the subjects that make up that population. For each of those subjects, the List will contain a reference to an individual-level report for that subject.</li>
 	<li>or include for each population, using the <code>MeasureReport.group.population.subjectReport</code> element, references to individual-level MeasureReport resources for the same measure directly.</li>
 </ul>
 
@@ -316,6 +321,7 @@ The next example demonstrates how to obtain the results of evaluating the measur
 <h5>Evaluation Messages</h5>
 
 <p>As part of the evaluation of a Measure to produce a MeasureReport, systems may report information messages, warnings, and errors using the <code>messages</code> element. The <code>messages</code> can be used to reference an OperationOutcome resource describing issues that have occurred during the evaluation. Note that the OperationOutcome resource referenced is typically contained within the returned MeasureReport.</p>
+
 
 <a name="references"> </a>
 <h4>References</h4>

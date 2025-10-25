@@ -48,8 +48,20 @@
 	<acknowledged value="false"/>
 	<label value="**SpO2   86  &lt;87  "/>
 	<signal>
-		<activationState value="on"/>
-		<presence value="on"/>
+		<activationState>
+			<coding>
+				<system value="http://hl7.org/fhir/devicealert-activationState"/>
+				<code value="on"/>
+				<display value="On"/>
+			</coding>
+		</activationState>
+		<presence>
+			<coding>
+				<system value="http://hl7.org/fhir/devicealert-presence"/>
+				<code value="on"/>
+				<display value="On"/>
+			</coding>
+		</presence>
 		<annunciator>
 			<reference>
 				<reference value="Device/example"/>

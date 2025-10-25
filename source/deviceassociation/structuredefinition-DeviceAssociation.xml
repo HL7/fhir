@@ -167,20 +167,27 @@
     </element>
     <element id="DeviceAssociation.subject">
       <path value="DeviceAssociation.subject"/>
-      <short value="The individual, group of individuals or device that the device is on or associated with"/>
+      <short value="The entity(ies) that the device is on or associated with"/>
       <definition value="The individual, group of individuals or device that the device is on or associated with."/>
       <comment value="The operation reflects a shorter term indication when the device is actually being used for the subject and who the operator is.  The operator may be the same as the subject, in which case it is less likely to have to document the operation.  Where it is relevant to document periods of use, absence of the operator cannot imply that the subject is the operator, thus would need to be explicitly stated."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
     </element>
     <element id="DeviceAssociation.bodyStructure">

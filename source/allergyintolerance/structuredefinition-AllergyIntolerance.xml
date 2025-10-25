@@ -184,9 +184,6 @@
       </mapping>
     </element>
     <element id="AllergyIntolerance.type">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="AllergyIntolerance.type"/>
       <short value="allergy | intolerance - Underlying mechanism (if known)"/>
       <definition value="Identification of the underlying physiological mechanism for the reaction risk."/>
@@ -605,9 +602,6 @@
       </mapping>
     </element>
     <element id="AllergyIntolerance.reaction">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>

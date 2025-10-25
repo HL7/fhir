@@ -126,7 +126,7 @@
 			<path value="Contract.version"/>
 			<short value="Business edition"/>
 			<definition value="An edition identifier used for business purposes to label business significant variants."/>
-			<comment value="Note -  This is a business versionId, not a resource version id (see discussion at [Versioning](resource.html#versions)) &#xD;Comments - There may be different contract instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<comment value="There may be different contract instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<requirements value="The identifier that is used to identify this version of the contract when it is referenced in a specification, model, design, instance, or contract derivative. This is an arbitrary value managed by the contract author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -418,6 +418,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
 			</type>
 		</element>
 		<element id="Contract.scope">
@@ -605,7 +606,7 @@
 		<element id="Contract.contentDefinition.copyright">
 			<path value="Contract.contentDefinition.copyright"/>
 			<short value="Publication Ownership"/>
-			<definition value="A copyright statement relating to Contract precursor content. Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content."/>
+			<definition value="A copyright statement relating to Contract precursor content. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the Contract precursor content."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -778,7 +779,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="string"/>
+				<code value="markdown"/>
 			</type>
 			<isSummary value="true"/>
 		</element>
@@ -792,7 +793,7 @@
 			<path value="Contract.term.securityLabel"/>
 			<short value="Protection for the Term"/>
 			<definition value="Security labels that protect the handling of information about the term and its elements, which may be specifically identified."/>
-			<comment value="Within a Contract, a security label may apply to the one to many nested group of terms or to a term, whether inside a group or a singleton.  The security label on the entire set of term provision elements may be different from the security labels on a contained offer, asset, valuedItem, or data such as sensitive information, and must be the high water mark of all security labels within the term. Rationale is that a labelled term, which may be disaggregated from the Contract, and must persist the label on the term and on contained elements within other contexts. If more than one policy dictates a level of confidentiality of the term, then each applicable policy may be represented by a security label specific to its requirements.&#xa;&#xa;A Security Label is comprised of 1..1 confidentiality code and 0..* other security label codes (aka &quot;privacy tags&quot;. A Security Label is metadata assigned (aka &quot;tagged&quot;) to Resources and Resource elements, which specify the confidentiality and sensitivity of the Resource or element and their related attributes, the purposes for which tagged items may be collected, access, used or disclosed, any limitation on the type of entities authorized to engage in permitted purposes, and handling instructions that obligate or prohibit certain actions on the tagged items."/>
+			<comment value="Within a Contract, a security label may apply to the one to many nested group of terms or to a term, whether inside a group or a singleton.  The security label on the entire set of term provision elements may be different from the security labels on a contained offer, asset, valuedItem, or data such as sensitive information, and must be the high water mark of all security labels within the term. Rationale is that a labelled term, which may be disaggregated from the Contract, and must persist the label on the term and on contained elements within other contexts. If more than one policy dictates a level of confidentiality of the term, then each applicable policy may be represented by a security label specific to its requirements.&#xa;&#xa;A Security Label is comprised of 1..1 confidentiality code and 0..* other security label codes (aka &quot;privacy tags&quot;). A Security Label is metadata assigned (aka &quot;tagged&quot;) to Resources and Resource elements, which specify the confidentiality and sensitivity of the Resource or element and their related attributes, the purposes for which tagged items may be collected, access, used or disclosed, any limitation on the type of entities authorized to engage in permitted purposes, and handling instructions that obligate or prohibit certain actions on the tagged items."/>
 			<requirements value="This security label protects the term and its contained provision elements."/>
 			<min value="0"/>
 			<max value="*"/>

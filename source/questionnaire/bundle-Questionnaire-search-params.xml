@@ -312,7 +312,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Questionnaire-jurisdiction"/>
         <name value="jurisdiction"/>
         <status value="active"/>
-        <description value="Intended jurisdiction for the questionnaire"/>
+        <description value="Jurisdiction of the authority that maintains the the questionnaire"/>
         <code value="jurisdiction"/>
         <base value="Questionnaire"/>
         <type value="token"/>

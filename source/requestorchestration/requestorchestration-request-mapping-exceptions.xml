@@ -71,7 +71,7 @@
     <divergentElement patternPath="Request.intent" resourcePath="RequestOrchestration.intent">
         <shortUnmatched reason="Unknown">
             <_pattern value="proposal | plan | order (immutable)"/>
-            <resource value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+            <resource value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates the level of authority/intentionality associated with the request orchestration and where the request fits into the workflow chain."/>
