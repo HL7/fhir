@@ -113,7 +113,7 @@
         </extension>
         <strength value="example"/>
         <description value="The type of catalog."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/catalogType"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/catalog-type"/>
       </binding>
     </element>
     <element id="Composition.subject">
