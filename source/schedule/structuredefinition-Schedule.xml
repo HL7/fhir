@@ -190,7 +190,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="specialty"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="Additional details about where the content was created (e.g. clinical specialty)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>
