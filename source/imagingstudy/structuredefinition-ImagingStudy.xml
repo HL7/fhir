@@ -543,10 +543,6 @@
         <identity value="workflow"/>
         <map value="Event.note"/>
       </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="unknown"/>
-      </mapping>
     </element>
     <element id="ImagingStudy.description">
       <path value="ImagingStudy.description"/>
