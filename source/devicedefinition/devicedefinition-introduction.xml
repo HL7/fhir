@@ -61,7 +61,7 @@ The DeviceDefinition resource is used to describe the common characteristics and
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-There are a number of resources either represent other aspects of a device and/or reference a DeviceDefinition:
+There are a number of resources that either represent other aspects of a device and/or reference a DeviceDefinition:
 </p>
 <p>
 DeviceDefinition: this resource.
