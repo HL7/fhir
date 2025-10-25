@@ -28,7 +28,8 @@ The resource draws requirements from the HL7 CDA R2 Implementation Guide: Qualit
 <p>The resource is differentiated from a general-purpose query result because it communicates specific information related to quality measurement evaluation that would be difficult to convey generally without imposing some other structure on top of the general results.</p>
 </div>
 
-
+<p>Mappings from the V3 to the FHIR terminologies can be found in the <a href="https://hl7.org/fhir/uv/cqm/artifacts.html#terminology-concept-maps">Quality Measure IG</a>.</p>
+    
 <!-- (optional):
 <div>
 <h2>Background and Context</h2>
