@@ -184,6 +184,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1080,6 +1081,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
       </type>
       <isSummary value="true"/>
       <binding>
