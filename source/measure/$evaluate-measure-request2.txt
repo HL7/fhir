@@ -1,0 +1,2 @@
+// 2) Evaluation of the CMS146 measure for Patient/124 over a measurement period of the first 3 months of 2014
+GET [base]/Measure/CMS146/$evaluate-measure?subject=Patient/124&periodStart=2014-01&periodend=2014-03
