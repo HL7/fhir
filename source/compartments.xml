@@ -428,6 +428,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EnrollmentResponse</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">group</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EpisodeOfCare</Data></Cell>
@@ -875,6 +877,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
+   <LeftColumnVisible>1</LeftColumnVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
