@@ -85,7 +85,7 @@
       <max value="*"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event,Request"/>
+        <map value="Event"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -610,7 +610,7 @@
     </element>
     <element id="Transport.priorTransport">
       <path value="Transport.priorTransport"/>
-      <short value="THe most recent transport"/>
+      <short value="The most recent transport"/>
       <definition value="The immediately preceding Transport event."/>
       <min value="0"/>
       <max value="1"/>
