@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="observation-interpretation-context"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/observation-interpretation-context"/>
+ 
+  <version value="6.0.0"/>
+  <name value="ObservationInterpretationContextCodes"/>
+  <title value="Observation Interpretation Context Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International / Orders and Observations"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders"/>
+    </telecom>
+  </contact>
+  <description value="Codes identifying contextual factors that affect interpretation of observations. This provides examples of conditions or states that may be critical to understanding the significance of an observation."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation-context"/>
+  <content value="complete"/>
+  <concept>
+    <code value="diabetic"/>
+    <display value="Diabetic"/>
+    <definition value="The patient has diabetes mellitus, which may affect interpretation of glucose and other metabolic observations."/>
+  </concept>
+  <concept>
+    <code value="fasting"/>
+    <display value="Fasting"/>
+    <definition value="The patient was fasting at the time of the observation, which affects interpretation of metabolic and nutritional observations."/>
+  </concept>
+  <concept>
+    <code value="paraplegic"/>
+    <display value="Paraplegic"/>
+    <definition value="The patient has paraplegia, which may affect interpretation of mobility, neurological, and other physical observations."/>
+  </concept>
+</CodeSystem>
