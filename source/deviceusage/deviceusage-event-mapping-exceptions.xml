@@ -178,7 +178,7 @@
             <resource value="When the status is not done, the reason code indicates why it was not done."/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.note" resourcePath="DeviceUsage.bodySite">
+    <divergentElement patternPath="Event.note" resourcePath="DeviceUsage.bodyStructure">
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="Annotation" reason="Unknown"/>
         <extraTypes _resource="CodeableReference(BodyStructure)" reason="Unknown"/>
@@ -186,11 +186,11 @@
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Comments made about the event"/>
-            <resource value="Target body site"/>
+            <resource value="Target body structure"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Comments made about the device usage by the performer, subject or other participants."/>
-            <resource value="Indicates the anotomic location on the subject's body where the device was used ( i.e. the target)."/>
+            <resource value="Indicates the anatomic location on the subject's body where the device was used (i.e. the target)."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.note" resourcePath="DeviceUsage.note">
