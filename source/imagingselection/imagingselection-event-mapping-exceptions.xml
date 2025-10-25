@@ -1,5 +1,11 @@
 <mappingExceptions pattern="Event" resource="ImagingSelection" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="ImagingSelection.identifier">
+        <commentsUnmatched reason="Uses different capitalization of MAY.">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="ImagingSelection.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Reference type not relevant to resource"/>
         <extraTypes _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Additional reference types are relevant to resource"/>

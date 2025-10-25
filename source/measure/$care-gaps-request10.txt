@@ -1,0 +1,2 @@
+//The first example with a measureIdentifier.
+GET [base]/Measure/$care-gaps?measureIdentifier=http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms|130&periodStart=2014-01&periodEnd=2014-03&status=open-gap&subject=Patient/124
