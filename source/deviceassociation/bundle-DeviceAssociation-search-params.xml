@@ -51,7 +51,7 @@
           <valueString value="DeviceAssociation.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-patient"/>
-        <description value="The identity of a patient for whom to list associations"/>
+        <description value="The patient associated with the device"/>
         <code value="patient"/>
         <type value="reference"/>
         <expression value="DeviceAssociation.subject.where(resolve() is Patient)"/>
