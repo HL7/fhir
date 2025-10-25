@@ -19,10 +19,14 @@
   "quantity" : 25,
   "characteristic" : [{
     "code" : {
-      "text" : "gender"
+      "coding": [{
+        "system": "http://loinc.org",
+        "code": "75323-6",
+        "display": "Condition status"
+      }]
     },
     "valueCodeableConcept" : {
-      "text" : "mixed"
+      "text" : "colic"
     },
     "exclude" : false,
     "instancesRange" : {
