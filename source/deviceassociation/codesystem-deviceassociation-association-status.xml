@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="deviceassociation-association-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAssociationAssociationStatusCodes"/>
+  <title value="DeviceAssociation Association Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Codes that describe the state of a device’s association (e.g., implanted, attached, on, off, standby, defective)."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="implanted"/>
+    <display value="Implanted"/>
+    <definition value="The device is implanted in the patient."/>
+  </concept>
+  <concept>
+    <code value="explanted"/>
+    <display value="Explanted"/>
+    <definition value="The device is no longer implanted in the patient. Note that this is not the value to be used for devices that have never been implanted. In those cases, no value or a specific value can be used."/>
+  </concept>
+  <concept>
+    <code value="attached"/>
+    <display value="Attached"/>
+    <definition value="The device is attached to the patient but not implanted in the patient."/>
+  </concept>
+  <concept>
+    <code value="on"/>
+    <display value="On"/>
+    <definition value="The device is powered on / operationally active."/>
+  </concept>
+  <concept>
+    <code value="off"/>
+    <display value="Off"/>
+    <definition value="The device is powered off / not operationally active."/>
+  </concept>
+  <concept>
+    <code value="standby"/>
+    <display value="Standby"/>
+    <definition value="The device is powered and available but not currently in active operation."/>
+  </concept>
+  <concept>
+    <code value="defective"/>
+    <display value="Defective"/>
+    <definition value="The device is defective."/>
+  </concept>
+</CodeSystem>
