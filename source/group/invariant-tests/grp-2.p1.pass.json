@@ -19,9 +19,9 @@
   "characteristic" : [{
     "code" : {
       "coding": [{
-        "system": "http://loinc.org",
-        "code": "75323-6",
-        "display": "Condition status"
+        "system": "http://snomed.info/sct",
+        "code": "260905004",
+        "display": "Condition"
       }]
     },
     "valueCodeableConcept" : {
@@ -30,7 +30,7 @@
     "exclude" : false,
     "instancesRange" : {
       "low" : {
-        "value" : -1,
+        "value" : 5,
         "code": "1"
       }
     }
