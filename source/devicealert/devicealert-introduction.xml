@@ -68,7 +68,7 @@
                 <a name = "background-and-context"></a>
                 <h3>Background and Context</h3>
                 <p>DeviceAlert models two alert aspects: the condition detected by a device, and the signal, representing how the alert is announced (and by which attention is drawn to the existence of the alert condition). Signal behavior is determined by device design and configuration and may persist beyond the condition itself due to features like latching (extending brief alerts for visibility).</p>
-                <img src="devicealert-state-machine.png" alt="PNG" style="object-fit: contain;"/>
+                <img src="devicealert-state-machine.svg" alt="The DeviceAlert state machine showing transitions between idle, inactivated, latched, alarming, acknowledge, and signal-inactivated states; and the interplay between alert conditions and signals." style="max-width: 100%; height: auto;"/>
                 <p>The center row of the diagram shows the flow between the states of an alert record, considering both the alert condition detected by the device (upper row) and the signals emitted by the device (lower row). The upper and lower rows show the values of key elements of DeviceAlert and the associated <a href="devicemetric.html">DeviceMetric</a> in correspondence to the alert record states.</p>
         </div>
 </div>
