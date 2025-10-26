@@ -594,6 +594,7 @@
         </extension>
         <strength value="example"/>
         <description value="Indicates why the transport is needed.  E.g. Suspended because patient admitted to hospital."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/transport-reason"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

@@ -282,9 +282,12 @@
       </mapping>
     </element>
     <element id="Communication.medium">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#25214"/>
+      </extension>
       <path value="Communication.medium"/>
       <short value="A channel of communication"/>
-      <definition value="A channel that was used for this communication (e.g. email, fax)."/>
+      <definition value="A channel that was used for this communication (e.g. email, fax, SMS)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
