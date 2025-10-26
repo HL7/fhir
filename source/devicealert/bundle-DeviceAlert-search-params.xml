@@ -636,6 +636,7 @@
         <description value="Who acknowledged the alert" />
         <code value="acknowledgedBy" />
         <type value="reference" />
+        <base value="DeviceAlert" />
         <status value="active" />
         <target value="Patient" />
         <target value="Device" />
