@@ -100,53 +100,6 @@
       </concept>
     </include>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/GMDN"/>
-      <concept>
-        <code value="38017"/>
-        <display value="Dry salt inhalation therapy device"/>
-      </concept>
-      <concept>
-        <code value="38663"/>
-        <display value="Flexible video nephroscope"/>
-      </concept>
-      <concept>
-        <code value="42347"/>
-        <display value="Dental implant, endosseous, partially-embedded"/>
-      </concept>
-      <concept>
-        <code value="46352"/>
-        <display value="Bare-metal intracranial vascular stent"/>
-      </concept>
-      <concept>
-        <code value="47264"/>
-        <display value="Dual-chamber implantable pacemaker, demand"/>
-      </concept>
-      <concept>
-        <code value="62163"/>
-        <display value="Intrauterine cannula, reusable"/>
-      </concept>
-      <concept>
-        <code value="62260"/>
-        <display value="Air-conduction hearing aid acoustic tube"/>
-      </concept>
-      <concept>
-        <code value="62423"/>
-        <display value="Spinal cord/peripheral nerve implantable analgesic electrical stimulation system lead, wired connection"/>
-      </concept>
-      <concept>
-        <code value="62414"/>
-        <display value="Blue-light phototherapy lamp, home-use"/>
-      </concept>
-      <concept>
-        <code value="64587"/>
-        <display value="Uncoated knee femur prosthesis, ceramic"/>
-      </concept>
-      <concept>
-        <code value="64992"/>
-        <display value="ADAMTS13 activity IVD, kit, chemiluminescent immunoassay"/>
-      </concept>
-    </include>
-    <include>
       <system value="http://snomed.info/sct"/>
       <filter>
         <property value="concept"/>
