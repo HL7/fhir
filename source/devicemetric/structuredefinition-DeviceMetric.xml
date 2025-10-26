@@ -136,10 +136,10 @@
         <description value="IEEE 11073-10101"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/devicemetric-type"/>
       </binding>
-      <mapping>
+      <!-- <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
+        <map value="FiveWs.what[x]"/>
+      </mapping> -->
       <mapping>
         <identity value="DIM"/>
         <map value="type = VMO::Type&#xA;type.text = VMO::Label-String"/>
@@ -200,6 +200,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.operationalStatus">
       <path value="DeviceMetric.operationalStatus"/>
