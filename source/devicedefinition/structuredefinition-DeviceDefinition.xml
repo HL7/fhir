@@ -660,7 +660,7 @@
     <element id="DeviceDefinition.regulatoryIdentifier.identifier">
       <path value="DeviceDefinition.regulatoryIdentifier.identifier"/>
       <short value="The identifier itself"/>
-      <definition value="The  identifier used in the associated regulatory context."/>
+      <definition value="The identifier used in the associated regulatory context."/>
       <min value="1"/>
       <max value="1"/>
       <type>
