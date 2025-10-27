@@ -457,13 +457,14 @@
     <element id="ExplanationOfBenefit.related.claim">
       <path value="ExplanationOfBenefit.related.claim"/>
       <short value="Reference to the related claim"/>
-      <definition value="Reference to a related claim."/>
+      <definition value="Reference to a related Claim or ExplanationOfBenefit as a representation of a claim."/>
       <requirements value="For workplace or other accidents it is common to relate separate claims arising from the same event."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.related.relationship">
@@ -1938,6 +1939,17 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.adjudication.decisionDate">
+      <path value="ExplanationOfBenefit.item.adjudication.decisionDate"/>
+      <short value="When was adjudication performed"/>
+      <definition value="The date and time the adjudication decision occured."/>
+      <comment value="Implementation Guide authors may choose to require this element based on local regulatory requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail">

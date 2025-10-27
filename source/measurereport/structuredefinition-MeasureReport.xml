@@ -390,7 +390,7 @@
     <element id="MeasureReport.inputParameters">
       <path value="MeasureReport.inputParameters"/>
       <short value="What parameters were provided to the report"/>
-      <definition value="A reference to a Parameters resource (typically represented using a contained resource) that represents any input parameters that were provided to the operation that generated the report."/>
+      <definition value="A reference to a Parameters resource (typically represented using a contained resource) that represents any input parameters that were provided to the operation that generated the report. If the input parameter includes stratifiers, then the MeasureReport SHALL include the input parameters."/>
       <comment value="Whenever an operation returns a MeasureReport, the IN parameters from that operation can be returned to the caller of the operation using MeasureReport.inputParameters. Operations include but are not limited to $evaluate-measure, $care-gaps, $data-requirements, and $collect-data. The inputParameters can also be used in a MeasureReport used to define a test case (i.e., not as a result of an operation)."/>
       <min value="0"/>
       <max value="1"/>
@@ -402,69 +402,7 @@
         <identity value="rim"/>
         <map value="N/A"/>
       </mapping>
-    </element>
-    <element id="MeasureReport.scoring">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>        
-      <path value="MeasureReport.scoring"/>
-      <short value="What scoring method (e.g. proportion, ratio, continuous-variable) (deprecated, use group.scoring)"/>
-      <definition value="Deprecated, use group.scoring. Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented. It is expected to be the same as the scoring element on the referenced Measure."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="Scoring determines what method was used to calculate the measure score and is required for correct interpretation of the score"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureScoring"/>
-        </extension>
-        <strength value="extensible"/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/measure-scoring"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="methodCode"/>
-      </mapping>
-    </element>
-    <element id="MeasureReport.improvementNotation">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Improvement notation is included in MeasureReport because it is critical to interpreting the measure, but it must match the improvementNotation of the measure being reported."/>
-      </extension>
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>        
-      <path value="MeasureReport.improvementNotation"/>
-      <short value="increase | decrease"/>
-      <definition value="Deprecated, use group.improvementNotation. Whether improvement in the measure is noted by an increase or decrease in the measure score."/>
-      <comment value="This element is defined by the measure, but reproduced here to ensure the measure score can be interpreted. The element is labeled as a modifier because it changes the interpretation of the reported measure score. Note also that a MeasureReport instance includes the improvementNotation as defined by the Measure being reported. It is duplicated in the MeasureReport because it is a critical aspect of interpreting the measure score but it is not intended to reflect whether the measure report is an increase or decrease. It helps interpret if the measure score is an increase or decrease, I.e., moving in the direction of the desired outcome."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="Improvement notation determines how to interpret the measure score (i.e. whether an increase is an improvement)"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureImprovementNotation"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="interpretationCode"/>
-      </mapping>
-    </element>    
+    </element>   
     <element id="MeasureReport.group">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="360,0"/>
@@ -498,6 +436,16 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
       </mapping>
+    </element>
+    <element id="MeasureReport.group.title">
+      <path value="MeasureReport.group.title"/>
+      <short value="Title of a group. Note- this value is copied from this element in Measure"/>
+      <definition value="Indicates the title for of the group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="MeasureReport.group.calculatedDate">
       <path value="MeasureReport.group.calculatedDate"/>
@@ -548,6 +496,29 @@
       <mapping>
         <identity value="rim"/>
         <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.type">
+      <path value="MeasureReport.group.type"/>
+      <short value="process | outcome | structure | patient-reported-outcome"/>
+      <definition value="Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MeasureType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of what the measure applies to }"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.subject">
@@ -693,6 +664,16 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
       </mapping>
+    </element>
+    <element id="MeasureReport.group.population.title">
+      <path value="MeasureReport.group.population.title"/>
+      <short value="Title of a group. Note- this value is copied from this element in Measure"/>
+      <definition value="Indicates the title for of the group's population."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="MeasureReport.group.population.code">
       <path value="MeasureReport.group.population.code"/>
@@ -880,6 +861,16 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
       </mapping>
+    </element>
+    <element id="MeasureReport.group.stratifier.title">
+      <path value="MeasureReport.group.stratifier.title"/>
+      <short value="Title of a group's stratifier. Note- this value is copied from this element in Measure"/>
+      <definition value="Indicates the title for of the group's stratifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="MeasureReport.group.stratifier.code">
       <path value="MeasureReport.group.stratifier.code"/>

@@ -1,0 +1,2 @@
+//Request the first example with a practitioner and an organization instead of a subject.
+GET [base]/Measure/$care-gaps?measureUrl=http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130|7.3.000&periodStart=2014-01&periodEnd=2014-03&status=open-gap&&organization=Organization/124&practitioner=Practitioner/124
