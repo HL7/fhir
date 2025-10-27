@@ -203,7 +203,7 @@
       <path value="Account.subject"/>
       <short value="The entity that caused the expenses"/>
       <definition value="Identifies the entity which incurs the expenses. While the immediate recipients of services or goods might be entities related to the subject, the expenses were ultimately incurred by the subject of the Account."/>
-      <comment value="Accounts can be applied to non-patients for tracking other non-patient related activities, such as group services (patients not tracked, and costs charged to another body), or might not be allocated."/>
+      <comment value="Accounts can be applied to non-patients for tracking other non-patient related activities, such as group services (patients not tracked, and costs charged to another body), or might not be allocated. Accounts might reference a different Patient resource instance than is referenced by clinical resources if the demographics for the Account differ from the demographics that are most appropriate for clinical purposes.  For example, the demographics on Account might need to exactly match what the insurance company has on file in order for claims to be processed efficiently.  But the demographics the insurance company have might not reflect the demographics that are appropriate for coordinating clinical care.  When two (or more) Patient resource instances are used, they should be linked using Patient.link with a type of 'seealso'."/>
       <alias value="target"/>
       <min value="0"/>
       <max value="*"/>
