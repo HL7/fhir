@@ -4,12 +4,16 @@
   <device>
     <reference value="Device/prod1"/>
   </device>
-  <status>
+  <status value="active"/>
+
+  <!-- Association/operational state moved here -->
+  <associationStatus>
     <coding>
-      <system value="http://hl7.org/fhir/deviceassociation-status"/>
-      <code value= "implanted"/>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+      <code value="implanted"/>
+      <display value="Implanted"/>
     </coding>
-  </status>
+  </associationStatus>
 
   <subject>
     <reference value="Patient/pat1"/>

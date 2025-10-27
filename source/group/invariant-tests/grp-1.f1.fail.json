@@ -9,20 +9,30 @@
   "type" : "animal",
   "membership" : "enumerated",
   "code" : {
-    "text" : "Horse"
+    "coding": [{
+      "system": "http://hl7.org/fhir/group-code",
+      "code": "herd",
+      "display": "Herd"
+    }],
+    "text": "Horse"
   },
   "quantity" : 25,
   "characteristic" : [{
     "code" : {
-      "text" : "gender"
+      "coding": [{
+        "system": "http://snomed.info/sct",
+        "code": "260905004",
+        "display": "Condition"
+      }]
     },
     "valueCodeableConcept" : {
-      "text" : "mixed"
+      "text" : "colic"
     },
     "exclude" : false,
     "instancesRange" : {
       "low" : {
-        "value" : -1
+        "value" : -1,
+        "code": "1"
       }
     }
   },
