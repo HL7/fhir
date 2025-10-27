@@ -18,6 +18,7 @@
   
   
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -355,7 +356,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceAssociation</Data></Cell>
-    <Cell><Data ss:Type="String">subject | operator</Data></Cell>
+    <Cell><Data ss:Type="String">patient | subject | operator</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">subject | operator</Data></Cell>
     <Cell><Data ss:Type="String">subject | operator</Data></Cell>
     <Cell><Data ss:Type="String">device</Data></Cell>

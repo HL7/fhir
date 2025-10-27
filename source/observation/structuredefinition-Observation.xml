@@ -434,7 +434,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes identifying names of simple observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -1402,7 +1402,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes identifying names of simple observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
       </binding>
       <mapping>
         <identity value="w5"/>

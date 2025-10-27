@@ -318,7 +318,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PractitionerSpecialty"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="Specific specialty associated with the agency."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>
