@@ -331,7 +331,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ARQ-8, SCH-8"/>
+        <map value="ARQ-8, SCH-8 or ARQ-7, SCH-7  - note these are all user tables - review with trading partners which v2 field is used for serviceType concepts is recommended."/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -381,10 +381,6 @@
         <strength value="preferred"/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0276"/>
       </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ARQ-7, SCH-7"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".code"/>
