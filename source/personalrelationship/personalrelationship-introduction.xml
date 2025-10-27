@@ -36,7 +36,6 @@
 				<li>Contact tracing</li>
 				<li>WIC programs</li>
 				<li>Congregate housing</li>
-				<li>2/15/2024 - Public Health WG has indicated they are interested, and wants to be kept up to date.</li>
 			</ul>
 			<li>Social Care</li>
 			<ul>
@@ -79,7 +78,13 @@
 		</p>
 		<p>
 			<b>Boundaries between this and <a href="person.html">Person.link</a></b><br/>
-			Some systems have a situation where they have a single record of a one individual that is related to multiple patients, and can perform actions for each of those patients.  For example, a mother (who is not a Patient) of two children (who are both Patients).   The intent is that this be modeled in FHIR by using multiple RelatedPerson resources that all represent the same record for human individual.  For the mother / two chidlren example, you would have two RelatedPerson resources, both representing the mother.  Each RelatedPerson resource would refer to the Patient resources for the two children. PersonalRelationship should not be used to indicate that those RelatedPerson resources represent the same individual.   Instead, those different RelatedPerson resources can be linked using Person.link.
+			Some systems have a situation where they have a single record of a one individual that is related to multiple patients, and can perform actions for each of those patients.  
+			For example, a mother (who is not a Patient) of two children (who are both Patients).   
+			The intent is that this be modeled in FHIR by using multiple RelatedPerson resources that all represent the same record for human individual.  
+			For the mother / two children example, you would have two RelatedPerson resources, both representing the mother.  
+			Each RelatedPerson resource would refer to the Patient resources for the two children. 
+			PersonalRelationship should not be used to indicate that those RelatedPerson resources represent the same individual.   
+			Instead, those different RelatedPerson resources can be linked using Person.link.
 		</p>
 	</div>
 </div>
