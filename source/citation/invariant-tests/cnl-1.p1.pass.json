@@ -1,0 +1,36 @@
+{
+  "resourceType": "Citation",
+  "id": "306957",
+  "url": "https://fevir.net/resources/Citation/306957",
+  "title": "30545967 Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial.",
+  "status": "active",
+  "classification": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/citation-classification-type",
+            "code": "citation-source",
+            "display": "Citation Source"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "MEDLINE"
+        }
+      ]
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/citation-classification-type",
+            "code": "medline-owner",
+            "display": "MEDLINE Citation Owner"
+          }
+        ]
+      }
+    }
+  ]
+}
