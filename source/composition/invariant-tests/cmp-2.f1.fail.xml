@@ -103,8 +103,6 @@
 				<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
 				<code value="unknown"/>
 				<display value="Unknown"/>
-
-
 			</coding>
 		</emptyReason>
 		<!-- <text>
