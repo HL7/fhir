@@ -563,7 +563,7 @@
           <valueString value="DetectedIssueExpectedOnsetType"/>
         </extension>
         <strength value="example"/>
-        <description value=""/>
+        <description value="Example codes illustrating expected onset type"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-expected-onset-type"/>
       </binding>
     </element>
