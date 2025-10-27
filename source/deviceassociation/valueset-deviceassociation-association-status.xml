@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="deviceassociation-association-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/deviceassociation-association-status"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAssociationAssociationStatus"/>
+  <title value="DeviceAssociation Association Status"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Codes that describe the state of a device’s association (e.g., implanted, attached, on, off, standby, defective)."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+    </include>
+  </compose>
+</ValueSet>
