@@ -616,7 +616,7 @@
     <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceAlert-acknowledgedBy" />
+        <id value="DeviceAlert-acknowledged-by" />
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
           <valueCode value="dev" />
@@ -632,9 +632,9 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.acknowledgedBy" />
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-acknowledgedBy" />
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-acknowledged-by" />
         <description value="Who acknowledged the alert" />
-        <code value="acknowledgedBy" />
+        <code value="acknowledged-by" />
         <type value="reference" />
         <base value="DeviceAlert" />
         <status value="active" />

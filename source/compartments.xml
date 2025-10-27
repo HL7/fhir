@@ -18,6 +18,7 @@
   
   
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -349,11 +350,11 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceAlert</Data></Cell>
-    <Cell><Data ss:Type="String">subject | acknowledgedBy</Data></Cell>
+    <Cell><Data ss:Type="String">subject | acknowledged-by</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">acknowledgedBy</Data></Cell>
-    <Cell><Data ss:Type="String">acknowledgedBy</Data></Cell>
-    <Cell><Data ss:Type="String">subject | device | annunciator-device | acknowledgedBy</Data></Cell>
+    <Cell><Data ss:Type="String">acknowledged-by</Data></Cell>
+    <Cell><Data ss:Type="String">acknowledged-by</Data></Cell>
+    <Cell><Data ss:Type="String">subject | device | annunciator-device | acknowledged-by</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

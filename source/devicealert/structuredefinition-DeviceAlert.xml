@@ -420,6 +420,41 @@
                 <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric" />
             </type>
         </element>
+        <element id="DeviceAlert.acknowledged">
+            <path value="DeviceAlert.acknowledged" />
+            <short value="Whether the alert condition has been acknowledged" />
+            <definition value="An indication of whether (true) or not (false) the alert condition has been acknowledged." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <type>
+                <code value="boolean" />
+            </type>
+        </element>
+        <element id="DeviceAlert.acknowledgedBy">
+            <path value="DeviceAlert.acknowledgedBy" />
+            <short value="Who acknowledged the alert condition" />
+            <definition value="An indication of who or what acknowledged the alert condition." />
+            <min value="0" />
+            <max value="1" />
+            <isSummary value="false" />
+            <type>
+                <code value="Reference" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
+            </type>
+            <mapping>
+                <identity value="w5" />
+                <map value="FiveWs.actor" />
+            </mapping>
+            <mapping>
+                <identity value="workflow" />
+                <map value="Event.actor" />
+            </mapping>
+        </element>
         <element id="DeviceAlert.location">
             <path value="DeviceAlert.location" />
             <short value="Location of the subject when the alert was raised" />
@@ -486,6 +521,14 @@
             <type>
                 <code value="Coding" />
             </type>
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="ComponentCode"/>
+                </extension>
+                <strength value="example"/>
+                <description value="Codes identifying names of simple observations."/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+            </binding>
         </element>
         <element id="DeviceAlert.derivedFrom.limit">
             <path value="DeviceAlert.derivedFrom.limit" />
@@ -505,41 +548,6 @@
             <type>
                 <code value="Range" />
             </type>
-        </element>
-        <element id="DeviceAlert.acknowledged">
-            <path value="DeviceAlert.acknowledged" />
-            <short value="Whether the alert condition has been acknowledged" />
-            <definition value="An indication of whether (true) or not (false) the alert condition has been acknowledged." />
-            <min value="0" />
-            <max value="1" />
-            <isSummary value="false" />
-            <type>
-                <code value="boolean" />
-            </type>
-        </element>
-        <element id="DeviceAlert.acknowledgedBy">
-            <path value="DeviceAlert.acknowledgedBy" />
-            <short value="Who acknowledged the alert condition" />
-            <definition value="An indication of who or what acknowledged the alert condition." />
-            <min value="0" />
-            <max value="1" />
-            <isSummary value="false" />
-            <type>
-                <code value="Reference" />
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient" />
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device" />
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole" />
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson" />
-            </type>
-            <mapping>
-                <identity value="w5" />
-                <map value="FiveWs.actor" />
-            </mapping>
-            <mapping>
-                <identity value="workflow" />
-                <map value="Event.actor" />
-            </mapping>
         </element>
         <!-- <element id="DeviceAlert.created">
             <path value="DeviceAlert.created" />
