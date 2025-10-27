@@ -576,6 +576,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>

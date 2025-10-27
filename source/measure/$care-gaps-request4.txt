@@ -1,0 +1,2 @@
+//The first example with a topic of the code "treatment" in the valueset "definition-topic".
+GET [base]/Measure/$care-gaps?measureId=EXM130-7.3.000&periodStart=2014-01&periodEnd=2014-03&status=open-gap&subject=Patient/124&topic=http://hl7.org/fhir/ValueSet/definition-topic|treatment

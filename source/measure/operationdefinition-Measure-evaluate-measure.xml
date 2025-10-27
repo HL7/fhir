@@ -33,6 +33,28 @@
       <valueString value="$evaluate-measure-response.txt"/>
     </extension>
   </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$evaluate-measure-request2.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$evaluate-measure-response2.txt"/>
+    </extension>
+  </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
     <valueMarkdown value="The effect of invoking this operation is to calculate the measure for the given subject(s), or all subjects if no subject is supplied. For individual and subject-list reports, the result is a set of Bundles, one for each evaluated subject, where the first entry in each bundle is a MeasureReport resource, and subsequent entries in the Bundle are resources evaluated or created as part of the measure evaluation. For the summary report, the result of this operation is a single bundle with a single MeasureReport of type summary. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>
   </extension>
@@ -95,7 +117,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Subject for which the measure will be calculated. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter will be resolved as the subject of the measure based on the type of the subject. If multiple subjects of the same type are provided, the behavior is implementation-defined"/>
+    <documentation value="Subject for which the measure will be calculated. The subject must be an instance of a type that is consistent with the subjectType of the Measure being evaluated (e.g. Patient, Practitioner, Location...). The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. If the subject is a Group, it must be an actual Group, not a definitional one. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated (i.e. if the Measure.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, the evaluation will be performed for all subjects appropriate to the Measure.subjectType (possibly constrained further by the provider parameter)."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -120,7 +142,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The type of measure report: individual, subject-list, or summary. If not specified, a default value of individual will be used if the subject parameter is supplied, otherwise, summary will be used. NOTE: Implementations should support the use of `subject` for individual and `population` for summary for backwards compatibility with existing implementations."/>
+    <documentation value="The type of measure report: individual, subject-list, or summary. If not specified, a default value of subject will be used if the subject parameter is supplied and is not a Group, otherwise, summary will be used. NOTE: Implementations should support the use of `subject` for individual and `population` for summary for backwards compatibility with existing implementations."/>
     <type value="code"/>
     <binding>
       <strength value="required"/>
