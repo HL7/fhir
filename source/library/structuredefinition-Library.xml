@@ -319,7 +319,7 @@
 		</element>
 		<element id="Library.type">
 			<path value="Library.type"/>
-			<short value="logic-library | model-definition | asset-collection | module-definition"/>
+			<short value="logic-library | model-definition | asset-collection | module-definition | etc."/>
 			<definition value="Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -333,7 +333,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="The type of knowledge asset this library contains."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/library-type"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/library-type"/>
 			</binding>
 			<mapping>
 				<identity value="w5"/>

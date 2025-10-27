@@ -549,6 +549,24 @@
         <valueSet value="http://terminology.hl7.org/ValueSet/evidence-quality"/>
       </binding>
     </element>
+    <element id="DetectedIssue.expectedOnsetType">
+      <path value="DetectedIssue.expectedOnsetType"/>
+      <short value="Time frame of clinical effect"/>
+      <definition value="The time frame in which the clinical effects of the detected issue may be expected to occur. Rapid refers to an expected onset within 24 hours. Delayed refers to an expected onset in more than 24 hours."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DetectedIssueExpectedOnsetType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Example codes illustrating expected onset type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-expected-onset-type"/>
+      </binding>
+    </element>
     <element id="DetectedIssue.managementCode">
       <path value="DetectedIssue.managementCode"/>
       <short value="Importance of taking action on the issue"/>
