@@ -200,10 +200,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <isSummary value="true"/>
-      <!-- <mapping>
+      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.subject"/>
-      </mapping> -->
+      </mapping>
     </element>
     <element id="DeviceMetric.operationalStatus">
       <path value="DeviceMetric.operationalStatus"/>
