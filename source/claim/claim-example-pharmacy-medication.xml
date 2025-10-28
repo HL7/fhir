@@ -18,14 +18,14 @@
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="pharmacy"/>
-		</coding>	
+		</coding>
 	</type>
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -78,7 +78,7 @@
 				<system value="http://example.org/fhir/CodeSystem/pharmacy-refill"/>
 				<code value="new"/>
 			</coding>
-		</code>	
+		</code>
 	</supportingInfo>
 
 	<supportingInfo>
@@ -93,7 +93,7 @@
 				<system value="http://example.org/fhir/CodeSystem/pharmacy-information"/>
 				<code value="refillsremaining"/>
 			</coding>
-		</code>	
+		</code>
 		<valueQuantity>
 			<value value="2"/>
 		</valueQuantity>
@@ -111,7 +111,7 @@
 				<system value="http://example.org/fhir/CodeSystem/pharmacy-information"/>
 				<code value="dayssupply"/>
 			</coding>
-		</code>	
+		</code>
 		<valueQuantity>
 			<value value="90"/>
 		</valueQuantity>
@@ -144,35 +144,35 @@
 		<productOrService>
 		  <coding>
 				<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-				<code value="562721"/> 
+				<code value="562721"/>
 				<display value="amylase / cellulase / hyoscyamine / lipase / phenyltoloxamine / protease Oral Capsule"/>
 				<!-- <display value="Alprazolam 0.25mg (Xanax)"/> -->
-			</coding> 
+			</coding>
 		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<quantity>
 			<value value="90"/>
 			<unit value="TAB"/>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/> 
+			<system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
 			<code value="TAB"/>
 		</quantity>
 		<net>
 			<value value="90.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<detail>
 			<sequence value="1"/>
 			<!-- type=costitem -->
 			<productOrService>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-					<code value="drugcost"/> 
-				</coding> 
+					<code value="drugcost"/>
+				</coding>
 			</productOrService>
 			<net>
 				<value value="45.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 		<detail>
 			<sequence value="2"/>
@@ -180,13 +180,13 @@
 			<productOrService>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-					<code value="markup"/> 
-				</coding> 
+					<code value="markup"/>
+				</coding>
 			</productOrService>
 			<net>
 				<value value="9.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 		<detail>
 			<sequence value="3"/>
@@ -194,17 +194,17 @@
 			<productOrService>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-					<code value="dispensefee"/> 
-				</coding> 
+					<code value="dispensefee"/>
+				</coding>
 			</productOrService>
 			<net>
 				<value value="36.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 	</item>
 	<total>
 		<value value="90.00"/>
-		<currency value="USD"/> 
+		<currency value="USD"/>
 	</total>
 </Claim>
