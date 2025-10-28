@@ -19,12 +19,12 @@
 			<code value="oral"/>
 		</coding>
 	</type>
-	
+
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/pat1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -62,7 +62,7 @@
 
 	<claimResponse>
 		<reference value="ClaimResponse/R3500"/>
-	</claimResponse> 
+	</claimResponse>
 
 	<outcome value="complete" />
 
@@ -94,12 +94,12 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="135.57"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<udi>
 			<reference value="Device/example"/>
 		</udi>
@@ -114,8 +114,8 @@
 			</category>
 			<amount>
 				<value value="120.00"/>
-				<currency value="USD"/> 
-			</amount> 
+				<currency value="USD"/>
+			</amount>
 		</adjudication>
 		<adjudication>
 			<category>
@@ -135,8 +135,8 @@
 			</category>
 			<amount>
 				<value value="96.00"/>
-				<currency value="USD"/> 
-			</amount> 
+				<currency value="USD"/>
+			</amount>
 		</adjudication>
 	</item>
 
@@ -151,8 +151,8 @@
 		<servicedDate value="2014-08-16"/>
 		<net>
 			<value value="200.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<adjudication>
 			<category>
 				<coding>
@@ -161,8 +161,8 @@
 			</category>
 			<amount>
 				<value value="180.00"/>
-				<currency value="USD"/> 
-			</amount> 
+				<currency value="USD"/>
+			</amount>
 		</adjudication>
 		<detail>
 			<sequence value="1"/>
@@ -173,8 +173,8 @@
 			</productOrService>
 			<net>
 				<value value="200.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 			<udi>
 				<reference value="Device/example"/>
 			</udi>
@@ -186,8 +186,8 @@
 				</category>
 				<amount>
 					<value value="180.00"/>
-					<currency value="USD"/> 
-				</amount> 
+					<currency value="USD"/>
+				</amount>
 			</adjudication>
 			<subDetail>
 				<sequence value="1"/>
@@ -199,12 +199,12 @@
 				</productOrService>
 				<unitPrice>
 					<value value="200.00"/>
-					<currency value="USD"/> 
-				</unitPrice> 
+					<currency value="USD"/>
+				</unitPrice>
 				<net>
 					<value value="200.00"/>
-					<currency value="USD"/> 
-				</net> 
+					<currency value="USD"/>
+				</net>
 				<udi>
 					<reference value="Device/example"/>
 				</udi>
@@ -216,8 +216,8 @@
 					</category>
 					<amount>
 						<value value="200.00"/>
-						<currency value="USD"/> 
-					</amount> 
+						<currency value="USD"/>
+					</amount>
 				</adjudication>
 				<adjudication>
 					<category>
@@ -237,8 +237,8 @@
 					</category>
 					<amount>
 						<value value="180.00"/>
-						<currency value="USD"/> 
-					</amount> 
+						<currency value="USD"/>
+					</amount>
 				</adjudication>
 			</subDetail>
 		</detail>
@@ -252,10 +252,10 @@
 		</category>
 		<amount>
 			<value value="135.57"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
-	
+
 	<total>
 		<category>
 			<coding>
@@ -264,8 +264,8 @@
 		</category>
 		<amount>
 			<value value="96.00"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
 
 </ExplanationOfBenefit>
