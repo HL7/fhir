@@ -23,9 +23,9 @@
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -48,7 +48,7 @@
 	</request>
 
 	<outcome value="complete" />
-	
+
 	<disposition value="Claim settled as per contract."/>
 
 	<payeeType>
@@ -62,7 +62,7 @@
 
 	<item> <!-- Pays for a claim package code with two actual codes with adjudication details -->
 
-		<itemSequence value="1"/> 
+		<itemSequence value="1"/>
 
 		<adjudication>
 			<category>
@@ -84,13 +84,13 @@
 			<amount>
 				<value value="0.00"/>
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 
 	</item>
 
 	<item>
-		<itemSequence value="2"/> 
+		<itemSequence value="2"/>
 
 		<adjudication>
 			<category>
@@ -124,13 +124,13 @@
 			<amount>
 				<value value="84.00"/>
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 
 	</item>
 
 	<item>
-		<itemSequence value="3"/> 
+		<itemSequence value="3"/>
 
 		<adjudication>
 			<category>
@@ -164,11 +164,11 @@
 			<amount>
 				<value value="600.00"/>
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 
 		<detail>
-			<detailSequence value="1"/> 
+			<detailSequence value="1"/>
 
 			<adjudication>
 				<category>
@@ -202,12 +202,12 @@
 				<amount>
 					<value value="600.00"/>
 					<currency value="USD"/>
-				</amount>	
+				</amount>
 			</adjudication>
 
 		</detail>
 		<detail>  <!-- See the addItem.detail below -->
-			<detailSequence value="2"/> 
+			<detailSequence value="2"/>
 
 			<adjudication>
 				<category>
@@ -230,7 +230,7 @@
 				<amount>
 					<value value="0.00"/>
 					<currency value="USD"/>
-				</amount>	
+				</amount>
 			</adjudication>
 
 		</detail>
@@ -239,7 +239,7 @@
 
 	<!-- Pays for a claim package code (1200) with two actual codes (1101, 2141) with adjudication details -->
 	<addItem>
-		<itemSequence value="1"/> 
+		<itemSequence value="1"/>
 		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
@@ -279,7 +279,7 @@
 			<amount>
 				<value value="10.00"/>
 				<currency value="USD"/>
-			</amount>  
+			</amount>
 		</adjudication>
 
 		<adjudication>
@@ -309,12 +309,12 @@
 			<amount>
 				<value value="72.00"/>
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 
 	</addItem>
 	<addItem>
-		<itemSequence value="1"/> 
+		<itemSequence value="1"/>
 		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
@@ -357,13 +357,13 @@
 			<amount>
 				<value value="28.47"/>
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 	</addItem>
 
 	<!-- Pays for a claim package code (1200) with two actual codes (1101, 2141) with adjudication details -->
 	<addItem>
-		<itemSequence value="3"/> 
+		<itemSequence value="3"/>
 		<detailSequence value="2"/>
 		<productOrService>
 			<coding>
@@ -414,7 +414,7 @@
 			<amount>
 				<value value="270.00"/>
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 
 	</addItem>
@@ -427,10 +427,10 @@
 		</category>
 		<amount>
 			<value value="1340.57"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
-	
+
 	<total>
 		<category>
 			<coding>
@@ -439,8 +439,8 @@
 		</category>
 		<amount>
 			<value value="1054.47"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
 
 	<!-- Payment details -->
@@ -450,19 +450,19 @@
 				<system value="http://terminology.hl7.org/CodeSystem/ex-paymenttype"/>
 				<code value="complete"/>
 			</coding>
-		</type>	
+		</type>
 
 		<date value="2014-08-31"/>
 
 		<amount>
 			<value value="100.47"/>
 			<currency value="USD"/>
-		</amount>	
+		</amount>
 
 		<identifier>
 			<system value="http://www.BenefitsInc.com/fhir/paymentidentifier"/>
 			<value value="201408-2-15507"/>
-		</identifier>	
+		</identifier>
 	</payment>
 
 	<processNote>
@@ -480,5 +480,5 @@
 				<code value="en-CA" />
 			</coding>
 		</language>
-	</processNote>	
+	</processNote>
 </ClaimResponse>

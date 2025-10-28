@@ -20,12 +20,12 @@
 			<code value="vision"/>
 		</coding>
 	</type>
-	
+
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -38,7 +38,7 @@
 	</requestor>
 
 	<request>
-		<identifier> 
+		<identifier>
 			<system value="http://happysight.com/claim"/>
 			<value value="6612346"/>
 		</identifier>
@@ -59,7 +59,7 @@
 
 	<item>
 
-		<itemSequence value="1"/> 
+		<itemSequence value="1"/>
 
 		<adjudication>
 			<category>
@@ -82,7 +82,7 @@
 			<amount>
 				<value value="20.00"/>
 				<currency value="USD"/>
-			</amount>  
+			</amount>
 		</adjudication>
 
 		<adjudication>
@@ -105,11 +105,11 @@
 			<amount>
 				<value value="172.32"/>
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 
 		<detail>
-			<detailSequence value="1"/> 
+			<detailSequence value="1"/>
 			<noteNumber value="1"/>
 
 			<adjudication>
@@ -133,7 +133,7 @@
 				<amount>
 					<value value="20.00"/>
 					<currency value="USD"/>
-				</amount>  
+				</amount>
 			</adjudication>
 
 			<adjudication>
@@ -156,11 +156,11 @@
 				<amount>
 					<value value="80.00"/>
 					<currency value="USD"/>
-				</amount>	
+				</amount>
 			</adjudication>
 		</detail>
 		<detail>
-			<detailSequence value="2"/> 
+			<detailSequence value="2"/>
 			<noteNumber value="1"/>
 
 			<adjudication>
@@ -195,11 +195,11 @@
 				<amount>
 					<value value="88.00"/>
 					<currency value="USD"/>
-				</amount>	
+				</amount>
 			</adjudication>
 
 			<subDetail>
-				<subDetailSequence value="1"/> 
+				<subDetailSequence value="1"/>
 				<noteNumber value="1"/>
 
 				<adjudication>
@@ -234,12 +234,12 @@
 					<amount>
 						<value value="48.00"/>
 						<currency value="USD"/>
-					</amount>	
+					</amount>
 				</adjudication>
 
 			</subDetail>
 			<subDetail>
-				<subDetailSequence value="2"/> 
+				<subDetailSequence value="2"/>
 
 				<adjudication>
 					<category>
@@ -273,12 +273,12 @@
 					<amount>
 						<value value="24.00"/>
 						<currency value="USD"/>
-					</amount>	
+					</amount>
 				</adjudication>
 
 			</subDetail>
 			<subDetail>
-				<subDetailSequence value="3"/> 
+				<subDetailSequence value="3"/>
 				<noteNumber value="1"/>
 
 				<adjudication>
@@ -313,13 +313,13 @@
 					<amount>
 						<value value="8.00"/>
 						<currency value="USD"/>
-					</amount>	
+					</amount>
 				</adjudication>
 
 			</subDetail>
 		</detail>
 		<detail>
-			<detailSequence value="3"/> 
+			<detailSequence value="3"/>
 			<noteNumber value="1"/>
 
 			<adjudication>
@@ -354,7 +354,7 @@
 				<amount>
 					<value value="14.00"/>
 					<currency value="USD"/>
-				</amount>	
+				</amount>
 			</adjudication>
 		</detail>
 
@@ -368,8 +368,8 @@
 		</category>
 		<amount>
 			<value value="235.40"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
 
 	<total>
@@ -380,8 +380,8 @@
 		</category>
 		<amount>
 			<value value="182.00"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
 
 	<!-- Payment details -->
@@ -391,7 +391,7 @@
 				<system value="http://terminology.hl7.org/CodeSystem/ex-paymenttype"/>
 				<code value="complete"/>
 			</coding>
-		</type>	
+		</type>
 
 		<adjustment>
 			<value value="75.00"/>
@@ -411,12 +411,12 @@
 		<amount>
 			<value value="107.00"/>
 			<currency value="USD"/>
-		</amount>	
+		</amount>
 
 		<identifier>
 			<system value="http://thebenefitcompany.com/paymentidentifier"/>
 			<value value="201416-123456"/>
-		</identifier>	
+		</identifier>
 	</payment>
 
 	<processNote>
@@ -434,5 +434,5 @@
 				<code value="en-CA" />
 			</coding>
 		</language>
-	</processNote>	
+	</processNote>
 </ClaimResponse>
