@@ -246,16 +246,18 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim</Data></Cell>
-    <Cell><Data ss:Type="String">patient | payee</Data></Cell>
+    <Cell><Data ss:Type="String">subject | payee</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">payee</Data></Cell>
     <Cell><Data ss:Type="String">enterer | provider | payee | care-team</Data></Cell>
     <Cell><Data ss:Type="String">procedure-udi | item-udi | detail-udi | subdetail-udi</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClaimResponse</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">requestor</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClinicalAssessment</Data></Cell>
@@ -452,11 +454,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExplanationOfBenefit</Data></Cell>
-    <Cell><Data ss:Type="String">patient | payee</Data></Cell>
+    <Cell><Data ss:Type="String">subject | payee</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">payee</Data></Cell>
     <Cell><Data ss:Type="String">enterer | provider | payee | care-team</Data></Cell>
     <Cell><Data ss:Type="String">procedure-udi | item-udi | detail-udi | subdetail-udi</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FamilyMemberHistory</Data></Cell>
@@ -878,11 +881,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <LeftColumnVisible>1</LeftColumnVisible>
+   <LeftColumnVisible>2</LeftColumnVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>33</TopRowBottomPane>
+   <TopRowBottomPane>32</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
