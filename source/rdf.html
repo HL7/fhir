@@ -76,10 +76,9 @@ Web Health Care and Life Sciences Interest Group</a>.
            </ul>
         </li>
         <li><a href="#owl-shex-rim">ShEx Schema and FHIR RDF, W5 and HL7 v3 RIM Ontologies</a></li>
-        <li><a href="#guidance">Usage Guidance for OWL and ShEx</a>
-        <li><a href="#relationship">Relationship Between RDF, FHIR and Other Ontologies</a>
+        <li><a href="#guidance">Usage Guidance for OWL and ShEx</a></li>
+        <li><a href="#relationship">Relationship Between RDF, FHIR and Other Ontologies</a></li>
         <li><a href="#tutorials">Tutorials</a></li>
-        </li>
         <li><a href="#concept-iri-algorithm">Appendix 1: Algorithm for
             creating a Concept IRI</a><br/>
         </li>
@@ -427,6 +426,7 @@ href="fhir.shex">fhir.shex</a>
             a quoted string that contains
             the value, and an XSD or RDF type:<br/>
           <pre class="rdf">  fhir:v "[value]"^^xsd:type</pre>
+          <p>
             The XSD type is one of the following
             <a href="https://www.w3.org/TR/xmlschema11-2/">XML Schema Datatypes (XSD)</a>, typically written with an <code class="rdf">xsd:</code> or <code class="rdf">xs:</code> prefix:
             <a href="https://www.w3.org/TR/xmlschema11-2/#boolean">boolean</a>,
@@ -440,7 +440,7 @@ href="fhir.shex">fhir.shex</a>
             <a href="https://www.w3.org/TR/xmlschema11-2/#time">time</a>.
             RDF type <code class="rdf">rdf:XMLLiteral</code> is used
             for values of FHIR type <a href="narrative.html#xhtml">xhtml</a>.
-          </p>
+          </p></li>
           </ul>
 
           <p>
@@ -503,7 +503,7 @@ href="fhir.shex">fhir.shex</a>
             </p>
             <ul>
               <li>The FHIR
-                <a name="decimal"> <!-- Referenced from datatypes.html -->
+                <a name="decimal"></a> <!-- Referenced from datatypes.html -->
                 <a href="datatypes.html#decimal">decimal</a> datatype
                 is represented by <a href="https://www.w3.org/TR/xmlschema11-2/#decimal">xsd:decimal</a>
                 in Turtle.  Turtle shorthand for an xsd:decimal value
@@ -998,10 +998,10 @@ additional requirements around modifier extensions.
         <p> To facilitate FHIR RDF creation and processing, the following
           additional artifacts are available from the
           <a href="downloads.html">downloads page</a>.  While the
-          <a href="https://fhir.hl7.org/fhir/downloads.html">fhir.hl7.org site<a>
+          <a href="https://fhir.hl7.org/fhir/downloads.html">fhir.hl7.org site</a>
           holds the official released versions of these artifacts, unreleased
           INFORMATIVE versions may also be available from the
-          <a href="https://build.fhir.org/downloads.html">build.fhir.org site<a>.
+          <a href="https://build.fhir.org/downloads.html">build.fhir.org site</a>.
         </p>
         <ul>
 
@@ -1080,7 +1080,7 @@ additional requirements around modifier extensions.
             </ul>
             Check the
             <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Open Source FHIR Implementations page</a>,
-            in case new implementations have become available.</li>
+            in case new implementations have become available.
           </li>
           <li> <a href="downloads.html">Download</a> the FHIR ontology, fhir.ttl .
           </li>
