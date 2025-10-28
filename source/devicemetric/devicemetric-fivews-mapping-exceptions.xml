@@ -15,5 +15,4 @@
     <unmappedElement patternPath="FiveWs.grade" reason="Resource does not reflect an activity with a priority/severity."/>
     <unmappedElement patternPath="FiveWs.planned" reason="Resource does not reflect a planned activity."/>
     <unmappedElement patternPath="FiveWs.done" reason="Resource does not reflect an activity done at a particular time."/>
-    <unmappedElement patternPath="FiveWs.subject" reason="Resource is not about a person or organization."/>
 </mappingExceptions>
