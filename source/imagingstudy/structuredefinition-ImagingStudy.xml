@@ -9,10 +9,13 @@
     <valueString value="Clinical.Diagnostics"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="6.0.0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="4"/>
+    <valueInteger value="6"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -31,7 +34,7 @@
   <version value="6.0.0"/>
   <name value="ImagingStudy"/>
   <title value="Imaging Study"/>
-  <status value="draft"/>
+  <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="HL7 International / Imaging Integration"/>
   <contact>
@@ -82,7 +85,7 @@
     <element id="ImagingStudy">
       <path value="ImagingStudy"/>
       <short value="A set of images or image-related data produced in single study"/>
-      <definition value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modality values."/>
+      <definition value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study can have multiple series of different modality values."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -148,7 +151,7 @@
       <path value="ImagingStudy.identifier"/>
       <short value="Business identifier for imaging study"/>
       <definition value="Business identifiers assigned to this imaging study by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server. Typically this will include the DICOM Study Instance UID."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)). It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number, or an accession number may be used to relate a Task, an ImagingStudy and a DiagnosticReport. See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number, or an accession number MAY be used to relate a Task, an ImagingStudy and a DiagnosticReport.  See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
       <requirements value="Allows identification of the imaging study as it is known by various participating systems and in a way that remains consistent across servers. ImagingStudy.identifier SHALL include exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html).)"/>
       <alias value="StudyInstanceUID"/>
       <min value="0"/>
@@ -217,7 +220,7 @@
     <element id="ImagingStudy.modality">
       <path value="ImagingStudy.modality"/>
       <short value="The distinct values for series' modalities"/>
-      <definition value="All the distinct values of series.modality. This may be either an acquisition or a non-acquisition modality."/>
+      <definition value="All the distinct values of series.modality. This MAY be either an acquisition or a non-acquisition modality."/>
       <alias value="ModalitiesInStudy"/>
       <min value="0"/>
       <max value="*"/>
@@ -355,7 +358,7 @@
       <short value="Fulfills plan or order"/>
       <definition value="A plan or order that is fulfilled in whole or in part by this imaging study."/>
       <comment value="One imaging study MAY be based on multiple ordered procedures, e.g. chest/abdomen/pelvis CT orders being fulfilled by a single imaging study."/>
-      <requirements value="Allows tracing of authorization for the imaging study and tracking whether proposals/recommendations were acted upon. If the ImagingStudy is associated with an Accession Number, this field should include a reference to that value in the form: identifier.value = (Accession Number Value) identifier.type = ACSN. A reference value pointing to a ServiceRequest resource is allowed but is not required."/>
+      <requirements value="Allows tracing of authorization for the imaging study and tracking whether proposals/recommendations were acted upon. If the ImagingStudy is associated with an Accession Number, this field SHOULD include a reference to that value in the form: identifier.value = (Accession Number Value) identifier.type = ACSN. A reference value pointing to a ServiceRequest resource is allowed but is not required."/>
       <alias value="AccessionNumber"/>
       <min value="0"/>
       <max value="*"/>
@@ -540,10 +543,6 @@
         <identity value="workflow"/>
         <map value="Event.note"/>
       </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="unknown"/>
-      </mapping>
     </element>
     <element id="ImagingStudy.description">
       <path value="ImagingStudy.description"/>
@@ -598,7 +597,6 @@
       </type>
       <condition value="ist-4"/>
       <condition value="ist-5"/>
-      <condition value="ist-6"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -686,7 +684,7 @@
     <element id="ImagingStudy.series.modality">
       <path value="ImagingStudy.series.modality"/>
       <short value="The modality used for this series"/>
-      <definition value="The distinct modality for this series. This may be either an acquisition modality (e.g., CT, MR) or a non-acquisition modality (e.g., segmentation, presentation state)."/>
+      <definition value="The distinct modality for this series. This MAY be either an acquisition modality (e.g., CT, MR) or a non-acquisition modality (e.g., segmentation, presentation state)."/>
       <alias value="Modality"/>
       <min value="1"/>
       <max value="1"/>
@@ -794,7 +792,7 @@
           <valueString value="BodySite"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical locations. May include laterality."/>
+          <valueString value="Codes describing anatomical locations. MAY include laterality."/>
         </extension>
         <strength value="example"/>
         <description value="SNOMED CT Body site concepts"/>
@@ -999,7 +997,7 @@
       <path value="ImagingStudy.series.instance.sopClass"/>
       <short value="DICOM class type"/>
       <definition value="DICOM instance  type."/>
-      <comment value="Typically a well-known DICOM SOP Class UID but may be the UID of a private SOP Class"/>
+      <comment value="Typically a well-known DICOM SOP Class UID but MAY be the UID of a private SOP Class"/>
       <alias value="SOPClassUID"/>
       <min value="1"/>
       <max value="1"/>

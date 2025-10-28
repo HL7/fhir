@@ -282,8 +282,8 @@
     <element id="CoverageEligibilityResponse.requestor">
       <path value="CoverageEligibilityResponse.requestor"/>
       <short value="Party responsible for the request"/>
-      <definition value="The provider which is responsible for the request."/>
-      <comment value="This party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
+      <definition value="The provider which is responsible for the eligibility, claim, predetermination or preauthorization request."/>
+      <comment value="This party is responsible for the request but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -581,7 +581,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="CoverageEligibilityResponse.insurance.item.network">

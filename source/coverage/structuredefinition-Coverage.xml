@@ -144,7 +144,7 @@
     <element id="Coverage.status">
       <path value="Coverage.status"/>
       <short value="active | cancelled | draft | entered-in-error"/>
-      <definition value="The status of the resource instance."/>
+      <definition value="The status of the resource instance. The status element does not indicate whether the policy reflected in the instance is in-force at any particular point in time, that would be conveyed via the 'period' element."/>
       <comment value="This element is labeled as a modifier because the status contains the code entered-in-error that marks the coverage as not currently valid."/>
       <requirements value="Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'."/>
       <min value="1"/>
@@ -313,7 +313,7 @@
       <path value="Coverage.subscriber"/>
       <short value="Subscriber to the policy"/>
       <definition value="The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due."/>
-      <comment value="May be self or a parent in the case of dependents. A subscriber is only required on certain types of policies not all policies and that it is appropriate to have just a policyholder and a beneficiary when not other party can join that policy instance."/>
+      <comment value="May be self or a parent in the case of dependents. A subscriber is only required on certain types of policies not all policies and that it is appropriate to have just a policyholder and a beneficiary when no other party can join that policy instance."/>
       <requirements value="This is the party who is entitled to the benfits under the policy."/>
       <min value="0"/>
       <max value="1"/>
@@ -588,7 +588,7 @@
     <element id="Coverage.order">
       <path value="Coverage.order"/>
       <short value="Relative order of the coverage"/>
-      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicatble and would apply in the order specified in parenthesis."/>
+      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicable and would apply in the order specified in parenthesis. Coverage.order conveys the Coordination of Benefit (COB) ordering of coverage independent of use-case, for a use-case dependent set of Coverages see Account.coverage.priority."/>
       <requirements value="Used in managing the coordination of benefits."/>
       <min value="0"/>
       <max value="1"/>

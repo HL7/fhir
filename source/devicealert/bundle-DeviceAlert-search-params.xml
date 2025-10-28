@@ -25,6 +25,7 @@
         <description value="The identifier of the alert" />
         <code value="identifier" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.identifier" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -54,6 +55,7 @@
         <code value="patient" />
         <type value="reference" />
         <target value="Patient"/>
+        <base value="DeviceAlert"/>
         <expression
           value="DeviceAlert.subject.where(resolve() is Patient)" />
         <processingMode value="normal" />
@@ -92,6 +94,7 @@
         <target value="BiologicallyDerivedProduct" />
         <target value="Specimen" />
         <target value="NutritionProduct" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.subject" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -120,6 +123,7 @@
         <description value="Status of the alert" />
         <code value="status" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.status" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -148,6 +152,7 @@
         <description value="Alert condition code" />
         <code value="code" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.code" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -176,6 +181,7 @@
         <description value="Alert category" />
         <code value="category" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.category" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -204,6 +210,7 @@
         <description value="Whether the alert condition is currently occurring" />
         <code value="presence" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.presence" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -232,6 +239,7 @@
         <description value="Whether the alert condition has been acknowledged" />
         <code value="acknowledged" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.acknowledged" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -260,6 +268,7 @@
         <description value="When the alert condition occurred" />
         <code value="period" />
         <type value="date" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.presencePeriod" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -288,6 +297,7 @@
         <description value="Priority of the alert condition" />
         <code value="priority" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.priority" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -316,6 +326,7 @@
         <description value="Whether the alert is physiological or technical" />
         <code value="type" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.type" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -346,6 +357,7 @@
         <type value="reference" />
         <target value="Device" />
         <target value="DeviceMetric" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.device" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -375,6 +387,7 @@
         <code value="derived-from" />
         <type value="reference" />
         <target value="Observation" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.derivedFrom.observation" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -403,6 +416,7 @@
         <description value="Whether the alert is currently occurring" />
         <code value="signal-presence" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.signal.presence" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -431,6 +445,7 @@
         <description
           value="The whether the signalling device annunciating the condition is local or remote to the detecting device" />
         <code value="annunciator-concept" />
+        <base value="DeviceAlert"/>
         <type value="token" />
         <expression value="DeviceAlert.signal.annunciator.concept" />
         <processingMode value="normal" />
@@ -461,6 +476,7 @@
         <code value="annunciator-device" />
         <type value="reference" />
         <target value="Device" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.signal.annunciator.reference" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -489,6 +505,7 @@
         <description value="How the alert signal is manifested" />
         <code value="manifestation" />
         <type value="token" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.signal.manifestation" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -517,6 +534,7 @@
         <description value="When the signal was being annunciated" />
         <code value="indication" />
         <type value="date" />
+        <base value="DeviceAlert"/>
         <expression value="DeviceAlert.signal.indication" />
         <processingMode value="normal" />
       </SearchParameter>
@@ -545,6 +563,7 @@
         <description value="Procedure during which the alert occurred" />
         <code value="procedure" />
         <type value="reference" />
+        <base value="DeviceAlert"/>
         <status value="active" />
         <target value="Procedure" />
         <expression value="DeviceAlert.procedure" />
@@ -575,6 +594,7 @@
         <description value="Encounter during which the alert occurred" />
         <code value="encounter" />
         <type value="reference" />
+        <base value="DeviceAlert"/>
         <status value="active" />
         <target value="Encounter" />
         <expression value="DeviceAlert.encounter" />
@@ -605,6 +625,7 @@
         <description value="Location of the subject at time of alert" />
         <code value="location" />
         <type value="reference" />
+        <base value="DeviceAlert"/>
         <status value="active" />
         <target value="Location" />
         <expression value="DeviceAlert.location" />

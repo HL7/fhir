@@ -376,10 +376,13 @@
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e. the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
       </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/> 
+      </extension> 
       <path value="Measure.subject[x]"/>
       <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
       <definition value="The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything."/>
-      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration."/>
+      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. If the subject is specified as a reference to a Group, it must be a definitional group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -397,34 +400,6 @@
         <strength value="extensible"/>
         <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?) { only applies for subject Patient? }"/>
-      </mapping>
-    </element>
-    <element id="Measure.basis">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.basis"/>
-      <short value="Population basis (deprecated, use group.basis)"/>
-      <definition value="The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters."/>
-      <comment value="Deprecated, use group.basis. For a subject-based measure, the population basis is simply boolean; all the criteria are expressed as true/false conditions that determine membership of an individual case in the population. For non-subject-based measures, the population basis can be any resource type, and the criteria are queries that return the subject's contribution to the population as a list of that resource type. For example, for a procedure-based measure, the population criteria would return lists of procedures that should be included in each population."/>
-      <requirements value="Allows non-subject-based measures to be specified. Note that because the binding is to all fhir types, it is possible to specify abstract types such as Resource or DomainResource as the basis for a measure. Authoring environments may wish to constrain this further, depending on content needs."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <meaningWhenMissing value="boolean"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BasisType"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -910,135 +885,6 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Measure.scoring">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Scoring determines what population criteria types are allowed/expected, see the Quality Measure IG for profiles that make this explicit (which are scheduled for promotion to the base specification). In addition, scoring is scheduled to be introduced at the group level to allow groups to override the root scoring."/>
-      </extension>
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.scoring"/>
-      <short value="proportion | ratio | continuous-variable | cohort | composite (deprecated, use group.scoring)"/>
-      <definition value="Deprecated, use group.scoring. Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureScoring"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The scoring type of the measure."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/measure-scoring"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how the calculation is performed }"/>
-      </mapping>
-    </element>
-    <element id="Measure.scoringUnit">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.scoringUnit"/>
-      <short value="What units? (deprecated, use group.scoringUnit)"/>
-      <definition value="Deprecated, use group.scoringUnit. Defines the expected units of measure for the measure score. This element SHOULD be specified as a UCUM unit."/>
-      <comment value="When this element is specified, implementations are expected to report measure scores in the specified units. Note that this may involve unit conversion if the expected units are different than the units of the resulting score calculation. In this case, unit conversions SHALL be performed according to the unit conversion semantics specified by UCUM."/>
-      <requirements value="When the unit cannot be inferred directly from the calculation logic, this element allows the specification of the desired units of measure of the output."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureScoringUnit"/>
-        </extension>
-        <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-scoring-unit"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how the calculation is performed }"/>
-      </mapping>
-    </element>
-    <element id="Measure.scoringPrecision">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.scoringPrecision"/>
-      <short value="How many decimals (The number of decimal places to include in the score when the score is a decimal-valued result) (deprecated, use group.scoringPrecision)"/>
-      <definition value="Deprecated, use group.scoringPrecision) When the score is a decimal value this should be used to specify the expected minimum number of digits after the decimal point to use for the precision of the value. When a scoringUnit is also specified, this value is the expected minimum number of digits after the decimal point when the score is expressed in the units specified."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="positiveInt"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how the calculation is performed }"/>
-      </mapping>
-    </element>
-    <element id="Measure.compositeScoring">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.compositeScoring"/>
-      <short value="opportunity | all-or-nothing | linear | weighted (deprecated, use group.compositeScoring)"/>
-      <definition value="Deprecated, use group.compositeScoring. If this is a composite measure, the scoring method used to combine the component measures to determine the composite score."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CompositeMeasureScoring"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The composite scoring method of the measure."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/composite-measure-scoring"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how component measures are combined }"/>
-      </mapping>
-    </element>
-    <element id="Measure.type">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Type is deprecated at the root and must be specified per group"/>
-      </extension>
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.type"/>
-      <short value="process | outcome | structure | patient-reported-outcome | composite (deprecated, use group.type)"/>
-      <definition value="Deprecated, use group.type. Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of what the measure applies to }"/>
-      </mapping>
-    </element>
     <element id="Measure.riskAdjustment">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Although risk adjustment is characterized narratively here, there is active work to describe risk adjustment models formally."/>
@@ -1108,53 +954,6 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Measure.improvementNotation">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.improvementNotation"/>
-      <short value="increase | decrease"/>
-      <definition value="Deprecated, use group.improvementNotation. Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)."/>
-      <requirements value="Measure consumers and implementers must be able to determine how to interpret a measure score."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureImprovementNotation"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".interpretationCode"/>
-      </mapping>
-    </element>    
-    <element id="Measure.improvementNotationGuidance">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.improvementNotationGuidance"/>
-      <short value="Explanation of improvement notation (deprecated, use group.improvementNotationGuidance)"/>
-      <definition value="Deprecated, use group.improvementNotationGuidance. Narrative text to explain the improvement notation and how to interpret it."/>
-      <comment value="This element allows explanation to the improvementNotation be provided. In some cases, additional guidance is required to clearly communicate measure intent around improvement notation. For example, a measure looking at Ceasarean-section births may have an improvement notation of “decrease”, but it is critical to be able to communicate that a measure score of 0 is not the intent."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isModifier value="false"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of how the calculation is performed }"/>
-      </mapping>
-    </element>       
     <element id="Measure.term">
       <path value="Measure.term"/>
       <short value="Defined terms used in the measure documentation"/>
@@ -1274,6 +1073,16 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="Measure.group.title">
+      <path value="Measure.group.title"/>
+      <short value="Title of the group. This title is expected in the corresponding MeasureReport.group.title"/>
+      <definition value="Indicates the title for the group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Measure.group.code">
       <path value="Measure.group.code"/>
       <short value="Meaning of the group"/>
@@ -1339,7 +1148,7 @@
       <path value="Measure.group.subject[x]"/>
       <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
       <definition value="The intended subjects for the measure. If this element is not provided, the root subject is used to determine the group."/>
-      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration."/>
+      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. If the subject is specified as a reference to a Group, it must be a definitional group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1635,6 +1444,16 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="Measure.group.population.title">
+      <path value="Measure.group.population.title"/>
+      <short value="Title of the group's population. This title is expected in the corresponding MeasureReport.group.population.title"/>
+      <definition value="Indicates the title for the group's population."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Measure.group.population.code">
       <path value="Measure.group.population.code"/>
       <short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
@@ -1783,6 +1602,16 @@
         <identity value="rim"/>
         <map value=".id"/>
       </mapping>
+    </element>
+    <element id="Measure.group.stratifier.title">
+      <path value="Measure.group.stratifier.title"/>
+      <short value="Title of a group's stratifier. This title is expected in the corresponding MeasureReport.group.title"/>
+      <definition value="Indicates the title for the stratifier of the group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="Measure.group.stratifier.code">
       <path value="Measure.group.stratifier.code"/>

@@ -235,16 +235,18 @@
         <map value="FiveWs.class"/>
       </mapping>
     </element>
-    <element id="ClaimResponse.patient">
-      <path value="ClaimResponse.patient"/>
-      <short value="The recipient of the products and services"/>
-      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+    <element id="ClaimResponse.subject">
+      <path value="ClaimResponse.subject"/>
+      <short value="The recipient(s) of the products and services"/>
+      <definition value="The party/group to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <alias value="patient"/>
       <requirements value="The patient must be supplied to the insurer so that confirmation of coverage and service hstory may be considered as part of the authorization and/or adjudiction."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -450,8 +452,8 @@
     <element id="ClaimResponse.payeeType">
       <path value="ClaimResponse.payeeType"/>
       <short value="Party to be paid any benefits payable"/>
-      <definition value="Type of Party to be reimbursed: subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <definition value="Type of Party to be reimbursed: subscriber, billing provider, other."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -840,6 +842,17 @@
         <code value="Quantity"/>
       </type>
     </element>
+    <element id="ClaimResponse.item.adjudication.decisionDate">
+      <path value="ClaimResponse.item.adjudication.decisionDate"/>
+      <short value="When was adjudication performed"/>
+      <definition value="The date and time the adjudication decision occured."/>
+      <comment value="Implementation Guide authors may choose to require this element based on local regulatory requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
     <element id="ClaimResponse.item.detail">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="ItemDetail"/>
@@ -1039,7 +1052,19 @@
         <code value="Identifier"/>
       </type>
     </element>
-	<element id="ClaimResponse.addItem.informationSequence">
+    <element id="ClaimResponse.addItem.patient">
+      <path value="ClaimResponse.addItem.patient"/>
+      <short value="The recipient of the products and services"/>
+      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <comment value="Profilers should consider making this element required when the backbone .patient is a group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.addItem.informationSequence">
       <path value="ClaimResponse.addItem.informationSequence"/>
       <short value="Applicable exception and supporting information"/>
       <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>

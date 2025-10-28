@@ -85,10 +85,10 @@
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="cnl-2"/>
+        <key value="grp-2"/>
         <severity value="error"/>
         <human value="Group.type SHALL be defined if Group.membership is either 'definitional' or 'enumerated'"/>
-        <expression value="Group.type.exists() or (Group.membership = 'conceptual')"/>
+        <expression value="type.exists() or (membership = 'conceptual')"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
@@ -411,6 +411,7 @@
         <description value="Types of resources that are part of group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/group-type"/>
       </binding>
+      <condition value="grp-2"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.class"/>
@@ -439,6 +440,7 @@
         <description value="The basis for membership in a group"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis"/>
       </binding>
+      <condition value="grp-2"/>
     </element>
     <element id="Group.code">
       <path value="Group.code"/>
