@@ -32,7 +32,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This is a set of terms for study design characteristics."/>
+  <description value="This a reproduction of the study design codes from SEVCO. The expectation is that https://fevir.net/sevco would be the future binding."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/study-design-example"/>
   <hierarchyMeaning value="is-a"/>
