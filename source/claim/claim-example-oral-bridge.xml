@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://hl7.org/fhir ../../schema/claim.xsd">
 	<id value="100156"/>
 
@@ -43,9 +43,9 @@
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -120,7 +120,7 @@
 	</supportingInfo>
 
 	<procedure>
-		<sequence value="1"/>   
+		<sequence value="1"/>
 		<date value="2014-07-04"/>
 		<procedureCodeableConcept>
 			<text value="Resection of gum to increase exposed tooth."/>
@@ -155,13 +155,13 @@
 		</locationCodeableConcept>
 		<unitPrice>
 			<value value="1400.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<factor value="0.75"/> <!-- student discount -->
 		<net>
 			<value value="1050.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<udi>
 			<reference value="#device-bridge"/>
 		</udi>
@@ -195,12 +195,12 @@
 		</locationCodeableConcept>
 		<unitPrice>
 			<value value="105.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="105.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<bodySite>
 			<site>
 				<concept>
@@ -238,12 +238,12 @@
 		</locationCodeableConcept>
 		<unitPrice>
 			<value value="1100.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="1100.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<bodySite>
 			<site>
 				<concept>
@@ -252,7 +252,7 @@
 						<code value="24"/>
 					</coding>
 				</concept>
-			</site>		
+			</site>
 		</bodySite>
 
 		<detail>
@@ -265,13 +265,13 @@
 			</productOrService>
 			<unitPrice>
 				<value value="1000.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<factor value="0.75"/> <!-- Student discount -->
 			<net>
 				<value value="750.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 
 		<detail>
@@ -284,17 +284,17 @@
 			</productOrService>
 			<unitPrice>
 				<value value="350.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="350.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 	</item>
 	<total>
 		<value value="2255.00"/>
-		<currency value="USD"/> 
-	</total> 
+		<currency value="USD"/>
+	</total>
 
 </Claim>
