@@ -27,7 +27,7 @@
   <name value="ProcessPriorityCodes"/>
   <title value="Process Priority Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>

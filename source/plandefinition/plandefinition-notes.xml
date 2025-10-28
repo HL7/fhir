@@ -6,14 +6,14 @@
 
 <img src="action-and-activity-definition.png" alt="relationship-between-action-and-activity-definition"/>
 
-<p>The PlanDefinition and ActivityDefinition resources support the representation of a broad range of use cases including order sets, flow sheets, event-condition-action rules, clinical protocols, and research trials. To support this range of use cases, as well as the variability in capabilities of systems that use these types of artifacts, this specification is not prescriptive about exactly how these definitions are applied to produce request and event resources. However, the approach depicted above provides a general framework for the process, and the following steps provide more detail on the potential approach:</p>
+<p>The PlanDefinition and ActivityDefinition resources support the representation of a broad range of use cases including order sets, documentation templates, event-condition-action rules, clinical protocols, and research trials. To support this range of use cases, as well as the variability in capabilities of systems that use these types of artifacts, this specification is not prescriptive about exactly how these definitions are applied to produce request and event resources. However, the approach depicted above provides a general framework for the process, and the following steps provide more detail on the potential approach:</p>
 
 <ol>
 	<li>Create a Bundle resource to contain the overall results of the realization.</li>
 	<li>Create a RequestOrchestration resource focused on the Patient in context and linked to the PlanDefinition using the <code>instantiatesCanonical</code> element</li>
 	<li>Set the first entry of the Bundle to the newly created RequestOrchestration resource</li>
 	<li>Create Goal resources based on the <code>goal</code> definitions in the PlanDefinition</li>
-	<li>Process each <code>action</code> element of the PlanDefinition</li>
+	<li>Process each <code>action</code> element of the PlanDefinition, in order</li>
 </ol>
 
 <p>Processing for each action proceeds according to the following steps:</p>
@@ -26,7 +26,7 @@
 			<li>Create an <code>action</code> element in the RequestOrchestration. If the element has a <code>linkId</code>, set the <code>linkId></code> element of the new action to the same value. Note that for legacy PlanDefinitions, this action linking was accomplished with the <code>id</code> element, so for backwards compatibility, implementations may set the <code>id</code> element of the newly created action as well.</li>
 			<li>Apply the elements of the <code>action</code> to the corresponding elements of the newly created <code>action</code> in the RequestOrchestration such as <code>title</code>, <code>description</code>, <code>textEquivalent</code>, <code>timing</code>, and so on</li>
 			<li>Carry any <i>start</i> and <i>stop</i> conditions defined in the plan action forward to the request group action.</li>
-			<li>There are multiple possibilities for the <code>definition</code> element, but for the ones that specifically refer to another definitional resource, the behavior is:
+			<li>There are multiple possibilities for the <code>definition</code> element:
 				<ul>
 					<li>ActivityDefinition:
 						<ol>
@@ -36,8 +36,6 @@
 							<li>Apply any overrides based on the elements of the <code>action</code> (see the section on Overlap below for details)</li>
 						</ol>
 					</li>
-					<li>MessageDefinition: Construct a <a href="messaging.html">Message</a> according to the definition given by the target</li>
-					<li>ObservationDefinition: Support the documentation of an <a href="observation.html">Observation</a> as defined by the target</li>
 					<li>PlanDefinition:
 						<ol>
 							<li>Create a RequestOrchestration by applying the target PlanDefinition</li>
@@ -46,8 +44,14 @@
 							<li>Apply any overrides based on the elements of the <code>action</code> such as <code>title</code>, <code>description</code>, and <code>dynamicValue</code>.</li>
 						</ol>
 					</li>
-					<li>Questionnaire: Set the <code>resource</code> element of the action to the Questionnaire, indicating that the activity to be performed is filling out the given questionnaire.</li>
-					<li>SpecimenDefinition: Support the collection of a <a href="specimen.html">Specimen</a> as defined by the target</li>
+					<li>Other definitional resource types: 
+						<ol>
+							<li>Create a <a href="task.html">Task</a> resource</li>
+							<li>Reference the task resource in the <code>resource</code> element of the action and add the resource as an entry in the overall result Bundle.</li>
+							<li>Set the <code>focus</code> element of the task to the definitional resource.</li>
+							<li>Set the <code>code</code> element of the task to an appropriate code, such as <code>fulfill</code>.</li>
+						</ol>
+					</li>
 				</ul>
 			</li>
 		</ul>

@@ -145,7 +145,7 @@ In addition, a couple of additional variables are defined for use with extension
 </p>
 <ul>
   <li><code>%questionnaire</code> corresponds to the Questionnaire resource resolved to by the QuestionnaireResponse.questionnaire element. It is in scope for all expressions defined in the Questionnaire.</li>
-  <li><code>qitem</code> is defined as a shortcut to get to the Questionnaire.item that corresponds to the context QuestionnaireResponse.item (based on matching linkId). It is only valid for FHIRPath expressions defined within a Questionnaire item.</li>
+  <li><code>%qitem</code> is defined as a shortcut to get to the Questionnaire.item that corresponds to the context QuestionnaireResponse.item (based on matching linkId). It is only valid for FHIRPath expressions defined within a Questionnaire item.</li>
 </ul>
 
 </div>

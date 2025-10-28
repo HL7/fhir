@@ -458,7 +458,7 @@
 			<path value="EvidenceVariable.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
 			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted . (e.g. 'All rights reserved', 'Some rights reserved')."/>
-			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -518,13 +518,13 @@
 		  <min value="1"/>
 		  <max value="1"/>
 		  <type>
-			<code value="code"/>
+			<code value="CodeableConcept"/>
 		  </type>
 		  <binding>
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 			  <valueString value="ArtifactRelationshipType"/>
 			</extension>
-			<strength value="required"/>
+			<strength value="extensible"/>
 			<description value="The type of relationship to the related artifact."/>
 			<valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
 		  </binding>

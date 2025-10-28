@@ -22,7 +22,7 @@
   <name value="ClaimInformationCategoryCodes"/>
   <title value="Claim Information Category Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>

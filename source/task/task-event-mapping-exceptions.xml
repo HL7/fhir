@@ -65,19 +65,19 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.code" resourcePath="Task.doNotPerform">
+    <divergentElement patternPath="Event.statusReason" resourcePath="Task.statusReason">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="boolean" reason="Unknown"/>
-        <modifier _pattern="false" _resource="true" reason="Unknown"/>
-        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="What service was done"/>
-            <resource value="True if Task is prohibiting action"/>
-        </shortUnmatched>
+        <extraTypes _resource="CodeableReference" reason="Unknown"/>
+        <summary _pattern="false" _resource="true" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
-            <resource value="If true indicates that the Task is asking for the specified action to *not* occur."/>
+            <_pattern value="Captures the reason for the current state of the task."/>
+            <resource value="An explanation as to why this task is held, failed, was refused, etc."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>
+            <resource value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
+        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="Task.code">
         <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
@@ -88,6 +88,19 @@
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
             <resource value="A name or code (or both) briefly describing what the task involves."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.product" resourcePath="Task.focus">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct,Device,DeviceDefinition,Medication,NutritionProduct,Substance)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product used/provided"/>
+            <resource value="What task is acting on"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the product supplied or manipulated by this task."/>
+            <resource value="The request being fulfilled or the resource being manipulated (changed, suspended, etc.) by this task."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="Task.for">
@@ -140,6 +153,21 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.recorded" resourcePath="Task.authoredOn">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="When task was first captured in the subject's record"/>
+            <resource value="Task Creation Date"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The date the occurrence of the task was first captured in the record - potentially significantly after the occurrence of the event."/>
+            <resource value="The date and time this task was created."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.performer.function" resourcePath="Task.requestedPerformer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
@@ -172,6 +200,20 @@
         </definitionUnmatched>
     </divergentElement>
     <doubleMappedElement patternPath="Event.performer.actor" reason="Unknown"/>
+    <divergentElement patternPath="Event.location" resourcePath="Task.location">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Where task occurred"/>
+            <resource value="Where task occurs"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The principal physical location where the task was performed."/>
+            <resource value="Principal physical location where this task is performed."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <resource value="Provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="Task.reason">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -199,10 +241,6 @@
     </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
-    <unmappedElement patternPath="Event.location" reason="Unknown"/>
-    <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Event.category" reason="Unknown"/>
-    <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="Event.product" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer" reason="Unknown"/>
 </mappingExceptions>

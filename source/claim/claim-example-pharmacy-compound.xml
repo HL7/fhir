@@ -18,14 +18,14 @@
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="pharmacy"/>
-		</coding>	
+		</coding>
 	</type>
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -70,7 +70,7 @@
 				<system value="http://example.org/fhir/CodeSystem/pharmacy-refill"/>
 				<code value="new"/>
 			</coding>
-		</code>	
+		</code>
 	</supportingInfo>
 
 	<supportingInfo>
@@ -85,7 +85,7 @@
 				<system value="http://example.org/fhir/CodeSystem/pharmacy-information"/>
 				<code value="refillsremaining"/>
 			</coding>
-		</code>	
+		</code>
 		<valueQuantity>
 			<value value="0"/>
 		</valueQuantity>
@@ -103,7 +103,7 @@
 				<system value="http://example.org/fhir/CodeSystem/pharmacy-information"/>
 				<code value="dayssupply"/>
 			</coding>
-		</code>	
+		</code>
 		<valueQuantity>
 			<value value="10"/>
 		</valueQuantity>
@@ -121,7 +121,7 @@
 				<system value="http://example.org/fhir/CodeSystem/pharmacy-form"/>
 				<code value="capsule"/>
 			</coding>
-		</code>	
+		</code>
 	</supportingInfo>
 
 	<diagnosis>
@@ -152,30 +152,30 @@
 		<productOrService>
 			<coding>
 				<system value="http://localdruglist.org"/>
-				<code value="compound"/> 
+				<code value="compound"/>
 				<display value="Custom compound"/>
-			</coding> 
+			</coding>
 		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<quantity>
 			<value value="30"/>
 			<unit value="TAB"/>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/> 
+			<system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
 			<code value="TAB"/>
 		</quantity>
 		<net>
 			<value value="155.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<detail>
 			<sequence value="1"/>
 			<!-- type=packagemedication -->
 			<productOrService>
 				<coding>
 					<system value="http://localdruglist.org"/>
-					<code value="44001"/> 
+					<code value="44001"/>
 					<display value="Acetaminophen 250mg"/>
-				</coding> 
+				</coding>
 			</productOrService>
 			<quantity>
 				<value value="250"/>
@@ -183,21 +183,21 @@
 			</quantity>
 			<net>
 				<value value="20.00"/>
-				<currency value="USD"/> 
-			</net> 	
+				<currency value="USD"/>
+			</net>
 			<subDetail>
 				<sequence value="1"/>
 				<!-- type=costitem -->
 				<productOrService>
 					<coding>
 						<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-						<code value="drugcost"/> 
-					</coding> 
+						<code value="drugcost"/>
+					</coding>
 				</productOrService>
 				<net>
 					<value value="20.00"/>
-					<currency value="USD"/> 
-				</net> 
+					<currency value="USD"/>
+				</net>
 			</subDetail>
 		</detail>
 		<detail>
@@ -206,9 +206,9 @@
 			<productOrService>
 				<coding>
 					<system value="http://localdruglist.org"/>
-					<code value="44035"/> 
+					<code value="44035"/>
 					<display value="Phenacetin 50mg"/>
-				</coding> 
+				</coding>
 			</productOrService>
 			<quantity>
 				<value value="50"/>
@@ -216,21 +216,21 @@
 			</quantity>
 			<net>
 				<value value="25.00"/>
-				<currency value="USD"/> 
-			</net> 	
+				<currency value="USD"/>
+			</net>
 			<subDetail>
 				<sequence value="1"/>
 				<!-- type=costitem -->
 				<productOrService>
 					<coding>
 						<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-						<code value="drugcost"/> 
-					</coding> 
+						<code value="drugcost"/>
+					</coding>
 				</productOrService>
 				<net>
 					<value value="25.00"/>
-					<currency value="USD"/> 
-				</net> 
+					<currency value="USD"/>
+				</net>
 			</subDetail>
 		</detail>
 		<detail>
@@ -239,9 +239,9 @@
 			<productOrService>
 				<coding>
 					<system value="http://localdruglist.org"/>
-					<code value="44057"/> 
+					<code value="44057"/>
 					<display value="Codeine 25mg"/>
-				</coding> 
+				</coding>
 			</productOrService>
 			<quantity>
 				<value value="25"/>
@@ -249,21 +249,21 @@
 			</quantity>
 			<net>
 				<value value="28.00"/>
-				<currency value="USD"/> 
-			</net> 	
+				<currency value="USD"/>
+			</net>
 			<subDetail>
 				<sequence value="1"/>
 				<!-- type=costitem -->
 				<productOrService>
 					<coding>
 						<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-						<code value="drugcost"/> 
-					</coding> 
+						<code value="drugcost"/>
+					</coding>
 				</productOrService>
 				<net>
 					<value value="28.00"/>
-					<currency value="USD"/> 
-				</net> 
+					<currency value="USD"/>
+				</net>
 			</subDetail>
 		</detail>
 		<detail>
@@ -272,13 +272,13 @@
 			<productOrService>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-					<code value="markup"/> 
-				</coding> 
+					<code value="markup"/>
+				</coding>
 			</productOrService>
 			<net>
 				<value value="22.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 		<detail>
 			<sequence value="3"/>
@@ -286,17 +286,17 @@
 			<productOrService>
 				<coding>
 					<system value="http://hl7.org/fhir/ex-pharmaservice"/>
-					<code value="compoundfee"/> 
-				</coding> 
+					<code value="compoundfee"/>
+				</coding>
 			</productOrService>
 			<net>
 				<value value="60.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 	</item>
 	<total>
 		<value value="155.00"/>
-		<currency value="USD"/> 
+		<currency value="USD"/>
 	</total>
 </Claim>

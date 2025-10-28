@@ -142,6 +142,19 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
+    <element id="CoverageEligibilityRequest.statusReason">
+      <path value="CoverageEligibilityRequest.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="CoverageEligibilityRequest.priority">
       <path value="CoverageEligibilityRequest.priority"/>
       <short value="Desired processing priority"/>
