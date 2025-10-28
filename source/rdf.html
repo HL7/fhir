@@ -437,9 +437,9 @@ href="fhir.shex">fhir.shex</a>
             of multiple XML Schema datatypes:
           </p>
             <ul>
-              <li>FHIR <a href="datatypes#date">date</a> (union of xsd:date, xsd:gYearMonth, xsd:gYear);</li>
-              <li>FHIR <a href="datatypes#dateTime">dateTime</a> (union of xsd:dateTime, xsd:date, xsd:gYearMonth, xsd:gYear); and</li>
-              <li>FHIR <a href="datatypes#decimal">decimal</a> (union of xsd:decimal, xsd:double).</li>
+              <li>FHIR <a href="datatypes.html#date">date</a> (union of xsd:date, xsd:gYearMonth, xsd:gYear);</li>
+              <li>FHIR <a href="datatypes.html#dateTime">dateTime</a> (union of xsd:dateTime, xsd:date, xsd:gYearMonth, xsd:gYear); and</li>
+              <li>FHIR <a href="datatypes.html#decimal">decimal</a> (union of xsd:decimal, xsd:double).</li>
             </ul>
             <p> In such cases, the correct XSD type
             must be determined by inspecting the literal value for
@@ -455,7 +455,7 @@ href="fhir.shex">fhir.shex</a>
               class="rdf">"185"</code> must be given the XSD datatype <code>xsd:decimal</code>
             because it does not contain 'e' or 'E'.
             Values of other FHIR union types --
-            <a href="datatypes#date">date</a> or <a href="datatypes#dateTime">dateTime</a>
+            <a href="datatypes.html#date">date</a> or <a href="datatypes.html#dateTime">dateTime</a>
             must be handled similarly, to assign the most specific XSD type
             that matches the given literal value.
           </p>
@@ -1182,7 +1182,7 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
 
         <p><i>For background on concept IRIs, IRI stems, and their
           relationship to Code Systems,
-          see <a href="iri-stem">Concept IRIs and IRI Stems</a> above.</i></p>
+          see <a href="#iri-stem">Concept IRIs and IRI Stems</a> above.</i></p>
 
         <p>This section defines a standard algorithm for generating a
           Concept IRI from a &lt;<code>Coding.system</code>, <code>Coding.code</code>&gt;
