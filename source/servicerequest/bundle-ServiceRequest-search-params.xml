@@ -45,13 +45,13 @@
       <SearchParameter>
         <id value="ServiceRequest-body-site"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="deprecated"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ServiceRequest.bodySite"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-body-site"/>
-        <description value="Where procedure is going to be done"/>
+        <description value="DEPRECATED: Where procedure is going to be done"/>
         <code value="body-site"/>
         <type value="token"/>
         <expression value="ServiceRequest.bodySite"/>
@@ -62,18 +62,38 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ServiceRequest-body-structure"/>
+        <id value="ServiceRequest-body-structure-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ServiceRequest.bodyStructure"/>
+          <valueString value="ServiceRequest.bodyStructure.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-body-structure"/>
-        <description value="Body structure Where procedure is going to be done"/>
-        <code value="body-structure"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-body-structure-reference"/>
+        <description value="Body structure where procedure is going to be done (reference)"/>
+        <code value="reference"/>
         <type value="reference"/>
-        <expression value="ServiceRequest.bodyStructure"/>
+        <expression value="ServiceRequest.bodyStructure.reference"/>
+        <processingMode value="normal"/>
+        <target value="BodyStructure"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ServiceRequest-body-structure-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ServiceRequest.bodyStructure.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-body-structure-code"/>
+        <description value="Code for body structure where procedure is going to be done"/>
+        <code value="body-structure-code"/>
+        <type value="token"/>
+        <expression value="ServiceRequest.bodyStructure.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
