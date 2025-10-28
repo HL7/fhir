@@ -401,7 +401,12 @@ href="fhir.shex">fhir.shex</a>
             <code class="rdf">fhir:Code</code> .  This is done to avoid
             having a name clash with the
             <code class="rdf">fhir:code</code> property, since RDF is
-            case sensitive.  All other FHIR RDF names use the same
+            case sensitive.  For consistency, the RDF class name for the FHIR
+            <a href="narrative.html#xhtml">xhtml</a>
+            is also capitalized <code class="rdf">fhir:Xhtml</code>
+            even though it is technically a 
+            <a href="datatypes.html">special</a> type.
+            All other FHIR RDF names use the same
             capitalization conventions as in the FHIR content model,
             JSON and XML.</li>
 
