@@ -20,7 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.basedOn" resourcePath="ServiceRequest.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder,DocumentReference)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="What request fulfills"/>
@@ -142,6 +142,21 @@
             <resource value="Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc."/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.category" resourcePath="ServiceRequest.category">
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Partitions the service request into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="Classification of service"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Partitions the service request into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="A code that classifies the service for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value="Used for filtering what service request are retrieved and displayed."/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.code" resourcePath="ServiceRequest.code">
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
         <extraTypes _resource="CodeableReference(ActivityDefinition,PlanDefinition)" reason="Unknown"/>
@@ -152,6 +167,17 @@
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
             <resource value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.product" resourcePath="ServiceRequest.orderDetail.parameterFocus">
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product requested/ordered"/>
+            <resource value="The context of the order details by reference"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the product whose supply or manipulation is authorized by this service request."/>
+            <resource value="Indicates the context of the order details by reference."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="ServiceRequest.subject">
@@ -305,7 +331,5 @@
         </commentsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
-    <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
-    <unmappedElement patternPath="Request.product" reason="Unknown"/>
 </mappingExceptions>

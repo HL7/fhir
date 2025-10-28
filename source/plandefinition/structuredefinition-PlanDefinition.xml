@@ -307,7 +307,7 @@
 		</element>
 		<element id="PlanDefinition.type">
 			<path value="PlanDefinition.type"/>
-			<short value="order-set | clinical-protocol | eca-rule | workflow-definition"/>
+			<short value="order-set | protocol | eca-rule | workflow-definition | etc."/>
 			<definition value="A high-level category for the plan definition that distinguishes the kinds of systems that would be interested in the plan definition."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -321,7 +321,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="The type of PlanDefinition."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/plan-definition-type"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/plan-definition-type"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
@@ -635,9 +635,9 @@
 				<valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
 			</extension>
 			<path value="PlanDefinition.copyright"/>
-			<short value="Use and/or publishing restrictions"/>
-			<definition value="A copyright statement relating to the plan definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the plan definition."/>
-			<comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/>
+			<short value="Notice about intellectual property ownership, can include restrictions on use"/>
+			<definition value="A copyright statement relating to the plan definition and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the plan definition."/>
+			<comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the plan definition and/or its content."/>
 			<alias value="License"/>
 			<alias value="Restrictions"/>
@@ -665,8 +665,8 @@
 			</extension>
 			<path value="PlanDefinition.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1215,7 +1215,12 @@
 			<max value="1"/>
 			<type>
 				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1234,9 +1239,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
@@ -1247,6 +1250,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1290,6 +1294,7 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
+			<orderMeaning value="The order of actions is the sequence in which the actions are to be evaluated and performed. This is true of both the actions in the root as well as child actions of each action."/>
 			<condition value="pld-3"/>
 			<condition value="pld-4"/>
 			<mapping>
@@ -1845,6 +1850,9 @@
 			<type>
 				<code value="Timing"/>
 			</type>
+			<type>
+				<code value="RelativeTime"/>
+			</type>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".effectiveTime"/>
@@ -1955,7 +1963,12 @@
 			<max value="1"/>
 			<type>
 				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -1974,9 +1987,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
@@ -1987,6 +1998,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>
@@ -2038,7 +2050,7 @@
 		</element>
 		<element id="PlanDefinition.action.type">
 			<path value="PlanDefinition.action.type"/>
-			<short value="create | update | remove | fire-event"/>
+			<short value="create | update | remove | fire-event | etc."/>
 			<definition value="The type of action to perform (create, update, remove)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -2051,11 +2063,34 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="The type of action to be performed."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/action-type"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".moodCode { Maybe? this is effectively Create, Update, or Delete }"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.action.applicabilityBehavior">
+			<path value="PlanDefinition.action.applicabilityBehavior"/>
+			<short value="all | any"/>
+			<definition value="All - meaning the applicability of each child action is evaluated independently; if a child action is applicable according to the applicability criteria, it is applied. Any - meaning that each child action is evaluated in order, and the first action that returns an applicability of true will be applied, and processing of the parent action will stop. If not specified, the default behavior of All is used."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="If no applicability behavior is specified but the action has children, the default applicability criteria of All is assumed, meaning that each child action is evaluated independently."/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionApplicabilityBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines applicability behavior of a group."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-applicability-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
 			</mapping>
 		</element>
 		<element id="PlanDefinition.action.groupingBehavior">
@@ -2176,15 +2211,17 @@
 		<element id="PlanDefinition.action.definition[x]">
 			<path value="PlanDefinition.action.definition[x]"/>
 			<short value="Description of the activity to be performed"/>
-			<definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a MessageDefinition describing a message to be snet, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
-			<comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically."/>
+			<definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a Measure defining a measure to be evaluated, a MessageDefinition describing a message to be sent, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, an ObservationDefinition that specifies what observation should be captured, or an OperationDefinition that specifies what operation should be invoked."/>
+			<comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically. If the reference is to an ActivityDefinition or a PlanDefinition, the realization processing documented in those resources is followed. For the other definitional resource types, implementations SHOULD realize the action as a Task resource with a focus of the definitional resource to indicate that the activity should be carried out (e.g. evaluating a measure, gathering a specimen, filling out a questionnaire, sending a message, invoking an operation, etc.)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>

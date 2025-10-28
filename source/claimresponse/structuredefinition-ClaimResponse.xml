@@ -149,6 +149,19 @@
         <map value="FiveWs.status"/>
       </mapping>
     </element>
+    <element id="ClaimResponse.statusReason">
+      <path value="ClaimResponse.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="ClaimResponse.type">
       <path value="ClaimResponse.type"/>
       <short value="More granular claim type"/>
@@ -222,16 +235,18 @@
         <map value="FiveWs.class"/>
       </mapping>
     </element>
-    <element id="ClaimResponse.patient">
-      <path value="ClaimResponse.patient"/>
-      <short value="The recipient of the products and services"/>
-      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+    <element id="ClaimResponse.subject">
+      <path value="ClaimResponse.subject"/>
+      <short value="The recipient(s) of the products and services"/>
+      <definition value="The party/group to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <alias value="patient"/>
       <requirements value="The patient must be supplied to the insurer so that confirmation of coverage and service hstory may be considered as part of the authorization and/or adjudiction."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -437,8 +452,8 @@
     <element id="ClaimResponse.payeeType">
       <path value="ClaimResponse.payeeType"/>
       <short value="Party to be paid any benefits payable"/>
-      <definition value="Type of Party to be reimbursed: subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <definition value="Type of Party to be reimbursed: subscriber, billing provider, other."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -488,6 +503,124 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup"/>
       </binding>
     </element>
+    <element id="ClaimResponseResponse.supportingInfo">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="SupportingInformation"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="740,0"/>
+      </extension>
+      <path value="ClaimResponse.supportingInfo"/>
+      <short value="Supporting information"/>
+      <definition value="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues."/>
+      <comment value="Often there are multiple jurisdiction specific valuesets which are required."/>
+      <requirements value="Typically these information codes are required to support the services rendered or the adjudication of the services rendered."/>
+      <alias value="Attachments&#xA;Exception Codes&#xA;Occurrence Codes&#xA;Value codes"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.supportingInfo"/>
+      </mapping>
+    </element>
+    <element id="ClaimResponse.supportingInfo.sequence">
+      <path value="ClaimResponse.supportingInfo.sequence"/>
+      <short value="Information instance identifier"/>
+      <definition value="A number to uniquely identify supporting information entries."/>
+      <requirements value="Necessary to maintain the order of the supporting information items and provide a mechanism to link to claim details."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.supportingInfo.category">
+      <path value="ClaimResponse.supportingInfo.category"/>
+      <short value="Classification of the supplied information"/>
+      <definition value="The general class of the information supplied: information; exception; accident, employment; onset, etc."/>
+      <comment value="This may contain a category for the local bill type codes."/>
+      <requirements value="Required to group or associate information items with common characteristics. For example: admission information or prior treatments."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InformationCategory"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The valuset used for additional information category codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
+      </binding>
+    </element>
+    <element id="ClaimResponse.supportingInfo.code">
+      <path value="ClaimResponse.supportingInfo.code"/>
+      <short value="Type of information"/>
+      <definition value="System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought."/>
+      <requirements value="Required to identify the kind of additional information."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InformationCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The valuset used for additional information codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/claim-exception"/>
+      </binding>
+    </element>
+    <element id="ClaimResponse.supportingInfo.timing[x]">
+      <path value="ClaimResponse.supportingInfo.timing[x]"/>
+      <short value="When it occurred"/>
+      <definition value="The date when or period to which this information refers."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.supportingInfo.value[x]">
+      <path value="ClaimResponse.supportingInfo.value[x]"/>
+      <short value="Data to be provided"/>
+      <definition value="Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data."/>
+      <comment value="Could be used to provide references to other resources, document. For example could contain a PDF in an Attachment of the Police Report for an Accident."/>
+      <requirements value="To convey the data content to be provided when the information is more than a simple code or period."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="*"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.supportingInfo.reason">
+      <path value="ClaimResponse.supportingInfo.reason"/>
+      <short value="Explanation for the information"/>
+      <definition value="Provides the reason in the situation where a reason code is required in addition to the content."/>
+      <comment value="For example: the reason for the additional stay, or why a tooth is  missing."/>
+      <requirements value="Needed when the supporting information has both a date and amount/value and requires explanation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MissingReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Reason codes for the missing teeth."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/missing-tooth-reason"/>
+      </binding>
+    </element>
     <element id="ClaimResponse.item">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Item"/>
@@ -525,6 +658,17 @@
       <max value="*"/>
       <type>
         <code value="Identifier"/>
+      </type>
+    </element>
+	<element id="ClaimResponse.item.informationSequence">
+      <path value="ClaimResponse.item.informationSequence"/>
+      <short value="Applicable exception and supporting information"/>
+      <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>
+      <requirements value="Need to reference the supporting information items that relate directly to this product or service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
       </type>
     </element>
     <element id="ClaimResponse.item.noteNumber">
@@ -698,6 +842,17 @@
         <code value="Quantity"/>
       </type>
     </element>
+    <element id="ClaimResponse.item.adjudication.decisionDate">
+      <path value="ClaimResponse.item.adjudication.decisionDate"/>
+      <short value="When was adjudication performed"/>
+      <definition value="The date and time the adjudication decision occured."/>
+      <comment value="Implementation Guide authors may choose to require this element based on local regulatory requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
     <element id="ClaimResponse.item.detail">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="ItemDetail"/>
@@ -845,7 +1000,7 @@
       </extension>
       <path value="ClaimResponse.addItem"/>
       <short value="Insurer added line items"/>
-      <definition value="The first-tier service adjudications for payor added product or service lines."/>
+      <definition value="The first-tier service adjudications for payer added product or service lines."/>
       <requirements value="Insurers may redefine the provided product or service or may package and/or decompose groups of products and services. The addItems allows the insurer to provide their line item list with linkage to the submitted items/details/sub-details. In a preauthorization the insurer may use the addItem structure to provide additional information on authorized products and services."/>
       <min value="0"/>
       <max value="*"/>
@@ -897,6 +1052,29 @@
         <code value="Identifier"/>
       </type>
     </element>
+    <element id="ClaimResponse.addItem.patient">
+      <path value="ClaimResponse.addItem.patient"/>
+      <short value="The recipient of the products and services"/>
+      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <comment value="Profilers should consider making this element required when the backbone .patient is a group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.addItem.informationSequence">
+      <path value="ClaimResponse.addItem.informationSequence"/>
+      <short value="Applicable exception and supporting information"/>
+      <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>
+      <requirements value="Need to reference the supporting information items that relate directly to this product or service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="ClaimResponse.addItem.provider">
       <path value="ClaimResponse.addItem.provider"/>
       <short value="Authorized providers"/>
@@ -934,6 +1112,26 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-revenue-center"/>
       </binding>
     </element>
+    <element id="ClaimResponse.addItem.category">
+      <path value="ClaimResponse.addItem.category"/>
+      <short value="Benefit classification"/>
+      <definition value="Code to identify the general type of benefits under which products and services are provided."/>
+      <comment value="Examples include Medical Care, Periodontics, Renal Dialysis, Vision Coverage."/>
+      <requirements value="Needed in the processing of institutional claims as this allows the insurer to determine whether a facial X-Ray is for dental, orthopedic, or facial surgery purposes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BenefitCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Benefit categories such as: oral-basic, major, glasses."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
+      </binding>
+    </element>
     <element id="ClaimResponse.addItem.productOrService">
       <path value="ClaimResponse.addItem.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
@@ -958,7 +1156,7 @@
       <path value="ClaimResponse.addItem.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1252,7 +1450,7 @@
       </extension>
       <path value="ClaimResponse.addItem.detail"/>
       <short value="Insurer added line details"/>
-      <definition value="The second-tier service adjudications for payor added services."/>
+      <definition value="The second-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1313,7 +1511,7 @@
       <path value="ClaimResponse.addItem.detail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1456,7 +1654,7 @@
       </extension>
       <path value="ClaimResponse.addItem.detail.subDetail"/>
       <short value="Insurer added line items"/>
-      <definition value="The third-tier service adjudications for payor added services."/>
+      <definition value="The third-tier service adjudications for payer added services."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1517,7 +1715,7 @@
       <path value="ClaimResponse.addItem.detail.subDetail.productOrServiceEnd"/>
       <short value="End of a range of codes"/>
       <definition value="This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims."/>
-      <alias value="End of a range of Drug Code; Bill Code; Service Cod"/>
+      <alias value="End of a range of Drug Code; Bill Code; Service Code"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1824,7 +2022,7 @@
       <short value="Funds reserved status"/>
       <definition value="A code, used only on a response to a preauthorization, to indicate whether the benefits payable have been reserved and for whom."/>
       <comment value="Fund would be release by a future claim quoting the preAuthRef of this response. Examples of values include: provider, patient, none."/>
-      <requirements value="Needed to advise the submitting provider on whether the rquest for reservation of funds has been honored."/>
+      <requirements value="Needed to advise the submitting provider on whether the request for reservation of funds has been honored."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1894,6 +2092,27 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="ClaimResponse.processNote.class">
+      <path value="ClaimResponse.processNote.class"/>
+      <short value="Business kind of note"/>
+      <definition value="A code to indicate the business purpose of the note."/>
+      <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessNoteClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Business class of the process note."/>
+      </binding>
+    </element>
     <element id="ClaimResponse.processNote.number">
       <path value="ClaimResponse.processNote.number"/>
       <short value="Note instance identifier"/>
@@ -1935,7 +2154,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ClaimResponse.processNote.language">

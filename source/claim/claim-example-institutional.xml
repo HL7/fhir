@@ -26,13 +26,13 @@
 			<system value="http://terminology.hl7.org/CodeSystem/ex-claimsubtype"/>
 			<code value="emergency"/>
 		</coding>
-	</subType> 
+	</subType>
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -94,7 +94,7 @@
 			<coding>
 				<code value="primary"/>
 			</coding>
-		</type>	
+		</type>
 		<date value="2014-08-16"/>
 		<procedureCodeableConcept>
 			<coding>
@@ -121,18 +121,18 @@
 		<productOrService>
 			<coding>
 				<system value="http://hl7.org/fhir/ex-serviceproduct"/>
-				<code value="exam"/> 
+				<code value="exam"/>
 			</coding>
 		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="125.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="125.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<encounter>
 			<reference value="Encounter/example"/>
 		</encounter>
@@ -140,6 +140,6 @@
 
 	<total>
 		<value value="125.00"/>
-		<currency value="USD"/>  
+		<currency value="USD"/>
 	</total>
 </Claim>

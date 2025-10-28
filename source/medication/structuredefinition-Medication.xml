@@ -268,6 +268,7 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
       </type>
       <binding>

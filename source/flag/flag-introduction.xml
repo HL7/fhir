@@ -78,12 +78,15 @@ information that is important to influence their interaction with a Patient prio
 </p>
 <p>
 Flags are not used to convey information to a specific individual or organization (e.g. an abnormal lab result reported to the ordering 
-clinician, reporting of an adverse reaction to a regulatory authority).  These are handled using the 
-<a href="communicationrequest.html">CommunicationRequest</a> and the <a href="communication.html">Communication</a> resources.
+clinician, reporting of an adverse reaction to a regulatory authority).  These are handled using  
+<a href="communicationrequest.html">CommunicationRequest</a> and <a href="communication.html">Communication</a>.
 </p>
 <p>
 Flags are not raised as a result of a reported or proposed action (e.g. drug-drug interactions, duplicate therapy warnings).  
-These would be handled using <a href="detectedissue.html">DetectedIssue</a>.
+These are handled using <a href="detectedissue.html">DetectedIssue</a>.
+</p>
+<p>
+Flag is not used for alerts or alarm conditions detected and signaled by a patient-connected health/medical device. These are handled using <a href="devicealert.html">DeviceAlert</a>.
 </p>
 </div>
 

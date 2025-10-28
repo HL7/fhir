@@ -21,7 +21,13 @@
   <title value="Risk of fatal ICH without alteplase for stroke"/>
   <status value="draft"/>
   <relatesTo>
-    <type value="cites"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+        <code value="cites" />
+        <display value="Cites" />
+      </coding>
+    </type>
     <targetMarkdown value="Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. &lt;b&gt;Citation:&lt;/b&gt; Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists' Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063 &lt;b&gt;URL:&lt;/b&gt; https://doi.org/10.1016/S0140-6736(14)60584-5"/>
   </relatesTo>
   <description value="0.4% incidence of fatal intracranial hemorrhage within 7 days without alteplase in patients with acute ischemic stroke"/>

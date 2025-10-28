@@ -121,6 +121,7 @@ in order to support consistent definitions for schema and UML derived code.
         readability,
         not to record the relationships necessary for interpretation.
     </p>
+    <p>Note: When an observation is not performed and if this needs to be communicated as part of a reporting, the Observation would be used to document that it was not performed and why.  The DiagnosticReport would include such observation when that documentation was necessary. For more information see <a href="https://build.fhir.org/observation.html#cancelled">Observation</a>.</p>
     <h4>Laboratory Results</h4>
     <p>
         Relationships between observations are important to understand for the following use cases in particular:
@@ -186,11 +187,11 @@ in order to support consistent definitions for schema and UML derived code.
         Observation is also linked to through the Obervation.hasMember of the identified organism Observation.
     </p>
     <p>
-        If a new authorization was needed to perform the susceptibility panel as sometimes the overall ServiceRequest
-        covers it, and other times a new authorization is required, the Susceptibility Panel Observation.basedOn will
-        reference the
-        appropriate ServiceRequest, while, if present, the Susceptibility Panel ServiceRequest.basedOn will reference
-        the initial ServiceRequest.
+        If a new authorization is required:
+        <ul>
+            <li>A new ServiceRequest is created which is basedOn the original ServiceRequest; and</li>
+            <li>Observation.basedOn points to the new ServiceRequest</li>
+        </ul>
     </p>
     <p>
         The individual susceptibility observations are linked to the Susceptibility Panel by the Observation.hasMember
@@ -319,7 +320,7 @@ in order to support consistent definitions for schema and UML derived code.
         diagnostic orders and reports.
     </p>
     <ul>
-        <li>recording <a href="observation-vitalsigns.html">vital signs</a> such as <a href="observation-example-f202-temperature.html">temperature</a>, <a href="observation-example-bloodpressure.html">blood pressure</a>, <a href="observation-example-respiratory-rate.html">respiratory rate</a>, <a href="observation-example-heart-rate.html">heart rate</a>, <a href="observation-example-satO2.html">oxygen saturation</a></li>
+        <li>recording <a href="observation-vitalsigns.html">vital signs</a> such as <a href="observation-example-f202-temperature.html">temperature</a>, <a href="observation-example-bloodpressure.html">blood pressure</a>, <a href="observation-example-respiratory-rate.html">respiratory rate</a>, <a href="observation-example-heart-rate.html">heart rate</a></li>
         <li>recording other observations of a patient's social history such as tobacco use</li>
         <li>recording other characteristics of a patient such as pregnancy status (note: The Condition resource may be
             used to represent these as well)</li>

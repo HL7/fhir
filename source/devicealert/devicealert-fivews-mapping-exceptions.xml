@@ -6,7 +6,6 @@
     <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.witness" reason="This resource is expected to be recorded by the source device."/>
-    <unmappedElement patternPath="FiveWs.where" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.init" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.who" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.planned" reason="Unknown"/>

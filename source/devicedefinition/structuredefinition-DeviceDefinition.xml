@@ -471,9 +471,9 @@
     </element> 
     <element id="DeviceDefinition.copyright">
       <path value="DeviceDefinition.copyright"/> 
-      <short value="Use and/or publishing restrictions"/> 
-      <definition value="A copyright statement relating to the DeviceDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the DeviceDefinition."/> 
-      <comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/> 
+      <short value="Notice about intellectual property ownership, can include restrictions on use"/> 
+      <definition value="A copyright statement relating to the DeviceDefinition and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the DeviceDefinition."/> 
+      <comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/> 
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the DeviceDefinition and/or its content."/> 
       <alias value="License"/> 
       <alias value="Restrictions"/> 
@@ -495,8 +495,8 @@
       </extension> 
       <path value="DeviceDefinition.copyrightLabel"/> 
       <short value="Copyright holder and year(s)"/> 
-      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/> 
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/> 
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/> 
+      <comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/> 
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/> 
       <min value="0"/> 
       <max value="1"/> 
@@ -657,10 +657,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-regulatory-identifier-type"/>
       </binding>
     </element>
-    <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifier">
-      <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifier"/>
+    <element id="DeviceDefinition.regulatoryIdentifier.identifier">
+      <path value="DeviceDefinition.regulatoryIdentifier.identifier"/>
       <short value="The identifier itself"/>
-      <definition value="The identifier itself."/>
+      <definition value="The identifier used in the associated regulatory context."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -679,18 +679,18 @@
     </element>
     <element id="DeviceDefinition.regulatoryIdentifier.jurisdiction">
       <path value="DeviceDefinition.regulatoryIdentifier.jurisdiction"/>
-      <short value="The jurisdiction to which the deviceIdentifier applies"/>
-      <definition value="The jurisdiction to which the deviceIdentifier applies."/>
+      <short value="Relevant jurisdiction governing the identifier"/>
+      <definition value="The applicable jurisdiction overseeing the enforcement of the Identifier."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
       </type>
     </element>
-    <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifierSystem">
-      <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifierSystem"/>
+    <element id="DeviceDefinition.regulatoryIdentifier.identifierSystem">
+      <path value="DeviceDefinition.regulatoryIdentifier.identifierSystem"/>
       <short value="The namespace for the device identifier value"/>
-      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the device identifier."/>
+      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1207,6 +1207,13 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.note">
       <path value="DeviceDefinition.note"/>
@@ -1466,6 +1473,13 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceProduct"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.chargeItem.count">
       <path value="DeviceDefinition.chargeItem.count"/>

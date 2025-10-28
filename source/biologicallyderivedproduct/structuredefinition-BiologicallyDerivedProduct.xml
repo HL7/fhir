@@ -292,21 +292,32 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
       </type>
     </element>
-    <element id="BiologicallyDerivedProduct.collection.source">
-      <path value="BiologicallyDerivedProduct.collection.source"/>
-      <short value="The patient who underwent the medical procedure to collect the product or the organization that facilitated the collection"/>
-      <definition value="The patient or entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product."/>
+    <element id="BiologicallyDerivedProduct.collection.sourcePatient">
+      <path value="BiologicallyDerivedProduct.collection.sourcePatient"/>
+      <short value="The patient who underwent the medical procedure to collect the product"/>
+      <definition value="The patient providing the product."/>
+      <comment value="The collection.source may reference an identifiable patient. Implementers shall ensure the appropriate data access controls are established."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
         <identity value="ISBT128Code"/>
         <map value="Global Registration Identifier for Donors"/>
       </mapping>
+    </element>
+    <element id="BiologicallyDerivedProduct.collection.sourceOrganization">
+      <path value="BiologicallyDerivedProduct.collection.sourceOrganization"/>
+      <short value="The organization that facilitated the collection"/>
+      <definition value="The entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
     </element>
     <element id="BiologicallyDerivedProduct.collection.collected[x]">
       <path value="BiologicallyDerivedProduct.collection.collected[x]"/>

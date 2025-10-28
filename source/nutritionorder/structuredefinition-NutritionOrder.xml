@@ -138,35 +138,6 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.instantiates">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#10296][#11119]#13196]."/>
-      </extension>
-      <path value="NutritionOrder.instantiatesCanonical"/>
-      <short value="Instantiates FHIR protocol or definition"/>
-      <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiates"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
     <element id="NutritionOrder.basedOn">
       <path value="NutritionOrder.basedOn"/>
       <short value="What this order fulfills"/>
@@ -469,6 +440,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.performer"/>
+      </mapping>
     </element>
     <element id="NutritionOrder.allergyIntolerance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -920,7 +895,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code"/>
+        <map value="Request.product"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -1123,7 +1098,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code"/>
+        <map value="Request.product"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -1429,7 +1404,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code"/>
+        <map value="Request.product"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

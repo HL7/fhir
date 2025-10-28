@@ -194,7 +194,7 @@
         <missingTypes _pattern="Reference(CareTeam,Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed immunization"/>
-            <resource value="Individual or organization who was performing"/>
+            <resource value="Individual or organization who performed the event"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what performed the immunization."/>
@@ -224,7 +224,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Describes why the immunization occurred in coded or textual form or Indicates another resource whose existence justifies this immunization."/>
-            <resource value="Describes why the immunization occurred in coded or textual form, or Indicates another resource (Condition, Observation or DiagnosticReport) whose existence justifies this immunization."/>
+            <resource value="Describes why the immunization occurred in coded or textual form, or indicates another resource (Condition, Observation or DiagnosticReport) whose existence justifies this immunization."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>

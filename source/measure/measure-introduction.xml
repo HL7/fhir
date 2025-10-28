@@ -1,19 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="stu"></a>
-<blockquote class="ballot-note">
-<p><b>Note to Balloters:</b>The Measure resource specifies calculation of a score using the following elements: basis, scoring, scoringUnit, scoringPrecision, improvementNotation, and improvementNotationGuidance, as well as compositeScoring and components for composite measures. </p>
-
-<p>The Measure resource is currently structured to allow these elements to be specified at the root, or individually on each group.</p>
-
-<p>The CQI Work Group is seeking implementer feedback on the following potential options:</p>
-
-<ul>
-  <li><b>Option 1:</b>Keep the current structure, along with the current semantics that the group level elements are overrides (e.g. scoring may be specified at the root for all groups, optionally overridden by scoring at each group)</li>
-  <li><b>Option 2:</b>Keep the current structure, and clarify that the calculation of a score must be specified at the root, or on each group (e.g. scoring can be specified at the root, or on all groups, but not both)</li>
-  <li><b>Option 3:</b>Remove the calculation elements from the root, requiring that they be specified on each group. The elements are all marked as "deprecated" in this ballot, the question is whether they should just be removed.</li>
-</ul>
-</blockquote>
 
 <div>
 <a name="bnc"></a>
@@ -39,6 +26,8 @@
 
 <p>A Measure is also similar to a clinical document, however a FHIR <a href="documents.html">Document</a> is specific to a particular subject, whereas the Measure resource is definitional.</p>
 </div>
+
+<p>Mappings from the V3 to the FHIR terminologies can be found in the <a href="https://hl7.org/fhir/uv/cqm/artifacts.html#terminology-concept-maps">Quality Measure IG</a>.</p>
 
 <!-- (optional):
 <div>

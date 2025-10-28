@@ -106,9 +106,19 @@
     <definition value="Group contains Medication resources."/>
   </concept>
   <concept>
+    <code value="medicinalproductdefinition"/>
+    <display value="MedicinalProductDefinition"/>
+    <definition value="Group contains MedicinalProductDefinition resources."/>
+  </concept>
+  <concept>
     <code value="substance"/>
     <display value="Substance"/>
     <definition value="Group contains Substance resources."/>
+  </concept>
+  <concept>
+    <code value="substancedefinition"/>
+    <display value="SubstanceDefinition"/>
+    <definition value="Group contains SubstanceDefinition resources."/>
   </concept>
   <concept>
     <code value="biologicallyDerivedProduct"/>
