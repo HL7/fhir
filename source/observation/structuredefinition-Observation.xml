@@ -834,6 +834,30 @@
         <map value="363713009 |Has interpretation|"/>
       </mapping>
     </element>
+    <element id="Observation.interpretationContext">
+      <path value="Observation.interpretationContext"/>
+      <short value="Context for understanding the observation"/>
+      <definition value="Other preceding or concurrent information that is critical to understand the context and significance of the observation."/>
+      <comment value="This element provides essential contextual information that affects how the observation should be interpreted. For example, knowing that a patient is diabetic, fasting, or paraplegic may be critical to properly understanding lab results or other observations."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationInterpretationContext"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying contextual factors that affect interpretation of observations."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation-context"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=PERT].target"/>
+      </mapping>
+    </element>
     <element id="Observation.note">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="GF#17576."/>
