@@ -44,9 +44,6 @@
     <resource>
       <SearchParameter>
         <id value="ServiceRequest-body-site"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="deprecated"/>
-        </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ServiceRequest.bodySite"/>
         </extension>
