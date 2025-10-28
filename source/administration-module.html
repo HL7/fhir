@@ -172,6 +172,9 @@ in order to support consistent definitions for schema and UML derived code.
                 Resources shown with a dotted box are described in other sections of the specification:
                 <code>Coverage</code> and <code>Claim</code> are from the <a href="financial-module.html">section on Finance</a>.
 [%end-note%]
+[%impl-note%]
+                This diagram shows the relationships between resource types.  Relationships between instances of resources may include references to multiple instances of the same type. For example, an Encounter and an Account for the same human being may reference separate Patient resource instances, as noted in <code>Account.subject</code>.  Those Patient resources should be linked using <code>Patient.link</code> with a type of <code>seealso</code>.
+[%end-note%]
 
         <a name="dir-reg"></a>
         <h4>Service Provider Directory Resources</h4>

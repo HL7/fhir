@@ -101,13 +101,6 @@
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
       <constraint>
-        <key value="bdystr-1"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if bodySite is not present"/>
-        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-      </constraint>
-      <constraint>
         <key value="asn-1"/>
         <severity value="error"/>
         <human value="asNeededFor SHALL only be present if asNeeded is empty or true"/>
@@ -602,6 +595,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -1193,13 +1187,16 @@
       </mapping>
     </element>
     <element id="ServiceRequest.bodySite">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#12505], [#12517][#11119]#13196]."/>
       </extension>
       <path value="ServiceRequest.bodySite"/>
-      <short value="Coded location on Body"/>
-      <definition value="Anatomic location where the procedure should be performed. This is the target site."/>
-      <comment value="ServiceRequest.bodyStructure is the preferred way to codify the target site of the requested service. Instead of using .bodySite.code, use .bodyStructure.includedStructure.structure.  Note that laterality in bodyStructure would use .bodyStructure.includedStructure.laterality, and the BodyStructure.includedStructure.structure code should not precoordinate the laterality."/>
+      <short value="DEPRECATED: Coded location on Body"/>
+      <definition value="DEPRECATED: Use bodyStructure instead. Anatomic location where the procedure should be performed. This is the target site."/>
+      <comment value="DEPRECATED: Use bodyStructure instead. ServiceRequest.bodyStructure is the preferred way to codify the target site of the requested service."/>
       <requirements value="Knowing where the procedure is performed is important for tracking if multiple sites are possible."/>
       <alias value="location"/>
       <min value="0"/>
@@ -1207,7 +1204,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="bdystr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1242,10 +1238,20 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <condition value="bdystr-1"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructure"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Codes describing anatomical body structures. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body Structures"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>

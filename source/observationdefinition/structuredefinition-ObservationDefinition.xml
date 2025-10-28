@@ -652,22 +652,26 @@
 				<valueBoolean value="true"/>
 			</example>
 		</element>
-		<element id="ObservationDefinition.bodySite">
-			<path value="ObservationDefinition.bodySite"/>
-			<short value="Body part to be observed"/>
-			<definition value="The site on the subject's body where the  observation is to be made."/>
-			<comment value="Only used if the defined observation is to be made directly on a body part and if this body part is not implied by code found in ObservationDefinition.code. Not used for in vitro diagnostic observations. &#xA;Example: 14975008 |Forearm structure|."/>
+		<element id="ObservationDefinition.bodyStructure">
+			<path value="ObservationDefinition.bodyStructure"/>
+			<short value="Body structure to be observed"/>
+			<definition value="The body structure on the subject's body where the observation is to be made."/>
+			<comment value="Only used if the defined observation is to be made directly on a body structure and if this body structure is not implied by code found in ObservationDefinition.code. Not used for in vitro diagnostic observations. &#xA;Example: 14975008 |Forearm structure|."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="CodeableConcept"/>
+				<code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ObservationBodySite"/>
+					<valueString value="BodyStructure"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+					<valueString value="Codes describing anatomical body structures. May include laterality."/>
 				</extension>
 				<strength value="example"/>
-				<description value="SNOMED CT body structures."/>
+				<description value="SNOMED CT Body Structures"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
 			</binding>
 			<mapping>

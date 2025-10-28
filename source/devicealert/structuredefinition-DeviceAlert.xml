@@ -59,9 +59,9 @@
         <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
     </mapping>
     <mapping>
-        <identity value="IEEESDC" />
-        <uri value="urn:iso:std:iso:11073:20701" />
-        <name value="ISO/IEEE 11073-10201 Service-Oriented Device Connectivity (SDC)" />
+        <identity value="BICEPS" />
+        <uri value="urn:iso:std:iso:11073:10207" />
+        <name value="ISO/IEEE 11073-10207: Domain Information and Service Model for Service-Oriented Point-of-Care Medical Device Communication" />
     </mapping>
     <kind value="resource" />
     <abstract value="false" />
@@ -90,7 +90,7 @@
                 <map value="AlertCondition, AlertState" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertConditionDescriptor, AlertSignalState, AlertConditionState" />
             </mapping>
         </element>
@@ -119,7 +119,7 @@
                 <map value="AlertCondition/alert-info-id" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertOccurrenceIdentifier" />
             </mapping>
         </element>
@@ -212,7 +212,7 @@
                 <map value="AlertCondition/alert-type" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertConditionDescriptor/Kind" />
             </mapping>
             <type>
@@ -242,7 +242,7 @@
                 <map value="AlertCondition/alert-type" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="If present, AlertConditionState/ActualPriority; otherwise AlertConditionDescriptor/Priority" />
             </mapping>
             <type>
@@ -274,7 +274,7 @@
                 <map value="AlertCondition/alert-code" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertConditionDescriptor/Type" />
             </mapping>
             <type>
@@ -343,7 +343,7 @@
             <max value="1" />
             <isSummary value="true" />
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertConditionState/Presence" />
             </mapping>
             <type>
@@ -371,7 +371,7 @@
                 <map value="Event.occurrence[x]" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertConditionState/DeterminationTime" />
             </mapping>
             <type>
@@ -411,7 +411,7 @@
                 <map value="AlertCondition/alert-source" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertConditionDescriptor/Source" />
             </mapping>
             <type>
@@ -542,7 +542,7 @@
                 <map value="Limit-Specification" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="LimitAlertConditionState/Limits" />
             </mapping>
             <type>
@@ -576,7 +576,7 @@
                 <map value="AlertCondition/Label-String" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertConditionDescriptor/TypeConceptDescription" />
             </mapping>
             <type>
@@ -595,7 +595,7 @@
                 <map value="AlertCondition/AlertFlags; AlertCondition/AlertControls" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertSignalState" />
             </mapping>
             <type>
@@ -615,7 +615,7 @@
                 <map value="AlertCondition/AlertState" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertSignalState/ActivationState" />
             </mapping>
             <type>
@@ -636,7 +636,7 @@
             <max value="1" />
             <isSummary value="false" />
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertSignalState/Presence" />
             </mapping>
             <type>
@@ -660,7 +660,7 @@
                 <map value="AlertCondition/AlertFlags" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertSignalDescriptor/Manifestation" />
             </mapping>
             <type>
@@ -685,7 +685,7 @@
                 <map value="AlertCondition/AlertFlags" />
             </mapping>
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertSignalState/Location" />
             </mapping>
             <type>
@@ -705,7 +705,7 @@
             <max value="*" />
             <isSummary value="false" />
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="AlertSystemDescriptor/AlertSignal/Type" />
             </mapping>
             <type>
@@ -726,7 +726,7 @@
             <max value="1" />
             <isSummary value="false" />
             <mapping>
-                <identity value="IEEESDC" />
+                <identity value="BICEPS" />
                 <map value="Start: AlertConditionState/DeterminationTime + AlertConditionState/ActualConditionGenerationDelay + AlertSignalState/ActualSignalGenerationDelay&#xA;End: Change of AlertConditionState/DeterminationTime" />
             </mapping>
             <type>

@@ -296,6 +296,7 @@
       <path value="BiologicallyDerivedProduct.collection.sourcePatient"/>
       <short value="The patient who underwent the medical procedure to collect the product"/>
       <definition value="The patient providing the product."/>
+      <comment value="The collection.source may reference an identifiable patient. Implementers shall ensure the appropriate data access controls are established."/>
       <min value="0"/>
       <max value="1"/>
       <type>
