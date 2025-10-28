@@ -429,7 +429,7 @@
     </element>
     <element id="Device.status">
       <path value="Device.status"/>
-      <short value="active | inactive | entered-in-error"/>
+      <short value="active | inactive | entered-in-error | unknown"/>
       <definition value="The Device record status. This is not the status of the device like availability."/>
       <min value="0"/>
       <max value="1"/>
