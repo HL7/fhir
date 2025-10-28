@@ -60,4 +60,9 @@
     <display value="Entered in Error"/>
     <definition value="The device record is not current and is not appropriate for reference in new instances."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The status of the device has not been determined."/>
+  </concept>
 </CodeSystem>
