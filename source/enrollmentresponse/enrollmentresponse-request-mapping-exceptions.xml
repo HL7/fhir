@@ -1,9 +1,24 @@
-<mappingExceptions pattern="Request" resource="Transport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+<mappingExceptions pattern="Request" resource="EnrollmentResponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.subject" resourcePath="EnrollmentResponse.candidate">
+        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual the service is ordered/prohibited for"/>
+            <resource value="The subject(s)to be enrolled"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
+            <resource value="The subject or group of subjects to be enrolled."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the request to the Patient context."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
     <unmappedElement patternPath="Request.intent" reason="Unknown"/>
     <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
     <unmappedElement patternPath="Request.priority" reason="Unknown"/>
-    <unmappedElement patternPath="Request.subject" reason="Unknown"/>
     <unmappedElement patternPath="Request.occurrence" reason="Unknown"/>
     <unmappedElement patternPath="Request.status" reason="Unknown"/>
     <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
