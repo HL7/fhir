@@ -290,14 +290,13 @@ href="fhir.shex">fhir.shex</a>
 
             If the Structure tab in a resource's
             HTML page shows "[x]" next to a property, such as
-            <span class="spec">value[x]</span> or
-            <a href="observation.html#resource">instantiates[x]</a>,
+            <span class="spec">value[x]</span>,
             then that property is polymorphic in FHIR RDF.
             (Alternatively, if the <code class="rdf">type</code>
             property in the resource's structure definition shows
             a list of two or more types for a given property's value,
             then the property is polymorphic in FHIR RDF.  For example, see the
-            <code class="json">instantiates</code> property in
+            <code class="json">value</code> property in
             <a href="observation.profile.json.html">
             Observation's JSON structure definition</a>.)
             In other formats (XML, JSON), a FHIR property with a choice
@@ -324,33 +323,6 @@ href="fhir.shex">fhir.shex</a>
      fhir:code [ fhir:v "[lb_av]" ]
   ] ;
 </pre>
-
-          <p> The <a href="observation.html#tabs-ttl">Observation.instantiates[x]</a> property -- <code class="rdf">fhir:instantiates</code> in Turtle -- is unusual in that its value may either
-            be the complex type <code class="rdf">fhir:Reference</code>
-            (<a href="references.html#Reference">Reference</a>)
-            or the primitve type <code class="rdf">fhir:Canonical</code>
-            (<a href="datatypes.html#canonical">canonical</a>).
-            But in either case, the type is specified, such as:
-          </p>
-          <pre class="rdf">
-  &lt;Observation/123&gt;
-    fhir:instantiates [
-       a fhir:Reference ;
-       fhir:l &lt;http://example.org/fhir/PlanDefinition/KDN5&gt; ;
-       fhir:reference [
-         fhir:v "http://example.org/fhir/PlanDefinition/KDN5"
-      ]
-    ] ;
-          </pre>
-          <p>or:</p>
-          <pre class="rdf">
-  &lt;Observation/123&gt;
-    fhir:instantiates [
-       a fhir:Canonical ;
-       fhir:l &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
-       fhir:v "http://example.org/fhir/PlanDefinition/KDN5|v123"^^xsd:anyURI ;
-    ] ;
-          </pre>
 
         <a name="caseSensitivity"></a>
           <h4>Case Sensitivity</h4>
@@ -539,10 +511,10 @@ href="fhir.shex">fhir.shex</a>
             a "?version=" query string, like this:</p>
 
           <pre class="rdf">
-&lt;Observation/123&gt; fhir:instantiates [
+&lt;http://example.org/fhir/MeasureReport/measurereport-cms146-cat3-example&gt; fhir:measure [
       a fhir:Canonical ;
-       fhir:l &lt;http://example.org/fhir/PlanDefinition/KDN5?version=v123&gt; ;
-       fhir:v "http://example.org/fhir/PlanDefinition/KDN5|v123"^^xsd:anyURI ;
+       fhir:l &lt;http://example.org/fhir/Measure/CMS146?version=v123&gt; ;
+       fhir:v "http://example.org/fhir/Measure/CMS146|v123"^^xsd:anyURI ;
     ] ;
           </pre>
 
