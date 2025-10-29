@@ -273,7 +273,7 @@
       <path value="DeviceAssociation.focus"/>
       <short value="The target of the association"/>
       <definition value="The entity for which the device is being used, benefitting from the device, or which the device is being operated upon, which is usually distinct from the association subject, such as an operator or similar."/>
-      <comment value=" Consider the situation of a procedure, during which an anesthesiologist uses a ventilator on a patient. Two associations would be recorded: one of the ventilator associated to a subject patient with a treatment relationship; in the other, the ventilator associated to the subject anesthesiologist with an operator relationship. In the latter relationship, the patient would be recorded as the `focus` to indicate that the anesthesiologist was using the device for that patient."/>
+      <comment value="Consider the situation of a procedure, during which an anesthesiologist uses a ventilator on a patient. Two associations would be recorded: one of the ventilator associated to a subject patient with a treatment relationship; in the other, the ventilator associated to the subject anesthesiologist with an operator relationship. In the latter relationship, the patient would be recorded as the `focus` to indicate that the anesthesiologist was using the device for that patient."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -283,7 +283,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Mediation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>

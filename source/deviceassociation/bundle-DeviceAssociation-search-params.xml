@@ -65,7 +65,7 @@
       <SearchParameter>
         <id value="DeviceAssociation-focus"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAssociation.focus"/>
@@ -74,6 +74,7 @@
         <description value="The focus of an association."/>
         <code value="focus"/>
         <type value="reference"/>
+        <status value="active" />  
         <expression value="DeviceAssociation.focus"/>
         <processingMode value="normal"/>
       </SearchParameter>
