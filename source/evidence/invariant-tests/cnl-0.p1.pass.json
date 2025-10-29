@@ -1,0 +1,20 @@
+{
+  "resourceType": "Evidence",
+  "id": "346428",
+  "name": "Example_Evidence",
+  "status": "active",
+  "variableDefinition": [
+    {
+      "description": "Adults with hypertension",
+      "variableRole": "population"
+    },
+    {
+      "description": "Reversitol vs. Placebo",
+      "variableRole": "exposure"
+    },
+    {
+      "description": "Change in systolic blood pressure from baseline to 3 months",
+      "variableRole": "outcome"
+    }
+  ]
+}

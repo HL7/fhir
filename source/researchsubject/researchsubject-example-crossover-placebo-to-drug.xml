@@ -20,15 +20,15 @@
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/research-subject-state-type"/>
 				<code value="Enrollment"/>
+				<display value="Enrollment status"/>
 			</coding>
-			<text value="Enrollment status"/>
 		</type>
 		<subjectState>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/research-subject-state"/>
 				<code value="on-study"/>
+				<display value="On-study"/>
 			</coding>
-			<text value="On-study"/>
 		</subjectState>
 		<reason>
 			<coding>
@@ -47,6 +47,18 @@
 	<subject>
 		<reference value="cfsb1676546565857"/>
 	</subject>
-	<assignedComparisonGroup value="placebo"/>
-	<actualComparisonGroup value="ap303"/>
+	<comparisonGroup>
+		<concept>
+			<coding>
+				<system value="http://hl7.org/fhir/example-comparison-group"/>
+				<code value="placebo"/>
+				<display value="Placebo"/>
+			</coding>
+		</concept>
+	</comparisonGroup>
+	<comparisonGroup>
+		<concept>
+			<text value="ap303"/>
+		</concept>
+	</comparisonGroup>
 </ResearchSubject>

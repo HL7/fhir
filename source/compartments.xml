@@ -352,9 +352,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceAlert</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">subject | acknowledged-by</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">subject | device | annunciator-device</Data></Cell>
+    <Cell><Data ss:Type="String">acknowledged-by</Data></Cell>
+    <Cell><Data ss:Type="String">acknowledged-by</Data></Cell>
+    <Cell><Data ss:Type="String">subject | device | annunciator-device | acknowledged-by</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceAssociation</Data></Cell>
@@ -881,11 +884,10 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <LeftColumnVisible>2</LeftColumnVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>32</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

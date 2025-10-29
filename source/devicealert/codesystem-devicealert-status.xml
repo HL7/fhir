@@ -52,4 +52,9 @@
     <display value="Entered in Error" />
     <definition value="This alert record was created in error and is not valid." />
   </concept>
+  <concept>
+    <code value="unknown" />
+    <display value="Unknown" />
+    <definition value="The status of the alert is not known." />
+  </concept>
 </CodeSystem>
