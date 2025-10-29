@@ -1,0 +1,9 @@
+{
+  "resourceType": "EvidenceVariable",
+  "id": "297490",
+  "name": "Example-EvidenceVariable",
+  "title": "Example",
+  "status": "active",
+  "handling": "dichotomous",
+}
+
