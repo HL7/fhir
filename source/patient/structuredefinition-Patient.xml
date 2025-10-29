@@ -563,9 +563,6 @@
       </mapping>
     </element>
     <element id="Patient.contact.role">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
       <path value="Patient.contact.role"/>
       <short value="The kind of functional role"/>
       <definition value="The nature of the functional role between the patient and the contact person."/>
@@ -622,9 +619,6 @@
       </mapping>
     </element>
     <element id="Patient.contact.additionalName">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
       <path value="Patient.contact.additionalName"/>
       <short value="Additional names for the contact person"/>
       <definition value="Additional names for the contact person."/>
@@ -697,9 +691,6 @@
       </mapping>
     </element>
     <element id="Patient.contact.additionalAddress">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
       <path value="Patient.contact.additionalAddress"/>
       <short value="Additional addresses for the contact person"/>
       <definition value="Additional addresses for the contact person."/>
