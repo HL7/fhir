@@ -89,7 +89,7 @@
       <max value="*"/>
       <constraint>
         <key value="cmp-3"/>
-        <severity value="error"/>
+        <severity value="warning"/>
         <human value="If attester exists then the Composition either needs a text or a section"/>
         <expression value="attester.empty() or text.exists() or section.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
