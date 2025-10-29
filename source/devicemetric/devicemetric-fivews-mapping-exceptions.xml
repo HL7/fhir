@@ -1,21 +1,18 @@
 <mappingExceptions pattern="FiveWs" resource="DeviceMetric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
-    <unmappedElement patternPath="FiveWs.what" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.author" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.actor" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.where" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.context" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.init" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.why" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.source" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.who" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.grade" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.status" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.planned" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.done" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.subject" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.recorded" reason="Not identified as needed in core use cases."/>
+    <unmappedElement patternPath="FiveWs.author" reason="Not identified as needed in core use cases."/>
+    <unmappedElement patternPath="FiveWs.actor" reason="Resource does not reflect an activity performed by an actor."/>
+    <unmappedElement patternPath="FiveWs.cause" reason="Resource does not reflect a prompted activity."/>
+    <unmappedElement patternPath="FiveWs.version" reason="Not identified as needed in core use cases."/>
+    <unmappedElement patternPath="FiveWs.witness" reason="Third-party attestation of the resource is not expected."/>
+    <unmappedElement patternPath="FiveWs.where" reason="To the degree that this resource is associated with any location, it is recorded in the device's location."/>
+    <unmappedElement patternPath="FiveWs.context" reason="Resource is independent of any specific context."/>
+    <unmappedElement patternPath="FiveWs.init" reason="Resource does not reflect an activity that occurs."/>
+    <unmappedElement patternPath="FiveWs.why" reason="Resource does not reflect an activity that occurs."/>
+    <unmappedElement patternPath="FiveWs.source" reason="Resource does not cover second-hand information."/>
+    <unmappedElement patternPath="FiveWs.who" reason="Resource does not reflect an activity performed by an actor."/>
+    <unmappedElement patternPath="FiveWs.grade" reason="Resource does not reflect an activity with a priority/severity."/>
+    <unmappedElement patternPath="FiveWs.planned" reason="Resource does not reflect a planned activity."/>
+    <unmappedElement patternPath="FiveWs.done" reason="Resource does not reflect an activity done at a particular time."/>
 </mappingExceptions>
