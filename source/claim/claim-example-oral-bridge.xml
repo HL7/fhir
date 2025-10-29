@@ -116,7 +116,7 @@
 				<display value="Maryland Bridge"/>
 			</coding>
 		</code>
-		<timingDate value="2001-04-07"/> <!-- original placement -->
+		<timingDateTime value="2001-04-07"/> <!-- original placement -->
 	</supportingInfo>
 
 	<procedure>

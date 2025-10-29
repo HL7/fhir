@@ -572,7 +572,7 @@
           <valueString value="InformationCode"/>
         </extension>
         <strength value="example"/>
-        <description value="The valuset used for additional information codes."/>
+        <description value="The valuset used for additional information codes."/> 
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-exception"/>
       </binding>
     </element>
@@ -583,10 +583,13 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="dateTime"/>
       </type>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
       </type>
     </element>
     <element id="ClaimResponse.supportingInfo.value[x]">
@@ -1052,16 +1055,17 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="ClaimResponse.addItem.patient">
-      <path value="ClaimResponse.addItem.patient"/>
+    <element id="ClaimResponse.addItem.subject">
+      <path value="ClaimResponse.addItem.subject"/>
       <short value="The recipient of the products and services"/>
       <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
-      <comment value="Profilers should consider making this element required when the backbone .patient is a group."/>
+      <comment value="Profilers should consider making this element required when the backbone .subject is a group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="ClaimResponse.addItem.informationSequence">
