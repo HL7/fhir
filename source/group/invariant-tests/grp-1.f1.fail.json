@@ -1,7 +1,7 @@
 {
-    "resourceType": "Group",
-    "id": "grp-1.f1.fail.json",
-    "identifier" : [{
+  "resourceType": "Group",
+  "id": "grp-1.f1.fail.json",
+  "identifier" : [{
     "system" : "http://someveterinarianclinic.org/fhir/NamingSystem/herds",
     "value" : "12345"
   }],

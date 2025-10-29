@@ -472,9 +472,6 @@
       </type>
     </element>
     <element id="Account.diagnosis">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Account.diagnosis"/>
       <short value="The list of diagnoses relevant to this account"/>
       <definition value="When using an account for billing a specific Encounter the set of diagnoses that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s)."/>
@@ -582,9 +579,6 @@
     </element>
 
     <element id="Account.procedure">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Account.procedure"/>
       <short value="The list of procedures relevant to this account"/>
       <definition value="When using an account for billing a specific Encounter the set of procedures that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s)."/>
