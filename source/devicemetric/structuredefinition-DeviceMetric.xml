@@ -114,9 +114,34 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
+    <element id="DeviceMetric.status">
+      <path value="DeviceMetric.status"/>
+      <short value="on | off | entered-in-error | unknown"/>
+      <definition value="Indicates current state of the record."/>
+      <comment value="Unknown does not represent "other" - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is.">
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <isModifier value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceMetricStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the status of the DeviceMetric."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/metric-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
     <element id="DeviceMetric.operationalStatus">
       <path value="DeviceMetric.operationalStatus"/>
-      <short value="on | off | standby | entered-in-error"/>
+      <short value="on | off | standby | unknown"/>
       <definition value="Indicates current operational state of the device. For example: On, Off, Standby, etc."/>
       <min value="0"/>
       <max value="1"/>
@@ -133,10 +158,6 @@
         <description value="Describes the operational status of the DeviceMetric."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-operational-status"/>
       </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
       <mapping>
         <identity value="DIM"/>
         <map value="Metric::Metric-Status"/>

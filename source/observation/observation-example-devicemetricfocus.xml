@@ -66,6 +66,8 @@
 		<resource>
 			<DeviceMetric xmlns="http://hl7.org/fhir">
 				<id value="example-iv-pump-flowratemetric"/>
+				<status value="active"/>
+				<operationalStatus value="on"/>
 				<type>
 					<coding>
 						<system value="urn:iso:std:iso:11073:10101"/>
