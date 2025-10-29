@@ -572,7 +572,7 @@
           <valueString value="InformationCode"/>
         </extension>
         <strength value="example"/>
-        <description value="The valuset used for additional information codes."/>
+        <description value="The valuset used for additional information codes."/> 
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-exception"/>
       </binding>
     </element>
@@ -582,9 +582,6 @@
       <definition value="The date when or period to which this information refers."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="date"/>
-      </type>
       <type>
         <code value="dateTime"/>
       </type>
