@@ -853,10 +853,13 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="dateTime"/>
       </type>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
       </type>
     </element>
     <element id="Claim.supportingInfo.value[x]">
