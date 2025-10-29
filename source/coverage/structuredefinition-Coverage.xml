@@ -95,18 +95,6 @@
       <comment value="The Coverage resource contains the insurance card level information, which is customary to provide on claims and other communications between providers and insurers."/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="cov-self-pay-1"/>
-        <severity value="error"/>
-        <human value="When patient is self-pay, paymentBy must exist."/>
-        <expression value="kind = 'self-pay' implies (insurer.empty() and paymentBy.exists())"/>
-      </constraint>
-      <constraint>
-        <key value="cov-insured-1"/>
-        <severity value="error"/>
-        <human value="When patient is insured, insurer must exist."/>
-        <expression value="kind = 'insurance' implies (insurer.exists() and paymentBy.empty())"/>
-      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -208,6 +196,18 @@
       <requirements value="This is used to implement conformance on other elements."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="cov-self-pay-1"/>
+        <severity value="error"/>
+        <human value="When patient is self-pay, paymentBy must exist."/>
+        <expression value="%resource.kind = 'self-pay' implies (%resource.insurer.empty() and %resource.paymentBy.exists())"/>
+      </constraint>
+      <constraint>
+        <key value="cov-insured-1"/>
+        <severity value="error"/>
+        <human value="When patient is insured, insurer must exist."/>
+        <expression value="%resource.kind = 'insurance' implies (%resource.insurer.exists() and %resource.paymentBy.empty())"/>
+      </constraint>
       <type>
         <code value="code"/>
       </type>
