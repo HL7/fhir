@@ -1287,7 +1287,7 @@
 			</extension>
 			<path value="PlanDefinition.action"/>
 			<short value="Action defined by the plan"/>
-			<definition value="An action or group of actions to be taken as part of the plan. For example, in clinical care, an action would be to prescribe a particular indicated medication, or perform a particular test as appropriate. In pharmaceutical quality, an action would be the test that needs to be performed on a drug product as defined in the quality specification."/>
+			<definition value="An action or group of actions to be taken as part of the plan. For example, in clinical care, an action would be to prescribe a particular indicated medication, or perform a particular test as appropriate. In pharmaceutical quality, an action would be the test that needs to be performed on a drug product as defined in the quality specification or the steps that are planned in a manufacturing process of a drug product or a drug substance."/>
 			<comment value="Note that there is overlap between many of the elements defined here and the ActivityDefinition resource. When an ActivityDefinition is referenced (using the definition element), the overlapping elements in the plan override the content of the referenced ActivityDefinition unless otherwise documented in the specific elements. See the PlanDefinition resource for more detailed information."/>
 			<min value="0"/>
 			<max value="*"/>
