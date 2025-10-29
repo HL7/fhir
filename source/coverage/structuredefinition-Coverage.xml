@@ -226,6 +226,8 @@
       <definition value="Link to the paying party and optionally what specifically they will be responsible to pay."/>
       <min value="0"/>
       <max value="*"/>
+      <condition value="cov-insured-1"/>
+      <condition value="cov-self-pay-1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -504,6 +506,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
+      <condition value="cov-insured-1"/>
+      <condition value="cov-self-pay-1"/>
       <isSummary value="true"/>
     </element>
     <element id="Coverage.class">
