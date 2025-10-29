@@ -140,18 +140,6 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.code"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.source"/>
-      </mapping>
     </element>
     <element id="GuidanceResponse.status">
       <path value="GuidanceResponse.status"/>
@@ -203,10 +191,6 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.subject[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.who"/>
       </mapping>
     </element>
     <element id="GuidanceResponse.encounter">
@@ -268,16 +252,12 @@
         <identity value="w5"/>
         <map value="FiveWs.actor"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.author"/>
-      </mapping>
     </element>
     <element id="GuidanceResponse.location">
       <path value="GuidanceResponse.location"/>
-      <short value="Where the guidance response occurred"/>
-      <definition value="The principal pysical location where the guidance response was performed."/>
-      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)"/>
+      <short value="Where guidance response occurred"/>
+      <definition value="The principal physical location where the guidance response was performed."/>
+      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -288,10 +268,6 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Event.location"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.where"/>
       </mapping>
     </element>
     <element id="GuidanceResponse.reason">
@@ -312,10 +288,6 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.cause"/>
       </mapping>
     </element>
     <element id="GuidanceResponse.note">

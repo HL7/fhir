@@ -1,40 +1,5 @@
 <mappingExceptions pattern="Event" resource="GuidanceResponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
-    <divergentElement patternPath="Event.identifier" resourcePath="GuidanceResponse.identifier">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Business identifier for guidance response"/>
-            <resource value="Business identifier"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Business identifiers assigned to this guidance response by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
-            <resource value="Allows a service to provide  unique, business identifiers for the response."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-            <resource value=""/>
-        </commentsUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows identification of the guidance response as it is known by various participating systems and in a way that remains consistent across servers."/>
-            <resource value=""/>
-        </requirementsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Event.basedOn" resourcePath="GuidanceResponse.requestIdentifier">
-        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Identifier" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Fulfills plan, proposal or order"/>
-            <resource value="The identifier of the request associated with this response, if any"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this guidance response."/>
-            <resource value="The identifier of the request associated with this response. If an identifier was given as part of the request, it will be reproduced here to enable the requester to more easily identify the response in a multi-request scenario."/>
-        </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows tracing of authorization for the guidance response and tracking whether proposals/recommendations were acted upon."/>
-            <resource value=""/>
-        </requirementsUnmatched>
-    </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="GuidanceResponse.status">
         <shortUnmatched reason="Guidance response statuses are specific to the response to the request for guidance from a service.">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
@@ -50,43 +15,10 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="GuidanceResponse.subject">
-        <lowerCardinality _pattern="1" _resource="0" reason="Guidance response may not be limited to a particular subject"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Individual service was done for/to"/>
-            <resource value="Patient the request was performed for"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The patient for which the request was processed."/>
-        </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the guidance response to the Patient context.  May also affect access control."/>
-            <resource value=""/>
-        </requirementsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Event.encounter" resourcePath="GuidanceResponse.encounter">
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Encounter the guidance response is part of"/>
-            <resource value="Encounter during which the response was returned"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="The Encounter during which this guidance response was created or to which the creation of this record is tightly associated."/>
-            <resource value="The encounter during which this response was created or to which the creation of this record is tightly associated."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="This will typically be the encounter the guidance response was created during, but some guidance responses may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
-            <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official copmletion of an encounter but still be tied to the context of the encounter."/>
-        </commentsUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Links the guidance response to the Encounter context.  May also affect access control."/>
-            <resource value=""/>
-        </requirementsUnmatched>
+        <lowerCardinality _pattern="1" _resource="0" reason="Guidance response might not be limited to a particular subject"/>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="GuidanceResponse.occurrenceDateTime">
         <missingTypes _pattern="Period, Timing" reason="Guidance response is returned at a specific point in time"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="More specific text">
             <_pattern value="When guidance response occurred/is occurring"/>
             <resource value="When the guidance response was processed"/>
@@ -103,7 +35,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="GuidanceResponse.performer">
         <lowerCardinality _pattern="1" _resource="0" reason="Not necessarily represented"/>
         <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,Patient,RelatedPerson)" reason="Specifically modeling service response"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Not part of summary"/>
         <shortUnmatched reason="Specific text">
             <_pattern value="Who performed guidance response"/>
             <resource value="Device returning the guidance"/>
@@ -113,8 +45,21 @@
             <resource value="Provides a reference to the device that performed the guidance."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.location" resourcePath="GuidanceResponse.location">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Where guidance response occurred"/>
+            <resource value="Where the guidance response occurred"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The principal physical location where the guidance response was performed."/>
+            <resource value="The principal pysical location where the guidance response was performed."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <resource value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)"/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="GuidanceResponse.reason">
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="More specific text">
             <_pattern value="Why was guidance response performed?"/>
@@ -142,12 +87,13 @@
     <unmappedElement patternPath="Event.partOf" reason="GuidanceResponses are individual"/>
     <unmappedElement patternPath="Event.reported" reason="Reported is not different than occurrence"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="GuidanceResponses are typically logged and not changed"/>
-    <unmappedElement patternPath="Event.location" reason="Unknown"/>
+    <unmappedElement patternPath="Event.code" reason="Mapping resulted in ordering changes"/>
     <unmappedElement patternPath="Event.statusReason" reason="Not required"/>
     <unmappedElement patternPath="Event.performer.function" reason="Not required, performer is always a device"/>
     <unmappedElement patternPath="Event.category" reason="Not required"/>
     <unmappedElement patternPath="Event.recorded" reason="Recorded is not different than occurrence"/>
     <unmappedElement patternPath="Event.product" reason="Too specific for guidance response"/>
     <unmappedElement patternPath="Event.performer" reason="This is mapped, just isn't a backbone in this resource"/>
+    <unmappedElement patternPath="Event.basedOn" reason="Guidance response is not basedOn other request resources"/>
     <unmappedElement patternPath="Event.researchStudy" reason="Too specific for guidance response"/>
 </mappingExceptions>
