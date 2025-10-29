@@ -11,9 +11,29 @@
 		</a>
 	  <h3>Subject of an Observation</h3>
 		<p>
-		Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately.  However,  three attributes may be used for representing the focus of the observation if it is not the subject itself.  The <code>specimen</code> and <code>bodySite</code>  elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and  <code>focus</code> represents specific aspect of the subject that are the point of attention such as another observation or a device implanted in a patient.
-		 </p>
-				<a name="obsgrouping">
+		Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately.  However,  three attributes may be used for representing the focus of the observation if it is not the subject itself.  The <code>specimen</code>, <code>bodySite</code>, and <code>bodyStructure</code> elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and  <code>focus</code> represents specific aspect of the subject that are the point of attention such as another observation or a device implanted in a patient.
+		</p>
+		<p>
+		There may be some confusion about what to record in the subject, focus, and device elements, and the observation-recording extension, particularly involving Devices.
+		</p>
+		<ul>
+			<li>
+			The subject is whose (or what entity’s) record the observation should appear in. If the Observation is about another person, device, or location, but collected in the context of a particular patient, then the subject is that patient. Devices may be the subject of an observation when the record is about the device itself absent a patient (or other) context, such as a calibration record. A subject is expected except when the resource is not finalized, has been anonymized, or similar.
+			</li>
+			<li>
+			When the Observation is about someone or something other than subject, that person or entity is recorded in the focus element. An observation about a patient’s home would record the patient as the subject, and the home location as the focus. An implanted artificial hip device could be the focus of a wear measurement Observation with a patient subject.
+			</li>
+			<li>
+			The device element is used to record the Device (or within a device, the DeviceMetric) that provides the measurement, analysis, or setting configuration recorded in the Observation. For example, the radiology software generating the hip prosthetic wear measurement would be recorded in device. In the calibration record above, one would expect the device element to be populated with the calibration device providing the measurements about the subject device.
+			</li>
+			<li>
+			In some cases, the source of the observation is not the entity recording it. This may be, for example, a radiologist-dictated observation entered by a transcriptionist, or a reading off a thermometer entered into the chart by a nurse. If it is important to record that the person or device that made the observation is not the person or device that entered it into the record, then the observation-recording extension may be used.
+			</li>
+		</ul>
+		<p>
+		Note that a device could appear in any of these elements depending on the role it is playing in a particular Observation; there is no fixed element where a device would be recorded. Similarly, patients, related persons, practitioners and other entities may in may appear in various elements. As a result, finding all Observations involving a particular device, etc. may require multiple searches. 
+		</p>
+		<a name="obsgrouping">
 		</a>
 		<h3>Observation Grouping</h3>
 		<p>Many observations need to be grouped together in some fashion to document critical

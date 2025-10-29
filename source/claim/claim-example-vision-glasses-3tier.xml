@@ -38,9 +38,9 @@
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -60,7 +60,7 @@
 
 	<prescription>
 		<reference value="http://www.optdocs.com/prescription/12345"/>
-	</prescription>   
+	</prescription>
 
 	<payee>
 		<type>
@@ -141,16 +141,16 @@
 				<system value="http://terminology.hl7.org/CodeSystem/ex-programcode"/>
 				<code value="none"/>
 			</coding>
-		</programCode>	
+		</programCode>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="235.40"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="235.40"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 
 		<detail>
 			<sequence value="1"/>
@@ -182,13 +182,13 @@
 			</modifier>
 			<unitPrice>
 				<value value="100.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<factor value="1.1"/> <!-- 10% surcharge for out of hours work -->
 			<net>
 				<value value="110.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 			<udi>
 				<reference value="#device-frame"/>
 			</udi>
@@ -221,18 +221,18 @@
 					<system value="http://terminology.hl7.org/CodeSystem/ex-programcode"/>
 					<code value="none"/>
 				</coding>
-			</programCode>	
+			</programCode>
 			<quantity>
 				<value value="2"/>
 			</quantity>
 			<unitPrice>
 				<value value="55.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="110.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 
 			<subDetail>
 				<sequence value="1"/>
@@ -267,19 +267,19 @@
 						<system value="http://terminology.hl7.org/CodeSystem/ex-programcode"/>
 						<code value="none"/>
 					</coding>
-				</programCode>	
+				</programCode>
 				<quantity>
 					<value value="2"/>
 				</quantity>
 				<unitPrice>
 					<value value="30.00"/>
-					<currency value="USD"/> 
-				</unitPrice> 
+					<currency value="USD"/>
+				</unitPrice>
 				<factor value="1.1"/> <!-- 10% surchage for out of hours work -->
 				<net>
 					<value value="66.00"/>
-					<currency value="USD"/> 
-				</net> 
+					<currency value="USD"/>
+				</net>
 				<udi>
 					<reference value="#device-lens"/>
 				</udi>
@@ -318,13 +318,13 @@
 				</quantity>
 				<unitPrice>
 					<value value="15.00"/>
-					<currency value="USD"/> 
-				</unitPrice> 
+					<currency value="USD"/>
+				</unitPrice>
 				<factor value="1.1"/> <!-- 10% surchage for out of hours work -->
 				<net>
 					<value value="33.00"/>
-					<currency value="USD"/> 
-				</net> 
+					<currency value="USD"/>
+				</net>
 			</subDetail>
 
 			<subDetail>
@@ -360,13 +360,13 @@
 				</quantity>
 				<unitPrice>
 					<value value="5.00"/>
-					<currency value="USD"/> 
-				</unitPrice> 
+					<currency value="USD"/>
+				</unitPrice>
 				<factor value="1.1"/> <!-- 10% surchage for out of hours work -->
 				<net>
 					<value value="11.00"/>
-					<currency value="USD"/> 
-				</net> 
+					<currency value="USD"/>
+				</net>
 			</subDetail>
 		</detail>
 
@@ -394,13 +394,13 @@
 			</productOrService>
 			<unitPrice>
 				<value value="220.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<factor value="0.07"/>
 			<net>
 				<value value="15.40"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 	</item>
 

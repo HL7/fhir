@@ -395,7 +395,7 @@
 	</primaryPurposeType>
 	<phase>
 		<coding>
-			<system value="http://hl7.org/fhir/study-design"/>
+			<system value="https://fevir.net/sevco"/>
 			<code value="SEVCO:01030"/>
 			<display value="Phase 1 trial"/>
 		</coding>

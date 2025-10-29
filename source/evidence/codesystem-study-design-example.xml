@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="study-design"/>
+  <id value="study-design-example"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,14 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/study-design"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.2135"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/study-design-example"/>
   <version value="6.0.0"/>
-  <name value="StudyDesign"/>
-  <title value="Study Design"/>
+  <name value="StudyDesignExample"/>
+  <title value="Study Design Example"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -36,9 +32,9 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This is a set of terms for study design characteristics."/>
+  <description value="This a reproduction of the study design codes from SEVCO. The expectation is that https://fevir.net/sevco would be the future binding."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/study-design-example"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>

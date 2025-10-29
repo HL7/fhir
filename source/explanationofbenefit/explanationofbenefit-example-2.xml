@@ -29,9 +29,9 @@
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/pat1"/>
-	</patient>
+	</subject>
 
 	<billablePeriod>
 		<start value="2014-02-01"/>
@@ -77,7 +77,7 @@
 
 	<claimResponse>
 		<reference value="ClaimResponse/R3500"/>
-	</claimResponse> 
+	</claimResponse>
 
 	<outcome value="error" />
 
@@ -155,8 +155,8 @@
 		</category>
 		<amount>
 			<value value="2478.57"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
 
 	<total>
@@ -167,8 +167,8 @@
 		</category>
 		<amount>
 			<value value="0.00"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
 
 	<formCode>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="variable-handling"/>
+  <id value="detectedissue-example-medication-class"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -12,18 +12,14 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
+    <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/variable-handling"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3062"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/detectedissue-example-medication-class"/>
   <version value="6.0.0"/>
-  <name value="EvidenceVariableHandling"/>
-  <title value="Evidence Variable Handling"/>
+  <name value="DetectedIssueExampleMedicationClass"/>
+  <title value="Detected Issue Example Medication Class"/>
   <status value="draft"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -36,11 +32,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)."/>
+  <description value="Example value set illustrating medication classes."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/variable-handling"/>
+      <system value="http://hl7.org/fhir/detectedissue-example-medication-class"/>
     </include>
   </compose>
 </ValueSet>
