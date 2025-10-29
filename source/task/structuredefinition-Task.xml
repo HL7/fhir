@@ -91,7 +91,7 @@
         <key value="tsk-1"/>
         <severity value="error"/>
         <human value="Task.restriction is only allowed if the Task is seeking fulfillment and a focus is specified."/>
-        <expression value="restriction.exists() implies code.coding.where(code='fulfill' and system='http://hl7.org/fhir/CodeSystem/task-code').exists() and focus.exists()"/>
+        <expression value="restriction.exists() implies code.coding.where(code='fulfill' and system='http://hl7.org/fhir/CodeSystem/task-code').exists() and focus.exists() and focus.value.ofType('Reference')exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Task"/>
       </constraint>
       <mapping>
@@ -430,8 +430,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <code value="BackboneElement"/>
       </type>
       <condition value="tsk-1"/>
       <isSummary value="true"/>
@@ -447,6 +446,22 @@
         <identity value="workflow"/>
         <map value="Request.product, Event.product"/>
       </mapping>
+    </element>
+    <element id="Task.focus.value[x]">
+      <path value="Task.focus.value[x]"/>
+      <short value="What task is acting on"/>
+      <definition value="What task is acting on."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+			<type>
+				<code value="Canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</type>
+      <isSummary value="true"/>
     </element>
     <element id="Task.for">
       <path value="Task.for"/>

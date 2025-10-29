@@ -100,18 +100,37 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Task-focus"/>
+        <id value="Task-focus-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Task.focus"/>
+          <valueString value="Task.focus.valueReference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Task-focus"/>
-        <description value="Search by task focus"/>
-        <code value="focus"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Task-focus-reference"/>
+        <description value="Search by task focus - reference"/>
+        <code value="format-reference"/>
         <type value="reference"/>
-        <expression value="Task.focus"/>
+        <expression value="Task.focus.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Task-focus-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Task.focus.valueCanonical"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Task-focus-canonical"/>
+        <description value="Search by task focus - canonical"/>
+        <code value="format-canonical"/>
+        <type value="uri"/>
+        <expression value="Task.focus.value.ofType(canonical)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
