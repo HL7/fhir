@@ -36,9 +36,4 @@
     <display value="Status"/>
     <definition value="Status."/>
   </concept>
-  <concept>
-    <code value="description"/>
-    <display value="Description"/>
-    <definition value="Description."/>
-  </concept>
 </CodeSystem>
