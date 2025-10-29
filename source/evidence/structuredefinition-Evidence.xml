@@ -80,6 +80,9 @@
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="0,40"/>
 			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Evidence/EvidenceVariable maturity level 4: Brian Alper/Joanne Dehnbostel: 19-0-0"/>
+			</extension>
 			<path value="Evidence"/>
 			<short value="Single evidence bit"/>
 			<definition value="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence."/>
