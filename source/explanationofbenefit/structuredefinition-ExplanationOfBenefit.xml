@@ -1431,16 +1431,17 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.item.patient">
-      <path value="ExplanationOfBenefit.item.patient"/>
+    <element id="ExplanationOfBenefit.item.subject">
+      <path value="ExplanationOfBenefit.item.subject"/>
       <short value="The recipient of the products and services"/>
       <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
-      <comment value="Profilers should consider making this element required when the backbone .patient is a group."/>
+      <comment value="Profilers should consider making this element required when the backbone .subject is a group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.revenue">
@@ -2559,16 +2560,17 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.addItem.patient">
-      <path value="ExplanationOfBenefit.addItem.patient"/>
+    <element id="ExplanationOfBenefit.addItem.subject">
+      <path value="ExplanationOfBenefit.addItem.subject"/>
       <short value="The recipient of the products and services"/>
       <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
-      <comment value="Profilers should consider making this element required when the backbone .patient is a group."/>
+      <comment value="Profilers should consider making this element required when the backbone .subject is a group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.informationSequence">
