@@ -53,10 +53,10 @@
     </coding>
   </associationStatus>
   <subject>
-    <reference value="#example-patient"/>
+    <reference value="#example-practitioner"/>
   </subject>
   <focus>
-      <reference value="#example-practitioner"/>
+    <reference value="#example-patient"/>
   </focus>
   <period>
     <start value="2025-07-01T08:00:00Z"/>

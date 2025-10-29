@@ -80,10 +80,10 @@
     </coding>
   </associationStatus>
   <subject>
-    <reference value="#example-patient"/>
+    <reference value="#nurse-1"/>
   </subject>
   <focus>
-    <reference value="#nurse-1"/>
+    <reference value="#example-patient"/>
   </focus>
   <bodyStructure>
     <reference value="#left-arm-structure"/>
