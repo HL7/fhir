@@ -304,7 +304,7 @@
     </element>
     <element id="ResearchSubject.subjectMilestone.milestone">
       <path value="ResearchSubject.subjectMilestone.milestone"/>
-      <definition value="A specific event in the research subjects journey through a research study."/>
+      <definition value="A specific event in the research subject's journey through a research study."/>
       <min value="1"/>
       <max value="1"/>
       <type>
