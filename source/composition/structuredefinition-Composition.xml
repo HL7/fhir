@@ -189,8 +189,8 @@
     </element>
     <element id="Composition.consent">
       <path value="Composition.consent"/>
-      <short value="Refers to a FHIR Consent instance that indicates a patient's consent"/>
-      <definition value="Refers to a FHIR Consent instance that indicates a patient's consent."/>
+      <short value="Represents informed consents and medico-legal transactions"/>
+      <definition value="References the consents associated with this document. Examples include a consent to perform the clinical service being documented (.event) or a consent for the information contained in the document to be released to a third party."/>
       <min value="0"/>
       <max value="*"/>
       <type>
