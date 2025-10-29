@@ -1,12 +1,14 @@
 {
   "resourceType": "Group",
-  "id": "grp-2.p1.pass.json",
+  "id": "cnl-1.p1.pass.json",
+  "url": "http://someveterinarianclinic.org/fhir/NamingSystem/herds/1234"
   "identifier" : [{
     "system" : "http://someveterinarianclinic.org/fhir/NamingSystem/herds",
-    "value" : "1234567"
+    "value" : "1234"
   }],
   "name" : "John's herd",
-  "membership" : "conceptual",
+  "type" : "animal",
+  "membership" : "enumerated",
   "code" : {
     "coding": [{
       "system": "http://hl7.org/fhir/group-code",
