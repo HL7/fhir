@@ -60,6 +60,25 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAssociation-focus"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAssociation.focus"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-focus"/>
+        <description value="The entity for which the device is being used, benefitting from the device, or which the device is being operated upon, which is usually distinct from the association subject, such as an operator or similar."/>
+        <code value="focus"/>
+        <type value="reference"/>
+        <expression value="DeviceAssociation.focus"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>  
   <!-- <entry>
     <resource>
       <SearchParameter>
