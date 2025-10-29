@@ -983,7 +983,13 @@
         <code value="date"/>
       </type>
       <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.supportingInfo.value[x]">
