@@ -572,7 +572,7 @@
           <valueString value="InformationCode"/>
         </extension>
         <strength value="example"/>
-        <description value="The valuset used for additional information codes."/>
+        <description value="The valuset used for additional information codes."/> 
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-exception"/>
       </binding>
     </element>
@@ -583,10 +583,13 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="dateTime"/>
       </type>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
       </type>
     </element>
     <element id="ClaimResponse.supportingInfo.value[x]">
