@@ -567,6 +567,25 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-expected-onset-type"/>
       </binding>
     </element>
+    <element id="DetectedIssue.medicationClass">
+      <path value="DetectedIssue.medicationClass"/>
+      <short value="What medication class"/>
+      <definition value="Represents the medication class that is responsible for the detected issue."/>
+      <comment value="For example, for a duplicate therapy or an alergy alert, this class would represent the medication class to which the medications belong."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DetectedIssueExampleMedicationClass"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Example codes illustrating example medication classes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-example-medication-class"/>
+      </binding>
+    </element>
     <element id="DetectedIssue.managementCode">
       <path value="DetectedIssue.managementCode"/>
       <short value="Importance of taking action on the issue"/>
