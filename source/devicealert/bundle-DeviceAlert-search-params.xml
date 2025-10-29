@@ -654,18 +654,18 @@
           <valueString value="DeviceAlert.acknowledgedBy" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-acknowledged-by" />
+        <status value="active" />
         <description value="Who acknowledged the alert" />
         <code value="acknowledged-by" />
-        <type value="reference" />
         <base value="DeviceAlert" />
-        <status value="active" />
+        <type value="reference" />
+        <expression value="DeviceAlert.acknowledgedBy" />
+        <processingMode value="normal" />
         <target value="Patient" />
         <target value="Device" />
         <target value="Practitioner" />
         <target value="PractitionerRole" />
         <target value="RelatedPerson" />
-        <expression value="DeviceAlert.acknowledgedBy" />
-        <processingMode value="normal" />
       </SearchParameter>
     </resource>
   </entry>
