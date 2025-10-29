@@ -9,10 +9,10 @@
     <valueString value="Specialized.Public Health &amp;amp; Research"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="5"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="business"/>
@@ -31,7 +31,7 @@
   <version value="6.0.0"/>
   <name value="ResearchStudy"/>
   <title value="Research Study"/>
-  <status value="draft"/>
+  <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="HL7 International / Biomedical Research and Regulation"/>
   <contact>
@@ -456,6 +456,7 @@
       <path value="ResearchStudy.studyDesign"/>
       <short value="Classifications of the study design characteristics"/>
       <definition value="Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc."/>
+	  <comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -464,11 +465,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="StudyDesign"/>
+          <valueString value="StudyDesignExample"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="This is a set of terms for study design characteristics."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/study-design-example"/>
       </binding>
       <mapping>
         <identity value="clinicaltrials-gov"/>
@@ -739,7 +740,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyPartyRole"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="desc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
       </binding>
@@ -810,7 +811,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyStudyStatus"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="defn."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
       </binding>
@@ -1192,6 +1193,7 @@
       <path value="ResearchStudy.objective.outcomeMeasure.summaryMeasure"/>
       <short value="Statistical measure for treatment effect estimate"/>
       <definition value="Statistical measure for treatment effect estimate."/>
+	  <comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1203,7 +1205,7 @@
         </extension>
         <strength value="example"/>
         <description value="The type of a statistic, e.g. relative risk or mean."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/statistic-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.objective.outcomeMeasure.endpointAnalysisPlan">

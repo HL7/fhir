@@ -235,16 +235,18 @@
         <map value="FiveWs.class"/>
       </mapping>
     </element>
-    <element id="ClaimResponse.patient">
-      <path value="ClaimResponse.patient"/>
-      <short value="The recipient of the products and services"/>
-      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+    <element id="ClaimResponse.subject">
+      <path value="ClaimResponse.subject"/>
+      <short value="The recipient(s) of the products and services"/>
+      <definition value="The party/group to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <alias value="patient"/>
       <requirements value="The patient must be supplied to the insurer so that confirmation of coverage and service hstory may be considered as part of the authorization and/or adjudiction."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -570,7 +572,7 @@
           <valueString value="InformationCode"/>
         </extension>
         <strength value="example"/>
-        <description value="The valuset used for additional information codes."/>
+        <description value="The valuset used for additional information codes."/> 
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-exception"/>
       </binding>
     </element>
@@ -581,10 +583,13 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="dateTime"/>
       </type>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
       </type>
     </element>
     <element id="ClaimResponse.supportingInfo.value[x]">
@@ -1050,7 +1055,20 @@
         <code value="Identifier"/>
       </type>
     </element>
-	<element id="ClaimResponse.addItem.informationSequence">
+    <element id="ClaimResponse.addItem.subject">
+      <path value="ClaimResponse.addItem.subject"/>
+      <short value="The recipient of the products and services"/>
+      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <comment value="Profilers should consider making this element required when the backbone .subject is a group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.addItem.informationSequence">
       <path value="ClaimResponse.addItem.informationSequence"/>
       <short value="Applicable exception and supporting information"/>
       <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>

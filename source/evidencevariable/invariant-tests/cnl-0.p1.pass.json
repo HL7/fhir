@@ -1,0 +1,10 @@
+{
+  "resourceType": "EvidenceVariable",
+  "id": "297490",
+  "url": "https://fevir.net/resources/EvidenceVariable/297490",
+  "name": "Example_EvidenceVariable",
+  "title": "Example",
+  "status": "active",
+  "handling": "dichotomous",
+}
+

@@ -244,16 +244,18 @@
         <map value="FiveWs.class"/>
       </mapping>
     </element>
-    <element id="ExplanationOfBenefit.patient">
-      <path value="ExplanationOfBenefit.patient"/>
-      <short value="The recipient of the products and services"/>
-      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
+    <element id="ExplanationOfBenefit.subject">
+      <path value="ExplanationOfBenefit.subject"/>
+      <short value="The recipient(s) of the products and services"/>
+      <definition value="The party/group to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
+      <alias value="patient"/>
       <requirements value="The patient must be supplied to the insurer so that confirmation of coverage and service history may be considered as part of the authorization and/or adjudiction."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -846,18 +848,6 @@
         <map value="FiveWs.actor"/>
       </mapping>
     </element>
-    <element id="ExplanationOfBenefit.careTeam.responsible">
-      <path value="ExplanationOfBenefit.careTeam.responsible"/>
-      <short value="Indicator of the lead practitioner"/>
-      <definition value="The party who is billing and/or responsible for the claimed products or services."/>
-      <comment value="Responsible might not be required when there is only a single provider listed."/>
-      <requirements value="When multiple parties are present it is required to distinguish the lead or responsible individual."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
     <element id="ExplanationOfBenefit.careTeam.role">
       <path value="ExplanationOfBenefit.careTeam.role"/>
       <short value="Function within the team"/>
@@ -979,7 +969,7 @@
           <valueString value="InformationCode"/>
         </extension>
         <strength value="example"/>
-        <description value="The valuset used for additional information codes."/>
+        <description value="The valuset used for additional information codes."/> 
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-exception"/>
       </binding>
     </element>
@@ -990,10 +980,13 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="dateTime"/>
       </type>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.supportingInfo.value[x]">
@@ -1439,6 +1432,19 @@
       <max value="*"/>
       <type>
         <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.subject">
+      <path value="ExplanationOfBenefit.item.subject"/>
+      <short value="The recipient of the products and services"/>
+      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <comment value="Profilers should consider making this element required when the backbone .subject is a group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.revenue">
@@ -2555,6 +2561,19 @@
       <max value="*"/>
       <type>
         <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.subject">
+      <path value="ExplanationOfBenefit.addItem.subject"/>
+      <short value="The recipient of the products and services"/>
+      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <comment value="Profilers should consider making this element required when the backbone .subject is a group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.informationSequence">
