@@ -69,8 +69,10 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	<description value="Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen"/>
 	<!--	Use the lipid servicerequest example -->
 	<focus>
-		<reference value="ServiceRequest/lipid"/>
-		<display value="Lipid Panel Request"/>
+		<targetReference>
+			<reference value="ServiceRequest/lipid"/>
+			<display value="Lipid Panel Request"/>
+		</targetReference>
 	</focus>
 	<!--	who the task is for
 -->

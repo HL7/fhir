@@ -109,7 +109,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Task-focus-reference"/>
         <description value="Search by task focus - reference"/>
-        <code value="format-reference"/>
+        <code value="focus-reference"/>
         <type value="reference"/>
         <expression value="Task.focus.value.ofType(Reference)"/>
         <processingMode value="normal"/>
@@ -128,7 +128,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Task-focus-canonical"/>
         <description value="Search by task focus - canonical"/>
-        <code value="format-canonical"/>
+        <code value="focus-canonical"/>
         <type value="uri"/>
         <expression value="Task.focus.value.ofType(canonical)"/>
         <processingMode value="normal"/>
