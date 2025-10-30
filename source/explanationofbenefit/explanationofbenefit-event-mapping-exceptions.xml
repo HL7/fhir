@@ -45,15 +45,14 @@
             <resource value="The category of claim, e.g. oral, pharmacy, vision, institutional, professional."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.subject" resourcePath="ExplanationOfBenefit.patient">
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+    <divergentElement patternPath="Event.subject" resourcePath="ExplanationOfBenefit.subject">
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="The recipient of the products and services"/>
+            <resource value="The recipient(s) of the products and services"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
+            <resource value="The party/group to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the explanation of benefit to the Patient context.  May also affect access control."/>

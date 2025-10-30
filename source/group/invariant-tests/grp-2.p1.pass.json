@@ -1,7 +1,7 @@
 {
-    "resourceType": "Group",
-    "id": "grp-2.p1.pass.json",
-    "identifier" : [{
+  "resourceType": "Group",
+  "id": "grp-2.p1.pass.json",
+  "identifier" : [{
     "system" : "http://someveterinarianclinic.org/fhir/NamingSystem/herds",
     "value" : "1234567"
   }],

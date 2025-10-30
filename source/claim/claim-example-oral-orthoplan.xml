@@ -23,9 +23,9 @@
 
 	<use value="preauthorization"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2015-03-16"/>
 
@@ -96,12 +96,12 @@
 		<servicedDate value="2015-05-16"/>  <!-- Start Date -->
 		<unitPrice>
 			<value value="9000.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="9000.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<detail>
 			<sequence value="1"/> <!-- Exam Fee -->
 			<productOrService>
@@ -112,12 +112,12 @@
 			</productOrService>
 			<unitPrice>
 				<value value="1000.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="1000.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 		<detail>
 			<sequence value="2"/> <!-- Diagnostic Fee -->
@@ -129,12 +129,12 @@
 			</productOrService>
 			<unitPrice>
 				<value value="1500.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="1500.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 		<detail>
 			<sequence value="3"/> <!-- Initial Payment -->
@@ -146,12 +146,12 @@
 			</productOrService>
 			<unitPrice>
 				<value value="500.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="500.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 		<detail>
 			<sequence value="4"/> <!-- Duration in Months -->
@@ -163,7 +163,7 @@
 			</productOrService>
 			<quantity>
 				<value value="24"/>
-			</quantity>  
+			</quantity>
 		</detail>
 		<detail>
 			<sequence value="5"/> <!-- Periodic Payments -->
@@ -175,15 +175,15 @@
 			</productOrService>
 			<quantity>
 				<value value="24"/>
-			</quantity>  
+			</quantity>
 			<unitPrice>
 				<value value="250.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="250.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 	</item>
 
@@ -199,12 +199,12 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="105.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="105.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<bodySite>
 			<site>
 				<concept>
@@ -235,12 +235,12 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="1100.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="1100.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<bodySite>
 			<site>
 				<concept>
@@ -261,12 +261,12 @@
 			</productOrService>
 			<unitPrice>
 				<value value="750.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="750.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 		<detail>
 			<sequence value="2"/>
@@ -278,12 +278,12 @@
 			</productOrService>
 			<unitPrice>
 				<value value="350.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="350.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 	</item>
 

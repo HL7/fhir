@@ -876,7 +876,7 @@
         </extension>
         <strength value="example"/>
         <description value="The reason why a dose is considered to be subpotent."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-subpotent-reason"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/immunization-subpotent-reason"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -953,7 +953,7 @@
         </extension>
         <strength value="example"/>
         <description value="x"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-program-eligibility"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/immunization-program-eligibility"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -981,7 +981,7 @@
         </extension>
         <strength value="example"/>
         <description value="x"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-funding-source"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/immunization-funding-source"/>
       </binding>
       <mapping>
         <identity value="rim"/>

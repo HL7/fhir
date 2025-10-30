@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="detectedissue-example-medication-class"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/detectedissue-example-medication-class"/>
+  <version value="6.0.0"/>
+  <name value="DetectedIssueExampleMedicationClass"/>
+  <title value="Detected Issue Example Medication Class"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Example code system illustrating medication classes."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-example-medication-class"/>
+  <content value="complete"/>
+  <concept>
+    <code value="analgesics"/>
+    <display value="Analgesics"/>
+    <definition value="Analgesics such as lidocaine. Common suffixes include -caine, common roots include -morph, -morphe, -morphic"/>
+  </concept>
+  <concept>
+    <code value="antacids"/>
+    <display value="Antacids"/>
+    <definition value="Antacids such as omeprazole. Common suffixes include -azole, common roots include -tidine"/>
+  </concept>
+  <concept>
+    <code value="Antibiotics"/>
+    <display value="Antibiotics"/>
+    <definition value="Antibiotics such as levofloxacin. Common suffixes include -mycin, -floxacin, common roots include bacter-, vir-, -cidal"/>
+  </concept>
+</CodeSystem>

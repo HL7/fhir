@@ -196,6 +196,18 @@
       <requirements value="This is used to implement conformance on other elements."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="cov-self-pay-1"/>
+        <severity value="error"/>
+        <human value="When patient is self-pay, paymentBy must exist."/>
+        <expression value="%resource.kind = 'self-pay' implies (%resource.insurer.empty() and %resource.paymentBy.exists())"/>
+      </constraint>
+      <constraint>
+        <key value="cov-insured-1"/>
+        <severity value="error"/>
+        <human value="When patient is insured, insurer must exist."/>
+        <expression value="%resource.kind = 'insurance' implies (%resource.insurer.exists() and %resource.paymentBy.empty())"/>
+      </constraint>
       <type>
         <code value="code"/>
       </type>
@@ -214,6 +226,8 @@
       <definition value="Link to the paying party and optionally what specifically they will be responsible to pay."/>
       <min value="0"/>
       <max value="*"/>
+      <condition value="cov-insured-1"/>
+      <condition value="cov-self-pay-1"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -492,6 +506,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
+      <condition value="cov-insured-1"/>
+      <condition value="cov-self-pay-1"/>
       <isSummary value="true"/>
     </element>
     <element id="Coverage.class">

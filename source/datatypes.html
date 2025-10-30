@@ -400,7 +400,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 Notes:
 </p>
 <ul>
- <li>For all the types, the XML, JSON and Turtle representations of the primitive values are the same except for different escaping in XML and JSON</li>
+ <li>For all the types, the XML, JSON and Turtle representations of the primitive values are the same except for different escaping in XML and JSON, and some more specific type indications in RDF</li>
  <li>For string content,  parsers and serializers MAY retain, escape or strip unescaped non-supported UNICODE characters. If the characters are retained, a subsequent application-layer process can then determine appropriate handling based on context.</li>
  <li>For decimal values, the XML special values <code>INF</code>, <code>-INF</code> and <code>NaN</code> are not allowed, and JSON is restricted to the <a href="https://www.w3.org/TR/xmlschema-2/">precision limits documented in XML schema for xs:double and xs:decimal</a></li>
  <li>The precision of the decimal value has significance:<a name="precision"></a>
@@ -510,29 +510,14 @@ The full representation, with id, extensions and value, showing the id and exten
     }]
   }
 </pre>
-<p><b>RDF</b></p>
+
 <p>
-The value is represented in RDF as a relationship with the URI "http://hl7.org/fhir/value". Using the normal prefix, this becomes:
+For additional details, see the <a href="xml.html">XML</a>, 
+<a href="json.html">JSON</a> and 
+<a href="rdf.html">RDF (Turtle)</a> format definitions.
 </p>
-<pre class="rdf">
-  fhir:Type.count [ fhir:value "2"^^xsd:integer ]
-</pre>
+
 <p>
-For the types date and DateTime, the type must be specified explicitly.
-For all other types, it is optional. The full representation, with id, extensions and value:
-</p>
-<pre class="rdf">
-  fhir:Type.count [
-    Element.id "a1";
-    fhir:value "2"^^xsd:integer;
-    Element.extension [
-      fhir:Extension.url "..";
-      fhir:Extension.valueXX...
-    ]
-  ]
-</pre>
-<p>
-For additional details, see the <a href="xml.html">XML</a>, <a href="json.html">JSON</a> and <a href="rdf.html">Turtle</a> format definitions.
 When the value is missing, and there are no extensions, the element is not represented at all. This means that
 in xml, attributes are never present with a length of 0 (value=""), and properties are never a 0 length string or null in JSON ("name" : "" is not valid).
 (note: there is one specific <a href="json.html#null">use of the null</a> in the JSON representation).
