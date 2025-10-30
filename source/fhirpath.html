@@ -294,9 +294,9 @@ In addition to the general purpose functions below, additional functions functio
 
   <hr/>
   
-<p><b>ofType(type : identifier) : collection</b><a name="fn-ofType2"> </a></p>
+<p><b>ofType(type : type specifier) : collection</b><a name="fn-ofType2"> </a></p>
 <p>Returns a collection that contains all items in the input collection that are of the given type or a subclass thereof.
-  This works the same as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
+  This is as defined as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
   only concrete core types are allowed as an argument. All primitives are considered to be independent 
   types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
