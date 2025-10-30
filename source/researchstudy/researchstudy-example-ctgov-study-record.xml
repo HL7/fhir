@@ -395,7 +395,7 @@
 	</primaryPurposeType>
 	<phase>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01030"/>
 			<display value="Phase 1 trial"/>
 		</coding>
@@ -410,7 +410,7 @@
 			<display value="Participant"/>
 		</coding>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01060"/>
 			<display value="Blinding of study participants"/>
 		</coding>
@@ -422,7 +422,7 @@
 			<display value="Care Provider"/>
 		</coding>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01061"/>
 			<display value="Blinding of intervention providers"/>
 		</coding>
@@ -434,7 +434,7 @@
 			<display value="Investigator"/>
 		</coding>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01063"/>
 			<display value="Blinding of data analysts"/>
 		</coding>
@@ -446,7 +446,7 @@
 			<display value="Outcomes Assessor"/>
 		</coding>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01062"/>
 			<display value="Blinding of outcome assessors"/>
 		</coding>
@@ -458,7 +458,7 @@
 			<display value="Randomized"/>
 		</coding>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01003"/>
 			<display value="randomized assignment"/>
 		</coding>
@@ -470,7 +470,7 @@
 			<display value="Sequential Assignment"/>
 		</coding>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01025"/>
 			<display value="Single-arm crossover design"/>
 		</coding>
@@ -482,7 +482,7 @@
 			<display value="Interventional"/>
 		</coding>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01001"/>
 			<display value="interventional research"/>
 		</coding>
