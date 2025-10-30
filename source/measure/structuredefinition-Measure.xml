@@ -376,10 +376,13 @@
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e. the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
       </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/> 
+      </extension> 
       <path value="Measure.subject[x]"/>
       <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
       <definition value="The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything."/>
-      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration."/>
+      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. If the subject is specified as a reference to a Group, it must be a definitional group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -882,35 +885,6 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Measure.type">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Type is deprecated at the root and must be specified per group"/>
-      </extension>
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.type"/>
-      <short value="process | outcome | structure | patient-reported-outcome | composite (deprecated, use group.type)"/>
-      <definition value="Deprecated, use group.type. Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/measure-type"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".methodCode { the aspect of what the measure applies to }"/>
-      </mapping>
-    </element>
     <element id="Measure.riskAdjustment">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Although risk adjustment is characterized narratively here, there is active work to describe risk adjustment models formally."/>
@@ -1099,6 +1073,16 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="Measure.group.title">
+      <path value="Measure.group.title"/>
+      <short value="Title of the group. This title is expected in the corresponding MeasureReport.group.title"/>
+      <definition value="Indicates the title for the group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Measure.group.code">
       <path value="Measure.group.code"/>
       <short value="Meaning of the group"/>
@@ -1164,7 +1148,7 @@
       <path value="Measure.group.subject[x]"/>
       <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
       <definition value="The intended subjects for the measure. If this element is not provided, the root subject is used to determine the group."/>
-      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration."/>
+      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. If the subject is specified as a reference to a Group, it must be a definitional group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1460,6 +1444,16 @@
         <map value=".id"/>
       </mapping>
     </element>
+    <element id="Measure.group.population.title">
+      <path value="Measure.group.population.title"/>
+      <short value="Title of the group's population. This title is expected in the corresponding MeasureReport.group.population.title"/>
+      <definition value="Indicates the title for the group's population."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Measure.group.population.code">
       <path value="Measure.group.population.code"/>
       <short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
@@ -1608,6 +1602,16 @@
         <identity value="rim"/>
         <map value=".id"/>
       </mapping>
+    </element>
+    <element id="Measure.group.stratifier.title">
+      <path value="Measure.group.stratifier.title"/>
+      <short value="Title of a group's stratifier. This title is expected in the corresponding MeasureReport.group.title"/>
+      <definition value="Indicates the title for the stratifier of the group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="Measure.group.stratifier.code">
       <path value="Measure.group.stratifier.code"/>

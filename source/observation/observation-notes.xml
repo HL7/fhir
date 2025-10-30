@@ -226,10 +226,10 @@
 				</ul>
 			</li>
 			<li>Recommended rules for case 4 pattern:
-		    	<ul>
-					<li>Note that the code element actually determines the semantics of the Observation resource. A value of 30/min, for instance, means very different things depending on whether the code is for pulse rate or respiration rate. Similarly, the term "tenderness" is useless without the context of the "abdominal exam" code. For this reason, we discourage the use of the "one-code", pattern: no matter which element is chosen, the relationship of the term to the patient might not be clear.
-
-					More specifically, assessments of the presence of a phenomenon should explicitly assert presence. This is for two reasons. First, this pattern preserves the two-element information pattern used in all other cases. Second, the one-element pattern does not support representation of pertinent negatives. The absence of a record of abdominal tenderness may represent absence of tenderness, but it may also represent an absence of information. Only by maintaining consistency in the assertion of presence and absence can the cases of presence, absence, and indeterminacy be made explicitly and reliably distinct. Which is to say, eschew pattern 4 for pattern 3, and put the "this finding is present" stipulation in value, not dataAbsentReason.</li>
+		    <ul>
+					<li>The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
+		      </li>
+					<li>The Observation.value is omitted. The default interpretation is the concept (single code or expression) represented in Observation.code is present in the patient. An Observation.dataAbsentReason value of 'clinical-finding' SHOULD be used to indicate why the expected value is missing.</li>
 				</ul>
 			</li>
 			<li>SHOULD NOT use the <em>Assertion</em> pattern as described in <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=418">HL7 Version 3 Implementation Guide: TermInfo - Using SNOMED CT in CDA R2 Models, Release 1</a>. ( The code is 'ASSERTION' and the value is a SNOMED CT concept or expression )
@@ -365,6 +365,14 @@
 		<a name="cancelled"></a>
 	  <h3>Cancelled or Not Performed Observations</h3>
 		<p>If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "cancelled" and the specific details given - preferably as coded  values in the dataAbsentReason or valueCodeableConcept element.  Additional information may be provided in the `note` element as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.</p>
+		<p>For Observations that will not or were not performed:</p>
+		<ul>
+		    <li>We create one Observation for each Test result or Panel that was requested that will not be performed</li>
+    		<li>Observation.code to identify each Test result or Panel requested to be performed</li>
+    		<li>Observation.dataAbsentReason with an appropriate Reason</li>
+    		<li>Observation.note with a human readable explanation</li>
+    		<li>If the reason is a specific specimen condition, reference this via Specimen.condition</li>
+		</ul>
 		<a name="observation-operations">
 		</a>
 		<a name="genetics"></a>

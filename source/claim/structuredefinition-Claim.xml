@@ -240,16 +240,18 @@
         <map value="FiveWs.class"/>
       </mapping>
     </element>
-    <element id="Claim.patient">
-      <path value="Claim.patient"/>
-      <short value="The recipient of the products and services"/>
-      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought."/>
+    <element id="Claim.subject">
+      <path value="Claim.subject"/>
+      <short value="The recipient(s) of the products and services"/>
+      <definition value="The party/group to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought."/>
+      <alias value="patient"/>
       <requirements value="The patient must be supplied to the insurer so that confirmation of coverage and service history may be considered as part of the authorization and/or adjudiction."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -516,8 +518,8 @@
       <path value="Claim.payee"/>
       <short value="Recipient of benefits payable"/>
       <definition value="The party to be reimbursed for cost of the products and services according to the terms of the policy."/>
-      <comment value="Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and choose to pay the subscriber instead."/>
-      <requirements value="The provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
+      <comment value="Often billing providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and choose to pay the subscriber instead."/>
+      <requirements value="The billing provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -528,7 +530,7 @@
       <path value="Claim.payee.type"/>
       <short value="Category of recipient"/>
       <definition value="Type of Party to be reimbursed: subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -714,18 +716,6 @@
         <identity value="w5"/>
         <map value="FiveWs.actor"/>
       </mapping>
-    </element>
-    <element id="Claim.careTeam.responsible">
-      <path value="Claim.careTeam.responsible"/>
-      <short value="Indicator of the lead practitioner"/>
-      <definition value="The party who is billing and/or responsible for the claimed products or services."/>
-      <comment value="Responsible might not be required when there is only a single provider listed."/>
-      <requirements value="When multiple parties are present it is required to distinguish the lead or responsible individual."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
     </element>
     <element id="Claim.careTeam.role">
       <path value="Claim.careTeam.role"/>
@@ -1321,6 +1311,18 @@
       <max value="*"/>
       <type>
         <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="Claim.item.patient">
+      <path value="Claim.item.patient"/>
+      <short value="The recipient of the products and services"/>
+      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <comment value="Profilers should consider making this element required when the backbone .patient is a group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
     </element>
     <element id="Claim.item.careTeamSequence">

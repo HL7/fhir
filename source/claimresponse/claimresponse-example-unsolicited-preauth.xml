@@ -23,9 +23,9 @@
 
 	<use value="preauthorization"/> <!-- this is unsolicited therefore no reference to the preauthorization request exists -->
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -57,7 +57,7 @@
 
 	<!-- Authorization to receive an exam and an Xray panel -->
 	<addItem> <!-- Exam -->
-		<itemSequence value="1"/> 
+		<itemSequence value="1"/>
 		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
@@ -97,7 +97,7 @@
 			<amount>
 				<value value="10.00"/>
 				<currency value="USD"/>
-			</amount>  
+			</amount>
 		</adjudication>
 
 		<adjudication>
@@ -119,13 +119,13 @@
 			<amount>
 				<value value="240.00"/> <!-- insurer will pay up to this amount. -->
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 
 	</addItem>
 
 	<addItem> <!-- Xray Panel -->
-		<itemSequence value="1"/> 
+		<itemSequence value="1"/>
 		<productOrService>
 			<coding>
 				<system value="http://example.org/fhir/oralservicecodes"/>
@@ -168,7 +168,7 @@
 			<amount>
 				<value value="800.00"/>
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 	</addItem>
 
@@ -180,8 +180,8 @@
 		</category>
 		<amount>
 			<value value="1050.00"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
 
 	<total>
@@ -192,8 +192,8 @@
 		</category>
 		<amount>
 			<value value="1040.00"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
 
 	<processNote>
@@ -211,7 +211,7 @@
 				<code value="en-CA" />
 			</coding>
 		</language>
-	</processNote>	
+	</processNote>
 
 	<insurance>
 		<sequence value="1"/>

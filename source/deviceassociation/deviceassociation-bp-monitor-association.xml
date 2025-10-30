@@ -71,12 +71,14 @@
   <device>
     <reference value="#bp-monitor"/>
   </device>
-  <status>
-    <coding>         
-      <system value="http://hl7.org/fhir/deviceassociation-status"/>
+  <status value="active"/>
+  <associationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
       <code value="attached"/>
+      <display value="Attached"/>
     </coding>
-  </status>
+  </associationStatus>
   <subject>
     <reference value="#example-patient"/>
   </subject>

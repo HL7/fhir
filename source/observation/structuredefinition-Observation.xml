@@ -434,7 +434,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes identifying names of simple observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -693,7 +693,7 @@
       <path value="Observation.value[x]"/>
       <short value="Actual result"/>
       <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
-      <comment value="- An observation may have:&#xA;  1.  a single value here&#xA;  1.  both a value and a set of related or component values&#xA;  1.  only a set of related or component values.&#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- The usage of valueReference is restricted to the MolecularDefinition resources when used as a definitional resource, not as a patient-specific finding. .&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
+      <comment value="- An observation may have:&#xA;  1.  a single value here&#xA;  1.  both a value and a set of related or component values&#xA;  1.  only a set of related or component values.&#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- The usage of valueReference is restricted to the MolecularDefinition resources as a definitional resource, not as a patient-specific finding. &#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
       <requirements value="An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations."/>
       <min value="0"/>
       <max value="1"/>
@@ -832,6 +832,30 @@
       <mapping>
         <identity value="sct-attr"/>
         <map value="363713009 |Has interpretation|"/>
+      </mapping>
+    </element>
+    <element id="Observation.interpretationContext">
+      <path value="Observation.interpretationContext"/>
+      <short value="Context for understanding the observation"/>
+      <definition value="Other preceding or concurrent information that is critical to understand the context and significance of the observation."/>
+      <comment value="This element provides essential contextual information that affects how the observation should be interpreted. For example, knowing that a patient is diabetic, fasting, or paraplegic may be critical to properly understanding lab results or other observations."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationInterpretationContext"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying contextual factors that affect interpretation of observations."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation-context"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=PERT].target"/>
       </mapping>
     </element>
     <element id="Observation.note">
@@ -1402,7 +1426,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes identifying names of simple observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -1428,7 +1452,7 @@
       <path value="Observation.component.value[x]"/>
       <short value="Actual component result"/>
       <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
-      <comment value="Used when observation has a set of component observations:&#xA;-  An observation may have both a value (e.g. an  Apgar score) and component observations (the observations from which the Apgar score was derived). &#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- The usage of valueReference is restricted to the MolecularDefinition resources when used as a definitional resource, not as a patient-specific finding. .&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
+      <comment value="Used when observation has a set of component observations:&#xA;-  An observation may have both a value (e.g. an  Apgar score) and component observations (the observations from which the Apgar score was derived). &#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- The usage of valueReference is restricted to the MolecularDefinition resources as a definitional resource, not as a patient-specific finding. &#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
       <requirements value="An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations."/>
       <min value="0"/>
       <max value="1"/>

@@ -154,7 +154,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.occurrence[x]" resourcePath="RequestOrchestration.action.timing[x]">
-        <extraTypes _resource="Duration, Range, Age" reason="Unknown"/>
+        <extraTypes _resource="Duration, Range, RelativeTime, Age" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="When service should (not) occur"/>
