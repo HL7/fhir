@@ -77,8 +77,8 @@
     <statisticType>
       <coding>
         <system value="https://fevir.net/sevco"/>
-        <code value="C44256"/>
-        <display value="Proportion"/>
+        <code value="SEVCO:01016"/>
+        <display value="Uncontrolled cohort design"/>
       </coding>
       <text value="derived proportion"/>
     </statisticType>
