@@ -46,7 +46,7 @@
 	</variableDefinition>
 	<studyDesign>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01003"/>
 			<display value="randomized assignment"/>
 		</coding>
@@ -54,7 +54,7 @@
 	<statistic>
 		<statisticType>
 			<coding>
-				<system value="https://fevir.net/sevco"/>
+				<system value="https://fevir.net/resources/CodeSystem/293778"/>
 				<code value="STATO:0000457"/>
 				<display value="difference in means"/>
 			</coding>
