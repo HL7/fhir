@@ -78,7 +78,7 @@ If you have a highly structured report, then use DiagnosticReport - it has data 
 </p>
 
 <p>
-The performer and resultsInterpreter elements support references to Patient and RelatedPerson to accommodate self-performed and at-home testing scenarios. When the performer or resultsInterpreter references the same Patient as the subject, this indicates that the patient performed the test themselves (e.g., home glucose monitoring, self-administered COVID-19 tests). When these elements reference a RelatedPerson, this indicates that a family member, caregiver, or other related individual performed the test or interpreted the results on behalf of the patient. In these cases, systems should clearly indicate this relationship to users, as the usual assumptions about professional oversight and quality assurance may not apply. The performer element indicates who physically performed or was responsible for the diagnostic procedure, while resultsInterpreter indicates who was responsible for the clinical interpretation of the results. Both roles may be filled by the patient or a related person in home-based and self-care scenarios.
+The performer and resultsInterpreter elements support references to Patient and RelatedPerson to accommodate self-performed and at-home testing scenarios. When the performer or resultsInterpreter references the same Patient as the subject, this indicates that the patient performed the test themselves (e.g., home glucose monitoring, self-administered COVID-19 tests). When these elements reference a RelatedPerson, this indicates that a family member, caregiver, or other related individual performed the test or interpreted the results on behalf of the patient. The performer element indicates who physically performed or was responsible for the diagnostic procedure, while resultsInterpreter indicates who was responsible for the clinical interpretation of the results. Both roles may be filled by the patient or a related person in home-based and self-care scenarios.
 </p>
 
 <p>
@@ -106,5 +106,6 @@ A DiagnosticReport has overlapping characteristics with DocumentReference. The D
 </p>
 
 </div>
+
 
 </div>
