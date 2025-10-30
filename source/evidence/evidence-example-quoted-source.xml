@@ -30,12 +30,12 @@
 	</variableDefinition>
 	<studyDesign>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01002"/>
 			<display value="Observational research"/>
 		</coding>
 		<coding>
-			<system value="https://fevir.net/sevco"/>
+			<system value="https://fevir.net/resources/CodeSystem/293778"/>
 			<code value="SEVCO:01028"/>
 			<display value="Longitudinal data collection"/>
 		</coding>
@@ -44,7 +44,7 @@
 		<description value="Prevalence 68.7% (95% Confidence interval 63.4% to 73.9%)"/>
 		<statisticType>
 			<coding>
-				<system value="https://fevir.net/resources/CodeSystem/27270"/>
+				<system value="https://fevir.net/resources/CodeSystem/293778"/>
 				<code value="STATO:0000412"/>
 				<display value="prevalence"/>
 			</coding>
