@@ -31,7 +31,7 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	</code>
 	<!--	Filler generated order using a fictive  servicerequest to complete the loop-->
 	<focus>
-		<valueCanonical value="BloodDraw ServiceRequest"/>
+		<valueCanonical value="http://hl7.org/fhir/ServiceRequest/BloodDrawf201"/>
 	</focus>
 	<!--	who the task is for
 -->
