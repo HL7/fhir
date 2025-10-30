@@ -39,6 +39,9 @@
       <display value="Attached"/>
     </coding>
   </associationStatus>
+  <subject>
+    <reference value="#repair-tech"/>
+  </subject>
   <period>
     <start value="2025-07-10T10:00:00Z"/>
     <end value="2025-07-10T12:00:00Z"/>
@@ -49,9 +52,6 @@
         <code value="on"/>
       </coding>
     </status>
-    <operator>
-      <reference value="#repair-tech"/>
-    </operator>
     <period>
       <start value="2025-07-10T10:00:00Z"/>
       <end value="2025-07-10T12:00:00Z"/>
