@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 [%stu-note dstu%]
-The <code>name</code> property has been added as a denormalized representation of the various core properties of this resource.
+The <code>display</code> property has been added as a denormalized representation of the various core properties of this resource.
 The expected usage would be for easily populating the display field in references to this resource.
 We request feedback on whether implementers have a need for this property and if that need aligns with the proposed element definition.
 </p>

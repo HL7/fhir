@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Endpoint xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/endpoint.xsd">
+	<id value="example-au-hl7v2"/>
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			Example of an AU HL7v2 Referral Exchange endpoint
+		</div>
+	</text>
+	<status value="active" />
+	<connectionType>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type" />
+			<code value="hl7v2-mllp" />
+		</coding>
+	</connectionType>
+	<name value="AU HL7v2 Referral Exchange endpoint" />
+	<payload>
+		<type>
+			<text value="referral-request"/>
+		</type>
+		<mimeType value="application/hl7-v2"/>
+		<profileUri value="http://ns.hl7.org.au/hl7v2/profiles/HL7AU-OO-REF-SIMPLIFIED-201706"/>
+		<profileUri value="http://ns.electronichealth.net.au/ds/sc/deliver/hl7Mdm/2012"/>
+		<profileUri value="http://ns.electronichealth.net.au/ack/sc/deliver/hl7Ack/2012"/>
+	</payload>
+	<address value="mllp:acme.org:2360"/>
+</Endpoint>
