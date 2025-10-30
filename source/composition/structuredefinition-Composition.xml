@@ -549,7 +549,6 @@
     </element>
     <element id="Composition.participant.function">
       <path value="Composition.participant.function"/>
-      <short value="_AuthorizedParticipationFunction | _AuthorizedReceiverParticipationFunction | AUCG | AULR | AUTM | AUWA | _ConsenterParticipationFunction | GRDCON | POACON | PRCON | PROMSK | SUBCON | _OverriderParticipationFunction | AUCOV | AUEMROV | _CoverageParticipationFunction | _PayorParticipationFunction | CLMADJ | ENROLL | FFSMGT | MCMGT | PROVMGT | UMGT | _SponsorParticipationFunction | FULINRD | SELFINRD | _UnderwriterParticipationFunction | PAYORCNTR | REINS | RETROCES | SUBCTRT | UNDERWRTNG | ADMPHYS | ANEST | ANRS | ASSEMBLER | ATTPHYS | COMPOSER | DISPHYS | FASST | MDWF | NASST | PCP | PRISURG | REVIEWER | RNDPHYS | SASST | SNRS | TASST"/>
       <definition value="Exact function of the participant in the creation of the clinical document. This is more granular than type."/>
       <min value="0"/>
       <max value="*"/>
