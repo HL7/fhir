@@ -1,0 +1,18 @@
+@startuml dicom_sr_report_extraction
+title Use case 1: Extracting imaging results for use in reporting
+
+participant "Measurement Report Creator" as sr_creator
+participant "DICOM SR FHIR IG Implementor" as ig_implementor
+participant "FHIR Service" as fhir_service
+participant "Reporting Application" as report_creator
+actor "Report Creator" as reporter
+
+sr_creator -> sr_creator: Create DICOM SR Measurement Report
+ig_implementor -> sr_creator: Retrieve DICOM SR Measurement Report
+ig_implementor -> ig_implementor: Extract FHIR Observations and related resources
+ig_implementor -> fhir_service: Store FHIR Observations and related resources
+report_creator -> fhir_service: Retrieve FHIR Observations and related resources
+reporter -> report_creator: Review FHIR Observations and related resources
+reporter -> report_creator: Create report containing selected FHIR Observations and related resources
+
+@enduml

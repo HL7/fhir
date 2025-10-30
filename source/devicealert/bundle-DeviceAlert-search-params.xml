@@ -89,11 +89,12 @@
         <type value="reference" />
         <target value="Patient" />
         <target value="Device" />
+        <target value="BiologicallyDerivedProduct" />
+        <target value="Group" />
         <target value="Location" />
         <target value="Medication" />
-        <target value="BiologicallyDerivedProduct" />
-        <target value="Specimen" />
         <target value="NutritionProduct" />
+        <target value="Specimen" />
         <base value="DeviceAlert"/>
         <expression value="DeviceAlert.subject" />
         <processingMode value="normal" />
@@ -630,6 +631,41 @@
         <target value="Location" />
         <expression value="DeviceAlert.location" />
         <processingMode value="normal" />
+      </SearchParameter>
+    </resource>
+  </entry>
+    <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAlert-acknowledged-by" />
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+          <valueCode value="dev" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use" />
+        </extension>
+        <extension
+          url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+          <valueInteger value="2" />
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAlert.acknowledgedBy" />
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-acknowledged-by" />
+        <status value="active" />
+        <description value="Who acknowledged the alert" />
+        <code value="acknowledged-by" />
+        <base value="DeviceAlert" />
+        <type value="reference" />
+        <expression value="DeviceAlert.acknowledgedBy" />
+        <processingMode value="normal" />
+        <target value="Patient" />
+        <target value="Device" />
+        <target value="Practitioner" />
+        <target value="PractitionerRole" />
+        <target value="RelatedPerson" />
       </SearchParameter>
     </resource>
   </entry>

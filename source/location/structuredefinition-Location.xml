@@ -257,8 +257,8 @@
     </element>
     <element id="Location.type">
       <path value="Location.type"/>
-      <short value="Type of function performed"/>
-      <definition value="Indicates the type of function performed at the location."/>
+      <short value="Types of services available at this location"/>
+      <definition value="Indicates the type of services that are available at this location."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -270,7 +270,7 @@
           <valueString value="LocationType"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Indicates the type of function performed at the location."/>
+        <description value="Indicates the type of services that are available at this location."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/service-type"/>
       </binding>
       <mapping>

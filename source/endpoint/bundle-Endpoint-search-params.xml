@@ -100,6 +100,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Endpoint-payload-profile"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Endpoint.payload.profileCanonical,Endpoint.payload.profileUri"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Endpoint-payload-profile"/>
+        <description value="The profiles (FHIR or non-FHIR) that might be used at this endpoint"/>
+        <code value="payload-profile"/>
+        <type value="reference"/>
+        <expression value="Endpoint.payload.profileCanonical | Endpoint.payload.profileUri"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Endpoint-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

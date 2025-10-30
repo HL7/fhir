@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Endpoint xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/endpoint.xsd">
+	<id value="example-ccda-xca"/>
+	<text>
+		<status value="generated" />
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			Example of an XCA CCDA Referral Exchange Endpoint
+		</div>
+	</text>
+	<status value="active" />
+	<connectionType>
+		<coding>
+			<system value="https://profiles.ihe.net/ITI/mCSD/CodeSystem/MCSDEndpointTypes" />
+			<code value="ihe-xca" />
+		</coding>
+	</connectionType>
+    <connectionType>
+		<coding>
+			<system value="https://profiles.ihe.net/ITI/mCSD/CodeSystem/MCSDEndpointTypes" />
+			<code value="XCA-RespGateway-Query" />
+		</coding>
+	</connectionType>
+    <connectionType>
+		<coding>
+			<system value="https://profiles.ihe.net/ITI/mCSD/CodeSystem/MCSDEndpointTypes" />
+			<code value="XCA-RespGateway-Retrieve" />
+		</coding>
+	</connectionType>
+	<name value="XCA CCDA Referral Exchange Endpoint" />
+	<payload>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-HL7DocumentFormatCodes" />
+				<code value="urn:hl7-org:sdwg:ccda-structuredBody:2.1" />
+			</coding>
+		</type>
+		<mimeType value="application/pdf"/>
+		<mimeType value="application/xml"/>
+		<mimeType value="application/jpg"/>
+		<profileUri value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.8:2015-08-01"/>
+		<profileUri value="urn:hl7ii:2.16.840.1.113883.10.20.22.1.14:2015-08-01"/>
+	</payload>
+	<address value="https://acme.org/interfaces/services/ihe/IHEXCARespondingGateway"/>
+</Endpoint>
