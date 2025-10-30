@@ -366,7 +366,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdjudicationDecision"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The overall result of the claim adjudication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
       </binding>
@@ -552,7 +552,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InformationCategory"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="The valuset used for additional information category codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
       </binding>
@@ -716,7 +716,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdjudicationDecision"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
       </binding>
     </element>
@@ -796,7 +796,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Adjudication"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The adjudication codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication"/>
       </binding>
@@ -1951,7 +1951,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PaymentType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The type (partial, complete) of the payment."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-paymenttype"/>
       </binding>
@@ -1982,7 +1982,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PaymentAdjustmentReason"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Payment Adjustment reason codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/payment-adjustment-reason"/>
       </binding>
