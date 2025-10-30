@@ -84,10 +84,15 @@
 			<text value="Light annunciator"/>
 		</type>
 		<annunciator>
-			<reference>
-				<reference value="Device/example"/>
-				<type value="Device"/>
-			</reference>
+			<concept>
+				<coding>
+					<system value="urn:iso:std:iso:11073:10101"/>
+					<code value="188420"/>
+					<display value="MDC_DEV_ANNU_LIGHT"/>
+				</coding>
+				<text value="Light annunciator"/>
+			</concept>
+			<reference value="Device/example"/>
 		</annunciator>
 		<manifestation>
 			<coding>
