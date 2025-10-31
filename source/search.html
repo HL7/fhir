@@ -273,6 +273,9 @@ parameter(s)
     Note that the literal <code>*</code> (asterisk) is valid as the <code>[type]</code> in a GET-based compartment search.  This
     syntax is for disambiguation between an <a href="http.html#read">instance read</a> and a compartment search, which would 
     otherwise share the same URL.
+    <p>
+      The outcome of a compartment search is the same as the equivalent system or type search and will have full URLs that are not compartment-specific (e.g. fullUrls reference <code>[base]/Observation/[id]</code>, not <code>[base]/Patient/[id]/Observation/[id]</code>). References within returned resources are also not rewritten to include the compartment path.
+    </p>
     <span class='http-search-example'>
       <span class='http-verb-selector'>Show as unencoded: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
       <span class='http-verb-display'>

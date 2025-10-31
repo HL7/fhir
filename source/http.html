@@ -69,6 +69,8 @@ In addition to a number of <a href="#general">General Considerations</a> this pa
   <tr><td><a href="#cdelete">delete</a></td><td>Conditional Delete across all resource types based on some filter criteria</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for all resources</td></tr>
   <tr><td><a href="#search">search</a></td><td>Search across all resource types based on some filter criteria</td></tr>
+  <tr><td colspan="2"><b>Compartment Interactions</b></td></tr>
+  <tr><td><a href="#vsearch">search</a></td><td>Search resources associated with a specific compartment instance (see <a href="search.html#searchcontexts">Search Contexts</a> and <a href="compartmentdefinition.html">Compartments</a>)</td></tr>
 </table>
 <p>
 In addition to these interactions, there is an <a href="operations.html">operations framework</a>, which includes endpoints
@@ -1585,6 +1587,10 @@ param1=value&amp;param2=value</pre>
     </td>
   </tr>
 </table>
+
+<p>
+For additional rules and behavior relating to compartment searches, refer to the <a href="search.html#searchcontexts">Search Contexts</a> section of the Search page and the <a href="compartmentdefinition.html">Compartments</a> page.
+</p>
 
 <p>
 In the first URL the character "<code>*</code>" appears in the URL as a literal to mean 'all types'.  This
