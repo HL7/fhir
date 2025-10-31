@@ -11,6 +11,19 @@ grouping of resources which share a common property. Compartments have two princ
  <li>Function as an access mechanism for finding a set of related resources quickly</li>
  <li>Provide a definitional basis for applying access control to resources quickly</li>
 </ul>
+<p>
+Each compartment definition is associated with exactly one FHIR resource type, identified
+by <code>CompartmentDefinition.code</code>.  The compartment also identifies all resources
+that are members of the compartment and what search parameters are used to determine membership.
+A compartment instance (the set of all resources tied to the 'compartment resource' - a resource
+instance of the compartment's type) contains all resources found by searching using the
+associated search parameters with a value of the compartment resource.  For example, the
+compartment for <code>Patient/123</code> would include <code>Account?subject=Patient/123</code>,
+<code>AllergyIntolerance?patient=Patient/123</code>, <code>AllergyIntolerance?asserter=Patient/123</code>, 
+etc. Resources may also be included in a compartment based on rules stated in <code>CompartmentDefinition.resource.documentation</code>,
+though the lack of a computable representation of the inclusion rules means there may be inconsistency in implementation.
+</p>
+
 <p><b>Notes:</b></p>
 <ul>
 <li>
