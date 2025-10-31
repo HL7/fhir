@@ -5,7 +5,7 @@
 		<h2>Scope and Usage</h2>
 		<p>
 			The HealthcareService resource is used to describe a single healthcare service or
-			category of services that are provided by an organization at a location.<br/>
+			category of services that are provided by an organization at a location. General categories of services, such as "Radiology" are typically not directly schedulable, but would be more specific services like "CT Scan" which are specific services within Radiology.<br/>
 			The location of the services could be virtual, as with telemedicine services.<br/>
 		</p>
 		<p>
@@ -15,9 +15,8 @@
 			In such cases the meaning of "HealthcareService A ordered B" translates to
 			"The collection of people who work with/for HealthcareService A ordered B"
 		</p>
-		<p>Common examples of HealthcareServices resources are:</p>
+		<p>Common examples of HealthcareServices that may be offered at an organization/location include:</p>
 		<ul>
-			<li>Allied Health</li>
 			<li>Clinical Neuropsychologist</li>
 			<li>Podiatry Service</li>
 			<li>Smallville Hospital Emergency Services</li>
@@ -35,9 +34,7 @@
 			<li>Consulting psychologists and/or psychology services</li>
 			<li>Group Hydrotherapy</li>
 			<li>Little River Home Maintenance</li>
-			<li>CT Head Scan w/o Contrast</li>
-			<li>CT Head Scan with Contrast</li>
-			<li>CT Head+Chest Scan with Contrast</li>
+			<li>CT Head Scan (multiple instances for variations such as with or w/o Contrast)</li>
 		</ul>
 		<p>
 			<i>HealthcareService resources do not represent Computer related Services (not SOA)</i>
@@ -59,7 +56,7 @@
 					This information may also include costing information.
 				</i>
 			</li>
-			<li>Catalog of schedulable services or activities</li>
+			<li>Catalog of schedulable services or activities at a location/organization</li>
 		</ul>
 	</div>
 
