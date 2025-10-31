@@ -458,7 +458,7 @@ Implementation Notes:
 <li>The content type <code>application/x-www-form-urlencoded</code> (<a href="https://url.spec.whatwg.org/#application/x-www-form-urlencoded">Specification</a>) is also accepted for posting <code>search</code> requests.</li>
 <li>
 If a client provides a generic mime type in the Accept header
-(application/xml, text/json, or application/json), the server SHOULD respond with
+(application/xml, text/xml, or application/json), the server SHOULD respond with
 the requested mime type, using the XML or JSON formats described in this specification
 as the best representation for the named mime type (except for binary - see the <a href="binary.html#rest">note on the
 Binary resource</a>).
@@ -557,7 +557,7 @@ SHALL be interpreted to mean the <a href="xml.html">XML format</a>, the codes <c
   Implementation Notes:
 </p>
 <ul>
-  <li>If a client provides a generic mime type in the Accept header (application/xml, text/json, or application/json),
+  <li>If a client provides a generic mime type in the Accept header (application/xml, text/xml, or application/json),
     the server SHOULD respond with the requested mime type, using the <a href="xml.html">XML</a> or <a href="json.html">JSON</a>
     formats described in this specification as the best representation for the named mime type 
     (though see the note on the <a href="binary.html#rest">Binary resource</a>).</li>
