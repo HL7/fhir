@@ -230,7 +230,7 @@
   <ul>
     <li>What causes a notification, either by referencing an event in an event trigger (e.g., <code>http://example.com/fhir/events#something-interesting-happened</code>) or by describing a resource state change in a resource trigger (e.g., an <code>Encounter</code> is created or updated to have an <code>Encounter.state</code> of <code>active</code>).</li>
     <li>What filters a client is allowed to request.  For example, a topic that allows clients to restrict notifications to a particular patient id or group, a specific procedure, etc., relevant to that particular topic.</li>
-    <li>What related resources the server MAY include in notifications.  For example, while a discharge notification would likely be focused on the <code>Encounter</code> resource, since that is the resource that is updated, it is likely desireable to include the patient information, observations, diagnosed conditions, location information, etc.</li>
+    <li>What related resources the server MAY include in notifications.  For example, while a discharge notification would likely be focused on the <code>Encounter</code> resource, since that is the resource that is updated, it is likely desirable to include the patient information, observations, diagnosed conditions, location information, etc.</li>
   </ul>
 </p>
 <p>
@@ -249,7 +249,7 @@
 <a name="multi-resource-topics"/>
 <h3>Multi-Resource Topics</h3>
 <p>
-  Subscription Topics can be defined across multiple resource types. For example, a single topic could be defined to trigger when a Patient has a new <a href="observation.html">Observation</a>, <a href="condition.html">Condition</a>, or <a href="procedure.html">Procedure</a>. Alternatively, a system could be interested in notifications based on any Resource being deleted. In either case, it is desireable to be able to trigger notifications across more than one resource type. If all of the resource have a logical grouping in the FHIR hierarchy, the lower-level resource type can be used. For example, for notifications across all resources, the value <a href="codesystem-fhir-types.html#fhir-types-Resource">Resource</a> can be used directly. If there is no lower-level grouping, each resource must be listed individually in the appropriate elements of the topic (e.g., multiple <a href="subscriptiontopic-definitions.html#SubscriptionTopic.trigger">SubscriptionTopic.trigger</a> elements, each with the correct <code>resource</code>).
+  Subscription Topics can be defined across multiple resource types. For example, a single topic could be defined to trigger when a Patient has a new <a href="observation.html">Observation</a>, <a href="condition.html">Condition</a>, or <a href="procedure.html">Procedure</a>. Alternatively, a system could be interested in notifications based on any Resource being deleted. In either case, it is desirable to be able to trigger notifications across more than one resource type. If all of the resource have a logical grouping in the FHIR hierarchy, the lower-level resource type can be used. For example, for notifications across all resources, the value <a href="codesystem-fhir-types.html#fhir-types-Resource">Resource</a> can be used directly. If there is no lower-level grouping, each resource must be listed individually in the appropriate elements of the topic (e.g., multiple <a href="subscriptiontopic-definitions.html#SubscriptionTopic.trigger">SubscriptionTopic.trigger</a> elements, each with the correct <code>resource</code>).
 </p>
 
 <a name="overview-subscription"/>
