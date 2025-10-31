@@ -418,6 +418,19 @@ same path must conform.
 				<ul>
 						<li><code>slicing</code> must be present</li>
 						<li><code>min</code> governs the number of total occurrences of the sliced element including the number of occurrences in the open portion of the slice (individual slices may have a different <code>min</code> value). </li>
+						<li>the constraints that apply across all slices and entries of the element are: <code>max</code>, <code>type</code> (<code>code</code>, <code>profile</code>, 
+							<code>targetProfile</code>, <code>aggregation</code> and <code>versioning</code>), 
+							<code>fixed[x]</code>, <code>pattern[x]</code>, <code>minValue[x]</code>, <code>maxValue[x]</code>, <code>maxLength</code>, <code>constraints</code>, 
+						  required and extensible bindings (including additional bindings), 
+							<code>mustHaveValue</code>, <code>valueAlternatives</code>. Obligations apply across all slices unless the obligation specifies an 'applicable-number'
+            </li>
+						<li><code>mustSupport</code> assertions that do not specify otherwise cannot be assumed to apply to all slices and entries.
+							 This is for legacy reasons - the only way to determine the applicability of mustSupport and unspecified obligations is to read the
+							 applicable documentation, and in the absence of this, consult the relevant implementation community (see further discussion on 
+							 <a href="obligations.html">the implementation obligations page</a>). Note that a slice labelled as must-support can't be considered
+							 to have no need to support just because the slicer element is not labelled as must-support - the documentation (if available) must
+							 be consulted.
+						</li>
 				</ul>
 		</li>
 </ul>
@@ -450,12 +463,6 @@ same path must conform.
 			If the element is omitted, it is NOT treated as though the fixed value or pattern had been specified</li>
 </ul>
 	
-<div class="trial-content">
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-	This section and the elements <code>mustHaveValue</code> and <code>valueAlternatives</code>
-	are considered <a href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a> for FHIR Release 5.
-</p>
-
 <a name="primitives"></a>
 <h3>Primitive Values</h3>
 
@@ -491,7 +498,7 @@ but <b>has no effect when the value is present</b>.
 <p>
 For further discussion regarding populating primitive values, see <a href="exchanging.html#primitives">Exchanging Data using FHIR</a>.
 </p>
-</div>
+
 <a name="aggregation"> </a>
 <h3>Rules about Aggregation</h3>
 <ul>
