@@ -87,7 +87,7 @@ search declarations</a></span>, and clients are encouraged to do this too.
       <li><a href="#type">Searching Multiple Resource Types</a></li>
       <li><a href="#implicitresources">Implicit Resources</a></li>
       <li><a href="#advanced">Named Queries</a></li>
-      <li><a href="#additional">Searching for 'additional' Resources</a></li>
+      <li><a href="#additional">Searching for Additional Resources</a></li>
     </ul>
   </li>
   <li><a href="#modifyingresults">Modifying Search Results</a>
@@ -3654,7 +3654,7 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
       </ul>
     </li>
     <li>
-      Additional resources can be requested and/or returned in the same request - see <a href="#include">Including Other Resources</a>
+  Related resources can be requested and/or returned in the same request - see <a href="#include">Including Other Resources</a>
       for more information.
     </li>
     <li>
@@ -3667,7 +3667,7 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
   Since <code>_id</code> requires a resource type context and there can only be zero or one resources of a type with a given logical id, 
   the search is functionally equivalent to the <a href="http.html#read">simple read operation</a> of <code>GET [base]/Patient/23</code>.
   However, searching by logical identifier means that all other search functionality is available - e.g., <code>OperationOutcome</code>
-  resources for issues, additional search parameters, inclusion of additional resources, etc..
+  resources for issues, additional search parameters, inclusion of related resources, etc..
 </p>
 
 <a name="membership"></a>
@@ -4481,7 +4481,7 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
 </p>
 
 <a name="additional"></a>
-<h4>Searching for 'additional' Resources</h4>
+<h4>Searching for Additional Resources</h4>
 <p>
   FHIR allows specifications to define <a href="resource.html#additional">"additional" resources</a> beyond those in the
   core set. These are defined outside the base specification but use the same infrastructure and search framework.
@@ -4512,7 +4512,7 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
 <p>
   Along with search parameters that are used as input to search filters, there are also Search Result Parameters
   defined by this specification to modify the results of a performed search.  These parameters control aspects 
-  of the results such as sort order, including additional resources, etc., and are defined in the following 
+  of the results such as sort order, including related resources, etc., and are defined in the following 
   sections. Note that since these are not search parameters, they do not have definitions as 
   <a href="searchparameter.html">SearchParameter</a> resources and do not appear in the
   <a href="searchparameter-registry.html#common">search parameter registry</a>.
@@ -4547,13 +4547,13 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
   <tr>
     <td><code><a href="#_graph">_graph</a></code></td>
     <td>
-      Include additional resources according to a <code>GraphDefinition</code>.
+  Include related resources according to a <code>GraphDefinition</code>.
     </td>
   </tr>
   <tr>
     <td><code><a href="#_include">_include</a></code></td>
     <td>
-      Include additional resources, based on following links forward across references.
+  Include related resources, based on following links forward across references.
     </td>
   </tr>
   <tr>
@@ -4565,7 +4565,7 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
   <tr>
     <td><code><a href="#_revinclude">_revinclude</a></code></td>
     <td>
-      Include additional resources, based on following reverse links across references.
+  Include related resources, based on following reverse links across references.
     </td>
   </tr>
   <tr>
@@ -4959,7 +4959,7 @@ The score is a decimal number with a value between (and including) 0 and 1, wher
 <a name="_revinclude"></a>
 <h5>Inline Requests (<code>_include</code> and <code>_revinclude</code>)</h5>
 <p>
-  The most common method for requesting additional resources is inline, via the search result 
+  The most common method for requesting related resources is inline, via the search result 
   parameters <code>_include</code> and <code>_revinclude</code>.  The parameters are similar to
   <a href="#chaining">chaining</a> search parameters, in that they follow links between resources
   based on search parameters.
@@ -5109,7 +5109,7 @@ response time significantly.
 <p>
 It is at the server's discretion how deep to iteratively evaluate the inclusions.
 Servers are expected to limit the number of iterations done to an appropriate level
-and are not obliged to honor requests to include additional resources in the search results.
+and are not obliged to honor requests to include related resources in the search results.
 Because iterative search is generally resource intensive, it is not the default behavior.
 </p>
 <p>
@@ -5156,7 +5156,7 @@ results for the convenience of the client.
 <a name="_graph"></a>
 <h5>Graph Definitions (_graph)</h5>
 <p>
-  While inline requests for additional resources are flexible, there are times when a more
+  While inline requests for related resources are flexible, there are times when a more
   structured approach is desired (e.g., optimizing frequent requests, etc.).  To facilitate
   a structured approach, the <code>_graph</code> result parameter is defined.
 </p>
@@ -6080,7 +6080,7 @@ auditing the search itself.
 <tr><td><a href="#_containedType"><code>_containedType</code></a></td><td><a href="#string">string</a></td><td>If returning contained resources, whether to return the contained or container resources</td><td><code>container</code> | <code>contained</code></td></tr>
 <tr><td><a href="#_count"><code>_count</code></a></td><td><a href="#number">number</a></td><td>Number of results per page</td><td>Whole number</td></tr>
 <tr><td><a href="#_elements"><code>_elements</code></a></td><td><a href="#token">token</a></td><td>Request that only a specific set of elements be returned for resources</td><td></td></tr>
-<tr><td><a href="#_graph"><code>_graph</code></a></td><td><a href="#reference">reference</a></td><td>Include additional resources according to a <code>GraphDefinition</code></td><td></td></tr>
+<tr><td><a href="#_graph"><code>_graph</code></a></td><td><a href="#reference">reference</a></td><td>Include related resources according to a <code>GraphDefinition</code></td><td></td></tr>
 <tr><td><a href="#_include"><code>_include</code></a></td><td><a href="#string">string</a></td><td>Other resources to include in the search results that search matches point to</td><td>SourceType:searchParam(:targetType)</td></tr>
 <tr><td><a href="#_maxresults"><code>_maxresults</code></a></td><td><a href="#number">number</a></td><td>Hint to a server that only the first 'n' results will ever be processed</td><td>Whole number</td></tr>
 <tr><td><a href="#_revinclude"><code>_revinclude</code></a></td><td><a href="#string">string</a></td><td>Other resources to include in the search results when they refer to search matches</td><td>SourceType:searchParam(:targetType)</td></tr>
