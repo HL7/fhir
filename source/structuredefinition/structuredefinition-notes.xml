@@ -244,6 +244,7 @@ following these rules:
  <li>The derivation SHALL be <code>specialization</code></li>
  <li>The root of the element path SHALL be the tail of the canonical URL</li>
  <li>The root of the element SHOULD be the name assigned by HL7 to the resource</li>
+ <li>The compartments for the resource are defined by using the (yet to be published) extension <code>http://hl7.org/fhir/StructureDefinition/additional-resource-compartment</code></li>
 </ul> 
 <p>
 Here is an example with other properties removed:
