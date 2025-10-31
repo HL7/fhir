@@ -364,6 +364,12 @@ parameter(s)</span>
   Generally, ignored parameters will result in clients receiving more results than intended. <span class="fhir-conformance">In those
   situations, clients SHOULD filter received records to account for additional data.</span>
 </p>
+<p>
+  In some cases, a server might introduce additional search parameters into the executed query based on authorization rules.
+  <span class="fhir-conformance">Servers MAY include such filters in the self link.</span>
+  <span class="fhir-conformance">Clients SHOULD be able to handle search parameters in a self link that they did not request.</span>
+  <span class="fhir-conformance">Servers SHOULD consider whether exposing search parameters in the self link would constitute inappropriate leakage of security information.</span>
+</p>
 
 <a name="paginglinks"></a>
 <h4>Other Links - Paging</h4>
