@@ -387,3 +387,8 @@ source/patient/Patient-rendering.liquid.x
 /fhir-error-dump.html
 
 source/jira-count.ini
+
+# AI
+.github/
+.ai-scratch/
+CLAUDE.MD
