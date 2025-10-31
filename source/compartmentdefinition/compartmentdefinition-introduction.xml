@@ -27,8 +27,11 @@ though the lack of a computable representation of the inclusion rules means ther
 <p><b>Notes:</b></p>
 <ul>
 <li>
-At present, compartment definitions can <i>only</i> be defined by HL7 International.  This is because
-their existence creates significant impact on the behavior of servers.
+At present, CompartmentDefinition instances can <i>only</i> be defined by HL7 International in this 
+specification.  This is because their existence creates significant impact on the behavior of servers.
+The CompartmentDefinitions defined  in this specification may be hosted on other servers. There is
+no computable mechanism to describe a given server's compartment implementation (e.g. resources not
+supported in the implementation of the compartment or additional resources included in the compartment).
 </li>
 <li>
 Although compartment definitions can be a useful foundation for access control, they may 
