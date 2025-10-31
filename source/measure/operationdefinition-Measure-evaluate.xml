@@ -65,37 +65,85 @@
   <resource value="Measure"/>
   <system value="false"/>
   <type value="true"/>
-  <instance value="true"/>
+  <instance value="false"/>
+  <parameter>
+    <name value="measureId"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation
+      value="The id of a Measure resource that is on the server for which the measure will be evaluated."/>
+    <type value="id"/>
+  </parameter>
+  <parameter>
+    <name value="measureIdentifier"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation
+      value="The business identifier of the measure to be evaluated."/>
+    <type value="string"/>
+    <searchType value="token"/>
+  </parameter>
+  <parameter>
+    <name value="measureUrl"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="*"/>
+    <documentation
+      value="The URL of the measure(s) to be evaluated. A measure URL is specified in the url element of the Measure resource. The measure URL remains the same when the measure is stored on different servers."/>
+    <type value="canonical"/>
+  </parameter>
   <parameter>
     <name value="measure"/>
     <use value="in"/>
-    <scope value="type"/>
     <min value="0"/>
-    <max value="1"/>
+    <max value="*"/>
     <documentation
-      value="The measure to evaluate. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter is required, or a url (and optionally version) must be supplied."/>
+      value="The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance"/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="measureResource"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation
+      value="The measure to be evaluated is provided as a Measure resource."/>
     <type value="Measure"/>
   </parameter>
   <parameter>
-    <name value="url"/>
+    <name value="manifest"/>
     <use value="in"/>
-    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation
-      value="The url of the measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter (and optionally the version), or the measure parameter must be supplied"/>
+      value="Specifies an asset-collection library that provides dependency version resolution and expansion rules for the operation. See the description of manifest in the Canonical Resource Management Infrastructure IG for a complete description of how manifest values are used to provide defaults for dependency version resolution and expansion parameters. Parameters specified directly in the operation override behaviors specified by the manifest parameter. In general, if this parameter is supplied, it is expected to be used in nested operation calls. For example, in evaluating a measure, if the expansion of a value set is required, this parameter SHALL be supplied to that expansion."/>
     <type value="canonical"/>
-    <targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+    <targetProfile
+      value="http://hl7.org/fhir/StructureDefinition/Library"/>
   </parameter>
   <parameter>
-    <name value="version"/>
+    <name value="programIdentifier"/>
     <use value="in"/>
-    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation
-      value="The version of the measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter may only be used if the url parameter is supplied, and the version is not supplied with it."/>
+      value="The business identifier of the reporting program, for which measures are being evaluated. For example, downstream IGs could specify program identifiers. Mutually exclusive use with programUrl - it is an error to pass in both programIdentifier and programUrl parameters."/>
     <type value="string"/>
+    <searchType value="token"/>
+  </parameter>
+  <parameter>
+    <name value="programUrl"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Mutually exclusive use with programIdentifier - it is an error to pass in both programIdentifier and programUrl parameters."/>
+    <type value="canonical"/>
+    <targetProfile
+      value="http://hl7.org/fhir/StructureDefinition/Library"/>
   </parameter>
   <parameter>
     <name value="subject"/>
@@ -139,21 +187,12 @@
     </binding>
   </parameter>
   <parameter>
-    <name value="provider"/>
+    <name value="practitioner"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
     <documentation
       value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, the measure will be calculated for subjects that have a primary relationship to the identified provider. How this relationship is determined is implementation-specific."/>
-    <type value="string"/>
-    <searchType value="reference"/>
-  </parameter>
-  <parameter>
-    <name value="location"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="The location for which the report will be run."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -167,6 +206,15 @@
     <type value="dateTime"/>
   </parameter>
   <parameter>
+    <name value="subjectGroup"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Subject for which the measure will be evaluated provided as a Group resource."/>
+    <type value="Group"/>
+  </parameter>
+  <parameter>
     <name value="parameters"/>
     <use value="in"/>
     <min value="0"/>
@@ -174,6 +222,16 @@
     <documentation
       value="Any input parameters for the evaluation. Parameters defined in this input will be made available by name to the CQL expression. Parameter types are mapped to CQL as specified in the [Using CQL with FHIR](https://hl7.org/fhir/uv/cql/) implementation guide. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL."/>
     <type value="Parameters"/>
+  </parameter>
+  <parameter>
+    <name value="reporter"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="A reference to an Organization that will be populated in the MeasureReport.reporter"/>
+    <type value="string"/>
+    <searchType value="reference"/>
   </parameter>
   <parameter>
     <name value="stratifier"/>
