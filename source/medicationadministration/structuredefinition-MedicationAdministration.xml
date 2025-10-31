@@ -200,7 +200,7 @@
     </element>
     <element id="MedicationAdministration.statusReason">
       <path value="MedicationAdministration.statusReason"/>
-      <short value="A code indicating why the status of the administration changed."/>
+      <short value="A code indicating why the status of the administration changed"/>
       <definition value="A code indicating why the status of the administration changed."/>
       <min value="0"/>
       <max value="*"/>
