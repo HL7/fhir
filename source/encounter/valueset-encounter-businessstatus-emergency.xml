@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="research-subject-state"/>
+  <id value="encounter-businessstatus-emergency"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="brr"/>
+    <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft"/>
+    <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3131"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/encounter-businessstatus-emergency"/>
   <version value="6.0.0"/>
-  <name value="ResearchSubjectState"/>
-  <title value="Research Subject State"/>
+  <name value="EncounterBusinessStatusEmergency"/>
+  <title value="Encounter Business Status - Emergency"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2025-10-29T00:00:00+00:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -36,11 +32,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Indicates the progression of a study subject through a study."/>
+  <description value="Business statuses for emergency encounters."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/research-subject-state"/>
+      <system value="http://hl7.org/fhir/encounter-businessstatus-emergency"/>
     </include>
   </compose>
 </ValueSet>

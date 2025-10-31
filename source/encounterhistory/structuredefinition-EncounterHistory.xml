@@ -59,7 +59,7 @@
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
-  <type value="Encounter"/>
+  <type value="EncounterHistory"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
   <derivation value="specialization"/>
   <differential>
