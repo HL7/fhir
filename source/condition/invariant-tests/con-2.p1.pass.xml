@@ -5,12 +5,10 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Severe burn of left ear (Date: 24-May 2012)</div>
   </text>
-
-
   <clinicalStatus>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
-      <code value="unknown"/>
+      <code value="inactive"/>
     </coding>
   </clinicalStatus>
 
@@ -19,20 +17,16 @@
       <system value="http://terminology.hl7.org/CodeSystem/condition-ver-status"/>
       <code value="confirmed"/>
     </coding>
-  </verificationStatus> -->
-
-
-
+  </verificationStatus>
   <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
       <code value="encounter-diagnosis"/>
       <display value="Encounter Diagnosis"/>
     </coding>
+
   </category>
-
-
-  <!-- <severity>
+  <severity>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="24484000"/>
@@ -55,6 +49,10 @@
     </coding>
     <text value="Left Ear"/>
   </bodySite> -->
+
+  <abatementString value="true"/>
+
+
   <subject>
     <reference value="Patient/example"/>
   </subject>
