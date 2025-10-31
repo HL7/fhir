@@ -1079,7 +1079,7 @@ When true, active orders that may exist for the same medication are expected to 
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Annotation"/>
+        <code value="CodeableConcept"/>
       </type>
       <mapping>
         <identity value="rim"/>
