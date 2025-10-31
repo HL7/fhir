@@ -79,6 +79,23 @@ encountered through this specification:
  <li><a href="parameters.html#additional">Parameters.parameter.resource</a></li>
 </ul>
 
+<a name="moving"></a>
+<h3>Moving Additional Resources to FHIR Core</h3>
+
+<p>
+Additional resources are all expected to eventually migrate to this specification once they are stable.
+</p>
+<p>
+Generally, the process for moving an Additional Resource to core is:
+</p>
+<ul>
+ <li>The responsible WG/WGs need to request moving into core.</li>
+ <li>FMG needs to approve moving into core (criteria TBD by FMG).</li>
+ <li>The resource will be added to the next ballot of FHIR core.</li>
+ <li>The resource will be officially available when the milestone release that includes it is published.</li>
+ <li>Concurrently with that FHIR Core publication, the status of the 'additional' definition should be updated so that it is deprecated and then eventually removed</li>
+</ul>
+
 <blockquote class="ballot-note">
 <p><b>Note to Balloters:</b>
 Additional resources are a new and major feature introduced as part of FHIR R6.
