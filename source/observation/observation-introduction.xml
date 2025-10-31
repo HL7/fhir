@@ -69,7 +69,7 @@ In contrast to the Observation resource, the <a href="diagnosticreport.html">Dia
 </p>
 
 <p>
-The Observation resource is used extensively for observations about people, groups, devices, locations, substances, and procedures – not about the record describing these entities. The Observation resource contains several elements related to the origin and quality of the observation. To record more detailed information about the source of an Observation, the <a href="provenance.html">Provenance</a> resource may be used. More in-depth commentary about or evaluation of the Observation record itself may be recorded in <a href="artifactassessment.html">ArtifactAssessment</a>.
+The Observation resource is used extensively for observations about people, groups, devices, locations, substances, and procedures – not about the record describing these entities. For example, <a href="devicealert.html">DeviceAlert</a> represents a single alert or alarm condition detected and signaled by a patient-connected health / medical device to create clinician’s awareness of a patient safety risk that needs to be addressed, whereas Observation captures any evidentiary data needed to interpret the alert condition or that is the reason why the alert condition is present.
 </p>
 
 <a name="stu"></a>
