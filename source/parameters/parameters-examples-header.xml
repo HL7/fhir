@@ -14,7 +14,6 @@ examples of the <code>Parameters</code> resource in the operation examples:
  <li><a href="observation-operation-stats.html#examples">Observation/$stats</a></li>
  <li><a href="patient-operation-merge.html#examples">Patient/$merge</a></li>
  <li><a href="plandefinition-operation-apply.html#examples">PlanDefinition/$apply</a></li>
- <li><a href="subscription-operation-get-ws-binding-token.html#examples">Subscription/$get-ws-binding-token</a></li>
 </ul>
 
 </div>

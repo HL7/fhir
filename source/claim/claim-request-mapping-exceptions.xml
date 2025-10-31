@@ -74,7 +74,7 @@
     <divergentElement patternPath="Request.priority" resourcePath="Claim.priority">
         <missingTypes _pattern="code" reason="Unknown"/>
         <extraTypes _resource="CodeableConcept" reason="Unknown"/>
-        <bindingStrength _pattern="required" _resource="extensible" reason="Unknown"/>
+        <bindingStrength _pattern="required" _resource="preferred" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="routine | urgent | asap | stat"/>
             <resource value="Desired processing urgency"/>
