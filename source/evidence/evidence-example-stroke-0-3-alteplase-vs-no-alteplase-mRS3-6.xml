@@ -84,8 +84,8 @@
     <statisticType>
       <coding>
         <system value="https://fevir.net/sevco"/>
-        <code value="C16932"/>
-        <display value="Odds Ratio"/>
+        <code value="SEVCO:01016"/>
+        <display value="Uncontrolled cohort design"/>
       </coding>
     </statisticType>
     <quantity>

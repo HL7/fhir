@@ -20,7 +20,7 @@
       </name>
     </Practitioner>
   </contained>
-  <contained>
+  <!--<contained>
     <Practitioner>
       <id value="nurse-2"/>
       <name>
@@ -28,7 +28,7 @@
         <given value="Samuel"/>
       </name>
     </Practitioner>
-  </contained>
+  </contained>-->
   <contained>
     <Device>
       <id value="bp-monitor"/>
@@ -80,8 +80,11 @@
     </coding>
   </associationStatus>
   <subject>
-    <reference value="#example-patient"/>
+    <reference value="#nurse-1"/>
   </subject>
+  <focus>
+    <reference value="#example-patient"/>
+  </focus>
   <bodyStructure>
     <reference value="#left-arm-structure"/>
   </bodyStructure>
@@ -95,12 +98,6 @@
         <code value="on"/>
       </coding>
     </status>
-    <operator>
-      <reference value="#nurse-1"/>
-    </operator>
-    <operator>
-      <reference value="#nurse-2"/>
-    </operator>
     <period>
       <start value="2025-06-01"/>
       <end value="2025-06-05"/>
