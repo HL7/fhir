@@ -486,8 +486,14 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>Datatypes</td>
       <td>
-      Except as described in the preceding paragraph, Datatypes will not be removed or changed except as allowed above for elements.  New datatypes may be introduced.  Types declared on existing elements will not be
-      removed or changed, except for the special case that <code>string</code> may be changed to <code>markdown</code>.
+      Except as described in the preceding paragraph, Datatypes will not be removed or changed except as allowed above for elements.
+      New datatypes may be introduced.  Types declared on existing elements will not be
+      removed or changed, except for the special case that types may be changed where the domain space of both the original and
+      new type is the same.  I.e. All possible values of the original type (with the constraints that were in place for that element) are legal values for the new type and vice versa.  At present, this includes:
+      <ul>
+        <li><code>string</code> may be changed to <code>markdown</code></li>
+        <li><code>code</code> may be changed to <code>uri</code></li>
+      </ul> 
       Additional datatypes may be added to elements which are already expressed as a choice of datatypes only if those elements are optional (minimum cardinality = 0).
       </td>
     </tr>
