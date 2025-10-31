@@ -474,7 +474,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdminstrableProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
       </type>
