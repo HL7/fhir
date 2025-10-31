@@ -17,7 +17,12 @@
     </coding>
   </jurisdiction>  
   <caseSensitive value="true"/>
-  <content value="complete"/>
+  <content value="complete"/>  
+  <property>
+    <code value="abstract"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <type value="boolean"/>
+  </property>
   <property>
     <code value="status"/>
     <uri value="http://hl7.org/fhir/concept-properties#status"/>
@@ -55,27 +60,46 @@
   </concept>
   <concept>
     <code value="current"/>
-    <display value="Current Binding"/>
+    <display value="Current Binding (required)"/>
     <definition value="New records are required to use this value set, but legacy records may use other codes. The definition of 'new record' is difficult, since systems often create new records based on pre-existing data. Usually 'current' bindings are mandated by an external authority that makes clear rules around this"/>
   </concept>
   <concept>
-    <code value="preferred"/>
-    <display value="Preferred Binding"/>
-    <definition value="This is the value set that is preferred in a given context (documentation should explain why)"/>
+    <code value="current-extensible"/>
+    <display value="Current Binding (extensible)"/>
+    <definition value="New records are required to use this value set if a concept applies, but legacy records may use other codes. The definition of 'new record' is difficult, since systems often create new records based on pre-existing data. Usually 'current' bindings are mandated by an external authority that makes clear rules around this"/>
   </concept>
   <concept>
-    <code value="ui"/>
-    <display value="UI Suggested Binding"/>
-    <definition value="This value set is provided for user look up in a given context. Typically, these valuesets only include a subset of codes relevant for input in a context"/>
+    <code value="best-practice"/>
+    <display value="Best practice Binding"/>
+    <definition value="Instances are strongly encouraged to have a code from this value set and, if they enable 'best practice' validation mode, they will receive a 'best practice violation' message for data elements that do not include a code from this value set. This might be part of an overall best practice scoring profile, or advice on a more general profile."/>
   </concept>
   <concept>
-    <code value="starter"/>
-    <display value="Starter Binding"/>
-    <definition value="This value set is a good set of codes to start with when designing your system"/>
-  </concept>
-  <concept>
-    <code value="component"/>
-    <display value="Component Binding"/>
-    <definition value="This value set is a component of the base value set. Usually this is called out so that documentation can be written about a portion of the value set"/>
+    <code value="open"/>
+    <display value="Open Binding"/>
+    <definition value="A Binding that doesn't make any restrictions on use, but is provided for other purposes"/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>  
+    </property>
+    <concept>
+      <code value="preferred"/>
+      <display value="Preferred Binding"/>
+      <definition value="This is the value set that is preferred in a given context (documentation should explain why)"/>
+    </concept>
+    <concept>
+      <code value="ui"/>
+      <display value="UI Suggested Binding"/>
+      <definition value="This value set is provided for user look up in a given context. Typically, these valuesets only include a subset of codes relevant for input in a context"/>
+    </concept>
+    <concept>
+      <code value="starter"/>
+      <display value="Starter Binding"/>
+      <definition value="This value set is a good set of codes to start with when designing your system"/>
+    </concept>
+    <concept>
+      <code value="component"/>
+      <display value="Component Binding"/>
+      <definition value="This value set is a component of the base value set. Usually this is called out so that documentation can be written about a portion of the value set"/>
+    </concept>
   </concept>
 </CodeSystem>

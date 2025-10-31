@@ -17,6 +17,11 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/restful-interaction"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
+  <property>
+    <code value="abstract"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <type value="boolean"/>
+  </property>
   <concept>
     <code value="read"/>
     <display value="read"/>
@@ -75,8 +80,11 @@
   <concept>
     <code value="history"/>
     <display value="history"/>
-    <abstract value="true"/>
     <definition value="Retrieve the change history for a particular resource, type of resource, or the entire system."/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>  
+    </property>
     <concept>
       <code value="history-instance"/>
       <display value="history-instance"/>
@@ -107,7 +115,10 @@
     <code value="search"/>
     <display value="search"/>
     <definition value="Search a resource type or all resources based on some filter criteria."/>
-    <abstract value="true"/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>  
+    </property>
     <concept>
       <code value="search-type"/>
       <display value="search-type"/>
