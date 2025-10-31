@@ -485,8 +485,8 @@ When true, active orders that may exist for the same medication are expected to 
     <element id="MedicationRequest.informationSource">
       <path value="MedicationRequest.informationSource"/>
       <short value="The person or organization who provided the information about this request, if the source is someone other than the requestor"/>
-      <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor. The informationSource element is generally used when details of a prescription are being reported by someone who is not the requestor, e.g., I indicate that I received a prescription for a med out of my jurisdiction and the details are recorded in the system as a MedicationRequest. Normally when this element is populated, the .reported element would be set to &quot;true&quot;."/>
-      <comment value="MedicationStatement is indeed intended to capture that the patient is on a given medication, or is expected/planned to be on, whether this is reported by the patient or any other entity. In some cases, however, there has been a need for MedicationRequest.reported and .informationSource to represent that an order exists, as reported by someone. The informationSource is therefore not the &quot;original requester&quot;, but the reporter of that MedicationRequest."/>
+      <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor. The informationSource element is generally used when details of a prescription are being reported by someone who is not the requestor, e.g., I indicate that I received a prescription for a med out of my jurisdiction and the details are recorded in the system as a MedicationRequest. Normally when this element is populated, the .isRecordOfRequest element would be set to &quot;true&quot;."/>
+      <comment value="MedicationStatement is indeed intended to capture that the patient is on a given medication, or is expected/planned to be on, whether this is reported by the patient or any other entity. In some cases, however, there has been a need for MedicationRequest.isRecordOfRequest and .informationSource to represent that an order exists, as reported by someone. The informationSource is therefore not the &quot;original requester&quot;, but the reporter of that MedicationRequest."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -619,16 +619,18 @@ When true, active orders that may exist for the same medication are expected to 
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.reported">
-      <path value="MedicationRequest.reported"/>
-      <short value="Reported rather than primary record"/>
-      <definition value="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report."/>
+    <element id="MedicationRequest.isRecordOfRequest">
+      <path value="MedicationRequest.isRecordOfRequest"/>
+      <short value="Whether this is record of a Medication Request or the actual request itself"/>
+      <definition value="The information in this instance is a record of the Medication Request and is not request or order itself and should not be considered as such, i.e. the information should not be used for medication dispense | supply and administration."/>
       <comment value="If not populated, then assume that this is the original record and not reported"/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because this element explicitly makes the request not an authoritative record but for information purposes."/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
