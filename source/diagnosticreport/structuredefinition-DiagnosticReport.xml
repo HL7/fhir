@@ -439,7 +439,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="instant"/>
+        <code value="dateTime"/>
       </type>
       <isSummary value="true"/>
       <mapping>
