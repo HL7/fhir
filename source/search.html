@@ -2652,10 +2652,11 @@ Date searches can be controlled through the use of prefixes as described in the 
 Other notes:
 </p>
 <ul>
- <li>When the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
+ <li>Matches against dates are based on the behavior of intervals, where:
 	<ul>
 		<li>Dates with only the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, e.g., 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59].</li>
 		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g., 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59].</li>
+		<li>Dates with the year, month, and day are equivalent to an interval that starts at the first instant of day and ends on the last instant of the day, e.g. 2000-04-04 is equivalent to an interval of [2000-04-04T00:00, 2000-04-04T23:59.9999].</li>
 	</ul>
  </li>
  <li><span class="fhir-conformance">Where possible, the system SHOULD correct for timezones when performing queries.</span> <span class="fhir-conformance">Dates 
