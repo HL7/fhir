@@ -4220,15 +4220,14 @@ queries. To complement this mechanism, the <code>_filter</code> search expressio
 parameter can be used.
 </p>
 <p>
-For example, "Find all the
-observations for patient with a name including <code>peter</code> that have a LOINC code <code>1234-5</code>":
+For example, "Find all the observations for patient with a name including <code>peter</code> that have a LOINC code <code>1234-5</code>":
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as unencoded: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Observation?code=http://loinc.org|1234-5&amp;subject.name=peter</span>
+      <span class="http-verb-display-get">GET [base]/Observation?code=http://loinc.org|1234-5&amp;patient.name=peter</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
 Content-Type: application/x-www-form-urlencoded
-code=http://loinc.org|1234-5&amp;subject.name=peter</span>
+code=http://loinc.org|1234-5&amp;patient.name=peter</span>
   </span>
 </span>
 </p>
@@ -4237,10 +4236,10 @@ Using the <code>_filter</code> parameter, the search would be expressed like thi
 <span class="http-search-example">
   <span class='http-verb-selector'>Show as unencoded: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
   <span class="http-verb-display">
-    <span class="http-verb-display-get">GET [base]/Observation?_filter=code eq http://loinc.org|1234-5 and subject.name co "peter"</span>
+    <span class="http-verb-display-get">GET [base]/Observation?_filter=code eq http://loinc.org|1234-5 and patient.name co "peter"</span>
     <span class="http-verb-display-post">POST [base]/Observation/_search
 Content-Type: application/x-www-form-urlencoded
-_filter=code eq http://loinc.org|1234-5 and subject.name co "peter"</span>
+_filter=code eq http://loinc.org|1234-5 and patient.name co "peter"</span>
   </span>
 </span>
 </p>
