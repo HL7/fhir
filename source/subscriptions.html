@@ -554,6 +554,25 @@
   Clients are responsible for devising an appropriate method for recovering from errors.  Often, this process will include a series or batch of requests that allow a client to know the current state or a request to the <a href="subscription-operation-events.html">$events</a> operation when available.  For example, an application may need to query all relevant resources for a patient in order to ensure nothing has been missed.  Once an application has returned to a functional state, it should request the subscription is reactivated by updating the <code>status</code> to either <code>requested</code> or <code>active</code> as appropriate.
 </p>
 
+<a name="errors-event-numbering-resumption"/>
+<h4>Event Numbering After Recovery</h4>
+<p>
+  When a subscription transitions from an <code>error</code> state back to <code>requested</code> or <code>active</code>, servers <b>SHOULD</b> continue event numbering (<code>SubscriptionStatus.eventsSinceSubscriptionStart</code> and per-event numbers in notifications) from the last successfully delivered notification if they are capable of doing so. Maintaining a monotonically increasing sequence greatly simplifies client recovery (e.g., detecting missed events) and supports accurate use of the <a href="subscription-operation-events.html">$events</a> operation.
+</p>
+<p>
+  Servers <b>SHOULD NOT</b> reset the event count unless continuity cannot be preserved (e.g., internal state loss, long-term outage exceeding retention). Resetting the sequence (e.g., starting again at 0 or a lower number) can cause complications for:
+  <ul>
+    <li>Servers &ndash; e.g., correlating historical events for the <code>$events</code> operation or internal audit trails</li>
+    <li>Clients &ndash; e.g., routing logic, duplicate detection, and gap analysis workflows that rely on strictly increasing numbers</li>
+  </ul>
+</p>
+<p>
+  Clients <b>SHOULD</b> be prepared for either behavior (continuation or reset). If a client observes a notification whose event number is lower than or not contiguous with the last observed number after a recovery, it <b>SHOULD</b> treat this as a potential reset and perform an appropriate reconciliation strategy (e.g., invoke <a href="subscription-operation-events.html">$events</a> if supported, or re-query affected resources) before resuming normal processing.
+</p>
+<p>
+  Servers that do perform a reset <b>SHOULD</b> surface an explanatory error or note (e.g., via <code>SubscriptionStatus.error</code> on the first notification after recovery or documentation out-of-band) to aid client correlation. Implementers are encouraged to design operational practices that preserve numbering continuity whenever feasible.
+</p>
+
 <a name="using-events-operation"/>
 <h4>Using the <code>$events</code> operation</h4>
 <p>
