@@ -3424,9 +3424,11 @@ url=urn:oid:1.2.3.4.5</span>
   <li>The fourth line shows an example of searching by an OID. Note that the :above and :below modifiers only apply to URLs, and not URNS such as OIDs</li>
  </ul>
  <p>
- The search type <code>uri</code> is used with elements of type <a href="datatypes.html#uri">uri</a> and <a href="datatypes.html#url">url</a>.
- Note that the search type <a href="#reference">reference</a> is used for the types <a href="references.html#Reference">Reference</a> and
- <a href="datatypes.html#canonical">canonical</a>, even though they may contain URI values.
+   The search type <code>uri</code> can be used with elements of type <a href="datatypes.html#canonical">canonical</a>, <a href="datatypes.html#uri">uri</a>, and 
+   <a href="datatypes.html#url">url</a>. The search type <a href="#reference">reference</a> can also be used for those same types and is always used for the type 
+   <a href="references.html#Reference">Reference</a>. The search type <a href="#reference">reference</a> is generally preferred for elements of type 
+   <a href="datatypes.html#canonical">canonical</a> because it can handle versioned canonical values. Where more than one search type can apply to a search parameter, 
+   the decision of which to use is based on the desired search behavior.
  </p>
 
  <a name="special"></a>
