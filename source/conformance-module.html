@@ -14,7 +14,7 @@ in order to support consistent definitions for schema and UML derived code.
 [%file newnavbar%]
 
 
-<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
 <h2>Conformance Module</h2>
@@ -164,20 +164,28 @@ running the risk of being misconfigured.</li>
 
 <a name="roadmap"></a>
 <h3>Developmental Roadmap</h3>
+
+<p>
+The following resources are normative, and stable, and no further changes to scope or the existing content are planned:
+</p>
 <ul>
-  <li><a href="structuredefinition.html">StructureDefinition</a>: This resource is normative and stable (see <a href="history.html#normative">Note about normative status</a>). No additional future changes to scope have been discussed or considered</li>
-  <li><a href="operationdefinition.html">OperationDefinition</a>: This resource is normative and stable, though two new features relating to the use of parameters were added in this release. No additional future changes to scope have been discussed or considered</li>
-  <li><a href="capabilitystatement.html">CapabilityStatement</a>: The core of this resource is stable and normative. There are still a few elements on the 
-    resource labelled as 'trial-use'. The <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> work group intends to develop an
-    implementation guide for clients to use to ask servers about their capabilities at a much finer granularity than that offered 
-    by the CapabilityStatement, and then those trial use elements will be removed / deprecated or made normative in a future version. </li>
-  <li><a href="searchparameter.html">SearchParameter</a>: This resource has been used widely, and is considered stable, but some parts or still undergoing trial use </li>
-  <li><a href="implementationguide.html">ImplementationGuide</a>: This resource has been used widely, and is considered stable, but not all tools are fully across all the changes yet</li>
-<li><a href="compartmentdefinition.html">CompartmentDefinition</a>: This resource is in trial-use. HL7 is expected to be the only publisher of this resource</li>
-<li><a href="structuremap.html">StructureMap</a>: This resource is stable but new feature proposals are welcome; there is a spread of tools but it has not yet been used to it's full potential yet </li>
-<li><a href="messagedefinition.html">MessageDefinition</a>: This resource is still undergoing testing; messaging has not been used that widely (though it has been used deeply in a couple of countries)</li>
-<li><a href="graphdefinition.html">GraphDefinition</a>: This resource was re-written from ground up and needs considerable testing before the design can be considered proven</li>
+  <li><a href="structuredefinition.html">StructureDefinition</a></li>
+  <li><a href="operationdefinition.html">OperationDefinition</a></li>
+  <li><a href="capabilitystatement.html">CapabilityStatement</a>. Note that there is an <a href="https://build.fhir.org/ig/HL7/capstmt">implementation guide for additional declaration of capabilities</a></li>
+  <li><a href="searchparameter.html">SearchParameter</a></li>
+  <li><a href="implementationguide.html">ImplementationGuide</a></li>
+  <li><a href="compartmentdefinition.html">CompartmentDefinition</a>. Note that HL7 is expected to be the only publisher of this resource</li>
 </ul>    
+<p>
+  These resources are stable, but may attract additional scope, features and data elements:
+</p>
+<ul>
+<li><a href="structuremap.html">StructureMap</a></li>
+<li><a href="messagedefinition.html">MessageDefinition</a>: </li>
+</ul>    
+<p>
+Finally, the GraphDefinition resource is still subject to additional change, so is found in the <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">API Incubator</a>
+</p>
 
 [%file newfooter%]
 </body>

@@ -16,7 +16,7 @@
 
 <a name="root"></a>
 <h1>Resource Formats</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative page infrastructure%]
 
 
@@ -99,28 +99,16 @@ String handling is slightly different between XML and JSON
 </p>
 
 
-<div class="draft-content">
-
 <a name="bulk"></a>
 <h4>Bulk Data Formats</h4>
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the bulk use formats are draft until 
-further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
-</p>
 <p>
 The XML and JSON formats are designed to support typical system process-based
 data exchange uses. FHIR is also used to exchange large amounts 
-of data- 1000s of records, or more (up to billions). The formats above
-can be used for this, but more suitable formats exist. This specification
-documents (or is exploring documenting) the following formats:
+of data- 1000s of records, or more (up to billions). This specification
+documents <a href="nd-json.html">ND-Json</a> (New line delimited JSON)
+for this usage.
 </p>
-<ul>
- <li><a href="nd-json.html">ND-Json</a> (New line delimited JSON)</li>
- <li>Google Protobuf (under consideration)</li>
- <li>Apache Parquet/Avro (bulk data formats under consideration)</li>
-</ul> 
 
-</div>
 [%file newfooter%]
 </body>
 </html>

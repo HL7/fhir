@@ -11,7 +11,7 @@
 [%file newnavbar%]
 
 
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative page infrastructure%]
 <h2>Version Management Policy</h2>
 
@@ -169,8 +169,7 @@ The content of this release has been subject to significant review through ballo
 implemented and subjected to interoperability testing through Connectathons and early adoption.  However, the degree of testing has varied.  Some resources
 have been well tested in a variety of environments.  Others have received relatively little real-world exercise.  In general, the infrastructure should be
 considered to be more stable than the resources themselves.  In some cases, there are issues on which input is specifically requested during the
-<a href="#stu">Trial Use</a> period
-(see the <a href="todo.html">Outstanding Issue List</a>, and known issues will arise after publication (refer to the
+<a href="#stu">Trial Use</a> period outstanding Issue List, and known issues will arise after publication (refer to the
 <a href="http://hl7.org/fhir-issues">FHIR Change Request</a> tracker for details.)
 Guidance from early implementation will help address these areas.
 </p>
@@ -244,6 +243,7 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
        <li>FHIR Release 3 (STU) was version 3 (skipped '2' to align the major numbers at implementer request)</li>
        <li>FHIR Release 4 (Normative + STU) is version 4</li>
        <li>FHIR Release 5 (STU) is version 5</li>
+       <li>FHIR Release 6 (Normative) is version 6</li>
      </ul>
    </td>
   </tr>
@@ -1159,16 +1159,13 @@ Note for balloters: the R5 packages will be created when R5 is finalized. Until 
 <a name="plans"></a>
 <h3>Plans for future releases</h3>
 <p>
-This specification is the result of three years of work by HL7, it's standards, government and implementation partners, 
-along with the wider (huge) FHIR implementation community. The FHIR implementation community is now massive, and 
-the pace of publication has slowed (as is evident in the <a href="history.html">publication history</a>).
+This specification is the result of fifteen years of work by HL7, it's standards, government and implementation partners, 
+along with the wider (huge) FHIR implementation community. This is the first full version of the standard - none of the 
+content in this specification is considered trial-use. 
 </p>
 <p>
-Accordingly, the pace of implementation adoption of new versions is slowing, and it is unclear how 
-quickly R5 will be adopted. HL7 will watch the market and survey it's many partners before deciding 
-how quickly to pursue the next release, and whether the next release will be a restricted branch 
-development from R5 (as R4B was to R4), or whether it will forge ahead with a full new version,
-which will be Release 6.
+The FHIR implementation community and implementation base is now massive and the pace of implementation adoption of
+ew versions is slowing. 
 </p>
 <p>
 Note that for this release, the extensions have been moved out into a separate module and updated

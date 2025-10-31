@@ -15,7 +15,7 @@
 <%txheader%>
 
 <h1>Using Codes in Resources</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 [%normative page infrastructure%]
 <a name="bindings"></a>
 <p>
@@ -292,12 +292,6 @@ When an element is bound to a value set, it has a binding that has these propert
 <p>
 A binding is always represented using an <a href="elementdefinition-definitions.html#ElementDefinition.binding">ElementDefinition.binding</a>.
 </p>
-
-<div class="trial-content">
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-  Additional Bindings and the element <code>ElementDefinition.binding.additional</code> 
-  is considered <a href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a> for FHIR Release 5.
-</p>
     
 <p>
 In addition, elements may have additional bindings. These additional bindings do not replace the main binding, but 
@@ -367,7 +361,6 @@ If the data type is CodeableConcept or CodeableReference, then that would mean t
 are needed to satisfy the bindings. For other data types, this would be an error (in way or another).
 </p>
 
-</div>
 	
 <a name="references"></a>
 

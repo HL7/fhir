@@ -98,18 +98,6 @@
     <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
-    <name value="graph"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="Indicates that the referenced resource should be treated as the 'root' as the specified graph, validating all references for the resource to ensure they follow the rules. This parameter is not widely supported."/>
-    <type value="canonical"/>
-    <targetProfile value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
-  </parameter>
-  <parameter>
     <name value="profile"/>
     <use value="in"/>
     <min value="0"/>

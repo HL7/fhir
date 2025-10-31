@@ -11,7 +11,7 @@
 
 
 <h2>FHIRPath</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 The FHIR Specification uses <a href="http://hl7.org/fhirpath/r2">FHIRPath (release 2)</a> for path-based navigation and extraction.
@@ -438,20 +438,11 @@ This function is intended to be added to the core FHIRPath specification in a fu
 </p>
 <hr/>
 
-<div class="draft-content">
-
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-These functions are added to FHIRPath as part of this ballot.  This content has been exercised as part of the SDC specification and is therefore a candidate for normative in the R6 FHIR release.
-</p>
-
 <p><b>weight() : decimal</b><a name="fn-weight"> </a></p>
 
 This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the return value is empty. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
 
 This function will typically be used to support scoring of Questionnaires, but it can be used with observations or potentially other elements as well.
-
-
-</div>
 
 <a name="changes"></a>
 <h4>Changes to operators</h4>
@@ -523,13 +514,6 @@ The following locations use this restricted FHIRPath language:
  <li><a href="metadatatypes-definitions.html#DataRequirement.dateFilter.path">DataRequirement.dateFilter.path</a></li>
  <li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">OperationOutcome.issue.expression</a></li>
 </ul>
-
-<div class="draft-content">
-
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the Factory API, the FHIR Terminology service API and the general server API (see below) are only draft (Maturity = 0). They will be advanced to a more
-mature status following the usual <a href="versions.html#maturity">Maturity Model</a> for FHIR.
-</p>
     
 <a name="factory"> </a>
 <h3>Type Factory</h3>
@@ -1232,8 +1216,6 @@ Parameters:
 </ul>
 <p><b>Return Value:</b> The bundle from $apply. If the operation fails, the return value is empty.</p>
 
-
-</div>
 
 [%file newfooter%]
 </body>

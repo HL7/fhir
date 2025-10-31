@@ -275,7 +275,7 @@
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="Reference(Any)" reason="Unknown"/>
-        <extraTypes _resource="date, Meta, Address, Attachment, integer, Count, DataRequirement, Dosage, uuid, Identifier, RatioRange, Coding, SampledData, id, positiveInt, Distance, Availability, integer64, Period, Duration, canonical, Range, RelatedArtifact, base64Binary, UsageContext, Timing, decimal, ExtendedContactDetail, CodeableConcept, ParameterDefinition, dateTime, code, string, oid, instant, ContactPoint, HumanName, Money, markdown, Ratio, Age, Reference(Resource), TriggerDefinition, Quantity, uri, url, Annotation, ContactDetail, boolean, Expression, CodeableReference, Signature, unsignedInt, time" reason="Unknown"/>
+        <extraTypes _resource="date, Meta, Address, Attachment, integer, Count, DataRequirement, Dosage, uuid, Identifier, RatioRange, Coding, SampledData, id, positiveInt, Distance, Availability, VirtualServiceDetail, integer64, Period, Duration, canonical, Range, RelatedArtifact, base64Binary, UsageContext, Timing, decimal, ExtendedContactDetail, CodeableConcept, ParameterDefinition, dateTime, code, string, oid, instant, ContactPoint, HumanName, Money, markdown, Ratio, Age, Reference(Resource), TriggerDefinition, Quantity, uri, url, Annotation, ContactDetail, boolean, Expression, CodeableReference, Signature, unsignedInt, time" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Extra information to use in performing request"/>
             <resource value="Content to use in performing the task"/>

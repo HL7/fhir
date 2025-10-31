@@ -13,7 +13,7 @@
 <%dtheader base%>
 
 <h1>Datatypes</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 [%normative page infrastructure%]
 
@@ -575,7 +575,6 @@ values are.
 <a name="Attachment"></a>
 <a name="attachment"></a>
 <h2 style="margin-bottom: 1px">Attachment</h2>
-[%dtstatus Attachment%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Attachment-->See also <a data-no-external="true" href="datatypes-examples.html#Attachment">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Attachment">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Attachment">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Attachment">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Attachment">Extensions</a>
 </p>
@@ -641,7 +640,6 @@ Attachment is used in the following places: [%dtusage Attachment%]
 <a name="coding"></a>
 <a name="codesystem"></a>
 <h2 style="margin-bottom: 1px">Coding</h2>
-[%dtstatus Coding%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Coding-->See also <a data-no-external="true" href="datatypes-examples.html#Coding">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Coding">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Coding">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Coding">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Coding">Extensions</a>
 </p>
@@ -778,7 +776,6 @@ in extensions, which are usually intended to be defined for a well-controlled co
 <a name="CodeableConcept"></a>
 <a name="codeableconcept"></a>
 <h2 style="margin-bottom: 1px">CodeableConcept</h2>
-[%dtstatus CodeableConcept%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:CodeableConcept-->See also <a data-no-external="true" href="datatypes-examples.html#CodeableConcept">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#CodeableConcept">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#CodeableConcept">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#CodeableConcept">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#CodeableConcept">Extensions</a>
 </p>
@@ -861,7 +858,6 @@ CodeableConcept is used in the following places: [%dtusage CodeableConcept%]
 <a name="Quantity"></a>
 <a name="quantity"></a>
 <h2 style="margin-bottom: 1px">Quantity</h2>
-[%dtstatus Quantity%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Quantity-->See also <a data-no-external="true" href="datatypes-examples.html#Quantity">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Quantity">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Quantity">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Quantity">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Quantity">Extensions</a>
 </p>
@@ -916,12 +912,6 @@ There are several additional datatypes that are specializations of Quantity
 that only introduce new restrictions on the existing elements defined as part
 of the Quantity datatype.
 </p>
-<div class="draft-content">
-<p>
-The types Age, Distance and Count are marked as Trial Use because they are not used in this specification
-(though they may be used in extensions). These types may be converted back to a profile (see <a href="http://hl7.org/fhir/DSTU2/datatypes.html#quantity">R2 definitions</a>).
-</p>
-</div>
 
 <a name="Distance"> </a>
 <h4>Distance</h4>
@@ -1030,7 +1020,6 @@ just rules applied where the Quantity type is used. There's another constraint -
 <a name="Money"></a>
 <a name="Money"></a>
 <h2 style="margin-bottom: 1px">Money</h2>
-[%dtstatus Money%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Money-->See also <a data-no-external="true" href="datatypes-examples.html#Money">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Money">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Money">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Money">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Money">Extensions</a>
 </p>
@@ -1087,7 +1076,6 @@ just rules applied where the Quantity type is used to represent Money amounts.
 <a name="Range"></a>
 <a name="range"></a>
 <h2 style="margin-bottom: 1px">Range</h2>
-[%dtstatus Range%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Range-->See also <a data-no-external="true" href="datatypes-examples.html#Range">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Range">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Range">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Range">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Range">Extensions</a>
 </p>
@@ -1124,7 +1112,6 @@ Range is used in the following places: [%dtusage Range%]
 <a name="Ratio"></a>
 <a name="ratio"></a>
 <h2 style="margin-bottom: 1px">Ratio</h2>
-[%dtstatus Ratio%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Ratio-->See also <a data-no-external="true" href="datatypes-examples.html#Ratio">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Ratio">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Ratio">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Ratio">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Ratio">Extensions</a>
 </p>
@@ -1170,7 +1157,6 @@ Ratio is used in the following places: [%dtusage Ratio%]
 <a name="RatioRange"></a>
 <a name="ratiorange"></a>
 <h2 style="margin-bottom: 1px">RatioRange</h2>
-[%dtstatus RatioRange%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:RatioRange-->See also <a data-no-external="true" href="datatypes-examples.html#RatioRange">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RatioRange">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RatioRange">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RatioRange">Extensions</a>
 </p>
@@ -1210,7 +1196,6 @@ RatioRange is used in the following places: [%dtusage RatioRange%]
 <a name="Period"></a>
 <a name="period"></a>
 <h2 style="margin-bottom: 1px">Period</h2>
-[%dtstatus Period%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Period-->See also <a data-no-external="true" href="datatypes-examples.html#Period">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Period">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Period">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Period">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Period">Extensions</a>
 </p>
@@ -1247,7 +1232,6 @@ Period is used in the following places: [%dtusage Period%]
 <a name="SampledData"></a>
 <a name="sampleddata"></a>
 <h2 style="margin-bottom: 1px">SampledData</h2>
-[%dtstatus SampledData%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:SampledData-->See also <a data-no-external="true" href="datatypes-examples.html#SampledData">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#SampledData">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#SampledData">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#SampledData">Extensions</a>
 </p>
@@ -1295,7 +1279,6 @@ SampledData is used in the following places: [%dtusage SampledData%]
 <a name="Identifier"></a>
 <a name="identifier"></a>
 <h2 style="margin-bottom: 1px">Identifier</h2>
-[%dtstatus Identifier%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Identifier-->See also <a data-no-external="true" href="datatypes-examples.html#Identifier">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Identifier">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Identifier">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Identifier">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Identifier">Extensions</a>
 </p>
@@ -1387,7 +1370,6 @@ Identifier is used in the following places: [%dtusage Identifier%]
 <a name="HumanName"></a>
 <a name="humanname"></a>
 <h2 style="margin-bottom: 1px">HumanName</h2>
-[%dtstatus HumanName%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:HumanName-->See also <a data-no-external="true" href="datatypes-examples.html#HumanName">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#HumanName">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#HumanName">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#HumanName">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#HumanName">Extensions</a>
 </p>
@@ -1484,7 +1466,6 @@ HumanName is used in the following places: [%dtusage HumanName%]
 <a name="Address"></a>
 <a name="address"></a>
 <h2 style="margin-bottom: 1px">Address</h2>
-[%dtstatus Address%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Address-->See also <a data-no-external="true" href="datatypes-examples.html#Address">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Address">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Address">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Address">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Address">Extensions</a>
 </p>
@@ -1519,7 +1500,6 @@ Address is used in the following places: [%dtusage Address%]
 <a name="ContactPoint"></a>
 <a name="contactpoint"></a>
 <h2 style="margin-bottom: 1px">ContactPoint</h2>
-[%dtstatus ContactPoint%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:ContactPoint-->See also <a data-no-external="true" href="datatypes-examples.html#ContactPoint">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#ContactPoint">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#ContactPoint">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#ContactPoint">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#ContactPoint">Extensions</a>
 </p>
@@ -1551,7 +1531,6 @@ ContactPoint is used in the following places: [%dtusage ContactPoint%]
 <a name="Timing"></a>
 <a name="timing"></a>
 <h2 style="margin-bottom: 1px">Timing</h2>
-[%dtstatus Timing%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Timing-->See also <a data-no-external="true" href="datatypes-examples.html#Timing">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Timing">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Timing">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Timing">Extensions</a>
 </p>
@@ -1664,7 +1643,6 @@ Timing is used in the following places: [%dtusage Timing%]
 <a name="RelativeTime"></a>
 <a name="RelativeTime"></a>
 <h2 style="margin-bottom: 1px">RelativeTime</h2>
-[%dtstatus RelativeTime%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Money-->See also <a data-no-external="true" href="datatypes-examples.html#RelativeTime">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a>
 </p>
@@ -1696,7 +1674,6 @@ Methods to express the "event" or "context" that is reference point for time rel
 <a name="Signature"></a>
 <a name="signature"></a>
 <h2 style="margin-bottom: 1px">Signature</h2>
-[%dtstatus Signature%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Signature-->See also <a data-no-external="true" href="datatypes-examples.html#Signature">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Signature">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Signature">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Signature">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Signature">Extensions</a>
 </p>
@@ -1728,7 +1705,6 @@ extension: [[[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-sign
 <a name="Annotation"></a>
 <a name="annotation"></a>
 <h2 style="margin-bottom: 1px">Annotation</h2>
-[%dtstatus Annotation%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Annotation-->See also <a data-no-external="true" href="datatypes-examples.html#Annotation">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Annotation">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Annotation">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Annotation">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Annotation">Extensions</a>
 </p>
