@@ -3833,6 +3833,109 @@
           </use>
           <value value="Ukrainisch"/>
         </designation>
+      </concept><concept>
+        <code value="rm"/>
+        <display value="Romansh"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Romansh"/>
+        </designation>
+        <designation>
+          <language value="nl"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Reto-Romaans"/>
+        </designation>
+        <designation>
+          <language value="ru"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Романшский"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="罗曼什语"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Rätoromanisch"/>
+        </designation>
+        <designation>
+          <language value="da"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Rætoromansk"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="rm-ch"/>
+        <display value="Romansh (Switzerland)"/>
+        <designation>
+          <language value="en"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Romansh (Switzerland)"/>
+        </designation>
+        <designation>
+          <language value="nl"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Reto-Romaans (Zwitserland)"/>
+        </designation>
+        <designation>
+          <language value="ru"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Романшский (Швейцария)"/>
+        </designation>
+        <designation>
+          <language value="zh"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="罗曼什语（瑞士）"/>
+        </designation>
+        <designation>
+          <language value="de"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Rätoromanisch (Schweiz)"/>
+        </designation>
+        <designation>
+          <language value="da"/>
+          <use>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
+          </use>
+          <value value="Rætoromansk (Schweiz)"/>
+        </designation>
       </concept>
     </include>
   </compose>
