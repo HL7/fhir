@@ -1102,6 +1102,34 @@ When true, active orders that may exist for the same medication are expected to 
         <map value="Supply.administerableMedication.product.asContent.container.code"/>
       </mapping>
     </element>
+    <element id="MedicationRequest.dispenseRequest.destination">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="for inpatient setting this is core, but this might not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?"/>
+      </extension>
+      <path value="MedicationRequest.dispenseRequest.destination"/>
+      <short value="Where the medication was/will be sent"/>
+      <definition value="Identification of the facility/location where the medication will be delivered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXD-13 Dispense-to Location; RXD-30 Dispense to Pharmacy; RXD-31 Dispense to Pharmacy Address"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=DST].role"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.SupplyEvent.destination"/>
+      </mapping>
+    </element>
+
+
     <element id="MedicationRequest.substitution">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,200"/>
