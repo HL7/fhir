@@ -243,7 +243,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept describing where the medication administered is expected to occur."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-admin-category"/>
       </binding>
       <mapping>
         <identity value="rim"/>

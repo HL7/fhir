@@ -334,7 +334,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept identifying where the medication is to be consumed or administered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-category"/>
       </binding>
       <mapping>
         <identity value="script10.6"/>
