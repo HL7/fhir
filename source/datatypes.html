@@ -1705,7 +1705,7 @@ Timing is used in the following places: [%dtusage Timing%]
 </p>
 
 <p>
-RelativeTime is used to express a point in time or an interval of time relative to an event defined in data types other than dateTime. For example, "within 30 days of hospital discharge" is an interval of time (from 0 days to 30 days) and it is described as occurring after an event (hospital discharge).
+RelativeTime expresses a time or time period as relative to the time of an event defined in data types other than dateTime. For example, "within 30 days of hospital discharge" is an interval of time (from 0 days to 30 days) and it is described as occurring after an event (hospital discharge).
 </p>
 
 [%dt RelativeTime 13%]
@@ -1718,12 +1718,12 @@ Methods to express the "event" or "context" that is reference point for time rel
     <li>Describing the event with a reference to an applicable FHIR Resource (using contextReference or contextDefinition) and additional data to express which element in the Resource defines or implies the moment in time, using either or both of contextPath (for the literal path to the element) or contextCode (for the CodeableConcept describing the property that is expected to be found in the Resource).</li>
   </ol>
 </p>
-<p>Methods to express the point in time or interval in time ("offset") relative to the "event" include any of:
+<p>Methods to express the time or interval ("offset") relative to the "event" include any of:
   <ol>
     <li>Describing an exact duration (quantity with a numerical value and time-specific unit), in which case offsetDuration is used.</li>
     <li>Describing a one-sided interval, in which case offsetDuration is used and includes offsetDuration.comparator with an appropriate code (&gt;, &gt;=, &lt;, or &lt;=).</li>
     <li>Describing a two-sided interval, in which case offsetRange is used, and the Quantity datatype within the low and high values are limited to Duration datatype (i.e. limited to time-specific units).</li>
-    <li>Describing the exact moment of time (offset = 0), in which case offsetDuration.value = 0 and units are unnecessary.</li>
+    <li>Describing the same moment of time as the relevant event (offset = 0), in which case offsetDuration.value = 0 and units are unnecessary.</li>
   </ol>
 </p>
 <p>The method to express a natural language description of the RelativeTime value is to use the text element.</p>
