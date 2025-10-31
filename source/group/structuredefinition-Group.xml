@@ -395,7 +395,7 @@
       <path value="Group.type"/>
       <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen | medication | medicinalproductdefinition | substance | substancedefinition | biologicallyDerivedProduct | nutritionProduct"/>
       <definition value="Identifies the broad classification of the kind of resources the group includes."/>
-      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, PractitionerRole, Device, CareTeam, HealthcareService, Location, Organization, RelatedPerson, or Specimen for the other types.), or a Group of the resources of the appropriate type."/>
+      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, PractitionerRole, Device, CareTeam, HealthcareService, Location, Organization, RelatedPerson, Specimen, Medication, Substance, BiologicallyDerivedProduct, or NutritionProduct for the other types.), or a Group of the resources of the appropriate type."/>
       <requirements value="Identifies what type of resources the group is made up of."/>
       <min value="0"/>
       <max value="1"/>
