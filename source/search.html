@@ -4000,10 +4000,14 @@ Content-Type: application/x-www-form-urlencoded
 general-practitioner.name=Joe&amp;general-practitioner.address-state=MN</span>
   </span>
 </span>
-may return Patients cared for by Joe from CA and Jane from MN: no one practitioner need satisfy both conditions.
-e.g., the chains are evaluated separately. For use cases where the joins must be evaluated in groups,
-there are either <a href="#composite">Composite</a> search parameters, or the <a href="#filter">_filter</a>
-parameter.
+is asking for Patients that have <em>any</em> general practitioner with &#39;Joe&#39; in their name and that have <em>any</em> general practitioner that resides in Minnesota. Each chained parameter is evaluated individually, so a Patient that sees &#39;Dr. Joe&#39; in California and &#39;Dr. Jane&#39; in Minnesota matches.
+Following the logic, an implementation will:
+<ul>
+  <li>find the set of Patients that have a <code>generalPractitioner</code> with a name matching "Joe"</li>
+  <li>find the set of Patients that have a <code>generalPractitioner</code> with an address matching "MN"</li>
+  <li>join the two sets of results with <b>and</b> logic at the Patient level.</li>
+</ul>
+E.g., the chains are evaluated separately. For use cases where the joins must be evaluated in groups, implementers can use either <a href="#composite">Composite</a> search parameters or the <a href="#filter">_filter</a> parameter.
 </p>
 <p>
   Note that chained search parameters are not intended to work with <a href="#modifiers">search modifiers</a>.
