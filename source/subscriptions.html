@@ -177,6 +177,8 @@
   </li>
 </ol>
 
+<p>Note: The step where the client requests a <a href="subscription.html">Subscription</a> resource (e.g., via <code>HTTP POST</code> or <code>HTTP PUT</code>) follows the standard FHIR resource creation rules; see <a href="http.html#create">Creating Resources</a> for expected behavior and error handling (e.g., servers return an <a href="operationoutcome.html">OperationOutcome</a> on failure).</p>
+
 <p>
   Once the subscription is active, notifications will be sent according to the <a href="subscription.html#channels">channel</a>.  Note that error states may occur, see <a href="#errors">Managing Subscriptions and Errors</a> for more information.
 </p>
@@ -212,6 +214,8 @@
     If the Server sends a <a href="subscriptionstatus.html#handshake-notification">handshake</a>, the endpoint SHALL respond appropriately, or the Server MAY deactivate the subscription.
   </li>
 </ol>
+
+<p>Note: Although creation is negotiated out-of-band in this workflow, any server-side creation or update of a <a href="subscription.html">Subscription</a> resource still follows the standard FHIR resource creation rules described at <a href="http.html#create">Creating Resources</a>, including normal HTTP status codes and use of <a href="operationoutcome.html">OperationOutcome</a> for errors.</p>
 
 <p>
   After the subscription has been negotiated, processing occurs: the Server is responsible for sending notifications; the Client is responsible for receiving them and responding appropriately; and the Subscription Manager is responsible for keeping information up to date, managing errors, etc..
