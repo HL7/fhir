@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
-  <id value="study-design-example"/>
+  <id value="study-design"/>
   <meta>
     <lastUpdated value="2022-05-12T12:40:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -13,10 +13,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/study-design-example"/>
+  <url value="http://hl7.org/fhir/ValueSet/study-design"/>
   <version value="6.0.0"/>
-  <name value="StudyDesignExample"/>
-  <title value="Study Design Example"/>
+  <name value="StudyDesign"/>
+  <title value="Study Design"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-08-24T12:40:00+00:00"/>
