@@ -179,10 +179,10 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Medication.batch.lotNumber"/>
+          <valueString value="Medication.instance.lotNumber"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Medication-serial-number"/>
-        <description value="Returns medications in a batch with this lot number"/>
+        <description value="Returns medications in a instance with this lot number"/>
         <code value="serial-number"/>
         <type value="token"/>
         <expression value="Medication.identifier"/>

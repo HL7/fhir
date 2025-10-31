@@ -342,11 +342,11 @@
         <map value=".quantity"/>
       </mapping>
     </element>
-    <element id="Medication.batch">
+    <element id="Medication.instance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="380,40"/>
       </extension>
-      <path value="Medication.batch"/>
+      <path value="Medication.instance"/>
       <short value="Details about packaged medications"/>
       <definition value="Information that only applies to packages (not products)."/>
       <min value="0"/>
@@ -363,8 +363,23 @@
         <map value=".player[classCode=CONT]"/>
       </mapping>
     </element>
-    <element id="Medication.batch.lotNumber">
-      <path value="Medication.batch.lotNumber"/>
+    <element id="Medication.instance.identifier">
+      <path value="Medication.instance.identifierr"/>
+      <short value="Identifier for the physical instance, typically a serial number"/>
+      <definition value="Identifier for the physical instance, typically a serial number."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+
+    <element id="Medication.instance.lotNumber">
+      <path value="Medication.instance.lotNumber"/>
       <short value="Identifier assigned to batch"/>
       <definition value="The assigned lot number of a batch of the specified product."/>
       <min value="0"/>
@@ -385,10 +400,10 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="Medication.batch.expirationDate">
-      <path value="Medication.batch.expirationDate"/>
-      <short value="When batch will expire"/>
-      <definition value="When this specific batch of product will expire."/>
+    <element id="Medication.instance.expirationDate">
+      <path value="Medication.instance.expirationDate"/>
+      <short value="When instance will expire"/>
+      <definition value="When this specific instance of product will expire."/>
       <min value="0"/>
       <max value="1"/>
       <type>
