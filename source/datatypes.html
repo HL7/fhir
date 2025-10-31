@@ -1537,12 +1537,19 @@ of postal address formats defined around the world.
 [%dt Address 11%]
 
 <p>
+Address.line can include names of departments, 'care-of' instructions, and other types of information that
+involve the names of entities.  Address.line SHOULD NOT include the 'name' of the entity on which the
+address appears, as this will often result in redundant appearance of the name when printing envelopes.
+For example, if an address appears on a Patient resource with name "Jane Smith", then "Jane Smith"
+ought not to appear on an address line.  However "XYZ Retirement Home" would be acceptable to appear
+on the address line, as that is not found in the Patient.name.
+</p>
+<p>
 The text element Specifies the entire address as it should be displayed e.g. on a postal label, 
 using a newline delimiter for each line (e.g., \n). This may be provided instead of or as well 
 as the specific parts. Applications updating an address SHALL ensure that when both text and 
 parts are present, no content is included in the text that isn't found in a part.
 </p>
-
 
 <div class="use">
 <p><b>Constraints</b></p>
