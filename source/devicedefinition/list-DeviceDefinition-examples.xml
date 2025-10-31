@@ -16,4 +16,16 @@
       <display value="General"/>
     </item>
   </entry>
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="General DeviceDefinition example 2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="devicedefinition-example-prodspec"/>
+    </extension>
+    <item>
+      <reference value="DeviceDefinition/example-prodspec"/>
+      <display value="General"/>
+    </item>
+  </entry>
 </List>
