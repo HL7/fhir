@@ -149,7 +149,7 @@
         <code value="code"/>
       </type>
       <isSummary value="true"/>
-      <isModifier value="false"/>
+      <isModifier value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricOperationalStatus"/>
