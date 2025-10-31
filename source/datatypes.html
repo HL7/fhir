@@ -786,38 +786,92 @@ provision of text. This is a common pattern in healthcare data.
 This datatype can be <a href="terminologies.html#CodeableConcept">bound</a> to a <a href="valueset.html">ValueSet</a>.
 </p>
 [%dt CodeableConcept 3%]
-<p><b>Additional Codes</b></p>
+<p><b>Multiple Codings</b></p>
 <p>
-More than one code may be used in <code>CodeableConcept</code>. The concept may be coded multiple times in different code systems (or even
-multiple times in the same code systems, where multiple forms are possible, such as
-with SNOMED CT). Each <code>coding</code> (also referred to as a 'translation') is a representation of the concept as described above and may have slightly different granularity due to the differences
-in the definitions of the underlying codes. There is no meaning associated with the ordering of <code>coding</code> within a <code>CodeableConcept</code>.
-A typical use of <code>CodeableConcept</code> is to send the local code that the concept was coded with, and also one or more translations to publicly defined
-code systems such as LOINC or SNOMED CT. Sending local codes is useful and important for the purposes of debugging and integrity auditing.
+When a CodeableConcept contains multiple codings, each coding (sometimes called a 'translation') is a representation of
+the concept as described above. There is no meaning associated with the ordering of coding within a CodeableConcept and
+systems should not expect or enforce any particular order. The codes in the codings may have different granularities,
+whether they are from different code systems, or the same code system.
 </p>
-	<p>For example, many qualitative laboratory test results values are typically represented with coded presence/absence concepts. Using the coded value for 'negative' with a standard SNOMED CT code translation, <code>valueCodeableConcept</code> would be:</p>
-	<pre class="json">
+<p>
+When multiple codes are present, the intersection of their meanings SHALL NOT be empty. (Strictly, based on ISO 704,
+the intersection of their 'extensions' is not empty.) This rule cannot, in general, be tested in a computable way and
+implementers SHOULD choose the granularities used with care, particularly in the context of negation.
+</p>
+<p>
+For instance, a CodeableConcept containing two codes, the LOINC code 8867-4 (Heart rate) and the SNOMED CT code 364075005 (Heart Rate)
+is a combination, suitable for use by consuming applications that understand either LOINC or SNOMED CT (or both). On the other
+hand, a CodeableConcept containing LOINC 9279-1 (Respiratory Rate) and the SNOMED CT code 364075005 (Heart Rate) is not valid
+because the two concepts do not have any intersection - there's no concept that is both a respiratory rate and a heart rate.
+</p>
+<p>
+Each coding stands alone in expressing the meaning of the concept. It is not appropriate to send a coding of "severe" with
+a coding of "rash" to convey the concept represents a "severe rash".
+</p>
+<p>
+If expressing codes with differing levels of granularity, the granularity chosen must still be appropriate for the
+definition and purpose of the element. For example, with Observation.code, it would not be appropriate to send a SNOMED CT
+code of 138875005 (SNOMED CT Concept) - which covers procedures, body parts, and lots of other things that aren't observations.
+That is, the union of the meanings of the codes (ISO 704 extensions) SHALL not include concepts outside the scope of the
+definition of the element in which the code is found. Note that this also is not suitable for computable testing.
+It would also not be appropriate to send a code like SNOMED CT 118227000 (Vital Sign Finding) with a Quantity value
+because the purpose of Observation.code is to explain the meaning of the Observation.value, and merely knowing that the
+Quantity is a vital sign isn't enough to have any useful understanding of the meaning of the value.
+</p>
+<p>
+On the other hand, having one coding that says Body Weight (SCT 27113001) and another that says Post-dialysis
+body weight (SCT 1162420002) would be fine. Both codes are sufficient to understand what the value means,
+though one provides more context than the other.
+</p>
+<p>
+Note that when granularities are significantly different, interpretation of the meaning for each of the codes will
+result in differences that may not be safe. For instance, a prescription for "APO Amoxicillin 250 mg capsule"
+(needed to fill the order) could safely also have an additional coding of "Broad-spectrum Penicillin" (perhaps
+needed to trigger antibiotic monitoring protocols). On the other hand, if there were an order that said
+"Do not administer APO Amoxicillin 250 mg capsule", adding a translation of "broad-spectrum Penicillin"
+could be incorrectly interpreted as a prohibition against all broad-spectrum penicillins.
+</p>
+<p>
+Multiple codings can be present for several reasons:
+</p>
+<ul>
+  <li>Retaining legacy/internal codes while also providing 'standard' codes</li>
+  <li>Allowing migration by supporting both older and newer terminology coding expectations</li>
+  <li>Meeting needs of different data consumers which may require codings to be present from different code systems and/or which represent the concept at different levels of precision (e.g. one system might only handle general codes like 'Diabetes' while another might want something more specific, such as "Type II diabetes, well-controlled")</li>
+</ul>
+<p>
+Typical behavior is to expose all codings known that some portion of the interface clients are likely to have uses for.
+</p>
+<p>
+Implementers should use codes obtained from the various codings in a CodeableConcept based on thorough analysis of their
+target applications and real world use cases, noting that the nature of FHIR means resources are often distributed
+far beyond the original trading partners. For this reason, it is always better to include appropriate codes from
+well known public CodeSystems whenever possible. This specification and other applicable IGs may make specific rules
+requiring the presence of particular combinations of codes to make specific uses of FHIR Resources possible and/or safer.
+</p>
 
-	"valueCodeableConcept": {
-		"coding": [
-			{
-				"system": "http://snomed.info/sct",
-				"code": "260385009",
-				"display": "Negative"
-			}, {
-				"system": "https://acme.lab/resultcodes",
-				"code": "NEG",
-				"display": "Negative"
-			}
-		],
-		"text": "Negative for Chlamydia Trachomatis rRNA"
-	}
+<p>As an example, many qualitative laboratory test results values are typically represented with coded presence/absence concepts. Using the coded value for 'negative' with a standard SNOMED CT code translation, <code>valueCodeableConcept</code> would be:</p>
+<pre class="json">
 
-	</pre>
+"valueCodeableConcept": {
+  "coding": [
+    {
+      "system": "http://snomed.info/sct",
+      "code": "260385009",
+      "display": "Negative"
+    }, {
+      "system": "https://acme.lab/resultcodes",
+      "code": "NEG",
+      "display": "Negative"
+    }
+  ],
+  "text": "Negative for Chlamydia Trachomatis rRNA"
+}
+</pre>
 
-	<p> Note that these concepts may be cross mapped using the <a href="conceptmap.html">ConceptMap</a> resource <em>instead of </em> or <em>in addition to</em> being represented as translations directly in the  in <code>CodeableConcept</code>.</p>
+<p> Note that these concepts may be cross mapped using the <a href="conceptmap.html">ConceptMap</a> resource <em>instead of </em> or <em>in addition to</em> being represented as translations directly in the  in <code>CodeableConcept</code>.</p>
 
-	<p><b>Using Text in CodeableConcept</b></p>
+<p><b>Using Text in CodeableConcept</b></p>
 
 <p>
 The <code>text</code>
