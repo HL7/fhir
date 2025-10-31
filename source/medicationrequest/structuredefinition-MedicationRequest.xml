@@ -388,15 +388,15 @@ A request not to take or administer medication is a standalone request, and does
 When true, active orders that may exist for the same medication are expected to be canceled/ended, and new orders for the same medication are not expected."/>
       <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;.
       
-      
+     
 
 The attributes provided with the request qualify what is not to be done. If a performerType is specified then the &quot;do not&quot; request only applies to performers of that type. Qualifiers include: code, subject, occurrence, performerType and performer.
 For example:
-
-doNotPerform=true + code= Lithium means &quot;do not give Lithium&quot; (any other med is ok)
-doNotPerform=true + dosage.timing.when=lunch means &quot;do not give at lunch&quot; (not impacting giving at other times)
-doNotPerform=true + dosage.route=oral means &quot;do not give orally&quot; (not impacting other routes)
-
+&lt;ul&gt;
+&lt;li&gt;doNotPerform=true + code= Lithium means &quot;do not give Lithium&quot; (any other med is ok)&lt;/li&gt;
+&lt;li&gt;doNotPerform=true + dosage.timing.when=lunch means &quot;do not give at lunch&quot; (not impacting giving at other times)&lt;/li&gt;
+&lt;li&gt;doNotPerform=true + dosage.route=oral means &quot;do not give orally&quot; (not impacting other routes)&lt;/li&gt;
+&lt;/ul&gt;
 
 "/>
       <min value="0"/>
