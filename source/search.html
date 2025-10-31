@@ -2200,12 +2200,12 @@ the prefixes described in the table below are used.  Note that in the following 
  <tr>
 	<td><code>ge</code></td>
 	<td>the resource value is greater or equal to the parameter value</td>
-  <td>the range above the parameter value  intersects (i.e., overlaps) with the range of the resource value, or the range of the parameter value fully contains the range of the resource value</td>
+  <td>the combined range from the parameter value (inclusive) to +infinite intersects (i.e., overlaps) with the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>le</code></td>
 	<td>the resource value is less or equal to the parameter value</td>
-  <td>the range below the parameter value intersects (i.e., overlaps) with the range of the resource value or the range of the parameter value fully contains the range of the resource value</td>
+  <td>the combined range from -infinite to the parameter value (inclusive) intersects (i.e., overlaps) with the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>sa</code></td>
@@ -2224,6 +2224,20 @@ the prefixes described in the table below are used.  Note that in the following 
   <td>the range of the parameter value overlaps with the range of the resource value</td>
  </tr>
 </table>
+<p><b>Examples (Clarification of <code>ge</code> and <code>le</code>):</b></p>
+<ul>
+  <li><code>le2015-04-13T20:27:01-04:00</code> matches a <a href="datatypes.html#period">Period</a> with range<br/>
+    <code>[2015-04-13T20:27:01-04:00, 2015-04-13T20:42:01-04:00)</code> because the combined search range<br/>
+    <code>(-∞, 2015-04-13T20:27:01-04:00]</code> overlaps the resource at the inclusive boundary instant.</li>
+  <li><code>le2015-04-13T20:27:01-04:00</code> does NOT match a Period<br/>
+    <code>[2015-04-13T20:27:02-04:00, 2015-04-13T20:42:01-04:00)</code> because there is no overlap with<br/>
+    <code>(-∞, 2015-04-13T20:27:01-04:00]</code>.</li>
+  <li><code>ge2015-04-13T20:27:01-04:00</code> matches a Period<br/>
+    <code>[2015-04-13T20:27:01-04:00, 2015-04-13T20:42:01-04:00)</code> because the combined search range<br/>
+    <code>[2015-04-13T20:27:01-04:00, +∞)</code> overlaps starting at the boundary instant.</li>
+  <li><code>ge2015-04-13T20:27:01-04:00</code> does NOT match a Period<br/>
+    <code>[2015-04-13T20:26:01-04:00, 2015-04-13T20:27:01-04:00)</code> because the resource ends exactly at the parameter instant and the end is exclusive, so there is no overlap with <code>[2015-04-13T20:27:01-04:00, +∞)</code>.</li>
+</ul>
 <p>
   Note that prefixes <b>always</b> test against values present in elements.  In all cases, a prefix-based test against an
   element that does not exist will fail the test.  To search for elements missing values, the use of search modifiers
