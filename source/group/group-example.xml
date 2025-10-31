@@ -17,23 +17,48 @@
   <type value="animal"/>
   <membership value="enumerated"/>
   <code>
+    <coding>
+      <system value="http://example.org/fhir/CodeSystem/group-example-type"/>
+      <code value="horse"/>
+      <display value="Horse"/>
+    </coding>
     <text value="Horse"/>
   </code>
   <quantity value="25"/>
   <characteristic>
     <code>
+      <coding>
+        <system value="http://example.org/fhir/CodeSystem/group-example-characteristic"/>
+        <code value="gender"/>
+        <display value="Gender"/>
+      </coding>
       <text value="gender"/>
     </code>
     <valueCodeableConcept>
+      <coding>
+        <system value="http://example.org/fhir/CodeSystem/group-example-gender"/>
+        <code value="mixed"/>
+        <display value="Mixed"/>
+      </coding>
       <text value="mixed"/>
     </valueCodeableConcept>
     <exclude value="false"/>
   </characteristic>
   <characteristic>
     <code>
+      <coding>
+        <system value="http://example.org/fhir/CodeSystem/group-example-characteristic"/>
+        <code value="owner"/>
+        <display value="Owner"/>
+      </coding>
       <text value="owner"/>
     </code>
     <valueCodeableConcept>
+      <coding>
+        <system value="http://example.org/fhir/CodeSystem/group-example-owner"/>
+        <code value="john-smith"/>
+        <display value="John Smith"/>
+      </coding>
       <text value="John Smith"/>
     </valueCodeableConcept>
     <exclude value="false"/>
