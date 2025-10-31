@@ -43,25 +43,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ServiceRequest-body-site"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="deprecated"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ServiceRequest.bodySite"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ServiceRequest-body-site"/>
-        <description value="DEPRECATED: Where procedure is going to be done"/>
-        <code value="body-site"/>
-        <type value="token"/>
-        <expression value="ServiceRequest.bodySite"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="ServiceRequest-body-structure-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
