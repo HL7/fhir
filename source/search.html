@@ -3527,6 +3527,17 @@ characteristic-value=gender$mixed,owner$john-smith</span>
  Other modifier is <code>:text</code> on token - use "~"? or ""?
  -->
  </p>
+ <p>
+   <span class="fhir-conformance">Composite search parameters SHALL NOT declare components that reference other composite search parameters.</span>
+   All components of a composite search parameter must be non-composite (i.e., of one of the other basic or extended types).
+   If a desired design would logically include the behavior of an existing composite search parameter, that nesting can be
+   flattened by listing the underlying "leaf" component search parameters directly in the new composite.
+ </p>
+ <p>
+   For example, instead of defining a composite parameter <code>code-value-quantity-and-device</code> whose components are the existing
+   <code>code-value-quantity</code> composite plus a <code>device</code> component (which would constitute nesting), define a new composite parameter
+   with components <code>code</code>, <code>value-quantity</code>, and <code>device</code> (each pointing to the appropriate non-composite search parameters).
+ </p>
  
  <p>
  Examples of using composite parameters:
