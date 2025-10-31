@@ -662,21 +662,29 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/definition-method"/>
       </binding>
     </element>
-    <element id="Group.characteristic.determinedBy[x]">
-      <path value="Group.characteristic.determinedBy[x]"/>
-      <short value="Defines the characteristic"/>
-      <definition value="Defines the characteristic (without using type and value) by either a Reference or an Expression."/>
-      <requirements value="The value of the characteristic is what determines group membership."/>
+    <element id="Group.characteristic.formula">
+      <path value="Group.characteristic.formula"/>
+      <short value="Formal algorithm to derive the value"/>
+      <definition value="A CQL, FHIRPath, or other expression that is used to generate the value for this characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+    </element>
+    <element id="Group.characteristic.determiner">
+      <path value="Group.characteristic.determiner"/>
+      <short value="Who determines the value"/>
+      <definition value="The entity who is expected to evaluate the characteristic value for candidate group members."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
-      </type>
-      <type>
-        <code value="Expression"/>
       </type>
     </element>
     <element id="Group.characteristic.offset">

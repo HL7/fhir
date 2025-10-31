@@ -16,8 +16,79 @@
 <p>Both use cases are handled by a single resource because the data elements captured tend to be similar.</p>
 <p>NOTE: While <a href="specimen.html">Specimen</a> does not quite fit with this definition, it is being retained as part of
 Group to avoid making a breaking change to the <a href="observation.html">Observation</a> resource.</p>
+<h3>Defining Group Inclusion and Exclusion Criteria</h3>
+  <p>The Group definition, specifying the criteria for membership in the Group, may be expressed with one or more Group.characteristic elements. Here we describe how the Group StructureDefinition is used to express inclusion and exclusion criteria for group membership.</p>
+<h4>Group.membership</h4>
+<p>Group.membership requires one of three codes:</p>
+<ul>
+    <li>'enumerated': Use this code if the Group Resource lists the group members and/or specifies the number of entities in the group. Use of the 'enumerated' code will require use of the Group.type element.</li>
+    <li>'definitional': Use this code if the Group Resource provides structured data (i.e. the Group.characteristic values) that is necessary and sufficient to define the qualifications for group membership (the inclusion and exclusion criteria for defining what makes something a member of the group). Use of the 'definitional' code will require use of the Group.type element. If a group is both enumerated and definitional, then use the enumerated code.</li>
+    <li>'conceptual': Use this code if the Group Resource is an abstract representation of a group that is neither enumerated (listing or counting actual members) nor definitional (providing complete definition for membership qualifications). A different use of the 'conceptual' code is when the Group is otherwise 'definitional' but the Group.type cannot be used because the actual type value is not included in FHIR types.</li>
+</ul>
+<h4>Group.combinationMethod</h4>
+<p>Group.combinationMethod is used when there are two or more Group.characteristic instances to define how the characteristics are combined.</p>
+<ul>
+    <li>Use a code 'all-of' to indicate that each of the characteristics must be met. This is functionally equivalent to combining all characteristics with an AND operator.</li>
+    <li>Use a code 'any-of' to indicate that at least one of the characteristics must be met. This is functionally equivalent to combining all characteristics with an OR operator.</li>
+    <li>Use a code 'at-least' to indicate that at least n of the characteristics must be met. Use Group.combinationThreshold to specify the value of n.</li>
+    <li>Use a code 'at-most' to indicate that at most n of the characteristics must be met. Use Group.combinationThreshold to specify the value of n.</li>
+    <li>Use a code 'except-subset' to indicate that the characteristics expressed as exclusion criteria are used as exceptions to meeting the characteristics expressed as inclusion criteria. Explaining by example: “Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years” (<a href="group-example-conceptualcohortdefinition-cancer-except-subset.html">Example of Group for Cancer Except Subset</a>).</li>
+</ul>
+<h4>Group.combinationThreshold</h4>
+<p>Provides the value of "n" when "at-least" or "at-most" codes are used for Group.combinationMethod (see above)</p>
+<h4>Group.characteristic.code</h4>
+<p>Each characteristic must have a code value (CodeableConcept datatype) to specify the attribute. For instance:</p>
+<ul>
+    <li>for a characteristic of "age &gt; 18 years” the attribute is “age” and the attribute of age may be expressed as</li>
+</ul>
+<p>"code": { "coding": [ { "system": "http://snomed.info/sct", "code": "397669002", "display": "Age" } ] }</p>
+<ul>
+    <li>for a characteristic of "Body mass index &gt;= 30 kg/m2" the attribute is "Body mass index" and the attribute may be expressed as</li>
+</ul>
+<p>"code": { "coding": [ { "system": "http://loinc.org", "code": "39156-5", "display": "Body mass index (BMI) [Ratio]" } ] }</p>
+<h4>Group.characteristic.value[x]</h4>
+<p>Each characteristic must have a value[x] value to specify the value of the attribute that holds for members of the group. There is no [x] in the JSON or XML expression as it is replaced with the data type (CodeableConcept, boolean, Quantity, Range, Reference, uri, or Expression)</p>
+<p>For instance:</p>
+<ul>
+    <li>for a characteristic of "age &gt; 18 years” the value is “&gt; 18 years” and the value may be expressed with a Quantity datatype as</li>
+</ul>
+<p>"valueQuantity": { "comparator": "&gt;=", "value": 18, "unit": "years",</p>
+<p> "system": "http://unitsofmeasure.org", "code": "a" }</p>
+<ul>
+    <li>for a characteristic of "Body mass index &gt;= 30 kg/m2" the value is "&gt;= 30 kg/m2" and the value may be expressed as</li>
+</ul>
+<p>"valueQuantity": { "comparator": "&gt;=", "value": 30, "unit": "kg/m2",</p>
+<p>"system": "http://unitsofmeasure.org", "code": "kg/m2" }</p>
+<h4>Group.characteristic.exclude</h4>
+<p>Sometimes group membership is determined by characteristics not possessed. When this is the case, the Group.characteristic.exclude element has a value of true ("exclude": true). For characteristics that are not exclusion criteria, the Group.characteristic.exclude element has a value of false ("exclude": false). The exclude element is required.</p>
+<p>For example, an exclusion criterion of HbA1c ≥ 14.0% is expressed as:</p>
+<p>{ "description": "HbA1c ≥ 14.0%", "code": {; "coding": [ { "system": "http://loinc.org", "code": "59261-8", "display": "Hemoglobin A1c/Hemoglobin.total in Blood" } ] }, "valueQuantity": { "value": 14, "comparator": "&gt;=", "unit": "%", "system": "http://unitsofmeasure.org", "code": "%" }, "exclude": true }</p>
+<h4>Group.characteristic.description</h4>
+<p>A short, natural language description of the characteristic (using the markdown datatype) that could be used to communicate the criteria to an end-user. The description element is for convenience so that end users can understand the characteristic and is neither a required part of the characteristic nor part of the structured representation of the characteristic.</p>
+<h4>Group.characteristic.method</h4>
+<p>The method modifies the Group.characteristic.code and indicates how the value is to be determined, using the CodeableConcept datatype. For example, HbA1C values can be determined by High-Performance Liquid Chromatography or by Capillary electrophoresis.</p>
+<p>The method may be expressed as multiple concepts, eg. standing barefoot for Height measurements could be expressed as two separate concepts (standing, barefoot) that express the method.</p>
+<h4>Group.characteristic.formula</h4>
+<p>The formula modifies the Group.characteristic.code and indicates how the value is to be determined, using an Expression datatype.</p>
+<h4>Group.characteristic.determiner</h4>
+<p>The determiner modifies the Group.characteristic.code and indicates who or what determines the value, using a Reference datatype. The determiner value may reference a person (<a href="practitioner.html">Practitioner</a> or <a href="practitionerrole.html">PractitionerRole</a> Resource) or group (<a href="organization.html">Organization</a> Resource) or device. The reference to a device can be either to a specific device using the <a href="device.html">Device</a> Resource, or the <a href="devicemetric.html">DeviceMetric</a> Resource if a specific set of device parameters is needed, or a type of device using the <a href="devicedefinition.html">DeviceDefinition</a> Resource.</p>
+<h4>Group.characteristic.offset</h4>
+<p>Defines the reference point for comparison when other than 0. As an example, to express a characteristic of a calcium level greater than the normal limit or a hemoglobin level less than 1 g/dL below the reference range, the offset concept would represent "normal limit" or "reference range".</p>
+<p>This is a modifier element because it modifies the meaning of the characteristic.value[x].</p>
+<h4>Group.characteristic.instances[x]</h4>
+<p>Number of occurrences meeting the characteristic.</p>
+<p>There should be a constraint on the Quantity.value and Range.low.value and Range.high.value that it can only be non-negative whole numbers.</p>
+<h4>Group.characteristic.duration[x]</h4>
+<p>Length of time in which the characteristic is met.</p>
+<h4>Group.characteristic.period</h4>
+<p>The period over which the characteristic is tested; e.g. the patient had an operation during the month of June.</p>
+<h4>Group.characteristic.timing</h4>
+<p>The relative time in which the characteristic is tested, eg. within a month following patient discharge.</p>
+<p>Note: RelativeTime is a recent addition to the Group Resource. RelativeTime is used to express a point in time or an interval of time relative to an event defined in data types other than dateTime.</p>
+<p>Example: <a href="group-example-outcomedefinition-hba1c-at-12-months.html">Example of Group for HbA1c at 12 months</a></p>
+<p>Example includes timing and offset "At 12 months form inclusion in a clinical trial. Inclusion is defined as enrollment via the SNOMED code.</p>
+<p>"timing": [ { "contextCode": { "coding": [ { "system": "http://snomed.info/sct", "code": "709491003", "display": "Enrollment in clinical trial" } ] }, "offsetDuration": { "value": 12, "unit": "months", "system": "http://unitsofmeasure.org", "code": "mo" }, "text": "at 12 months" }</p>
 </div>
-
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
