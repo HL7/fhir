@@ -23,11 +23,11 @@
 <p>
   Any FHIR application may support the use of Subscriptions.  In this documentation:
   <ul>
-    <li><b>Server</b> refers to the FHIR application or applications acting as the subscription provider.  This includes the responsibilities of implementing one or more <code>SubscriptionTopics</code>, managing <code>Subscriptions</code>, and sending notifications.</li>
+    <li><b>Server</b> refers to the FHIR application or applications acting as the subscription provider, such as a FHIR Server or monitoring system converting internal events into FHIR notifications. This includes the responsibilities of implementing one or more <code>SubscriptionTopics</code>, managing <code>Subscriptions</code>, and sending notifications.</li>
     <li><b>Client</b> or <b>Subscriber</b> refers to the application or applications requesting topic-based notifications.  This includes the responsibilities of acting as a FHIR client (to create a <code>Subscription</code>) and receiving notifications on a supported channel.</li>
     <li><b>Endpoint</b> refers to the portion of the client which is responsible for receiving notifications, if applicable. For example, when using the <code>rest-hook</code> channel type the endpoint is the HTTP server listening for notifications. While part of the client, it is often useful to refer to the endpoint separately for clarity.</li>
   </ul>
-  Note: either role may be implemented by one or more applications across one or more systems.
+  <b>Note:</b> Implementations of Subscriptions are not required to expose a FHIR REST API themselves; architectures may separate subscription notification services from a FHIR Server. Either role may be implemented by one or more applications across one or more systems.
 </p>
 
 <a name="bnr"></a>
