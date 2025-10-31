@@ -7,6 +7,36 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Emergency visit that escalated into inpatient patient @example</div>
 	</text>
 	<status value="in-progress" />
+	<businessStatus>
+		<code>
+			<coding>
+				<system value="http://hl7.org/fhir/encounter-businessstatus-emergency"/>
+				<code value="triaged"/>
+				<display value="Triaged"/>
+			</coding>
+		</code>
+		<type>
+			<system value="http://hl7.org/fhir/encounter-businessstatus-type"/>
+			<code value="emergency"/>
+			<display value="Emergency"/>
+		</type>
+		<effectiveDate value="2017-02-01T08:00:00+10:00"/>
+	</businessStatus>
+	<businessStatus>
+		<code>
+			<coding>
+				<system value="http://hl7.org/fhir/encounter-businessstatus-inpatient"/>
+				<code value="admit"/>
+				<display value="Admitted"/>
+			</coding>
+		</code>
+		<type>
+			<system value="http://hl7.org/fhir/encounter-businessstatus-type"/>
+			<code value="inpatient"/>
+			<display value="Inpatient"/>
+		</type>
+		<effectiveDate value="2017-02-01T09:27:00+10:00"/>
+	</businessStatus>
 	<class>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
