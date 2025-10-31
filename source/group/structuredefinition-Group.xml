@@ -23,6 +23,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".active = false"/>
   </extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Group"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>

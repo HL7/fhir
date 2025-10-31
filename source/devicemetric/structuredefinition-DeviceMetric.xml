@@ -125,6 +125,7 @@
       </type>
       <isSummary value="true"/>
       <isModifier value="true"/>
+      <isModifierReason value="This must be filled out by the committee"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricOperationalStatus"/>

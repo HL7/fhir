@@ -254,6 +254,7 @@
         <description value="A type of resource, or a Reference (from all versions)"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
         <additional>
+				  <key value="b-sub-1"/>
           <purpose value="ui"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
           <shortDoco value="This is the value set to use for just R5 resource types"/>

@@ -505,6 +505,7 @@
 				<description value="A type of resource, or a Reference (from all versions)"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
 				<additional>
+				  <key value="b-sp-1"/>
 					<purpose value="ui"/>
 					<valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
 					<shortDoco value="This is the value set to use for just R5 resource types"/>
@@ -594,6 +595,7 @@
 				<description value="A type of resource, or a Reference (from all versions)"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
 				<additional>
+				  <key value="b-sp-2"/>
 					<purpose value="ui"/>
 					<valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
 					<shortDoco value="This is the value set to use for just R5 resource types"/>

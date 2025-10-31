@@ -3886,7 +3886,7 @@
         </designation>
       </concept>
       <concept>
-        <code value="rm-ch"/>
+        <code value="rm-CH"/>
         <display value="Romansh (Switzerland)"/>
         <designation>
           <language value="en"/>
