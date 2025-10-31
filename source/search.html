@@ -4905,8 +4905,11 @@ more data than request, however clients can generally expect that returned eleme
 </ul>
 </p>
 <p>
+This parameter is allowed to be used for interactions other than 'search'. See the <a href="http.html#parameters">RESTful API</a> page.
+</p>
+<p>
 Servers are not obliged to return just the requested elements.
-<span class="fhir-conformance">Servers SHOULD always return mandatory and modifier elements whether they are
+<span class="fhir-conformance">Servers SHOULD return mandatory and modifier elements whether they are
 requested or not.</span> <span class="fhir-conformance">Servers SHOULD mark the resources with the
 tag <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-SUBSETTED"><code>SUBSETTED</code></a>
 to ensure that the incomplete resource is not actually used to overwrite
