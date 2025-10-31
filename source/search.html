@@ -3988,8 +3988,8 @@ some reference parameters may be "chained" by appending them with
 a period (<code>.</code>) followed by the name of a search parameter defined for the target
 resource. This can be done recursively, following a logical path
 through a graph of related resources, separated by <code>.</code>.  Note that chaining is only
-allowed for reference search parameters that target <a href="references.html#Reference">Reference</a> 
-FHIR type elements.
+defined for <a href="#reference">reference</a> type search parameters that target <a href="references.html#Reference">Reference</a> 
+FHIR type elements and <a href="#resource">resource</a> type search parameters. 
 For instance, given that the resource <a href="diagnosticreport.html">DiagnosticReport</a>
 has a search parameter named <i>subject</i>, which is usually a
 reference to a <a href="patient.html">Patient</a> resource, and
@@ -4959,7 +4959,7 @@ The score is a decimal number with a value between (and including) 0 and 1, wher
   </li>
   <li>
     <b><code>[_include|_revinclude]=[resource]:*</code></b>: where <code>[resource]</code> is the name of the source resource from which the join comes
-    and the wildcard literal <code>*</code> (asterisk) is requesting all supported reference type search parameters for that resource.  Note that
+    and the wildcard literal <code>*</code> (asterisk) is requesting all supported <a href="#reference">reference</a> and <a href="#resource">resource</a> type search parameters for that resource.  Note that
     the list of search parameters supported for <code>_include</code> or <code>_revinclude</code> is not the same as the list of supported search parameters.
   </li>
   <li>
@@ -4968,7 +4968,7 @@ The score is a decimal number with a value between (and including) 0 and 1, wher
   </li>
   <li>
     <b><code>[_include|_revinclude]=[resource]:[parameter]:[targetType]</code></b>: where <code>[resource]</code> is the name of the source resource from which
-    the join comes, <code>[parameter]</code> is the name of a search parameter which must be of type <code>reference</code>, and <code>[targetType]</code> is
+    the join comes, <code>[parameter]</code> is the name of a search parameter which must be of type <code>reference</code> or <code>resource</code>, and <code>[targetType]</code> is
     a specific resource type (for when a search parameter refers to references of multiple types).
   </li>
  </ul>
@@ -5069,9 +5069,9 @@ _include:iterate=Observation:has-member&amp;criteria...</span>
 </span>
 </p>
 <p>
-Both <code>_include</code> and <code>_revinclude</code> use the wild card "*" for the search parameter
-name, indicating that any search parameter of type=reference be included.  Though
-both clients and servers need to take care not to request or return too many resources
+Both <code>_include</code> and <code>_revinclude</code> allow the use of a wild card "*" for the search parameter
+name, indicating that any search parameter of <code>type=reference</code> or <code>type=resource</code> be included. 
+Both clients and servers need to take care not to request or return too many resources
 when doing this. Most notably, using iterative wildcards inclusions might lead to the retrieval of the
 full patient's record, or even more than that: resources are organized into an interlinked network
 and broad <code>_include</code> paths may eventually traverse all possible paths on the server. For
