@@ -467,13 +467,16 @@
     </element>
     <element id="Medication.definition">
       <path value="Medication.definition"/>
-      <short value="Knowledge about this medication"/>
-      <definition value="A reference to a knowledge resource that provides more information about this medication. This element can be used to help with Cross Border use cases and separately it may also be useful if someone needs to drill into more medication specific information."/>
+      <short value="Definition of the medication"/>
+      <definition value="A reference to a definitional resource that provides more information about this medication."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationKnowledge"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdminstrableProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
       </type>
     </element>
   </differential>
