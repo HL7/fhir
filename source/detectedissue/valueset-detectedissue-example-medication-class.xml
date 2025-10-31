@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="research-subject-state"/>
+  <id value="detectedissue-example-medication-class"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="brr"/>
+    <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft"/>
+    <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3131"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/detectedissue-example-medication-class"/>
   <version value="6.0.0"/>
-  <name value="ResearchSubjectState"/>
-  <title value="Research Subject State"/>
+  <name value="DetectedIssueExampleMedicationClass"/>
+  <title value="Detected Issue Example Medication Class"/>
   <status value="draft"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -36,11 +32,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Indicates the progression of a study subject through a study."/>
+  <description value="Example value set illustrating medication classes."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/research-subject-state"/>
+      <system value="http://hl7.org/fhir/detectedissue-example-medication-class"/>
     </include>
   </compose>
 </ValueSet>

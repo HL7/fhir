@@ -8,7 +8,7 @@
     <text value="Refill Request"/>
   </code>
   <focus>
-    <reference value="MedicationRequest/medrx002"/>
+    <valueCanonical value="http://hl7.org/fhir/MedicationRequest/medrx002"/>
   </focus>
   <for>
     <reference value="Patient/f001"/>
