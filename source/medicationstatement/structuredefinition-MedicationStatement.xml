@@ -513,7 +513,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=PERT].target[classCode=OBV,moodCode=EVN].value[xsi:type=BL]"/>
+        <map value="outboundRelationship[typeCode=PERT].target[classCode=OBV,moodCode=EVN].value[xsi:type=CD]"/>
       </mapping>
     </element>
     <element id="MedicationStatement.adherence.code">
