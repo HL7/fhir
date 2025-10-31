@@ -11,7 +11,7 @@
 		<valueCode value="trial-use"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
+		<valueInteger value="4"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
 		<valueCode value="business"/>
@@ -79,6 +79,9 @@
 		<element id="Evidence">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="0,40"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Evidence/EvidenceVariable maturity level 4: Brian Alper/Joanne Dehnbostel: 19-0-0"/>
 			</extension>
 			<path value="Evidence"/>
 			<short value="Single evidence bit"/>
