@@ -3507,14 +3507,14 @@ code-value-quantity=loinc|12907-2$ge150|http://unitsofmeasure.org|mmol/L</span>
   <span class="http-search-example">
     <span class='http-verb-selector'>Show as unencoded: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
     <span class="http-verb-display">
-      <span class="http-verb-display-get">GET [base]/Group?characteristic-value=gender$mixed,owner$Eve</span>
+      <span class="http-verb-display-get">GET [base]/Group?characteristic-value=gender$mixed,owner$john-smith</span>
       <span class="http-verb-display-post">POST [base]/Group/_search
 Content-Type: application/x-www-form-urlencoded
-characteristic-value=gender$mixed,owner$Eve</span>
+characteristic-value=gender$mixed,owner$john-smith</span>
     </span>
   </span>
     will match Groups that have a <code>gender</code> characteristic of "mixed" (the group contains people of
-    multiple genders) OR the group has a <code>owner</code> characteristic of "Eve".
+    multiple genders) OR the group has a <code>owner</code> characteristic of "john-smith".
   </p>
  <p>
  Note that <a href="#modifiers">search modifiers</a> are NOT allowed on composite parameters.
