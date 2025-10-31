@@ -64,7 +64,7 @@
   </concept>
   <concept>
     <code value="data-request"/>
-    <display value="data request task"/>
+    <display value="Data request task"/>
     <definition value="A type of Task asking the Task.owner to deliver the data corresponding to the characteristics defined by the Task.inputs to the Task.requester"/>
   </concept>
 </CodeSystem>

@@ -19,17 +19,17 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/transport-code"/>
   <content value="complete"/>
   <concept>
-    <code value="SpecimenTransport"/>
+    <code value="specimen-transport"/>
     <display value="Specimen Transport"/>
     <definition value="Event documenting the transport of a specimen"/>
   </concept>
   <concept>
-    <code value="PatientMove"/>
+    <code value="patient-move"/>
     <display value="Move of Patient"/>
     <definition value="Event documenting the transport of a patient"/>
   </concept>
   <concept>
-    <code value="InventoryTransport"/>
+    <code value="inventory-transport"/>
     <display value="Inventory Transport"/>
     <definition value="Event documenting the transport of physical items from an inventory list"/>
   </concept>

@@ -42,17 +42,17 @@
   <content value="complete"/>
   <concept>
     <code value="reference"/>
-    <display value="reference range"/>
+    <display value="Reference range"/>
     <definition value="Reference (Normal) Range for Ordinal and Continuous Observations."/>
   </concept>
   <concept>
     <code value="critical"/>
-    <display value="critical range"/>
+    <display value="Critical range"/>
     <definition value="Critical Range for Ordinal and Continuous Observations. Results outside this range are critical."/>
   </concept>
   <concept>
     <code value="absolute"/>
-    <display value="absolute range"/>
+    <display value="Absolute range"/>
     <definition value="Absolute Range for Ordinal and Continuous Observations. Results outside this range are not possible."/>
   </concept>
 </CodeSystem>

@@ -71,7 +71,6 @@ In contrast to the Observation resource, the <a href="diagnosticreport.html">Dia
 <p>
 The Observation resource is used extensively for observations about people, groups, devices, locations, substances, and procedures – not about the record describing these entities. The Observation resource contains several elements related to the origin and quality of the observation. To record more detailed information about the source of an Observation, the <a href="provenance.html">Provenance</a> resource may be used. More in-depth commentary about or evaluation of the Observation record itself may be recorded in <a href="artifactassessment.html">ArtifactAssessment</a>.
 </p>
-  </div>
 
 <a name="stu"></a>
 <blockquote class="ballot-note">
@@ -80,4 +79,5 @@ A new <code>organizer</code> element (trial-use) is added to the normative Obser
 </p>
 </blockquote>
 
+</div>
 </div>

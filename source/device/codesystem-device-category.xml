@@ -47,7 +47,7 @@
   </concept>
   <concept>
     <code value="communicating"/>
-    <display value="communicating"/>
+    <display value="Communicating"/>
     <definition value="Device communicates electronically to peer information systems or possibly another device."/>
   </concept>
   <concept>
@@ -73,7 +73,7 @@
   <concept>
     <code value="point-of-care"/>
     <display value="Point of Care"/>
-    <definition value="a class of communicating devices that are used by medical providers for various purposes (e.g., monitoring, delivering or measuring)."/>
+    <definition value="A class of communicating devices that are used by medical providers for various purposes (e.g., monitoring, delivering or measuring)."/>
   </concept>
   <concept>
     <code value="single-use"/>
