@@ -94,6 +94,8 @@ Generally, the process for moving an Additional Resource to core is:
  <li>The resource will be added to the next ballot of FHIR core.</li>
  <li>The resource will be officially available when the milestone release that includes it is published.</li>
  <li>Concurrently with that FHIR Core publication, the status of the 'additional' definition should be updated so that it is deprecated and then eventually removed</li>
+ <li>Once the resource has been moved to core, the <code>resourceDefinition</code> element defined for XML and JSON is allowed to remain present, but SHOULD NOT be added.
+    If it is present, the version SHALL be correct with regards to the published core FHIR version</li>
 </ul>
 
 <blockquote class="ballot-note">
