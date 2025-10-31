@@ -298,6 +298,44 @@ in order to support consistent definitions for schema and UML derived code.
         between the observations.
     </p>
 
+    <h4>Imaging</h4>
+
+    <h5>Representation of DICOM SR measurements using FHIR resources</h5>
+    <p>DICOM® Structured Report (DICOM® SR) is a standard for recording clinical imaging observations made regarding a diagnostic or interventional imaging procedure. Imaging Observations are made by humans, such as a sonographer making measurements on recently acquired ultrasound image, a Radiologist recording observations on suspected lesions, or by a machine, such as an automated AI Algorithm providing qualitative and quantitative observations.</p>
+
+    <p>The standards for recording clinical observations, DICOM® SR and HL7 FHIR Observation resource are bridged by the DICOM SR IG by the transformation of the DICOM SR attributes to the HL7 FHIR Observation Resource.</p>
+
+    <b>Example use cases:</b>
+    <ul>
+        <li>Extracting imaging results for use in reporting.</li>
+        <li>Extracting imaging results for FHIRcast content sharing.</li>
+    </ul>
+
+    <p>
+        <div>
+            <img src="diagnostic-module-imaging-fig1.png" alt="Extracting imaging results for use in reporting" width="1000" />
+            <figure>Figure 1: Extracting imaging results for use in reporting.</figure>
+        </div>
+    </p>
+
+    <p>DICOM SR mapping to FHIR is limited to the Observation resource and a small set of related resources. The resultant mapping is provided, as a minimum, a composition or bundle of Observations. Depending on the use case, the observations may be part of or contained in a Diagnostic Report. Use case-specific requirements to construct a diagnostic report(e.g. Mammography) may require the transformation described in the DICOM SR IG. However, the detailed elaboration of those use cases are not in scope in that IG or here in the Diagnostics module.</p>
+
+    <p>
+        <div>
+            <img src="diagnostic-module-imaging-fig2.png" alt="DICOM SR measurements and finding site represented with FHIR resource profiles" width="750" />
+            <figure>Figure 2: DICOM SR measurements and finding site represented with FHIR resource profiles.</figure>
+        </div>
+    </p>
+
+    <p>The mapping of the core DICOM SR measurement groups, measurements and qualitative analysis content items are covered by the Observation resource profiles, representing various measurements related DICOM SR templates. The Observation resource profiles depend on number of ImagingSelection resource profiles, as shown in Figure 3. FindingSite profiles the BodyStructure resource representing a finding site content item from the DICOM SR templates.</p>
+
+    <p>
+        <div>
+            <img src="diagnostic-module-imaging-fig3.png" alt="ObservationImagingSelection profiles" width="500" />
+            <figure>Figure 3: ObservationImagingSelection profiles.</figure>
+        </div>
+    </p>
+
     <a name="uses"></a>
     <h3>Common Use Cases</h3>
     <p>

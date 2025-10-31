@@ -75,7 +75,7 @@
   </synthesisType>
   <studyDesign>
     <coding>
-      <system value="http://hl7.org/fhir/study-design"/>
+      <system value="https://fevir.net/sevco"/>
       <code value="SEVCO:01003"/>
       <display value="randomized assignment"/>
     </coding>
@@ -83,9 +83,9 @@
   <statistic>
     <statisticType>
       <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
-        <code value="C16932"/>
-        <display value="Odds Ratio"/>
+        <system value="https://fevir.net/sevco"/>
+        <code value="SEVCO:01016"/>
+        <display value="Uncontrolled cohort design"/>
       </coding>
     </statisticType>
     <quantity>

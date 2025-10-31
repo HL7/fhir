@@ -67,7 +67,7 @@
   </variableDefinition>
   <studyDesign>
     <coding>
-      <system value="http://hl7.org/fhir/study-design"/>
+      <system value="https://fevir.net/sevco"/>
       <code value="SEVCO:01016"/>
       <display value="Uncontrolled cohort design"/>
     </coding>
@@ -76,9 +76,9 @@
     <description value="5.3% risk"/>
     <statisticType>
       <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
-        <code value="C44256"/>
-        <display value="Proportion"/>
+        <system value="https://fevir.net/sevco"/>
+        <code value="SEVCO:01016"/>
+        <display value="Uncontrolled cohort design"/>
       </coding>
       <text value="derived proportion"/>
     </statisticType>

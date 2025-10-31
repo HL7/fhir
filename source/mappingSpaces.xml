@@ -448,56 +448,29 @@
 	</space>
 	<space>
 		<url>urn:iso:std:iso:11073:10201</url>
-		<link>https://standards.ieee.org/standard/11073-10201-2018.html</link>
+		<link>https://standards.ieee.org/ieee/11073-10201/6847</link>
 		<columnName>ISO/IEEE 11073-10201</columnName>
-		<title>ISO/IEEE 11073-10201</title>
+		<title>ISO/IEEE 11073-10201: Domain Information Model</title>
 		<id>DIM</id>
 		<sort>42</sort>
 		<publish>true</publish>
 	</space>
 	<space>
-		<url>urn:iso:std:iso:11073:10207</url>
-		<link>https://standards.ieee.org/standard/11073-10207-2019.html</link>
-		<columnName>ISO/IEEE 11073-10207</columnName>
-		<title>ISO/IEEE 11073-10207</title>
-		<id>BICEPS</id>
+		<url>urn:iso:std:iso:11073:10206</url>
+		<link>https://standards.ieee.org/ieee/11073-10206/11702</link>
+		<columnName>ISO/IEEE 11073-10206</columnName>
+		<title>ISO/IEEE 11073-10206: Personal health device communication--Abstract content information model</title>
+		<id>ACOM</id>
 		<sort>43</sort>
 		<publish>true</publish>
 	</space>
 	<space>
-		<url>http://hl7.org/fhir/consent</url>
-    <link>http://hl7.org/fhir/consent.html</link>
-		<columnName>Consent Mapping</columnName>
-		<title>FHIR Consent Mapping</title>
-		<id>fhirconsent</id>
+		<url>urn:iso:std:iso:11073:10207</url>
+		<link>https://standards.ieee.org/ieee/11073-10207/10075</link>
+		<columnName>ISO/IEEE 11073-10207</columnName>
+		<title>ISO/IEEE 11073-10207: Domain Information and Service Model for Service-Oriented Point-of-Care Medical Device Communication</title>
+		<id>BICEPS</id>
 		<sort>44</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-	    <url>https://www.isbt128.org/uri/</url>
-		<link>https://www.isbt128.org/uri/</link>
-		<columnName>ISBT 128 Code</columnName>
-		<title>ISBT 128 Codes</title>
-		<id>ISBT128Code</id>
-		<sort>51</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-		<url>https://www.iso.org/obp/ui/#iso:std:iso:11238</url>
-		<link>https://www.iso.org/obp/ui/#iso:std:iso:11238</link>
-		<columnName>IDMP Mapping (Substance)</columnName>
-		<title>IDMP Mapping (Substance)</title>
-		<id>idmp-substance</id>
-		<sort>52</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-		<url>urn:iso:std:iso:11073:10206</url>
-		<link>https://standards.ieee.org/ieee/11073-10206/11702/</link>
-		<columnName>ISO/IEEE 11073-10206</columnName>
-		<title>ISO/IEEE 11073-10206: Personal health device communication abstract content information model</title>
-		<id>ACOM</id>
-		<sort>53</sort>
 		<publish>true</publish>
 	</space>
 	<space>
@@ -506,7 +479,34 @@
 		<columnName>ISO/IEEE 11073-20701</columnName>
 		<title>ISO/IEEE 11073-20701: Service oriented medical device exchange architecture and protocol binding</title>
 		<id>IEEESDC</id>
-		<sort>43</sort>
+		<sort>45</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/consent</url>
+    <link>http://hl7.org/fhir/consent.html</link>
+		<columnName>Consent Mapping</columnName>
+		<title>FHIR Consent Mapping</title>
+		<id>fhirconsent</id>
+		<sort>46</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+	    <url>https://www.isbt128.org/uri/</url>
+		<link>https://www.isbt128.org/uri/</link>
+		<columnName>ISBT 128 Code</columnName>
+		<title>ISBT 128 Codes</title>
+		<id>ISBT128Code</id>
+		<sort>47</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<url>https://www.iso.org/obp/ui/#iso:std:iso:11238</url>
+		<link>https://www.iso.org/obp/ui/#iso:std:iso:11238</link>
+		<columnName>IDMP Mapping (Substance)</columnName>
+		<title>IDMP Mapping (Substance)</title>
+		<id>idmp-substance</id>
+		<sort>48</sort>
 		<publish>true</publish>
 	</space>
 	<space>
@@ -516,7 +516,7 @@
 		<columnName>DICOM Mapping</columnName>
 		<title>DICOM Tag Mapping</title>
 		<id>dicom</id>
-		<sort>44</sort>
+		<sort>49</sort>
     	<publish>true</publish>
 	</space>
 	<space>
@@ -525,7 +525,7 @@
 		<columnName>Bluetooth Technology</columnName>
 		<title>Bluetooth Technology</title>
 		<id>btle</id>
-		<sort>45</sort>
+		<sort>50</sort>
     	<publish>true</publish>
 	</space>
 </mappingSpaces>

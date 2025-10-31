@@ -18,10 +18,15 @@
 <a name="introduction"> </a>
 <h4>Introduction</h4>
 
+<a name="biomedical-evidence"> </a>
+<h5>Biomedical Evidence</h5>
+
+<p>Biomedical evidence is the set of facts and interpretations derived from scientific analysis of observations of members of a group. The certainty of the ‘facts’ may vary due to many factors including methodological factors, statistical factors, contextual factors, and the relatedness between the group the evidence was derived from and the group the interpretation is intended for.</p>
+
 <a name="scope"> </a>
 <h5>Scope</h5>
 
-<p>The reporting of biomedical evidence is the reporting of facts and interpretations derived from analysis of observations of members of a group.  The certainty of the ‘facts’ may vary due to many factors including methodological factors, statistical factors, contextual factors, and the relatedness between the group the evidence was derived from and the group the interpretation is intended for.</p>
+<p>The domain of biomedical evidence includes original research, secondary research, and evidence synthesis.</p>
 
 <a name="audience"> </a>
 <h5>Audience</h5>
@@ -30,41 +35,73 @@
 
 <p>The broad communities producing, analyzing, synthesizing, disseminating and implementing clinical research (evidence) and recommendations for clinical care (clinical practice guidelines) frequently send or receive biomedical evidence reports.</p>
 
+<a name="ebmonfhir"> </a>
+<h4>Evidence-Based Medicine on FHIR (EBMonFHIR)</h4>
+
 <a name="purpose"> </a>
 <h5>Purpose</h5>
 
 <p>The co-primary objectives of the <a href="https://confluence.hl7.org/display/CDS/EBMonFHIR">Evidence-Based Medicine on FHIR Project</a> are to meet the needs of the evidence generation, evidence processing, and guideline development communities and to facilitate interoperability between these communities and the patient care communities.</p>
 
+<a name="participation"> </a>
+<h5>Participation</h5>
+
+<p>The EBMonFHIR Project, sponsored by HL7 Clinical Decision Support (CDS) Work Group, and co-sponsored by HL7 Biomedical Research and Regulation (BRR) and Clinical Quality Information (CQI) Work Groups, is open to participation through multiple meetings each week. Meeting details are posted at <a href="https://confluence.hl7.org/display/CDS/EBMonFHIR">Evidence-Based Medicine on FHIR Project</a>.</p>
+
 <a name="resources"> </a>
 <h4>Resources</h4>
 
-<p>The <a href="evidence.html">Evidence Resource</a> provides a machine-interpretable expression of an evidence concept. It is comprised of specification of the group to which the evidence refers (i.e., population), one or more evidence variables (e.g., exposures/interventions, comparators, outcomes, confounding variables), the  statistics, and the certainty of the evidence. The <b>Evidence Resource</b> enables machine-to-machine communication of results of research or observations of groups.</p>
+<a name="evidence-resource"> </a>
+<h5>Evidence Resource</h5>
 
-<p>The <a href="evidence-definitions.html#Evidence.certainty">certainty Element</a> provides a machine-interpretable expression of certainty, confidence or quality of the resource in which it is included. The <b>certainty Element</b> can express overall certainty and certainty of any subcomponent concepts using codeable concepts from structured rating systems. The <b>certainty Element</b> enables machine-to-machine communication of the certainty of evidence.</p>
+<p>The <a href="evidence.html">Evidence Resource</a> provides a machine-interpretable expression of an evidence concept. It is comprised of specification of the group to which the evidence refers (i.e., population), one or more evidence variables (e.g., exposures/interventions, comparators, outcomes, confounding variables), the statistics, and the certainty of the evidence. The <b>Evidence Resource</b> enables machine-to-machine communication of results of research or observations of groups.</p>
 
-<p>The reporting of biomedical evidence is the reporting of facts and interpretations derived from analysis of observations of members of a group.  The certainty of the ‘facts’ may vary due to many factors including methodological factors, statistical factors, contextual factors, and the relatedness between the group the evidence was derived from and the group to which the evidence is applied.</p>
+<p>The <a href="evidence-definitions.html#Evidence.variableDefinition">variableDefinition Element</a> provides a precise specification of what the evidence is about, represented as a definition of each of the variables. In the EBM communities (evidence analysis, systematic reviews, clinical practice guidelines) a common organizational framework used for the research question, the systematic review focus, and the recommendation focus is PICO which stands for Population, Intervention, Comparator, and Outcome. There are variations such as PECO for research questions about non-interventional exposures, PICOT for adding time conventions, and PICOTS for adding system context, but PICO is the most prominent organizational framework across the EBM knowledge assets activities. In the statistically-defined evidence variables, represented by codes in Evidence.variableDefinition.variableRole, Population is coded as &#39;population&#39;, Intervention and Comparator are coded as &#39;exposure&#39;, and Outcome is coded as &#39;outcome&#39;.</p>
+
+<p>The <a href="evidence-definitions.html#Evidence.statistic">statistic Element</a> provides codeable concepts and numerical data elements to capture all aspects of the statistical data, including sample size, statistic types and quantities, statistical measures about the statistic (called attribute estimates, such as p values and confidence intervals), and statistical model characteristics.</p>
+
+<p>The <a href="evidence-definitions.html#Evidence.certainty">certainty Element</a> provides a machine-interpretable expression of certainty, confidence or quality of the resource in which it is included. The <b>certainty Element</b> can express overall certainty and certainty of any subcomponent concepts using codeable concepts from structured rating systems. The <b>certainty Element</b> enables machine-to-machine communication of the certainty of evidence. The reporting of biomedical evidence is the reporting of facts and interpretations derived from analysis of observations of members of a group. The certainty of the ‘facts’ may vary due to many factors including methodological factors, statistical factors, contextual factors, and the relatedness between the group the evidence was derived from and the group to which the evidence is applied.</p>
+
+<a name="evidencevariable-resource"> </a>
+<h5>EvidenceVariable Resource</h5>
 
 <p>The <a href="evidencevariable.html">EvidenceVariable Resource</a> provides a machine-interpretable expression of a description of a single evidence variable (e.g., a single exposure or a single outcome), including its precise definition, how the data values are measured, processed, and stored. The definition of an <b>EvidenceVariable</b> may be expressed using a CodeableConcept datatype and/or using a Reference datatype to a Group Resource for a definition combining two or more CodeableConcepts. The <b>EvidenceVariable Resource</b> enables machine-to-machine communication of descriptions and attributes of evidence variables and can be used to find Evidence Resources that match the context of interest, and can be used to understand how to interpret datasets.</p>
 
+<a name="group-resource"> </a>
+<h5>Group Resource</h5>
+
+<p>Although the Group Resource is not maintained through the EBMonFHIR project or its sponsoring Work Groups, the Group Resource is functionally used to represent the population (as an enumerated study group or a definitional set of eligibility criteria) and also used for ‘conceptual’ groups of characteristics for representing the definition of any complex concept as structured data (called conceptual cohort definitions).</p>
+
 <p>The <a href="group.html">Group Resource</a> provides a machine-interpretable expression of a group, and may be expressed as an enumerated group, a definitional group, or a conceptual group. An enumerated group may be specified as a list of members and/or a set of characteristics, and may have a quantity. A definitional group is expressed as a set of characteristics which defines the eligibility criteria for group membership. In FHIR, an enumerated group and a definitional group are each expected to specify the type of group member with allowed types limited to concepts expressed in FHIR Resources. A conceptual group is a group of characteristics that collectively represent a compound definition and might or might not be restricted to use with allowed types. The <b>Group Resource</b> is used within the context of an Evidence Resource to report the evidence variable in the role of population and is also used for providing complex definitions for EvidenceVariable Resources. The <b>Group Resource</b> enables machine-to-machine communication of descriptions and characteristics of groups and can be used to find Evidence Resources that match the population of interest.</p>
 
-<p>The <a href="citation.html">Citation Resource</a> provides a machine-interpretable expression of the identification and location of a knowledge artifact. The scope of the <b>Citation Resource</b> is to describe any aspect of identification, location, authorship, and contributorship to a journal article, report, document, resource, or other knowledge artifact. Citations are used extensively in scholarly communication and important for documenting the evidence or source behind statements of fact, opinion, and interpretation. Citations are also used for acknowledgment of the contributions of individuals and groups to the creation and advancement of knowledge. The <b>Citation Resource</b> enables reference to any knowledge artifact for purposes of identification and attribution. The <b>Citation Resource</b> supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.</p>
+<a name="citation-resource"> </a>
+<h5>Citation Resource</h5>
+
+<p>The <a href="citation.html">Citation Resource</a> provides a machine-interpretable expression of the identification and location of a knowledge artifact. The scope of the <b>Citation Resource</b> is to describe any aspect of identification, location, authorship, and contributorship to a journal article, report, document, resource, or other knowledge artifact. Citations are used extensively in scholarly communication and important for documenting the evidence or source behind statements of fact, opinion, and interpretation. Citations are also used for acknowledgment of the contributions of individuals and groups to the creation and advancement of knowledge. The <b>Citation Resource</b> enables reference to any knowledge artifact for purposes of identification and attribution. The <b>Citation Resource</b> supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources. The Citation Resource was moved from the FHIR specification to the Evidence Based Medicine on FHIR Implementation Guide.</p>
+
+<a name="artifactassessment-resource"> </a>
+<h5>ArtifactAssessment Resource</h5>
 
 <p>The <a href="artifactassessment.html">ArtifactAssessment Resource</a> provides one or more comments, classifiers or ratings about a Resource and supports attribution and rights management metadata for the added content. External/additional comments, classifiers, and ratings are extensively used in scientific communication throughout peer-review, critical appraisal of research methods and results, and evidence synthesis.</p>
 
-<p>An <a href="[%ig ebm%]">Evidence-Based Medicine on FHIR Implementation Guide</a> is in development.</p>
+<a name="researchstudy-resource"> </a>
+<h5>ResearchStudy Resource</h5>
 
-<a name="pico-vs.-statistically-defined-evidence-variables"> </a>
-<h4>PICO vs. Statistically-defined evidence variables</h4>
+<p>The <a href="researchstudy.html">ResearchStudy Resource</a> provides a structured representation of the research study protocol.</p>
 
-<p>In the EBM communities (evidence analysis, systematic reviews, clinical practice guidelines) a common organizational framework used for the research question, the systematic review focus, and the recommendation focus is PICO which stands for Population, Intervention, Comparator, and Outcome. There are variations such as PECO for research questions about non-interventional exposures, PICOT for adding time conventions, and PICOTS for adding system context, but PICO is the most prominent organizational framework across the EBM knowledge assets activities.</p>
+<a name="composition-resource"> </a>
+<h5>Composition Resource</h5>
 
-<p>In the statistically-defined evidence variables, represented by codes in Evidence.variableDefinition.variableRole, Population is coded as 'population', Intervention and Comparator are coded as 'exposure', and Outcome is coded as 'outcome'.</p>
+<p>Reporting a collection of Citation, Evidence, EvidenceVariable, Group, ArtifactAssessment, and ResearchStudy Resources can be done with a Bundle or List Resource. However, neither Bundle nor List conveys any organization of relationships among the referenced Resources. Reporting collections of Resources for scientific knowledge typically requires data on their relationships and this is best served with a <a href="composition.html">Composition Resource</a>.</p>
+
+<p>The primary content of a <b>Composition Resource</b> is mainly a repeatable hierarchical section element. Each section element instance may contain a title element (string), code element (CodeableConcept), and/or focus element (Reference) to specify what the section is about; a text element (Narrative) for readable summary of the section content; an array of entry elements (Reference) to reference other Resources as the section content; and an array of section elements to contain other sections as the section content.</p>
+
+<p>To support many common patterns of <b>Composition</b> use for EBM communication, the Evidence Based Medicine on FHIR Implementation Guide contains numerous Profiles of <b>Composition</b>. The EvidenceReport Resource in prior versions of FHIR has been replaced with an EvidenceReport Profile of <b>Composition Resource</b>. See the <a href="[%ig ebm%]">Evidence-Based Medicine on FHIR Implementation Guide</a> for details.</p>
 
 <a name="use-cases"> </a>
 <h4>Use Cases</h4>
 
-<p>The combinations of Citation, Evidence, EvidenceVariable, and ArtifactAssessment Resources can be used for many purposes, including:
+<p>The combinations of Evidence, EvidenceVariable, Group, Citation, ResearchStudy, ArtifactAssessment, and Composition Resources can be used for many purposes, including:
 <ul>
 	<li>Reporting combinations of classifiers, risk of bias assessments, evidence variables, and evidence for a single study.</li>
 	<li>Reporting a summary of individual results from multiple studies.</li>
@@ -74,16 +111,14 @@
 </ul>
 </p>
 
-<a name="compositions-of-evidence-related-resources"> </a>
-<h4>Compositions of evidence-related resources:</h4>
+<a name="implementation-guide"> </a>
+<h4>Implementation Guide</h4>
 
-<p>Reporting a collection of Citation, Evidence, EvidenceVariable, Group, and ArtifactAssessment Resources can be done with a Bundle or List Resource. However, neither Bundle nor List conveys any organization of relationships among the referenced Resources.  Reporting collections of Resources for scientific knowledge typically requires data on their relationships and this is best served with a Composition Resource.</p>
+<p>An <a href="[%ig ebm%]">Evidence-Based Medicine on FHIR Implementation Guide</a> provides a broad base for use of the EBMonFHIR project derived Resources.</p>
 
-<p>The primary content of a Composition Resource is mainly a repeatable hierarchical section element. Each section element instance may contain a title element (string), code element  (CodeableConcept), and/or focus element  (Reference) to specify what the section is about; a text element (Narrative) for readable summary of the section content; an array of entry elements (Reference) to reference other Resources as the section content; and an array of section elements to contain other sections as the section content.</p>
+<p>This Implementation Guide defines profiles and value sets for the representation of scientific knowledge. This implementation guide is intended for developers of systems using FHIR for data exchange of scientific knowledge and for authors of more specialized implementation guides in this domain.</p>
 
-<p>To support many common patterns of Composition use for EBM communication, the Evidence Based Medicine on FHIR Implementation Guide contains numerous Profiles of Composition.</p>
-
-<p>The EvidenceReport Resource in prior versions of FHIR has been replaced with an EvidenceReport Profile of Composition Resource. See the <a href="[%ig ebm%]">Evidence-Based Medicine on FHIR Implementation Guide</a> for details.</p>
+<p>This implementation guide covers the broad scope of representation of scientific knowledge, including (1) citations to represent identification, location, classification, and attribution for knowledge artifacts; (2) components of research study design including study eligibility criteria (cohort definitions) and endpoint analysis plans; (3) research results including the statistic findings, definition of variables for which those findings apply, and the certainty of these findings; (4) assessments of research results; (5) aggregation and synthesis of research results; (6) judgments regarding evidence syntheses and contextual factors related to recommendations; (7) recommendations; and (8) compositions of combinations of these types of knowledge. The types of interoperability covered include syntactic (Resource StructureDefinitions) and semantic (value sets).</p>
 
 <a name="participate"> </a>
 <h4>Participate in EBMonFHIR</h4>

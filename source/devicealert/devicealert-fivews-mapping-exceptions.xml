@@ -1,12 +1,11 @@
 <mappingExceptions pattern="FiveWs" resource="DeviceAlert" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
-    <unmappedElement patternPath="FiveWs.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.author" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.actor" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.recorded" reason="No need identified in the core uses cases."/>
+    <unmappedElement patternPath="FiveWs.cause" reason="DeviceAlerts are not typically in response to a prompt."/>
+    <unmappedElement patternPath="FiveWs.version" reason="DeviceAlerts are typically short-lived, independent events, and revisions are not tracked. If needed, use meta.version"/>
     <unmappedElement patternPath="FiveWs.witness" reason="This resource is expected to be recorded by the source device."/>
-    <unmappedElement patternPath="FiveWs.init" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.who" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.planned" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.init" reason="DeviceAlerts are not typically planned; see FiveWs.done."/>
+    <unmappedElement patternPath="FiveWs.source" reason="Second-hand attestation of alerts is not a considered use case; see FiveWs.author."/>
+    <unmappedElement patternPath="FiveWs.who" reason="No additional relevant actors identified."/>
+    <unmappedElement patternPath="FiveWs.planned" reason="DeviceAlerts are not planned events."/>
 </mappingExceptions>

@@ -115,13 +115,6 @@
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
       <constraint>
-        <key value="obs-8"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if Observation.bodySite is not present"/>
-        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-      </constraint>
-      <constraint>
         <key value="obs-10"/>
         <severity value="error"/>
         <human value="Observation.component.dataAbsentReason SHALL only be present if Observation.component.value[x] is not present"/>
@@ -441,7 +434,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes identifying names of simple observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -841,6 +834,30 @@
         <map value="363713009 |Has interpretation|"/>
       </mapping>
     </element>
+    <element id="Observation.interpretationContext">
+      <path value="Observation.interpretationContext"/>
+      <short value="Context for understanding the observation"/>
+      <definition value="Other preceding or concurrent information that is critical to understand the context and significance of the observation."/>
+      <comment value="This element provides essential contextual information that affects how the observation should be interpreted. For example, knowing that a patient is diabetic, fasting, or paraplegic may be critical to properly understanding lab results or other observations."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationInterpretationContext"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying contextual factors that affect interpretation of observations."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation-context"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=PERT].target"/>
+      </mapping>
+    </element>
     <element id="Observation.note">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="GF#17576."/>
@@ -869,19 +886,21 @@
       </mapping>
     </element>
     <element id="Observation.bodySite">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Is this in the 80%?"/>
       </extension>
       <path value="Observation.bodySite"/>
-      <short value="Observed body part"/>
-      <definition value="Indicates the site on the subject's body where the observation was made (i.e. the target site)."/>
-      <comment value="Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component."/>
+      <short value="DEPRECATED: Observed body part"/>
+      <definition value="DEPRECATED: This element is deprecated. Use bodyStructure instead. Indicates the site on the subject's body where the observation was made (i.e. the target site)."/>
+      <comment value="DEPRECATED: Use bodyStructure instead. Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="obs-8"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
@@ -911,20 +930,27 @@
       </mapping>
     </element>
     <element id="Observation.bodyStructure">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Observation.bodyStructure"/>
       <short value="Observed body structure"/>
       <definition value="Indicates the body structure on the subject's body where the observation was made (i.e. the target site)."/>
-      <comment value="Only used if not implicit in code found in Observation.code or bodySite is used. In many systems, this may be represented as a related observation instead of an inline component."/>
+      <comment value="Only used if not implicit in code found in Observation.code. In many systems, this may be represented as a related observation instead of an inline component. Use this element instead of the deprecated bodySite element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <condition value="obs-8"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructure"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Codes describing anatomical body structures. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body Structures"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="targetSiteCode"/>
@@ -1400,7 +1426,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes identifying names of simple observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
       </binding>
       <mapping>
         <identity value="w5"/>

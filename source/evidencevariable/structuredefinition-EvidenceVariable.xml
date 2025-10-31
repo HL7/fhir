@@ -11,7 +11,7 @@
 		<valueCode value="trial-use"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
+		<valueInteger value="4"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
 		<valueCode value="business"/>
@@ -80,6 +80,9 @@
 		<element id="EvidenceVariable">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="0,0"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Evidence/EvidenceVariable maturity level 4: Brian Alper/Joanne Dehnbostel: 19-0-0"/>
 			</extension>
 			<path value="EvidenceVariable"/>
 			<short value="A definition of an exposure, outcome, or other variable"/>
@@ -645,6 +648,7 @@
 			<path value="EvidenceVariable.handling"/>
 			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | time-to-event | not-specified"/>
 			<definition value="The method of handling in statistical analysis."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -652,10 +656,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableHandling"/>
+					<valueString value="EvidenceVariableHandlingExample"/>
 				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
 			</binding>
 		</element>
 		<element id="EvidenceVariable.category">
