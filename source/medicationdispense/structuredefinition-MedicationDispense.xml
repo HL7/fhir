@@ -761,6 +761,29 @@
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]"/>
       </mapping>
     </element>
+    <element id="MedicationDispense.doseAdministrationAid">
+      <path value="MedicationDispense.doseAdministrationAid"/>
+      <short value="Type of adherence packaging to use for the dispense"/>
+      <definition value="Provides information about the type of adherence packaging supplied for the medication dispense."/>
+      <comment value="When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.&#xD;The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationDispenseDoseAdministrationAid"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="A coded concept describing the type of adherence packaging supplied for the medication dispense."/>
+        </extension>
+        <strength value="example"/>
+        <description value="DoseAdministrationAid"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-dose-aid"/>
+      </binding>
+    </element>
+
     <element id="MedicationDispense.substitution">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Significant discssion around this topic.  Might not have it right yet. What about the attribution?"/>
