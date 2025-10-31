@@ -87,6 +87,7 @@ search declarations</a></span>, and clients are encouraged to do this too.
       <li><a href="#type">Searching Multiple Resource Types</a></li>
       <li><a href="#implicitresources">Implicit Resources</a></li>
       <li><a href="#advanced">Named Queries</a></li>
+      <li><a href="#additional">Searching for 'additional' Resources</a></li>
     </ul>
   </li>
   <li><a href="#modifyingresults">Modifying Search Results</a>
@@ -4477,6 +4478,33 @@ _query=current-high-risk&amp;birthdate=ge1970-01-01&amp;ward=Location/A1</span>
     </tr>
   </table>
  </span>  
+</p>
+
+<a name="additional"></a>
+<h4>Searching for 'additional' Resources</h4>
+<p>
+  FHIR allows specifications to define <a href="resource.html#additional">"additional" resources</a> beyond those in the
+  core set. These are defined outside the base specification but use the same infrastructure and search framework.
+  There is no special behavior or different syntax required when searching for these resources: servers and clients
+  use the same search parameter names and processing rules as for "standard" (core) resources.
+</p>
+<p>
+  <span class="fhir-conformance">The specification (or Implementation Guide) that defines an additional resource <b>SHOULD</b> define a set of
+  standard search parameters for that resource</span> so that a minimal level of interoperability is possible. Other
+  specifications are free to define further search parameters (subject to the usual namespacing and conformance
+  declarations). Servers MAY also define custom parameters as with any other resource type.
+</p>
+<p>
+  Clients might encounter previously unknown additional resource types in search results. This can happen if
+  the server returns them via unrequested <code>_include</code> / <code>_revinclude</code> processing or if they appear
+  as <a href="#contained">contained</a> resources within search bundle entries. Clients SHOULD be robust in the
+  presence of such resources (e.g., safely ignore, render generically, or retrieve definitions as appropriate) and
+  avoid failing the entire response simply due to an unfamiliar additional resource type.
+</p>
+<p>
+  No extra conformance statement elements or flags are needed to enable searching additional resources beyond those
+  already described for ordinary resources; capability exposure and parameter support are declared in the same way
+  (e.g., via <code>CapabilityStatement.rest.resource</code> and associated <code>searchParam</code> elements).
 </p>
 
 <a name="modifyingresults"></a>
