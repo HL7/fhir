@@ -2500,22 +2500,29 @@ an hour is present, and you SHOULD provide a timezone if the time part is presen
 characters in the URL, and servers SHALL handle this correctly.</span>
 </p>
 <p>
-  Date searches are intrinsically matches against 'periods', regardless of the underlying element type.  For more 
-  information about how the different search prefixes work when comparing periods/ranges, refer to the 
-  <a href="#prefix">Prefixes</a> section.  Date parameters are defined to be used with the following data types:
+  Date searches are intrinsically matches against 'periods', regardless of the underlying element type. Date parameters can be used with the following data types:
 </p>
 <table class="grid">
- <tr><td><a href="datatypes.html#date">date</a></td><td>The range of the value is the day, month, or year as specified</td></tr>
- <tr><td><a href="datatypes.html#dateTime">dateTime</a></td><td>The range of the value as defined above; e.g., For example, the
-   date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013</td></tr>
- <tr><td><a href="datatypes.html#instant">instant</a></td><td>An instant is considered a fixed point in time with an interval smaller than the precision of the system, i.e., an interval with an effective width of 0</td></tr>
- <tr><td><a href="datatypes.html#Period">Period</a></td><td>Explicit, though the upper or lower bound might not actually be specified in resources.</td></tr>
- <tr><td><a href="datatypes.html#Timing">Timing</a></td><td>the specified scheduling details are ignored and only the outer limits matter. For instance, a schedule that specifies every second day between
-   31-Jan 2013 and 24-Mar 2013 includes 1-Feb 2013, even though that is on an odd day that is not specified by the period. This is
-   to keep the server load processing queries reasonable.</td></tr>
+ <tr><td><a href="datatypes.html#date">date</a></td><td>The period start and end are both set to the date value.</td></tr>
+ <tr><td><a href="datatypes.html#dateTime">dateTime</a></td><td>The period start and end are both set to the dateTime value; e.g., the
+   date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013.</td></tr>
+ <tr><td><a href="datatypes.html#instant">instant</a></td><td>The period start and end are both set to the instant value.</td></tr>
+ <tr><td><a href="datatypes.html#Period">Period</a></td><td>No conversion necessary; the period is explicit, though note that the upper or lower bound might not be specified in resources.</td></tr>
+ <tr><td><a href="datatypes.html#Timing">Timing</a></td><td>The period has a start of the lowest dateTime within the timing and an end of the highest dateTime within the timing. The specified scheduling details are ignored and only the outer limits matter. For instance, a schedule that specifies a certain time on every second day between
+   31-Jan 2013 and 24-Mar 2013 includes 1-Feb 2013, even though that is on an odd day that is not specified by the period. Similarly, the period would include the start of 31-Jan 2023 through the end of 24-Mar 2023, ignoring the scheduled time (unless the outer limits were accurate to that time). This is
+   to keep the server load processing queries reasonable. <b>Note that servers are allowed to process internal intervals, if it is desired and relevant.</b></td></tr>
 </table>
 <p>
-Implicitly, a missing lower boundary is "less than" any actual date.  A missing upper boundary is "greater than" any actual date.
+The 'period' of a date search is from the earliest instant of the value through to the latest instant of the value. When comparing, the period start is adjusted 
+to have maximum precision with the lowest possible value of all non-specified levels.  For example, first month of the year, first day of the month, 0-filled time. 
+The period end is adjusted to have maximum precision with the highest possible value of all non-specified levels - last month of the year, last day of the month 
+(allowing for leap years), last time of the day (i.e. 23:59:59.99999).
+</p>
+<p>
+  For more information about how the different search prefixes work when comparing periods/ranges, refer to the <a href="#prefix">Prefixes</a> section.
+</p>
+<p>
+A missing lower boundary is "less than" any actual date.  A missing upper boundary is "greater than" any actual date.
 Date searches can be controlled through the use of prefixes as described in the following table:
 </p>
 <table class="grid">
