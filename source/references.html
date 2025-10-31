@@ -114,9 +114,8 @@ When the type is provided directly, it SHALL agree with the type determined by r
 the resource.
 </p>
 <p>
-Note that in practice, it is often not necessary to know what the type of the target resource is,
-unless it's going to be resolved anyway, so in many cases, specifying the type of the
-target resource is unnecessary.
+Note that if a literal reference to a FHIR resource is used, it is duplicative to include the type
+in the reference. However, in cases such as above, using Reference.identifier including the type is useful.
 </p>
 <p>
 In order to support <a href="structuredefinition.html#logical">Logical Models</a>,
