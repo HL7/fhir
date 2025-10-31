@@ -225,20 +225,41 @@
         <map value=".formCode"/>
       </mapping>
     </element>
-    <element id="Medication.totalVolume">
-      <path value="Medication.totalVolume"/>
-      <short value="When the specified product code does not infer a package size, this is the specific amount of drug in the product"/>
-      <definition value="When the specified product code does not infer a package size, this is the specific amount of drug in the product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
+    <element id="Medication.packageSize">
+      <path value="Medication.packageSize"/>
+      <short value="When the code does not specify the package size, this backbone element can be used to specify the overall amount of medication in the package"/>
+      <definition value="When the code does not specify the package size, this backbone element can be used to specify the overall amount of medication in the package."/>
+      <comment value="To represent a medication that has 5 vials with 10ml in each vial and the medication code just represents a vial, then the number of Items would be '5 vial' and the amountPerItem would be '10ml/vial'. To represent a medication where there are 300 tablets and the code is for 100mg tablets, the number of items would be '300 tablets'" />
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Quantity"/>
+        <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".quantity"/>
       </mapping>
+    </element>
+    <element id="Medication.packageSize.numberOfItems">
+      <path value="Medication.packageSize.numberOfItems"/>
+      <short value="The number of items in the package that are represented by the code"/>
+      <definition value="The number of items in the package that are represented by the code, e.g. 5 vials or 100 tablets."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="SimpleQuantity"/>
+      </type>
+    </element>
+    <element id="Medication.packageSize.amountPerItem">
+      <path value="Medication.packageSize.amountPerItem"/>
+      <short value="The amount per each item"/>
+      <definition value="The amount per each item, e.g. 10 ml / vial."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Ratio"/>
+      </type>
     </element>
     <element id="Medication.ingredient">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
