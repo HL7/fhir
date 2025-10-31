@@ -1125,6 +1125,12 @@
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
+			<type>
+				<code value="uri"/>
+			</type>
+			<type>
+				<code value="Attachment"/>
+			</type>
 			<condition value="que-7"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
