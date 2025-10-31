@@ -67,25 +67,6 @@
   <type value="true"/>
   <instance value="false"/>
   <parameter>
-    <name value="measureId"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation
-      value="The id of a Measure resource that is on the server for which the measure will be evaluated."/>
-    <type value="id"/>
-  </parameter>
-  <parameter>
-    <name value="measureIdentifier"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation
-      value="The business identifier of the measure to be evaluated."/>
-    <type value="string"/>
-    <searchType value="token"/>
-  </parameter>
-  <parameter>
     <name value="measureUrl"/>
     <use value="in"/>
     <min value="1"/>
