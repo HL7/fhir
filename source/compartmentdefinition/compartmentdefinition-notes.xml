@@ -38,7 +38,7 @@ URLs respectively:
   GET [base]/Condition?patient=[id]&amp;code:in=http://hspc.org/ValueSet/acute-concerns
 </pre>
 <p>
-The outcome of a compartment search is the same as the equivalent normal search. 
+The outcome of a compartment search is the same as the equivalent system or type search and will have full URLs that are not compartment-specific. 
 For example, both these searches return the same outcome if there is no patient 333:
 </p>
 <pre>
@@ -79,6 +79,16 @@ Further details of searching by compartment are <a href="http.html#vsearch">desc
 As a search related operation, the assignment of resources to compartments is only based on 
 the current version of any of the resources involved. Note that <a href="references.html#contained">contained</a>
 patient resources cannot create a patient compartment of their own. 
+</p>
+
+<p>
+<b>Supported Interactions:</b> The only RESTful interaction defined on a compartment endpoint is <code>search</code>. 
+Reads, writes (create, update, patch, delete), history, operations (e.g. <code>$validate</code>, <code>$lastn</code>) 
+and batch/transaction POSTs are not defined when invoked through a compartment-qualified URL such as <code>[base]/Patient/[id]/Condition/[rid]</code> 
+or <code>[base]/Patient/[id]/Condition/$lastn</code>. Clients SHOULD NOT expect servers to support these interactions via compartment-qualified paths,
+however servers MAY choose to implement them. To interact with a specific instance or invoke an operation that targets a resource type or instance, 
+use the native URL for the resource (e.g. <code>[base]/Condition/[id]</code>). See the <a href="http.html#vsearch">HTTP Search variants</a> and 
+<a href="search.html#searchcontexts">Search Contexts</a> for further details.
 </p>
 
 <p>
