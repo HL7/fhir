@@ -306,6 +306,28 @@
         <map value="NA"/>
       </mapping>
     </element>
+    <element id="Medication.ingredient.role">
+      <path value="Medication.ingredient.role"/>
+      <short value="A code that defines the type of ingredient, active, base, etc."/>
+      <definition value="Indication of whether this ingredient affects the therapeutic action of the drug."/>
+      <requirements value="This can be used in combination with the isActive element to provide further information about the type of ingredient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationIngredientRole"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-RoleClassIngredientEntity"/>
+      </binding>      
+      <mapping>
+        <identity value="rim"/>
+        <map value="NA"/>
+      </mapping>
+    </element>
     <element id="Medication.ingredient.strength[x]">
       <path value="Medication.ingredient.strength[x]"/>
       <short value="Quantity of ingredient present"/>
