@@ -245,7 +245,7 @@
         <valueCode value="0,200"/>
       </extension>
       <path value="Medication.ingredient"/>
-      <short value="Active or inactive ingredient"/>
+      <short value="Components of a medication. These can be ingredient substances or other medications, in the case of combination packaged medications."/>
       <definition value="Identifies a particular constituent of interest in the product."/>
       <comment value="The ingredients need not be a complete list.  If an ingredient is not specified, this does not indicate whether an ingredient is present or absent.  If an ingredient is specified it does not mean that all ingredients are specified.  It is possible to specify both inactive and active ingredients.  If Medication.code represents a fully specified product (the product + the strength + the dosage form) then including ingredients is duplicative.  However, there may be implementation considerations which dictate including ingredients when Medication.code is a fully specified product.  For compounded products, active and inactive ingredients should be included.  However, even with all ingredients specified, a Medication resource should not be considered a &quot;recipe&quot; as the sequence and techniques for preparing the final product cannot be included."/>
       <min value="0"/>
@@ -260,7 +260,7 @@
     </element>
     <element id="Medication.ingredient.item">
       <path value="Medication.ingredient.item"/>
-      <short value="The ingredient (substance or medication) that the ingredient.strength relates to"/>
+      <short value="The specific substance or medication that is the ingredient"/>
       <definition value="The ingredient (substance or medication) that the ingredient.strength relates to.  This is represented as a concept from a code system or described in another resource (Substance or Medication)."/>
       <comment value="The ingredient may reference a medication substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base)."/>
       <min value="1"/>
