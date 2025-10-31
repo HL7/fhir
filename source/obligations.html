@@ -87,6 +87,12 @@ with its use by providing one or more obligations using the <%extension http://h
 For further details about how to use the obligation extension, consult <a href="<%extensions-location%>StructureDefinition-obligation.html">the extension documentation</a>.
 </p>
 
+<p>
+If an element has obligations, it SHOULD also set the mustSupport flag to true. However, in some cases, legacy
+interpretation of the meaning of mustSupport makes making the flag true problematic. If an element with obligations
+has the mustSupport flag left as false, the mustSupport documentation of that profile or IG SHOULD document the
+rationale for the discrepancy.
+</p>
 [%file newfooter%]
 </body>
 </html>
