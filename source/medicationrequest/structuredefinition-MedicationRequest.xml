@@ -744,6 +744,7 @@ When true, active orders that may exist for the same medication are expected to 
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>        
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/> 
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
