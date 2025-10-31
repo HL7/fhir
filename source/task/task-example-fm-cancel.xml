@@ -27,10 +27,7 @@
     </coding>
   </code>
   <focus>
-    <identifier>
-      <system value="http://happyvalley.com/claim"/>
-      <value value="1500"/>
-    </identifier>
+    <valueCanonical value="http://happyvalley.com/claim/1500"/>
   </focus>
   <authoredOn value="2018-10-04T08:25:05+10:00"/>
   <lastModified value="2018-10-04T08:25:05+10:00"/>

@@ -34,7 +34,7 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	</code>
 	<!--	Filler generated order using a fictive  servicerequest to complete the loop-->
 	<focus>
-		<display value="BloodDraw ServiceRequest"/>
+		<valueCanonical value="http://hl7.org/fhir/ServiceRequest/BloodDrawf201"/> 
 	</focus>
 	<!--	who the task is for
 -->
@@ -72,11 +72,5 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 		<display value="Clinical Laboratory @ Acme Hospital"/>
 	</owner>
-	<restriction>
-		<repetitions value="1"/>
-		<period>
-			<end value="2016-11-01T09:45:05+10:00"/>
-		</period>
-	</restriction>
 	<!--The expected output of this task is a Specimen and will generated once the task is completed -->
 </Task>
