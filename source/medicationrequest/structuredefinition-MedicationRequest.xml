@@ -54,6 +54,11 @@
     <name value="Workflow Pattern"/>
   </mapping>
   <mapping>
+    <identity value="rx-dispense-rmim"/>
+    <uri value="http://www.hl7.org/v3/PORX_RM020070UV"/>
+    <name value="V3 Pharmacy Dispense RMIM"/>
+  </mapping>  
+  <mapping>
     <identity value="script10.6"/>
     <uri value="http://ncpdp.org/SCRIPT10_6"/>
     <name value="Mapping to NCPDP SCRIPT 10.6"/>
@@ -1118,10 +1123,6 @@ When true, active orders that may exist for the same medication are expected to 
       <mapping>
         <identity value="v2"/>
         <map value="RXD-13 Dispense-to Location; RXD-30 Dispense to Pharmacy; RXD-31 Dispense to Pharmacy Address"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=DST].role"/>
       </mapping>
       <mapping>
         <identity value="rx-dispense-rmim"/>
