@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="catalogType"/>
+  <id value="catalog-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sd"/>
   </extension>
-  <url value="http://hl7.org/fhir/catalogType"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.2013"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/catalog-type"/>
   <version value="6.0.0"/>
   <name value="CatalogType"/>
   <title value="Catalog Type"/>
@@ -34,5 +30,10 @@
     <code value="protocol"/>
     <display value="Protocol List"/>
     <definition value="Protocol List."/>
+  </concept>
+  <concept>
+    <code value="status"/>
+    <display value="Status"/>
+    <definition value="Status."/>
   </concept>
 </CodeSystem>
