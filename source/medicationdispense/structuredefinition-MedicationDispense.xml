@@ -427,6 +427,7 @@
       <path value="MedicationDispense.performer.actor"/>
       <short value="Individual who was performing"/>
       <definition value="The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication."/>
+      <comment value="The different performer functions within a dispense process can vary - and some of these functions may be restricted to clinical professionals - such distinction is usually specific to a jurisdiction and context. While performer.function and performer.actor don't add restrictions on which resources can be referenced, this element is expected to be used according to the local restrictions, for example not allowing Group (e.g., household) or RelatedPerson to be the dispenser."/>
       <min value="1"/>
       <max value="1"/>
       <type>
