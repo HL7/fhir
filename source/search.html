@@ -3884,8 +3884,15 @@ would match QuestionnaireResponses based on Questionnaires with a major version 
   <li>http://example.org/fhir/questionnaire/patient-intake|1.0</li>
   <li>http://example.org/fhir/questionnaire/patient-intake|1.1</li>
 </ul>
-For further information about searching canonical references, 
-see <a href="references.html#canonical-matching">Choosing the right Canonical Reference</a>.
+
+When a canonical URL with an appended version (i.e. <code>[canonical]|[version]</code>) is supplied in a search parameter,
+the version portion is matched by the <code>versionAlgorithm</code> of the resource if known (explicit or derived). 
+If the server does not know the algorithm of the versioning scheme, the version matching falls back to an exact-match, equivalent
+to <a href="#token">token</a> search semantics.  If additional version matching behavior is required, the <code>:above</code> and <code>:below</code>
+modifiers can be used.
+</p>
+<p>
+For further information about searching canonical references, see <a href="references.html#canonical-matching">Choosing the right Canonical Reference</a>.
 </p>
 
 <a name="recursive"></a>
