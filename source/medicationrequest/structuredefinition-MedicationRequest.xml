@@ -860,13 +860,15 @@ When true, active orders that may exist for the same medication are expected to 
         <map value="SubstanceAdministration.text"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.effectiveDosePeriod">
-      <path value="MedicationRequest.effectiveDosePeriod"/>
-      <short value="Period over which the medication is to be taken"/>
-      <definition value="The period over which the medication is to be taken.  Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions."/>
+    <element id="MedicationRequest.effectiveTiming[x]">
+      <path value="MedicationRequest.effectiveTiming[x]"/>
+      <short value="Period over which the medication is to be taken, can be specified as a duration or a range"/>
+      <definition value="The period over which the medication is to be taken. Can be specified as a duration or a range. Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions."/>
       <min value="0"/>
       <max value="1"/>
       <type>
+        <code value="Duration"/>
+        <code value="Range"/>
         <code value="Period"/>
       </type>
       <mapping>
