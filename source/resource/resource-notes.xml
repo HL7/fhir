@@ -63,6 +63,18 @@ id, and they are identified based on other kinds of identifiers. See
 of using resources not associated with RESTful servers.
 </p>
 
+[%dragons-start%]
+<h4>FHIR Version Conversion Issue</h4>
+<p>
+If a system does not have server-unique (as opposed to resource-unique) logical
+ids for resources and are using Basic to do <a href="basic.html">cross-version representations using Basic</a>, be
+aware that ID collisions are possible and problematic. Possible mitigations could
+include prefixing/suffixing ids, using a common id namespace for resources subject
+to being exposed as Basic, or moving to globally unique logical ids. Note that
+ids SHOULD be consistent regardless of the FHIR version used to expose the data.
+</p>
+[%dragons-end%]
+
 <a name="identifier-categories"></a>
 <h4>Identifier Categories</h4>
 <p>
