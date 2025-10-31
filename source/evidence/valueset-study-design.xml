@@ -11,13 +11,13 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="2"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/study-design"/>
   <version value="6.0.0"/>
   <name value="StudyDesign"/>
   <title value="Study Design"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2022-08-24T12:40:00+00:00"/>
   <publisher value="HL7 (FHIR Project)"/>
