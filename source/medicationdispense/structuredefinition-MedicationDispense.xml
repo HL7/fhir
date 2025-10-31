@@ -176,7 +176,7 @@
         <valueString value="Active - processed but not pickup Completed - process and pickup Aborted - process and put back in stock  This is not related to partialFill whioch is really a partialFulfillment of the order."/>
       </extension>
       <path value="MedicationDispense.status"/>
-      <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"/>
+      <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | unfulfilled | declined | unknown"/>
       <definition value="A code specifying the state of the set of dispense events."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
