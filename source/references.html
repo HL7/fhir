@@ -441,6 +441,21 @@ The common case for this is internal references:
 Which is the form for references to the contained value set inside the above example questionnaire.
 </p>
 
+<a name="canonical-references"></a>
+<h3>Canonical Uris and the Reference DataType</h3>
+
+<p>
+If the type of an element is Reference and there is a need to point to a canonical resource, the
+'standard' mechanism for referencing is pointing to a server-specific location the same as any
+non-canonical resource. Reference.reference MAY be populated by the canonical url for the resource,
+though this will only function if the canonical URL resolves. Note that this style of referencing
+cannot convey the 'version' element using the '|' suffix convention. It's also possible to specify a
+canonical url using Reference.identifier, where the system is 'urn:ietf:rfc:3986' and the value is
+the url (note that the version can't be conveyed this way either.) Systems that attempt to resolve
+references via Reference.identifier SHOULD resolve identifiers expressed this way, even if the
+canonical url is not included in the .identifier list of the canonical resource.
+</p>
+
 <a name="rendering"></a>
 <h3>Rendering References in Resource Narratives</h3>
 <p>
