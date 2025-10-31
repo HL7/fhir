@@ -149,7 +149,7 @@
     </element>
     <element id="DeviceDispense.status">
       <path value="DeviceDispense.status"/>
-      <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"/>
+      <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | unfulfilled | declined | unknown"/>
       <definition value="A code specifying the state of the set of dispense events."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
