@@ -1,0 +1,37 @@
+@startuml DiagnosticModuleAbstracted
+!pragma layout smetana
+top to bottom direction
+
+class DerivedImagingMeasurement ##Green {}
+class ImagingMeasurementGroup ##Green {}
+class ImagingQualitativeEvaluation ##Green {}
+class ImagingMeasurement ##Green{}
+abstract class ImagingObservation ##Green {}
+class Observation ##Green{}
+
+DerivedImagingMeasurement --> ImagingMeasurementGroup : derivedFrom
+ImagingMeasurementGroup --> ImagingQualitativeEvaluation : hasMember
+ImagingMeasurementGroup --> ImagingMeasurement : hasMember
+
+
+ImagingObservation --> ObservationImaginigSelection : derivedFrom
+
+ImagingObservation --|> ImagingQualitativeEvaluation
+ImagingObservation --|> ImagingMeasurement
+ImagingObservation --|> ImagingMeasurementGroup
+
+Observation --|> ImagingObservation
+Observation --|> DerivedImagingMeasurement
+
+abstract class ObservationImaginigSelection ##BlueViolet {}
+class ImagingSelection ##BlueViolet{}
+
+ImagingSelection --|> ObservationImaginigSelection
+
+
+class FindingSite ##Orange{}
+class BodyStructure ##Orange{}
+ObservationImaginigSelection --> FindingSite
+BodyStructure --|> FindingSite
+
+@enduml
