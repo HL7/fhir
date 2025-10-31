@@ -20,7 +20,7 @@
     <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".operationalStatus = entered-in-error"/>
+    <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
   <identifier>
@@ -57,24 +57,24 @@
     <uri value="http://hl7.org/v3"/>
     <name value="RIM Mapping"/>
   </mapping>
-    <mapping>
-        <identity value="DIM" />
-        <uri value="urn:iso:std:iso:11073:10201" />
-        <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
-    </mapping>
-    <mapping>
-        <identity value="IEEESDC" />
-        <uri value="urn:iso:std:iso:11073:20701" />
-        <name value="ISO/IEEE 11073-10201 Service-Oriented Device Connectivity (SDC)" />
-      </mapping>
-      <mapping>
-        <identity value="ACOM" />
-        <uri value="urn:iso:std:iso:11073:10206"/>
-        <name value="ISO/IEEE 11073-10206 Abstract Content Information Model (ACOM)"/>
-      </mapping>
-      <kind value="resource"/>
-      <abstract value="false"/>
-      <type value="DeviceMetric"/>
+  <mapping>
+    <identity value="DIM" />
+    <uri value="urn:iso:std:iso:11073:10201" />
+    <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
+  </mapping>
+  <mapping>
+    <identity value="IEEESDC" />
+    <uri value="urn:iso:std:iso:11073:20701" />
+    <name value="ISO/IEEE 11073-10201 Service-Oriented Device Connectivity (SDC)" />
+  </mapping>
+  <mapping>
+    <identity value="ACOM" />
+    <uri value="urn:iso:std:iso:11073:10206"/>
+    <name value="ISO/IEEE 11073-10206 Abstract Content Information Model (ACOM)"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="DeviceMetric"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
   <derivation value="specialization"/>
   <differential>
@@ -116,7 +116,7 @@
     </element>
     <element id="DeviceMetric.status">
       <path value="DeviceMetric.status"/>
-      <short value="on | off | entered-in-error | unknown"/>
+      <short value="active | inactive | entered-in-error | unknown"/>
       <definition value="Indicates current state of the record."/>
       <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
@@ -296,8 +296,7 @@
     <element id="DeviceMetric.color">
       <path value="DeviceMetric.color" />
       <short value="Color name (from CSS4) or #RRGGBB code" />
-      <definition
-        value="The preferred color associated with the metric (e.g., display color). This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth; the metrics are displayed in different characteristic colors, such as HR in blue, BP in green, and PR and SpO2 in magenta." />
+      <definition value="The preferred color associated with the metric (e.g., display color). This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth; the metrics are displayed in different characteristic colors, such as HR in blue, BP in green, and PR and SpO2 in magenta." />
       <min value="0"/>
       <max value="1"/>
       <type>
