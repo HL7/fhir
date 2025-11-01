@@ -793,7 +793,7 @@
 				<key value="que-10"/>
 				<severity value="error"/>
 				<human value="Maximum length can only be declared for simple question types"/>
-				<expression value="(type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url')) or answerConstraint='optionOrString' or maxLength.empty()"/>
+				<expression value="(type in ('string' | 'decimal' | 'integer' | 'text' | 'date' | 'dateTime' | 'time' | 'url')) or answerConstraint='optionOrString' or maxLength.empty()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
