@@ -67,6 +67,30 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Group-characteristic-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-characteristic-quantity"/>
+        <description value="A composite of both characteristic and quantity values"/>
+        <code value="characteristic-quantity"/>
+        <type value="composite"/>
+        <expression value="Group.characteristic"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="characteristic"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="quantity"/>
+          <expression value="(value.ofType(Quantity)) | (value.ofType(Range))"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Group-characteristic-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -209,6 +233,25 @@
         <code value="value"/>
         <type value="token"/>
         <expression value="(Group.characteristic.value.ofType(CodeableConcept)) | (Group.characteristic.value.ofType(boolean))"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Group-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Group.characteristic.value[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Group-value"/>
+        <description value="Quantity Value held by characteristic"/>
+        <code value="quantity"/>
+        <type value="quantity"/>
+        <expression value="(Group.characteristic.value.ofType(Quantity)) | (Group.characteristic.value.ofType(Range))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
