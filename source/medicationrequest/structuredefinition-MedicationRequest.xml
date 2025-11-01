@@ -636,8 +636,8 @@ For example:
       <type>
         <code value="boolean"/>
       </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because this element explicitly makes the request not an authoritative record but for information purposes."/>
+      <!-- <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because this element explicitly makes the request not an authoritative record but for information purposes."/> -->
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
