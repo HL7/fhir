@@ -549,7 +549,7 @@
       <valueString value="Request with 3 reasons to justify alternative."/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="MedicationRequest - alternative (allergy)"/>
+      <valueString value="medicationrequest0350"/>
     </extension>
     <item>
       <reference value="MedicationRequest/medicationrequest0350"/>

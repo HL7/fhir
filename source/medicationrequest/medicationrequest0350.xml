@@ -23,7 +23,7 @@
     <intent value="order"/>
     <medication>
         <reference>
-            <reference value="#med03302"/>
+            <reference value="#med033027"/>
             <display value="doxycycline monohydrate Oral Tablet"/>
         </reference>
     </medication>
