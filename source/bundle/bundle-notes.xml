@@ -230,7 +230,7 @@ Applications reading a Bundle should always <a href="references.html#bundle-refs
 by its identity in the bundle first before trying to access it by its URL externally.
 </p>
 <p>
-Note that reference.value in entry resources can use any URI scheme (in addition to using
+Note that reference.reference in entry resources can use any URI scheme (in addition to using
 relative values like "Patient/123").</p>
 
 <p>
@@ -238,27 +238,27 @@ How to resolve a reference in a Bundle:
 </p>
 
 
-  <p><b>Resolving urns.</b> If the reference.value is a URN (always absolute) (e.g.
+  <p><b>Resolving urns.</b> If the reference.reference is a URN (always absolute) (e.g.
     "urn:uuid:9d1714da-b7e6-455b-bfd2-69ce0ff5fb12")</p>
   <ul>
-    <li>Look for an entry with a fullUrl that matches the reference.value</li>
+    <li>Look for an entry with a fullUrl that matches the reference.reference</li>
     <li>If one is found, the resolution succeeds (and ends) here</li>
     <li>Otherwise, the resolution fails (and ends) here. The reference has no defined meaning within
       this specification.</li>
   </ul>
-  <p><b>Resolving absolute references.</b> If the reference.value is an absolute URL (e.g.,
+  <p><b>Resolving absolute references.</b> If the reference.reference is an absolute URL (e.g.,
     "https://fhir.example.org/base/Patient/123",
     "https://fhir.example.org/base/Patient/123/_history/a"):</p>
   <ul>
-    <li>If the reference.value is versionless (i.e. it has no "/_history/" path segment - e.g.
+    <li>If the reference.reference is versionless (i.e. it has no "/_history/" path segment - e.g.
       "https://fhir.example.org/base/Patient/123"): <ul>
-        <li>Look for an entry with a fullUrl that matches the reference.value</li>
+        <li>Look for an entry with a fullUrl that matches the reference.reference</li>
         <li>If one is found, the resolution succeeds (and ends) here</li>
         <li>If more than one is found, the server MAY look for the most recent version (based on
           meta.lastUpdated). If it is able to find exactly one most recent this way, the resolution
           succeeds (and ends) here</li>
       </ul></li>
-    <li>If the reference.value includes a "_history" path segment (e.g.
+    <li>If the reference.reference includes a "_history" path segment (e.g.
       "https://fhir.example.org/base/Patient/123/_history/a"), split the value into two parts: a
       versionless reference (e.g. "https://fhir.example.org/base/Patient/123" and a version id (e.g.
       "a") <ul>
@@ -274,7 +274,7 @@ How to resolve a reference in a Bundle:
           within this specification.</li>
       </ul></li>
   </ul>
-  <p><b>Resolving relative references against a RESTful base.</b> If the reference.value is of the
+  <p><b>Resolving relative references against a RESTful base.</b> If the reference.reference is of the
     form "[type]/[id]" (e.g., "Patient/123"):</p>
   <ul>
     <li>If the Bundle entry containing the reference has a fullUrl matching the RESTful URL regex
@@ -296,7 +296,7 @@ How to resolve a reference in a Bundle:
     </li>
   </ul>
   <p>Resolving conditional references. If the reference occurs in a transaction Bundle and the
-    reference.value is a conditional reference (e.g.
+    reference.reference is a conditional reference (e.g.
     "http://example.org/base/Patient?identifier=1234"):</p>
   <ul>
     <li>Logically perform all creates, updates and deletes as defined in the Bundle.  (If this involves physically performing the creates, logical references will need to be removed or, potentially based on cardinality or business rules, replaced with a valid temporary reference.)
