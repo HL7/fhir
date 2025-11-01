@@ -299,7 +299,8 @@ How to resolve a reference in a Bundle:
     reference.value is a conditional reference (e.g.
     "http://example.org/base/Patient?identifier=1234"):</p>
   <ul>
-    <li>Perform the [search] specified in the conditional reference on the server. <ul>
+    <li>Logically perform all creates, updates and deletes as defined in the Bundle.  (If this involves physically performing the creates, logical references will need to be removed or, potentially based on cardinality or business rules, replaced with a valid temporary reference.)
+Perform the [search] specified in the conditional reference on the server. <ul>
       <li>If the search succeeds with a single resource, the resolution succeeds (and ends)
         here.</li>
       <li>If the search succeeds with multiple matching resources, resolution fails (and ends)
@@ -307,6 +308,7 @@ How to resolve a reference in a Bundle:
     </ul></li>
     <li>Otherwise the resolution fails (and ends) here.</li>
   </ul>
+  <p>NOTE: It is sometimes not safe to perform resolution of conditional references within the Bundle because in some cases there may be multiple matches which, once the data hits the server, will turn into a single match due to mutually exclusive conditional create/conditional update rules.</p>
   <p><b>Resolving other references.</b> If the rules above do not apply, the resolution fails (and
     ends) here. The reference has no defined meaning within this specification.</p>
   <p>Note that the rules for resolving references in contained resources are the same as those for
