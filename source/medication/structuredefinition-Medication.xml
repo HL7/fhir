@@ -283,7 +283,7 @@
       <path value="Medication.ingredient.item"/>
       <short value="The specific substance or medication that is the ingredient"/>
       <definition value="The ingredient (substance or medication) that the ingredient.strength relates to.  This is represented as a concept from a code system or described in another resource (Substance or Medication)."/>
-      <comment value="The ingredient may reference a medication substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base)."/>
+      <comment value="The ingredient may reference a medication substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base).  A referenced medication may be fully specified (amoxicillin 250 mg capsule), partially specified (amoxicillin 250mg), or may refer to an abstract ingredient (e.g., amoxicillin)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
