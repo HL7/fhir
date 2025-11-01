@@ -1083,6 +1083,14 @@ When true, active orders that may exist for the same medication are expected to 
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationRequestDispenserInstructions"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept specifying predefined dispensing instructions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-dispenser-instructions"/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="Supply.text"/>
