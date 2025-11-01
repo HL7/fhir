@@ -73,8 +73,8 @@
         </denominator>
       </strengthRatio>
     </ingredient>
-  <batch>
+  <instance>
     <lotNumber value="658484"/>
     <expirationDate value="2020-07-31"/>
-  </batch>
+  </instance>
 </Medication>

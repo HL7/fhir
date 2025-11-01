@@ -68,7 +68,7 @@
   <status value="completed"/>
   <category>
     <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/medication-admin-category"/>
+      <system value="http://hl7.org/fhir/CodeSystem/medication-admin-category"/>
       <code value="inpatient"/>
       <display value="Inpatient"/>
     </coding>

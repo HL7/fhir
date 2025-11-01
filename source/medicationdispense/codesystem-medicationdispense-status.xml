@@ -52,8 +52,8 @@
     <definition value="The dispense was entered in error and therefore nullified."/>
   </concept>
   <concept>
-    <code value="stopped"/>
-    <display value="Stopped"/>
+    <code value="unfulfilled"/>
+    <display value="Unfulfilled"/>
     <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
   </concept>
   <concept>

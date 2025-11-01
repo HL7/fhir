@@ -46,10 +46,10 @@
       </concept>
       </item>
     </ingredient>
-  <batch>
+  <instance>
     <lotNumber value="123455"/>
     <expirationDate value="2016-07-09"/>
-  </batch>
+  </instance>
   
   
 </Medication>

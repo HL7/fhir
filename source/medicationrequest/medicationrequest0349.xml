@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medicationrequest0349"/>
+    <contained>
+        <Medication>
+            <id value="med03302"/>
+            <code>
+                <coding>
+                    <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                    <code value="74169"/>
+                    <display value="piperacillin / tazobactam"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345678"/>
+    </identifier>
+    <status value="active"/>
+    <intent value="order"/>
+    <doNotPerform value="true"/>
+    <medication>
+        <reference>
+            <reference value="#med03302"/>
+            <display value="Piperacillin/Tazobactam"/>
+        </reference>
+    </medication>
+    <subject>        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </subject>
+    <authoredOn value="2015-01-15"/>
+    <requester>
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </requester>
+    <reason>
+      <reference>
+        <reference value="AllergyIntolerance/medication"/>
+        <display value="Allergy to penicillins (e.g., amoxicillin)"/>
+      </reference>
+    </reason>
+
+</MedicationRequest>

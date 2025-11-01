@@ -225,7 +225,7 @@
         <description value="The cost of the packaged medication, if the cost is Money"/>
         <code value="packaging-cost"/>
         <type value="quantity"/>
-        <expression value="MedicationKnowledge.packaging.cost.cost as Quantity"/>
+        <expression value="MedicationKnowledge.packaging.cost.cost as Money"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

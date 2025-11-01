@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medicationrequest0350"/>
+    <contained>
+        <Medication>
+            <id value="med033027"/>
+            <code>
+                <coding>
+                    <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                    <code value="2646460"/>
+                    <display value="doxycycline monohydrate Oral Tablet"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="123456789"/>
+    </identifier>
+    <status value="active"/>
+    <intent value="order"/>
+    <medication>
+        <reference>
+            <reference value="#med033027"/>
+            <display value="doxycycline monohydrate Oral Tablet"/>
+        </reference>
+    </medication>
+    <subject>        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </subject>
+    <authoredOn value="2015-01-15"/>
+    <requester>
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick"/>
+    </requester>
+  <!-- Reason #1: AllergyIntolerance (supported in your system) -->
+  <reason>
+    <reference>
+    <reference value="AllergyIntolerance/medication"/>
+    <display value="Allergy to penicillins (e.g., amoxicillin)"/>
+    </reference>
+  </reason>
+
+  <!-- Reason #2: Alternative therapy (because of that allergy) -->
+  <reasonCode>
+    <text value="Alternative therapy due to penicillin allergy"/>
+  </reasonCode>
+
+  <!-- Reason #3: Actual indication (infection prevention / prophylaxis) -->
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="724053002"/>
+        <text value="Antibiotic therapy for prevention of recurrent infection (procedure)"/>
+    </coding>
+    </concept>
+  </reason>
+
+
+</MedicationRequest>

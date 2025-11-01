@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medicationrequest-dispenser-instructions"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/medicationrequest-dispenser-instructions"/>
+  <version value="6.0.0"/>
+  <name value="MedicationRequestDispenserInstructions"/>
+  <title value="MedicationRequest dispenser instructions"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="MedicationRequest dispenser instructions"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-dispenser-instructions"/>
+  <content value="complete"/>
+  <concept>
+    <code value="dispense-as-written"/>
+    <display value="Dispenser as written"/>
+    <definition value="Medication should be dispensed exactly as indicated in the request."/>
+  </concept>
+  <concept>
+    <code value="split-pack-allowed"/>
+    <display value="Split pack allowed"/>
+    <definition value="Split pack allowed."/>
+  </concept>
+  <concept>
+    <code value="counsel-patient"/>
+    <display value="Counsel patient"/>
+    <definition value="Dispenser should provide counseling to the patient."/>
+  </concept>
+  <concept>
+    <code value="additional-monitoring-required"/>
+    <display value="Additional monitoring required"/>
+    <definition value="Flag that extra monitoring is needed when dispensing."/>
+  </concept>
+</CodeSystem>
