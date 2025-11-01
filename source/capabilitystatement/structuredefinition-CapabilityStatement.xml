@@ -924,11 +924,11 @@
 		<element id="CapabilityStatement.rest.resource.type">
 			<path value="CapabilityStatement.rest.resource.type"/>
 			<short value="A resource type that is supported"/>
-			<definition value="A type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional)."/>
+			<definition value="A relative URL, in which case it is a type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional), or else a full URL referring to some other type that specialises the base resource (e.g. a custom resource)"/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="code"/>
+				<code value="uri"/>
 			</type>
 			<condition value="cpb-9"/>
 			<isSummary value="true"/>
@@ -939,7 +939,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
 				</extension>
-				<strength value="required"/>
+				<strength value="extensible"/>
 				<description value="One of the resource types defined as part of this version of FHIR. Note that this includes additional resources, and is not a fixed list"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/extended-resource-types"/>
 			</binding>
