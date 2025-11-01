@@ -665,7 +665,7 @@
         </extension>
         <strength value="example"/>
         <description value="The code value for the role of the supporting information in the diagnostic report."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0936"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnosticreport-relevant-information-types"/>
       </binding>
     </element>
     <element id="DiagnosticReport.supportingInfo.reference">
@@ -687,6 +687,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
     <element id="DiagnosticReport.media">
