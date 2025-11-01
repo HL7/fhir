@@ -1400,6 +1400,9 @@
   <concept id="46224007" display="Vaccination clinic">
     <display value="Vaccination clinic"/>
   </concept>
+  <concept id="465735003" display="Sliding microtome">
+    <display value="Sliding microtome"/>
+  </concept>
   <concept id="467138008" display="Behind-the-ear air-conduction hearing aid (physical object)">
     <display value="Behind-the-ear air-conduction hearing aid (physical object)"/>
   </concept>
@@ -1555,6 +1558,9 @@
   </concept>
   <concept id="70090004" display="Cowpox">
     <display value="Cowpox"/>
+  </concept>
+  <concept id="701945002" display="Blood centrifugation system processing unit">
+    <display value="Blood centrifugation system processing unit"/>
   </concept>
   <concept id="702232008" display="Sweat specimen container IVD">
     <display value="Sweat specimen container IVD"/>
