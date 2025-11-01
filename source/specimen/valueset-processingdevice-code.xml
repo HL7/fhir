@@ -23,6 +23,14 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="465735003"/>
+        <display value="Sliding microtome"/>
+      </concept>
+      <concept>
+        <code value="701945002"/>
+        <display value="Blood centrifugation system processing unit"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
