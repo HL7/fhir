@@ -350,14 +350,20 @@
                 <code value="boolean" />
             </type>
         </element>
-        <element id="DeviceAlert.presencePeriod">
-            <path value="DeviceAlert.presencePeriod" />
+        <element id="DeviceAlert.occurrence[x]">
+            <path value="DeviceAlert.occurrence[x]" />
             <short value="When the alert condition occurred/is occurring" />
-            <definition value="The period when the alert condition occurred or is occurring." />
-            <comment value="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. Ongoing events should not include an upper bound." />
+            <definition value="This element is used to record the date or time period when the alert condition did occur or is occurring."/>
+            <comment value ="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. A date/time value should be used for instantaneous conditions; without additional guidance, partial date/time values are ambiguous about whether they represent the condition occurring at some point in the partially specified period, or for all of the period. Ongoing events should not include a Period upper bound." />
             <min value="0" />
             <max value="1" />
             <isSummary value="true" />
+            <type>
+                <code value="dateTime" />
+            </type>
+            <type>
+                <code value="Period" />
+            </type>
             <!-- <mapping>
                 <identity value="w5" />
                 <map value="FiveWs.init" />
@@ -374,10 +380,6 @@
                 <identity value="BICEPS" />
                 <map value="AlertConditionState/DeterminationTime" />
             </mapping>
-            <type>
-                <code value="dateTime" />
-                <code value="Period" />
-            </type>
         </element>
         <element id="DeviceAlert.device">
             <path value="DeviceAlert.device" />
