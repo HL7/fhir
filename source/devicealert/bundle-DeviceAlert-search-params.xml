@@ -249,7 +249,7 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceAlert-period" />
+        <id value="DeviceAlert-occurrence" />
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
           <valueCode value="dev" />
@@ -263,14 +263,14 @@
           <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAlert.presencePeriod" />
+          <valueString value="DeviceAlert.occurrence" />
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-timing" />
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-occurrence" />
         <description value="When the alert condition occurred" />
-        <code value="period" />
+        <code value="occurrence" />
         <type value="date" />
         <base value="DeviceAlert"/>
-        <expression value="DeviceAlert.presencePeriod" />
+        <expression value="DeviceAlert.occurrence.ofType(Period) | occurrence.ofType(dateTime)" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
