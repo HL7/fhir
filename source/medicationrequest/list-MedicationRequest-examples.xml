@@ -537,7 +537,7 @@
       <valueString value="Request to not perform due to allergy."/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="MedicationRequest - doNotPerform (allergy)"/>
+      <valueString value="medicationrequest0349"/>
     </extension>
     <item>
       <reference value="MedicationRequest/medicationrequest0349"/>
