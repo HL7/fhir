@@ -15,7 +15,7 @@
 <a name="using-expressions"> </a>
 <h3>Using Expressions</h3>
 
-<p>This topic discusses the use of expression logic within FHIR resources using expression languages such as <a href="fhirpath.html">FHIRPath</a> and <a href="http://cql.hl7.org/">Clinical Quality Language (CQL)</a>. The clinical reasoning module resources use the <a href="metadatatypes.html#expression">Expression</a> datatype to represent logic that enables dynamic functionality to be utilized directly within the Clinical Reasoning resources, as well as within FHIR resources more generally using extensions.</p>
+<p>This topic discusses the use of expression logic within FHIR resources using expression languages such as <a href="http://hl7.org/fhirpath.html">FHIRPath</a> and <a href="http://cql.hl7.org/">Clinical Quality Language (CQL)</a>. The clinical reasoning module resources use the <a href="metadatatypes.html#expression">Expression</a> datatype to represent logic that enables dynamic functionality to be utilized directly within the Clinical Reasoning resources, as well as within FHIR resources more generally using extensions.</p>
 
 <a name="expression elements"> </a>
 <h4>Expression Elements</h4>
@@ -87,6 +87,7 @@
 &lt;/event&gt;
 </code></pre>
 
+<p>Note that for backwards compatibility with implementations that were built prior to the introduction of <code>text/cql-identifier</code> and <code>text/cql-expression</code>, systems MAY treat expressions with <code>text/cql</code> as though they had specified <text>text/cql-identifier</text>, as this is a common pattern in existing content and implementations.</p>
 
 <a name="expression"> </a>
 <h5>Expression</h5>
@@ -214,9 +215,11 @@
 
 <a name="fhirpath"> </a>
 <h4>FHIRPath</h4>
-<p><a href="fhirpath.html">FHIRPath</a> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="http://hl7.org/fhirpath">here</a>.</p>
+<p><a href="http://hl7.org/fhirpath.html">FHIRPath</a> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data.</p>
 
 <p>FHIRPath is used throughout the FHIR specification whenever path selection is needed, such as in the definition of search parameters, or when describing invariants as part of the definition of resources and profiles. FHIRPath expressions generally provide a simple and effective means of navigating and accessing the elements of FHIR resources to retrieve data.</p>
+
+<p>Despite the name, FHIRPath is published as an independent specification from FHIR, allowing it to be used with any graph-structured data, not just FHIR. For more information on using FHIRPath with the FHIR specification, refer to the <a href="fhirpath.html">FHIRPath</a> topic.</p>
 
 <a name="clinical-quality-language"> </a>
 <h4>Clinical Quality Language</h4>
