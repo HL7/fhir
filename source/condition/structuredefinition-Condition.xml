@@ -95,12 +95,6 @@
         <expression value="abatement.exists() implies (clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and (code='inactive' or code='resolved' or code='remission')).exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </constraint>
-      <constraint>
-        <key value="con-2"/>
-        <severity value="warning"/>
-        <human value="If category is problems list item, the clinicalStatus should not be unknown"/>
-        <expression value="category.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-category' and code='problem-list-item').exists() implies clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and code='unknown').exists().not()"/>
-      </constraint>
 	  <constraint>
         <key value="con-4"/>
         <severity value="error"/>
@@ -160,7 +154,6 @@
         <code value="CodeableConcept"/>
       </type>
       <condition value="con-3"/>
-      <condition value="con-2"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because the status contains codes that mark the condition as no longer active."/>
       <isSummary value="true"/>
@@ -235,6 +228,9 @@
       </mapping>
     </element>
     <element id="Condition.category">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#48358"/>
+      </extension>
       <path value="Condition.category"/>
       <short value="problem-list-item | encounter-diagnosis"/>
       <definition value="A category assigned to the condition."/>
@@ -244,12 +240,11 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="con-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionCategory"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="A category assigned to the condition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-category"/>
       </binding>

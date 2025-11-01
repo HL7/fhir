@@ -564,8 +564,8 @@
     </element>
     <element id="Requirements.statement">
       <path value="Requirements.statement"/>
-      <short value="Actual statement as markdown"/>
-      <definition value="The actual statement of requirement, in markdown format."/>
+      <short value="Conformance requirement statement"/>
+      <definition value="The actual statement of conformance requirement."/>
       <min value="0"/>
       <max value="*"/>
       <type>
