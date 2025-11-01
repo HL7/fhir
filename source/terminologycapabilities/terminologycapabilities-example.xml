@@ -20,10 +20,6 @@
     </div>
   </text>
   <url value="urn:uuid:620878ef-e693-4290-a45e-16f5c7b06a56"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.6.2"/>
-  </identifier>
   <version value="20130510"/>
   <name value="ACMEEHR"/>
   <title value="ACME EHR capability statement"/>
