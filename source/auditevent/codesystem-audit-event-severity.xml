@@ -10,10 +10,10 @@
     <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="6"/>
   </extension>
   <url value="http://hl7.org/fhir/audit-event-severity"/>
   <identifier>
@@ -25,7 +25,7 @@
   <title value="Audit Event Severity"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2022-06-06T10:01:24+11:00"/>
+  <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
@@ -37,19 +37,19 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The severity of the audit entry."/>
+  <description value="The severity of the audit entry. These codes are derived from the SysLog header, PRI. http://tools.ietf.org/html/rfc5424#appendix-A.3"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-severity"/>
   <content value="complete"/>
   <concept>
     <code value="emergency"/>
     <display value="Emergency"/>
-    <definition value="System is unusable. e.g., This level should only be reported by infrastructure and should not be used by applications."/>
+    <definition value="System is unusable. e.g., This level SHOULD only be reported by infrastructure and SHOULD NOT be used by applications."/>
   </concept>
   <concept>
     <code value="alert"/>
     <display value="Alert"/>
-    <definition value="Notification should be sent to trigger action be taken. e.g., Loss of the primary network connection needing attention."/>
+    <definition value="Notification SHOULD be sent to trigger action be taken. e.g., Loss of the primary network connection needing attention."/>
   </concept>
   <concept>
     <code value="critical"/>
