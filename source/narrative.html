@@ -280,13 +280,18 @@ Authoring systems can use these classes, which SHALL be supported by all renderi
  <tr> <td>circle</td> <td>List bullets are hollow discs</td> <td>{ list-style-type : circle }</td> </tr>
  <tr> <td>square</td> <td>List bullets are solid squares</td> <td>{ list-style-type: square }</td> </tr>
  <tr> <td>unlist</td> <td>List with no bullets</td> <td>{ list-style-type: none }</td> </tr>
+ <tr> <td>nolist</td> <td>List with no bullets</td> <td>{ list-style-type: none }</td> </tr>
 </table>
 <p>
-Note: for testing purposes, there is an <a href="basic-example-narrative.html">example resource</a> that includes
-all of these styles. It is also available <a href="narrative-examples.html">as XHTML</a> and a
-<a href="fhir-runtime.css">standard stylesheet</a> that includes all of these styles.  Use of styles
-not on this list will require an arrangement between producing and consuming systems.
+Notes:
 </p>
+<ul>
+  <li>nolist and unlist are duplicates to clear up past confusion</li>
+  <li>for testing purposes, there is an <a href="basic-example-narrative.html">example resource</a> that includes
+    all of these styles. It is also available <a href="narrative-examples.html">as XHTML</a> and a
+    <a href="fhir-runtime.css">standard stylesheet</a> that includes all of these styles.</li>
+  <li>Use of styles not on this list will require an arrangement between producing and consuming systems.</li>
+</ul>
 
 <p>
 Authoring systems may refer to additional classes, but cannot rely on the fact
