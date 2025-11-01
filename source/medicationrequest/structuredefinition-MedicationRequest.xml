@@ -401,7 +401,7 @@ For example:
 * doNotPerform=true + dosage.timing.when=lunch → &quot;do not give at lunch&quot; (not impacting giving at other times)
 * doNotPerform=true + dosage.route=oral → &quot;do not give orally&quot; (not impacting other routes)
 " />
-0      <min value="0"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
