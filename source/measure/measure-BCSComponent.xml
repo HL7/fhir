@@ -29,12 +29,6 @@
     <end value="2022-12-31"/>
   </effectivePeriod>
   <library value="http://hl7.org/fhir/Library/BCSComponent"/>
-  <improvementNotation>
-    <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
-      <code value="increase"/>
-    </coding>
-  </improvementNotation>
   <group>
     <type>
       <coding>
@@ -50,6 +44,12 @@
         <display value="Proportion"/>
       </coding>
     </scoring>
+    <improvementNotation>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+        <code value="increase"/>
+      </coding>
+    </improvementNotation>
     <population id="2851A1BA-FBF8-4945-812E-6273F881CE13">
       <code>
         <coding>
