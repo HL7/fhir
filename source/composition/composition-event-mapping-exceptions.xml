@@ -18,6 +18,16 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.basedOn" resourcePath="Composition.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,SupplyRequest,Task,Transport,VisionPrescription)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the composition and tracking whether proposals/recommendations were acted upon."/>
+            <resource value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <doubleMappedElement patternPath="Event.basedOn" reason="Unknown"/>
     <divergentElement patternPath="Event.status" resourcePath="Composition.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
@@ -96,7 +106,6 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="Composition.author">
-        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <extraTypes _resource="Reference(Practitioner,PractitionerRole,CareTeam,Device,Patient,RelatedPerson,Organization)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed composition and what they did"/>

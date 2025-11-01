@@ -88,12 +88,8 @@
       (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)
     -->
     <container>
-	<device> 
-  	   	 <reference>
-	      <reference value="Device/device-example-specimen-container-green-gel-vacutainer"/>
-  	   	 </reference>
-	</device>
-	
+	<deviceCanonical value="http://hl7.org/fhir/Device/device-example-specimen-container-green-gel-vacutainer"/>
+
 	<!-- if there's only one container, then this value is the same
      as .collection.quantity (usually). This is for when there is more
      than one container -->

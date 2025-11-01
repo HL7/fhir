@@ -579,23 +579,25 @@
         <map value="NTE"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.orderDetail.parameterFocus">
-      <path value="ServiceRequest.orderDetail.parameterFocus"/>
+    <element id="ServiceRequest.orderDetail.parameterFocus[x]">
+      <path value="ServiceRequest.orderDetail.parameterFocus[x]"/>
       <short value="The context of the order details by reference"/>
       <definition value="Indicates the context of the order details by reference."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <mapping>
         <identity value="workflow"/>

@@ -74,7 +74,7 @@
     <divergentElement patternPath="Request.priority" resourcePath="Claim.priority">
         <missingTypes _pattern="code" reason="Unknown"/>
         <extraTypes _resource="CodeableConcept" reason="Unknown"/>
-        <bindingStrength _pattern="required" _resource="extensible" reason="Unknown"/>
+        <bindingStrength _pattern="required" _resource="preferred" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="routine | urgent | asap | stat"/>
             <resource value="Desired processing urgency"/>
@@ -84,15 +84,14 @@
             <resource value="The provider-required urgency of processing the request. Typical values include: stat, normal, deferred."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.subject" resourcePath="Claim.patient">
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+    <divergentElement patternPath="Request.subject" resourcePath="Claim.subject">
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual the service is ordered/prohibited for"/>
-            <resource value="The recipient of the products and services"/>
+            <resource value="The recipient(s) of the products and services"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is to be performed/not performed on or for."/>
-            <resource value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought."/>
+            <resource value="The party/group to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the request to the Patient context."/>

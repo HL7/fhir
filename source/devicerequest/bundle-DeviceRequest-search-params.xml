@@ -50,14 +50,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceRequest.product.concept"/>
+          <valueString value="DeviceRequest.productCodeableConcept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-product"/>
         <description value="Code for what is being requested/ordered"/>
         <code value="product"/>
         <type value="token"/>
         <status value="active" />
-        <expression value="DeviceRequest.product.concept"/>
+        <expression value="DeviceRequest.product.ofType(CodeableConcept)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -70,14 +70,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceRequest.product.reference"/>
+          <valueString value="DeviceRequest.productReference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-device"/>
         <description value="Reference to resource that is being requested/ordered"/>
         <code value="device"/>
         <type value="reference"/>
         <status value="active" />
-        <expression value="DeviceRequest.product.reference"/>
+        <expression value="DeviceRequest.product.ofType(Reference)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
