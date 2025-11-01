@@ -4,7 +4,9 @@
   <!-- common side effect -->
   <type value="undesirable-effect"/>
   <subject>
-    <reference value="MedicinalProductDefinition/example"/>
+    <reference>
+      <reference value="MedicinalProductDefinition/example"/>
+    </reference>
   </subject>
   <undesirableEffect>
     <symptomConditionEffect>
