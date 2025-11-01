@@ -870,7 +870,11 @@ For example:
       <max value="1"/>
       <type>
         <code value="Duration"/>
+      </type>
+      <type>
         <code value="Range"/>
+      </type>
+      <type>
         <code value="Period"/>
       </type>
       <mapping>
