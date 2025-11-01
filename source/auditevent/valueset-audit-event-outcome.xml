@@ -33,7 +33,7 @@
   <name value="AuditEventOutcomeExample"/>
   <title value="Example Audit Event Outcome"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>
