@@ -584,7 +584,7 @@
       <path value="MedicationAdministration.device"/>
       <short value="Device used to administer"/>
       <definition value="The device that is to be used for the administration of the medication (for example, PCA Pump)."/>
-      <comment value="When all that is known about the device is the type, and not specific instance data, like lot number etc., the device resource can still be used, as described in the Device / DeviceDefinition  &lt;a href=&quot;https://build.fhir.org/device.html#bnr&quot;&gt;Boundaries and Relationships section&lt;/a&gt;."/>
+      <comment value="When all that is known about the device is the type, and not specific instance data, like lot number etc., the device resource can still be used, as described in the [Device / DeviceDefinition Boundaries and Relationships section](https://build.fhir.org/device.html#bnr)." />
       <min value="0"/>
       <max value="*"/>
       <type>
