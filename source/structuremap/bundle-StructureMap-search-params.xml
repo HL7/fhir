@@ -361,4 +361,20 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureMap.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the StructureMap is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="StructureMap.experimental"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
