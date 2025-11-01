@@ -17,6 +17,7 @@
     </coding>
   </jurisdiction>  
   <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/>  
   <property>
     <code value="abstract"/>
