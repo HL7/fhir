@@ -436,7 +436,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="787-2"/>
-						<display value="MCV [Entitic volume] by Automated count"/>
+						<display value="MCV [Entitic mean volume] in Red Blood Cells by Automated count"/>
 					</coding>
 					<text value="Mean Cell Volume"/>
 				</code>
@@ -624,7 +624,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="770-8"/>
-						<display value="Neutrophils/100 leukocytes in Blood by Automated count"/>
+						<display value="Neutrophils/Leukocytes in Blood by Automated count"/>
 					</coding>
 					<text value="Neutrophils"/>
 				</code>
@@ -704,7 +704,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="736-9"/>
-						<display value="Lymphocytes/100 leukocytes in Blood by Automated count"/>
+						<display value="Lymphocytes/Leukocytes in Blood by Automated count"/>
 					</coding>
 					<text value="Lymphocytes"/>
 				</code>
@@ -784,7 +784,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="5905-5"/>
-						<display value="Monocytes/100 leukocytes in Blood by Automated count"/>
+						<display value="Monocytes/Leukocytes in Blood by Automated count"/>
 					</coding>
 					<text value="Monocytes"/>
 				</code>
@@ -858,7 +858,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="713-8"/>
-						<display value="Eosinophils/100 leukocytes in Blood by Automated count"/>
+						<display value="Eosinophils/Leukocytes in Blood by Automated count"/>
 					</coding>
 					<text value="Eosinophils"/>
 				</code>
@@ -938,7 +938,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="706-2"/>
-						<display value="Basophils/100 leukocytes in Blood by Automated count"/>
+						<display value="Basophils/Leukocytes in Blood by Automated count"/>
 					</coding>
 					<text value="Basophils"/>
 				</code>
@@ -1262,7 +1262,7 @@
 					<coding>
 						<system value="http://loinc.org"/>
 						<code value="1863-0"/>
-						<display value="Anion gap 4 in Serum or Plasma"/>
+						<display value="Anion gap in Serum or Plasma by Calculated.4Ions"/>
 					</coding>
 					<coding>
 						<system value="http://snomed.info/sct"/>
