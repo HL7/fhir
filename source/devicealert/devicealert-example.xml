@@ -99,8 +99,8 @@
 				<system value="http://hl7.org/fhir/devicealert-manifestation"/>
 				<code value="visual"/>
 				<display value="Visual"/>
-			<text value="visual alert"/>
 			</coding>
+			<text value="visual alert"/>
 		</manifestation>
 	</signal>
 </DeviceAlert>
