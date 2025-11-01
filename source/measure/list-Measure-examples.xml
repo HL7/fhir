@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <List xmlns="http://hl7.org/fhir">
   <id value="Measure-examples"/>
   <status value="current"/>
@@ -98,6 +97,18 @@
     <item>
       <reference value="Measure/measure-hybrid-hospital-wide-mortality"/>
       <display value="Hybrid Hospital Wide Mortality (Cohort) Measure"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Proportion Measure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-BCSComponent"/>
+    </extension>
+    <item>
+      <reference value="Measure/measure-BCSComponent"/>
+      <display value="Breast Cancer Screening (Proportion) Measure"/>
     </item>
   </entry>
 </List>
