@@ -1295,7 +1295,7 @@
 			<path value="Questionnaire.item.answerValueSet"/>
 			<short value="ValueSet containing permitted answers"/>
 			<definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
-			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition.&#xa;&#xa;For items of type Coding, the value set indicates the allowed code + system matches.  For items of type 'string' the display values in the value set expansion are taken as the allowed values for the item.  For items of type 'uri', the code values in the value set expansion are taken as the allowed values for the item."/>
+			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition.&#xa;&#xa;For items of type Coding, the value set indicates the allowed code + system matches.  For items of type 'string' the display values in the value set expansion are taken as the allowed values for the item.  For items of type 'uri', the code values in the value set expansion are taken as the allowed values for the item. If the ValueSet requires a terminology server to provide an expansion, a preferred terminology server can be provided with an [extension](https://www.hl7.org/fhir/extensions/StructureDefinition-preferredTerminologyServer.html) on the Questionnaire item, an ancestor item, or the Questionnaire root."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
