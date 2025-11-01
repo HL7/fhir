@@ -272,7 +272,7 @@
       <path value="ResearchStudy.partOf"/>
       <short value="Part of larger study"/>
       <definition value="A larger research study of which this particular study is a component or step."/>
-      <requirements value="Allows breaking a study into components (e.g. by study site) each with their own PI, status, enrollment, etc."/>
+      <requirements value="Allows breaking a study into components (e.g., by study site) each with their own PI, status, enrollment, etc."/>
       <alias value="container"/>
       <min value="0"/>
       <max value="*"/>
@@ -800,8 +800,8 @@
     </element>
     <element id="ResearchStudy.progressStatus.state">
       <path value="ResearchStudy.progressStatus.state"/>
-      <short value="Label for status or state (e.g. recruitment status)"/>
-      <definition value="Label for status or state (e.g. recruitment status)."/>
+      <short value="Label for status or state (e.g., recruitment status)"/>
+      <definition value="Label for status or state (e.g., recruitment status)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -966,7 +966,7 @@
     <element id="ResearchStudy.comparisonGroup">
       <path value="ResearchStudy.comparisonGroup"/>
       <short value="Defined path through the study for a subject"/>
-      <definition value="Describes an expected event or sequence of events for one of the subjects of a study. E.g. for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}."/>
+      <definition value="Describes an expected event or sequence of events for one of the subjects of a study. e.g., for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. e.g., for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}."/>
       <comment value="In many clinical trials this is refered to as the ARM of the study, but such a term is not used in other sorts of trials even when there is a comparison between two or more groups."/>
       <alias value="arm"/>
       <min value="0"/>
@@ -1204,7 +1204,7 @@
           <valueString value="StatisticType"/>
         </extension>
         <strength value="example"/>
-        <description value="The type of a statistic, e.g. relative risk or mean."/>
+        <description value="The type of a statistic, e.g., relative risk or mean."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/statistic-type"/>
       </binding>
     </element>

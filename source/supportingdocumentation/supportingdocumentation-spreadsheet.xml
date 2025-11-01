@@ -968,7 +968,7 @@
 					<Data ss:Type="String">RIM Mapping</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">E.g. RIMClass[classCode=foo,moodCode=bar].someAssociation[typeCode=code].attribute</Font>
+							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">e.g., RIMClass[classCode=foo,moodCode=bar].someAssociation[typeCode=code].attribute</Font>
 						</ss:Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -977,7 +977,7 @@
 					<Data ss:Type="String">v2 Mapping</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">E.g. SEG.1.2.3</Font>
+							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">e.g., SEG.1.2.3</Font>
 						</ss:Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -8389,7 +8389,7 @@ Supporting Information</Data>
 					<Data ss:Type="String">Context</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>
+							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Element path at which check should occur; e.g., ResourceName.element1.element2</Font>
 						</ss:Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -9056,7 +9056,7 @@ Supporting Information</Data>
 					<Data ss:Type="String">Path</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g. ResourceName.node1.node2</Font>
+							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Corresponding resource element; e.g., ResourceName.node1.node2</Font>
 						</ss:Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -10052,7 +10052,7 @@ Supporting Information</Data>
 					<Data ss:Type="String">Event Code</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event; e.g. patient-link
+							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unique code for the event; e.g., patient-link
 
 </Font>
 						</ss:Data>
@@ -10748,7 +10748,7 @@ Comment the row by starting with '!'</Font>
 					<Data ss:Type="String">Filename</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file; e.g. resource-example-file-name.xml</Font>
+							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Filename of XML example file; e.g., resource-example-file-name.xml</Font>
 						</ss:Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>

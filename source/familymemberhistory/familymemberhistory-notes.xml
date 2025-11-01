@@ -16,13 +16,13 @@
 <p>  
 <b>Reviewed, None Identified for Family</b>
 </p>
-  <p>After reasonable investigation that there are no known items for the family member history list, then the <a href="list.html">List</a> resource should be used to indicate the List.emptyReason="nilknown".  The List.emptyReason represents a statement about the full scope of the list (i.e. the patient or patient's agent/guardian has asserted that there are no conditions or significant events for any family members to record).
+  <p>After reasonable investigation that there are no known items for the family member history list, then the <a href="list.html">List</a> resource should be used to indicate the List.emptyReason="nilknown".  The List.emptyReason represents a statement about the full scope of the list (i.e., the patient or patient's agent/guardian has asserted that there are no conditions or significant events for any family members to record).
   </p>
   
   <p>  
 <b>Reviewed, No Information Available for a Family Member</b>
 </p>
-  <p>When an individual family member's history is not available, FamilyMemberHistory.dataAbsentReason can be used to indicate why that family member's history is not available (e.g. subject unknown).
+  <p>When an individual family member's history is not available, FamilyMemberHistory.dataAbsentReason can be used to indicate why that family member's history is not available (e.g., subject unknown).
   </p>
  
  <p> 

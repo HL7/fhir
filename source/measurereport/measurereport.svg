@@ -336,7 +336,7 @@
        class="diagram-class-detail"><a
    id="n1076"
    xlink:href="measurereport-definitions.html#MeasureReport.supplementalData"><title
-   id="title128664">A reference to a Resource that represents additional information collected for the report. If the value of the supplemental data is not a Resource (i.e. evaluating the supplementalData expression for this case in the measure results in a value that is not a FHIR Resource), it is reported as a reference to a contained Observation resource</title>supplementalData</a> : <a
+   id="title128664">A reference to a Resource that represents additional information collected for the report. If the value of the supplemental data is not a Resource (i.e., evaluating the supplementalData expression for this case in the measure results in a value that is not a FHIR Resource), it is reported as a reference to a contained Observation resource</title>supplementalData</a> : <a
    id="n1077"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n1078"

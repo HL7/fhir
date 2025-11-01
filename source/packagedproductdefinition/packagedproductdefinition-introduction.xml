@@ -44,7 +44,7 @@
 		<h3>Recursive relationships in this resource</h3>
 		<p>
 			This resource has two recursive relationships. 
-			One is primarily intended to be "internal" to the package - for package layers and contents, and the other for aggregated packages (e.g. for wholesaling) that are 
+			One is primarily intended to be "internal" to the package - for package layers and contents, and the other for aggregated packages (e.g., for wholesaling) that are 
 			made up of other packages.
 		</p>
 		<ul>

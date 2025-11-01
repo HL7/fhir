@@ -570,7 +570,7 @@
     <element id="ClinicalUseDefinition.indication.duration[x]">
       <path value="ClinicalUseDefinition.indication.duration[x]"/>
       <short value="Timing or duration information"/>
-      <definition value="Timing or duration information, that may be associated with use with the indicated condition e.g. Adult patients suffering from myocardial infarction (from a few days until less than 35 days), ischaemic stroke (from 7 days until less than 6 months)."/>
+      <definition value="Timing or duration information, that may be associated with use with the indicated condition e.g., Adult patients suffering from myocardial infarction (from a few days until less than 35 days), ischaemic stroke (from 7 days until less than 6 months)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -700,8 +700,8 @@
     </element>
     <element id="ClinicalUseDefinition.interaction.type">
       <path value="ClinicalUseDefinition.interaction.type"/>
-      <short value="The type of the interaction e.g. drug-drug interaction, drug-lab test interaction"/>
-      <definition value="The type of the interaction e.g. drug-drug interaction, drug-food interaction, drug-lab test interaction."/>
+      <short value="The type of the interaction e.g., drug-drug interaction, drug-lab test interaction"/>
+      <definition value="The type of the interaction e.g., drug-drug interaction, drug-food interaction, drug-lab test interaction."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -747,8 +747,8 @@
     </element>
     <element id="ClinicalUseDefinition.interaction.incidence">
       <path value="ClinicalUseDefinition.interaction.incidence"/>
-      <short value="The incidence of the interaction, e.g. theoretical, observed"/>
-      <definition value="The incidence of the interaction, e.g. theoretical, observed."/>
+      <short value="The incidence of the interaction, e.g., theoretical, observed"/>
+      <definition value="The incidence of the interaction, e.g., theoretical, observed."/>
       <min value="0"/>
       <max value="1"/>
       <type>

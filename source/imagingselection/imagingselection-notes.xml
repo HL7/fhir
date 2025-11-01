@@ -269,7 +269,7 @@ https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40
   <a name="laterality"></a>
   <h3>Body Site and Laterality</h3>
   <p>
-    The <code>bodySite</code> element can include the laterality of the (possibly paired) anatomic structures examined – e.g. left knee, bilateral lungs, etc. This can be conveyed in several ways:
+    The <code>bodySite</code> element can include the laterality of the (possibly paired) anatomic structures examined – e.g., left knee, bilateral lungs, etc. This can be conveyed in several ways:
   </p>
   <ul>
     <li><code>bodySite</code> contains an anatomic code that includes laterality, e.g.

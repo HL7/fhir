@@ -40,7 +40,7 @@
   <concept>
     <code value="auditory" />
     <display value="Auditory" />
-    <definition value="The signal is annunciated using sound (e.g. a chime)" />
+    <definition value="The signal is annunciated using sound (e.g., a chime)" />
   </concept>
   <concept>
     <code value="vibratory" />
@@ -50,6 +50,6 @@
   <concept>
     <code value="visual" />
     <display value="Visual" />
-    <definition value="The signal is annunciated using light (e.g. an illuminated icon, flashing light, or text message)" />
+    <definition value="The signal is annunciated using light (e.g., an illuminated icon, flashing light, or text message)" />
   </concept>
 </CodeSystem>

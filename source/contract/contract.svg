@@ -855,7 +855,7 @@
        class="diagram-class-detail"><a
    id="n2725"
    xlink:href="contract-definitions.html#Contract.term.offer.type"><title
-   id="title17095">Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit</title>type</a> : <a
+   id="title17095">Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g., life time maximum benefit</title>type</a> : <a
    id="n2726"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n2727"
@@ -1974,7 +1974,7 @@
        class="diagram-class-detail"><a
    id="n3331"
    xlink:href="contract-definitions.html#Contract.signer.type"><title
-   id="title17536">Role of this Contract signer, e.g. notary, grantee</title>type</a> : <a
+   id="title17536">Role of this Contract signer, e.g., notary, grantee</title>type</a> : <a
    id="n3332"
    xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
    id="n3333"
@@ -2159,7 +2159,7 @@
        class="diagram-class-detail"><a
    id="n3408"
    xlink:href="contract-definitions.html#Contract.rule.content_x_"><title
-   id="title17594">Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal)</title>content[x]</a> : <a
+   id="title17594">Computable Contract conveyed using a policy rule language (e.g., XACML, DKAL, SecPal)</title>content[x]</a> : <a
    id="n3409"
    xlink:href="types.html#DataType">DataType</a> [1..1] « <a
    id="n3410"

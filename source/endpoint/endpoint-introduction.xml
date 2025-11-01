@@ -48,7 +48,7 @@
   protocols required/provided, and any other details required to communicate between the systems. (such as configuration parameters, 
   require headers ...) The address value in the endpoint can only be used in the context of the provided details.
 </p><p>
-E.g. If the endpoint has a URL for an XDS service, using that in a browser by a user is meaningless.
+e.g., If the endpoint has a URL for an XDS service, using that in a browser by a user is meaningless.
 </p><p>
 E.g.2 If the endpoint has a US Direct address, using this to send a normal email message will not work, as they are not true email addresses (even though they appear to be)
 </p><p>

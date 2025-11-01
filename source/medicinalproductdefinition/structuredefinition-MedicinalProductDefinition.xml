@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc.)."/>
+  <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g., regulatory use, drug catalogs, to support prescribing, adverse events management etc.)."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="idmp"/>
@@ -75,7 +75,7 @@
       </extension>
       <path value="MedicinalProductDefinition"/>
       <short value="Detailed definition of a medicinal product"/>
-      <definition value="A medicinal product, being a substance or combination of substances that is intended to treat, prevent or diagnose a disease, or to restore, correct or modify physiological functions by exerting a pharmacological, immunological or metabolic action. This resource is intended to define and detail such products and their properties, for uses other than direct patient care (e.g. regulatory use, or drug catalogs)."/>
+      <definition value="A medicinal product, being a substance or combination of substances that is intended to treat, prevent or diagnose a disease, or to restore, correct or modify physiological functions by exerting a pharmacological, immunological or metabolic action. This resource is intended to define and detail such products and their properties, for uses other than direct patient care (e.g., regulatory use, or drug catalogs)."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -117,8 +117,8 @@
     </element>
     <element id="MedicinalProductDefinition.type">
       <path value="MedicinalProductDefinition.type"/>
-      <short value="Regulatory type, e.g. Investigational or Authorized"/>
-      <definition value="Regulatory type, e.g. Investigational or Authorized."/>
+      <short value="Regulatory type, e.g., Investigational or Authorized"/>
+      <definition value="Regulatory type, e.g., Investigational or Authorized."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -157,7 +157,7 @@
           <valueString value="MedicinalProductType"/>
         </extension>
         <strength value="example"/>
-        <description value="Applicable domain for this product (e.g. human, veterinary)."/>
+        <description value="Applicable domain for this product (e.g., human, veterinary)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-domain"/>
       </binding>
       <mapping>
@@ -370,7 +370,7 @@
           <valueString value="AdditionalMonitoring"/>
         </extension>
         <strength value="example"/>
-        <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements (e.g. Black Triangle Monitoring)."/>
+        <description value="Extra measures defined for a Medicinal Product, such as heightened reporting requirements (e.g., Black Triangle Monitoring)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring"/>
       </binding>
       <mapping>
@@ -607,8 +607,8 @@
     </element>
     <element id="MedicinalProductDefinition.masterFile">
       <path value="MedicinalProductDefinition.masterFile"/>
-      <short value="A master file for the medicinal product (e.g. Pharmacovigilance System Master File)"/>
-      <definition value="A master file for the medicinal product (e.g. Pharmacovigilance System Master File). Drug master files (DMFs) are documents submitted to regulatory agencies to provide confidential detailed information about facilities, processes or articles used in the manufacturing, processing, packaging and storing of drug products."/>
+      <short value="A master file for the medicinal product (e.g., Pharmacovigilance System Master File)"/>
+      <definition value="A master file for the medicinal product (e.g., Pharmacovigilance System Master File). Drug master files (DMFs) are documents submitted to regulatory agencies to provide confidential detailed information about facilities, processes or articles used in the manufacturing, processing, packaging and storing of drug products."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -718,7 +718,7 @@
     <element id="MedicinalProductDefinition.code">
       <path value="MedicinalProductDefinition.code"/>
       <short value="A code that this product is known by, within some formal terminology"/>
-      <definition value="A code that this product is known by, usually within some formal terminology, perhaps assigned by a third party (i.e. not the manufacturer or regulator). Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations."/>
+      <definition value="A code that this product is known by, usually within some formal terminology, perhaps assigned by a third party (i.e., not the manufacturer or regulator). Products (types of medications) tend to be known by identifiers during development and within regulatory process. However when they are prescribed they tend to be identified by codes. The same product may be have multiple codes, applied to it by multiple organizations."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -825,7 +825,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="(any and all of the name parts e.g. Medicinal Product Name.Formulation Part)"/>
+        <map value="(any and all of the name parts e.g., Medicinal Product Name.Formulation Part)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -844,7 +844,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="(text of any of the name parts e.g. Medicinal Product Name.Formulation Part)"/>
+        <map value="(text of any of the name parts e.g., Medicinal Product Name.Formulation Part)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -853,8 +853,8 @@
     </element>
     <element id="MedicinalProductDefinition.name.part.type">
       <path value="MedicinalProductDefinition.name.part.type"/>
-      <short value="Identifying type for this part of the name (e.g. strength part)"/>
-      <definition value="Identifying type for this part of the name (e.g. strength part)."/>
+      <short value="Identifying type for this part of the name (e.g., strength part)"/>
+      <definition value="Identifying type for this part of the name (e.g., strength part)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -871,7 +871,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="(which of the name parts this is e.g. Formulation Part)"/>
+        <map value="(which of the name parts this is e.g., Formulation Part)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -930,7 +930,7 @@
     <element id="MedicinalProductDefinition.name.usage.jurisdiction">
       <path value="MedicinalProductDefinition.name.usage.jurisdiction"/>
       <short value="Jurisdiction code for where this name applies"/>
-      <definition value="Jurisdiction code for where this name applies. A jurisdiction may be a sub- or supra-national entity (e.g. a state or a geographic region)."/>
+      <definition value="Jurisdiction code for where this name applies. A jurisdiction may be a sub- or supra-national entity (e.g., a state or a geographic region)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -993,8 +993,8 @@
         <valueCode value="800,30"/>
       </extension>
       <path value="MedicinalProductDefinition.crossReference"/>
-      <short value="Reference to another product, e.g. for linking authorised to investigational product"/>
-      <definition value="Reference to another product, e.g. for linking authorised to investigational product, or a virtual product."/>
+      <short value="Reference to another product, e.g., for linking authorised to investigational product"/>
+      <definition value="Reference to another product, e.g., for linking authorised to investigational product, or a virtual product."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1015,8 +1015,8 @@
         <valueString value="Wanted to make this a choice of identifier or reference to MedicinalProductDefinition but that cannot be 0..*."/>
       </extension>
       <path value="MedicinalProductDefinition.crossReference.product"/>
-      <short value="Reference to another product, e.g. for linking authorised to investigational product"/>
-      <definition value="Reference to another product, e.g. for linking authorised to investigational product."/>
+      <short value="Reference to another product, e.g., for linking authorised to investigational product"/>
+      <definition value="Reference to another product, e.g., for linking authorised to investigational product."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1087,8 +1087,8 @@
     </element>
     <element id="MedicinalProductDefinition.operation.type">
       <path value="MedicinalProductDefinition.operation.type"/>
-      <short value="The type of manufacturing operation e.g. manufacturing itself, re-packaging"/>
-      <definition value="The type of manufacturing operation e.g. manufacturing itself, re-packaging. For the authorization of this, a RegulatedAuthorization would point to the same plan or activity referenced here."/>
+      <short value="The type of manufacturing operation e.g., manufacturing itself, re-packaging"/>
+      <definition value="The type of manufacturing operation e.g., manufacturing itself, re-packaging. For the authorization of this, a RegulatedAuthorization would point to the same plan or activity referenced here."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1127,7 +1127,7 @@
     </element>
     <element id="MedicinalProductDefinition.operation.organization">
       <path value="MedicinalProductDefinition.operation.organization"/>
-      <short value="The organization responsible for the particular process, e.g. the manufacturer or importer"/>
+      <short value="The organization responsible for the particular process, e.g., the manufacturer or importer"/>
       <definition value="The organization or establishment responsible for (or associated with) the particular process or step, examples include the manufacturer, importer, agent."/>
       <min value="0"/>
       <max value="*"/>
@@ -1160,7 +1160,7 @@
           <valueString value="ProductConfidentiality"/>
         </extension>
         <strength value="example"/>
-        <description value="Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product."/>
+        <description value="Confidentiality rating, e.g., commercial sensitivity for a Medicinal Product."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality"/>
       </binding>
       <mapping>

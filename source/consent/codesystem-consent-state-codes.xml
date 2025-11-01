@@ -68,7 +68,7 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="The consent was created wrongly (e.g. wrong patient) and should be ignored."/>
+    <definition value="The consent was created wrongly (e.g., wrong patient) and should be ignored."/>
   </concept>
   <concept>
     <code value="unknown"/>

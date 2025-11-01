@@ -5,12 +5,12 @@
 <h2>Scope and Usage</h2>
 
 <p>
-This is a base resource that represents raw materials used to represent a packaged or measured amount of a known substance (e.g. bottle, jar, packet, drum) that is not in a consumable form nor associated directly with a patient.  
+This is a base resource that represents raw materials used to represent a packaged or measured amount of a known substance (e.g., bottle, jar, packet, drum) that is not in a consumable form nor associated directly with a patient.  
 For example, the materials used for a medication that are not yet in an administrable form. 
 </p>  
 <p>
     This resource is used for "instances" of substances.
-    The resource is not used to represent a kind of a substance - e.g. a formulation commonly used for treating patients (a "definitional" use). 
+    The resource is not used to represent a kind of a substance - e.g., a formulation commonly used for treating patients (a "definitional" use). 
     For that use see SubstanceDefinition resource.
 </p>  
 <p>

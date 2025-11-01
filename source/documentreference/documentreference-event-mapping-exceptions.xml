@@ -7,7 +7,7 @@
         </shortUnmatched>
         <commentsUnmatched reason="More specific to the use-case for this resource">
             <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-            <resource value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g. for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
+            <resource value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g., for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="More specific to the use-case for this resource">
             <_pattern value="Allows identification of the document reference as it is known by various participating systems and in a way that remains consistent across servers."/>
@@ -63,7 +63,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="More specific to the use-case for this resource">
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
-            <resource value="Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced."/>
+            <resource value="Specifies the particular kind of document referenced  (e.g., History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="DocumentReference.subject">
@@ -76,7 +76,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="More specific to the use-case for this resource">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)."/>
+            <resource value="Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g., a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Too specific for this resource">
             <_pattern value="Links the document reference to the Patient context.  May also affect access control."/>
@@ -112,7 +112,7 @@
             <resource value="When the document reference was created."/>
         </definitionUnmatched>
         <commentsUnmatched reason="More specific to this resource">
-            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
+            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  e.g., a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
             <resource value="Referencing/indexing time is used for tracking, organizing versions and searching. Provide the most precise timestamp available."/>
         </commentsUnmatched>
     </divergentElement>

@@ -39,7 +39,7 @@
     <element>
       <path value="Contract"/>
       <short value="Consent Directive"/>
-      <definition value="A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:   • To one or more identified entities in a defined role   • To perform one or more operations (e.g. collect, access, use, disclose, amend, or delete)   • On an instance or type of individually identifiable health information [IIHI]  • For a purpose such as treatment, payment, operations, research, public health, quality measures, health status evaluation by third parties, or marketing   • Under certain conditions, e.g. when unconscious   • For specified time period, e.g. effective and expiration dates   • In certain context, e.g. in an emergency   A consent directive is an instance of governing jurisdictional and organization privacy policies, which might or might not be backed up by a signed document (paper or electronic). [HITSP TP30]."/>
+      <definition value="A record of a healthcare consumer’s privacy policy, which is in accordance with governing jurisdictional and organization privacy policies that grant or withhold consent:   • To one or more identified entities in a defined role   • To perform one or more operations (e.g., collect, access, use, disclose, amend, or delete)   • On an instance or type of individually identifiable health information [IIHI]  • For a purpose such as treatment, payment, operations, research, public health, quality measures, health status evaluation by third parties, or marketing   • Under certain conditions, e.g., when unconscious   • For specified time period, e.g., effective and expiration dates   • In certain context, e.g., in an emergency   A consent directive is an instance of governing jurisdictional and organization privacy policies, which might or might not be backed up by a signed document (paper or electronic). [HITSP TP30]."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -149,7 +149,7 @@
       <path value="Contract.type"/>
       <label value="ConsentDirective-type"/>
       <short value="Consent Directive Type"/>
-      <definition value="Specific type of patient privacy Consent Directive reflecting the range of patient discretion over granting of rights to patient information and actions that may be taken on that information; e.g. Opt-in, opt-out, Share All (such as authorization to disclose to payer for payment purposes or benefit eligibility), Share Partial(such as Title 38 Section 7332 and 42 CFR Part 2), Implied Consent, such as a HIPAA Notice of Privacy Practices."/>
+      <definition value="Specific type of patient privacy Consent Directive reflecting the range of patient discretion over granting of rights to patient information and actions that may be taken on that information; e.g., Opt-in, opt-out, Share All (such as authorization to disclose to payer for payment purposes or benefit eligibility), Share Partial(such as Title 38 Section 7332 and 42 CFR Part 2), Implied Consent, such as a HIPAA Notice of Privacy Practices."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -198,7 +198,7 @@
     <element>
       <path value="Contract.type.coding.code"/>
       <short value="Symbol in syntax defined by the system"/>
-      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination)."/>
+      <definition value="A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g., post-coordination)."/>
       <requirements value="Need to refer to a particular code in the system."/>
       <min value="0"/>
       <max value="1"/>
@@ -238,7 +238,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="e.g. RECOV"/>
+        <map value="e.g., RECOV"/>
       </mapping>
     </element>
     <element>
@@ -292,7 +292,7 @@
       <path value="Contract.term.type"/>
       <label value="ConsentDirective-term-type"/>
       <short value="Consent Directive Term Type"/>
-      <definition value="Type of Consent Directive Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit."/>
+      <definition value="Type of Consent Directive Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g., life time maximum benefit."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -308,7 +308,7 @@
       <path value="Contract.term.subType"/>
       <label value="ConsentDirective-term-subType"/>
       <short value="Consent Directive Term Subtype"/>
-      <definition value="Subtype of this Consent Directive Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment."/>
+      <definition value="Subtype of this Consent Directive Provision, e.g., life time maximum payment for a contract term for specific valued item, e.g., disability payment."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -614,7 +614,7 @@
       <path value="Contract.signer.type"/>
       <label value="ConsentDirective-signer-type"/>
       <short value="Consent Directive Signer Type"/>
-      <definition value="Role of this Consent Directive signer, e.g. patient who is Consent Directive Grantee, the Substitute Decision Maker such as a person with Power of Attorney to whom the patient has granted or delegated rights to execute a Consent Directive on the patient's behalf, a notary public or witness."/>
+      <definition value="Role of this Consent Directive signer, e.g., patient who is Consent Directive Grantee, the Substitute Decision Maker such as a person with Power of Attorney to whom the patient has granted or delegated rights to execute a Consent Directive on the patient's behalf, a notary public or witness."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -744,7 +744,7 @@
       <path value="Contract.rule.content[x]"/>
       <label value="ConsentDirective-rule-content[x]"/>
       <short value="Computable Consent Directive Rules"/>
-      <definition value="Computable Consent Directive conveyed using a policy rule language (e.g. XACML, DKAL, SecPal)."/>
+      <definition value="Computable Consent Directive conveyed using a policy rule language (e.g., XACML, DKAL, SecPal)."/>
       <min value="1"/>
       <max value="1"/>
       <type>

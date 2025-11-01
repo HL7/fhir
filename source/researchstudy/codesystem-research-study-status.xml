@@ -79,7 +79,7 @@
 	<concept>
 		<code value="closed-to-accrual-and-intervention"/>
 		<display value="Closed to Accrual and Intervention"/>
-		<definition value="Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment or intervention but are still being followed according to the primary objective of the study."/>
+		<definition value="Study is closed to accrual and intervention, i.e., the study is closed to enrollment, all study subjects have completed treatment or intervention but are still being followed according to the primary objective of the study."/>
 	</concept>
 	<concept>
 		<code value="completed"/>

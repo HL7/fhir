@@ -179,7 +179,7 @@
      </p>
           <p>
       To enable this, such a schema must import this schema for
-      the XML namespace, e.g. as follows:
+      the XML namespace, e.g., as follows:
      </p>
           <pre>
           &lt;schema . . .>

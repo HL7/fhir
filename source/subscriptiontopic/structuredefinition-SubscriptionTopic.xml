@@ -152,7 +152,7 @@
 		<element id="SubscriptionTopic.version">
 			<path value="SubscriptionTopic.version"/>
 			<short value="Business version of the subscription topic"/>
-			<definition value="The identifier that is used to identify this version of the subscription topic when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Topic author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable."/>
+			<definition value="The identifier that is used to identify this version of the subscription topic when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Topic author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable."/>
 			<comment value="There may be multiple different instances of a subscription topic that have the same identifier but different versions."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -446,7 +446,7 @@
 			<path value="SubscriptionTopic.jurisdiction"/>
 			<short value="Intended jurisdiction of the SubscriptionTopic (if applicable)"/>
 			<definition value="A jurisdiction in which the Topic is intended to be used."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -530,7 +530,7 @@
 			</extension>
 			<path value="SubscriptionTopic.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
 			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>

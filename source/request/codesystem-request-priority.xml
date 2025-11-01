@@ -38,6 +38,6 @@
   <concept>
     <code value="stat"/>
     <display value="STAT"/>
-    <definition value="The request should be actioned immediately - highest possible priority.  E.g. an emergency."/>
+    <definition value="The request should be actioned immediately - highest possible priority.  e.g., an emergency."/>
   </concept>
 </CodeSystem>

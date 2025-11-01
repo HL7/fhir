@@ -43,11 +43,11 @@
   <concept>
     <code value="snapshot"/>
     <display value="Snapshot"/>
-    <definition value="The inventory report is a current absolute snapshot, i.e. it represents the quantities at hand."/>
+    <definition value="The inventory report is a current absolute snapshot, i.e., it represents the quantities at hand."/>
   </concept>
   <concept>
     <code value="difference"/>
     <display value="Difference"/>
-    <definition value="The inventory report is about the difference between a previous count and a current count, i.e. it represents the items that have been added/subtracted from inventory."/>
+    <definition value="The inventory report is about the difference between a previous count and a current count, i.e., it represents the items that have been added/subtracted from inventory."/>
   </concept>
 </CodeSystem>

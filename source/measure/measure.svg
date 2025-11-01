@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n1332"
    xlink:href="measure-definitions.html#Measure.version"><title
-   id="title109143">The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts</title>version</a> : <a
+   id="title109143">The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g., 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts</title>version</a> : <a
    id="n1333"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -370,7 +370,7 @@
        class="diagram-class-detail"><a
    id="n1482"
    xlink:href="measure-definitions.html#Measure.copyrightLabel"><title
-   id="title109254">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title109254">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1483"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -979,7 +979,7 @@
        class="diagram-class-detail"><a
    id="n1817"
    xlink:href="measure-definitions.html#Measure.group.population.inputPopulationId"><title
-   id="title109509">The id of a population element in this measure that provides the input for this population criteria. In most cases, the scoring structure of the measure implies specific relationships (e.g. the Numerator uses the Denominator as the source in a proportion scoring). In some cases, however, multiple possible choices exist and must be resolved explicitly. For example in a ratio measure with multiple initial populations, the denominator must specify which population should be used as the starting point</title>inputPopulationId</a> : <a
+   id="title109509">The id of a population element in this measure that provides the input for this population criteria. In most cases, the scoring structure of the measure implies specific relationships (e.g., the Numerator uses the Denominator as the source in a proportion scoring). In some cases, however, multiple possible choices exist and must be resolved explicitly. For example in a ratio measure with multiple initial populations, the denominator must specify which population should be used as the starting point</title>inputPopulationId</a> : <a
    id="n1818"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -990,7 +990,7 @@
        class="diagram-class-detail"><a
    id="n1823"
    xlink:href="measure-definitions.html#Measure.group.population.aggregateMethod"><title
-   id="title109514">Specifies which method should be used to aggregate measure observation values. For most scoring types, this is implied by scoring (e.g. a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation</title>aggregateMethod</a> : <a
+   id="title109514">Specifies which method should be used to aggregate measure observation values. For most scoring types, this is implied by scoring (e.g., a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation</title>aggregateMethod</a> : <a
    id="n1824"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1825"

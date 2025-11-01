@@ -35,7 +35,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list)."/>
+  <description value="General reasons for a list to be empty. Reasons are either related to a summary list (i.e., problem or medication list) or to a workflow related list (i.e., consultation list)."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/list-empty-reason"/>

@@ -26,11 +26,11 @@
     <h3>Medication Administration Record (MAR) Use Case</h3>
     <p>Medication administrations can be done by:</p>
     <ul>
-        <li>clinician e.g. nurse, physician, other providers</li>
+        <li>clinician e.g., nurse, physician, other providers</li>
         <li>patient via self-administration</li>
-        <li>family member e.g. mother for the baby</li>
+        <li>family member e.g., mother for the baby</li>
         <li>caregiver (non-clinician)</li>
-        <li>devices e.g. IV pumps, insulin pumps, patient-controlled analgesic (PCA) pumps</li>
+        <li>devices e.g., IV pumps, insulin pumps, patient-controlled analgesic (PCA) pumps</li>
     </ul>
     <p>In order to administer a medication, there is often a list of medications that includes the medication itself e.g code or name , dose, date/time the medication is to be administered and route and in some cases additional administration instructions. A common name for this type of list of medications to be administered and the corresponding record of medication administrations is Medication Administration Record (MAR).  </p>
     <h3>Synonyms/Key Definitions</h3>
@@ -61,17 +61,17 @@
                 <tr>
                 <td>MedicationRequest.dosageInstructions.dosage.timing.bounds</td>
                 
-                <td>Time the medication should be administered e.g. 10am on a specific date, or at time of sleep, or after breakfast, or over 60 minutes starting at 3pm on a specific date, etc. </td>
+                <td>Time the medication should be administered e.g., 10am on a specific date, or at time of sleep, or after breakfast, or over 60 minutes starting at 3pm on a specific date, etc. </td>
                 </tr>
                 <tr>
                     <td>MedicationRequest.dosageInstructions.dosage.route </td>
                 
-                <td>Route of administration e.g. oral, intravenous, topical, etc. </td>
+                <td>Route of administration e.g., oral, intravenous, topical, etc. </td>
                 </tr>
                 <tr>
                     <td>MedicationRequest.dosageInstructions.dosage.site </td>
                 
-                <td>Anatomical site where the drug enters the body e.g. subclavian vein</td>
+                <td>Anatomical site where the drug enters the body e.g., subclavian vein</td>
         </tr>
     </table>
    <p>Other attributes may be included, such as those for access sites, dosage instructions, reason, device used, etc.  The list of attributes above is meant to help the reader understand the definitions. It is not meant to define what  attributes an individual implementation may include in their design.  </p>
@@ -89,7 +89,7 @@
         </tr>
         <tr>
             <td>MedicationAdministration.dosage.dose or rate[x]</td>
-            <td>Dose of medication that was administered.  If the drug is intravenous, you may represent this a rate e.g. 60 ml/30 minutes</td>
+            <td>Dose of medication that was administered.  If the drug is intravenous, you may represent this a rate e.g., 60 ml/30 minutes</td>
         </tr>
         <tr>
             <td>MedicationAdministration.occurrenceDateTime or .occurrencePeriod</td>
@@ -104,7 +104,7 @@
             <tr>
             <td>MedicationAdministration.dosage.site</td>
             
-            <td>Anatomical site where the drug administered entered the body e.g. subclavian vein</td>
+            <td>Anatomical site where the drug administered entered the body e.g., subclavian vein</td>
         </tr>
         <tr>
             <td>MedicationAdministration.statusReason</td>
@@ -130,7 +130,7 @@
                 <td>Identifies who verified the medication to be administered.  This is most often a clinician who is verifying the administration for another clinician where there is a requirement for verification prior to administration.  </td>
             </tr>
     </table>
-    <p>Other attributes may be included e.g. method, reason, etc. The list of attributes above is meant to help the reader understand the definitions. It is not meant to define what attributes an individual implementation may include in their design.  
+    <p>Other attributes may be included e.g., method, reason, etc. The list of attributes above is meant to help the reader understand the definitions. It is not meant to define what attributes an individual implementation may include in their design.  
         </p>
     
     <h3>Rationale</h3>
@@ -142,7 +142,7 @@
     
     <h3>Setting</h3>
     
-    <p>Medication administrations occur in all types of settings e.g. hospitals, outpatient clinics, home, ambulance, ER, etc.  </p>
+    <p>Medication administrations occur in all types of settings e.g., hospitals, outpatient clinics, home, ambulance, ER, etc.  </p>
     
     <h3>Description</h3>
     
@@ -151,10 +151,10 @@
     <p>The lists may be created by a variety of users or systems, for example:</p>
     <ul>
         <li>Patient - direct entry into a mobile app</li>
-        <li>Other e.g.  parent for a child, caregiver for a patient</li>
+        <li>Other e.g.,  parent for a child, caregiver for a patient</li>
         <li>Electronically e.g., health system auto generates the list from orders/prescriptions known to the system</li>
         <li>Clinician e.g., user entry within an EHR Medication Administration module  </li>
-        <li>Output of a process e.g. medication reconciliation; new or updated medication orders (prescriptions, requests)</li>
+        <li>Output of a process e.g., medication reconciliation; new or updated medication orders (prescriptions, requests)</li>
     </ul>
     
     

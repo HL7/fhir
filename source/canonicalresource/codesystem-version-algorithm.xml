@@ -66,7 +66,7 @@
   <concept>
     <code value="major-minor"/>
     <display value="Major/Minor"/>
-    <definition value="Similar to semver, but having only two components - i.e. a major and minor (integer) version number separated by a '.'.  The specific nature of what constitutes a major vs. minor increment is locally defined."/>
+    <definition value="Similar to semver, but having only two components - i.e., a major and minor (integer) version number separated by a '.'.  The specific nature of what constitutes a major vs. minor increment is locally defined."/>
   </concept>
   <concept>
     <code value="sct-url"/>
@@ -76,6 +76,6 @@
   <concept>
     <code value="us-date"/>
     <display value="US Date"/>
-    <definition value="Versions are expressed as an US date format, i.e. MMDDYYYY (with or without separators)."/>
+    <definition value="Versions are expressed as an US date format, i.e., MMDDYYYY (with or without separators)."/>
   </concept>
 </CodeSystem>

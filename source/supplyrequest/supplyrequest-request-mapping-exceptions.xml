@@ -26,7 +26,7 @@
             <resource value="What other request is fulfilled by this supply request"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this supply request.  Authorization from the 'basedOn' request flows through to the referencing supply request."/>
+            <_pattern value="A higher-level request resource (i.e., a plan, proposal or order) that is fulfilled in whole or in part by this supply request.  Authorization from the 'basedOn' request flows through to the referencing supply request."/>
             <resource value="Plan/proposal/order fulfilled by this request."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
@@ -61,7 +61,7 @@
     <divergentElement patternPath="Request.groupIdentifier" resourcePath="SupplyRequest.groupIdentifier">
         <definitionUnmatched reason="Unknown">
             <_pattern value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
-            <resource value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+            <resource value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  e.g., a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
@@ -93,7 +93,7 @@
             <resource value="Whether the request is a proposal, plan, or an original order."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#10;&#10;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#10;&#10;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+            <_pattern value="This element is expected to be immutable.  e.g., A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#10;&#10;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#10;&#10;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  e.g., &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
             <resource value="This element is immutable. It cannot be changed for the same resource instance. It is expected that the type of requester will be restricted for different stages of a SupplyRequest. For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#13;&#13;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#13;&#13;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -116,7 +116,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Partitions the supply request into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
-            <resource value="Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process."/>
+            <resource value="Category of supply, e.g.,  central, non-stock, etc. This is used to support work flows associated with the supply process."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>

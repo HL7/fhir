@@ -469,7 +469,7 @@
       <path value="Condition.onset[x]"/>
       <short value="Estimated or actual date,  date-time, or age"/>
       <definition value="Estimated or actual date or date-time the condition, situation, or concern began, in the opinion of the clinician."/>
-      <comment value="If an event has risen to a level of concern due to its direct or indirect impact on the patient's health, then the date the event occurred is the onset date of the concern. Age is generally used when the patient reports an age at which the Condition began to occur.  Period is generally used to convey an imprecise onset that occurred within the time period.  For example, Period is not intended to convey the transition period before the chronic bronchitis or COPD condition was diagnosed, but Period can be used to convey an imprecise diagnosis date.  Range is generally used to convey an imprecise age range (e.g. 4 to 6 years old).  Because a Condition.code can represent multiple levels of granularity and can be modified over time, the onset and abatement dates can have ambiguity whether those dates apply to the current Condition.code or an earlier representation of that Condition.code.   For example, if the Condition.code was initially documented as severe asthma, then it is ambiguous whether the onset and abatement dates apply to asthma (overall in that subject's lifetime) or when asthma transitioned to become severe."/>
+      <comment value="If an event has risen to a level of concern due to its direct or indirect impact on the patient's health, then the date the event occurred is the onset date of the concern. Age is generally used when the patient reports an age at which the Condition began to occur.  Period is generally used to convey an imprecise onset that occurred within the time period.  For example, Period is not intended to convey the transition period before the chronic bronchitis or COPD condition was diagnosed, but Period can be used to convey an imprecise diagnosis date.  Range is generally used to convey an imprecise age range (e.g., 4 to 6 years old).  Because a Condition.code can represent multiple levels of granularity and can be modified over time, the onset and abatement dates can have ambiguity whether those dates apply to the current Condition.code or an earlier representation of that Condition.code.   For example, if the Condition.code was initially documented as severe asthma, then it is ambiguous whether the onset and abatement dates apply to asthma (overall in that subject's lifetime) or when asthma transitioned to become severe."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -508,7 +508,7 @@
       <path value="Condition.abatement[x]"/>
       <short value="When in resolution/remission"/>
       <definition value="The date or estimated date that the condition resolved or went into remission. This is called &quot;abatement&quot; because of the many overloaded connotations associated with &quot;remission&quot; or &quot;resolution&quot; - Some conditions, such as chronic conditions, are never really resolved, but they can abate."/>
-      <comment value="There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.&#xA;Because a Condition.code can represent multiple levels of granularity and can be modified over time, the onset and abatement dates can have ambiguity whether those dates apply to the current Condition.code or an earlier representation of that Condition.code.   For example, if the Condition.code was initially documented as severe asthma, then it is ambiguous whether the onset and abatement dates apply to asthma (overall in that subject's lifetime) or when asthma transitioned to become severe. Period is generally used to convey an imprecise abatement that occurred within the time period. Range is generally used to convey an imprecise age range (e.g. 4 to 6 years old)."/>
+      <comment value="There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.&#xA;Because a Condition.code can represent multiple levels of granularity and can be modified over time, the onset and abatement dates can have ambiguity whether those dates apply to the current Condition.code or an earlier representation of that Condition.code.   For example, if the Condition.code was initially documented as severe asthma, then it is ambiguous whether the onset and abatement dates apply to asthma (overall in that subject's lifetime) or when asthma transitioned to become severe. Period is generally used to convey an imprecise abatement that occurred within the time period. Range is generally used to convey an imprecise age range (e.g., 4 to 6 years old)."/>
 	  
       <min value="0"/>
       <max value="1"/>
@@ -740,7 +740,7 @@
           <valueString value="ConditionStage"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes describing condition stages (e.g. Cancer stages)."/>
+        <description value="Codes describing condition stages (e.g., Cancer stages)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-stage"/>
       </binding>
       <mapping>
@@ -791,7 +791,7 @@
           <valueString value="ConditionStageType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes describing the kind of condition staging (e.g. clinical or pathological)."/>
+        <description value="Codes describing the kind of condition staging (e.g., clinical or pathological)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-stage-type"/>
       </binding>
       <mapping>
@@ -809,7 +809,7 @@
       <path value="Condition.evidence"/>
       <short value="Supporting evidence for the condition"/>
       <definition value="Supporting evidence / manifestations that are the basis for determining the Condition."/>
-      <comment value="Do not use Condition.evidence for causality. If it is an AdverseEvent, use AdverseEvent.suspectEntity.causality.  Causality can also be pre-coordinated into the Condition.code (e.g. SNOMED 90619006 Fall in bathtub, or ICD W16. 2 Fall in (into) filled bathtub or bucket of water). Otherwise, use [[[http://hl7.org/fhir/StructureDefinition/condition-dueTo]]] extension to convey conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition. If the condition was confirmed, but subsequently refuted, then the evidence can be cumulative including all evidence over time. The evidence may be a simple list of coded symptoms/manifestations, or references to observations or formal assessments, or both. For example, if the Condition.code is pneumonia, then there could be an evidence list where Condition.evidence.concept = fever (CodeableConcept), Condition.evidence.concept = cough (CodeableConcept), and Condition.evidence.reference = bronchitis (reference to Condition). "/>
+      <comment value="Do not use Condition.evidence for causality. If it is an AdverseEvent, use AdverseEvent.suspectEntity.causality.  Causality can also be pre-coordinated into the Condition.code (e.g., SNOMED 90619006 Fall in bathtub, or ICD W16. 2 Fall in (into) filled bathtub or bucket of water). Otherwise, use [[[http://hl7.org/fhir/StructureDefinition/condition-dueTo]]] extension to convey conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition. If the condition was confirmed, but subsequently refuted, then the evidence can be cumulative including all evidence over time. The evidence may be a simple list of coded symptoms/manifestations, or references to observations or formal assessments, or both. For example, if the Condition.code is pneumonia, then there could be an evidence list where Condition.evidence.concept = fever (CodeableConcept), Condition.evidence.concept = cough (CodeableConcept), and Condition.evidence.reference = bronchitis (reference to Condition). "/>
       <min value="0"/>
       <max value="*"/>
       <type>

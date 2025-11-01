@@ -110,7 +110,7 @@
             <resource value="The visit or admission or other contact between patient and health care provider the immunization was performed as part of."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This will typically be the encounter the immunization was created during, but some immunizations may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <_pattern value="This will typically be the encounter the immunization was created during, but some immunizations may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -132,7 +132,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value="When immunizations are given, a specific date and time should always be recorded if known. If the time is not known, it should not be included. However, systems primarily rely on the date component of the immunization record for determining dose validity and future dose forecasting. For this reason, immunization records should preserve the immunization date as recorded for the time zone where the dose was administered. Care should be taken when recording and transmitting time and time zone information, as adjustments based on time zone can shift the recorded date. Additionally, because Patient.birthDate does not include a time component, systems should ensure that comparisons between occurrence date and birth date do not introduce inconsistencies in determining patient age at vaccination. When immunizations are patient reported, a specific date might not be known. Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose."/>
+            <resource value="When immunizations are given, a specific date and time should always be recorded if known. If the time is not known, it should not be included. However, systems primarily rely on the date component of the immunization record for determining dose validity and future dose forecasting. For this reason, immunization records should preserve the immunization date as recorded for the time zone where the dose was administered. Care should be taken when recording and transmitting time and time zone information, as adjustments based on time zone can shift the recorded date. Additionally, because Patient.birthDate does not include a time component, systems should ensure that comparisons between occurrence date and birth date do not introduce inconsistencies in determining patient age at vaccination. When immunizations are patient reported, a specific date might not be known. Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g., live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reported[x]" resourcePath="Immunization.primarySource">
@@ -183,7 +183,7 @@
         <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Distinguishes the type of involvement of the performer in the immunization.."/>
-            <resource value="Describes the function played by the performer in the immunization event (e.g. ordering provider, administering provider, etc.)."/>
+            <resource value="Describes the function played by the performer in the immunization event (e.g., ordering provider, administering provider, etc.)."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
@@ -212,7 +212,7 @@
             <resource value="The service delivery location where the vaccine administration occurred."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g., if it occurred inside or outside a dedicated healthcare setting)."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

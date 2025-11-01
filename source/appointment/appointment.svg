@@ -101,7 +101,7 @@
        class="diagram-class-detail"><a
    id="n1041"
    xlink:href="appointment-definitions.html#Appointment.identifier"><title
-   id="title26">This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</title>identifier</a> : <a
+   id="title26">This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g., in CDA documents, or in written / printed documentation)</title>identifier</a> : <a
    id="n1042"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
@@ -310,7 +310,7 @@
        class="diagram-class-detail"><a
    id="n1175"
    xlink:href="appointment-definitions.html#Appointment.virtualService"><title
-   id="title125">Connection details of a virtual service (e.g. conference call)</title>virtualService</a> : <a
+   id="title125">Connection details of a virtual service (e.g., conference call)</title>virtualService</a> : <a
    id="n1176"
    xlink:href="metadatatypes.html#VirtualServiceDetail">VirtualServiceDetail</a> [0..*]</text>
     <text
@@ -481,7 +481,7 @@ The duration (usually in minutes) could also be provided to indicate the length 
        class="diagram-class-detail"><a
    id="n1279"
    xlink:href="appointment-definitions.html#Appointment.patientInstruction"><title
-   id="title203">While Appointment.note contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before)</title>patientInstruction</a> : <a
+   id="title203">While Appointment.note contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g., please bring your referral or fast from 8pm night before)</title>patientInstruction</a> : <a
    id="n1280"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
    id="n1281"
@@ -504,7 +504,7 @@ The duration (usually in minutes) could also be provided to indicate the length 
        class="diagram-class-detail"><a
    id="n1293"
    xlink:href="appointment-definitions.html#Appointment.basedOn"><title
-   id="title212">The request this appointment is allocated to assess (e.g. incoming referral or procedure request)</title>basedOn</a> : <a
+   id="title212">The request this appointment is allocated to assess (e.g., incoming referral or procedure request)</title>basedOn</a> : <a
    id="n1294"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n1295"
@@ -907,7 +907,7 @@ The duration (usually in minutes) could also be provided to indicate the length 
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.weekInterval"><title
    id="title370">The interval defines if the recurrence is every nth week. The default is every week, so it is expected that this value will be 2 or more.
 
-e.g. For recurring every second week this interval would be 2, or every third week the interval would be 3</title>weekInterval</a> : <a
+e.g., For recurring every second week this interval would be 2, or every third week the interval would be 3</title>weekInterval</a> : <a
    id="n1499"
    xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
   </g>

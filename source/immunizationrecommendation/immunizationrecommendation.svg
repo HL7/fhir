@@ -136,7 +136,7 @@
        class="diagram-class-detail"><a
    id="n374"
    xlink:href="immunizationrecommendation-definitions.html#ImmunizationRecommendation.authority"><title
-   id="title41006">Indicates the authority who published the protocol (e.g. ACIP)</title>authority</a> : <a
+   id="title41006">Indicates the authority who published the protocol (e.g., ACIP)</title>authority</a> : <a
    id="n375"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n376"
@@ -308,7 +308,7 @@
        class="diagram-class-detail"><a
    id="n471"
    xlink:href="immunizationrecommendation-definitions.html#ImmunizationRecommendation.recommendation.doseNumber"><title
-   id="title41073">Nominal position of the recommended dose in a series as determined by the evaluation and forecasting process (e.g. dose 2 is the next recommended dose)</title>doseNumber</a> : <a
+   id="title41073">Nominal position of the recommended dose in a series as determined by the evaluation and forecasting process (e.g., dose 2 is the next recommended dose)</title>doseNumber</a> : <a
    id="n472"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text

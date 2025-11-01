@@ -128,7 +128,7 @@
 		<xs:restriction base="xs:NMTOKEN">
 			<xs:enumeration value="constructedElement">
 				<xs:annotation>
-					<xs:documentation>Allows insertion of a pre-defined complex structure (e.g. auto-generated table or diagram) to be inserted</xs:documentation>
+					<xs:documentation>Allows insertion of a pre-defined complex structure (e.g., auto-generated table or diagram) to be inserted</xs:documentation>
 					<xs:documentation>Parameters: constructType (required)</xs:documentation>
 					<xs:documentation>Embedded Content: prohibited</xs:documentation>
 				</xs:annotation>
@@ -163,7 +163,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="divRef">
 				<xs:annotation>
-					<xs:documentation>Allows referencing a 'div' tag within a set of markup.  Must be local to the markup being referenced.  E.g. You can't reference a 'div' in one annotation from another annotation.</xs:documentation>
+					<xs:documentation>Allows referencing a 'div' tag within a set of markup.  Must be local to the markup being referenced.  e.g., You can't reference a 'div' in one annotation from another annotation.</xs:documentation>
 					<xs:documentation>Parameters: hl7Id (required)</xs:documentation>
 					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the div </xs:documentation>
 				</xs:annotation>
@@ -247,14 +247,14 @@
 			</xs:enumeration>
 			<xs:enumeration value="freehandDocumentRef">
 				<xs:annotation>
-					<xs:documentation>An absolute reference to a specific document (e.g. ITS, transport protocol, etc.)</xs:documentation>
+					<xs:documentation>An absolute reference to a specific document (e.g., ITS, transport protocol, etc.)</xs:documentation>
 					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'DC'), {domain, realmNamespace, name} (required), {version, releaseDate} (optional)</xs:documentation>
 					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the freehandDocument</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="publicationRef">
 				<xs:annotation>
-					<xs:documentation>An absolute reference to a specific publication (e.g. ballot, normative edition, etc.)</xs:documentation>
+					<xs:documentation>An absolute reference to a specific publication (e.g., ballot, normative edition, etc.)</xs:documentation>
 					<xs:documentation>Parameters: root (required, 'BAL' or 'PUB), {realmNamespace, realmNamespace} (required), {domain, version, releaseDate} (optional)</xs:documentation>
 					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the package</xs:documentation>
 				</xs:annotation>

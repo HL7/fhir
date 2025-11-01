@@ -32,7 +32,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Example code system illustrating possible codes for identifying the condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
+  <description value="Example code system illustrating possible codes for identifying the condition or other outcome; e.g., death, remission, amputation, infection, etc."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-outcome"/>
   <content value="complete"/>

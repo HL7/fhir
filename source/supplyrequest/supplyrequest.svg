@@ -139,7 +139,7 @@
        class="diagram-class-detail"><a
    id="n449"
    xlink:href="supplyrequest-definitions.html#SupplyRequest.category"><title
-   id="title104435">Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process</title>category</a> : <a
+   id="title104435">Category of supply, e.g.,  central, non-stock, etc. This is used to support work flows associated with the supply process</title>category</a> : <a
    id="n450"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n451"

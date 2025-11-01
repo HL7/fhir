@@ -63,6 +63,6 @@
   <concept>
     <code value="data-exchange"/>
     <display value="Data Exchange"/>
-    <definition value="A data exchange report that contains data-of-interest for the measure (i.e. data that is needed to calculate the measure)"/>
+    <definition value="A data exchange report that contains data-of-interest for the measure (i.e., data that is needed to calculate the measure)"/>
   </concept>
 </CodeSystem>

@@ -51,7 +51,7 @@
 		 refer to the <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
 	    </p>
 	    <p>
-        ServiceRequest and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a ServiceRequest would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist. For example, upon receiving a CommunicationRequest a practitioner might initiate a ServiceRequest.
+        ServiceRequest and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a ServiceRequest would be used to request information as part of training or counseling - i.e., when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist. For example, upon receiving a CommunicationRequest a practitioner might initiate a ServiceRequest.
         </p>
 		<blockquote class="stu-note">
 		<p><b>Note to Implementers:</b>

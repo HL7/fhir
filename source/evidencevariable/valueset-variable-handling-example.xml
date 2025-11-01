@@ -32,7 +32,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive)."/>
+  <description value="The handling of the variable in statistical analysis for exposures or outcomes (e.g., Dichotomous, Continuous, Descriptive)."/>
   <immutable value="true"/>
   <compose>
     <include>

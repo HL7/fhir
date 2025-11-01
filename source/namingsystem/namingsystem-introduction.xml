@@ -11,7 +11,7 @@ Defines a specific code system or identifier system, so that it can be noted in 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-A <code>NamingSystem</code> resource manages identifiers of a code system or identifier system, identifier metadata (e.g. type), and limited code system or identifier system specific metadata (e.g. publisher and description).
+A <code>NamingSystem</code> resource manages identifiers of a code system or identifier system, identifier metadata (e.g., type), and limited code system or identifier system specific metadata (e.g., publisher and description).
 A <code>CodeSystem</code> resource represents a code system, its key properties, and may include the content, identifiers, and other metadata.   
 There is known overlap between the <code>CodeSystem</code> and <code>NamingSystem</code> resource elements. However, the key differences between the resources are as follows:
 <ul>

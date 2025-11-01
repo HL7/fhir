@@ -63,7 +63,7 @@ find the structure when registered in repositories.
     </p>
    </td></tr>
  <tr><td>versionAlgorithm</td><td>Indicates the mechanism used to compare versions to determine which is more current</td></tr>
- <tr><td>name</td><td>A Computer-ready name (e.g. a token) that identifies the structure - suitable for code generation. 
+ <tr><td>name</td><td>A Computer-ready name (e.g., a token) that identifies the structure - suitable for code generation. 
    Note that this name (and other names relevant for code generation, including element &amp; slice names, codes etc.) may collide with reserved words in the relevant target language, and code generators will need to handle this </td></tr>
  <tr><td>title</td><td>A free text natural language name identifying the structure	</td></tr>
  <tr><td>status</td><td>The status of the structure	allows filtering of StructureDefinitions that are appropriate for use vs. not. See the <a href="valueset-publication-status.html">Status Codes</a></td></tr>
@@ -83,7 +83,7 @@ find the structure when registered in repositories.
 
 <p>Notes:</p>
 <ul>
-<li>The name and title of the structure are not required to be globally unique, but the name and title should have some scoping information (e.g. AcmeAllergies / Acme Inc. (USA), Allergy List)</li>
+<li>The name and title of the structure are not required to be globally unique, but the name and title should have some scoping information (e.g., AcmeAllergies / Acme Inc. (USA), Allergy List)</li>
 <li>Multiple keywords may be assigned to the structure. These may either describe the structure, the focus of the structure or both. They are solely to help find the structure by searching for structured concepts</li>
 <li>The 3 status codes (draft, active, and retired) are the codes that are relevant to structure consumers. Authors may wish to use the <a href="#author-status">authoring-status</a> extension to track the life cycle of a structure as it is prepared</li>
 </ul>

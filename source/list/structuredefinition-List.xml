@@ -61,7 +61,7 @@
   <mapping>
     <identity value="xds"/>
     <uri value="https://profiles.ihe.net/ITI/TF/Volume3"/>
-    <name value="IHE Document Sharing (e.g. XDS) metadata Mapping"/>
+    <name value="IHE Document Sharing (e.g., XDS) metadata Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -242,7 +242,7 @@
       <path value="List.subject"/>
       <short value="If all resources have the same subject(s)"/>
       <definition value="The common subject(s) (or patient(s)) of the resources that are in the list if there is one (or a set of subjects)."/>
-      <comment value="Some purely arbitrary lists do not have a common subject, so this is optional. Lists having multiple subjects may raise challenges for systems that base access control or other security considerations on linkages to 'subject'. E.g. if a List is associated with multiple Patient subjects, then it would be nominally part of multiple patient compartments, which might drive access rights."/>
+      <comment value="Some purely arbitrary lists do not have a common subject, so this is optional. Lists having multiple subjects may raise challenges for systems that base access control or other security considerations on linkages to 'subject'. e.g., if a List is associated with multiple Patient subjects, then it would be nominally part of multiple patient compartments, which might drive access rights."/>
       <requirements value="The primary purpose of listing the subject explicitly is to help with finding the right list."/>
       <min value="0"/>
       <max value="*"/>

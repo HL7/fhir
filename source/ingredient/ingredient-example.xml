@@ -25,7 +25,7 @@
 		</code>
 		<strength>
 			<!-- a single strength is commonly expressed in two ways: 
-				 presentation - per item (e.g. per tablet), 
+				 presentation - per item (e.g., per tablet), 
 				 and concentration - per unit of measure (usually with a unitary demoninator) -->
 			<!-- these are not different strengths - and have the same real value - but are different ways of expressing the same single strength -->
 			<!-- presentation is meant for humans/consumers, concentration is meant for calculations/experts -->
@@ -61,7 +61,7 @@
 			</concentrationRatio>
 			<!-- A reference strength is a different strength value for the same substance, 
 				 expressed in terms of a related but different substance.
-				 This other substance is usually another chemical form of the same thing e.g. the "salt" form of the active igredient, 
+				 This other substance is usually another chemical form of the same thing e.g., the "salt" form of the active igredient, 
 			     for example a chloride or sulfate. The salt may be the form of the substance molecule that is 
 			     actually present, even though the strength is usually expressed in terms of only the active "base" 
 			     part of the molecule.

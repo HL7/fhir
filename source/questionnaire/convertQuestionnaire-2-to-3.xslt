@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   - This transform converts instances conformant with the DSTU 2 version of the Questionnaire resource to be conformant with the DSTU 3 version of the resource.  
-  - It should also work to convert interim releases of DSTU 3 questionnaires (e.g. 2.1)
+  - It should also work to convert interim releases of DSTU 3 questionnaires (e.g., 2.1)
   - This transform is released "as is" and is intended for conversion of example instances.  Use in converting production data is at the user's own risk
   -->
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xpath-default-namespace="http://hl7.org/fhir" exclude-result-prefixes="xs">

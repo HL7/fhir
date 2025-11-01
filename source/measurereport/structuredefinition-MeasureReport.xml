@@ -173,7 +173,7 @@
           <valueString value="The status of the measure report."/>
         </extension>
         <strength value="required"/>
-        <description value="The status of the measure report (e.g. complete, pending, or error)"/>
+        <description value="The status of the measure report (e.g., complete, pending, or error)"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-report-status"/>
       </binding>
       <mapping>
@@ -555,7 +555,7 @@
     </element>
     <element id="MeasureReport.group.scoring">
       <path value="MeasureReport.group.scoring"/>
-      <short value="What scoring method (e.g. proportion, ratio, continuous-variable)"/>
+      <short value="What scoring method (e.g., proportion, ratio, continuous-variable)"/>
       <definition value="Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented. It is expected to be the same as the scoring element on the referenced Measure."/>
       <min value="0"/>
       <max value="1"/>
@@ -591,7 +591,7 @@
         <code value="CodeableConcept"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="Improvement notation determines how to interpret the measure score (i.e. whether an increase is an improvement)"/>
+      <isModifierReason value="Improvement notation determines how to interpret the measure score (i.e., whether an increase is an improvement)"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -601,7 +601,7 @@
           <valueString value="Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue."/>
         </extension>
         <strength value="extensible"/>
-        <description value="The improvement notation of the measure report (e.g. increase or decrease)"/>
+        <description value="The improvement notation of the measure report (e.g., increase or decrease)"/>
         <valueSet value="http://terminology.hl7.org/ValueSet/measure-improvement-notation"/>
       </binding>
       <mapping>
@@ -690,7 +690,7 @@
           <valueString value="MeasurePopulation"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
+        <description value="The type of population (e.g., initial, numerator, denominator, etc.)."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
       </binding>
       <mapping>
@@ -777,7 +777,7 @@
       <path value="MeasureReport.group.population.subjects"/>
       <short value="What individual(s) in the population"/>
       <definition value="Optional Group identifying the individuals that make up the population."/>
-      <comment value="Note that this element can only be used for summary and subject-list reports where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group resource SHALL be an actual (as opposed to a definitional) group."/>
+      <comment value="Note that this element can only be used for summary and subject-list reports where the basis is of the same type as the populations (e.g., a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group resource SHALL be an actual (as opposed to a definitional) group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -932,7 +932,7 @@
     </element>
     <element id="MeasureReport.group.stratifier.stratum.value[x]">
       <path value="MeasureReport.group.stratifier.stratum.value[x]"/>
-      <short value="The stratum value, e.g. male"/>
+      <short value="The stratum value, e.g., male"/>
       <definition value="The value for this stratum, expressed as a CodeableConcept. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique."/>
       <min value="0"/>
       <max value="1"/>
@@ -1031,7 +1031,7 @@
     </element>
     <element id="MeasureReport.group.stratifier.stratum.component.value[x]">
       <path value="MeasureReport.group.stratifier.stratum.component.value[x]"/>
-      <short value="The stratum component value, e.g. male"/>
+      <short value="The stratum component value, e.g., male"/>
       <definition value="The stratum component value."/>
       <min value="1"/>
       <max value="1"/>
@@ -1117,7 +1117,7 @@
           <valueString value="MeasurePopulation"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
+        <description value="The type of population (e.g., initial, numerator, denominator, etc.)."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/measure-population"/>
       </binding>
       <mapping>
@@ -1190,7 +1190,7 @@
       <path value="MeasureReport.group.stratifier.stratum.population.subjects"/>
       <short value="What individual(s) in the population"/>
       <definition value="Optional Group identifying the individuals that make up the population."/>
-      <comment value="Note that this element can only be used for summary and subject-list reports where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be an actual (as opposed to a definitional) group."/>
+      <comment value="Note that this element can only be used for summary and subject-list reports where the basis is of the same type as the populations (e.g., a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be an actual (as opposed to a definitional) group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1244,7 +1244,7 @@
     <element id="MeasureReport.supplementalData">
       <path value="MeasureReport.supplementalData"/>
       <short value="Additional information collected for the report"/>
-      <definition value="A reference to a Resource that represents additional information collected for the report. If the value of the supplemental data is not a Resource (i.e. evaluating the supplementalData expression for this case in the measure results in a value that is not a FHIR Resource), it is reported as a reference to a contained Observation resource."/>
+      <definition value="A reference to a Resource that represents additional information collected for the report. If the value of the supplemental data is not a Resource (i.e., evaluating the supplementalData expression for this case in the measure results in a value that is not a FHIR Resource), it is reported as a reference to a contained Observation resource."/>
       <comment value="For individual measure reports, the supplementalData elements represent the direct result of evaluating the supplementalData expression for the subject of the report. For summary reports, supplementalData is reported as references to contained Observation resources that represent the number of times each value appeared as a supplementalData result for members of the population."/>
       <min value="0"/>
       <max value="*"/>

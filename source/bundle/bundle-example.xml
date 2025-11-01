@@ -60,7 +60,7 @@
          resource is added because it's a match or an include         -->   
       <mode value="match"/> 
       <!-- score. For matches where the criteria are not determinate,
-        e.g. text search on narrative, the server can include a score to indicate
+        e.g., text search on narrative, the server can include a score to indicate
         how well the resource matches the conditions. Since this search is by patient
         identifier, there's nothing fuzzy about it, but for example purposes: -->
       <score value="1"/>

@@ -112,7 +112,7 @@
        class="diagram-class-detail"><a
    id="n292"
    xlink:href="inventoryreport-definitions.html#InventoryReport.status"><title
-   id="title5884">The status of the inventory check or notification - whether this is draft (e.g. the report is still pending some updates) or active (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="title5884">The status of the inventory check or notification - whether this is draft (e.g., the report is still pending some updates) or active (this element modifies the meaning of other elements)</title>status</a> : <a
    id="n293"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n294"
@@ -309,7 +309,7 @@
        class="diagram-class-detail"><a
    id="n384"
    xlink:href="inventoryreport-definitions.html#InventoryReport.inventoryListing.item.category"><title
-   id="title5957">The inventory category or classification of the items being reported. This is meant not for defining the product, but for inventory categories e.g. 'pending recount' or 'damaged'</title>category</a> : <a
+   id="title5957">The inventory category or classification of the items being reported. This is meant not for defining the product, but for inventory categories e.g., 'pending recount' or 'damaged'</title>category</a> : <a
    id="n385"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
     <text

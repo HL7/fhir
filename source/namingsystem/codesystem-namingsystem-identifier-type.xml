@@ -53,7 +53,7 @@
   <concept>
     <code value="oid"/>
     <display value="OID"/>
-    <definition value="An ISO object identifier; e.g. 1.2.3.4.5."/>
+    <definition value="An ISO object identifier; e.g., 1.2.3.4.5."/>
   </concept>
   <concept>
     <code value="uuid"/>
@@ -63,7 +63,7 @@
   <concept>
     <code value="uri"/>
     <display value="URI"/>
-    <definition value="A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org."/>
+    <definition value="A uniform resource identifier (ideally a URL - uniform resource locator); e.g., http://unitsofmeasure.org."/>
   </concept>
   <concept>
     <code value="iri-stem"/>
@@ -78,6 +78,6 @@
   <concept>
     <code value="other"/>
     <display value="Other"/>
-    <definition value="Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC."/>
+    <definition value="Some other type of unique identifier; e.g., HL7-assigned reserved string such as LN for LOINC."/>
   </concept>
 </CodeSystem>

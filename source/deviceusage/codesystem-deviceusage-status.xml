@@ -43,7 +43,7 @@
   <concept>
     <code value="preparation"/>
     <display value="Preparation"/>
-    <definition value="The core event has not started yet, but some staging activities have begun (e.g. surgical suite preparation). Preparation stages may be tracked for billing purposes."/>
+    <definition value="The core event has not started yet, but some staging activities have begun (e.g., surgical suite preparation). Preparation stages may be tracked for billing purposes."/>
   </concept>
   <concept>
     <code value="active"/>

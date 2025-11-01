@@ -5,7 +5,7 @@
         <h2>Scope and Usage</h2>
         <strong>Note that this content is preliminary and has not yet undergone proper review by the
             appropriate Workgroups. </strong>
-        <p> The OccupationalData (i.e. Occupational Data for Health, ODH) FHIR resource covers information about a
+        <p> The OccupationalData (i.e., Occupational Data for Health, ODH) FHIR resource covers information about a
             patient's work or a patient's family member's work. ODH is designed for the social
             history section of a medical record, to facilitate clinical care in most, if not all disciplines
             and delivery environments. ODH also can be used to support public health reporting,
@@ -45,8 +45,8 @@
         <ul>
             <li>Diabetes management affected by rotating shift</li>
             <li>Population prevention and testing activities due to potential for increased
-                substance exposure or take-home exposure (e.g. lead) associated with occupation
-                (e.g. house painter)</li>
+                substance exposure or take-home exposure (e.g., lead) associated with occupation
+                (e.g., house painter)</li>
             <li>Stress factors associated with retirement status</li>
             <li>Long shifts with safety sensitive work</li>
             <li>Recognition of asthma related to the workplace environment</li>
@@ -62,7 +62,7 @@
             work information. Such profiles may include those related to: </p>
         <ul>
             <li>Quality measures</li>
-            <li>Public health reporting (e.g. vital records, cancer, case reporting)</li>
+            <li>Public health reporting (e.g., vital records, cancer, case reporting)</li>
             <li>Encounter summaries</li>
         </ul>
         <p> This resource refers to the following other resources: </p>

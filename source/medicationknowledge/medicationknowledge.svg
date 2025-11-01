@@ -192,7 +192,7 @@
        class="diagram-class-detail"><a
    id="n1032"
    xlink:href="medicationknowledge-definitions.html#MedicationKnowledge.productType"><title
-   id="title151383">Category of the medication or product (e.g. branded product, therapeutic moeity, generic product, innovator product, etc.)</title>productType</a> : <a
+   id="title151383">Category of the medication or product (e.g., branded product, therapeutic moeity, generic product, innovator product, etc.)</title>productType</a> : <a
    id="n1033"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
     <text
@@ -303,7 +303,7 @@
        class="diagram-class-detail"><a
    id="n1072"
    xlink:href="medicationknowledge-definitions.html#MedicationKnowledge.monograph.type"><title
-   id="title151418">The category of documentation about the medication. (e.g. professional monograph, patient education monograph)</title>type</a> : <a
+   id="title151418">The category of documentation about the medication. (e.g., professional monograph, patient education monograph)</title>type</a> : <a
    id="n1073"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
     <text
@@ -625,7 +625,7 @@
        class="diagram-class-detail"><a
    id="n1184"
    xlink:href="medicationknowledge-definitions.html#MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.type"><title
-   id="title151515">The categorization of the specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender)</title>type</a> : <a
+   id="title151515">The categorization of the specific characteristic that is relevant to the administration guideline (e.g., height, weight, gender)</title>type</a> : <a
    id="n1185"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
     <text
@@ -636,7 +636,7 @@
        class="diagram-class-detail"><a
    id="n1190"
    xlink:href="medicationknowledge-definitions.html#MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.value_x_"><title
-   id="title151520">The specific characteristic (e.g. height, weight, gender, etc.)</title>value[x]</a> : <a
+   id="title151520">The specific characteristic (e.g., height, weight, gender, etc.)</title>value[x]</a> : <a
    id="n1191"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
    id="n1192"
@@ -705,7 +705,7 @@
        class="diagram-class-detail"><a
    id="n1221"
    xlink:href="medicationknowledge-definitions.html#MedicationKnowledge.medicineClassification.classification"><title
-   id="title151544">Specific category assigned to the medication (e.g. anti-infective, anti-hypertensive, antibiotic, etc.)</title>classification</a> : <a
+   id="title151544">Specific category assigned to the medication (e.g., anti-infective, anti-hypertensive, antibiotic, etc.)</title>classification</a> : <a
    id="n1222"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
   </g>
@@ -1256,7 +1256,7 @@
      class="diagram-class-linkage"><a
        id="n1433"
        xlink:href="medicationknowledge-definitions.html#MedicationKnowledge.relatedMedicationKnowledge"><title
-   id="title151721">Associated or related medications. For example, if the medication is a branded product (e.g. Crestor), this is the Therapeutic Moeity (e.g. Rosuvastatin) or if this is a generic medication (e.g. Rosuvastatin), this would link to a branded product (e.g. Crestor</title>relatedMedicationKnowledge</a></text>
+   id="title151721">Associated or related medications. For example, if the medication is a branded product (e.g., Crestor), this is the Therapeutic Moeity (e.g., Rosuvastatin) or if this is a generic medication (e.g., Rosuvastatin), this would link to a branded product (e.g., Crestor</title>relatedMedicationKnowledge</a></text>
   <text
      id="n1434"
      x="178.05745103613046"

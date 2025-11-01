@@ -88,6 +88,6 @@
   <concept>
     <code value="software"/>
     <display value="Software"/>
-    <definition value="A device that may include a software component or consist exclusively of software e.g. data transformer or converter, clinical support algorithms, clinical apps"/>
+    <definition value="A device that may include a software component or consist exclusively of software e.g., data transformer or converter, clinical support algorithms, clinical apps"/>
   </concept>
 </CodeSystem>

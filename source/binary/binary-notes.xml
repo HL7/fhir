@@ -5,7 +5,7 @@
 <p>
 <code>Binary.data</code> is optional because it is excluded when 
 a summary view of the Binary resource is requested (this can be useful
-when the binary resource is part of a wider request e.g. a search 
+when the binary resource is part of a wider request e.g., a search 
 _include). 
 </p>
 <p>
@@ -19,13 +19,13 @@ any specified content is not useful.
 Binary resources behave slightly differently from all other resources on the RESTful API:
 </p>
 <ul>
- <li>When a read request is made with a FHIR type in the Accept header (e.g. "<code>application/fhir+xml</code>" or 
+ <li>When a read request is made with a FHIR type in the Accept header (e.g., "<code>application/fhir+xml</code>" or 
    "<code>application/fhir+json</code>") the Binary resource is returned in the requested FHIR format. 
    This applies even when the binary data itself has a FHIR mime type</li>
  <li>The Binary resource is always represented in the native FHIR format when wrapped in a <a href="bundle.html">Bundle</a></li>
  <li>The <a href="http.html#format">_format</a> overrides the accept header and SHALL be interpreted as using the standard FHIR mime types, even if the more generic mime types are given as a value.</li>	 
 <li>When the read request has some other type in the <code>Accept</code> header, then the content should be returned with the content type stated in the resource in the <code>Content-Type</code> header. 
-  E.g. if the content type in the resource is "application/pdf", then the content should be returned as a PDF directly. The _summary parameter does not apply in this case.
+  e.g., if the content type in the resource is "application/pdf", then the content should be returned as a PDF directly. The _summary parameter does not apply in this case.
 </li>
 <li>due to the way the web infrastructure works, it is not possible to make blanket
 rules about the relationship between the "Accept" field in the HTTP request, and the 
@@ -40,7 +40,7 @@ except for the special case where the content is actually a <code>Binary</code> 
 <li> 
 Note that when client requests a Binary resource using a generic mime type (application/xml, text/xml, or application/json),
 the server SHOULD return the content directly if the content-type format matches the 
-requested mime type (e.g. if the Accept header is application/json, and the <code>contentType</code>
+requested mime type (e.g., if the Accept header is application/json, and the <code>contentType</code>
 is vnd.xacml+json). However, servers might not always be able to interpret mime types correctly,
 and clients SHOULD be prepared to receive either format.
 </li>

@@ -117,7 +117,7 @@
        class="diagram-class-detail"><a
    id="n772"
    xlink:href="operationdefinition-definitions.html#OperationDefinition.version"><title
-   id="title126210">The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title126210">The identifier that is used to identify this version of the operation definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the operation definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n773"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -321,7 +321,7 @@
        class="diagram-class-detail"><a
    id="n896"
    xlink:href="operationdefinition-definitions.html#OperationDefinition.copyrightLabel"><title
-   id="title126302">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title126302">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n897"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -392,7 +392,7 @@
        class="diagram-class-detail"><a
    id="n938"
    xlink:href="operationdefinition-definitions.html#OperationDefinition.system"><title
-   id="title126335">Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)</title>system</a> : <a
+   id="title126335">Indicates whether this operation or named query can be invoked at the system level (e.g., without needing to choose a resource type for the context)</title>system</a> : <a
    id="n939"
    xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
     <text
@@ -403,7 +403,7 @@
        class="diagram-class-detail"><a
    id="n944"
    xlink:href="operationdefinition-definitions.html#OperationDefinition.type"><title
-   id="title126340">Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a specific resource id for the context)</title>type</a> : <a
+   id="title126340">Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g., without needing to choose a specific resource id for the context)</title>type</a> : <a
    id="n945"
    xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
     <text
@@ -670,7 +670,7 @@
        class="diagram-class-detail"><a
    id="n1094"
    xlink:href="operationdefinition-definitions.html#OperationDefinition.parameter.binding.valueSet"><title
-   id="title126450">Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used</title>valueSet</a> : <a
+   id="title126450">Points to the value set or external definition (e.g., implicit value set) that identifies the set of codes to be used</title>valueSet</a> : <a
    id="n1095"
    xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
    id="n1096"

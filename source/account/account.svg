@@ -102,7 +102,7 @@
        class="diagram-class-detail"><a
    id="n658"
    xlink:href="account-definitions.html#Account.identifier"><title
-   id="title45596">Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number)</title>identifier</a> : <a
+   id="title45596">Unique identifier used to reference the account.  Might or might not be intended for human use (e.g., credit card number)</title>identifier</a> : <a
    id="n659"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
@@ -457,7 +457,7 @@ A coverage may only be responsible for specific types of charges, and the sequen
        class="diagram-class-detail"><a
    id="n841"
    xlink:href="account-definitions.html#Account.diagnosis.type"><title
-   id="title45733">Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)</title>type</a> : <a
+   id="title45733">Type that this diagnosis has relevant to the account (e.g., admission, billing, discharge …)</title>type</a> : <a
    id="n842"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n843"

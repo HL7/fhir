@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n1664"
    xlink:href="citation-definitions.html#Citation.version"><title
-   id="title62797">The identifier that is used to identify this version of the citation record when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation record author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title62797">The identifier that is used to identify this version of the citation record when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation record author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n1665"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -306,7 +306,7 @@
        class="diagram-class-detail"><a
    id="n1772"
    xlink:href="citation-definitions.html#Citation.copyrightLabel"><title
-   id="title62879">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title62879">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1773"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -508,7 +508,7 @@
        class="diagram-class-detail"><a
    id="n1864"
    xlink:href="citation-definitions.html#Citation.classification.type"><title
-   id="title62956">The kind of classifier (e.g. publication type, keyword)</title>type</a> : <a
+   id="title62956">The kind of classifier (e.g., publication type, keyword)</title>type</a> : <a
    id="n1865"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1866"
@@ -1340,7 +1340,7 @@
        class="diagram-class-detail"><a
    id="n2230"
    xlink:href="citation-definitions.html#Citation.citedArtifact.publicationForm.publishedIn.type"><title
-   id="title63264">Kind of container (e.g. Periodical, database, or book)</title>type</a> : <a
+   id="title63264">Kind of container (e.g., Periodical, database, or book)</title>type</a> : <a
    id="n2231"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n2232"
@@ -1479,7 +1479,7 @@
        class="diagram-class-detail"><a
    id="n2288"
    xlink:href="citation-definitions.html#Citation.citedArtifact.classification.type"><title
-   id="title63312">The kind of classifier (e.g. publication type, keyword)</title>type</a> : <a
+   id="title63312">The kind of classifier (e.g., publication type, keyword)</title>type</a> : <a
    id="n2289"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n2290"
@@ -1640,7 +1640,7 @@
        class="diagram-class-detail"><a
    id="n2364"
    xlink:href="citation-definitions.html#Citation.citedArtifact.contributorship.entry.role"><title
-   id="title63371">The role of the contributor (e.g. author, editor, reviewer, funder)</title>role</a> : <a
+   id="title63371">The role of the contributor (e.g., author, editor, reviewer, funder)</title>role</a> : <a
    id="n2365"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n2366"

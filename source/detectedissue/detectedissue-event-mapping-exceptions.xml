@@ -14,7 +14,7 @@
     <divergentElement patternPath="Event.code" resourcePath="DetectedIssue.code">
         <shortUnmatched reason="Specialization">
             <_pattern value="What service was done"/>
-            <resource value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc"/>
+            <resource value="Specific type of detected issue, e.g., drug-drug, duplicate therapy, etc"/>
         </shortUnmatched>
         <definitionUnmatched reason="Specialization">
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
@@ -63,7 +63,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Specialization">
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>
-            <resource value="There's an implicit constraint on the number of implicated resources based on DetectedIssue.type; e.g. For drug-drug, there would be more than one.  For timing, there would typically only be one."/>
+            <resource value="There's an implicit constraint on the number of implicated resources based on DetectedIssue.type; e.g., For drug-drug, there would be more than one.  For timing, there would typically only be one."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.note" resourcePath="DetectedIssue.detail">

@@ -9,11 +9,11 @@ This resource is used to record detailed information about a condition, problem,
 </p>
 
 <p>
-The condition resource may be used to record a certain health state of a patient which does not normally present a negative outcome, e.g. pregnancy.  The condition resource may be used to record a condition following a procedure, such as the condition of Amputee-BKA following an amputation procedure.
+The condition resource may be used to record a certain health state of a patient which does not normally present a negative outcome, e.g., pregnancy.  The condition resource may be used to record a condition following a procedure, such as the condition of Amputee-BKA following an amputation procedure.
 </p>
 
 <p>
-While conditions are frequently a result of a clinician's assessment and assertion of a particular aspect of a patient's state of health, conditions can also be expressed by the patient, related person, or any care team member. A clinician may have a concern about a patient condition (e.g. anorexia) that the patient is not concerned about.  Likewise, the patient may have a condition (e.g. hair loss) that does not rise to the level of importance such that it belongs on a practitioner’s Problem List.
+While conditions are frequently a result of a clinician's assessment and assertion of a particular aspect of a patient's state of health, conditions can also be expressed by the patient, related person, or any care team member. A clinician may have a concern about a patient condition (e.g., anorexia) that the patient is not concerned about.  Likewise, the patient may have a condition (e.g., hair loss) that does not rise to the level of importance such that it belongs on a practitioner’s Problem List.
 </p>
 
 <p>
@@ -46,12 +46,12 @@ These examples may also be represented using other resources, such as <a href="f
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-    The condition resource may be referenced by other resources as "reasons" for an action (e.g. <a href="medicationrequest.html">MedicationRequest</a>,
+    The condition resource may be referenced by other resources as "reasons" for an action (e.g., <a href="medicationrequest.html">MedicationRequest</a>,
 <a href="procedure.html">Procedure</a>, <a href="servicerequest.html">ServiceRequest</a>, etc.)
 </p>
 <p>
 This resource is not typically used to record information about subjective and objective information that might lead to the recording of a Condition resource. Such signs and symptoms are typically captured using the <a href="observation.html">Observation</a> resource;
-although in some cases a persistent symptom, e.g. fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician. In an inpatient scenario, a nursing problem list may document symptoms (such as respiratory alteration) as conditions if they are the focus of care provision. It became a problem because the nurse (clinician) wants to manage it. By contrast, headache may be captured as an Observation when it contributes to the establishment of a meningitis Condition.
+although in some cases a persistent symptom, e.g., fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician. In an inpatient scenario, a nursing problem list may document symptoms (such as respiratory alteration) as conditions if they are the focus of care provision. It became a problem because the nurse (clinician) wants to manage it. By contrast, headache may be captured as an Observation when it contributes to the establishment of a meningitis Condition.
 </p>
 <p>
 Use the <a href="observation.html">Observation</a> resource when a symptom is resolved without long term management, tracking, or when a symptom contributes to the establishment of a condition.
@@ -60,7 +60,7 @@ Use the <a href="observation.html">Observation</a> resource when a symptom is re
 Use Condition when a symptom requires long term management, tracking, or is used as a proxy for a diagnosis or problem that is not yet determined.
 </p>
 <p>
-Note that a Condition represents an instance of a condition, not the categorical patient state. This can be a subtle distinction for systemic conditions, but it is easier to see with conditions that can happen more than once, e.g. refuting one record of a wound does not mean that the patient does not have any other wounds, and resolving one case of otitis media does not rule out recurrence.  An observation that the patient doesn't have any wounds means the patient doesn't have any wounds at that point in time.
+Note that a Condition represents an instance of a condition, not the categorical patient state. This can be a subtle distinction for systemic conditions, but it is easier to see with conditions that can happen more than once, e.g., refuting one record of a wound does not mean that the patient does not have any other wounds, and resolving one case of otitis media does not rule out recurrence.  An observation that the patient doesn't have any wounds means the patient doesn't have any wounds at that point in time.
 </p>
 <p>
 When the diagnosis is related to an allergy or intolerance, the Condition and <a href="allergyintolerance.html">AllergyIntolerance</a> resources can both be used.  However, to be actionable for decision support, using Condition alone is not sufficient as the allergy or intolerance condition needs to be represented as an <a href="allergyintolerance.html">AllergyIntolerance</a>.

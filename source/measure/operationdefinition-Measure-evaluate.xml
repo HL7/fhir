@@ -142,7 +142,7 @@
     <min value="1"/>
     <max value="1"/>
     <documentation
-      value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive"/>
+      value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. e.g., a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive"/>
     <type value="date"/>
   </parameter>
   <parameter>
@@ -151,7 +151,7 @@
     <min value="1"/>
     <max value="1"/>
     <documentation
-      value="The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive"/>
+      value="The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. e.g., a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive"/>
     <type value="date"/>
   </parameter>
   <parameter>
@@ -272,7 +272,7 @@
         <min value="0"/>
         <max value="1"/>
         <documentation
-          value="A value set defining possible stratifier values. If both expression and valueset are specified, they SHALL be consistent (i.e. the expression SHALL evaluate to a code that is a member of the specified valueset)."/>
+          value="A value set defining possible stratifier values. If both expression and valueset are specified, they SHALL be consistent (i.e., the expression SHALL evaluate to a code that is a member of the specified valueset)."/>
         <type value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </part>

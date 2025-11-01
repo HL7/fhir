@@ -117,7 +117,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Subject for which the measure will be calculated. The subject must be an instance of a type that is consistent with the subjectType of the Measure being evaluated (e.g. Patient, Practitioner, Location...). The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. If the subject is a Group, it must be an actual Group, not a definitional one. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated (i.e. if the Measure.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, the evaluation will be performed for all subjects appropriate to the Measure.subjectType (possibly constrained further by the provider parameter)."/>
+    <documentation value="Subject for which the measure will be calculated. The subject must be an instance of a type that is consistent with the subjectType of the Measure being evaluated (e.g., Patient, Practitioner, Location...). The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. If the subject is a Group, it must be an actual Group, not a definitional one. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated (i.e., if the Measure.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, the evaluation will be performed for all subjects appropriate to the Measure.subjectType (possibly constrained further by the provider parameter)."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -126,7 +126,7 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive"/>
+    <documentation value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. e.g., a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive"/>
     <type value="date"/>
   </parameter>
   <parameter>
@@ -134,7 +134,7 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive"/>
+    <documentation value="The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. e.g., a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive"/>
     <type value="date"/>
   </parameter>
   <parameter>

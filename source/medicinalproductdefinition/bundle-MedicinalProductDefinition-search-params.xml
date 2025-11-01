@@ -127,7 +127,7 @@
           <valueString value="MedicinalProductDefinition.masterFile"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-master-file"/>
-        <description value="A master file for to the medicinal product (e.g. Pharmacovigilance System Master File)"/>
+        <description value="A master file for to the medicinal product (e.g., Pharmacovigilance System Master File)"/>
         <code value="master-file"/>
         <type value="reference"/>
         <expression value="MedicinalProductDefinition.masterFile"/>
@@ -222,7 +222,7 @@
           <valueString value="MedicinalProductDefinition.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-type"/>
-        <description value="Regulatory type, e.g. Investigational or Authorized"/>
+        <description value="Regulatory type, e.g., Investigational or Authorized"/>
         <code value="type"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.type"/>

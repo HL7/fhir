@@ -100,7 +100,7 @@
 	</basedOn>
 	<status value="completed"/>
 	<intent value="order"/>
-	<!-- Physiotherapy or home excercises would be a common use case for as needed. E.g. exercises for cystic fibrosis - "Chest therapy 1-4 times per day as needed to clear mucus" -->
+	<!-- Physiotherapy or home excercises would be a common use case for as needed. e.g., exercises for cystic fibrosis - "Chest therapy 1-4 times per day as needed to clear mucus" -->
 	<code>
 	  <concept>
 		<coding>

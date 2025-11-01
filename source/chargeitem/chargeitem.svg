@@ -515,7 +515,7 @@
        class="diagram-class-detail"><a
    id="n834"
    xlink:href="chargeitem-definitions.html#ChargeItem.performer.function"><title
-   id="title144260">Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.)</title>function</a> : <a
+   id="title144260">Describes the type of performance or participation(e.g., primary surgeon, anesthesiologiest, etc.)</title>function</a> : <a
    id="n835"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n836"

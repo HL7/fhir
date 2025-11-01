@@ -30,7 +30,7 @@
 			<li>Query for vital signs of a particular patient</li>
 		</ul>
 		<h3>Mandatory Data Elements and Terminology</h3>
-		<p>The following data-elements are mandatory (i.e. data SHALL be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content">
+		<p>The following data-elements are mandatory (i.e., data SHALL be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content">
 				<strong>Profile Definitions</strong>
 			</a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<p>
@@ -95,7 +95,7 @@
 					<td>85353-1</td>
 					<td>
 						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em>
-						<p>This represents a panel of vital signs, e.g. those listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.  In this panel, Observation.valueQuantity is not present - instead, it uses Observation.hasMember to reference individual vital signs observations (e.g. respiratory rate, heart rate, BP, etc.).</p></td>
+						<p>This represents a panel of vital signs, e.g., those listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.  In this panel, Observation.valueQuantity is not present - instead, it uses Observation.hasMember to reference individual vital signs observations (e.g., respiratory rate, heart rate, BP, etc.).</p></td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-vitals-panel.html">Vital Signs Panel Example</a>

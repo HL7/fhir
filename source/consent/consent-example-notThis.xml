@@ -8,7 +8,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
 	      The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
-	       Withhold or withdraw consent for disclosure of a specific record (e.g. Lab Order/Result) 
+	       Withhold or withdraw consent for disclosure of a specific record (e.g., Lab Order/Result) 
       </p>
       <p>
     Patient "Donal D DUCK"'s Primary Care Provider, Dr. Philip Primary, has ordered a set of lab test which Adam 
@@ -46,7 +46,7 @@
     </coding>
   </regulatoryBasis>
   <decision value="permit"/>
-  <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
+  <!-- this is opt-in - e.g., everything approved unless otherwise stated -->
 
   <provision>
     <data>

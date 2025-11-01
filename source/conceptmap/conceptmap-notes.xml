@@ -29,7 +29,7 @@ the meaning of an <code>unmatched</code> target whether or not there is a stated
 <h2>target.dependsOn and target.product</h2>
 
 <p>
-In the simple case, a mapping is made from one code to another. E.g. from "home address" in one code system to "address - home" in another. 
+In the simple case, a mapping is made from one code to another. e.g., from "home address" in one code system to "address - home" in another. 
 But in other cases, the mapping is not a simple one to one mapping. A typical example might be mapping between 
 EHR diagnosis codes whose interpretation depends on the field they occur in in the source data: diagnosis, history, or family history.
 Furthermore, the target EHR might distinguish diagnosis codes depending on the subject: patient or family.
@@ -92,13 +92,13 @@ concepts defined in other kinds of resources. Here are some common kind of conce
 maps:
 </p>
 <ul>
- <li>Between two elements in different <a href="structuredefinition.html">structure definitions</a> (e.g. between CDA and FHIR v2)</li>
+ <li>Between two elements in different <a href="structuredefinition.html">structure definitions</a> (e.g., between CDA and FHIR v2)</li>
  <li>Between a code system and a <a href="medication.html">Medication</a> resource</li>
 </ul>
 <p>
 Though these resources are not explicitly defining code systems, they do define 'concept's that
-can still usefully be treated as code systems for the sake of subsetting (e.g. <a href="valueset.html">ValueSet</a>)
-and defining relationships (e.g. <code>ConceptMap</code>). See <a href="codesystem.html#implicit">Implicit Code Systems</a> for further information.
+can still usefully be treated as code systems for the sake of subsetting (e.g., <a href="valueset.html">ValueSet</a>)
+and defining relationships (e.g., <code>ConceptMap</code>). See <a href="codesystem.html#implicit">Implicit Code Systems</a> for further information.
 </p>
 <p>
 Note that this is different from <a href="structuremap.html">StructureMap</a> because 

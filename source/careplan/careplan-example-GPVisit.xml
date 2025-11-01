@@ -7,7 +7,7 @@
         they arrive and represents the 'care' of the patient over the course of that encounter.
         They first see the nurse for basic observations (BP, pulse, temp) then the doctor for
         the consultation and finally the nurse again for a tetanus immunization. As the plan is
-        updated (e.g. a new activity added), different versions of the plan exist, and workflow timings
+        updated (e.g., a new activity added), different versions of the plan exist, and workflow timings
         for reporting can be gained by examining the plan history. This example is the version after
         seeing the doctor, and waiting for the nurse.The plan can either be created 'ad hoc' and modified as
         the parient progresses, or start with a standard template (which can, of course, be altered to suit the patient.</p>
@@ -195,7 +195,7 @@
     <display value="Peter James Chalmers"/>
   </subject>
   <period>
-    <!-- This is the time the plan started - i.e. when they arrived-->
+    <!-- This is the time the plan started - i.e., when they arrived-->
     <start value="2013-01-01T10:30:00+00:00"/>
     <!-- No end yet as the encounter is still in progress.-->
   </period>

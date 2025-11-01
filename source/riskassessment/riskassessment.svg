@@ -173,7 +173,7 @@ status</a>
  [1..1] « <a
    xlink:href="valueset-observation-status.html"
    id="n409"><title
-   id="n410">The status of the risk assessment; e.g. preliminary, final, amended, etc. (Strength=Required)</title>
+   id="n410">The status of the risk assessment; e.g., preliminary, final, amended, etc. (Strength=Required)</title>
 ObservationStatus</a>
 ! »</text>
     <text
@@ -426,7 +426,7 @@ note</a>
        style="fill:#000000"><a
    xlink:href="riskassessment-definitions.html#RiskAssessment.prediction.outcome"
    id="n522"><title
-   id="title122">One of the potential outcomes for the patient (e.g. remission, death,  a particular condition)</title>
+   id="title122">One of the potential outcomes for the patient (e.g., remission, death,  a particular condition)</title>
 outcome</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"
@@ -460,7 +460,7 @@ probability[x]</a>
        style="fill:#000000"><a
    xlink:href="riskassessment-definitions.html#RiskAssessment.prediction.qualitativeRisk"
    id="n538"><title
-   id="title134">Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high)</title>
+   id="title134">Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g., low, medium, or high)</title>
 qualitativeRisk</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"

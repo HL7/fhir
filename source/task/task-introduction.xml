@@ -12,7 +12,7 @@
 <ul>
 <li>operationalize a Request (but could exist without a Request),</li>
 <li>communicate between Filler and Placer,</li>
-<li>track business status (i.e. collection of specimen, dispense of medication, procedure scheduled),</li>
+<li>track business status (i.e., collection of specimen, dispense of medication, procedure scheduled),</li>
 <li>communicate the results of the execution of the Task via .output,</li>
 <li>launch an application (<a href="https://www.hl7.org/fhir/smart-app-launch/task-launch.html">https://www.hl7.org/fhir/smart-app-launch/task-launch.html</a>),</li>
 <li>fill in a Questionnaire,</li>
@@ -54,7 +54,7 @@
     <p>The assignment of tasks into categories by type of task, type of performer and task status
       enable the server to function as a queue of work items.  This queue can be polled or subscribed
       to by various agents, enabling automation of workflows in FHIR using existing search and subscription
-      mechanisms.  Owners, requesters, other agents (e.g. workflow managers) can thus be ready to
+      mechanisms.  Owners, requesters, other agents (e.g., workflow managers) can thus be ready to
       initiate the next steps in a complex workflow.</p>
     
       [%stu-note dstu%]

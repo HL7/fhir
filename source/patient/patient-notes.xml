@@ -6,7 +6,7 @@ Notes:
 <ul>
 <li>multipleBirth can be either expressed as a Boolean (just indicating whether the patient is part of a multiple birth) or as an integer, indicating the actual birth order.</li>
 <li>Patient records may only be in one of two statuses: in use (active=true) and not in use (active=false). 
-A normal record is active, i.e. it is in use. Active is set to 'false' when a record is created as a duplicate or in error. 
+A normal record is active, i.e., it is in use. Active is set to 'false' when a record is created as a duplicate or in error. 
 A record does not need to be linked to be inactivated.
 </li>
 <li>The <i>link</i> element is used to assert that two or more Patient resources are both about the same actual patient. 
@@ -19,7 +19,7 @@ See below for further discussion</li>
 <h2>Patient ids and Patient resource ids</h2>
 <p>A Patient record's <a href="resource.html#id">Resource Id</a> can never change. For this reason, the identifiers with 
 which humans are concerned (often called MRN - Medical Record Number, or UR - Unit Record) should not 
-be used for the resource's id, since MRN's may change, i.e. as a result of having duplicate records of
+be used for the resource's id, since MRN's may change, i.e., as a result of having duplicate records of
 the same patient. Instead they should be represented in the <i>Patient.identifier</i> 
 list where they can be managed. This is also useful for the case of institutions that have acquired 
 multiple numbers because of mergers of patient record systems over time.
@@ -108,7 +108,7 @@ Therefore, the Linkage Resource should not be used in these cases:
 <p>
 The contact element on the Patient resource should be used for storing the details of people to contact. This information always travels with the Patient resource, and cannot be used as the target of a reference.
 
-Where related people need to be referenced by other resources (e.g. CarePlan.participant, Encounter.participant, DocumentReference.author, Appointment.participant), the RelatedPerson resource must be used.
+Where related people need to be referenced by other resources (e.g., CarePlan.participant, Encounter.participant, DocumentReference.author, Appointment.participant), the RelatedPerson resource must be used.
 </p>
 <p>It is not expected that these records will be used for recording the primary care provider; this information should be stored in
 the Patient.generalPractitioner field.</p>

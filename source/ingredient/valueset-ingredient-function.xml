@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive)."/>
+  <description value="A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g., active/inactive)."/>
   <immutable value="true"/>
   <compose>
     <include>

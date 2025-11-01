@@ -235,7 +235,7 @@
       <path value="Immunization.vaccineCode"/>
       <short value="Vaccine administered"/>
       <definition value="Vaccine that was administered or was to be administered."/>
-      <comment value="The code for the administered vaccine may be reported at various levels of granularity from a very generic code for a general type of vaccine (e.g. the SNOMED or CVX code for the flu vaccine) to a very discrete code for a specific product including the form and packaging (e.g. an NDC code). Because vaccineCode uses the CodeableConcept data type, multiple codes at different levels of granularity may be reported for a single immunization event provided that all codes are appropriate for the same vaccine. For example, both NDC and CVX codes may be provided for a given immunization event by repeating the coding element within vaccineCode."/>
+      <comment value="The code for the administered vaccine may be reported at various levels of granularity from a very generic code for a general type of vaccine (e.g., the SNOMED or CVX code for the flu vaccine) to a very discrete code for a specific product including the form and packaging (e.g., an NDC code). Because vaccineCode uses the CodeableConcept data type, multiple codes at different levels of granularity may be reported for a single immunization event provided that all codes are appropriate for the same vaccine. For example, both NDC and CVX codes may be provided for a given immunization event by repeating the coding element within vaccineCode."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -438,7 +438,7 @@
       </extension>
       <path value="Immunization.supportingInformation"/>
       <short value="Additional information in support of the immunization"/>
-      <definition value="Additional information that is relevant to the immunization (e.g. for a vaccine recipient who is pregnant, the gestational age of the fetus). The reason why a vaccine was given (e.g. occupation, underlying medical condition) should be conveyed in Immunization.reason, not as supporting information. The reason why a vaccine was not given (e.g. contraindication) should be conveyed in Immunization.statusReason, not as supporting information."/>
+      <definition value="Additional information that is relevant to the immunization (e.g., for a vaccine recipient who is pregnant, the gestational age of the fetus). The reason why a vaccine was given (e.g., occupation, underlying medical condition) should be conveyed in Immunization.reason, not as supporting information. The reason why a vaccine was not given (e.g., contraindication) should be conveyed in Immunization.statusReason, not as supporting information."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -457,7 +457,7 @@
       <path value="Immunization.occurrence[x]"/>
       <short value="Vaccine administration date"/>
       <definition value="Date vaccine administered or was to be administered."/>
-      <comment value="When immunizations are given, a specific date and time should always be recorded if known. If the time is not known, it should not be included. However, systems primarily rely on the date component of the immunization record for determining dose validity and future dose forecasting. For this reason, immunization records should preserve the immunization date as recorded for the time zone where the dose was administered. Care should be taken when recording and transmitting time and time zone information, as adjustments based on time zone can shift the recorded date. Additionally, because Patient.birthDate does not include a time component, systems should ensure that comparisons between occurrence date and birth date do not introduce inconsistencies in determining patient age at vaccination. When immunizations are patient reported, a specific date might not be known. Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g. live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose."/>
+      <comment value="When immunizations are given, a specific date and time should always be recorded if known. If the time is not known, it should not be included. However, systems primarily rely on the date component of the immunization record for determining dose validity and future dose forecasting. For this reason, immunization records should preserve the immunization date as recorded for the time zone where the dose was administered. Care should be taken when recording and transmitting time and time zone information, as adjustments based on time zone can shift the recorded date. Additionally, because Patient.birthDate does not include a time component, systems should ensure that comparisons between occurrence date and birth date do not introduce inconsistencies in determining patient age at vaccination. When immunizations are patient reported, a specific date might not be known. Although partial dates are allowed, an adult patient might not be able to recall the year a childhood immunization was given. An exact date is always preferable, but the use of the String data type is acceptable when an exact date is not known. A small number of vaccines (e.g., live oral typhoid vaccine) are given as a series of patient self-administered dose over a span of time. In cases like this, often, only the first dose (typically a provider supervised dose) is recorded with the occurrence indicating the date/time of the first dose."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -712,7 +712,7 @@
       </extension>
       <path value="Immunization.performer.function"/>
       <short value="Type of performance"/>
-      <definition value="Describes the function played by the performer in the immunization event (e.g. ordering provider, administering provider, etc.)."/>
+      <definition value="Describes the function played by the performer in the immunization event (e.g., ordering provider, administering provider, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -966,7 +966,7 @@
       </extension>
       <path value="Immunization.fundingSource"/>
       <short value="Funding source for the vaccine"/>
-      <definition value="Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publicly purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)."/>
+      <definition value="Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g., the patient may be eligible for a publicly purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1099,7 +1099,7 @@
     <element id="Immunization.protocolApplied.authority">
       <path value="Immunization.protocolApplied.authority"/>
       <short value="Who is responsible for publishing the recommendations"/>
-      <definition value="Indicates the authority who published the protocol (e.g. ACIP) that is being followed."/>
+      <definition value="Indicates the authority who published the protocol (e.g., ACIP) that is being followed."/>
       <min value="0"/>
       <max value="1"/>
       <type>

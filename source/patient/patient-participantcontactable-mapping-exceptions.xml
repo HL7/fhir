@@ -6,8 +6,8 @@
             <resource value="A contact detail for the individual"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A contact detail (e.g. a telephone number or an email address) by which the patient may be contacted."/>
-            <resource value="A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted."/>
+            <_pattern value="A contact detail (e.g., a telephone number or an email address) by which the patient may be contacted."/>
+            <resource value="A contact detail (e.g., a telephone number or an email address) by which the individual may be contacted."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Participants have (primary) ways to contact them in some way such as phone, email."/>

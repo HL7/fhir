@@ -164,7 +164,7 @@ cancelledReason</a>
        class="diagram-class-detail"><a
    xlink:href="invoice-definitions.html#Invoice.type"
    id="n403"><title
-   id="title36">Type of Invoice depending on domain, realm an usage (e.g. internal/external, dental, preliminary)</title>
+   id="title36">Type of Invoice depending on domain, realm an usage (e.g., internal/external, dental, preliminary)</title>
 type</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"
@@ -351,7 +351,7 @@ note</a>
        style="fill:#000000"><a
    xlink:href="invoice-definitions.html#Invoice.participant.role"
    id="n480"><title
-   id="title97">Describes the type of involvement (e.g. transcriptionist, creator etc.). If the invoice has been created automatically, the Participant may be a billing engine or another kind of device</title>
+   id="title97">Describes the type of involvement (e.g., transcriptionist, creator etc.). If the invoice has been created automatically, the Participant may be a billing engine or another kind of device</title>
 role</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"

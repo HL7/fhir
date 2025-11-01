@@ -81,7 +81,7 @@ The client would then initiate a Web Socket connection to the server, at a URL a
 
 Client connects a secure Web Socket to the hospital's webSocketUrl.
 
-Client authenticates to server using a server-specified Web socket protocol (e.g. OAuth bearer token presentation).
+Client authenticates to server using a server-specified Web socket protocol (e.g., OAuth bearer token presentation).
 
 Client sends a bind :id message over the socket (with id from above). For example, the client might issue: bind Subscription/123).
 
@@ -104,7 +104,7 @@ The server would send a new message for each update.
 
 Unsubscribing
 
-Apps manage subscriptions with the FHIR REST API. A subscription can be altered via PUT or removed via DELETE (i.e. "unsubscribe").
+Apps manage subscriptions with the FHIR REST API. A subscription can be altered via PUT or removed via DELETE (i.e., "unsubscribe").
 
 Other features / missing pieces / clarifications
 

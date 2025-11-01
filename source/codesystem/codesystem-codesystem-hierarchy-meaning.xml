@@ -63,7 +63,7 @@
   <concept>
     <code value="part-of"/>
     <display value="Part Of"/>
-    <definition value="Child elements list the individual parts of a composite whole (e.g. body site)."/>
+    <definition value="Child elements list the individual parts of a composite whole (e.g., body site)."/>
   </concept>
   <concept>
     <code value="classified-with"/>

@@ -382,7 +382,7 @@
       <path value="ArtifactAssessment.content.path"/>
       <short value="What the comment is directed to"/>
       <definition value="A URI that points to what the comment is about, such as a line of text in the CQL, or a specific element in a resource."/>
-      <comment value="The target element is used to point the comment to aspect of the artifact, such as a text range within a CQL library (e.g. #content?0:0-120:80)."/>
+      <comment value="The target element is used to point the comment to aspect of the artifact, such as a text range within a CQL library (e.g., #content?0:0-120:80)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

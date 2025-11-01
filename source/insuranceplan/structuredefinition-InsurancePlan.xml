@@ -279,7 +279,7 @@
     <element id="InsurancePlan.specificCost.benefit.cost.qualifier">
       <path value="InsurancePlan.specificCost.benefit.cost.qualifier"/>
       <short value="Additional information about the cost"/>
-      <definition value="Additional information about the cost, such as information about funding sources (e.g. HSA, HRA, FSA, RRA)."/>
+      <definition value="Additional information about the cost, such as information about funding sources (e.g., HSA, HRA, FSA, RRA)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -289,7 +289,7 @@
     <element id="InsurancePlan.specificCost.benefit.cost.value">
       <path value="InsurancePlan.specificCost.benefit.cost.value"/>
       <short value="The actual cost value"/>
-      <definition value="The actual cost value. (some of the costs may be represented as percentages rather than currency, e.g. 10% coinsurance)."/>
+      <definition value="The actual cost value. (some of the costs may be represented as percentages rather than currency, e.g., 10% coinsurance)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -195,7 +195,7 @@
        class="diagram-class-detail"><a
    id="n448"
    xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.authored"><title
-   id="title93292">The date and/or time that this questionnaire response was last modified by the user - e.g. changing answers or revising status</title>authored</a> : <a
+   id="title93292">The date and/or time that this questionnaire response was last modified by the user - e.g., changing answers or revising status</title>authored</a> : <a
    id="n449"
    xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text

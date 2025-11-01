@@ -128,7 +128,7 @@
        class="diagram-class-detail"><a
    id="n942"
    xlink:href="examplescenario-definitions.html#ExampleScenario.version"><title
-   id="title73402">The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title73402">The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n943"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -220,7 +220,7 @@
        class="diagram-class-detail"><a
    id="n1002"
    xlink:href="examplescenario-definitions.html#ExampleScenario.date"><title
-   id="title73444">The date  (and optionally time) when the example scenario was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition')</title>date</a> : <a
+   id="title73444">The date  (and optionally time) when the example scenario was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g., the 'content logical definition')</title>date</a> : <a
    id="n1003"
    xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
@@ -311,7 +311,7 @@
        class="diagram-class-detail"><a
    id="n1054"
    xlink:href="examplescenario-definitions.html#ExampleScenario.copyrightLabel"><title
-   id="title73486">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title73486">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1055"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
   </g>
@@ -464,7 +464,7 @@
        class="diagram-class-detail"><a
    id="n1126"
    xlink:href="examplescenario-definitions.html#ExampleScenario.instance.structureVersion"><title
-   id="title73541">Conveys the version of the data structure instantiated.  I.e. what release of FHIR, X12, OpenEHR, etc. is instance compliant with</title>structureVersion</a> : <a
+   id="title73541">Conveys the version of the data structure instantiated.  i.e., what release of FHIR, X12, OpenEHR, etc. is instance compliant with</title>structureVersion</a> : <a
    id="n1127"
    xlink:href="datatypes.html#string">string</a> [0..1] « <a
    id="n1128"
@@ -773,7 +773,7 @@
        class="diagram-class-detail"><a
    id="n1264"
    xlink:href="examplescenario-definitions.html#ExampleScenario.process.step.number"><title
-   id="title73650">The sequential number of the step, e.g. 1.2.5</title>number</a> : <a
+   id="title73650">The sequential number of the step, e.g., 1.2.5</title>number</a> : <a
    id="n1265"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -1068,7 +1068,7 @@
      class="diagram-class-linkage"><a
        id="n1379"
        xlink:href="examplescenario-definitions.html#ExampleScenario.instance.containedInstance"><title
-   id="title73749">References to other instances that can be found within this instance (e.g. the observations contained in a bundle)</title>containedInstance</a></text>
+   id="title73749">References to other instances that can be found within this instance (e.g., the observations contained in a bundle)</title>containedInstance</a></text>
   <text
      id="n1380"
      x="410.196414"
@@ -1306,7 +1306,7 @@
      class="diagram-class-linkage"><a
        id="n1421"
        xlink:href="examplescenario-definitions.html#ExampleScenario.process.step.alternative"><title
-   id="title73805">Indicates an alternative step that can be taken instead of the sub-process, scenario or operation.  E.g. to represent non-happy-path/exceptional/atypical circumstances</title>alternative</a></text>
+   id="title73805">Indicates an alternative step that can be taken instead of the sub-process, scenario or operation.  e.g., to represent non-happy-path/exceptional/atypical circumstances</title>alternative</a></text>
   <text
      id="n1422"
      x="974.85592"

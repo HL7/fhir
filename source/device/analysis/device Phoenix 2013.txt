@@ -19,7 +19,7 @@ test-data(4),
 
 demo-data(5),
 
-validated-data(8), -- relevant, e.g. in an archive
+validated-data(8), -- relevant, e.g., in an archive
 
 early-indication(9), -- early estimate of value
 

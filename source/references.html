@@ -125,7 +125,7 @@ In order to support <a href="structuredefinition.html#logical">Logical Models</a
 the <code>type</code> element has the type of "uri". Whenever <code>type</code>
 appears in resources, the uri is represented relative to the base URI
 <code>http://hl7.org/fhir/StructureDefinition/</code>. For resources (and including <a href="resource.html#additional">additional resources</a>), the
-value is simply a code that is the type of resource - e.g. "Patient".
+value is simply a code that is the type of resource - e.g., "Patient".
 </p>
 
 <a name="literal"></a>
@@ -181,7 +181,7 @@ Notes:
 
 <p>
 Note that in a bundle during a <a href="http.html#transaction">transaction</a>, reference URLs may actually contain
-logical URIs (e.g. OIDs or UUIDSs) that resolve within the transaction. When processing the transaction, the server
+logical URIs (e.g., OIDs or UUIDSs) that resolve within the transaction. When processing the transaction, the server
 replaces the logical URL with what is the correct literal URL at the completion of the transaction.
 </p>
 
@@ -215,7 +215,7 @@ of the reference, but there is no way for the application to convert this to a l
 directly references an actual resource. This situation may arise for several reasons:
 </p>
 <ul>
- <li>There is no server exposing any such resource. This is often the case with national identifiers (e.g. US SSN or NPI), and such identifiers are widely used</li>
+ <li>There is no server exposing any such resource. This is often the case with national identifiers (e.g., US SSN or NPI), and such identifiers are widely used</li>
  <li>The server that exposes the resource is not available to the source application, so it has no way to resolve an identifier to a reference</li>
  <li>The application is not in a RESTful environment - it is creating a message or a document</li>
 </ul>
@@ -257,7 +257,7 @@ a server to resolve the logical reference to a literal reference to a resource.
 <p>
 Irrespective of how the resolution occurs, any system processing a logical reference will only be
 able to resolve the identifier to a reference if it understands the business context in which the
-identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not.
+identifier is used. Sometimes this is global (e.g., a national identifier) but often it is not.
 </p>
 <p>
 For this reason, none of the useful mechanisms described for working with references (e.g.
@@ -359,7 +359,7 @@ search. Additional notes about searching on versioned references to canonical UR
 </ul>
 <p>
 Systems resolving references to canonical URLs SHOULD first try to resolve the reference using
-the canonical reference (e.g. search on a known registry of terminology, conformance, or knowledge
+the canonical reference (e.g., search on a known registry of terminology, conformance, or knowledge
 resources as appropriate), and then fall back to direct resolution using the URL as
 a literal reference if a local version of the canonical resource cannot be found.
 This approach is safe because the approaches must refer to the same
@@ -386,9 +386,9 @@ When evaluating a canonical reference, a server may find that it has multiple
 matching resources. This may arise because:
 </p>
 <ul>
-  <li>No version was specified e.g. <code>http://example.org/CodeSystem/abc</code></li>
-  <li>A partial verion was specified e.g. <code>http://example.org/CodeSystem/abc|1.2</code> matches both versions <code>1.2.1</code> and <code>1.2.3-draft</code></li>
-  <li>A full version was specified e.g. <code>http://example.org/CodeSystem/abc|1.2.2</code> and the server had two different resources for version <code>1.2.2</code> </li>
+  <li>No version was specified e.g., <code>http://example.org/CodeSystem/abc</code></li>
+  <li>A partial verion was specified e.g., <code>http://example.org/CodeSystem/abc|1.2</code> matches both versions <code>1.2.1</code> and <code>1.2.3-draft</code></li>
+  <li>A full version was specified e.g., <code>http://example.org/CodeSystem/abc|1.2.2</code> and the server had two different resources for version <code>1.2.2</code> </li>
 </ul>
 <p>
 The last case is generally regarded as an error - if the content of the resource changes, the version should too. 
@@ -402,7 +402,7 @@ the latest version. In principle, the server chooses based on the following info
 resources:
 </p>
 <ul>
-  <li>Version e.g. Based on <a href="http://semver.org">Semver</a> Version practices, dateTime, etc.</li>
+  <li>Version e.g., Based on <a href="http://semver.org">Semver</a> Version practices, dateTime, etc.</li>
   <li>Publication Date</li>
   <li>Status</li>
 </ul>
@@ -513,7 +513,7 @@ The exact details of this are out of scope for the FHIR standard.
 <p>
 Applications are encouraged to use the <code>Reference.display</code> element
 to store a user presentable representation of the resource for when the
-resource cannot be resolved (e.g. due to network errors). The <code>canonical</code>
+resource cannot be resolved (e.g., due to network errors). The <code>canonical</code>
 type does not have a display element because applications are generally expected
 to carry cached copies of the resources that are the target of the canonical
 references. If this functionality is still needed or desired anyway, the
@@ -592,7 +592,7 @@ The same example in JSON:
 </div>
 [%impl-note%]
 Contained resources are still a reference rather than being inlined directly
-into the element that is the reference (e.g. "asserter" above) to ensure that a
+into the element that is the reference (e.g., "asserter" above) to ensure that a
 single approach to resolving resource references can be used. Though direct containment
 would seem simpler, it would still be necessary to support internal references where the
 same contained resource is referenced more than once. In the end, all that it would achieve
@@ -617,7 +617,7 @@ Some notes about use and interpretation of contained resources:
   resources. Since there are no nested contained resources, there is only one container resource.</li>
   <li>Fragment-only URL References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
   Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained. To reference a contained resource in a
-  different entry within a Parameters or Bundle (or anywhere else), the reference must include the containing resource. E.g. Observation/123#pat.</li>
+  different entry within a Parameters or Bundle (or anywhere else), the reference must include the containing resource. e.g., Observation/123#pat.</li>
   <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
   <li>Contained resources SHALL NOT contain additional contained resources.</li>
   <li>Contained resources SHALL NOT contain <code>meta.versionId</code>, <code>meta.lastUpdated</code>, or <code>meta.security</code>.</li>
@@ -625,9 +625,9 @@ Some notes about use and interpretation of contained resources:
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it or if the contained resource references the container resource.</li>
   <li>Regarding history, it's possible to point to a contained resource within a version of the 
     containing resource (via <code>[type]/[id]/_history/[version]#[containedId]</code>), but it's 
-    not possible to refer to a version of a contained resource (i.e. this is invalid: 
+    not possible to refer to a version of a contained resource (i.e., this is invalid: 
     <code>[type]/[id]#[containedId]/_history/[version]</code>)</li>
-  <li>When a contained resource references its container or another contained resource within its container, it must always be a local relative reference (i.e. it must be or start with '#').  It's never possible to point to the container or a contained resource within it by absolute or versioned reference</li>
+  <li>When a contained resource references its container or another contained resource within its container, it must always be a local relative reference (i.e., it must be or start with '#').  It's never possible to point to the container or a contained resource within it by absolute or versioned reference</li>
 </ul>
 
 <p>
@@ -685,13 +685,13 @@ Some references are circular - that is, the reference points to another resource
 There are several reasons why a resource may refer to other resources of the same type:
 </p>
 <ul>
- <li>part-of: the resources describe a complex hierarchy composed of parts e.g. an organization structure</li>
- <li>builds-on: resources may add additional content to another resource by deriving from it e.g. extending type declarations</li>
- <li>replaces: one resource may be replaced by another due to changes over time e.g. replacing a prescription or to support patient merging </li>
- <li>uses/re-uses: a resource may use another resource in a modular arrangement e.g. library references or value sets including other value sets</li>
+ <li>part-of: the resources describe a complex hierarchy composed of parts e.g., an organization structure</li>
+ <li>builds-on: resources may add additional content to another resource by deriving from it e.g., extending type declarations</li>
+ <li>replaces: one resource may be replaced by another due to changes over time e.g., replacing a prescription or to support patient merging </li>
+ <li>uses/re-uses: a resource may use another resource in a modular arrangement e.g., library references or value sets including other value sets</li>
 </ul>
 <p>
-For parameters where the relationship is a strict hierarchy (i.e. where it would be wrong to have circular
+For parameters where the relationship is a strict hierarchy (i.e., where it would be wrong to have circular
 references, even transitively), there is <a href="search.html#recursive">additional search support</a> for traversing the
 hierarchy using :above and :below modifiers on the search parameters.
 </p>
@@ -727,10 +727,10 @@ References for which the hierarchical behavior is not specified:
 <p>
 A common pattern in healthcare records is that a single element may refer to either a concept in principle,
 or a specific instance of the concept as seen in practice. For instance, a medication may be prescribed
-because the patient has a headache - e.g. to refer to a headache by a SNOMED CT code for a kind of headache.
+because the patient has a headache - e.g., to refer to a headache by a SNOMED CT code for a kind of headache.
 Alternatively, the record may refer to a specific observation or problem in the problem list as evidence
 for the patient's headache, which conveys details specific to the patient. This is a particular example
-of a more general pattern; e.g. it also applies to locations (something happened 'in a hospital', vs
+of a more general pattern; e.g., it also applies to locations (something happened 'in a hospital', vs
 something happened in a particular identified hospital).
 </p>
 <p>
@@ -743,7 +743,7 @@ applies to the <code>Reference</code> as described above.
 </p>
 <p>
 In principle, this datatype allows for either a reference or a concept, or both. If both are present,
-they are expected to be consistent with each other - e.g. the concept is to a code for headache, and
+they are expected to be consistent with each other - e.g., the concept is to a code for headache, and
 the resource reference describes a headache. Note that it is not generally computably proveable whether
 this is true or not.
 </p>

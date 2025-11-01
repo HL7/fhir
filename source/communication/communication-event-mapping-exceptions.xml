@@ -35,11 +35,11 @@
         <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A larger event of which this particular communication is a component or step."/>
-            <resource value="A larger event (e.g. Communication, Procedure) of which this particular communication is a component or step."/>
+            <resource value="A larger event (e.g., Communication, Procedure) of which this particular communication is a component or step."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Not to be used to link an communication to an Encounter - use 'context' for that."/>
-            <resource value="The event the communication was part of - e.g. if you disclosed as &quot;part&quot; of counselling, it would be partOf that Procedure."/>
+            <resource value="The event the communication was part of - e.g., if you disclosed as &quot;part&quot; of counselling, it would be partOf that Procedure."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="Communication.status">
@@ -92,7 +92,7 @@
             <resource value="The Encounter during which this Communication was created or to which the creation of this record is tightly associated."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This will typically be the encounter the communication was created during, but some communications may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <_pattern value="This will typically be the encounter the communication was created during, but some communications may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
             <resource value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -143,7 +143,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what performed the communication."/>
-            <resource value="The entity (e.g. person, organization, clinical information system, care team or device) which is the target of the communication."/>
+            <resource value="The entity (e.g., person, organization, clinical information system, care team or device) which is the target of the communication."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="Communication.sender">
@@ -156,7 +156,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what performed the communication."/>
-            <resource value="The entity (e.g. person, organization, clinical information system, or device) which is the source of the communication."/>
+            <resource value="The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="Communication.reason">

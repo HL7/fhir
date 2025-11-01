@@ -145,7 +145,7 @@
           <valueString value="ClinicalUseDefinition.interaction.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseDefinition-interaction"/>
-        <description value="The type of the interaction e.g. drug-drug interaction, drug-food interaction, drug-lab test interaction"/>
+        <description value="The type of the interaction e.g., drug-drug interaction, drug-food interaction, drug-lab test interaction"/>
         <code value="interaction"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.interaction.type"/>

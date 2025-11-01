@@ -35,7 +35,7 @@
 			<display  value="Device/software"/>
 		</who>
 	</agent>
-	<!-- information extract from a DICOM document, could be anything (e.g. CDA) -->
+	<!-- information extract from a DICOM document, could be anything (e.g., CDA) -->
 	<entity>
 		<role value="source"/>
 		<what>

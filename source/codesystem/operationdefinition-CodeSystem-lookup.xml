@@ -207,7 +207,7 @@
     <use value="out"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="One or more properties that contain additional information about the code, including status. For complex terminologies (e.g. SNOMED CT, LOINC, medications), these properties serve to decompose the code"/>
+    <documentation value="One or more properties that contain additional information about the code, including status. For complex terminologies (e.g., SNOMED CT, LOINC, medications), these properties serve to decompose the code"/>
     <part>
       <name value="code"/>
       <use value="out"/>
@@ -236,7 +236,7 @@
       <use value="out"/>
       <min value="0"/>
       <max value="1"/>
-      <documentation value="Human Readable representation of the property value (e.g. display for a code)"/>
+      <documentation value="Human Readable representation of the property value (e.g., display for a code)"/>
       <type value="string"/>
     </part>
     <part>
@@ -244,7 +244,7 @@
       <use value="out"/>
       <min value="0"/>
       <max value="1"/>
-      <documentation value="If information from a supplement is included as a property (e.g. any additional property or property value), then this parameter must assert the url of the supplement."/>
+      <documentation value="If information from a supplement is included as a property (e.g., any additional property or property value), then this parameter must assert the url of the supplement."/>
       <type value="canonical"/>
     </part>
     <part>
@@ -281,7 +281,7 @@
         <use value="out"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="Human Readable representation of the sub-property value (e.g. display for a code)"/>
+        <documentation value="Human Readable representation of the sub-property value (e.g., display for a code)"/>
         <type value="string"/>
       </part>
       <part>
@@ -289,7 +289,7 @@
         <use value="out"/>
         <min value="0"/>
         <max value="1"/>
-        <documentation value="If information from a supplement is included as a subproperty (e.g. any additional subproperty or subproperty value), then this parameter must assert the url of the supplement."/>
+        <documentation value="If information from a supplement is included as a subproperty (e.g., any additional subproperty or subproperty value), then this parameter must assert the url of the supplement."/>
         <type value="canonical"/>
       </part>
     </part>

@@ -33,7 +33,7 @@
 
 <p>In addition, the subject element establishes the context for CQL expressions evaluated during the operation, as discussed in the <a href="clinicalreasoning-topics-using-expressions.html#evaluation-context">Evaluation Context</a> discussion in the Using Expressions topic.</p>
 
-<p>Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out.</p>
+<p>Note that result of this operation is transient (i.e., none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out.</p>
 
 <h3>Event Resources</h3>
 <p>The <code>kind</code> element may only specify Request resource types to facilitate considering user input as part of processing the result of any automated clinical reasoning processes. To support creation of event resources, such as Observations, RiskAssessments, and DetectedIssues, use a Task resource with the focus of the task set to the event resource to be created.</p>

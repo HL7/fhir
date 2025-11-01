@@ -70,7 +70,7 @@ describes a code system supplement. The following rules apply to code system sup
  <li>The <code>CodeSystem.supplements</code> element SHALL have a value, which is the URL of the code system being supplemented</li>
  <li>The <code>CodeSystem.url</code> for a supplement SHALL never appear in a <a href="datatypes.html#Coding">Coding.system</a></li>
  <li>The <code>CodeSystem.url</code> for a supplement must be under the control of the authority creating or publishing the supplement 
-   (e.g. not in the same space as the code system being supplemented, unless the supplement is being issued by the same authority as the original code system</li>
+   (e.g., not in the same space as the code system being supplemented, unless the supplement is being issued by the same authority as the original code system</li>
  <li> A codesystem supplement cannot define any new CodeSystem.concept.code. i.e.: all CodeSystem.concept.code in the supplement must be a code from the "supplemented" code system</li>
 </ul>
 <p>
@@ -170,7 +170,7 @@ this is particularly important when using properties across multiple code system
 <p>
 Note that properties provide a common view of concept relationships that is common across all code systems.
 Some code systems define properties with more sophistication, such as groups of properties, or subsumption
-relationships between properties (e.g. SNOMED CT). Servers providing support for these code systems will need
+relationships between properties (e.g., SNOMED CT). Servers providing support for these code systems will need
 to know full details about the underlying relationships in order to provide the correct information about
 concepts and their properties, but this information does not surface in the resources or operations defined
 by the FHIR specification.
@@ -190,7 +190,7 @@ by the FHIR specification.
       <li>retired - still present for historical reasons, but no longer allowed to be used</li>
      </ul>
    </td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#inactive : boolean</td><td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#inactive : boolean</td><td>True if the concept is not considered active - e.g., not a valid concept any more. Property type is boolean, default value is false</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept status was last changed</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
@@ -201,13 +201,13 @@ by the FHIR specification.
  <tr><td>http://hl7.org/fhir/concept-properties#synonym : code</td><td>This property contains an alternative code that may be used to identify this concept instead of the primary code (deprecated: use <code>alternateCode</code>, and see the <a href="#synonyms">discussion below</a>)</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#alternateCode : code</td><td>This property contains the code for another representation of this concept, with the same real-world meaning, in this code system</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#comment : string</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#itemWeight : decimal</td><td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#order : decimal</td><td>A property that indicates the order of the concept amongst its siblings in the code system e.g. severity. The code system specific purpose of the ordering is defined elsewhere</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#itemWeight : decimal</td><td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g., Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#order : decimal</td><td>A property that indicates the order of the concept amongst its siblings in the code system e.g., severity. The code system specific purpose of the ordering is defined elsewhere</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#definition : string</td><td>The definition of the concept. This corresponds to CodeSystem.concept.definition and is not used in the definition of CodeSystems but is used when clients request the definition property be included in an expansion</td></tr>
 </table>
 <p>
 Code System representations SHOULD use these properties where possible and these codes for these properties. 
-Code System representations SHOULD regard the codes for these properties (e.g. status, inactive, notSelectable, etc.)
+Code System representations SHOULD regard the codes for these properties (e.g., status, inactive, notSelectable, etc.)
 as reserved values in CodeSystem.property.code values and that when used they SHOULD refer to the properties defined
 in the concept properties code system.
 </p>
@@ -244,7 +244,7 @@ or deprecation and some code systems imply the status by providing dates.
 In addition to these status codes, concepts may also be labeled 'notSelectable' (aka 'Abstract'),
 which means "not to be used in some circumstances", though the exact circumstances need to be clarified 
 somewhere. This is sometimes also considered a status, though it's usually dependent on the context
-of use (e.g. set in a ValueSet).
+of use (e.g., set in a ValueSet).
 </p>
 
 <a name="synonyms"></a>
@@ -252,7 +252,7 @@ of use (e.g. set in a ValueSet).
 
 <p>
 Many code systems define multiple codes for the same real world concept. Some code systems do this as a matter of policy
-(e.g. case-sensitive vs case insensitive) while others arise over time as the editorial process unfolds. Some 
+(e.g., case-sensitive vs case insensitive) while others arise over time as the editorial process unfolds. Some 
 established code systems treat these as synonym codes for the same concept, while others treat them as synonym
 concepts - duplicated concepts with the same real world meaning, though the definition sometimes differ. Another 
 reason for duplicated concepts is to deal with implied poly-heirarchical concepts in systems that do not support 
@@ -277,7 +277,7 @@ The correct way to use the alternateCode property for an instance of CodeSystem.
 </p>
 <ul> 
  <li>the alternateCode value must be the code associated with a different CodeSystem.concept (B) in the same CodeSystem; and</li>
- <li>B SHALL contain an instance of the alternateCode property with the value of the code for A. I.e. reflexivity is required (see csd-6 above)</li>
+ <li>B SHALL contain an instance of the alternateCode property with the value of the code for A. i.e., reflexivity is required (see csd-6 above)</li>
  <li>All relationships shall be explicit - relationships (including transitivity and parent/child) must not be assumed.</li>
 </ul>
 
@@ -292,7 +292,7 @@ This section is newly introduced in R6 after extensive consideration in committe
 <p>
 Code systems may be presented hierarchically using either nested concept elements or properties. 
 When exclusively using nested concept elements the code system hierarchy is a single tree, and 
-concepts have only one parent. When using properties, polyhierarchies are allowed (e.g. concepts 
+concepts have only one parent. When using properties, polyhierarchies are allowed (e.g., concepts 
 may have more than one parent). 
 </p>
 <p>
@@ -310,7 +310,7 @@ resource hierarchy.
 <a name="subsumption"></a>
 <h2>Subsumption Testing</h2>
 <p>
-The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in relation to the type of hierarchy  (i.e. the value of <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>) identified for the code system that is being represented by the CodeSystem resource.
+The words 'subsume', 'subsumes', 'subsumed' and 'subsumption' are defined in relation to the type of hierarchy  (i.e., the value of <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning">CodeSystem.hierarchyMeaning</a>) identified for the code system that is being represented by the CodeSystem resource.
 Concept A is considered to be subsumed by Concept B if it comes under Concept B in the hierarchy, or if a parent/child relationship is declared in the properties, and the hierarchyMeaning is "is-a").
 </p>
 <p>
@@ -422,7 +422,7 @@ The following filters are defined for all code systems that support "is-a" relat
    <td>concept</td>
    <td>descendent-of</td>
    <td>[string] concept code</td>
-   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include descendant codes only).</td>
+   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e., include descendant codes only).</td>
    <td></td>
  </tr>
  <tr>
@@ -436,7 +436,7 @@ The following filters are defined for all code systems that support "is-a" relat
    <td>concept</td>
    <td>generalizes</td>
    <td>[string] concept code</td>
-   <td>Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e. include ancestor codes and self).</td>
+   <td>Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e., include ancestor codes and self).</td>
    <td></td>
  </tr>
  <tr>
@@ -536,7 +536,7 @@ informative.
 
 <p>
 For medications, the relationship between the code system and the medication resource
-is complex. Many medication related code systems (e.g. RxNorm, DM+D, AMT, etc.) represent 
+is complex. Many medication related code systems (e.g., RxNorm, DM+D, AMT, etc.) represent 
 more complex information than just code, display name and code system.  These often 
 contain information about the content of the medication
 A similar principle applies to observation definitions, which overlap significantly

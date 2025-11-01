@@ -127,7 +127,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="If this is set to true then the merge will not be actually performed; an OperationOutcome will be returned in the Parameters response that will indicate that no merge has occurred and may include other diagnostic info if desired, such as the scale of the merge.&#xD;&#xD;e.g. Issue.details.text &quot;Preview only Patient merge - no issues detected&quot;&#xD;&#xD;e.g. Issue.diagnostics &quot;Merge would update: 10 years of content or 120 resources&quot;&#xD;&#xD;The resulting target patient resource will also be returned in the result."/>
+    <documentation value="If this is set to true then the merge will not be actually performed; an OperationOutcome will be returned in the Parameters response that will indicate that no merge has occurred and may include other diagnostic info if desired, such as the scale of the merge.&#xD;&#xD;e.g., Issue.details.text &quot;Preview only Patient merge - no issues detected&quot;&#xD;&#xD;e.g., Issue.diagnostics &quot;Merge would update: 10 years of content or 120 resources&quot;&#xD;&#xD;The resulting target patient resource will also be returned in the result."/>
     <type value="boolean"/>
   </parameter>
   <parameter>

@@ -329,7 +329,7 @@
        class="diagram-class-detail"><a
    id="n549"
    xlink:href="deviceusage-definitions.html#DeviceUsage.bodySite"><title
-   id="title30064">Indicates the anotomic location on the subject's body where the device was used ( i.e. the target)</title>bodySite</a> : <a
+   id="title30064">Indicates the anotomic location on the subject's body where the device was used ( i.e., the target)</title>bodySite</a> : <a
    id="n550"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
    id="n551"

@@ -171,7 +171,7 @@
 		<element id="ActivityDefinition.version">
 			<path value="ActivityDefinition.version"/>
 			<short value="Business version of the activity definition"/>
-			<definition value="The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets."/>
+			<definition value="The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g., 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets."/>
 			<comment value="There may be different activity definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the activity definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -380,7 +380,7 @@
 					<valueString value="SubjectType"/>
 				</extension>
 				<strength value="extensible"/>
-				<description value="The possible types of subjects for an activity (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+				<description value="The possible types of subjects for an activity (e.g., Patient, Practitioner, Organization, Location, etc.)."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
 			</binding>
 			<mapping>
@@ -472,7 +472,7 @@
 			<path value="ActivityDefinition.description"/>
 			<short value="Natural language description of the activity definition"/>
 			<definition value="A free text natural language description of the activity definition from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the activity definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the activity definition is presumed to be the predominant language in the place the activity definition was created)."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the activity definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g., the language of the activity definition is presumed to be the predominant language in the place the activity definition was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -513,7 +513,7 @@
 			<path value="ActivityDefinition.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the activity definition (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the activity definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the activity definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -597,7 +597,7 @@
 			<path value="ActivityDefinition.copyright"/>
 			<short value="Notice about intellectual property ownership, can include restrictions on use"/>
 			<definition value="A copyright statement relating to the activity definition and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the activity definition."/>
-			<comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
+			<comment value="The short copyright declaration (e.g., (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the activity definition and/or its content."/>
 			<alias value="License"/>
 			<alias value="Restrictions"/>
@@ -625,7 +625,7 @@
 			</extension>
 			<path value="ActivityDefinition.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
 			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
@@ -723,9 +723,9 @@
 				<valueCode value="deprecated"/>
 			</extension>
 			<path value="ActivityDefinition.topic"/>
-			<short value="E.g. Education, Treatment, Assessment, etc"/>
+			<short value="e.g., Education, Treatment, Assessment, etc"/>
 			<definition value="Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
+			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
 			<requirements value="Repositories must be able to determine how to categorize the activity definition so that it can be found by topical searches."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -889,7 +889,7 @@
 		<element id="ActivityDefinition.code">
 			<path value="ActivityDefinition.code"/>
 			<short value="Detail type of activity"/>
-			<definition value="Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter."/>
+			<definition value="Detailed description of the type of activity; e.g., What lab test, what procedure, what kind of encounter."/>
 			<comment value="Tends to be less relevant for activities involving particular products."/>
 			<requirements value="Allows matching performed to planned as well as validation against protocols."/>
 			<min value="0"/>
@@ -903,7 +903,7 @@
 					<valueString value="ActivityDefinitionType"/>
 				</extension>
 				<strength value="example"/>
-				<description value="Detailed type of the activity; e.g. CBC."/>
+				<description value="Detailed type of the activity; e.g., CBC."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
 			</binding>
 			<mapping>
@@ -1030,7 +1030,7 @@
 		<element id="ActivityDefinition.location">
 			<path value="ActivityDefinition.location"/>
 			<short value="Where it should happen"/>
-			<definition value="Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc."/>
+			<definition value="Identifies the facility where the activity will occur; e.g., home, hospital, specific clinic, etc."/>
 			<comment value="May reference a specific clinical location or may just identify a type of location."/>
 			<requirements value="Helps in planning of activity."/>
 			<alias value="facility"/>
@@ -1136,7 +1136,7 @@
 		</element>
 		<element id="ActivityDefinition.participant.role">
 			<path value="ActivityDefinition.participant.role"/>
-			<short value="E.g. Nurse, Surgeon, Parent, etc"/>
+			<short value="e.g., Nurse, Surgeon, Parent, etc"/>
 			<definition value="The role the participant should play in performing the described action."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1158,7 +1158,7 @@
 		</element>
 		<element id="ActivityDefinition.participant.function">
 			<path value="ActivityDefinition.participant.function"/>
-			<short value="E.g. Author, Reviewer, Witness, etc"/>
+			<short value="e.g., Author, Reviewer, Witness, etc"/>
 			<definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1242,7 +1242,7 @@
 		<element id="ActivityDefinition.bodySite">
 			<path value="ActivityDefinition.bodySite"/>
 			<short value="What part of body to perform on"/>
-			<definition value="Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites)."/>
+			<definition value="Indicates the sites on the subject's body where the procedure should be performed (i.e., the target sites)."/>
 			<comment value="Only used if not implicit in the code found in ServiceRequest.type."/>
 			<requirements value="Knowing where the procedure is made is important for tracking if multiple sites are possible."/>
 			<min value="0"/>

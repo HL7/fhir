@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Overall nature of the adverse event, e.g. real or potential."/>
+  <description value="Overall nature of the adverse event, e.g., real or potential."/>
   <immutable value="true"/>
   <compose>
     <include>

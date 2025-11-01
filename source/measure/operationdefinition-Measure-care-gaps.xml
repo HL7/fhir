@@ -166,7 +166,7 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="The effect of invoking this operation is to calculate a set of measures for a particular topic (e.g. Preventive Care and Screening) and return a document describing the results of each measure for the given subject. Note that it is up to the server to determine whether or not the generated care gaps report is persisted. If the server does not persist the results, the operation does not affect state and can be invoked with a GET"/>
+    <valueMarkdown value="The effect of invoking this operation is to calculate a set of measures for a particular topic (e.g., Preventive Care and Screening) and return a document describing the results of each measure for the given subject. Note that it is up to the server to determine whether or not the generated care gaps report is persisted. If the server does not persist the results, the operation does not affect state and can be invoked with a GET"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-care-gaps"/>
   <version value="6.0.0"/>
@@ -189,7 +189,7 @@
   <description value="The care-gaps operation is used to determine gaps-in-care based on the results of quality measures"/>
   <affectsState value="false"/>
   <code value="care-gaps"/>
-  <comment value="The effect of invoking this operation is to calculate a set of measures for a particular topic (e.g. Preventive Care and Screening) and return a document describing the results of each measure for the given subject. Note that it is up to the server to determine whether or not the generated care gaps report is persisted. If the server does not persist the results, the operation does not affect state and can be invoked with a GET"/>
+  <comment value="The effect of invoking this operation is to calculate a set of measures for a particular topic (e.g., Preventive Care and Screening) and return a document describing the results of each measure for the given subject. Note that it is up to the server to determine whether or not the generated care gaps report is persisted. If the server does not persist the results, the operation does not affect state and can be invoked with a GET"/>
   <resource value="Measure"/>
   <system value="false"/>
   <type value="true"/>
@@ -324,7 +324,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The isDocument parameter controls whether a Gaps in Care Composition is returned in the Bundle (i.e. if the Bundle is of type 'Document'). When 'true,' the returned Bundles contain the Gaps in Care Composition. This parameter defaults to 'true.'"/>
+    <documentation value="The isDocument parameter controls whether a Gaps in Care Composition is returned in the Bundle (i.e., if the Bundle is of type 'Document'). When 'true,' the returned Bundles contain the Gaps in Care Composition. This parameter defaults to 'true.'"/>
     <type value="boolean"/>
   </parameter>
   <parameter>

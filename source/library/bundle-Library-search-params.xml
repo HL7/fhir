@@ -32,7 +32,7 @@
           <valueString value="Library.content.contentType"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-content-type"/>
-        <description value="The type of content in the library (e.g. text/cql)"/>
+        <description value="The type of content in the library (e.g., text/cql)"/>
         <code value="content-type"/>
         <type value="token"/>
         <expression value="Library.content.contentType"/>
@@ -479,7 +479,7 @@
           <valueString value="Library.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-type"/>
-        <description value="The type of the library (e.g. logic-library, model-definition, asset-collection, module-definition)"/>
+        <description value="The type of the library (e.g., logic-library, model-definition, asset-collection, module-definition)"/>
         <code value="type"/>
         <type value="token"/>
         <expression value="Library.type"/>

@@ -238,7 +238,7 @@
        class="diagram-class-detail"><a
    id="n774"
    xlink:href="documentreference-definitions.html#DocumentReference.type"><title
-   id="title30720">Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced</title>type</a> : <a
+   id="title30720">Specifies the particular kind of document referenced  (e.g., History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced</title>type</a> : <a
    id="n775"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n776"
@@ -266,7 +266,7 @@
        class="diagram-class-detail"><a
    id="n792"
    xlink:href="documentreference-definitions.html#DocumentReference.subject"><title
-   id="title30735">Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)</title>subject</a> : <a
+   id="title30735">Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g., a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)</title>subject</a> : <a
    id="n793"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n794"

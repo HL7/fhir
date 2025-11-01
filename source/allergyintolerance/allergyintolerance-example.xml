@@ -90,7 +90,7 @@
   <reaction> 
     <!-- 
       It's possible to list specific things to which the patient responded,
-      e.g. chocolate (that happened to contain cashew nuts). This event has
+      e.g., chocolate (that happened to contain cashew nuts). This event has
       such a specific substance. Note that systems should ensure that what
       goes in here does not conflict with the substance above, and systems
       processing the data can be sure that what is here does not contravene

@@ -71,7 +71,7 @@
   <differential>
     <element id="RegulatedAuthorization">
       <path value="RegulatedAuthorization"/>
-      <short value="Regulatory approval, clearance or licensing related to a regulated product, treatment, facility or activity e.g. Market Authorization for a Medicinal Product"/>
+      <short value="Regulatory approval, clearance or licensing related to a regulated product, treatment, facility or activity e.g., Market Authorization for a Medicinal Product"/>
       <definition value="Regulatory approval, clearance or licensing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product."/>
       <min value="0"/>
       <max value="*"/>
@@ -196,8 +196,8 @@
     </element>
     <element id="RegulatedAuthorization.status">
       <path value="RegulatedAuthorization.status"/>
-      <short value="The status that is authorised e.g. approved. Intermediate states can be tracked with cases and applications"/>
-      <definition value="The status that is authorised e.g. approved. Intermediate states and actions can be tracked with cases and applications."/>
+      <short value="The status that is authorised e.g., approved. Intermediate states can be tracked with cases and applications"/>
+      <definition value="The status that is authorised e.g., approved. Intermediate states and actions can be tracked with cases and applications."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -236,7 +236,7 @@
     </element>
     <element id="RegulatedAuthorization.validityPeriod">
       <path value="RegulatedAuthorization.validityPeriod"/>
-      <short value="The time period in which the regulatory approval etc. is in effect, e.g. a Marketing Authorization includes the date of authorization and/or expiration date"/>
+      <short value="The time period in which the regulatory approval etc. is in effect, e.g., a Marketing Authorization includes the date of authorization and/or expiration date"/>
       <definition value="The time period in which the regulatory approval, clearance or licensing is in effect. As an example, a Marketing Authorization includes the date of authorization and/or an expiration date."/>
       <min value="0"/>
       <max value="1"/>
@@ -267,8 +267,8 @@
     </element>
     <element id="RegulatedAuthorization.intendedUse">
       <path value="RegulatedAuthorization.intendedUse"/>
-      <short value="The intended use of the product, e.g. prevention, treatment"/>
-      <definition value="The intended use of the product, e.g. prevention, treatment, diagnosis."/>
+      <short value="The intended use of the product, e.g., prevention, treatment"/>
+      <definition value="The intended use of the product, e.g., prevention, treatment, diagnosis."/>
       <min value="0"/>
       <max value="1"/>
       <type>

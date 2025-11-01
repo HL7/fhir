@@ -32,7 +32,7 @@
       <h3>Scope of the CDA on FHIR</h3>
       <p>
         The scope of CDA on FHIR is the standardization of clinical documents for exchange.<br/><br/>
-        The data format of clinical documents outside of the exchange context (e.g. the data format used to store clinical documents) is not addressed in this specification.<br/><br/>
+        The data format of clinical documents outside of the exchange context (e.g., the data format used to store clinical documents) is not addressed in this specification.<br/><br/>
         CDA on FHIR does not specify the creation or management of documents, only their exchange markup. While it may be possible to directly use the CDA Schema in a document authoring environment, such use is not the primary purpose of the CDA specification.<br/><br/>
         Document management is critically interdependent with the CDA specifications, but the specification of document management messages is outside the scope of the CDA.
       </p>
@@ -80,7 +80,7 @@
           <li>There must be a deterministic way for a recipient of an arbitrary CDA document to render the attested content.</li>
           <li>Human readability shall not require a sender to transmit a special style sheet along with a CDA document. It must be possible to render all CDA documents with a single style sheet and general-market display tools.</li>
           <li>Human readability applies to the authenticated content. There may be additional information conveyed in the document that is there primarily for machine processing that is not authenticated and need not be rendered.</li>
-          <li>When structured content is derived from narrative, there must be a mechanism to describe the process (e.g. by author, by human coder, by natural language processing algorithm, by specific software) by which machine-processable portions were derived from a block of narrative.</li>
+          <li>When structured content is derived from narrative, there must be a mechanism to describe the process (e.g., by author, by human coder, by natural language processing algorithm, by specific software) by which machine-processable portions were derived from a block of narrative.</li>
           <li>When narrative is derived from structured content, there must be a mechanism to identify the process by which narrative was generated from structured data.</li>
         </ul>
         These principles and requirements have led to the current approach, where the material to be rendered is placed into the Section.content.

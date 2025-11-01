@@ -68,7 +68,7 @@
 <!--   for version, we are going to simply use the day of publication. This is also 
     arbitrary - whatever is here is what people use to refer to the version. 
     Could also be a UUID too. Note that you should change the identify of the code 
-    system, not the version, if existing codes are redefined (e.g. don't do that!)  -->
+    system, not the version, if existing codes are redefined (e.g., don't do that!)  -->
   <version value="20160128"/>
 
   <name value="ACMECholCodesBlood"/>
@@ -94,7 +94,7 @@
   
   <!-- filter: Code Systems can define filters that value sets can 
     use to select sets of codes. Note that value sets can also use
-    properties (see, e.g. the valueset-example-supplement example)
+    properties (see, e.g., the valueset-example-supplement example)
     and this is always preferred because anything asserted as a 
     filter in the code system will need custom code to make it work.
     For this reason, filters are generally only defined in high value 

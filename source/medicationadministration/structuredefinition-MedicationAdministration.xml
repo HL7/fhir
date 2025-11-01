@@ -626,7 +626,7 @@
       </extension>
       <path value="MedicationAdministration.dosage"/>
       <short value="Details of how medication was taken"/>
-      <definition value="Describes the medication dosage information details e.g. dose, rate, site, route, etc."/>
+      <definition value="Describes the medication dosage information details e.g., dose, rate, site, route, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -646,7 +646,7 @@
     </element>
     <element id="MedicationAdministration.dosage.text">
       <path value="MedicationAdministration.dosage.text"/>
-      <short value="Free text dosage instructions e.g. SIG"/>
+      <short value="Free text dosage instructions e.g., SIG"/>
       <definition value="Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.&#xD;&#xD;The dosage instructions should reflect the dosage of the medication that was administered."/>
       <min value="0"/>
       <max value="1"/>
@@ -663,7 +663,7 @@
       <path value="MedicationAdministration.dosage.site"/>
       <short value="Body site administered to"/>
       <definition value="A coded specification of the anatomic site where the medication first entered the body.  For example, &quot;left arm&quot;."/>
-      <comment value="If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <comment value="If the use case requires attributes from the BodySite resource (e.g., to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -716,7 +716,7 @@
       <path value="MedicationAdministration.dosage.method"/>
       <short value="How drug was administered"/>
       <definition value="A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV."/>
-      <comment value="One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently."/>
+      <comment value="One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g., if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -763,7 +763,7 @@
     <element id="MedicationAdministration.dosage.rate[x]">
       <path value="MedicationAdministration.dosage.rate[x]"/>
       <short value="Dose quantity per unit of time"/>
-      <definition value="Identifies the speed with which the medication was or will be introduced into the patient.  Typically, the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours."/>
+      <definition value="Identifies the speed with which the medication was or will be introduced into the patient.  Typically, the rate for an infusion e.g., 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time, e.g., 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours."/>
       <comment value="If the rate changes over time, and you want to capture this in MedicationAdministration, then each change should be captured as a distinct MedicationAdministration, with a specific MedicationAdministration.dosage.rate, and the date time when the rate change occurred. Typically, the MedicationAdministration.dosage.rate element is not used to convey an average rate."/>
       <min value="0"/>
       <max value="1"/>

@@ -680,7 +680,7 @@
        class="diagram-class-detail"><a
    id="n780"
    xlink:href="InsuranceProduct-definitions.html#InsuranceProduct.plan.specificCost.benefit.cost.qualifiers"><title
-   id="title69861">Additional information about the cost, such as information about funding sources (e.g. HSA, HRA, FSA, RRA)</title>qualifiers</a> : <a
+   id="title69861">Additional information about the cost, such as information about funding sources (e.g., HSA, HRA, FSA, RRA)</title>qualifiers</a> : <a
    id="n781"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
     <text
@@ -691,7 +691,7 @@
        class="diagram-class-detail"><a
    id="n786"
    xlink:href="InsuranceProduct-definitions.html#InsuranceProduct.plan.specificCost.benefit.cost.value"><title
-   id="title69866">The actual cost value. (some of the costs may be represented as percentages rather than currency, e.g. 10% coinsurance)</title>value</a> : <a
+   id="title69866">The actual cost value. (some of the costs may be represented as percentages rather than currency, e.g., 10% coinsurance)</title>value</a> : <a
    id="n787"
    xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
   </g>

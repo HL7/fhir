@@ -142,7 +142,7 @@ identifier</a> : <a
        class="diagram-class-detail"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.version"
    id="n445"><title
-   id="title29">The identifier that is used to identify this version of the charge item definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the charge item definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets</title>
+   id="title29">The identifier that is used to identify this version of the charge item definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the charge item definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g., 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets</title>
 version</a> : <a
    xlink:href="datatypes.html#string"
    id="n446">string</a> [0..1]</text>
@@ -430,7 +430,7 @@ description</a> : <a
        style="fill:#000000"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.applicability.language"
    id="n590"><title
-   id="title144">The media type of the language for the expression, e.g. &quot;text/cql&quot; for Clinical Query Language expressions or &quot;text/fhirpath&quot; for FHIRPath expressions</title>
+   id="title144">The media type of the language for the expression, e.g., &quot;text/cql&quot; for Clinical Query Language expressions or &quot;text/fhirpath&quot; for FHIRPath expressions</title>
 language</a> : <a
    xlink:href="datatypes.html#string"
    id="n591">string</a> [0..1]</text>

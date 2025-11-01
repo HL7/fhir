@@ -150,7 +150,7 @@
        class="diagram-class-detail"><a
    id="n611"
    xlink:href="careplan-definitions.html#CarePlan.basedOn"><title
-   id="title143445">A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this care plan</title>basedOn</a> : <a
+   id="title143445">A higher-level request resource (i.e., a plan, proposal or order) that is fulfilled in whole or in part by this care plan</title>basedOn</a> : <a
    id="n612"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n613"
@@ -229,7 +229,7 @@
        class="diagram-class-detail"><a
    id="n663"
    xlink:href="careplan-definitions.html#CarePlan.category"><title
-   id="title143481">Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc</title>category</a> : <a
+   id="title143481">Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g., &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc</title>category</a> : <a
    id="n664"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n665"

@@ -123,8 +123,8 @@
     </element>
     <element id="PackagedProductDefinition.type">
       <path value="PackagedProductDefinition.type"/>
-      <short value="A high level category e.g. medicinal product, raw material, shipping container etc"/>
-      <definition value="A high level category e.g. medicinal product, raw material, shipping/transport container, etc."/>
+      <short value="A high level category e.g., medicinal product, raw material, shipping container etc"/>
+      <definition value="A high level category e.g., medicinal product, raw material, shipping/transport container, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -162,7 +162,7 @@
     </element>
     <element id="PackagedProductDefinition.status">
       <path value="PackagedProductDefinition.status"/>
-      <short value="The status within the lifecycle of this item. High level - not intended to duplicate details elsewhere e.g. legal status, or authorization/marketing status"/>
+      <short value="The status within the lifecycle of this item. High level - not intended to duplicate details elsewhere e.g., legal status, or authorization/marketing status"/>
       <definition value="The status within the lifecycle of this item. A high level status, this is not intended to duplicate details carried elsewhere such as legal status, or authorization or marketing status."/>
       <min value="0"/>
       <max value="1"/>
@@ -203,7 +203,7 @@
     <element id="PackagedProductDefinition.containedItemQuantity">
       <path value="PackagedProductDefinition.containedItemQuantity"/>
       <short value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size. See also packaging.containedItem.amount (especially the long definition)"/>
-      <definition value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size. This attribute differs from containedItem.amount in that it can give a single aggregated count of all tablet types in a pack, even when these are different manufactured items. For example a pill pack of 21 tablets plus 7 sugar tablets, can be denoted here as '28 tablets'. This attribute is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Each repeat must have different units, so that it is clear what the different sets of counted items are, and it is not intended to allow different counts of similar items (e.g. not '2 tubes and 3 tubes'). Repeats are not to be used to represent different pack sizes (e.g. 20 pack vs. 50 pack) - which would be different instances of this resource."/>
+      <definition value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size. This attribute differs from containedItem.amount in that it can give a single aggregated count of all tablet types in a pack, even when these are different manufactured items. For example a pill pack of 21 tablets plus 7 sugar tablets, can be denoted here as '28 tablets'. This attribute is repeatable so that the different item types in one pack type can be counted (e.g., a count of vials and count of syringes). Each repeat must have different units, so that it is clear what the different sets of counted items are, and it is not intended to allow different counts of similar items (e.g., not '2 tubes and 3 tubes'). Repeats are not to be used to represent different pack sizes (e.g., 20 pack vs. 50 pack) - which would be different instances of this resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -312,7 +312,7 @@
     <element id="PackagedProductDefinition.copackagedIndicator">
       <path value="PackagedProductDefinition.copackagedIndicator"/>
       <short value="Identifies if the drug product is supplied with another item such as a diluent or adjuvant"/>
-      <definition value="Identifies if the package contains different items, such as when a drug product is supplied with another item e.g. a diluent or adjuvant."/>
+      <definition value="Identifies if the package contains different items, such as when a drug product is supplied with another item e.g., a diluent or adjuvant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -415,14 +415,14 @@
     </element>
     <element id="PackagedProductDefinition.packaging.componentPart">
       <path value="PackagedProductDefinition.packaging.componentPart"/>
-      <short value="Is this a part of the packaging (e.g. a cap or bottle stopper), rather than the packaging itself (e.g. a bottle or vial)"/>
-      <definition value="Is this a part of the packaging (e.g. a cap or bottle stopper), rather than the packaging itself (e.g. a bottle or vial). The latter type are designed be a container, but the former are not."/>
+      <short value="Is this a part of the packaging (e.g., a cap or bottle stopper), rather than the packaging itself (e.g., a bottle or vial)"/>
+      <definition value="Is this a part of the packaging (e.g., a cap or bottle stopper), rather than the packaging itself (e.g., a bottle or vial). The latter type are designed be a container, but the former are not."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="If absent, it cannot be assumed that the item is packaging (a container) or a part of the packaging - it is just 'packaging'. Systems can sometimes infer this from the packaging.type (e.g. bottles are containers, bottle caps are not), or from the fact that a container will usually have other items within it (though it is possible that these exist but are not mentioned). Often the distinction is not critical - and can easily be understood by humans - but if that is necessary for machine processing it is recommended that this attribute is given a value."/>
+      <meaningWhenMissing value="If absent, it cannot be assumed that the item is packaging (a container) or a part of the packaging - it is just 'packaging'. Systems can sometimes infer this from the packaging.type (e.g., bottles are containers, bottle caps are not), or from the fact that a container will usually have other items within it (though it is possible that these exist but are not mentioned). Often the distinction is not critical - and can easily be understood by humans - but if that is necessary for machine processing it is recommended that this attribute is given a value."/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -470,7 +470,7 @@
     <element id="PackagedProductDefinition.packaging.alternateMaterial">
       <path value="PackagedProductDefinition.packaging.alternateMaterial"/>
       <short value="A possible alternate material for this part of the packaging, that is allowed to be used instead of the usual material"/>
-      <definition value="A possible alternate material for this part of the packaging, that is allowed to be used instead of the usual material (e.g. different types of plastic for a blister sleeve)."/>
+      <definition value="A possible alternate material for this part of the packaging, that is allowed to be used instead of the usual material (e.g., different types of plastic for a blister sleeve)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

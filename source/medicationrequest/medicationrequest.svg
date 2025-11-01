@@ -150,7 +150,7 @@
        class="diagram-class-detail"><a
    id="n909"
    xlink:href="medicationrequest-definitions.html#MedicationRequest.groupIdentifier"><title
-   id="title83658">A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
+   id="title83658">A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  e.g., a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
    id="n910"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
     <text
@@ -340,7 +340,7 @@
        class="diagram-class-detail"><a
    id="n1033"
    xlink:href="medicationrequest-definitions.html#MedicationRequest.supportingInformation"><title
-   id="title83744">Information to support fulfilling (i.e. dispensing or administering) of the medication, for example, patient height and weight, a MedicationStatement for the patient)</title>supportingInformation</a> : <a
+   id="title83744">Information to support fulfilling (i.e., dispensing or administering) of the medication, for example, patient height and weight, a MedicationStatement for the patient)</title>supportingInformation</a> : <a
    id="n1034"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n1035"
@@ -426,7 +426,7 @@
        class="diagram-class-detail"><a
    id="n1087"
    xlink:href="medicationrequest-definitions.html#MedicationRequest.performer"><title
-   id="title83781">The specified desired performer of the medication treatment (e.g. the performer of the medication administration).  For devices, this is the device that is intended to perform the administration of the medication.  An IV Pump would be an example of a device that is performing the administration.  Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers</title>performer</a> : <a
+   id="title83781">The specified desired performer of the medication treatment (e.g., the performer of the medication administration).  For devices, this is the device that is intended to perform the administration of the medication.  An IV Pump would be an example of a device that is performing the administration.  Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers</title>performer</a> : <a
    id="n1088"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n1089"
@@ -913,7 +913,7 @@
      class="diagram-class-linkage"><a
        id="n1317"
        xlink:href="medicationrequest-definitions.html#MedicationRequest.dispenseRequest"><title
-   id="title83963">Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department</title>dispenseRequest</a></text>
+   id="title83963">Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g., hospitals) institutional or system support for completing the dispense details in the pharmacy department</title>dispenseRequest</a></text>
   <text
      id="n1318"
      x="398.205634"

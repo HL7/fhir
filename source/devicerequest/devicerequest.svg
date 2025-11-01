@@ -170,7 +170,7 @@
        class="diagram-class-detail"><a
    id="n613"
    xlink:href="devicerequest-definitions.html#DeviceRequest.groupIdentifier"><title
-   id="title29574">A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
+   id="title29574">A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  e.g., a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
    id="n614"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
     <text
@@ -468,7 +468,7 @@
        class="diagram-class-detail"><a
    id="n807"
    xlink:href="devicerequest-definitions.html#DeviceRequest.supportingInfo"><title
-   id="title29705">Additional clinical information about the patient that may influence the request fulfilment.  For example, this may include where on the subject's body the device will be used (i.e. the target site)</title>supportingInfo</a> : <a
+   id="title29705">Additional clinical information about the patient that may influence the request fulfilment.  For example, this may include where on the subject's body the device will be used (i.e., the target site)</title>supportingInfo</a> : <a
    id="n808"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n809"

@@ -6,7 +6,7 @@
 DetectedIssue follows the pattern of linking from the resource created "second".  As DetectedIssue originates in response to one or more other existing records, it points to those records rather than being pointed to from them.
 </p>
 <p>
-In some cases, a detected issue might be associated with a single record.  When this occurs, it may be stored as a contained resource within the implicated resource provided that there is no expected need to search for the detected issue directly.  However, with detected issues that implicate multiple records, containment is more problematic.  In some workflows, a detected issue might be deemed to be "owned" by the record whose creation triggers the contraindication being created - i.e. the "second" or "last" record.  However, where multiple actions are proposed as part of a single submission, there can be no single owner and containment will not be feasible.
+In some cases, a detected issue might be associated with a single record.  When this occurs, it may be stored as a contained resource within the implicated resource provided that there is no expected need to search for the detected issue directly.  However, with detected issues that implicate multiple records, containment is more problematic.  In some workflows, a detected issue might be deemed to be "owned" by the record whose creation triggers the contraindication being created - i.e., the "second" or "last" record.  However, where multiple actions are proposed as part of a single submission, there can be no single owner and containment will not be feasible.
 </p>
 <p>
 If there is a strong need to point from an implicated resource to DetectedIssue and containment is not appropriate, an extension can be used.

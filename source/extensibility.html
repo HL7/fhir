@@ -65,9 +65,9 @@ Notes:
 <ul>
  <li>The <code>url</code> is a mandatory attribute / property and identifies a retrievable <a href="defining-extensions.html">extension definition</a> that defines the content and meaning of the extension</li>
  <li>Extensions are not allowed on <code>Extension.url</code> or on <code>Element.id</code>; see <a href="elementdefinition-definitions.html#ElementDefinition.representation">ElementDefinition.representation</a> for background</li>
- <li>The <code>url</code> SHALL be a URL, not a URN (e.g. not an OID or a UUID), and it SHALL be a reference to the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within complex extensions, the URL SHALL be an absolute URL. </li>
+ <li>The <code>url</code> SHALL be a URL, not a URN (e.g., not an OID or a UUID), and it SHALL be a reference to the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within complex extensions, the URL SHALL be an absolute URL. </li>
  <li>The structure definitions for the extension SHOULD be available to consumers of an instance.  The preferred mechanisms for achieving this availability are the direct resolvability of the extension's canonical URL and/or the publishing of the extension definition on a registry that is available and known to those systems that will be consuming the instances containing the extension</li>
- <li>An extension SHALL have either a value (i.e. a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
+ <li>An extension SHALL have either a value (i.e., a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
  <li>If it is not safe for an application processing the content of the resource to ignore the extension it SHALL be represented using a <a href="#isModifier">Modifier Extension</a> rather than an <code>extension</code> element. 'Not safe' means that the extension causes information in other elements within the resource to be interpreted in a way that is not consistent with their base definition. See examples <a href="#modifierExtension">below</a>.</li>
  <li>There are a few resources (ones that do not specialize <a href="domainresource.html">DomainResource</a>) where extensions are not allowed on the root element, but extensions can appear elsewhere through the resource</li>
  <li>If the meaning of an extension is clearly defined by a code, that code SHOULD be declared on the extension's root code 
@@ -214,7 +214,7 @@ This extension can be extended again, by adding a "passport-number" extension:
 </p>
 <div class="example">
 <p>
-The passport number is defined as a separate extension (e.g. by
+The passport number is defined as a separate extension (e.g., by
 an implementing organization, not in this specification) rather than part of the official citizenship extension.
 The URL of the extension is thus different. In XML:
 </p>
@@ -291,7 +291,7 @@ by a fake organization, and not appropriate for re-use by implementers.
 Primitive datatypes can carry extensions. The extensions may appear in place of the value of the primitive datatype. 
 The <a href="xml.html#primitive">XML</a>, <a href="json.html#primitive">JSON</a> and <a href="rdf.html#primitiveExtension">RDF</a> pages describe how this 
 looks in those respective formats.
-Implementers should be aware that a mandatory primitive datatype (i.e. mininum cardinality=1) may
+Implementers should be aware that a mandatory primitive datatype (i.e., mininum cardinality=1) may
 be present with extensions but no value. Type use case are extensions such as 
 <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">DataAbsentReason</a>,
 <a href="[%extensions-location%]StructureDefinition-iso21090-nullFlavor.html">nullFlavor</a> and
@@ -319,7 +319,7 @@ of the element that contains it. Typically, this means information that qualifie
 negates the primary meaning of the element that contains it. Some examples:
 </p>
 <ul>
- <li>A flag on a [Patient.contact] indicating they are <b>not</b> to be contacted - i.e. a next of kin for record-keeping purposes only</li>
+ <li>A flag on a [Patient.contact] indicating they are <b>not</b> to be contacted - i.e., a next of kin for record-keeping purposes only</li>
  <li>Using the <a href="condition.html">Condition</a> resource to record an assertion that a patient has a family history of the condition rather than the condition itself</li>
  <li>Asserting that a performer was <b>not</b> actually involved in a <a href="procedure.html">Procedure</a></li>
  <li>Asserting an additional subsumption relationship on a concept in a <a href="valueset.html">value set</a></li>
@@ -339,7 +339,7 @@ Implementers who are introducing an extension and are uncertain whether the exte
 </p>
 <p>
 This specification allows for such modifier elements to be included at the base of a domain resource, in any elements
-that do not have a datatype (e.g. the elements that correspond to classes in the resource UML
+that do not have a datatype (e.g., the elements that correspond to classes in the resource UML
 diagrams), and on a <a href="datatypes.html#modifiers">few specially selected datatypes</a>. 
 Other datatypes and elements inside datatypes SHALL NOT have modifier extensions, 
 and extensions SHALL NOT have modifier extensions internally (except for the reusable structures
@@ -359,7 +359,7 @@ because the impact of the modifier element is expected to be known by applicatio
 </p>
 <p>
 Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
-Is-modifier elements not defined as part of an extension's definition cannot be conveyed (e.g. an extension cannot have a modifier extension in it).
+Is-modifier elements not defined as part of an extension's definition cannot be conveyed (e.g., an extension cannot have a modifier extension in it).
 </p>
 <p>
 When defining a new modifier extension, it is designated as being a 'modifier' rather than a 
@@ -415,7 +415,7 @@ things:
 <ol>
  <li>recognize the modifier extension, and understand the impact of the extension when using the data</li>
  <li>reject instances that contain the modifier extension</li>
- <li>treat such instances as "for rendering purposes only" - i.e. check that the narrative status = <code>extensions</code> or <code>generated</code>, display the narrative and don't process the discrete data</li>
+ <li>treat such instances as "for rendering purposes only" - i.e., check that the narrative status = <code>extensions</code> or <code>generated</code>, display the narrative and don't process the discrete data</li>
  <li>Ask for a human to check the modifier extension before proceeding to process the data</li>
  <li>carry a warning concerning the data along with any action or output that results from processing the data to inform users that it has not fully understood the source information</li>
 </ol>
@@ -452,13 +452,13 @@ that it is safe to do so in their own context, though this would not usually be 
   Where a modifier appears on a child element within the resource rather than 
 on the resource as a whole, the system can choose to process the resource 
 but exclude the element containing the modifier from processing. 
-i.e. treat the element with the modifier as if it were missing. This approach 
+i.e., treat the element with the modifier as if it were missing. This approach 
 can only work if the processing can safely function with incomplete data. 
 Caution needs to be taken if doing this for elements that have a 'meaning if missing'.  
 </p>
 <p>
   Note that implementations might be able to be sure, due to their
-  implementation environment (e.g. specific trading partner agreement),
+  implementation environment (e.g., specific trading partner agreement),
   that modifier extensions will never occur, and can therefore meet
   the requirement to check for modifiers at the design stage.
 However, since integration and deployment options often change, 
@@ -576,7 +576,7 @@ that surround the information.
 </p>
 <p>
 For this reason, local requirements that manifest as extensions are an obstacle to
-integration and interoperability. The more the requirements are shared (i.e. regional or national scale),
+integration and interoperability. The more the requirements are shared (i.e., regional or national scale),
 the less of an obstacle the extensions (and the requirements they represent) will represent. The consistent representation, definition and registration of
 extensions that this specification defines cannot resolve that problem - it only provides a framework
 within which such local variations can be handled more easily.

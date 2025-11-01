@@ -242,7 +242,7 @@
           <valueString value="EpisodeOfCare.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-type"/>
-        <description value="Type/class  - e.g. specialist referral, disease management"/>
+        <description value="Type/class  - e.g., specialist referral, disease management"/>
         <code value="type"/>
         <type value="token"/>
         <expression value="EpisodeOfCare.type"/>

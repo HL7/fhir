@@ -179,7 +179,7 @@
           <valueString value="RiskAssessmentStatus"/>
         </extension>
         <strength value="required"/>
-        <description value="The status of the risk assessment; e.g. preliminary, final, amended, etc."/>
+        <description value="The status of the risk assessment; e.g., preliminary, final, amended, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
       </binding>
       <mapping>
@@ -207,7 +207,7 @@
           <valueString value="RiskAssessmentMethod"/>
         </extension>
         <strength value="example"/>
-        <description value="The mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
+        <description value="The mechanism or algorithm used to make the assessment; e.g., TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-method"/>
       </binding>
       <mapping>
@@ -450,7 +450,7 @@
     <element id="RiskAssessment.prediction.outcome">
       <path value="RiskAssessment.prediction.outcome"/>
       <short value="Possible outcome for the subject"/>
-      <definition value="One of the potential outcomes for the patient (e.g. remission, death,  a particular condition)."/>
+      <definition value="One of the potential outcomes for the patient (e.g., remission, death,  a particular condition)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -461,7 +461,7 @@
           <valueString value="RiskAssessmentOutcome"/>
         </extension>
         <strength value="example"/>
-        <description value="The condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
+        <description value="The condition or other outcome; e.g., death, remission, amputation, infection, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-outcome"/>
       </binding>
       <mapping>
@@ -477,7 +477,7 @@
       <path value="RiskAssessment.prediction.probability[x]"/>
       <short value="Likelihood of specified outcome"/>
       <definition value="Indicates how likely the outcome is (in the specified timeframe). Range SHOULD be expressed as a Quantity (with a unit of '%'), rather than as a decimal value to make sure the percentage semantics are clear."/>
-      <comment value="If range is used, it represents the lower and upper bounds of certainty; e.g. 40-60%  Decimal values are expressed as percentages as well (max = 100)."/>
+      <comment value="If range is used, it represents the lower and upper bounds of certainty; e.g., 40-60%  Decimal values are expressed as percentages as well (max = 100)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -510,7 +510,7 @@
     <element id="RiskAssessment.prediction.qualitativeRisk">
       <path value="RiskAssessment.prediction.qualitativeRisk"/>
       <short value="Likelihood of specified outcome as a qualitative value"/>
-      <definition value="Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, or high)."/>
+      <definition value="Indicates how likely the outcome is (in the specified timeframe), expressed as a qualitative value (e.g., low, medium, or high)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

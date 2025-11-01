@@ -170,7 +170,7 @@
     <element id="EncounterHistory.type">
       <path value="EncounterHistory.type"/>
       <short value="Specific type of encounter"/>
-      <definition value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."/>
+      <definition value="Specific type of encounter (e.g., e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."/>
       <comment value="Since there are many ways to further classify encounters, this element is 0..*."/>
       <min value="0"/>
       <max value="*"/>
@@ -201,7 +201,7 @@
     <element id="EncounterHistory.serviceType">
       <path value="EncounterHistory.serviceType"/>
       <short value="Specific type of service"/>
-      <definition value="Broad categorization of the service that is to be provided (e.g. cardiology)."/>
+      <definition value="Broad categorization of the service that is to be provided (e.g., cardiology)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -313,7 +313,7 @@
       <path value="EncounterHistory.length"/>
       <short value="Actual quantity of time the encounter lasted (less time absent)"/>
       <definition value="Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.&#xD;&#xD;When missing it is the time in between the start and end values."/>
-      <comment value="If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.&#xD;&#xD;May differ from the time in `Encounter.period` due to leave of absence(s)."/>
+      <comment value="If the precision on these values is low (e.g., to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.&#xD;&#xD;May differ from the time in `Encounter.period` due to leave of absence(s)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

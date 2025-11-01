@@ -23,16 +23,16 @@
   <concept>
     <code value="all-codes"/>
     <display value="All Codes"/>
-    <definition value="he expansion (e.g. when in UI mode) includes all codes; those included in a group and those not included in a group, as well as the codes for the groups themselves (e.g. a parent node in a hierarchical code system)."/>
+    <definition value="he expansion (e.g., when in UI mode) includes all codes; those included in a group and those not included in a group, as well as the codes for the groups themselves (e.g., a parent node in a hierarchical code system)."/>
   </concept>
   <concept>
     <code value="ungrouped"/>
     <display value="Groups + Ungrouped codes"/>
-    <definition value="The expansion (e.g. when in UI mode) includes the codes for the groups, and any codes that are not included in a group."/>
+    <definition value="The expansion (e.g., when in UI mode) includes the codes for the groups, and any codes that are not included in a group."/>
   </concept>
   <concept>
     <code value="groups-only"/>
     <display value="Groups Only"/>
-    <definition value="The expansion (e.g. when in UI mode) only includes the codes for the groups."/>
+    <definition value="The expansion (e.g., when in UI mode) only includes the codes for the groups."/>
   </concept>
 </CodeSystem>

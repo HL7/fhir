@@ -180,11 +180,11 @@
     </element>
     <element id="Measure.version">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="This is only the version, not a complete version-specific identifier; this element is combined with the url to obtain a version-specific identifier (i.e. url|version)."/>
+        <valueString value="This is only the version, not a complete version-specific identifier; this element is combined with the url to obtain a version-specific identifier (i.e., url|version)."/>
       </extension>
       <path value="Measure.version"/>
       <short value="Business version of the measure"/>
-      <definition value="The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
+      <definition value="The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g., 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
       <comment value="There may be different measure instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the measure with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
@@ -246,7 +246,7 @@
     </element>
     <element id="Measure.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="In human-readable renderings of HQMF, the measure title is typically referred to as the name; this will be a source of confusion going forward, as _name_ in FHIR is intended to be a machine-friendly identifier (i.e. a valid identifier in traditional development languages such as Java, JavaScript, C, and C#)."/>
+        <valueString value="In human-readable renderings of HQMF, the measure title is typically referred to as the name; this will be a source of confusion going forward, as _name_ in FHIR is intended to be a machine-friendly identifier (i.e., a valid identifier in traditional development languages such as Java, JavaScript, C, and C#)."/>
       </extension>
       <path value="Measure.name"/>
       <short value="Name for this measure (computer friendly)"/>
@@ -374,13 +374,13 @@
     </element>
     <element id="Measure.subject[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e. the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
+        <valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e., the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="deprecated"/> 
       </extension> 
       <path value="Measure.subject[x]"/>
-      <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
+      <short value="e.g., Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
       <definition value="The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything."/>
       <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. If the subject is specified as a reference to a Group, it must be a definitional group."/>
       <min value="0"/>
@@ -398,7 +398,7 @@
           <valueString value="SubjectType"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+        <description value="The possible types of subjects for a measure (e.g., Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
@@ -486,7 +486,7 @@
       <path value="Measure.description"/>
       <short value="Natural language description of the measure"/>
       <definition value="A free text natural language description of the measure from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g., the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -527,7 +527,7 @@
       <path value="Measure.jurisdiction"/>
       <short value="Jurisdiction of the authority that maintains the measure (if applicable)"/>
       <definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -614,7 +614,7 @@
       <path value="Measure.copyright"/>
       <short value="Notice about intellectual property ownership, can include restrictions on use"/>
       <definition value="A copyright statement relating to the measure and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the measure."/>
-      <comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
+      <comment value="The short copyright declaration (e.g., (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the measure and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>
@@ -642,7 +642,7 @@
       </extension>
       <path value="Measure.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
-      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
       <comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
@@ -737,7 +737,7 @@
     </element>
     <element id="Measure.reportingFrequency">
       <path value="Measure.reportingFrequency"/>
-      <short value="The frequency in which this measure should be reported (e.g. 1 '/a' - yearly, 4 '/a' - quarterly)"/>
+      <short value="The frequency in which this measure should be reported (e.g., 1 '/a' - yearly, 4 '/a' - quarterly)"/>
       <definition value="The frequency that this measure should be reported, usually specified by the program it is being submitted to."/>
 			<comment value="Note that reporting frequency is often specified by the expectations of a quality program or initiative that is making use of the measure, rather than on the measure directly."/>
       <requirements value="Allows the reporting frequency for the given program to be specified in the Measure itself."/>
@@ -754,7 +754,7 @@
       <path value="Measure.topic"/>
       <short value="The category of the measure, such as Education, Treatment, Assessment, etc"/>
       <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
+			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
       <requirements value="Repositories must be able to determine how to categorize the measure so that it can be found by topical searches."/>
       <min value="0"/>
       <max value="*"/>
@@ -1050,7 +1050,7 @@
       <path value="Measure.group.linkId"/>
       <short value="Unique id for group in measure"/>
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
-      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <comment value="This ''can'' be a meaningful identifier (e.g., a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted groups to be included."/>
       <min value="0"/>
       <max value="1"/>
@@ -1143,10 +1143,10 @@
     </element>
     <element id="Measure.group.subject[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e. the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
+        <valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e., the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
       </extension>
       <path value="Measure.group.subject[x]"/>
-      <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
+      <short value="e.g., Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
       <definition value="The intended subjects for the measure. If this element is not provided, the root subject is used to determine the group."/>
       <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. If the subject is specified as a reference to a Group, it must be a definitional group."/>
       <min value="0"/>
@@ -1164,7 +1164,7 @@
           <valueString value="SubjectType"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+        <description value="The possible types of subjects for a measure (e.g., Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
@@ -1176,7 +1176,7 @@
       <path value="Measure.group.basis"/>
       <short value="Population basis"/>
       <definition value="The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters."/>
-      <requirements value="Allows non-subject-based measures to be specified (i.e. encounter-based and procedure-based)"/>
+      <requirements value="Allows non-subject-based measures to be specified (i.e., encounter-based and procedure-based)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1421,7 +1421,7 @@
       <path value="Measure.group.population.linkId"/>
       <short value="Unique id for population in measure"/>
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent population in a MeasureReport resource."/>
-      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <comment value="This ''can'' be a meaningful identifier (e.g., a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted populations to be included."/>
       <min value="0"/>
       <max value="1"/>
@@ -1509,7 +1509,7 @@
       <path value="Measure.group.population.groupDefinition"/>
       <short value="A group resource that defines this population"/>
       <definition value="A Group resource that defines this population as a set of characteristics."/>
-      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group resource SHALL be a definitional (as opposed to an actual) group."/>
+      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g., a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group resource SHALL be a definitional (as opposed to an actual) group."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1524,7 +1524,7 @@
     <element id="Measure.group.population.inputPopulationId">
       <path value="Measure.group.population.inputPopulationId"/>
       <short value="Which population"/>
-      <definition value="The id of a population element in this measure that provides the input for this population criteria. In most cases, the scoring structure of the measure implies specific relationships (e.g. the Numerator uses the Denominator as the source in a proportion scoring). In some cases, however, multiple possible choices exist and must be resolved explicitly. For example in a ratio measure with multiple initial populations, the denominator must specify which population should be used as the starting point."/>
+      <definition value="The id of a population element in this measure that provides the input for this population criteria. In most cases, the scoring structure of the measure implies specific relationships (e.g., the Numerator uses the Denominator as the source in a proportion scoring). In some cases, however, multiple possible choices exist and must be resolved explicitly. For example in a ratio measure with multiple initial populations, the denominator must specify which population should be used as the starting point."/>
       <requirements value="For ratio and continuous variable measures, the source populations must be specified explicitly when they cannot be unambiguously determined from the scoring structure."/>
       <min value="0"/>
       <max value="1"/>
@@ -1538,8 +1538,8 @@
     </element>
     <element id="Measure.group.population.aggregateMethod">
       <path value="Measure.group.population.aggregateMethod"/>
-      <short value="Aggregation method for a measure score (e.g. sum, average, median, minimum, maximum, count)"/>
-      <definition value="Specifies which method should be used to aggregate measure observation values. For most scoring types, this is implied by scoring (e.g. a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation."/>
+      <short value="Aggregation method for a measure score (e.g., sum, average, median, minimum, maximum, count)"/>
+      <definition value="Specifies which method should be used to aggregate measure observation values. For most scoring types, this is implied by scoring (e.g., a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation."/>
       <requirements value="For continuous variable measures, specifications must be able to indicate the aggregation method to be used for tallying results from individual observations."/>
       <min value="0"/>
       <max value="1"/>
@@ -1580,7 +1580,7 @@
       <path value="Measure.group.stratifier.linkId"/>
       <short value="Unique id for stratifier in measure"/>
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
-      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <comment value="This ''can'' be a meaningful identifier (e.g., a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted stratifiers to be included."/>
       <min value="0"/>
       <max value="1"/>
@@ -1671,7 +1671,7 @@
       <path value="Measure.group.stratifier.groupDefinition"/>
       <short value="A group resource that defines this population"/>
       <definition value="A Group resource that defines this population as a set of characteristics."/>
-      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group. As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
+      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g., a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group. As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1686,7 +1686,7 @@
     <element id="Measure.group.stratifier.valueSet">
       <path value="Measure.group.stratifier.valueSet"/>
       <short value="What stratum values?"/>
-      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
+      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e., criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g., an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
       <comment value="This element may be used to define a stratifier rather than requiring the stratifier be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
       <min value="0"/>
       <max value="1"/>
@@ -1729,7 +1729,7 @@
       <path value="Measure.group.stratifier.component.linkId"/>
       <short value="Unique id for stratifier component in measure"/>
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
-      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <comment value="This ''can'' be a meaningful identifier (e.g., a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted stratifier components to be included."/>
       <min value="0"/>
       <max value="1"/>
@@ -1807,7 +1807,7 @@
       <path value="Measure.group.stratifier.component.groupDefinition"/>
       <short value="A group resource that defines this population"/>
       <definition value="A Group resource that defines this population as a set of characteristics."/>
-      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group. As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
+      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g., a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group. As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1822,7 +1822,7 @@
     <element id="Measure.group.stratifier.component.valueSet">
       <path value="Measure.group.stratifier.component.valueSet"/>
       <short value="What stratum values?"/>
-      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
+      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e., criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g., an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
       <comment value="This element may be used to define a stratifier rather than requiring the stratifier be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
       <min value="0"/>
       <max value="1"/>
@@ -1864,7 +1864,7 @@
       <path value="Measure.supplementalData.linkId"/>
       <short value="Unique id for supplementalData in measure"/>
       <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
-      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <comment value="This ''can'' be a meaningful identifier (e.g., a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[MeasureReport](measurereport.html#) does not require omitted supplementalData to be included."/>
       <min value="0"/>
       <max value="1"/>
@@ -1963,7 +1963,7 @@
     <element id="Measure.supplementalData.valueSet">
       <path value="Measure.supplementalData.valueSet"/>
       <short value="What supplemental data values?"/>
-      <definition value="A value set defining the set of possible values for supplemental data in this element. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce supplemental data values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
+      <definition value="A value set defining the set of possible values for supplemental data in this element. If criteria and valueSet are both present, they SHALL be consistent (i.e., criteria expressions SHALL produce supplemental data values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g., an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
       <comment value="This element may be used to define a supplemental data element rather than requiring the element to be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
       <min value="0"/>
       <max value="1"/>

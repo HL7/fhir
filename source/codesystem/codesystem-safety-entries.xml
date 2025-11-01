@@ -104,7 +104,7 @@
  </concept>
  <concept>
   <code value="default-filters"/>
-  <definition value="My system includes appropriate default filters when searching based on patient context - e.g. filtering out entered-in-error records, filtering to only include active, living patients if appropriate, and clearly documents these (preferably including them in the self link for a search"/>
+  <definition value="My system includes appropriate default filters when searching based on patient context - e.g., filtering out entered-in-error records, filtering to only include active, living patients if appropriate, and clearly documents these (preferably including them in the self link for a search"/>
  </concept>
  <concept>
   <code value="deletion-check"/>

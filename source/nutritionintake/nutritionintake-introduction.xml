@@ -11,7 +11,7 @@
 
 <p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html"><em>event</em> resources</a>.</strong></p>
 <p>
-The NutritionIntake resource, in conjunction with the <a href="nutritionproduct.html">NutritionProduct</a> resource, is utilized to capture details about the consumption of foods (i.e., solid and/or liquid), supplements, enteral nutrition, and infant formula. Dietitians and other practitioners use the data to calculate how much nutrition a patient has taken in. NutritionIntake represents the event of consuming food (i.e. solid and/or liquid), etc. and NutritionProduct represents the actual food and formula items.
+The NutritionIntake resource, in conjunction with the <a href="nutritionproduct.html">NutritionProduct</a> resource, is utilized to capture details about the consumption of foods (i.e., solid and/or liquid), supplements, enteral nutrition, and infant formula. Dietitians and other practitioners use the data to calculate how much nutrition a patient has taken in. NutritionIntake represents the event of consuming food (i.e., solid and/or liquid), etc. and NutritionProduct represents the actual food and formula items.
 </p>
 <p>
 NutritionIntake can also be used to record a person’s intake through the use of food tracking apps (e.g.MyFitnessPal), inpatient hospital consumption or administration, or a student’s meal consumption in a school district.</p>
@@ -28,7 +28,7 @@ Parenteral nutrition is out of scope as this ordering is handled through Medicat
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <ul>
-	<li>Intake of food (i.e. solid and/or liquid), oral nutritional supplements, enteral nutrition, or infant formula should be recorded using the NutritionIntake resource.</li>
+	<li>Intake of food (i.e., solid and/or liquid), oral nutritional supplements, enteral nutrition, or infant formula should be recorded using the NutritionIntake resource.</li>
 	<li>Supplements, such as vitamins, minerals, and herbals, should be recorded using the medication resources</li>
 	<li>Parenteral nutrition should be recorded using the medication resources</li>
 </ul>

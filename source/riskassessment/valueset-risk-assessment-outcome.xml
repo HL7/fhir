@@ -21,7 +21,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Example value set illustrating possible codes for identifying the condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
+  <description value="Example value set illustrating possible codes for identifying the condition or other outcome; e.g., death, remission, amputation, infection, etc."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/risk-assessment-outcome"/>

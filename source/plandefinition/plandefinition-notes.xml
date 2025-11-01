@@ -56,7 +56,7 @@
 			</li>
 		</ul>
 	</li>
-	<li>If the action is a group, determine which actions to process based on the behaviors specified in the group. Note that this aspect of the process may require input from a user. In these cases, either the choices made by the user can be provided as input to the process, or the process can be performed as part of a user-entry workflow that enables user input to be provided as necessary. If no behaviors are specified, default behavior for each behavior element is assumed (i.e. logical-group, all actions apply and are optional, no action is pre-selected, and all actions are assumed singular).</li>
+	<li>If the action is a group, determine which actions to process based on the behaviors specified in the group. Note that this aspect of the process may require input from a user. In these cases, either the choices made by the user can be provided as input to the process, or the process can be performed as part of a user-entry workflow that enables user input to be provided as necessary. If no behaviors are specified, default behavior for each behavior element is assumed (i.e., logical-group, all actions apply and are optional, no action is pre-selected, and all actions are assumed singular).</li>
 </ol>
 
 <p>Note that if there is no optionality in the resulting resources, systems may choose to return the request resources directly, rather than organizing them within an overall RequestOrchestration. This means that the result of the operation may be any combination of request Resources, including CarePlan, RequestOrchestration, and individual request resources such as ServiceRequest and MedicationRequest.</p>
@@ -67,7 +67,7 @@
 
 <p>In addition, the subject element establishes the context for CQL expressions evaluated during the operation, as discussed in the <a href="clinicalreasoning-topics-using-expressions.html#evaluation-context">Evaluation Context</a> discussion in the Using Expressions topic.</p>
 
-<p>Note that result of this operation is transient (i.e. none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out.</p>
+<p>Note that result of this operation is transient (i.e., none of the resources created by the operation are persisted in the server, they are all returned as contained resources in the result). The result effectively represents a proposed set of activities, and it is up to the caller to determine whether and how those activities are actually carried out.</p>
 
 <h3>Event Resources</h3>
 <p>The ActivityDefinition resource may only specify Request resource types to facilitate considering user input as part of processing the result of any automated clinical reasoning processes. To support creation of event resources, such as Observations, RiskAssessments, and DetectedIssues, use a Task resource with the focus of the task set to the event resource to be created.</p>

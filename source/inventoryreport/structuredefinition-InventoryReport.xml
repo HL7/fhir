@@ -135,7 +135,7 @@
     <element id="InventoryReport.status">
       <path value="InventoryReport.status"/>
       <short value="draft | requested | active | entered-in-error"/>
-      <definition value="The status of the inventory check or notification - whether this is draft (e.g. the report is still pending some updates) or active."/>
+      <definition value="The status of the inventory check or notification - whether this is draft (e.g., the report is still pending some updates) or active."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -304,7 +304,7 @@
     <element id="InventoryReport.inventoryListing.item.category">
       <path value="InventoryReport.inventoryListing.item.category"/>
       <short value="The inventory category or classification of the items being reported"/>
-      <definition value="The inventory category or classification of the items being reported. This is meant not for defining the product, but for inventory categories e.g. 'pending recount' or 'damaged'."/>
+      <definition value="The inventory category or classification of the items being reported. This is meant not for defining the product, but for inventory categories e.g., 'pending recount' or 'damaged'."/>
       <min value="0"/>
       <max value="1"/>
       <type>

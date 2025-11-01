@@ -254,7 +254,7 @@
     <element id="ImagingSelection.modality">
       <path value="ImagingSelection.modality"/>
       <short value="The distinct modality"/>
-      <definition value="The distinct modality for this selected series. This MAY be either an acquisition modality (e.g. CT, MR) or a non-acquisition modality (e.g. segmentation, presentation state)."/>
+      <definition value="The distinct modality for this selected series. This MAY be either an acquisition modality (e.g., CT, MR) or a non-acquisition modality (e.g., segmentation, presentation state)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -610,7 +610,7 @@
       <path value="ImagingSelection.focus"/>
       <short value="Related resources that are the focus for the imaging selection"/>
       <definition value="The actual focus of an imaging selection when it is another imaging selection resource and not the patient of record."/>
-      <comment value="An imaging selection MAY reference a DICOM resource that itself references other DICOM resources.&#xA;       e.g. a presentation state references a set of source images or frames."/>
+      <comment value="An imaging selection MAY reference a DICOM resource that itself references other DICOM resources.&#xA;       e.g., a presentation state references a set of source images or frames."/>
       <min value="0"/>
       <max value="*"/>
       <type>

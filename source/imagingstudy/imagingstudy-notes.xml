@@ -400,7 +400,7 @@ The image archive could share ImagingStudy information by:
     <ul><li>Typically using the Accession Number associated with a service request. e.g., <code>GET http://example.org/fhir/ImagingStudy?basedOn=ServiceRequest/123&amp;status=available</code></li></ul>
   </li>
   <li>Subscription to ImagingStudy resources
-    <ul><li>e.g. Requesting notification when ImagingStudy.status=available</li></ul>
+    <ul><li>e.g., Requesting notification when ImagingStudy.status=available</li></ul>
   </li>
   <li>Legacy mechanisms, such as:
     <ul>
@@ -547,7 +547,7 @@ Similarly, the performed procedure would be encoded as the <code>ImagingStudy.pr
 <a name="laterality"></a>
 <h3>Body Site and Laterality</h3>
 <p>
-The <code>series.bodySite</code> element can include the laterality of the (possibly paired) anatomic structures examined – e.g. left knee, bilateral lungs, etc. This can be conveyed in several ways:
+The <code>series.bodySite</code> element can include the laterality of the (possibly paired) anatomic structures examined – e.g., left knee, bilateral lungs, etc. This can be conveyed in several ways:
 </p>
 <ul>
   <li><code>series.bodySite</code> contains an anatomic code that includes laterality, e.g.

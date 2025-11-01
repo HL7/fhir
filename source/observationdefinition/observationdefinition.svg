@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n889"
    xlink:href="observationdefinition-definitions.html#ObservationDefinition.version"><title
-   id="title126846">The identifier that is used to identify this version of the ObservationDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the ObservationDefinition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable</title>version</a> : <a
+   id="title126846">The identifier that is used to identify this version of the ObservationDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the ObservationDefinition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable</title>version</a> : <a
    id="n890"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -306,7 +306,7 @@
        class="diagram-class-detail"><a
    id="n997"
    xlink:href="observationdefinition-definitions.html#ObservationDefinition.copyrightLabel"><title
-   id="title126928">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title126928">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n998"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -516,7 +516,7 @@
        class="diagram-class-detail"><a
    id="n1127"
    xlink:href="observationdefinition-definitions.html#ObservationDefinition.hasMember"><title
-   id="title127027">This ObservationDefinition defines a group  observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group</title>hasMember</a> : <a
+   id="title127027">This ObservationDefinition defines a group  observation (e.g., a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group</title>hasMember</a> : <a
    id="n1128"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n1129"

@@ -157,8 +157,8 @@
     <element id="CommunicationRequest.groupIdentifier">
       <path value="CommunicationRequest.groupIdentifier"/>
       <short value="Composite request this is part of"/>
-      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
-      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  e.g., a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e., one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <alias value="grouperId"/>
       <min value="0"/>
       <max value="1"/>
@@ -240,7 +240,7 @@
       <path value="CommunicationRequest.intent"/>
       <short value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Indicates the level of authority/intentionality associated with the CommunicationRequest and where the request fits into the workflow chain."/>
-      <comment value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xA;&#xA;One exception to this is that the granularity of CommunicationRequest.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
+      <comment value="This element is expected to be immutable.  e.g., A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xA;&#xA;One exception to this is that the granularity of CommunicationRequest.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
       <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
       <min value="1"/>
       <max value="1"/>
@@ -332,7 +332,7 @@
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;"/>
+      <meaningWhenMissing value="If do not perform is not specified, the request is a positive request e.g., &quot;do perform&quot;"/>
       <isModifier value="true"/>
       <isModifierReason value="If true this element negates the specified action. For Example,  instead of a request for a communication, it is a request for the communication to not occur."/>
       <isSummary value="true"/>
@@ -344,7 +344,7 @@
     <element id="CommunicationRequest.medium">
       <path value="CommunicationRequest.medium"/>
       <short value="A channel of communication"/>
-      <definition value="A channel that was used for this communication (e.g. email, fax)."/>
+      <definition value="A channel that was used for this communication (e.g., email, fax)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -552,7 +552,7 @@
       </extension>
       <path value="CommunicationRequest.recipient"/>
       <short value="Who to share the information with"/>
-      <definition value="The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication."/>
+      <definition value="The entity (e.g., person, organization, clinical information system, device, group, or care team) which is the intended target of the communication."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -583,7 +583,7 @@
       </extension>
       <path value="CommunicationRequest.informationProvider"/>
       <short value="Who should share the information"/>
-      <definition value="The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication."/>
+      <definition value="The entity (e.g., person, organization, clinical information system, or device) which is to be the source of the communication."/>
 	  <comment value="Entities being requested to provide the information. Using Group is only allowed when the group represents a family or a household and does not represent groups of Practitioners."/>
       <min value="0"/>
       <max value="*"/>

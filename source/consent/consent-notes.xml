@@ -209,7 +209,7 @@ derivative of the legally binding Consent Directive, which has specific usage in
     </tr>
     <tr>
       <td>Healthcare Consumer</td>
-      <td>The individual establishing his/her personal consent (i.e. Consenter). In FHIR, this is referred to as the 'Patient' though this word is not used across all contexts of care</td>
+      <td>The individual establishing his/her personal consent (i.e., Consenter). In FHIR, this is referred to as the 'Patient' though this word is not used across all contexts of care</td>
     </tr>
   </table>
 
@@ -220,7 +220,7 @@ derivative of the legally binding Consent Directive, which has specific usage in
   <p>
 Privacy policies define how Individually Identifiable Health Information 
 (IIHI) is to be collected, accessed, used and disclosed. A Privacy Consent 
-Directive as a legal record of a patient's (e.g. a healthcare consumer) 
+Directive as a legal record of a patient's (e.g., a healthcare consumer) 
 agreement with a party responsible for enforcing the patient's choices, 
 which permits or denies identified actors or roles to perform actions 
 affecting the patient within a given context for specific purposes and 

@@ -80,7 +80,7 @@
     <element id="Observation">
       <path value="Observation"/>
       <short value="FHIR Vital Signs Panel Profile"/>
-      <definition value="This profile defines the top-level grouping structure for a set of vital signs. It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP - with a minimum of 2 members of the set/panel required)."/>
+      <definition value="This profile defines the top-level grouping structure for a set of vital signs. It has no value in Observation.valueQuantity ; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g., respiratory rate, heart rate, BP - with a minimum of 2 members of the set/panel required)."/>
     </element>
     <element id="Observation.code">
       <path value="Observation.code"/>

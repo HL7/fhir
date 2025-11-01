@@ -440,7 +440,7 @@
        class="diagram-class-detail"><a
    id="n790"
    xlink:href="specimen-definitions.html#Specimen.collection.procedure"><title
-   id="title124592">The procedure event during which the specimen was collected (e.g. the surgery leading to the collection of a pathology sample)</title>procedure</a> : <a
+   id="title124592">The procedure event during which the specimen was collected (e.g., the surgery leading to the collection of a pathology sample)</title>procedure</a> : <a
    id="n791"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n792"
@@ -669,7 +669,7 @@
      class="diagram-class-linkage"><a
        id="n897"
        xlink:href="specimen-definitions.html#Specimen.feature"><title
-   id="title124675">A physical feature or landmark on a specimen, highlighted for context by the collector of the specimen (e.g. surgeon), that identifies the type of feature as well as its meaning (e.g. the red ink indicating the resection margin of the right lobe of the excised prostate tissue or wire loop at radiologically suspected tumor location)</title>feature</a></text>
+   id="title124675">A physical feature or landmark on a specimen, highlighted for context by the collector of the specimen (e.g., surgeon), that identifies the type of feature as well as its meaning (e.g., the red ink indicating the resection margin of the right lobe of the excised prostate tissue or wire loop at radiologically suspected tumor location)</title>feature</a></text>
   <text
      id="n898"
      x="319.79999999999995"
@@ -771,7 +771,7 @@
      class="diagram-class-linkage"><a
        id="n915"
        xlink:href="specimen-definitions.html#Specimen.container"><title
-   id="title124699">The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here</title>container</a></text>
+   id="title124699">The container holding the specimen.  The recursive nature of containers; i.e., blood in tube in tray in rack is not addressed here</title>container</a></text>
   <text
      id="n916"
      x="388.20000000000005"

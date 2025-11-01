@@ -106,11 +106,11 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The Encounter during which this observation was created or to which the creation of this record is tightly associated."/>
-            <resource value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made."/>
+            <resource value="The healthcare event  (e.g., a patient and healthcare provider interaction) during which this observation is made."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This will typically be the encounter the observation was created during, but some observations may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
-            <resource value="This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission laboratory tests)."/>
+            <_pattern value="This will typically be the encounter the observation was created during, but some observations may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
+            <resource value="This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission laboratory tests)."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the observation to the Encounter context.  May also affect access control."/>
@@ -125,7 +125,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The date, period or timing when the observation did occur or is occurring."/>
-            <resource value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."/>
+            <resource value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g., human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>

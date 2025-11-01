@@ -127,10 +127,10 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The Encounter during which this task was created or to which the creation of this record is tightly associated."/>
-            <resource value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created."/>
+            <resource value="The healthcare event  (e.g., a patient and healthcare provider interaction) during which this task was created."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This will typically be the encounter the task was created during, but some tasks may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <_pattern value="This will typically be the encounter the task was created during, but some tasks may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -164,7 +164,7 @@
             <resource value="The date and time this task was created."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  E.g. a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
+            <_pattern value="The recorded date indicates the date when the data was placed in the record maintained by the performing practitioner, or the date of disclosure by Patient or RelatedPerson, not a date of record transfer. If the record is transferred from one system to another (in paper or electronic form), it does not create a distinct recorded date. In most cases, performing practitioners will record on the same date the event occurred, but sometimes there are delays. If information is being relayed second-hand, the recorded date indicates when the system is first made aware of the data.&#10;&#10;The recorded date is NOT intended to be the same as a database.createdTimestamp - that would be captured as part of resource.meta or possibly Provenance.&#10;&#10;It is possible for the same event to be disclosed to different systems at different times.  e.g., a patient might tell two different clinicians about a historical event at different visits.  If the disclosure is from the patient rather than record transfer from clinician A to B, the recorded date would be the date each respective clinician put the data in their record.  If the data flowed from clinician A to B, the recorded date would remain the recorded date as initially set in clinician A's system."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
@@ -210,8 +210,8 @@
             <resource value="Principal physical location where this task is performed."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
-            <resource value="Provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g., if it occurred inside or outside a dedicated healthcare setting)."/>
+            <resource value="Provides context around the event occurrence (e.g., if it occurred inside or outside a dedicated healthcare setting)."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="Task.reason">
@@ -226,7 +226,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>
-            <resource value="This will typically not be present for Tasks with a code of 'please fulfill' as, for those, the reason for action is conveyed on the Request pointed to by Task.focus.  Some types of tasks will not need a 'reason'.  E.g. a request to discharge a patient can be inferred to be 'because the patient is ready' and this would not need a reason to be stated on the Task."/>
+            <resource value="This will typically not be present for Tasks with a code of 'please fulfill' as, for those, the reason for action is conveyed on the Request pointed to by Task.focus.  Some types of tasks will not need a 'reason'.  e.g., a request to discharge a patient can be inferred to be 'because the patient is ready' and this would not need a reason to be stated on the Task."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.note" resourcePath="Task.note">

@@ -4,7 +4,7 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>The InventoryItem is used to define and specitfy the characteristics of a material item (Product) and the relevant characteristics when handling logistics: Inventory and Supply. This resource corresponds to (and expands) the InventoryReport resource's .item backbone element, and provides a reusable data object to express and use product characteristics in the Inventory and Supply (and Transport) aspects.</p>
-<p>This resource approximately corresponds to "product" or "material" in ERP systems (e.g. SAP's MARA table) and to TradeItem in GS1 logistics standard - a core set of attributes that can be referred to when ordering, delivering, tracking or counting items, especially in situations where their clinical categorization (Medication or Device or BDP or Nutrition) is undefined or irrelevant - which is common in supply chain systems, especially in cross-realm, cross-border supplies.</p>
+<p>This resource approximately corresponds to "product" or "material" in ERP systems (e.g., SAP's MARA table) and to TradeItem in GS1 logistics standard - a core set of attributes that can be referred to when ordering, delivering, tracking or counting items, especially in situations where their clinical categorization (Medication or Device or BDP or Nutrition) is undefined or irrelevant - which is common in supply chain systems, especially in cross-realm, cross-border supplies.</p>
 <p>The InventoryItem Resource:</p>
 <ul>
 <li>is meant to be used in the logistics workflows aspects, when the specific resources cannot be used (due to indefinition, ambiguity, or need to cross-over between resources).</li>

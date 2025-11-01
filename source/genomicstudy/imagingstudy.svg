@@ -150,7 +150,7 @@ ImagingStudyStatus</a>
        class="diagram-class-detail"><a
    xlink:href="imagingstudy-definitions.html#ImagingStudy.modality"
    id="n679"><title
-   id="title31">A list of all the series.modality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)</title>
+   id="title31">A list of all the series.modality values that are actual acquisition modalities, i.e., those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19)</title>
 modality</a>
  : <a
    xlink:href="datatypes.html#Coding"
@@ -192,7 +192,7 @@ subject</a>
        class="diagram-class-detail"><a
    xlink:href="imagingstudy-definitions.html#ImagingStudy.encounter"
    id="n701"><title
-   id="title46">The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made</title>
+   id="title46">The healthcare event (e.g., a patient and healthcare provider interaction) during which this ImagingStudy is made</title>
 encounter</a>
  : <a
    xlink:href="references.html#Reference"
@@ -450,7 +450,7 @@ reasonReference</a>
        class="diagram-class-detail"><a
    xlink:href="imagingstudy-definitions.html#ImagingStudy.note"
    id="n827"><title
-   id="title135">Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element</title>
+   id="title135">Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g., Observation, and not in this element</title>
 note</a>
  : <a
    xlink:href="datatypes.html#Annotation"
@@ -896,7 +896,7 @@ performer</a>
     <a
        xlink:href="imagingstudy-definitions.html#ImagingStudy.series.instance"
        id="n993"><title
-   id="title269">A single SOP instance within the series, e.g. an image, or presentation state</title>
+   id="title269">A single SOP instance within the series, e.g., an image, or presentation state</title>
 instance</a>
   </text>
   <text

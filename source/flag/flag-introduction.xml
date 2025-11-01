@@ -21,13 +21,13 @@ A flag has a subject representing the resource that will trigger its display. Th
 <p>
     
 A flag is typically presented as a label in a prominent location in the record to notify the clinician of the potential issues, 
-though it may also appear in other contexts; e.g. notes applicable to a radiology technician, or to a clinician performing a home visit. 
+though it may also appear in other contexts; e.g., notes applicable to a radiology technician, or to a clinician performing a home visit. 
 
 For patients, the information in the flag will often be derived from the record, and therefore, for a thorough and careful clinician, who has the time to review the
 notes will be redundant.  
 However, given the volume of information frequently found in patients' records and the potentially serious consequences of losing sight of some facts, this 
 redundancy is deemed appropriate.  As well, some flags may reflect information not captured by any other resource in the record.  
-(E.g. "Patient has large dog at home")
+(e.g., "Patient has large dog at home")
 </p>
 <p>
 In line with its purpose, a flag is concise, highlighting a small set of high-priority issues among the much larger set of 
@@ -57,7 +57,7 @@ or to practitioners in a particular system.
 <p>
 Note that we include "latex allergy" in the "in scope" list, and "allergy" in the "not in scope" list. The Flag resource is not 
 designed to replace the normal order checking process, and one should not expect to see all allergies in Flags. However, if there 
-is an activity that might occur prior to careful evaluation of the record (e.g. donning of latex gloves) and that activity might 
+is an activity that might occur prior to careful evaluation of the record (e.g., donning of latex gloves) and that activity might 
 pose a risk to the patient, that is the sort of eventuality the Flag is intended to support.
 </p>
 <p>
@@ -77,12 +77,12 @@ The purpose of these other resources is to provide detailed clinical information
 information that is important to influence their interaction with a Patient prior to detailed review of the record.
 </p>
 <p>
-Flags are not used to convey information to a specific individual or organization (e.g. an abnormal lab result reported to the ordering 
+Flags are not used to convey information to a specific individual or organization (e.g., an abnormal lab result reported to the ordering 
 clinician, reporting of an adverse reaction to a regulatory authority).  These are handled using  
 <a href="communicationrequest.html">CommunicationRequest</a> and <a href="communication.html">Communication</a>.
 </p>
 <p>
-Flags are not raised as a result of a reported or proposed action (e.g. drug-drug interactions, duplicate therapy warnings).  
+Flags are not raised as a result of a reported or proposed action (e.g., drug-drug interactions, duplicate therapy warnings).  
 These are handled using <a href="detectedissue.html">DetectedIssue</a>.
 </p>
 <p>

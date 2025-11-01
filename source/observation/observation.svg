@@ -320,7 +320,7 @@
        class="diagram-class-detail"><a
    id="n1259"
    xlink:href="observation-definitions.html#Observation.encounter"><title
-   id="title87396">The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made</title>encounter</a> : <a
+   id="title87396">The healthcare event  (e.g., a patient and healthcare provider interaction) during which this observation is made</title>encounter</a> : <a
    id="n1260"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n1261"
@@ -333,7 +333,7 @@
        class="diagram-class-detail"><a
    id="n1267"
    xlink:href="observation-definitions.html#Observation.effective_x_"><title
-   id="title87402">The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself</title>effective[x]</a> : <a
+   id="title87402">The time or time-period the observed value is asserted as being true. For biological subjects - e.g., human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself</title>effective[x]</a> : <a
    id="n1268"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
    id="n1269"
@@ -500,7 +500,7 @@
        class="diagram-class-detail"><a
    id="n1385"
    xlink:href="observation-definitions.html#Observation.bodySite"><title
-   id="title87475">Indicates the site on the subject's body where the observation was made (i.e. the target site)</title>bodySite</a> : <a
+   id="title87475">Indicates the site on the subject's body where the observation was made (i.e., the target site)</title>bodySite</a> : <a
    id="n1386"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1387"
@@ -518,7 +518,7 @@
        class="diagram-class-detail"><a
    id="n1399"
    xlink:href="observation-definitions.html#Observation.bodyStructure"><title
-   id="title87484">Indicates the body structure on the subject's body where the observation was made (i.e. the target site)</title>bodyStructure</a> : <a
+   id="title87484">Indicates the body structure on the subject's body where the observation was made (i.e., the target site)</title>bodyStructure</a> : <a
    id="n1400"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n1401"
@@ -579,7 +579,7 @@
        class="diagram-class-detail"><a
    id="n1441"
    xlink:href="observation-definitions.html#Observation.hasMember"><title
-   id="title87513">This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group</title>hasMember</a> : <a
+   id="title87513">This observation is a group observation (e.g., a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group</title>hasMember</a> : <a
    id="n1442"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n1443"
@@ -732,7 +732,7 @@ Reflex | Repeat | Re-run</title>type</a> : <a
        class="diagram-class-detail"><a
    id="n1509"
    xlink:href="observation-definitions.html#Observation.referenceRange.low"><title
-   id="title87562">The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the low bound is omitted,  it is assumed to be meaningless (e.g. reference range is &lt;=2.3)</title>low</a> : <a
+   id="title87562">The value of the low bound of the reference range.  The low bound of the reference range endpoint is inclusive of the value (e.g.,  reference range is &gt;=5 - &lt;=9). If the low bound is omitted,  it is assumed to be meaningless (e.g., reference range is &lt;=2.3)</title>low</a> : <a
    id="n1510"
    xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
@@ -749,7 +749,7 @@ Reflex | Repeat | Re-run</title>type</a> : <a
        class="diagram-class-detail"><a
    id="n1519"
    xlink:href="observation-definitions.html#Observation.referenceRange.high"><title
-   id="title87571">The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.  reference range is &gt;=5 - &lt;=9). If the high bound is omitted,  it is assumed to be meaningless (e.g. reference range is &gt;= 2.3)</title>high</a> : <a
+   id="title87571">The value of the high bound of the reference range.  The high bound of the reference range endpoint is inclusive of the value (e.g.,  reference range is &gt;=5 - &lt;=9). If the high bound is omitted,  it is assumed to be meaningless (e.g., reference range is &gt;= 2.3)</title>high</a> : <a
    id="n1520"
    xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
@@ -824,7 +824,7 @@ Reflex | Repeat | Re-run</title>type</a> : <a
        class="diagram-class-detail"><a
    id="n1565"
    xlink:href="observation-definitions.html#Observation.referenceRange.age"><title
-   id="title87606">The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so</title>age</a> : <a
+   id="title87606">The age at which this reference range is applicable. This is a neonatal age (e.g., number of weeks at term) if the meaning says so</title>age</a> : <a
    id="n1566"
    xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
     <text

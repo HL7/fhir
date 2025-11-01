@@ -15,7 +15,7 @@
     The following diagram shows the "typical" state machine diagram for resources following the Definition
     pattern.  Note that not all resources will support all states, some resources may choose different names
     for certain states and some resources may introduce sub-states to the listed states.  As well, additional
-    transitions may be supported, including from terminal nodes (e.g. from "withdrawn" back to "active").
+    transitions may be supported, including from terminal nodes (e.g., from "withdrawn" back to "active").
     That said, most resources should align with this state machine fairly well.
   </p>
   <img src="definition-state-machine.svg" alt="Typical state machine diagram for resources following 

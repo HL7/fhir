@@ -177,8 +177,8 @@
     <element id="RequestOrchestration.groupIdentifier">
       <path value="RequestOrchestration.groupIdentifier"/>
       <short value="Composite request this is part of"/>
-      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
-      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  e.g., a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e., one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <requirements value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
       <alias value="grouperid"/>
       <alias value="requisition"/>
@@ -492,7 +492,7 @@
     </element>
     <element id="RequestOrchestration.action.prefix">
       <path value="RequestOrchestration.action.prefix"/>
-      <short value="User-visible prefix for the action (e.g. 1. or A.)"/>
+      <short value="User-visible prefix for the action (e.g., 1. or A.)"/>
       <definition value="A user-visible prefix for the action. For example a section or item numbering such as 1. or A."/>
       <min value="0"/>
       <max value="1"/>
@@ -615,7 +615,7 @@
       <path value="RequestOrchestration.action.condition"/>
       <short value="Whether or not the action is applicable"/>
       <definition value="An expression that describes applicability criteria, or start/stop conditions for the action."/>
-      <comment value="If no applicability conditions are present, the action is considered applicable (i.e. it should be performed). When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true. Conditions of different kinds are always considered separately (e.g. applicability and start criteria are never considered together)"/>
+      <comment value="If no applicability conditions are present, the action is considered applicable (i.e., it should be performed). When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true. Conditions of different kinds are always considered separately (e.g., applicability and start criteria are never considered together)"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -895,7 +895,7 @@
     <element id="RequestOrchestration.action.location">
       <path value="RequestOrchestration.action.location"/>
       <short value="Where it should happen"/>
-      <definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc."/>
+      <definition value="Identifies the facility where the action will occur; e.g., home, hospital, specific clinic, etc."/>
       <comment value="May reference a specific clinical location or may just identify a type of location."/>
       <requirements value="Helps in planning of activity."/>
       <alias value="facility"/>
@@ -1003,7 +1003,7 @@
     </element>
     <element id="RequestOrchestration.action.participant.role">
       <path value="RequestOrchestration.action.participant.role"/>
-      <short value="E.g. Nurse, Surgeon, Parent, etc"/>
+      <short value="e.g., Nurse, Surgeon, Parent, etc"/>
       <definition value="The role the participant should play in performing the described action."/>
       <min value="0"/>
       <max value="1"/>
@@ -1025,7 +1025,7 @@
     </element>
     <element id="RequestOrchestration.action.participant.function">
       <path value="RequestOrchestration.action.participant.function"/>
-      <short value="E.g. Author, Reviewer, Witness, etc"/>
+      <short value="e.g., Author, Reviewer, Witness, etc"/>
       <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
       <min value="0"/>
       <max value="1"/>
@@ -1216,7 +1216,7 @@
     <element id="RequestOrchestration.action.resource">
       <path value="RequestOrchestration.action.resource"/>
       <short value="The target of the action"/>
-      <definition value="The resource that is the target of the action (e.g. CommunicationRequest)."/>
+      <definition value="The resource that is the target of the action (e.g., CommunicationRequest)."/>
       <comment value="The target resource SHALL be a [Request](request.html) resource with a Request.intent set to &quot;option&quot;."/>
       <min value="0"/>
       <max value="1"/>
@@ -1230,7 +1230,7 @@
       <path value="RequestOrchestration.action.definition[x]"/>
       <short value="Description of the activity to be performed"/>
       <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a Measure that specifies a measure to be evaluated, a MessageDefinition that specifies a message to be sent, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, an ObservationDefinition that specifies what observation should be captured, or an OperationDefinition that specifies what operation should be invoked. When the value is a uri, it is intended to be a reference to non-FHIR content that characterizes the action to be performed. This option is allowed to enable the PlanDefinition to be used to provide semi-structured representation, when the guidance is not computable, but there is still value in elaborating the overall structure with a PlanDefinition. The intended behavior when a definitionUri is realized as part of an apply is that it is copied to the resulting RequestOrchestration so that it is available to the consuming system. How that system interprets that uri is not specified."/>
-      <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically. If the reference is to an ActivityDefinition or a PlanDefinition, the realization processing documented in those resources is followed. For the other definitional resource types, implementations SHOULD realize the action as a Task resource with a focus of the definitional resource to indicate that the activity should be carried out (e.g. evaluating a measure, gathering a specimen, filling out a questionnaire, sending a message, invoking an operation, etc.)."/>
+      <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically. If the reference is to an ActivityDefinition or a PlanDefinition, the realization processing documented in those resources is followed. For the other definitional resource types, implementations SHOULD realize the action as a Task resource with a focus of the definitional resource to indicate that the activity should be carried out (e.g., evaluating a measure, gathering a specimen, filling out a questionnaire, sending a message, invoking an operation, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

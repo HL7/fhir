@@ -479,7 +479,7 @@
           <valueString value="PlanDefinition.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-type"/>
-        <description value="The type of artifact the plan (e.g. order-set, eca-rule, protocol)"/>
+        <description value="The type of artifact the plan (e.g., order-set, eca-rule, protocol)"/>
         <code value="type"/>
         <type value="token"/>
         <expression value="PlanDefinition.type"/>

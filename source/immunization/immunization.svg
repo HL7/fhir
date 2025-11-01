@@ -261,7 +261,7 @@
        class="diagram-class-detail"><a
    id="n848"
    xlink:href="immunization-definitions.html#Immunization.supportingInformation"><title
-   id="title40474">Additional information that is relevant to the immunization (e.g. for a vaccine recipient who is pregnant, the gestational age of the fetus). The reason why a vaccine was given (e.g. occupation, underlying medical condition) should be conveyed in Immunization.reason, not as supporting information. The reason why a vaccine was not given (e.g. contraindication) should be conveyed in Immunization.statusReason, not as supporting information</title>supportingInformation</a> : <a
+   id="title40474">Additional information that is relevant to the immunization (e.g., for a vaccine recipient who is pregnant, the gestational age of the fetus). The reason why a vaccine was given (e.g., occupation, underlying medical condition) should be conveyed in Immunization.reason, not as supporting information. The reason why a vaccine was not given (e.g., contraindication) should be conveyed in Immunization.statusReason, not as supporting information</title>supportingInformation</a> : <a
    id="n849"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n850"
@@ -462,7 +462,7 @@
        class="diagram-class-detail"><a
    id="n976"
    xlink:href="immunization-definitions.html#Immunization.fundingSource"><title
-   id="title40564">Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)</title>fundingSource</a> : <a
+   id="title40564">Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g., the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)</title>fundingSource</a> : <a
    id="n977"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n978"
@@ -503,7 +503,7 @@
        class="diagram-class-detail"><a
    id="n989"
    xlink:href="immunization-definitions.html#Immunization.performer.function"><title
-   id="title40575">Describes the type of performance (e.g. ordering provider, administering provider, etc.)</title>function</a> : <a
+   id="title40575">Describes the type of performance (e.g., ordering provider, administering provider, etc.)</title>function</a> : <a
    id="n990"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n991"
@@ -707,7 +707,7 @@
        class="diagram-class-detail"><a
    id="n1076"
    xlink:href="immunization-definitions.html#Immunization.protocolApplied.authority"><title
-   id="title40642">Indicates the authority who published the protocol (e.g. ACIP) that is being followed</title>authority</a> : <a
+   id="title40642">Indicates the authority who published the protocol (e.g., ACIP) that is being followed</title>authority</a> : <a
    id="n1077"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n1078"

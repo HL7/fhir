@@ -58,7 +58,7 @@
   <concept>
     <code value="not-billable"/>
     <display value="Not billable"/>
-    <definition value="The charge item has been determined to be not billable (e.g. due to rules associated with the billing code)."/>
+    <definition value="The charge item has been determined to be not billable (e.g., due to rules associated with the billing code)."/>
   </concept>
   <concept>
     <code value="aborted"/>
@@ -68,7 +68,7 @@
   <concept>
     <code value="billed"/>
     <display value="Billed"/>
-    <definition value="The charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices."/>
+    <definition value="The charge item has been billed (e.g., a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>

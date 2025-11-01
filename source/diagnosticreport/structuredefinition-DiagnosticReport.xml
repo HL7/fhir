@@ -224,7 +224,7 @@
       </extension>
       <path value="DiagnosticReport.category"/>
       <short value="Service category"/>
-      <definition value="A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes."/>
+      <definition value="A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g., cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes."/>
       <comment value="Multiple categories are allowed using various categorization schemes.   The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code."/>
       <alias value="Department"/>
       <alias value="Sub-department"/>
@@ -361,8 +361,8 @@
       </extension>
       <path value="DiagnosticReport.encounter"/>
       <short value="Encounter associated with the DiagnosticReport"/>
-      <definition value="The encounter (e.g. a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
-      <comment value="This will typically be the encounter, when it exists, during which the data or specimens (e.g. imaging, blood draw, or assessment procedure) that are being reported by the DiagnosticReport were obtained/acquired. When a DiagnosticReport is based on a ServiceRequest (order), the ServiceRequest.encounter referenced in DiagnosticReport.basedOn may be used to associate the two."/>
+      <definition value="The encounter (e.g., a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
+      <comment value="This will typically be the encounter, when it exists, during which the data or specimens (e.g., imaging, blood draw, or assessment procedure) that are being reported by the DiagnosticReport were obtained/acquired. When a DiagnosticReport is based on a ServiceRequest (order), the ServiceRequest.encounter referenced in DiagnosticReport.basedOn may be used to associate the two."/>
       <requirements value="Links the report to the Encounter context."/>
       <alias value="Context"/>
       <min value="0"/>
@@ -695,7 +695,7 @@
       </extension>
       <path value="DiagnosticReport.media"/>
       <short value="Key images or data associated with this report"/>
-      <definition value="A list of key images or data associated with this report. The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)."/>
+      <definition value="A list of key images or data associated with this report. The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e., slides of interest)."/>
       <requirements value="Many diagnostic services include images or data in the report as part of their service."/>
       <alias value="DICOM"/>
       <alias value="Slides"/>
@@ -717,7 +717,7 @@
     </element>
     <element id="DiagnosticReport.media.comment">
       <path value="DiagnosticReport.media.comment"/>
-      <short value="Comment about the image or data (e.g. explanation)"/>
+      <short value="Comment about the image or data (e.g., explanation)"/>
       <definition value="A comment about the image or data. Typically, this is used to provide an explanation for why the image or data is included, or to draw the viewer's attention to important features."/>
       <comment value="The comment should be displayed with the image or data. It would be common for the report to include additional discussion of the image or data contents or in other sections such as the conclusion."/>
       <requirements value="The provider of the report should make a comment about each image or data included in the report."/>
@@ -859,8 +859,8 @@
     <element id="DiagnosticReport.communication">
       <path value="DiagnosticReport.communication"/>
       <short value="Communication initiated during the reporting process"/>
-      <definition value="Communications initiated during the generation of the DiagnosticReport by members of the organization fulfilling that order. e.g. direct communication of time critical results by the radiologist to the referring physician."/>
-      <comment value="Note: This can document attempted communications as well as completed communications. Communications that follow publication of the report (e.g. between the referring physician and the patient or a subsequent specialist) are not referenced here. DiagnosticReport.recommendation might also contain references to ServiceRequest or CommunicationRequest instances for proposed subsequent communications."/>
+      <definition value="Communications initiated during the generation of the DiagnosticReport by members of the organization fulfilling that order. e.g., direct communication of time critical results by the radiologist to the referring physician."/>
+      <comment value="Note: This can document attempted communications as well as completed communications. Communications that follow publication of the report (e.g., between the referring physician and the patient or a subsequent specialist) are not referenced here. DiagnosticReport.recommendation might also contain references to ServiceRequest or CommunicationRequest instances for proposed subsequent communications."/>
       <requirements value="Need to record details of such communications for medico-legal purposes, to support review or the improvement of conformance to best practices for patient safety and quality of care."/>
       <min value="0"/>
       <max value="*"/>

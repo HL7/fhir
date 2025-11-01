@@ -78,11 +78,11 @@
   <concept>
     <code value="permission-patient"/>
     <display value="Supports Patient Level Scopes"/>
-    <definition value="support for patient-level scopes (e.g. patient/Observation.read)."/>
+    <definition value="support for patient-level scopes (e.g., patient/Observation.read)."/>
   </concept>
   <concept>
     <code value="permission-user"/>
     <display value="Supports User Level Scopes"/>
-    <definition value="support for user-level scopes (e.g. user/Appointment.read)."/>
+    <definition value="support for user-level scopes (e.g., user/Appointment.read)."/>
   </concept>
 </CodeSystem>

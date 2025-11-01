@@ -202,7 +202,7 @@
     <element id="Practitioner.telecom">
       <path value="Practitioner.telecom"/>
       <short value="A contact detail for the practitioner (that apply to all roles)"/>
-      <definition value="A contact detail for the practitioner, e.g. a telephone number or an email address."/>
+      <definition value="A contact detail for the practitioner, e.g., a telephone number or an email address."/>
       <comment value="Practitioner may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification.&#xD;&#xD;DO NOT use .telecom properties to represent user identities. Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="Need to know how to reach a practitioner independent to any roles the practitioner may have."/>
       <min value="0"/>
@@ -556,7 +556,7 @@
       <short value="Language preference indicator"/>
       <definition value="Indicates whether or not the person prefers this language (over other languages he masters up a certain level)."/>
       <comment value="This language is specifically identified for communicating directly with the practitioner (typically un-related to patient communications)."/>
-      <requirements value="People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fall back method."/>
+      <requirements value="People that master multiple languages up to certain level may prefer one or more, i.e., feel more confident in communicating in a particular language making other languages sort of a fall back method."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -544,7 +544,7 @@
           <valueString value="CoverageClass"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The policy classifications, e.g. Group, Plan, Class, etc."/>
+        <description value="The policy classifications, e.g., Group, Plan, Class, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-class"/>
       </binding>
     </element>

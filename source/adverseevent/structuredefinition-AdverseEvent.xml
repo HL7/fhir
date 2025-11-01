@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research participant. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management.  Adverse events can be reported by healthcare providers, patients, caregivers or by medical products manufacturers.  Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints."/>
+  <description value="An event (i.e., any change to current patient status) that may be related to unintended effects on a patient or research participant. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management.  Adverse events can be reported by healthcare providers, patients, caregivers or by medical products manufacturers.  Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -78,7 +78,7 @@
       </extension>
       <path value="AdverseEvent"/>
       <short value="An event that may be related to unintended effects on a patient or research participant"/>
-      <definition value="An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research participant. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Adverse events can be reported by healthcare providers, patients, caregivers or by medical products manufacturers. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints."/>
+      <definition value="An event (i.e., any change to current patient status) that may be related to unintended effects on a patient or research participant. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management. Adverse events can be reported by healthcare providers, patients, caregivers or by medical products manufacturers. Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints."/>
       <alias value="AE"/>
       <min value="0"/>
       <max value="*"/>
@@ -169,7 +169,7 @@
           <valueString value="AdverseEventActuality"/>
         </extension>
         <strength value="required"/>
-        <description value="Overall nature of the adverse event, e.g. real or potential."/>
+        <description value="Overall nature of the adverse event, e.g., real or potential."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-actuality"/>
       </binding>
       <mapping>
@@ -195,7 +195,7 @@
           <valueString value="AdverseEventCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Overall categorization of the event, e.g. product-related or situational."/>
+        <description value="Overall categorization of the event, e.g., product-related or situational."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-category"/>
       </binding>
       <mapping>

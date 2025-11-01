@@ -37,7 +37,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product."/>
+  <description value="Confidentiality rating, e.g., commercial sensitivity for a Medicinal Product."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality"/>
   <content value="complete"/>

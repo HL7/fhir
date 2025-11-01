@@ -83,7 +83,7 @@
       <path value="PersonalRelationship.relationshipType"/>
       <short value="The relationship between the source and the target individuals"/>
       <definition value="The relationship the source has with the target."/>
-      <comment value="For example, if the relationship is `daughter`, then the individual that is the **.source** is the daughter of the **.target**.&#xD;The terminology is a heirarchy so can use `:is-a` and other terminology style relationships in search. (i.e. a son is a form of a child)" />
+      <comment value="For example, if the relationship is `daughter`, then the individual that is the **.source** is the daughter of the **.target**.&#xD;The terminology is a heirarchy so can use `:is-a` and other terminology style relationships in search. (i.e., a son is a form of a child)" />
       <min value="1"/>
       <max value="1"/>
       <type>

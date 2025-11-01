@@ -31,7 +31,7 @@
     <title value="The terms of the consent in lawyer speak."/>
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
-  <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
+  <!-- this is opt-in - e.g., everything approved unless otherwise stated -->
   <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>

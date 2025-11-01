@@ -47,11 +47,11 @@ resolve complications from an earlier procedure.
 <h3>Status Management</h3>
 <p>
 During the life-cycle of an encounter it will pass through many statuses and subject statuses. Typically these are in order or the
-organization/department's workflow(s) e.g. planned, in-progress, completed/cancelled. In general terms the Encounter and 
+organization/department's workflow(s) e.g., planned, in-progress, completed/cancelled. In general terms the Encounter and 
 Appointment both align with the <a href="lifecycle.html#clinical">Clinical Workflow Process Life Cycle</a> pattern.<br/>
 The status property tracks the (current) overall status of the encounter, whereas the subjectStatus property more closely tracks
 the patient explicitly. For example in a hospital emergency department the subjectStatus would reflect the patient's status 
-e.g. arrived (when the patient first presents to the ED), triaged (when the patient is assessed by a triage nurse), etc.<br/>
+e.g., arrived (when the patient first presents to the ED), triaged (when the patient is assessed by a triage nurse), etc.<br/>
 This status information is often used for other things, and often an analysis of the status history is required for things like billing.
 This could be done by scanning through all the resource history versions of the encounter, checking the period of each,
 and then doing some form of post processing. However, this information is not always completed in real-time (or even in the same system)
@@ -103,7 +103,7 @@ applicable to information about the actual Encounter, i.e., the patient showing 
 As such, an encounter in the "planned" status is not identical to the appointment that scheduled it,
 but it is the encounter prior to its actual occurrence, with the expectation that encounter will be
 updated as it progresses to completion. Patient arrival at a location does not necessarily mean the
-start of the encounter (e.g. a patient arrives an hour earlier than he is actually seen by a practitioner).
+start of the encounter (e.g., a patient arrives an hour earlier than he is actually seen by a practitioner).
 </p>
 <p>
 An appointment is normally used for the planning stage of an appointment, searching, locating an available time, then

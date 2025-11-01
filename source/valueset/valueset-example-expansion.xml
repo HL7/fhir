@@ -123,7 +123,7 @@
 		<!--   
 		  now, parameters that describe how the expansion was generated.
 			These may help with managing caching, or limit its use 
-			(e.g. this expansion was generated for a text filter)   -->
+			(e.g., this expansion was generated for a text filter)   -->
 		<parameter>
 			<!--   for now, parameter names and values are server specific.
 			   it is likely these will be standardised in a future version.
@@ -142,10 +142,10 @@
 		<!--   
 		  this expansion is made as a hierarchy - a preferred code, followed by two 
 			sets of codes categorized by a label. This is to help a human user 
-			navigate the list (e.g. in a picklist)
+			navigate the list (e.g., in a picklist)
 			
 			Note that the hierarchy might not have anything to do with the
-			definitions of the codes (e.g. could be divided into common and less common)
+			definitions of the codes (e.g., could be divided into common and less common)
 			
 			Building a hierarchy like this is not explicitly specified in a standard value set,
 			but may be controlled by extensions, the expansion profile, or just performed

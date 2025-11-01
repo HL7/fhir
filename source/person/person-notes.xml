@@ -107,7 +107,7 @@
     and RelatedPerson resources, where the referenced record might be to very sensitive information.
     The access to the linked sensitive Resource may be protected, but the link itself may expose information.<br/> 
     For example where a Practitioner and Patient resource are linked through a Person resource, inspecting the
-    Patient URL could reveal that the Practitioner has a record at a sensitive medical health clinic (e.g. Drug Rehabilitation Clinic).
+    Patient URL could reveal that the Practitioner has a record at a sensitive medical health clinic (e.g., Drug Rehabilitation Clinic).
   </p>
   <p>
     When implementing the Person resource consideration should be given to the security and privacy

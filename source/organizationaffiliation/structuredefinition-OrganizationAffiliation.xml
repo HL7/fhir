@@ -167,8 +167,8 @@
     </element>
     <element id="OrganizationAffiliation.participatingOrganization">
       <path value="OrganizationAffiliation.participatingOrganization"/>
-      <short value="Organization that provides/performs the role (e.g. providing services or is a member of)"/>
-      <definition value="The Participating Organization provides/performs the role(s) defined by the code to the Primary Organization (e.g. providing services or is a member of)."/>
+      <short value="Organization that provides/performs the role (e.g., providing services or is a member of)"/>
+      <definition value="The Participating Organization provides/performs the role(s) defined by the code to the Primary Organization (e.g., providing services or is a member of)."/>
       <comment value="See comments for OrganizationAffiliation.organization above." />
       <min value="0"/>
       <max value="1"/>
@@ -186,7 +186,7 @@
       <path value="OrganizationAffiliation.network"/>
       <short value="The network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined)"/>
       <definition value="The network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined)."/>
-      <comment value="e.g. Commonly used for Health Insurance provider networks."/>
+      <comment value="e.g., Commonly used for Health Insurance provider networks."/>
       <min value="0"/>
       <max value="*"/>
       <type>

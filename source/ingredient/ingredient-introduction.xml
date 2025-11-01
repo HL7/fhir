@@ -13,7 +13,7 @@
 			substance and what the strength is (the quantity of substance compared to the whole product).
 			The ingredient is represented in the context of a given product, because its role and strength are a function of what it is used in/for. 
 			It is expected that the same substance used in a different role, or with a different strength, would be a different Ingredient resource instance.
-			Resource instances may however be shared by very similar products (e.g. different pack sizes of the same "product").
+			Resource instances may however be shared by very similar products (e.g., different pack sizes of the same "product").
 		</p>
 		<p>
 			Some other resources, such as <a href="medication.html">Medication</a> and <a href="substance.html">Substance</a> 
@@ -24,7 +24,7 @@
 			Ingredient is represented as a resource, instead of, for example, a backbone or a datatype within other resources, 
 			due to some practical considerations for certain use cases.
 			In some situations, an ingredient could have been represented "in line" within another resource 
-			(e.g. embedded within MedicinalProductDefiniton or ManufacturedItemDefinition).			
+			(e.g., embedded within MedicinalProductDefiniton or ManufacturedItemDefinition).			
 			However there are cases where it is necessary to refer to an ingredient from another resource - for example when the 
 			ingredient associated with a product also has an authorization, or when a multi-part tablet needs to state which ingredient 
 			is contained in which component of that tablet (as well as linking the ingredient to the whole tablet and/or the whole product).

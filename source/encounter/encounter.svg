@@ -155,7 +155,7 @@
        class="diagram-class-detail"><a
    id="n875"
    xlink:href="encounter-definitions.html#Encounter.type"><title
-   id="title108479">Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)</title>type</a> : <a
+   id="title108479">Specific type of encounter (e.g., e-mail consultation, surgical day-care, skilled nursing, rehabilitation)</title>type</a> : <a
    id="n876"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n877"
@@ -169,7 +169,7 @@
        class="diagram-class-detail"><a
    id="n885"
    xlink:href="encounter-definitions.html#Encounter.serviceType"><title
-   id="title108486">Broad categorization of the service that is to be provided (e.g. cardiology)</title>serviceType</a> : <a
+   id="title108486">Broad categorization of the service that is to be provided (e.g., cardiology)</title>serviceType</a> : <a
    id="n886"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
    id="n887"
@@ -235,7 +235,7 @@
        class="diagram-class-detail"><a
    id="n929"
    xlink:href="encounter-definitions.html#Encounter.basedOn"><title
-   id="title108516">The request this encounter satisfies (e.g. incoming referral or procedure request)</title>basedOn</a> : <a
+   id="title108516">The request this encounter satisfies (e.g., incoming referral or procedure request)</title>basedOn</a> : <a
    id="n930"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n931"
@@ -312,7 +312,7 @@
        class="diagram-class-detail"><a
    id="n977"
    xlink:href="encounter-definitions.html#Encounter.virtualService"><title
-   id="title108550">Connection details of a virtual service (e.g. conference call)</title>virtualService</a> : <a
+   id="title108550">Connection details of a virtual service (e.g., conference call)</title>virtualService</a> : <a
    id="n978"
    xlink:href="metadatatypes.html#VirtualServiceDetail">VirtualServiceDetail</a> [0..*]</text>
     <text
@@ -542,7 +542,7 @@ When missing it is the time in between the start and end values</title>length</a
        class="diagram-class-detail"><a
    id="n1093"
    xlink:href="encounter-definitions.html#Encounter.reason.use"><title
-   id="title108641">What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening)</title>use</a> : <a
+   id="title108641">What the reason value should be used as e.g., Chief Complaint, Health Concern, Health Maintenance (including screening)</title>use</a> : <a
    id="n1094"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n1095"
@@ -645,7 +645,7 @@ When missing it is the time in between the start and end values</title>length</a
        class="diagram-class-detail"><a
    id="n1146"
    xlink:href="encounter-definitions.html#Encounter.diagnosis.use"><title
-   id="title108678">Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)</title>use</a> : <a
+   id="title108678">Role that this diagnosis has within the encounter (e.g., admission, billing, discharge …)</title>use</a> : <a
    id="n1147"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n1148"

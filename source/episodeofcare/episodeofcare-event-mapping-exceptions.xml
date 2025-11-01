@@ -55,11 +55,11 @@
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="What service was done"/>
-            <resource value="Type/class  - e.g. specialist referral, disease management"/>
+            <resource value="Type/class  - e.g., specialist referral, disease management"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
-            <resource value="A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care."/>
+            <resource value="A classification of the type of episode of care; e.g., specialist referral, disease management, type of funded care."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="EpisodeOfCare.subject">

@@ -51,22 +51,22 @@
   <concept>
     <code value="literal"/>
     <display value="Literal References"/>
-    <definition value="The server supports and populates Literal references (i.e. using Reference.reference) where they are known (this code does not guarantee that all references are literal; see 'enforced')."/>
+    <definition value="The server supports and populates Literal references (i.e., using Reference.reference) where they are known (this code does not guarantee that all references are literal; see 'enforced')."/>
   </concept>
   <concept>
     <code value="logical"/>
     <display value="Logical References"/>
-    <definition value="The server allows logical references (i.e. using Reference.identifier)."/>
+    <definition value="The server allows logical references (i.e., using Reference.identifier)."/>
   </concept>
   <concept>
     <code value="resolves"/>
     <display value="Resolves References"/>
-    <definition value="The server will attempt to resolve logical references to literal references - i.e. converting Reference.identifier to Reference.reference (if resolution fails, the server may still accept resources; see logical)."/>
+    <definition value="The server will attempt to resolve logical references to literal references - i.e., converting Reference.identifier to Reference.reference (if resolution fails, the server may still accept resources; see logical)."/>
   </concept>
   <concept>
     <code value="enforced"/>
     <display value="Reference Integrity Enforced"/>
-    <definition value="The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems."/>
+    <definition value="The server enforces that references have integrity - e.g., it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems."/>
   </concept>
   <concept>
     <code value="local"/>

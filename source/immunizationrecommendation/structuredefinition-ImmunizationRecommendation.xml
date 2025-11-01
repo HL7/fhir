@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/pher/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification."/>
+  <description value="A patient's point-in-time set of recommendations (i.e., forecasting) according to a published schedule with optional supporting justification."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -80,7 +80,7 @@
       </extension>
       <path value="ImmunizationRecommendation"/>
       <short value="Guidance or advice relating to an immunization"/>
-      <definition value="A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification."/>
+      <definition value="A patient's point-in-time set of recommendations (i.e., forecasting) according to a published schedule with optional supporting justification."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -180,7 +180,7 @@
     <element id="ImmunizationRecommendation.authority">
       <path value="ImmunizationRecommendation.authority"/>
       <short value="Who is responsible for schedule"/>
-      <definition value="Indicates the authority who published the schedule (e.g. ACIP, WHO, NITAG)."/>
+      <definition value="Indicates the authority who published the schedule (e.g., ACIP, WHO, NITAG)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -267,7 +267,7 @@
       <path value="ImmunizationRecommendation.recommendation.targetDisease"/>
       <short value="Disease to be immunized against"/>
       <definition value="The targeted disease for the recommendation."/>
-      <comment value="A given instance of the .recommendation backbone element should correspond to a single recommended administration but sometimes that administration (e.g. MMR) will encompass multiple diseases, thus the targetDisease element is allowed to repeat."/>
+      <comment value="A given instance of the .recommendation backbone element should correspond to a single recommended administration but sometimes that administration (e.g., MMR) will encompass multiple diseases, thus the targetDisease element is allowed to repeat."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -406,7 +406,7 @@
           <valueString value="ImmunizationRecommendationDateCriterion"/>
         </extension>
         <strength value="example"/>
-        <description value="Classifies date criterion with respect to conveying information about a patient's vaccination status (e.g. due date, latest to give date, etc.)."/>
+        <description value="Classifies date criterion with respect to conveying information about a patient's vaccination status (e.g., due date, latest to give date, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion"/>
       </binding>
       <mapping>
@@ -478,7 +478,7 @@
       </extension>
       <path value="ImmunizationRecommendation.recommendation.doseNumber"/>
       <short value="Recommended dose number within series"/>
-      <definition value="Nominal position of the recommended dose in a series as determined by the evaluation and forecasting process (e.g. dose 2 is the next recommended dose)."/>
+      <definition value="Nominal position of the recommended dose in a series as determined by the evaluation and forecasting process (e.g., dose 2 is the next recommended dose)."/>
       <comment value="The dose number may be communicated as either a coded concept (for example Dose 1, Dose 2 or Booster) or as free text as needed by the use case."/>
       <min value="0"/>
       <max value="1"/>

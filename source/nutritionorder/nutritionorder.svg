@@ -253,7 +253,7 @@
        class="diagram-class-detail"><a
    id="n1118"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.supportingInformation"><title
-   id="title86115">Information to support fulfilling (i.e. dispensing or administering) of the nutrition,        for example, patient height and weight)</title>supportingInformation</a> : <a
+   id="title86115">Information to support fulfilling (i.e., dispensing or administering) of the nutrition,        for example, patient height and weight)</title>supportingInformation</a> : <a
    id="n1119"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n1120"
@@ -425,7 +425,7 @@
        class="diagram-class-detail"><a
    id="n1215"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.fluidConsistencyType"><title
-   id="title86186">The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient</title>fluidConsistencyType</a> : <a
+   id="title86186">The required consistency (e.g., honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient</title>fluidConsistencyType</a> : <a
    id="n1216"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n1217"
@@ -610,7 +610,7 @@
        class="diagram-class-detail"><a
    id="n1286"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.texture.modifier"><title
-   id="title86245">Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed</title>modifier</a> : <a
+   id="title86245">Any texture modifications (for solid foods) that should be made, e.g., easy to chew, chopped, ground, and pureed</title>modifier</a> : <a
    id="n1287"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1288"
@@ -624,7 +624,7 @@
        class="diagram-class-detail"><a
    id="n1296"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.texture.foodType"><title
-   id="title86252">The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types</title>foodType</a> : <a
+   id="title86252">The food type(s) (e.g., meats, all foods)  that the texture modification applies to.  This could be all foods types</title>foodType</a> : <a
    id="n1297"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1298"
@@ -883,7 +883,7 @@
        class="diagram-class-detail"><a
    id="n1411"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.routeOfAdministration"><title
-   id="title86345">The route or physiological path of administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube</title>routeOfAdministration</a> : <a
+   id="title86345">The route or physiological path of administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g., nasogastric tube</title>routeOfAdministration</a> : <a
    id="n1412"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1413"
@@ -897,7 +897,7 @@
        class="diagram-class-detail"><a
    id="n1421"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.maxVolumeToDeliver"><title
-   id="title86352">The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours</title>maxVolumeToDeliver</a> : <a
+   id="title86352">The maximum total quantity of formula that may be administered to a subject over the period of time, e.g., 1440 mL over 24 hours</title>maxVolumeToDeliver</a> : <a
    id="n1422"
    xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
@@ -1036,7 +1036,7 @@
        class="diagram-class-detail"><a
    id="n1473"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.rate_x_"><title
-   id="title86401">The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule</title>rate[x]</a> : <a
+   id="title86401">The rate of administration of formula via a feeding pump, e.g., 60 mL per hour, according to the specified schedule</title>rate[x]</a> : <a
    id="n1474"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
    id="n1475"

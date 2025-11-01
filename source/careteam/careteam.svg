@@ -140,7 +140,7 @@
        class="diagram-class-detail"><a
    id="n335"
    xlink:href="careteam-definitions.html#CareTeam.name"><title
-   id="title143856">A label for human use intended to distinguish like teams.  E.g. the &quot;red&quot; vs. &quot;green&quot; trauma teams</title>name</a> : <a
+   id="title143856">A label for human use intended to distinguish like teams.  e.g., the &quot;red&quot; vs. &quot;green&quot; trauma teams</title>name</a> : <a
    id="n336"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text

@@ -169,7 +169,7 @@
     <element id="Invoice.type">
       <path value="Invoice.type"/>
       <short value="Type of Invoice"/>
-      <definition value="Type of Invoice depending on domain, realm an usage (e.g. internal/external, dental, preliminary)."/>
+      <definition value="Type of Invoice depending on domain, realm an usage (e.g., internal/external, dental, preliminary)."/>
       <alias value="type"/>
       <min value="0"/>
       <max value="1"/>
@@ -318,7 +318,7 @@
     <element id="Invoice.participant.role">
       <path value="Invoice.participant.role"/>
       <short value="Type of involvement in creation of this Invoice"/>
-      <definition value="Describes the type of involvement (e.g. transcriptionist, creator etc.). If the invoice has been created automatically, the Participant may be a billing engine or another kind of device."/>
+      <definition value="Describes the type of involvement (e.g., transcriptionist, creator etc.). If the invoice has been created automatically, the Participant may be a billing engine or another kind of device."/>
       <min value="0"/>
       <max value="1"/>
       <type>

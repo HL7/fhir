@@ -72,7 +72,7 @@
       <path value="Binary"/>
       <short value="Pure binary content defined by a format other than FHIR"/>
       <definition value="A resource that represents the data of a single raw artifact as digital content accessible in its native format.  A Binary resource can contain any content, whether text, image, pdf, zip archive, etc."/>
-      <comment value="Typically, Binary resources are used for handling content such as:  &#xA;&#xA;* CDA Documents (i.e. with XDS) &#xA;* PDF Documents &#xA;* Images."/>
+      <comment value="Typically, Binary resources are used for handling content such as:  &#xA;&#xA;* CDA Documents (i.e., with XDS) &#xA;* PDF Documents &#xA;* Images."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -119,8 +119,8 @@
     <element id="Binary.securityContext">
       <path value="Binary.securityContext"/>
       <short value="Identifies another resource to use as proxy when enforcing access control"/>
-      <definition value="This element identifies another resource that can be used as a proxy of the security sensitivity to use when deciding and enforcing access control rules for the Binary resource. Given that the Binary resource contains very few elements that can be used to determine the sensitivity of the data and relationships to individuals, the referenced resource stands in as a proxy equivalent for this purpose. This referenced resource may be related to the Binary (e.g. DocumentReference), or may be some non-related Resource purely as a security proxy. E.g. to identify that the binary resource relates to a patient, and access should only be granted to applications that have access to the patient."/>
-      <comment value="Very often, a server will also know of a resource that references the binary, and can automatically apply the appropriate access rules based on that reference. However, there are some circumstances where this is not appropriate, e.g. the binary is uploaded directly to the server without any linking resource, the binary is referred to from multiple different resources, and/or the binary is content such as an application logo that has less protection than any of the resources that reference it."/>
+      <definition value="This element identifies another resource that can be used as a proxy of the security sensitivity to use when deciding and enforcing access control rules for the Binary resource. Given that the Binary resource contains very few elements that can be used to determine the sensitivity of the data and relationships to individuals, the referenced resource stands in as a proxy equivalent for this purpose. This referenced resource may be related to the Binary (e.g., DocumentReference), or may be some non-related Resource purely as a security proxy. e.g., to identify that the binary resource relates to a patient, and access should only be granted to applications that have access to the patient."/>
+      <comment value="Very often, a server will also know of a resource that references the binary, and can automatically apply the appropriate access rules based on that reference. However, there are some circumstances where this is not appropriate, e.g., the binary is uploaded directly to the server without any linking resource, the binary is referred to from multiple different resources, and/or the binary is content such as an application logo that has less protection than any of the resources that reference it."/>
       <min value="0"/>
       <max value="1"/>
       <type>

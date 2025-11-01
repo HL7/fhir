@@ -28,7 +28,7 @@
     <title value="The terms of the consent in lawyer speak."/>
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
-  <!-- this is base deny - e.g. everything blocked unless otherwise stated -->
+  <!-- this is base deny - e.g., everything blocked unless otherwise stated -->
   <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>

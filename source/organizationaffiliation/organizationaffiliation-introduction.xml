@@ -11,11 +11,11 @@ The OrganizationAffiliation enables defining non-hierarchical relationships betw
 </p>
 <ul>
   <li>One organization may provide services to another organization<br/>
-  <i>e.g. An agency service providing casual staff, a radiology service, 
+  <i>e.g., An agency service providing casual staff, a radiology service, 
   a diagnostic lab, catering services, community care services etc.</i></li>
   <li>Two or more organizations may form a partnership or joint venture</li>
   <li>An organization may be a member of an association, but not owned by it<br/>
-  <i>e.g. a hospital is a member the American Hospital Association, 
+  <i>e.g., a hospital is a member the American Hospital Association, 
   a hospital is a member of a health information exchange network</i></li>
   <li>Spotless Cleaning Services (participatingOrganization) is a <b>supplier</b> (code) to General Hospital (organization)</li>
   <li>General Hospital (participatingOrganization) is a <b>member</b> (code) of Eastern HIE (organization)</li>

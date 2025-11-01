@@ -134,7 +134,7 @@
        class="diagram-class-detail"><a
    id="n467"
    xlink:href="bundle-definitions.html#Bundle.timestamp"><title
-   id="title792">The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle</title>timestamp</a> : <a
+   id="title792">The date/time that the bundle was assembled - i.e., when the resources were placed in the bundle</title>timestamp</a> : <a
    id="n468"
    xlink:href="datatypes.html#instant">instant</a> [0..1] « <a
    id="n469"
@@ -283,7 +283,7 @@
        class="diagram-class-detail"><a
    id="n529"
    xlink:href="bundle-definitions.html#Bundle.entry.fullUrl"><title
-   id="title840">The Absolute URL for the resource. Except for transactions and batches, each entry in a Bundle must have a fullUrl. The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value except when: 
+   id="title840">The Absolute URL for the resource. Except for transactions and batches, each entry in a Bundle must have a fullUrl. The fullUrl SHALL NOT disagree with the id in the resource - i.e., if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value except when: 
 * invoking a create
 * invoking or responding to an operation where the body is not a single identified resource
 * invoking or returning the results of a search or history operation</title>fullUrl</a> : <a
@@ -495,7 +495,7 @@
        class="diagram-class-detail"><a
    id="n618"
    xlink:href="bundle-definitions.html#Bundle.entry.response.status"><title
-   id="title912">The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code</title>status</a> : <a
+   id="title912">The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g., 404) and may contain the standard HTTP description associated with the status code</title>status</a> : <a
    id="n619"
    xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text

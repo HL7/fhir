@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 One common use of Group is to track the members of a family. Families 
-can act collectively e.g. jointly monitor their health. Of course,
+can act collectively e.g., jointly monitor their health. Of course,
 the actions are likely actually performed by a single individual, but the tracking
 system only considers the family's joint accountability
 
 Note that it's not usual to refer to the members of a family that are of interest
-to am e.g. public health system as 'Patients', but the resource type *Patient* is the appropriate 
+to am e.g., public health system as 'Patients', but the resource type *Patient* is the appropriate 
 resource to use in this case. This should not be understood as taking some sort of position about
 the use of the word 'Patient', but a reflection on the limitations of a Typing system as 
 compared to real world language usage

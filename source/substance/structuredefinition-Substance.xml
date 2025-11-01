@@ -180,7 +180,7 @@
       <path value="Substance.code"/>
       <short value="What substance this is"/>
       <definition value="A code (or set of codes) that identify this substance."/>
-      <comment value="This could be a reference to an externally defined code.  It could also be a locally assigned code (e.g. a formulary),  optionally with translations to the standard drug codes."/>
+      <comment value="This could be a reference to an externally defined code.  It could also be a locally assigned code (e.g., a formulary),  optionally with translations to the standard drug codes."/>
       <min value="1"/>
       <max value="1"/>
       <type>

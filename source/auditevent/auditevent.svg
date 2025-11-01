@@ -254,7 +254,7 @@
        class="diagram-class-detail"><a
    id="n807"
    xlink:href="auditevent-definitions.html#AuditEvent.encounter"><title
-   id="title94">This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)</title>encounter</a> : <a
+   id="title94">This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)</title>encounter</a> : <a
    id="n808"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n809"

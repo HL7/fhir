@@ -182,8 +182,8 @@
     </element>
     <element id="AdministrableProductDefinition.unitOfPresentation">
       <path value="AdministrableProductDefinition.unitOfPresentation"/>
-      <short value="The presentation type in which this item is given to a patient. e.g. for a spray - 'puff'"/>
-      <definition value="The presentation type in which this item is given to a patient. e.g. for a spray - 'puff' (as in 'contains 100 mcg per puff'), or for a liquid - 'vial' (as in 'contains 5 ml per vial')."/>
+      <short value="The presentation type in which this item is given to a patient. e.g., for a spray - 'puff'"/>
+      <definition value="The presentation type in which this item is given to a patient. e.g., for a spray - 'puff' (as in 'contains 100 mcg per puff'), or for a liquid - 'vial' (as in 'contains 5 ml per vial')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -260,8 +260,8 @@
     </element>
     <element id="AdministrableProductDefinition.description">
       <path value="AdministrableProductDefinition.description"/>
-      <short value="A general description of the product, when in its final form, suitable for administration e.g. effervescent blue liquid, to be swallowed"/>
-      <definition value="A general description of the product, when in its final form, suitable for administration e.g. effervescent blue liquid, to be swallowed. Intended to be used when the other structured properties of this resource are insufficient or cannot be supported. It is not intended to duplicate information already carried elsewhere."/>
+      <short value="A general description of the product, when in its final form, suitable for administration e.g., effervescent blue liquid, to be swallowed"/>
+      <definition value="A general description of the product, when in its final form, suitable for administration e.g., effervescent blue liquid, to be swallowed. Intended to be used when the other structured properties of this resource are insufficient or cannot be supported. It is not intended to duplicate information already carried elsewhere."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -278,8 +278,8 @@
         <valueCode value="500,35"/>
       </extension>
       <path value="AdministrableProductDefinition.property"/>
-      <short value="Characteristics e.g. a product's onset of action"/>
-      <definition value="Characteristics e.g. a product's onset of action."/>
+      <short value="Characteristics e.g., a product's onset of action"/>
+      <definition value="Characteristics e.g., a product's onset of action."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -350,8 +350,8 @@
     </element>
     <element id="AdministrableProductDefinition.property.status">
       <path value="AdministrableProductDefinition.property.status"/>
-      <short value="The status of characteristic e.g. assigned or pending"/>
-      <definition value="The status of characteristic e.g. assigned or pending."/>
+      <short value="The status of characteristic e.g., assigned or pending"/>
+      <definition value="The status of characteristic e.g., assigned or pending."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -551,8 +551,8 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue">
       <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod.tissue"/>
-      <short value="The type of tissue for which the withdrawal period applies, e.g. meat, milk"/>
-      <definition value="Coded expression for the type of tissue for which the withdrawal period applies, e.g. meat, milk."/>
+      <short value="The type of tissue for which the withdrawal period applies, e.g., meat, milk"/>
+      <definition value="Coded expression for the type of tissue for which the withdrawal period applies, e.g., meat, milk."/>
       <min value="1"/>
       <max value="1"/>
       <type>

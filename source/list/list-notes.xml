@@ -9,7 +9,7 @@ family history or other information typically handled via <b>List</b>, they have
 <ul>
   <li>They can query for List instances of the appropriate type; or </li>
   <li>They can query against the resource endpoint for the resources that make up the list
-    (e.g. <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="condition.html">Condition</a>
+    (e.g., <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="condition.html">Condition</a>
     <a href="medicationstatement.html">MedicationStatement</a>, etc.), possibly filtering by time, etc.</li>
   <li>They can query against the resource endpoint, requesting one of the 
   <a href="lifecycle.html#current">Current</a> resource lists</li>
@@ -138,7 +138,7 @@ written narrative may be the only content if the list has no entries
 </p>
 <p>
 An HTML table is the recommended approach, though this is not required.
-Each List.item should appear in the narrative for the resource; i.e. it 
+Each List.item should appear in the narrative for the resource; i.e., it 
 SHALL NOT be necessary to retrieve the list items in order to have a 
 human-readable rendering of the content. In addition, if the List.text.status is 
 "generated", then the narrative should not suggest the list 
@@ -146,7 +146,7 @@ contains items for which there are no corresponding List.item elements.
 If the list has flags, the representation should make clear use of visual 
 hints (borders, lines, bullet marks, etc.) to ensure that human readers 
 do not get confused about which flags belong with which item on space-poor 
-displays (e.g. to prevent wrapping from separating the flags from the items).
+displays (e.g., to prevent wrapping from separating the flags from the items).
 </p>
 
 <p>
@@ -182,10 +182,10 @@ possible approaches to work around this issue:
 If a list is empty, there could be several different reasons why this is so. For example:
 </p>
 <ul>
- <li>There are no appropriate entries for the list (i.e. the patient has no known medications/allergies/history)</li>
+ <li>There are no appropriate entries for the list (i.e., the patient has no known medications/allergies/history)</li>
  <li>The sender (human or system) deemed that these were not related to this context of patient care (usually for privacy related reasons)</li>
  <li>The source system doesn't support these types of entries</li>
- <li>The information to populate the list wasn't gathered - i.e. "Not asked"</li>
+ <li>The information to populate the list wasn't gathered - i.e., "Not asked"</li>
 </ul>
 <p>
 Given these possibilities - especially the common and significant first case - for many kinds of lists, source systems SHOULD 
@@ -237,7 +237,7 @@ entities in a list are entities:
   <li>that do not have <code>List.entry.deleted</code> with a value of <code>true</code>.</li>
 </ul>
 <p>
-Servers MAY impose additional membership constraints (e.g. based on modifier extensions).
+Servers MAY impose additional membership constraints (e.g., based on modifier extensions).
 </p>
 
 

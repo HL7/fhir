@@ -8,15 +8,15 @@ The List resource is a flat, possibly ordered collection of records. List resour
 including allergies, medications, alerts, family history, medical history, etc. List resources can be used to 
 support patient-specific clinical lists as well as lists that manage workflows such as tracking patients, managing 
 teaching cases, etc. Resources supported by the List resource can be homogeneous – consisting of only one type of 
-resource (e.g. allergy lists) as well as heterogeneous – containing a variety of resources (e.g. a problem list 
+resource (e.g., allergy lists) as well as heterogeneous – containing a variety of resources (e.g., a problem list 
 including <a href="condition.html">Conditions</a>, <a href="allergyintolerance.html">AllergyIntolerances</a>, 
 recent <a href="procedure.html">Procedures</a>, etc.). A list cannot be the subject of an intervention or a direct action.
 </p>
 <p>
 Lists will typically include references to the resources that make up the list, however in some cases the details 
-of the content of the list might be expressed in narrative only; e.g. a text record of a family history.  The List 
+of the content of the list might be expressed in narrative only; e.g., a text record of a family history.  The List 
 resource is only needed if there is a need to filter the set of resources by a mechanism that cannot be accomplished 
-via a simple query; e.g. there is no need to have a list for all <a href="allergyintolerance.html">AllergyIntolerances</a>
+via a simple query; e.g., there is no need to have a list for all <a href="allergyintolerance.html">AllergyIntolerances</a>
 that exist on a server for a given patient.  However, List is an appropriate mechanism to provide a filtered list of the 
 subset of AllergyIntolerances that are deemed to be "current". Lists are allowed to contain other Lists, to create a nested collection of Lists.
 </p>
@@ -56,8 +56,8 @@ curated and have specific business meaning.
 <li>
 The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
 or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
-Groups are intended to be acted upon or observed as a whole; e.g. performing therapy on a group, calculating risk for a group, 
-etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. defining a test subject pool) and similar purposes.
+Groups are intended to be acted upon or observed as a whole; e.g., performing therapy on a group, calculating risk for a group, 
+etc.  This resource will commonly be used for public health (e.g., describing an at-risk population), clinical trials (e.g., defining a test subject pool) and similar purposes.
 </li>
 <li>
 The <a href="composition.html">Composition</a> resource - defines a set of healthcare-related information that is assembled 
@@ -68,7 +68,7 @@ often reference Lists as the focus of particular sections.
 </li>
 <li>
 The <a href="bundle.html">Bundle</a> resource - is an infrastructure container for a group of resources.  It does not have a narrative 
-and is used to group collections of resources for transmission, persistence or processing (e.g. messages, documents, transactions, 
+and is used to group collections of resources for transmission, persistence or processing (e.g., messages, documents, transactions, 
 query responses, etc.)  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
 </li>
 <li>

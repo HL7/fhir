@@ -13,8 +13,8 @@ other resources.  This pattern serves two purposes:
 </ul>
 <p>
 An "event" is any description of an activity that has already taken place or that is currently ongoing.  It includes resources that primarily describe the "result" of an activity 
-or what was found (e.g. a condition or observation).  Examples include encounters, procedures, completed questionnaires, representations of state transitions, etc.  It does not 
-include resources that describe objects or roles (e.g. patient, device, location).
+or what was found (e.g., a condition or observation).  Examples include encounters, procedures, completed questionnaires, representations of state transitions, etc.  It does not 
+include resources that describe objects or roles (e.g., patient, device, location).
 </p>
 </div>
 
@@ -42,7 +42,7 @@ This model represents a pattern.  It provides a standard list of data elements w
 adhered to by resources that fall into the "event" workflow category.  However, adherence to this pattern is not mandatory.  Not all healthcare domains are the same.
 Concepts that may be generally applicable (and thus are included in this standard pattern) might still not be relevant everywhere or may be sufficiently uncommon that they
 are more appropriate to include as extensions than as core properties of the resource.  Work groups are encouraged to adjust descriptions, usage notes and rationale to be
-specific to their resource (e.g. use the term "procedure" or "observation" rather than "event").  As well, design notes in the comments column marked with [square
+specific to their resource (e.g., use the term "procedure" or "observation" rather than "event").  As well, design notes in the comments column marked with [square
 brackets] identifies areas where domain variation is expected and encouraged.  Other variation, including differences in names, cardinalities, data types and the decision to
 omit an element outright are also possible, but should be discussed with the FHIR Infrastructure work group's Workflow project to ensure the rationale for non-alignment is
 understood, to confirm that the deviation is necessary and to identify whether any adjustments to the pattern are appropriate.

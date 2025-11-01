@@ -139,7 +139,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
        class="diagram-class-detail"><a
    id="n473"
    xlink:href="patient-definitions.html#Patient.telecom"><title
-   id="title89548">A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted</title>telecom</a> : <a
+   id="title89548">A contact detail (e.g., a telephone number or an email address) by which the individual may be contacted</title>telecom</a> : <a
    id="n474"
    xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text>
     <text
@@ -333,7 +333,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
        class="diagram-class-detail"><a
    id="n582"
    xlink:href="patient-definitions.html#Patient.contact.telecom"><title
-   id="title89629">A contact detail for the person, e.g. a telephone number or an email address</title>telecom</a> : <a
+   id="title89629">A contact detail for the person, e.g., a telephone number or an email address</title>telecom</a> : <a
    id="n583"
    xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*] « <a
    id="n584"
@@ -432,7 +432,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
        class="diagram-class-detail"><a
    id="n633"
    xlink:href="patient-definitions.html#Patient.communication.language"><title
-   id="title89667">The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English</title>language</a> : <a
+   id="title89667">The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g., &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English</title>language</a> : <a
    id="n634"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n635"
@@ -533,7 +533,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
      class="diagram-class-linkage"><a
        id="n675"
        xlink:href="patient-definitions.html#Patient.contact"><title
-   id="title89701">A contact party (e.g. guardian, partner, friend) for the patient</title>contact</a></text>
+   id="title89701">A contact party (e.g., guardian, partner, friend) for the patient</title>contact</a></text>
   <text
      id="n676"
      x="360.0"

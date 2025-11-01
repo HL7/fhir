@@ -64,11 +64,11 @@ in order to support consistent definitions for schema and UML derived code.
         <img alt="Diagram showing direct POST of request to fulfiller's system workflow" src="workflow-optionb.png" />
         <h4>Steps</h4>
         <ol>
-            <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationrequest.html">MedicationRequest</a>,
-                <a href="servicerequest.html">ServiceRequest</a>, etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler system and places an <a href="https://terminology.hl7.org/CodeSystem-common-tags.html#common-tags-actionable">actionable</a>
+            <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g., <a href="medicationrequest.html">MedicationRequest</a>,
+                <a href="servicerequest.html">ServiceRequest</a>, etc.) to the appropriate RESTful resource endpoint (e.g., [base]/MedicationRequest) on the filler system and places an <a href="https://terminology.hl7.org/CodeSystem-common-tags.html#common-tags-actionable">actionable</a>
                 <a href="resource.html#simple-tags">tag</a> on the resource that indicates the request is intended to be acted upon, not merely stored.</li>
             <li>The filler synchronously responds with a "201" indicating that they have received and stored (created) the resource on their system</li>
-            <li>At some later point, the filler POSTs an 'event' resource (e.g. <a href="medicationdispense.html">MedicationDispense</a>,
+            <li>At some later point, the filler POSTs an 'event' resource (e.g., <a href="medicationdispense.html">MedicationDispense</a>,
                 <a href="diagnosticreport.html">DiagosticReport</a>, <a href="encounter.html">Encounter</a>, etc.) to the appropriate resource endpoint on the placer system, including a <code>basedOn</code> link to the 'request' resource that the action
                 was performed in fulfillment of.</li>
             <li>The placer system synchronously responds with a "201" indicating they've received and store (created) the resource on their system</li>
@@ -81,7 +81,7 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Limitations</h4>
         <ul>
             <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
-            <li>Placer and filler must be able to communicate directly (i.e. know each other's respective endpoints), must each have a FHIR server, and must have "write" permissions to each other's servers. This could become unmanagable if there are a
+            <li>Placer and filler must be able to communicate directly (i.e., know each other's respective endpoints), must each have a FHIR server, and must have "write" permissions to each other's servers. This could become unmanagable if there are a
                 large (or dynamic) number of placers and fillers that need to communicate</li>
             <li>No indication of agreement to act on the request</li>
             <li>There's no ability to negotiate fulfillment - no ability to say "no"</li>
@@ -101,11 +101,11 @@ in order to support consistent definitions for schema and UML derived code.
         <img alt="Diagram showing POST of request to placer/queue server system, receiver uses polling workflow" src="workflow-optionc.png" />
         <h4>Steps</h4>
         <ol>
-            <li>Placer system creates a 'request' resource (e.g. ServiceRequest etc.) by a system action or a POST on either its own system or a third-party queue server system and places an "actionable" tag on the resource
+            <li>Placer system creates a 'request' resource (e.g., ServiceRequest etc.) by a system action or a POST on either its own system or a third-party queue server system and places an "actionable" tag on the resource
                 that indicates the request is intended to be acted upon. The request explicitly identifies the intended fullfiller</li>
             <li>The filler system uses polling (or a subscription) at the placer or queue server system to see if there are any "new" requests that: are tagged as "actionable", have the filler identified as the intended performer, and are a type of request
                 "of interest" to the filler.</li>
-            <li>At some later point, the filler creates an 'event' resource (e.g. MedicationDispense, DiagosticReport, Encounter, etc.) via a system action, or a POST on either its own system, the same queue server as the request was placed on, or some alternate
+            <li>At some later point, the filler creates an 'event' resource (e.g., MedicationDispense, DiagosticReport, Encounter, etc.) via a system action, or a POST on either its own system, the same queue server as the request was placed on, or some alternate
                 queue server, including a link to the 'request' resource that the action was performed in fulfillment of</li>
             <li>The placer system uses polling (or a subscription) to the filler or queue server system to see if there are any "new" events that are tied to any outstanding requests the placer has initiated</li>
         </ol>
@@ -142,15 +142,15 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Placer sends message to filler system including Request resource (and other relevant resources) along with a MessageHeader with an "event" code saying "please fulfill" and "data" element pointing to the Request resource as the item to fulfill.
                 Message could potentially use Task instead of MessageHeader.event to convey desired action (ongoing discussion)</li>
             <li>Filler system sends a response indicating receipt of the message and, optionally an indication of their intention to fulfill the request</li>
-            <li>Filler system may send incremental messages to the placer showing progress (e.g. specimen collected, preliminary results, final results)</li>
+            <li>Filler system may send incremental messages to the placer showing progress (e.g., specimen collected, preliminary results, final results)</li>
         </ol>
         <h4>Benefits</h4>
         <ul>
             <li>Reduced number of communications</li>
             <li>All relevant data sent in one package</li>
             <li>Responses can be asynchronous, and content may be routed</li>
-            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
-            <li>Can request things other than just fulfillment (e.g. please suspend)</li>
+            <li>There's an ability to negotiate fulfillment - i.e., the ability to say "no"</li>
+            <li>Can request things other than just fulfillment (e.g., please suspend)</li>
             <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
         </ul>
         <h4>Limitations</h4>
@@ -164,7 +164,7 @@ in order to support consistent definitions for schema and UML derived code.
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
-            Existing messaging infrastructure (e.g. v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.) and a need to stay consistent with that architecture
+            Existing messaging infrastructure (e.g., v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.) and a need to stay consistent with that architecture
         </p>
         <h4>Usage Examples</h4>
         <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternD-Messagingrequestfromplacertofiller&amp;acknowledgment">HL7 Confluence page</a></p>

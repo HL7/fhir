@@ -11,7 +11,7 @@ and provides sufficient detail to allow for automated conversion of instances.
 <p>
 The intention of the structure map resource is to allow a specialist in 
 formats and interoperability to specify the full relationships between 
-two structures (e.g. a CDA document and a set of FHIR resources), and 
+two structures (e.g., a CDA document and a set of FHIR resources), and 
 then many different systems - both testing and production clinical systems - can
 leverage that to automatically transform from one format to the other. 
 </p>
@@ -52,7 +52,7 @@ However, there is no direct relationship between the mapping language contained
 in the StructureMap resource, and the existence of the appropriate structure 
 definitions, so that this mapping language could be used to define a map from 
 an HL7 V2 message to a CDA document. Note, that various implementation 
-contexts may introduce a direct relationship (e.g. see [op to defined]). <!-- TODO - define the operation -->
+contexts may introduce a direct relationship (e.g., see [op to defined]). <!-- TODO - define the operation -->
 </p>
 <p>
 It's possible to apply the mapping language to structures that do not even 
@@ -91,9 +91,9 @@ Each rule may have some or all of the following properties:
  <li>A set of source elements that provide data to be mapped</li>
  <li>Conditions that specify if the rule is to apply</li>
  <li>A set of target elements that will be created</li>
- <li>Transform rules that describe how raw data is converted from the source format to the target format (e.g. string manipulation)</li>
+ <li>Transform rules that describe how raw data is converted from the source format to the target format (e.g., string manipulation)</li>
  <li>Flags for how instances that can repeat are handled</li>
- <li>Additional rules that apply to the newly created elements (e.g. new contexts)</li>
+ <li>Additional rules that apply to the newly created elements (e.g., new contexts)</li>
 </ul>
 <p>
 The mapping language is entirely declarative; there is no imperative or procedural aspects to the definitions. 

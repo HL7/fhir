@@ -108,7 +108,7 @@
           <valueString value="Communication.partOf"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Communication-part-of"/>
-        <description value="Part of referenced event (e.g. Communication, Procedure)"/>
+        <description value="Part of referenced event (e.g., Communication, Procedure)"/>
         <code value="part-of"/>
         <type value="reference"/>
         <expression value="Communication.partOf"/>

@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n703"
    xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.version"><title
-   id="title8011">The identifier that is used to identify this version of the subscription topic when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Topic author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable</title>version</a> : <a
+   id="title8011">The identifier that is used to identify this version of the subscription topic when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Topic author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable</title>version</a> : <a
    id="n704"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -322,7 +322,7 @@
        class="diagram-class-detail"><a
    id="n817"
    xlink:href="subscriptiontopic-definitions.html#SubscriptionTopic.copyrightLabel"><title
-   id="title8098">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title8098">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n818"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text

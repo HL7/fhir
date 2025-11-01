@@ -43,7 +43,7 @@
           <td style="width:15%;text-align:center;">
             <a href="observation-vitalsigns.html">Vital signs</a>
           </td>
-          <td>The FHIR Vital Signs profiles set the minimum expectations for the Observation resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc.) associated with a patient </td>
+          <td>The FHIR Vital Signs profiles set the minimum expectations for the Observation resource to record, search and fetch the vital signs (e.g., temperature, blood pressure, respiration rate, etc.) associated with a patient </td>
         </tr>
       </tbody>
     </table>

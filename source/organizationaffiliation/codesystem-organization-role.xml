@@ -30,7 +30,7 @@
   <concept>
     <code value="provider"/>
     <display value="Provider"/>
-    <definition value="An organization that delivers care services (e.g. hospitals, clinics, community and social services, etc.)."/>
+    <definition value="An organization that delivers care services (e.g., hospitals, clinics, community and social services, etc.)."/>
   </concept>
   <concept>
     <code value="agency"/>
@@ -55,7 +55,7 @@
   <concept>
     <code value="supplier"/>
     <display value="Supplier"/>
-    <definition value="An organization that provides medical supplies (e.g. medical devices, equipment, pharmaceutical products, etc.)"/>
+    <definition value="An organization that provides medical supplies (e.g., medical devices, equipment, pharmaceutical products, etc.)"/>
   </concept>
   <concept>
     <code value="HIE/HIO"/>

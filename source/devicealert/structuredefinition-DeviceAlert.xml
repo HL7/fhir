@@ -461,7 +461,7 @@
             <path value="DeviceAlert.location" />
             <short value="Location of the subject when the alert was raised" />
             <definition value="The principal physical location of the subject at the time the alert condition occurred. This may be different from the location of the alerting device at that time, and from the current location of either the subject or the alert condition detecting device." />
-            <requirements value="Provides context around the alert occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)." />
+            <requirements value="Provides context around the alert occurrence (e.g., if it occurred inside or outside a dedicated healthcare setting)." />
             <min value="0" />
             <max value="1" />
             <isSummary value="true" />

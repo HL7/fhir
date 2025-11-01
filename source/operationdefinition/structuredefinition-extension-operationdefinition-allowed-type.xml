@@ -28,7 +28,7 @@
       <value value="http://hl7.org/special/committees/FHIR"/>
     </telecom>
   </contact>
-  <description value="When the base type is an abstract type (e.g. Resource or Element) then this extension defines which concrete types are allowed to be used for a parameter. In the absence of this extension, any type is allowed."/>
+  <description value="When the base type is an abstract type (e.g., Resource or Element) then this extension defines which concrete types are allowed to be used for a parameter. In the absence of this extension, any type is allowed."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -48,7 +48,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Which types are allowed for a parameter, when the base type is Abstract"/>
-      <definition value="When the base type is an abstract type (e.g. Resource or Element) then this extension defines which concrete types are allowed to be used for a parameter. In the absence of this extension, any type is allowed."/>
+      <definition value="When the base type is an abstract type (e.g., Resource or Element) then this extension defines which concrete types are allowed to be used for a parameter. In the absence of this extension, any type is allowed."/>
       <min value="0"/>
       <max value="*"/>
     </element>

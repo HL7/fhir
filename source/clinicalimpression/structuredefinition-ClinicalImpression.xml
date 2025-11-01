@@ -334,7 +334,7 @@
       <path value="ClinicalImpression.problem"/>
       <short value="Relevant impressions of patient state"/>
       <definition value="A list of the relevant problems/conditions for a patient."/>
-      <comment value="e.g. The patient is a pregnant, has congestive heart failure, has an ‎Adenocarcinoma, and is allergic to penicillin."/>
+      <comment value="e.g., The patient is a pregnant, has congestive heart failure, has an ‎Adenocarcinoma, and is allergic to penicillin."/>
       <min value="0"/>
       <max value="*"/>
       <type>

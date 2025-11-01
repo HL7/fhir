@@ -13,7 +13,7 @@
           <valueString value="SubstanceDefinition.classification"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/SubstanceDefinition-classification"/>
-        <description value="High or low level categorization, e.g. polymer vs. nucleic acid or linear vs. branch chain"/>
+        <description value="High or low level categorization, e.g., polymer vs. nucleic acid or linear vs. branch chain"/>
         <code value="classification"/>
         <type value="token"/>
         <expression value="SubstanceDefinition.classification"/>

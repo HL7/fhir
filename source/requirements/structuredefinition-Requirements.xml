@@ -148,7 +148,7 @@
     <element id="Requirements.version">
       <path value="Requirements.version"/>
       <short value="Business version of the Requirements"/>
-      <definition value="The identifier that is used to identify this version of the Requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <definition value="The identifier that is used to identify this version of the Requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
       <comment value="There may be different Requirements instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the Requirements with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
@@ -385,7 +385,7 @@
       <path value="Requirements.jurisdiction"/>
       <short value="Jurisdiction of the authority that maintains the Requirements (if applicable)"/>
       <definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-      <comment value="It may be possible for the Requirements to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
+      <comment value="It may be possible for the Requirements to be used in jurisdictions other than those for which it was originally designed or intended&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -457,7 +457,7 @@
       </extension>
       <path value="Requirements.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
-      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
       <comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
@@ -491,7 +491,7 @@
       <path value="Requirements.imports"/>
       <short value="External requirements that apply here"/>
       <definition value="Points to requirements defined elsewhere that have the same force as if they were defined in this instance."/>
-      <comment value="A given requirement should either appear here OR be listed as a derivedFrom in a statement, but not both.  I.e. you either include the referenced requirement unchanged or you include it in a qualified manner."/>
+      <comment value="A given requirement should either appear here OR be listed as a derivedFrom in a statement, but not both.  i.e., you either include the referenced requirement unchanged or you include it in a qualified manner."/>
       <min value="0"/>
       <max value="*"/>
       <isSummary value="true"/>
@@ -590,7 +590,7 @@
       <path value="Requirements.statement.label"/>
       <short value="Short Human label for this statement"/>
       <definition value="A short human usable label for this statement."/>
-      <comment value="The key is intended for computers, while this is intended for humans. In its absence, the key should be convenient for a human to say (e.g. not a UUID)"/>
+      <comment value="The key is intended for computers, while this is intended for humans. In its absence, the key should be convenient for a human to say (e.g., not a UUID)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -601,7 +601,7 @@
       <path value="Requirements.statement.conformance"/>
       <short value="SHALL | SHOULD | MAY | SHOULD-NOT | SHALL-NOT"/>
       <definition value="A short human usable label for this statement."/>
-      <comment value="The conformance code is extracted from the requirement to make indexing and display easier. The requirement needs to express the conformance verbs directly in the markdown content. It's not unusual to mix verbs in a single sentence (e.g. System SHALL do X and SHOULD do Y)"/>
+      <comment value="The conformance code is extracted from the requirement to make indexing and display easier. The requirement needs to express the conformance verbs directly in the markdown content. It's not unusual to mix verbs in a single sentence (e.g., System SHALL do X and SHOULD do Y)"/>
       <requirements value="This element is allowed to repeat because a single requirements statement might contain multiple conformance words and thus need to be indexed under multiple conformance categories."/>
       <min value="0"/>
       <max value="*"/>
@@ -619,7 +619,7 @@
     <element id="Requirements.statement.conditionality">
       <path value="Requirements.statement.conditionality"/>
       <short value="Set to true if requirements statement is conditional"/>
-      <definition value="This boolean flag is set to true of the text of the requirement is conditional on something e.g. it includes lanauage like 'if x then y'. This conditionality flag is introduced for purposes of filtering and colour highlighting etc."/>
+      <definition value="This boolean flag is set to true of the text of the requirement is conditional on something e.g., it includes lanauage like 'if x then y'. This conditionality flag is introduced for purposes of filtering and colour highlighting etc."/>
       <comment value="There is no intent that the conditional statement by evaluatable"/>
       <min value="0"/>
       <max value="1"/>
@@ -672,9 +672,9 @@
     <element id="Requirements.statement.partOf">
       <path value="Requirements.statement.partOf"/>
       <short value="Higher-level requirement or statement which this is a logical sub-requirement of"/>
-      <definition value="Identifies a higher-level requirement or statement which this referencing statement is a logical sub-requirement of.  I.e. This statement is a necessary step to achieving the referenced requirement/statement."/>
+      <definition value="Identifies a higher-level requirement or statement which this referencing statement is a logical sub-requirement of.  i.e., This statement is a necessary step to achieving the referenced requirement/statement."/>
       <comment value="If only the key is populated, this is partOf a statement within the same Requirements resource. If both key and canonical are populated, this is partOf a statement in an external Requirements resource."/>
-      <requirements value="Allows requirements to be organized compositionally. E.g. Epic/Story/Task."/>
+      <requirements value="Allows requirements to be organized compositionally. e.g., Epic/Story/Task."/>
       <min value="0"/>
       <max value="1"/>
     </element>
@@ -703,7 +703,7 @@
       <path value="Requirements.statement.satisfiedBy"/>
       <short value="Design artifact that satisfies this requirement"/>
       <definition value="A reference to another artifact that satisfies this requirement. This could be a profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Libary etc."/>
-      <comment value="This is for use when the requirement is met be a pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide. It is more typical to point from the FHIR artifact satisfying the requirement to the requirement (using the [satisfies-requirement](https://hl7.org/fhir/extensions/StructureDefinition-satisfies-requirement.html) extension) to the Requirements resource.  However, in some cases the author of the Requirements and satisfying resource(s) won't be coordinated in that manner and this element allows assertion of satisfaction without involvement from those managing the implementing artifacts."/>
+      <comment value="This is for use when the requirement is met be a pre-existing artifact e.g., a rule that's met by the base FHIR spec, or a national implementation guide. It is more typical to point from the FHIR artifact satisfying the requirement to the requirement (using the [satisfies-requirement](https://hl7.org/fhir/extensions/StructureDefinition-satisfies-requirement.html) extension) to the Requirements resource.  However, in some cases the author of the Requirements and satisfying resource(s) won't be coordinated in that manner and this element allows assertion of satisfaction without involvement from those managing the implementing artifacts."/>
       <min value="0"/>
       <max value="*"/>
       <type>

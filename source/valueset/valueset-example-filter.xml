@@ -32,7 +32,7 @@
       <!--  
         Use the filter defined in the code system. Note that filters like
         this need custom code to support them, and are generally only found
-        in high value published code systems (e.g. SNOMED CT). Unlike this example.        
+        in high value published code systems (e.g., SNOMED CT). Unlike this example.        
 		  -->
       <filter>
         <property value="acme-plasma"/>

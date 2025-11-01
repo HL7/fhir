@@ -85,7 +85,7 @@
     <element id="ImagingStudy">
       <path value="ImagingStudy"/>
       <short value="A set of images or image-related data produced in single study"/>
-      <definition value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study can have multiple series of different modality values."/>
+      <definition value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g., X-ray, CT, MR, ultrasound), but a study can have multiple series of different modality values."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -293,7 +293,7 @@
     <element id="ImagingStudy.encounter">
       <path value="ImagingStudy.encounter"/>
       <short value="Encounter with which this imaging study is associated"/>
-      <definition value="The healthcare event (e.g. a patient and healthcare provider interaction) during which the imaging data represented by this imaging study was acquired."/>
+      <definition value="The healthcare event (e.g., a patient and healthcare provider interaction) during which the imaging data represented by this imaging study was acquired."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -357,7 +357,7 @@
       <path value="ImagingStudy.basedOn"/>
       <short value="Fulfills plan or order"/>
       <definition value="A plan or order that is fulfilled in whole or in part by this imaging study."/>
-      <comment value="One imaging study MAY be based on multiple ordered procedures, e.g. chest/abdomen/pelvis CT orders being fulfilled by a single imaging study."/>
+      <comment value="One imaging study MAY be based on multiple ordered procedures, e.g., chest/abdomen/pelvis CT orders being fulfilled by a single imaging study."/>
       <requirements value="Allows tracing of authorization for the imaging study and tracking whether proposals/recommendations were acted upon. If the ImagingStudy is associated with an Accession Number, this field SHOULD include a reference to that value in the form: identifier.value = (Accession Number Value) identifier.type = ACSN. A reference value pointing to a ServiceRequest resource is allowed but is not required."/>
       <alias value="AccessionNumber"/>
       <min value="0"/>
@@ -460,7 +460,7 @@
       <path value="ImagingStudy.location"/>
       <short value="Where imaging study occurred"/>
       <definition value="The principal physical location where the imaging study was performed."/>
-      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g., if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -853,7 +853,7 @@
       <path value="ImagingStudy.series.performer"/>
       <short value="Who performed the series"/>
       <definition value="Indicates who or what performed the series and how they were involved."/>
-      <comment value="If the person who performed the series is not known, their Organization MAY be recorded. A patient, or related person, MAY be the performer, e.g. for patient-captured images."/>
+      <comment value="If the person who performed the series is not known, their Organization MAY be recorded. A patient, or related person, MAY be the performer, e.g., for patient-captured images."/>
       <requirements value="The performer is recorded at the series level, since each series in a study MAY be performed by a different performer, at different times, and using different devices. A series MAY be performed by multiple performers."/>
       <alias value="PerformingPhysicianName"/>
       <alias value="OperatorName"/>
@@ -955,7 +955,7 @@
       </extension>
       <path value="ImagingStudy.series.instance"/>
       <short value="A single SOP instance from the series"/>
-      <definition value="A single SOP instance within the series, e.g. an image, or presentation state."/>
+      <definition value="A single SOP instance within the series, e.g., an image, or presentation state."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -126,7 +126,7 @@
        class="diagram-class-detail"><a
    id="n359"
    xlink:href="episodeofcare-definitions.html#EpisodeOfCare.type"><title
-   id="title31890">A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care</title>type</a> : <a
+   id="title31890">A classification of the type of episode of care; e.g., specialist referral, disease management, type of funded care</title>type</a> : <a
    id="n360"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n361"
@@ -309,7 +309,7 @@
        class="diagram-class-detail"><a
    id="n447"
    xlink:href="episodeofcare-definitions.html#EpisodeOfCare.reason.use"><title
-   id="title31959">What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening)</title>use</a> : <a
+   id="title31959">What the reason value should be used as e.g., Chief Complaint, Health Concern, Health Maintenance (including screening)</title>use</a> : <a
    id="n448"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n449"
@@ -402,7 +402,7 @@
        class="diagram-class-detail"><a
    id="n496"
    xlink:href="episodeofcare-definitions.html#EpisodeOfCare.diagnosis.use"><title
-   id="title31992">Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)</title>use</a> : <a
+   id="title31992">Role that this diagnosis has within the episode of care (e.g., admission, billing, discharge …)</title>use</a> : <a
    id="n497"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n498"

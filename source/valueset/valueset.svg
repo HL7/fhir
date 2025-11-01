@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n1214"
    xlink:href="valueset-definitions.html#ValueSet.version"><title
-   id="title119865">The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title119865">The identifier that is used to identify this version of the value set when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n1215"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -324,7 +324,7 @@
        class="diagram-class-detail"><a
    id="n1330"
    xlink:href="valueset-definitions.html#ValueSet.copyrightLabel"><title
-   id="title119953">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title119953">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1331"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <rect
@@ -912,7 +912,7 @@
        class="diagram-class-detail"><a
    id="n1584"
    xlink:href="valueset-definitions.html#ValueSet.expansion.offset"><title
-   id="title120155">If paging is being used, the offset at which this resource starts.  I.e. this resource is a partial view into the expansion. If paging is not being used, this element SHALL NOT be present</title>offset</a> : <a
+   id="title120155">If paging is being used, the offset at which this resource starts.  i.e., this resource is a partial view into the expansion. If paging is not being used, this element SHALL NOT be present</title>offset</a> : <a
    id="n1585"
    xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
   </g>

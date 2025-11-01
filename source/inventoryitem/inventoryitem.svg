@@ -137,7 +137,7 @@
        class="diagram-class-detail"><a
    id="n536"
    xlink:href="inventoryitem-definitions.html#InventoryItem.inventoryStatus"><title
-   id="title60109">The usage status e.g. recalled, in use, discarded... This can be used to indicate that the items have been taken out of inventory, or are in use, etc</title>inventoryStatus</a> : <a
+   id="title60109">The usage status e.g., recalled, in use, discarded... This can be used to indicate that the items have been taken out of inventory, or are in use, etc</title>inventoryStatus</a> : <a
    id="n537"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
     <text
@@ -224,7 +224,7 @@
        class="diagram-class-detail"><a
    id="n573"
    xlink:href="inventoryitem-definitions.html#InventoryItem.name.nameType"><title
-   id="title60140">The type of name e.g. 'brand-name', 'functional-name', 'common-name'</title>nameType</a> : <a
+   id="title60140">The type of name e.g., 'brand-name', 'functional-name', 'common-name'</title>nameType</a> : <a
    id="n574"
    xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
    id="n575"
@@ -290,7 +290,7 @@
        class="diagram-class-detail"><a
    id="n600"
    xlink:href="inventoryitem-definitions.html#InventoryItem.responsibleOrganization.role"><title
-   id="title60164">The role of the organization e.g. manufacturer, distributor, etc</title>role</a> : <a
+   id="title60164">The role of the organization e.g., manufacturer, distributor, etc</title>role</a> : <a
    id="n601"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
     <text
@@ -301,7 +301,7 @@
        class="diagram-class-detail"><a
    id="n606"
    xlink:href="inventoryitem-definitions.html#InventoryItem.responsibleOrganization.organization"><title
-   id="title60169">An organization that has an association with the item, e.g. manufacturer, distributor, responsible, etc</title>organization</a> : <a
+   id="title60169">An organization that has an association with the item, e.g., manufacturer, distributor, responsible, etc</title>organization</a> : <a
    id="n607"
    xlink:href="references.html#Reference">Reference</a> [1..1] « <a
    id="n608"
@@ -393,7 +393,7 @@
        class="diagram-class-detail"><a
    id="n636"
    xlink:href="inventoryitem-definitions.html#InventoryItem.association.associationType"><title
-   id="title60195">The type of association e.g. 'packaged within' or 'used with' or 'to be mixed with</title>associationType</a> : <a
+   id="title60195">The type of association e.g., 'packaged within' or 'used with' or 'to be mixed with</title>associationType</a> : <a
    id="n637"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
     <text

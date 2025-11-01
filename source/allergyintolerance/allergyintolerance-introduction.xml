@@ -60,7 +60,7 @@ Adverse reactions may be:
 </p>
 		<ul>
 			<li>an allergy (typically type I hypersensitivity, plus other "allergy-like" reactions, including pseudoallergy)</li>
-			<li>an intolerance (typically non-immune adverse reactions that are not determined or perceived to be allergic or "allergy-like", and are to some degree idiosyncratic and/or individually specific [i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances])</li>
+			<li>an intolerance (typically non-immune adverse reactions that are not determined or perceived to be allergic or "allergy-like", and are to some degree idiosyncratic and/or individually specific [i.e., are not a reaction that is expected to occur with most or all patients given similar circumstances])</li>
 		</ul>
 		<p>
 In clinical practice distinguishing between allergy and intolerance is difficult and might not be practical. Often the term "allergy" is used rather generically and may overlap with "intolerance", and the boundaries between these concepts might not be well-defined or understood. As noted above, the term "intolerance" should generally be applied to a propensity for adverse reactions which is either determined (to the extent that is possible) or perceived to not be allergic or "allergy-like".  If it is not possible to determine whether a particular propensity condition is an allergy or an intolerance, then the type element should be omitted from the resource.  Identification of the type of reaction is not a proxy for seriousness or risk of harm to the patient, which is better expressed in the documentation of the clinical manifestation and the assessment of criticality.</p>

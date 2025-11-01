@@ -78,7 +78,7 @@
 			<code>Observation.hasMember</code> and <code>Observation.derivedFrom</code> and the core extensions: <a href="http://hl7.org/fhir/StructureDefinition/observation-sequelTo">Observation-sequelTo</a> and <a href="http://hl7.org/fhir/StructureDefinition/observation-replaces">Observation-replaces</a> are used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. Two common use cases for using this structure are:
 			</p>
 		<ol>
-			<li>For grouping related observations such as for a "panel" or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>)
+			<li>For grouping related observations such as for a "panel" or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g., <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>)
 			as described in the <a href="diagnostics-module.html#org-dr-obs">Diagnostics
 			Module</a> 
 			</li>
@@ -361,7 +361,7 @@
 		}
 	</pre>
 
-	If the value was "NaN"  (i.e. an error)  the <code>valueCodeableConcept</code> element would be absent and <code>dataAbsentReason</code> element would be:
+	If the value was "NaN"  (i.e., an error)  the <code>valueCodeableConcept</code> element would be absent and <code>dataAbsentReason</code> element would be:
 	<pre class="json">
 		"dataAbsentReason": {
 			"coding": [
@@ -378,10 +378,10 @@
 		</ul>
 	  <a name="time"></a>
 		<h3>Physiologically Relevant Time of the Observation</h3>
-		<p> The effectiveDateTime or effectivePeriod is the time that the observation is most    relevant as an observation of the subject. For a biological subject (e.g. a human patient),    this is the physiologically relevant time of the observation.	In the case of an observation using a specimen, this represents the start and    end of the specimen collection (e.g. 24-hour Urine Sodium), but if the collection time is    sufficiently short, this is reported as a point in time value (e.g. normal venipuncture).    In the case of an observation obtained directly from a subject (e.g. BP,    Chest X-ray), this is the start and end time of the observation process, which again, is    often reported as a single point in time.</p>
+		<p> The effectiveDateTime or effectivePeriod is the time that the observation is most    relevant as an observation of the subject. For a biological subject (e.g., a human patient),    this is the physiologically relevant time of the observation.	In the case of an observation using a specimen, this represents the start and    end of the specimen collection (e.g., 24-hour Urine Sodium), but if the collection time is    sufficiently short, this is reported as a point in time value (e.g., normal venipuncture).    In the case of an observation obtained directly from a subject (e.g., BP,    Chest X-ray), this is the start and end time of the observation process, which again, is    often reported as a single point in time.</p>
 		<a name="refrange"></a>
 	  <h3>Reference Range</h3>
-		<p>		Most common observations will only have one generic reference range.  Reference ranges may be useful for laboratory tests and other measures like systolic blood pressure but  will have little 	relevance for something like "pregnancy status". Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.		</p>
+		<p>		Most common observations will only have one generic reference range.  Reference ranges may be useful for laboratory tests and other measures like systolic blood pressure but  will have little 	relevance for something like "pregnancy status". Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient's age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties.		</p>
 		<a name="cancelled"></a>
 	  <h3>Cancelled or Not Performed Observations</h3>
 		<p>If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "cancelled" and the specific details given - preferably as coded  values in the dataAbsentReason or valueCodeableConcept element.  Additional information may be provided in the `note` element as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.</p>

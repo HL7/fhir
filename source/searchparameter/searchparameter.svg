@@ -116,7 +116,7 @@
        class="diagram-class-detail"><a
    id="n521"
    xlink:href="searchparameter-definitions.html#SearchParameter.version"><title
-   id="title96452">The identifier that is used to identify this version of the search parameter when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the search parameter author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title96452">The identifier that is used to identify this version of the search parameter when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the search parameter author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n522"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -179,7 +179,7 @@
        class="diagram-class-detail"><a
    id="n561"
    xlink:href="searchparameter-definitions.html#SearchParameter.derivedFrom"><title
-   id="title96480">Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. i.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter</title>derivedFrom</a> : <a
+   id="title96480">Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. i.e., the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter</title>derivedFrom</a> : <a
    id="n562"
    xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
    id="n563"
@@ -409,7 +409,7 @@
        class="diagram-class-detail"><a
    id="n707"
    xlink:href="searchparameter-definitions.html#SearchParameter.multipleAnd"><title
-   id="title96589">Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match</title>multipleAnd</a> : <a
+   id="title96589">Whether multiple parameters are allowed - e.g., more than one parameter with the same name. The search matches if all the parameters match</title>multipleAnd</a> : <a
    id="n708"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text

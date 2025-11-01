@@ -15,7 +15,7 @@ Different resources have different ways to handle “physical instances”
 	<li>Lack of clear support and guidance for instance has caused traceability to be a problem in implementations: Standards-guided implementations do not consider “instances” or do so inconsistently.</li>
 	<li>In border cases (medication containing devices), this can cause issues.
 </li>
-	<li>Inconsistency can also require extensions and further divergence. E.g. for adopting the EU Serialization directive, need to add “serial number” to the medication. What and where is that extension?
+	<li>Inconsistency can also require extensions and further divergence. e.g., for adopting the EU Serialization directive, need to add “serial number” to the medication. What and where is that extension?
 </li>
 </ul>
 

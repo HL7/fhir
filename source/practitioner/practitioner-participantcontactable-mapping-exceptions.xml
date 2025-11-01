@@ -2,8 +2,8 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="ParticipantContactable.telecom" resourcePath="Practitioner.telecom">
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A contact detail (e.g. a telephone number or an email address) by which the practitioner may be contacted."/>
-            <resource value="A contact detail for the practitioner, e.g. a telephone number or an email address."/>
+            <_pattern value="A contact detail (e.g., a telephone number or an email address) by which the practitioner may be contacted."/>
+            <resource value="A contact detail for the practitioner, e.g., a telephone number or an email address."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Participants have (primary) ways to contact them in some way such as phone, email."/>

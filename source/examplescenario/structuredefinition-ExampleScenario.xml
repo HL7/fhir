@@ -183,7 +183,7 @@
     <element id="ExampleScenario.version">
       <path value="ExampleScenario.version"/>
       <short value="Business version of the example scenario"/>
-      <definition value="The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <definition value="The identifier that is used to identify this version of the example scenario when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the example scenario author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
       <comment value="There may be different example scenario instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the example scenario with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
@@ -296,7 +296,7 @@
     <element id="ExampleScenario.date">
       <path value="ExampleScenario.date"/>
       <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the example scenario was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition')."/>
+      <definition value="The date  (and optionally time) when the example scenario was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g., the 'content logical definition')."/>
       <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the example scenario. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
       <alias value="Revision Date"/>
       <min value="0"/>
@@ -374,7 +374,7 @@
       <path value="ExampleScenario.jurisdiction"/>
       <short value="Jurisdiction of the authority that maintains the example scenario (if applicable)"/>
       <definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-      <comment value="It may be possible for the example scenario to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+      <comment value="It may be possible for the example scenario to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -398,7 +398,7 @@
         <valueBoolean value="true"/>
       </extension>
       <path value="ExampleScenario.purpose"/>
-      <short value="The purpose of the example, e.g. to illustrate a scenario"/>
+      <short value="The purpose of the example, e.g., to illustrate a scenario"/>
       <definition value="What the example scenario resource is created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario."/>
       <comment value="This element does not describe the usage of the example scenario. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this example scenario."/>
       <min value="0"/>
@@ -439,7 +439,7 @@
       </extension>
       <path value="ExampleScenario.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
-      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
       <comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
@@ -652,8 +652,8 @@
     </element>
     <element id="ExampleScenario.instance.structureVersion">
       <path value="ExampleScenario.instance.structureVersion"/>
-      <short value="E.g. 4.0.1"/>
-      <definition value="Conveys the version of the data structure instantiated.  I.e. what release of FHIR, X12, OpenEHR, etc. is instance compliant with."/>
+      <short value="e.g., 4.0.1"/>
+      <definition value="Conveys the version of the data structure instantiated.  i.e., what release of FHIR, X12, OpenEHR, etc. is instance compliant with."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -783,7 +783,7 @@
     <element id="ExampleScenario.instance.containedInstance">
       <path value="ExampleScenario.instance.containedInstance"/>
       <short value="Resources contained in the instance"/>
-      <definition value="References to other instances that can be found within this instance (e.g. the observations contained in a bundle)."/>
+      <definition value="References to other instances that can be found within this instance (e.g., the observations contained in a bundle)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -941,8 +941,8 @@
     <element id="ExampleScenario.process.step.number">
       <path value="ExampleScenario.process.step.number"/>
       <short value="Sequential number of the step"/>
-      <definition value="The sequential number of the step, e.g. 1.2.5."/>
-      <comment value="If step numbers are simultaneous, they will be the same.  Numbers don't have to be numeric.  E.g. '2c)' is a valid step number"/>
+      <definition value="The sequential number of the step, e.g., 1.2.5."/>
+      <comment value="If step numbers are simultaneous, they will be the same.  Numbers don't have to be numeric.  e.g., '2c)' is a valid step number"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1100,7 +1100,7 @@
     <element id="ExampleScenario.process.step.alternative">
       <path value="ExampleScenario.process.step.alternative"/>
       <short value="Alternate non-typical step action"/>
-      <definition value="Indicates an alternative step that can be taken instead of the sub-process, scenario or operation.  E.g. to represent non-happy-path/exceptional/atypical circumstances."/>
+      <definition value="Indicates an alternative step that can be taken instead of the sub-process, scenario or operation.  e.g., to represent non-happy-path/exceptional/atypical circumstances."/>
       <min value="0"/>
       <max value="*"/>
       <type>

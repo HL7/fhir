@@ -18,43 +18,43 @@
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/tools-extensions#definition">
-          <valueString value="The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure)"/>
+          <valueString value="The target observation is a component of this observation (e.g., Systolic and Diastolic Blood Pressure)"/>
         </extension>
         <code value="COMP"/>
       </concept>
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/tools-extensions#definition">
-          <valueString value="The target observation is grouped into a logical group of observations (e.g. a battery, a panel of tests, a set of vital sign measurements)"/>
+          <valueString value="The target observation is grouped into a logical group of observations (e.g., a battery, a panel of tests, a set of vital sign measurements)"/>
         </extension>
         <code value="MBR"/>
       </concept>
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/tools-extensions#definition">
-          <valueString value="The target observation is part of the information from which this observation value is derived (e.g. calculated anion gap, Apgar score)"/>
+          <valueString value="The target observation is part of the information from which this observation value is derived (e.g., calculated anion gap, Apgar score)"/>
         </extension>
         <code value="DRIV"/>
       </concept>
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/tools-extensions#definition">
-          <valueString value="This observation follows the target observation (e.g. timed tests such as Glucose Tolerance Test)"/>
+          <valueString value="This observation follows the target observation (e.g., timed tests such as Glucose Tolerance Test)"/>
         </extension>
         <code value="SEQL"/>
       </concept>
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/tools-extensions#definition">
-          <valueString value="This observation replaces a previous observation (i.e. a revised value). The target observation is now obsolete"/>
+          <valueString value="This observation replaces a previous observation (i.e., a revised value). The target observation is now obsolete"/>
         </extension>
         <code value="RPLC"/>
       </concept>
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/tools-extensions#definition">
-          <valueString value="The value of the target observation qualifies (refines) the semantics of the source observation (e.g. a lipaemia measure target from a plasma measure)"/>
+          <valueString value="The value of the target observation qualifies (refines) the semantics of the source observation (e.g., a lipaemia measure target from a plasma measure)"/>
         </extension>
         <code value="QUALF"/>
       </concept>
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/tools-extensions#definition">
-          <valueString value="The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g. a hemolysis measure target from a plasma potassium measure, which has no value)"/>
+          <valueString value="The value of the target observation interferes (degardes quality, or prevents valid observation) with the semantics of the source observation (e.g., a hemolysis measure target from a plasma potassium measure, which has no value)"/>
         </extension>
         <code value="INTF"/>
       </concept>

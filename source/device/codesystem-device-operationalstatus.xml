@@ -44,7 +44,7 @@
   <concept>
     <code value="on"/>
     <display value="On"/>
-    <definition value="The device is working or switched on, i.e. active."/>
+    <definition value="The device is working or switched on, i.e., active."/>
   </concept>
   <concept>
     <code value="off"/>
@@ -54,7 +54,7 @@
   <concept>
     <code value="standby"/>
     <display value="Stand By"/>
-    <definition value="The device is in stand-by mode i.e. not actively working but not powered off."/>
+    <definition value="The device is in stand-by mode i.e., not actively working but not powered off."/>
   </concept>
   <concept>
     <code value="defective"/>

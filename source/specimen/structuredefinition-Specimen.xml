@@ -243,7 +243,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
       <path value="Specimen.parent"/>
       <short value="Specimen from which this specimen originated"/>
       <definition value="Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen."/>
-      <comment value="The parent specimen could be the source from which the current specimen is derived by some processing step (e.g. an aliquot or isolate or extracted nucleic acids from clinical samples) or one of many specimens that were combined to create a pooled sample."/>
+      <comment value="The parent specimen could be the source from which the current specimen is derived by some processing step (e.g., an aliquot or isolate or extracted nucleic acids from clinical samples) or one of many specimens that were combined to create a pooled sample."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -335,7 +335,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
     <element id="Specimen.feature">
       <path value="Specimen.feature"/>
       <short value="The physical feature of a specimen"/>
-      <definition value="A physical feature or landmark on a specimen, highlighted for context by the collector of the specimen (e.g. surgeon), that identifies the type of feature as well as its meaning (e.g. the red ink indicating the resection margin of the right lobe of the excised prostate tissue or wire loop at radiologically suspected tumor location)."/>
+      <definition value="A physical feature or landmark on a specimen, highlighted for context by the collector of the specimen (e.g., surgeon), that identifies the type of feature as well as its meaning (e.g., the red ink indicating the resection margin of the right lobe of the excised prostate tissue or wire loop at radiologically suspected tumor location)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -541,7 +541,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
           <valueString value="SpecimenCollectionDevice"/>
         </extension>
         <strength value="example"/>
-        <description value="The device that was used to obtain the specimen (e.g. a catheter or catheter part used to draw the blood via a central line)."/>
+        <description value="The device that was used to obtain the specimen (e.g., a catheter or catheter part used to draw the blood via a central line)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
       </binding>
       <mapping>
@@ -556,7 +556,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
     <element id="Specimen.collection.procedure">
       <path value="Specimen.collection.procedure"/>
       <short value="The procedure that collects the specimen"/>
-      <definition value="The procedure event during which the specimen was collected (e.g. the surgery leading to the collection of a pathology sample)."/>
+      <definition value="The procedure event during which the specimen was collected (e.g., the surgery leading to the collection of a pathology sample)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -572,7 +572,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
       <path value="Specimen.collection.bodySite"/>
       <short value="Anatomical collection site"/>
       <definition value="Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens."/>
-      <comment value="Reasons for using BodyStructure reference include: 1.) Need to identify a specific site instance (e.g. a specific mole), 2.) a single pre-coordinated coded concept for the body site does not exist, 3.) a desire to represent bodySite using multiple attributes (e.g. modifiers)."/>
+      <comment value="Reasons for using BodyStructure reference include: 1.) Need to identify a specific site instance (e.g., a specific mole), 2.) a single pre-coordinated coded concept for the body site does not exist, 3.) a desire to represent bodySite using multiple attributes (e.g., modifiers)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -772,7 +772,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
       </extension>
       <path value="Specimen.container"/>
       <short value="Direct container of specimen (tube/slide, etc.)"/>
-      <definition value="The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here."/>
+      <definition value="The container holding the specimen.  The recursive nature of containers; i.e., blood in tube in tray in rack is not addressed here."/>
       <min value="0"/>
       <max value="*"/>
       <type>

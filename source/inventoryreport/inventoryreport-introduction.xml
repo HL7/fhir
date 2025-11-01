@@ -9,7 +9,7 @@ The current status of inventory is presented as the quantity of items, grouped i
 <br/>
 The changes to an inventory are represented as the additions (incoming) or substractions (consumptions or outgoing) of items to an inventory listing. This is often used when there is a need to determine the increment/decrement in stock, and there is a need to only transmit the difference, without the need to update the entire snapshot.
 <br/>
-The inventory status can be available as a response to a request, or can be done ad-hoc (e.g. report a consumption for consignment stock) or scheduled (e.g. recount the stock every 6 months).
+The inventory status can be available as a response to a request, or can be done ad-hoc (e.g., report a consumption for consignment stock) or scheduled (e.g., recount the stock every 6 months).
 
 
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->

@@ -86,11 +86,11 @@ same path must conform.
 		context in which the meaning of the element is understood. When Elements are defined, the following rules apply:
 </p>
 <ul>
-		<li>Element names (the parts of a path delineated by the '.' character) SHALL NOT contain whitespace (i.e. Unicode characters marked as whitespace)</li>
+		<li>Element names (the parts of a path delineated by the '.' character) SHALL NOT contain whitespace (i.e., Unicode characters marked as whitespace)</li>
 		<li>Element names SHALL NOT contain the characters ,:;'"/|?!@#$%^&amp;*()[]{}</li>
 		<li>Element names SHOULD not contain non-ASCII characters</li>
 		<li>Element names SHALL NOT exceed 64 characters in length</li>
-		<li>Element paths cannot imply elements that are not explicitly defined i.e. a.b.c.d cannot be defined unless a.b.c is explicitly defined</li>
+		<li>Element paths cannot imply elements that are not explicitly defined i.e., a.b.c.d cannot be defined unless a.b.c is explicitly defined</li>
 		<li>By convention, each path starts with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and datatypes (except for Primitive datatypes) follow this convention, but logical
 				models are not required to do so</li>
 </ul>
@@ -107,8 +107,8 @@ same path must conform.
 		<li>Data Elements</li>
 </ul>
 <p>
-		StructureDefinitions with <a href="structuredefinition-definitions.html#StructureDefinition.derivation">derivation</a> = <code>constraint</code> (i.e. Resource and Datatype profiles) are not allowed to define or include ElementDefinitions
-		with a path not defined within the base type definition from which they derive (e.g. in the FHIR specification).
+		StructureDefinitions with <a href="structuredefinition-definitions.html#StructureDefinition.derivation">derivation</a> = <code>constraint</code> (i.e., Resource and Datatype profiles) are not allowed to define or include ElementDefinitions
+		with a path not defined within the base type definition from which they derive (e.g., in the FHIR specification).
 </p>
 
 <a name="id"></a>
@@ -119,7 +119,7 @@ same path must conform.
 <ul>
 		<li>The id will be constructed as a dot separated string, each part corresponding to a token in the path</li>
 		<li>For each token in the path, use the syntax <code>pathpart:slicename/reslicename</code></li>
-		<li>For type choice elements, the id reflects the type slice. e.g. For path = Patient.deceased[x], the id of the boolean slice type element is Patient.deceased[x]:deceasedBoolean</li>
+		<li>For type choice elements, the id reflects the type slice. e.g., For path = Patient.deceased[x], the id of the boolean slice type element is Patient.deceased[x]:deceasedBoolean</li>
 </ul>
 <p>
 		Note that in a profile with no slices, this id will match the path exactly and entirely.
@@ -337,18 +337,18 @@ same path must conform.
 	  <li>Expected/Not Expected: this is used in the table to indicate that the element SHOULD or SHOULD NOT be present, but that 
 			real world StructureDefinitions may be encountered that differ from this guidance, and that these are not invalid</li>
 		<li>Type definition: A StructureDefinition without a <code>baseDefinition</code> element, or where the derivation type is 'specialization'</li>
-		<li>Constraint definition: A StructureDefinition with a <code>baseDefinition</code> element and a derivation of 'constraint' - e.g. a definition of a structure that constrains another base structure, referring to the differential portion</li>
+		<li>Constraint definition: A StructureDefinition with a <code>baseDefinition</code> element and a derivation of 'constraint' - e.g., a definition of a structure that constrains another base structure, referring to the differential portion</li>
 		<li><sup>†</sup>: The element's presence, and value, must match the definition in the base definition</li>
 		<li><sup>‡</sup>: The element content must be consistent with that matching element in the base definition</li>
 		<li><sup>♉︎</sup>: In general base definitions should not set mustSupport to true, and no HL7 resources do - mustSupport is usually associated with specific contexts of use</li>
 		<li><sup>∆</sup>: Additional constraints and mappings can be defined, but they do not replace the ones in the base definition</li>
-		<li><sup>§</sup>: The cardinality on a type places constraints on references to that type. I.e. profiles referencing the type must fall
+		<li><sup>§</sup>: The cardinality on a type places constraints on references to that type. i.e., profiles referencing the type must fall
 			 within the cardinality bounds of the type itself. This most commonly occurs with Extension profiles, where the profile 
-			 may prohibit the extension from repeating (max=1), or less commonly, make the extension mandatory (min=1) - i.e. if the 
+			 may prohibit the extension from repeating (max=1), or less commonly, make the extension mandatory (min=1) - i.e., if the 
 			 extension is referenced in a profile, it must be marked as mandatory.</li>
 		<li>For some simple types, rather than pointing to a FHIR datatype, the element will be defined as having a datatype defined by [FHIRPath].
-		E.g. <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a>. This occurs when the generic behavior of the FHIR primitive type is not desired
-		(e.g. inheriting extension, id, etc.). Implementations should map these FHIRPath datatypes to the appropriate simple datatype defined in their implementation language.
+		e.g., <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a>. This occurs when the generic behavior of the FHIR primitive type is not desired
+		(e.g., inheriting extension, id, etc.). Implementations should map these FHIRPath datatypes to the appropriate simple datatype defined in their implementation language.
 		For example, in Java, FHIRPath System.String might best map to the `java.lang.String` class.</li>
 		<li>In addition, when an element has a datatype of <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a> then it will typically also include a
 		<a href="[%extensions-location%]StructureDefinition-structuredefinition-fhir-type.html">structuredefinition-fhir-type</a> extension. This extension might further constrain the allowed value of an element that might be treated as a string.
@@ -430,8 +430,8 @@ same path must conform.
 	Elements that allow a choice of multiple types can be constrained. In principle, there are two different types of constraints to apply:
 </p>
 <ul>
- <li>A constraint that applies to the element as a whole - e.g. as restricting the cardinality, or limiting the choice of types</li>
- <li>A constraint that applies to the use of a particular type - e.g. value set binding</li>
+ <li>A constraint that applies to the element as a whole - e.g., as restricting the cardinality, or limiting the choice of types</li>
+ <li>A constraint that applies to the use of a particular type - e.g., value set binding</li>
 </ul>
 <p>
  When constraining elements with multiple types, the following rules apply:
@@ -528,7 +528,7 @@ For further discussion regarding populating primitive values, see <a href="excha
 </p>
 <ul>
 		<li>The value must be known by all implementations</li>
-		<li>When an element has a default value, it can never be unknown - e.g. it is implicitly mandatory</li>
+		<li>When an element has a default value, it can never be unknown - e.g., it is implicitly mandatory</li>
 		<li>The default value can never be changed</li>
 		<li>The presence of a default value interacts with minimum cardinality and the <a href="search.html#modifiers">:missing search token</a> in ways that create confusion for implementations</li>
 </ul>

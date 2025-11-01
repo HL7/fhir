@@ -66,8 +66,8 @@
   <differential>
     <element id="DeviceAssociation">
       <path value="DeviceAssociation"/>
-      <short value="A record of association or dissociation of a device with a subject (e.g. patient) and/or operator"/>
-      <definition value="A record of association or dissociation of a device with a subject (e.g. patient) and/or operator."/>
+      <short value="A record of association or dissociation of a device with a subject (e.g., patient) and/or operator"/>
+      <definition value="A record of association or dissociation of a device with a subject (e.g., patient) and/or operator."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

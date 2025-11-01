@@ -72,7 +72,7 @@ The JSON format is similar to the XML format:
  <li>There are no namespaces in the JSON representation</li>
  <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property <code>resourceType</code></li>
  <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
- <li>JSON does not have a notion of attributes versus elements, so attributes (e.g. <code>id</code>, <code>value</code>) are handled differently (see below)</li>
+ <li>JSON does not have a notion of attributes versus elements, so attributes (e.g., <code>id</code>, <code>value</code>) are handled differently (see below)</li>
  <li>JSON has the array notation, which is used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
  <li>The XHTML <code>&lt;div&gt;</code> element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
  <li>For strings, leading and trailing whitespace is expected to be preserved in JSON. This difference is driven by XML Schema behavior</li>

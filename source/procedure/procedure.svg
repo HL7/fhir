@@ -224,7 +224,7 @@
        class="diagram-class-detail"><a
    id="n932"
    xlink:href="procedure-definitions.html#Procedure.category"><title
-   id="title91972">A code that classifies the procedure for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)</title>category</a> : <a
+   id="title91972">A code that classifies the procedure for searching, sorting and display purposes (e.g., &quot;Surgical Procedure&quot;)</title>category</a> : <a
    id="n933"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n934"
@@ -238,7 +238,7 @@
        class="diagram-class-detail"><a
    id="n942"
    xlink:href="procedure-definitions.html#Procedure.code"><title
-   id="title91979">The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. &quot;Laparoscopic Appendectomy&quot;)</title>code</a> : <a
+   id="title91979">The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g., &quot;Laparoscopic Appendectomy&quot;)</title>code</a> : <a
    id="n943"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n944"
@@ -281,7 +281,7 @@
        class="diagram-class-detail"><a
    id="n972"
    xlink:href="procedure-definitions.html#Procedure.focus"><title
-   id="title91998">Who is the target of the procedure when it is not the subject of record only.  If focus is not present, then subject is the focus.  If focus is present and the subject is one of the targets of the procedure, include subject as a focus as well. If focus is present and the subject is not included in focus, it implies that the procedure was only targeted on the focus. For example, when a caregiver is given education for a patient, the caregiver would be the focus and the procedure record is associated with the subject (e.g. patient).  For example, use focus when recording the target of the education, training, or counseling is the parent or relative of a patient</title>focus</a> : <a
+   id="title91998">Who is the target of the procedure when it is not the subject of record only.  If focus is not present, then subject is the focus.  If focus is present and the subject is one of the targets of the procedure, include subject as a focus as well. If focus is present and the subject is not included in focus, it implies that the procedure was only targeted on the focus. For example, when a caregiver is given education for a patient, the caregiver would be the focus and the procedure record is associated with the subject (e.g., patient).  For example, use focus when recording the target of the education, training, or counseling is the parent or relative of a patient</title>focus</a> : <a
    id="n973"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n974"
@@ -423,7 +423,7 @@
        class="diagram-class-detail"><a
    id="n1068"
    xlink:href="procedure-definitions.html#Procedure.location"><title
-   id="title92058">The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant</title>location</a> : <a
+   id="title92058">The location where the procedure actually happened.  e.g., a newborn at home, a tracheostomy at a restaurant</title>location</a> : <a
    id="n1069"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n1070"
@@ -466,7 +466,7 @@
        class="diagram-class-detail"><a
    id="n1098"
    xlink:href="procedure-definitions.html#Procedure.bodySite"><title
-   id="title92077">Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion</title>bodySite</a> : <a
+   id="title92077">Detailed and structured anatomical location information. Multiple locations are allowed - e.g., multiple punch biopsies of a lesion</title>bodySite</a> : <a
    id="n1099"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n1100"
@@ -541,7 +541,7 @@
        class="diagram-class-detail"><a
    id="n1148"
    xlink:href="procedure-definitions.html#Procedure.followUp"><title
-   id="title92110">If the procedure required specific follow up - e.g. removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used</title>followUp</a> : <a
+   id="title92110">If the procedure required specific follow up - e.g., removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used</title>followUp</a> : <a
    id="n1149"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n1150"

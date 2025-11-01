@@ -137,7 +137,7 @@
        class="diagram-class-detail"><a
    id="n3780"
    xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.type"><title
-   id="title74249">The category of claim, e.g. oral, pharmacy, vision, institutional, professional</title>type</a> : <a
+   id="title74249">The category of claim, e.g., oral, pharmacy, vision, institutional, professional</title>type</a> : <a
    id="n3781"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n3782"
@@ -1723,7 +1723,7 @@
        class="diagram-class-detail"><a
    id="n4641"
    xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.bodySite.subSite"><title
-   id="title74885">A region or surface of the bodySite, e.g. limb region or tooth surface(s)</title>subSite</a> : <a
+   id="title74885">A region or surface of the bodySite, e.g., limb region or tooth surface(s)</title>subSite</a> : <a
    id="n4642"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n4643"
@@ -2698,7 +2698,7 @@
        class="diagram-class-detail"><a
    id="n5169"
    xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.bodySite.subSite"><title
-   id="title75294">A region or surface of the bodySite, e.g. limb region or tooth surface(s)</title>subSite</a> : <a
+   id="title75294">A region or surface of the bodySite, e.g., limb region or tooth surface(s)</title>subSite</a> : <a
    id="n5170"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n5171"

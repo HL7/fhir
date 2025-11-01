@@ -6,7 +6,7 @@
   <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
   <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels. Note that the values in Bundle.meta.security will generally be influenced by the meta.security values of the entries within the Bundle; see http://hl7.org/fhir/security.html</li>
   <li>Although there are no extensions on the Bundle itself, <code>link</code>, <code>entry</code>, and <code>search</code>/<code>request</code>/<code>response</code> can all have extensions. See <a href="patient.html#match">Patient</a> and <a href="location.html#positional">Location</a> for examples on search</li>
-  <li>Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
+  <li>Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g., <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
     Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was <a href="http.html#read">read</a> directly.
     This specification defines some specific uses of Bundle.link for <a href="search.html#conformance">searching</a> and <a href="http.html#paging">paging</a>, but no specific uses for Bundle.entry.link, and no defined function in a transaction - meaning is implementation specific</li>
   <li>Bundles have both .id and .identifier - see <a href="resource.html#id">Resource Identities</a> for further information</li>  
@@ -106,7 +106,7 @@ For each entry, a search set can also contain two specific pieces of search rela
 information:
 </p>
 <ul>
- <li><a href="bundle-definitions.html#Bundle.entry.search.mode">search.mode</a>: An indication of whether the resource is in the search set because it matched the search criteria or whether it is included because another resource refers to it (e.g. by the <a href="search.html#include">_include</a> parameter)</li>
+ <li><a href="bundle-definitions.html#Bundle.entry.search.mode">search.mode</a>: An indication of whether the resource is in the search set because it matched the search criteria or whether it is included because another resource refers to it (e.g., by the <a href="search.html#include">_include</a> parameter)</li>
  <li><a href="bundle-definitions.html#Bundle.entry.search.score">search.score</a>: The server's search ranking score for the entry. Servers are not required to return a ranking score, but if they do, 1 is most relevant, and 0 is least relevant. Note: often, search results are sorted by score, but the client may specify a different sort order (see <a href="search.html#score">Search Relevance</a>)</li>
 </ul>
 
@@ -200,7 +200,7 @@ Provenance.
 <p>
 Note that the meaning of an unversioned reference to a resource that appears multiple times 
 is potentially ambiguous, though processors may have additional information to help resolve 
-this (e.g. change order in a history bundle).
+this (e.g., change order in a history bundle).
 </p>
 <p>
 When processing batches and transactions, it is at server discretion how to behave if multiple
@@ -214,7 +214,7 @@ versions of a single resource are present.
 
 <p>
 The <code>Bundle</code> resource is a packaging construct that has one of more entries that 
-are other kinds of resources. Those resources themselves have references to other resources - e.g. 
+are other kinds of resources. Those resources themselves have references to other resources - e.g., 
 an Observation that refers to a Patient. The referenced resources may also be found
 in the Bundle. For example, the system that constructed the Bundle may have included both
 the Observation and the Patient. The content of the references between resources doesn't 
@@ -250,7 +250,7 @@ How to resolve a reference in a Bundle:
     "https://fhir.example.org/base/Patient/123",
     "https://fhir.example.org/base/Patient/123/_history/a"):</p>
   <ul>
-    <li>If the reference.value is versionless (i.e. it has no "/_history/" path segment - e.g.
+    <li>If the reference.reference is versionless (i.e., it has no "/_history/" path segment - e.g.
       "https://fhir.example.org/base/Patient/123"): <ul>
         <li>Look for an entry with a fullUrl that matches the reference.value</li>
         <li>If one is found, the resolution succeeds (and ends) here</li>
@@ -260,14 +260,14 @@ How to resolve a reference in a Bundle:
       </ul></li>
     <li>If the reference.value includes a "_history" path segment (e.g.
       "https://fhir.example.org/base/Patient/123/_history/a"), split the value into two parts: a
-      versionless reference (e.g. "https://fhir.example.org/base/Patient/123" and a version id (e.g.
+      versionless reference (e.g., "https://fhir.example.org/base/Patient/123" and a version id (e.g.
       "a") <ul>
         <li>Look for an entry with a fullUrl that matches the versionless reference and a
           resource.meta.versionId that matches the reference's version id.</li>
         <li>If a single record is found, the resolution succeeds (and ends) here.</li>
         <li>If multiple records are found, it is an error.</li>
       </ul></li>
-    <li>Optionally, attempt to resolve the URI if possible (e.g. by issuing a FHIR [read] on an
+    <li>Optionally, attempt to resolve the URI if possible (e.g., by issuing a FHIR [read] on an
       https URL if not version-specific or a [vread] it the URL is version-specific). <ul>
         <li>If found, the resolution succeeds (and ends) here.</li>
         <li>Otherwise, the resolution fails (and ends) here. The reference has no defined meaning
@@ -310,7 +310,7 @@ How to resolve a reference in a Bundle:
   <p><b>Resolving other references.</b> If the rules above do not apply, the resolution fails (and
     ends) here. The reference has no defined meaning within this specification.</p>
   <p>Note that the rules for resolving references in contained resources are the same as those for
-    resolving references in the resource that contains the contained resource. I.e. the fullUrl of
+    resolving references in the resource that contains the contained resource. i.e., the fullUrl of
     the containing resource is used when determining the base for relative references, etc.</p>
   <p>Several portions of this algorithm are dependent on on the presence of Bundle.entry.fullUrl. In
     instances where references might be resolved within a Bundle but entries do not have fullURLs,
@@ -333,7 +333,7 @@ There is an <a href="bundle-references.html">example Bundle that demonstrates</a
 <p>
 The Bundle resource type has an end-point like all most other resources. This 
 end-point serves the <a href="http.html#interactions">usual interactions</a>.
-Bundles are treated as static resources on the /Bundle end-point (i.e. when a
+Bundles are treated as static resources on the /Bundle end-point (i.e., when a
 batch, transaction, or message is POSTed to /Bundle, it is stored as is, and 
 the content is not processed as batch, transaction, or message - instead, they
 are processed like normal resource, with indexing / auditing etc. Performing a 
@@ -352,7 +352,7 @@ which allow for chained search into the first (special) entries in document and 
 </p>
 
 [%stu-note dstu%]
-If an element marked as 'summary' is itself a nested resource (i.e. type is Resource), 
+If an element marked as 'summary' is itself a nested resource (i.e., type is Resource), 
 then the expectation is that the conveyed resource will also be expressed in its summary form.  
 The typical place this applies is Bundle.entry.resource. This statement is left as STU because 
 there is not yet significant implementer experience on its ramifications.

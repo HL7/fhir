@@ -167,7 +167,7 @@
       <short value="Part of referenced event"/>
       <definition value="A larger event of which this particular event is a component or step."/>
       <comment value="Not to be used to link an event to an Encounter - use Event.context for that.&#xD;&#xD;[The allowed reference resources may be adjusted as appropriate for the event resource]."/>
-      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc."/>
+      <requirements value="e.g., Drug administration as part of a procedure, procedure as part of observation, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -343,7 +343,7 @@
     <element id="Transport.encounter">
       <path value="Transport.encounter"/>
       <short value="Healthcare event during which this transport originated"/>
-      <definition value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this transport was created."/>
+      <definition value="The healthcare event  (e.g., a patient and healthcare provider interaction) during which this transport was created."/>
       <requirements value="For some transports it may be important to know the link between the encounter the transport originated within."/>
       <min value="0"/>
       <max value="1"/>
@@ -465,7 +465,7 @@
       <path value="Transport.location"/>
       <short value="Where transport occurs"/>
       <definition value="Principal physical location where this transport is performed."/>
-      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g., if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -593,7 +593,7 @@
           <valueString value="TransportReason"/>
         </extension>
         <strength value="example"/>
-        <description value="Indicates why the transport is needed.  E.g. Suspended because patient admitted to hospital."/>
+        <description value="Indicates why the transport is needed.  e.g., Suspended because patient admitted to hospital."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/transport-reason"/>
       </binding>
       <mapping>

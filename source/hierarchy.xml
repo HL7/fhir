@@ -15,7 +15,7 @@ signatures.html
       -->
 <fhir>
   <page title="Home" note="(map + search) - focus on useful links" filename="index.html">
-    <!-- indexing content, not owned by any particular module  (e.g. owned by the product director) -->
+    <!-- indexing content, not owned by any particular module  (e.g., owned by the product director) -->
     <page title="Table of Contents" filename="toc.html" icon="index.png">
       <page title="Resources" filename="resourcelist.html"/>
       <page title="Patterns" filename="patterns.html"/>

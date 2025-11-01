@@ -10,7 +10,7 @@ Using the same framework means that the existing servers, security arrangements,
 can handle additional related content. Typically, Binary resources are used for handling content such as:
 </p>
 <ul>
- <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> Documents (i.e. with XDS)</li>
+ <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> Documents (i.e., with XDS)</li>
  <li>PDF Documents</li>
  <li>Images</li>
 </ul>

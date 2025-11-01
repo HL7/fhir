@@ -61,7 +61,7 @@ In XML, this looks like:
 
 <p>The FHIR specification does not define <a href="searchparameter.html">SearchParameters</a> for most of the standard extensions we publish and obviously cannot define SearchParameters for extensions developed by implementers outside the core FHIR specification.  However, implementers are free to define their own SearchParameters for any extensions they make use of and servers are free to support SearchParameters above and beyond those published as part of the FHIR core specification.  There are no formal naming rules for extension-based search parameters.  Authors <strong>SHOULD</strong> name the search parameters in such a way that the linkage between the extension name and the search parameter is obvious.</p>
 
-<p>The expression for the search parameter would typically end with <code>extension('http://yourextensionurlhere').value</code>.  The expression would also need to provide a path to the extension, including handling situations where an extension appears on multiple paths if necessary.  Additional constraints could also be added if necessary (e.g. <code>.exists()</code>, <code>=true</code>, etc.)</p>
+<p>The expression for the search parameter would typically end with <code>extension('http://yourextensionurlhere').value</code>.  The expression would also need to provide a path to the extension, including handling situations where an extension appears on multiple paths if necessary.  Additional constraints could also be added if necessary (e.g., <code>.exists()</code>, <code>=true</code>, etc.)</p>
 
 </div>
 </div>

@@ -148,7 +148,7 @@
        class="diagram-class-detail"><a
    id="n599"
    xlink:href="composition-definitions.html#Composition.type"><title
-   id="title874">Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition</title>type</a> : <a
+   id="title874">Specifies the particular kind of composition (e.g., History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition</title>type</a> : <a
    id="n600"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n601"
@@ -176,7 +176,7 @@
        class="diagram-class-detail"><a
    id="n617"
    xlink:href="composition-definitions.html#Composition.subject"><title
-   id="title889">Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)</title>subject</a> : <a
+   id="title889">Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g., a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)</title>subject</a> : <a
    id="n618"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n619"

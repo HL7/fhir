@@ -108,7 +108,7 @@
           <valueString value="RegulatedAuthorization.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/RegulatedAuthorization-status"/>
-        <description value="The status that is authorised e.g. approved. Intermediate states can be tracked with cases and applications"/>
+        <description value="The status that is authorised e.g., approved. Intermediate states can be tracked with cases and applications"/>
         <code value="status"/>
         <type value="token"/>
         <expression value="RegulatedAuthorization.status"/>

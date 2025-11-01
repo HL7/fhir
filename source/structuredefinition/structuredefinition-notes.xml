@@ -143,7 +143,7 @@ This list shows a number of examples, with links to real examples for each:
  </li>
 
 
- <li>A base abstract Resource (see e.g. <a href="resource.html">Resource</a>): <br/>
+ <li>A base abstract Resource (see e.g., <a href="resource.html">Resource</a>): <br/>
 <pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
@@ -156,7 +156,7 @@ This list shows a number of examples, with links to real examples for each:
 }
 </pre>
  </li>
- <li>An interface defined in the base specification (see e.g. <a href="canonicalresource.html">CanonicalResource</a>): <br/>
+ <li>An interface defined in the base specification (see e.g., <a href="canonicalresource.html">CanonicalResource</a>): <br/>
 <pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
@@ -169,7 +169,7 @@ This list shows a number of examples, with links to real examples for each:
 }
 </pre>
  </li>
-<li>A logical model (see e.g. <a href="definition.html">Definition</a>): <br/>
+<li>A logical model (see e.g., <a href="definition.html">Definition</a>): <br/>
 <pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",
@@ -218,7 +218,7 @@ This technique has many uses:
 </p>
 <ul>
  <li>Describing any arbitrary content model</li>
- <li>Describing existing HL7 content models (e.g. v2, CDA) using FHIR</li>
+ <li>Describing existing HL7 content models (e.g., v2, CDA) using FHIR</li>
  <li>Describing common design patterns used in FHIR</li>
  <li>Defining a content model to support the mapping language</li>
 </ul>

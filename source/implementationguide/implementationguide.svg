@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n957"
    xlink:href="implementationguide-definitions.html#ImplementationGuide.version"><title
-   id="title5007">The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title5007">The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n958"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -313,7 +313,7 @@
        class="diagram-class-detail"><a
    id="n1067"
    xlink:href="implementationguide-definitions.html#ImplementationGuide.copyrightLabel"><title
-   id="title5090">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title5090">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1068"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -349,7 +349,7 @@
        class="diagram-class-detail"><a
    id="n1089"
    xlink:href="implementationguide-definitions.html#ImplementationGuide.fhirVersion"><title
-   id="title5107">The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.6.0. for this version</title>fhirVersion</a> : <a
+   id="title5107">The version(s) of the FHIR specification that this ImplementationGuide targets - e.g., describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g., [publication].[major].[minor], which is 4.6.0. for this version</title>fhirVersion</a> : <a
    id="n1090"
    xlink:href="datatypes.html#code">code</a> [1..*] « <a
    id="n1091"
@@ -624,7 +624,7 @@
        class="diagram-class-detail"><a
    id="n1196"
    xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource.name"><title
-   id="title5195">A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)</title>name</a> : <a
+   id="title5195">A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g., ValueSet.name)</title>name</a> : <a
    id="n1197"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -930,7 +930,7 @@
        class="diagram-class-detail"><a
    id="n1332"
    xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.other"><title
-   id="title5305">Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g. zip, jar and similar files that could be the target of a hyperlink in a derived IG</title>other</a> : <a
+   id="title5305">Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g., zip, jar and similar files that could be the target of a hyperlink in a derived IG</title>other</a> : <a
    id="n1333"
    xlink:href="datatypes.html#string">string</a> [0..*]</text>
   </g>

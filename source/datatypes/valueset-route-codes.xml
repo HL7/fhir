@@ -24,7 +24,7 @@
       <p>SNOMED CT is being used here as the example terminology.</p>
       
       <p>Note: to avoid confusion with other attributes in this resource concepts that are pre-coordinated with method and/or site of administration 
-      (e.g. &quot;intravenous infusion&quot; where &quot;infusion&quot; is the method or &quot;IV into left subclavian vein&quot; where &quot;left subclavian vein&quot; is the site) 
+      (e.g., &quot;intravenous infusion&quot; where &quot;infusion&quot; is the method or &quot;IV into left subclavian vein&quot; where &quot;left subclavian vein&quot; is the site) 
       should not be used in this value set.
       </p>
       

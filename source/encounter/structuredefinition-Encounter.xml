@@ -236,7 +236,7 @@
     </element>
     <element id="Encounter.class">
       <path value="Encounter.class"/>
-      <short value="Classification of patient encounter context - e.g. Inpatient, outpatient"/>
+      <short value="Classification of patient encounter context - e.g., Inpatient, outpatient"/>
       <definition value="Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations."/>
       <min value="0"/>
       <max value="*"/>
@@ -297,8 +297,8 @@
     </element>
     <element id="Encounter.type">
       <path value="Encounter.type"/>
-      <short value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, ...)"/>
-      <definition value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."/>
+      <short value="Specific type of encounter (e.g., e-mail consultation, surgical day-care, ...)"/>
+      <definition value="Specific type of encounter (e.g., e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."/>
       <comment value="Since there are many ways to further classify encounters, this element is 0..*."/>
       <min value="0"/>
       <max value="*"/>
@@ -337,7 +337,7 @@
     <element id="Encounter.serviceType">
       <path value="Encounter.serviceType"/>
       <short value="Specific type of service"/>
-      <definition value="Broad categorization of the service that is to be provided (e.g. cardiology)."/>
+      <definition value="Broad categorization of the service that is to be provided (e.g., cardiology)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -443,7 +443,7 @@
     <element id="Encounter.basedOn">
       <path value="Encounter.basedOn"/>
       <short value="The request that initiated this encounter"/>
-      <definition value="The request this encounter satisfies (e.g. incoming referral or procedure request)."/>
+      <definition value="The request this encounter satisfies (e.g., incoming referral or procedure request)."/>
       <alias value="incomingReferral"/>
       <min value="0"/>
       <max value="*"/>
@@ -568,7 +568,7 @@
       <path value="Encounter.participant.type"/>
       <short value="Role of participant in encounter"/>
       <definition value="Role of participant in encounter."/>
-      <comment value="The participant type indicates how an individual actor participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc."/>
+      <comment value="The participant type indicates how an individual actor participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g., Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -679,7 +679,7 @@
     </element>
     <element id="Encounter.virtualService">
       <path value="Encounter.virtualService"/>
-      <short value="Connection details of a virtual service (e.g. conference call)"/>
+      <short value="Connection details of a virtual service (e.g., conference call)"/>
       <comment value="There are two types of virtual meetings that often exist:&#xD;&#xD;* a persistent, virtual meeting room that can only be used for a single purpose at a time, &#xD;* and a dynamic virtual meeting room that is generated on demand for a specific purpose.&#xD;&#xD;Implementers may consider using Location.virtualService for persistent meeting rooms.&#xD;&#xD;If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Encounter.participant BackboneElement."/>
       <min value="0"/>
       <max value="*"/>
@@ -750,7 +750,7 @@
       <path value="Encounter.length"/>
       <short value="Actual quantity of time the encounter lasted (less time absent)"/>
       <definition value="Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.&#xD;&#xD;When missing it is the time in between the start and end values."/>
-      <comment value="If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.&#xD;&#xD;May differ from the time in `Encounter.period` due to leave of absence(s)."/>
+      <comment value="If the precision on these values is low (e.g., to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.&#xD;&#xD;May differ from the time in `Encounter.period` due to leave of absence(s)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -787,7 +787,7 @@
     <element id="Encounter.reason.use">
       <path value="Encounter.reason.use"/>
       <short value="What the reason value should be used for/as"/>
-      <definition value="What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening)."/>
+      <definition value="What the reason value should be used as e.g., Chief Complaint, Health Concern, Health Maintenance (including screening)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -903,8 +903,8 @@
     </element>
     <element id="Encounter.diagnosis.use">
       <path value="Encounter.diagnosis.use"/>
-      <short value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)"/>
-      <definition value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)."/>
+      <short value="Role that this diagnosis has within the encounter (e.g., admission, billing, discharge …)"/>
+      <definition value="Role that this diagnosis has within the encounter (e.g., admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

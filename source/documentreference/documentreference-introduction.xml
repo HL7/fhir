@@ -13,7 +13,7 @@ Typically, <code>DocumentReference</code> resources are used in document indexin
     <code>DocumentReference</code> contains metadata, inline content or direct references to documents such as:</p>
 <ul>
  <li><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> documents in FHIR systems</li>
- <li><a href="documents.html">FHIR documents</a> stored elsewhere (i.e. registry/repository following the XDS model)</li>
+ <li><a href="documents.html">FHIR documents</a> stored elsewhere (i.e., registry/repository following the XDS model)</li>
  <li><a href="http://en.wikipedia.org/wiki/Portable_Document_Format">PDF documents</a>, Scanned Paper, and digital records of faxes</li>
  <li>Clinical Notes in various forms</li>
  <li>Image files (e.g., JPEG, GIF, TIFF)</li>
@@ -28,7 +28,7 @@ Typically, <code>DocumentReference</code> resources are used in document indexin
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource captures data that might not be in FHIR format. The document can be any object (e.g. file), 
+This resource captures data that might not be in FHIR format. The document can be any object (e.g., file), 
 and is not limited to the formal HL7 definitions of <a href="documents.html">Document</a>. This resource may be a report with 
 unstructured text or a report that is not expressed in a <a href="diagnosticreport.html">DiagnosticReport</a>. The <a href="diagnosticreport.html">DiagnosticReport</a> is appropriate to reflect a 
 set of discrete results (Observations) and associated contextual details for a specific report, and within those results any 

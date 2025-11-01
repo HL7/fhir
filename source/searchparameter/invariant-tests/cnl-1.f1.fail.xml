@@ -18,7 +18,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Search by resource identifier - e.g. same as the read interaction, but can return included resources"/>
+  <description value="Search by resource identifier - e.g., same as the read interaction, but can return included resources"/>
   <useContext>
     <code>
       <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>

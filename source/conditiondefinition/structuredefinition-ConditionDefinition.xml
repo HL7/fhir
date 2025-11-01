@@ -141,7 +141,7 @@
 		<element id="ConditionDefinition.version">
 			<path value="ConditionDefinition.version"/>
 			<short value="Business version of the condition definition"/>
-			<definition value="The identifier that is used to identify this version of the condition definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the condition definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<definition value="The identifier that is used to identify this version of the condition definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the condition definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
 			<comment value="There may be different condition definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the condition definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -315,7 +315,7 @@
 			<path value="ConditionDefinition.description"/>
 			<short value="Natural language description of the condition definition"/>
 			<definition value="A free text natural language description of the condition definition from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the condition definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the condition definition is presumed to be the predominant language in the place the condition definition was created)."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the condition definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g., the language of the condition definition is presumed to be the predominant language in the place the condition definition was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -339,7 +339,7 @@
 			<path value="ConditionDefinition.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the condition definition (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the condition definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the condition definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -402,7 +402,7 @@
 			<path value="ConditionDefinition.bodySite"/>
 			<short value="Anatomical location, if relevant"/>
 			<definition value="The anatomical location where this condition manifests itself."/>
-			<comment value="Only used if not implicit in code found in ConditionDefinition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+			<comment value="Only used if not implicit in code found in ConditionDefinition.code. If the use case requires attributes from the BodySite resource (e.g., to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -436,7 +436,7 @@
 					<valueString value="ConditionStage"/>
 				</extension>
 				<strength value="example"/>
-				<description value="Codes describing condition stages (e.g. Cancer stages)."/>
+				<description value="Codes describing condition stages (e.g., Cancer stages)."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/condition-stage"/>
 			</binding>
 		</element>

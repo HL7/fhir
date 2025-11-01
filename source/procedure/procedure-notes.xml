@@ -5,17 +5,17 @@
 </h3>
 <p>
     Many of the elements of Procedure have inherent relationships and may be conveyed  by the Procedure.code or in the text element 
-    of the Procedure.code property. I.e. you may be able to infer category, bodySite and even indication. 
+    of the Procedure.code property. i.e., you may be able to infer category, bodySite and even indication. 
     Whether these other properties will be populated may vary by implementation. 
 </p>
 <p>    
-    Care should be taken to avoid nonsensical combinations/statements; e.g. "name=amputation, bodySite=heart".
+    Care should be taken to avoid nonsensical combinations/statements; e.g., "name=amputation, bodySite=heart".
 </p>
 <p>
 Sometimes a complex procedure may consist of several subordinate procedures. In these cases, the list of procedures may be unwieldy for those attempting to view a procedure list. Two properties support ways of filtering and selecting procedures: the partOf property, which associates subordinate procedures to their containing procedures, and could be used to filter out those with partOf values in a higher-level list, and the category, which could be use to flag procedures that are, e.g., billable.
 </p>
 <p>
-There are other activities that may be captured by an EHR that might not be of value to other providers (e.g. shaving, anesthesia, time admitted to recovery, etc.). The boundary between these classes may vary and is up to the judgment of the implementer. An option for capturing information of potential value that doesn't merit the name "procedure" is to use the note property.
+There are other activities that may be captured by an EHR that might not be of value to other providers (e.g., shaving, anesthesia, time admitted to recovery, etc.). The boundary between these classes may vary and is up to the judgment of the implementer. An option for capturing information of potential value that doesn't merit the name "procedure" is to use the note property.
 </p>
 
 <h3>

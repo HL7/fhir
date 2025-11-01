@@ -94,7 +94,7 @@ capture it if needed.
 <p>
 To keep the number of resources reasonable, some of them are fairly broad.  For example, the <a href="observation.html">Observation</a>
 resource is used for vital signs, lab results, psychological assessments and a variety of other things.  To support setting rules
-for more narrow areas (e.g. "<i>What should I send if I want to share a blood pressure?</i>"), FHIR allows the creation of
+for more narrow areas (e.g., "<i>What should I send if I want to share a blood pressure?</i>"), FHIR allows the creation of
 Profiles.  There will be a great deal of clinical work involved in forming consensus around how different types of
 detailed clinical information should be captured and shared in particular settings.  Tooling to support the creation
 of profiles directly by clinicians is part of the plan for FHIR, but is still in the very early stages.
@@ -103,7 +103,7 @@ of profiles directly by clinicians is part of the plan for FHIR, but is still in
 <a name="Narrative"></a>
 <h3>Narrative</h3>
 <p>
-FHIR is intended to support sharing data in a computable manner.  I.e. The information shared should be usable for computer-mediated processes such as decision support, rules triggering, trend analysis, etc.  However, not every system is
+FHIR is intended to support sharing data in a computable manner.  i.e., The information shared should be usable for computer-mediated processes such as decision support, rules triggering, trend analysis, etc.  However, not every system is
 the same and not all systems are able to recognize all discrete data.  Also, there is still considerable value in data exchange
 in circumstances where not all or even none of that data is captured in a discrete manner.  For this reason, FHIR resources
 support sharing not only discrete data for computation, but also a human-readable view so that the humans
@@ -221,7 +221,7 @@ contents of the message exactly as received, if at all.
 Services can be thought of as a light-weight way of doing messaging.  Rather than a full cover page, a small sticky
 note is attached to the front of a resource.  And sometimes rather than sending a full piece of paper, the relevant
 pieces are cut out and sent as fragments.  The response to a requisition is a similarly paper-clipped bundle of resource
-instances.  Services are likely to be used for things like decision support. E.g. "<i>Is there a problem with prescribing medication
+instances.  Services are likely to be used for things like decision support. e.g., "<i>Is there a problem with prescribing medication
 X for patient Y?</i>" or "<i>What's the recommended care plan for a patient with conditions A, B and C?</i>"
 </p>
 

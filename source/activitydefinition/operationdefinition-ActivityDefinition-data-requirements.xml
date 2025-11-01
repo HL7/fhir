@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the activity definition. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the activity definition and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)"/>
+    <valueMarkdown value="The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the activity definition. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the activity definition and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e., by collapsing overlapping data requirements)"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/ActivityDefinition-data-requirements"/>
   <version value="6.0.0"/>
@@ -57,7 +57,7 @@
   <description value="The data-requirements operation aggregates and returns the parameters and data requirements for the activity definition and all its dependencies as a single module definition library"/>
   <affectsState value="false"/>
   <code value="data-requirements"/>
-  <comment value="The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the activity definition. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the activity definition and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e. by collapsing overlapping data requirements)"/>
+  <comment value="The effect of invoking this operation is to determine the aggregate set of data requirements and dependencies for the activity definition. The result is a Library resource with a type of module-definition that contains all the parameter definitions and data requirements of the activity definition and any libraries referenced by it. Implementations SHOULD aggregate data requirements intelligently (i.e., by collapsing overlapping data requirements)"/>
   <resource value="ActivityDefinition"/>
   <system value="false"/>
   <type value="false"/>

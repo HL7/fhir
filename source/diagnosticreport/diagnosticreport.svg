@@ -153,7 +153,7 @@
        class="diagram-class-detail"><a
    id="n556"
    xlink:href="diagnosticreport-definitions.html#DiagnosticReport.category"><title
-   id="title30287">A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes</title>category</a> : <a
+   id="title30287">A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g., cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes</title>category</a> : <a
    id="n557"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n558"
@@ -222,7 +222,7 @@
        class="diagram-class-detail"><a
    id="n602"
    xlink:href="diagnosticreport-definitions.html#DiagnosticReport.encounter"><title
-   id="title30318">The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about</title>encounter</a> : <a
+   id="title30318">The healthcare event  (e.g., a patient and healthcare provider interaction) which this DiagnosticReport is about</title>encounter</a> : <a
    id="n603"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n604"
@@ -591,7 +591,7 @@
      class="diagram-class-linkage"><a
        id="n783"
        xlink:href="diagnosticreport-definitions.html#DiagnosticReport.media"><title
-   id="title30455">A list of key images or data associated with this report. The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e. slides of interest)</title>media</a></text>
+   id="title30455">A list of key images or data associated with this report. The images or data are generally created during the diagnostic process, and may be directly of the patient, or of treated specimens (i.e., slides of interest)</title>media</a></text>
   <text
      id="n784"
      x="380.0"

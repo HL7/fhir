@@ -8,7 +8,7 @@
 		<p>This is a definitional resource describing types of substances, to a varying degree of specificity. 
 			It can cover the substance in the abstract (properties that this substance always has), 
 			or a particular variety of it, such as one manufacturer's version, 
-			or a certain presentation (e.g. "granulated"). 
+			or a certain presentation (e.g., "granulated"). 
 			However it is always a type and does not represent an actual physical instance of a substance. 
 			By contrast the <a href="substance.html">Substance</a> resource can act as either a concise definition 
 			(a subset of SubstanceDefinition) or as an instance (an actual batch).</p>

@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n917"
    xlink:href="structuremap-definitions.html#StructureMap.version"><title
-   id="title7176">The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title7176">The identifier that is used to identify this version of the structure map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure map author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n918"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -313,7 +313,7 @@
        class="diagram-class-detail"><a
    id="n1027"
    xlink:href="structuremap-definitions.html#StructureMap.copyrightLabel"><title
-   id="title7259">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title7259">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1028"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text

@@ -219,7 +219,7 @@
        class="diagram-class-detail"><a
    id="n971"
    xlink:href="servicerequest-definitions.html#ServiceRequest.category"><title
-   id="title96891">A code that classifies the service for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)</title>category</a> : <a
+   id="title96891">A code that classifies the service for searching, sorting and display purposes (e.g., &quot;Surgical Procedure&quot;)</title>category</a> : <a
    id="n972"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n973"
@@ -486,7 +486,7 @@
        class="diagram-class-detail"><a
    id="n1153"
    xlink:href="servicerequest-definitions.html#ServiceRequest.location"><title
-   id="title97010">The preferred location(s) where the procedure should actually happen in coded or free text form. E.g. at home or nursing day care center</title>location</a> : <a
+   id="title97010">The preferred location(s) where the procedure should actually happen in coded or free text form. e.g., at home or nursing day care center</title>location</a> : <a
    id="n1154"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
    id="n1155"

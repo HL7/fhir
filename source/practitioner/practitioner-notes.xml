@@ -13,7 +13,7 @@ Notes:
     Business idenfitiers may be used in <code>Practitioner.identifier</code> and/or <code>Practitioner.qualification.identifier</code> based on local requirements.<br/>
     The <code>Practitioner.identifier</code> doesn't convey anything about the status of the license (other than period), if this or any additional details are available
     then the <code>qualification.identifier</code> should be used.<br/>
-    E.g. a specific license includes its type, status, issuer and a local category extension for which specialties were included in the license.
+    e.g., a specific license includes its type, status, issuer and a local category extension for which specialties were included in the license.
   </li>
   </ul>
 </div>

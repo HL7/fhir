@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n603"
    xlink:href="conditiondefinition-definitions.html#ConditionDefinition.version"><title
-   id="title27237">The identifier that is used to identify this version of the condition definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the condition definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title27237">The identifier that is used to identify this version of the condition definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the condition definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n604"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text

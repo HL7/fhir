@@ -106,7 +106,7 @@
       <path value="Consent.identifier"/>
       <short value="Identifier for this record (external references)"/>
       <definition value="Unique identifier for this copy of the Consent Statement."/>
-      <comment value="This identifier identifies this copy of the consent. Where this identifier is also used elsewhere as the identifier for a consent record (e.g. a CDA consent document) then the consent details are expected to be the same."/>
+      <comment value="This identifier identifies this copy of the consent. Where this identifier is also used elsewhere as the identifier for a consent record (e.g., a CDA consent document) then the consent details are expected to be the same."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -328,7 +328,7 @@
       <path value="Consent.sourceAttachment"/>
       <short value="Source from which this consent is taken"/>
       <definition value="The source on which this consent statement is based. The source might be a scanned original paper form."/>
-      <comment value="The source can be contained inline (Attachment), referenced directly (Consent), referenced in a consent repository (DocumentReference), or simply by an identifier (Identifier), e.g. a CDA document id."/>
+      <comment value="The source can be contained inline (Attachment), referenced directly (Consent), referenced in a consent repository (DocumentReference), or simply by an identifier (Identifier), e.g., a CDA document id."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -342,8 +342,8 @@
     <element id="Consent.sourceReference">
       <path value="Consent.sourceReference"/>
       <short value="Source from which this consent is taken"/>
-      <definition value="A reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document."/>
-      <comment value="The source can be contained inline (Attachment), referenced directly (Consent), referenced in a consent repository (DocumentReference), or simply by an identifier (Identifier), e.g. a CDA document id."/>
+      <definition value="A reference to a consent that links back to such a source, a reference to a document repository (e.g., XDS) that stores the original consent document."/>
+      <comment value="The source can be contained inline (Attachment), referenced directly (Consent), referenced in a consent repository (DocumentReference), or simply by an identifier (Identifier), e.g., a CDA document id."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -437,7 +437,7 @@
       </extension>
       <path value="Consent.verification"/>
       <short value="Consent Verified by patient or family"/>
-      <definition value="Whether a treatment instruction (e.g. artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person."/>
+      <definition value="Whether a treatment instruction (e.g., artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -588,7 +588,7 @@
       </extension>
       <path value="Consent.provision.actor"/>
       <short value="Who|what controlled by this provision (or group, by role)"/>
-      <definition value="Who or what is controlled by this provision. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')."/>
+      <definition value="Who or what is controlled by this provision. Use group to identify a set of actors by some property they share (e.g., 'admitting officers')."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -617,7 +617,7 @@
     <element id="Consent.provision.actor.reference">
       <path value="Consent.provision.actor.reference"/>
       <short value="Resource for the actor (or group, by role)"/>
-      <definition value="The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers')."/>
+      <definition value="The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g., 'admitting officers')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -657,7 +657,7 @@
       <path value="Consent.provision.securityLabel"/>
       <short value="Security Labels that define affected resources"/>
       <definition value="A security label, comprised of 0..* security label fields (Privacy tags), which define which resources are controlled by this exception."/>
-      <comment value="If the consent specifies a security label of &quot;R&quot; then it applies to all resources that are labeled &quot;R&quot; or lower. E.g. for Confidentiality, it's a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict."/>
+      <comment value="If the consent specifies a security label of &quot;R&quot; then it applies to all resources that are labeled &quot;R&quot; or lower. e.g., for Confidentiality, it's a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -698,7 +698,7 @@
     </element>
     <element id="Consent.provision.documentType">
       <path value="Consent.provision.documentType"/>
-      <short value="e.g. Resource Type, Profile, CDA, etc"/>
+      <short value="e.g., Resource Type, Profile, CDA, etc"/>
       <definition value="The documentType(s) covered by this provision. The type can be a CDA document, or some other type that indicates what sort of information the consent relates to."/>
       <comment value="Multiple types are or'ed together. The intention of the documentType element is that the codes refer to document types defined in a standard somewhere."/>
       <min value="0"/>
@@ -718,7 +718,7 @@
     </element>
     <element id="Consent.provision.resourceType">
       <path value="Consent.provision.resourceType"/>
-      <short value="e.g. Resource Type, Profile, etc"/>
+      <short value="e.g., Resource Type, Profile, etc"/>
       <definition value="The resourceType(s) covered by this provision. The type can be a FHIR resource type or a profile on a type that indicates what information the consent relates to."/>
       <comment value="Multiple types are or'ed together. The intention of the resourceType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere."/>
       <min value="0"/>
@@ -738,7 +738,7 @@
     </element>
     <element id="Consent.provision.code">
       <path value="Consent.provision.code"/>
-      <short value="e.g. LOINC or SNOMED CT code, etc. in the content"/>
+      <short value="e.g., LOINC or SNOMED CT code, etc. in the content"/>
       <definition value="If this code is found in an instance, then the provision applies."/>
       <min value="0"/>
       <max value="*"/>

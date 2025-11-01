@@ -76,7 +76,7 @@
     <concept>
       <code value="invariant"/>
       <display value="Validation rule failed"/>
-      <definition value="A content validation rule failed - e.g. a schematron rule."/>
+      <definition value="A content validation rule failed - e.g., a schematron rule."/>
     </concept>
   </concept>
   <concept>
@@ -112,7 +112,7 @@
   <concept>
     <code value="processing"/>
     <display value="Processing Failure"/>
-    <definition value="Processing issues. These are expected to be final e.g. there is no point resubmitting the same content unchanged."/>
+    <definition value="Processing issues. These are expected to be final e.g., there is no point resubmitting the same content unchanged."/>
     <concept>
       <code value="not-supported"/>
       <display value="Content not supported"/>
@@ -156,7 +156,7 @@
     <concept>
       <code value="too-costly"/>
       <display value="Operation Too Costly"/>
-      <definition value="The operation was stopped to protect server resources; e.g. a request for a value set expansion on all of SNOMED CT."/>
+      <definition value="The operation was stopped to protect server resources; e.g., a request for a value set expansion on all of SNOMED CT."/>
     </concept>
     <concept>
       <code value="business-rule"/>
@@ -166,7 +166,7 @@
     <concept>
       <code value="conflict"/>
       <display value="Edit Version Conflict"/>
-      <definition value="Content could not be accepted because of an edit conflict (i.e. version aware updates). (In a pure RESTful environment, this would be an HTTP 409 error, but this code may be used where the conflict is discovered further into the application architecture.)."/>
+      <definition value="Content could not be accepted because of an edit conflict (i.e., version aware updates). (In a pure RESTful environment, this would be an HTTP 409 error, but this code may be used where the conflict is discovered further into the application architecture.)."/>
     </concept>
     <concept>
       <code value="limited-filter"/>
@@ -186,7 +186,7 @@
     <concept>
       <code value="no-store"/>
       <display value="No Store Available"/>
-      <definition value="The persistent store is unavailable; e.g. the database is down for maintenance or similar action, and the interaction or operation cannot be processed."/>
+      <definition value="The persistent store is unavailable; e.g., the database is down for maintenance or similar action, and the interaction or operation cannot be processed."/>
     </concept>
     <concept>
       <code value="exception"/>

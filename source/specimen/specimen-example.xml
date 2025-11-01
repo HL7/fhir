@@ -8,7 +8,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>-->
 	<identifier>
-		<!-- a specimen identifier - e.g. assigned when the specimen was taken this is often not done -->
+		<!-- a specimen identifier - e.g., assigned when the specimen was taken this is often not done -->
 		<system value="http://ehr.acme.org/identifiers/collections"/>
 		<value value="23234352356"/>
 	</identifier>
@@ -29,7 +29,7 @@
    Type is a loosely defined field because there is such a lot of variation in how it is used.
    The principal variation is how much information that could be represented elsewhere is also
    represented here. For instance, here's some possible types:
-     lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)
+     lithium heparin plasma   (+ .container.additive) (e.g., SNOMED CT 446272009)
      transfusion bag of blood (+ container.type)
      Peritoneal lavage        (+ collection.bodySite)
    If the type includes other fields, it would be normal not to populate the other fields
@@ -56,12 +56,12 @@
 			<reference value="Practitioner/example"/>
 		</collector>
 		<!-- the time of collection is usually required. Usually a point in time, but can be a period
-      (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine) -->
+      (collectedPeriod) if it's a timed collection (e.g., a 24 hour urine) -->
 		<collectedDateTime value="2011-05-30T06:15:00Z"/>
 		<quantity>
 			<value value="6"/>
 			<unit value="mL"/>
-			<!-- e.g. full -->
+			<!-- e.g., full -->
 		</quantity>
 		<!-- method is usually implied by type -->
 		<method>

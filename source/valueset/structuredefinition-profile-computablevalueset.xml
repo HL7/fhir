@@ -31,7 +31,7 @@
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Defines a computable value set as one that SHALL have an expression-based definition (i.e. a value set defined intensionally using expressions of the code systems involved) and MAY have an expansion included. The expression-based definition SHALL be represented in only one of three ways; using the compose element, using the expression extension, or using the rules-text extension to provide a step-by-step process for expanding the value set definition"/>
+  <description value="Defines a computable value set as one that SHALL have an expression-based definition (i.e., a value set defined intensionally using expressions of the code systems involved) and MAY have an expansion included. The expression-based definition SHALL be represented in only one of three ways; using the compose element, using the expression extension, or using the rules-text extension to provide a step-by-step process for expanding the value set definition"/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -74,7 +74,7 @@
       <path value="ValueSet.extension"/>
       <sliceName value="rulesText"/>
       <short value="Human instructions for constructing the valueset"/>
-      <definition value="An expression that provides a definition of the content of the value set in some form that is not computable - e.g. instructions that could only be followed by a human."/>
+      <definition value="An expression that provides a definition of the content of the value set in some form that is not computable - e.g., instructions that could only be followed by a human."/>
       <comment value="Only one of rulesText, expression, or compose SHALL be provided for any given value set instance. Note that to provide a human-readable description of the expression, use the description element of the expression datatype."/>
       <min value="0"/>
       <max value="1"/>

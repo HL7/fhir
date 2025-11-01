@@ -166,7 +166,7 @@
           <valueString value="Account.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Account-type"/>
-        <description value="E.g. patient, expense, depreciation"/>
+        <description value="e.g., patient, expense, depreciation"/>
         <code value="type"/>
         <type value="token"/>
         <expression value="Account.type"/>

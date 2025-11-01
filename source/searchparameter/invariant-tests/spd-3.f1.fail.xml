@@ -10,7 +10,7 @@
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2013-10-23"/>
-  <description value="Search by resource identifier - e.g. same as the read interaction, but can return included resources"/>
+  <description value="Search by resource identifier - e.g., same as the read interaction, but can return included resources"/>
   <purpose value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
   <code value="_id"/>
   <base value="Resource"/>

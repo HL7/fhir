@@ -488,7 +488,7 @@
       <path value="CoverageEligibilityResponse.insurance.item.productOrService"/>
       <short value="Billing, service, product, or drug code"/>
       <definition value="This contains the product, service, drug or other billing code for the item."/>
-      <comment value="Code to indicate the Professional Service or Product supplied (e.g. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI)."/>
+      <comment value="Code to indicate the Professional Service or Product supplied (e.g., CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RxNorm, ACHI, CCI)."/>
       <requirements value="Needed to convey the actual service or product for which eligibility is sought."/>
       <alias value="Drug Code"/>
       <alias value="Bill Code"/>

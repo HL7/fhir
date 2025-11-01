@@ -162,8 +162,8 @@
     </element>
     <element id="Ingredient.role">
       <path value="Ingredient.role"/>
-      <short value="Purpose of the ingredient within the product, e.g. active, inactive"/>
-      <definition value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive."/>
+      <short value="Purpose of the ingredient within the product, e.g., active, inactive"/>
+      <definition value="A classification of the ingredient identifying its purpose within the product, e.g., active, inactive."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -175,7 +175,7 @@
           <valueString value="IngredientRole"/>
         </extension>
         <strength value="example"/>
-        <description value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive."/>
+        <description value="A classification of the ingredient identifying its purpose within the product, e.g., active, inactive."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ingredient-role"/>
       </binding>
       <mapping>
@@ -185,7 +185,7 @@
     </element>
     <element id="Ingredient.function">
       <path value="Ingredient.function"/>
-      <short value="Precise action within the drug product, e.g. antioxidant, alkalizing agent"/>
+      <short value="Precise action within the drug product, e.g., antioxidant, alkalizing agent"/>
       <definition value="A classification of the ingredient identifying its precise purpose(s) in the drug product. This extends the Ingredient.role to add more detail. Example: antioxidant, alkalizing agent."/>
       <min value="0"/>
       <max value="*"/>
@@ -198,7 +198,7 @@
           <valueString value="IngredientFunction"/>
         </extension>
         <strength value="example"/>
-        <description value="A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive)."/>
+        <description value="A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g., active/inactive)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ingredient-function"/>
       </binding>
       <mapping>
@@ -240,8 +240,8 @@
     </element>
     <element id="Ingredient.comment">
       <path value="Ingredient.comment"/>
-      <short value="A place for providing any notes that are relevant to the component, e.g. removed during process, adjusted for loss on drying"/>
-      <definition value="A place for providing any notes that are relevant to the component, e.g. removed during process, adjusted for loss on drying."/>
+      <short value="A place for providing any notes that are relevant to the component, e.g., removed during process, adjusted for loss on drying"/>
+      <definition value="A place for providing any notes that are relevant to the component, e.g., removed during process, adjusted for loss on drying."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -378,7 +378,7 @@
     <element id="Ingredient.substance.strength.presentation[x]">
       <path value="Ingredient.substance.strength.presentation[x]"/>
       <short value="The quantity of substance in the unit of presentation"/>
-      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. Unit of presentation refers to the quantity that the item occurs in e.g. a strength per tablet size, perhaps 'per 20mg' (the size of the tablet). It is not generally normalized as a unitary unit, which would be 'per mg')."/>
+      <definition value="The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. Unit of presentation refers to the quantity that the item occurs in e.g., a strength per tablet size, perhaps 'per 20mg' (the size of the tablet). It is not generally normalized as a unitary unit, which would be 'per mg')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -512,7 +512,7 @@
       </extension>
       <path value="Ingredient.substance.strength.referenceStrength"/>
       <short value="Strength expressed in terms of a reference substance"/>
-      <definition value="Strength expressed in terms of a reference substance. For when the ingredient strength is additionally expressed as equivalent to the strength of some other closely related substance (e.g. salt vs. base). Reference strength represents the strength (quantitative composition) of the active moiety of the active substance. There are situations when the active substance and active moiety are different, therefore both a strength and a reference strength are needed."/>
+      <definition value="Strength expressed in terms of a reference substance. For when the ingredient strength is additionally expressed as equivalent to the strength of some other closely related substance (e.g., salt vs. base). Reference strength represents the strength (quantitative composition) of the active moiety of the active substance. There are situations when the active substance and active moiety are different, therefore both a strength and a reference strength are needed."/>
       <min value="0"/>
       <max value="*"/>
       <type>

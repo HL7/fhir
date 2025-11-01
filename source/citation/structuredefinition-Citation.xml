@@ -146,7 +146,7 @@
     <element id="Citation.version">
       <path value="Citation.version"/>
       <short value="Business version of the citation record"/>
-      <definition value="The identifier that is used to identify this version of the citation record when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation record author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <definition value="The identifier that is used to identify this version of the citation record when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation record author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
       <comment value="This is a business version label used for display in understanding the formal version of the citation record, not a resource version id or technical version number for an archival system. There may be different citation record instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the citation record with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
@@ -322,7 +322,7 @@
       <path value="Citation.description"/>
       <short value="Natural language description of the citation"/>
       <definition value="A free text natural language description of the citation from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the citation as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the citation is presumed to be the predominant language in the place the citation was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the citation as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g., the language of the citation is presumed to be the predominant language in the place the citation was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -346,7 +346,7 @@
       <path value="Citation.jurisdiction"/>
       <short value="Jurisdiction of the authority that maintains the citation record (if applicable)"/>
       <definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-      <comment value="It may be possible for the citation record to be used in jurisdictions other than those for which it was originally designed or intended.&#xA;&#xA;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+      <comment value="It may be possible for the citation record to be used in jurisdictions other than those for which it was originally designed or intended.&#xA;&#xA;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -401,7 +401,7 @@
       </extension>
       <path value="Citation.copyrightLabel"/>
       <short value="Copyright holder and year(s) for the ciation record, not for the cited artifact"/>
-      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
       <comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
@@ -552,7 +552,7 @@
     </element>
     <element id="Citation.classification.type">
       <path value="Citation.classification.type"/>
-      <short value="The kind of classifier (e.g. publication type, keyword)"/>
+      <short value="The kind of classifier (e.g., publication type, keyword)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -738,7 +738,7 @@
       <path value="Citation.citedArtifact.relatedIdentifier"/>
       <short value="Identifier not unique to the cited artifact. May include trial registry identifiers"/>
       <definition value="A formal identifier that is used to identify things closely related to the cited artifact."/>
-      <comment value="May include trial registry identifiers, e.g. NCT04372602 from clinicaltrials.gov. This related identifier would not be used as a unique identifier for the cited artifact itself. Multiple published articles (each with their own unique identifier) may relate to the same study record in a research registry. Commonly used related identifiers for study registries include ClinicalTrials.gov identifier (NCTId) and PROSPERO identifier (used for registration of systematic reviews). To maintain interoperability, the suggested identifier.system values to use for these 2 identifiers are: ClinicalTrials.gov = &quot;https://clinicaltrials.gov&quot; PROSPERO = &quot;https://www.crd.york.ac.uk/prospero/&quot;"/>
+      <comment value="May include trial registry identifiers, e.g., NCT04372602 from clinicaltrials.gov. This related identifier would not be used as a unique identifier for the cited artifact itself. Multiple published articles (each with their own unique identifier) may relate to the same study record in a research registry. Commonly used related identifiers for study registries include ClinicalTrials.gov identifier (NCTId) and PROSPERO identifier (used for registration of systematic reviews). To maintain interoperability, the suggested identifier.system values to use for these 2 identifiers are: ClinicalTrials.gov = &quot;https://clinicaltrials.gov&quot; PROSPERO = &quot;https://www.crd.york.ac.uk/prospero/&quot;"/>
       <requirements value="Allows externally provided and/or usable identifiers to be associated with this the cited artifact."/>
       <min value="0"/>
       <max value="*"/>
@@ -1126,7 +1126,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.publishedIn.type">
       <path value="Citation.citedArtifact.publicationForm.publishedIn.type"/>
-      <short value="Kind of container (e.g. Periodical, database, or book)"/>
+      <short value="Kind of container (e.g., Periodical, database, or book)"/>
       <comment value="Journals and newspapers are coded as Periodical."/>
       <min value="0"/>
       <max value="1"/>
@@ -1237,7 +1237,7 @@
     <element id="Citation.citedArtifact.publicationForm.publicationDateSeason">
       <path value="Citation.citedArtifact.publicationForm.publicationDateSeason"/>
       <short value="Season in which the cited artifact was published"/>
-      <definition value="Season in which the cited artifact was published, e.g. Spring, Summer, Fall/Autumn, Winter."/>
+      <definition value="Season in which the cited artifact was published, e.g., Spring, Summer, Fall/Autumn, Winter."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1347,7 +1347,7 @@
     </element>
     <element id="Citation.citedArtifact.webLocation.classifier">
       <path value="Citation.citedArtifact.webLocation.classifier"/>
-      <short value="Code the reason for different URLs, e.g. abstract and full-text"/>
+      <short value="Code the reason for different URLs, e.g., abstract and full-text"/>
       <definition value="A characterization of the object expected at the web location."/>
       <comment value="Categories that may be frequently used for study citations may include abstract, full-text, supplement, webpage, and doi-based."/>
       <min value="0"/>
@@ -1384,7 +1384,7 @@
     </element>
     <element id="Citation.citedArtifact.classification.type">
       <path value="Citation.citedArtifact.classification.type"/>
-      <short value="The kind of classifier (e.g. publication type, keyword)"/>
+      <short value="The kind of classifier (e.g., publication type, keyword)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1474,7 +1474,7 @@
     <element id="Citation.citedArtifact.contributorship.entry.forenameInitials">
       <path value="Citation.citedArtifact.contributorship.entry.forenameInitials"/>
       <short value="For citation styles that use initials"/>
-      <comment value="This element is used to support a data element used for citations that is not otherwise supported fully by FHIR HumanName datatype. In some citation summary styles (e.g. Medline), authors are presented with full spelling of their last name (family name) and initials for all forenames (first names, middle names, preceding names, given names). As the FHIR HumanName Datatype does not have a specific element for forename initials and this is common in citation usage, the element is added to contributorship.entry directly."/>
+      <comment value="This element is used to support a data element used for citations that is not otherwise supported fully by FHIR HumanName datatype. In some citation summary styles (e.g., Medline), authors are presented with full spelling of their last name (family name) and initials for all forenames (first names, middle names, preceding names, given names). As the FHIR HumanName Datatype does not have a specific element for forename initials and this is common in citation usage, the element is added to contributorship.entry directly."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1514,7 +1514,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.role">
       <path value="Citation.citedArtifact.contributorship.entry.role"/>
-      <short value="The role of the contributor (e.g. author, editor, reviewer, funder)"/>
+      <short value="The role of the contributor (e.g., author, editor, reviewer, funder)"/>
       <min value="0"/>
       <max value="1"/>
       <type>

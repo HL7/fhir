@@ -23,7 +23,7 @@
   <concept>
     <code value="preparation"/>
     <display value="Preparation"/>
-    <definition value="The core event has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes."/>
+    <definition value="The core event has not started yet, but some staging activities have begun (e.g., surgical suite preparation).  Preparation stages may be tracked for billing purposes."/>
   </concept>
   <concept>
     <code value="in-progress"/>
@@ -33,7 +33,7 @@
   <concept>
     <code value="not-done"/>
     <display value="Not Done"/>
-    <definition value="The event was terminated prior to any activity beyond preparation.  I.e. The 'main' activity has not yet begun.  The boundary between preparatory and the 'main' activity is context-specific."/>
+    <definition value="The event was terminated prior to any activity beyond preparation.  i.e., The 'main' activity has not yet begun.  The boundary between preparatory and the 'main' activity is context-specific."/>
   </concept>
   <concept>
     <code value="on-hold"/>

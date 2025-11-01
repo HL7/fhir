@@ -292,7 +292,7 @@
     <element id="Composition.type">
       <path value="Composition.type"/>
       <short value="Kind of composition (LOINC if possible)"/>
-      <definition value="Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition."/>
+      <definition value="Specifies the particular kind of composition (e.g., History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition."/>
       <comment value="For Composition type, LOINC is ubiquitous and strongly endorsed by HL7. Most implementation guides will require a specific LOINC code, or use LOINC as an extensible binding."/>
       <requirements value="Key metadata element describing the composition, used in searching/filtering."/>
       <min value="1"/>
@@ -369,7 +369,7 @@
     <element id="Composition.subject">
       <path value="Composition.subject"/>
       <short value="Who and/or what the composition is about"/>
-      <definition value="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)."/>
+      <definition value="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g., a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)."/>
       <comment value="For clinical documents, this is usually the patient."/>
       <requirements value="Essential metadata for searching for the composition. Identifies who and/or what the composition/document is about."/>
       <min value="0"/>
@@ -605,7 +605,7 @@
       <path value="Composition.title"/>
       <short value="Human Readable name/title"/>
       <definition value="Official human-readable label for the composition."/>
-      <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period."/>
+      <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g., a &quot;consultation&quot; or &quot;progress note&quot;). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -785,7 +785,7 @@
       <path value="Composition.relatesTo"/>
       <short value="Relationships to other compositions/documents"/>
       <definition value="Relationships that this composition has with other compositions or documents (FHIR or non-FHIR resources) that already exist."/>
-      <comment value="To reference (using relatesTo) a Bundle of type &quot;document&quot; or another Composition where you only have the identifier, use a targetReference with an identifier.\&#xA;When a Composition is an alternate representation of another type of document e.g. CDA, the other document could be referenced in a DocumentReference resource.  &#xA;Here is an example of using relatesTo to reference another Bundle of type &quot;document&quot; or Composition where you only have the identifier:&#xA;```&#xA;&quot;relatesTo&quot;: [{&#xA;  &quot;type&quot;: &quot;replaces&quot;,&#xA;  &quot;targetReference&quot;: {&#xA;    &quot;identifier&quot;: { &#xA;      &quot;system&quot;: &quot;...&quot;, &#xA;      &quot;value&quot;: &quot;...&quot;&#xA;    }&#xA;  } &#xA;}]&#xA;```"/>
+      <comment value="To reference (using relatesTo) a Bundle of type &quot;document&quot; or another Composition where you only have the identifier, use a targetReference with an identifier.\&#xA;When a Composition is an alternate representation of another type of document e.g., CDA, the other document could be referenced in a DocumentReference resource.  &#xA;Here is an example of using relatesTo to reference another Bundle of type &quot;document&quot; or Composition where you only have the identifier:&#xA;```&#xA;&quot;relatesTo&quot;: [{&#xA;  &quot;type&quot;: &quot;replaces&quot;,&#xA;  &quot;targetReference&quot;: {&#xA;    &quot;identifier&quot;: { &#xA;      &quot;system&quot;: &quot;...&quot;, &#xA;      &quot;value&quot;: &quot;...&quot;&#xA;    }&#xA;  } &#xA;}]&#xA;```"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -967,7 +967,7 @@
     </element>
     <element id="Composition.section.title">
       <path value="Composition.section.title"/>
-      <short value="Label for section (e.g. for ToC)"/>
+      <short value="Label for section (e.g., for ToC)"/>
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents."/>
       <comment value="The title identifies the section for a human reader. The title must be consistent with the narrative of the resource that is the target of the section.content reference. Generally, sections SHOULD have titles, but in some documents, it is unnecessary or inappropriate. Typically, this is where a section has subsections that have their own adequately distinguishing title,  or documents that only have a single section. Most Implementation Guides will make section title to be a required element."/>
       <requirements value="Section headings are often standardized for different types of documents.  They give guidance to humans on how the document is organized."/>

@@ -87,7 +87,7 @@
     <element id="Account.identifier">
       <path value="Account.identifier"/>
       <short value="Account number"/>
-      <definition value="Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number)."/>
+      <definition value="Unique identifier used to reference the account.  Might or might not be intended for human use (e.g., credit card number)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -154,7 +154,7 @@
     </element>
     <element id="Account.type">
       <path value="Account.type"/>
-      <short value="E.g. patient, expense, depreciation"/>
+      <short value="e.g., patient, expense, depreciation"/>
       <definition value="Categorizes the account for reporting and searching purposes."/>
       <min value="0"/>
       <max value="1"/>
@@ -531,8 +531,8 @@
     </element>
     <element id="Account.diagnosis.type">
       <path value="Account.diagnosis.type"/>
-      <short value="Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)"/>
-      <definition value="Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)."/>
+      <short value="Type that this diagnosis has relevant to the account (e.g., admission, billing, discharge …)"/>
+      <definition value="Type that this diagnosis has relevant to the account (e.g., admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -574,7 +574,7 @@
           <valueString value="diagnosis-package-code"/>
         </extension>
         <strength value="example"/>
-        <description value="Local or Regional package codes, e.g. DRGs"/>
+        <description value="Local or Regional package codes, e.g., DRGs"/>
       </binding>
     </element>
 
@@ -647,7 +647,7 @@
           <valueString value="procedure-type"/>
         </extension>
         <strength value="example"/>
-        <description value="Usage for the specific procedure - e.g. billing"/>
+        <description value="Usage for the specific procedure - e.g., billing"/>
       </binding>
     </element>
     <element id="Account.procedure.packageCode">
@@ -664,7 +664,7 @@
           <valueString value="procedure-package-code"/>
         </extension>
         <strength value="example"/>
-        <description value="Local or Regional package codes, e.g. DRGs"/>
+        <description value="Local or Regional package codes, e.g., DRGs"/>
       </binding>
     </element>
     <element id="Account.procedure.device">

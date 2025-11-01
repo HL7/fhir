@@ -156,7 +156,7 @@
 		<element id="ImplementationGuide.version">
 			<path value="ImplementationGuide.version"/>
 			<short value="Business version of the implementation guide"/>
-			<definition value="The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<definition value="The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
 			<comment value="There may be different implementation guide instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the implementation guide with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -320,7 +320,7 @@
 			<path value="ImplementationGuide.description"/>
 			<short value="Natural language description of the implementation guide"/>
 			<definition value="A free text natural language description of the implementation guide from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as why the implementation guide was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the implementation guide as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the implementation guide is presumed to be the predominant language in the place the implementation guide was created)."/>
+			<comment value="This description can be used to capture details such as why the implementation guide was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the implementation guide as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g., the language of the implementation guide is presumed to be the predominant language in the place the implementation guide was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -344,7 +344,7 @@
 			<path value="ImplementationGuide.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the implementation guide (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the implementation guide to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the implementation guide to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -412,7 +412,7 @@
 			</extension>
 			<path value="ImplementationGuide.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
 			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
@@ -455,8 +455,8 @@
 		<element id="ImplementationGuide.fhirVersion">
 			<path value="ImplementationGuide.fhirVersion"/>
 			<short value="FHIR Version(s) this Implementation Guide targets"/>
-			<definition value="The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.6.0. for this version."/>
-			<comment value="Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc. are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics."/>
+			<definition value="The version(s) of the FHIR specification that this ImplementationGuide targets - e.g., describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g., [publication].[major].[minor], which is 4.6.0. for this version."/>
+			<comment value="Most implementation guides target a single version - e.g., they describe how to use a particular version, and the profiles and examples etc. are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics."/>
 			<min value="1"/>
 			<max value="*"/>
 			<type>
@@ -667,7 +667,7 @@
 			<path value="ImplementationGuide.definition.resource.reference"/>
 			<short value="Location of the resource"/>
 			<definition value="Where this resource is found."/>
-			<comment value="Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it."/>
+			<comment value="Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g., spreadsheet). The tooling will convert this when it publishes it."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -704,7 +704,7 @@
 			</extension>
 			<path value="ImplementationGuide.definition.resource.name"/>
 			<short value="Human readable name for the resource"/>
-			<definition value="A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)."/>
+			<definition value="A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g., ValueSet.name)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -972,7 +972,7 @@
 			<path value="ImplementationGuide.manifest.resource.reference"/>
 			<short value="Location of the resource"/>
 			<definition value="Where this resource is found."/>
-			<comment value="Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it."/>
+			<comment value="Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g., spreadsheet). The tooling will convert this when it publishes it."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -1076,7 +1076,7 @@
 		<element id="ImplementationGuide.manifest.other">
 			<path value="ImplementationGuide.manifest.other"/>
 			<short value="Additional linkable file in IG"/>
-			<definition value="Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g. zip, jar and similar files that could be the target of a hyperlink in a derived IG."/>
+			<definition value="Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g., zip, jar and similar files that could be the target of a hyperlink in a derived IG."/>
 			<requirements value="Allows validation of links from a derived IG to this IG without a local copy of the IG."/>
 			<min value="0"/>
 			<max value="*"/>

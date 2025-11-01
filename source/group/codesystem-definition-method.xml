@@ -43,7 +43,7 @@
   <concept>
     <code value="systematic-assessment"/>
     <display value="Systematic Assessment"/>
-    <definition value="Any method of routinely determining whether or not specific outcomes (e.g. adverse events) have occurred, for example through a standard questionnaire, regular investigator assessment, regular laboratory testing, or other method"/>
+    <definition value="Any method of routinely determining whether or not specific outcomes (e.g., adverse events) have occurred, for example through a standard questionnaire, regular investigator assessment, regular laboratory testing, or other method"/>
   </concept>
   <concept>
     <code value="non-systematic-assessment"/>
@@ -63,21 +63,21 @@
   <concept>
     <code value="mean-of-mean"/>
     <display value="Mean of Means"/>
-    <definition value="Aggregated using mean of means (e.g. study mean values)."/>
+    <definition value="Aggregated using mean of means (e.g., study mean values)."/>
   </concept>
   <concept>
     <code value="mean-of-median"/>
     <display value="Mean of Medians"/>
-    <definition value="Aggregated using mean of medians (e.g. study median values)."/>
+    <definition value="Aggregated using mean of medians (e.g., study median values)."/>
   </concept>
   <concept>
     <code value="median-of-mean"/>
     <display value="Median of Means"/>
-    <definition value="Aggregated using median of means (e.g. study mean values)."/>
+    <definition value="Aggregated using median of means (e.g., study mean values)."/>
   </concept>
   <concept>
     <code value="median-of-median"/>
     <display value="Median of Medians"/>
-    <definition value="Aggregated using median of medians (e.g. study median values)."/>
+    <definition value="Aggregated using median of medians (e.g., study median values)."/>
   </concept>
 </CodeSystem>

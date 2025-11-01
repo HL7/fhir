@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Applicable domain for this product (e.g. human, veterinary)"/>
+  <description value="Applicable domain for this product (e.g., human, veterinary)"/>
   <immutable value="true"/>
   <compose>
     <include>

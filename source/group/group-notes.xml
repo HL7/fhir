@@ -38,19 +38,19 @@ the required characteristics is considered to be <code>active</code>.
 </p>
 <p>
 Servers SHOULD declare whether they support only the enumerated or characteristic group filters.  
-Servers MAY impose additional membership constraints (e.g. based on modifier extensions).
+Servers MAY impose additional membership constraints (e.g., based on modifier extensions).
 </p>
 
 <a name="relationships"> </a>
 <h3>Relationships inside the group</h3>
 
-<p>Some systems may track detailed family relationship codes (e.g. child, mother, grandfather) within a group 
+<p>Some systems may track detailed family relationship codes (e.g., child, mother, grandfather) within a group 
 rather than merely saying "family member".  There are a few options to support conveying such information:
 </p>
 <ul>
  <li>Instances of the PersonalRelationship resource can be used to indicate relationships between group members. 
    Such relationships can be leveraged independent of the participants' involvement of the group</li>
- <li>More detailed family relationship codes (e.g. from the [Personal Relationship RoleType Valueset](https://terminology.hl7.org/6.0.2/ValueSet-v3-PersonalRelationshipRoleType.html)) 
+ <li>More detailed family relationship codes (e.g., from the [Personal Relationship RoleType Valueset](https://terminology.hl7.org/6.0.2/ValueSet-v3-PersonalRelationshipRoleType.html)) 
    MAY be sent as additional Codings in the <code>Group.member.involvement</code> element.  These SHOULD also be accompanied by the 'family-member' code to support systems that might not understand more detailed codes.  If 
    this is done, then the relationship codes are interpreted as being with respect to whichever group member is designated as "head of household"/"primary contact".  If there is no 
    such group member explicitly designated, then the nature of the more detailed personal relationship codes cannot reliably be interpreted.

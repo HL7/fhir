@@ -7,7 +7,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose.</p>
-      <p>Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)</p>
+      <p>Withhold or withdraw consent for disclosure of records related to specific domain (e.g., DI, LAB, etc.)</p>
       <p>Patient "Donald D DUCK" wishes to withhold disclosure of all of her lab results to any provider.</p>
     </div>
   </text>
@@ -35,7 +35,7 @@
     <title value="The terms of the consent in lawyer speak."/>
     <!-- likely use url pointer to common text -->
   </sourceAttachment>
-  <!-- this is opt-in - e.g. everything approved unless otherwise stated -->
+  <!-- this is opt-in - e.g., everything approved unless otherwise stated -->
   <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>

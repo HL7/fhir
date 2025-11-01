@@ -14,7 +14,7 @@ format, or in a rendered format, such as JPEG).
 <p>
 This resource provides mappings of its elements to DICOM attributes.  DICOM attributes are identified 
 by a 32-bit tag, presented in canonical form as two four-digit hexadecimal values within parentheses 
-and separated by a comma, e.g. (0008,103E).  The name and value representation (data type) of 
+and separated by a comma, e.g., (0008,103E).  The name and value representation (data type) of 
 each attribute can be found 
 in <a href="http://medical.nema.org/medical/dicom/current/output/html/part06.html">DICOM Part 6 Data Dictionary</a>.  
 The use of the attributes in the context of information objects, including detailed description of use, can be found 

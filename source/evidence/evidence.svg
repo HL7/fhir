@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n1035"
    xlink:href="evidence-definitions.html#Evidence.version"><title
-   id="title2668">The identifier that is used to identify this version of the summary when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the summary author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title2668">The identifier that is used to identify this version of the summary when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the summary author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n1036"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -364,7 +364,7 @@
        class="diagram-class-detail"><a
    id="n1175"
    xlink:href="evidence-definitions.html#Evidence.copyrightLabel"><title
-   id="title2776">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title2776">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1176"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text

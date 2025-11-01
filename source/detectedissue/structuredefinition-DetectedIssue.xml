@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc."/>
+  <description value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g., Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -77,7 +77,7 @@
     <element id="DetectedIssue">
       <path value="DetectedIssue"/>
       <short value="Clinical issue with action"/>
-      <definition value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc."/>
+      <definition value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g., Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc."/>
       <alias value="DDI"/>
       <alias value="drug-drug interaction"/>
       <alias value="Contraindication"/>
@@ -200,7 +200,7 @@
     </element>
     <element id="DetectedIssue.code">
       <path value="DetectedIssue.code"/>
-      <short value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc"/>
+      <short value="Specific type of detected issue, e.g., drug-drug, duplicate therapy, etc"/>
       <definition value="A code that identifies the specific type of issue detected."/>
       <alias value="type"/>
       <min value="0"/>
@@ -214,7 +214,7 @@
           <valueString value="DetectedIssueCode"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Codes identifying the type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc."/>
+        <description value="Codes identifying the type of detected issue; e.g., Drug-drug interaction, Timing issue, Duplicate therapy, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-code"/>
       </binding>
       <mapping>
@@ -312,7 +312,7 @@
       <path value="DetectedIssue.encounter"/>
       <short value="Encounter the detected issue is part of"/>
       <definition value="The Encounter during which this detected issue was created or to which the creation of this record is tightly associated."/>
-      <comment value="This will typically be the encounter the detected issue was created during, but some detected issues may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <comment value="This will typically be the encounter the detected issue was created during, but some detected issues may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
       <requirements value="Links the detected issue to the Encounter context.  May also affect access control."/>
       <alias value="context"/>
       <min value="0"/>
@@ -410,7 +410,7 @@
       <path value="DetectedIssue.implicated"/>
       <short value="Problem resource"/>
       <definition value="Indicates the resource representing the current activity or proposed activity that is potentially problematic."/>
-      <comment value="There's an implicit constraint on the number of implicated resources based on DetectedIssue.type; e.g. For drug-drug, there would be more than one.  For timing, there would typically only be one."/>
+      <comment value="There's an implicit constraint on the number of implicated resources based on DetectedIssue.type; e.g., For drug-drug, there would be more than one.  For timing, there would typically only be one."/>
       <alias value="cause"/>
       <min value="0"/>
       <max value="*"/>
@@ -636,7 +636,7 @@
           <valueString value="DetectedIssueMitigationAction"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. 'added concurrent therapy', 'prior therapy documented', etc."/>
+        <description value="Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g., 'added concurrent therapy', 'prior therapy documented', etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-mitigation-action"/>
       </binding>
       <mapping>

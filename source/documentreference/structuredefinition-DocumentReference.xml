@@ -81,7 +81,7 @@
   <mapping>
     <identity value="xds"/>
     <uri value="https://profiles.ihe.net/ITI/TF/Volume3"/>
-    <name value="IHE Document Sharing (e.g. XDS) metadata Mapping"/>
+    <name value="IHE Document Sharing (e.g., XDS) metadata Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -139,7 +139,7 @@
       <path value="DocumentReference.identifier"/>
       <short value="Business identifiers for the document"/>
       <definition value="Business identifiers assigned to this document reference by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
-      <comment value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g. for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
+      <comment value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g., for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
       <requirements value="Document identifiers usually assigned by the source of the document, or other business identifiers such as XDS DocumentEntry.uniqueId and DocumentEntry.entryUUID. These identifiers are specific to this instance of the document."/>
       <min value="0"/>
       <max value="*"/>
@@ -350,7 +350,7 @@
     <element id="DocumentReference.type">
       <path value="DocumentReference.type"/>
       <short value="Kind of document (LOINC if possible)"/>
-      <definition value="Specifies the particular kind of document referenced  (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced."/>
+      <definition value="Specifies the particular kind of document referenced  (e.g., History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the document referenced."/>
       <comment value="Key metadata element describing the document that describes he exact type of document. Helps humans to assess whether the document is of interest when viewing a list of documents."/>
       <min value="0"/>
       <max value="1"/>
@@ -444,7 +444,7 @@
     <element id="DocumentReference.subject">
       <path value="DocumentReference.subject"/>
       <short value="Who/what is the subject of the document"/>
-      <definition value="Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)."/>
+      <definition value="Who or what the document is about. The document can be about a person, (patient or healthcare practitioner), a device (e.g., a machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -485,7 +485,7 @@
       <path value="DocumentReference.context"/>
       <short value="Encounter the document reference is part of"/>
       <definition value="The Encounter during which this document reference was created or to which the creation of this record is tightly associated."/>
-      <comment value="This will typically be the encounter the document reference was created during, but some document references may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <comment value="This will typically be the encounter the document reference was created during, but some document references may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
       <requirements value="Links the document reference to the Encounter context.  May also affect access control."/>
       <min value="0"/>
       <max value="*"/>
@@ -635,7 +635,7 @@
     </element>
     <element id="DocumentReference.practiceSetting">
       <path value="DocumentReference.practiceSetting"/>
-      <short value="Additional details about where the content was created (e.g. clinical specialty)"/>
+      <short value="Additional details about where the content was created (e.g., clinical specialty)"/>
       <definition value="This property may convey specifics about the practice setting where the content was created, often reflecting the clinical specialty."/>
       <comment value="This element should be based on a coarse classification system for the class of specialty practice. Recommend the use of the classification system for Practice Setting, such as that described by the Subject Matter Domain in LOINC."/>
       <requirements value="This is an important piece of metadata that providers often rely upon to quickly sort and/or filter out to find specific content."/>
@@ -650,7 +650,7 @@
           <valueString value="DocumentC80PracticeSetting"/>
         </extension>
         <strength value="example"/>
-        <description value="Additional details about where the content was created (e.g. clinical specialty)."/>
+        <description value="Additional details about where the content was created (e.g., clinical specialty)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>
       <mapping>
@@ -738,7 +738,7 @@
       <path value="DocumentReference.author"/>
       <short value="Who and/or what authored the document"/>
       <definition value="Identifies who is responsible for adding the information to the document."/>
-      <comment value="Not necessarily who did the actual data entry (i.e. typist) or who was the source (informant). Using Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. "/>
+      <comment value="Not necessarily who did the actual data entry (i.e., typist) or who was the source (informant). Using Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. "/>
       <min value="0"/>
       <max value="*"/>
       <type>

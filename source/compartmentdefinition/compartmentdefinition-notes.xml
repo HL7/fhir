@@ -6,7 +6,7 @@
 
 <p>
 A compartment implicitly always includes the resource that is a 'root' of the   compartment
-e.g. the resource <code>Patient/123</code> is the root resource of the Patient Compartment
+e.g., the resource <code>Patient/123</code> is the root resource of the Patient Compartment
 for <code>Patient/123</code>. 
 Thus an operation that retrieves everything within the compartment will include the base 
 resource; a scope that grants access to everything within the compartment will grant access 
@@ -84,7 +84,7 @@ patient resources cannot create a patient compartment of their own.
 <p>
 Note that while this specification describes how to use the compartment syntax to find resources 
 that are logically associated with the compartment, the compartment is not part of the
-identity of the resource. E.g. the response to the following is not defined by this specification:
+identity of the resource. e.g., the response to the following is not defined by this specification:
 </p>
 <pre>
   GET [base]/Patient/[patient-id]/Condition/[resource-id]
@@ -139,7 +139,7 @@ the reference to the resource that establishes the compartment is in an extensio
 </p>
 
 <p>
-Some resources are not in any compartment, e.g. <a href="medication.html">Medication</a>, 
+Some resources are not in any compartment, e.g., <a href="medication.html">Medication</a>, 
 <a href="substance.html">Substance</a>, <a href="location.html">Location</a>. These resources are not linked directly to a patient 
 or authored record, and are sometimes called 'master files'. Servers will need to make 
 arrangements to make these resources available to the clients that are limited to 

@@ -4,7 +4,7 @@
 [other headers]
 
 --------------------------------------
-// response - if the message couldn't be accepted (e.g. there'll be no asynchronous response
+// response - if the message couldn't be accepted (e.g., there'll be no asynchronous response
 
 500 OK Internal Server Error
 [other headers]

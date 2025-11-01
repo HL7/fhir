@@ -303,7 +303,7 @@
        class="diagram-class-detail"><a
    id="n925"
    xlink:href="consent-definitions.html#Consent.sourceReference"><title
-   id="title27840">A reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document</title>sourceReference</a> : <a
+   id="title27840">A reference to a consent that links back to such a source, a reference to a document repository (e.g., XDS) that stores the original consent document</title>sourceReference</a> : <a
    id="n926"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n927"
@@ -705,7 +705,7 @@
        class="diagram-class-detail"><a
    id="n1127"
    xlink:href="consent-definitions.html#Consent.provision.actor.reference"><title
-   id="title27995">The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers')</title>reference</a> : <a
+   id="title27995">The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g., 'admitting officers')</title>reference</a> : <a
    id="n1128"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n1129"
@@ -846,7 +846,7 @@
      class="diagram-class-linkage"><a
        id="n1181"
        xlink:href="consent-definitions.html#Consent.verification"><title
-   id="title28038">Whether a treatment instruction (e.g. artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person</title>verification</a></text>
+   id="title28038">Whether a treatment instruction (e.g., artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person</title>verification</a></text>
   <text
      id="n1182"
      x="540.0"
@@ -880,7 +880,7 @@
      class="diagram-class-linkage"><a
        id="n1187"
        xlink:href="consent-definitions.html#Consent.provision.actor"><title
-   id="title28046">Who or what is controlled by this provision. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')</title>actor</a></text>
+   id="title28046">Who or what is controlled by this provision. Use group to identify a set of actors by some property they share (e.g., 'admitting officers')</title>actor</a></text>
   <text
      id="n1188"
      x="306.4763969408699"

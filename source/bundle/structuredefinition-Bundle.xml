@@ -241,7 +241,7 @@
 			<path value="Bundle.type"/>
 			<short value="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection | subscription-notification"/>
 			<definition value="Indicates the purpose of this bundle - how it is intended to be used."/>
-			<comment value="It's possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types."/>
+			<comment value="It's possible to use a bundle for other purposes (e.g., a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -280,8 +280,8 @@
 		<element id="Bundle.timestamp">
 			<path value="Bundle.timestamp"/>
 			<short value="When the bundle was assembled"/>
-			<definition value="The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle."/>
-			<comment value="For many bundles, the timestamp is equal to .meta.lastUpdated, because they are not stored (e.g. search results). When a bundle is placed in a persistent store, .meta.lastUpdated will be usually be changed by the server. When the bundle is a message, a middleware agent altering the message (even if not stored) SHOULD update .meta.lastUpdated. .timestamp is used to track the original time of the Bundle, and SHOULD be populated.  &#xA;&#xA;Usage:&#xA;&#xA;* document : the date the document was created. Note: the composition may predate the document, or be associated with multiple documents. The date of the composition - the authoring time - may be earlier than the document assembly time&#xA;* message : the date that the content of the message was assembled. This date is not changed by middleware engines unless they add additional data that changes the meaning of the time of the message&#xA;* history : the date that the history was assembled. This time would be used as the _since time to ask for subsequent updates&#xA;* searchset : the time that the search set was assembled. Note that different pages MAY have different timestamps but need not. Having different timestamps does not imply that subsequent pages will represent or include changes made since the initial query&#xA;* transaction | transaction-response | batch | batch-response | collection : no particular assigned meaning&#xA;&#xA;The timestamp value should be greater than the lastUpdated and other timestamps in the resources in the bundle, and it should be equal or earlier than the .meta.lastUpdated on the Bundle itself."/>
+			<definition value="The date/time that the bundle was assembled - i.e., when the resources were placed in the bundle."/>
+			<comment value="For many bundles, the timestamp is equal to .meta.lastUpdated, because they are not stored (e.g., search results). When a bundle is placed in a persistent store, .meta.lastUpdated will be usually be changed by the server. When the bundle is a message, a middleware agent altering the message (even if not stored) SHOULD update .meta.lastUpdated. .timestamp is used to track the original time of the Bundle, and SHOULD be populated.  &#xA;&#xA;Usage:&#xA;&#xA;* document : the date the document was created. Note: the composition may predate the document, or be associated with multiple documents. The date of the composition - the authoring time - may be earlier than the document assembly time&#xA;* message : the date that the content of the message was assembled. This date is not changed by middleware engines unless they add additional data that changes the meaning of the time of the message&#xA;* history : the date that the history was assembled. This time would be used as the _since time to ask for subsequent updates&#xA;* searchset : the time that the search set was assembled. Note that different pages MAY have different timestamps but need not. Having different timestamps does not imply that subsequent pages will represent or include changes made since the initial query&#xA;* transaction | transaction-response | batch | batch-response | collection : no particular assigned meaning&#xA;&#xA;The timestamp value should be greater than the lastUpdated and other timestamps in the resources in the bundle, and it should be equal or earlier than the .meta.lastUpdated on the Bundle itself."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -318,7 +318,7 @@
 			<path value="Bundle.link"/>
 			<short value="Links related to this Bundle"/>
 			<definition value="A series of links that provide context to this bundle."/>
-			<comment value="Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. [HATEOAS](http://en.wikipedia.org/wiki/HATEOAS)). &#xA;&#xA;Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was [read](http.html#read) directly.&#xA;&#xA;This specification defines some specific uses of Bundle.link for [searching](search.html#conformance) and [paging](http.html#paging), but no specific uses for Bundle.entry.link, and no defined function in a transaction - the meaning is implementation specific.  The behavior of navigation link types (next/prev/first/last) are well defined for searchset and history Bundles but are not currently defined for other types. Implementers who choose to use such link relationships for other bundle types will need to negotiate behavior with their interoperability partners."/>
+			<comment value="Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g., [HATEOAS](http://en.wikipedia.org/wiki/HATEOAS)). &#xA;&#xA;Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was [read](http.html#read) directly.&#xA;&#xA;This specification defines some specific uses of Bundle.link for [searching](search.html#conformance) and [paging](http.html#paging), but no specific uses for Bundle.entry.link, and no defined function in a transaction - the meaning is implementation specific.  The behavior of navigation link types (next/prev/first/last) are well defined for searchset and history Bundles but are not currently defined for other types. Implementers who choose to use such link relationships for other bundle types will need to negotiate behavior with their interoperability partners."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -401,9 +401,9 @@
 		</element>
 		<element id="Bundle.entry.fullUrl">
 			<path value="Bundle.entry.fullUrl"/>
-			<short value="URI for resource (e.g. the absolute URL server address, URI for UUID/OID, etc.)"/>
-			<definition value="The Absolute URL for the resource. Except for transactions and batches, each entry in a Bundle must have a fullUrl. The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value unless:&#xA;* the Bundle is a batch or transaction request or response AND&#xA;* the entry is&#xA;    * invoking a create&#xA;		* invoking or responding to an operation where the body is not a single identified resource&#xA;		* invoking or returning the results of a search or history operation."/>
-			<comment value="fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then the portion of the URL that, by FHIR syntax, corresponds to the resource type and id within the fullUrl SHALL match the resource type and id of the resource.&#xA;&#xA;Note that the fullUrl is not the same as the canonical URL - it's an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL)."/>
+			<short value="URI for resource (e.g., the absolute URL server address, URI for UUID/OID, etc.)"/>
+			<definition value="The Absolute URL for the resource. Except for transactions and batches, each entry in a Bundle must have a fullUrl. The fullUrl SHALL NOT disagree with the id in the resource - i.e., if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value unless:&#xA;* the Bundle is a batch or transaction request or response AND&#xA;* the entry is&#xA;    * invoking a create&#xA;		* invoking or responding to an operation where the body is not a single identified resource&#xA;		* invoking or returning the results of a search or history operation."/>
+			<comment value="fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, if the fullUrl does look like a RESTful server URL (e.g., meets the [regex](references.html#regex), then the portion of the URL that, by FHIR syntax, corresponds to the resource type and id within the fullUrl SHALL match the resource type and id of the resource.&#xA;&#xA;Note that the fullUrl is not the same as the canonical URL - it's an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -525,7 +525,7 @@
 			<path value="Bundle.entry.request.url"/>
 			<short value="URL for HTTP equivalent of this entry"/>
 			<definition value="The URL for this entry, relative to the root (the address to which the request is posted)."/>
-			<comment value="E.g. for a Patient Create, the method would be &quot;POST&quot; and the URL would be &quot;Patient&quot;. For a Patient Update, the method would be PUT and the URL would be &quot;Patient/[id]&quot;."/>
+			<comment value="e.g., for a Patient Create, the method would be &quot;POST&quot; and the URL would be &quot;Patient&quot;. For a Patient Update, the method would be PUT and the URL would be &quot;Patient/[id]&quot;."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -598,7 +598,7 @@
 		<element id="Bundle.entry.response.status">
 			<path value="Bundle.entry.response.status"/>
 			<short value="Status response code (text optional)"/>
-			<definition value="The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code."/>
+			<definition value="The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g., 404) and may contain the standard HTTP description associated with the status code."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -678,7 +678,7 @@
 			<path value="Bundle.issues"/>
 			<short value="OperationOutcome with issues about the Bundle"/>
 			<definition value="An OperationOutcome that captures issues and warnings that relate to the construction of the Bundle and the content within it."/>
-			<comment value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries. Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
+			<comment value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries. Messages relating to the processing of individual entries (e.g., in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

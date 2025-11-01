@@ -918,7 +918,7 @@
   <concept>
     <code value="SEVCO:01053"/>
     <display value="Includes patient-centered outcome"/>
-    <definition value="A study design feature in which one or more measures are outcomes that patients directly care about, i.e. outcomes that are directly related to patients' experience of their life."/>
+    <definition value="A study design feature in which one or more measures are outcomes that patients directly care about, i.e., outcomes that are directly related to patients' experience of their life."/>
     <designation>
       <use>
         <display value="Alternative term"/>

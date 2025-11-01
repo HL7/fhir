@@ -138,7 +138,7 @@
 		<element id="CompartmentDefinition.version">
 			<path value="CompartmentDefinition.version"/>
 			<short value="Business version of the compartment definition"/>
-			<definition value="The identifier that is used to identify this version of the compartment definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the compartment definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<definition value="The identifier that is used to identify this version of the compartment definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the compartment definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
 			<comment value="There may be different compartment definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the compartment definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -305,7 +305,7 @@
 			<path value="CompartmentDefinition.description"/>
 			<short value="Natural language description of the compartment definition"/>
 			<definition value="A free text natural language description of the compartment definition from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the compartment definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the compartment definition is presumed to be the predominant language in the place the compartment definition was created)."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the compartment definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g., the language of the compartment definition is presumed to be the predominant language in the place the compartment definition was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -440,7 +440,7 @@
 		<element id="CompartmentDefinition.resource.startParam">
 			<path value="CompartmentDefinition.resource.startParam"/>
 			<short value="Search Param for interpreting $everything.start"/>
-			<definition value="Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+			<definition value="Search Parameter for mapping requests made with $everything.start (e.g., on [Patient.$everything](patient-operation-everything.html))."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -450,7 +450,7 @@
 		<element id="CompartmentDefinition.resource.endParam">
 			<path value="CompartmentDefinition.resource.endParam"/>
 			<short value="Search Param for interpreting $everything.end"/>
-			<definition value="Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+			<definition value="Search Parameter for mapping requests made with $everything.end (e.g., on [Patient.$everything](patient-operation-everything.html))."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

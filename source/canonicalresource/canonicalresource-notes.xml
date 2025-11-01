@@ -5,8 +5,8 @@
 <p>
   All of the elements reflected on a canonical resource are the assertions as made by the original author/publisher 
   and do NOT reflect divergent local usage expectations. If a system has a need to capture local usage requirements 
-  (e.g. local deprecation, local 'active' use past the point of deprecation/retirement by the official source, 
-  alternative effective periods, etc.), those assertions should be made in a separate resource (e.g. 
+  (e.g., local deprecation, local 'active' use past the point of deprecation/retirement by the official source, 
+  alternative effective periods, etc.), those assertions should be made in a separate resource (e.g., 
   <a href="list.html">List</a>, <a href="artifactassessment.html">ArtifactAssessment</a>, etc.) that focuses on 
   approval/usage of referenced resources, not on the canonical/metadata resource itself.  Alternatively, a separate 
   resource might be defined that 'derives' from the original resource and can have its own properties.

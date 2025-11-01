@@ -211,7 +211,7 @@
        class="diagram-class-detail"><a
    id="n735"
    xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.name"><title
-   id="title57232">This will either be a name or a description; e.g. &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;</title>name</a> : <a
+   id="title57232">This will either be a name or a description; e.g., &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;</title>name</a> : <a
    id="n736"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text

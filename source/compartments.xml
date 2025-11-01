@@ -67,7 +67,7 @@
     <Cell><Data ss:Type="String">Encounter</Data></Cell>
     <Cell><Data ss:Type="String">The set of resources associated with a particular encounter</Data></Cell>
     <Cell><Data ss:Type="String">There is an instance of the encounter compartment for each encounter resource, and the identity of the compartment is the same as the encounter</Data></Cell>
-    <Cell><Data ss:Type="String">The encounter compartment includes any resources where the resource has an explicitly nominated encounter, and some other resources that themselves link  to resources in the encounter compartment. Note that for many resources, the exact nature of the link to encounter can be ambiguous (e.g. for a DiagnosticReport, is it the encounter when it was initiated, or when it was reported?)</Data></Cell>
+    <Cell><Data ss:Type="String">The encounter compartment includes any resources where the resource has an explicitly nominated encounter, and some other resources that themselves link  to resources in the encounter compartment. Note that for many resources, the exact nature of the link to encounter can be ambiguous (e.g., for a DiagnosticReport, is it the encounter when it was initiated, or when it was reported?)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">relatedPerson</Data></Cell>

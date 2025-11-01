@@ -23,7 +23,7 @@ Notes:
 Compositions about multiple entities
 </h2>
 <p>
-Typically, a composition is made about the subject - e.g. a patient, or group of patients, location, or device - and the 
+Typically, a composition is made about the subject - e.g., a patient, or group of patients, location, or device - and the 
 distinction between the subject and the composition describes the subject. Some kinds of documents contain data about other 
 parties or entities that are relevant to the subject of the document. Some examples:
 </p>
@@ -43,7 +43,7 @@ If a <code>focus</code> is specified, then the resources referred to from the se
 either:
 </p>
 <ul>
- <li>specify that their <code>subject</code> (however named e.g. <code>patient</code>) or <code>focus</code> element (if present) is the focus indicated</li>
+ <li>specify that their <code>subject</code> (however named e.g., <code>patient</code>) or <code>focus</code> element (if present) is the focus indicated</li>
  <li>not have a <code>subject</code> element</li>
 </ul>
 <p>

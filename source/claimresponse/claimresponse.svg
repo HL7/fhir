@@ -1151,7 +1151,7 @@
        class="diagram-class-detail"><a
    id="n2485"
    xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.bodySite.subSite"><title
-   id="title64704">A region or surface of the bodySite, e.g. limb region or tooth surface(s)</title>subSite</a> : <a
+   id="title64704">A region or surface of the bodySite, e.g., limb region or tooth surface(s)</title>subSite</a> : <a
    id="n2486"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n2487"

@@ -77,7 +77,7 @@
     <element id="Task">
       <path value="Task"/>
       <short value="A task to be performed"/>
-      <definition value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with [[[Request]]] alone, most workflows would require a Task (explicit or contained) as a means to track the execution progress (i.e. inputs, outputs, status). Please refer to [Fulfillment/Execution](request.html#fulfillment)."/> 
+      <definition value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with [[[Request]]] alone, most workflows would require a Task (explicit or contained) as a means to track the execution progress (i.e., inputs, outputs, status). Please refer to [Fulfillment/Execution](request.html#fulfillment)."/> 
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -153,7 +153,7 @@
     <element id="Task.groupIdentifier">
       <path value="Task.groupIdentifier"/>
       <short value="Requisition or grouper id"/>
-      <definition value="A shared identifier common to multiple independent Task and Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+      <definition value="A shared identifier common to multiple independent Task and Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  e.g., a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <requirements value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
       <min value="0"/>
       <max value="1"/>
@@ -259,7 +259,7 @@
     </element>
     <element id="Task.businessStatus">
       <path value="Task.businessStatus"/>
-      <short value="E.g. &quot;Specimen collected&quot;, &quot;IV prepped&quot;"/>
+      <short value="e.g., &quot;Specimen collected&quot;, &quot;IV prepped&quot;"/>
       <definition value="Contains business-specific nuances of the business state."/>
       <requirements value="There's often a need to track substates of a task - this is often variable by specific workflow implementation."/>
       <min value="0"/>
@@ -284,7 +284,7 @@
     <element id="Task.intent">
       <path value="Task.intent"/>
       <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. this a proposed task, a planned task, an actionable task, etc."/>
+      <definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e., this a proposed task, a planned task, an actionable task, etc."/>
       <comment value="This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.&#xA;&#xA;In most cases, Tasks will have an intent of &quot;order&quot;."/>
       <min value="1"/>
       <max value="1"/>
@@ -352,7 +352,7 @@
       <path value="Task.doNotPerform"/>
       <short value="True if Task is prohibiting action"/>
       <definition value="If true indicates that the Task is asking for the specified action to *not* occur."/>
-      <comment value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#xA;&#xA;In some cases, the Request.code may pre-coordinate prohibition into the requested action. E.g. 'NPO' (nothing by mouth), 'DNR' (do not resuscitate). If this happens, doNotPerform SHALL NOT be set to true. I.e. The resource SHALL NOT have double negation. (E.g. 'Do not DNR').&#xA;&#xA;When Task.focus refers to a Request Resource, it is that Request's doNotPerform Flag that indicates that the action should not be performed. A Task can be used to request that authorized action is not performed by having task.focus point to that request resource and use Task.code as the do not perform indicator.&#xA;&#xA;Note that the use of doNotPerform and negation in Task.code can cause ambiguity and the impact of this should be considered not only for task but also for all related resources."/>
+      <comment value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#xA;&#xA;In some cases, the Request.code may pre-coordinate prohibition into the requested action. e.g., 'NPO' (nothing by mouth), 'DNR' (do not recussitate). If this happens, doNotPerform SHALL NOT be set to true. i.e., The resource shall not have double negation. (e.g., 'Do not DNR').&#xA;&#xA;doNotPerform should ONLY be used with Tasks that are tightly bounded in time or process phase.  e.g., 'Do not fulfill the midnight dose of medication X tonight due to the early morning scheduled procedure, where the nurse could reasonably check off 'Med X not given at midnight as instructed'.  Similarly, a decision support proposal that a patient should not be given a standard intake questionnaire (because the patient is cognitively impaired) would be marked as 'complete' or 'rejected' when the clinician preps the CarePlan or order set after reviewing the decision support results.  If there is a need to create a standing order to not do something that can't be satisfied by a single 'non-action', but rather an ongoing refusal to perform the function, MedicationRequest, ServiceRequest or some other form of authorization should be used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -492,7 +492,7 @@
     <element id="Task.encounter">
       <path value="Task.encounter"/>
       <short value="Healthcare event during which this task originated"/>
-      <definition value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created."/>
+      <definition value="The healthcare event  (e.g., a patient and healthcare provider interaction) during which this task was created."/>
       <requirements value="For some tasks it may be important to know the link between the encounter the task originated within."/>
       <min value="0"/>
       <max value="1"/>
@@ -765,8 +765,8 @@
       <path value="Task.location"/>
       <short value="Where task occurs"/>
       <definition value="Principal physical location where this task is performed."/>
-      <comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."/>
-      <requirements value="Provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+      <comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g., source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."/>
+      <requirements value="Provides context around the event occurrence (e.g., if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -791,7 +791,7 @@
       <path value="Task.reason"/>
       <short value="Why task is needed"/>
       <definition value="A description, code, or reference indicating why this task needs to be performed."/>
-      <comment value="This will typically not be present for Tasks with a code of 'please fulfill' as, for those, the reason for action is conveyed on the Request pointed to by Task.focus.  Some types of tasks will not need a 'reason'.  E.g. a request to discharge a patient can be inferred to be 'because the patient is ready' and this would not need a reason to be stated on the Task."/>
+      <comment value="This will typically not be present for Tasks with a code of 'please fulfill' as, for those, the reason for action is conveyed on the Request pointed to by Task.focus.  Some types of tasks will not need a 'reason'.  e.g., a request to discharge a patient can be inferred to be 'because the patient is ready' and this would not need a reason to be stated on the Task."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -803,7 +803,7 @@
           <valueString value="TaskReason"/>
         </extension>
         <strength value="example"/>
-        <description value="Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital."/>
+        <description value="Indicates why the task is needed.  e.g., Suspended because patient admitted to hospital."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/task-reason"/>
       </binding>
       <mapping>
@@ -892,7 +892,7 @@
       </extension>
       <path value="Task.restriction"/>
       <short value="Constraints on fulfillment tasks"/>
-      <definition value="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
+      <definition value="If the Task.focus is a request resource and the task is seeking fulfillment (i.e., is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
       <comment value="This element should only be used when the Task is seeking fulfillment of a request resource that authorizes a broader set of subjects, repetitions and/or time-period than the Task itself is seeking execution against.  It is not used otherwise."/>
       <requirements value="Sometimes when fulfillment is sought, you don't want full fulfillment."/>
       <min value="0"/>
@@ -910,7 +910,7 @@
       <path value="Task.restriction.repetitions"/>
       <short value="How many times to repeat"/>
       <definition value="Indicates the number of times the requested action should occur."/>
-      <requirements value="E.g. order that requests monthly lab tests, fulfillment is sought for 1."/>
+      <requirements value="e.g., order that requests monthly lab tests, fulfillment is sought for 1."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -924,9 +924,9 @@
     <element id="Task.restriction.period">
       <path value="Task.restriction.period"/>
       <short value="When fulfillment is sought"/>
-      <definition value="The time-period for which fulfillment is sought. This must fall within the overall time period authorized in the referenced request.  E.g. ServiceRequest.occurance[x]."/>
-      <comment value="This is distinct from Task.executionPeriod. ExecutionPeriod indicates when the task needs to be initiated, while Task.restriction.period specifies the subset of the overall authorization that this period covers. For example, a MedicationRequest with an overall effective period of 1 year might have a Task whose restriction.period is 2 months (i.e. satisfy 2 months of medication therapy), while the execution period might be 'between now and 5 days from now' - i.e. If you say yes to this, then you're agreeing to supply medication for that 2 month period within the next 5 days.&#xA;&#xA;Note that period.high is the due date representing the time by which the task should be completed."/>
-      <requirements value="E.g. order that authorizes 1 year's services.  Fulfillment is sought for next 3 months."/>
+      <definition value="The time-period for which fulfillment is sought. This must fall within the overall time period authorized in the referenced request.  e.g., ServiceRequest.occurance[x]."/>
+      <comment value="This is distinct from Task.executionPeriod. ExecutionPeriod indicates when the task needs to be initiated, while Task.restriction.period specifies the subset of the overall authorization that this period covers. For example, a MedicationRequest with an overall effective period of 1 year might have a Task whose restriction.period is 2 months (i.e., satisfy 2 months of medication therapy), while the execution period might be 'between now and 5 days from now' - i.e., If you say yes to this, then you're agreeing to supply medication for that 2 month period within the next 5 days.&#xA;&#xA;Note that period.high is the due date representing the time by which the task should be completed."/>
+      <requirements value="e.g., order that authorizes 1 year's services.  Fulfillment is sought for next 3 months."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -995,7 +995,7 @@
           <valueString value="TaskInputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  e.g., &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/task-inputoutput-parameter-type"/>
       </binding>
       <mapping>
@@ -1205,7 +1205,7 @@
           <valueString value="TaskOutputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters. These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+        <description value="Codes to identify types of input parameters. These will typically be specific to a particular workflow.  e.g., &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/task-inputoutput-parameter-type"/>
       </binding>
       <mapping>

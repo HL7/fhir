@@ -32,20 +32,20 @@
 			(which may only apply after mixing with other items - to become an AdministrableProductDefinition), 
 			or its packaging, or legal aspects (which apply only to the whole group of packing and manufactured items). 
 			There are typically multiple instances of the item in the packaging (a PackagedProductDefinition resource) 
-			and this is indicated by the quantity within the containing package (e.g. 12 tablets), referencing a single copy of the manufactured item.
+			and this is indicated by the quantity within the containing package (e.g., 12 tablets), referencing a single copy of the manufactured item.
 		</p>
 		<p>
 			This is the only resource that treats the "tablet" (or whatever it may be) as a physical object.
 			It is still definitional however - it describes all instances of this tablet.
 			The resource aims to capture the definition of a single medication item type, such as a tablet of aspirin with a certain form, shape, manufacturer. 
-			It is not intended to describe and be instantiated for each medication item, i.e. it is not an actual real instance of a tablet, 
+			It is not intended to describe and be instantiated for each medication item, i.e., it is not an actual real instance of a tablet, 
 			but rather represents (e.g.) all tablets of the same medication item type, that are described by the ManufacturedItemDefinition.
 		</p>
 		<p>
-			To define several package variations, e.g. pack of 10 tablets and of 50 tablets, you would need only one ManufacturedItemDefinition, 
+			To define several package variations, e.g., pack of 10 tablets and of 50 tablets, you would need only one ManufacturedItemDefinition, 
 			referenced from both (and associated with a numeric quantity of 10 or 50 in the respective PackagedProductDefintions).
 			To prescribe or dispense 100 tablets, you would not generally need this resource at all, 
-			because usually the code of the medication product as a whole is sufficient, plus a quantity, e.g. 100 of "ABC123" (meaning e.g. aspirin 75 mg).
+			because usually the code of the medication product as a whole is sufficient, plus a quantity, e.g., 100 of "ABC123" (meaning e.g., aspirin 75 mg).
 		</p>
 		<p>
 			This resource excludes devices and other items found in medication packaging such as scissors, 

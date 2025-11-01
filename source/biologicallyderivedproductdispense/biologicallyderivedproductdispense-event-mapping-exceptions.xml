@@ -117,7 +117,7 @@
             <resource value="The physical location where the dispense was performed."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
-            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g., if it occurred inside or outside a dedicated healthcare setting)."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>

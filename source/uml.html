@@ -130,10 +130,10 @@ to being abstract, the definitions associated with the class have no implementat
 <ul>
   <li>There is no implementation of the interface described by the definition</li>
   <li>Any classes that implement the interface redeclare any attributes and associations that are on the interface, and gives them an order</li>
-  <li>Such re-declarations will be consistent with the interface but may be a subset of the value domain e.g. the cardinality of an attribute may be 0..* on the interface, and 0..1 on a particular resource</li>
+  <li>Such re-declarations will be consistent with the interface but may be a subset of the value domain e.g., the cardinality of an attribute may be 0..* on the interface, and 0..1 on a particular resource</li>
   <li>In addition, the resource might not implement the attribute at all - this is equivalent to constraining the attribute to a cardinality of 0..0 - not used with this resource</li>
   <li>Since interfaces support both read and write, the interface is described using attributes not operations</li>
-  <li>Interfaces that inherit from an abstract resource (e.g. <a href="domainresource.html">DomainResource</a>)
+  <li>Interfaces that inherit from an abstract resource (e.g., <a href="domainresource.html">DomainResource</a>)
       can only be implemented by Resources that also inherit from the same abstract resource</li>
   <li>The interface resources also define search parameters, invariants and other information about the resources that are all inherited by the resources that implement these interfaces</li>
 </ul>
@@ -152,7 +152,7 @@ Rules for referring to interface types:
   <li>Reference.type: literal references cannot refer to interfaces (or abstract resources)</li>
   <li>ElementDefinition.type.code: The stated type of an element cannot be an interface (but it can be an abstract resource)</li>
   <li>ElementDefinition.type.profile: If a profile references an interface, then all 
-    resources that implement the interface are valid resources (e.g. on Bundle.entry.resource)</li>
+    resources that implement the interface are valid resources (e.g., on Bundle.entry.resource)</li>
   <li>ElementDefinition.type.target:- yes. If a profile references an interface, then all 
     resources that implement the interface are valid target resources</li>
 </ul>
@@ -180,7 +180,7 @@ to being abstract, and potentially an interface, classes that do follow the inte
 </p>
 <ul>
   <li>There is no direct implementation of the patterns</li>
-  <li>The relationship between the attributes and associations may be indirect - e.g. attributes may be renamed, restructured, or have different value domains</li>
+  <li>The relationship between the attributes and associations may be indirect - e.g., attributes may be renamed, restructured, or have different value domains</li>
   <li>Such patterns are there primarily to provide document general design intentions, which are subject to ongoing harmonization with observed real-world requirements</li>
   <li>The relationship between the patterns and the resources that follow them is found in the <a href="mappings.html">mappings for the resources</a></li>
 </ul>

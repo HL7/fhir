@@ -297,7 +297,7 @@
       <path value="Organization.contact"/>
       <short value="Official contact details for the Organization"/>
       <definition value="The contact details of communication devices available relevant to the specific Organization. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
-      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Organization itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc."/>
+      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Organization itself for specific purposes. e.g., Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc."/>
       <requirements value="Need to keep track of assigned contact points within bigger organization."/>
       <min value="0"/>
       <max value="*"/>
@@ -355,7 +355,7 @@
       <path value="Organization.endpoint"/>
       <short value="Technical endpoints providing access to services operated for the organization"/>
       <definition value="Technical endpoints providing access to services operated for the organization."/>
-      <comment value="Note that an organization might have endpoints listed in any of the referenced directory resources, not just at the top Organization level (i.e. sub Organizations, Locations, HealthcareServices, PractitionerRoles)&#xD;&#xD;The Endpoint.managingOrganization property indicates the organization that is supporting/managing the technical endpoint." />
+      <comment value="Note that an organization might have endpoints listed in any of the referenced directory resources, not just at the top Organization level (i.e., sub Organizations, Locations, HealthcareServices, PractitionerRoles)&#xD;&#xD;The Endpoint.managingOrganization property indicates the organization that is supporting/managing the technical endpoint." />
       <requirements value="Organizations have multiple systems that provide various services and need to be able to define the technical connection details for how to connect to them, and for what purpose."/>
       <min value="0"/>
       <max value="*"/>

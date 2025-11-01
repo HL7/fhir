@@ -286,13 +286,13 @@
       <answerOption>
         <valueCoding>
           <code value="6"/>
-          <display value="Title programs (e.g. Title III, V, or XX)"/>
+          <display value="Title programs (e.g., Title III, V, or XX)"/>
         </valueCoding>
       </answerOption>
       <answerOption>
         <valueCoding>
           <code value="7"/>
-          <display value="Other government (e.g. TriCare, VA, etc.)"/>
+          <display value="Other government (e.g., TriCare, VA, etc.)"/>
         </valueCoding>
       </answerOption>
       <answerOption>

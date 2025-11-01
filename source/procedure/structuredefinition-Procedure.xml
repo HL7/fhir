@@ -158,7 +158,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=FLFS].target[classCode=(various e.g. PROC, OBS, PCPR, ACT,  moodCode=RQO].code"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target[classCode=(various e.g., PROC, OBS, PCPR, ACT,  moodCode=RQO].code"/>
       </mapping>
     </element>
     <element id="Procedure.partOf">
@@ -268,7 +268,7 @@
       </extension>
       <path value="Procedure.category"/>
       <short value="Classification of the procedure"/>
-      <definition value="A code that classifies the procedure for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)."/>
+      <definition value="A code that classifies the procedure for searching, sorting and display purposes (e.g., &quot;Surgical Procedure&quot;)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -299,7 +299,7 @@
     <element id="Procedure.code">
       <path value="Procedure.code"/>
       <short value="Identification of the procedure"/>
-      <definition value="The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. &quot;Laparoscopic Appendectomy&quot;)."/>
+      <definition value="The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g., &quot;Laparoscopic Appendectomy&quot;)."/>
       <requirements value="0..1 to account for primarily narrative only resources."/>
       <alias value="type"/>
       <min value="0"/>
@@ -376,7 +376,7 @@
       </extension>
       <path value="Procedure.focus"/>
       <short value="Who is the target of the procedure when it is not the subject of record only"/>
-      <definition value="Who is the target of the procedure when it is not the subject of record only.  If focus is not present, then subject is the focus.  If focus is present and the subject is one of the targets of the procedure, include subject as a focus as well. If focus is present and the subject is not included in focus, it implies that the procedure was only targeted on the focus. For example, when a caregiver is given education for a patient, the caregiver would be the focus and the procedure record is associated with the subject (e.g. patient).  For example, use focus when recording the target of the education, training, or counseling is the parent or relative of a patient."/>
+      <definition value="Who is the target of the procedure when it is not the subject of record only.  If focus is not present, then subject is the focus.  If focus is present and the subject is one of the targets of the procedure, include subject as a focus as well. If focus is present and the subject is not included in focus, it implies that the procedure was only targeted on the focus. For example, when a caregiver is given education for a patient, the caregiver would be the focus and the procedure record is associated with the subject (e.g., patient).  For example, use focus when recording the target of the education, training, or counseling is the parent or relative of a patient."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -700,7 +700,7 @@
     <element id="Procedure.location">
       <path value="Procedure.location"/>
       <short value="Where the procedure happened"/>
-      <definition value="The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant."/>
+      <definition value="The location where the procedure actually happened.  e.g., a newborn at home, a tracheostomy at a restaurant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -769,7 +769,7 @@
     <element id="Procedure.bodySite">
       <path value="Procedure.bodySite"/>
       <short value="Target body sites"/>
-      <definition value="Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion."/>
+      <definition value="Detailed and structured anatomical location information. Multiple locations are allowed - e.g., multiple punch biopsies of a lesion."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -851,7 +851,7 @@
 	  <path value="Procedure.report"/>
       <short value="Any report resulting from the procedure"/>
       <definition value="This could be a histology result, pathology report, surgical report, etc."/>
-      <comment value="There could potentially be multiple reports - e.g. if this was a procedure which took multiple biopsies resulting in a number of anatomical pathology reports."/>
+      <comment value="There could potentially be multiple reports - e.g., if this was a procedure which took multiple biopsies resulting in a number of anatomical pathology reports."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -900,7 +900,7 @@
       </extension>
       <path value="Procedure.followUp"/>
       <short value="Instructions for follow up"/>
-      <definition value="If the procedure required specific follow up - e.g. removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used. CarePlan can reference the Procedure via CarePlan.addresses."/>
+      <definition value="If the procedure required specific follow up - e.g., removal of sutures. The follow up may be represented as a simple note or could potentially be more complex, in which case the CarePlan resource can be used. CarePlan can reference the Procedure via CarePlan.addresses."/>
       <min value="0"/>
       <max value="*"/>
 	  <type>
@@ -913,7 +913,7 @@
           <valueString value="ProcedureFollowUp"/>
         </extension>
         <strength value="example"/>
-        <description value="Specific follow up required for a procedure e.g. removal of sutures."/>
+        <description value="Specific follow up required for a procedure e.g., removal of sutures."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-followup"/>
       </binding>
       <mapping>

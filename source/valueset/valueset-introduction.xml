@@ -100,7 +100,7 @@ a FHIR context, where the canonical URL is always the focus.
 A value set may be described as intensional or extensional. The terms intensional and extensional come from the fields of mathematical logic and set theory. 
 </p>
 <p>
-An intensionally defined value set may be algorithmically defined e.g. all codes with the word diabetes in 
+An intensionally defined value set may be algorithmically defined e.g., all codes with the word diabetes in 
 the description. A key benefit of intensionally defined value sets is that their expansion can be dynamically 
 updated without changing the value set definition. This helps healthcare organizations keep current for example, 
 when new drugs (and their associated codes) become available or codes for diseases and other clinical concepts 

@@ -238,7 +238,7 @@
       <path value="ServiceRequest.requisition"/>
       <short value="Composite Request ID"/>
       <definition value="A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier."/>
-      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e., one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <requirements value="Some business processes need to know if multiple items were ordered as part of the same &quot;requisition&quot; for billing or other purposes."/>
       <min value="0"/>
       <max value="1"/>
@@ -334,7 +334,7 @@
       <path value="ServiceRequest.intent"/>
       <short value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
-      <comment value="This element is expected to be immutable. E.g. A 'proposal' instance should never change to be a 'plan' instance or 'order' instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xA;&#xA;One exception to this is that the granularity of ServiceRequest.intent is allowed to change. For example, a ServiceRequest identified as an 'order' might later be clarified to be a 'filler-order'. Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
+      <comment value="This element is expected to be immutable. e.g., A 'proposal' instance should never change to be a 'plan' instance or 'order' instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xA;&#xA;One exception to this is that the granularity of ServiceRequest.intent is allowed to change. For example, a ServiceRequest identified as an 'order' might later be clarified to be a 'filler-order'. Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -374,7 +374,7 @@
       </extension>
       <path value="ServiceRequest.category"/>
       <short value="Classification of service"/>
-      <definition value="A code that classifies the service for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)."/>
+      <definition value="A code that classifies the service for searching, sorting and display purposes (e.g., &quot;Surgical Procedure&quot;)."/>
       <comment value="There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set."/>
       <requirements value="Used for filtering what service request are retrieved and displayed."/>
       <min value="0"/>
@@ -461,7 +461,7 @@
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="If missing, the request is a positive request e.g. &quot;do perform&quot;"/>
+      <meaningWhenMissing value="If missing, the request is a positive request e.g., &quot;do perform&quot;"/>
       <isModifier value="true"/>
       <isModifierReason value="If true this element negates the specified action. For Example,  instead of a request for a procedure, it is a request for the procedure to not occur."/>
       <isSummary value="true"/>
@@ -565,7 +565,7 @@
       <path value="ServiceRequest.orderDetail"/>
       <short value="Additional information about the request"/>
       <definition value="Additional details and instructions about how the services are to be delivered. For example, an order for a urinary catheter may have an order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied. Questions or additional information to be gathered from a patient may be included here."/>
-      <comment value="For existing information to support the delivery of the requested services, use the supportingInformnation.element - e.g. to share information with the lab about a patient's age, gender, or current medications."/>
+      <comment value="For existing information to support the delivery of the requested services, use the supportingInformnation.element - e.g., to share information with the lab about a patient's age, gender, or current medications."/>
       <alias value="detailed instructions"/>
       <min value="0"/>
       <max value="*"/>
@@ -1032,7 +1032,7 @@
       </extension>
       <path value="ServiceRequest.location"/>
       <short value="Requested location"/>
-      <definition value="The preferred location(s) where the procedure should actually happen in coded or free text form. E.g. at home or nursing day care center."/>
+      <definition value="The preferred location(s) where the procedure should actually happen in coded or free text form. e.g., at home or nursing day care center."/>
       <min value="0"/>
       <max value="*"/>
       <type>

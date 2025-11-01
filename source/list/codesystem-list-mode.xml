@@ -63,6 +63,6 @@
   <concept>
     <code value="changes"/>
     <display value="Change List"/>
-    <definition value="A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter."/>
+    <definition value="A point-in-time list that shows what changes have been made or recommended.  e.g., a discharge medication list showing what was added and removed during an encounter."/>
   </concept>
 </CodeSystem>

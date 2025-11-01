@@ -178,7 +178,7 @@ actual</a>
        class="diagram-class-detail"><a
    xlink:href="group-definitions.html#Group.code"
    id="n322"><title
-   id="title41">Provides a specific type of resource the group includes; e.g. &quot;cow&quot;, &quot;syringe&quot;, etc.</title>
+   id="title41">Provides a specific type of resource the group includes; e.g., &quot;cow&quot;, &quot;syringe&quot;, etc.</title>
 code</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"
@@ -341,7 +341,7 @@ exclude</a>
        style="fill:#000000"><a
    xlink:href="group-definitions.html#Group.characteristic.period"
    id="n389"><title
-   id="title91">The period over which the characteristic is tested; e.g. the patient had an operation during the month of June</title>
+   id="title91">The period over which the characteristic is tested; e.g., the patient had an operation during the month of June</title>
 period</a>
  : <a
    xlink:href="datatypes.html#Period"

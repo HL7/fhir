@@ -390,7 +390,7 @@
     <element id="FamilyMemberHistory.name">
       <path value="FamilyMemberHistory.name"/>
       <short value="The family member described"/>
-      <definition value="This will either be a name or a description; e.g. &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;."/>
+      <definition value="This will either be a name or a description; e.g., &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;."/>
       <requirements value="Allows greater ease in ensuring the same person is being talked about."/>
       <min value="0"/>
       <max value="1"/>
@@ -430,7 +430,7 @@
       <path value="FamilyMemberHistory.sex"/>
       <short value="male | female | other | unknown"/>
       <definition value="The birth sex of the family member."/>
-      <comment value="This element should ideally reflect whether the individual is genetically male or female.  However, as reported information based on the knowledge of the patient or reporting friend/relative, there may be situations where the reported sex might not be totally accurate.  E.g. 'Aunt Sue' might be XY rather than XX.  Questions soliciting this information should be phrased to encourage capture of genetic sex where known.  However, systems performing analysis should also allow for the possibility of imprecision with this element."/>
+      <comment value="This element should ideally reflect whether the individual is genetically male or female.  However, as reported information based on the knowledge of the patient or reporting friend/relative, there may be situations where the reported sex might not be totally accurate.  e.g., 'Aunt Sue' might be XY rather than XX.  Questions soliciting this information should be phrased to encourage capture of genetic sex where known.  However, systems performing analysis should also allow for the possibility of imprecision with this element."/>
       <requirements value="Not all relationship codes imply sex and the relative's sex can be relevant for risk assessments."/>
       <min value="0"/>
       <max value="1"/>
@@ -655,7 +655,7 @@
           <valueString value="ConditionOutcome"/>
         </extension>
         <strength value="example"/>
-        <description value="The result of the condition for the patient; e.g. death, permanent disability, temporary disability, etc."/>
+        <description value="The result of the condition for the patient; e.g., death, permanent disability, temporary disability, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-outcome"/>
       </binding>
       <mapping>
@@ -762,7 +762,7 @@
           <valueString value="ProcedureOutcome"/>
         </extension>
         <strength value="example"/>
-        <description value="The result of the procedure; e.g. death, permanent disability, temporary disability, etc."/>
+        <description value="The result of the procedure; e.g., death, permanent disability, temporary disability, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
     </element>

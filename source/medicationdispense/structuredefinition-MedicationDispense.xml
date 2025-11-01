@@ -570,7 +570,7 @@
     <element id="MedicationDispense.fillNumber">
       <path value="MedicationDispense.fillNumber"/>
       <short value="A number that represents the known fill this dispense represents"/>
-      <definition value="Represents the known number of the fill over the entire lifetime of the prescription, i.e. if this is the first dispense by this pharmacy but the third fill overall, then the fillNumber will be 3.  Each fill number represents one dispensation, even if that dispensation is not for the full quantity.  Partial fills are not represented by decimal quantities, i.e., a partial fill of 40 tablets (full quantity is 100 tablets) adds 1 to the prior fill number, not 0.4. This means that the 'fillNumber' may sometimes be higher than the MedicationRequest.numberOfRepeatsAllowed, as the latter assumes full fills, while fillNumber does not."/>
+      <definition value="Represents the known number of the fill over the entire lifetime of the prescription, i.e., if this is the first dispense by this pharmacy but the third fill overall, then the fillNumber will be 3.  Each fill number represents one dispensation, even if that dispensation is not for the full quantity.  Partial fills are not represented by decimal quantities, i.e., a partial fill of 40 tablets (full quantity is 100 tablets) adds 1 to the prior fill number, not 0.4. This means that the 'fillNumber' may sometimes be higher than the MedicationRequest.numberOfRepeatsAllowed, as the latter assumes full fills, while fillNumber does not."/>
       <comment value="This element may  be inaccurate as it relies on the dispensing pharmacy to be aware of all fills that have occurred for the request."/>
       <min value="0"/>
       <max value="1"/>
@@ -750,7 +750,7 @@
       <path value="MedicationDispense.dosageInstruction"/>
       <short value="How the medication is to be used by the patient or administered by the caregiver"/>
       <definition value="Indicates how the medication is to be used by the patient."/>
-      <comment value="When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.&#xD;The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed."/>
+      <comment value="When the dose or rate is intended to change over the entire administration period (e.g., Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.&#xD;The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed."/>
       <min value="0"/>
       <max value="*"/>
       <type>

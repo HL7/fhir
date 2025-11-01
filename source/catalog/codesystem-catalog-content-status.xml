@@ -23,7 +23,7 @@
   <concept>
     <code value="pending"/>
     <display value="Pending"/>
-    <definition value="The catalog content is pending some action e.g. confirmation or approval."/>
+    <definition value="The catalog content is pending some action e.g., confirmation or approval."/>
   </concept>
   <concept>
     <code value="discontinued"/>

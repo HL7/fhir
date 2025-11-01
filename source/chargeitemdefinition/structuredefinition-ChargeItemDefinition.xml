@@ -168,7 +168,7 @@
 		<element id="ChargeItemDefinition.version">
 			<path value="ChargeItemDefinition.version"/>
 			<short value="Business version of the charge item definition"/>
-			<definition value="The identifier that is used to identify this version of the charge item definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the charge item definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets."/>
+			<definition value="The identifier that is used to identify this version of the charge item definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the charge item definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g., 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets."/>
 			<comment value="There may be different charge item definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the charge item definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -463,7 +463,7 @@
 			<path value="ChargeItemDefinition.description"/>
 			<short value="Natural language description of the charge item definition"/>
 			<definition value="A free text natural language description of the charge item definition from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the charge item definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the charge item definition is presumed to be the predominant language in the place the charge item definition was created)."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the charge item definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g., the language of the charge item definition is presumed to be the predominant language in the place the charge item definition was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -504,7 +504,7 @@
 			<path value="ChargeItemDefinition.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the charge item definition (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the charge item definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the charge item definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -595,7 +595,7 @@
 			</extension>
 			<path value="ChargeItemDefinition.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
 			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
@@ -700,7 +700,7 @@
 			<path value="ChargeItemDefinition.applicability"/>
 			<short value="Whether or not the billing code is applicable"/>
 			<definition value="Expressions that describe applicability criteria for the billing code."/>
-			<comment value="The applicability conditions can be used to ascertain whether a billing item is allowed in a specific context. E.g. some billing codes may only be applicable in out-patient settings, only to male/female patients or only to children."/>
+			<comment value="The applicability conditions can be used to ascertain whether a billing item is allowed in a specific context. e.g., some billing codes may only be applicable in out-patient settings, only to male/female patients or only to children."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -783,7 +783,7 @@
 			<path value="ChargeItemDefinition.propertyGroup.applicability"/>
 			<short value="Conditions under which the priceComponent is applicable"/>
 			<definition value="Expressions that describe applicability criteria for the priceComponent."/>
-			<comment value="The applicability conditions can be used to ascertain whether a billing item is allowed in a specific context. E.g. some billing codes may only be applicable in out-patient settings, only to male/female patients or only to children."/>
+			<comment value="The applicability conditions can be used to ascertain whether a billing item is allowed in a specific context. e.g., some billing codes may only be applicable in out-patient settings, only to male/female patients or only to children."/>
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#ChargeItemDefinition.applicability"/>

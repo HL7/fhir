@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n471"
    xlink:href="requirements-definitions.html#Requirements.version"><title
-   id="title95081">The identifier that is used to identify this version of the Requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title95081">The identifier that is used to identify this version of the Requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n472"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -287,7 +287,7 @@
        class="diagram-class-detail"><a
    id="n563"
    xlink:href="requirements-definitions.html#Requirements.copyrightLabel"><title
-   id="title95153">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title95153">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n564"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -398,7 +398,7 @@
        class="diagram-class-detail"><a
    id="n616"
    xlink:href="requirements-definitions.html#Requirements.statement.conditionality"><title
-   id="title95196">This boolean flag is set to true of the text of the requirement is conditional on something e.g. it includes lanauage like 'if x then y'. This conditionality flag is introduced for purposes of filtering and colour highlighting etc</title>conditionality</a> : <a
+   id="title95196">This boolean flag is set to true of the text of the requirement is conditional on something e.g., it includes lanauage like 'if x then y'. This conditionality flag is introduced for purposes of filtering and colour highlighting etc</title>conditionality</a> : <a
    id="n617"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text

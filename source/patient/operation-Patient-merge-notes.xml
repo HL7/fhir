@@ -99,7 +99,7 @@
 		<h5>Post Merge Expectations</h5>
 			<h6>Once the patient resources have been merged:</h6>
 				<p>
-					A GET on the source Patient resource ID (e.g. <code>GET [base]/Patient/pat01</code>) will return either:
+					A GET on the source Patient resource ID (e.g., <code>GET [base]/Patient/pat01</code>) will return either:
 				</p>
 				<ul>
 					<li>200 OK and returns the source patient which is now marked as inactive, and has the link (replaced-by) populated with the target Patient ID (Note: some systems may have cleared all the other properties making this a stub resource)</li>
@@ -111,7 +111,7 @@
 					</p>
 				</blockquote>
 				<p>
-					When performing a SEARCH by the source patient resource ID return (e.g. <code>GET [base]/Patient?_id=pat01</code>):<br/> 
+					When performing a SEARCH by the source patient resource ID return (e.g., <code>GET [base]/Patient?_id=pat01</code>):<br/> 
 					(often used as a substitute for direct GET when doing _include for the managing org/general practitioner)
 				</p>
 				<ul>
@@ -129,14 +129,14 @@
 					</p>
 				[%end-note%]
 				<p>
-					Searching content (e.g. Observations) based on patient ID:
+					Searching content (e.g., Observations) based on patient ID:
 				</p>
 				<ul>
 					<li><code>Observation?patient=Patient/pat01</code> would return a 200 Ok Bundle with no results (as all have been moved to Patient/pat02), an OperationOutcome may be included indicating that the patient was merged into patient xxx</li>
 					<li><code>Observation?patient=Patient/pat02</code> would return all the data that is referencing pat02, and all the data that was referencing pat01 (which was updated by the merge operation to reference pat02)</li>
 				</ul>
 				<p>
-					Searching content (e.g. Observations) based on patient ID:
+					Searching content (e.g., Observations) based on patient ID:
 				</p>
 				<ul>
 					<li><code>Observation?patient=Patient/pat02</code> (initial client call at start of year, gets all patient obs)</li>
@@ -154,7 +154,7 @@
 				</ul>
 				[%stu-note dstu%]
 					<p>
-						Creating/Updating content (e.g. Observations) that reference the source patient ID (feedback on this required):
+						Creating/Updating content (e.g., Observations) that reference the source patient ID (feedback on this required):
 					</p>
 					<ul>
 						<li>422 Unprocessable Entity with an OperationOutcome indicating that the patient referenced was merged into patient xxx (this is also the existing behavior if the patient resource was deleted)</li>
@@ -190,7 +190,7 @@
 	<a name="subscription"></a>
 	<h4>Impact on Subscriptions</h4>
 		<p>
-			Subscriptions on merges are most likely to be used by applications connecting directly to the system. Many use cases could consider using FHIR Messaging (or other messaging e.g. v2 messages) to communicate the merge occurred.
+			Subscriptions on merges are most likely to be used by applications connecting directly to the system. Many use cases could consider using FHIR Messaging (or other messaging e.g., v2 messages) to communicate the merge occurred.
 		</p>
 		[%stu-note dstu%]
 			<p>

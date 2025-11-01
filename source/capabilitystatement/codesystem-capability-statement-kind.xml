@@ -160,7 +160,7 @@
           
           
           
-          <td>The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.</td>
+          <td>The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g., as part of an implementation guide or 'request for proposal'.</td>
           
           
           
@@ -238,6 +238,6 @@
   <concept>
     <code value="requirements"/>
     <display value="Requirements"/>
-    <definition value="The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'."/>
+    <definition value="The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g., as part of an implementation guide or 'request for proposal'."/>
   </concept>
 </CodeSystem>

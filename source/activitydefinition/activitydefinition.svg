@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n1056"
    xlink:href="activitydefinition-definitions.html#ActivityDefinition.version"><title
-   id="title37">The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets</title>version</a> : <a
+   id="title37">The identifier that is used to identify this version of the activity definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the activity definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g., 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets</title>version</a> : <a
    id="n1057"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -388,7 +388,7 @@
        class="diagram-class-detail"><a
    id="n1216"
    xlink:href="activitydefinition-definitions.html#ActivityDefinition.copyrightLabel"><title
-   id="title151">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title151">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1217"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -541,7 +541,7 @@
        class="diagram-class-detail"><a
    id="n1306"
    xlink:href="activitydefinition-definitions.html#ActivityDefinition.code"><title
-   id="title222">Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter</title>code</a> : <a
+   id="title222">Detailed description of the type of activity; e.g., What lab test, what procedure, what kind of encounter</title>code</a> : <a
    id="n1307"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1308"
@@ -639,7 +639,7 @@
        class="diagram-class-detail"><a
    id="n1374"
    xlink:href="activitydefinition-definitions.html#ActivityDefinition.location"><title
-   id="title268">Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc</title>location</a> : <a
+   id="title268">Identifies the facility where the activity will occur; e.g., home, hospital, specific clinic, etc</title>location</a> : <a
    id="n1375"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
    id="n1376"
@@ -716,7 +716,7 @@
        class="diagram-class-detail"><a
    id="n1422"
    xlink:href="activitydefinition-definitions.html#ActivityDefinition.bodySite"><title
-   id="title302">Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites)</title>bodySite</a> : <a
+   id="title302">Indicates the sites on the subject's body where the procedure should be performed (i.e., the target sites)</title>bodySite</a> : <a
    id="n1423"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n1424"

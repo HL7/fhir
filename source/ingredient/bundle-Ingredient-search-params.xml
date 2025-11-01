@@ -89,7 +89,7 @@
           <valueString value="Ingredient.role"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-role"/>
-        <description value="A classification of the ingredient identifying its purpose within the product, e.g. active, inactive"/>
+        <description value="A classification of the ingredient identifying its purpose within the product, e.g., active, inactive"/>
         <code value="role"/>
         <type value="token"/>
         <expression value="Ingredient.role"/>

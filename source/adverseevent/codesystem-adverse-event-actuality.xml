@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Overall nature of the adverse event, e.g. real or potential."/>
+  <description value="Overall nature of the adverse event, e.g., real or potential."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-actuality"/>
   <content value="complete"/>

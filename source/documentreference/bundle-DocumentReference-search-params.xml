@@ -513,7 +513,7 @@
           <valueString value="DocumentReference.practiceSetting"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-setting"/>
-        <description value="Additional details about where the content was created (e.g. clinical specialty)"/>
+        <description value="Additional details about where the content was created (e.g., clinical specialty)"/>
         <code value="setting"/>
         <type value="token"/>
         <expression value="DocumentReference.practiceSetting"/>

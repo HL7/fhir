@@ -6,7 +6,7 @@ Notes
 </h2>
 <ul>
 <li>QuestionnaireResponses can be authored by clinicians, patients, or patients' relatives (or even owners in the case of animals). Clinicians
-may author questionnaire responses, where the answers are provided by others on behalf of the patient. Additionally, information gathered on behalf of a patient may be about the patient's relatives (e.g. in family anamnesis). Therefore, QuestionnaireResponse makes a distinction between the author,
+may author questionnaire responses, where the answers are provided by others on behalf of the patient. Additionally, information gathered on behalf of a patient may be about the patient's relatives (e.g., in family anamnesis). Therefore, QuestionnaireResponse makes a distinction between the author,
 the subject and the source of information.</li>
 <li>The QuestionnaireResponse's <i>encounter</i> element can be used to link to the encounter when the questionnaire response was authored. This can be relevant since the
 encounter gives context to the answers and can be used to relate information in the QuestionnaireResponse to orders and observations that were done during the same Encounter.</li>
@@ -33,13 +33,13 @@ A <code>QuestionnaireResponse</code> may be stand-alone or may point to the defi
 If the QuestionnaireResponse refers to a Questionnaire:
 </p>
 <ul>
- <li>The QuestionnaireResponse structure must be consistent with the Questionnaire (i.e. questions must be organized into the same groups, nested questions must still be nested, etc.</li>
+ <li>The QuestionnaireResponse structure must be consistent with the Questionnaire (i.e., questions must be organized into the same groups, nested questions must still be nested, etc.</li>
  <li>The linkage between the questions and groups in the two resources is established using the <code>linkId</code> element</li>
  <li>LinkIds are unique across all items in a Questionnaire, but can sometimes appear multiple times within a QuestionnaireResponse if the corresponding item (or one of its ancestors) is allowed to repeat.</li>
  <li>When a QuestionnaireResponse references a Questionnaire, all the items in the questionnaire SHOULD be included in the QuestionnaireResponse 
    if they are relevant to the interpretation of the  answers, including items of type = <code>display</code>. When the QuestionnaireResponse is not yet marked as 'completed', 
    this might also include items that are not <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">enabled</a> based on what answers are currently present.  However, once a 
-   QuestionnaireResponse is marked as "completed", the QuestionnaireResponse SHALL only include items that are 'enabled'.  I.e. stuff that was perhaps answered through populate or user-action but 
+   QuestionnaireResponse is marked as "completed", the QuestionnaireResponse SHALL only include items that are 'enabled'.  i.e., stuff that was perhaps answered through populate or user-action but 
    subsequently got disabled due to other answers must not be included in a final QuestionnaireResponse.</li>
 </ul>
 
@@ -134,7 +134,7 @@ When working with QuestionnaireResponses, there may be FHIRPath <a href="metadat
 <ul>
   <li>The <code>%resource</code> variable when it appears in expressions on elements in Questionnaire will be evaluated as the root of the QuestionnaireResponse.
 </li>
-<li>The <code>%context</code> variable will be set to the QuestionnaireResponse if the expression extension is defined on the Questionnaire root. Otherwise, it will be interpreted as the QuestionnaireResponse.item(s) whose linkId matches the linkId of the Questionnaire.item the expression extension was defined in. I.e. while the extensions and expressions are defined in the Questionnaire, they are evaluated in the context of the corresponding item(s) in the QuestionnaireResponse.
+<li>The <code>%context</code> variable will be set to the QuestionnaireResponse if the expression extension is defined on the Questionnaire root. Otherwise, it will be interpreted as the QuestionnaireResponse.item(s) whose linkId matches the linkId of the Questionnaire.item the expression extension was defined in. i.e., while the extensions and expressions are defined in the Questionnaire, they are evaluated in the context of the corresponding item(s) in the QuestionnaireResponse.
 </li>
 <li>
 All expressions that specify a 'name' can be accessed by other expressions appearing on the same item or any descendant item as though that name was part of context. The same is true for the 'name' element in the <a href="https://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaire-launchContext.html">launchContext extension</a>. For example, a variable with the name 'score' could be accessed in FHIRPath or CQL using %score.

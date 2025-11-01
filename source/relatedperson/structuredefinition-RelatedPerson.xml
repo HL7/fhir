@@ -262,7 +262,7 @@
     <element id="RelatedPerson.telecom">
       <path value="RelatedPerson.telecom"/>
       <short value="A contact detail for the person"/>
-      <definition value="A contact detail for the person, e.g. a telephone number or an email address."/>
+      <definition value="A contact detail for the person, e.g., a telephone number or an email address."/>
       <comment value="RelatedPerson may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification.&#xD;&#xD;DO NOT use .telecom properties to represent user identities. Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="People have (primary) ways to contact them in some way such as phone, email."/>
       <min value="0"/>
@@ -466,7 +466,7 @@
       <short value="Language preference indicator"/>
       <definition value="Indicates whether or not the related person prefers this language (over other languages he or she masters up a certain level)."/>
       <comment value="This language is specifically identified for communicating healthcare information."/>
-      <requirements value="People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fall back method."/>
+      <requirements value="People that master multiple languages up to certain level may prefer one or more, i.e., feel more confident in communicating in a particular language making other languages sort of a fall back method."/>
       <min value="0"/>
       <max value="1"/>
       <type>

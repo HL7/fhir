@@ -9,8 +9,8 @@ A value set can be a simple list of included codes, or it can be some kind of ge
 using the facilities provided by the <a href="codesystem.html">code system</a>. For these value sets:
 </p>
 <ul>
- <li>Multiple <code>include</code> statements are cumulative - e.g. the value set contains the union of all the includes</li>
- <li>Within an <code>include</code>, all the criterion apply -e.g. the value set contains the intersection of the criterion</li>
+ <li>Multiple <code>include</code> statements are cumulative - e.g., the value set contains the union of all the includes</li>
+ <li>Within an <code>include</code>, all the criterion apply -e.g., the value set contains the intersection of the criterion</li>
  <li>Within an <code>include</code>, a single system with selection criteria may be listed, and/or one or more value sets may be listed</li>
  <li><b><code>valueSet</code>(s) only</b>: Codes are 'selected' for inclusion if they are in all the referenced value sets</li>
  <li>If a <b><code>System</code> only</b> is specified, the following rules apply: 
@@ -346,7 +346,7 @@ facility is provided to cover the following circumstances:
 <ul>
  <li>The system that defines the code or expression doesn't provide a display for this code (or any codes).</li>
  <li>The system that defines the code or expression defines multiple choices for display.</li>
- <li>The system provides a very long display name that is unnecessary or inappropriate in the context of this value set (e.g. a display name of "Glucose [Mass/volume] in Serum or Plasma --10 PM specimen" for LOINC code 48991-4, when the value set only includes Glucose mass/vol in serum/plasma codes). As the display names get longer, this becomes more important.</li>
+ <li>The system provides a very long display name that is unnecessary or inappropriate in the context of this value set (e.g., a display name of "Glucose [Mass/volume] in Serum or Plasma --10 PM specimen" for LOINC code 48991-4, when the value set only includes Glucose mass/vol in serum/plasma codes). As the display names get longer, this becomes more important.</li>
 </ul>
 <p>
 Note that care must be taken in order to avoid "changing the meaning" of the concept by
@@ -359,7 +359,7 @@ in a value set.
 Any display name for a concept provided in the value set is for display to a human user. 
 The display in the <a href="datatypes.html#Coding">Coding</a> that results from a user 
 selecting a concept from the expansion must be taken from the underlying code system 
-definition, even if a value set is referenced explicitly in the Coding (e.g. by an 
+definition, even if a value set is referenced explicitly in the Coding (e.g., by an 
 <a href="[%extensions-location%]StructureDefinition-valueset-reference.html">extension</a>). The correct display for a 
 code can be determined by a <a href="codesystem-operation-lookup.html">$lookup operation</a>. 
 Any alternative display specified in the value set would go in 
@@ -462,7 +462,7 @@ Value sets may select codes from multiple code systems - either
 by including codes from different systems, or importing other 
 value sets that include them. A typical use for crossing code systems is 
 when including a set of codes, and adding a few additional codes to cover 
-cases not catered to by the included codes (e.g. Data missing or workflow error codes). 
+cases not catered to by the included codes (e.g., Data missing or workflow error codes). 
 </p> 
 <p>
 Best Practice Note: Mixing definitional systems offers the potential for 
@@ -502,7 +502,7 @@ the following process should be followed:
     <li>Check that the parameters associated with the <a href="valueset-operation-expand.html">$expand</a> operation are consistent with the parameters recorded in the expansion</li>
     <li>If the parameters are inconsistent, then either generate a new expansion, or, if there is no definition (<code>.compose</code>), return an error</li>
     <li>Additional parameters may be applied to an existing expansion if the server has validated that the result will be the same as if the expansion 
-    was generated directly from the value set definition (e.g. text filter, designations included).</li>
+    was generated directly from the value set definition (e.g., text filter, designations included).</li>
    </ul>
  </li>
  <li>Otherwise: For each <i>compose.include</i>:
@@ -581,7 +581,7 @@ produced must be clearly identified so that there is no confusion. The following
  <li>The canonical URL for the expansion is the same as the value set it was expanded from</li>
  <li>Each expansion SHALL have a unique identifier in <code>ValueSet.expansion.identifier</code></li>
  <li>The result of an <a href="valueset-operation-expand.html">$expand</a> operation may use the same identifier in ValueSet.expansion.identifier as a 
-   previous expansion, but if it does, the canonical representation of the value set expansion SHALL be identical (e.g. a cached response)</li>
+   previous expansion, but if it does, the canonical representation of the value set expansion SHALL be identical (e.g., a cached response)</li>
 </ul>
 
 <a name="parameters"></a>
@@ -698,7 +698,7 @@ Use cases for the different combinations:
  The resource instance including the expansion might or might not be persisted. 
  </li>
  <li>Neither <code><a href="valueset-definitions.html#ValueSet.compose">.compose</a></code> nor <code><a href="valueset-definitions.html#ValueSet.expansion">.expansion</a></code>:
- This is a valid format for ValueSet resource instances.  A primary use case is the return from a summary search (i.e. _summary=true).  
+ This is a valid format for ValueSet resource instances.  A primary use case is the return from a summary search (i.e., _summary=true).  
  This may be especially useful to reduce the performance overhead when returning a summary of extensionally defined value sets 
  (which may include a large number of concepts in the value set definition).
  </li>

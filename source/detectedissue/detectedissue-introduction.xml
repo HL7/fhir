@@ -7,7 +7,7 @@
 
 <p>
 This resource applies to various circumstances where there is a concern about an existing or proposed set of clinical activity.  The issue could relate to single, proposed, or multiple actions.  
-It does not apply to technical issues (e.g. lack of user permissions) but could relate to violation of patient consent limitations.  Examples include:
+It does not apply to technical issues (e.g., lack of user permissions) but could relate to violation of patient consent limitations.  Examples include:
 </p>
 <ul>
   <li>Drug-drug interactions</li>
@@ -43,12 +43,12 @@ indicate that a requested action was rejected due to a clinical issue and the De
 Detected issues are typically identified by decision support systems.  However, they may also be captured directly by clinicians.  The latter typically happens for one of two reasons:
 </p>
 <ol>
-  <li>A clinician wishes to communicate an issue to another clinician whose responsibility would be to resolve it (e.g. a pharmacist identifying an issue with a prescription prior to putting it on hold)</li>
-  <li>A clinician wishes to pre-emptively identify that an issue is known and is being managed (to avoid red flags being raised as part of downstream workflow); e.g. Submitting a new order and including a link to 
+  <li>A clinician wishes to communicate an issue to another clinician whose responsibility would be to resolve it (e.g., a pharmacist identifying an issue with a prescription prior to putting it on hold)</li>
+  <li>A clinician wishes to pre-emptively identify that an issue is known and is being managed (to avoid red flags being raised as part of downstream workflow); e.g., Submitting a new order and including a link to 
   a "duplicate therapy" issue with mitigation indicating that the therapy is not considered to be duplicate.</li>
 </ol>
 <p>
-Decision-support generated issues can result from calling a decision-support engine directly (e.g. via a custom <a href="operationdefinition.html">OperationDefinition</a>) or as part of an attempt to perform some other function (creating an order, submitting an insurance claim, capturing a medication list).  When the issues are generated as a by-product of performing some other sort of action, they may be included in the "response" to the requested action in the same manner as an <a href="operationoutcome.html">OperationOutcome</a>.  In fact, both may be present - the <a href="operationoutcome.html">OperationOutcome</a> indicating that there was a warning or error associated with the request and a <b>DetectedIssue</b> providing the clinical details.  (The <a href="operationoutcome.html">OperationOutcome</a> could point to the <b>DetectedIssue</b> via an extension.)
+Decision-support generated issues can result from calling a decision-support engine directly (e.g., via a custom <a href="operationdefinition.html">OperationDefinition</a>) or as part of an attempt to perform some other function (creating an order, submitting an insurance claim, capturing a medication list).  When the issues are generated as a by-product of performing some other sort of action, they may be included in the "response" to the requested action in the same manner as an <a href="operationoutcome.html">OperationOutcome</a>.  In fact, both may be present - the <a href="operationoutcome.html">OperationOutcome</a> indicating that there was a warning or error associated with the request and a <b>DetectedIssue</b> providing the clinical details.  (The <a href="operationoutcome.html">OperationOutcome</a> could point to the <b>DetectedIssue</b> via an extension.)
 </p>
 <p>
 In those circumstances where requested operations are rejected as a result of a detected issue, the workflow may support allowing the operation to be re-tried, provided that the identified issue is included as part of the submission (possibly also including a mitigation).  In doing so, the sender acknowledges the issue and takes responsibility for it, thus allowing the requested operation to proceed.  See <a href="#linking">Linking to Detected Issues</a> for guidance on how a <b>DetectedIssue</b> instance might be included as part of another operation.

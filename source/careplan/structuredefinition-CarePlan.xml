@@ -135,7 +135,7 @@
       </extension>
       <path value="CarePlan.basedOn"/>
       <short value="Fulfills plan, proposal or order"/>
-      <definition value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this care plan."/>
+      <definition value="A higher-level request resource (i.e., a plan, proposal or order) that is fulfilled in whole or in part by this care plan."/>
       <requirements value="Allows tracing of the care plan and tracking whether proposals/recommendations were acted upon."/>
       <alias value="fulfills"/>
       <min value="0"/>
@@ -243,7 +243,7 @@
       <path value="CarePlan.intent"/>
       <short value="proposal | plan | order | option | directive"/>
       <definition value="Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain."/>
-      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.&#xA;This element is expected to be immutable. E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value."/>
+      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.&#xA;This element is expected to be immutable. e.g., A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value."/>
       <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
       <min value="1"/>
       <max value="1"/>
@@ -269,7 +269,7 @@
     <element id="CarePlan.category">
       <path value="CarePlan.category"/>
       <short value="Type of plan"/>
-      <definition value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc."/>
+      <definition value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g., &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc."/>
       <comment value="There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.addresses."/>
       <requirements value="Used for filtering what plan(s) are retrieved and displayed to different types of users."/>
       <min value="0"/>
@@ -283,7 +283,7 @@
           <valueString value="CarePlanCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, etc."/>
+        <description value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g., &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/care-plan-category"/>
       </binding>
       <mapping>
@@ -385,7 +385,7 @@
       <path value="CarePlan.period"/>
       <short value="Time period plan covers"/>
       <definition value="Indicates when the plan did (or is intended to) come into effect and end."/>
-      <comment value="Any activities scheduled as part of the plan should be constrained to the specified period regardless of whether the activities are planned within a single encounter/episode or across multiple encounters/episodes (e.g. the longitudinal management of a chronic condition)."/>
+      <comment value="Any activities scheduled as part of the plan should be constrained to the specified period regardless of whether the activities are planned within a single encounter/episode or across multiple encounters/episodes (e.g., the longitudinal management of a chronic condition)."/>
       <requirements value="Allows tracking what plan(s) are in effect at a particular time."/>
       <alias value="timing"/>
       <min value="0"/>
@@ -516,7 +516,7 @@
       <path value="CarePlan.addresses"/>
       <short value="Health issues this plan addresses"/>
       <definition value="Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan."/>
-      <comment value="Use CarePlan.addresses.concept when a code sufficiently describes the concern (e.g. condition, problem, diagnosis, risk). Use CarePlan.addresses.reference when referencing a resource, which allows more information to be conveyed, such as onset date. CarePlan.addresses.concept and CarePlan.addresses.reference are not meant to be duplicative. For a single concern, either CarePlan.addresses.concept or CarePlan.addresses.reference can be used. CarePlan.addresses.concept may be a summary code, or CarePlan.addresses.reference may be used to reference a very precise definition of the concern using Condition. Both CarePlan.addresses.concept and CarePlan.addresses.reference can be used if they are describing different concerns for the care plan."/>
+      <comment value="Use CarePlan.addresses.concept when a code sufficiently describes the concern (e.g., condition, problem, diagnosis, risk). Use CarePlan.addresses.reference when referencing a resource, which allows more information to be conveyed, such as onset date. CarePlan.addresses.concept and CarePlan.addresses.reference are not meant to be duplicative. For a single concern, either CarePlan.addresses.concept or CarePlan.addresses.reference can be used. CarePlan.addresses.concept may be a summary code, or CarePlan.addresses.reference may be used to reference a very precise definition of the concern using Condition. Both CarePlan.addresses.concept and CarePlan.addresses.reference can be used if they are describing different concerns for the care plan."/>
       <requirements value="The element can identify risks addressed by the plan as well as concerns.  Also scopes plans - multiple plans may exist addressing different concerns."/>
       <min value="0"/>
       <max value="*"/>
@@ -689,7 +689,7 @@
       <path value="CarePlan.activity.plannedActivityReference"/>
       <short value="Activity that is intended to be part of the care plan"/>
       <definition value="The details of the proposed activity represented in a specific resource."/>
-      <comment value="Standard extension exists ([[[http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal]]]) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.plannedActivityReference.  &#xA;The goal should be visible when the resource referenced by CarePlan.activity.plannedActivityReference is viewed independently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the &quot;basedOn&quot; element.  i.e. Requests that are part of a CarePlan are not &quot;based on&quot; the CarePlan."/>
+      <comment value="Standard extension exists ([[[http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal]]]) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.plannedActivityReference.  &#xA;The goal should be visible when the resource referenced by CarePlan.activity.plannedActivityReference is viewed independently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the &quot;basedOn&quot; element.  i.e., Requests that are part of a CarePlan are not &quot;based on&quot; the CarePlan."/>
       <requirements value="Details in a form consistent with other applications and contexts of use."/>
       <min value="0"/>
       <max value="1"/>
@@ -727,7 +727,7 @@
       </extension>
       <path value="CarePlan.activity.plannedActivityDetail"/>
       <short value="In-line definition of activity"/>
-      <definition value="A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc."/>
+      <definition value="A simple summary of a planned activity suitable for a general care plan system (e.g., form driven) that doesn't know about specific resources such as procedure etc."/>
       <requirements value="Details in a simple form for generic care plan systems."/>
       <min value="0"/>
       <max value="1"/>
@@ -810,7 +810,7 @@
     <element id="CarePlan.activity.plannedActivityDetail.code">
       <path value="CarePlan.activity.plannedActivityDetail.code"/>
       <short value="Detail type of activity"/>
-      <definition value="Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter."/>
+      <definition value="Detailed description of the type of planned activity; e.g., what lab test, what procedure, what kind of encounter."/>
       <comment value="Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use &quot;prohibited&quot; instead."/>
       <requirements value="Allows matching performed to planned as well as validation against protocols."/>
       <min value="0"/>
@@ -823,7 +823,7 @@
           <valueString value="CarePlanActivityType"/>
         </extension>
         <strength value="example"/>
-        <description value="Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter."/>
+        <description value="Detailed description of the type of activity; e.g., What lab test, what procedure, what kind of encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
       </binding>
       <mapping>
@@ -1000,7 +1000,7 @@
       </extension>
       <path value="CarePlan.activity.plannedActivityDetail.location"/>
       <short value="Where it should happen"/>
-      <definition value="Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc."/>
+      <definition value="Identifies the facility where the activity will occur; e.g., home, hospital, specific clinic, etc."/>
       <comment value="May reference a specific clinical location or may identify a type of location."/>
       <requirements value="Helps in planning of activity."/>
       <min value="0"/>

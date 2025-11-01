@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n990"
    xlink:href="questionnaire-definitions.html#Questionnaire.version"><title
-   id="title92522">The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title92522">The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n991"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -344,7 +344,7 @@
        class="diagram-class-detail"><a
    id="n1122"
    xlink:href="questionnaire-definitions.html#Questionnaire.copyrightLabel"><title
-   id="title92620">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title92620">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1123"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -455,7 +455,7 @@
        class="diagram-class-detail"><a
    id="n1175"
    xlink:href="questionnaire-definitions.html#Questionnaire.item.code"><title
-   id="title92663">A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)</title>code</a> : <a
+   id="title92663">A terminology code that corresponds to this group or question (e.g., a code from LOINC, which defines many questions and answers)</title>code</a> : <a
    id="n1176"
    xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
    id="n1177"

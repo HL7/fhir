@@ -32,7 +32,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Example code system illustrating possible codes for identifying the mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
+  <description value="Example code system illustrating possible codes for identifying the mechanism or algorithm used to make the assessment; e.g., TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-method"/>
   <content value="complete"/>

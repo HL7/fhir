@@ -38,7 +38,7 @@
 			<li>
 				<i>
 					intake clerk processes referral and decides that the first level eligibility has been met<br/>
-					(e.g. Have capacity in the facility for the patient, the patient is covered by VA)
+					(e.g., Have capacity in the facility for the patient, the patient is covered by VA)
 				</i>
 			</li>
 			<li>EpisodeOfCare created with status of planned which is allocated as fulfilling the ServiceRequest</li>

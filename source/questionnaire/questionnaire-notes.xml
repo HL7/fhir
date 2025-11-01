@@ -16,7 +16,7 @@ constrain its structure and flexibility using profiles to define standardized, r
 Observations to model Questionnaires. Such use cases should now use the Questionnaire Resource instead.</li>
 <li>The order of questions within groups, groups within groups and groups within questions is relevant and must be retained for display and capture.</li>
 <li>Display items allow the inclusion of instructions, background information and similar content within a questionnaire.</li>
-<li>In cases where it is necessary or appropriate to capture the reason why a response is missing (that is, why a particular question was not answered), there should be an explicit child item defined for the relevant question(s) in the Questionnaire; e.g. add a child question of "Reason not specified:" with an enableWhen operator "not exists" to the parent question.</li>
+<li>In cases where it is necessary or appropriate to capture the reason why a response is missing (that is, why a particular question was not answered), there should be an explicit child item defined for the relevant question(s) in the Questionnaire; e.g., add a child question of "Reason not specified:" with an enableWhen operator "not exists" to the parent question.</li>
 </ul>
 
 <a name="sdc"> </a>
@@ -48,7 +48,7 @@ As such, some questionnaires might be 'active' but have either no questions or a
 There is considerable overlap between the information covered by <b>Questionnaires</b> and other Resources (especially <a href="familymemberhistory.html">FamilyMemberHistory</a>,
 <a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.).
 <b>Questionnaire's</b> flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using <b>Questionnaires</b> or separate
-Resources may be dictated by the procedure of collection and recording; e.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to
+Resources may be dictated by the procedure of collection and recording; e.g., if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to
 distill separate resources from it and capturing the data in a <b>Questionnaire</b> would be most appropriate.
 </p>
 
@@ -92,7 +92,7 @@ A Questionnaire is built out of two components, Questionnaire and item:</p>
         <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', 
         then it is a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or
         other questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
-        depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
+        depending on the answers of a parent question; e.g., a question "Did the patient receive treatment in the past six months?" would contain a nested
         group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from
         the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian New South Wales blue book</a></li>
     </ul>
@@ -113,13 +113,13 @@ display items and questions or groups, with the expectation that users will see 
 <p>
 Some properties defined at the 'group' level will impact the behavior of everything within the group.  For example, if a 'group' item is marked as readOnly=true, then all items within that
 group are automatically treated as readOnly - even if they explicitly declare readOnly=false.  The same holds for enableWhen.  If a group is 'disabled' based on its enableWhen settings, then
-all child items are automatically disabled - regardless of whether they have enableWhen declared or how those enableWhen conditions might resolve.  Some extensions (e.g. the SDC 'hidden'
-extension) behave in the same manner.  Systems MAY choose to raise errors or warnings if questionnaires have conflicting settings.  E.g. if a group is marked as readOnly=true and a descendant
+all child items are automatically disabled - regardless of whether they have enableWhen declared or how those enableWhen conditions might resolve.  Some extensions (e.g., the SDC 'hidden'
+extension) behave in the same manner.  Systems MAY choose to raise errors or warnings if questionnaires have conflicting settings.  e.g., if a group is marked as readOnly=true and a descendant
 item explicitly declares readOnly=false.  This wouldn't be because the behavior is unclear, but more to draw the author's attention to the fact that their desired behavior for the child will
 not be realized due to the setting of the ancestor group.
 </p>
 <p>
-Behavior of parent 'question' items (i.e. questions with child groups or questions) can also influence descendant elements, but not as strongly.  If a question is readOnly, that doesn't mean that
+Behavior of parent 'question' items (i.e., questions with child groups or questions) can also influence descendant elements, but not as strongly.  If a question is readOnly, that doesn't mean that
 child items are also readOnly.  However, if a question is disabled, all descendant items are also disabled.  Similarly, a 'hidden' question, would hide child elements as well.
 </p>
 
@@ -172,7 +172,7 @@ on BackboneElement would correspond to 'group', while simple types would normall
 In addition, extensions and elements that have corresponding extensions should also propagate.  Specifically:
 </p>
 <ul>
-  <li>Any extensions that have a context of both ElementDefinition and Questionnaire.item (e.g. <a href="[%extensions-location%]StructureDefinition-maxSize.html">maxSize</a>) should propagate</li>
+  <li>Any extensions that have a context of both ElementDefinition and Questionnaire.item (e.g., <a href="[%extensions-location%]StructureDefinition-maxSize.html">maxSize</a>) should propagate</li>
   <li>Any extensions defined for Questionnaire.item that directly correspond to elements on ElementDefinition should also propagate.  E.g.:
     <ul>
       <li>ElementDefinition.minValue[x] -> <a href="[%extensions-location%]StructureDefinition-minValue.html">minValue</a></li>
@@ -186,7 +186,7 @@ In addition, extensions and elements that have corresponding extensions should a
 Any information provided in these elements overrides the information from the definition, and some are always required to be populated so that invariants can be enforced, etc. 
 The url refers to an ElementDefinition in  <a href="structuredefinition.html">StructureDefinition</a>, and always starts with the canonical URL for the target resource.
 When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its
-id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence
+id (Element.id). e.g., http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence
 of a fragment identifier, the first/root element definition in the target is the matching element definition. Examples:
 </p> 
 <table class="grid">
@@ -213,7 +213,7 @@ extension.
 <p>
 If an external definition <!--reference (<code>concept</code> or <code>deReference</code> extension)--> is included along with question information such as question text, data type or
 value set, it is expected that the content for the question and the referenced definition would be in alignment.  However, FHIR does not dictate what degree of
-alignment is required; e.g. Does the question text need to match exactly?  Is it legitimate for a question to constrain the allowed value set of possible answers?
+alignment is required; e.g., Does the question text need to match exactly?  Is it legitimate for a question to constrain the allowed value set of possible answers?
 These rules will need to be established within implementation environments.
 </p>
 
@@ -262,8 +262,8 @@ questionnaires having a simple list of strings as choices for a question, but pr
   <li>Questionnaires that reference codes from externally defined code systems have a means of doing so</li>
   <li>Answer sets can be shared across questions (and there are many questionnaires where this capability is useful)</li>
   <li>The full capability of value sets can be brought into play, including the ability to use ConceptMap to link and translate from questionnaire-specific codes to
-  other codes, the use of multiple display names (e.g. different languages), the ability to use coded ordinals, and the ability to allow choices from larger value sets
-  (e.g. "all SNOMED CT procedure codes")</li>
+  other codes, the use of multiple display names (e.g., different languages), the ability to use coded ordinals, and the ability to allow choices from larger value sets
+  (e.g., "all SNOMED CT procedure codes")</li>
 </ul>
 <p>
 In many cases, the set of code choices will be specific to a given questionnaire and should be maintained as part of the questionnaire.  In this case, the referenced
@@ -287,8 +287,8 @@ and when referenced by full URL, do not need to be provided as part of the quest
 <h3>Handling Boolean Answers</h3>
 <p>
 In a questionnaire response, a question of type 'boolean' can have 3 possible states - unanswered, answered true, and answered false.  Users will generally need to be able to toggle through all three states.  If a default
-value is specified and the element is mandatory, a simple control with only true and false options (e.g. traditional check-box) will suffice.  However, if a three-state selection is required,
-the typical controls used in HTML and other rendering technologies for booleans might not be appropriate.  E.g. a checkbox that can only convey 'true' or 'false' will not be able to differentiate 'unanswered' and thus is generally not
+value is specified and the element is mandatory, a simple control with only true and false options (e.g., traditional check-box) will suffice.  However, if a three-state selection is required,
+the typical controls used in HTML and other rendering technologies for booleans might not be appropriate.  e.g., a checkbox that can only convey 'true' or 'false' will not be able to differentiate 'unanswered' and thus is generally not
 appropriate.  If a tri-state control is available, that would work well.  Alternatively, a set of radio buttons allow choices of true, false or "no answer" could also work.
 </p>
 <p>
@@ -300,14 +300,14 @@ As well, when enableWhen expressions are used that reference boolean elements, d
 <p>
 In some questionnaires, it may be possible to respond to a question with multiple types of answers.  For example, capturing a coded answer plus free text,
 capturing a coded value plus a numeric priority, etc.  In FHIR, this is handled through nested questions.  Each question has a single data type.  However,
-each question can have nested child questions.  These nested child questions can have text (e.g. "Please specify") or can have no text at all if the appropriate
+each question can have nested child questions.  These nested child questions can have text (e.g., "Please specify") or can have no text at all if the appropriate
 guidance is provided by the parent question or group.
 </p>
 
 <a name="math"> </a>
 <h3>Questionnaires with Math</h3>
 <p>
-Many questionnaires involve computations on questionnaire answers, e.g. tabulating scores.
+Many questionnaires involve computations on questionnaire answers, e.g., tabulating scores.
 
 To help with associating numeric values to coded answers, the <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemweight</a> 
 extension can be used to define the numeric weighting of a code defined in a value set or in the questionnaire itself.

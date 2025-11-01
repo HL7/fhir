@@ -12,7 +12,7 @@
 		</p>
 		<p>
 			This product resource is associated with others that describe the <a href="packagedproductdefinition.html">packaging</a>, 
-			the actual medication in its <a href="manufactureditemdefinition.html">manufactured form</a> (e.g. the tablet itself),
+			the actual medication in its <a href="manufactureditemdefinition.html">manufactured form</a> (e.g., the tablet itself),
 			its <a href="ingredient.html">ingredients</a>, and the <a href="substancedefinition.html">substances</a> within.
 			These products are generally regulated by national or regional bodies or agencies. See note below about the <a href="#auth">RegulatedAuthorization</a> resource. 
 		</p>

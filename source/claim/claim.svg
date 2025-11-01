@@ -137,7 +137,7 @@
        class="diagram-class-detail"><a
    id="n2211"
    xlink:href="claim-definitions.html#Claim.type"><title
-   id="title23778">The category of claim, e.g. oral, pharmacy, vision, institutional, professional</title>type</a> : <a
+   id="title23778">The category of claim, e.g., oral, pharmacy, vision, institutional, professional</title>type</a> : <a
    id="n2212"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n2213"
@@ -1626,7 +1626,7 @@
        class="diagram-class-detail"><a
    id="n3010"
    xlink:href="claim-definitions.html#Claim.item.bodySite.subSite"><title
-   id="title24367">A region or surface of the bodySite, e.g. limb region or tooth surface(s)</title>subSite</a> : <a
+   id="title24367">A region or surface of the bodySite, e.g., limb region or tooth surface(s)</title>subSite</a> : <a
    id="n3011"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n3012"

@@ -71,7 +71,7 @@
     <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Value set Canonical URL. The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server"/>
+    <documentation value="Value set Canonical URL. The server must know the value set (e.g., it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server"/>
     <type value="uri"/>
   </parameter>
   <parameter>
@@ -79,7 +79,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The context of the value set, so that the server can resolve this to a value set to validate against. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g. http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only usable if the terminology server also has access to the conformance registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time"/>
+    <documentation value="The context of the value set, so that the server can resolve this to a value set to validate against. The recommended format for this URI is [Structure Definition URL]#[name or path into structure definition] e.g., http://hl7.org/fhir/StructureDefinition/observation-hspc-height-hspcheight#Observation.interpretation. Other forms may be used but are not defined. This form is only usable if the terminology server also has access to the conformance registry that the server is using, but can be used to delegate the mapping from an application context to a binding at run-time"/>
     <type value="uri"/>
   </parameter>
   <parameter>
@@ -97,7 +97,7 @@
     <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The identifier that is used to identify a specific version of the value set to be used when validating the code. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available."/>
+    <documentation value="The identifier that is used to identify a specific version of the value set to be used when validating the code. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available."/>
     <type value="string"/>
   </parameter>
   <parameter>
@@ -161,7 +161,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="If this parameter has a value of true or the parameter is omitted, the client is stating that the validation is being performed in a context where a concept designated as 'abstract' is appropriate/allowed to be used, and the server should regard abstract codes as valid. If this parameter is false, abstract codes are not considered to be valid.&#xA;&#xA;Note that. 'abstract' is a property defined by many HL7 code systems that indicates that the concept is a logical grouping concept that is not intended to be used as a 'concrete' concept to in an actual patient/care/process record. This language is borrowed from object-orientated theory where 'abstract' entities are never instantiated. However in the general record and terminology eco-system, there are many contexts where it is appropriate to use these codes e.g. as decision making criterion, or when editing value sets themselves. This parameter allows a client to indicate to the server that it is working in such a context."/>
+    <documentation value="If this parameter has a value of true or the parameter is omitted, the client is stating that the validation is being performed in a context where a concept designated as 'abstract' is appropriate/allowed to be used, and the server should regard abstract codes as valid. If this parameter is false, abstract codes are not considered to be valid.&#xA;&#xA;Note that. 'abstract' is a property defined by many HL7 code systems that indicates that the concept is a logical grouping concept that is not intended to be used as a 'concrete' concept to in an actual patient/care/process record. This language is borrowed from object-orientated theory where 'abstract' entities are never instantiated. However in the general record and terminology eco-system, there are many contexts where it is appropriate to use these codes e.g., as decision making criterion, or when editing value sets themselves. This parameter allows a client to indicate to the server that it is working in such a context."/>
     <type value="boolean"/>
   </parameter>
   <parameter>
@@ -185,7 +185,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="When the 'lenient-display-validation' parameter is true, an invalid display string will not cause the 'result' output parameter to be 'false'. If the 'lenient-display-validation' parameter is false or absent, then an invalid display will cause the 'result' output parameter to be 'false', i.e. the validation will fail."/>
+    <documentation value="When the 'lenient-display-validation' parameter is true, an invalid display string will not cause the 'result' output parameter to be 'false'. If the 'lenient-display-validation' parameter is false or absent, then an invalid display will cause the 'result' output parameter to be 'false', i.e., the validation will fail."/>
     <type value="boolean"/>
   </parameter>
   <parameter>
@@ -193,7 +193,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="When 'true', the server will not perform the additional validation tasks beyond validating membership in the value set (e.g. the server won't check displays, etc.)"/>
+    <documentation value="When 'true', the server will not perform the additional validation tasks beyond validating membership in the value set (e.g., the server won't check displays, etc.)"/>
     <type value="boolean"/>
   </parameter>
   <parameter>
@@ -209,7 +209,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="Specifies a version to use for a valueset, if the reference to the value set does not specify which version to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://example.org/ValueSet/example|1.0.0. Note that this is similar to the force-system-version parameter but applied to valuesets"/>
+    <documentation value="Specifies a version to use for a valueset, if the reference to the value set does not specify which version to use. The format is the same as a canonical URL: [system]|[version] - e.g., http://example.org/ValueSet/example|1.0.0. Note that this is similar to the force-system-version parameter but applied to valuesets"/>
     <type value="canonical"/>
   </parameter>
   <parameter>
@@ -217,7 +217,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="Edge Case: Specifies a version to use for a valueset. If a reference to a value set specifies a different version, an error is returned instead of the expansion. The format is the same as a canonical URL: [system]|[version] - e.g. http://example.org/ValueSet/example|1.0.0. Note that this is similar to the force-system-version parameter but applied to valuesets"/>
+    <documentation value="Edge Case: Specifies a version to use for a valueset. If a reference to a value set specifies a different version, an error is returned instead of the expansion. The format is the same as a canonical URL: [system]|[version] - e.g., http://example.org/ValueSet/example|1.0.0. Note that this is similar to the force-system-version parameter but applied to valuesets"/>
     <type value="canonical"/>
   </parameter>
   <parameter>
@@ -225,7 +225,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="Edge Case: Specifies a version to use for a valueset. This parameter overrides any specified version in the reference to the value set (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g. http://example.org/ValueSet/example|1.0.0. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is overridden, the version used SHALL explicitly be represented in the expansion parameters. Note that this is similar to the force-system-version parameter but applied to valuesets."/>
+    <documentation value="Edge Case: Specifies a version to use for a valueset. This parameter overrides any specified version in the reference to the value set (and any it depends on). The format is the same as a canonical URL: [system]|[version] - e.g., http://example.org/ValueSet/example|1.0.0. Note that this has obvious safety issues, in that it may result in a value set expansion giving a different list of codes that is both wrong and unsafe, and implementers should only use this capability reluctantly. It primarily exists to deal with situations where specifications have fallen into decay as time passes. If the value is overridden, the version used SHALL explicitly be represented in the expansion parameters. Note that this is similar to the force-system-version parameter but applied to valuesets."/>
     <type value="canonical"/>
   </parameter>
   <parameter>

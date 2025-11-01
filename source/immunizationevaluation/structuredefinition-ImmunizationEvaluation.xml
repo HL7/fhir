@@ -192,7 +192,7 @@
     <element id="ImmunizationEvaluation.authority">
       <path value="ImmunizationEvaluation.authority"/>
       <short value="Who is responsible for publishing the recommendations"/>
-      <definition value="Indicates the authority who published the protocol (e.g. ACIP)."/>
+      <definition value="Indicates the authority who published the protocol (e.g., ACIP)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

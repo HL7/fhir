@@ -503,7 +503,7 @@
     <element id="DeviceUsage.bodyStructure">
       <path value="DeviceUsage.bodyStructure"/>
       <short value="Target body structure"/>
-      <definition value="Indicates the anatomic location on the subject's body where the device was used (i.e. the target)."/>
+      <definition value="Indicates the anatomic location on the subject's body where the device was used (i.e., the target)."/>
       <requirements value="Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]]."/>
       <min value="0"/>
       <max value="1"/>

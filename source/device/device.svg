@@ -627,7 +627,7 @@
        class="diagram-class-detail"><a
    id="n1042"
    xlink:href="device-definitions.html#Device.version.type"><title
-   id="title50813">The type of the device version, e.g. manufacturer, approved, internal</title>type</a> : <a
+   id="title50813">The type of the device version, e.g., manufacturer, approved, internal</title>type</a> : <a
    id="n1043"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1044"

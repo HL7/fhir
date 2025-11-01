@@ -12,7 +12,7 @@ The GraphDefinition resource can be used to:
  <li>Summarize a set of profiles on resources</li>
  <li>Define a graph of resources to return in a query</li>
  <li>Define a graph of resources to include in a document</li>
- <li>Document rules about the relationship between a set of resources e.g. must all resources concern the same patient?</li>
+ <li>Document rules about the relationship between a set of resources e.g., must all resources concern the same patient?</li>
 </ul>
 </div>
 

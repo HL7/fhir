@@ -99,7 +99,7 @@
       <path value="Extension.extension"/>
       <sliceName value="keepAsResource"/>
       <short value="Use attachment or resource?"/>
-      <definition value="The default behavior if the Reference is to a Media or DocumentReference is for the 'attachment' to be what is persisted in the 'location'.  If this flag is set to true, then the referenced resource will be persisted 'as is' - I.e. a Media or DocumentReference."/>
+      <definition value="The default behavior if the Reference is to a Media or DocumentReference is for the 'attachment' to be what is persisted in the 'location'.  If this flag is set to true, then the referenced resource will be persisted 'as is' - i.e., a Media or DocumentReference."/>
       <min value="0"/>
       <max value="1"/>
     </element>

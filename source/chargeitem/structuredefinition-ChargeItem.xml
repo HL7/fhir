@@ -206,7 +206,7 @@
       <path value="ChargeItem.partOf"/>
       <short value="Part of referenced ChargeItem"/>
       <definition value="ChargeItems can be grouped to larger ChargeItems covering the whole set."/>
-      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc."/>
+      <requirements value="e.g., Drug administration as part of a procedure, procedure as part of observation, etc."/>
       <alias value="container"/>
       <min value="0"/>
       <max value="*"/>
@@ -391,7 +391,7 @@
     <element id="ChargeItem.performer.function">
       <path value="ChargeItem.performer.function"/>
       <short value="What type of performance was done"/>
-      <definition value="Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.)."/>
+      <definition value="Describes the type of performance or participation(e.g., primary surgeon, anesthesiologiest, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -537,7 +537,7 @@
       <path value="ChargeItem.bodysite"/>
       <short value="Anatomical location, if relevant"/>
       <definition value="The anatomical location where the related service has been applied."/>
-      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g., to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
       <min value="0"/>
       <max value="*"/>
       <type>

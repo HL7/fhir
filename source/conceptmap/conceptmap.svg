@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n1168"
    xlink:href="conceptmap-definitions.html#ConceptMap.version"><title
-   id="title1347">The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the concept map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title1347">The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the concept map author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n1169"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -317,7 +317,7 @@
        class="diagram-class-detail"><a
    id="n1282"
    xlink:href="conceptmap-definitions.html#ConceptMap.copyrightLabel"><title
-   id="title1432">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title1432">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1283"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -845,7 +845,7 @@
        class="diagram-class-detail"><a
    id="n1541"
    xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.relationship"><title
-   id="title1634">The relationship between the source and target concepts. The relationship is read from source to target (e.g. source-is-narrower-than-target) (this element modifies the meaning of other elements)</title>relationship</a> : <a
+   id="title1634">The relationship between the source and target concepts. The relationship is read from source to target (e.g., source-is-narrower-than-target) (this element modifies the meaning of other elements)</title>relationship</a> : <a
    id="n1542"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n1543"

@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A clinical or business level record of information being transmitted or shared; e.g. an alert that was sent to a responsible provider, a public health agency communication to a provider/reporter in response to a case report for a reportable condition."/>
+  <description value="A clinical or business level record of information being transmitted or shared; e.g., an alert that was sent to a responsible provider, a public health agency communication to a provider/reporter in response to a case report for a reportable condition."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -78,7 +78,7 @@
       </extension>
       <path value="Communication"/>
       <short value="A clinical or business level record of information being transmitted or shared"/>
-      <definition value="A clinical or business level record of information being transmitted or shared; e.g. an alert that was sent to a responsible provider, a public health agency communication to a provider/reporter in response to a case report for a reportable condition."/>
+      <definition value="A clinical or business level record of information being transmitted or shared; e.g., an alert that was sent to a responsible provider, a public health agency communication to a provider/reporter in response to a case report for a reportable condition."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -144,9 +144,9 @@
         <valueString value="GF#19750."/>
       </extension>
       <path value="Communication.partOf"/>
-      <short value="Part of referenced event (e.g. Communication, Procedure)"/>
-      <definition value="A larger event (e.g. Communication, Procedure) of which this particular communication is a component or step."/>
-      <comment value="The event the communication was part of - e.g. if you disclosed as &quot;part&quot; of counselling, it would be partOf that Procedure."/>
+      <short value="Part of referenced event (e.g., Communication, Procedure)"/>
+      <definition value="A larger event (e.g., Communication, Procedure) of which this particular communication is a component or step."/>
+      <comment value="The event the communication was part of - e.g., if you disclosed as &quot;part&quot; of counselling, it would be partOf that Procedure."/>
       <alias value="container"/>
       <min value="0"/>
       <max value="*"/>
@@ -287,7 +287,7 @@
       </extension>
       <path value="Communication.medium"/>
       <short value="A channel of communication"/>
-      <definition value="A channel that was used for this communication (e.g. email, fax, SMS)."/>
+      <definition value="A channel that was used for this communication (e.g., email, fax, SMS)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -432,8 +432,8 @@
       </extension>
       <path value="Communication.recipient"/>
       <short value="Who the information is shared with"/>
-      <definition value="The entity (e.g. person, organization, clinical information system, care team or device) which is the target of the communication."/>
-      <comment value="If receipts need to be tracked by an individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either receipts are not tracked (e.g. a mass mail-out) or a receipt is captured in aggregate (all emails confirmed received by a particular time)."/>
+      <definition value="The entity (e.g., person, organization, clinical information system, care team or device) which is the target of the communication."/>
+      <comment value="If receipts need to be tracked by an individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either receipts are not tracked (e.g., a mass mail-out) or a receipt is captured in aggregate (all emails confirmed received by a particular time)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -465,7 +465,7 @@
       </extension>
       <path value="Communication.sender"/>
       <short value="Who shares the information"/>
-      <definition value="The entity (e.g. person, organization, clinical information system, or device) which is the source of the communication."/>
+      <definition value="The entity (e.g., person, organization, clinical information system, or device) which is the source of the communication."/>
       <min value="0"/>
       <max value="1"/>
       <type>

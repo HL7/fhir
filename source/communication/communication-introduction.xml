@@ -67,7 +67,7 @@ the duration of a call, it represents the fact that information was transferred 
 </p>
 <p>
 The phone calls involving the Patient should be handled using <a href="encounter.html">Encounter</a>.  Phone calls not involving the patient 
-(e.g. between practitioners or practitioner to relative) that are tracked for billing or other purposes can use Communication 
+(e.g., between practitioners or practitioner to relative) that are tracked for billing or other purposes can use Communication 
 to represent the information transferred but are not ideal to represent the call itself.  
 A better mechanism for handling such calls will be explored in a future release.
 </p>

@@ -88,7 +88,7 @@
   <concept>
     <code value="dateTime"/>
     <display value="dateTime"/>
-    <definition value="A date, date-time or partial date (e.g. just year or year + month) as used in human communication."/>
+    <definition value="A date, date-time or partial date (e.g., just year or year + month) as used in human communication."/>
   </concept>
   <concept>
     <code value="Period"/>

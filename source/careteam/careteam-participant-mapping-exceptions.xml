@@ -35,7 +35,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Description of the care team as presented to a consumer while searching."/>
-            <resource value="A label for human use intended to distinguish like teams.  E.g. the &quot;red&quot; vs. &quot;green&quot; trauma teams."/>
+            <resource value="A label for human use intended to distinguish like teams.  e.g., the &quot;red&quot; vs. &quot;green&quot; trauma teams."/>
         </definitionUnmatched>
     </divergentElement>
 </mappingExceptions>

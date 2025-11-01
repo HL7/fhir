@@ -27,9 +27,9 @@ a value - instead, the value must be understood from the Condition.code.
 <b>Conditions/Problems Reviewed, None Identified</b>
 </p>
 
-  <p>Systems may use the List.emptyReason when a statement is about the full scope of the list (i.e. the patient has no conditions/problems of any type).  However, it may be preferred to use a code for "no known problems" (e.g., SNOMED CT: 160245001 |No current problems or disability (situation)|), so that all condition/problem data will be available and queryable from Condition resource instances.
+  <p>Systems may use the List.emptyReason when a statement is about the full scope of the list (i.e., the patient has no conditions/problems of any type).  However, it may be preferred to use a code for "no known problems" (e.g., SNOMED CT: 160245001 |No current problems or disability (situation)|), so that all condition/problem data will be available and queryable from Condition resource instances.
   </p>
-  <p>Also note that care should be used when adding new Condition resources to a list to ensure that any negation statements that are voided by the addition of a new record are removed from the list.  E.g. If the list contains a "no known problems" record and you add a "diabetes" condition record, then be sure that you remove the "no known problems" record.
+  <p>Also note that care should be used when adding new Condition resources to a list to ensure that any negation statements that are voided by the addition of a new record are removed from the list.  e.g., If the list contains a "no known problems" record and you add a "diabetes" condition record, then be sure that you remove the "no known problems" record.
   </p>
 
 <a name="dstu-1"></a>

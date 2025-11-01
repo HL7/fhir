@@ -191,7 +191,7 @@
           <valueString value="specialty"/>
         </extension>
         <strength value="example"/>
-        <description value="Additional details about where the content was created (e.g. clinical specialty)."/>
+        <description value="Additional details about where the content was created (e.g., clinical specialty)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>
       <mapping>
@@ -213,7 +213,7 @@
     </element>
     <element id="Schedule.actor">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Many discussions were had at 2 WGMs over the name of this field, and considered individual, subject and several others, but landed on this property name as it doesn't have other meanings and is applicable for people, services, locations and devices, also this has been updated to support multiple actors for a single schedule where they are not managed seperately (e.g. context where a practitioner and location are not available alone)."/>
+        <valueString value="Many discussions were had at 2 WGMs over the name of this field, and considered individual, subject and several others, but landed on this property name as it doesn't have other meanings and is applicable for people, services, locations and devices, also this has been updated to support multiple actors for a single schedule where they are not managed seperately (e.g., context where a practitioner and location are not available alone)."/>
       </extension>
       <path value="Schedule.actor"/>
       <short value="Resource(s) that availability information is being provided for"/>

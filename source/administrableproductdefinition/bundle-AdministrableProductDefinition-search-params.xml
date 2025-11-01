@@ -32,7 +32,7 @@
           <valueString value="AdministrableProductDefinition.administrableDoseForm"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-dose-form"/>
-        <description value="The administrable dose form, i.e. the dose form of the final product after necessary reconstitution or processing"/>
+        <description value="The administrable dose form, i.e., the dose form of the final product after necessary reconstitution or processing"/>
         <code value="dose-form"/>
         <type value="token"/>
         <expression value="AdministrableProductDefinition.administrableDoseForm"/>
@@ -89,7 +89,7 @@
           <valueString value="AdministrableProductDefinition.producedFrom"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/AdministrableProductDefinition-manufactured-item"/>
-        <description value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g. a power item and a solution item). Note that these are not raw ingredients"/>
+        <description value="The manufactured item(s) that this administrable product is produced from. Either a single item, or several that are mixed before administration (e.g., a power item and a solution item). Note that these are not raw ingredients"/>
         <code value="manufactured-item"/>
         <type value="reference"/>
         <expression value="AdministrableProductDefinition.producedFrom"/>

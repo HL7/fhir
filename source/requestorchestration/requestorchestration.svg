@@ -160,7 +160,7 @@
        class="diagram-class-detail"><a
    id="n1309"
    xlink:href="requestorchestration-definitions.html#RequestOrchestration.groupIdentifier"><title
-   id="title111622">A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
+   id="title111622">A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  e.g., a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
    id="n1310"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
     <text
@@ -526,7 +526,7 @@
        class="diagram-class-detail"><a
    id="n1532"
    xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.location"><title
-   id="title111780">Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc</title>location</a> : <a
+   id="title111780">Identifies the facility where the action will occur; e.g., home, hospital, specific clinic, etc</title>location</a> : <a
    id="n1533"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
    id="n1534"
@@ -623,7 +623,7 @@
        class="diagram-class-detail"><a
    id="n1600"
    xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.resource"><title
-   id="title111828">The resource that is the target of the action (e.g. CommunicationRequest)</title>resource</a> : <a
+   id="title111828">The resource that is the target of the action (e.g., CommunicationRequest)</title>resource</a> : <a
    id="n1601"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n1602"

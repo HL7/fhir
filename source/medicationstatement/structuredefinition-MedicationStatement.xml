@@ -360,7 +360,7 @@
     <element id="MedicationStatement.informationSource">
       <path value="MedicationStatement.informationSource"/>
       <short value="Person or organization that provided the information about the taking of this medication"/>
-      <definition value="The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g. Claim or MedicationRequest."/>
+      <definition value="The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g., Claim or MedicationRequest."/>
       <min value="0"/>
       <max value="*"/>
       <type>

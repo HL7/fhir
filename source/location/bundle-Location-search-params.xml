@@ -203,7 +203,7 @@
           <valueString value="Location.operationalStatus"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Location-operational-status"/>
-        <description value="Searches for locations (typically bed/room) that have an operational status (e.g. contaminated, housekeeping)"/>
+        <description value="Searches for locations (typically bed/room) that have an operational status (e.g., contaminated, housekeeping)"/>
         <code value="operational-status"/>
         <type value="token"/>
         <expression value="Location.operationalStatus"/>
@@ -453,7 +453,7 @@
           <valueString value="Location.form"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Location-form"/>
-        <description value="Physical form of the location (e.g. bed/ward/site/virtual)"/>
+        <description value="Physical form of the location (e.g., bed/ward/site/virtual)"/>
         <code value="characteristic"/>
         <type value="token"/>
         <expression value="Location.form"/>

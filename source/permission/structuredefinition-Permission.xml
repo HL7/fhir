@@ -375,7 +375,7 @@
     </element>
     <element id="Permission.rule.data.resourceType">
       <path value="Permission.rule.data.resourceType"/>
-      <short value="e.g. Resource Type, Profile, etc"/>
+      <short value="e.g., Resource Type, Profile, etc"/>
       <definition value="The resourceType(s) covered by this rule. The type can be a FHIR resource type or a profile on a type that indicates what information the rule applies to."/>
       <comment value="The intention of the resourceType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere."/>
       <min value="0"/>
@@ -395,7 +395,7 @@
       <path value="Permission.rule.data.security"/>
       <short value="Security tag code on .meta.security"/>
       <definition value="The data in scope are those with the given codes present in that data .meta.security element."/>
-      <comment value="Note the ConfidentialityCode vocabulary indicates the highest value, thus a security label of &quot;R&quot; then it applies to all resources that are labeled &quot;R&quot; or lower. E.g. for Confidentiality, it's a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict."/>
+      <comment value="Note the ConfidentialityCode vocabulary indicates the highest value, thus a security label of &quot;R&quot; then it applies to all resources that are labeled &quot;R&quot; or lower. e.g., for Confidentiality, it's a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -457,7 +457,7 @@
     <element id="Permission.rule.activity.actor">
       <path value="Permission.rule.activity.actor"/>
       <short value="Who|what is controlled by this rule"/>
-      <definition value="Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')."/>
+      <definition value="Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g., 'admitting officers')."/>
       <comment value="When both reference and role are given the actor is only selected when that reference actor is functionally carrying out that role."/>
       <min value="0"/>
       <max value="*"/>

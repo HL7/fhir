@@ -153,7 +153,7 @@
        class="diagram-class-detail"><a
    id="n299"
    xlink:href="encounterhistory-definitions.html#EncounterHistory.type"><title
-   id="title148561">Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)</title>type</a> : <a
+   id="title148561">Specific type of encounter (e.g., e-mail consultation, surgical day-care, skilled nursing, rehabilitation)</title>type</a> : <a
    id="n300"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n301"
@@ -167,7 +167,7 @@
        class="diagram-class-detail"><a
    id="n309"
    xlink:href="encounterhistory-definitions.html#EncounterHistory.serviceType"><title
-   id="title148568">Broad categorization of the service that is to be provided (e.g. cardiology)</title>serviceType</a> : <a
+   id="title148568">Broad categorization of the service that is to be provided (e.g., cardiology)</title>serviceType</a> : <a
    id="n310"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
    id="n311"

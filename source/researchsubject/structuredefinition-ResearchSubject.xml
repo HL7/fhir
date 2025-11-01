@@ -373,7 +373,7 @@
     <element id="ResearchSubject.consent">
       <path value="ResearchSubject.consent"/>
       <short value="Agreement to participate in study"/>
-      <definition value="Agreement to participate in a study as well as other research agreements, e.g. to acknowledge additional risks, to agree to a protocol deviation, or to agree to more invasive validation subsidies."/>
+      <definition value="Agreement to participate in a study as well as other research agreements, e.g., to acknowledge additional risks, to agree to a protocol deviation, or to agree to more invasive validation subsidies."/>
       <min value="0"/>
       <max value="*"/>
       <type>

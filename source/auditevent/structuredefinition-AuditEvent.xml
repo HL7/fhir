@@ -308,8 +308,8 @@
       <path value="AuditEvent.recorded"/>
       <short value="Time when the event was recorded"/>
       <definition value="The time when the event was recorded."/>
-      <comment value="In a distributed system, some sort of common time base (e.g. an NTP [RFC1305] server) is a good implementation tactic."/>
-      <requirements value="This ties an event to a specific date and time. Security audits typically require a consistent time base (e.g. UTC), to eliminate time-zone issues arising from geographical distribution."/>
+      <comment value="In a distributed system, some sort of common time base (e.g., an NTP [RFC1305] server) is a good implementation tactic."/>
+      <requirements value="This ties an event to a specific date and time. Security audits typically require a consistent time base (e.g., UTC), to eliminate time-zone issues arising from geographical distribution."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -554,8 +554,8 @@
     <element id="AuditEvent.encounter">
       <path value="AuditEvent.encounter"/>
       <short value="Encounter within which this event occurred or which the event is tightly associated"/>
-      <definition value="This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
-      <comment value="This will typically be the encounter the audit event was created during, but some audit events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <definition value="This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
+      <comment value="This will typically be the encounter the audit event was created during, but some audit events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
       <requirements value="Links the audit event to the Encounter context.  May also affect access control."/>
       <min value="0"/>
       <max value="1"/>
@@ -587,7 +587,7 @@
       <path value="AuditEvent.agent"/>
       <short value="Actor involved in the event"/>
       <definition value="An actor taking an active role in the event or activity that is logged."/>
-      <comment value="Several agents may be associated (i.e. have some responsibility for an activity) with an event or activity.&#xA;&#xA;For example, an activity may be initiated by one user for other users or involve more than one user. However, only one user may be the initiator/requestor for the activity. &#xA;&#xA;When a network are used in an event being recorded, there should be distinct agent elements for the known actors using the network. The agent with a network detail would be the responsible agent for use of that network."/>
+      <comment value="Several agents may be associated (i.e., have some responsibility for an activity) with an event or activity.&#xA;&#xA;For example, an activity may be initiated by one user for other users or involve more than one user. However, only one user may be the initiator/requestor for the activity. &#xA;&#xA;When a network are used in an event being recorded, there should be distinct agent elements for the known actors using the network. The agent with a network detail would be the responsible agent for use of that network."/>
       <requirements value="An agent can be a person, an organization, software, device, or other actors that may be ascribed responsibility."/>
       <alias value="ActiveParticipant"/>
       <min value="1"/>
@@ -817,7 +817,7 @@
       <path value="AuditEvent.agent.policy"/>
       <short value="Policy that authorized the agent participation in the event"/>
       <definition value="Where the policy(ies) are known that authorized the agent participation in the event. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used."/>
-      <comment value="For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element."/>
+      <comment value="For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g., XACML) holds policy logic, the unique policy identifier is placed into the policy element."/>
       <requirements value="This value is used retrospectively to determine the authorization policies."/>
       <min value="0"/>
       <max value="*"/>
@@ -1068,7 +1068,7 @@
       <path value="AuditEvent.entity.what"/>
       <short value="Specific instance of resource"/>
       <definition value="Identifies a specific instance of the entity. The reference should be version specific. This is allowed to be a Parameters resource."/>
-      <comment value="Use .what.display when all you have is a string (e.g. ParticipantObjectName)."/>
+      <comment value="Use .what.display when all you have is a string (e.g., ParticipantObjectName)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

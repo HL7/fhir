@@ -226,8 +226,8 @@
     <element id="Patient.telecom">
       <path value="Patient.telecom"/>
       <short value="A contact detail for the individual"/>
-      <definition value="A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted."/>
-      <comment value="A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address might not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner's phone).&#xD;&#xD;DO NOT use .telecom properties to represent user identities. Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
+      <definition value="A contact detail (e.g., a telephone number or an email address) by which the individual may be contacted."/>
+      <comment value="A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address might not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e., home phone, or pet owner's phone).&#xD;&#xD;DO NOT use .telecom properties to represent user identities. Refer to the [Security and Privacy](administration-module.html#secpriv) section for additional guidance on representing user identities." />
       <requirements value="People have (primary) ways to contact them in some way such as phone, email."/>
       <min value="0"/>
       <max value="*"/>
@@ -446,7 +446,7 @@
       <path value="Patient.multipleBirth[x]"/>
       <short value="Whether patient is part of a multiple birth"/>
       <definition value="Indicates whether the patient is part of a multiple (boolean) or indicates the actual birth order (integer).  This count is relative to the total of live births and fetal losses, which MAY be tracked in the `patient-multipleBirthTotal` extension.&#xD;&#xD;The boolean option for this property can also be used to track that there are known to be multiple fetuses prior to birth." />
-      <comment value="Where the valueInteger is provided, the number is the birth number in the sequence.&#xD;&#xD;E.g. The middle birth in triplets would be valueInteger=2 and the third born would have valueInteger=3.&#xD;If a boolean value was provided for this triplets example, then all 3 patient records would have valueBoolean=true (the ordering is not indicated).&#xD;&#xD;`valueBoolean` can be used to track fetuses.  `valueInteger` should only be used after live birth." />
+      <comment value="Where the valueInteger is provided, the number is the birth number in the sequence.&#xD;&#xD;e.g., The middle birth in triplets would be valueInteger=2 and the third born would have valueInteger=3.&#xD;If a boolean value was provided for this triplets example, then all 3 patient records would have valueBoolean=true (the ordering is not indicated).&#xD;&#xD;`valueBoolean` can be used to track fetuses.  `valueInteger` should only be used after live birth." />
       <requirements value="For disambiguation of multiple-birth children, especially relevant where the care provider doesn't meet the patient, such as labs."/>
       <min value="0"/>
       <max value="1"/>
@@ -505,8 +505,8 @@
         <valueCode value="380,180"/>
       </extension>
       <path value="Patient.contact"/>
-      <short value="A contact party (e.g. guardian, partner, friend) for the patient"/>
-      <definition value="A contact party (e.g. guardian, partner, friend) for the patient."/>
+      <short value="A contact party (e.g., guardian, partner, friend) for the patient"/>
+      <definition value="A contact party (e.g., guardian, partner, friend) for the patient."/>
       <comment value="Contact covers all kinds of contact parties: family members, business contacts, guardians, caregivers. Not applicable to register pedigree and family ties beyond use of having contact."/>
       <requirements value="Need to track people you can contact about the patient."/>
       <min value="0"/>
@@ -644,7 +644,7 @@
     <element id="Patient.contact.telecom">
       <path value="Patient.contact.telecom"/>
       <short value="A contact detail for the person"/>
-      <definition value="A contact detail for the person, e.g. a telephone number or an email address."/>
+      <definition value="A contact detail for the person, e.g., a telephone number or an email address."/>
       <comment value="Contact may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification."/>
       <requirements value="People have (primary) ways to contact them in some way such as phone, email."/>
       <min value="0"/>
@@ -871,7 +871,7 @@
       <short value="Language preference indicator"/>
       <definition value="Indicates whether or not the patient prefers this language (over other languages he masters up a certain level)."/>
       <comment value="This language is specifically identified for communicating healthcare information."/>
-      <requirements value="People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fall back method."/>
+      <requirements value="People that master multiple languages up to certain level may prefer one or more, i.e., feel more confident in communicating in a particular language making other languages sort of a fall back method."/>
       <min value="0"/>
       <max value="1"/>
       <type>

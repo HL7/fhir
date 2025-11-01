@@ -57,7 +57,7 @@
     <concept>
       <code value="instance-order"/>
       <display value="Instance Order"/>
-      <definition value="An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence. E.g. The administration of a single dose of a drug. Instance orders might be defined by either placing or filling systems. Instance orders should have a 'based on' link to another order."/>
+      <definition value="An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence. e.g., The administration of a single dose of a drug. Instance orders might be defined by either placing or filling systems. Instance orders should have a 'based on' link to another order."/>
     </concept>
   </concept>
   <concept>

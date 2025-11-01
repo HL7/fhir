@@ -29,7 +29,7 @@
             <resource value="Appointment this response relates to"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this appointment response.  Authorization from the 'basedOn' request flows through to the referencing appointment response."/>
+            <_pattern value="A higher-level request resource (i.e., a plan, proposal or order) that is fulfilled in whole or in part by this appointment response.  Authorization from the 'basedOn' request flows through to the referencing appointment response."/>
             <resource value="Appointment that this response is replying to."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">

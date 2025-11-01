@@ -134,7 +134,7 @@
     <concept>
       <code value="quantity"/>
       <display value="Quantity"/>
-      <definition value="Question with a combination of a numeric value and unit as an answer (i.e. a Quantity constrained to SimpleQuantity).  There are two extensions ('http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption' and 'http://hl7.org/fhir/StructureDefinition/questionnaire-unitValueSet')  that can be used to define what unit should be selected for the Quantity.code and Quantity.system."/>
+      <definition value="Question with a combination of a numeric value and unit as an answer (i.e., a Quantity constrained to SimpleQuantity).  There are two extensions ('http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption' and 'http://hl7.org/fhir/StructureDefinition/questionnaire-unitValueSet')  that can be used to define what unit should be selected for the Quantity.code and Quantity.system."/>
     </concept>
   </concept>
 </CodeSystem>

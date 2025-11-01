@@ -117,7 +117,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">integer64</Data></Cell>
     <Cell><Data ss:Type="String">A very large whole number</Data></Cell>
-    <Cell><Data ss:Type="String">Typically this is used for record counters (e.g. database keys)</Data></Cell>
+    <Cell><Data ss:Type="String">Typically this is used for record counters (e.g., database keys)</Data></Cell>
     <Cell><Data ss:Type="String">long</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">[0]|[-+]?[1-9][0-9]*</Data></Cell>
@@ -128,7 +128,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">decimal</Data></Cell>
     <Cell><Data ss:Type="String">A rational number with implicit precision</Data></Cell>
-    <Cell><Data ss:Type="String">Do not use an IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)</Data></Cell>
+    <Cell><Data ss:Type="String">Do not use an IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g., Java BigInteger)</Data></Cell>
     <Cell><Data ss:Type="String">xs:decimal, xs:double</Data></Cell>
     <Cell><Data ss:Type="String">number</Data></Cell>
     <Cell><Data ss:Type="String">-?(0|[1-9][0-9]{0,17})(\.[0-9]{1,17})?([eE][+-]?[0-9]{1,9}})?</Data></Cell>
@@ -180,7 +180,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="59" ss:StyleID="s63">
     <Cell><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s65"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">A date or partial date (e.g. just year or year + month). There is no UTC offset. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s65"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">A date or partial date (e.g., just year or year + month). There is no UTC offset. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">string</Data></Cell>
     <Cell><Data ss:Type="String">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</Data></Cell>
@@ -191,7 +191,7 @@
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="110" ss:StyleID="s63">
     <Cell><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s67"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String">       <Font html:Color="#000000">A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a UTC offset SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.  </Font><Font>       </Font><B>        <Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
+    <Cell ss:StyleID="s67"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String">       <Font html:Color="#000000">A date, date-time or partial date (e.g., just year or year + month).  If hours and minutes are specified, a UTC offset SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.  </Font><Font>       </Font><B>        <Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell><Data ss:Type="String">UTC offset is allowed for dates and partial dates </Data></Cell>
     <Cell><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date, xs:dateTime</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">string</Data></Cell>
@@ -310,7 +310,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">unsignedInt</Data></Cell>
-    <Cell><Data ss:Type="String">An integer with a value that is not negative (e.g. &gt;= 0)</Data></Cell>
+    <Cell><Data ss:Type="String">An integer with a value that is not negative (e.g., &gt;= 0)</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">integer</Data></Cell>
     <Cell><Data ss:Type="String">xs:nonNegativeInteger </Data></Cell>
     <Cell><Data ss:Type="String">number</Data></Cell>
@@ -318,7 +318,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">positiveInt</Data></Cell>
-    <Cell><Data ss:Type="String">An integer with a value that is positive (e.g. &gt;0)</Data></Cell>
+    <Cell><Data ss:Type="String">An integer with a value that is positive (e.g., &gt;0)</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">integer</Data></Cell>
     <Cell><Data ss:Type="String">xs:positiveInteger</Data></Cell>
     <Cell><Data ss:Type="String">number</Data></Cell>

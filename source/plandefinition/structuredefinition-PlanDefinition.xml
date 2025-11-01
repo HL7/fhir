@@ -183,7 +183,7 @@
 		<element id="PlanDefinition.version">
 			<path value="PlanDefinition.version"/>
 			<short value="Business version of the plan definition"/>
-			<definition value="The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
+			<definition value="The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g., 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
 			<comment value="There may be different plan definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the plan definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -423,7 +423,7 @@
 					<valueString value="SubjectType"/>
 				</extension>
 				<strength value="extensible"/>
-				<description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+				<description value="The possible types of subjects for a plan definition (e.g., Patient, Practitioner, Organization, Location, etc.)."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
 			</binding>
 			<mapping>
@@ -515,7 +515,7 @@
 			<path value="PlanDefinition.description"/>
 			<short value="Natural language description of the plan definition"/>
 			<definition value="A free text natural language description of the plan definition from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the plan definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the plan definition is presumed to be the predominant language in the place the plan definition was created)."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the plan definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g., the language of the plan definition is presumed to be the predominant language in the place the plan definition was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -556,7 +556,7 @@
 			<path value="PlanDefinition.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the plan definition (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the plan definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the plan definition to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -637,7 +637,7 @@
 			<path value="PlanDefinition.copyright"/>
 			<short value="Notice about intellectual property ownership, can include restrictions on use"/>
 			<definition value="A copyright statement relating to the plan definition and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the plan definition."/>
-			<comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
+			<comment value="The short copyright declaration (e.g., (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the plan definition and/or its content."/>
 			<alias value="License"/>
 			<alias value="Restrictions"/>
@@ -665,7 +665,7 @@
 			</extension>
 			<path value="PlanDefinition.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
 			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
@@ -763,9 +763,9 @@
 				<valueCode value="deprecated"/>
 			</extension>
 			<path value="PlanDefinition.topic"/>
-			<short value="E.g. Education, Treatment, Assessment"/>
+			<short value="e.g., Education, Treatment, Assessment"/>
 			<definition value="Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
+			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (i.e., useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
 			<requirements value="Repositories must be able to determine how to categorize the plan definition so that it can be found by topical searches."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -914,7 +914,7 @@
 		</element>
 		<element id="PlanDefinition.goal.category">
 			<path value="PlanDefinition.goal.category"/>
-			<short value="E.g. Treatment, dietary, behavioral"/>
+			<short value="e.g., Treatment, dietary, behavioral"/>
 			<definition value="Indicates a category the goal falls within."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1057,7 +1057,7 @@
 		<element id="PlanDefinition.goal.target.measure">
 			<path value="PlanDefinition.goal.target.measure"/>
 			<short value="The parameter whose value is to be tracked"/>
-			<definition value="The parameter whose value is to be tracked, e.g. body weight, blood pressure, or hemoglobin A1c level."/>
+			<definition value="The parameter whose value is to be tracked, e.g., body weight, blood pressure, or hemoglobin A1c level."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1079,7 +1079,7 @@
 		<element id="PlanDefinition.goal.target.detail[x]">
 			<path value="PlanDefinition.goal.target.detail[x]"/>
 			<short value="The target value to be achieved"/>
-			<definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
+			<definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g., 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
 			<comment value="A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the goal.target.measure defines a coded value."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1259,7 +1259,7 @@
 		</element>
 		<element id="PlanDefinition.actor.option.role">
 			<path value="PlanDefinition.actor.option.role"/>
-			<short value="E.g. Nurse, Surgeon, Parent"/>
+			<short value="e.g., Nurse, Surgeon, Parent"/>
 			<definition value="The role the participant should play in performing the described action."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1322,7 +1322,7 @@
 		</element>
 		<element id="PlanDefinition.action.prefix">
 			<path value="PlanDefinition.action.prefix"/>
-			<short value="User-visible prefix for the action (e.g. 1. or A.)"/>
+			<short value="User-visible prefix for the action (e.g., 1. or A.)"/>
 			<definition value="A user-visible prefix for the action. For example a section or item numbering such as 1. or A."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1497,7 +1497,7 @@
 			<path value="PlanDefinition.action.subject[x]"/>
 			<short value="Type of individual the action is focused on"/>
 			<definition value="A code, group definition, or canonical reference that describes the intended subject of the action and its children, if any. Canonical references are allowed to support the definition of protocols for drug and substance quality specifications, and is allowed to reference a MedicinalProductDefinition, SubstanceDefinition, AdministrableProductDefinition, ManufacturedItemDefinition, or PackagedProductDefinition resource."/>
-			<comment value="The subject of an action overrides the subject at a parent action or on the root of the PlanDefinition if specified.&#xA;&#xA;In addition, because the subject needs to be resolved during realization, use of subjects in actions (or in the ActivityDefinition referenced by the action) resolves based on the set of subjects supplied in context and by type (i.e. the patient subject would resolve to a resource of type Patient)."/>
+			<comment value="The subject of an action overrides the subject at a parent action or on the root of the PlanDefinition if specified.&#xA;&#xA;In addition, because the subject needs to be resolved during realization, use of subjects in actions (or in the ActivityDefinition referenced by the action) resolves based on the set of subjects supplied in context and by type (i.e., the patient subject would resolve to a resource of type Patient)."/>
 			<requirements value="Multiple steps in a protocol often have different groups of steps that are focused on testing different things. The subject of an action specifies the focus of the action and any child actions."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1517,7 +1517,7 @@
 					<valueString value="SubjectType"/>
 				</extension>
 				<strength value="extensible"/>
-				<description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+				<description value="The possible types of subjects for a plan definition (e.g., Patient, Practitioner, Organization, Location, etc.)."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
 			</binding>
 			<mapping>
@@ -1550,7 +1550,7 @@
 			<path value="PlanDefinition.action.condition"/>
 			<short value="Whether or not the action is applicable"/>
 			<definition value="An expression that describes applicability criteria or start/stop conditions for the action."/>
-			<comment value="If no applicability conditions are present, the action is considered applicable (i.e. it should be performed). When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true. Conditions of different kinds are always considered separately (e.g. applicability and start criteria are never considered together)"/>
+			<comment value="If no applicability conditions are present, the action is considered applicable (i.e., it should be performed). When multiple conditions of the same kind are present, the effects are combined using AND semantics, so the overall condition is true only if all the conditions are true. Conditions of different kinds are always considered separately (e.g., applicability and start criteria are never considered together)"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1887,7 +1887,7 @@
 		<element id="PlanDefinition.action.location">
 			<path value="PlanDefinition.action.location"/>
 			<short value="Where it should happen"/>
-			<definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc."/>
+			<definition value="Identifies the facility where the action will occur; e.g., home, hospital, specific clinic, etc."/>
 			<comment value="May reference a specific clinical location or may just identify a type of location."/>
 			<requirements value="Helps in planning of activity."/>
 			<alias value="facility"/>
@@ -2007,7 +2007,7 @@
 		</element>
 		<element id="PlanDefinition.action.participant.role">
 			<path value="PlanDefinition.action.participant.role"/>
-			<short value="E.g. Nurse, Surgeon, Parent"/>
+			<short value="e.g., Nurse, Surgeon, Parent"/>
 			<definition value="The role the participant should play in performing the described action."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -2029,7 +2029,7 @@
 		</element>
 		<element id="PlanDefinition.action.participant.function">
 			<path value="PlanDefinition.action.participant.function"/>
-			<short value="E.g. Author, Reviewer, Witness, etc"/>
+			<short value="e.g., Author, Reviewer, Witness, etc"/>
 			<definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -2102,7 +2102,7 @@
 			<type>
 				<code value="code"/>
 			</type>
-			<meaningWhenMissing value="If no grouping behavior is specified but the action has children (i.e. is a group), the grouping behavior is assumed to be `logical-group`."/>
+			<meaningWhenMissing value="If no grouping behavior is specified but the action has children (i.e., is a group), the grouping behavior is assumed to be `logical-group`."/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ActionGroupingBehavior"/>
@@ -2125,7 +2125,7 @@
 			<type>
 				<code value="code"/>
 			</type>
-			<meaningWhenMissing value="If no selection behavior is specified but the action has children (i.e. is a group), the selection behavior is assumed to be `all`."/>
+			<meaningWhenMissing value="If no selection behavior is specified but the action has children (i.e., is a group), the selection behavior is assumed to be `all`."/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ActionSelectionBehavior"/>
@@ -2148,7 +2148,7 @@
 			<type>
 				<code value="code"/>
 			</type>
-			<meaningWhenMissing value="If no required behavior is specified but the action has children (i.e. is a group), the required behavior is assumed to be `could`."/>
+			<meaningWhenMissing value="If no required behavior is specified but the action has children (i.e., is a group), the required behavior is assumed to be `could`."/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ActionRequiredBehavior"/>
@@ -2171,7 +2171,7 @@
 			<type>
 				<code value="code"/>
 			</type>
-			<meaningWhenMissing value="If no precheck behavior is specified but the action has children (i.e. is a group), the precheck behavior is assumed to be `no`."/>
+			<meaningWhenMissing value="If no precheck behavior is specified but the action has children (i.e., is a group), the precheck behavior is assumed to be `no`."/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ActionPrecheckBehavior"/>
@@ -2194,7 +2194,7 @@
 			<type>
 				<code value="code"/>
 			</type>
-			<meaningWhenMissing value="If no cardinality behavior is specified but the action has children (i.e. is a group), the cardinality behavior is assumed to be `single`."/>
+			<meaningWhenMissing value="If no cardinality behavior is specified but the action has children (i.e., is a group), the cardinality behavior is assumed to be `single`."/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="ActionCardinalityBehavior"/>
@@ -2212,7 +2212,7 @@
 			<path value="PlanDefinition.action.definition[x]"/>
 			<short value="Description of the activity to be performed"/>
 			<definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a Measure defining a measure to be evaluated, a MessageDefinition describing a message to be sent, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, an ObservationDefinition that specifies what observation should be captured, or an OperationDefinition that specifies what operation should be invoked. When the value is a uri, it is intended to be a reference to non-FHIR content that characterizes the action to be performed. This option is allowed to enable the PlanDefinition to be used to provide semi-structured representation, when the guidance is not computable, but there is still value in elaborating the overall structure with a PlanDefinition. The intended behavior when a definitionUri is realized as part of an apply is that it is copied to the resulting RequestOrchestration so that it is available to the consuming system. How that system interprets that uri is not specified."/>
-			<comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically. If the reference is to an ActivityDefinition or a PlanDefinition, the realization processing documented in those resources is followed. For the other definitional resource types, implementations SHOULD realize the action as a Task resource with a focus of the definitional resource to indicate that the activity should be carried out (e.g. evaluating a measure, gathering a specimen, filling out a questionnaire, sending a message, invoking an operation, etc.)."/>
+			<comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically. If the reference is to an ActivityDefinition or a PlanDefinition, the realization processing documented in those resources is followed. For the other definitional resource types, implementations SHOULD realize the action as a Task resource with a focus of the definitional resource to indicate that the activity should be carried out (e.g., evaluating a measure, gathering a specimen, filling out a questionnaire, sending a message, invoking an operation, etc.)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

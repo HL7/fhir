@@ -25,7 +25,7 @@
   <concept>
     <code value="preparation"/>
     <display value="Preparation"/>
-    <definition value="The core event has not started yet, but some staging activities have begun (e.g. initial preparing of the device. Preparation stages may be tracked e.g. for planning, supply or billing purposes."/>
+    <definition value="The core event has not started yet, but some staging activities have begun (e.g., initial preparing of the device. Preparation stages may be tracked e.g., for planning, supply or billing purposes."/>
   </concept>
   <concept>
     <code value="in-progress"/>

@@ -222,7 +222,7 @@
        class="diagram-class-detail"><a
    id="n471"
    xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.status"><title
-   id="title125362">The status that is authorised e.g. approved. Intermediate states and actions can be tracked with cases and applications</title>status</a> : <a
+   id="title125362">The status that is authorised e.g., approved. Intermediate states and actions can be tracked with cases and applications</title>status</a> : <a
    id="n472"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n473"
@@ -271,7 +271,7 @@
        class="diagram-class-detail"><a
    id="n499"
    xlink:href="regulatedauthorization-definitions.html#RegulatedAuthorization.intendedUse"><title
-   id="title125386">The intended use of the product, e.g. prevention, treatment, diagnosis</title>intendedUse</a> : <a
+   id="title125386">The intended use of the product, e.g., prevention, treatment, diagnosis</title>intendedUse</a> : <a
    id="n500"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n501"

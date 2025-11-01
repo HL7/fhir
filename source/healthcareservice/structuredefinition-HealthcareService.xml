@@ -218,7 +218,7 @@
           <valueString value="service-type"/>
         </extension>
         <strength value="example"/>
-        <description value="Additional details about where the content was created (e.g. clinical specialty)."/>
+        <description value="Additional details about where the content was created (e.g., clinical specialty)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-type"/>
       </binding>
       <mapping>
@@ -337,7 +337,7 @@
       <path value="HealthcareService.contact"/>
       <short value="Official contact details for the HealthcareService"/>
       <definition value="The contact details of communication devices available relevant to the specific HealthcareService. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
-      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the HealthcareService itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the location's contacts."/>
+      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the HealthcareService itself for specific purposes. e.g., Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the location's contacts."/>
       <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
       <min value="0"/>
       <max value="*"/>
@@ -487,7 +487,7 @@
       <path value="HealthcareService.program"/>
       <short value="Programs that this service is applicable to"/>
       <definition value="Programs that this service is applicable to."/>
-      <comment value="Programs are often defined externally to an Organization, commonly by governments; e.g. Home and Community Care Programs, Homeless Program, …."/>
+      <comment value="Programs are often defined externally to an Organization, commonly by governments; e.g., Home and Community Care Programs, Homeless Program, …."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -521,7 +521,7 @@
           <valueString value="ServiceCharacteristic"/>
         </extension>
         <strength value="example"/>
-        <description value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibility)."/>
+        <description value="A custom attribute that could be provided at a service (e.g., Wheelchair accessibility)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-mode"/>
       </binding>
       <mapping>

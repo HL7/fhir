@@ -7,7 +7,7 @@
     one or more steps of an overall workflow.  For example, "do procedure A or procedure B, but not both" or
     "do procedure A after procedure B" or "Act on this ServiceRequest, then use the value of that observation in
     the calculation of the dose of this subsequent MedicationRequest".  RequestOrchestrations that define actions
-    (i.e. that are more than just narrative representations) will always reference other Request resources with
+    (i.e., that are more than just narrative representations) will always reference other Request resources with
     an <code>intent</code> of "option".
   </p>
   <p>

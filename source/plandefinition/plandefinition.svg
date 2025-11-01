@@ -127,7 +127,7 @@
        class="diagram-class-detail"><a
    id="n1841"
    xlink:href="plandefinition-definitions.html#PlanDefinition.version"><title
-   id="title90497">The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts</title>version</a> : <a
+   id="title90497">The identifier that is used to identify this version of the plan definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the plan definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g., 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts</title>version</a> : <a
    id="n1842"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -402,7 +402,7 @@
        class="diagram-class-detail"><a
    id="n2011"
    xlink:href="plandefinition-definitions.html#PlanDefinition.copyrightLabel"><title
-   id="title90618">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title90618">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n2012"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -689,7 +689,7 @@
        class="diagram-class-detail"><a
    id="n2161"
    xlink:href="plandefinition-definitions.html#PlanDefinition.goal.target.measure"><title
-   id="title90736">The parameter whose value is to be tracked, e.g. body weight, blood pressure, or hemoglobin A1c level</title>measure</a> : <a
+   id="title90736">The parameter whose value is to be tracked, e.g., body weight, blood pressure, or hemoglobin A1c level</title>measure</a> : <a
    id="n2162"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n2163"
@@ -703,7 +703,7 @@
        class="diagram-class-detail"><a
    id="n2171"
    xlink:href="plandefinition-definitions.html#PlanDefinition.goal.target.detail_x_"><title
-   id="title90743">The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value</title>detail[x]</a> : <a
+   id="title90743">The target value of the measure to be achieved to signify fulfillment of the goal, e.g., 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value</title>detail[x]</a> : <a
    id="n2172"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
    id="n2173"
@@ -1114,7 +1114,7 @@
        class="diagram-class-detail"><a
    id="n2398"
    xlink:href="plandefinition-definitions.html#PlanDefinition.action.location"><title
-   id="title90906">Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc</title>location</a> : <a
+   id="title90906">Identifies the facility where the action will occur; e.g., home, hospital, specific clinic, etc</title>location</a> : <a
    id="n2399"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
    id="n2400"

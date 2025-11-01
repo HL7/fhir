@@ -20,7 +20,7 @@
 	</p>
 	<p>
 		It is anticipated that this resource is likely to be updated intermittently when the scope
-		of slots is changed, i.e. to change the period of slots in the planning horizon.
+		of slots is changed, i.e., to change the period of slots in the planning horizon.
 		This could be performed each night to move the start and end date forward to
 		keep the planning horizon as exactly 4 weeks.
 	</p>

@@ -35,7 +35,7 @@ they support
   <version value="2.56"/> 
   -->
 
-  <!-- if a specific version is specified, the name should carry this information should be in the name (e.g. LOINC_256) and title -->
+  <!-- if a specific version is specified, the name should carry this information should be in the name (e.g., LOINC_256) and title -->
   <name value="LOINC"/> 
   <title value="LOINC Code System"/>
   <status value="active"/>
@@ -98,13 +98,13 @@ they support
   </filter>
   <filter>
     <code value="ancestor"/> 
-    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. ancestor includes children transitively, e.g. 'LP52960-9' eventually has an ancestor 'LP31755-9', so the code '44022-2' is in the set of codes that have ancestor=LP31755-9"/>
+    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. ancestor includes children transitively, e.g., 'LP52960-9' eventually has an ancestor 'LP31755-9', so the code '44022-2' is in the set of codes that have ancestor=LP31755-9"/>
     <operator value="="/>
     <value value="A part code"/>
   </filter>
   <filter>
     <code value="descendent"/> 
-    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. ancestor includes children transitively, e.g. 'LP52960-9' eventually has an ancestor 'LP31755-9', so the code '44022-2' is in the set of codes that have ancestor=LP31755-9"/>
+    <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. ancestor includes children transitively, e.g., 'LP52960-9' eventually has an ancestor 'LP31755-9', so the code '44022-2' is in the set of codes that have ancestor=LP31755-9"/>
     <operator value="in"/>
     <value value="A comma-separated list of part codes"/>
   </filter>
@@ -137,7 +137,7 @@ they support
   </property>
   <!-- 
     LOINC properties. 
-    These apply to the main LOINC codes. e.g. not the multiaxial hierarchy, or the answer lists, or the part codes).
+    These apply to the main LOINC codes. e.g., not the multiaxial hierarchy, or the answer lists, or the part codes).
     note: SHORTNAME = display & LONG_COMMON_NAME = definition 
   -->
   <property>

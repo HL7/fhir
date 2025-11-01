@@ -615,7 +615,7 @@
        class="diagram-class-detail"><a
    id="n1200"
    xlink:href="researchstudy-definitions.html#ResearchStudy.progressStatus.state"><title
-   id="title112797">Label for status or state (e.g. recruitment status)</title>state</a> : <a
+   id="title112797">Label for status or state (e.g., recruitment status)</title>state</a> : <a
    id="n1201"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n1202"
@@ -776,7 +776,7 @@
        class="diagram-class-detail"><a
    id="n1270"
    xlink:href="researchstudy-definitions.html#ResearchStudy.comparisonGroup.type"><title
-   id="title112855">Categorization of study comparisonGroup, e.g. experimental, active comparator, placebo comparater</title>type</a> : <a
+   id="title112855">Categorization of study comparisonGroup, e.g., experimental, active comparator, placebo comparater</title>type</a> : <a
    id="n1271"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1272"
@@ -1122,7 +1122,7 @@
      class="diagram-class-linkage"><a
        id="n1383"
        xlink:href="researchstudy-definitions.html#ResearchStudy.comparisonGroup"><title
-   id="title112965">Describes an expected event or sequence of events for one of the subjects of a study. E.g. for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. E.g. for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}</title>comparisonGroup</a></text>
+   id="title112965">Describes an expected event or sequence of events for one of the subjects of a study. e.g., for a living subject: exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up. e.g., for a stability study: {store sample from lot A at 25 degrees for 1 month}, {store sample from lot A at 40 degrees for 1 month}</title>comparisonGroup</a></text>
   <text
      id="n1384"
      x="773.476726"

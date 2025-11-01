@@ -39,13 +39,13 @@ The <a href="datatypes.html#Identifier">identifier</a> datatype has a <code>type
 	<p>
 If the diagnostic procedure was performed on the patient directly, the <a href="diagnosticreport-definitions.html#DiagnosticReport.effective_x_">effective[x]</a> element is a dateTime, the time it was performed.
 If specimens were taken, the clinically relevant time of the report can be derived from the specimen collection times, but
-since detailed specimen information is not always available, and nor is the clinically relevant time always exactly the specimen collection time (e.g. complex timed tests), the
+since detailed specimen information is not always available, and nor is the clinically relevant time always exactly the specimen collection time (e.g., complex timed tests), the
 reports SHALL always include an effective[x] element. Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> messages often carry a diagnostically relevant time without carrying any specimen information.
 </p>
 <h3>Associated Observations</h3>
 <ul>
 <li>
-The DiagnosticReport.code always contains the name of the report itself. The report can also contain a set of Observations in the DiagnosticReport.result element. These Observations can be simple observations (e.g. atomic results) or groups/panels of other observations. The Observation.code indicates the nature of the observation or panel (e.g. individual measure, organism isolate/sensitivity or antibody functional testing).   When relevant, the observation can specify a particular specimen from which the result comes.
+The DiagnosticReport.code always contains the name of the report itself. The report can also contain a set of Observations in the DiagnosticReport.result element. These Observations can be simple observations (e.g., atomic results) or groups/panels of other observations. The Observation.code indicates the nature of the observation or panel (e.g., individual measure, organism isolate/sensitivity or antibody functional testing).   When relevant, the observation can specify a particular specimen from which the result comes.
 <ul>
 <li>
  Examples of nesting groups/panels within an observation include reporting a "profile" consisting of several  panels as is shown in <a href="diagnosticreport-example-ghp.html">this example</a>, a group of antibiotic isolate/sensitivities for a bacterial culture, or a set of perinatal measurements on a single fetus.
@@ -75,7 +75,7 @@ If the report has been withdrawn following a previous final release, the Diagnos
 
 	<h3>Report Content</h3>
 	<p>
-Typically, a report is either: all data, no narrative (e.g. Core lab) or a mix of data with some concluding narrative (e.g. Structured Pathology Report, Bone Density), or all narrative (for example a typical imaging report, histopathology).  This resource provides for these 3 different presentations:
+Typically, a report is either: all data, no narrative (e.g., Core lab) or a mix of data with some concluding narrative (e.g., Structured Pathology Report, Bone Density), or all narrative (for example a typical imaging report, histopathology).  This resource provides for these 3 different presentations:
 </p>
 	<ul>
 	    <li>As atomic data items: a hierarchical set of nested references to Observation resources often including pathologist/radiologist interpretation(s) (in .result), one or more images (in .study with reference to imagingStudy or in .media), and possibly with a conclusion and/or one or more coded diagnoses (in .conclusionCode)</li>

@@ -58,7 +58,7 @@
   <concept>
     <code value="manual"/>
     <display value="Manual"/>
-    <definition value="The data was read from the label by a person and manually entered. (e.g.  via a keyboard)."/>
+    <definition value="The data was read from the label by a person and manually entered. (e.g.,  via a keyboard)."/>
   </concept>
   <concept>
     <code value="card"/>

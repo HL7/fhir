@@ -59,7 +59,7 @@
   <concept>
     <code value="partial"/>
     <display value="Partial"/>
-    <definition value="This is a partial (e.g. initial, interim or preliminary) composition: data in the composition may be incomplete or unverified."/>
+    <definition value="This is a partial (e.g., initial, interim or preliminary) composition: data in the composition may be incomplete or unverified."/>
     <concept>
       <code value="preliminary"/>
       <display value="Preliminary"/>

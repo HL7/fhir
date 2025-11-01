@@ -120,7 +120,7 @@
       <path value="Medication.code"/>
       <short value="Codes that identify this medication"/>
       <definition value="A code (or set of codes) that specify this medication, or a textual description. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems. The name of the medication can be conveyed in the code.text even if it is different from any of the coding displayName values."/>
-      <comment value="Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: &quot;A coding may be marked as a &quot;userSelected&quot; if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one)."/>
+      <comment value="Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: &quot;A coding may be marked as a &quot;userSelected&quot; if a user selected the particular coded value in a user interface (e.g., the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g., a generic code for a vendor-specific primary one)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -295,7 +295,7 @@
       <path value="Medication.ingredient.isActive"/>
       <short value="Active ingredient indicator"/>
       <definition value="Indication of whether this ingredient affects the therapeutic action of the drug."/>
-      <requirements value="True indicates that the ingredient affects the therapeutic action of the drug (i.e. active). &#xD;False indicates that the ingredient does not affect the therapeutic action of the drug (i.e. inactive)."/>
+      <requirements value="True indicates that the ingredient affects the therapeutic action of the drug (i.e., active). &#xD;False indicates that the ingredient does not affect the therapeutic action of the drug (i.e., inactive)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

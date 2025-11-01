@@ -11,12 +11,12 @@ intervention(s) or resulting from natural recovery over time.  For example:
 </p>
 <ul>
 <li>
-A goal of a plan for a condition such as a diabetes might specify desired outcome(s) (e.g. HgbA1c level =&lt;5.6% in 3 months) as a
+A goal of a plan for a condition such as a diabetes might specify desired outcome(s) (e.g., HgbA1c level =&lt;5.6% in 3 months) as a
 result of interventions such as medication therapy, nutritional management and/or increased physical activity.
 </li>
 <li>
-A goal of a procedure might be to meet the intended objective of the procedure (e.g. wet-dry-dressing changes twice a day; goal:
-wound healed completely in 2 weeks) or to prevent an unintended complication (e.g. repositioning a patient every two hours:
+A goal of a procedure might be to meet the intended objective of the procedure (e.g., wet-dry-dressing changes twice a day; goal:
+wound healed completely in 2 weeks) or to prevent an unintended complication (e.g., repositioning a patient every two hours:
 goal to maintain skin integrity)
 </li>
 </ul>
@@ -42,7 +42,7 @@ management, patient satisfaction, etc.
 <h2>Boundaries and Relationships</h2>
 <p>
 Goals are typically established in the context of a <a href="careplan.html">CarePlan</a>.  However, goals may also be directly
-    referenced by request-type resources (e.g. <a href="medicationrequest.html">MedicationRequest</a> or <a href="servicerequest.html">ServiceRequest</a>)
+    referenced by request-type resources (e.g., <a href="medicationrequest.html">MedicationRequest</a> or <a href="servicerequest.html">ServiceRequest</a>)
 by using an extension.
 </p>
 <p>

@@ -184,8 +184,8 @@
       </extension>
       <path value="CareTeam.name"/>
       <short value="Name of the team, such as crisis assessment team"/>
-      <definition value="A label for human use intended to distinguish like teams.  E.g. the &quot;red&quot; vs. &quot;green&quot; trauma teams."/>
-      <comment value="The meaning/purpose of the team is conveyed in CareTeam.category.  This element may also convey semantics of the team (e.g. &quot;Red trauma team&quot;), but its primary purpose is to distinguish between identical teams in a human-friendly way.  (&quot;Team 18735&quot; isn't as friendly.)."/>
+      <definition value="A label for human use intended to distinguish like teams.  e.g., the &quot;red&quot; vs. &quot;green&quot; trauma teams."/>
+      <comment value="The meaning/purpose of the team is conveyed in CareTeam.category.  This element may also convey semantics of the team (e.g., &quot;Red trauma team&quot;), but its primary purpose is to distinguish between identical teams in a human-friendly way.  (&quot;Team 18735&quot; isn't as friendly.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -201,8 +201,8 @@
       <path value="CareTeam.subject"/>
       <short value="Who care team is for"/>
       <definition value="Identifies the patient or group whose intended care is handled by the team."/>
-      <comment value="Use Group for care provision to all members of the group (e.g. group therapy).  Use Patient for care provision to an individual patient."/>
-	  <requirements value="Allows the team to care for a group (e.g. marriage) therapy. &#xA;Allows for an organization to designate a team such as the PICC line team."/>
+      <comment value="Use Group for care provision to all members of the group (e.g., group therapy).  Use Patient for care provision to an individual patient."/>
+	  <requirements value="Allows the team to care for a group (e.g., marriage) therapy. &#xA;Allows for an organization to designate a team such as the PICC line team."/>
 	  <alias value="patient"/>
       <min value="0"/>
       <max value="1"/>

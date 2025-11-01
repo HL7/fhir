@@ -37,7 +37,7 @@ Risk assessments may be based on a variety of factors, including:
 <li>Current, past and proposed therapies <a href="immunization.html">Immunization</a>, <a href="procedure.html">Procedure</a>, <a href="careplan.html">CarePlan</a>, etc.</li>
 </ul>
 <p>
-Because so many resources can potentially be used, no limit is placed on what resources can be sent in <code>RiskAssessment.basis</code>.  However, some resources would be nonsensical for this use (e.g. <a href="messageheader.html">MessageHeader</a>).
+Because so many resources can potentially be used, no limit is placed on what resources can be sent in <code>RiskAssessment.basis</code>.  However, some resources would be nonsensical for this use (e.g., <a href="messageheader.html">MessageHeader</a>).
 </p>
 
 <p>

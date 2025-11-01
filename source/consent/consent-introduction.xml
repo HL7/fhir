@@ -64,7 +64,7 @@ For this reason, the consent resource contains two elements that refer back to t
         <ul>
             <li>A reference to another consent resource from which this limited statement was derived</li>
             <li>
-                A reference to a document format for the original source (e.g. PDF or CDA - see the
+                A reference to a document format for the original source (e.g., PDF or CDA - see the
                 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=280">HL7 CDAR2 ConsentDirective Implementation Guide</a>
                 , 
  which incorporated the
@@ -97,10 +97,10 @@ list of authors, list of recipients, list of Organizations, list of purposeOfUse
         </p>
         <p>
 The enforcement of the Privacy Consent Directive is not included but is expected that 
-enforcement can be done using a mix of the various Access Control enforcement methodologies (e.g. OAuth, UMA, XACML).
+enforcement can be done using a mix of the various Access Control enforcement methodologies (e.g., OAuth, UMA, XACML).
 This enforcement includes the details of the enforcement meaning of the elements of the Privacy Consent Directive, 
 such as the rules in place when there is an opt-in consent would be specific about which 
-organizational roles have access to what kinds of resources (e.g. RBAC, ABAC). 
+organizational roles have access to what kinds of resources (e.g., RBAC, ABAC). 
 The specification of these details is not in scope for the Consent resource.
         </p>
 </div>

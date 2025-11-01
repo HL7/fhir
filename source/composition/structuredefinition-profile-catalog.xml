@@ -119,7 +119,7 @@
     <element id="Composition.subject">
       <path value="Composition.subject"/>
       <short value="Who and/or what the composition is about"/>
-      <definition value="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)."/>
+      <definition value="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g., a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)."/>
       <min value="0"/>
       <max value="0"/>
       <type>

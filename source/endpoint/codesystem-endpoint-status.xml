@@ -54,7 +54,7 @@
   <concept>
     <code value="limited"/>
     <display value="Limited"/>
-    <definition value="This endpoint is available for limited use (for example, it is undergoing internal testing).  I.e. the endpoint is not fully available, might not always be available, or might only be available for some users."/>
+    <definition value="This endpoint is available for limited use (for example, it is undergoing internal testing).  i.e., the endpoint is not fully available, might not always be available, or might only be available for some users."/>
   </concept>
   <concept>
     <code value="suspended"/>

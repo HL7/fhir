@@ -994,12 +994,12 @@
     <Cell ss:StyleID="s75"><Data ss:Type="String">RIM Mapping</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
         html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">E.g. RIMClass[classCode=foo,moodCode=bar].someAssociation[typeCode=code].attribute</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">e.g., RIMClass[classCode=foo,moodCode=bar].someAssociation[typeCode=code].attribute</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">v2 Mapping</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
         html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">E.g. SEG.1.2.3</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">e.g., SEG.1.2.3</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">??? Mapping</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
@@ -1100,9 +1100,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Free text dosage instructions e.g. SIG</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Free text dosage instructions e.g., SIG</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Free text dosage instructions e.g. SIG</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Free text dosage instructions e.g., SIG</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1135,9 +1135,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Supplemental instruction - e.g. &quot;with meals&quot;</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Supplemental instruction - e.g., &quot;with meals&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Supplemental instruction - e.g. &quot;with meals&quot;</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Supplemental instruction - e.g., &quot;with meals&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Additional instruction such as &quot;Swallow with plenty of water&quot; which might or might not be coded.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1206,7 +1206,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">When medication should be administered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: &quot;Every 8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;; &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: &quot;Every 8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;; &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.,  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g., 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">This attribute might not always be populated while the Dosage.text is expected to be populated.  If both are populated, then the Dosage.text should reflect the content of the Dosage.timing.  </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1278,7 +1278,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A coded specification of the anatomic site where the medication first enters the body</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s65"><Data ss:Type="String">If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both</Data><NamedCell
+    <Cell ss:StyleID="s65"><Data ss:Type="String">If the use case requires attributes from the BodySite resource (e.g., to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">.approachSiteCode</Data><NamedCell
@@ -1386,7 +1386,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The amount of therapeutic or other substance given at one administration event. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g., 500 ml in dose, with timing used to convey that this should be done over 4 hours.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s96"><Data ss:Type="String">.doseQuantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1521,7 +1521,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Amount of medication per unit of time</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g., 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g., 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.,  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn't imply duration (e.g., 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3764,7 +3764,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Context</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
         html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">Element path at which check should occur; e.g., ResourceName.element1.element2</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">English</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
@@ -4294,7 +4294,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Path</Data><Comment ss:Author=""><Data>        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">Corresponding resource element; e.g. ResourceName.node1.node2</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">Corresponding resource element; e.g., ResourceName.node1.node2</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><Data ss:Type="String">Description</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
@@ -5217,7 +5217,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">Event Code</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
         html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">Unique code for the event; e.g. patient-link  </Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">Unique code for the event; e.g., patient-link  </Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Category</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
@@ -5857,7 +5857,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">Filename</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
         html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">Filename of XML example file; e.g. resource-example-file-name.xml</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">Filename of XML example file; e.g., resource-example-file-name.xml</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Profile</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"

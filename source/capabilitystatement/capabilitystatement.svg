@@ -116,7 +116,7 @@
        class="diagram-class-detail"><a
    id="n1353"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.version"><title
-   id="title46185">The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="title46185">The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
    id="n1354"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -306,7 +306,7 @@
        class="diagram-class-detail"><a
    id="n1467"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.copyrightLabel"><title
-   id="title46270">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="title46270">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g., 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
    id="n1468"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
@@ -317,7 +317,7 @@
        class="diagram-class-detail"><a
    id="n1473"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.kind"><title
-   id="title46275">The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)</title>kind</a> : <a
+   id="title46275">The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g., a desired purchase)</title>kind</a> : <a
    id="n1474"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n1475"
@@ -1074,7 +1074,7 @@
        class="diagram-class-detail"><a
    id="n1822"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam.name"><title
-   id="title46541">The label used for the search parameter in this particular system's API - i.e. the 'name' portion of the name-value pair that will appear as part of the search URL.  This SHOULD be the same as the SearchParameter.code of the defining SearchParameter.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple SearchParameters that happen to share the same code</title>name</a> : <a
+   id="title46541">The label used for the search parameter in this particular system's API - i.e., the 'name' portion of the name-value pair that will appear as part of the search URL.  This SHOULD be the same as the SearchParameter.code of the defining SearchParameter.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple SearchParameters that happen to share the same code</title>name</a> : <a
    id="n1823"
    xlink:href="datatypes.html#string">string</a> [1..1] « <a
    id="n1824"
@@ -1165,7 +1165,7 @@
        class="diagram-class-detail"><a
    id="n1865"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.operation.definition"><title
-   id="title46575">Where the formal definition can be found. If a server references the base definition of an Operation (i.e. from the specification itself such as ```http://hl7.org/fhir/OperationDefinition/ValueSet-expand```), that means it supports the full capabilities of the operation - e.g. both GET and POST invocation.  If it only supports a subset, it must define its own custom [OperationDefinition](operationdefinition.html#) with a 'base' of the original OperationDefinition.  The custom definition would describe the specific subset of functionality supported</title>definition</a> : <a
+   id="title46575">Where the formal definition can be found. If a server references the base definition of an Operation (i.e., from the specification itself such as ```http://hl7.org/fhir/OperationDefinition/ValueSet-expand```), that means it supports the full capabilities of the operation - e.g., both GET and POST invocation.  If it only supports a subset, it must define its own custom [OperationDefinition](operationdefinition.html#) with a 'base' of the original OperationDefinition.  The custom definition would describe the specific subset of functionality supported</title>definition</a> : <a
    id="n1866"
    xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
    id="n1867"
@@ -1522,7 +1522,7 @@
      class="diagram-class-linkage"><a
        id="n1997"
        xlink:href="capabilitystatement-definitions.html#CapabilityStatement.implementation"><title
-   id="title46687">Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program</title>implementation</a></text>
+   id="title46687">Identifies a specific implementation instance that is described by the capability statement - i.e., a particular installation, rather than the capabilities of a software program</title>implementation</a></text>
   <text
      id="n1998"
      x="254.95315400000004"

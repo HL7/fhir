@@ -9,7 +9,7 @@ The ChargeItemDefinition holds all relevant billing information pertaining to a 
 		<p>
 Many billing systems have rules associated with the code which may define whether a billing code is applicable in a specific context or whether certain billing details (surcharges, discounts) apply.
 
-ChargeItemDefinitions may also be used to hold pricing information pertaining to only one specific instance of a product (e.g. Device, Medication or Substance) which may be a requirement for custom made devices or medications or other products where prices vary by instance.
+ChargeItemDefinitions may also be used to hold pricing information pertaining to only one specific instance of a product (e.g., Device, Medication or Substance) which may be a requirement for custom made devices or medications or other products where prices vary by instance.
 
 
 Rules for applicability may include
@@ -42,7 +42,7 @@ an acquire the pricing details to create an Invoice. However, ChargeItems may be
 
 		</p><p>
 		Resources representing products that can be sold or billed (Device, Medication, Substance...), do not specify financial details for the product instance. Most of the time, such products are not billed seperately but are a part of a generic billing code that covers both the product and the service rendered. 
-		In some occasions however, product prices may vary depending on type or manufactuer or even on instance (e.g. custom made products). For these cases,  ChargeItemDefinitions may be created to specify the financial details for a product kind, type or instance.
+		In some occasions however, product prices may vary depending on type or manufactuer or even on instance (e.g., custom made products). For these cases,  ChargeItemDefinitions may be created to specify the financial details for a product kind, type or instance.
 		</p>
 	</div>
 

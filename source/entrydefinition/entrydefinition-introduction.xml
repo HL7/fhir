@@ -39,7 +39,7 @@ This resource contains additional information about each catalog entry, in the s
 <h3>When to use this resource:</h3>
 This resource can be used to enhance the definition of products or other items. When the product is defined on its own, the corresponding resource can be used and EntryDefinition is not needed.
 When defining a product (or item) in a specific context or adding characteristics that are outside the intrinsic definition of the product, the EntryDefinition can be used. 
-For example, when defining a lab procedure that uses some types of specimen or some types of devices, in a given context (e.g. where the specimen definition changes according to the procedure), the entryDefinition allows defining the item and relationships for each context, without requiring to define entirely different different specimen, one for each context.
+For example, when defining a lab procedure that uses some types of specimen or some types of devices, in a given context (e.g., where the specimen definition changes according to the procedure), the entryDefinition allows defining the item and relationships for each context, without requiring to define entirely different different specimen, one for each context.
 
 </p>
 

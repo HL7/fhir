@@ -24,7 +24,7 @@
   <concept>
     <code value="preparation"/>
     <display value="Preparation"/>
-    <definition value="The core event has not started yet, but some staging activities have begun (e.g. initial compounding or packaging of medication). Preparation stages may be tracked for billing purposes."/>
+    <definition value="The core event has not started yet, but some staging activities have begun (e.g., initial compounding or packaging of medication). Preparation stages may be tracked for billing purposes."/>
   </concept>
   <concept>
     <code value="in-progress"/>

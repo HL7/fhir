@@ -153,7 +153,7 @@
     <element id="Appointment.identifier">
       <path value="Appointment.identifier"/>
       <short value="External Ids for this item"/>
-      <definition value="This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)."/>
+      <definition value="This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g., in CDA documents, or in written / printed documentation)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -518,7 +518,7 @@
     </element>
     <element id="Appointment.virtualService">
       <path value="Appointment.virtualService"/>
-      <short value="Connection details of a virtual service (e.g. conference call)"/>
+      <short value="Connection details of a virtual service (e.g., conference call)"/>
       <comment value="There are two types of virtual meetings that often exist:&#xD;&#xD;* a persistent, virtual meeting room that can only be used for a single purpose at a time, &#xD;* and a dynamic virtual meeting room that is generated on demand for a specific purpose.&#xD;&#xD;Implementers may consider using Location.virtualService for persistent meeting rooms.&#xD;&#xD;If each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement."/>
       <min value="0"/>
       <max value="*"/>
@@ -673,7 +673,7 @@
         <valueString value="Removed when taking out the recurrence fields."/>
       </extension>
       <path value="Appointment.minutesDuration"/>
-      <short value="Can be less than start/end (e.g. estimate)"/>
+      <short value="Can be less than start/end (e.g., estimate)"/>
       <definition value="Number of minutes that the appointment is to take. This can be less than the duration between the start and end times.  For example, where the actual time of appointment is only an estimate or if a 30 minute appointment is being requested, but any time would work.  Also, if there is, for example, a planned 15 minute break in the middle of a long appointment, the duration may be 15 minutes less than the difference between the start and end."/>
       <min value="0"/>
       <max value="1"/>
@@ -690,7 +690,7 @@
       </mapping>
       <mapping>
         <identity value="ical"/>
-        <map value="DURATION (e.g. PT15M)"/>
+        <map value="DURATION (e.g., PT15M)"/>
       </mapping>
     </element>
     <element id="Appointment.requestedPeriod">
@@ -812,7 +812,7 @@
     <element id="Appointment.patientInstruction">
       <path value="Appointment.patientInstruction"/>
       <short value="Detailed information and instructions for the patient"/>
-      <definition value="While Appointment.note contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before)."/>
+      <definition value="While Appointment.note contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g., please bring your referral or fast from 8pm night before)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -837,7 +837,7 @@
     <element id="Appointment.basedOn">
       <path value="Appointment.basedOn"/>
       <short value="The request this appointment is allocated to assess"/>
-      <definition value="The request this appointment is allocated to assess (e.g. incoming referral or procedure request)."/>
+      <definition value="The request this appointment is allocated to assess (e.g., incoming referral or procedure request)."/>
       <alias value="incomingReferral"/>
       <min value="0"/>
       <max value="*"/>
@@ -1281,7 +1281,7 @@
     <element id="Appointment.recurrenceTemplate.weeklyTemplate.weekInterval">
       <path value="Appointment.recurrenceTemplate.weeklyTemplate.weekInterval"/>
       <short value="Recurs every nth week"/>
-      <definition value="The interval defines if the recurrence is every nth week. The default is every week, so it is expected that this value will be 2 or more.&#xD;&#xD;e.g. For recurring every second week this interval would be 2, or every third week the interval would be 3."/>
+      <definition value="The interval defines if the recurrence is every nth week. The default is every week, so it is expected that this value will be 2 or more.&#xD;&#xD;e.g., For recurring every second week this interval would be 2, or every third week the interval would be 3."/>
       <min value="0"/>
       <max value="1"/>
       <type>

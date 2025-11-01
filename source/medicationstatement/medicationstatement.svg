@@ -235,7 +235,7 @@
        class="diagram-class-detail"><a
    id="n473"
    xlink:href="medicationstatement-definitions.html#MedicationStatement.informationSource"><title
-   id="title84361">The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g. Claim or MedicationRequest</title>informationSource</a> : <a
+   id="title84361">The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g., Claim or MedicationRequest</title>informationSource</a> : <a
    id="n474"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
    id="n475"

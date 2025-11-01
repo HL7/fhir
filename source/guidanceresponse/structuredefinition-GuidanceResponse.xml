@@ -197,7 +197,7 @@
       <path value="GuidanceResponse.encounter"/>
       <short value="Encounter the guidance response is part of"/>
       <definition value="The Encounter during which this guidance response was created or to which the creation of this record is tightly associated."/>
-      <comment value="This will typically be the encounter the guidance response was created during, but some guidance responses may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <comment value="This will typically be the encounter the guidance response was created during, but some guidance responses may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
       <requirements value="Links the guidance response to the Encounter context.  May also affect access control."/>
       <min value="0"/>
       <max value="1"/>
@@ -257,7 +257,7 @@
       <path value="GuidanceResponse.location"/>
       <short value="Where guidance response occurred"/>
       <definition value="The principal physical location where the guidance response was performed."/>
-      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g., if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

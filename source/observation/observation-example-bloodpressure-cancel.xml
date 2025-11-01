@@ -9,9 +9,9 @@
  Technically, though, a blood pressure is a pair of component
  observations. LOINC code 85354-9 notes say:
    This term is intended as a section header for various
-   blood pressure measurements (e.g. systolic, diastolic).
+   blood pressure measurements (e.g., systolic, diastolic).
    LOINC discourages the reporting of two numbers, such as
-   systolic and diastolic blood pressure (e.g. 120/80),
+   systolic and diastolic blood pressure (e.g., 120/80),
    in one observation. They should be reported as two
    separate variables, systolic (LOINC 8480-6) and
    diastolic (LOINC 8462-4)

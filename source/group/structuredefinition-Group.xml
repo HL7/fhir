@@ -155,7 +155,7 @@
     <element id="Group.version">
       <path value="Group.version"/>
       <short value="Business version of the Group"/>
-      <definition value="The identifier that is used to identify this version of the Group when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Group author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence without additional knowledge."/>
+      <definition value="The identifier that is used to identify this version of the Group when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Group author and is not expected to be globally unique. For example, it might be a timestamp (e.g., yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence without additional knowledge."/>
       <comment value="There may be different Groups that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the Group with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
@@ -362,7 +362,7 @@
       <path value="Group.copyright"/>
       <short value="Notice about intellectual property ownership, can include restrictions on use"/>
       <definition value="A copyright statement relating to the Group and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the Group."/>
-      <comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
+      <comment value="The short copyright declaration (e.g., (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the Group and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>
@@ -382,7 +382,7 @@
       </extension>
       <path value="Group.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
-      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g., 'All rights reserved', 'Some rights reserved')."/>
       <comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
@@ -574,7 +574,7 @@
           <valueString value="GroupCharacteristicKind"/>
         </extension>
         <strength value="example"/>
-        <description value="List of characteristics used to describe group members; e.g. gender, age, owner, location, etc."/>
+        <description value="List of characteristics used to describe group members; e.g., gender, age, owner, location, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/example-characteristic-codes"/>
       </binding>
       <mapping>
@@ -742,7 +742,7 @@
     <element id="Group.characteristic.period">
       <path value="Group.characteristic.period"/>
       <short value="Period over which characteristic is tested"/>
-      <definition value="The period over which the characteristic is tested; e.g. the patient had an operation during the month of June."/>
+      <definition value="The period over which the characteristic is tested; e.g., the patient had an operation during the month of June."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -814,7 +814,7 @@
     <element id="Group.member.involvement">
       <path value="Group.member.involvement"/>
       <short value="Code that describes how user is part of the group"/>
-      <definition value="A code that describes how a user is involved in the group. Some groups (e.g. exposure-group) typically don't have variance between members, or it is not tracked, while for other groups (e.g. family, household) this may be meaningful."/>
+      <definition value="A code that describes how a user is involved in the group. Some groups (e.g., exposure-group) typically don't have variance between members, or it is not tracked, while for other groups (e.g., family, household) this may be meaningful."/>
       <comment value="See [Relationships inside the group](group.html#relationships) for more detailed family relationships."/>
       <min value="0"/>
       <max value="*"/>

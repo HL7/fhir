@@ -67,7 +67,7 @@
     <element id="BiologicallyDerivedProductDispense">
       <path value="BiologicallyDerivedProductDispense"/>
       <short value="A record of dispensation of a biologically derived product"/>
-      <definition value="This resource reflects an instance of a biologically derived product dispense. The supply or dispense of a biologically derived product from the supply organization or department (e.g. hospital transfusion laboratory) to the clinical team responsible for clinical application."/>
+      <definition value="This resource reflects an instance of a biologically derived product dispense. The supply or dispense of a biologically derived product from the supply organization or department (e.g., hospital transfusion laboratory) to the clinical team responsible for clinical application."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

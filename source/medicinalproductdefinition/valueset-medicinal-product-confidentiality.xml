@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product."/>
+  <description value="Confidentiality rating, e.g., commercial sensitivity for a Medicinal Product."/>
   <immutable value="true"/>
   <compose>
     <include>

@@ -555,8 +555,8 @@
       </extension>
       <path value="Observation.encounter"/>
       <short value="Healthcare event during which this observation is made. If you need to place the observation within one or more episodes of care, use the workflow-episodeOfCare extension"/>
-      <definition value="The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made."/>
-      <comment value="This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission laboratory tests)."/>
+      <definition value="The healthcare event  (e.g., a patient and healthcare provider interaction) during which this observation is made."/>
+      <comment value="This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission laboratory tests)."/>
       <requirements value="For some observations it may be important to know the link between an observation and a particular encounter."/>
       <alias value="Context"/>
       <min value="0"/>
@@ -586,7 +586,7 @@
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]"/>
       <short value="Clinically relevant time/time-period for observation"/>
-      <definition value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."/>
+      <definition value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g., human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."/>
       <comment value="At least a date should be present unless this observation is a historical report.  For recording imprecise or &quot;fuzzy&quot; times (For example, a blood glucose measurement taken &quot;after breakfast&quot;) use the [Timing](datatypes.html#timing) datatype which allow the measurement to be tied to regular life events."/>
       <requirements value="Knowing when an observation was deemed true is important to its relevance as well as determining trends."/>
       <alias value="Occurrence"/>
@@ -894,7 +894,7 @@
       </extension>
       <path value="Observation.bodySite"/>
       <short value="DEPRECATED: Observed body part"/>
-      <definition value="DEPRECATED: This element is deprecated. Use bodyStructure instead. Indicates the site on the subject's body where the observation was made (i.e. the target site)."/>
+      <definition value="DEPRECATED: This element is deprecated. Use bodyStructure instead. Indicates the site on the subject's body where the observation was made (i.e., the target site)."/>
       <comment value="DEPRECATED: Use bodyStructure instead. Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component."/>
       <min value="0"/>
       <max value="1"/>
@@ -932,7 +932,7 @@
     <element id="Observation.bodyStructure">
       <path value="Observation.bodyStructure"/>
       <short value="Observed body structure"/>
-      <definition value="Indicates the body structure on the subject's body where the observation was made (i.e. the target site)."/>
+      <definition value="Indicates the body structure on the subject's body where the observation was made (i.e., the target site)."/>
       <comment value="Only used if not implicit in code found in Observation.code. In many systems, this may be represented as a related observation instead of an inline component. Use this element instead of the deprecated bodySite element."/>
       <min value="0"/>
       <max value="1"/>
@@ -1287,7 +1287,7 @@
     <element id="Observation.referenceRange.age">
       <path value="Observation.referenceRange.age"/>
       <short value="Applicable age range, if relevant"/>
-      <definition value="The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so."/>
+      <definition value="The age at which this reference range is applicable. This is a neonatal age (e.g., number of weeks at term) if the meaning says so."/>
       <requirements value="Some analytes vary greatly over age."/>
       <min value="0"/>
       <max value="1"/>
@@ -1327,7 +1327,7 @@
       </extension>
       <path value="Observation.hasMember"/>
       <short value="Related resource that belongs to the Observation group"/>
-      <definition value="This observation is a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group."/>
+      <definition value="This observation is a group observation (e.g., a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group."/>
       <comment value="When using this element, an observation will typically have either a value or a set of related resources, although both may be present in some cases.  For a discussion on the ways Observations can assembled in groups together, see [Notes](observation.html#obsgrouping) below.  Note that a system may calculate results from [QuestionnaireResponse](questionnaireresponse.html)  into a final score and represent the score as an Observation."/>
       <min value="0"/>
       <max value="*"/>
@@ -1452,7 +1452,7 @@
       <path value="Observation.component.value[x]"/>
       <short value="Actual component result"/>
       <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
-      <comment value="Used when observation has a set of component observations:&#xA;-  An observation may have both a value (e.g. an  Apgar score) and component observations (the observations from which the Apgar score was derived). &#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- The usage of valueReference is restricted to the MolecularDefinition resources as a definitional resource, not as a patient-specific finding. &#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
+      <comment value="Used when observation has a set of component observations:&#xA;-  An observation may have both a value (e.g., an  Apgar score) and component observations (the observations from which the Apgar score was derived). &#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- The usage of valueReference is restricted to the MolecularDefinition resources as a definitional resource, not as a patient-specific finding. &#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
       <requirements value="An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations."/>
       <min value="0"/>
       <max value="1"/>

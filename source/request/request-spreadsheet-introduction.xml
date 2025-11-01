@@ -28,11 +28,11 @@ This logical model is one of three common <a href="workflow.html#respatterns">wo
 Requests are distinct from <a href="event.html">events</a> in that an event is primarily focused on what has occurred or is occurring while requests deal with what is "desired"
 to occur.  While creating a request or definition can be seen as a type of event, the focus of those other resources is not the "creation" but the desire/intention.  Both
 requests and <a href="definition.html">definitions</a> deal with activities that "can" occur, but requests represent a specific intention for something to occur and are bound to
-a specific context of subject (e.g. patient) and time, while definitions represent mere "possibility" rather than intention and are independent of a specific subject or timeframe.
+a specific context of subject (e.g., patient) and time, while definitions represent mere "possibility" rather than intention and are independent of a specific subject or timeframe.
 </p>
 <p>
 Requests are related to <a href="task.html">Task</a> in that tasks can both request and track the fulfillment of a request.  In some cases, fulfillment may also result in the
-creation of sub-tasks.  Requests do not track their own fulfillment - i.e. requested/accepted/in-progress.  This is managed through Task.  The status of a request only reflects
+creation of sub-tasks.  Requests do not track their own fulfillment - i.e., requested/accepted/in-progress.  This is managed through Task.  The status of a request only reflects
 the status of the "authorization/intention", not how the request is being executed or not.  It is possible for multiple tasks to be associated with the fulfillment of a single
 Request.
 </p>
@@ -46,7 +46,7 @@ This model represents a pattern.  It provides a standard list of data elements w
 adhered to by resources that fall into the "request" workflow category.  However, adherence to this pattern is not mandatory.  Not all healthcare domains are the same.
 Concepts that may be generally applicable (and thus are included in this standard pattern) might still not be relevant everywhere or may be sufficiently uncommon that they
 are more appropriate to include as extensions than as core properties of the resource.  Work groups are encouraged to adjust descriptions, usage notes and rationale to be
-specific to their resource (e.g. use the term "diagnostic test" or "prescription" rather than "request").  As well, design notes in the comments column marked with [square
+specific to their resource (e.g., use the term "diagnostic test" or "prescription" rather than "request").  As well, design notes in the comments column marked with [square
 brackets] identifies areas where domain variation is expected and encouraged.  Other variation, including differences in names, cardinalities, data types and the decision to
 omit an element outright are also possible, but should be discussed with the FHIR Infrastructure work group's Workflow project to ensure the rationale for non-alignment is
 understood, to confirm that the deviation is necessary and to identify whether any adjustments to the pattern are appropriate.

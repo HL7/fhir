@@ -5,7 +5,7 @@
 
 <p>
 OperationDefinitions can describe entirely new operations, but they can also describe a restricted implementation
-of an existing operation e.g. when a server implements some but not all the features of an operation defined in 
+of an existing operation e.g., when a server implements some but not all the features of an operation defined in 
 another specification. These are called derived operation definitions.
 </p>
 <p>
@@ -37,7 +37,7 @@ it change add types to parameters or prohibit mandatory parameters.
 
 <p>
 Operations are invoked by their code, not their name. The name is descriptive, for code generation, 
-e.g. <code>ValueSetExpansion</code>, while the code is what is used in a URL e.g. 
+e.g., <code>ValueSetExpansion</code>, while the code is what is used in a URL e.g., 
 <code>http://example.org/fhir/ValueSet/$expand</code>. When defining operations, 
 for maximum compatibility, use only lowercase ASCII characters. 
 See <a href="https://confluence.hl7.org/display/FHIR/Guide+to+Designing+Resources#GuidetoDesigningResources-NamingRules&amp;Guidelines">Naming Rules &amp; Guidelines</a> 
@@ -130,7 +130,7 @@ In addition to specifying the operation parameters directly, an operation defini
 </pre>
 <p>
 This profile would describe a parameters resource with 2 parameters (using slicing), with the same details as the table above.
-The operation definition would still list the parameters directly to save applications consuming the definition (e.g. to produce
+The operation definition would still list the parameters directly to save applications consuming the definition (e.g., to produce
 an <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI document</a>) from parsing and interpreting the profile.
 </p>
 
@@ -162,8 +162,8 @@ according to the named query OperationDefinition. Parameters may repeat if permi
 </p>
 <p>
 For named queries, all the standard search parameters are automatically in scope. Specifically, all common search parameters 
-(e.g. _id, _text, _count, _sort, etc.) as well as search parameters that pertain to the resources 
-returned by the operation (e.g. name for Patient or Organization) are allowed. "In scope" doesn't 
+(e.g., _id, _text, _count, _sort, etc.) as well as search parameters that pertain to the resources 
+returned by the operation (e.g., name for Patient or Organization) are allowed. "In scope" doesn't 
 mean all servers will support them. If a server wishes to declare which search parameters it supports 
 for a given named query, it must explicitly list these in its OperationDefinition (which might be a 
 server-specific derived OperationDefinition).

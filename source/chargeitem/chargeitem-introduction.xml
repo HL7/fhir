@@ -21,7 +21,7 @@ Also, the systems posting the ChargeItems are not expected to apply the rules as
  not know the whole context of the patient/encounter to evaluate such rules.
 
 It lies within the responsibility of a billing engine, to collect the ChargeItems in the context of an Account or Encounter at a certain point in time 
-(e.g. discharge of the patient) and to evaluate the associated rules resulting in some of the ChargeItems to be set to the status "not billable" 
+(e.g., discharge of the patient) and to evaluate the associated rules resulting in some of the ChargeItems to be set to the status "not billable" 
 in case the rules exclude them from being billed, or to create financial transactions according to base price and factors. 
 Additional references to Encounter/EpisodeOfCare, Patient/Group and
  Services provide further context to help billing systems determine the appropriate account and establish the clinical/financial context

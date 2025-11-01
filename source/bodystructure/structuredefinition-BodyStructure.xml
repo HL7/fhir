@@ -461,7 +461,7 @@
       <path value="BodyStructure.description"/>
       <short value="Text description"/>
       <definition value="A summary, characterization or explanation of the body structure."/>
-      <comment value="This description could include any visual markings used to orientate the viewer e.g. external reference points, special sutures, ink markings."/>
+      <comment value="This description could include any visual markings used to orientate the viewer e.g., external reference points, special sutures, ink markings."/>
       <min value="0"/>
       <max value="1"/>
       <type>

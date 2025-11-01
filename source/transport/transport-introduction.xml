@@ -7,8 +7,8 @@
 <p>
 The Transport resource captures the requested movement and movement history of persons and items in the healthcare spectrum. The Transport resource documents the movement of a person or item. Since it follows the event pattern, it can be used in the request of a transport event, but it can be used in conjunction with the Task resource to operationalize a movement event in a workflow. While the current use cases are focused on the lab and the movement of patients, this resource will be easily extensible to handle the movement of anything in healthcare. Sample use cases for the laboratory are as follows: 
 <ul>
-<li>Movement of a specimen between distinct healthcare locations (clinic to lab, lab to lab, lab to biorepository) without the use of a third-party transport system (e.g. a courier)</li>
-<li>Movement of a specimen between distinct healthcare locations (clinic to lab, lab to lab, lab to biorepository) with the use of a third-party transport system (e.g. a courier)</li>
+<li>Movement of a specimen between distinct healthcare locations (clinic to lab, lab to lab, lab to biorepository) without the use of a third-party transport system (e.g., a courier)</li>
+<li>Movement of a specimen between distinct healthcare locations (clinic to lab, lab to lab, lab to biorepository) with the use of a third-party transport system (e.g., a courier)</li>
 <li>Accessing the current location (tracking) and the complete location history (audit) for a given specimen.</li>
 </ul>
 Sample use cases involving patients include 

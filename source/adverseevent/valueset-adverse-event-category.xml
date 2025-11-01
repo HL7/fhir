@@ -41,7 +41,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Overall categorization of the event, e.g. product-related or situational."/>
+  <description value="Overall categorization of the event, e.g., product-related or situational."/>
   <immutable value="true"/>
   <compose>
     <include>

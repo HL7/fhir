@@ -197,7 +197,7 @@
     <element id="DeviceRequest.groupIdentifier">
       <path value="DeviceRequest.groupIdentifier"/>
       <short value="Identifier of composite request"/>
-      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  e.g., a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -340,7 +340,7 @@
       <path value="DeviceRequest.doNotPerform"/>
       <short value="True if the request is to stop or not to start using the device"/>
       <definition value="If true, indicates that the provider is asking for the patient to either stop using or to not start using the specified device or category of devices. For example, the patient has undergone surgery and the provider is indicating that the patient should not wear contact lenses."/>
-      <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;. DeviceRequest.reason includes the reason for marking the DeviceRequest as 'do not perform'."/>
+      <comment value="If do not perform is not specified, the request is a positive request e.g., &quot;do perform&quot;. DeviceRequest.reason includes the reason for marking the DeviceRequest as 'do not perform'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -776,7 +776,7 @@
     <element id="DeviceRequest.location">
       <path value="DeviceRequest.location"/> 
       <short value="Requested location"/> 
-      <definition value="The preferred location(s) where the device should actually be used in coded or free text form. E.g. at home or nursing day care center."/> 
+      <definition value="The preferred location(s) where the device should actually be used in coded or free text form. e.g., at home or nursing day care center."/> 
       <min value="0"/> 
       <max value="*"/> 
       <base> 
@@ -901,7 +901,7 @@
     <element id="DeviceRequest.supportingInfo">
       <path value="DeviceRequest.supportingInfo"/>
       <short value="Additional clinical information"/>
-      <definition value="Additional clinical information about the patient that may influence the request fulfilment.  For example, this may include where on the subject's body the device will be used (i.e. the target site)."/>
+      <definition value="Additional clinical information about the patient that may influence the request fulfilment.  For example, this may include where on the subject's body the device will be used (i.e., the target site)."/>
       <requirements value="Knowing where the device is targeted is important for tracking if multiple sites are possible."/>
       <min value="0"/>
       <max value="*"/>

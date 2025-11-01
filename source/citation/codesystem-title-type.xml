@@ -68,7 +68,7 @@
   <concept>
     <code value="short-title"/>
     <display value="Short title"/>
-    <definition value="Brief title (e.g. 'running title' or title used in page headers)"/>
+    <definition value="Brief title (e.g., 'running title' or title used in page headers)"/>
   </concept>
   <concept>
     <code value="acronym"/>
@@ -103,6 +103,6 @@
   <concept>
     <code value="duplicate-uid"/>
     <display value="Different text for the same object with a different identifier"/>
-    <definition value="An alternative form of the title in two or more entries, e.g. in multiple medline entries"/>
+    <definition value="An alternative form of the title in two or more entries, e.g., in multiple medline entries"/>
   </concept>
 </CodeSystem>

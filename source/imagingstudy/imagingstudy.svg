@@ -157,7 +157,7 @@
        class="diagram-class-detail"><a
    id="n693"
    xlink:href="imagingstudy-definitions.html#ImagingStudy.encounter"><title
-   id="title4509">The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made</title>encounter</a> : <a
+   id="title4509">The healthcare event (e.g., a patient and healthcare provider interaction) during which this ImagingStudy is made</title>encounter</a> : <a
    id="n694"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n695"
@@ -336,7 +336,7 @@
        class="diagram-class-detail"><a
    id="n805"
    xlink:href="imagingstudy-definitions.html#ImagingStudy.note"><title
-   id="title4589">Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g. Observation, and not in this element</title>note</a> : <a
+   id="title4589">Per the recommended DICOM mapping, this element is derived from the Study Description attribute (0008,1030). Observations or findings about the imaging study should be recorded in another resource, e.g., Observation, and not in this element</title>note</a> : <a
    id="n806"
    xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
     <text
@@ -724,7 +724,7 @@
      class="diagram-class-linkage"><a
        id="n981"
        xlink:href="imagingstudy-definitions.html#ImagingStudy.series.instance"><title
-   id="title4728">A single SOP instance within the series, e.g. an image, or presentation state</title>instance</a></text>
+   id="title4728">A single SOP instance within the series, e.g., an image, or presentation state</title>instance</a></text>
   <text
      id="n982"
      x="660.0"

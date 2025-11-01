@@ -71,7 +71,7 @@
   <differential>
     <element id="NutritionProduct">
       <path value="NutritionProduct"/>
-      <short value="A product used for nutritional purposes (i.e. food or supplement)"/>
+      <short value="A product used for nutritional purposes (i.e., food or supplement)"/>
       <definition value="A food or supplement that is consumed by patients."/>
       <min value="0"/>
       <max value="*"/>
@@ -474,7 +474,7 @@
       <path value="NutritionProduct.instance.biologicalSourceEvent"/>
       <short value="An identifier of the donation, collection, or pooling event from which biological material in this nutrition product was derived"/>
       <definition value="An identifier of the donation, collection, or pooling event from which biological material in this nutrition product was derived."/>
-      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier."/>
+      <comment value="Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g., when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>

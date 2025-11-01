@@ -35,7 +35,7 @@
         </text>
         <!-- the time this document was created -->
         <date value="2013-06-06T12:30:00"/>
-        <!-- What type of document is this - e.g. Discharge Summary, referral, Consultation note -->
+        <!-- What type of document is this - e.g., Discharge Summary, referral, Consultation note -->
         <type>
           <coding>
             <!-- Using an XDS system? hmmmm... -->
@@ -164,7 +164,7 @@
           </coding>
         </code>
         <valueString value="This is a record of my consult..."/>
-        <!-- All the other details of the Observation (i.e. progress note) here -->
+        <!-- All the other details of the Observation (i.e., progress note) here -->
       </Observation>
     </resource>
   </entry>

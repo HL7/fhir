@@ -183,7 +183,7 @@
   <concept>
     <code value="qty"/>
     <display value="qty"/>
-    <definition value="Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit."/>
+    <definition value="Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g., [comparator]value[space]unit."/>
     <property>
       <code value="fhirpath"/>
       <valueString value="n/a"/>

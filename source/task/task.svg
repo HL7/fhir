@@ -149,7 +149,7 @@
        class="diagram-class-detail"><a
    id="n800"
    xlink:href="task-definitions.html#Task.groupIdentifier"><title
-   id="title103818">A shared identifier common to multiple independent Task and Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
+   id="title103818">A shared identifier common to multiple independent Task and Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  e.g., a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
    id="n801"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
     <text
@@ -213,7 +213,7 @@
        class="diagram-class-detail"><a
    id="n840"
    xlink:href="task-definitions.html#Task.intent"><title
-   id="title103850">Indicates the &quot;level&quot; of actionability associated with the Task, i.e. this a proposed task, a planned task, an actionable task, etc</title>intent</a> : <a
+   id="title103850">Indicates the &quot;level&quot; of actionability associated with the Task, i.e., this a proposed task, a planned task, an actionable task, etc</title>intent</a> : <a
    id="n841"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
    id="n842"
@@ -311,7 +311,7 @@
        class="diagram-class-detail"><a
    id="n906"
    xlink:href="task-definitions.html#Task.encounter"><title
-   id="title103897">The healthcare event  (e.g. a patient and healthcare provider interaction) during which this task was created</title>encounter</a> : <a
+   id="title103897">The healthcare event  (e.g., a patient and healthcare provider interaction) during which this task was created</title>encounter</a> : <a
    id="n907"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n908"
@@ -646,7 +646,7 @@
        class="diagram-class-detail"><a
    id="n1090"
    xlink:href="task-definitions.html#Task.restriction.period"><title
-   id="title104032">The time-period for which fulfillment is sought. This must fall within the overall time period authorized in the referenced request.  E.g. ServiceRequest.occurance[x]</title>period</a> : <a
+   id="title104032">The time-period for which fulfillment is sought. This must fall within the overall time period authorized in the referenced request.  e.g., ServiceRequest.occurance[x]</title>period</a> : <a
    id="n1091"
    xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
     <text
@@ -840,7 +840,7 @@
      class="diagram-class-linkage"><a
        id="n1155"
        xlink:href="task-definitions.html#Task.restriction"><title
-   id="title104093">If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned</title>restriction</a></text>
+   id="title104093">If the Task.focus is a request resource and the task is seeking fulfillment (i.e., is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned</title>restriction</a></text>
   <text
      id="n1156"
      x="380.0"

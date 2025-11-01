@@ -57,7 +57,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Partitions the diagnostic report into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
-            <resource value="A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes."/>
+            <resource value="A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g., cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
@@ -98,11 +98,11 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The Encounter during which this diagnostic report was created or to which the creation of this record is tightly associated."/>
-            <resource value="The encounter (e.g. a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
+            <resource value="The encounter (e.g., a patient and healthcare provider interaction) that is associated with the DiagnosticReport."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="This will typically be the encounter the diagnostic report was created during, but some diagnostic reports may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
-            <resource value="This will typically be the encounter, when it exists, during which the data or specimens (e.g. imaging, blood draw, or assessment procedure) that are being reported by the DiagnosticReport were obtained/acquired. When a DiagnosticReport is based on a ServiceRequest (order), the ServiceRequest.encounter referenced in DiagnosticReport.basedOn may be used to associate the two."/>
+            <_pattern value="This will typically be the encounter the diagnostic report was created during, but some diagnostic reports may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g., pre-admission lab tests)."/>
+            <resource value="This will typically be the encounter, when it exists, during which the data or specimens (e.g., imaging, blood draw, or assessment procedure) that are being reported by the DiagnosticReport were obtained/acquired. When a DiagnosticReport is based on a ServiceRequest (order), the ServiceRequest.encounter referenced in DiagnosticReport.basedOn may be used to associate the two."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the diagnostic report to the Encounter context.  May also affect access control."/>
