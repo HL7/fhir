@@ -15,7 +15,7 @@
   </identifier>
   <version value="6.0.0-ballot3"/>
   <name value="MedicationRequestAdministrationLocationCodes"/>
-  <title value="medicationRequest Administration Location Codes"/>
+  <title value="MedicationRequest Administration Location Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="FHIR Project team"/>
