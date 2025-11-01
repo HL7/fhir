@@ -115,6 +115,11 @@ along with a reference to the definition of the resource in <code>CapabilityStat
 The definition SHALL contain a version specific reference to the definition. The definition SHALL NOT be present 
 if the resource type is one defined in this specification.
 </p>
+<p>
+CapabilityStatements using additional resources can refer to these directly; when the additional resource
+moves to become a part of the core Specification, the search parameter canonical URLs do not change, though
+the versions might. But there's no change to the codes, whether the server uses the assigned code or it's own.
+</p>
 
 <blockquote class="ballot-note">
   <p>See <a href="resource.html#additional">general note to balloters</a> about Additional resources</p>

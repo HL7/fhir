@@ -9501,7 +9501,6 @@
         <ns4:element name="FamilyMemberHistory" elementType="FHIR.FamilyMemberHistory"/>
         <ns4:element name="Flag" elementType="FHIR.Flag"/>
         <ns4:element name="Goal" elementType="FHIR.Goal"/>
-        <ns4:element name="GraphDefinition" elementType="FHIR.GraphDefinition"/>
         <ns4:element name="Group" elementType="FHIR.Group"/>
         <ns4:element name="GuidanceResponse" elementType="FHIR.GuidanceResponse"/>
         <ns4:element name="HealthcareService" elementType="FHIR.HealthcareService"/>

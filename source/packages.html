@@ -9,7 +9,7 @@
 [%file newnavbar%]
 
 <h2>FHIR NPM Packages</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: n/a</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 FHIR Specifications are published in HTML format for human consumption, and as NPM packages for machine consumption.
@@ -141,6 +141,11 @@ specification, and defines some additional FHIR specific properties.
     <td><b>jurisdiction</b></td>
     <td>optional</td>
     <td>A URL with the syntax <code>{system}#{code}</code>, from the <a href="https://terminology.hl7.org/ValueSet-jurisdiction.html">Jurisdiction</a> ValueSet. This value is provided to help users find the right package in the package registry</td>
+  </tr>
+  <tr>
+    <td><b>languages</b></td>
+    <td>optional</td>
+    <td>An array of strings, where each value is an IETF language code from <a href="valueset-all-languages.html">AllLanguages ValueSet</a>, and indicates that the package contains content suitable for the specified language</td>
   </tr>
   <tr>
     <td><b>fhirVersions</b></td>

@@ -1,3 +1,0 @@
-// get all the tags, profiles, and security labels used on patient resources
-
-GET /fhir/Patient/$meta

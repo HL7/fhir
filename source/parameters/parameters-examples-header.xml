@@ -5,9 +5,6 @@ In addition to this standard example, there are many
 examples of the <code>Parameters</code> resource in the operation examples:
 </p>
 <ul>
- <li><a href="capabilitystatement-operation-subset.html#examples">CapabilityStatement/$subset</a></li>
- <li><a href="capabilitystatement-operation-implements.html#examples">CapabilityStatement/$implements</a></li>
- <li><a href="capabilitystatement-operation-conforms.html#examples">CapabilityStatement/$conforms</a></li>
  <li><a href="capabilitystatement-operation-versions.html#examples">CapabilityStatement/$versions</a></li>
  <li><a href="codesystem-operation-lookup.html#examples">CodeSystem/$lookup</a></li>
  <li><a href="codesystem-operation-subsumes.html#examples">CodeSystem/$subsumes</a></li>
@@ -17,7 +14,6 @@ examples of the <code>Parameters</code> resource in the operation examples:
  <li><a href="observation-operation-stats.html#examples">Observation/$stats</a></li>
  <li><a href="patient-operation-merge.html#examples">Patient/$merge</a></li>
  <li><a href="plandefinition-operation-apply.html#examples">PlanDefinition/$apply</a></li>
- <li><a href="subscription-operation-get-ws-binding-token.html#examples">Subscription/$get-ws-binding-token</a></li>
 </ul>
 
 </div>

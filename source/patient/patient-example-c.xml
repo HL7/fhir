@@ -5,6 +5,15 @@
   <meta>
     <versionId value="1"/>
   </meta>  
+  <extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race">
+     <extension url="detailed">
+      <valueCoding>
+        <system value="urn:oid:2.16.840.1.113883.6.238"/>
+        <code value="2036-2"/>
+        <display value="Filipino"/>
+      </valueCoding>
+    </extension>
+  </extension>
   <identifier>
     <use value="usual"/>
     <type>

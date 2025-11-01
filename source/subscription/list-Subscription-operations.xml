@@ -14,9 +14,4 @@
       <reference value="OperationDefinition/Subscription-status"/>
     </item>
   </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/Subscription-get-ws-binding-token"/>
-    </item>
-  </entry>
 </List>

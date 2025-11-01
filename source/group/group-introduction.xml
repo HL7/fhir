@@ -110,7 +110,14 @@ This Group resource - defines a group of specific people, animals, devices etc. 
 or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
 Groups are intended to be acted upon or observed as a whole; e.g. performing therapy on a group, calculating risk for a group, 
 etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
-defining a test subject pool) and similar purposes.
+defining a test subject pool) and similar purposes. It may be used to define families or households, which in some circumstances
+may act collectively or have a degree of legal or formal recognition.
+</li>
+<li>
+The Organization resource is used for collections of people that have come together to achieve an objective. In generally,
+the Group resource is used to identify a collection of people (or animals, devices, etc.) that are gathered for the purpose
+of analysis or acting upon, but are not expected to act themselves. Families or households are sometimes an exceptiont to this,
+in that they are primarily recipients of care, particularly in a public health context, but sometimes act collectively
 </li>
 <li><a href="careteam.html">CareTeam</a>. Group is distinct from CareTeam. Group is patient-independent and identifies an 
 undifferentiated set of individuals who are intended to be the target of one or more clinical activities (e.g. set of 

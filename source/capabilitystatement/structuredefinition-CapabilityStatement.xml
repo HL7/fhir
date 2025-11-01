@@ -704,6 +704,7 @@
 				<description value="The mime type of an attachment. Any valid mime type is allowed (BCP 13; RFCs 2045, 2046, 2047, 4288, 4289 and 2049), and also `json`, `xml`, and `ttl`."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/supplemented-mimetypes"/>
 				<additional>
+				  <key value="b-cs-1"/>
 					<purpose value="starter"/>
 					<valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
 				</additional>
@@ -760,6 +761,7 @@
 				<description value="IETF language tag for a human language"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
 				<additional>
+				  <key value="b-cs-2"/>
 					<purpose value="starter"/>
 					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
 				</additional>
@@ -922,11 +924,11 @@
 		<element id="CapabilityStatement.rest.resource.type">
 			<path value="CapabilityStatement.rest.resource.type"/>
 			<short value="A resource type that is supported"/>
-			<definition value="A type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional)."/>
+			<definition value="A relative URL, in which case it is a type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional), or else a full URL referring to some other type that specialises the base resource (e.g. a custom resource)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="code"/>
+				<code value="uri"/>
 			</type>
 			<condition value="cpb-9"/>
 			<isSummary value="true"/>
@@ -937,7 +939,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
 				</extension>
-				<strength value="required"/>
+				<strength value="extensible"/>
 				<description value="One of the resource types defined as part of this version of FHIR. Note that this includes additional resources, and is not a fixed list"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/extended-resource-types"/>
 			</binding>

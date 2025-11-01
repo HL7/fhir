@@ -130,7 +130,7 @@ do not define how cross-linking is handled. Systems may reject resources, remove
 from both compartments, or place them in both, or act in some other fashion.
 </p>
 <p>
-The <a href="graphdefinition.html">graph definition</a> resource provides a method
+The <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">graph definition</a> resource provides a method
 by which rules about cross-linking may be made and enforced.
 </p>
 <p>

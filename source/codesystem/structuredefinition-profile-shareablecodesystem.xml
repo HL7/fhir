@@ -170,7 +170,6 @@
 			<path value="CodeSystem.concept.concept"/>
 			<min value="0"/>
 			<max value="*"/>
-			<contentReference value="http://hl7.org/fhir/StructureDefinition/CodeSystem#CodeSystem.concept"/>
 			<condition value="scs-1"/>
 			<mustSupport value="true"/>
 		</element>

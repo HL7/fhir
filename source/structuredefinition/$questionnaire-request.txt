@@ -1,1 +1,0 @@
-GET /fhir/StructureDefinition/daf-patient/$questionnaire

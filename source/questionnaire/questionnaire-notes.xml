@@ -152,7 +152,10 @@ purposes:</p>
 Questionnaires can be crafted using any questions the author can conceive and can be phrased in whatever manner is appropriate or convenient.  However, standardization of
 questions and the constraints enforced on the accompanying answers increases the ability to compare data gathered across questionnaires. 
 Items can be directly linked to an <a href="elementdefinition.html">ElementDefinition</a> using <code>Questionnaire.item.definition</code>
-which provides details for the item. If a definition is provided, then the following element values can be derived from the definition:
+which provides details for the item. The SDC guide has defined an <a href="https://build.fhir.org/ig/HL7/sdc/en/modular.html">assembly</a>
+process to support retrieving and injecting information from
+definitions into a Questionnaire.  In most cases, systems rendering forms can't be expected to do this automatically as part of form
+display without a separate workflow step. If a definition is provided, then the following element values can be derived from the definition:
 </p>
 <ul>
 <li>code (from ElementDefinition.code)</li>

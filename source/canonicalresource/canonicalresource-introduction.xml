@@ -42,7 +42,6 @@ implement this interface:
 <li><a href="evidence.html">Evidence</a></li>
 <li><a href="evidencevariable.html">EvidenceVariable</a></li>
 <li><a href="examplescenario.html">ExampleScenario</a></li>
-<li><a href="graphdefinition.html">GraphDefinition</a></li>
 <li><a href="implementationguide.html">ImplementationGuide</a></li>
 <li><a href="library.html">Library</a></li>
 <li><a href="measure.html">Measure</a></li>
@@ -61,7 +60,9 @@ implement this interface:
 <li><a href="terminologycapabilities.html">TerminologyCapabilities</a></li>
 <li><a href="valueset.html">ValueSet</a></li>
 </ul>
-
+<p>
+Other <a href="resource.html#additional">Additional Resources</a> may implement CanonicalResource.
+</p>
 
 </div>
 

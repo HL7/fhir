@@ -490,9 +490,6 @@
     <Cell ss:Index="7"><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">GraphDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Group</Data></Cell>
     <Cell><Data ss:Type="String">member</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">member</Data></Cell>

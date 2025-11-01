@@ -6,11 +6,6 @@
   <mode value="working"/>
   <entry>
     <item>
-      <reference value="OperationDefinition/StructureDefinition-questionnaire"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
       <reference value="OperationDefinition/StructureDefinition-snapshot"/>
     </item>
   </entry>

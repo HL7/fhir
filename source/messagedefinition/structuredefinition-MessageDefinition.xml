@@ -715,16 +715,5 @@
 				<code value="markdown"/>
 			</type>
 		</element>
-		<element id="MessageDefinition.graph">
-			<path value="MessageDefinition.graph"/>
-			<short value="Canonical reference to a GraphDefinition"/>
-			<definition value="Graph is Canonical reference to a GraphDefinition. If a URL is provided, it is the canonical reference to a GraphDefinition that it controls what additional resources are to be added to the Bundle when building the message. The GraphDefinition can also specify profiles that apply to the various resources."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
-			</type>
-		</element>
 	</differential>
 </StructureDefinition>

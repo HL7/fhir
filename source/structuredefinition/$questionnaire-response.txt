@@ -1,4 +1,0 @@
-HTTP/1.1 200 OK
-[other headers]
-
-$link http://hl7.org/fhir/us/daf/daf-patient-questionnaire.xml.html DAF Patient Questionnaire

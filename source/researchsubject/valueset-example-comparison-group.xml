@@ -2,6 +2,9 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="example-comparison-group"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
   </extension>
@@ -12,7 +15,7 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/example-comparison-group"/>
-  <version value="6.0.0"/>
+  <version value="6.0.0-ballot3"/>
   <name value="ExampleComparisonGroup"/>
   <title value="Example Comparison Group"/>
   <status value="draft"/>

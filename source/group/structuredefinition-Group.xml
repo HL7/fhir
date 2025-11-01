@@ -9,7 +9,7 @@
     <valueString value="Base.Individuals"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -23,6 +23,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".active = false"/>
   </extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Group"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -395,7 +398,7 @@
       <path value="Group.type"/>
       <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen | medication | medicinalproductdefinition | substance | substancedefinition | biologicallyDerivedProduct | nutritionProduct"/>
       <definition value="Identifies the broad classification of the kind of resources the group includes."/>
-      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, PractitionerRole, Device, CareTeam, HealthcareService, Location, Organization, RelatedPerson, or Specimen for the other types.), or a Group of the resources of the appropriate type."/>
+      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, PractitionerRole, Device, CareTeam, HealthcareService, Location, Organization, RelatedPerson, Specimen, Medication, Substance, BiologicallyDerivedProduct, or NutritionProduct for the other types.), or a Group of the resources of the appropriate type."/>
       <requirements value="Identifies what type of resources the group is made up of."/>
       <min value="0"/>
       <max value="1"/>
@@ -781,7 +784,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="Group.member.entity">

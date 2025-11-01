@@ -10,8 +10,7 @@
 
 <a name="base"></a>
 <h2>Search</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 Searching for resources is fundamental to the mechanics of FHIR.
@@ -1694,6 +1693,18 @@ code=http://snomed.info/sct|3738000&amp;_include=Observation:patient&amp;_includ
     More information can be found in the section <a href="#include">Including other resources</a>
   </p>
 
+[%dragons-start%]
+<h6>Performance Warning</h6>
+<p>
+Note that the iterate modifier causes implementations to perform a sub-query for each iterate directive for each resource it is based on.
+Using iterate directives can often reduce the total processing time of a set of queries (by reducing the number of round-trips) but
+can significantly increase the processing time of a single query.As noted in <a href="#include">Including Referenced Resources</a>, 
+servers have discretion about limiting the depth of recursion, which iterations to support, and how many resources to include. 
+When results are truncated, it is recommended for servers to inform clients via search outcome.
+
+</p>
+[%dragons-end%]
+
   <a name="modifiermissing"></a>
   <h5>missing</h5>
   <p>
@@ -2241,18 +2252,22 @@ are identified:
  <tr>
 	<td>range of the value</td>
 	<td>The limits implied by the precision of the value</td>
-  <td>The number 2.0 has a range of 1.95 to 2.05</td>
+  <td>
+    The number 2.0 has a range of 1.95 to 2.05<br/>
+    The range 1.5 -&gt; 2.3 has a range 1.50000000000000000000 to 2.50000000000000000000 (range is explicit, boundaries are treated as precise)
+  </td>
  </tr>
  <tr>
 	<td>range below the value</td>
 	<td>Up to the specified value</td>
-  <td>The range below 2.0 includes any value less or equal to &lt;2.00000000000000000000</td>
+  <td>The range below 2.0 includes any value less or equal to &lt;2.00000000000000000000<br/>
+    The range below 1.5 -&gt; 2.3 includes any value less or equal to &lt;1.50000000000000000000 </td>
  </tr>
  <tr>
 	<td>range above the value</td>
 	<td>The specified value and up</td>
   <td>The range above 2.0 includes any value greater or equal to &lt;2.00000000000000000000<br/>
-      The range after 2015-08-12T05:23:45 includes any time after 2015-08-12T05:23:45.000000000000000</td>
+    The range above 1.5 -&gt; 2.3 includes any value greater or equal to &lt;2.30000000000000000000</td>
  </tr>
  <tr>
   <td colspan="3"><b>Date / Time Values</b></td>
@@ -2817,9 +2832,10 @@ The search processor may choose to perform a search based on <a href="datatypes.
 may have a value of <code>23 mm/hr</code>. This is equal to <code>0.023 m/hr</code>. The search processor can
 choose to normalize all the values to a canonical unit such as <code>6.4e-6 m/sec</code>, and convert
 search terms to the same units (m/sec). Such conversions can be performed based on the semantics defined
-in <a href="http://unitsofmeasure.org">UCUM</a>
+in <a href="http://unitsofmeasure.org">UCUM</a>. Servers that do not search based on canonical units will not
+be able to search against ranges whose low and high quantities use different units or where the search
+expression uses different units than are found in low and high.
 </p>
-
 
 <a name="reference"></a>
 <h4>reference</h4>
@@ -4989,7 +5005,7 @@ _include=MedicationDispense:prescription&amp;_include:iterate=MedicationRequest:
 </p>
 <p>
   Details about the <code>iterate</code> modifier can be found in the section 
-  <a href="#modifieriterate">Modifier: iterate</a>.
+  <a href="#modifieriterate">Modifier: iterate</a>, including potential performance considerations.
 </p>
 <p>
 This technique applies to circular relationships as well. For example,
@@ -5080,7 +5096,7 @@ results for the convenience of the client.
 </p>
 <p>
   The <code>_graph</code> result parameter functions as a <a href="#reference">reference</a>
-  type search parameter.  The input is a reference to a <a href="graphdefinition.html">GraphDefinition</a>
+  type search parameter.  The input is a reference to a <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a>
   resource, which is used to define the graph of desired resources for inclusion.
 </p>
 
@@ -5773,8 +5789,8 @@ that an observation has been tagged as potentially life-threatening or with the 
   of a resource.
 </p>
 <p>
-  The <code>_text</code> search parameter is defined as a <a href="#string">string</a> type parameter.
-  While the actual format used by the parameter is implementation-dependant, the search is some form of string
+  The <code>_text</code> search parameter is defined as a <a href="#special">special</a> type parameter.
+  While the actual format used by the parameter is implementation-dependant, the search is some form of text
   which can be used for advanced searching.
 </p>
 <p>

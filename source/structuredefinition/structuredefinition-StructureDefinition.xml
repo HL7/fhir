@@ -239,6 +239,12 @@
 				<human value="Elements in Resources must have a min cardinality or 0 or 1 and a max cardinality of 1 or *"/>
 				<expression value="((kind in 'resource' | 'complex-type') and (derivation = 'specialization')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()"/>
 			</constraint>
+			<constraint>
+				<key value="sdf-30"/>
+				<severity value="error"/>
+				<human value="ContentReferences can only be defined in specializations, not constrained types"/>
+				<expression value="differential.element.where(contentReference.empty().not()).exists() implies derivation = 'specialization'"/>
+			</constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value="n/a"/>

@@ -13,9 +13,7 @@
 <%dtheader base%>
 
 <h1>Datatypes</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Partially Normative</a></td></tr></table>
-
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>Types Framework Cross Reference:
   <a href="types.html">Base Types</a>
@@ -295,7 +293,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1,048,576 (1024*1024) characters in size. Because UTF-8 characters can be expressed with more than one byte, the string size may be more than 1MB. Strings SHOULD not contain Unicode character points below 32, except for u0009 (horizontal tab), u000D (carriage return) and u000A (line feed).
+   <td style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1,048,576 (1024*1024) characters in size. Because UTF-8 characters can be expressed with more than one byte, the string size may be more than 1MB. Strings SHOULD not contain Unicode character points below 32, except for u0009 (horizontal tab), u000D (carriage return) and u000A (line feed). We recommend that systems treat the characters u000D and u000A and the sequence u000D u000A as new lines.
 	   Leading and Trailing whitespace is allowed, but SHOULD be <a href="xml.html#whitespace">removed when using the XML format</a>.
      Note: This means that a string that consists only of whitespace could be trimmed to nothing, which would be treated as an invalid element value.  Therefore strings SHOULD always contain non-whitespace content</td>
  </tr>
@@ -575,7 +573,6 @@ values are.
 <a name="Attachment"></a>
 <a name="attachment"></a>
 <h2 style="margin-bottom: 1px">Attachment</h2>
-[%dtstatus Attachment%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Attachment-->See also <a data-no-external="true" href="datatypes-examples.html#Attachment">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Attachment">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Attachment">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Attachment">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Attachment">Extensions</a>
 </p>
@@ -641,7 +638,6 @@ Attachment is used in the following places: [%dtusage Attachment%]
 <a name="coding"></a>
 <a name="codesystem"></a>
 <h2 style="margin-bottom: 1px">Coding</h2>
-[%dtstatus Coding%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Coding-->See also <a data-no-external="true" href="datatypes-examples.html#Coding">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Coding">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Coding">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Coding">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Coding">Extensions</a>
 </p>
@@ -778,7 +774,6 @@ in extensions, which are usually intended to be defined for a well-controlled co
 <a name="CodeableConcept"></a>
 <a name="codeableconcept"></a>
 <h2 style="margin-bottom: 1px">CodeableConcept</h2>
-[%dtstatus CodeableConcept%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:CodeableConcept-->See also <a data-no-external="true" href="datatypes-examples.html#CodeableConcept">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#CodeableConcept">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#CodeableConcept">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#CodeableConcept">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#CodeableConcept">Extensions</a>
 </p>
@@ -791,38 +786,92 @@ provision of text. This is a common pattern in healthcare data.
 This datatype can be <a href="terminologies.html#CodeableConcept">bound</a> to a <a href="valueset.html">ValueSet</a>.
 </p>
 [%dt CodeableConcept 3%]
-<p><b>Additional Codes</b></p>
+<p><b>Multiple Codings</b></p>
 <p>
-More than one code may be used in <code>CodeableConcept</code>. The concept may be coded multiple times in different code systems (or even
-multiple times in the same code systems, where multiple forms are possible, such as
-with SNOMED CT). Each <code>coding</code> (also referred to as a 'translation') is a representation of the concept as described above and may have slightly different granularity due to the differences
-in the definitions of the underlying codes. There is no meaning associated with the ordering of <code>coding</code> within a <code>CodeableConcept</code>.
-A typical use of <code>CodeableConcept</code> is to send the local code that the concept was coded with, and also one or more translations to publicly defined
-code systems such as LOINC or SNOMED CT. Sending local codes is useful and important for the purposes of debugging and integrity auditing.
+When a CodeableConcept contains multiple codings, each coding (sometimes called a 'translation') is a representation of
+the concept as described above. There is no meaning associated with the ordering of coding within a CodeableConcept and
+systems should not expect or enforce any particular order. The codes in the codings may have different granularities,
+whether they are from different code systems, or the same code system.
 </p>
-	<p>For example, many qualitative laboratory test results values are typically represented with coded presence/absence concepts. Using the coded value for 'negative' with a standard SNOMED CT code translation, <code>valueCodeableConcept</code> would be:</p>
-	<pre class="json">
+<p>
+When multiple codes are present, the intersection of their meanings SHALL NOT be empty. (Strictly, based on ISO 704,
+the intersection of their 'extensions' is not empty.) This rule cannot, in general, be tested in a computable way and
+implementers SHOULD choose the granularities used with care, particularly in the context of negation.
+</p>
+<p>
+For instance, a CodeableConcept containing two codes, the LOINC code 8867-4 (Heart rate) and the SNOMED CT code 364075005 (Heart Rate)
+is a combination, suitable for use by consuming applications that understand either LOINC or SNOMED CT (or both). On the other
+hand, a CodeableConcept containing LOINC 9279-1 (Respiratory Rate) and the SNOMED CT code 364075005 (Heart Rate) is not valid
+because the two concepts do not have any intersection - there's no concept that is both a respiratory rate and a heart rate.
+</p>
+<p>
+Each coding stands alone in expressing the meaning of the concept. It is not appropriate to send a coding of "severe" with
+a coding of "rash" to convey the concept represents a "severe rash".
+</p>
+<p>
+If expressing codes with differing levels of granularity, the granularity chosen must still be appropriate for the
+definition and purpose of the element. For example, with Observation.code, it would not be appropriate to send a SNOMED CT
+code of 138875005 (SNOMED CT Concept) - which covers procedures, body parts, and lots of other things that aren't observations.
+That is, the union of the meanings of the codes (ISO 704 extensions) SHALL not include concepts outside the scope of the
+definition of the element in which the code is found. Note that this also is not suitable for computable testing.
+It would also not be appropriate to send a code like SNOMED CT 118227000 (Vital Sign Finding) with a Quantity value
+because the purpose of Observation.code is to explain the meaning of the Observation.value, and merely knowing that the
+Quantity is a vital sign isn't enough to have any useful understanding of the meaning of the value.
+</p>
+<p>
+On the other hand, having one coding that says Body Weight (SCT 27113001) and another that says Post-dialysis
+body weight (SCT 1162420002) would be fine. Both codes are sufficient to understand what the value means,
+though one provides more context than the other.
+</p>
+<p>
+Note that when granularities are significantly different, interpretation of the meaning for each of the codes will
+result in differences that might not be safe. For instance, a prescription for "APO Amoxicillin 250 mg capsule"
+(needed to fill the order) could safely also have an additional coding of "Broad-spectrum Penicillin" (perhaps
+needed to trigger antibiotic monitoring protocols). On the other hand, if there were an order that said
+"Do not administer APO Amoxicillin 250 mg capsule", adding a translation of "broad-spectrum Penicillin"
+could be incorrectly interpreted as a prohibition against all broad-spectrum penicillins.
+</p>
+<p>
+Multiple codings can be present for several reasons:
+</p>
+<ul>
+  <li>Retaining legacy/internal codes while also providing 'standard' codes</li>
+  <li>Allowing migration by supporting both older and newer terminology coding expectations</li>
+  <li>Meeting needs of different data consumers which may require codings to be present from different code systems and/or which represent the concept at different levels of precision (e.g. one system might only handle general codes like 'Diabetes' while another might want something more specific, such as "Type II diabetes, well-controlled")</li>
+</ul>
+<p>
+Typical behavior is to expose all codings known that some portion of the interface clients are likely to have uses for.
+</p>
+<p>
+Implementers should use codes obtained from the various codings in a CodeableConcept based on thorough analysis of their
+target applications and real world use cases, noting that the nature of FHIR means resources are often distributed
+far beyond the original trading partners. For this reason, it is always better to include appropriate codes from
+well known public CodeSystems whenever possible. This specification and other applicable IGs may make specific rules
+requiring the presence of particular combinations of codes to make specific uses of FHIR Resources possible and/or safer.
+</p>
 
-	"valueCodeableConcept": {
-		"coding": [
-			{
-				"system": "http://snomed.info/sct",
-				"code": "260385009",
-				"display": "Negative"
-			}, {
-				"system": "https://acme.lab/resultcodes",
-				"code": "NEG",
-				"display": "Negative"
-			}
-		],
-		"text": "Negative for Chlamydia Trachomatis rRNA"
-	}
+<p>As an example, many qualitative laboratory test results values are typically represented with coded presence/absence concepts. Using the coded value for 'negative' with a standard SNOMED CT code translation, <code>valueCodeableConcept</code> would be:</p>
+<pre class="json">
 
-	</pre>
+"valueCodeableConcept": {
+  "coding": [
+    {
+      "system": "http://snomed.info/sct",
+      "code": "260385009",
+      "display": "Negative"
+    }, {
+      "system": "https://acme.lab/resultcodes",
+      "code": "NEG",
+      "display": "Negative"
+    }
+  ],
+  "text": "Negative for Chlamydia Trachomatis rRNA"
+}
+</pre>
 
-	<p> Note that these concepts may be cross mapped using the <a href="conceptmap.html">ConceptMap</a> resource <em>instead of </em> or <em>in addition to</em> being represented as translations directly in the  in <code>CodeableConcept</code>.</p>
+<p> Note that these concepts may be cross mapped using the <a href="conceptmap.html">ConceptMap</a> resource <em>instead of </em> or <em>in addition to</em> being represented as translations directly in the  in <code>CodeableConcept</code>.</p>
 
-	<p><b>Using Text in CodeableConcept</b></p>
+<p><b>Using Text in CodeableConcept</b></p>
 
 <p>
 The <code>text</code>
@@ -861,7 +910,6 @@ CodeableConcept is used in the following places: [%dtusage CodeableConcept%]
 <a name="Quantity"></a>
 <a name="quantity"></a>
 <h2 style="margin-bottom: 1px">Quantity</h2>
-[%dtstatus Quantity%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Quantity-->See also <a data-no-external="true" href="datatypes-examples.html#Quantity">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Quantity">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Quantity">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Quantity">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Quantity">Extensions</a>
 </p>
@@ -916,12 +964,6 @@ There are several additional datatypes that are specializations of Quantity
 that only introduce new restrictions on the existing elements defined as part
 of the Quantity datatype.
 </p>
-<div class="draft-content">
-<p>
-The types Age, Distance and Count are marked as Trial Use because they are not used in this specification
-(though they may be used in extensions). These types may be converted back to a profile (see <a href="http://hl7.org/fhir/DSTU2/datatypes.html#quantity">R2 definitions</a>).
-</p>
-</div>
 
 <a name="Distance"> </a>
 <h4>Distance</h4>
@@ -1030,7 +1072,6 @@ just rules applied where the Quantity type is used. There's another constraint -
 <a name="Money"></a>
 <a name="Money"></a>
 <h2 style="margin-bottom: 1px">Money</h2>
-[%dtstatus Money%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Money-->See also <a data-no-external="true" href="datatypes-examples.html#Money">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Money">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Money">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Money">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Money">Extensions</a>
 </p>
@@ -1087,7 +1128,6 @@ just rules applied where the Quantity type is used to represent Money amounts.
 <a name="Range"></a>
 <a name="range"></a>
 <h2 style="margin-bottom: 1px">Range</h2>
-[%dtstatus Range%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Range-->See also <a data-no-external="true" href="datatypes-examples.html#Range">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Range">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Range">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Range">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Range">Extensions</a>
 </p>
@@ -1124,7 +1164,6 @@ Range is used in the following places: [%dtusage Range%]
 <a name="Ratio"></a>
 <a name="ratio"></a>
 <h2 style="margin-bottom: 1px">Ratio</h2>
-[%dtstatus Ratio%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Ratio-->See also <a data-no-external="true" href="datatypes-examples.html#Ratio">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Ratio">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Ratio">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Ratio">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Ratio">Extensions</a>
 </p>
@@ -1170,7 +1209,6 @@ Ratio is used in the following places: [%dtusage Ratio%]
 <a name="RatioRange"></a>
 <a name="ratiorange"></a>
 <h2 style="margin-bottom: 1px">RatioRange</h2>
-[%dtstatus RatioRange%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:RatioRange-->See also <a data-no-external="true" href="datatypes-examples.html#RatioRange">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RatioRange">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RatioRange">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RatioRange">Extensions</a>
 </p>
@@ -1210,7 +1248,6 @@ RatioRange is used in the following places: [%dtusage RatioRange%]
 <a name="Period"></a>
 <a name="period"></a>
 <h2 style="margin-bottom: 1px">Period</h2>
-[%dtstatus Period%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Period-->See also <a data-no-external="true" href="datatypes-examples.html#Period">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Period">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Period">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Period">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Period">Extensions</a>
 </p>
@@ -1247,7 +1284,6 @@ Period is used in the following places: [%dtusage Period%]
 <a name="SampledData"></a>
 <a name="sampleddata"></a>
 <h2 style="margin-bottom: 1px">SampledData</h2>
-[%dtstatus SampledData%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:SampledData-->See also <a data-no-external="true" href="datatypes-examples.html#SampledData">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#SampledData">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#SampledData">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#SampledData">Extensions</a>
 </p>
@@ -1287,6 +1323,11 @@ since they always have the meaning as defined above. There is no escape sequence
 contain spaces. Also, to make parsing simpler, codes cannot start with numerals.
 </p>
 
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints SampledData%]
+</div>
+
 <p>
 SampledData is used in the following places: [%dtusage SampledData%]
 </p>
@@ -1295,7 +1336,6 @@ SampledData is used in the following places: [%dtusage SampledData%]
 <a name="Identifier"></a>
 <a name="identifier"></a>
 <h2 style="margin-bottom: 1px">Identifier</h2>
-[%dtstatus Identifier%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Identifier-->See also <a data-no-external="true" href="datatypes-examples.html#Identifier">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Identifier">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Identifier">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Identifier">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Identifier">Extensions</a>
 </p>
@@ -1387,7 +1427,6 @@ Identifier is used in the following places: [%dtusage Identifier%]
 <a name="HumanName"></a>
 <a name="humanname"></a>
 <h2 style="margin-bottom: 1px">HumanName</h2>
-[%dtstatus HumanName%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:HumanName-->See also <a data-no-external="true" href="datatypes-examples.html#HumanName">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#HumanName">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#HumanName">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#HumanName">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#HumanName">Extensions</a>
 </p>
@@ -1484,7 +1523,6 @@ HumanName is used in the following places: [%dtusage HumanName%]
 <a name="Address"></a>
 <a name="address"></a>
 <h2 style="margin-bottom: 1px">Address</h2>
-[%dtstatus Address%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Address-->See also <a data-no-external="true" href="datatypes-examples.html#Address">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Address">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Address">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Address">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Address">Extensions</a>
 </p>
@@ -1499,11 +1537,19 @@ of postal address formats defined around the world.
 [%dt Address 11%]
 
 <p>
-The text element specifies the entire address as it should be displayed e.g. on a postal label. This may
-be provided instead of or as well as the specific parts. Applications updating an address SHALL ensure that
-when both text and parts are present, no content is included in the text that isn't found in a part.
+Address.line can include names of departments, 'care-of' instructions, and other types of information that
+involve the names of entities.  Address.line SHOULD NOT include the 'name' of the entity on which the
+address appears, as this will often result in redundant appearance of the name when printing envelopes.
+For example, if an address appears on a Patient resource with name "Jane Smith", then "Jane Smith"
+ought not to appear on an address line.  However "XYZ Retirement Home" would be acceptable to appear
+on the address line, as that is not found in the Patient.name.
 </p>
-
+<p>
+The text element Specifies the entire address as it should be displayed e.g. on a postal label, 
+using a newline delimiter for each line (e.g., \n). This may be provided instead of or as well 
+as the specific parts. Applications updating an address SHALL ensure that when both text and 
+parts are present, no content is included in the text that isn't found in a part.
+</p>
 
 <div class="use">
 <p><b>Constraints</b></p>
@@ -1519,7 +1565,6 @@ Address is used in the following places: [%dtusage Address%]
 <a name="ContactPoint"></a>
 <a name="contactpoint"></a>
 <h2 style="margin-bottom: 1px">ContactPoint</h2>
-[%dtstatus ContactPoint%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:ContactPoint-->See also <a data-no-external="true" href="datatypes-examples.html#ContactPoint">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#ContactPoint">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#ContactPoint">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#ContactPoint">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#ContactPoint">Extensions</a>
 </p>
@@ -1551,7 +1596,6 @@ ContactPoint is used in the following places: [%dtusage ContactPoint%]
 <a name="Timing"></a>
 <a name="timing"></a>
 <h2 style="margin-bottom: 1px">Timing</h2>
-[%dtstatus Timing%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Timing-->See also <a data-no-external="true" href="datatypes-examples.html#Timing">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Timing">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Timing">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Timing">Extensions</a>
 </p>
@@ -1664,13 +1708,12 @@ Timing is used in the following places: [%dtusage Timing%]
 <a name="RelativeTime"></a>
 <a name="RelativeTime"></a>
 <h2 style="margin-bottom: 1px">RelativeTime</h2>
-[%dtstatus RelativeTime%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Money-->See also <a data-no-external="true" href="datatypes-examples.html#RelativeTime">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a>
 </p>
 
 <p>
-RelativeTime is used to express a point in time or an interval of time relative to an event defined in data types other than dateTime. For example, "within 30 days of hospital discharge" is an interval of time (from 0 days to 30 days) and it is described as occurring after an event (hospital discharge).
+RelativeTime expresses a time or time period as relative to the time of an event defined in data types other than dateTime. For example, "within 30 days of hospital discharge" is an interval of time (from 0 days to 30 days) and it is described as occurring after an event (hospital discharge).
 </p>
 
 [%dt RelativeTime 13%]
@@ -1683,12 +1726,12 @@ Methods to express the "event" or "context" that is reference point for time rel
     <li>Describing the event with a reference to an applicable FHIR Resource (using contextReference or contextDefinition) and additional data to express which element in the Resource defines or implies the moment in time, using either or both of contextPath (for the literal path to the element) or contextCode (for the CodeableConcept describing the property that is expected to be found in the Resource).</li>
   </ol>
 </p>
-<p>Methods to express the point in time or interval in time ("offset") relative to the "event" include any of:
+<p>Methods to express the time or interval ("offset") relative to the "event" include any of:
   <ol>
     <li>Describing an exact duration (quantity with a numerical value and time-specific unit), in which case offsetDuration is used.</li>
     <li>Describing a one-sided interval, in which case offsetDuration is used and includes offsetDuration.comparator with an appropriate code (&gt;, &gt;=, &lt;, or &lt;=).</li>
     <li>Describing a two-sided interval, in which case offsetRange is used, and the Quantity datatype within the low and high values are limited to Duration datatype (i.e. limited to time-specific units).</li>
-    <li>Describing the exact moment of time (offset = 0), in which case offsetDuration.value = 0 and units are unnecessary.</li>
+    <li>Describing the same moment of time as the relevant event (offset = 0), in which case offsetDuration.value = 0 and units are unnecessary.</li>
   </ol>
 </p>
 <p>The method to express a natural language description of the RelativeTime value is to use the text element.</p>
@@ -1696,7 +1739,6 @@ Methods to express the "event" or "context" that is reference point for time rel
 <a name="Signature"></a>
 <a name="signature"></a>
 <h2 style="margin-bottom: 1px">Signature</h2>
-[%dtstatus Signature%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Signature-->See also <a data-no-external="true" href="datatypes-examples.html#Signature">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Signature">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Signature">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Signature">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Signature">Extensions</a>
 </p>
@@ -1728,7 +1770,6 @@ extension: [[[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-sign
 <a name="Annotation"></a>
 <a name="annotation"></a>
 <h2 style="margin-bottom: 1px">Annotation</h2>
-[%dtstatus Annotation%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 <!--xlp:Annotation-->See also <a data-no-external="true" href="datatypes-examples.html#Annotation">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#Annotation">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#Annotation">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#Annotation">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#Annotation">Extensions</a>
 </p>

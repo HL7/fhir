@@ -821,6 +821,7 @@
 				<description value="IETF language tag for a human language"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
 				<additional>
+				  <key value="b-vs-1"/>
 					<purpose value="starter"/>
 					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
 				</additional>

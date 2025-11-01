@@ -37,7 +37,8 @@ membership testing is based on the characteristic testing of the Group.  Any ent
 the required characteristics is considered to be <code>active</code>.
 </p>
 <p>
-Servers SHOULD declare whether they support only the enumerated or characteristic group filters.  
+Servers SHOULD declare whether they support only the enumerated or characteristic group filters,
+via CapabilityStatement.rest.resource.documentation in markdown.   
 Servers MAY impose additional membership constraints (e.g. based on modifier extensions).
 </p>
 

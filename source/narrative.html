@@ -17,8 +17,7 @@
 <a name="Narrative"></a>
 <a name="narrative"></a>
 <h2>Narrative</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 Any resource that is a <a href="domainresource.html">DomainResource</a> (all resources except <a href="bundle.html">Bundle</a>, <a href="parameters.html">Parameters</a> and <a href="binary.html">Binary</a>) 
@@ -281,13 +280,18 @@ Authoring systems can use these classes, which SHALL be supported by all renderi
  <tr> <td>circle</td> <td>List bullets are hollow discs</td> <td>{ list-style-type : circle }</td> </tr>
  <tr> <td>square</td> <td>List bullets are solid squares</td> <td>{ list-style-type: square }</td> </tr>
  <tr> <td>unlist</td> <td>List with no bullets</td> <td>{ list-style-type: none }</td> </tr>
+ <tr> <td>nolist</td> <td>List with no bullets</td> <td>{ list-style-type: none }</td> </tr>
 </table>
 <p>
-Note: for testing purposes, there is an <a href="basic-example-narrative.html">example resource</a> that includes
-all of these styles. It is also available <a href="narrative-examples.html">as XHTML</a> and a
-<a href="fhir-runtime.css">standard stylesheet</a> that includes all of these styles.  Use of styles
-not on this list will require an arrangement between producing and consuming systems.
+Notes:
 </p>
+<ul>
+  <li>nolist and unlist are duplicates to clear up past confusion</li>
+  <li>for testing purposes, there is an <a href="basic-example-narrative.html">example resource</a> that includes
+    all of these styles. It is also available <a href="narrative-examples.html">as XHTML</a> and a
+    <a href="fhir-runtime.css">standard stylesheet</a> that includes all of these styles.</li>
+  <li>Use of styles not on this list will require an arrangement between producing and consuming systems.</li>
+</ul>
 
 <p>
 Authoring systems may refer to additional classes, but cannot rely on the fact

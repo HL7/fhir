@@ -752,6 +752,9 @@
   <concept id="385055001" display="Tablet">
     <display value="Tablet"/>
   </concept>
+  <concept id="385315009" display="Sudden onset">
+    <display value="Sudden onset"/>
+  </concept>
   <concept id="385356007" display="Tumor stage finding (finding)">
     <display value="Tumor stage finding (finding)"/>
   </concept>
@@ -1693,6 +1696,9 @@
   </concept>
   <concept id="78088001" display="Hospital-based outpatient ophthalmology clinic">
     <display value="Hospital-based outpatient ophthalmology clinic"/>
+  </concept>
+  <concept id="788800008" display="Delayed onset (qualifier value)">
+    <display value="Delayed onset (qualifier value)"/>
   </concept>
   <concept id="79491001" display="Hospital-based radiology facility">
     <display value="Hospital-based radiology facility"/>
