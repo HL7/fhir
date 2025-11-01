@@ -254,7 +254,7 @@
       <path value="MedicationDispense.category"/>
       <short value="Type of medication dispense"/>
       <definition value="Indicates the type of medication dispense (for example, drug classification like ATC, where meds would be administered, legal category of the medication.)."/>
-      <comment value="The category can be used to include where the medication is expected to be consumed or other types of dispenses.  Invariants can be used to bind to different value sets when profiling to bind."/>
+      <comment value="The category can be used to include where the medication is expected to be consumed or other types of dispenses.  Invariants can be used to bind to different value sets when profiling to bind. &#10;&#10;The committee will revisit these codes, possibly creating a codesystem in [terminology.hl7.org](http://terminology.hl7.org)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
