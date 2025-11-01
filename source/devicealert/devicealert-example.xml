@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DeviceAlert xmlns="http://hl7.org/fhir"	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/devicealert.xsd">
+<DeviceAlert xmlns="http://hl7.org/fhir"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/devicealert.xsd">
 	<id value="example" />
 	<identifier>
 		<use value="official"/>
@@ -10,7 +11,13 @@
 	</identifier>
 	<status value="in-progress"/>
 	<type value="physiological" />
-	<priority value="medium"/>
+	<priority>
+		<coding>
+			<system value="http://hl7.org/fhir/devicealert-priority"/>
+			<code value="medium"/>
+			<display value="Medium Priority"/>
+		</coding>
+	</priority>
 	<code>
 		<coding>
 			<system value="urn:iso:std:iso:11073:10101" />
@@ -22,12 +29,15 @@
 		<reference value="Patient/pat1"/>
 	</subject>
 	<presence value="true"/>
+	<occurrencePeriod>
+		<start value="2025-10-30T10:00:00Z"/>
+	</occurrencePeriod>
 	<device>
 		<reference value="Device/example" />
 	</device>
 	<derivedFrom>
 		<observation>
-			<reference value="Observation/f0f9274d-8ada-402b-afa9-b9468ca50510"/>
+			<reference value="Observation/f001"/>
 			<type value="Observation"/>
 		</observation>
 		<limit>
@@ -62,11 +72,27 @@
 				<display value="On"/>
 			</coding>
 		</presence>
+		<indication>
+			<start value="2025-10-30T10:00:00Z"/>
+		</indication>
+		<type>
+			<coding>
+				<system value="urn:iso:std:iso:11073:10101"/>
+				<code value="188420"/>
+				<display value="MDC_TEMP_RECT"/>
+			</coding>
+			<text value="Light annunciator"/>
+		</type>
 		<annunciator>
-			<reference>
-				<reference value="Device/example"/>
-				<type value="Device"/>
-			</reference>
+			<concept>
+				<coding>
+					<system value="urn:iso:std:iso:11073:10101"/>
+					<code value="188420"/>
+					<display value="MDC_TEMP_RECT"/>
+				</coding>
+				<text value="Light annunciator"/>
+			</concept>
+			<reference value="Device/example"/>
 		</annunciator>
 		<manifestation>
 			<coding>
