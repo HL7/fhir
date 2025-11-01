@@ -442,7 +442,7 @@
        class="diagram-class-detail"><a
    id="n899"
    xlink:href="auditevent-definitions.html#AuditEvent.agent.network_x_"><title
-   id="title167">When the event utilizes a network there should be an agent describing the local system, and an agent describing remote system, with the network interface details</title>network[x]</a> : <a
+   id="title167">When the event utilizes a network there SHOULD be an agent describing the local system, and an agent describing remote system, with the network interface details</title>network[x]</a> : <a
    id="n900"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
    id="n901"
@@ -587,7 +587,7 @@
        class="diagram-class-detail"><a
    id="n967"
    xlink:href="auditevent-definitions.html#AuditEvent.entity.what"><title
-   id="title218">Identifies a specific instance of the entity. The reference should be version specific. This is allowed to be a Parameters resource</title>what</a> : <a
+   id="title218">Identifies a specific instance of the entity. The reference SHOULD be version specific. This is allowed to be a Parameters resource</title>what</a> : <a
    id="n968"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n969"

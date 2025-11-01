@@ -8,7 +8,7 @@
 	</text>
 -->
 	<!-- 
-    where possible, provenance targets should be version specific,
+    where possible, provenance targets SHOULD be version specific,
     so that there is no ambiguity about which version of the 
     record this relates to
   -->
@@ -43,7 +43,7 @@
 		</type>
 
 		<!-- very often, the user won't have a known system - these aren't available 
-      for security system log ons. But where you can define it, you should.
+      for security system log ons. But where you can define it, you SHOULD.
       Most of the time the userId is fully qualfied such as an email address	  -->
 		<who>
 			<identifier>

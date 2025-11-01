@@ -23,7 +23,7 @@
       <recorded value="2013-05-09T15:20:00-07:00"/>
       <agent>
         <role>
-          <system value="http://hl7.org/fhir/provenance-participant-role"/>
+          <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
           <code value="author"/>
         </role>
         <actor>
@@ -33,7 +33,7 @@
       <!-- Indicate that the patient (Eve) was also an author of this plan -->
       <agent>
         <role>
-          <system value="http://hl7.org/fhir/provenance-participant-role"/>
+          <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
           <code value="author"/>
         </role>
         <actor>

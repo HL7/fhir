@@ -9,10 +9,10 @@
     <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="6"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/provenance-entity-role"/>
   <identifier>
@@ -34,7 +34,7 @@
   <title value="Provenance Entity Role"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>

@@ -8,11 +8,11 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/notes">
     <valueString value="provenance-relevant-history-notes.xml"/>
   </extension>
-  <version value="2016-10"/>
+  <version value="2025-11-01"/>
   <name value="ProvenanceRelevantHistory"/>
   <title value="Provenance  Relevant  History"/>
-  <status value="draft"/>
-  <date value="2013-12-03T00:00:00.000"/>
+  <status value="active"/>
+  <date value="2025-11-01"/>
   <publisher value="Health Level Seven International"/>
   <description value="Guidance on using Provenance for related history elements"/>
   <definition>

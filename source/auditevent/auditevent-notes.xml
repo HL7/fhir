@@ -4,7 +4,7 @@
 	<p>
 The AuditEvent resource and the ATNA Audit record are used in many contexts throughout healthcare. 
 The coded values defined in the "extensible" bindings above are those widely used and/or defined by
-DICOM, IHE or ISO, who defined these codes to meet very specific use cases. These codes should be 
+DICOM, IHE or ISO, who defined these codes to meet very specific use cases. These codes SHOULD be 
 used when they are suitable.  When needed, other codes can be defined. 
 	</p>
 	<p>
@@ -13,13 +13,13 @@ AuditEvent size small and minimize impact of a large audit log of similar entrie
 	</p>
 	<p>
 The set of codes defined for this resource is expected to grow over time, and 
-additional codes may be proposed / requested using the "Propose a change" link above below.
+additional codes MAY be proposed / requested using the "Propose a change" link above below.
 	</p>
 
 	<h3>Event codes for Common Scenarios</h3>
 
 	<p>
-This table summarizes common event scenarios, and the codes that should be used for each case.
+This table summarizes common event scenarios, and the codes that SHOULD be used for each case.
 	</p>
 	<table class="grid">
 		<tr>
@@ -61,7 +61,7 @@ This table summarizes common event scenarios, and the codes that should be used 
 		<tr>
 			<td>REST operation logged on server (<a href="audit-event-example-vread.html">example</a>)</td>
 			<td>
-				<a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td>
+				<a href="valueset-audit-event-type-example.html">rest</a> RESTful Operation</td>
 			<td>
 				<a href="valueset-type-restful-interaction.html">[code]</a> defined for operation</td>
 			<td>
@@ -71,7 +71,7 @@ This table summarizes common event scenarios, and the codes that should be used 
 		<tr>
 			<td>Search operation logged on server (<a href="audit-event-example-search.html">example</a>)</td>
 			<td>
-				<a href="valueset-audit-event-type.html">rest</a> RESTful Operation</td>
+				<a href="valueset-audit-event-type-example.html">rest</a> RESTful Operation</td>
 			<td>
 				<a href="valueset-type-restful-interaction.html">[code]</a> defined for operation</td>
 			<td>
@@ -125,15 +125,15 @@ Audit Event Actions for RESTful operations:
 	<a name="recordingsearch"/>
 	<h4>Recording Search Events</h4>
 	<p>
-A search event is recorded as an Execute action as the server must execute the search parameters to get the results. The category is a <code>rest</code> operation. The code should be <code>search</code>. The Server is identified in an <code>.agent</code> as the role <code>Destination Role ID</code>, and the client is identified in an <code>.agent</code> as the role <code>Source Role ID</code>. Additional <code>.agent</code> elements may be used to identify user, application, organization, etc.
+A search event is recorded as an Execute action as the server must execute the search parameters to get the results. The category is a <code>rest</code> operation. The code SHOULD be <code>search</code>. The Server is identified in an <code>.agent</code> as the role <code>Destination Role ID</code>, and the client is identified in an <code>.agent</code> as the role <code>Source Role ID</code>. Additional <code>.agent</code> elements MAY be used to identify user, application, organization, etc.
 </p><p>
-A Search Event records one <code>.entity</code> element that holds the search request, and should not record the contents of the search response so as to limit duplication of sensitive health information that is already present in the system, and discoverable by replaying the search request.
+A Search Event records one <code>.entity</code> element that holds the search request, and SHOULD NOT record the contents of the search response so as to limit duplication of sensitive health information that is already present in the system, and discoverable by replaying the search request.
 </p><p>
-The <code>AuditEvent.entity.query</code> shall hold the whole WHOLE http header and body encoded as base64binary. This should preserve as much of the raw http header and body as possible to best capture any attempts by clients or intermediaries to misbehave. There should be no sanitization or normalization of this value. 
+The <code>AuditEvent.entity.query</code> SHALL hold the whole WHOLE http header and body encoded as base64binary. This SHOULD preserve as much of the raw http header and body as possible to best capture any attempts by clients or intermediaries to misbehave. There SHOULD be no sanitization or normalization of this value. 
 </p><p>
 The FHIR specification defines a harmonized search parameter string, which is returned in the searchset bundle as the <code>.link.url</code> on the <code>.link</code> for self. This string could be recorded in the <code>AuditEvent.entry.description</code> as it is well behaved and represents what was actually processed as search parameters. See: <a href="http://hl7.org/fhir/search.html#conformance">conformance</a>
 </p><p>
-Where there are identifiable Patient subject(s) associated with the returned Resource(s), the <a href="auditevent.html#patient">AuditEvent.patient</a> should be  used to record the Patient as the subject of the data or activity. When multiple patient results are returned one AuditEvent is created for every Patient identified in the resulting search set. Note this is true when the search set bundle includes any number of resources that collectively reference multiple Patients. This includes one Resource with multiple subject values, or many Resources with single subject values that are different.
+Where there are identifiable Patient subject(s) associated with the returned Resource(s), the <a href="auditevent.html#patient">AuditEvent.patient</a> SHOULD be  used to record the Patient as the subject of the data or activity. When multiple patient results are returned one AuditEvent is created for every Patient identified in the resulting search set. Note this is true when the search set bundle includes any number of resources that collectively reference multiple Patients. This includes one Resource with multiple subject values, or many Resources with single subject values that are different.
 </p>
 	<a name="operationoutcome"/>
 	<h3>Encoding a FHIR operation outcome</h3>
@@ -143,7 +143,7 @@ The <a href="operationoutcome.html">OperationOutcome</a> Resource is a collectio
 or information messages that result from a system action.
 This describes in detail the outcome of some operation, such as when 
 a <a href="http.html#operations">RESTful operation</a> fails.</p>
-	<p>When recording into an AuditEvent that some FHIR interaction has happened, the AuditEvent should include 
+	<p>When recording into an AuditEvent that some FHIR interaction has happened, the AuditEvent SHOULD include 
 the <a href="operationoutcome.html">OperationOutcome</a> from that FHIR interaction. 
 This is done by placing the OperationOutcome into an AuditEvent.entity. 
 Likely as a <a href="references.html#contained">contained</a> resource, given that OperationOutcome resources often are not persisted.</p>
@@ -163,7 +163,7 @@ this would result in an error with an OperationOutcome.</p>
 <a name="PoU" />
 	<h3>authorization and agent.authorization</h3>
 	<p>
-The AuditEvent provides the element <code>AudientEvent.authorization</code> to convey the purpose of use for the whole event and <code>AuditEvent.agent.authorization</code>
+The AuditEvent provides the element <code>AuditEvent.authorization</code> to convey the purpose of use for the whole event and <code>AuditEvent.agent.authorization</code>
 to convey the purpose of use that a particular actor (machine, person, software) was involved in the event. 
 	</p>
 	<p>
@@ -171,7 +171,7 @@ to convey the purpose of use that a particular actor (machine, person, software)
 that resulted in the event.  This will occur when the system that is reporting the event is aware 
 of the purpose of the event.  A specific example would be a radiology reporting system where a 
 radiologist has created and is sending a finished report.  This system likely knows the purpose, 
-e.g., "treatment".  It is multi-valued because the one event may be related to multiple purposes. 
+e.g., "treatment".  It is multi-valued because the one event MAY be related to multiple purposes. 
 	</p>
 	<p>
 It is also commonplace that the reporting system does not have information about the purpose of 
@@ -185,7 +185,7 @@ knowledge regarding the purposeOfUse authorization.
 	<p>
 		<code>AuditEvent.agent.authorization</code> is an element at the level of <code>agent</code> within AuditEvent.  This describes the reason that this 
 person, machine, or software is participating in the activity that resulted in the event.  For 
-example, an individual person participating in the event may assert a purpose of use from their perspective.   
+example, an individual person participating in the event MAY assert a purpose of use from their perspective.   
 It is also possible that they are participating for multiple reasons and report multiple purposeOfUse.
 	</p>
 	<p>
@@ -198,16 +198,16 @@ When the same event is reported from multiple perspectives, the reports can have
 <a name="patient" />
 <h3>Patient as subject of data or activity reference in AuditEvent.patient</h3>
 <p>
-It is a best practice to include a reference to the Patient affected by any auditable event, in order to enable Privacy Accounting of Disclosures and Access Logs, and to enable privacy office and security office audit log analysis. Reasonable efforts should be taken to assure the Patient is recorded, but it is recognized that there are times when this is not reasonable.
+It is a best practice to include a reference to the Patient affected by any auditable event, in order to enable Privacy Accounting of Disclosures and Access Logs, and to enable privacy office and security office audit log analysis. Reasonable efforts SHOULD be taken to assure the Patient is recorded, but it is recognized that there are times when this is not reasonable.
 </p>
 <p>
-Where an activity impacts more than one Patient subject; multiple AuditEvent resources should be recorded, one for each Patient subject. This best enables segmentation of the AuditEvent details so as to limit the Privacy impact. The use of multiple AuditEvent is a best-practice and should be driven by a Policy.  There will be cases where the use of multiple AuditEvent resources are not necessary, such as public health reporting.
+Where an activity impacts more than one Patient subject; multiple AuditEvent resources SHOULD be recorded, one for each Patient subject. This best enables segmentation of the AuditEvent details so as to limit the Privacy impact. The use of multiple AuditEvent is a best-practice and SHOULD be driven by a Policy.  There will be cases where the use of multiple AuditEvent resources are not necessary, such as public health reporting.
 </p>
 <p>
-To record a REST interaction or $operation, it is often necessary to complete the transaction in order to determine the Patient subject. Inspection of the potential returned results may be necessary. Some REST and $operations include parameters limiting the results to a specific Patient, in these cases this parameter informs the inclusion of the Patient reference.
+To record a REST interaction or $operation, it is often necessary to complete the transaction in order to determine the Patient subject. Inspection of the potential returned results MAY be necessary. Some REST and $operations include parameters limiting the results to a specific Patient, in these cases this parameter informs the inclusion of the Patient reference.
 </p>
 <p>
-Implementation Guides may make the AuditEvent requirements more clear given the workflow or security context mandated by the Implementation Guide.
+Implementation Guides MAY make the AuditEvent requirements more clear given the workflow or security context mandated by the Implementation Guide.
 </p>
 
 </div>

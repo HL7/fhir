@@ -9,13 +9,13 @@
     <valueString value="provenance-relevant-history-notes.xml"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="6"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/provenance-relevant-history"/>
   <identifier>
@@ -25,9 +25,9 @@
   <version value="6.0.0"/>
   <name value="ProvenanceRelevantHistory"/>
   <title value="Provenance  Relevant  History"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2013-12-03"/>
+  <date value="2025-11-01"/>
   <publisher value="Health Level Seven International"/>
   <contact>
     <telecom>
@@ -76,7 +76,7 @@
     <element id="Provenance.target">
       <path value="Provenance.target"/>
       <short value="Resource version"/>
-      <definition value="This points to the version of the resource that was created as a result of this historical record action.  Typically only a single resource will be referenced, but if the same action is performed to multiple resources in the context of a transaction, some systems may link multiple resource instances."/>
+      <definition value="This points to the version of the resource that was created as a result of this historical record action.  Typically only a single resource will be referenced, but if the same action is performed to multiple resources in the context of a transaction, some systems MAY link multiple resource instances."/>
       <comment value="The reference SHALL be version-specific."/>
       <mustSupport value="true"/>
     </element>
@@ -93,14 +93,14 @@
     </element>
     <element id="Provenance.authorization">
       <path value="Provenance.authorization"/>
-      <comment value="Plain text reasons can be sent in the &quot;text&quot; component with no codings.  Domains may wish to define a constrained terminology.  The authorization for the resource's existence of the resource itself will be maintained on the resource, not here."/>
+      <comment value="Plain text reasons can be sent in the &quot;text&quot; component with no codings.  Domains MAY wish to define a constrained terminology.  The authorization for the resource's existence of the resource itself will be maintained on the resource, not here."/>
       <mustSupport value="true"/>
     </element>
     <element id="Provenance.activity">
       <path value="Provenance.activity"/>
       <short value="Record activity"/>
       <definition value="Indicates what action occurred to the referenced resource."/>
-      <comment value="This should be captured at a sufficiently useful level of granularity.  For example &quot;suspended&quot; is more useful than &quot;updated&quot;.  Domains will need to map the listed codes to their own state transitions and may wish to define additional domain-specific fine-grained codes."/>
+      <comment value="This SHOULD be captured at a sufficiently useful level of granularity.  For example &quot;suspended&quot; is more useful than &quot;updated&quot;.  Domains will need to map the listed codes to their own state transitions and MAY wish to define additional domain-specific fine-grained codes."/>
       <min value="1"/>
       <max value="1"/>
       <mustSupport value="true"/>

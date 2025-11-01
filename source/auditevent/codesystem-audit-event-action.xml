@@ -9,10 +9,10 @@
     <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="6"/>
   </extension>
   <url value="http://hl7.org/fhir/audit-event-action"/>
   <identifier>
@@ -34,7 +34,7 @@
   <title value="Audit Event Action"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
@@ -46,7 +46,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Indicator for type of action performed during the event that generated the event."/>
+  <description value="Indicator codes for type of action performed during the event that generated the event."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/audit-event-action"/>
   <content value="complete"/>
