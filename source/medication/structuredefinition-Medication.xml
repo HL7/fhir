@@ -407,7 +407,7 @@
       </mapping>
     </element>
     <element id="Medication.instance.identifier">
-      <path value="Medication.instance.identifierr"/>
+      <path value="Medication.instance.identifier"/>
       <short value="Identifier for the physical instance, typically a serial number"/>
       <definition value="Identifier for the physical instance, typically a serial number."/>
       <min value="0"/>
