@@ -45,20 +45,6 @@
             <resource value="Provides a reference to the device that performed the guidance."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.location" resourcePath="GuidanceResponse.location">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Where guidance response occurred"/>
-            <resource value="Where the guidance response occurred"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="The principal physical location where the guidance response was performed."/>
-            <resource value="The principal pysical location where the guidance response was performed."/>
-        </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
-            <resource value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)"/>
-        </requirementsUnmatched>
-    </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="GuidanceResponse.reason">
         <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="More specific text">
