@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="deviceassociation-operationstatus"/>
+  <id value="metric-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="oo"/>
+    <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -14,13 +14,13 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/deviceassociation-operationstatus"/>
+  <url value="http://hl7.org/fhir/ValueSet/metric-status"/>
   <version value="6.0.0"/>
-  <name value="FHIRDeviceAssociationOperationStatus"/>
-  <title value="FHIR Device Association Operation Status"/>
-  <status value="draft"/>
+  <name value="DeviceMetricStatus"/>
+  <title value="Device Metric Status"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2025-10-31T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -32,11 +32,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The status for the device association operation."/>
+  <description value="Describes the status of the DeviceMetric record."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/deviceassociation-operationstatus"/>
+      <system value="http://hl7.org/fhir/metric-status"/>
     </include>
   </compose>
 </ValueSet>

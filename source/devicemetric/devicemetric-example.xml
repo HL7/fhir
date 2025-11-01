@@ -22,6 +22,7 @@
 	<device>
 		<reference value="Device/dev1"/>
 	</device>
+	<status value="active"/>
 	<operationalStatus value="on"/>
 	<color value="blue"/>
 	<category>
