@@ -329,7 +329,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-resource"/>
         <description value="Name of a resource mentioned in a capability statement"/>
         <code value="resource"/>
-        <type value="token"/>
+        <type value="uri"/>
         <expression value="CapabilityStatement.rest.resource.type"/>
         <processingMode value="normal"/>
       </SearchParameter>

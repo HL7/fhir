@@ -67,7 +67,7 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Group-characteristic-value"/>
+        <id value="Group-characteristic-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
@@ -96,11 +96,19 @@
           <valueCode value="trial-use"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Group-characteristic-reference"/>
-        <description value="An entity referenced in a characteristic"/>
+        <description value="A composite of both characteristic and reference values"/>
         <code value="characteristic-reference"/>
-        <type value="reference"/>
-        <expression value="(Group.characteristic.value.ofType(Reference))"/>
+        <type value="composite"/>
+        <expression value="Group.characteristic"/>
         <processingMode value="normal"/>
+        <component>
+          <definition value="characteristic"/>
+          <expression value="code"/>
+        </component>
+        <component>
+          <definition value="reference"/>
+          <expression value="value.ofType(Reference))"/>
+        </component>
       </SearchParameter>
     </resource>
   </entry>

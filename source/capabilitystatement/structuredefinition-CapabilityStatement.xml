@@ -924,7 +924,7 @@
 		<element id="CapabilityStatement.rest.resource.type">
 			<path value="CapabilityStatement.rest.resource.type"/>
 			<short value="A resource type that is supported"/>
-			<definition value="A relative URL, in which case it is a type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional), or else a full URL referring to some other type that specialises the base resource (e.g. a custom resource)"/>
+			<definition value="A relative URL, in which case it is a type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional), or else a full URL referring to some other type that specialises the base resource (e.g. a custom resource)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
