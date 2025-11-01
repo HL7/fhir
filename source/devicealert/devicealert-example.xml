@@ -88,7 +88,7 @@
 				<coding>
 					<system value="urn:iso:std:iso:11073:10101"/>
 					<code value="188420"/>
-					<display value="MDC_DEV_ANNU_LIGHT"/>
+					<display value="MDC_TEMP_RECT"/>
 				</coding>
 				<text value="Light annunciator"/>
 			</concept>
