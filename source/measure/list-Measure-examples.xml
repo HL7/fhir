@@ -88,4 +88,16 @@
       <display value="HIV Indicators"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Cohort Measure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-hybrid-hospital-wide-mortality"/>
+    </extension>
+    <item>
+      <reference value="Measure/measure-hybrid-hospital-wide-mortality"/>
+      <display value="Hybrid Hospital Wide Mortality (Cohort) Measure"/>
+    </item>
+  </entry>
 </List>
