@@ -467,7 +467,7 @@
     </element>
     <element id="Medication.definition">
       <path value="Medication.definition"/>
-      <short value="Definition of the medication"/>
+      <short value="Formal definition of the medication"/>
       <definition value="A reference to a definitional resource that provides more information about this medication."/>
       <min value="0"/>
       <max value="1"/>
