@@ -715,11 +715,11 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="StudyDesignExample"/>
+					<valueString value="StudyDesign"/>
 				</extension>
 				<strength value="example"/>
 				<description value="This is a set of terms for study design characteristics."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/study-design-example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic">

@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <DeviceDefinition xmlns="http://hl7.org/fhir">
-  <id value="example-prodspec"/>
+	<id value="example-prodspec"/>
 	<identifier>
 		<value value="789123"/>
 	</identifier>
+	<status value="draft"/>
 </DeviceDefinition>
