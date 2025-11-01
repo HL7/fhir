@@ -975,6 +975,9 @@ actions are not executed.
 
 <a name="cond-patch"></a>
 <h4>Conditional patch</h4>
+<pre class="http">
+PATCH [base]/[type]?[search parameters] HTTP/1.1
+</pre>
 <p>
 Servers that support PATCH, and that support <a href="#cond-update">Conditional Update</a> SHOULD
 also support <code>conditional patch</code>. When the server processes a conditional PATCH, it performs a search using its standard
