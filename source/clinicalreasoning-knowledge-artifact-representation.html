@@ -249,7 +249,32 @@
 
 <p>The Create, Update, and Remove actions indicate that particular resources should be created, updated, or removed, and the Fire Event action indicates that a particular named event should be triggered.</p>
 
-<p>Note that this element is optional, and is used to indicate what type of action is to be taken with the associated activity definition. For example, an action that indicates <code>create</code> with an activity definition that defines a referral request means that the referral request should be realized and the resulting resource created (i.e. applied to the patient's record). An action that indicates <code>update</code> with an activity definition would indicate that an existing resource on the patient's record should be updated based on the new resource content.</p>
+<p>Note that this element is optional, and is used to indicate what type of action is to be taken with the associated activity definition. For example, an action that indicates <code>create</code> with an activity definition that defines a referral request means that the referral request should be realized and the resulting resource created (i.e. applied to the patient's record). An action that indicates <code>update</code> with an activity definition would indicate that an existing resource on the patient's record should be updated based on the new resource content. For example:</p>
+
+<pre><code>&lt;action&gt;
+  &lt;description value=&quot;Update status of the referral to completed&quot;/&gt;
+  &lt;type&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/action-type&quot;/&gt;
+      &lt;code value=&quot;update&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/type&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;$this&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql-expression&quot;/&gt;
+      &lt;expression value=&quot;[ServiceRequest] SR where SR.code = &amp;quot;Referral to service (SNOMED 306206005)&amp;quot;&quot;/&gt;
+    &lt;/expression&gt;
+  &lt;/dynamicValue&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;status&quot;/&gt;
+    &lt;expression&gt;
+      &lt;langage value=&quot;text/cql-expression&quot;/&gt;
+      &lt;expression value=&quot;&#39;completed&#39;&quot;/&gt;
+    &lt;/expression&gt;
+  &lt;/dynamicValue&gt;
+&lt;/action&gt;
+</code></pre>
 
 <a name="trigger-definitions"> </a>
 <h6>Trigger Definitions</h6>
