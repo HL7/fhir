@@ -8,7 +8,7 @@
 		<valueString value="Specialized.Definitional Artifacts"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
+		<valueCode value="normative"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
 		<valueInteger value="3"/>
@@ -392,7 +392,7 @@
 			</mapping>
 			<mapping>
 				<identity value="w5"/>
-				<map value="FiveWs.subject[x],FiveWs.what[x]"/>
+				<map value="FiveWs.subject,FiveWs.what[x]"/>
 			</mapping>
 			<mapping>
 				<identity value="rim"/>
@@ -793,7 +793,7 @@
 				<key value="que-10"/>
 				<severity value="error"/>
 				<human value="Maximum length can only be declared for simple question types"/>
-				<expression value="(type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url')) or answerConstraint='optionOrString' or maxLength.empty()"/>
+				<expression value="(type in ('string' | 'decimal' | 'integer' | 'text' | 'date' | 'dateTime' | 'time' | 'url')) or answerConstraint='optionOrString' or maxLength.empty()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
 			</constraint>
 			<constraint>
@@ -909,7 +909,7 @@
 			<comment value="The uri refers to an ElementDefinition in a [StructureDefinition](structuredefinition.html#) or to an [ObservationDefinition](observationdefinition.html) and always starts with the [canonical URL](references.html#canonical) for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its id [Element.id](types-definitions.html#Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition."/>
 			<requirements value="A common pattern is to define a set of data elements and then build multiple questionnaires for different circumstances to gather the data. This element provides traceability to the common definition and allows the content for the question to come from the underlying definition."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="uri"/>
 			</type>
@@ -1125,6 +1125,12 @@
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
 			</type>
+			<type>
+				<code value="uri"/>
+			</type>
+			<type>
+				<code value="Attachment"/>
+			</type>
 			<condition value="que-7"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1289,7 +1295,7 @@
 			<path value="Questionnaire.item.answerValueSet"/>
 			<short value="ValueSet containing permitted answers"/>
 			<definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
-			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition.&#xa;&#xa;For items of type Coding, the value set indicates the allowed code + system matches.  For items of type 'string' the display values in the value set expansion are taken as the allowed values for the item.  For items of type 'uri', the code values in the value set expansion are taken as the allowed values for the item."/>
+			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition.&#xa;&#xa;For items of type Coding, the value set indicates the allowed code + system matches.  For items of type 'string' the display values in the value set expansion are taken as the allowed values for the item.  For items of type 'uri', the code values in the value set expansion are taken as the allowed values for the item. If the ValueSet requires a terminology server to provide an expansion, a preferred terminology server can be provided with an [extension](https://www.hl7.org/fhir/extensions/StructureDefinition-preferredTerminologyServer.html) on the Questionnaire item, an ancestor item, or the Questionnaire root."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

@@ -150,6 +150,7 @@
       </type>
       <isSummary value="true"/>
       <isModifier value="true"/>
+      <isModifierReason value="This must be filled out by the committee"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricOperationalStatus"/>
@@ -255,7 +256,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="DeviceMetric.unit">
