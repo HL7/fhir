@@ -1131,16 +1131,27 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.enteralFormula.deliveryDevice">
-      <path value="NutritionOrder.enteralFormula.deliveryDevice"/>
+    <element id="NutritionOrder.enteralFormula.deliveryDevice[x]">
+      <path value="NutritionOrder.enteralFormula.deliveryDevice[x]"/>
       <short value="Intended type of device for the enteral feeding administration"/>
       <definition value="The intended type of device that is to be used for the administration of the enteral formula."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeliveryDeviceCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for devices used for enteral formula delivery."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deliverydevice-code"/>
+      </binding>
     </element>
     <element id="NutritionOrder.enteralFormula.caloricDensity">
       <path value="NutritionOrder.enteralFormula.caloricDensity"/>
