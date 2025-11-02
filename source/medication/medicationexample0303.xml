@@ -48,10 +48,14 @@
         </denominator>
       </strengthRatio>
     </ingredient>
-  <batch>
+  <instance>
+    <identifier>
+      <system value="https://example.org/serial-number"/>
+      <value value="SN987654321"/>
+    </identifier>
     <lotNumber value="9494788"/>
     <expirationDate value="2017-05-22"/>
-  </batch> 
+  </instance> 
   
   
 </Medication>

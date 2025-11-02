@@ -225,14 +225,15 @@
         <map value=".formCode"/>
       </mapping>
     </element>
-    <element id="Medication.totalVolume">
-      <path value="Medication.totalVolume"/>
-      <short value="When the specified product code does not infer a package size, this is the specific amount of drug in the product"/>
-      <definition value="When the specified product code does not infer a package size, this is the specific amount of drug in the product.  For example, when specifying a product that has the same strength (For example, Insulin glargine 100 unit per mL solution for injection), this attribute provides additional clarification of the package amount (For example, 3 mL, 10mL, etc.)."/>
+    <element id="Medication.packageSize">
+      <path value="Medication.packageSize"/>
+      <short value="When the code does not specify the package size, this backbone element can be used to specify the overall amount of medication in the package"/>
+      <definition value="When the code does not specify the package size, this backbone element can be used to specify the overall amount of medication in the package."/>
+      <comment value="To represent a medication that has 5 vials with 10ml in each vial and the medication code just represents a vial, then the number of Items would be '5 vial' and the amountPerItem would be '10ml/vial'. To represent a medication where there are 300 tablets and the code is for 100mg tablets, the number of items would be '300 tablets'" />
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Quantity"/>
+        <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -240,12 +241,32 @@
         <map value=".quantity"/>
       </mapping>
     </element>
+    <element id="Medication.packageSize.numberOfItems">
+      <path value="Medication.packageSize.numberOfItems"/>
+      <short value="The number of items in the package that are represented by the code"/>
+      <definition value="The number of items in the package that are represented by the code, e.g. 5 vials or 100 tablets."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="SimpleQuantity"/>
+      </type>
+    </element>
+    <element id="Medication.packageSize.amountPerItem">
+      <path value="Medication.packageSize.amountPerItem"/>
+      <short value="The amount per each item"/>
+      <definition value="The amount per each item, e.g. 10 ml / vial."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Ratio"/>
+      </type>
+    </element>
     <element id="Medication.ingredient">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,200"/>
       </extension>
       <path value="Medication.ingredient"/>
-      <short value="Active or inactive ingredient"/>
+      <short value="Components of a medication. These can be ingredient substances or other medications, in the case of combination packaged medications"/>
       <definition value="Identifies a particular constituent of interest in the product."/>
       <comment value="The ingredients need not be a complete list.  If an ingredient is not specified, this does not indicate whether an ingredient is present or absent.  If an ingredient is specified it does not mean that all ingredients are specified.  It is possible to specify both inactive and active ingredients.  If Medication.code represents a fully specified product (the product + the strength + the dosage form) then including ingredients is duplicative.  However, there may be implementation considerations which dictate including ingredients when Medication.code is a fully specified product.  For compounded products, active and inactive ingredients should be included.  However, even with all ingredients specified, a Medication resource should not be considered a &quot;recipe&quot; as the sequence and techniques for preparing the final product cannot be included."/>
       <min value="0"/>
@@ -260,9 +281,9 @@
     </element>
     <element id="Medication.ingredient.item">
       <path value="Medication.ingredient.item"/>
-      <short value="The ingredient (substance or medication) that the ingredient.strength relates to"/>
+      <short value="The specific substance or medication that is the ingredient"/>
       <definition value="The ingredient (substance or medication) that the ingredient.strength relates to.  This is represented as a concept from a code system or described in another resource (Substance or Medication)."/>
-      <comment value="The ingredient may reference a medication substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base)."/>
+      <comment value="The ingredient may reference a medication substance (for example, amoxicillin) or another medication (for example in the case of a compounded product, Glaxal Base).  A referenced medication may be fully specified (amoxicillin 250 mg capsule), partially specified (amoxicillin 250mg), or may refer to an abstract ingredient (e.g., amoxicillin)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -306,6 +327,28 @@
         <map value="NA"/>
       </mapping>
     </element>
+    <element id="Medication.ingredient.role">
+      <path value="Medication.ingredient.role"/>
+      <short value="A code that defines the type of ingredient, active, base, etc."/>
+      <definition value="Indication of whether this ingredient affects the therapeutic action of the drug."/>
+      <requirements value="This can be used in combination with the isActive element to provide further information about the type of ingredient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationIngredientRole"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-RoleClassIngredientEntity"/>
+      </binding>      
+      <mapping>
+        <identity value="rim"/>
+        <map value="NA"/>
+      </mapping>
+    </element>
     <element id="Medication.ingredient.strength[x]">
       <path value="Medication.ingredient.strength[x]"/>
       <short value="Quantity of ingredient present"/>
@@ -342,11 +385,11 @@
         <map value=".quantity"/>
       </mapping>
     </element>
-    <element id="Medication.batch">
+    <element id="Medication.instance">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="380,40"/>
       </extension>
-      <path value="Medication.batch"/>
+      <path value="Medication.instance"/>
       <short value="Details about packaged medications"/>
       <definition value="Information that only applies to packages (not products)."/>
       <min value="0"/>
@@ -363,8 +406,23 @@
         <map value=".player[classCode=CONT]"/>
       </mapping>
     </element>
-    <element id="Medication.batch.lotNumber">
-      <path value="Medication.batch.lotNumber"/>
+    <element id="Medication.instance.identifier">
+      <path value="Medication.instance.identifier"/>
+      <short value="Identifier for the physical instance, typically a serial number"/>
+      <definition value="Identifier for the physical instance, typically a serial number."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+
+    <element id="Medication.instance.lotNumber">
+      <path value="Medication.instance.lotNumber"/>
       <short value="Identifier assigned to batch"/>
       <definition value="The assigned lot number of a batch of the specified product."/>
       <min value="0"/>
@@ -385,10 +443,10 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="Medication.batch.expirationDate">
-      <path value="Medication.batch.expirationDate"/>
-      <short value="When batch will expire"/>
-      <definition value="When this specific batch of product will expire."/>
+    <element id="Medication.instance.expirationDate">
+      <path value="Medication.instance.expirationDate"/>
+      <short value="When instance will expire"/>
+      <definition value="When this specific instance of product will expire."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -409,13 +467,16 @@
     </element>
     <element id="Medication.definition">
       <path value="Medication.definition"/>
-      <short value="Knowledge about this medication"/>
-      <definition value="A reference to a knowledge resource that provides more information about this medication. This element can be used to help with Cross Border use cases and separately it may also be useful if someone needs to drill into more medication specific information."/>
+      <short value="Formal definition of the medication"/>
+      <definition value="A reference to a definitional resource that provides more information about this medication."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationKnowledge"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PackagedProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
       </type>
     </element>
   </differential>

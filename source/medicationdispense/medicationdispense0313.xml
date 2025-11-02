@@ -63,7 +63,7 @@
 
         </Medication>
     </contained>
-    <status value="stopped"/>
+    <status value="unfulfilled"/>
     <medication>
         <reference>
             <!-- Linked to a RESOURCE Medication -->
