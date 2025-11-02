@@ -276,6 +276,8 @@
 &lt;/action&gt;
 </code></pre>
 
+<p>Note that these actions (create, update, and remove), when realized, result in a proposal resource being returned from the PlanDefinition/$apply operation. The calling system is responsible for applying the results of these operations. It would be possible to completely automate workflow execution if the client were to apply these proposals to create, update, and remove resources by turning them into RESTful API calls directly. In addition, this aspect of automatic execution could be incorporated into user-mediated workflows by the use of the participant type. If a given action specifies the EHR (represented as a software device) as the only participant in a given action, that action can be taken automatically by the client application.</p>
+
 <a name="trigger-definitions"> </a>
 <h6>Trigger Definitions</h6>
 
