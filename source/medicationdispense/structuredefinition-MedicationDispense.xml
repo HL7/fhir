@@ -275,8 +275,8 @@
     </element>
     <element id="MedicationDispense.medication">
       <path value="MedicationDispense.medication"/>
-      <short value="What medication was supplied"/>
-      <definition value="Identifies the medication supplied. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
+      <short value="What medication was (or was intended to be) supplied"/>
+      <definition value="Identifies the medication supplied (or intended to be supplied). This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
       <comment value="If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource."/>
       <min value="1"/>
       <max value="1"/>
@@ -528,8 +528,8 @@
     </element>
     <element id="MedicationDispense.quantity">
       <path value="MedicationDispense.quantity"/>
-      <short value="Amount dispensed"/>
-      <definition value="The amount of medication that has been dispensed. Includes unit of measure."/>
+      <short value="Amount of medication"/>
+      <definition value="The amount of medication that has been (or was intended to be) dispensed. Includes unit of measure."/>
       <min value="0"/>
       <max value="1"/>
       <type>
