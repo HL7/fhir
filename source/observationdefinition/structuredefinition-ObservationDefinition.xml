@@ -729,7 +729,7 @@
 			<definition value="The measurement model of device or actual device used to produce observations of this type."/>
 			<comment value="When multiple occurrences of device are present, they are to be combined with a logical OR: at least one of the specified devices is used to produce the observation."/>
 			<min value="0"/>
-			<max value="*"/>
+			<max value="1"/>
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
