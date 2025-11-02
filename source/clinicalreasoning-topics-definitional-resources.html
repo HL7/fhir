@@ -127,6 +127,12 @@
 &lt;/ActivityDefinition&gt;
 </code></pre>
 
+<p>To specify that a particular device should be used in the administration of a medication, use the <code>action.typeCanonical</code> element set to an instance of a DeviceDefinition resource:</p>
+
+<pre><code>&lt;typeCanonical value=&quot;http://example.org/fhir/DeviceDefinition/administration-device&quot;/&gt;</code></pre>
+
+<p>This will then result in the creation of a MedicationRequest resource with the device element set to that DeviceDefinition.</p>
+
 <a name="observation"> </a>
 <h5>Observation</h5>
 
