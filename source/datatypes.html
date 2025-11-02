@@ -1373,9 +1373,10 @@ example identifier namespaces:
 If the system is a URL, it SHOULD resolve. Resolution might be to a web page that describes the identifier
 system and/or supports look-up of identifiers.  Alternatively, it could be to a <a href="namingsystem.html">NamingSystem</a> resource
 instance. Resolvable URLs are generally preferred by implementers over non-resolvable URNs, particularly
-opaque URNs such as OIDs (urn:oid:) or UUIDs (urn:uuid:). If used, OIDs and UUIDs may be registered in
-the <a href="http://hl7.org/oid">HL7 OID registry</a> and SHOULD be registered if the content is shared
-or exchanged across institutional boundaries.
+opaque URNs such as OIDs (urn:oid:) or UUIDs (urn:uuid:). If being exchanged across institutional boundaries, OIDs and UUIDs
+SHOULD be available to communicating participants in a shared registry.  The <a href="http://hl7.org/oid">HL7 OID registry</a> 
+may be used for this purpose for OIDs. <a href="https://terminology.hl7.org">terminology.hl7.org</a> may also be used to register
+<a href="namingsystem.html">NamingSystems</a> for identifiers of broad international or national interest.
 </p>
 <p>
 It is up to the implementer organization to determine an appropriate URL or URN structure that will
