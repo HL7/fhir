@@ -381,10 +381,6 @@ search. Additional notes about searching on versioned references to canonical UR
  <li>If there is no match (either because .version is empty or is different), the instance will not be matched, and will not appear in the result bundle</li>
  <li>If there are multiple matches (because the version is missing, or incomplete - see below) then it is a matter of policy to decide how to resolve this (see below)</li>
 </ul>
-<p>
-Systems resolving references to canonical URLs SHOULD first try to , and then .
-
-</p>
 
 <a name="matching"></a>
 <h3>Version Matching for Canonical Resources</h3>
@@ -405,7 +401,22 @@ If there is no stated version for the reference, or the version is a wildcard (s
 then any application looking for the correct version SHALL first look through the package and its dependencies 
 when resolving the reference. If no matching version is found in the package or its dependencies, the application
 can then look through any other resources it has available. This rule applies even once the resource is removed 
-from the package. Other ways target resources might be made available to applications:
+from the package. Systems could consider using the 
+<a href="http://hl7.org.fhir/extensions/StructureDefinition-package-source.html">package-source extension</a> to
+track which resources came from which packages to support this.
+</p>
+<p>
+Some contexts of use require the applications consult a manifest that provides a default or mandatory version to 
+use for each canonical resource. In these contexts, the application SHALL use the version specified in the manifest
+when resolving the reference. This specification itself defines no such contexts, but implementation guides 
+based on this specification can detail how the manifest is applied to the context. Two examples of this 
+are the <a href="https://build.fhir.org/ig/HL7/crmi-ig">CRMI</a> IG, and in the 
+<a href="https://build.fhir.org/ig/HL7/fhir-tx-ecosystem-ig">the terminology ecosystem</a>, which both 
+use a <a href="parameters.html">Parameters</a> resource for this purpose. Typically, these manifests 
+must be consulted before looking through the package dependencies.
+</p>
+<p>
+Other ways target resources might be made available to applications:
 </p>
 <ul>
   <li>The resource might be made available to the system through it's normal configuration</li>
@@ -417,7 +428,7 @@ from the package. Other ways target resources might be made available to applica
     the version and/or currency of their local copy of the artifact.</li>
 </ul>
 <p>
-Applications are not required to look through external references, and production systems typically do not.
+Applications are not required to look through external sources and registries, and production systems typically do not.
 </p>
 <p>
 If the reference has a version, then matching of version strings depends on the format of the string. The format can be determined either by looking at the
