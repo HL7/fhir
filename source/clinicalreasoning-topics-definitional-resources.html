@@ -10,12 +10,14 @@
 
 
 
-<table class="colsi"><tbody><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
+<table class="colsi"><tbody><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
 
 <a name="definitional-resources"> </a>
 <h3>Definitional Resources</h3>
 
 <p>Part of defining knowledge artifacts such as order sets, protocols, and decision support rules is describing in a patient- or context-independent way the activities to be performed. For example, when defining an order set, the orderable items must be described with enough detail to enable the creation of the items when the order set is applied. These descriptions can be thought of as <i>templates</i> for the creation of patient- or context-specific resources and are often referred to as <i>definitional</i> resources, to distinguish them from <i>intent</i> resources (that signal an intention to take some action for a specific patient), as well as <i>event</i> resources (that signal that some action has actually been taken for a patient).</p>
+
+<p>Definitional resources in clinical reasoning build on the <a href="definition.html">Definition</a> pattern established in the <a href="workflow.html">Workflow</a> module. The treatment here is from the clinical reasoning perspective, specifically discussing how definitional resources can be used as knowledge artifacts to provide computable representations of clinical knowledge.</p>
 
 <p>In the most general case, these definitional resources only need to describe the most basic aspects of the activity to be performed, such as:</p>
 
@@ -29,7 +31,14 @@
 
 <p>However, this level of conceptual description often does not carry enough information to enable computable description of activities. For example, medication activities will often involve specific drug and dosage information that must be captured as part of the definition. Further, it is often the case that the values for the elements of resources to be created cannot be specified exactly as part of the definition, but must be specified using a formula that allows for the calculation to be based on patient- or context-specific information.</p>
 
-<p>Note to implementers: Although there are currently very few <i>definitional</i> resources defined (ActivityDefinition, ObservationDefinition, SpecimenDefinition), the concept is general, and this is a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, additional definitional resources may be defined.</p>
+<p>Note to implementers: Although there are currently only a few <i>definitional</i> resources defined (ActivityDefinition, ObservationDefinition, SpecimenDefinition), the concept is general, and this is a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases for definitional activities require more specialized elements to be represented, additional definitional resources will be defined.</p>
+
+<a name="activity-flow"> </a>
+<h4>Activity Flow</h4>
+
+<p>For more information on the general process of realizing definitional resources, refer to the <a href="plandefinition.html">Applying a PlanDefinition</a> and <a href="activitydefinition.html">Applying an ActivityDefinition</a> topics.</p>
+
+<p>For a more detailed treatment of representing and realizing clinical activities as part of computable guidelines, refer to the <a href="http://hl7.org/fhir/uv/cpg/activityflow.html">Activity Flow</a> topic in the Clinical Guidelines implementation guide.</p>
 
 <a name="activitydefinition"> </a>
 <h4>ActivityDefinition</h4>
@@ -60,13 +69,14 @@
     &lt;coding&gt;
       &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
       &lt;code value=&quot;306206005&quot;/&gt;
+      &lt;display value=&quot;Referral to service&quot;/&gt;
     &lt;/coding&gt;
   &lt;/code&gt;
   &lt;timingTiming&gt;
     &lt;event&gt;
       &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/cqf-expression&quot;&gt;
         &lt;valueExpression&gt;
-          &lt;language value=&quot;text/cql&quot;/&gt;
+          &lt;language value=&quot;text/cql-expression&quot;/&gt;
           &lt;expression value=&quot;Now()&quot;/&gt;
         &lt;/valueExpression&gt;
       &lt;/extension&gt;
@@ -76,6 +86,15 @@
 &lt;/ActivityDefinition&gt;
 </code></pre>
 
+<p>This definition specifies:</p>
+
+<ul>
+  <li>The <code>kind</code> of resource to be created, a <code>ServiceRequest</code></li>
+  <li>That the resulting resource should have a <code>code</code> of <code>SNOMED 306206005: Referral to service</code></li>
+  <li>That is should occur <code>Now()</code> (i.e. as soon as possible)</li>
+  <li>That it involves a <code>practitioner</code></li>
+</ul>
+
 <p>Note the use of an expression to represent the value of the timing element as <code>Now()</code>.</p>
 
 <a name="medication-request"> </a>
@@ -83,7 +102,7 @@
 
 <p>For medication activities, the <a href="activitydefinition.html">ActivityDefinition</a> resource has some basic elements such as the <code>product</code> and <code>quantity</code>, and <code>dosageInstruction</code> but there are cases where elements that need to be set on the resulting MedicationRequest are not present on the ActivityDefinition (such as <code>dispenseRequest</code>). In those cases, the <code>dynamicValue</code> expression elements can be used to describe the values for elements that are present on the target resource, but not in the definitional resource. For example:</p>
 
-<a name="medication-activity-definition"> </a>
+<a name="medication-request-activity-definition"> </a>
 <pre><code>&lt;ActivityDefinition&gt;
   &lt;id value=&quot;citalopramPrescription&quot;/&gt;
   &lt;status value=&quot;draft&quot;/&gt;
@@ -94,19 +113,25 @@
   &lt;dynamicValue&gt;
     &lt;path value=&quot;dispenseRequest.numberOfRepeatsAllowed&quot;/&gt;
     &lt;expression&gt;
-      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;language value=&quot;text/cql-expression&quot;/&gt;
       &lt;expression value=&quot;3&quot;/&gt;
     &lt;/expression&gt;
   &lt;/dynamicValue&gt;
   &lt;dynamicValue&gt;
     &lt;path value=&quot;dispenseRequest.quantity&quot;/&gt;
     &lt;expression&gt;
-      &lt;language value=&quot;text/cql&quot;/&gt;
+      &lt;language value=&quot;text/cql-expression&quot;/&gt;
       &lt;expression value=&quot;30 &apos;{tbl}&apos;&quot;/&gt;
     &lt;/expression&gt;
   &lt;/dynamicValue&gt;
 &lt;/ActivityDefinition&gt;
 </code></pre>
+
+<p>To specify that a particular device should be used in the administration of a medication, use the <code>action.typeCanonical</code> element set to an instance of a DeviceDefinition resource:</p>
+
+<pre><code>&lt;typeCanonical value=&quot;http://example.org/fhir/DeviceDefinition/administration-device&quot;/&gt;</code></pre>
+
+<p>This will then result in the creation of a MedicationRequest resource with the device element set to that DeviceDefinition.</p>
 
 <a name="observation"> </a>
 <h5>Observation</h5>
@@ -134,7 +159,7 @@
 <p>Note that the ActivityDefinition resource is specifically designed to support <i>request</i> resources, typically with an intent of <i>proposal</i> to ensure that clinician interaction can be part of interpreting the results of any automated reasoning processes. However, it is possible to construct <i>event</i> resources as part of the reasoning process, such as Observations, Procedures, RiskAssessments, DetectedIssues, etc. To support this case, implementations should make use of a Task resource with <i>proposal</i> intent, where the <code>focus</code> of the Task would be the computed event resource.</p>
 
 <a name="evidencevariable"> </a>
-<h5>EvidenceVariable</h5>
+<h4>EvidenceVariable</h4>
 
 <p>The <a href="evidencevariable.html">EvidenceVariable</a> resource supports the description of definitional resources for variables to be referenced from an Evidence resource:</p>
 
