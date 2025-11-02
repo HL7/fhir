@@ -392,3 +392,6 @@ source/jira-count.ini
 .github/
 .ai-scratch/
 CLAUDE.MD
+ai-scratch/
+.clinerules/
+.claude/
