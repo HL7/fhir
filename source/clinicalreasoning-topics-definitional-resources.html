@@ -102,7 +102,7 @@
 
 <p>For medication activities, the <a href="activitydefinition.html">ActivityDefinition</a> resource has some basic elements such as the <code>product</code> and <code>quantity</code>, and <code>dosageInstruction</code> but there are cases where elements that need to be set on the resulting MedicationRequest are not present on the ActivityDefinition (such as <code>dispenseRequest</code>). In those cases, the <code>dynamicValue</code> expression elements can be used to describe the values for elements that are present on the target resource, but not in the definitional resource. For example:</p>
 
-<a name="medication-activity-definition"> </a>
+<a name="medication-request-activity-definition"> </a>
 <pre><code>&lt;ActivityDefinition&gt;
   &lt;id value=&quot;citalopramPrescription&quot;/&gt;
   &lt;status value=&quot;draft&quot;/&gt;
