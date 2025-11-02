@@ -1128,8 +1128,8 @@ For example:  &#xA;&#xA;
         <valueString value="for inpatient setting this is core, but this might not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?"/>
       </extension>
       <path value="MedicationRequest.dispenseRequest.destination"/>
-      <short value="Where the medication was/will be sent"/>
-      <definition value="Identification of the facility/location where the medication will be delivered."/>
+      <short value="Where the medication is expected to be delivered"/>
+      <definition value="Identification of the facility/location where the medication is expected to be delivered."/>
       <min value="0"/>
       <max value="1"/>
       <type>
