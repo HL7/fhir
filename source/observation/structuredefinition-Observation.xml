@@ -372,7 +372,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX-11"/>
+        <map value="OBX-11 Map FHIR Observation.status to OBX-11. If FHIR carries Observation.dataAbsentReason = ‘not-asked’, set OBX-11 to the v2 as  ‘N’. If there is alternate-code extension on Observation.status with code ‘X’, set OBX-11 as ‘X’."/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -412,6 +412,10 @@
       <mapping>
         <identity value="workflow"/>
         <map value="Event.category"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OBX-29"/>
       </mapping>
     </element>
     <element id="Observation.code">
@@ -615,7 +619,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX-14, and/or OBX-19 after v2.4  (depends on who observation made)"/>
+        <map value="OBX-14 (If Observation carries the AnalysisDateTime extension, then map the extension to OBX-19)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -679,7 +683,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX-15 / (Practitioner)  OBX-16,  PRT-5:PRT-4='RO' /  (Device)  OBX-18 , PRT-10:PRT-4='EQUIP' / (Organization)  OBX-23,  PRT-8:PRT-4='PO'"/>
+        <map value="OBX-15, OBX-16, OBX-23, OBX-24, OBX-25. Person/role → OBX-16 (Responsible Observer). If conveying performing org and medical director: use OBX-25 (XCN) for the director with role code “MDIR” (system v2-0912), and OBX-23/24 for org name/address; if there is no director, OBX-23/24 carry the org. OBX-15 is available for producer id (identifier for the producer). "/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -790,7 +794,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="N/A"/>
+        <map value="OBX-32, OBX-11. Map Observation.dataAbsentReason to OBX-32 (Observation Value Absent Reason). Additionally, when dataAbsentReason.code = 'not-asked', also set OBX-11 = 'N'."/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1015,7 +1019,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="SPM segment"/>
+        <map value="SPM segment (OBX-33 for Specimen.identifier mapping)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1047,7 +1051,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX-17 / PRT -10"/>
+        <map value="OBX-18 / PRT -10"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

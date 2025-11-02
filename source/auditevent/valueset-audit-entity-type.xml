@@ -8,6 +8,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/audit-entity-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -23,7 +26,7 @@
   <title value="Audit Event Entity Type"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2020-08-04"/>
+  <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
@@ -35,7 +38,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Code for the entity type involved in the audit event."/>
+  <description value="Code for the entity type involved in the audit event. These codes would be used when the entity is not a FHIR resource, and would be used in AuditEvent.entity.what.identifier.type."/>
   <immutable value="true"/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
   <compose>
