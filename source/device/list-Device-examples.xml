@@ -28,7 +28,7 @@
       <display value="device-example-f001-feedingtube.html"/>
     </item>
   </entry>
-  <entry>
+  <!-- <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="AND20601BPMonitor"/>
     </extension>
@@ -39,7 +39,7 @@
       <reference value="Device/and20601bpmonitor"/>
       <display value="device-example-AND20601BPMonitor.html"/>
     </item>
-  </entry>
+  </entry> -->
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="ANDThermometer"/>
@@ -278,6 +278,18 @@
     <item>
       <reference value="Device/device-example-specimen-container-example-sst-vacutainer"/>
       <display value="device-example-specimen-container-example-sst-vacutainer"/>
+    </item>
+  </entry>
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="device-example-bpmonitor"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-bpmonitor"/>
+    </extension>
+    <item>
+      <reference value="Device/device-example-bpmonitor"/>
+      <display value="device-example-bpmonitor"/>
     </item>
   </entry>
 </List> 

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/device.xsd">
+  <id value="device-example-bpmonitor"/>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <code value="SYSID"/>
+        <display value="System Identifier"/>
+      </coding>
+    </type>
+    <system value="urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680"/>
+    <value value="00-09-1F-FF-FE-80-07-3A"/>
+  </identifier>
+  <identifier>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers"/>
+        <code value="BTMAC"/>
+        <display value="Bluetooth Address"/>
+      </coding>
+    </type>
+    <system value="http://hl7.org/fhir/sid/eui-48"/>
+    <value value="00-09-1F-80-07-3A"/>
+  </identifier>
+  <version>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532352"/>
+      </coding>
+      <text value="MDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version"/>
+    </type>
+    <value value="1.0"/>
+  </version>
+  <definition>
+    <reference value="DeviceDefinition/example"/>
+  </definition>
+  <location>
+    <reference value="Location/2"/>
+  </location>
+  <parent>
+    <reference value="Device/345675"/>
+  </parent>
+  <udiCarrier>
+    <deviceIdentifier value="39183189818"/>
+    <issuer value="http://hl7.org/fhir/NamingSystem/gs1-di"/>
+    <jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+    <carrierHRF value="(01)39183189818(21)5091100966"/>
+    <entryType value="electronic-transmission"/>
+  </udiCarrier>
+  <manufacturer value="MediTech Solutions"/>
+  <serialNumber value="5091100966"/>
+  <name>
+    <value value="MediTech Solutions MT-BP2000X"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/device-nametype"/>
+        <code value="user-friendly-name"/>
+      </coding>
+    </type>
+  </name>
+  <modelNumber value="MT-BP2000X"/>
+  <type>
+    <coding>
+      <system value="urn:iso:std:iso:11073:10101"/>
+      <code value="65573"/>
+      <display value="MDC_MOC_VMS_MDS_SIMP"/>
+    </coding>
+    <text value="MDC_MOC_VMS_MDS_SIMP: Personal Health Device"/>
+  </type>
+  <conformsTo>
+    <specification>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="528391"/>
+      </coding>
+      <text value="MDC_DEV_SPEC_PROFILE_BP: Blood Pressure meter"/>
+    </specification>
+    <version value="1"/>
+  </conformsTo>
+  <property>
+    <type>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="68220"/>
+      </coding>
+      <text value="MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol"/>
+    </type>
+    <valueCodeableConcept>
+      <coding>
+        <system value="urn:iso:std:iso:11073:10101"/>
+        <code value="532224"/>
+      </coding>
+      <text value="MDC_TIME_SYNC_NONE: No time synchronization"/>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7"/>
+        <code value="68219.0"/>
+      </coding>
+      <text value="mds-time-capab-real-time-clock"/>
+    </type>
+    <valueBoolean value="true"/>
+  </property>
+  <property>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/ASN1ToHL7"/>
+        <code value="68219.1"/>
+      </coding>
+      <text value="mds-time-capab-set-clock"/>
+    </type>
+    <valueBoolean value="true"/>
+  </property>
+</Device>

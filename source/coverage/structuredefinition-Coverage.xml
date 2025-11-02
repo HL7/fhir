@@ -305,7 +305,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="cdanetv4"/>
@@ -339,7 +339,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="cdanetv4"/>
@@ -370,7 +370,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="cdanetv4"/>
@@ -406,7 +406,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="cdanetv4"/>
@@ -704,7 +704,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitNetwork"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-network"/>
       </binding>
     </element>
@@ -722,7 +722,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitUnit"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-unit"/>
       </binding>
     </element>
@@ -740,7 +740,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitTerm"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-term"/>
       </binding>
     </element>
