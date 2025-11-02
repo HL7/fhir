@@ -870,10 +870,6 @@
         <code value="RelatedArtifact"/>
       </type>
     </element>
-
-
-
-
     <element id="DeviceDefinition.hasPart">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,325"/>
@@ -895,7 +891,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
       <isSummary value="true"/>
@@ -1198,15 +1194,18 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
       </binding>
     </element>
-    <element id="DeviceDefinition.link.relatedDevice">
-      <path value="DeviceDefinition.link.relatedDevice"/>
+    <element id="DeviceDefinition.link.relatedDevice[x]">
+      <path value="DeviceDefinition.link.relatedDevice[x]"/>
       <short value="A reference to the linked device"/>
       <definition value="A reference to the linked device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

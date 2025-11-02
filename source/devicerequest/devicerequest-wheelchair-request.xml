@@ -7,15 +7,13 @@
   <status value="active"/>
   <intent value="order"/>
   <priority value="routine"/>
-  <product>
-    <concept>
-      <coding>
-        <system value="http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets"/>
-        <code value="K0001"/>
-      </coding>
-      <text value="Standard wheelchair"/>
-    </concept>
-  </product>
+  <productCodeableConcept>
+    <coding>
+      <system value="http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets"/>
+      <code value="K0001"/>
+    </coding>
+    <text value="Standard wheelchair"/>
+  </productCodeableConcept>
   <subject>
     <reference value="Patient/bob"/>
   </subject>
