@@ -50,6 +50,7 @@
 		<id>v2</id>
 		<sort>1</sort>
     <publish>true</publish>
+		<preamble>The mappings provided in this tab are indicative of how HL7 v2 fields relate to HL7 FHIR attributes in this resource, but is not complete and without critical HL7 v2 context. The HL7 v2-FHIR Implementation guide, located <a href="https://hl7.org/fhir/uv/v2mappings/">here</a>, provides additional guidance on transforming an HL7 v2 message to FHIR resources for FHIR R4 and FHIR R6.</preamble>
 	</space>
 	<space>
 		<url>http://loinc.org</url>

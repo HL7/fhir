@@ -28,9 +28,7 @@
 	</deviceVersion>
 	<url value="http://example.org/fhir/DeviceDefinition/exampleDevice"/>
 	<hasPart>
-		<reference>
-			<reference value="DeviceDefinition/example-prodspec"/>
-		</reference>
+		<reference value="http://example.org/fhir/DeviceDefinition/example-prodspec"/>
 	</hasPart>
 	<manufacturer>
 		<reference value="Organization/example"/>

@@ -316,4 +316,20 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItemDefinition.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the ChargeItemDefinition is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="ChargeItemDefinition.experimental"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

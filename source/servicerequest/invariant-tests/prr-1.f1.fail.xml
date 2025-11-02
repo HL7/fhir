@@ -25,13 +25,18 @@
    </concept>
   </code> -->
   <orderDetail>
-
-<parameterFocus>
-<reference>
-<display value="CT Head"/>
-</reference>
-</parameterFocus>
-
+    <parameterFocusReference>
+      <display value="CT Head"/>
+    </parameterFocusReference>
+    <parameter>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="24531-6"/>
+          <display value="US Retroperitoneum"/>
+        </coding>
+      </code>
+    </parameter>
   </orderDetail>
   <subject>
     <reference value="Patient/example"/>

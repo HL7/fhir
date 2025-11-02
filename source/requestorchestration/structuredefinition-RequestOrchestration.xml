@@ -333,7 +333,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="RequestOrchestration.encounter">
@@ -987,6 +987,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
@@ -1068,6 +1069,7 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>

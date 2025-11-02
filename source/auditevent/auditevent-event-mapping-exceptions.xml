@@ -17,6 +17,10 @@
         <lowerCardinality _pattern="0" _resource="1" reason="More specific to the use-case"/>
         <upperCardinality _pattern="*" _resource="1" reason="More specific to the use-case"/>
         <bindingExistence _pattern="false" _resource="true" reason="not sure"/>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category MAY limit the ability to determine when the element SHOULD be handled, so strong consideration SHOULD be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems SHOULD prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there SHOULD NOT be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="AuditEvent.subtype">
         <upperCardinality _pattern="1" _resource="*" reason="More specific to the use-case"/>
@@ -40,9 +44,11 @@
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
             <resource value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
         </definitionUnmatched>
-        <requirementsUnmatched reason="More specific to the use-case">
+        <requirementsUnmatched reason="Unknown">
+            <!--Old resource: When the .patient is populated it shall be accurate to the subject of the used data. The .patient shall not be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control.-->
+            <!--Old reason: More specific to the use-case-->
             <_pattern value="Links the audit event to the Patient context.  May also affect access control."/>
-            <resource value="When the .patient is populated it shall be accurate to the subject of the used data. The .patient shall not be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control."/>
+            <resource value="When the .patient is populated it SHALL be accurate to the subject of the used data. The .patient SHALL NOT be populated when the used data used/created/updated/deleted (.entity) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.encounter" resourcePath="AuditEvent.encounter">
@@ -51,10 +57,16 @@
             <_pattern value="Encounter the audit event is part of"/>
             <resource value="Encounter within which this event occurred or which the event is tightly associated"/>
         </shortUnmatched>
-        <definitionUnmatched reason="More specific description">
+        <definitionUnmatched reason="Unknown">
+            <!--Old resource: This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests).-->
+            <!--Old reason: More specific description-->
             <_pattern value="The Encounter during which this audit event was created or to which the creation of this record is tightly associated."/>
-            <resource value="This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value="This will typically be the encounter the event occurred, but some events MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter the audit event was created during, but some audit events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value="This will typically be the encounter the audit event was created during, but some audit events MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="AuditEvent.occurred[x]">
         <missingTypes _pattern="Timing" reason="not applicable"/>
@@ -67,9 +79,12 @@
             <_pattern value="The date, period or timing when the audit event did occur or is occurring."/>
             <resource value="The time or period during which the activity occurred."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="More specific description">
+        <commentsUnmatched reason="Unknown">
+            <!--Old pattern: This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is "basedOn".  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events SHOULD NOT include an upper bound in the Period or Timing.bounds.
+.-->
+            <!--Old reason: More specific description-->
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value="The time or period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
+            <resource value="The time or period can be a little arbitrary; where possible, the time SHOULD correspond to human assessment of the activity time."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="AuditEvent.agent">

@@ -13,7 +13,7 @@
 
 
 <h1>FHIR Security</h1>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
 Fast Healthcare Interoperability Resources (FHIR) is not a security protocol, nor does it define any security
@@ -22,16 +22,16 @@ with various security protocols defined elsewhere. This section gathers all info
 in one section. A summary:
 </p>
 <ol>
- <li>Time Keeping - all clocks should be synchronized using NTP/SNTP, and the design of the system should be robust against a system clock with the wrong value</li>
- <li><a href="#http">Communications Security</a> - all exchange of production data should be secured using TLS (e.g., https).</li>
+ <li>Time Keeping - all clocks SHOULD be synchronized using NTP/SNTP, and the design of the system SHOULD be robust against a system clock with the wrong value</li>
+ <li><a href="#http">Communications Security</a> - all exchange of production data SHOULD be secured using TLS (e.g., https).</li>
  <li><a href="#authentication">Authentication</a> - Users/Clients must be authenticated. For web-centric, OAuth is recommended, consider use of <a href="http://www.hl7.org/fhir/smart-app-launch/index.html">HL7 SMART App Launch</a> Implementation Guide where appropriate.</li>
- <li><a href="#binding">Authorization/Access Control</a> - FHIR defines a Security Label infrastructure to support access control management. FHIR may also define a set of resources to administer access control management, but does not define any at present</li>
+ <li><a href="#binding">Authorization/Access Control</a> - FHIR defines a Security Label infrastructure to support access control management. FHIR MAY also define a set of resources to administer access control management, but does not define any at present</li>
  <li><a href="#audit">Audit</a> - FHIR defines <a href="provenance.html">provenance</a> and <a href="auditevent.html">audit event</a> resources suitable for tracking the origins, authorship, history, status, and access of resources</li>
  <li><a href="signatures.html">Digital Signatures</a> - FHIR includes several specifically reserved locations for digital signatures</li>
  <li><a href="#attachments">Attachments</a> - FHIR allows for binary resources and attachments. These have their own concerns</li>
  <li><a href="security-labels.html">Labels</a> - FHIR allows for set of security related tags that affect the way resources are handled</li>
  <li><b>Data Management Policies</b> - FHIR defines a set of capabilities to support data exchange.
-     Not all the capabilities that FHIR enables may be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA, GDPR). 
+     Not all the capabilities that FHIR enables MAY be appropriate or legal for use in some combinations of context and jurisdiction (e.g. HIPAA, GDPR). 
      It is the responsibility of implementers to ensure that relevant regulations and other requirements are met.</li>
  <li><a href="#narrative">Narrative</a> - Care must be taken when displaying the narrative from FHIR resources</li>
  <li><a href="#input">Input Validation</a>  - Validate all input received from other actors to assure the data is well formed and does not contain content that would cause unwanted system behavior. Testing ensures that the input is not susceptible to data input validation errors by using techniques such as fuzzing, invalid input attacks, and injection attacks.</li>
@@ -39,7 +39,7 @@ in one section. A summary:
  <li><b>Security / Privacy Event Reporting</b> - Consider legal obligations and ethical obligations to provide a means for Security and/or Privacy Event Reporting such as security vulnerability, or breach.  </li>
 </ol>
 <p>
-Time critical concerns regarding security flaws in the FHIR specification should be addressed to 
+Time critical concerns regarding security flaws in the FHIR specification SHOULD be addressed to 
 the <a href="https://confluence.hl7.org/display/FHIR/Mailing+List+Instructions">FHIR email 
 list</a> for prompt consideration. 
 </p>
@@ -68,12 +68,12 @@ deployment architecture is a matter for system design:
 
 <p>
 In this diagram, the red lines represent FHIR interfaces. From the perspective of the FHIR API, 
-the client (consumer of FHIR services) may either interact with a security system that manifests
+the client (consumer of FHIR services) MAY either interact with a security system that manifests
 as a FHIR server, and which depends on a subsequent FHIR interface to provide the actual storage,
 or either the client or server interacts with the security system independently. In each of these
-3 scenarios, the different components may be assembled into applications or network components
+3 scenarios, the different components MAY be assembled into applications or network components
 differently, but the same logical layout applies. The FHIR specification assumes that a security 
-system exists, and that it may be deployed in front of or behind the FHIR API. 
+system exists, and that it MAY be deployed in front of or behind the FHIR API. 
 </p>
 <a name="access-control"></a>
 <p>
@@ -90,14 +90,14 @@ Because there are a plethora of standards relating to
 the administration and functionality of the security system, FHIR does not provide user,
 profile, or other such administration resources. Instead, the FHIR resources are the targets
 of the policies expressed in these other approaches. What FHIR does specify is a way to apply
-<a href="security-labels.html">security labels</a> to resources so that a security system may use these (along with the contents
+<a href="security-labels.html">security labels</a> to resources so that a security system MAY use these (along with the contents
 of the resources if appropriate) to determine whether a user is authorized to perform a 
 particular FHIR operation or not.
 </p>
 
 
 <!--
-These HTTP calls may be authenticated against a single user account (including 
+These HTTP calls MAY be authenticated against a single user account (including 
 using <a href="http://www.oauth.org">OAuth</a>), but this arrangement doesn't cater for common transaction metadata such as multiple users, 
 responsible party, reasons, consents, etc. that are commonly encountered in healthcare. Instead, 
 use of this RESTful implementation assumes that appropriate security and logs are managed by the client (perhaps 
@@ -106,7 +106,7 @@ that the server trusts the client to maintain these. One implication is that thi
 only suitable for use where such trust relationships exist (e.g. in a single institution) and is not 
 suitable where such trust does not exist (e.g. state &amp; national EHR systems and health record 
 systems that support disparate systems). Similarly, this simple RESTful interface has no support for 
-explicit archiving and similar functions. Use-cases where these kind of features are required should 
+explicit archiving and similar functions. Use-cases where these kind of features are required SHOULD 
 consider a <a href="messaging.html">messaging</a> or <a href="implementation.html#SOA">SOA-based approach</a> or 
 some other kind of profiled REST interface.
 -->
@@ -144,7 +144,7 @@ some other kind of profiled REST interface.
             The use of the term Business is not intended to only mean an incorporated business, but rather the broader concept of an organization, 
             location, or other group that is not identifiable as individuals.
             Often these resources will require some sort of client authentication to assure that only authorized access is given.
-            The client access control may be to individuals, or may be to system identity. 
+            The client access control MAY be to individuals, or MAY be to system identity. 
             For this purpose, possible client authentication methods such as: mutual-authenticated-TLS, APIKey, App signed JWT, or App OAuth client-id JWT
             For example: an App that uses a Business protected Provider Directory to determine other business endpoint details. 
       </p>
@@ -185,7 +185,7 @@ Communications
 For the <a href="http.html">RESTful API</a>, normal HTTP security rules apply. 
 Please follow the <a href="https://tools.ietf.org/html/rfc7231#section-9"> HTTP specification Security Considerations section 9</a>.  
 The <a href="http.html#root">Service Base URL</a> will specify whether TLS is required. 
-Client authentication may be required by the server, possibly including the requirement for 
+Client authentication MAY be required by the server, possibly including the requirement for 
 client certificates.
 When returning responses to non-authorized clients, ensure that Hypertext Transfer Protocol (HTTP) headers of a web server and API error messages or faults do not disclose detailed information about the underlying web server that could be the source of potential exploitation.
 </p>
@@ -205,7 +205,7 @@ so as to prevent inappropriate risks (e.g. audit logging of the GET parameters i
 When it is desirable to support browser-based javascript client applications, servers SHOULD consider 
 enabling <a href="https://www.w3.org/TR/cors/">cross-origin resource sharing (CORS)</a> for the <a href="http.html">REST operations</a>. 
 Consider advice from sources including <a href="http://enable-cors.org/">Enable-CORS</a> and <a href="https://www.moesif.com/blog/technical/cors/Authoritative-Guide-to-CORS-Cross-Origin-Resource-Sharing-for-REST-APIs/">Moesif blog on Guide to CORS Pitfalls</a>. 
-Experience shows that this is an area where ongoing issues may be expected as security holes are found and closed on an ongoing basis.
+Experience shows that this is an area where ongoing issues MAY be expected as security holes are found and closed on an ongoing basis.
 </p>
 
 <a name="authentication"></a>
@@ -216,12 +216,12 @@ the individual user by a variety of techniques. For web-centric environments it 
 <a href="http://openid.net/connect/">OpenID Connect</a> (or other suitable authentication protocol) to confirm the identity of the authenticated end user, where it is necessary that end-users be identified to the application. 
 </p>
 <p>
-For scalable security, either <a href="http://hl7.org/fhir/us/udap-security/consumer.html">UDAP Consumer-Facing</a> or <a href="http://hl7.org/fhir/us/udap-security/b2b.html">UDAP Business-to-Business</a> should be implemented, as appropriate. 
-The Registration and Discovery sections of <a href="http://hl7.org/fhir/us/udap-security/index.html">UDAP Security</a> should also be implemented to securely scale the addition of new client and server endpoints. 
-Tiered <a href="http://hl7.org/fhir/us/udap-security/user.html">OAuth for User Authentication</a> should be implemented to securely scale trust with new OIDC credential issuers.
+For scalable security, either <a href="http://hl7.org/fhir/us/udap-security/consumer.html">UDAP Consumer-Facing</a> or <a href="http://hl7.org/fhir/us/udap-security/b2b.html">UDAP Business-to-Business</a> SHOULD be implemented, as appropriate. 
+The Registration and Discovery sections of <a href="http://hl7.org/fhir/us/udap-security/index.html">UDAP Security</a> SHOULD also be implemented to securely scale the addition of new client and server endpoints. 
+Tiered <a href="http://hl7.org/fhir/us/udap-security/user.html">OAuth for User Authentication</a> SHOULD be implemented to securely scale trust with new OIDC credential issuers.
 </p>
 <p>
-All systems shall protect authenticator mechanisms, and select the type of credential/strength of authenticator based on use-case and risk management.
+All systems SHALL protect authenticator mechanisms, and select the type of credential/strength of authenticator based on use-case and risk management.
 </p>
 <a name="binding"></a>
 <h2>
@@ -235,7 +235,7 @@ the relevant resources and the underlying systems. Note that this isn't necessar
 on any security being in place, or any particular security implementation. However, real-world usage will generally require this. 
 </p>
 <p>
-A holder of data should not allow the data to be communicated unless there are enough assurances that the 
+A holder of data SHOULD NOT allow the data to be communicated unless there are enough assurances that the 
 other party is authorized to receive it. This is true for a client creating a resource through a PUT/POST, 
 as much as it is true for a server returning resources on a GET. The presumption is that without 
 proper authorization, to the satisfaction of the data holder, the data does not get communicated.
@@ -257,8 +257,8 @@ of attributes and conditions. FHIR readily enables ABAC, as instances of a Resou
 Resources are object types) can have attributes associated with them. These attributes include security 
 tags, environment conditions, and a host of user and object characteristics, which are the same 
 attributes as those used in ABAC. Attributes help define the access control policies that determine 
-the operations a user may perform on a Resource (in FHIR) or object (in ABAC). 
-For example, a tag (or attribute) may specify that the identified Resource (object) is not to be 
+the operations a user MAY perform on a Resource (in FHIR) or object (in ABAC). 
+For example, a tag (or attribute) MAY specify that the identified Resource (object) is not to be 
 further disclosed without explicit consent from the patient.
 </p>
 <p>
@@ -276,14 +276,14 @@ The rules behind the access control decision are often very complex, and potenti
 </p>
 
 <p>
-Access control constraints may result in data returned in a read or search being 
+Access control constraints MAY result in data returned in a read or search being 
 redacted or otherwise restricted. See <a href="updates.html">Variations between 
 Submitted data and Retrieved data</a>.
 </p>
 <h3>
 Access Control Considerations
 </h3>
-The FHIR RESTful API provides several ways that a client may request or create information. 
+The FHIR RESTful API provides several ways that a client MAY request or create information. 
 When designing a system to authorize access to information, all potential access methods must be considered. 
 They include the following:
 <ul>
@@ -291,9 +291,9 @@ They include the following:
 <li>Chained search provides the ability to disclose information on related resources. A security implementation must consider whether a client has the permission to access the resource being searched on, as well as the chained resource(s)</li>
 <li>_include and _revinclude search parameters allow client to request related resources. A security implementation must determine if the client has access to the included resources.</li>
 <li><a href="security-labels.html">security labels</a></li>
-<li>Several resources, including Bundle, Composition, Group and List, are designed to contain other resources. A security implementation should consider whether access to an individual resource, such as a Bundle, should permit access to all resources contained within the resource.</li>
-<li>FHIR defines several operations that may be supported by a server. Security implementations must evaluate whether a client can invoke these operations and what information should be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find Patient Matches using MPI-based Logic, and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
-<li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations should consider whether a client can initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
+<li>Several resources, including Bundle, Composition, Group and List, are designed to contain other resources. A security implementation SHOULD consider whether access to an individual resource, such as a Bundle, SHOULD permit access to all resources contained within the resource.</li>
+<li>FHIR defines several operations that MAY be supported by a server. Security implementations must evaluate whether a client can invoke these operations and what information SHOULD be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find Patient Matches using MPI-based Logic, and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
+<li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations SHOULD consider whether a client can initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
 <li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) (<a href="auditevent-example-breakglass-start.html">example</a>). </li>
 </ul>
 
@@ -332,7 +332,7 @@ Access Denied Response Handling
 </h3>
 <p>
 A web-server, especially hosting FHIR, must choose the response carefully when an Access Denied condition exists. 
-Returning too much information may expose details that should not be communicated. The Access Denied condition 
+Returning too much information MAY expose details that SHOULD NOT be communicated. The Access Denied condition 
 might be because of missing but required Authentication, the user is not authorized to access the endpoint, 
 the user is not authorized to access specific data, or other policy reasons. 
 </p>
@@ -347,7 +347,7 @@ Typical methods of handling Access Denied used are:
 <b>Return a 404 "Not Found"</b> - This also protects from data leakage as it is indistinguishable from a query against a resource that doesn't exist. It does however leak that the user authentication is validated. 
 </p>
 <p>
-<b>Return a 403 "Forbidden"</b> - This communicates that the reason for the failure is an Authorization failure. It should only be used when the client and/or user is well enough known to be given this information. Thus this method is most used when the user can know that they are forbidden access. It doesn't explain how the user might change things to become authorized. 
+<b>Return a 403 "Forbidden"</b> - This communicates that the reason for the failure is an Authorization failure. It SHOULD only be used when the client and/or user is well enough known to be given this information. Thus this method is most used when the user can know that they are forbidden access. It doesn't explain how the user might change things to become authorized. 
 </p>
 <p>
 <b>Return a 401 "Unauthorized"</b> - This communicates that user authentication was attempted and failed to be authenticated. 
@@ -377,7 +377,7 @@ client applications are able to search the audit events, or subscribe to them.
 </p>
 <p>
 For HTTP logs, implementers need to consider the implications of distributing
-access to the logs. HTTP logs, including those that only contain the URL itself, should be 
+access to the logs. HTTP logs, including those that only contain the URL itself, SHOULD be 
 regarded as being as sensitive as the resources themselves.  Even if direct PHI (Personal health information) is kept out of
 the logs by careful avoidance of search parameters (e.g. by using POST), the logs will
 still contain a rich set of information about the clinical records.  
@@ -388,7 +388,7 @@ still contain a rich set of information about the clinical records.
 <h2>Attachments</h2>
 <p>
 Several FHIR resources include attachments. Attachments can either be references to content found elsewhere or included inline encoded in base64.
-Attachments represent security risks in a way that FHIR resources do not, since some attachments contain executable code. Implementers should 
+Attachments represent security risks in a way that FHIR resources do not, since some attachments contain executable code. Implementers SHOULD 
 always use caution when handling resources.
 </p>
 
@@ -414,19 +414,19 @@ However, care is still needed when displaying the narrative:
  <li>Validate the narrative (the standard FHIR schemas do not allow active content, and the reference implementations won't handle it). Note, though, that external references could still be included in CSS, and removing/preventing these are outside the scope of schemas and reference implementations.</li>
  <li>Ensure that any external references to images or anchors (e.g. outside the resource) do not cause the display software to <a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">leak sensitive information in headers</a></li>
  <li>Do not allow external links to run in a privileged context such as the EHR unless you are sure they can be trusted</li>
- <li>Care should be taken to differentiate HTTP RESTful (API) from browser-based server content. Specifically, one should separate user session cookies, as an attacker could create content that serves up with content-type "text/html" and has content like "&lt;script&gt;send_to_attacker(document.cookie);&lt;/script&gt;".</li>
+ <li>Care SHOULD be taken to differentiate HTTP RESTful (API) from browser-based server content. Specifically, one SHOULD separate user session cookies, as an attacker could create content that serves up with content-type "text/html" and has content like "&lt;script&gt;send_to_attacker(document.cookie);&lt;/script&gt;".</li>
 </ul>
 <p>
 Also note that the inclusion of an external reference to an image can allow the server that hosts the image to track 
-when the resource is displayed. This may be a feature or a problem depending on the context.
+when the resource is displayed. This MAY be a feature or a problem depending on the context.
 </p>
 <a name="stylesheets"></a>
 <p>
-In addition to narrative, <a href="documents.html">Documents</a> may also contain 
+In addition to narrative, <a href="documents.html">Documents</a> MAY also contain 
 stylesheets. Unlike with CDA, the stylesheets are simple CSS stylesheets, not 
 executable XSLT, so the same security risks do not apply. However, CSS stylesheets
-may still reference external content (e.g. background images), and applications 
-displaying documents should ensure that CSS links are not automatically followed 
+MAY still reference external content (e.g. background images), and applications 
+displaying documents SHOULD ensure that CSS links are not automatically followed 
 without checking their safety first, and that session/identifying information 
 does not leak with any use of external links.
 </p>

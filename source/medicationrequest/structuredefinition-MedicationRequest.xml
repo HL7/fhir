@@ -478,7 +478,7 @@ For example:  &#xA;&#xA;
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
