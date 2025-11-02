@@ -406,12 +406,12 @@ from the package. Systems could consider using the
 track which resources came from which packages to support this.
 </p>
 <p>
-Some contexts of use require the applications consult a manifest that provides a default or mandatory version to 
+Some contexts of use require that applications consult a manifest that provides a default or mandatory version to 
 use for each canonical resource. In these contexts, the application SHALL use the version specified in the manifest
 when resolving the reference. This specification itself defines no such contexts, but implementation guides 
-based on this specification can detail how the manifest is applied to the context. Two examples of this 
-are the <a href="https://build.fhir.org/ig/HL7/crmi-ig">CRMI</a> IG, and in the 
-<a href="https://build.fhir.org/ig/HL7/fhir-tx-ecosystem-ig">the terminology ecosystem</a>, which both 
+based on this specification can detail how a manifest is applied to any particular context of us. Two examples
+of use of manifests are the <a href="https://build.fhir.org/ig/HL7/crmi-ig">CRMI</a> IG, and in the 
+<a href="https://build.fhir.org/ig/HL7/fhir-tx-ecosystem-ig">terminology ecosystem</a>, which both 
 use a <a href="parameters.html">Parameters</a> resource for this purpose. Typically, these manifests 
 must be consulted before looking through the package dependencies.
 </p>
