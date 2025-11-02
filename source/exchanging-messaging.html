@@ -13,7 +13,7 @@
 
 
 <h2>Exchanging with Messaging</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
   <p>
     <a href="messaging.html">Messaging</a> involves transmitting FHIR Bundles of resources from one system to another with a <a href="messageheader.html">MessageHeader</a> instance that defines the action (if any) the receiving system is expected to take.  The characteristics that determine that messaging is a more appropriate choice than a FHIR <a href="exchanging-operation.html">operation</a> are described <a href="exchanging.html#message">here</a>.  Like operations, they are used only when other mechanisms cannot meet the use-case because messaging support tends to require more negotiation and custom development to support a use-case than more re-useable REST capabilities.  Messaging is most found when back-end infrastructure is already organized in a messaging architecture or when routing is required to connect the <i>data consumer</i> and the <i>data source</i>.

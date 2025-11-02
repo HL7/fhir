@@ -12,8 +12,7 @@
 [%profilesheader base%]
 
 <h2>Profiling FHIR</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 The base FHIR specification (this specification) describes a set of base resources, frameworks
@@ -1113,6 +1112,10 @@ applies to those elements marked as mustSupport in that base artifact.  However,
 in the derived artifact take their definition of mustSupport from the new IG/profile. Note that it is possible for 
 the new IG or profile to simply reference the mustSupport artifacts defined in an ancestor artifact if that is the 
 behavior desired.
+</p>
+<p>
+When a child element is defined as Must Support and the parent element isn't, a system must support the child if
+it supports the parent, but there's no expectation that the system must support the parent.  
 </p>
 <p>
 Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of
