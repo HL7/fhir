@@ -232,7 +232,7 @@
       <path value="MedicationAdministration.category"/>
       <short value="Type of medication administration"/>
       <definition value="The type of medication administration."/>
-      <comment value= "The committee will revisit these codes, possibly creating a codesystem in [terminology.hl7.org](http://terminology.hl7.org)."/>
+      <comment value= "The committee will revisit these codes, expecting to use a codesystem from [terminology.hl7.org](http://terminology.hl7.org)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
