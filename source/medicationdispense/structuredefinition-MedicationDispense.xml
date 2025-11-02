@@ -266,7 +266,7 @@
         </extension>
         <strength value="example"/>
         <description value="A code describing where the dispensed medication is expected to be consumed or administered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-category"/>
       </binding>
       <mapping>
         <identity value="rim"/>

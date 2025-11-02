@@ -43,5 +43,10 @@ cases, it might be used for home-health reporting, such as recording self-admini
 <b>MedicationAdministration</b> is intended for tracking the administration of medications.  Administration of vaccines is intended to be handled using the <a href="immunization.html">Immunization</a> resource.    Some systems treat immunizations in the same way as any other medication administration.  Such systems SHOULD use an immunization resource to represent these.  However, if systems need to use a <b>MedicationAdministration</b> resource to capture vaccinations for workflow or other reasons, a Medication Administration resource may be used but systems SHOULD also create and expose an equivalent <a href="immunization.html">Immunization</a> instance.
 </p>
 </div>
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
+The code system used in medication administration category is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.fhir.org</a>.
+</p>
+</blockquote>
 
 </div>

@@ -68,4 +68,12 @@
             information, including an assertion by the patient or a care-giver, the results of a lab
             test, etc. </p>
         <p> To indicate the link between a MedicationStatement instance and the Medication Request, Dispense, or Administration that was used to derive the MedicationStatement, the reference should be placed in the MedicationStatement.derivedFrom element.</p>  </div>
+
+
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
+The code system used in medication statement category is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.fhir.org</a>.
+</p>
+</blockquote>
+
 </div>
