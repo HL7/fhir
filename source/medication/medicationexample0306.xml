@@ -25,10 +25,14 @@
         <display value="Lyophilised powder for conventional release solution for injection"/>
       </coding>
     </doseForm>
-  <batch>
+  <instance>
+    <identifier>
+      <system value="http://hl7.org/fhir/sid/gs1-128"/>
+      <value value="(01)00351144050016(10)A1234(17)251031(21)SN987654321"/>
+    </identifier>
     <lotNumber value="12345"/>
     <expirationDate value="2019-10-31"/>
-  </batch>
+  </instance>
     
   
 </Medication>

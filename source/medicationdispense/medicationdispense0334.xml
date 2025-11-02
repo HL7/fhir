@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MedicationDispense xmlns="http://hl7.org/fhir">
+  <id value="meddisp0334"/>
+  <status value="declined"/>
+  <notPerformedReason>
+    <concept>
+      <coding>
+        <code value="outofstock"/>
+      </coding>
+    </concept>
+  </notPerformedReason>
+  <medication>
+    <concept>
+      <coding>
+        <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+        <code value="1594660"/>
+      </coding>
+    </concept>
+  </medication>
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/>
+  </subject>
+  <performer>
+    <actor>
+      <reference value="Practitioner/f006"/>
+    </actor>
+  </performer>
+  <authorizingPrescription>
+    <reference value="MedicationRequest/medrx0317"/>
+  </authorizingPrescription>
+  <recorded value="2025-11-01"/>
+</MedicationDispense>

@@ -39,7 +39,7 @@
       <code value="program"/>
     </code>
     <valueCodeableConcept>
-      <text value="eligibile-provider"/>
+      <text value="Eligible Clinician (EC)"/>
     </valueCodeableConcept>
   </useContext>
   <useContext>
