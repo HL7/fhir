@@ -273,7 +273,7 @@
     Included resources SHOULD be added in the same style as the focus resource - e.g., if notifications are <code>id-only</code>, then included resources should only include their ids as well.
   </p>
   <p>
-    Note that the FHIR specification defines other mechanisms for defining graphs of resources - e.g., <a href="graphdefinition.html">GraphDefinition</a> and <a href="graphql.html">GraphQL</a>.  Currently, adoption of these mechanisms is significantly behind implementations of Search-based include.  In order to support this functionality without adding barriers to implementing subscriptions, support for <code>include</code> and <code>revinclude</code> was selected.  If another graph-defining mechanism gains widespread adoption, support could be added via an extension with changes to this resource in a future version of FHIR.
+    Note that the FHIR specification defines other mechanisms for defining graphs of resources - e.g., <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a> and <a href="graphql.html">GraphQL</a>.  Currently, adoption of these mechanisms is significantly behind implementations of Search-based include.  In order to support this functionality without adding barriers to implementing subscriptions, support for <code>include</code> and <code>revinclude</code> was selected.  If another graph-defining mechanism gains widespread adoption, support could be added via an extension with changes to this resource in a future version of FHIR.
   </p>
 
   <a name="shape-related-query"/>

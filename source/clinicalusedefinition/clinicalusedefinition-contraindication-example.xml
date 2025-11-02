@@ -3,7 +3,9 @@
   <id value="example-contraindication"/>
   <type value="contraindication"/>
   <subject>
-    <reference value="MedicinalProductDefinition/example"/>
+    <reference>
+      <reference value="MedicinalProductDefinition/example"/>
+    </reference>
   </subject>
   <contraindication>
     <diseaseSymptomProcedure>
@@ -11,6 +13,14 @@
         <text value="Concomitant treatment with any other anticoagulant agent"/>
       </concept>
     </diseaseSymptomProcedure>
+    <indication>
+      <diseaseSymptomProcedure>
+        <concept>
+          <text value="Stroke"/>
+        </concept>
+      </diseaseSymptomProcedure>
+      <diseaseStatus ></diseaseStatus>
+    </indication>
     <otherTherapy>
       <relationshipType>
         <coding>
