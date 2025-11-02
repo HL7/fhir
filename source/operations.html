@@ -61,7 +61,7 @@ Operations are executed using a URL derived from the FHIR endpoint, where the na
 </pre>
 <p>
 When an operation has affectsState = false, and the parameters are all primitive datatypes with no extensions
-(as is the case with the example above), it may be invoked using GET as well. (Note: A HEAD request can also be used - see <a href="http.html#head">Support for HEAD</a>).
+(as is the case with the example above), it MAY be invoked using GET as well. (Note: A HEAD request can also be used - see <a href="http.html#head">Support for HEAD</a>).
 </p>
 <p>
 Operations can be invoked on three types of FHIR endpoints:
@@ -95,11 +95,11 @@ Both the body of the POST and the returned result are always a Resource if any b
 except in the case that the server supports multi-part/form-data (see below). 
 </p>
 <p>
-Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL parameters, if:
+Operations MAY be invoked using a <code>GET</code>, with parameters as HTTP URL parameters, if:
 </p>
 <ol>
- <li>there are only simple input parameters - i.e., no complex datatypes like 'Identifier' or 'Reference', and</li>
- <li>and the operation does not <a href="operationdefinition-definitions.html#OperationDefinition.affectsState">affect the state of the server</a></li>
+ <li>the only parameters being passed are ones whose data type has a corresponding search type (i.e., datatypes like <code>Identifier</code> or <code>Reference</code> which have a search type of 'token' are permitted, while <code>Address</code> and <code>HumanName</code> are not)</li>
+ <li>the operation does not <a href="operationdefinition-definitions.html#OperationDefinition.affectsState">affect the state of the server</a></li>
 </ol>
 <p>
 If the response is a <a href="bundle.html">Bundle</a>, the <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> will typically 
