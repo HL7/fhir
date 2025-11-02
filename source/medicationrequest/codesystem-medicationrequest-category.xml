@@ -13,7 +13,7 @@
   <name value="MedicationRequestCategoryCodes"/>
   <title value="Medication Request Category Codes"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 International"/>
   <description value="Medication Request Category Codes"/>
   <caseSensitive value="true"/>
