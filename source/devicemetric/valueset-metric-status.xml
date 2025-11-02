@@ -1,25 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
-  <id value="study-design-example"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="metric-status"/>
   <meta>
-    <lastUpdated value="2022-05-12T12:40:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
+    <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/study-design-example"/>
+  <url value="http://hl7.org/fhir/ValueSet/metric-status"/>
   <version value="6.0.0"/>
-  <name value="StudyDesignExample"/>
-  <title value="Study Design Example"/>
-  <status value="draft"/>
+  <name value="DeviceMetricStatus"/>
+  <title value="Device Metric Status"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2022-08-24T12:40:00+00:00"/>
+  <date value="2025-10-31T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -31,11 +32,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This is a set of terms for study design characteristics."/>
+  <description value="Describes the status of the DeviceMetric record."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/study-design-example"/>
+      <system value="http://hl7.org/fhir/metric-status"/>
     </include>
   </compose>
 </ValueSet>

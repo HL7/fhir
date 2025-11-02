@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Group-core"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.30.3"/>
+  </identifier>
+  <name value="StandardGroupExtensions"/>
+  <title value="Standard Group Extensions"/>
+  <status value="draft"/>
+  <date value="2014-01-31T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
+  <description value="This profile describes common extensions that are used with Group"/>
+</ImplementationGuide>

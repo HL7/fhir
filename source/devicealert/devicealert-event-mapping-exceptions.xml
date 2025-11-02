@@ -99,19 +99,19 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.occurrence[x]" resourcePath="DeviceAlert.presencePeriod">
-        <missingTypes _pattern="dateTime, Timing" reason="Additional datatype not needed for identified use cases."/>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="DeviceAlert.occurrence[x]">
+        <missingTypes _pattern="Timing" reason="Additional datatype not needed for identified use cases."/>
         <shortUnmatched reason="More precise, resource-specific wording.">
             <_pattern value="When device alert occurred/is occurring"/>
             <resource value="When the alert condition occurred/is occurring"/>
         </shortUnmatched>
         <definitionUnmatched reason="More precise, resource-specific wording.">
             <_pattern value="The date, period or timing when the device alert did occur or is occurring."/>
-            <resource value="The period when the alert condition occurred or is occurring."/>
+            <resource value="This element is used to record the date or time period when the alert condition did occur or is occurring."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="More precise, resource-specific wording.">
+        <commentsUnmatched reason="Unknown">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. Ongoing events should not include an upper bound."/>
+            <resource value="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. A date/time value should be used for instantaneous conditions; without additional guidance, partial date/time values are ambiguous about whether they represent the condition occurring at some point in the partially specified period, or for all of the period. Ongoing events should not include a Period upper bound."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.location" resourcePath="DeviceAlert.location">

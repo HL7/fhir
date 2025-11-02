@@ -1,0 +1,1888 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="study-design"/>
+  <meta>
+    <lastUpdated value="2022-05-12T12:40:00+00:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/study-design"/>
+  <version value="6.0.0"/>
+  <name value="StudyDesign"/>
+  <title value="Study Design"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2022-08-24T12:40:00+00:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="This is a set of terms for study design characteristics."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="https://fevir.net/sevco"/>
+      <version value="2.0"/>
+      <concept>
+      	<code value="SEVCO:01001"/>
+      	<display value="interventional research"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design in which an independent variable (an exposure or intervention) is prospectively assigned or modified by the investigator to evaluate a response in the dependent variable (an effect or outcome)."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="interventional study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="interventional study design"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="interventional primary research"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="international method of research"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="experimental research"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="experimental study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01003"/>
+      	<display value="randomized assignment"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="An interventional study design in which an independent variable (an exposure or intervention) is prospectively assigned or modified by random chance to separate groups."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="interventional research with randomized assignment"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="randomized trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="randomized controlled trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="RCT"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01006"/>
+      	<display value="simple randomization"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A randomized assignment in which each participant has the same prespecified likelihood of being assigned to a group as all other participants, independent of the assignment of any other participant."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="unrestricted randomization"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01007"/>
+      	<display value="stratified randomization"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A randomized assignment in which participants are stratified into groups based on prognostic variables and then randomized into balanced treatment groups"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01008"/>
+      	<display value="block randomization"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A randomized assignment in which a pre-specified number of subjects is assigned to a block containing the same pre-specified ratio of group assignments in random order."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01009"/>
+      	<display value="adaptive randomization"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A randomized assignment in which a participant’s group assignment probability is adjusted based on any factor such that the likelihood of assignment is not the same for all participants."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01005"/>
+      	<display value="non-randomized assignment"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="An interventional study design in which an independent variable (an exposure or intervention) is prospectively assigned or modified by methods other than random chance to separate groups."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="interventional research with non-randomized assignment"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01004"/>
+      	<display value="quasi-randomized assignment"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="An interventional study design with a method of allocation that is not limited to random chance but is intended to produce similar baseline groups for experimentation."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01029"/>
+      	<display value="clinical trial"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="Interventional research in which one or more healthcare-related actions (i.e., a diagnostic, prognostic, therapeutic, preventive or screening method or intervention) is evaluated for effects on health-related biomedical or behavioral processes and/or outcomes."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01041"/>
+      	<display value="pragmatic clinical trial"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A clinical trial conducted under conditions of routine clinical practice."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="pragmatic trial"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01038"/>
+      	<display value="expanded access study"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A clinical trial that provides a means for obtaining an experimental drug or device for patients who are not adequately treated by existing therapy, who do not meet the eligibility criteria for enrollment, or who are otherwise unable to participate in another clinical study. "/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="compassionate use trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="compassionate use study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="expanded access trial"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01030"/>
+      	<display value="phase 1 trial"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A clinical trial to gather initial evidence in humans to support further investigation of an intervention."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase I trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 1 study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase I clinical trial"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01031"/>
+      	<display value="exploratory investigational new drug study"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A clinical trial that is conducted early in phase 1, involves very limited human exposure, and has no therapeutic or diagnostic intent (e.g., screening studies, microdose studies). "/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 0 study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="pre-clinical trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="exploratory ind study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01032"/>
+      	<display value="phase 1/phase 2 trial"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value=" A clinical trial with a component meeting the definition of phase 1 trial and a component meeting the definition of phase 2 trial."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase I/II trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 1-2 trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 1/2 trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="trial phase 1-2"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="trial phase 1/2"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01033"/>
+      	<display value="phase 2 trial"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A clinical trial to gather evidence of effectiveness and safety for an intervention in patients with the disease or condition under study, but not intended to provide an adequate basis for regulatory approval for clinical use."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase II trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 2 study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="exploratory clinical study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase II clinical trial"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01034"/>
+      	<display value="phase 2/phase 3 trial"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A clinical trial with a component meeting the definition of phase 2 trial and a component meeting the definition of phase 3 trial."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase II/III trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 2-3 trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 2/3 trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="trial phase 2-3"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="trial phase 2/3"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01035"/>
+      	<display value="phase 3 trial"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A clinical trial to gather the evidence of effectiveness and safety of an intervention, intended to provide an adequate basis for regulatory approval for clinical use."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase III trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 3 study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="confirmatory clinical study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase III clinical trial"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01036"/>
+      	<display value="post-marketing study"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A clinical trial to gather additional evidence of effectiveness and safety of an intervention for an already approved clinical use."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase IV trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 4 trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="phase 4 study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="trial phase 4"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="post-approval study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01002"/>
+      	<display value="observational research"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design in which the independent variables (exposures or interventions) are not prospectively assigned or modified by the investigator. "/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="observational study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="observational study design"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="observational primary research"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="observational method of research"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="non-interventional research"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="observational study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="observational study design"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="observational primary research"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="non-interventional research"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01037"/>
+      	<display value="post-marketing surveillance study"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="An observational study to identify adverse events related to the use of an approved clinical intervention."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="postmarketing evaluation study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="postmarketing evaluation study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01010"/>
+      	<display value="comparative study design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design in which two or more groups are compared."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="comparative research"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01011"/>
+      	<display value="parallel cohort design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A comparative study design in which the groups are compared concurrently and participants are expected to remain in the groups being compared for the entire duration of participation in the study."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="concurrent cohort study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01012"/>
+      	<display value="crossover cohort design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A comparative study design in which participants receive two or more alternative exposures during separate periods of time."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="crossover study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="crossover trial"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01024"/>
+      	<display value="controlled crossover cohort design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A crossover cohort design in which two or more cohorts have different orders of exposures."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01025"/>
+      	<display value="single-arm crossover design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A crossover cohort design in which all participants are in a single cohort with the same order of exposures."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01013"/>
+      	<display value="case control design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A comparative study design in which the groups being compared are defined by outcome presence (case) or absence (control)."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01014"/>
+      	<display value="matching for comparison"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A comparative study design in which individual participants in different groups being compared are paired or matched into sets based on selected attributes for within-set analysis."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="matched study design"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01020"/>
+      	<display value="family study design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A matched study design in which related or non-related family members are compared."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="familial study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="family study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="family based study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01021"/>
+      	<display value="twin study design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A family study design in which twin siblings are compared."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01015"/>
+      	<display value="cluster as unit of allocation"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A comparative study design in which participants are allocated to exposures (interventions) by their membership in groups (called clusters) rather than by individualized assignments."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="clustering for comparison"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01023"/>
+      	<display value="non-comparative study design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design with no comparisons between groups with different exposures and no comparisons between groups with different outcomes."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="non-comparative research"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="descriptive study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01016"/>
+      	<display value="uncontrolled cohort design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A non-comparative study design in which two or more participants are evaluated in a single group (or cohort)."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="single cohort design"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="case series design"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="non-controlled cohort design"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01017"/>
+      	<display value="case report"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A non-comparative study design in which a single participant is evaluated."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="case study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01022"/>
+      	<display value="population-based design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design in which the unit of observation is a population or community. "/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="population study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01044"/>
+      	<display value="ecological design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design in which the unit of observation is a population or community defined by social relationships or physical surroundings. "/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="ecologic study"/>
+      	</designation>
+      </concept>
+
+      <concept>
+      	<code value="SEVCO:01027"/>
+      	<display value="cross sectional data collection "/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which data is collected at a single point in time."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="cross-sectional study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01028"/>
+      	<display value="longitudinal data collection"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which data is collected at two or more points in time."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="longitudinal study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01018"/>
+      	<display value="time series design"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A longitudinal data collection which includes a set of time-ordered observations."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="multiple time point comparison"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01019"/>
+      	<display value="before and after comparison"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A time series design which includes comparisons of observations before and after an event or exposure."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="before and after design"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="pre-post design"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="before-after comparison"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01045"/>
+      	<display value="primary data collection"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which the data are recorded and collected during the study for the purpose of the same study."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="study-generated data collection"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01026"/>
+      	<display value="real world data collection"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which the study data are obtained from a source of data collected during a routine process in the natural environment rather than using a process designed or controlled by the researcher."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="RWD collection"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01039"/>
+      	<display value="real world data collection from healthcare records"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="Real world data collection from data obtained routinely for a purpose of recording healthcare delivery in a record controlled by a healthcare professional."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="RWD collection from clinical care records"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="RWD from health care records"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="RWD from healthcare delivery records"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="real world data collection from medical records"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01050"/>
+      	<display value="real world data collection from personal health records"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="Real world data collection from data obtained routinely for a purpose of recording data related to personal health in a record controlled by the person, guardian, or caretaker."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="real world data collection from personal care records"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="RWD collection from personal medical records"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01040"/>
+      	<display value="real world data collection from healthcare financing records"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="Real world data collection from data obtained routinely for a purpose of recording healthcare financing."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="RWD collection from healthcare financing records"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01048"/>
+      	<display value="real world data collection from testing procedures"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="Real world data collection from data obtained routinely for a purpose of testing, such as diagnostic testing or screening examination."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="RWD collection from testing procedures"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01046"/>
+      	<display value="real world data collection from monitoring procedures"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="Real world data collection from data obtained routinely for a purpose of repeated testing."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="RWD collection from monitoring procedures"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01049"/>
+      	<display value="secondary data collection from prior research"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which the data are collected from data obtained during a different study than the current study."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01042"/>
+      	<display value="secondary data collection from a registry"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which the data are collected from a system organized to obtain and maintain uniform data for discovery and analysis, and this system is organized prior to the current study."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01051"/>
+      	<display value="multisite data collection"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which data are collected from two or more geographic locations."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01086"/>
+      	<display value="quantitative analysis"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which data are analyzed with mathematical or statistical methods and formulas."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01087"/>
+      	<display value="qualitative analysis"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which data are analyzed, without primary reliance on mathematical or statistical techniques, by coding and organizing data to provide interpretation or understanding of experiences or hypotheses."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01060"/>
+      	<display value="blinding of study participants"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which study participants are not informed of their intervention assignment."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="masking of study participants"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01061"/>
+      	<display value="blinding of intervention providers"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which the people administering the intervention are not informed of the intervention assignment."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="masking of intervention providers"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="blinding of intervention deliverers"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="masking of intervention deliverers"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01062"/>
+      	<display value="blinding of outcome assessors"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which the people determining the outcome are not informed of the intervention assignment."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="masking of outcome assessors"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01063"/>
+      	<display value="blinding of data analysts"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which the people managing or processing the data and statistical analysis are not informed of the intervention assignment."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="masking of data analysts"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01064"/>
+      	<display value="allocation concealment"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design process in which all parties influencing study enrollment and allocation to study groups are unaware of the group assignment for the study participant at the time of enrollment and allocation."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="blinding of randomization assignment"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="masking of randomization assignment"/>
+      	</designation>
+      </concept>
+
+      <concept>
+      	<code value="SEVCO:01043"/>
+      	<display value="multicentric"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature in which two or more institutions are responsible for the conduct of the study."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="multi-institutional study"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="multicenter trial"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="multicenter study"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01052"/>
+      	<display value="includes patient-reported outcome"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature in which one or more outcomes are reported directly from the patient without interpretation by a clinician or researcher."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes patient-reported outcomes"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="PRO"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01053"/>
+      	<display value="includes patient-centered outcome"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature in which one or more measures are outcomes that patients directly care about, i.e. outcomes that are directly related to patients&apos; experience of their life."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes patient-oriented outcome"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes patient-important outcome"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes patient-relevant outcome"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes clinical outcome"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes patient-centered outcome measure"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes clinical outcome measure"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01054"/>
+      	<display value="includes disease-oriented outcome"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature in which one or more measures are outcomes that relate to a health or illness condition but are not outcomes which patients directly care about."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes disease-oriented outcome measure"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes surrogate outcome"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes surrogate outcome measure"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01085"/>
+      	<display value="includes process measure"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature in which one or more outcomes are actions or behaviors of a healthcare professional or care team."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes process outcome"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="includes process outcome measure"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01089"/>
+      	<display value="study goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature specifying the intent of the study."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="study aim"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01096"/>
+      	<display value="evaluation goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study goal to assess the efficiency, effectiveness, and impact of a given program, process, person or piece of equipment."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="evaluation study goal"/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="evaluation aim"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01097"/>
+      	<display value="derivation goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study goal with the intent to generate a predictive algorithm."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="derivation study goal"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01098"/>
+      	<display value="validation goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study goal with the intent to determine the reliability and/or performance of a procedure for a specific predictive, classification, measurement, or communication purpose."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="validation study goal"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01088"/>
+      	<display value="comparison goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature in which the study intent is to compare two or more interventions or exposures."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="comparative analysis goal"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01091"/>
+      	<display value="comparative effectiveness goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature in which the study intent is to compare two or more interventions with respect to benefits and/or harms."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01090"/>
+      	<display value="comparative efficacy goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature in which the study intent is to compare two or more interventions with respect to effectiveness in ideal conditions."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01092"/>
+      	<display value="comparative safety goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature in which the study intent is to compare two or more interventions with respect to harms."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01093"/>
+      	<display value="equivalence goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study goal with the intent to compare two or more interventions or exposures and determine that any difference in effects is within a prespecified range representing absence of a meaningful difference."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01094"/>
+      	<display value="non-inferiority goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study goal with the intent to compare two or more interventions or exposures and determine that any difference in effects is below a prespecified value representing a threshold between a meaningful difference and absence of a meaningful difference."/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01095"/>
+      	<display value="superiority goal"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study goal with the intent to compare two or more interventions or exposures and detect a difference in effects."/>
+      	</designation>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000013009"/>
+              <display value="Synonym (core metadata concept)"/>
+      		</use>
+      		<value value="superiority study goal"/>
+      	</designation>
+      </concept>
+      <concept>
+      	<code value="SEVCO:01100"/>
+      	<display value="allocation ratio"/>
+      	<designation>
+      		<use>
+              <system value="http://snomed.info/sct"/>
+              <code value="900000000000550004"/>
+              <display value="Definition (core metadata concept)"/>
+      		</use>
+      		<value value="A study design feature describing the intended relative proportion of assignment across groups."/>
+      	</designation>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
