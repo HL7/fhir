@@ -246,6 +246,8 @@
         <type value="reference"/>
         <expression value="MedicinalProductDefinition.operation.type.reference"/>
         <processingMode value="normal"/>
+        <target value="ActivityDefinition"/>
+        <target value="PlanDefinition"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -284,6 +286,7 @@
         <type value="reference"/>
         <expression value="MedicinalProductDefinition.operation.organization"/>
         <processingMode value="normal"/>
+        <target value="Organization"/>
       </SearchParameter>
     </resource>
   </entry>
