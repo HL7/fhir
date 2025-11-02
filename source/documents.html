@@ -130,11 +130,8 @@ The document has several dates in it:
  <li>The Composition last modified time (optional). This is found in <i>Composition.meta.lastUpdated</i> for the composition and is the last date of change of the composition. This must be &gt;= the composition date</li>
 </ul>
 <p>
-Document Bundles may be signed using digital signatures following the rules laid out in
-the <a href="signatures.html">digital signatures</a> page.
-The signature SHOULD be provided by a listed attester of the document and the signature
-SHOULD contain a <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_blank">KeyInfo
-element</a> that contains a KeyName element whose value is a URI that matches the <a href="bundle-definitions.html#Bundle.entry.fullUri">fullUri</a> for the matching attester resource.
+If there is a need to have a digital signature on a Document Bundle, this may be accomplished using the
+rules laid out in the <a href="signatures.html">digital signatures</a> page.
 </p>
 <p>
 Note that the document may be represented in either XML or JSON and interconverted between these 
