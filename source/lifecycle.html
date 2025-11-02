@@ -16,12 +16,12 @@
 
 
   <h2>FHIR Life Cycle Page</h2>
-  <table class="colstu">
+  <table class="colsi">
     <tr>
-      <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
-      <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td>
+      <td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
+      
       <td id="ballot"><a href="versions.html#std-process">Standards Status</a>:
-        <!--!ns!--><a href="versions.html#std-process">Trial Use</a>
+        <!--!ns!--><a href="versions.html#std-process">Informative</a>
       </td>
     </tr>
   </table>
@@ -196,106 +196,10 @@
   <h3>Current Resource Lists</h3>
 
   <p>
-    Many clinical systems maintain current lists of some kind of resources for a patient. Some of the commonly
-    maintained lists include:
+    The section regarding current lists has been removed due to lack of implementation experience and feedback. 
+    If there is continued interest in this topic, it may be reintroduced in the <a href="https://build.fhir.org/ig/HL7/api-incubator">API Incubator</a>.
   </p>
-  <ul>
-    <li>Current Problem List: a list of the problems that are of concern for care of the patient</li>
-    <li>Current Medication List: a list of the medications that a patient is known to be on at the current time</li>
-  </ul>
-  <p>
-    Because of the way that resources are used, there is no simple way to determine, from
-    examination of a resource, whether it is 'current' or not. Take, as an example, the
-    <a href="condition.html">Condition</a> resource. In a typical EHR, condition resources
-    might be published on the RESTful interface for the following reasons:
-  </p>
-  <ul>
-    <li>to represent an item in a patient's curated problem list</li>
-    <li>to represent a complaint or a diagnosis from an encounter record</li>
-    <li>to represent a problem for investigation provided by a diagnostic system as part of a <a
-        href="servicerequest.html">ServiceRequest</a>/<a href="diagnosticreport.html">DiagnosticReport</a> pair</li>
-    <li>the resources were received from another system as part of a referral package, and were current for that system
-      when they were received</li>
-  </ul>
-  <p>
-    There is no element on the Condition resource that can convey the difference between these usages. In particular,
-    there can be
-    no way to differentiate between current and past resources without having to retrospectively alter resources, which
-    is
-    problematic with regard to integrity and digital signatures.
-  </p>
-  <p>
-    One consequence of this is that searching the condition resource for a given patient will return more
-    than just the patient's current problems. Though this is somewhat counter-intuitive to some implementers,
-    restricting searches on Condition to only include the patient's current curated problem list excludes
-    all the other - important - uses of the Condition resource.
-  </p>
-  <p>
-    Determining whether a Condition is an entry on a patient's current problem list is done by checking
-    with the Condition resource is referenced from the correct list.
-  </p>
-  <p>
-    On the RESTful API, this is done using the <a href="search.html#current">list search mechanism</a>:
-  </p>
-  <pre>
- GET [base]/AllergyIntolerance?patient=42&amp;_list=$current-allergies
-</pre>
-  <p>
-    This is a request to fetch all the allergies in the patient 42's "Current Allergy List".
-    Note that the server is not required to actually make a resource representation of the current allergy list
-    available, though doing so assists clients in their audit/integrity tasks. See
-    <a href="list-operation-find.html">List Operation "Find"</a> for further information.
-  </p>
-  <p>
-    In a document, current lists are determined by the code on a Composition section.
-  </p>
-  <a name="lists"></a>
-  <p>
-    FHIR defines the following names for functional lists:
-  </p>
-  <table class="grid">
-    <tr>
-      <td><b>List</b></td>
-      <td><b>ResourceType</b></td>
-      <td><b>Description</b></td>
-      <td><b>Possible LOINC codes in documents / sections</b></td>
-    </tr>
-    <tr>
-      <td>$current-problems</td>
-      <td><a href="condition.html">Condition</a></td>
-      <td>The "Current Problem List" - A list of current and active diagnoses as well as past diagnoses relevant to the
-        current care of the patient</td>
-      <td>46105-3 (Problem conditions Set)</td>
-    </tr>
-    <tr>
-      <td>$current-medications</td>
-      <td><a href="medicationstatement.html">MedicationStatement</a>/ <a href="medicationrequest.html">MedicationRequest</a>
-      </td>
-      <td>A list of all medications that the patient is taking. The 'current medications list'
-        sometimes may include a mix of prescribed and over-the-counter medications - or only some of them. The list may
-        contain a mix of <a href="medicationrequest.html">prescriptions</a> and more general <a
-          href="medicationstatement.html">statements</a>, or only one of the two.
-        The list may also correspond to a formal reconciled medication administration schedule, but more often does not
-      </td>
-      <td>57828-6 (Prescription list), 10160-0 (History of medication)</td>
-    </tr>
-    <tr>
-      <td>$current-allergies</td>
-      <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
-      <td>A list of known or suspected propensities to medications, foods, or environmental agents that is provided to
-        help prevent reactions while care is occurring</td>
-      <td>18716-1 (Allergy studies (set)), 52472-8 (Allergies and Adverse Drug Reactions), and 48765-2 (Allergies and
-        adverse reactions Document)</td>
-    </tr>
-    <tr>
-      <td>$current-drug-allergies</td>
-      <td><a href="allergyintolerance.html">AllergyIntolerance</a></td>
-      <td>A list of known or suspected propensities to medications that is provided to help prevent reactions while care
-        is occurring. This list is a subset of the full allergies list</td>
-      <td>(same as above?)</td>
-    </tr>
-  </table>
-
+  
   <hr />
   <a name="error"></a>
   <h3>Entered in Error Summary</h3>
