@@ -328,12 +328,28 @@
           <valueString value="{{name}}.actor"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Requirements-actor"/>
-        <name value="ActorDefinition_Actor"/>
+        <name value="Requirements_Actor"/>
         <description value="An actor these requirements are for"/>
         <code value="actor"/>
         <type value="reference"/>
         <expression value="Requirements.actor.reference"/>
         <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Requirements.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the Requirements is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="Requirements.experimental"/>
       </SearchParameter>
     </resource>
   </entry>

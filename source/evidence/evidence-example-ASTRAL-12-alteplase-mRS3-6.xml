@@ -77,8 +77,8 @@
     <statisticType>
       <coding>
         <system value="https://fevir.net/sevco"/>
-        <code value="C44256"/>
-        <display value="Proportion"/>
+        <code value="STATO:0000607"/>
+        <display value="proportion"/>
       </coding>
       <text value="derived proportion"/>
     </statisticType>

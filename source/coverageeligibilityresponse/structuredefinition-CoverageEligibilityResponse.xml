@@ -194,7 +194,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="cdanetv4"/>
@@ -224,7 +224,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DatesType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/datestype"/>
       </binding>
     </element>
@@ -617,7 +617,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitUnit"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Unit covered/serviced - individual or family."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-unit"/>
       </binding>
@@ -636,7 +636,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitTerm"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Coverage unit - annual, lifetime."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-term"/>
       </binding>
@@ -678,7 +678,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Deductable, visits, co-pay, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-type"/>
       </binding>

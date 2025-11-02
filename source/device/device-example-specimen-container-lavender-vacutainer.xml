@@ -1,72 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd"><!--text>
+<Device xmlns="http://hl7.org/fhir"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">	<!--text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>example</p>
     </div>
-  </text--><id value="device-example-specimen-container-lavender-vacutainer"/>
+  </text-->
+	<id value="device-example-specimen-container-lavender-vacutainer"/>
 	<identifier>
-    <system value="http://acme.com/containers/id"/>
-    <value value="345675"/>
-  </identifier>
-  <!-- <displayName value="Lavender Tube" /> -->
-  <name>
-    <value value="Lavender Tube"/>
-      <type> 
-      <coding> 
-        <system value="http://hl7.org/fhir/device-nametype"/> 
-    	<code value="registered-name"/>
-		<display value="Registered Name"/>
-      </coding> 
-    </type> 
-  </name>
-
-  <property>
-    <type>
-		   <coding>
+		<system value="http://acme.com/containers/id"/>
+		<value value="345675"/>
+	</identifier>
+	<!-- <displayName value="Lavender Tube" /> -->
+	<name>
+		<value value="Lavender Tube"/>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/device-nametype"/>
+				<code value="registered-name"/>
+				<display value="Registered Name"/>
+			</coding>
+		</type>
+	</name>
+	<biologicalSourceEvent>
+		<Identifier>
+			<system value="http://terminology.hl7.org/NamingSystem/ib"/>
+			<value value="A999908123456"/>
+		</Identifier>
+	</biologicalSourceEvent>
+	<property>
+		<type>
+			<coding>
 				<system value="http://acme.com/containers/codes"/>
 				<code value="tube-type"/>
 				<display value="Tube Type"/>
 			</coding>
 		</type>
-    <valueCodeableConcept>
-	   <coding>
+		<valueCodeableConcept>
+			<coding>
 				<system value="http://acme.com/containers/types"/>
 				<code value="lavender"/>
 				<display value="lavender-tube"/>
 			</coding>
-	</valueCodeableConcept>	
-  </property>
-  <property>
-    <type>
+		</valueCodeableConcept>
+	</property>
+	<property>
+		<type>
 			<coding>
 				<system value="http://acme.com/containers/codes"/>
 				<code value="amount"/>
 				<display value="Amount"/>
 			</coding>
-	</type>
-	<valueCodeableConcept>
-	   <coding>
+		</type>
+		<valueCodeableConcept>
+			<coding>
 				<system value="http://acme.com/containers/capacities"/>
 				<code value="4.5mL"/>
 				<display value="4.5 mL"/>
 			</coding>
-	</valueCodeableConcept>
-  </property>
-  <property>
-    <type>
-	   <coding>
+		</valueCodeableConcept>
+	</property>
+	<property>
+		<type>
+			<coding>
 				<system value="http://acme.com/containers/codes"/>
 				<code value="additive"/>
 				<display value="Additive"/>
-		</coding>
-	</type>
-	<valueCodeableConcept>
-	   <coding>
+			</coding>
+		</type>
+		<valueCodeableConcept>
+			<coding>
 				<system value="http://acme.com/containers/additive"/>
 				<code value="EDTA"/>
 				<display value="EDTA"/>
-		</coding>
-	</valueCodeableConcept>
-  </property>
+			</coding>
+		</valueCodeableConcept>
+	</property>
 </Device>

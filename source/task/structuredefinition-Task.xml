@@ -91,7 +91,7 @@
         <key value="tsk-1"/>
         <severity value="error"/>
         <human value="Task.restriction is only allowed if the Task is seeking fulfillment and a focus is specified."/>
-        <expression value="restriction.exists() implies code.coding.where(code='fulfill' and system='http://hl7.org/fhir/CodeSystem/task-code').exists() and focus.exists()"/>
+        <expression value="restriction.exists() implies (code.coding.where(code='fulfill' and system='http://hl7.org/fhir/CodeSystem/task-code').exists() and focus.exists() and focus.value.ofType(Reference).exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Task"/>
       </constraint>
       <mapping>
@@ -352,7 +352,7 @@
       <path value="Task.doNotPerform"/>
       <short value="True if Task is prohibiting action"/>
       <definition value="If true indicates that the Task is asking for the specified action to *not* occur."/>
-      <comment value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#xA;&#xA;In some cases, the Request.code may pre-coordinate prohibition into the requested action. E.g. 'NPO' (nothing by mouth), 'DNR' (do not recussitate). If this happens, doNotPerform SHALL NOT be set to true. I.e. The resource shall not have double negation. (E.g. 'Do not DNR').&#xA;&#xA;doNotPerform should ONLY be used with Tasks that are tightly bounded in time or process phase.  E.g. 'Do not fulfill the midnight dose of medication X tonight due to the early morning scheduled procedure, where the nurse could reasonably check off 'Med X not given at midnight as instructed'.  Similarly, a decision support proposal that a patient should not be given a standard intake questionnaire (because the patient is cognitively impaired) would be marked as 'complete' or 'rejected' when the clinician preps the CarePlan or order set after reviewing the decision support results.  If there is a need to create a standing order to not do something that can't be satisfied by a single 'non-action', but rather an ongoing refusal to perform the function, MedicationRequest, ServiceRequest or some other form of authorization should be used."/>
+      <comment value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#xA;&#xA;In some cases, the Request.code may pre-coordinate prohibition into the requested action. E.g. 'NPO' (nothing by mouth), 'DNR' (do not resuscitate). If this happens, doNotPerform SHALL NOT be set to true. I.e. The resource SHALL NOT have double negation. (E.g. 'Do not DNR').&#xA;&#xA;When Task.focus refers to a Request Resource, it is that Request's doNotPerform Flag that indicates that the action should not be performed. A Task can be used to request that authorized action is not performed by having task.focus point to that request resource and use Task.code as the do not perform indicator.&#xA;&#xA;Note that the use of doNotPerform and negation in Task.code can cause ambiguity and the impact of this should be considered not only for task but also for all related resources."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -430,8 +430,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <code value="BackboneElement"/>
       </type>
       <condition value="tsk-1"/>
       <isSummary value="true"/>
@@ -447,6 +446,22 @@
         <identity value="workflow"/>
         <map value="Request.product, Event.product"/>
       </mapping>
+    </element>
+    <element id="Task.focus.value[x]">
+      <path value="Task.focus.value[x]"/>
+      <short value="What task is acting on"/>
+      <definition value="What task is acting on."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</type>
+      <isSummary value="true"/>
     </element>
     <element id="Task.for">
       <path value="Task.for"/>
@@ -467,7 +482,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

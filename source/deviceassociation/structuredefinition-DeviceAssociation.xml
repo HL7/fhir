@@ -207,6 +207,31 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
     </element>
+    <element id="DeviceAssociation.focus">
+      <path value="DeviceAssociation.focus"/>
+      <short value="The target of the association"/>
+      <definition value="The entity for which the device is being used, benefitting from the device, or which the device is being operated upon, which is usually distinct from the association subject, such as an operator or similar."/>
+      <comment value="Consider the situation of a procedure, during which an anesthesiologist uses a ventilator on a patient. Two associations would be recorded: one of the ventilator associated to a subject patient with a treatment relationship; in the other, the ventilator associated to the subject anesthesiologist with an operator relationship. In the latter relationship, the patient would be recorded as the `focus` to indicate that the anesthesiologist was using the device for that patient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+    </element>
     <element id="DeviceAssociation.bodyStructure">
       <path value="DeviceAssociation.bodyStructure"/>
       <short value="Current anatomical location of the device in/on subject"/>
@@ -222,61 +247,6 @@
       <path value="DeviceAssociation.period"/>
       <short value="Begin and end dates and times for the device association"/>
       <definition value="Begin and end dates and times for the device association."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-    </element>
-    <element id="DeviceAssociation.operation">
-      <path value="DeviceAssociation.operation"/>
-      <short value="The details about the device when it is in use to describe its operation"/>
-      <definition value="The details about the device when it is in use to describe its operation."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="DeviceAssociation.operation.status">
-      <path value="DeviceAssociation.operation.status"/>
-      <short value="Device operational condition"/>
-      <definition value="Device operational condition corresponding to the association."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceAssociationOperationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="A coded concept specifying the status of the association operation."/>
-        </extension>
-        <strength value="example"/>
-        <description value="Describes the the status of the association operation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-operationstatus"/>
-      </binding>
-    </element>
-    <element id="DeviceAssociation.operation.operator">
-      <path value="DeviceAssociation.operation.operator"/>
-      <short value="The individual performing the action enabled by the device"/>
-      <definition value="The individual performing the action enabled by the device."/>
-      <comment value="The operation reflects a shorter term indication when the device is actually being used for the subject and who the operator is.  The operator may be the same as the subject, in which case it is less likely to have to document the operation.  Where it is relevant to document periods of use, absence of the operator cannot imply that the subject is the operator, thus would need to be explicitly stated."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-    </element>
-    <element id="DeviceAssociation.operation.period">
-      <path value="DeviceAssociation.operation.period"/>
-      <short value="Begin and end dates and times for the device's operation"/>
-      <definition value="Begin and end dates and times for the device's operation."/>
       <min value="0"/>
       <max value="1"/>
       <type>

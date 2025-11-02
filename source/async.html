@@ -14,8 +14,8 @@
   <h2 id="asynchronous-request-patterns">Asynchronous Request Patterns</h2>
   <table class="colsi">
     <tr>
-      <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
-      <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td>
+      <td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
+      
       <td id="ballot"><a href="versions.html#std-process">Standards Status</a>:
         <!--!ns!--><a href="versions.html#std-process">Informative</a>
       </td>
@@ -35,18 +35,22 @@
   </p>
 
   <h3 id="patterns">Patterns</h3>
-  <p>FHIR supports two asynchronous patterns:</p>
+  <p>FHIR defines two asynchronous patterns:</p>
   <ul>
-    <li><a href="async-bulk.html">Asynchronous Bulk Data Request</a> - for use in FHIR <a href="operations.html">Operations</a>
+    <li><a href="https://build.fhir.org/ig/HL7/api-incubator/async-bulk.html">Asynchronous Bulk Data Request</a> - for use in FHIR <a href="operations.html">Operations</a>
       and <a href="http.html">Defined Interactions</a> that return a large amount of data. This pattern returns a
       manifest with links to data files containing FHIR resources.
     </li>
-    <li><a href="async-bundle.html">Asynchronous Interaction Request</a> - for use in FHIR <a
+    <li><a href="https://build.fhir.org/ig/HL7/api-incubator/async-bundle.html">Asynchronous Interaction Request</a> - for use in FHIR <a
         href="operations.html">Operations</a> and <a href="http.html">Defined Interactions</a> that are not processed
       synchronously or may take a lot of time to process. For example, a server that accepts a high volume of sensor data and
       queues it for saving, or an operation that re-indexes the data in a server to add a new search parameter. This
       pattern returns a <a href="bundle.html">Bundle Resource</a>.</li>
   </ul>
+  <p>
+    For now, these patterns are defined in the <a href="https://build.fhir.org/ig/HL7/api-incubator">API
+      Incubator</a> while the details are finalised through implementation testing.
+  </p>
 
 <h3 id="patterns">Conformance</h3>
 <p>

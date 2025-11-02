@@ -260,7 +260,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="Claim.billablePeriod">
@@ -375,7 +375,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessPriority"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="The timeliness with which processing is required: stat, normal, deferred."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
@@ -732,7 +732,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CareTeamRole"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The role codes for the care team members."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-careteamrole"/>
       </binding>
@@ -804,7 +804,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InformationCategory"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="The valuset used for additional information category codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
       </binding>
@@ -965,7 +965,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DiagnosisType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The type of the diagnosis: admitting, principal, discharge."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosistype"/>
       </binding>
@@ -984,7 +984,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DiagnosisOnAdmission"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Present on admission."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosis-on-admission"/>
       </binding>
@@ -1032,7 +1032,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Example procedure type codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-procedure-type"/>
       </binding>

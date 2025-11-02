@@ -63,6 +63,18 @@ id, and they are identified based on other kinds of identifiers. See
 of using resources not associated with RESTful servers.
 </p>
 
+[%dragons-start%]
+<h4>FHIR Version Conversion Issue</h4>
+<p>
+If a system does not have server-unique (as opposed to resource-unique) logical
+ids for resources and are using Basic to do <a href="basic.html">cross-version representations using Basic</a>, be
+aware that ID collisions are possible and problematic. Possible mitigations could
+include prefixing/suffixing ids, using a common id namespace for resources subject
+to being exposed as Basic, or moving to globally unique logical ids. Note that
+ids SHOULD be consistent regardless of the FHIR version used to expose the data.
+</p>
+[%dragons-end%]
+
 <a name="identifier-categories"></a>
 <h4>Identifier Categories</h4>
 <p>
@@ -147,11 +159,11 @@ have canonical URLs:
 <li><a href="compartmentdefinition.html">CompartmentDefinition</a></li>
 <li><a href="conceptmap.html">ConceptMap</a></li>
 <li><a href="conditiondefinition.html">ConditionDefinition</a></li>
+<li><a href="devicedefinition.html">DeviceDefinition</a></li>
 <li><a href="eventdefinition.html">EventDefinition</a></li>
 <li><a href="evidence.html">Evidence</a></li>
 <li><a href="evidencevariable.html">EvidenceVariable</a></li>
 <li><a href="examplescenario.html">ExampleScenario</a></li>
-<li><a href="graphdefinition.html">GraphDefinition</a></li>
 <li><a href="implementationguide.html">ImplementationGuide</a></li>
 <li><a href="library.html">Library</a></li>
 <li><a href="measure.html">Measure</a></li>
@@ -170,6 +182,9 @@ have canonical URLs:
 <li><a href="terminologycapabilities.html">TerminologyCapabilities</a></li>
 <li><a href="valueset.html">ValueSet</a></li>
 </ul>
+<p>
+Other <a href="resource.html#additional">Additional Resources</a> have canonical urls.
+</p>
 
 
 
@@ -601,12 +616,6 @@ in particular implementations or contexts of use.
  </div>
 </div>
 
-
-<p>
-Note that the RESTful API defines some <a href="operations.html">Operations</a> that provide
-<a href="resource-operation-meta.html">direct read and write access</a> to the <i>meta</i> element.   
-</p>
-
 <a name="versions"></a>
 <h4>Record Versions vs Business Versions vs FHIR Versions</h4>
 <p>
@@ -860,8 +869,7 @@ pattern:
 </ul>
 <p>
 However, in some cases, an update may invalidate existing tags.  Servers may update 
-or remove previously existing recognized tags if this is known to be appropriate. A client
-can retrieve the current tags using the <a href="resource-operation-meta.html">$meta</a> operation.
+or remove previously existing recognized tags if this is known to be appropriate.
 </p>
 
  

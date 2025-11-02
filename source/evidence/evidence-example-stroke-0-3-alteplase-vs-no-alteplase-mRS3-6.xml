@@ -84,8 +84,8 @@
     <statisticType>
       <coding>
         <system value="https://fevir.net/sevco"/>
-        <code value="C16932"/>
-        <display value="Odds Ratio"/>
+        <code value="STATO:0000182"/>
+        <display value="odds ratio"/>
       </coding>
     </statisticType>
     <quantity>
