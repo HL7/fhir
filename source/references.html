@@ -301,6 +301,34 @@ to the Resource.text of the referenced resource.  The purpose is to identify wha
 being referenced, not to more fully describe it.
 </p>
 
+<a name="additional"></a>
+<h3>Additional References</h3>
+<p>
+Sometimes there is a need to communicate a reference to a resource that is not a defined target
+for the element in the version of FHIR being used. There are two common situations for this:
+</p>
+<ul>
+ <li>A future (or past) version of FHIR allows a reference to additional targets and the system has
+  a need to be able to communicate such a reference. This may include references to resources that
+  don't even exist in the version of FHIR being used, in which case the target would be a Basic
+  instance using the <a href="versions.html#extensions">inter-version conversion rules</a>.</li>
+ <li>An <a href="resource.html#additional">additional resource</a> has been defined that is a logical target for the element. Core elements
+  aren't permitted to have resource targets that are additional resources, though profiles might
+  wish to allow pointing to them.</li>
+</ul>
+<p>
+In both of these cases, the solution is to use the <a href="https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-alternate-reference.html">alternate-reference</a> extension. It allows
+referencing any type of resource - including additional resources. The targetProfile used when
+profiling this extension is free to point to a narrower profile than a resource - e.g. a specific
+inter-version resource profile on Basic.
+</p>
+<p>
+In some cases, an additional resource may migrate to be a core resource and become allowed as a
+target resource. Systems that have not yet updated to support that new core resource may
+struggle with the migration of the reference from the <code>additional-reference</code> to the standard
+<code>Reference.reference</code> element. Communication partners will need to manage this transition."
+</p>
+
 <a name="canonical"></a>
 <h3>Canonical URLs</h3>
 <p>
