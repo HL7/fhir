@@ -938,7 +938,14 @@ If a UCUM unit is provided in the <code>code</code>, then a canonical value can 
 purposes of comparison between quantities. Note that the <code>unit</code> element will often
 contain text that is a valid UCUM unit, but it cannot be assumed that the unit actually contains a valid UCUM unit.
 </p>
-
+<p>
+If there is a need to convey exceptional values such as Not a Number (NaN), 'trace', 'sufficient quantity', etc., 
+this should be done using a coded data type such as CodeableConcept, drawing on codes from code systems such as 
+<a href="https://terminology.hl7.org/CodeSystem-data-absent-reason.html">Data Absent Reason</a> or 
+<a href="https://terminology.hl7.org/CodeSystem-v3-NullFlavor.html">Null Flavor</a>, and appropriate extensions 
+exist for this purpose (<a href="https://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html">here</a> 
+and <a href="https://hl7.org/fhir/extensions/StructureDefinition-iso21090-nullFlavor.html">here</a>).
+</p>
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Quantity%]
