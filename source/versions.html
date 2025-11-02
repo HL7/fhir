@@ -655,7 +655,12 @@ move through the maturity cycle. For this reason, all FHIR implementers are enco
 usage <a href="http://fhir.org/implementations/usage">here</a>, which captures contact and other information
 that will allow HL7 to perform appropriate monitoring of FHIR usage. Survey information is confidential and reported in aggregate only.
 </p>
-
+<p>
+One type of breaking change that can happen between trial-use versions is that elements that were previously mandatory might
+be removed or made optional.  When converting data from future releases of FHIR, no data will be available for these elements.
+The '1' minimum cardinality can be satisfied by sending a <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">data-absent-reason</a> extension with a value of "not-applicable".
+Systems SHOULD always check not only for an element but a value for the element when writing their logic.  
+</p>
 <a name="extensions"></a>
 <h3>Extensions for converting between versions</h3>
 
