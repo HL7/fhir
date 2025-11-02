@@ -745,6 +745,20 @@
 			<type>
 				<code value="RelatedArtifact"/>
 			</type>
+			<constraint>
+				<key value="lib-1"/>
+				<severity value="warning"/>
+				<human value="Successor or predecessor of a Library should be a library"/>
+				<expression value="type in ('successor' | 'predecessor') implies ((resource.resolve() is Library) or (artifact.resolve() is Library))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Library"/>
+			</constraint>
+			<constraint>
+				<key value="lib-2"/>
+				<severity value="warning"/>
+				<human value="Dependencies and components of a Library should reference a resource"/>
+				<expression value="type in ('depends-on' | 'composed-of' | 'part-of') implies ((resource.exists() xor resourceReference.exists()) or (artifact is canonical xor artifact is Reference))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Library"/>
+			</constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>

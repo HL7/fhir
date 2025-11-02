@@ -826,6 +826,27 @@
 			<type>
 				<code value="RelatedArtifact"/>
 			</type>
+			<constraint>
+				<key value="adf-1"/>
+				<severity value="warning"/>
+				<human value="Successor or predecessor of an ActivityDefinition should be an ActivityDefinition"/>
+				<expression value="type in ('successor' | 'predecessor') implies ((resource.resolve() is ActivityDefinition) or (artifact.resolve() is ActivityDefinition))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+			</constraint>
+			<constraint>
+				<key value="adf-2"/>
+				<severity value="warning"/>
+				<human value="Dependencies of an ActivityDefinition should reference a resource"/>
+				<expression value="type in ('depends-on' | 'part-of') implies ((resource.exists() xor resourceReference.exists()) or (artifact is canonical xor artifact is Reference))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+			</constraint>
+			<constraint>
+				<key value="adf-3"/>
+				<severity value="warning"/>
+				<human value="ActivityDefinition should not have components"/>
+				<expression value="type != 'composed-of'"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+			</constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>

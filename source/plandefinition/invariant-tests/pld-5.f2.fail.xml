@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PlanDefinition xmlns="http://hl7.org/fhir">
+   <id value="low-suicide-risk-order-set"/>
+   <url value="http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set"/>
+   <title value="Low Suicide Risk Order Set"/>
+   <status value="active"/>
+   <experimental value="true"/>
+   <relatedArtifact>
+      <type value="predecessor"/>
+      <resource value="http://hl7.org/fhir/Measure/example"/> <!-- This should be an error to reference Measure as a predecessor -->
+      <artifactCanonical value="http://hl7.org/fhir/Measure/example"/> <!-- This should be an error to reference Measure as a predecessor -->
+   </relatedArtifact>
+   <!-- Actions -->
+   <action>
+      <title value="Suicide Risk Assessment and Outpatient Management"/>
+      <relatedAction>
+         <targetId value="12"/>
+         <relationship value="concurrent"/>
+      </relatedAction>
+      <action id="12">
+         <title value="Consults and Referrals"/>
+      </action>
+   </action>
+</PlanDefinition>

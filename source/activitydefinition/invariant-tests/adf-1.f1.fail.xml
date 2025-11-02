@@ -11,7 +11,7 @@
     <value value="referralPrimaryCareMentalHealth"/>
   </identifier>
   <version value="1.1.0"/>
-  <name value="12"/>
+  <name value="ValidName"/>
   <title value="Referral to Primary Care Mental Health"/>
   <status value="active"/>
   <experimental value="true"/>
@@ -152,6 +152,11 @@
 	  <use value="work"/>
     </telecom>
   </author>
+  <relatedArtifact>
+    <type value="successor"/>
+    <resource value="http://hl7.org/fhir/Measure/example"/> <!-- This should be an error to reference Measure as a successor -->
+    <artifactCanonical value="http://hl7.org/fhir/Measure/example"/> <!-- This should be an error to reference Measure as a successor -->
+  </relatedArtifact>
   <relatedArtifact>
     <type value="citation"/>
     <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
