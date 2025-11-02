@@ -94,7 +94,6 @@ specification, and defines some additional FHIR specific properties.
   "hl7.fhir.r5.core": "5.0.x"
 }
 </pre>
-    See <a href="references.html#matching">Version Matching for Canonical Resources</a> for more information.
     <br/><br/>
     A dependency on a core package is required, and this dependency defines the FHIR version used to resolve the contents of this dependency tree. If multiple core package dependencies are listed, the first instance is the version used.
     <br/><br/>
@@ -114,7 +113,8 @@ specification, and defines some additional FHIR specific properties.
   <tr>
     <td><b>canonical</b></td>
     <td>conditionally required</td>
-    <td>The canonical URL for the Implementation guide represented by the package, if this package represents a single Implementation Guide. This SHALL be present if the package is for an Implementation Guide and is optional for other packages.</td>
+    <td>The canonical URL for the Implementation guide represented by the package, if this package represents a single Implementation Guide.
+      This SHALL be present if the package is for an Implementation Guide and is optional for other packages.</td>
   </tr>
   <tr>
     <td><b>url</b></td>
