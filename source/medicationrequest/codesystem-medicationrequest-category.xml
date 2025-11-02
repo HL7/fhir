@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medicationrequest-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/medicationrequest-category"/>
+  <version value="6.0.0-ballot3"/>
+  <name value="MedicationRequestCategoryCodes"/>
+  <title value="Medication Request Category Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International"/>
+  <description value="Medication Request Category Codes &#xA; **Note to Balloters: This code system is expected to move to [terminology.fhir.org](http://terminology.fhir.org)**"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="inpatient"/>
+    <display value="Inpatient"/>
+    <definition value="Includes requests for medications to be administered or consumed in an inpatient or acute care setting."/>
+  </concept>
+  <concept>
+    <code value="outpatient"/>
+    <display value="Outpatient"/>
+    <definition value="Includes requests for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)."/>
+  </concept>
+  <concept>
+    <code value="community"/>
+    <display value="Community"/>
+    <definition value="Includes requests for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)."/>
+  </concept>
+  <concept>
+    <code value="discharge"/>
+    <display value="Discharge"/>
+    <definition value="Includes requests for medications created when the patient is being released from a facility."/>
+  </concept>
+</CodeSystem>
