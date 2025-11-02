@@ -353,6 +353,7 @@
       <path value="Medication.ingredient.strength[x]"/>
       <short value="Quantity of ingredient present"/>
       <definition value="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet but can also be expressed a quantity when the denominator is assumed to be 1 tablet."/>
+      <comment value="Medication.ingredient.strength.denominator can cause some confusion.  For example, the concentration of a pediatric acetaminophen suspension can be '32 mg / 1 ml' or '160 mg / 5 ml'.  Both strengths are the same (32 mg * 5 = 160 mg).   In clinical systems (drug databases) strengths are usually to unit volumes (32 mg / 1 ml).  While on a consumer product it's preferred to say how much per 'typical' dose (160 mg / 5 ml, with 5 ml (1 tsp) being the typical dose).  Both representations are valid.  Best practice is to select the denominator most relevant to the situation and use that same denominator for all ingredients. Ingredient.strength is problematic for multi-ingredient ingredients.  For example, antacid products often contain multiple ingredients, such as 'aluminum &amp; magnesium hydroxide with simethicone 400-400-40 mg/5ml'.  Expressing a 'final concentration' in these cases is intractable and the best option is to not include ingredient.strength.">
       <min value="0"/>
       <max value="1"/>
       <type>
