@@ -48,10 +48,10 @@
         </denominator>
       </strengthRatio>
     </ingredient>
-  <batch>
+  <instance>
     <lotNumber value="12345"/>
     <expirationDate value="2019-10-31"/>
-  </batch>
+  </instance>
   
   
 </Medication>
