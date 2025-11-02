@@ -327,7 +327,7 @@
       <path value="MedicationRequest.category"/>
       <short value="Grouping or category of medication request"/>
       <definition value="An arbitrary categorization or grouping of the medication request.  It could be used for indicating where meds are intended to be administered, eg. in an inpatient setting or in a patient's home, or a legal category of the medication."/>
-      <comment value="The category can be used to include where the medication is expected to be consumed or other types of requests.  The examplar value set represents where the meds are intended to be administered and is just one example of request categorization."/>
+      <comment value="The category can be used to include where the medication is expected to be consumed or other types of requests.  The exemplar value set represents where the meds are intended to be administered and is just one example of request categorization.  &#10;&#10;The committee will revisit these codes, expecting to use a codesystem from [terminology.hl7.org](http://terminology.hl7.org)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

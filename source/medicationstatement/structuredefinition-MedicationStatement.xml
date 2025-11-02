@@ -177,7 +177,7 @@
     <element id="MedicationStatement.category">
       <path value="MedicationStatement.category"/>
       <short value="Type of medication statement"/>
-      <definition value="Type of medication statement (for example, drug classification like ATC, where meds would be administered, legal category of the medication.)."/>
+      <definition value="Type of medication statement.  &#10;&#10;The committee will revisit these codes, expecting to use a codesystem from [terminology.hl7.org](http://terminology.hl7.org)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -15,7 +15,7 @@
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="HL7 International"/>
-  <description value="Medication Request Category Codes"/>
+  <description value="Medication Request Category Codes &#xA; **Note to Balloters: This code system is expected to move to [terminology.fhir.org](http://terminology.fhir.org)**"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-category"/>
   <content value="complete"/>
