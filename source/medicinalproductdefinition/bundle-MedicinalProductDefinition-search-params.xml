@@ -284,6 +284,7 @@
         <type value="reference"/>
         <expression value="MedicinalProductDefinition.operation.organization"/>
         <processingMode value="normal"/>
+        <target value="Organization"/>
       </SearchParameter>
     </resource>
   </entry>
