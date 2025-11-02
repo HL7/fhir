@@ -391,15 +391,15 @@
       <definition value="If true, indicates the provider is ordering a patient should not take the specified medication. The reason for this order can be provided in the .reason element. A MedicationRequest with .doNotPerform = true will not result in any dispense or administration. 
 A request not to take or administer medication is a standalone request, and does not update any other medication request.  
 When true, active orders that may exist for the same medication are expected to be canceled/ended, and new orders for the same medication are not expected."/>
-<comment value="If do not perform is not specified, the request is a positive request (e.g., &quot;do perform&quot;).  
-The attributes provided with the request qualify what is not to be done.  
-If a performerType is specified, then the &quot;do not&quot; request only applies to performers of that type.  
-Qualifiers include: code, subject, occurrence, performerType and performer.
+<comment value="If do not perform is not specified, the request is a positive request (e.g., &quot;do perform&quot;).  &#xA;&#xA;
+The attributes provided with the request qualify what is not to be done.  &#xA;&#xA;
+If a performerType is specified, then the &quot;do not&quot; request only applies to performers of that type.  &#xA;&#xA;
+Qualifiers include: code, subject, occurrence, performerType and performer.  &#xA;&#xA;&#xA;&#xA;
 
-For example:
-* doNotPerform=true + code=Lithium → &quot;do not give Lithium&quot; (any other med is ok)
-* doNotPerform=true + dosage.timing.when=lunch → &quot;do not give at lunch&quot; (not impacting giving at other times)
-* doNotPerform=true + dosage.route=oral → &quot;do not give orally&quot; (not impacting other routes)
+For example:  &#xA;&#xA;
+* doNotPerform=true + code=Lithium → &quot;do not give Lithium&quot; (any other med is ok)  &#xA;&#xA;
+* doNotPerform=true + dosage.timing.when=lunch → &quot;do not give at lunch&quot; (not impacting giving at other times)  &#xA;&#xA;
+* doNotPerform=true + dosage.route=oral → &quot;do not give orally&quot; (not impacting other routes)  &#xA;&#xA;
 " />
       <min value="0"/>
       <max value="1"/>
