@@ -938,25 +938,5 @@
         <code value="boolean"/>
       </type>
     </element>
-    <element id="TerminologyCapabilities.closure">
-      <path value="TerminologyCapabilities.closure"/>
-      <short value="Information about the [ConceptMap/$closure](conceptmap-operation-closure.html) operation"/>
-      <definition value="Whether the $closure operation is supported."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.closure.translation">
-      <path value="TerminologyCapabilities.closure.translation"/>
-      <short value="If cross-system closure is supported"/>
-      <definition value="If cross-system closure is supported."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
   </differential>
 </StructureDefinition>
