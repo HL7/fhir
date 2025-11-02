@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="provenance-activity-type-example"/>
+  <id value="provenance-activity-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -9,7 +9,7 @@
     <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="informative"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="6"/>
@@ -28,10 +28,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.429"/>
   </identifier>
   <version value="2.0.0"/>
-  <name value="ProvenanceActivityTypeExample"/>
-  <title value="Example ValueSet of representative activity type codes."/>
+  <name value="ProvenanceActivityType"/>
+  <title value="ValueSet of representative activity type codes."/>
   <status value="active"/>
-  <experimental value="true"/> 
+  <experimental value="false"/> 
   <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>
@@ -44,7 +44,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Example code systems are:&#xA;- [v3-DocumentCompletion](http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion)&#xA;- [v3-DataOperation](http://terminology.hl7.org/CodeSystem/v3-DataOperation)&#xA;- [v3-ActCode](http://terminology.hl7.org/CodeSystem/v3-ActCode)&#xA;- [ISO Lifecycle](http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle)&#xA;- [FHIR RESTful interactions](codesystem-restful-interaction.html)&#xA;- [W3C PROV Activity Types](http://hl7.org/fhir/w3c-provenance-activity-type)"/>
+  <description value="code systems are:&#xA;- [v3-DocumentCompletion](http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion)&#xA;- [v3-DataOperation](http://terminology.hl7.org/CodeSystem/v3-DataOperation)&#xA;- [v3-ActCode](http://terminology.hl7.org/CodeSystem/v3-ActCode)&#xA;- [ISO Lifecycle](http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle)&#xA;- [FHIR RESTful interactions](codesystem-restful-interaction.html)&#xA;- [W3C PROV Activity Types](http://hl7.org/fhir/w3c-provenance-activity-type)"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
