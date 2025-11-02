@@ -621,7 +621,7 @@
 			<path value="Bundle.entry.response.etag"/>
 			<short value="The Etag for the resource (if relevant)"/>
 			<definition value="The Etag for the resource, if the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency))."/>
-			<comment value="Etags match the Resource.meta.versionId. The ETag has to match the version id in the header if a resource is included."/>
+			<comment value="Etags match the Resource.meta.versionId. The ETag has to match the version id in the header if a resource is included - e.g. W/'1'"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
