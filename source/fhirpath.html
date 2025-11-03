@@ -265,9 +265,10 @@ In addition to the general purpose functions below, additional functions functio
 <hr/>
 
 <p><b>hasValue() : Boolean</b><a name="fn-hasValue"> </a></p>
-<p>Returns true if the input collection contains a single value which is a FHIR primitive, 
-  and it has a primitive value (e.g. as opposed to not having a value and just having extensions).
-  Otherwise, the return value is empty.
+<p>If the input collection contains a single value which is a FHIR primitive, then will
+  return true if the single value is a primitive value (e.g. as opposed to not having a
+  value and just having extensions) and false if not. If the input collection isn't a
+  single FHIR primitive, the return value is empty.
 </p>
 
 <blockquote>
