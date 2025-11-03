@@ -1,11 +1,32 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="naming-conventions"></a>
+<h2>Naming Conventions for Search Parameters</h2>
+<p>
+HL7-defined search parameters follow these naming conventions:
+</p>
+<ul>
+  <li>Use lowercase letters with hyphens for multi-word parameters (kebab-case)</li>
+  <li>Prefer shorter, more common terms when possible</li>
+  <li>Be consistent across resources when the same concept is searched (e.g., <code>authored</code> for authoring dates)</li>
+  <li>Avoid abbreviations unless widely understood</li>
+  <li>Use singular forms unless the concept is inherently plural</li>
+  <li>Use of a prefix underscore character (<code>_</code>) compliant with the rules of the <a href="http.html#styleguide">Style Guide</a></li>
+</ul>
+
+
+
 <a name="notes"></a>
 <h2>Notes</h2>
 <ul>
   <li>
     If the extension's context specifies multiple resources, they are represented with multiple 
     elements in the <code>SearchParameter.base</code> array
+  </li>
+  <li>
+    An expression like <code>Resource.descendents.extension('extension-url').value</code> is possible, but this 
+    is a low performance option for a server to evaluate, and search parameter expressions are performance 
+    sensitive
   </li>
 </ul>
 
@@ -76,5 +97,28 @@ Patient.extension('http://example.org/fhir/StructureDefinition/extension-thumb-l
  | Patient.contact.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value
  | Practitioner.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value
 </pre>
+
+<a name="alias"></a>
+<h4>Search Parameter Aliases</h4>
+
+<p>
+To support evolution toward consistent naming conventions while maintaining backward compatibility, <code>SearchParameter</code> resources 
+MAY define one or more <code>aliasCode</code> values. These aliases represent suggested alternative codes that can be used to reference the search 
+parameter in addition to the primary <code>code</code> value.
+</p>
+
+<p>
+<b>Usage Guidelines:</b>
+</p>
+<ul>
+  <li>Aliases should be used primarily for backward compatibility when standardizing parameter names</li>
+  <li>Servers that declare support for a SearchParameter SHOULD accept all defined aliases in addition to the primary code</li>
+  <li>New implementations SHOULD use the primary code rather than aliases</li>
+  <li>Aliases are displayed in the SearchParameter registry and resource search parameter tables</li>
+</ul>
+
+<p>
+<b>Example:</b> A search parameter previously named <code>authoredon</code> might be updated to use <code>authored</code> as the primary code (for consistency with other resources) while retaining <code>authoredon</code> as an alias for backward compatibility.
+</p>
 
 </div>

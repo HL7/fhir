@@ -650,7 +650,8 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
 <h3>Search Parameters</h3>
 <p>
   While search parameters are typically transmitted as URL-Encoded strings (e.g., HTTP Parameters or <code>x-www-form-urlencoded</code> body content),
-  FHIR is modeled with a rich set of <a href="datatypes.html#primitive">primitive</a> and <a href="datatypes.html#complex">complex</a> data types to describe the data encountered in healthcare.  To provide consistent
+  FHIR is modeled with a rich set of <a href="datatypes.html#primitive">primitive</a> and <a href="datatypes.html#complex">complex</a> data types to describe 
+  the data encountered in healthcare.  To provide consistent
   mapping between the two formats, each search parameter is defined by a type that specifies how the search parameter
   behaves.  These are the defined search parameter types:
 </p>
@@ -680,6 +681,15 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
   For example, a search against the Patient resource for <code>given=value</code> is a request to a server to compare values
   in the given name of a patient against "value", using the default string test (see <a href="#string">string</a> for details).
   Each of these 'parts' of a search test have a lot of flexibility.
+</p>
+<p>
+  Search inputs are dereferenced by a server based on their listing in the server's <a href="capabilitystatement.html">CapabilityStatement</a>,
+  according to the <code>CapabilityStatement.rest.resource.searchParam.name</code> element. These values are typically a computer-friendly code
+  defined by the <a href="searchparameter.html">SearchParameter</a> resource for the parameter, either in 
+  <a href="searchparameter-definitions.html#SearchParameter.code">SearchParameter.code</a> or
+  <a href="searchparameter-definitions.html#SearchParameter.alias">SearchParameter.alias</a>. Note that the values listed
+  in the <code>SearchParameter</code> resource are only suggestions, though some implementation guides will add requirements
+  for improved interoperability.
 </p>
 <p>
   Search input values are parsed according to the search parameter type, as defined in the relevant 
@@ -1016,7 +1026,7 @@ name=valueA,valueB</span>
 </p>
 <p>
   Search parameter modifiers are defined by the <a href="codesystem-search-modifier-code.html">search-modifier-code</a> 
-  code system. <span class="fhir-conformance">Search parameter definitions MAY include a list of allowed modifiers in the <code>SearchParameter.code</code> 
+  code system. <span class="fhir-conformance">Search parameter definitions MAY include a list of allowed modifiers in the <code>SearchParameter.modifier</code> 
   element, which is bound to the <a href="valueset-search-modifier-code.html">search-modifier-code</a> value set.</span> <span class="fhir-conformance">Servers
   SHALL support any modifiers present in search parameters the server advertises support for.</span> <span class="fhir-conformance">Servers MAY choose to support
   additional modifiers.</span> <span class="fhir-conformance">Note that servers MAY support modifiers on types not defined in this specification.</span>
@@ -4296,7 +4306,8 @@ types that the search applies to. This can be done by using the standard search 
   If multiple types are specified, all search parameters that can be referenced commonly
   between resources can be used (e.g., listed with the same <code>name</code> in the
   CapabilityStatement, typically the value of 
-  <a href="searchparameter-definitions.html#SearchParameter.code">SearchParameter.code</a>).
+  <a href="searchparameter-definitions.html#SearchParameter.code">SearchParameter.code</a> or one of its
+  <a href="searchparameter-definitions.html#SearchParameter.alias">SearchParameter.alias</a> values).
   For example, both <a href="patient.html#search">Patient</a> and <a href="person.html#search">Person</a>
   define a search parameter referenced by <code>name</code>.  Assuming a server implements
   both parameters and uses <code>name</code> to do so, the <code>name</code> parameter
