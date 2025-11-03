@@ -69,6 +69,7 @@ search declarations</a></span>, and clients are encouraged to do this too.
   </li>
   <li><a href="#specialconditions">Special Search Conditions</a>
     <ul>
+      <li><a href="#specialranges">Searching Ranges</a></li>
       <li><a href="#specialidentifiers">Searching Identifiers</a>
         <ul>
           <li><a href="#identifierslogical">Logical Identifiers</a></li>
@@ -1534,7 +1535,7 @@ part-of:contains=Task/T1A</span>
     This search would return: T1 (ancestor), T1A (the specified task), T1A1 and T1A2 (descendants).
   </p>
   <p>
-    Note: The <code>:contains</code> modifier can only be used with reference search parameters that support hierarchical relationships (typically those that reference the same resource type they are defined on, like <code>Location.partOf</code> or <code>Task.partOf</code>).
+    Note: The <code>contains</code> modifier can only be used with reference search parameters that support hierarchical relationships (typically those that reference the same resource type they are defined on, like <code>Location.partOf</code> or <code>Task.partOf</code>).
   </p>
 
   <h6>contains with <em>string</em> and <em>uri</em> search type parameters</h6>
@@ -3983,6 +3984,38 @@ context-type-value=focus$http://snomed.info/sct|408934002</span>
   In addition to 'basic' searching, this specification defines behaviors for many 'special' cases that 
   are common across implementations.
 </p>
+
+
+<a name="specialranges"></a>
+<h4>Searching ranges</h4>
+<p>
+Explicit boundary searching on elements with the <a href="datatypes.html#Range">Range</a> datatype can be performed using <a href="#composite">composite search parameters</a>. 
+Composite search parameters allow a single search to test against multiple aspects of the same range.
+</p>
+<p>
+When a composite search parameter references the same underlying search parameter that targets an element with a <code>Range</code> type multiple times,
+the search performs object-level joining rather than set-level joining. This means that the criteria apply to the same Range instance, not 
+independently across multiple Range values in a repeating element.
+</p>
+<p>
+  For example, if we define a search parameter for <code>Observation.valueRange</code> named <code>value-range</code> and a composite search parameter
+  named <code>value-range-values</code> that includes two components both referencing <code>value-range</code>,
+  then a search such as:
+  <span class="http-search-example">
+    <span class='http-verb-selector'>Show as unencoded: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+    <span class="http-verb-display">
+      <span class="http-verb-display-get">GET [base]/Observation?value-range-values=ge20$le30</span>
+      <span class="http-verb-display-post">POST [base]/Observation/_search
+Content-Type: application/x-www-form-urlencoded
+value-range-values=le20$ge30</span>
+    </span>
+  </span>
+  will match Observation records with a value range that has a low boundary greater than or equal to 20 AND a high boundary less than or equal to 30 on the <em>same Range instance</em>.
+  </p>
+  <p>
+  Note that this search will NOT match an Observation with two value ranges, one with a low of 25 and another with a high of 28, because
+  the low and high values do not belong to the same Range instance.  
+  </p>
 
 <a name="specialidentifiers"></a>
 <h4>Searching Identifiers</h4>
