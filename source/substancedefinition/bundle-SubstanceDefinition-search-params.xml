@@ -97,4 +97,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="SubstanceDefinition-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SubstanceDefinition.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/SubstanceDefinition-status"/>
+        <description value="Status of substance within the catalogue e.g. active, retired"/>
+        <code value="name"/>
+        <type value="token"/>
+        <expression value="SubstanceDefinition.status"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
