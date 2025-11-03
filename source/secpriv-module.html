@@ -151,7 +151,7 @@ includes implementation guidance to ensure that:
   Resources can be tagged to indicate the sensitivity or confidentiality of the data they represent (<a href="security-labels.html">Security Labels</a>)
 </li>
 <li>
-  Data access records and audit logs can be shared with individuals, e.g. for accounting of disclosures (<a href="auditevent.html">Audit Event</a>)
+  Data access records and audit logs can be shared with individuals, e.g., for accounting of disclosures (<a href="auditevent.html">Audit Event</a>)
 </li>
 </ul>
 
@@ -172,7 +172,7 @@ authorized requests and denied for unauthorized requests.
 <p>
 
 <em>Approach:</em> Authorization details can vary according to local policy,
-and according to the access scenario (e.g. sharing data among
+and according to the access scenario (e.g., sharing data among
 institution-internal subsystems vs. sharing data with trusted partners vs.
 sharing data with third-party user-facing apps). In general, FHIR enables a
 separation of concerns between the FHIR REST API and standards-based
@@ -260,7 +260,7 @@ For details, see
 <a href="security.html#audit">Security: Audit</a>.
 
 </p>
-<p>Organizations SHOULD have a policy regarding purging of data, such as AuditEvent resources which can become numerous. Some types of AuditEvent MAY have limited value after a period (e.g. year) of time and MAY be archived and purged. This purge must be in alignment with regulations such as medical records retention, security, and privacy regulations. For example, purging AuditEvents that are related to Patient Privacy Transparency would not be purged until that patient was purged (See <a href="patient-operation-purge.html">Purge Patient Record Operation</a>).</p>
+<p>Organizations SHOULD have a policy regarding purging of data, such as AuditEvent resources which can become numerous. Some types of AuditEvent MAY have limited value after a period (e.g., year) of time and MAY be archived and purged. This purge must be in alignment with regulations such as medical records retention, security, and privacy regulations. For example, purging AuditEvents that are related to Patient Privacy Transparency would not be purged until that patient was purged (See <a href="patient-operation-purge.html">Purge Patient Record Operation</a>).</p>
 <a name="AoD"></a>
 <h4>Accounting of Disclosures and/or Access Report</h4>
 <p>
@@ -328,7 +328,7 @@ For details, see
 </p>
 <p>
 <em>Approach:</em> Given that a system is using Provenance records. 
-When one needs the Provenance records in addition to the results of a query on other records (e.g. Query on MedicationRequest), 
+When one needs the Provenance records in addition to the results of a query on other records (e.g., Query on MedicationRequest), 
 then one uses reverse include to request that all Provenance records also be returned. 
 That is to add <code>?_revinclude=Provenance:target</code>. 
 
@@ -352,7 +352,7 @@ de-identification is best viewed as a process, not an algorithm - a process that
 </p><p>
 <ul>
 <li>
-<b>Direct-Identifier</b> - ISO/IEC 20889:2018 - attribute that alone enables unique identification of a data principal within a specific operational context. The operational context includes the information that the entity processing (e.g. de-identifying) the data processes, together with information that third parties and potential attackers can possess or that is in the public domain.
+<b>Direct-Identifier</b> - ISO/IEC 20889:2018 - attribute that alone enables unique identification of a data principal within a specific operational context. The operational context includes the information that the entity processing (e.g., de-identifying) the data processes, together with information that third parties and potential attackers can possess or that is in the public domain.
 </li><li>
 <b>Indirect-Identifier</b> - ISO/IEC 20889:2018 - attribute that, together with other attributes that can be in the dataset or external to it, enables unique identification of a data principal within a specific operational context.
 </li><li>
@@ -361,8 +361,8 @@ de-identification is best viewed as a process, not an algorithm - a process that
 Note that often Quasi-Identifier and Indirect-Identifier are often considered the same way.
 </p><p>
 <em>Modifying an element:</em> The de-identification process MAY determine that specific elements need to be modified to lower privacy 
-risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by 
-some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
+risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g., "removed"), fuzzing (e.g., adjusting by 
+some random value), masking (e.g., encryption), pseudonym (e.g., replace with an alias), etc. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
 See standards below for further details.
 </p><p>
 <em>Discussion:</em>
@@ -398,12 +398,12 @@ This pseudo specimen management is supplied by a trusted-third-party that mainta
 Care SHOULD be taken when modifying an isModifier elements, as the modification will change the meaning of the Resource.
 </p><p>
 De-Identified data might not be compliant with commonly imposed constraints on non-de-identified data, such as clinical 
-Profiles (e.g. VitalSigns). For example in VitalSigns profile there is a requirement to populate the <code>.effectiveDateTime</code>; 
+Profiles (e.g., VitalSigns). For example in VitalSigns profile there is a requirement to populate the <code>.effectiveDateTime</code>; 
 which would be an Indirect-Identifier; for which elimination, generalization, fuzzing, and/or timezone change 
 might be called for in the De-Identification analysis algorithm.
 </p><p>
 In practice, then, the de-identification process depends on the intended use of the data, the scope of the data being 
-extracted, and the risk associated with the release of the data (e.g. data released into the public domain has a 
+extracted, and the risk associated with the release of the data (e.g., data released into the public domain has a 
 different risk than internal sharing of data within a tightly managed organization with strong information security policies.)
 </p><p>
 <em>Security-label:</em> The resulting Resource SHOULD be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
@@ -475,7 +475,7 @@ technical approach to security and privacy.
 <li>
 more details about how to use digital Signatures for data integrity and
 non-repudiation, including an approach that supports some level of manipulation
-of resources (e.g. separating the entries in a bundle, or conversion between
+of resources (e.g., separating the entries in a bundle, or conversion between
 XML and JSON during processing),
 </li>
 <li>

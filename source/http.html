@@ -65,7 +65,7 @@ In addition to a number of <a href="#general">General Considerations</a> this pa
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource type</td></tr>
   <tr><td colspan="2"><b>Whole System Interactions</b></td></tr>
   <tr><td><a href="#capabilities">capabilities</a></td><td>Get a capability statement for the system</td></tr>
-  <tr><td><a href="#transaction">batch/transaction</a></td><td>Perform multiple operations (e.g. create, read, update, delete, patch, and/or [extended operations]) in a single interaction</td></tr>
+  <tr><td><a href="#transaction">batch/transaction</a></td><td>Perform multiple operations (e.g., create, read, update, delete, patch, and/or [extended operations]) in a single interaction</td></tr>
   <tr><td><a href="#cdelete">delete</a></td><td>Conditional Delete across all resource types based on some filter criteria</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for all resources</td></tr>
   <tr><td><a href="#search">search</a></td><td>Search across all resource types based on some filter criteria</td></tr>
@@ -99,7 +99,7 @@ The interactions on this page are defined like this:
    <ul>
      <li><code>base</code>: The <a href="#root">Service Base URL</a></li>
      <li><code>mime-type</code>: The <a href="#mime-type">Mime Type</a></li>
-     <li><code>type</code>: The name of a resource type (e.g. "Patient")</li>
+     <li><code>type</code>: The name of a resource type (e.g., "Patient")</li>
      <li><code>id</code>: The <a href="resource.html#id">Logical Id</a> of a resource</li>
      <li><code>vid</code>: The <a href="resource.html#metadata">Version Id</a> of a resource</li>
      <li><code>compartment</code>: The name of a <a href="compartmentdefinition.html">compartment</a></li>
@@ -181,7 +181,7 @@ For the purposes of this specification, the following rules apply:
 </p>
 <ul>
  <li>The query part of the URL (anything after <code>?</code>) is ignored</li>
- <li>The comparison of the document portion of the URL (i.e. not the server:port) is case sensitive</li>
+ <li>The comparison of the document portion of the URL (i.e., not the server:port) is case sensitive</li>
  <li>The protocols <code>http:</code> and <code>https:</code> SHALL NOT be used to refer to different underlying objects</li>
  <li>If a port is specified, then the ports must be identical or the objects are different (due to
    the prevalence of port mapping and/or interface engines running on different ports). Ports should
@@ -522,7 +522,7 @@ fhirVersion parameter may be used on either the Content-Type header, or the Acce
 applies to the entire interaction (the behavior of the interactions as described on ths page, the
 search parameters and functionality, and the accompanying conformance resources). It is an error for
 the Accept header to specify a different version than the Content-Type header unless invoking an operation
-that is specifically defined to perform version conversion (e.g. <code><a href="resource-operation-convert.html">$convert</a></code>.
+that is specifically defined to perform version conversion (e.g., <code><a href="resource-operation-convert.html">$convert</a></code>.
 For further information about specifying FHIR version, see <a href="versioning.html">Managing FHIR Versions</a>.
 </p>
 
@@ -544,7 +544,7 @@ The following parameters are defined for use with all of the interactions define
 <p>
 In order to support various implementation limitations, servers SHOULD support the optional <code>_format</code> parameter to
 specify alternative response formats by their MIME-types. This parameter allows a client to override the <code>accept</code>
-header value when it is unable to set it correctly due to internal limitations (e.g. XSLT usage). For the <code>_format</code>
+header value when it is unable to set it correctly due to internal limitations (e.g., XSLT usage). For the <code>_format</code>
 parameter, the values <code>xml</code>, <code>text/xml</code>, <code>application/xml</code>, and <code>application/fhir+xml</code>
 SHALL be interpreted to mean the <a href="xml.html">XML format</a>, the codes <code>json</code>, <code>application/json</code> and
 <code>application/fhir+json</code> SHALL be interpreted to mean the <a href="json.html">JSON format</a>, and the codes <code>ttl</code>,
@@ -617,7 +617,7 @@ resources they return, and SHALL update the value of <code>Resource.meta.lastUpd
 <p>
 In general, it is the business of the client to know which timezone a user is in, and update the 
 date/times accordingly. Note that not all date times should be adjusted to local time - particularly
-past dates in the clinical record, which generally should be reported in their timezone of origin (e.g. the patient 
+past dates in the clinical record, which generally should be reported in their timezone of origin (e.g., the patient 
 was admitted at 2pm in their local timezone). 
 </p>
 <p>
@@ -797,7 +797,7 @@ be necessary in some configurations:
  <li>multiple clients doing push in the context of agreed data model shared across multiple servers where ids are shared across servers</li>
 </ul>
 <p>
-Alternatively, clients may be sharing an agreed identification model (e.g. key server, scoped identifiers, or UUIDs)
+Alternatively, clients may be sharing an agreed identification model (e.g., key server, scoped identifiers, or UUIDs)
 where clashes do not arise. Note that this use of <code>update</code> has <a href="security.html#AccessDenied">security implications</a>.
 </p>
 <p>
@@ -938,7 +938,7 @@ If the version id given in the <code>If-Match</code> header does not match, the 
 <p>
 Servers can require that clients provide an <code>If-Match</code> header by returning <code>400 Bad Request</code>
 status codes when no <code>If-Match</code> header is found. Note that a <code>409 Conflict</code> can be returned when the
-server detects the update cannot be done (e.g. due to server side pessimistic locking).
+server detects the update cannot be done (e.g., due to server side pessimistic locking).
 </p>
 
 <a name="patch"></a>
@@ -1346,7 +1346,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b>: The server processes the create as above where, if the resource is created, the server returns a <code>201 Created</code> HTTP status code, and SHALL also return a <code>Location</code> header which contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of the created resource version</li>
  <li><b>One Match</b>: The server ignores the post and returns <code>200 OK</code>, with headers and body populated
- as they would have been if a create had actually occurred. (i.e. the body is set as per the prefer header, location and etag headers set, etc.)</li>
+ as they would have been if a create had actually occurred. (i.e., the body is set as per the prefer header, location and etag headers set, etc.)</li>
  <li><b>Multiple matches</b>: The server returns a <code>412 Precondition Failed</code> error indicating the client's criteria were not selective enough</li>
 </ul>
 <p>
@@ -1526,7 +1526,7 @@ Searches are processed as specified for the <a href="search.html">Search handlin
 If the search succeeds, the server SHALL return a <code>200 OK</code> HTTP status code and the return content SHALL be a <a href="bundle.html">Bundle</a>
 with <a href="bundle-definitions.html#Bundle.type">type</a> = <code>searchset</code> containing the results of the search as a collection of
 zero or more resources in a defined order. Note that resources returned in the search bundle MAY be located
-on the another server than the one that performs the search (i.e. the <a href="bundle-definitions.html#Bundle.entry.fullUrl">Bundle.entry.fullUrl</a> may be different to the <code>[base]</code> from the search URL).
+on the another server than the one that performs the search (i.e., the <a href="bundle-definitions.html#Bundle.entry.fullUrl">Bundle.entry.fullUrl</a> may be different to the <code>[base]</code> from the search URL).
 </p>
 <p>
 The result collection can be long, so servers may use paging. If they do, they SHALL use the method
@@ -1674,7 +1674,7 @@ This is different from the <code>capabilities</code> interaction:
 </p>
 <table class="grid">
  <tr><td><code>capabilities</code> interaction</td><td>returns a capability statement describing the server's current operational functionality</td></tr>
- <tr><td>CapabilityStatement end-point</td><td>manages a repository of capability statements (e.g. the HL7 capability statement registry)</td></tr>
+ <tr><td>CapabilityStatement end-point</td><td>manages a repository of capability statements (e.g., the HL7 capability statement registry)</td></tr>
 </table>
 <p>
 All servers are required to support the <code>capabilities</code> interaction, but servers may choose whether they wish to support the CapabilityStatement end-point,
@@ -1697,12 +1697,12 @@ The <code>batch</code> and <code>transaction</code> interactions submit a set of
 The actions may be performed independently as a "batch", or as a single atomic "transaction" where
 the entire set of changes succeed or fail as a single entity. Multiple actions on multiple resources
 of the same or different types may be submitted, and they may be a mix of other interactions defined
-on this page (e.g. <code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>, <code>delete</code>, etc.), or using the <a href="operations.html">operations</a>
+on this page (e.g., <code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>, <code>delete</code>, etc.), or using the <a href="operations.html">operations</a>
 framework.
 </p>
 <p>
 The <code>transaction</code> mode is especially useful where one would otherwise need multiple interactions, possibly
-with a risk of loss of referential integrity if a later interaction fails (e.g. when storing
+with a risk of loss of referential integrity if a later interaction fails (e.g., when storing
 a Provenance resource and its corresponding target resource or <a href="https://wiki.ihe.net/index.php/Mobile_access_to_Health_Documents_(MHD)">IHE-MHD transaction "Provide Document Resources"</a> 
 with some number of DocumentReference, List, and Binary resources).
 </p>
@@ -1744,7 +1744,7 @@ Examples:
 <h4>Batch Processing Rules</h4>
 <p>
 For a <code>batch</code>, there SHALL be no interdependencies between the different entries
-in the Bundle that cause change on the server. E.g. multiple entries making updates, patches, 
+in the Bundle that cause change on the server. e.g., multiple entries making updates, patches, 
 or deletes to the same resource with would be considered interdependencies. The success or failure of one change SHOULD
 not alter the success or failure or resulting content of another change. Servers SHOULD
 validate that this is the case. Note that it is considered that servers execute the batch
@@ -1764,7 +1764,7 @@ entry of other than <code>2xx</code> (<code>200</code>, <code>202</code> etc.) i
 <a name="trules"> </a>
 <h4>Transaction Processing Rules</h4>
 <p>
-For a <code>transaction</code>, servers SHALL either accept all actions (i.e. process each entry resulting in a <code>2xx</code> or <code>3xx</code> response code) 
+For a <code>transaction</code>, servers SHALL either accept all actions (i.e., process each entry resulting in a <code>2xx</code> or <code>3xx</code> response code) 
 and return an overall <code>200 OK</code>, along with a
 response bundle (see below), or reject all resources and return an HTTP <code>400</code> or <code>500</code> type
 response. It is not an error if the submitted bundle has no resources in it.
@@ -1807,7 +1807,7 @@ without changing the fullUrls for each target.
 </p>
 <p>
 When processing a batch or transaction, a server MAY choose to honor existing
-logical ids (e.g. <code>Observation/1234</code> remains as <code>Observation/1234</code> on the server), but
+logical ids (e.g., <code>Observation/1234</code> remains as <code>Observation/1234</code> on the server), but
 since this is only <a href="#upsert">safe in controlled circumstances</a>, servers
 may choose to assign new ids to all submitted resources, irrespective of any claimed
 logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in the batch/transaction.
@@ -1824,7 +1824,7 @@ in elements of type <a href="datatypes.html#markdown">markdown</a>, including ex
 based on either an exact match or a match of the portion of the URL preceding a '#'.
 </p>
 <p>
-E.g. If posting a resource with a reference of <code>http://somewhere.org/StructureDefinition/myprofile#some.element.path</code>
+e.g., If posting a resource with a reference of <code>http://somewhere.org/StructureDefinition/myprofile#some.element.path</code>
 and <code>http://somewhere.org/StructureDefinition/myprofile</code> is the fullUrl of another entry in the transaction, the server
 would replace the 'myprofile' id portion of the reference with whatever id it assigns and, if the target server base
 differs from <code>http://somewhere.org</code>, would also replace the base portion of the URL.
@@ -1878,7 +1878,7 @@ force a version-specific reference if they wish.
 <p><b>Conditional References</b></p>
 <p>
 When constructing the bundle, the client might not know the logical id of a resource, but it may
-know identifying information - e.g. an identifier. This situation arises commonly when building
+know identifying information - e.g., an identifier. This situation arises commonly when building
 transactions from v2 messages. The client could resolve that identifier to a logical id using
 a search, but that would mean that the resolution to a logical id does not occur within the
 same transaction as the commit (as well as significantly complicating the client). Because
@@ -2056,7 +2056,7 @@ Notes:
 </p>
 <ul>
  <li>conditional creates, updates and deletes are converted to direct updates and deletes in a history list</li>
- <li>operations do not appear directly in the history log, but side effects (e.g. creation of audit logs. stored binaries, etc.) will appear where relevant</li>
+ <li>operations do not appear directly in the history log, but side effects (e.g., creation of audit logs. stored binaries, etc.) will appear where relevant</li>
  <li>The resource in the entry is the resource as processed by the server, not as submitted by the client (<a href="updates.html">may be different</a>)</li>
  <li>In addition to the required response.status, the server SHOULD populate at least response.lastModified so the time of processing is clear in the history record</li>
  <li>Servers may choose to only record successful interactions. Servers may choose to only use <code>200 OK</code> instead of other more specific success codes</li>
@@ -2108,7 +2108,7 @@ Additional Notes about maintaining a history of resources:
  <li>All past versions of a resource are considered to be superseded, and no longer active, but retained for audit/integrity purposes</li>
  <li>In the case that a past version of a resource needs to be explicitly documented as <a href="lifecycle.html#error">'entered-in-error'</a>, use a <a href="provenance.html">Provenance</a> resource pointing to the past version of the resource</li>
  <li>When tracing the history of a specific resource, applications should retrieve any provenance resources relating to the resource or its past versions</li>
- <li>If a request is made for a history that is not available (e.g. the system does not keep a history for the type, or the particular instance), the server should return a <code>404 Not Found</code> along with an <a href="operationoutcome.html">OperationOutcome</a> explaining the problem</li>
+ <li>If a request is made for a history that is not available (e.g., the system does not keep a history for the type, or the particular instance), the server should return a <code>404 Not Found</code> along with an <a href="operationoutcome.html">OperationOutcome</a> explaining the problem</li>
 </ul>
 
 <p>
@@ -2150,7 +2150,7 @@ issues are still important.
 To the degree that the server alters the resource for any of
 the 3 reasons above, the FHIR server will create implementation
 consequences for the eco-system that it is part of, which will
-need to be managed (i.e. it will cost more). For this reason, servers
+need to be managed (i.e., it will cost more). For this reason, servers
 SHOULD change the resource as little as possible, given the constraints
 of the system exposing the FHIR resource. However due to the variability
 that exists within healthcare, this specification allows that servers
@@ -2206,7 +2206,7 @@ integrity is handled, in the documentation in the <a href="capabilitystatement.h
 Servers SHOULD support paging for the results of a <a href="#search">search</a> or <a href="#history">history</a> interaction,
 and if they do, they SHALL conform to this method (adapted from <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed
 Paging and Archiving)</a> for sending continuation links to the client when returning a <a href="bundle.html">Bundle</a>
-(e.g. with <code>history</code> and <code>search</code>). If the server does not do this then there is no way to continue paging.
+(e.g., with <code>history</code> and <code>search</code>). If the server does not do this then there is no way to continue paging.
 </p>
 <p>
 This example shows the third page of a search result:
@@ -2393,7 +2393,7 @@ client assigned id, the server SHOULD also return the <code>X-Correlation-Id</co
 header with the client's original id in it.
 </p>
 <p>
-The HTTP protocol may be routed through an HTTP proxy (e.g. as squid).
+The HTTP protocol may be routed through an HTTP proxy (e.g., as squid).
 Such proxies are transparent to the applications, though implementers
 should be alert to the effects of caching, particularly including the
 risk of receiving stale content. See the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html">HTTP specification</a> for further detail

@@ -21,9 +21,9 @@ FHIRPath is a separate specification published at <a href="http://hl7.org/fhirpa
 FHIRPath is used in several places in the FHIR and related specifications:
 </p>
 <ul>
-<li><a href="elementdefinition-definitions.html#ElementDefinition.constraint.expression">invariants in ElementDefinition</a> - used to apply co-occurrence and other rules to the contents (e.g. value.empty() or code!=component.code)</li>
-<li><a href="elementdefinition-definitions.html#ElementDefinition.slicing.discriminator.path">slicing discriminator</a> - used to indicate what element(s) define uniqueness (e.g. Observation.category)</li>
-<li><a href="searchparameter-definitions.html#SearchParameter.expression">search parameter paths</a> - used to define what contents the parameter refers to (e.g. Observation.dataAbsentReason)</li>
+<li><a href="elementdefinition-definitions.html#ElementDefinition.constraint.expression">invariants in ElementDefinition</a> - used to apply co-occurrence and other rules to the contents (e.g., value.empty() or code!=component.code)</li>
+<li><a href="elementdefinition-definitions.html#ElementDefinition.slicing.discriminator.path">slicing discriminator</a> - used to indicate what element(s) define uniqueness (e.g., Observation.category)</li>
+<li><a href="searchparameter-definitions.html#SearchParameter.expression">search parameter paths</a> - used to define what contents the parameter refers to (e.g., Observation.dataAbsentReason)</li>
 <li><a href="operationoutcome-definitions.html#OperationOutcome.issue.expression">error message locations in OperationOutcome</a></li>
 <li><a href="fhirpatch.html">FHIRPath-based Patch</a></li>
 <li><a href="[%ig testing%]/StructureDefinitions-TestScript-definitions.html#TestScript.setup.action.assert.expression">Invariants in the TestScript resource</a></li>
@@ -69,7 +69,7 @@ of primitives).
 <h4>Polymorphism in FHIR</h4>
 
 <p>
-For <a href="formats.html#choice">choice elements</a>, where elements can be one of multiple types, e.g. <code>Patient.deceased[x]</code>.
+For <a href="formats.html#choice">choice elements</a>, where elements can be one of multiple types, e.g., <code>Patient.deceased[x]</code>.
 In actual instances these will be present as either <code>Patient.deceasedBoolean</code> or <code>Patient.deceasedDateTime</code>.
 In FHIRPath, choice elements are labeled according to the name without the '[x]' suffix, and children can be explicitly treated
 as a specific type using the <code>ofType</code> function:</p>
@@ -188,7 +188,7 @@ Patient.name.given.ofType(System.string);
 
 <p>
 The Mapping from FHIR Quantity to FHIRPath System.Quantity can only be applied if the FHIR Quantity has a UCUM code
-- i.e. a system of <code>http://unitsofmeasure.org</code>, and a code is present.
+- i.e., a system of <code>http://unitsofmeasure.org</code>, and a code is present.
 </p>
 <p>
 As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/R2/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath, according to the following map:
@@ -204,7 +204,7 @@ As part of the mapping, time-valued UCUM units are mapped to the <a href="http:/
 
 [%dragons-start%]
 <p>
-i.e. The FHIR Quantity 1 'a' would be implicitly converted to the 
+i.e., The FHIR Quantity 1 'a' would be implicitly converted to the 
 FHIRPath System.Quantity 1 'year'.
 Note that there's a subtle difference between the UCUM definitions
 for <code>a</code> and <code>mo</code>, which are definition durations 
@@ -266,7 +266,7 @@ In addition to the general purpose functions below, additional functions functio
 
 <p><b>hasValue() : Boolean</b><a name="fn-hasValue"> </a></p>
 <p>Returns true if the input collection contains a single value which is a FHIR primitive, 
-  and it has a primitive value (e.g. as opposed to not having a value and just having extensions).
+  and it has a primitive value (e.g., as opposed to not having a value and just having extensions).
   Otherwise, the return value is empty.
 </p>
 
@@ -358,7 +358,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <p><b>subsumes(code : Coding | CodeableConcept) : Boolean</b><a name="fn-subsumes"> </a></p>
 
-<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
+<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e., the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or the return value is empty.</p>
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumes the given code.</p>
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
@@ -368,7 +368,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <p><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b><a name="fn-subsumedBy"> </a></p>
 
-<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e. the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
+<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e., the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumed by the given code.</p>
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
@@ -389,7 +389,7 @@ xhtml elements.
 
 <p>
 This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
-E.g. the lowBoundary of <code>1.0</code> is <code>0.95000000000</code>, and the lowBoundary of <code>2010-10-10</code> is 
+e.g., the lowBoundary of <code>1.0</code> is <code>0.95000000000</code>, and the lowBoundary of <code>2010-10-10</code> is 
 <code>2010-10-10T00:00:00.000+14:00</code>. This function can be invoked in any singleton primitive type that has a 
 value domain with a natural sort order: 
 <code>decimal</code>, <code>integer</code>, <code>dateTime</code>, <code>instant</code>, <code>date</code>, <code>time</code> and <code>Quantity</code>.
@@ -409,7 +409,7 @@ This function is intended to be added to the core FHIRPath specification in a fu
 
 <p>
 This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
-E.g. the highBoundary of <code>1.0</code> is <code>1.05000000000</code>, and the highBoundary of <code>2010-10-10</code> is 
+e.g., the highBoundary of <code>1.0</code> is <code>1.05000000000</code>, and the highBoundary of <code>2010-10-10</code> is 
 <code>2010-10-10T23:59:59.999-12:00</code>. This function can be invoked in any singleton primitive type that has a 
 value domain with a natural sort order: 
 <code>decimal</code>, <code>integer</code>, <code>dateTime</code>, <code>instant</code>, <code>date</code>, <code>time</code> and <code>Quantity</code>.
@@ -431,7 +431,7 @@ This function is intended to be added to the core FHIRPath specification in a fu
 This function returns true if the engine executing the FHIRPath statement can compare the singleton Quantity
 with the singleton other Quantity and determine their relationship to each other. Comparable means that both 
 have values and that the code and system for the units are the same (irrespective of system) or both have code + system, 
-system is recognized by the FHIRPath implementation and the codes are comparable within that code system.  E.g. days and hours or inches and cm.
+system is recognized by the FHIRPath implementation and the codes are comparable within that code system.  e.g., days and hours or inches and cm.
 </p>
 <p>
 This function is intended to be added to the core FHIRPath specification in a future version.
@@ -492,7 +492,7 @@ is used in a few contexts in this specification. When the restricted
 FHIRPath language subset is in use, the following rules apply:
 </p>
 <ul>
- <li>All statements SHALL start with the name of the context element (e.g. on a Patient resource, Patient.contact.name.), or SHALL be simply "$this" to refer to the element that has focus</li>
+ <li>All statements SHALL start with the name of the context element (e.g., on a Patient resource, Patient.contact.name.), or SHALL be simply "$this" to refer to the element that has focus</li>
  <li>Operators SHALL NOT be used</li>
  <li>Only the following functions may be used:
    <ul>
@@ -540,7 +540,7 @@ contain more than one item. Use the value <code>{}</code> if there is no value t
 %factory.{primitive}(value, extensions) : {primitive}
 </h4>
 <p>
-Create an instance of the type with the value and possibly one or more extensions. e.g. <code>%factory.code('final')</code>.
+Create an instance of the type with the value and possibly one or more extensions. e.g., <code>%factory.code('final')</code>.
 </p>
 <p>
 Parameters:
@@ -859,7 +859,7 @@ Parameters:
 </p>
 <ul>
  <li><b>valueSet</b>: either an actual <a href="valueset.html">ValueSet</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a value set.</li>
- <li><b>params</b>: a URL encoded string with other parameters for the expand operation (e.g. 'displayLanguage=en&amp;activeOnly=true')</li>
+ <li><b>params</b>: a URL encoded string with other parameters for the expand operation (e.g., 'displayLanguage=en&amp;activeOnly=true')</li>
 </ul>
 <p>
 <b>Return Value:</b> a <a href="valueset.html">ValueSet</a> with an expansion. If an error occurs, the return value is empty.
@@ -881,7 +881,7 @@ Parameters:
 </p>
 <ul>
  <li><b>coded</b>: either a <a href="datatypes.html#coding">Coding</a>, a <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the lookup operation (e.g. 'date=2011-03-04&amp;displayLanguage=en')</li>
+ <li><b>params</b>: a URL encoded string with other parameters for the lookup operation (e.g., 'date=2011-03-04&amp;displayLanguage=en')</li>
 </ul>
 <p>
 <b>Return Value:</b>
@@ -903,7 +903,7 @@ Parameters:
 <ul>
  <li><b>valueSet</b>: either an actual <a href="valueset.html">ValueSet</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a value set.</li>
  <li><b>coded</b>: either a <a href="datatypes.html#coding">Coding</a>, a <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g. 'date=2011-03-04&amp;displayLanguage=en')</li>
+ <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g., 'date=2011-03-04&amp;displayLanguage=en')</li>
 </ul>
 <p>
 <b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the validation operation.
@@ -925,7 +925,7 @@ Parameters:
 <ul>
  <li><b>codeSystem</b>: either an actual <a href="codesystem.html">CodeSystem</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a code system.</li>
  <li><b>coded</b>: either a <a href="datatypes.html#coding">Coding</a>, a <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g. 'date=2011-03-04&amp;displayLanguage=en')</li>
+ <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g., 'date=2011-03-04&amp;displayLanguage=en')</li>
 </ul>
 <p>
 <b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the validation operation.
@@ -947,7 +947,7 @@ Parameters:
  <li><b>system</b>: the URI of a code system within which the subsumption testing occurs</li>
  <li><b>coded1</b>: A <a href="datatypes.html#coding">Coding</a> or a resource element that is a <a href="datatypes.html#code">code</a></li>
  <li><b>coded2</b>: A <a href="datatypes.html#coding">Coding</a> or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g. 'version=2014-05-06')</li>
+ <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g., 'version=2014-05-06')</li>
 </ul>
 <p>
 <b>Return Value:</b> a code as specified for the subsumes operation.
@@ -968,7 +968,7 @@ Parameters:
 <ul>
  <li><b>conceptMap</b>: either an actual <a href="conceptmap.html">ConceptMap</a>, or a <a href="references.html#canonical">canonical URL</a> reference to a value set.</li>
  <li><b>coded</b>: The source to translate: a <a href="datatypes.html#coding">Coding</a> or a resource element that is a <a href="datatypes.html#code">code</a></li>
- <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g. 'source=http://acme.org/valueset/23&amp;target=http://acme.org/valueset/23')</li>
+ <li><b>params</b>: a URL encoded string with other parameters for the validate-code operation (e.g., 'source=http://acme.org/valueset/23&amp;target=http://acme.org/valueset/23')</li>
 </ul>
 <p>
 <b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the translation operation.
