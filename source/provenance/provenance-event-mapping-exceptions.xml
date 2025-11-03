@@ -145,7 +145,10 @@
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="Provenance.why">
         <upperCardinality _pattern="*" _resource="1" reason="Use-Case need"/>
-        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Not Appropriate"/>
+        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Unknown">
+            <!--Old pattern: CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)-->
+            <!--Old reason: Not Appropriate-->
+        </missingTypes>
         <extraTypes _resource="markdown" reason="Use-Case need"/>
         <summary _pattern="true" _resource="false" reason="Not needed"/>
         <bindingExistence _pattern="true" _resource="false" reason="not sure"/>

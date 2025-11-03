@@ -68,7 +68,10 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="DocumentReference.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="More specific to the use-case for this resource"/>
-        <missingTypes _pattern="Reference(Patient,Group)" reason="More specific to the use-case for this resource"/>
+        <missingTypes _pattern="Reference(Patient, Group)" reason="Unknown">
+            <!--Old pattern: Reference(Patient,Group)-->
+            <!--Old reason: More specific to the use-case for this resource-->
+        </missingTypes>
         <extraTypes _resource="Reference(Resource)" reason="More specific to the use-case for this resource"/>
         <shortUnmatched reason="More specific to the use-case for this resource">
             <_pattern value="Individual service was done for/to"/>
@@ -159,7 +162,10 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="DocumentReference.attester.party">
         <lowerCardinality _pattern="1" _resource="0" reason="Not always known or relevant"/>
-        <missingTypes _pattern="Reference(CareTeam,Device)" reason="Attestation requires specific actors"/>
+        <missingTypes _pattern="Reference(CareTeam, Device)" reason="Unknown">
+            <!--Old pattern: Reference(CareTeam,Device)-->
+            <!--Old reason: Attestation requires specific actors-->
+        </missingTypes>
         <extraTypes _resource="Reference(Group)" reason="More specific to the use-case need"/>
         <summary _pattern="true" _resource="false" reason="Not considered summary worthy"/>
         <shortUnmatched reason="More specific to the use-case need">

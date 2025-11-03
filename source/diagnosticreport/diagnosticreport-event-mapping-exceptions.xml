@@ -127,7 +127,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="DiagnosticReport.performer">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, RelatedPerson)" reason="Unknown"/>
         <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed diagnostic report"/>
@@ -141,7 +141,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="DiagnosticReport.resultsInterpreter">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, Device, RelatedPerson)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed diagnostic report"/>
             <resource value="Who analyzed and reported the conclusions and interpretations"/>

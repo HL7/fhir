@@ -170,9 +170,8 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.product" resourcePath="ServiceRequest.orderDetail.parameterFocus[x]">
-        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct,Device,DeviceDefinition,Medication,NutritionProduct,Substance)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Medication,MedicinalProductDefinition,SubstanceDefinition), canonical(DeviceDefinition,PlanDefinition), CodeableConcept" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,DeviceRequest,Medication,MedicationRequest,BiologicallyDerivedProduct,Substance,SubstanceDefinition,SupplyRequest,MedicinalProductDefinition), canonical(DeviceDefinition), CodeableConcept" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Product requested/ordered"/>
@@ -320,6 +319,8 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.relevantHistory" resourcePath="ServiceRequest.relevantHistory">
+        <missingTypes _pattern="Reference(ProvenanceRelevantHistory)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Provenance)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Key events in history of service request"/>
             <resource value="Request provenance"/>

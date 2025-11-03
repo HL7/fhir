@@ -34,7 +34,10 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="GuidanceResponse.performer">
         <lowerCardinality _pattern="1" _resource="0" reason="Not necessarily represented"/>
-        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,Patient,RelatedPerson)" reason="Specifically modeling service response"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, CareTeam, Patient, RelatedPerson)" reason="Unknown">
+            <!--Old pattern: Reference(Practitioner,PractitionerRole,Organization,CareTeam,Patient,RelatedPerson)-->
+            <!--Old reason: Specifically modeling service response-->
+        </missingTypes>
         <summary _pattern="true" _resource="false" reason="Not part of summary"/>
         <shortUnmatched reason="Specific text">
             <_pattern value="Who performed guidance response"/>
