@@ -747,7 +747,7 @@
 		</element>
 		<element id="ActivityDefinition.author">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Author was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Author was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="ActivityDefinition.author"/>
 			<short value="Who authored the content"/>
@@ -764,7 +764,7 @@
 		</element>
 		<element id="ActivityDefinition.editor">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Editor was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Editor was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="ActivityDefinition.editor"/>
 			<short value="Who edited the content"/>
@@ -781,7 +781,7 @@
 		</element>
 		<element id="ActivityDefinition.reviewer">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Reviewer was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Reviewer was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="ActivityDefinition.reviewer"/>
 			<short value="Who reviewed the content"/>
@@ -799,7 +799,7 @@
 		</element>
 		<element id="ActivityDefinition.endorser">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Endorser was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Endorser was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="ActivityDefinition.endorser"/>
 			<short value="Who endorsed the content"/>

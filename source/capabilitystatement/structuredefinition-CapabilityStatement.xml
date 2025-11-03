@@ -807,7 +807,7 @@
 		<element id="CapabilityStatement.rest.mode">
 			<path value="CapabilityStatement.rest.mode"/>
 			<short value="client | server"/>
-			<definition value="Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations."/>
+			<definition value="Identifies whether this portion of the statement is describing the ability to initiate or receive restful interactions."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -1006,8 +1006,8 @@
 				<valueCode value="-20,470"/>
 			</extension>
 			<path value="CapabilityStatement.rest.resource.interaction"/>
-			<short value="What operations are supported?"/>
-			<definition value="Identifies a restful operation supported by the solution."/>
+			<short value="What interactions are supported?"/>
+			<definition value="Identifies a restful interaction supported by the solution."/>
 			<comment value="In general, a Resource will only appear in a CapabilityStatement if the server actually has some capabilities - e.g. there is at least one interaction supported. However interactions can be omitted to support summarization (_summary = true)."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1018,7 +1018,7 @@
 		<element id="CapabilityStatement.rest.resource.interaction.code">
 			<path value="CapabilityStatement.rest.resource.interaction.code"/>
 			<short value="read | vread | update | update-conditional | patch | patch-conditional | delete | delete-conditional-single | delete-conditional-multiple | delete-history | delete-history-version | history-instance | history-type | create | create-conditional | search-type"/>
-			<definition value="Coded identifier of the operation, supported by the system resource."/>
+			<definition value="Coded identifier of the interaction, supported by the system resource."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -1029,7 +1029,7 @@
 					<valueString value="TypeRestfulInteraction"/>
 				</extension>
 				<strength value="required"/>
-				<description value="Operations supported by REST at the type or instance level."/>
+				<description value="Interactions supported by REST at the type or instance level."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/type-restful-interaction"/>
 			</binding>
 		</element>
@@ -1038,8 +1038,8 @@
 				<valueBoolean value="true"/>
 			</extension>
 			<path value="CapabilityStatement.rest.resource.interaction.documentation"/>
-			<short value="Anything special about operation behavior"/>
-			<definition value="Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'."/>
+			<short value="Anything special about interaction behavior"/>
+			<definition value="Guidance specific to the implementation of this interaction, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'."/>
 			<requirements value="REST allows a degree of variability in the implementation of RESTful solutions that is useful for exchange partners to be aware of."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1072,8 +1072,8 @@
 		<element id="CapabilityStatement.rest.resource.readHistory">
 			<path value="CapabilityStatement.rest.resource.readHistory"/>
 			<short value="Whether vRead can return past versions"/>
-			<definition value="A flag for whether the server is able to return past versions as part of the vRead operation."/>
-			<comment value="It is useful to support the vRead operation for current operations, even if past versions aren't available."/>
+			<definition value="A flag for whether the server is able to return past versions as part of the vRead interaction."/>
+			<comment value="It is useful to support the vRead interaction for current interactions, even if past versions aren't available."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1083,7 +1083,7 @@
 		<element id="CapabilityStatement.rest.resource.updateCreate">
 			<path value="CapabilityStatement.rest.resource.updateCreate"/>
 			<short value="If update can commit to a new identity"/>
-			<definition value="A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server."/>
+			<definition value="A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this interaction means that the server allows the client to create new identities on the server."/>
 			<comment value="Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won't happen. While creating identities on the client means that the clients need to be managed, it's much more convenient for many scenarios if such management can be put in place."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1343,7 +1343,7 @@
 				<valueCode value="550,490"/>
 			</extension>
 			<path value="CapabilityStatement.rest.interaction"/>
-			<short value="What operations are supported?"/>
+			<short value="What interactions are supported?"/>
 			<definition value="A specification of restful operations supported by the system."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1354,7 +1354,7 @@
 		<element id="CapabilityStatement.rest.interaction.code">
 			<path value="CapabilityStatement.rest.interaction.code"/>
 			<short value="transaction | batch | search-system | history-system"/>
-			<definition value="A coded identifier of the operation, supported by the system."/>
+			<definition value="A coded identifier of the interaction, supported by the system."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -1365,7 +1365,7 @@
 					<valueString value="SystemRestfulInteraction"/>
 				</extension>
 				<strength value="required"/>
-				<description value="Operations supported by REST at the system level."/>
+				<description value="Interactions supported by REST at the system level."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/system-restful-interaction"/>
 			</binding>
 		</element>
@@ -1374,8 +1374,8 @@
 				<valueBoolean value="true"/>
 			</extension>
 			<path value="CapabilityStatement.rest.interaction.documentation"/>
-			<short value="Anything special about operation behavior"/>
-			<definition value="Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented."/>
+			<short value="Anything special about interaction behavior"/>
+			<definition value="Guidance specific to the implementation of this interaction, such as limitations on the kind of transactions allowed, or information about system wide search is implemented."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
