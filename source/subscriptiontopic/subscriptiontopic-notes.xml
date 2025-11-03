@@ -120,6 +120,9 @@
     <p>
       When using query criteria, it is important to note the interaction between the <code>supportedInteraction</code> element, the <code>previous</code> and <code>resultForCreate</code> elements, the <code>current</code> and <code>resultForDelete</code> elements, and the <code>requireBoth</code> element.  More information can be found in the <a href="#resource-operation-pairs">Triggers and Resource Interactions</a> section of this page.
     </p>
+    <p>
+      Note that the query strings specified in <code>previous</code> and <code>current</code> are NOT required to be URL-encoded. Implementers should be defensive when processing these query criteria and check for both URL-encoded and non-URL-encoded forms to ensure compatibility across different implementations.
+    </p>
 
 		<a name="fhirpath-criteria" />
 		<h4>FHIRPath Trigger Definitions</h4>
