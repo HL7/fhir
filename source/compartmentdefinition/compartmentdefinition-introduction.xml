@@ -20,9 +20,13 @@ instance of the compartment's type) contains all resources found by searching us
 associated search parameters with a value of the compartment resource.  For example, the
 compartment for <code>Patient/123</code> would include <code>Account?subject=Patient/123</code>,
 <code>AllergyIntolerance?patient=Patient/123</code>, <code>AllergyIntolerance?asserter=Patient/123</code>, 
-etc. Resources may also be included in a compartment based on rules stated in <code>CompartmentDefinition.resource.documentation</code>,
-though the lack of a computable representation of the inclusion rules means there may be inconsistency in implementation.
+etc.
+Each CompartmentDefinition instance will list all resources available for that FHIR release
+(<a href="structuredefinition.html#additional">Additional resources are handled separately</a>).
+Listed resources that have one or more .param elements are considered part of the compartment.
+Listed resources that do not have a .param element are considered to be outside the compartment.
 </p>
+
 
 <p><b>Notes:</b></p>
 <ul>
@@ -30,7 +34,7 @@ though the lack of a computable representation of the inclusion rules means ther
 At present, CompartmentDefinition instances can <i>only</i> be defined by HL7 International in this 
 specification.  This is because their existence creates significant impact on the behavior of servers.
 The CompartmentDefinitions defined  in this specification may be hosted on other servers. There is
-no computable mechanism to describe a given server's compartment implementation (e.g. resources not
+no mechanism to describe a given server's compartment implementation (e.g. resources not
 supported in the implementation of the compartment or additional resources included in the compartment).
 </li>
 <li>
@@ -39,6 +43,11 @@ not be sufficient for this purpose.  Resources outside the compartment might
 still be appropriate to be made available or subject to compartment restrictions even 
 though they are not formally part of the compartment (see below about access rules).
 </li>
+<li>
+Resources that are not part of a compartment MAY still be returned in searches against the compartment
+by using the _include mechanism. Local convention can also include additional resources in
+compartment-based retrieval operations such as $everything. These resources are not 'in' the 
+compartment, but they are still available at server discretion.
 </ul>
 </div> 
 
