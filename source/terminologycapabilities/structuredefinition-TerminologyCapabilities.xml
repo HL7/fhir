@@ -606,8 +606,8 @@
     </element>
     <element id="TerminologyCapabilities.codeSystem.uri">
       <path value="TerminologyCapabilities.codeSystem.uri"/>
-      <short value="Canonical identifier for the code system, represented as a URI"/>
-      <definition value="Canonical identifier for the code system, represented as a URI."/>
+      <short value="Canonical identifier for the code system, represented as a URI (no version portion)"/>
+      <definition value="Canonical identifier for the code system, represented as a URI. This cannot have a version in the canonical URL."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -615,6 +615,17 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </type>
       <condition value="tcp-6"/>
+    </element>
+    <element id="TerminologyCapabilities.codeSystem.supplement">
+      <path value="TerminologyCapabilities.codeSystem.supplement"/>
+      <short value="Canonical identifier for a supported supplement to this code system (including supplement version)"/>
+      <definition value="Canonical identifier for a supported supplement to this code system. Supplements listed here supplement all versions of the code system. This reference SHOULD be version specific."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+      </type>
     </element>
     <element id="TerminologyCapabilities.codeSystem.version">
       <path value="TerminologyCapabilities.codeSystem.version"/>
@@ -654,6 +665,17 @@
       </type>
       <condition value="tcp-8"/>
       <isSummary value="true"/>
+    </element>
+    <element id="TerminologyCapabilities.codeSystem.version.supplement">
+      <path value="TerminologyCapabilities.codeSystem.version.supplement"/>
+      <short value="Canonical identifier for a supported supplement to this code system version (including supplement version)"/>
+      <definition value="Canonical identifier for a supported supplement to this code system. Supplements listed here supplement this specific version of the code system (and by implication, not all of the supported versions). This reference SHOULD be version specific."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+      </type>
     </element>
     <element id="TerminologyCapabilities.codeSystem.version.compositional">
       <path value="TerminologyCapabilities.codeSystem.version.compositional"/>
