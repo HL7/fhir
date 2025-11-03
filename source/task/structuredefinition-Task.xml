@@ -1136,9 +1136,6 @@
         <code value="ContactDetail"/>
       </type>
       <type>
-        <code value="Contributor"/>
-      </type>
-      <type>
         <code value="DataRequirement"/>
       </type>
       <type>
@@ -1345,9 +1342,6 @@
       </type>
       <type>
         <code value="ContactDetail"/>
-      </type>
-      <type>
-        <code value="Contributor"/>
       </type>
       <type>
         <code value="DataRequirement"/>

@@ -621,6 +621,13 @@ discriminator is based is a restricted FHIRPath statement that is allowed to inc
 See the <a href="fhirpath.html#simple">full details about the restricted FHIRPath statement</a>.
 </p>
 <p>
+The element(s) asserting the constraints that disambiguate the slices may be asserted in different
+profiles than the one that defines the slicing rule.  This will always happen if the discriminator
+uses 'resolve', but it may occur even when the element in question falls within the same resource.
+For example, a profile might slice Patient.address by 'use' and then declare multiple profiles for
+Address.type, each of which has a different fixed value for the 'use' element.
+</p>
+<p>
 Further notes about the use of the different discriminator types:
 </p>
 <table class="codes">
