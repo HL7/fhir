@@ -24,9 +24,13 @@ HL7 has produced a number of other standards that don't overlap with FHIR as clo
 This specification defines a number of functional behaviors for Electronic Health Record systems.  FHIR is a healthcare information exchange standard that can be used to satisfy some of these functional behaviors.  Details on how FHIR fits into the EHR-FM can be found <a href="ehr-fm.html">here</a>
 </p>
 
-<h3>Context Management Specifications (CCOW)</h3>
+<h3>Context Management (FHIRCast)</h3>
 <p>
-CCOW is a standard for allowing independent systems to synchronize context on a single workstation, providing a seamless interface for the user of that workstation (e.g. ensuring consistent user authentication, display of the same patient, display of the same order, etc.)  In theory, FHIR resources could be used as an alternative CCOW implementation technology, however the business case for doing this is not clear.  CCOW profiles include <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> mappings.  These mappings can be used to help identify the equivalent FHIR data elements when establishing CCOW linkages in FHIR-based systems.
+FHIRcast synchronizes healthcare applications in real time to show the same clinical content to a common user.
+For example, a radiologist often works in three disparate applications at the same time (a radiology information system, a PACS and a dictation system),
+she wants each of these three systems to display the same study or patient at the same time. 
+Note that HL7 had an earlier specification called CCOW (Clinical Context Object Workgroup) that allowed for independent systems to synchronize context
+on a single workstation, but this has been retired and replaced by FHIRcast.
 </p>
 
 <h3>Arden Syntax</h3>
