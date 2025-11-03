@@ -1607,9 +1607,10 @@ family:exact=Son</span>
     The <code>identifier</code> modifier allows clients to indicate that a supplied <code>token</code> is used to
     match against the <a href="references-definitions.html#Reference.identifier">Reference.identifier</a> element of a reference instead
     of the <a href="references-definitions.html#Reference.reference">Reference.reference</a> element.  The format of the parameter is
-    <b><code>[system]|[code]</code></b> (see <a href="#encoding-note">Encoding Note</a>).  Note that chaining is not supported 
-    when using the <code>identifier</code> modifier 
-    and the modifier is not supported on canonical elements since they do not have an identifier separate from the reference itself.
+    <b><code>[system]|[code]</code></b> (see <a href="#encoding-note">Encoding Note</a>).  Note that chaining behavior is not defined 
+    when using the <code>identifier</code> modifier, nor is the behavior defined when targeting references without explicit
+    <code>reference</code> values (e.g., canonical references, etc.). Server implementers have discretion on behavior for searches in
+    these cases.
   </p>
   <p>
     <code>identifier</code> is only allowed on <a href="#reference">reference</a> type search parameters and target elements that are 
@@ -2179,8 +2180,14 @@ code:text-ad=headache</span>
   <p>
     The <code>[type]</code> modifier allows clients to restrict the resource type when following a resource reference.  The modifier does not use
     the literal '[type]' in any way, but rather the name of a resource - e.g., <code>Patient</code>, <code>Encounter</code>, etc..
-    Note that the modifier cannot be used with a reference to a resource found on another server, since the server would not usually know 
-    what type that resource has. However, since external references are always absolute references, there can be no ambiguity about the type.
+    Note that servers can impose restrictions on the use of the modifier (e.g., only allowing on local references, only allowing if <code>Reference.type</code>
+    is populated, etc.) and allow for extended behavior (e.g., allowing on <code>canonical</code> references, etc.). 
+    Note that since external references are always absolute references, there can be no ambiguity about the resource type when resolving.
+  </p>
+  <p>
+    When resolving references, it is possible that a resolved resource does not match the specified type.  In this case, the reference
+    is considered to not match the search parameter. <span class="fhir-conformance">If a reference resolves to a type different than indicated or expected, a
+    server SHOULD consider if it is appropriate to include the issue via an <code>OperationOutcome</code> in the response.</span>
   </p>
   <p>
     <code>[type]</code> is only allowed on <a href="#reference">reference</a> type search parameters that target elements with the 
@@ -4400,7 +4407,17 @@ a period (<code>.</code>) followed by the name of a search parameter defined for
 resource. This can be done recursively, following a logical path
 through a graph of related resources, separated by <code>.</code>.  Note that chaining is only
 defined for <a href="#reference">reference</a> type search parameters that target <a href="references.html#Reference">Reference</a> 
-FHIR type elements and <a href="#resource">resource</a> type search parameters. 
+FHIR type elements and <a href="#resource">resource</a> type search parameters.
+Server implementers have discretion regarding additional requirements in content (e.g., 
+whether external references are allowed) and behavior in extended scenarios (e.g.,
+if canonical resolution is performed, etc.).
+</p>
+<p>
+  When chaining through references, it is possible that a resolved resource does not match the expected type.  In this case, the reference
+  is considered to not match the search parameter. <span class="fhir-conformance">If a reference resolves to a type different than allowed via the reference,
+  a server SHOULD consider if it is appropriate to include the issue via an <code>OperationOutcome</code> in the response.</span>
+</p>
+<p>
 For instance, given that the resource <a href="diagnosticreport.html">DiagnosticReport</a>
 has a search parameter named <i>subject</i>, which is usually a
 reference to a <a href="patient.html">Patient</a> resource, and
@@ -5564,6 +5581,36 @@ path may point to an attachment which is by reference, like this:
 <p>
 The server can retrieve the target of this reference, and add it to the
 results for the convenience of the client.
+</p>
+
+<a name="includecanonical"></a>
+<h5>Canonical References</h5>
+
+<p>
+When including resources referenced via <code>canonical</code> elements, servers perform resolution as described for 
+<a href="#identifiercanonical">Canonical Identifiers</a>. Server implementers have discretion about whether or not to support 
+canonical resolution in includes and reverse includes, and may impose additional restrictions (e.g., only resolving canonicals 
+that are pre-loaded, from specific packages, or within certain namespaces).
+</p>
+<p>
+<span class="fhir-conformance">Servers that support canonical resolution in includes SHOULD advertise this capability by listing the relevant search parameters in 
+<code>CapabilityStatement.rest.resource.searchInclude</code> and <code>.revInclude</code>.</span> Including a search parameter in these 
+elements indicates that the server will attempt to resolve and include the referenced resources.
+</p>
+
+<p>
+For example, some servers will want to allow inclusion of <a href="questionnaire.html">Questionnaire</a> resources
+referenced by <a href="questionnaireresponse.html">QuestionnaireResponse</a> resources via the
+<code>questionnaire</code> canonical reference element:
+<span class="http-search-example">
+  <span class='http-verb-selector'>Show as unencoded: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
+  <span class="http-verb-display">
+    <span class="http-verb-display-get">GET [base]/QuestionnaireResponse?_include=QuestionnaireResponse:questionnaire</span>
+    <span class="http-verb-display-post">POST [base]/QuestionnaireResponse/_search
+Content-Type: application/x-www-form-urlencoded
+_include=QuestionnaireResponse:questionnaire</span>
+  </span>
+</span>
 </p>
 
 <a name="_graph"></a>
