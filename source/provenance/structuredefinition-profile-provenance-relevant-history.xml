@@ -15,7 +15,7 @@
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/provenance-relevant-history"/>
   <identifier>
@@ -23,7 +23,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1318"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="ProvenanceRelevantHistory"/>
+  <name value="ProvenanceRelevantHistory"/> 
   <title value="Provenance  Relevant  History"/>
   <status value="active"/>
   <experimental value="false"/>
@@ -35,7 +35,7 @@
       <value value="http://www.hl7.org/Special/Committees/fhir-i"/>
     </telecom>
   </contact>
-  <description value="Guidance on using Provenance for related history elements to provide key events that have happened over the lifespan of the resource  - see the use of this pattern in the [Request Pattern](request.html#history)"/>
+  <description value="This profile is provided for guidance purposes only.  There is no expectation that implementers must adhere to this profile.  It is included in the specification to help implementers understand how they might use Provenance to satisfy the typical needs envisioned by the 'relevantHistory' elements found in various Event and Request resources.&#13;&#10;&#13;&#10;This profile identifies the data elements most likely to be relevant to implementers who are using Provenance to convey the `relevant history` of a resource, as discussed in the [request pattern](request.html#history).  For the purposes of this profile, mustSupport should be interpreted as 'SHOULD be considered for population and SHOULD be understood by consumers.'  Implementers are not obligated to handle all of these element and are not prohibited from also making use of additional data elements"/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>

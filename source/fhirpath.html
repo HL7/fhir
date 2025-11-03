@@ -161,7 +161,7 @@ to FHIRPath types when they are used in expressions according to the following m
 <pre class="fhirpath">
 Patient.name.given = 'Ewout'                          // value of Patient.name.given as a string
 Patient.name.given.extension.first().value = true     // extension of the primitive value
-!Patient.active.hasValue() && !Patient.active.empty() // can both be true, if there are extensions but no value for Patient.active
+!Patient.active.hasValue() and !Patient.active.empty() // can both be true, if there are extensions but no value for Patient.active
 </pre>
 <p>
 The automatic conversion means that in most respects, a FHIR primitive can
