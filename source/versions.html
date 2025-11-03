@@ -763,10 +763,9 @@ Implementers should be aware of the following issues when using these extensions
   added to the element that will contain the name of the complex type in the source version.
  </li>
  <li>
-  The extension mechanism carries no information about cardinalities.  If converting from the extension
-  mechanism to 'core' elements when up-converting or down-converting the resource, the conversion process 
-  will need to know the max occurs for the element in the target version (e.g., to know whether the element 
-  should be a JSON array or not).
+  The extension mechanism carries no information about cardinalities. If converting from the extension mechanism to 'core' elements when up-converting or 
+  down-converting the resource, the conversion process will need to know the max occurs for the extension or the element in the target version (e.g., to 
+  know whether the element should be a JSON array or not).
  </li>
  <li>
   The vocabulary bindings can be to a specific value set version, but the expansions of those value sets 
