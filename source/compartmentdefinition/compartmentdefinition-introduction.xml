@@ -48,6 +48,7 @@ Resources that are not part of a compartment MAY still be returned in searches a
 by using the _include mechanism. Local convention can also include additional resources in
 compartment-based retrieval operations such as $everything. These resources are not 'in' the 
 compartment, but they are still available at server discretion.
+</li>
 </ul>
 </div> 
 
@@ -67,11 +68,11 @@ required to. Systems may publish <code>CompartmentDefinition</code> resources so
 other systems may make use of compartments properly.
 </p>
 <ul>
- <li>CompartmentDefinitions are used by <a href="capabilitystatement.html">CapabilityStatement</a> instances for specifying how resources are accessed</li>
-</ul>
-<ul>
+ <li>CompartmentDefinitions are used by <a href="capabilitystatement.html">CapabilityStatement</a> instances for specifying how resources are accessed
+   </li>
  <li><a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a> also provides a mechanism for grouping resources, though it does not provide an additional search mechanism.
- Inclusion of resources in a <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a> supports more complex criteria for inclusion than that allowed by CompartmentDefinition.</li>
+   Inclusion of resources in a <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a> supports more complex criteria for inclusion than that allowed by CompartmentDefinition.
+   </li>
 </ul>
 
 </div> 

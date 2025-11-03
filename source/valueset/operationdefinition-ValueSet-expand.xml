@@ -229,6 +229,14 @@
     <type value="string"/>
   </parameter>
   <parameter>
+    <name value="handle-unclosed-expansion"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="If true this asserts that you will correctly handle an unclosed expansion and the returned expansion SHALL include the valueset-unclosed extension if the value set is unclosed.  If handle-unclosed-expansion is set to false the server SHALL return an error if the value set is unclosed."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
     <name value="exclude-system"/>
     <use value="in"/>
     <min value="0"/>
