@@ -2196,65 +2196,344 @@ the prefixes described in the table below are used.  Note that in the following 
    </tr>
   <tr>
 	<td><code>eq</code></td>
-	<td>the resource value is equal to or fully contained by the parameter value</td>
-	<td>the range of the parameter value fully contains the range of the resource value</td>
+	<td>The resource value is equal to or fully contained by the parameter value.</td>
+	<td>The range of the parameter value fully contains the range of the resource value.
+      <br/><b>Boundary interpretation:</b> The lower boundary of the resource value is greater than or equal to the lower boundary of the parameter value
+       AND the upper boundary of the resource value is less than or equal to the upper boundary of the parameter value.
+      <br/><b>Resource interval tests:</b>
+      <br/>&nbsp;<code>resource-lower: [parameter-Lower, parameter-upper]</code>
+      <br/>&nbsp;<code>resource-upper: [parameter-Lower, parameter-upper]</code>
+  </td>
  </tr>
  <tr>
 	<td><code>ne</code></td>
-	<td>the resource value is not equal to the parameter value</td>
-  <td>the range of the parameter value does not fully contain the range of the resource value</td>
+	<td>The resource value is not equal to the parameter value.</td>
+  <td>The range of the parameter value does not fully contain the range of the resource value.
+      <br/><b>Boundary interpretation:</b> The lower boundary of the resource value is greater than the upper boundary of the parameter value 
+       OR the upper boundary of the resource value is less than the lower boundary of the parameter value.
+      <br/><b>Resource interval tests:</b>
+      <br/>&nbsp;<code>resource-lower: (parameter-Upper, ∞)</code>
+      <br/>&nbsp;<code>resource-upper: (-∞, parameter-lower)</code>
+  </td>
  </tr>
  <tr>
 	<td><code>gt</code></td>
-	<td>the resource value is greater than the parameter value</td>
-  <td>the range above the parameter value intersects (i.e., overlaps) with the range of the resource value</td>
- </tr>
- <tr>
-	<td><code>lt</code></td>
-	<td>the resource value is less than the parameter value</td>
-  <td>the range below the parameter value intersects (i.e., overlaps) with the range of the resource value</td>
+	<td>The resource value is greater than the parameter value.</td>
+  <td>The range above the parameter value intersects (i.e., overlaps) with the range of the resource value.
+      <br/><b>Boundary interpretation:</b> The upper boundary of the resource value is greater than the upper boundary of the parameter value.
+      <br/><b>Resource interval tests:</b>
+      <br/>&nbsp;<code>resource-upper: (parameter-upper, ∞)</code>
+  </td>
  </tr>
  <tr>
 	<td><code>ge</code></td>
-	<td>the resource value is greater or equal to the parameter value</td>
-  <td>the combined range from the parameter value (inclusive) to +infinite intersects (i.e., overlaps) with the range of the resource value</td>
+	<td>The resource value is greater or equal to the parameter value.</td>
+  <td>The combined range from the parameter value (inclusive) to +infinite intersects (i.e., overlaps) with the range of the resource value.
+      <br/><b>Boundary interpretation:</b> The lower OR upper boundaries of the resource value are greater than or equal to the upper boundary of the parameter value.
+      <br/><b>Resource interval tests:</b>
+      <br/>&nbsp;<code>resource-lower: [parameter-lower, ∞)</code>
+      <br/>&nbsp;<code>resource-upper: [parameter-lower, ∞)</code>
+  </td>
+ </tr>
+ <tr>
+	<td><code>lt</code></td>
+	<td>The resource value is less than the parameter value.</td>
+  <td>The range below the parameter value intersects (i.e., overlaps) with the range of the resource value.
+      <br/><b>Boundary interpretation:</b> The lower boundary of the resource value is less than the lower boundary of the parameter value.
+      <br/><b>Resource interval tests:</b>
+      <br/>&nbsp;<code>resource-lower: (-∞, parameter-lower)</code>
+  </td>
  </tr>
  <tr>
 	<td><code>le</code></td>
-	<td>the resource value is less or equal to the parameter value</td>
-  <td>the combined range from -infinite to the parameter value (inclusive) intersects (i.e., overlaps) with the range of the resource value</td>
+	<td>The resource value is less or equal to the parameter value.</td>
+  <td>The combined range from -infinite to the parameter value (inclusive) intersects (i.e., overlaps) with the range of the resource value.
+      <br/><b>Boundary interpretation:</b> The upper OR lower boundaries of the resource value are less than or equal to the upper boundary of the parameter value.
+      <br/><b>Resource interval tests:</b>
+      <br/>&nbsp;<code>resource-lower: (-∞, parameter-upper]</code>
+      <br/>&nbsp;<code>resource-upper: (-∞, parameter-upper]</code>
+  </td>
  </tr>
  <tr>
 	<td><code>sa</code></td>
-	<td>the resource value starts after the parameter value</td>
-  <td>the range of the parameter value does not overlap with the range of the resource value, and the range above the parameter value contains the range of the resource value</td>
+	<td>The resource value starts after the parameter value.</td>
+  <td>The range of the parameter value does not overlap with the range of the resource value, and the range above the parameter value contains the range of the resource value.
+      <br/><b>Boundary interpretation:</b> The lower boundary of the resource value is greater than the upper boundary of the parameter value.
+      <br/><b>Resource interval tests:</b>
+      <br/>&nbsp;<code>resource-lower: (parameter-upper, ∞)</code>
+  </td>
  </tr>
  <tr>
 	<td><code>eb</code></td>
-	<td>the resource value ends before the parameter value</td>
-  <td>the range of the parameter value does not overlap with the range of the resource value, and the range below the parameter value contains the range of the resource value</td>
+	<td>The resource value ends before the parameter value.</td>
+  <td>The range of the parameter value does not overlap with the range of the resource value, and the range below the parameter value contains the range of the resource value.
+      <br/><b>Boundary interpretation:</b> The upper boundary of the resource value is less than the lower boundary of the parameter value.
+      <br/><b>Resource interval tests:</b>
+      <br/>&nbsp;<code>resource-upper: (-∞, parameter-lower)</code>
+  </td>
  </tr>
  <tr>
 	<td><code>ap</code></td>
-	<td>the resource value is approximately the same to the parameter value.<br/>
-	Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate</td>
-  <td>the range of the parameter value overlaps with the range of the resource value</td>
+	<td>The resource value is approximately the same to the parameter value.
+      <br/> Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate.</td>
+  <td>The range of the parameter value overlaps with the range of the resource value.
+      <br/><b>Boundary interpretation:</b> The lower boundary of the resource value is less than or approximately the upper boundary of the parameter value
+       AND the upper boundary of the resource value is greater than or approximately the lower boundary of the parameter value.
+      <br/>&nbsp;<code>resource-lower: [~parameter-lower, ~parameter-lower]</code>
+      <br/>&nbsp;<code>resource-upper: [~parameter-upper, ~parameter-upper]</code>
+  </td>
  </tr>
 </table>
-<p><b>Examples (Clarification of <code>ge</code> and <code>le</code>):</b></p>
-<ul>
-  <li><code>le2015-04-13T20:27:01-04:00</code> matches a <a href="datatypes.html#period">Period</a> with range<br/>
-    <code>[2015-04-13T20:27:01-04:00, 2015-04-13T20:42:01-04:00)</code> because the combined search range<br/>
-    <code>(-∞, 2015-04-13T20:27:01-04:00]</code> overlaps the resource at the inclusive boundary instant.</li>
-  <li><code>le2015-04-13T20:27:01-04:00</code> does NOT match a Period<br/>
-    <code>[2015-04-13T20:27:02-04:00, 2015-04-13T20:42:01-04:00)</code> because there is no overlap with<br/>
-    <code>(-∞, 2015-04-13T20:27:01-04:00]</code>.</li>
-  <li><code>ge2015-04-13T20:27:01-04:00</code> matches a Period<br/>
-    <code>[2015-04-13T20:27:01-04:00, 2015-04-13T20:42:01-04:00)</code> because the combined search range<br/>
-    <code>[2015-04-13T20:27:01-04:00, +∞)</code> overlaps starting at the boundary instant.</li>
-  <li><code>ge2015-04-13T20:27:01-04:00</code> does NOT match a Period<br/>
-    <code>[2015-04-13T20:26:01-04:00, 2015-04-13T20:27:01-04:00)</code> because the resource ends exactly at the parameter instant and the end is exclusive, so there is no overlap with <code>[2015-04-13T20:27:01-04:00, +∞)</code>.</li>
-</ul>
+
+<p>
+  Following is a table showing some example ranges and how they interact with the prefixes, with <code>[P]</code> representing the parameter
+  range and <code>[R]</code> representing the resource range, with each additional column showing whether the test result is a match or not.
+  Empty columns indicate no match, while a match for a particular test will show the prefix code used for that test. Note that for
+  'approximately', the actuality of a match depends on both the actual spans of ranges and the server's definition of 'approximately'. Any
+  test that could possibly match is indicated with <code>ap</code>.
+</p>
+<table class="grid">
+  <thead>
+    <th>Test</th>
+    <th><code>eq</code></th>
+    <th><code>ne</code></th>
+    <th><code>gt</code></th>
+    <th><code>ge</code></th>
+    <th><code>lt</code></th>
+    <th><code>le</code></th>
+    <th><code>sa</code></th>
+    <th><code>eb</code></th>
+    <th><code>ap</code></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><pre>
+             |--[P]--|
+|--[R]--|
+      </pre></td>
+      <td></td>
+      <td><code>ne</code></td>
+      <td></td>
+      <td></td>
+      <td><code>lt</code></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td><code>eb</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><pre>
+        |--[P]--|
+|--[R]--|
+      </pre></td>
+      <td></td>
+      <td><code>ne</code></td>
+      <td></td>
+      <td></td>
+      <td><code>lt</code></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><pre>
+    |--[P]--|
+|--[R]--|
+      </pre></td>
+      <td></td>
+      <td><code>ne</code></td>
+      <td></td>
+      <td></td>
+      <td><code>lt</code></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><pre>
+    |--[P]--|
+|--[R]------|
+      </pre></td>
+      <td></td>
+      <td><code>ne</code></td>
+      <td></td>
+      <td></td>
+      <td><code>lt</code></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><pre>
+  |--[P]--|
+|----[R]----|
+      </pre></td>
+      <td></td>
+      <td><code>ne</code></td>
+      <td><code>gt</code></td>
+      <td><code>ge</code></td>
+      <td><code>lt</code></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ap</code></td>
+    </tr>
+    <tr>
+      <td><pre>
+ |----[P]----|
+[R]
+      </pre></td>
+      <td><code>eq</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ap</code></td>
+    </tr>
+    <tr>
+      <td><pre>
+|----[P]----|
+|--[R]--|
+      </pre></td>
+      <td><code>eq</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ap</code></td>
+    </tr>
+    <tr>
+      <td><pre>
+|--[P]--|
+|--[R]--|
+      </pre></td>
+      <td><code>eq</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ap</code></td>
+    </tr>
+    <tr>
+      <td><pre>
+|--[P]--|
+|--[R]----|
+      </pre></td>
+      <td></td>
+      <td><code>ne</code></td>
+      <td><code>gt</code></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><code>ap</code></td>
+    </tr>
+    <tr>
+      <td><pre>
+|----[P]----|
+  |--[R]--|
+      </pre></td>
+      <td><code>eq</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ap</code></td>
+    </tr>
+    <tr>
+      <td><pre>
+|---[P]---|
+  |--[R]--|
+      </pre></td>
+      <td><code>eq</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ap</code></td>
+    </tr>
+    <tr>
+      <td><pre>
+|--[P]--|
+    |--[R]--|
+      </pre></td>
+      <td></td>
+      <td><code>ne</code></td>
+      <td><code>gt</code></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><code>ap</code></td>
+    </tr>
+    <tr>
+      <td><pre>
+|----[P]----|
+           [R]
+      </pre></td>
+      <td><code>eq</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td><code>ap</code></td>
+    </tr>
+    <tr>
+      <td><pre>
+|--[P]--|
+        |--[R]--|
+      </pre></td>
+      <td></td>
+      <td><code>ne</code></td>
+      <td><code>gt</code></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td><code>le</code></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><pre>
+|--[P]--|
+            |--[R]--|
+      </pre></td>
+      <td></td>
+      <td><code>ne</code></td>
+      <td><code>gt</code></td>
+      <td><code>ge</code></td>
+      <td></td>
+      <td></td>
+      <td><code>sa</code></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
 <p>
   Note that prefixes <b>always</b> test against values present in elements.  In all cases, a prefix-based test against an
   element that does not exist will fail the test.  To search for elements missing values, the use of search modifiers
@@ -2267,14 +2546,14 @@ the prefixes described in the table below are used.  Note that in the following 
   found in the <a href="#multivalue">Searching Multiple Values</a> section of the Search page.
 </p>
 <p>
-If no prefix is present, the prefix <code>eq</code> is assumed. Note that the way search parameters operate
-is not the same as the way the operations on two numbers work in a mathematical sense. <code>sa</code> (<code>starts-after</code>) and
-<code>eb</code> (<code>ends-before</code>) are not used with integer values but are used for decimals.
+  If no prefix is present, the prefix <code>eq</code> is assumed. Note that the way search parameters operate
+  is not the same as the way the operations on two numbers work in a mathematical sense. <code>sa</code> (<code>starts-after</code>) and
+  <code>eb</code> (<code>ends-before</code>) are not used with integer values but are used for decimals.
 </p>
 <p>
 For each prefix above, two interpretations are provided - the simple intent of the prefix and the
 interpretation of the parameter when applied to ranges. The range interpretation is provided
-for decimals and dates.  Searches are always performed on values that are implicitly
+for decimals and dates.  Searches that support prefixes are always performed on values that are implicitly
 or explicitly a range. For instance, the number 2.0 has an implicit range of
 1.95 to 2.05, and the date 2015-08-12 has an implicit range of all the time during that day.
 If the resource value is a <a href="datatypes.html#range">Range</a>, a <a href="datatypes.html#period">Period</a>,
@@ -2327,8 +2606,9 @@ are identified:
       The range after 2015-08 includes any time from 2015-09-01T00:00:00.000000000000000 and later</td>
  </tr>
 </table>
+
 <p>
-Additional details about how ranges are applied are specific to each data type and are documented there.
+Additional details about how ranges are applied are specific to each data type and are documented in the relevant search data type.
 </p>
 
 <a name="escaping"></a>
@@ -2558,6 +2838,7 @@ The period end is adjusted to have maximum precision with the highest possible v
 A missing lower boundary is "less than" any actual date.  A missing upper boundary is "greater than" any actual date.
 Date searches can be controlled through the use of prefixes as described in the following table:
 </p>
+
 <table class="grid">
  <tr>
    <td><code>[parameter]=eq2013-01-14</code></td>
@@ -2608,6 +2889,17 @@ Date searches can be controlled through the use of prefixes as described in the 
    </td>
  </tr>
  <tr>
+   <td><code>[parameter]=ge2015-04-13T20:27:01-04:00</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/tick2.gif')">matches a Period <code>[2015-04-13T20:27:01-04:00, 2015-04-13T20:42:01-04:00)</code>
+       because the combined search range overlaps starting at the boundary instant.</li>
+     <li style="list-style-image: url('assets/images/cross.png')">does NOT match a Period <code>[2015-04-13T20:26:01-04:00, 2015-04-13T20:27:01-04:00)</code>
+       because the resource ends exactly at the parameter instant and the end is exclusive, so there is no overlap.</li>
+    </ul>
+   </td>
+ </tr>
+ <tr>
    <td><code>[parameter]=le2013-03-14</code></td>
    <td>
     <ul>
@@ -2616,6 +2908,17 @@ Date searches can be controlled through the use of prefixes as described in the 
    </td>
   </tr>
  <tr>
+   <td><code>[parameter]=le2015-04-13T20:27:01-04:00</code></td>
+   <td>
+    <ul>
+     <li style="list-style-image: url('assets/images/tick2.gif')">matches a <a href="datatypes.html#period">Period</a> with range <code>[2015-04-13T20:27:01-04:00, 2015-04-13T20:42:01-04:00)</code>
+       because the combined search range overlaps the resource at the inclusive boundary instant.</li>
+     <li style="list-style-image: url('assets/images/cross.png')">does NOT match a Period <code>[2015-04-13T20:27:02-04:00, 2015-04-13T20:42:01-04:00)</code>
+       because there is no overlap with<code>(-∞, 2015-04-13T20:27:01-04:00]</code>.</li>
+    </ul>
+   </td>
+ </tr>
+  <tr>
    <td><code>[parameter]=sa2013-03-14</code></td>
    <td>
     <ul>
