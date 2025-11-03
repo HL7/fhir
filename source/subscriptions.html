@@ -315,14 +315,7 @@ Note that at the time of this publication, the <code>SubscriptionTopic</code> re
   Unless otherwise specified by a server implementation and channel, the Subscriptions Framework does <b>not</b> involve <a href="https://www.rfc-editor.org/rfc/rfc2212">guaranteed</a> delivery of notifications; channels are assumed to be <a href="https://www.rfc-editor.org/rfc/rfc5290">simple best-effort</a> unless otherwise specified.  While the Subscriptions Framework is able to support such mechanisms, defining channels using them is beyond the scope of the standard at this time.
 </p>
 <p>
-  Subscribers should be aware of some limitations regarding delivery. In particular:
-  <ul>
-    <li>Some notifications might not be delivered.</li>
-    <li>Some notifications might be delivered multiple times.</li>
-  </ul>
-</p>
-<p>
-  In order to mitigate the impact from the above issues, the Subscriptions Framework includes mechanisms to detect both scenarios.  More information can be found <a href="#errors-delivery">below</a>.
+  Details about the responsibilities of servers and clients regarding notifications can be found in the <a href="#scoping">Scoping Responsibilities</a> section.
 </p>
 
 <a name="conformance"/>
@@ -420,10 +413,10 @@ Note that at the time of this publication, the <code>SubscriptionTopic</code> re
   Some topic and server implementation combinations may trigger internal notification workflows when notifications SHOULD NOT be sent.  For example, if a topic is designed around <code>Observation</code> resources being removed (e.g., deleted), an implementation may be triggered if an <code>Observation</code> is moved to a higher security level and is no longer available to a user.  These types of situations are implementation-specific, so this note is to raise awareness of potential pitfalls when implementing subscriptions.
 </p>
 <p>
-  Subscribers should ensure an appropriate process to validate incoming messages.  For example, if the <code>full-resource</code> content type is used, clients should provide a header or some other secret to the server so that messages can be verified prior to being used for health decisions.  Using content types of <code>empty</code> or <code>id-only</code> can mitigate this risk, as resources must be retrieved from a trusted location prior to use.  Additionally, subscriber implementations should be defensive about the processes spawned when receiving a notification.  For example, if data-receipt always directly triggers a query to a FHIR server, bad actors could generate fake notifications across several clients in order to overload a destination server (denial of service).
+  Subscribers SHOULD ensure an appropriate process to validate incoming messages.  For example, if the <code>full-resource</code> content type is used, clients SHOULD provide a header or some other secret to the server so that messages can be verified prior to being used for health decisions.  Using content types of <code>empty</code> or <code>id-only</code> can mitigate this risk, as resources must be retrieved from a trusted location prior to use.  Additionally, subscriber implementations should be defensive about the processes spawned when receiving a notification.  For example, if data-receipt always directly triggers a query to a FHIR server, bad actors could generate fake notifications across several clients in order to overload a destination server (denial of service).
 </p>
 <p>
-  Subscribers should be aware of, and protect against, the possibility of being used as part of an attack on a FHIR server.  For example, a malicious client may send a large volume of fake notifications with <code>empty</code> notifications, which would cause the subscriber to send many (potentially expensive) queries to a server.
+  Subscribers SHOULD be aware of, and protect against, the possibility of being used as part of an attack on a FHIR server.  For example, a malicious client may send a large volume of fake notifications with <code>empty</code> notifications, which would cause the subscriber to send many (potentially expensive) queries to a server.
 </p>
 
 <a name="tracking"/>
@@ -452,6 +445,7 @@ Note that at the time of this publication, the <code>SubscriptionTopic</code> re
 
 <p>
   In order to mitigate the impact from the above issues, the Subscriptions Framework includes mechanisms to detect both scenarios.
+  More information can be found in <a href="#errors-delivery">Detecting Delivery Errors</a>.
 </p>
 
 <a name="errors"/>
