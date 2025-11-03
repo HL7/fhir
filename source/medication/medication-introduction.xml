@@ -10,7 +10,7 @@ provided for human verification (e.g., the product name), but a full representat
 to drug dictionaries by means of the codes they define. There are some occasions where it is necessary to identify slightly more detail, such
 as when dispensing a package containing a particular medication requires identification both of the medicine and the package at once.  
 There are also some occasions (e.g. custom formulations) where the composition of a medicine must be represented.  
-In these cases, the ingredients of the medicine have to be specified together with the amount contained, though the Medication resource 
+In these cases, the ingredients of the medicine must be specified together with the amount contained, though the Medication resource 
 does not provide full details.
 </p>
 <p>
