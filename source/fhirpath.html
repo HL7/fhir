@@ -279,6 +279,14 @@ In addition to the general purpose functions below, additional functions functio
 </blockquote>
 
 <hr/>
+<p><b>toString() : string</b><a name="fn-toString"> </a></p>
+<p>If the input collection contains a single item, this function will return a single String if the type 
+  is a primitive, and it has a value (e.g. if <code>hsaValue() = true</code>), and the primitive type 
+  has a System type for which <a href="https://hl7.org/fhirpath/N1/#tostring-string">toString() is defined</a>.
+  Otherwise the result is an empty collection.
+</p>
+
+<hr/>
 
 <p><b>getValue() : System.[type]</b><a name="fn-getValue"> </a></p>
 <p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
