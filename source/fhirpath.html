@@ -174,6 +174,13 @@ Patient.name.given.is(System.string).not();
 Patient.name.given.getValue().is(System.string);
 </pre>
 <p>
+This also applies to e.g. Resource.id:
+</p>
+<pre class="fhirpath">
+Patient.id is System.String
+(Patient.id is FHIR.id).not
+</pre>
+<p>
 As shown, all FHIR primitives have the operation <code>getValue()</code> defined (see below)
 for the few edge cases where the automatic conversion isn't appropriate. Note
 that ofType() does not have such restrictions - both of the following are valid:
