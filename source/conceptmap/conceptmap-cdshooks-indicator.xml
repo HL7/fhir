@@ -28,6 +28,8 @@
   <sourceScopeCanonical value="http://cds-hooks.hl7.org/ValueSet/indicator"/>
   <targetScopeCanonical value="http://hl7.org/fhir/ValueSet/request-priority"/>
   <group>
+    <source value="http://cds-hooks.hl7.org/CodeSystem/indicator"/>
+    <target value="http://hl7.org/fhir/request-priority"/>
     <element>
       <code value="info"/>
       <target>
