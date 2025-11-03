@@ -16,8 +16,8 @@
   <version value="6.0.0"/>
   <name value="NutritionIntakeStatusReason"/>
   <title value="Nutrition Intake Status Reason"/>
-  <status value="draft"/>
-  <experimental value="true"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -31,7 +31,8 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="397709008"/>
+        <code value="419099009"/>
+        <display value="Dead"/>
       </concept>
     </include>
     <include>
