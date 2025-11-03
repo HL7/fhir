@@ -9,9 +9,4 @@
       <reference value="OperationDefinition/ConceptMap-translate"/>
     </item>
   </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/ConceptMap-closure"/>
-    </item>
-  </entry>
 </List>

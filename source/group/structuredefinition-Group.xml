@@ -679,6 +679,7 @@
       <path value="Group.characteristic.determiner"/>
       <short value="Who determines the value"/>
       <definition value="The entity who is expected to evaluate the characteristic value for candidate group members."/>
+      <comment value="The expectation is that the determiner is someone who matches the characteristics specified by the referenced entity, not necessarily that the actual reference in the instance is to the entity.  For example, if specifying a PractitionerRole with just a PractitionerRole.type, it's fine for any PractitionerRole that matches or specializes that type to do the determination."/>
       <min value="0"/>
       <max value="1"/>
       <type>

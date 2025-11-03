@@ -5065,7 +5065,6 @@
         <ns4:element name="codeSearch" elementType="FHIR.CodeSearchSupport"/>
         <ns4:element name="validateCode" elementType="FHIR.TerminologyCapabilities.ValidateCode"/>
         <ns4:element name="translation" elementType="FHIR.TerminologyCapabilities.Translation"/>
-        <ns4:element name="closure" elementType="FHIR.TerminologyCapabilities.Closure"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="HealthcareService" retrievable="true" primaryCodePath="type" baseType="FHIR.DomainResource">
         <ns4:element name="identifier">
@@ -8498,9 +8497,6 @@
         <ns4:element name="responsible" elementType="FHIR.boolean"/>
         <ns4:element name="role" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="qualification" elementType="FHIR.CodeableConcept"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="TerminologyCapabilities.Closure" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="translation" elementType="FHIR.boolean"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="SearchParamType" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>

@@ -84,6 +84,7 @@ specification, and defines some additional FHIR specific properties.
     <td>required</td>
     <td>Any dependencies SHALL be listed here - that is, any other package that 
       contains resources referred to by the resources in the package. 
+    <br/><br/>
       Packages SHOULD be referred to by the whole package version number and 
       not use wildcards, except for the patch version in a SemVer version reference.
       The x in the following example means that a package resolver should accept the package
@@ -93,6 +94,8 @@ specification, and defines some additional FHIR specific properties.
   "hl7.fhir.r5.core": "5.0.x"
 }
 </pre>
+    See <a href="references.html#matching">Version Matching for Canonical Resources</a> for more information.
+    <br/><br/>
     A dependency on a core package is required, and this dependency defines the FHIR version used to resolve the contents of this dependency tree. If multiple core package dependencies are listed, the first instance is the version used.
     <br/><br/>
     Development packages may use a local path for the package version (see <a href="https://docs.npmjs.com/cli/v9/configuring-npm/package-json#local-paths">Local Paths</a> in the NPM documentation)
