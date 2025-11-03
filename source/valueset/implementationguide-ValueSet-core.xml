@@ -10,25 +10,5 @@
   <publisher value="HL7"/>
   <description value="Core profiles and extensions defined for the ValueSet resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/shareablevalueset"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/publishablevalueset"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/computablevalueset"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/executablevalueset"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>
