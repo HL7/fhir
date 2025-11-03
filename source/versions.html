@@ -682,10 +682,10 @@ in order to allow seamless round-tripping.
 <p>
 In order to help implementers with this problem, any element defined in any version of FHIR
 is automatically assigned an extension URL that uniquely identifies the element and can be used
-in the relevant FHIR version. The extension URL for an element can automatically be derived:
+in instances of any other version of FHIR. The extension URL for an element can automatically be derived:
 </p>
 <pre>
-http://hl7.org/fhir/[version]/StructureDefinition/extension-[Path]
+http://hl7.org/fhir/[defining_version]/StructureDefinition/extension-[Path]
 </pre>
 <p>
 where [version] is taken from this list:
