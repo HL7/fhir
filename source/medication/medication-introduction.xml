@@ -18,7 +18,7 @@ The Medication resource allows for medications to be characterized by the form o
 </p>
     <p> The Medication resource can be used to describe a compounded (aka extemporaneous or magistral) product that is manufactured by the pharmacy at the time of dispensing.  In this case there will be multiple ingredients which are typically base chemicals (for example, hydrocortisone powder) and there may be other ingredients that are manufactured products (for example, Glaxal Base).</p>
 <p>
-When a medication includes a package, further details about the composition can be provided. A package has a container (vacuum packed box, jar, etc.) and a list of the products or other packages that are in the package.
+The Medication resource can also be used to describe combination packaged products.  In this case, the ingredients will refer to the component products either as codes or as references to Medication resource instances.
 </p>
 </div>    
     

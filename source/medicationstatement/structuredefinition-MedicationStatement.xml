@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/medication/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. &#xA;&#xA;The primary difference between a medicationstatement and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationstatement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information."/>
+  <description value="A record of a medication consumed by a patient.  A MedicationStatement may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future. The source of this information can be the patient, patient representative (e.g., spouse, significant other, family member, caregiver), or a clinician. A common scenario where this information is captured is during the history taking process during a patient encounter or stay. The medication information may come from sources such as the patient's memory, from a prescription bottle, or from a list of medications the patient, clinician or other party maintains. The primary difference between a MedicationStatement and a MedicationAdministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication. A MedicationStatement is often, if not always, less specific. There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise. As stated earlier, the MedicationStatement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party. MedicationAdministration is more formal and is not missing detailed information."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -177,7 +177,7 @@
     <element id="MedicationStatement.category">
       <path value="MedicationStatement.category"/>
       <short value="Type of medication statement"/>
-      <definition value="Type of medication statement (for example, drug classification like ATC, where meds would be administered, legal category of the medication.)."/>
+      <definition value="Type of medication statement.  &#10;&#10;The committee will revisit these codes, expecting to use a codesystem from [terminology.hl7.org](http://terminology.hl7.org)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -186,11 +186,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MedicationStatementAdministrationLocation"/>
+          <valueString value="MedicationStatementCategory"/>
         </extension>
         <strength value="example"/>
         <description value="A coded concept identifying where the medication included in the MedicationStatement is expected to be consumed or administered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-category"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -513,7 +513,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=PERT].target[classCode=OBV,moodCode=EVN].value[xsi:type=BL]"/>
+        <map value="outboundRelationship[typeCode=PERT].target[classCode=OBV,moodCode=EVN].value[xsi:type=CD]"/>
       </mapping>
     </element>
     <element id="MedicationStatement.adherence.code">
