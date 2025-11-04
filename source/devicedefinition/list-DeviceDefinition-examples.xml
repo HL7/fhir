@@ -21,10 +21,10 @@
       <valueString value="General DeviceDefinition example 2"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="devicedefinition-example-prodspec"/>
+      <valueString value="devicedefinition-prodspec"/>
     </extension>
     <item>
-      <reference value="DeviceDefinition/example-prodspec"/>
+      <reference value="DeviceDefinition/prodspec"/>
       <display value="General"/>
     </item>
   </entry>
