@@ -752,7 +752,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Reporting frequency units (e.g. /a, /mo)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/frequency-units"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/frequency-unit"/>
       </binding>
     </element>
     <element id="Measure.topic">
