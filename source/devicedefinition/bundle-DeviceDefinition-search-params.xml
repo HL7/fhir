@@ -246,7 +246,7 @@
           <valueString value="DeviceDefinition.deviceVersion.value"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-version"/>
-        <description value="The specific version of the device"/> 
+        <description value="The specific version of the device"/>
         <code value="version"/>
         <type value="token"/>
         <status value="active" />
@@ -283,19 +283,41 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceDefinition-has-part"/>
+        <id value="DeviceDefinition-has-part-canonical"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceDefinition.hasPart.reference"/>
+          <valueString value="DeviceDefinition.hasPart.definition[x]"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-has-part"/>
-        <description value="The manufacturer of the device"/>
-        <code value="has-part"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-has-part-canonical"/>
+        <description value="The component part device definition"/>
+        <code value="has-part-canonical"/>
         <type value="reference"/>
+        <target value="DeviceDefinition"/>
         <status value="active" />
-        <expression value="DeviceDefinition.hasPart.reference"/>
+        <expression value="DeviceDefinition.hasPart.definition.ofType(canonical)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-has-part-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.hasPart.definition[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-has-part-code"/>
+        <description value="The component part device type"/>
+        <code value="has-part-code"/>
+        <type value="token"/>
+        <target value="DeviceDefinition"/>
+        <status value="active" />
+        <expression value="DeviceDefinition.hasPart.definition.ofType(CodeableConcept)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
