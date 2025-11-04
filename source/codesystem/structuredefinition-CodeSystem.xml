@@ -1068,8 +1068,8 @@
 				<valueBoolean value="true"/>
 			</extension>
 			<path value="CodeSystem.concept.property.code"/>
-			<short value="Reference to CodeSystem.property.code"/>
-			<definition value="A code that is a reference to CodeSystem.property.code."/>
+			<short value="Reference to CodeSystem.property.code or a FHIR defined concept-property"/>
+			<definition value="A code that is a reference to CodeSystem.property.code or is a code from [http://hl7.org/fhir/concept-properties](codesystem.html#defined-props) in the case that there is no corresponding code defined in `CodeSystem.property.code`."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
