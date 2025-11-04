@@ -569,7 +569,7 @@
 		</element>
 		<element id="SearchParameter.constraint">
 			<path value="SearchParameter.constraint"/>
-			<short value="FHIRPath expression that constraints the usage of this SearchParamete"/>
+			<short value="FHIRPath expression that constraints the usage of this SearchParameter"/>
 			<definition value="FHIRPath expression that defines/sets a complex constraint for when this SearchParameter is applicable."/>
 			<min value="0"/>
 			<max value="1"/>
