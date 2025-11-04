@@ -169,9 +169,9 @@ generally be treated as if it was the equivalent FHIRPath system type. The prima
 exception is the is() operation, where the difference is explicit:
 </p>
 <pre class="fhirpath">
-Patient.name.given.is(FHIR.string);
-Patient.name.given.is(System.string).not();
-Patient.name.given.getValue().is(System.string);
+Patient.name.given.is(FHIR.string)
+Patient.name.given.is(System.string).not()
+Patient.name.given.getValue().is(System.string)
 </pre>
 <p>
 This also applies to e.g. Resource.id:
@@ -186,8 +186,8 @@ for the few edge cases where the automatic conversion isn't appropriate. Note
 that ofType() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
-Patient.name.given.ofType(FHIR.string);
-Patient.name.given.ofType(System.string);
+Patient.name.given.ofType(FHIR.string)
+Patient.name.given.ofType(System.string)
 </pre>
 
 
@@ -231,8 +231,10 @@ but in general, this approach matches what users expect most closely.
 in any of the contexts above:
 </p>
 <pre>
-%resource // the resource that contains the original node that is in %context
+%resource     // the resource that contains the original node that is in %context
 %rootResource // the container resource for the resource identified by %resource
+%profile      // the canonical URL of a profile that contains the invariant's fhirpath expression (only defined in profile invariants)
+              // Note: not all fhirpath engines support this profile variable, or the slice() function that usually uses it.
 </pre>
 <p>
 The resource is very often the context, such that %resource = %context.
@@ -264,15 +266,20 @@ In addition to the general purpose functions below, additional functions functio
   <li><a href="questionnaireresponse.html#fhirpath">QuestionnaireResponse</a></li>
 </ul>
 
-<p><b>extension(url : string) : collection</b><a name="fn-extension"> </a></p>
-<p>Will filter the input collection for items named "extension" with the given url. 
+<a name="fn-extension"> </a>
+<h5><b>extension(url : string) : collection</b></h5>
+<p>Will filter the input collection for items named "extension" with the given <code>url</code>. 
   This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
   but is simpler to write. If the input collection is empty or the url is empty, 
   the return value will be an empty collection.</p>
 
-<hr/>
+<pre class="fhirpath">
+Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName').value
+</pre>
 
-<p><b>hasValue() : Boolean</b><a name="fn-hasValue"> </a></p>
+<hr/>
+<a name="fn-hasValue"> </a>
+<h5><b>hasValue() : Boolean</b></h5>
 <p>If the input collection contains a single value which is a FHIR primitive, then will
   return true if the single value is a primitive value (e.g. as opposed to not having a
   value and just having extensions) and false if not. If the input collection isn't a
@@ -285,23 +292,36 @@ In addition to the general purpose functions below, additional functions functio
 <p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but, as described above, they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendants()</code>.</p>
 </blockquote>
 
+<pre class="fhirpath">
+Patient.active.hasValue()
+</pre>
+
 <hr/>
-<p><b>toString() : string</b><a name="fn-toString"> </a></p>
+<a name="fn-toString"> </a>
+<h5><b>toString() : string</b></h5>
 <p>If the input collection contains a single item, this function will return a single String if the type 
-  is a primitive, and it has a value (e.g. if <code>hsaValue() = true</code>), and the primitive type 
+  is a primitive, and it has a value (e.g. if <code>hasValue() = true</code>), and the primitive type 
   has a System type for which <a href="https://hl7.org/fhirpath/N1/#tostring-string">toString() is defined</a>.
   Otherwise the result is an empty collection.
 </p>
 
-<hr/>
+<pre class="fhirpath">
+Patient.birthDate.toString()
+</pre>
 
-<p><b>getValue() : System.[type]</b><a name="fn-getValue"> </a></p>
+<hr/>
+<a name="fn-getValue"> </a>
+<h5><b>getValue() : System.[type]</b></h5>
 <p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
   and it has a primitive value (see discussion for hasValue()). Otherwise, the return value is empty.</p>
 
-  <hr/>
+<pre class="fhirpath">
+Patient.birthDate.getValue() // returns just the primitive, does not include extensions (such as the birthTime extension)
+</pre>
 
-<p><b>resolve() : collection</b><a name="fn-resolve"> </a></p>
+  <hr/>
+<a name="fn-resolve"> </a>
+<h5><b>resolve() : collection</b></h5>
 <p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
    (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
    target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
@@ -309,56 +329,93 @@ In addition to the general purpose functions below, additional functions functio
 <p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
   If the input is empty, the return value will be an empty collection.</p>
 
+<pre class="fhirpath">
+Patient.managingOrganization.resolve().name
+Observation.subject.where(resolve() is Patient)
+</pre>
+
   <hr/>
-  
-<p><b>ofType(type : type specifier) : collection</b><a name="fn-ofType2"> </a></p>
-<p>Returns a collection that contains all items in the input collection that are of the given type or a subclass thereof.
+<a name="fn-ofType2"> </a><a name="fn-ofType"> </a>
+<h5><b>ofType(type : type specifier) : collection</b></h5>
+<p>Returns a collection that contains all items in the input collection that are of the given <code>type</code> or a subclass thereof.
   This is as defined as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
   only concrete core types are allowed as an argument. All primitives are considered to be independent 
   types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
 
-<hr/>
+<pre class="fhirpath">
+Observation.value.ofType(canonical)
+Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start // selects either dateTime or Period starts (both of type dateTime)
+</pre>
 
-<p><b>elementDefinition() : collection</b><a name="fn-elementDefinition"> </a></p>
+<hr/>
+<a name="fn-elementDefinition"> </a>
+<h5><b>elementDefinition() : collection</b></h5>
 <p>Returns the FHIR element definition information for each element in the input collection. If the 
   input collection is empty, the return value will be an empty collection.
 </p>
 
 <hr/>
-
-<p><b>slice(structure : string, name : string) : collection</b><a name="fn-slice"> </a></p>
+<a name="fn-slice"> </a>
+<h5><b>slice(structure : string, name : string) : collection</b></h5>
 <p>
-  Returns the given slice as defined in the given structure definition. The 
-  structure argument is a uri that resolves to the structure definition, and 
-  the name must be the name of a slice within that structure definition. 
-  If the structure cannot be resolved, or the name of the slice within the resolved structure is not present, or those parameters are empty, 
+  Returns the input collection filtered to items that conform to the specified profile slice.
+</p>
+<p>
+  The <code>structure</code> argument is the (possibly versioned) canonical uri of the structure definition that contains the specified slice.<br/>
+  The <code>name</code> argument is either the <code>ElementDefinition.sliceName</code> for the element slice
+  (if the sliceName is unique in the snapshot), or the <code>ElementDefinition.id</code> of the element slice.
+</p>
+<p>
+  The <code>structure</code> argument can also be the special variable <code>%profile</code> which refers to the profile in which the ElementDefinition.constraint
+  containing the FHIRPath is defined.  (This variable can only be used for FHIRPath appearing in constraints)
+</p>
+<p>
+  If the <code>structure</code> cannot be resolved, or the <code>name</code> of the slice is not present in the profile, or those parameters are empty,
   the return value will be an empty collection.
 </p>
-<p>For every element in the input collection, if the resolved slice is present on the element, it will be returned. If the slice does not match any element in the input collection, or if the input collection is empty, the return value will be an empty collection.</p>
+<p>If the slice does not match any element in the input collection, or if the input collection is empty, the return value will be an empty collection.</p>
+
+<p>
+For example, this invariant could appear in a Patient profile:
+</p>
+<pre class="fhirpath">
+// ensure that a patient has at least one home phone and one home email (based on the slicing defined in the profile)
+Patient.telecom.slice(%profile, 'homephone').exists() and Patient.telecom.slice(%profile, 'homeemail').exists()
+</pre>
+
+<blockquote>
+NOTE: not all FHIRPath engines are in a position to implement <code>slice()</code> as implementation requires implementation of a FHIR validation engine, which is not a small undertaking.
+</blockquote>
 
 <hr/>
-
-<p><b>checkModifiers(modifier : string) : collection</b><a name="fn-checkModifiers"> </a></p>
+<a name="fn-checkModifiers"> </a>
+<h5><b>checkModifiers(modifier : string) : collection</b></h5>
 
 <p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument (comma-separated string). 
   If the check passes, the input collection is returned. Otherwise, an error is thrown, including if modifier is empty.</p>
 
   <hr/>
-
-<p><b>conformsTo(structure : string) : Boolean</b><a name="fn-conformsTo"> </a></p>
+<a name="fn-conformsTo"> </a>
+<h5><b>conformsTo(structure : string) : Boolean</b></h5>
 <p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, 
   and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
   the return value is empty.</p>
 
+<pre class="fhirpath">
+Patient.conformsTo('http://hl7.org/fhir/StructureDefinition/Patient')
+</pre>
+
   <hr/>
+<a name="fn-memberOf"> </a>
+<h5><b>memberOf(valueset : string) : Boolean</b></h5>
 
-<p><b>memberOf(valueset : string) : Boolean</b><a name="fn-memberOf"> </a></p>
-
-<p>When invoked on a single code-valued element, returns true if the code is a member of the given valueset.
+<p>
+When invoked on a single code-valued element, returns true if the code is a member of the given <code>valueset</code>.
 When invoked on a single concept-valued element, returns true if any code in the concept is a member of the given valueset.
 When invoked on a single string, returns true if the string is equal to a code in the valueset, so long as the valueset 
-only contains one codesystem. If the valueset in this case contains more than one codesystem, the return value is empty.</p>
+only contains one codesystem. If the valueset in this case contains more than one codesystem, the return value is empty.
+</p>
 
 <p>If the valueset cannot be resolved as a uri to a value set, or the input is empty or has more than one value, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
@@ -372,28 +429,32 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>This expression returns components that have a code that is a member of the observation-vitalsignresult valueset.</p>
 
 <hr/>
+<a name="fn-subsumes"> </a>
+<h5><b>subsumes(code : Coding | CodeableConcept) : Boolean</b></h5>
 
-<p><b>subsumes(code : Coding | CodeableConcept) : Boolean</b><a name="fn-subsumes"> </a></p>
-
-<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
+<p>When invoked on a Coding-valued element and the given <code>code</code> is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or the return value is empty.</p>
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumes the given code.</p>
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
+<pre class="fhirpath">
+%terminologies.subsumes(Procedure.category, Procedure.code) = 'subsumes'
+</pre>
+
 <hr/>
+<a name="fn-subsumedBy"> </a>
+<h5><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b></h5>
 
-<p><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b><a name="fn-subsumedBy"> </a></p>
-
-<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e. the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
+<p>When invoked on a Coding-valued element and the given <code>code</code> is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e. the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumed by the given code.</p>
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
 <hr/>
-
-<p><b>htmlChecks : Boolean</b><a name="fn-htmlChecks"> </a></p>
+<a name="fn-htmlChecks"> </a>
+<h5><b>htmlChecks : Boolean</b></h5>
 
 <p>When invoked on a single <a href="narrative.html#xhtml">xhtml</a> element returns true if the <a href="narrative.html#rules">rules around
 HTML usage</a> are met, and false if they are not. The return value is empty on any other kind of element, or a collection of 
@@ -401,8 +462,8 @@ xhtml elements.
 </p>
 
 <hr/>
-
-<p><b>lowBoundary : T</b><a name="fn-lowBoundary"> </a></p>
+<a name="fn-lowBoundary"> </a>
+<h5><b>lowBoundary : T</b></h5>
 
 <p>
 This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
@@ -421,8 +482,8 @@ This function is intended to be added to the core FHIRPath specification in a fu
 
 
 <hr/>
-
-<p><b>highBoundary : T</b><a name="fn-highBoundary"> </a></p>
+<a name="fn-highBoundary"> </a>
+<h5><b>highBoundary : T</b></h5>
 
 <p>
 This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
@@ -441,8 +502,8 @@ This function is intended to be added to the core FHIRPath specification in a fu
 
 
 <hr/>
-
-<p><b>comparable(quantity) : boolean</b><a name="fn-comparable"> </a></p>
+<a name="fn-comparable"> </a>
+<h5><b>comparable(quantity) : boolean</b></h5>
 
 <p>
 This function returns true if the engine executing the FHIRPath statement can compare the singleton Quantity
@@ -453,9 +514,10 @@ system is recognized by the FHIRPath implementation and the codes are comparable
 <p>
 This function is intended to be added to the core FHIRPath specification in a future version.
 </p>
-<hr/>
 
-<p><b>weight() : decimal</b><a name="fn-weight"> </a></p>
+<hr/>
+<a name="fn-weight"> </a>
+<h5><b>weight() : decimal</b></h5>
 
 This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the return value is empty. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
 
