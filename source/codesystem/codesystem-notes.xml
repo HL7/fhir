@@ -442,6 +442,13 @@ The following filters are defined for all code systems that support "is-a" relat
  </tr>
  <tr>
    <td>concept</td>
+   <td>in | not-in</td>
+   <td>[string] a comma separated list of codes, or a value set uri</td>
+   <td>Concepts in the list, or concepts in the value set expansion.</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
    <td>is-not-a</td>
    <td>[string] concept code</td>
    <td>The specified property of the code does not have an is-a relationship with the provided value.</td>
