@@ -1664,6 +1664,9 @@
   <concept id="72311000" display="Health maintenance organization">
     <display value="Health maintenance organization"/>
   </concept>
+  <concept id="724053002" display="Antibiotic therapy for prevention of recurrent infection (procedure)">
+    <display value="Antibiotic therapy for prevention of recurrent infection (procedure)"/>
+  </concept>
   <concept id="72511004" display="Fruit">
     <display value="Fruit"/>
   </concept>
