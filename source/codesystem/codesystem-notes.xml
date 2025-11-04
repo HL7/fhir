@@ -247,6 +247,20 @@ which means "not to be used in some circumstances", though the exact circumstanc
 somewhere. This is sometimes also considered a status, though it's usually dependent on the context
 of use (e.g. set in a ValueSet).
 </p>
+<p>
+The status value overlaps with other properties, in particular, the inactive property. In general, the following 
+rules apply:
+</p>
+<ul>
+ <li>If concept status is some kind of active, inactive must be set to true if present, and the concept is treated as inactive.</li>
+ <li>If concept status is some kind of retired, inactive must be set to true if present, and the concept is treated as inactive.</li>
+ <li>If concept status indicates that the concept is experimental or deprecated, the determination of inactive is code system specific</li>
+ <li>If neither concept properties are present default behavior for the CodeSystem applies.</li>
+</ul>
+<p>
+The status also relates to properties such as deprecation and retirement date. The status of the concept SHOULD 
+always be consistent with these other properties.
+</p>
 
 <a name="synonyms"></a>
 <h3>Synonyms and Alternate Codes</h3>
