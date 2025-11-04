@@ -11,7 +11,7 @@
     <value value="referralPrimaryCareMentalHealth"/>
   </identifier>
   <version value="1.1.0"/>
-  <name value="12"/>
+  <name value="ValidName"/>
   <title value="Referral to Primary Care Mental Health"/>
   <status value="active"/>
   <experimental value="true"/>
@@ -152,6 +152,13 @@
 	  <use value="work"/>
     </telecom>
   </author>
+  <relatedArtifact>
+    <type value="composed-of"/> <!-- This should be an error to define a composed of -->
+    <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
+    <artifactAttachment>
+      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
+    </artifactAttachment>
+  </relatedArtifact>
   <relatedArtifact>
     <type value="citation"/>
     <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
