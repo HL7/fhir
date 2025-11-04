@@ -262,6 +262,67 @@ The next example demonstrates how to obtain the results of evaluating the measur
 <h5>Bundles Organized by Subject</h5>
 	
 <p>The Bundles used in the quality reporting operations enable the evaluation and exchange of data for multiple measures, while also constraining duplicate data. Bundles <b>SHOULD</b> be organized by subject, meaning that a Bundle <b>SHOULD</b> contain the resources, the including MeasureReport(s) and data of interest (in MeasureReport.evaluatedResources), for all of the measures that apply to a single subject. Resources that are not unique to the subject, such as Practitioner or Organization, may still be duplicated across Bundles.</p>
+
+<a name="ad-hoc-organizations"> </a>
+<h5>Ad-Hoc Organizations for Reporting Operations</h5>
+
+Data producers and consumers may want to gather data from different locations and providers within a large organization that is comprised of multiple sub-organizations. In such cases, it can be desirable to model portions of the organization from which data should be gathered as a way to target data requests. The $evaluate, $care-gaps, and $collect-data operations allow an Organization resource to be either referenced or passed in as part of the request body. If it is passed in, it can be an ad-hoc Organization created only as part of that request. PractitionerRole resources can be used to link Practitioner resources to the Organization to model the set of participating practitioners.
+
+The following ad-hoc organization example illustrates an Organization resource with a contained Practitioner and PractitionerRole resource. It assumes a simple attribution model for the patient-provider interactions. In practice, attribution of patient encounters to providers will be more sophisticated and include factors such as coverage, ACOs, etc.
+
+<pre><code>&lt;Organization&gt;
+  &lt;id value=&quot;ad-hoc-organization-example&quot;/&gt;
+  &lt;contained&gt;
+    &lt;Practitioner&gt;
+      &lt;id value=&quot;kelly-smith-1&quot;/&gt;
+      &lt;identifier&gt;
+        &lt;use value=&quot;official&quot;/&gt;
+        &lt;system value=&quot;urn:oid:2.16.840.1.113883.4.4&quot;/&gt;
+        &lt;value value=&quot;EIN-00YYZ&quot;/&gt;
+      &lt;/identifier&gt;
+      &lt;name&gt;
+        &lt;family value=&quot;Smith&quot;/&gt;
+        &lt;given value=&quot;Kelly&quot;/&gt;
+      &lt;/name&gt;
+    &lt;/Practitioner&gt;
+  &lt;/contained&gt;
+  &lt;contained&gt;
+    &lt;PractitionerRole&gt;
+      &lt;id value=&quot;kelly-smith-role&quot;/&gt;
+      &lt;identifier&gt;
+        &lt;use value=&quot;official&quot;/&gt;
+        &lt;system value=&quot;urn:oid:2.16.840.1.113883.4.4&quot;/&gt;
+        &lt;value value=&quot;EIN-00YYZ&quot;/&gt;
+      &lt;/identifier&gt;
+      &lt;active value=&quot;true&quot;/&gt;
+      &lt;practitioner&gt;
+        &lt;reference value=&quot;#kelly-smith-1&quot;/&gt;
+      &lt;/practitioner&gt;
+      &lt;organization&gt;
+        &lt;reference value=&quot;#&quot;/&gt;
+      &lt;/organization&gt;
+      &lt;code&gt;
+        &lt;coding&gt;
+          &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+          &lt;code value=&quot;133932002&quot;/&gt;
+          &lt;display value=&quot;Caregiver (person)&quot;/&gt;
+        &lt;/coding&gt;
+      &lt;/code&gt;
+      &lt;specialty&gt;
+        &lt;coding&gt;
+          &lt;system value=&quot;http://nucc.org/provider-taxonomy&quot;/&gt;
+          &lt;code value=&quot;122300000X&quot;/&gt;
+          &lt;display value=&quot;Dentist&quot;/&gt;
+        &lt;/coding&gt;
+      &lt;/specialty&gt;
+    &lt;/PractitionerRole&gt;
+  &lt;/contained&gt;
+  &lt;active value=&quot;true&quot;/&gt;
+  &lt;name value=&quot;Ad hoc organization example&quot;/&gt;
+&lt;/Organization&gt;
+</code></pre>
+
+The organization provided in $evaluate, $care-gaps, or $collect-data, whether in the provider parameter or the providerResource parameter, SHALL be the reporter in the resulting measure report(s) and SHALL be included as a contained resource if necessary. Note that when included as a contained resource in the measure report, the structure must be flattened so that the Organization does not have any contained resources because contained resources cannot themselves have contained resources. References among the contained resources SHALL be maintained.
 	
 <a name="duplicate-data"> </a>
 <h5>Duplicate Data</h5>
