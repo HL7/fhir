@@ -26,9 +26,9 @@
 		</type>
 		<value value="v1.2.3"/>
 	</deviceVersion>
-	<url value="http://example.org/fhir/DeviceDefinition/exampleDevice"/>
+	<url value="http://hl7.org/fhir/DeviceDefinition/example"/>
 	<hasPart>
-		<reference value="http://example.org/fhir/DeviceDefinition/example-prodspec"/>
+		<definitionCanonical value="http://hl7.org/fhir/DeviceDefinition/example-prodspec"/>
 	</hasPart>
 	<manufacturer>
 		<reference value="Organization/example"/>
