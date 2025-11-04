@@ -491,4 +491,25 @@
 		the Subscriptions Framework page.
 	</p>
 
+	<a name="authorization-hint"></a>
+	<h2>Authorization Hinting in Notifications</h2>
+
+	<p>
+	It can be appropriate for a server to include authorization information alongside notifications. This information 
+	could be used to inform a recipient about how authorization should be done when querying-for or retrieving resources 
+	from a notification (e.g., when querying based on an <code>empty</code> notification), or to provide tokens or other
+	information needed to access resources referenced in the notification (e.g., when retrieving resources based on an
+	<code>id-only</code> notification).
+	</p>
+	<p>
+	Depending on the channel used, notifications MAY or MAY NOT be secure from third parties. Implementers SHOULD ensure 
+	that any authorization information included complies with security best practices (e.g., providing a token exchanged 
+	during an OAuth workflow, along with other data such as a client authentication token, for an access token).
+	</p>
+	<p>
+	When including authorization information in a notification, servers SHOULD use security best practices (e.g., short-lived
+	and single-use tokens, temporary access codes, etc). For more information, see the 
+	<a href="security.html">FHIR Security Guidance</a> document.
+	</p>
+
 </div>

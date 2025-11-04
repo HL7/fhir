@@ -266,6 +266,51 @@
 				<map value="N/A (to add?)"/>
 			</mapping>
 		</element>
+		<element id="SubscriptionStatus.notificationEvent.authorizationHint">
+			<path value="SubscriptionStatus.notificationEvent.authorizationHint"/>
+			<short value="Authorization information relevant to a notification"/>
+			<definition value="Authorization context information and value (e.g., token)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="false"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="SubscriptionStatus.notificationEvent.authorizationHint.authorizationType">
+			<path value="SubscriptionStatus.notificationEvent.authorizationHint.authorizationType"/>
+			<short value="Authorization Type"/>
+			<definition value="Used by clients to determine what kind of authorization is appropriate in this context."/>
+			<min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+			<isSummary value="false"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="SubscriptionStatus.notificationEvent.authorizationHint.value">
+			<path value="SubscriptionStatus.notificationEvent.authorizationHint.value"/>
+			<short value="Authorization Value"/>
+			<definition value="A value related to the authorization (e.g., a token)."/>
+			<min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+			<isSummary value="false"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
     <element id="SubscriptionStatus.subscription">
       <path value="SubscriptionStatus.subscription"/>
       <short value="Reference to the Subscription responsible for this notification"/>

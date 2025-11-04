@@ -41,6 +41,15 @@
             </queryType>
             <query value="Patient/ABC$current-providers"/>
           </relatedQuery>
+          <authorizationHint>
+            <authorizationType>
+              <coding>
+                <system value="http://example.org/fhir/CodeSystem-authorization-type"/>
+                <code value="oauth2-challenge-token"/>
+              </coding>
+            </authorizationType>
+            <value value="b3e1f8c4-7d2a-4f6a-9c3e-8d5f2a1b7e9f" />
+          </authorizationHint>
         </notificationEvent>
         <subscription>
           <reference value="http://example.org/FHIR/R5/Subscription/123"/>
