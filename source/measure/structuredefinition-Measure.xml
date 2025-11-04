@@ -746,6 +746,14 @@
       <type>
         <code value="Quantity"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ReportingFrequency"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Reporting frequency units (e.g. /a, /mo)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/frequency-units"/>
+      </binding>
     </element>
     <element id="Measure.topic">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
