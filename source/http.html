@@ -65,7 +65,7 @@ In addition to a number of <a href="#general">General Considerations</a> this pa
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for a particular resource type</td></tr>
   <tr><td colspan="2"><b>Whole System Interactions</b></td></tr>
   <tr><td><a href="#capabilities">capabilities</a></td><td>Get a capability statement for the system</td></tr>
-  <tr><td><a href="#transaction">batch/transaction</a></td><td>Perform multiple operations (e.g., create, read, update, delete, patch, and/or [extended operations]) in a single interaction</td></tr>
+  <tr><td><a href="#transaction">batch/transaction</a></td><td>Perform multiple interactions (e.g., create, read, update, delete, patch, and/or [extended operations]) in a single interaction</td></tr>
   <tr><td><a href="#cdelete">delete</a></td><td>Conditional Delete across all resource types based on some filter criteria</td></tr>
   <tr><td><a href="#history">history</a></td><td>Retrieve the change history for all resources</td></tr>
   <tr><td><a href="#search">search</a></td><td>Search across all resource types based on some filter criteria</td></tr>
@@ -220,9 +220,9 @@ ETag: W/"3141"
 <p>
 Using HTTPS is optional, but all production exchange of healthcare data SHOULD use SSL and
 additional security as appropriate. See <a href="security.html#http">HTTP Security</a> for further information.
-Most operations will require user authentication, and all operations that do so are subject
+Most interaction will require user authentication, and all interaction that do so are subject
 to <a href="https://en.wikipedia.org/wiki/Role-based_access_control">RBAC</a> and/or <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">ABAC</a>,
-and some operations may depend on appropriate consent being granted.
+and some interaction may depend on appropriate consent being granted.
 </p>
 <p>
 Note: to support browser-based client applications, servers SHOULD implement <a href="http://enable-cors.org/">cross-origin resource sharing (CORS)</a> for the interactions documented here.
@@ -422,7 +422,7 @@ Prefer: return=OperationOutcome
 The first of these asks to return no body. The
 second asks to return the full resource. The third asks
 the server to return an <a href="operationoutcome.html">OperationOutcome</a>
-resource containing hints and warnings about the operation rather than the
+resource containing hints and warnings about the interaction rather than the
 full resource. Servers SHOULD honor this header. In the absence of the header,
 servers may choose whether to return the full resource or not (but not the OperationOutcome;
 that should only be returned if explicitly requested). Note that this setting
@@ -707,7 +707,7 @@ Servers are encouraged to support a version specific retrieval of the current ve
 resource even if they do not provide access to previous versions. If a request
 is made for a previous version of a resource, and the server does not support accessing
 previous versions (either generally, or for this particular resource), it should
-return a <code>404 Not Found</code> error, with an operation outcome explaining that
+return a <code>404 Not Found</code> error, with an OperationOutcome explaining that
 history is not supported for the underlying resource type or instance.
 </p>
 <p>
@@ -968,8 +968,8 @@ interaction; all the version and error handling etc. apply as specified, as does
 </p>
 <p>
 Processing PATCH operations may be very version sensitive. For this reason,  servers that support PATCH SHALL 
-support <a href="#versionaware">Resource Contention</a> on the PATCH operation.
-Clients SHOULD always consider using version specific PATCH operations so that inappropriate
+support <a href="#versionaware">Resource Contention</a> on the PATCH interaction.
+Clients SHOULD always consider using version specific PATCH interactions so that inappropriate
 actions are not executed.
 </p>
 
@@ -1006,13 +1006,13 @@ namespaces correctly, but note that FHIR resources only contain two XML namespac
 for FHIR (<code>http://hl7.org/fhir</code>) and XHTML (<code>http://www.w3.org/1999/xhtml</code>).
 </p>
 <p>
-In the case of a failing <a href="http://jsonpatch.com/#test">JSON Patch test</a> operation, the server returns a <code>422 Unprocessable Entity</code>.
+In the case of a failing <a href="http://jsonpatch.com/#test">JSON Patch test</a> interaction, the server returns a <code>422 Unprocessable Entity</code>.
 </p>
 <p>
 For PATCH Examples, see <a href="https://github.com/FHIR/fhir-test-cases/releases">the FHIR test cases</a>.
 </p>
 <p>
-Patch interactions may be performed as part of Batch or Transaction Operations using the FHIRPath Patch format.
+Patch interactions may be performed as part of Batch or Transaction interactions using the FHIRPath Patch format.
 </p>
 <p>
 Patch is not defined for all resources - see <a href="binary.html#patch">note about PATCH on Binary</a>.
@@ -1367,7 +1367,7 @@ update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="
 This interaction searches a set of resources based on some filter criteria. The interaction can be performed by several different HTTP commands.
 </p>
 <p>
-  This specification defines FHIR Search operations in both HTTP <code>POST</code> and <code>GET</code>.
+  This specification defines FHIR Search interactions in both HTTP <code>POST</code> and <code>GET</code>.
   Servers supporting Search via HTTP SHALL support both modes of operation, though MAY return a 
   <code>HTTP 405</code> (Method Not Allowed) for <b>either</b> <code>POST</code> or <code>GET</code>, 
   but not both <span class="stu">TU</span>.
@@ -1501,7 +1501,7 @@ GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;
 </p>
 <p>
   Given the above considerations, server implementers SHOULD be sure to test both <code>GET</code> and 
-  <code>POST</code> search operations to ensure they are correct on their servers <span class="stu">TU</span>.  For example, a read-only server
+  <code>POST</code> search interactions to ensure they are correct on their servers <span class="stu">TU</span>.  For example, a read-only server
   may prohibit the HTTP POST verb universally (returning a <code>405</code> - Method Not Allowed) and must then ensure 
   correct implementation of HTTP GET.
 </p>
@@ -1588,7 +1588,7 @@ param1=value&amp;param2=value</pre>
 
 <p>
 In the first URL the character "<code>*</code>" appears in the URL as a literal to mean 'all types'.  This
-is required to distinguish between a simple <code>read</code> operation and a search in that same compartment.
+is required to distinguish between a simple <code>read</code> interaction and a search in that same compartment.
 Note that this syntax is not used in POST-based compartment searches, since the <code>_search</code> literal
 is used.  So, for example, to retrieve all the observation resources for a particular LOINC code associated 
 with a particular encounter:
@@ -1757,7 +1757,7 @@ created within the batch are considered to be non-conformant.
 </p>
 <p>
 When processing the batch, the HTTP response code is <code>200 OK</code> if the batch was processed correctly, regardless of the success of the
-operations within the Batch. To determine the status of the operations, look inside the returned Bundle. A response code on an
+interactions within the Batch. To determine the status of the interactions, look inside the returned Bundle. A response code on an
 entry of other than <code>2xx</code> (<code>200</code>, <code>202</code> etc.) indicates that processing the request in the entry failed.
 </p>
 
@@ -2142,7 +2142,7 @@ base CapabilityStatement <a href="capabilitystatement-definitions.html#Capabilit
 values the server does not support.
 </p>
 <p>
-The <a href="#patch">PATCH operation</a> offers some support for making changes to a part of a resource and should
+The <a href="#patch">PATCH interaction</a> offers some support for making changes to a part of a resource and should
 be used where a client wishes to change just part of a resource, though transactional integrity
 issues are still important.
 </p>
@@ -2507,7 +2507,7 @@ Notes:
 <ul>
  <li>This table lists the status codes described here, but other status codes are possible as described by the HTTP specification. Additional codes that are likely are server errors and various codes associated with authentication protocols. The <a href="security.html">security page</a> notes several security related issues that may impact which codes to return.</li>
  <li>The returned status code <code>202</code> is applicable when <code>Prefer: respond-async</code> is supplied by the client.</li>
- <li>For <code>GET</code><sup>&Dagger;</sup> operations where <code>HEAD</code> can also be used, the HTTP status codes <code>405</code> and <code>501</code> can also be returned from <code>HEAD</code> operations</li>
+ <li>For <code>GET</code><sup>&Dagger;</sup> interactions where <code>HEAD</code> can also be used, the HTTP status codes <code>405</code> and <code>501</code> can also be returned from <code>HEAD</code> operations</li>
 </ul>
 
 [%file newfooter%]

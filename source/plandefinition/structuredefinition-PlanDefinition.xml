@@ -791,7 +791,7 @@
 		</element>
 		<element id="PlanDefinition.author">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Author was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Author was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="PlanDefinition.author"/>
 			<short value="Who authored the content"/>
@@ -808,7 +808,7 @@
 		</element>
 		<element id="PlanDefinition.editor">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Editor was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Editor was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="PlanDefinition.editor"/>
 			<short value="Who edited the content"/>
@@ -825,7 +825,7 @@
 		</element>
 		<element id="PlanDefinition.reviewer">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Reviewer was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Reviewer was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="PlanDefinition.reviewer"/>
 			<short value="Who reviewed the content"/>
@@ -843,7 +843,7 @@
 		</element>
 		<element id="PlanDefinition.endorser">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Endorser was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Endorser was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="PlanDefinition.endorser"/>
 			<short value="Who endorsed the content"/>

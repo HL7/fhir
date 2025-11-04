@@ -98,7 +98,7 @@ different aspects of the specification.  They are as follows:
       correction is complete after it has been subjected to ballot
       <br/>
       <br/>
-      Some resources with a standards status of 'draft' have an FMM level of 1 or 2 - this means that the committee 
+      Some resources with a standards status of 'draft' have an <a href="#maturity">FMM (FHIR Maturity Model)</a> level of 1 or 2 - this means that the committee 
       responsible for them is ready for them to be tested and balloting, but that balloting has not yet occurred. 
       Draft resources cannot have a <a href="#maturity">FMM</a> level greater than 2
     </td>
@@ -165,7 +165,7 @@ reading/using these elements has the potential to cause breaking change to their
 
 <a name="levels"></a>
 <a name="maturity"></a>
-<h3>Maturity Levels</h3>
+<h3>The FHIR Maturity Model</h3>
 <p>
 The content of this release has been subject to significant review through ballot and other HL7 processes and many aspects of it have been
 implemented and subjected to interoperability testing through Connectathons and early adoption.  However, the degree of testing has varied.  Some resources
@@ -181,7 +181,7 @@ All artifacts in this specification are assigned a "Maturity Level", known as FM
 The FMM level can be used by implementers to judge how advanced - and therefore stable - an artifact is. The following FMM levels are defined:
 </p>
 <table class="lines">
- <tr><td>Draft (0)</td><td>the artifact has been published on the current build. Artifacts with this level must have a standards status of <a href="#draft">Draft</a>.</td></tr>
+ <tr><td><b>FMM 0</b></td><td>the artifact has been published on the current build. Artifacts with this level must have a standards status of <a href="#draft">Draft</a>.</td></tr>
  <tr><td><b>FMM 1</b></td><td>FMM0 + the artifact produces no warnings during the build process and the responsible work group has indicated that they consider the artifact substantially complete and ready for implementation. For resources, profiles and implementation guides, the FHIR Management Group has approved the underlying resource/profile/IG proposal.</td></tr>
  <tr><td><b>FMM 2</b></td><td>FMM1 + the artifact has been tested and successfully supports interoperability among at least three independently developed systems leveraging most of the scope (e.g., at least 80% of the core data elements) using semi-realistic data and scenarios based on at least one of the declared scopes of the artifact (e.g., at a connectathon). These interoperability results must have been reported to and accepted by the FHIR Management Group.</td></tr>
  <tr><td><b>FMM 3</b></td><td>FMM2 + the artifact has been verified by the work group as meeting the <a href="https://confluence.hl7.org/display/FHIR/Conformance+QA+Criteria">Conformance Resource Quality Guidelines</a>; has been subject to a round of formal balloting; has at least 10 distinct implementer comments recorded in the tracker drawn from at least 3 organizations resulting in at least one substantive change.</td></tr>
@@ -655,7 +655,12 @@ move through the maturity cycle. For this reason, all FHIR implementers are enco
 usage <a href="http://fhir.org/implementations/usage">here</a>, which captures contact and other information
 that will allow HL7 to perform appropriate monitoring of FHIR usage. Survey information is confidential and reported in aggregate only.
 </p>
-
+<p>
+One type of breaking change that can happen between trial-use versions is that elements that were previously mandatory might
+be removed or made optional.  When converting data from future releases of FHIR, no data will be available for these elements.
+The '1' minimum cardinality can be satisfied by sending a <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">data-absent-reason</a> extension with a value of "not-applicable".
+Systems SHOULD always check not only for an element but a value for the element when writing their logic.  
+</p>
 <a name="extensions"></a>
 <h3>Extensions for converting between versions</h3>
 

@@ -938,7 +938,14 @@ If a UCUM unit is provided in the <code>code</code>, then a canonical value can 
 purposes of comparison between quantities. Note that the <code>unit</code> element will often
 contain text that is a valid UCUM unit, but it cannot be assumed that the unit actually contains a valid UCUM unit.
 </p>
-
+<p>
+If there is a need to convey exceptional values such as Not a Number (NaN), 'trace', 'sufficient quantity', etc., 
+this should be done using a coded data type such as CodeableConcept, drawing on codes from code systems such as 
+<a href="https://terminology.hl7.org/CodeSystem-data-absent-reason.html">Data Absent Reason</a> or 
+<a href="https://terminology.hl7.org/CodeSystem-v3-NullFlavor.html">Null Flavor</a>, and appropriate extensions 
+exist for this purpose (<a href="https://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html">here</a> 
+and <a href="https://hl7.org/fhir/extensions/StructureDefinition-iso21090-nullFlavor.html">here</a>).
+</p>
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Quantity%]
@@ -1366,9 +1373,10 @@ example identifier namespaces:
 If the system is a URL, it SHOULD resolve. Resolution might be to a web page that describes the identifier
 system and/or supports look-up of identifiers.  Alternatively, it could be to a <a href="namingsystem.html">NamingSystem</a> resource
 instance. Resolvable URLs are generally preferred by implementers over non-resolvable URNs, particularly
-opaque URNs such as OIDs (urn:oid:) or UUIDs (urn:uuid:). If used, OIDs and UUIDs may be registered in
-the <a href="http://hl7.org/oid">HL7 OID registry</a> and SHOULD be registered if the content is shared
-or exchanged across institutional boundaries.
+opaque URNs such as OIDs (urn:oid:) or UUIDs (urn:uuid:). If being exchanged across institutional boundaries, OIDs and UUIDs
+SHOULD be available to communicating participants in a shared registry.  The <a href="http://hl7.org/oid">HL7 OID registry</a> 
+may be used for this purpose for OIDs. <a href="https://terminology.hl7.org">terminology.hl7.org</a> may also be used to register
+<a href="namingsystem.html">NamingSystems</a> for identifiers of broad international or national interest.
 </p>
 <p>
 It is up to the implementer organization to determine an appropriate URL or URN structure that will
@@ -1387,11 +1395,17 @@ others would appear on <a href="servicerequest.html">ServiceRequest</a>.
   that non-case-sensitive processing is safe.
 </p>
 <p>
-If the identifier value itself is naturally a globally unique URI (e.g., an OID, a UUID, or a URI with no trailing local part),
-then the <code>system</code> SHALL be "<code>urn:ietf:rfc:3986</code>", and the URI is in the <code>value</code>
-(OIDs and UUIDs using urn:oid: and urn:uuid: - see <a href="datatypes-mappings.html#ii">note on the V3 mapping</a> and the <a href="datatypes-examples.html#Identifier">examples</a>).
-Naturally globally unique identifiers are those for which no other <a href="identifier-registry.html">system has been assigned</a> and where the value of the identifier is reasonably
-expected to not be re-used.  Typically, these are absolute URIs of some kind.
+Identifiers are expected to be globally unique by nature of the combination of system and value.
+In some cases, the 'value' element is already globally unique independent of Identifier.system.
+Typically, these are absolute URIs of some kind (e.g., an OID, a UUID, or a URI with no trailing local part).
+In such a case, an <code>Identifier.system</code> value <a href="identifier-registry.html">may be established</a> by the assigner
+or community to identify that collection of identifiers
+</p>
+<p>
+When using globally unique identifiers that are expressible as URIs as a value, a system SHALL be provided.
+If there is no assigned system, then the system SHALL be <code>urn:ietf:rfc:3986</code> and the value is
+expressed as a URI (OIDs and UUIDs using <code>urn:oid:</code> and <code>urn:uuid:</code> - see 
+<a href="datatypes-mappings.html#ii">note on the V3 mapping</a> and the <a href="datatypes-examples.html#Identifier">examples</a>.
 </p>
 <p>
 In some cases, the system might not be known - only the value is known (e.g., a simple device that scans a barcode),

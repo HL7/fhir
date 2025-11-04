@@ -227,8 +227,16 @@ Content-Language: en-US
 If present, the content language header must match the language of 
 the resource (if specified).
 </p>
-
- <li><a href="#names">Languages in Names and Addresses</a></li>
+<p>
+If a server changes the primary language of text based on a request
+for a resource in a particular language, that altered version is likely
+no longer an appropriate basis for making updates to the server.
+Servers can ensure that the provided resource is not used as a basis
+for making updates by opting to not include an eTag as part of the
+response and enforcing version-specific updates. Alternatively, they
+might include a meta.tag of <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-TRSLT">TRSLT</a> to designate that the resource
+has been translated and is not an appropriate basis for updates.
+</p>
 
 <a name="names"></a>
 <h3>Languages in Names and Addresses</h3>

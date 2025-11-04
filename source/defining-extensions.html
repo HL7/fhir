@@ -65,7 +65,7 @@ even for elements that are likely to be supported as part of the core specificat
 </p>
 
 <a name="context"></a>
-<h3>Context</h3>
+<h3>Extension Context</h3>
 <p>
 Extensions are always defined against some particular context - which elements
 they can extend. There are three different ways to specify which elements an
@@ -74,15 +74,11 @@ extension can be found on:
 <table class="codes">
  <tr><th>Code</th><th>Context type</th><th>Context format</th><th>Examples</th></tr>
  <tr>
-   <td>fhirpath</td>
-   <td>A <a href="fhirpath.html">FHIRPath</a> expression that selects the set of elements on which the extension can appear </td>
-   <td>The FHIRPath statement always starts from the root of the resource that might contain the element</td>
-   <td>Condition<br/>(Condition | Observation).code</td>
-  </tr>
- <tr>
    <td>element</td>
    <td>Formal <a href="elementdefinition.html#id">Element Id</a> for the element</td>
-   <td>Element Ids are unique within the base specification, and within a structure definition. The full path for the element is [url]#[elementid]. If there is no #, the Element id is one defined in the base specification</td>
+   <td>Element Ids are unique within the base specification, and within a structure definition. 
+    The full path for the element is [url]#[elementid]. If there is no #, the Element id is one defined in the base specification.
+  </td>
    <td>Address.part.value<br/>http://hl7.org/fhir/StructureDefinition/resprate#Observation.category:vscat.coding</td>
  </tr>
  <tr>
@@ -90,6 +86,12 @@ extension can be found on:
    <td>Another extension</td>
    <td>The canonical URL of the extension, optionally followed by #code for extension that appear within a complex extension</td>
    <td>http://hl7.org/fhir/StructureDefinition/structuredefinition-conformance-derivedFrom</td>
+ </tr>
+ <tr>
+   <td>fhirpath</td>
+   <td>A <a href="fhirpath.html">FHIRPath</a> expression that selects the set of elements on which the extension can appear </td>
+   <td>The FHIRPath statement always starts from the root of the resource that might contain the element</td>
+   <td>Condition<br/>(Condition | Observation).code</td>
  </tr>
 </table>
 <p>
@@ -100,6 +102,15 @@ Extensions SHALL only be used on a target that appears in their context list.
   <li>
     A StructureDefinition.context.type of <code>element</code> means that the value can reference the root elements of resources and datatypes, 
     which allows for extensions on the root of any structure that allows it (e.g., any DomainResource).
+  </li>
+  <li>
+    Element values include specialization logic; e.g. if the context of an extension is <code>Element</code>, then 
+    this includes all specializations of element, and if the context of an extension is <code>DomainResource.meta</code>,
+    the extension can be used in meta for all specializations of DomainResource. The same logic applies to interfaces like 
+    <code>CanonicalResource</code> - these are valid contexts.
+  </li>
+  <li>
+    <code>Resource</code> is also a valid context, though not all specializations of Resource allow extensions on the root, and the extension can't be used with those resources.
   </li>
   <li>
     By convention, and for legacy reasons, a type of <code>element</code> and a expression of "<code>Element</code>" means that the extension

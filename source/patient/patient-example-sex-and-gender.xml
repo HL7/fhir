@@ -138,7 +138,7 @@
 			</valueCodeableConcept>
 		</extension>
 		<extension url="comment">
-			<valueString value="Patient transitioned from male to female in 2001, but their insurance card still indicates male."/>				
+			<valueString value="Patient transitioned from male to female in 2001, but her insurance card still indicates male."/>				
 		</extension>
 	</extension>
 	
