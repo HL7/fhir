@@ -4,10 +4,18 @@
   <a name="scope"/>
   <h2>Scope and Usage</h2>
   <p>
-    This document contains information about the <code>Subscription</code> resource and details specific to options in it.  See <a href="subscriptions.html">Subscriptions</a> for general information about using Subscriptions in FHIR.
+    This document contains information about the <code>Subscription</code> resource and details specific to options in it. 
+    See <a href="subscriptions.html">Subscriptions</a> for general information about using Subscriptions in FHIR.
   </p>
   <p>
-    The <code>Subscription</code> resource is used to establish proactive event notifications from a FHIR server to another system.  Notifications are triggered by state changes or events defined by a <a href="subscriptiontopic.html">SubscriptionTopic</a> that the server supports, referenced by a canonical URL.  Notifications can be further refined by supplying filters specific to an individual client. Each <code>SubscriptionTopic</code> resource defines a set of allowed filters (<code>SubscriptionTopic.canFilterBy</code>), which can be referred to within a <code>Subscription</code> resource (<code>Subscription.filterBy</code>).  Once a subscription is created, any triggering state change the specified <code>SubscriptionTopic</code> that meets the filtering criteria will cause a notification to be sent using the provided channel.  Notifications are <a href="bundle.html#subscription-notification">Bundle</a> resources, of type <code>subscription-notification</code>.
+    The <code>Subscription</code> resource is used to establish proactive event notifications from a FHIR server to another system. 
+    Notifications are triggered by state changes or events defined by a <a href="subscriptiontopic.html">SubscriptionTopic</a> that 
+    the server supports, referenced by a canonical URL. Notifications can be further refined by supplying filters specific to an 
+    individual client. Each <code>SubscriptionTopic</code> resource defines a set of allowed filters 
+    (<code>SubscriptionTopic.trigger.canFilterBy</code>), which can be referred to within a <code>Subscription</code> resource 
+    (<code>Subscription.filterBy</code>).  Once a subscription is created, any triggering state change the specified 
+    <code>SubscriptionTopic</code> that meets the filtering criteria will cause a notification to be sent using the provided channel.
+    Notifications are <a href="bundle.html#subscription-notification">Bundle</a> resources, of type <code>subscription-notification</code>.
   </p>
   <p>
     Subscriptions are active resources; a server can only accept a subscription
@@ -16,7 +24,8 @@
     the server.
   </p>
   <p>
-    Using the <code>Subscription.content</code>, subscriptions can be configured to send notifications that include full resource content, just the ID of the triggering resource, or an empty notification body.
+    Using the <code>Subscription.content</code>, subscriptions can be configured to send notifications that include full resource 
+    content, just the ID of the triggering resource, or an empty notification body.
   </p>
   <p>
     Several channels are defined in the core specification:
@@ -37,7 +46,8 @@
   <a name="bnr"/>
   <h2>Boundaries and Relationships</h2>
   <p>
-    The <code>Subscription</code> resource is used in the <a href="subscriptions.html">Subscriptions Framework</a>.  Information about the Boundaries and Relationships both within the Subscriptions Framework and to other areas of the FHIR specification can be found <a href="subscriptions.html#bnr">here</a>.
+    The <code>Subscription</code> resource is used in the <a href="subscriptions.html">Subscriptions Framework</a>.  Information about the Boundaries 
+    and Relationships both within the Subscriptions Framework and to other areas of the FHIR specification can be found <a href="subscriptions.html#bnr">here</a>.
   </p>
 </div>
 
