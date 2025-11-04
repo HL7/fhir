@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Measure xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <name value="Example"/>
+  <status value="draft"/>
+  <relatedArtifact>
+    <type value="depends-on"/>
+    <artifactMarkdown value="A markdown description of a dependency"/> <!-- This should be an error to depend on markdown -->
+  </relatedArtifact>
+</Measure>
