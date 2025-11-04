@@ -584,6 +584,13 @@
       <type>
         <code value="RelatedArtifact"/>
       </type>
+			<constraint>
+				<key value="rqg-2"/>
+				<severity value="warning"/>
+				<human value="RequestOrchestration related artifacts should only be documentation, justification, or citation"/>
+				<expression value="type in ( 'documentation' | 'justification' | 'citation' )"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+			</constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.supportingInfo"/>

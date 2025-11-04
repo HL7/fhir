@@ -50,7 +50,7 @@ using the facilities provided by the <a href="codesystem.html">code system</a>. 
 <p>
 The rules for the content of the value set are found in the <code>ValueSet.compose</code> element, which are 
 analogous to the Content Logical Definition (CLD) as defined by the <a href="https://confluence.hl7.org/display/VOC/Characteristics+of+a+Value+Set+Definition+%28VSD%29+Project">VSD Project</a>.
-The ValueSet compose is a set of instructions for what codes are in the ValueSet, and defined by the author consistent with the <code>ValueSet.scope</code> and <code>ValueSet.description</code>
+The ValueSet compose is a set of instructions for what codes are in the ValueSet, and defined by the author consistent with the <code>ValueSet.description</code>
 </p>
 <p>
 The ValueSet composition can be defined in a number of ways:
@@ -242,9 +242,6 @@ In FHIR, <code>ValueSet.publisher</code> satisfies the requirements for both pub
 Description and Purpose are standard elements that appear in many FHIR resources. Neither fully supports the intent of the VSD Scope element, however <code>ValueSet.description</code> does support Focus as defined in VSD.
 </p>
 <p>
-In combination with <code>ValueSet.description</code>, <code>ValueSet.scope</code> is used by a <code>ValueSet.author</code> to communicate the semantic space the ValueSet expansion is intended to cover to other authors and users and to create specific descriptions of what is included and what is excluded. Inclusion criteria should not be used to repeat the Content Logical Definition (<code>ValueSet.compose</code>) (see the first example below).
-</p>
-<p>
 When a ValueSet definition includes other ValueSets, use <code>ValueSet.description</code> to provide information about the included value sets in context of the parent value set.
 </p>
 <p>
@@ -257,20 +254,14 @@ Example:
 <tr>
 <td>Value Set Name</td>
 <td>Description</td>
-<td>Scope Inclusion Criteria</td>
-<td>Scope Exclusion Criteria</td>
 </tr>
 <tr>
 <td>Body Site Value Set</td>
 <td>All SNOMED CT anatomic structures, locations, abnormal structures that can be considered to describe an anatomical site.</td>
-<td><b>Bad Example:</b> SNOMED CT concepts descending from the Anatomical Structure (91723000) or Acquired body structure (body structure) (289115004) or Anatomical site notations for tumor staging (body structure) (258331007) or Body structure, altered from its original anatomical structure (morphologic abnormality) (118956008) or Physical anatomical entity (body structure) (91722005).</td>
-<td>None</td>
 </tr>
 <tr>
 <td>Familial Hypercholesterolemia</td>
 <td>This value set contains terms defining familial hypercholesterolemia, regardless of genetic origin.</td>
-<td><b>Good Example:</b> Terms identifying familial hypercholesterolemia diagnoses.</td>
-<td>Familial combined hyperlipidemia, polygenic hypercholesterolemia, pure hypercholesterolemia not specifically familial. There are no ICD-9-CM codes specific to familial hypercholesterolemia, hence no ICD-9-CM codes are included in this value set.</td>
 </tr>
 </table>
 

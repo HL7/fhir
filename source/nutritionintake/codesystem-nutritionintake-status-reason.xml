@@ -15,49 +15,44 @@
   </identifier>
   <name value="NutritionIntakeStatusReason"/>
   <title value="Nutrition Intake Status Reason Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <description value="Nutrition Intake Status Reason Codes"/>
   <caseSensitive value="true"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <concept>
-    <code value="1"/>
+    <code value="incomplete-data"/>
     <display value="Incomplete Data"/>
     <definition value="Data needed to safely act on the intake which was expected to become available independent of the intake is not yet available."/>
   </concept>
   <concept>
-    <code value="2"/>
+    <code value="unable-to-provide-care"/>
     <display value="Unable to provide care"/>
     <definition value="Fulfiller not able to provide appropriate care associated with fulfilling the intake."/>
   </concept>
   <concept>
-    <code value="3"/>
+    <code value="request-clarification"/>
     <display value="Request requires clarification"/>
     <definition value="Clarification is required before the intake can be acted upon."/>
   </concept>
   <concept>
-    <code value="4"/>
+    <code value="allergy"/>
     <display value="Allergy"/>
     <definition value="The patient/subject is believed to be allergic to a substance that is part of the therapy and the therapy is being temporarily withdrawn to confirm."/>
   </concept>
   <concept>
-    <code value="5"/>
+    <code value="suspected-intolerance"/>
     <display value="Suspected intolerance"/>
     <definition value="The patient/subject is believed to have an intolerance to a substance that is part of the therapy and the therapy is being temporarily withdrawn to confirm."/>
   </concept>
   <concept>
-    <code value="6"/>
-    <display value="Entered in Error"/>
-    <definition value="The request was recorded against the wrong patient or for some reason should not have been recorded (e.g. wrong medication, wrong dose, etc.). Some of the actions that are implied by the medication request may have occurred. For example, the medication may have been dispensed and the patient may have taken some of the medication."/>
-  </concept>
-  <concept>
-    <code value="7"/>
+    <code value="scheduled-for-surgery"/>
     <display value="Patient/subject scheduled for surgery"/>
     <definition value="Patient/subject is receiving surgery and/or the subject is scheduled to be admitted for surgery in the near future. The intake will be resumed when the subject has sufficiently recovered from the surgery."/>
   </concept>
   <concept>
-    <code value="8"/>
+    <code value="product-not-available"/>
     <display value="Product not available"/>
     <definition value="Cannot supply product."/>
   </concept>
