@@ -2,6 +2,9 @@
 
 <ConceptMap xmlns="http://hl7.org/fhir">
   <id value="cdshooks-indicator"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dss"/>
+  </extension>
   <url value="http://cds-hooks.hl7.org/ConceptMap/indicator-to-request-priority"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -9,7 +12,7 @@
   </identifier>
   <name value="IndicatorToRequestPriority"/>
   <title value="Indicator To Request Priority"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
 	<publisher value="HL7 International / Terminology Infrastructure"/>
 	<contact>
@@ -21,7 +24,7 @@
 	<contact>
 		<telecom>
 			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+			<value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
 		</telecom>
 	</contact>
   <description value="Mapping between CDS Hooks Indicator and Request Priority"/>

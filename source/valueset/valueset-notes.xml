@@ -135,7 +135,8 @@ rules apply (in order).
 <ul>
  <li>If the <code>op</code> is <code>regex</code>, the format is a regex expression</li>
  <li>If the <code>op</code> is <code>exists</code>, the format is a <a href="datatypes.html#boolean">boolean</a> (<code>true</code> or <code>false</code>)</li>
- <li>If the <code>op</code> is <code>in</code> or <code>not-in</code>, the format is either a comma-separated list of <a href="datatypes.html#code">code</a> values, or an absolute <a href="datatypes.html#uri">uri</a>, which is a canonical reference to a ValueSet</li>
+ <li>If the <code>op</code> is <code>in</code> or <code>not-in</code>, the format is either a comma-separated list of <a href="datatypes.html#code">code</a> values, or an absolute <a href="datatypes.html#uri">uri</a>, which is a canonical reference to a ValueSet.
+   If the value is a code or list of codes, the interpretation of the codes is subject to the CodeSystem e.g. for SNOMED-CT reference sets. If the value is a valueSet uri, then commas and percents should be percent encoded</li>
  <li>If the <code>property</code> is <code>concept</code>, the format is a <a href="datatypes.html#code">code</a></li>
  <li>If the name in <code>property</code> refers to a <a href="codesystem.html#filters">CodeSystem filter</a>, the format is as defined in the filter table on the CodeSystem page, or as described in the applicable <code>CodeSystem.filter.value</code></li> 
  <li>If the name in <code>property</code> refers to a <a href="codesystem.html#defined-props">CodeSystem property</a>, the format is as defined in the following table</li>
