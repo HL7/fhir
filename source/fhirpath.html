@@ -268,7 +268,7 @@ In addition to the general purpose functions below, additional functions functio
 
 <a name="fn-extension"> </a>
 <h5><b>extension(url : string) : collection</b></h5>
-<p>Will filter the input collection for items named "extension" with the given url. 
+<p>Will filter the input collection for items named "extension" with the given <code>url</code>. 
   This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
   but is simpler to write. If the input collection is empty or the url is empty, 
   the return value will be an empty collection.</p>
@@ -337,7 +337,7 @@ Observation.subject.where(resolve() is Patient)
   <hr/>
 <a name="fn-ofType2"> </a><a name="fn-ofType"> </a>
 <h5><b>ofType(type : type specifier) : collection</b></h5>
-<p>Returns a collection that contains all items in the input collection that are of the given type or a subclass thereof.
+<p>Returns a collection that contains all items in the input collection that are of the given <code>type</code> or a subclass thereof.
   This is as defined as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
   only concrete core types are allowed as an argument. All primitives are considered to be independent 
   types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
@@ -410,10 +410,12 @@ Patient.conformsTo('http://hl7.org/fhir/StructureDefinition/Patient')
 <a name="fn-memberOf"> </a>
 <h5><b>memberOf(valueset : string) : Boolean</b></h5>
 
-<p>When invoked on a single code-valued element, returns true if the code is a member of the given valueset.
+<p>
+When invoked on a single code-valued element, returns true if the code is a member of the given <code>valueset</code>.
 When invoked on a single concept-valued element, returns true if any code in the concept is a member of the given valueset.
 When invoked on a single string, returns true if the string is equal to a code in the valueset, so long as the valueset 
-only contains one codesystem. If the valueset in this case contains more than one codesystem, the return value is empty.</p>
+only contains one codesystem. If the valueset in this case contains more than one codesystem, the return value is empty.
+</p>
 
 <p>If the valueset cannot be resolved as a uri to a value set, or the input is empty or has more than one value, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
@@ -430,7 +432,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <a name="fn-subsumes"> </a>
 <h5><b>subsumes(code : Coding | CodeableConcept) : Boolean</b></h5>
 
-<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
+<p>When invoked on a Coding-valued element and the given <code>code</code> is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or the return value is empty.</p>
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumes the given code.</p>
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
@@ -444,7 +446,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <a name="fn-subsumedBy"> </a>
 <h5><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b></h5>
 
-<p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e. the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
+<p>When invoked on a Coding-valued element and the given <code>code</code> is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e. the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumed by the given code.</p>
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
