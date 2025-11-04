@@ -4,7 +4,8 @@
 	<identifier>
 		<value value="0"/>
 	</identifier>
-	<status value="draft"/>
+	<status value="active"/>
+	<experimental value="true"/>
 	<deviceName>
 		<name value="Example Device Name"/>
 		<type>

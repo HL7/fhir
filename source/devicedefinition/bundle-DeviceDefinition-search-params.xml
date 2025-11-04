@@ -294,6 +294,7 @@
         <description value="The component part device definition"/>
         <code value="has-part-canonical"/>
         <type value="reference"/>
+        <target value="DeviceDefinition"/>
         <status value="active" />
         <expression value="DeviceDefinition.hasPart.definition.ofType(canonical)"/>
         <processingMode value="normal"/>
@@ -314,6 +315,7 @@
         <description value="The component part device type"/>
         <code value="has-part-code"/>
         <type value="token"/>
+        <target value="DeviceDefinition"/>
         <status value="active" />
         <expression value="DeviceDefinition.hasPart.definition.ofType(CodeableConcept)"/>
         <processingMode value="normal"/>
