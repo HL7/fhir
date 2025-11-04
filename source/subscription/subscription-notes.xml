@@ -38,7 +38,7 @@
 	<p>
 		If a server cannot or will not honor a payload type (e.g., will not send <code>full-resource</code> over HTTP),
 		it SHOULD reject the Subscription request. A server MAY instead accept the subscription with modifications and
-		return the accepted version to the client.
+		return the accepted and modified version to the client.
 	</p>
 	<p>
 		When sending event notifications servers SHALL populate the <a
