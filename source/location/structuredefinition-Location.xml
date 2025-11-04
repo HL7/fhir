@@ -172,6 +172,26 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Location.code">
+      <path value="Location.code"/>
+      <short value="Codes that identify this location"/>
+      <definition value="A coded representation of this Location, where the codes may be found in a geospatial system."/>
+      <comment value="`Location.code` may be used when there are existing code sets for geospatial or administrative regions, such as states, districts, municipalities, etc., where the code represents the geospatial identity of the Location. When indicating that a Location is located within some broader geospatial or administrative Location. When representing unique identifiers for intra-facility locations like rooms, beds, etc., Location.identifier is preferable. Further details will be available in the Administration Incubator."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LocationCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for representing locations, such as country codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/iso3166-1-2"/>
+      </binding>
+    </element>
     <element id="Location.name">
       <path value="Location.name"/>
       <short value="Name of the location as used by humans"/>
