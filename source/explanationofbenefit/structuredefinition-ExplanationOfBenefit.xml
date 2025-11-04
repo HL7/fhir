@@ -244,16 +244,18 @@
         <map value="FiveWs.class"/>
       </mapping>
     </element>
-    <element id="ExplanationOfBenefit.patient">
-      <path value="ExplanationOfBenefit.patient"/>
-      <short value="The recipient of the products and services"/>
-      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
+    <element id="ExplanationOfBenefit.subject">
+      <path value="ExplanationOfBenefit.subject"/>
+      <short value="The recipient(s) of the products and services"/>
+      <definition value="The party/group to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought."/>
+      <alias value="patient"/>
       <requirements value="The patient must be supplied to the insurer so that confirmation of coverage and service history may be considered as part of the authorization and/or adjudiction."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -262,7 +264,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="ExplanationOfBenefit.billablePeriod">
@@ -380,7 +382,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcessPriority"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="The timeliness with which processing is required: stat, normal, deferred."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/process-priority"/>
       </binding>
@@ -408,7 +410,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="For whom funds are to be reserved: (Patient, Provider, None)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/fundsreserve"/>
       </binding>
@@ -431,7 +433,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="For whom funds are to be reserved: (Patient, Provider, None)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/fundsreserve"/>
       </binding>
@@ -457,13 +459,14 @@
     <element id="ExplanationOfBenefit.related.claim">
       <path value="ExplanationOfBenefit.related.claim"/>
       <short value="Reference to the related claim"/>
-      <definition value="Reference to a related claim."/>
+      <definition value="Reference to a related Claim or ExplanationOfBenefit as a representation of a claim."/>
       <requirements value="For workplace or other accidents it is common to relate separate claims arising from the same event."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.related.relationship">
@@ -507,7 +510,9 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
@@ -521,7 +526,10 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.event">
@@ -574,8 +582,8 @@
       <path value="ExplanationOfBenefit.payee"/>
       <short value="Recipient of benefits payable"/>
       <definition value="The party to be reimbursed for cost of the products and services according to the terms of the policy."/>
-      <comment value="Often providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead."/>
-      <requirements value="The provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
+      <comment value="Often billing providers agree to receive the benefits payable to reduce the near-term costs to the patient. The insurer may decline to pay the provider and may choose to pay the subscriber instead."/>
+      <requirements value="The billing provider needs to specify who they wish to be reimbursed and the claims processor needs express who they will reimburse."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -585,8 +593,8 @@
     <element id="ExplanationOfBenefit.payee.type">
       <path value="ExplanationOfBenefit.payee.type"/>
       <short value="Category of recipient"/>
-      <definition value="Type of Party to be reimbursed: Subscriber, provider, other."/>
-      <requirements value="Need to know who should receive payment with the most common situations being the Provider (assignment of benefits) or the Subscriber."/>
+      <definition value="Type of Party to be reimbursed: Subscriber, billing provider, other."/>
+      <requirements value="Need to know who should receive payment with the most common situations being the billing Provider (assignment of benefits) or the Subscriber."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -736,7 +744,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdjudicationDecision"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
       </binding>
     </element>
@@ -840,18 +848,6 @@
         <map value="FiveWs.actor"/>
       </mapping>
     </element>
-    <element id="ExplanationOfBenefit.careTeam.responsible">
-      <path value="ExplanationOfBenefit.careTeam.responsible"/>
-      <short value="Indicator of the lead practitioner"/>
-      <definition value="The party who is billing and/or responsible for the claimed products or services."/>
-      <comment value="Responsible might not be required when there is only a single provider listed."/>
-      <requirements value="When multiple parties are present it is required to distinguish the lead or responsible individual."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
     <element id="ExplanationOfBenefit.careTeam.role">
       <path value="ExplanationOfBenefit.careTeam.role"/>
       <short value="Function within the team"/>
@@ -867,7 +863,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CareTeamRole"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The role codes for the care team members."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-careteamrole"/>
       </binding>
@@ -934,7 +930,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InformationCategory"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="The valuset used for additional information category codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
       </binding>
@@ -984,10 +980,13 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="date"/>
+        <code value="dateTime"/>
       </type>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.supportingInfo.value[x]">
@@ -1089,7 +1088,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DiagnosisType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The type of the diagnosis: admitting, principal, discharge."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosistype"/>
       </binding>
@@ -1108,7 +1107,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DiagnosisOnAdmission"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Present on admission."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosis-on-admission"/>
       </binding>
@@ -1155,7 +1154,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ProcedureType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Example procedure type codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-procedure-type"/>
       </binding>
@@ -1433,6 +1432,19 @@
       <max value="*"/>
       <type>
         <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.subject">
+      <path value="ExplanationOfBenefit.item.subject"/>
+      <short value="The recipient of the products and services"/>
+      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <comment value="Profilers should consider making this element required when the backbone .subject is a group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.revenue">
@@ -1806,7 +1818,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdjudicationDecision"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
       </binding>
     </element>
@@ -1886,7 +1898,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Adjudication"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The adjudication codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication"/>
       </binding>
@@ -1933,6 +1945,17 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.adjudication.decisionDate">
+      <path value="ExplanationOfBenefit.item.adjudication.decisionDate"/>
+      <short value="When was adjudication performed"/>
+      <definition value="The date and time the adjudication decision occured."/>
+      <comment value="Implementation Guide authors may choose to require this element based on local regulatory requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail">
@@ -2540,8 +2563,21 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.item.informationSequence">
-      <path value="ExplanationOfBenefit.item.informationSequence"/>
+    <element id="ExplanationOfBenefit.addItem.subject">
+      <path value="ExplanationOfBenefit.addItem.subject"/>
+      <short value="The recipient of the products and services"/>
+      <definition value="The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought."/>
+      <comment value="Profilers should consider making this element required when the backbone .subject is a group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.informationSequence">
+      <path value="ExplanationOfBenefit.addItem.informationSequence"/>
       <short value="Applicable exception and supporting information"/>
       <definition value="Exceptions, special conditions and supporting information applicable for this service or product."/>
       <requirements value="Need to reference the supporting information items that relate directly to this product or service."/>
@@ -3441,7 +3477,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PaymentType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The type (partial, complete) of the payment."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-paymenttype"/>
       </binding>
@@ -3472,7 +3508,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PaymentAdjustmentReason"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Payment Adjustment reason codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/payment-adjustment-reason"/>
       </binding>
@@ -3625,7 +3661,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.processNote.language">
@@ -3650,6 +3686,7 @@
         <description value="IETF language tag for a human language"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
         <additional>
+				  <key value="b-exb-1"/>
           <purpose value="starter"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
         </additional>

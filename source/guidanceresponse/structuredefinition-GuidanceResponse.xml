@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -95,15 +95,13 @@
         <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.basedOn"/>
-      </mapping>
     </element>
     <element id="GuidanceResponse.identifier">
       <path value="GuidanceResponse.identifier"/>
-      <short value="Business identifier"/>
-      <definition value="Allows a service to provide  unique, business identifiers for the response."/>
+      <short value="Business identifier for guidance response"/>
+      <definition value="Business identifiers assigned to this guidance response by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <requirements value="Allows identification of the guidance response as it is known by various participating systems and in a way that remains consistent across servers."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -175,8 +173,9 @@
     </element>
     <element id="GuidanceResponse.subject">
       <path value="GuidanceResponse.subject"/>
-      <short value="Patient the request was performed for"/>
-      <definition value="The patient for which the request was processed."/>
+      <short value="Individual service was done for/to"/>
+      <definition value="The individual or set of individuals the action is being or was performed on."/>
+      <requirements value="Links the guidance response to the Patient context.  May also affect access control."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -184,26 +183,29 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.subject"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="GuidanceResponse.encounter">
       <path value="GuidanceResponse.encounter"/>
-      <short value="Encounter during which the response was returned"/>
-      <definition value="The encounter during which this response was created or to which the creation of this record is tightly associated."/>
-      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official copmletion of an encounter but still be tied to the context of the encounter."/>
+      <short value="Encounter the guidance response is part of"/>
+      <definition value="The Encounter during which this guidance response was created or to which the creation of this record is tightly associated."/>
+      <comment value="This will typically be the encounter the guidance response was created during, but some guidance responses may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <requirements value="Links the guidance response to the Encounter context.  May also affect access control."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.encounter"/>
@@ -222,6 +224,7 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.occurrence[x]"/>
@@ -250,6 +253,23 @@
         <map value="FiveWs.actor"/>
       </mapping>
     </element>
+    <element id="GuidanceResponse.location">
+      <path value="GuidanceResponse.location"/>
+      <short value="Where guidance response occurred"/>
+      <definition value="The principal physical location where the guidance response was performed."/>
+      <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
+      </mapping>
+    </element>
     <element id="GuidanceResponse.reason">
       <path value="GuidanceResponse.reason"/>
       <short value="Why guidance is needed"/>
@@ -260,6 +280,7 @@
       <type>
         <code value="CodeableReference"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.reason"/>

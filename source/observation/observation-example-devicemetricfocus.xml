@@ -46,12 +46,14 @@
 				<device>
 					<reference value="Device/example-IV-pump"/>
 				</device>
-				<status>
+				<status value="active"/>
+				<associationStatus>
 					<coding>
-						<system value="http://hl7.org/fhir/deviceassociation-status"/>
-						<code value="attached"/>
+					<system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+					<code value="attached"/>
+					<display value="Attached"/>
 					</coding>
-				</status>
+				</associationStatus>
 				<subject>
 					<reference value="Patient/pat1"/>
 					<display value="Donald Duck"/>
@@ -64,6 +66,8 @@
 		<resource>
 			<DeviceMetric xmlns="http://hl7.org/fhir">
 				<id value="example-iv-pump-flowratemetric"/>
+				<status value="active"/>
+				<operationalStatus value="on"/>
 				<type>
 					<coding>
 						<system value="urn:iso:std:iso:11073:10101"/>

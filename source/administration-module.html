@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
     [%file newnavbar%]
 
     
-        <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg pa%]">[%wgt pa%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+        <table class="colsi"><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg pa%]">[%wgt pa%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
         <a name="root"></a>
         <h2>Administration Module</h2>
@@ -172,6 +172,9 @@ in order to support consistent definitions for schema and UML derived code.
                 Resources shown with a dotted box are described in other sections of the specification:
                 <code>Coverage</code> and <code>Claim</code> are from the <a href="financial-module.html">section on Finance</a>.
 [%end-note%]
+[%impl-note%]
+                This diagram shows the relationships between resource types.  Relationships between instances of resources may include references to multiple instances of the same type. For example, an Encounter and an Account for the same human being may reference separate Patient resource instances, as noted in <code>Account.subject</code>.  Those Patient resources should be linked using <code>Patient.link</code> with a type of <code>seealso</code>.
+[%end-note%]
 
         <a name="dir-reg"></a>
         <h4>Service Provider Directory Resources</h4>
@@ -218,7 +221,8 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="dev-sub"></a>
         <h4>Devices and Substances</h4>
         <p>
-            Other assets are often registered in the administration system, and maintained as master files.
+            Other assets are often registered in the administration system, and maintained as master files.<br/>
+            Refer to the <a href="device-module.html">device module</a> for additional details.
         </p>
         <table class="bare">
             <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>

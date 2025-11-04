@@ -120,7 +120,6 @@ places:
  <li><a href="valueset-definitions.html#ValueSet.compose.include.filter.property">ValueSet</a>: <code>ValueSet.compose.include.filter.property</code> can refer to any defined code system property</li>
  <li><a href="codesystem-operations.html#lookup">$lookup operation</a>: In <code>Parameters.parameter.name</code> when returning information about a code</li>
  <li><a href="conceptmap-operations.html#translate">$translate operation</a>: In <code>Parameters.parameter.part.name</code> for dependencies and products</li>
- <li><a href="codesystem-operations.html#compose">$find-matches operation</a>: In <code>Parameters.parameter.name</code> when providing codes, and in <code>Parameters.parameter.name</code> when asking for codes</li>
 </ul>
 <p>
 Properties are defined using the following elements:
@@ -322,7 +321,6 @@ Subsumption based logic arises explicitly or implicitly in the following places 
 <ul>
  <li><a href="codesystem-operations.html#subsumes">CodeSystem $subsumes operation</a></li>
  <li><a href="codesystem-operations.html#lookup">CodeSystem $lookup operation</a></li>
- <li><a href="conceptmap-operations.html#closure">ConceptMap $closure operation</a></li>
  <li><a href="search.html#subsumption">Search by subsumption</a></li>
  <li><a href="valueset-operations.html#expand">ValueSet $expand operation</a></li>
  <li><a href="valueset-operations.html#validate-code">ValueSet $validate-code operation</a></li>

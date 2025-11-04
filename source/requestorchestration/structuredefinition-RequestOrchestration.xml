@@ -333,7 +333,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="RequestOrchestration.encounter">
@@ -471,8 +471,8 @@
       <constraint>
         <key value="rqg-1"/>
         <severity value="error"/>
-        <human value="Must have resource or action but not both"/>
-        <expression value="resource.exists() implies action.exists().not()"/>
+        <human value="Must have either resource, action, or definition"/>
+        <expression value="iif(resource.exists(), 1, 0) + iif(action.exists(), 1, 0) + iif(definition.exists(), 1, 0) = 1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
       </constraint>
     </element>
@@ -884,6 +884,9 @@
       <type>
         <code value="Timing"/>
       </type>
+      <type>
+        <code value="RelativeTime"/>
+      </type>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.occurrence[x]"/>
@@ -956,7 +959,12 @@
       <max value="1"/>
       <type>
         <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -972,18 +980,22 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -1041,22 +1053,31 @@
       <max value="1"/>
       <type>
         <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CapabilityStatement"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </type>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -1078,9 +1099,32 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of action to be performed."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/action-type"/>
       </binding>
     </element>
+		<element id="RequestOrchestration.action.applicabilityBehavior">
+			<path value="RequestOrchestration.action.applicabilityBehavior"/>
+			<short value="all | any"/>
+			<definition value="All - meaning the applicability of each child action is evaluated independently; if a child action is applicable according to the applicability criteria, it is applied. Any - meaning that each child action is evaluated in order, and the first action that returns an applicability of true will be applied, and processing of the parent action will stop. If not specified, the default behavior of All is used."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<meaningWhenMissing value="If no applicability behavior is specified but the action has children, the default applicability criteria of All is assumed, meaning that each child action is evaluated independently."/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ActionApplicabilityBehavior"/>
+				</extension>
+				<strength value="required"/>
+				<description value="Defines applicability behavior of a group."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-applicability-behavior"/>
+			</binding>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
     <element id="RequestOrchestration.action.groupingBehavior">
       <path value="RequestOrchestration.action.groupingBehavior"/>
       <short value="visual-group | logical-group | sentence-group"/>
@@ -1187,14 +1231,17 @@
     <element id="RequestOrchestration.action.definition[x]">
       <path value="RequestOrchestration.action.definition[x]"/>
       <short value="Description of the activity to be performed"/>
-      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured."/>
-      <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically."/>
+      <definition value="A reference to an ActivityDefinition that describes the action to be taken in detail, a Measure that specifies a measure to be evaluated, a MessageDefinition that specifies a message to be sent, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, an ObservationDefinition that specifies what observation should be captured, or an OperationDefinition that specifies what operation should be invoked. When the value is a uri, it is intended to be a reference to non-FHIR content that characterizes the action to be performed. This option is allowed to enable the PlanDefinition to be used to provide semi-structured representation, when the guidance is not computable, but there is still value in elaborating the overall structure with a PlanDefinition. The intended behavior when a definitionUri is realized as part of an apply is that it is copied to the resulting RequestOrchestration so that it is available to the consuming system. How that system interprets that uri is not specified."/>
+      <comment value="Note that the definition is optional, and if no definition is specified, a dynamicValue with a root ($this) path can be used to define the entire resource dynamically. If the reference is to an ActivityDefinition or a PlanDefinition, the realization processing documented in those resources is followed. For the other definitional resource types, implementations SHOULD realize the action as a Task resource with a focus of the definitional resource to indicate that the activity should be carried out (e.g. evaluating a measure, gathering a specimen, filling out a questionnaire, sending a message, invoking an operation, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/MessageDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>

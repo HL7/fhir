@@ -75,7 +75,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Canonical reference to a GraphDefinition. If a URL is provided, it is the canonical reference to a [GraphDefinition](graphdefinition.html) that it controls what resources are to be added to the bundle when building the document. The GraphDefinition can also specify profiles that apply to the various resources"/>
+    <documentation value="Canonical reference to a GraphDefinition. If a URL is provided, it is the canonical reference to a [GraphDefinition](http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition) that it controls what resources are to be added to the bundle when building the document. The GraphDefinition can also specify profiles that apply to the various resources"/>
     <type value="uri"/>
   </parameter>
   <parameter>

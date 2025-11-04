@@ -676,6 +676,17 @@
         <code value="Money"/>
       </type>
     </element>
+    <element id="PaymentReconciliation.allocation.noteNumber">
+      <path value="PaymentReconciliation.allocation.noteNumber"/>
+      <short value="Applicable note numbers"/>
+      <definition value="The numbers associated with notes below which apply to the adjudication of this item."/>
+      <requirements value="Provides a condensed manner for associating human readable descriptive explanations on the allocation item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="PaymentReconciliation.formCode">
       <path value="PaymentReconciliation.formCode"/>
       <short value="Printed form identifier"/>
@@ -716,6 +727,38 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="PaymentReconciliation.processNote.class">
+      <path value="PaymentReconciliation.processNote.class"/>
+      <short value="Business kind of note"/>
+      <definition value="A code to indicate the business purpose of the note."/>
+      <requirements value="Process Notes may encompass a significant number of kinds of notes. These could be disclaimers (particularly useful for predetermination), a statement about adjudication, a conditional statement, or others."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProcessNoteClass"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Business class of the process note."/>
+      </binding>
+    </element>
+    <element id="PaymentReconciliation.processNote.number">
+      <path value="PaymentReconciliation.processNote.number"/>
+      <short value="Note instance identifier"/>
+      <definition value="A number to uniquely identify a note entry."/>
+      <requirements value="Necessary to provide a mechanism to link from allocations."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
     <element id="PaymentReconciliation.processNote.type">
       <path value="PaymentReconciliation.processNote.type"/>
       <short value="display | print | printoper"/>
@@ -746,7 +789,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="cdanetv4"/>

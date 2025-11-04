@@ -10,12 +10,12 @@
 
 
 
-<table class="colstu"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
+<table class="colsi"><tbody><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
 
 <a name="knowledge-artifact-representation"> </a>
 <h3>Representing Knowledge Artifacts</h3>
 
-<p>For the purposes of the Clinical Reasoning module, a Knowledge Artifact is a structured, computable, and shareable representation of clinical knowledge. A comprehensive definition of clinical knowledge is beyond the scope of this module, but we effectively mean any knowledge relevant to improving patient care. For example, "Patients with diabetes should have regular comprehensive foot examinations to identify risk factors predictive of ulcers and amputations" is a statement of clinical knowledge. A knowledge artifact would then be some representation that can be used to integrate that knowledge into existing healthcare delivery systems.</p>
+<p>For the purposes of the Clinical Reasoning module, a Knowledge Artifact is a structured, computable, and shareable representation of clinical knowledge. A comprehensive definition of clinical knowledge is beyond the scope of this module, but we effectively mean any knowledge relevant to improving patient care. For example, "Patients with diabetes should have regular comprehensive foot examinations to identify risk factors predictive of ulcers and amputations" is a statement of clinical knowledge. A knowledge artifact would then be some representation that can be used to integrate that knowledge into healthcare delivery systems.</p>
 
 <p>There are any number of ways to accomplish this integration of clinical knowledge, ranging from direct implementation within an existing EHR system to the use of high-level representation and reasoning systems that can adapt clinical workflow to provide cognitive support to clinicians. Within this module, we aim to provide a representation that is both flexible enough to represent a broad range of knowledge artifacts, but simple and specific enough to enable automated integration of the content.</p>
 
@@ -38,7 +38,7 @@
 
 <a name="artifact-identity"> </a>
 <h5>Artifact Identity</h5>
-<p>As with any FHIR resource, the instance identity is specified by the <a href="resource-definitions.html#Resource.id">id</a> element. Knowledge artifacts also have a <a href="resource.html#canonical">canonical</a> identifier, specified by the <code>url</code> element that serves as the globally unique, "canonical URL" for the artifact that always identifes the resource. The canonical URL is a special kind of logical (or business) identifier, and artifacts may define any number of additional logical identifiers based on the content or behavior they provide, such as the CMS or NQF identifiers for measure content. These logical identifiers can be provided in the <code>identifier</code> element defined on each resource.</p>
+<p>As with any FHIR resource, the instance identity is specified by the <a href="resource-definitions.html#Resource.id">id</a> element. Knowledge artifacts also have a <a href="resource.html#canonical">canonical</a> identifier, specified by the <code>url</code> element that serves as the globally unique, "canonical URL" for the artifact that always identifes the resource. The canonical URL is a special kind of logical (or business) identifier, and artifacts may define any number of additional logical identifiers based on the content or behavior they provide, such as the CMS or NQF identifiers for measure content. These additional logical identifiers can be provided in the <code>identifier</code> element defined on each resource.</p>
 
 <p>In addition to identity, the <code>version</code> element can be used to specify a content version for the artifact. In general, version numbers are required for published, non-experimental artifacts, and optional otherwise.</p>
 
@@ -76,26 +76,28 @@
 		<tr><th>Element</th><th>Description</th></tr>
 	</thead>
 	<tbody>
-		<tr><td><a href="library-definitions.html#Library.name">name</a></td><td>A machine-friendly name for the artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.title">title</a></td><td>A user-friendly title for the artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.status">status</a></td><td>The lifecycle status for the artifact (draft, active, or inactive) <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.experimental">experimental</a></td><td>Whether the artifact is for testing purposes, rather than production usage <a href="plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.description">description</a></td><td>A natural language description of the artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.purpose">purpose</a></td><td>Describes the purpose of the artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.usage">usage</a></td><td>Describes the clinical usage of the artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.approvalDate">approvalDate</a></td><td>The date when this artifact was approved by the publisher <a href="plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.lastReviewDate">lastReviewDate</a></td><td>The date this version of the artifact was last reviewed <a href="plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.effectivePeriod">effectivePeriod</a></td><td>The effective date range for the artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.useContext">useContext</a></td><td>Describes the context of use for this artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.topic">topic</a></td><td>Descriptional topics for the artifact <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.author">author</a></td><td>A content author <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.editor">editor</a></td><td>A content editor <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.reviewer">reviewer</a></td><td>A content reviewer <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.endorser">endorser</a></td><td>A content endorser <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.publisher">publisher</a></td><td>The name of the publisher (either an organization or an individual) <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.contact">contact</a></td><td>Contact details for the publisher <a href="plandefinition-example.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.copyright">copyright</a></td><td>Legal copyright description for the artifact <a href="plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
-		<tr><td><a href="library-definitions.html#Library.relatedArtifact">relatedArtifact</a></td><td>Related resources for the artifact, including additional documentation, supporting evidence, or knowledge management dependencies <a href="plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.name">name</a></td><td>A computer-friendly name for the artifact (e.g. LowSuicideRiskOrderSet <a href="plandefinition-example.html">example</a>)</td></tr>
+		<tr><td><a href="library-definitions.html#Library.title">title</a></td><td>A user-friendly title for the artifact (e.g. Low Suicide Risk Order Set <a href="plandefinition-example.html">example</a>)</td></tr>
+		<tr><td><a href="library-definitions.html#Library.status">status</a></td><td>The lifecycle status for the artifact (draft, active, or inactive) <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.experimental">experimental</a></td><td>Whether the artifact is for testing purposes, rather than production usage <a href="plandefinition-example-kdn5-simplified.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.date">date</a></td><td>Date last changed <a href="plandefinition-example-kdn5-simplified.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.publisher">publisher</a></td><td>Name of the publisher/steward (either an organization or an individual) <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.contact">contact</a></td><td>Contact details for the publisher <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.description">description</a></td><td>A natural language description of the artifact <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.useContext">useContext</a></td><td>Describes the context of use for this artifact <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.jurisdiction">jurisdiction</a></td><td>Jurisdiction of the authority that maintains this artifact <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.purpose">purpose</a></td><td>Describes the purpose of the artifact <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.copyright">copyright</a></td><td>Notice about intellectual property ownership, can include restrictions on use for the artifact <a href="plandefinition-example-kdn5-simplified.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.copyrightLabel">copyrightLabel</a></td><td>Copyright holder and year(s) for the artifact <a href="plandefinition-example-kdn5-simplified.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.usage">usage</a></td><td>Describes the clinical usage of the artifact <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.approvalDate">approvalDate</a></td><td>The date when this artifact was approved by the publisher <a href="plandefinition-example-kdn5-simplified.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.lastReviewDate">lastReviewDate</a></td><td>The date this version of the artifact was last reviewed <a href="plandefinition-example-kdn5-simplified.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.effectivePeriod">effectivePeriod</a></td><td>When the artifact is expected to be used <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.author">author</a></td><td>A content author <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.editor">editor</a></td><td>A content editor <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.reviewer">reviewer</a></td><td>A content reviewer <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.endorser">endorser</a></td><td>A content endorser <a href="plandefinition-example.html">example</a></td></tr>
+		<tr><td><a href="library-definitions.html#Library.relatedArtifact">relatedArtifact</a></td><td>Related resources for the artifact, including additional documentation, supporting evidence, or knowledge management dependencies <a href="plandefinition-example-kdn5-simplified.html">example</a></td></tr>
 	</tbody>
 </table>
 
@@ -107,20 +109,26 @@
 <pre><code>&lt;title value=&quot;Appropriate Testing for Children with Pharyngitis&quot;/&gt;
 &lt;status value=&quot;active&quot;/&gt;
 &lt;experimental value=&quot;true&quot;/&gt;
-&lt;description value=&quot;Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and
+&lt;description value=&quot;Percentage of children 3-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and
 	received a group A streptococcus (strep) test for the episode.&quot;/&gt;
 &lt;purpose value=&quot;The Infectious Diseases Society of America (IDSA) &quot;recommends swabbing the throat and testing for GAS
 	pharyngitis by rapid antigen detection test (RADT) and/or culture because the clinical features alone do not reliably discriminate
 	between GAS and viral pharyngitis except when overt viral features like rhinorrhea, cough, oral ulcers, and/or hoarseness are present&quot;&quot;/&gt;
-&lt;topic&gt;
-  &lt;coding&gt;
-    &lt;system value=&quot;http://loinc.org&quot; /&gt;
-    &lt;code value=&quot;57024-2&quot; /&gt;
-  &lt;/coding&gt;
-&lt;/topic&gt;
+&lt;useContext&gt;
+  &lt;code&gt;
+    &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/usage-context-type&quot;/&gt;
+    &lt;code value=&quot;age&quot;/&gt;
+  &lt;/code&gt;
+  &lt;valueRange&gt;
+    &lt;low&gt;&lt;value value=&quot;3&quot;/&gt;&lt;unit value=&quot;a&quot;/&gt;&lt;/low&gt;
+    &lt;high&gt;&lt;value value=&quot;18&quot;/&gt;&lt;unit value=&quot;a&quot;/&gt;&lt;/high&gt;
+  &lt;/valueRange&gt;
+&lt;/useContext&gt;
 </code></pre>
 
-<p>For information on the <code>useContext</code> and <code>topic</code> elements, refer to the <a href="clinicalreasoning-knowledge-artifact-distribution.html">Knowledge Artifact Distribution</a> section.</p>
+<p>For information on the <code>useContext</code> elements, refer to the <a href="clinicalreasoning-knowledge-artifact-distribution.html">Knowledge Artifact Distribution</a> section.</p>
+
+<p>For more information on providing supporting documentation, refer to the <a href="clinicalreasoning-topics-supporting-documentation.html">Supporting Documentation</a> topic.</p>
 
 <a name="publication-information"> </a>
 <h6>Publication Information</h6>
@@ -241,7 +249,34 @@
 
 <p>The Create, Update, and Remove actions indicate that particular resources should be created, updated, or removed, and the Fire Event action indicates that a particular named event should be triggered.</p>
 
-<p>Note that this element is optional, and is used to indicate what type of action is to be taken with the associated activity definition. For example, an action that indicates <code>create</code> with an activity definition that defines a referral request means that the referral request should be realized and the resulting resource created (i.e. applied to the patient's record). An action that indicates <code>update</code> with an activity definition would indicate that an existing resource on the patient's record should be updated based on the new resource content.</p>
+<p>Note that this element is optional, and is used to indicate what type of action is to be taken with the associated activity definition. For example, an action that indicates <code>create</code> with an activity definition that defines a referral request means that the referral request should be realized and the resulting resource created (i.e. applied to the patient's record). An action that indicates <code>update</code> with an activity definition would indicate that an existing resource on the patient's record should be updated based on the new resource content. For example:</p>
+
+<pre><code>&lt;action&gt;
+  &lt;description value=&quot;Update status of the referral to completed&quot;/&gt;
+  &lt;type&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/action-type&quot;/&gt;
+      &lt;code value=&quot;update&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/type&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;$this&quot;/&gt;
+    &lt;expression&gt;
+      &lt;language value=&quot;text/cql-expression&quot;/&gt;
+      &lt;expression value=&quot;[ServiceRequest] SR where SR.code = &amp;quot;Referral to service (SNOMED 306206005)&amp;quot;&quot;/&gt;
+    &lt;/expression&gt;
+  &lt;/dynamicValue&gt;
+  &lt;dynamicValue&gt;
+    &lt;path value=&quot;status&quot;/&gt;
+    &lt;expression&gt;
+      &lt;langage value=&quot;text/cql-expression&quot;/&gt;
+      &lt;expression value=&quot;&#39;completed&#39;&quot;/&gt;
+    &lt;/expression&gt;
+  &lt;/dynamicValue&gt;
+&lt;/action&gt;
+</code></pre>
+
+<p>Note that these actions (create, update, and remove), when realized, result in a proposal resource being returned from the PlanDefinition/$apply operation. The calling system is responsible for applying the results of these operations. It would be possible to completely automate workflow execution if the client were to apply these proposals to create, update, and remove resources by turning them into RESTful API calls directly. In addition, this aspect of automatic execution could be incorporated into user-mediated workflows by the use of the participant type. If a given action specifies the EHR (represented as a software device) as the only participant in a given action, that action can be taken automatically by the client application.</p>
 
 <a name="trigger-definitions"> </a>
 <h6>Trigger Definitions</h6>
@@ -300,6 +335,8 @@
 &lt;/condition&gt;
 </code></pre>
 
+<p>For more information on how to use expression logic within knowledge artifacts, refer to the <a href="clinicalreasoning-topics-using-expressions.html">Using Expressions</a> topic.</p>
+
 <a name="knowledge-artifact-resources"> </a>
 <h4>Knowledge Artifact Resources</h4>
 
@@ -316,6 +353,7 @@
 		<tr><td><a href="#protocol">Protocol</a></td><td>A pre-defined procedural method for standardizing a set of activities. As examples, protocols can be used within laboratory settings to standardize handling of specimens for specific tests; standardize the treatment steps for a particular condition; or standardize the steps to be taken in a particular research trial.</td><td>The specific tasks that should be performed to provide effective treatment for a new diagnosis of diabetes.</td></tr>
 		<tr><td><a href="#documentation-template">Documentation Template</a></td><td>A structured form for recording information on a patient into a set of predefined data slots.</td><td>A form describing the information that should be gathered during a comprehensive diabetic foot exam.</td></tr>
 		<tr><td><a href="#measure">Measure</a></td><td>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical guidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</td><td>Percentage of patients aged 18-75 years of age with diabetes who had a foot exam during the measurement period.</td></tr>
+    <tr><td><a href="#guideline">Guideline</a></td><td>A computable representation of a narrative clinical guideline that is faithful to guideline intent and supports the derivation of downstream capabilities such as cognitive and decision support, quality measures, case reporting, and documentation templates that direct clinical documentation in support of determining guideline compliance.</td></tr>
 	</tbody>
 </table>
 
@@ -363,6 +401,8 @@
   &lt;/content&gt;
 &lt;/Library&gt;
 </code></pre>
+
+<p>For more information on how to use Clinical Quality Language with FHIR resources generally, refer to the <a href="http://hl7.org/fhir/uv/cql">Using CQL With FHIR</a> implementation guide.</p>
 
 <a name="event-condition-action-rule"> </a>
 <h4>Event-Condition-Action (ECA) Rule</h4>
@@ -463,6 +503,8 @@
   &lt;activity&gt;
 &lt;/CarePlan&gt;
 </code></pre>
+
+<p>For more information on using clinical reasoning for decision support services, see the <a href="clinicalreasoning-cds-on-fhir.html">Decision Support Services</a> topic.</p>
 
 <a name="order-set"> </a>
 <h4>Order Set</h4>
@@ -637,19 +679,13 @@
 
 <p>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Note that the <a href="measure.html">Measure</a> itself does not contain any logic; rather a <a href="#library">Library</a> resource is referenced that contains the logic required by the measure, and the various expression elements, such as population criteria, reference named expressions within that library (or libraries).</p>
 
-<p>For example, the following fragment defines how to calculate the controlling high blood pressure measure:</p>
+<p>For example, the following fragment defines a cohort measure with three population groups, a demographic group, a group with systolic blood pressure measurements, and a group with diastolic blood pressure measurements:</p>
 
 <pre><code>&lt;Measure&gt;
   &lt;id value=&quot;cbp&quot;/&gt;
   &lt;status value=&quot;active&quot;/&gt;
   &lt;experimental value=&quot;true&quot;/&gt;
   &lt;description value=&quot;Controlling High Blood Pressure Cohort Definition&quot;/&gt;
-  &lt;topic&gt;
-    &lt;coding&gt;
-      &lt;system value=&quot;http://loinc.org&quot;/&gt;
-      &lt;code value=&quot;57024-2&quot;/&gt;
-    &lt;/coding&gt;
-  &lt;/topic&gt;
   &lt;library value=&quot;http://example.org/Library/cbp-logic&quot;/&gt;
   &lt;group&gt;
     &lt;population&gt;
@@ -671,6 +707,64 @@
   &lt;/group&gt;
 &lt;/Measure&gt;
 </code></pre>
+
+<p>The <a href="http://hl7.org/fhir/uv/cqm">Quality Measure</a> implementation guide provides profiles and guidance for the definition of quality measures using the Measure resource, and the <a href="http://hl7.org/fhir/us/davinci-deqm">Data Exchange for Quality Measures</a> implementation guide provides a framework for reporting with FHIR that makes use of these measure definitions.</p>
+
+<a name="guideline"> </a>
+<h4>Guideline</h4>
+
+<p>Broadly, the artifacts described above can be combined in an implementation guide that provides definitions of the recommendations of a guideline. In addition, through application of the FHIR <a href="workflow.html">Workflow</a> patterns, these definitions can be realized and integrated with clinical workflow for patients as part of the delivery of care. At the highest level, a computable guideline is represented using an Implementation Guide resource:</p>
+
+<pre><code>&lt;ImplementationGuide xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;id value=&quot;chf-ig&quot;/&gt;
+  &lt;meta&gt;
+    &lt;profile value=&quot;http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-computableguideline&quot;/&gt;
+  &lt;/meta&gt;
+  &lt;url value=&quot;http://hl7.org/fhir/uv/cpg/ImplementationGuide/chf-ig&quot;/&gt;
+  &lt;version value=&quot;2.0.0&quot;/&gt;
+  &lt;name value=&quot;CHFExampleImplementationGuide&quot;/&gt;
+  &lt;title value=&quot;CHF Example Implementation Guide&quot;/&gt;
+  &lt;status value=&quot;active&quot;/&gt;
+  &lt;experimental value=&quot;true&quot;/&gt;
+  &lt;description value=&quot;Examples of CPG computable content representing a congestive heart failure pathway&quot;/&gt;
+  &lt;packageId value=&quot;chf-ig&quot;/&gt;
+  &lt;license value=&quot;CC0-1.0&quot;/&gt;
+  &lt;fhirVersion value=&quot;4.0.1&quot;/&gt;
+  &lt;definition&gt;
+    &lt;resource&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/tools/StructureDefinition/resource-information&quot;&gt;
+        &lt;valueString value=&quot;PlanDefinition&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;reference&gt;
+        &lt;reference value=&quot;PlanDefinition/chf-pathway&quot;/&gt;
+      &lt;/reference&gt;
+      &lt;name value=&quot;Congestive Heart Failure Care Pathway&quot;/&gt;
+      &lt;description value=&quot;Treatment and management care pathway for patients with admitting diagnosis of congestive heart failure&quot;/&gt;
+      &lt;exampleBoolean value=&quot;true&quot;/&gt;
+    &lt;/resource&gt;
+    &lt;resource&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/tools/StructureDefinition/resource-information&quot;&gt;
+        &lt;valueString value=&quot;Library&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;reference&gt;
+        &lt;reference value=&quot;Library/CHF&quot;/&gt;
+      &lt;/reference&gt;
+      &lt;name value=&quot;Congestive Heart Failure Logic&quot;/&gt;
+      &lt;description value=&quot;Logic for an example congestive heart failure pathway&quot;/&gt;
+      &lt;exampleBoolean value=&quot;true&quot;/&gt;
+    &lt;/resource&gt;
+    &lt;resource&gt;
+    ... Other resource definitions used in the pathway, including case features, recommendations, and metrics ...
+    &lt;/resource&gt;
+    &lt;page&gt;...&lt;/page&gt;
+  &lt;/definition&gt;
+&lt;/ImplementationGuide&gt;
+</code></pre>
+
+<p>Source: <a href="https://hl7.org/fhir/uv/cpg/examples-chf.html">Example Congestive Heart Failure Pathway</a></p>
+
+<p>The <a href="http://hl7.org/fhir/uv/cpg">Clinical Guidelines</a> implementation guide provides profiles and guidance for the computable representation of clinical practice guidelines. The implementation guide makes use of all the above types of knowledge artifacts to provide an approach that can be used to represent guideline content, as well as operationalize that content through delivery to and integration with clinical systems.</p>
+
 [%file newfooter%]
 </body>
 </html>

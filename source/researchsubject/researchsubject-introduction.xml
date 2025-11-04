@@ -37,16 +37,18 @@
   <p>The <b>Subject Milestone</b> is how the study activities relate to the subject's movement through the study protocol. The two are separate. State is driven by the subject and the Milestone is driven by the study protocol. The values in each element may be the same if necessary for study reasons.</p>
   
   <p>While both states and milestones can be recorded, whether one, the other or both are recorded is dependent on the needs of the individual use cases.</p>
-  </div>
-  <div>
+ </div>
+ <div>
   <a name="bnr"></a>
   <h2>Boundaries and Relationships</h2>
   <p>
     When used in relation to patient care, the ResearchSubject.subject element references the Patient Resource and allows deidentified data sharing related to the ResearchSubject. In this context, it is the Patient and not the ResearchSubject that follows the <a href="participant.html">Participant Pattern</a> in FHIR.
   </p>
-  </div>
-  <div>
+ </div>
+ <div>
+  <a name="highlighted-aspects"></a>
   <h2>Highlighted Aspects, Use Cases and Examples</h2>
+  <a name="pre-screening"></a>
   <h3>Pre-screening, screening in relation to consent, timepoints of consent</h3>
   <p>Recurring questions emerging as a potential source of confusion in relation to participant management, are the topic of pre-screening, screening in relation to consent, timepoints of consent and enrollment:</p>
   <p><b>Pre-Screening</b> is the process of identifying eligible participants usually before consent is given. It could be requested by a sponsor or be part of a process at the study site.  This implies that no more personal and/or sensitive data beyond what would be available during routine care can be used within that process.</p>
@@ -71,9 +73,6 @@
 	<tr><td>Regulatory Requirements</td><td>Governed by data protection laws (e.g., GDPR, HIPAA) for accessing routine care data or minimal-risk use cases.</td><td>Governed by clinical trial regulations (e.g., GCP, ICH, FDA, EMA) for study-specific procedures.</td><td>- Pre-screening: Consent may be waived for routine, de-identified data.<br/>Screening: Always requires formal consent.</td></tr>
 	<tr><td>Timing</td><td>Before formal participant engagement; passive evaluation stage.</td><td>After pre-screening, focusing on active, detailed evaluations.</td><td>- Pre-screening: Consent may be implied for routine data use.<br/>Screening: Consent required for study-specific activities.</td></tr>
   </table>
-    </div>
-	<div>
-
   <h3>Scenarios for Transition to &quot;On-Study&quot;</h3>
   <p>Is a person typically considered &quot;on-study&quot; before screening or after screening is completed and eligibility is confirmed? This question is a recurring source of confusion. The answer here is that this transition depends on the study:</p>
   <p><b>#1 - Most Common Case:</b> A person is typically considered <b>&quot;on-study&quot;</b> only after screening is completed and eligibility is confirmed.</p>

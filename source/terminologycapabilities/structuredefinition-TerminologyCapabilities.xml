@@ -8,9 +8,12 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Foundation.Terminology"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="normative"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+		<valueCode value="6.0.0"/>
+	</extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
@@ -685,6 +688,7 @@
         <description value="IETF language tag for a human language"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
         <additional>
+				  <key value="b-tc-1"/>
           <purpose value="starter"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
         </additional>
@@ -933,26 +937,6 @@
       <short value="Whether the client must identify the map"/>
       <definition value="Whether the client must identify the map."/>
       <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.closure">
-      <path value="TerminologyCapabilities.closure"/>
-      <short value="Information about the [ConceptMap/$closure](conceptmap-operation-closure.html) operation"/>
-      <definition value="Whether the $closure operation is supported."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.closure.translation">
-      <path value="TerminologyCapabilities.closure.translation"/>
-      <short value="If cross-system closure is supported"/>
-      <definition value="If cross-system closure is supported."/>
-      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>

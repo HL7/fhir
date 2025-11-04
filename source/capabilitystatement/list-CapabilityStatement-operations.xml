@@ -6,21 +6,6 @@
   <mode value="working"/>
   <entry>
     <item>
-      <reference value="OperationDefinition/CapabilityStatement-subset"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/CapabilityStatement-implements"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/CapabilityStatement-conforms"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
       <reference value="OperationDefinition/CapabilityStatement-versions"/>
     </item>
   </entry>

@@ -12,7 +12,7 @@
 
 <%dtheader examples%>
 <h2>Datatype Examples</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>This page includes additional examples of the datatypes, based on common usages and questions</p>
 
@@ -710,7 +710,6 @@ And where the value set would be something like this:
 [%example-end%]
 </div>
 <a name="Quantity"></a>
-<a name="Quantity"></a>
 <a name="SimpleQuantity"></a>
 <a name="simpleQuantity"></a>
 <a name="Age"></a>
@@ -721,6 +720,7 @@ And where the value set would be something like this:
 <a name="distance"></a>
 <a name="duration"></a>
 <a name="count"></a>
+<a name="Quantity"></a>
 <h3 style="margin-bottom: 1px">
 Quantity
 </h3>
@@ -755,7 +755,7 @@ Quantity
 <pre class="xml" fragment="Quantity">
   &lt;result&gt;
     &lt;value value="40000" /&gt;
-    &lt;comparator value="&amp;gt;" /&gt;
+    &lt;comparator value="&gt;" /&gt;
     &lt;unit value="ug/L" /&gt;
     &lt;system value="http://unitsofmeasure.org" /&gt;
     &lt;code value="ug" /&gt;
@@ -765,7 +765,7 @@ Quantity
 <pre class="json" fragment="Quantity">
   "result" : {
     "value" : "40000",
-    "comparator" : "&amp;gt;",
+    "comparator" : "&gt;",
     "unit" : "ug/L",
     "system" : "http://unitsofmeasure.org",
     "code" : "ug"

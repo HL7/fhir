@@ -40,6 +40,21 @@
   <compose>
     <include>
       <system value="http://loinc.org"/>
+      <filter>
+        <property value="STATUS"/>
+        <op value="="/>
+        <value value="ACTIVE"/>
+      </filter>
+      <filter>
+        <property value="ORDER_OBS"/>
+        <op value="in"/>
+        <value value="Order,Both"/>
+      </filter>
+      <filter>
+        <property value="CLASSTYPE"/>
+        <op value="in"/>
+        <value value="1,2"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>

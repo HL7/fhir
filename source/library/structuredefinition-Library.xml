@@ -48,7 +48,7 @@
 			<value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
 		</telecom>
 	</contact>
-	<description value="The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets."/>
+	<description value="The Library resource is a general-purpose container for knowledge artifact definitions. It can be used to describe and expose existing knowledge artifacts such as logic libraries and information model descriptions, as well as to describe a collection of knowledge artifacts."/>
 	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="rim"/>
@@ -82,7 +82,7 @@
 			</extension>
 			<path value="Library"/>
 			<short value="Represents a library of quality improvement components"/>
-			<definition value="The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets."/>
+			<definition value="The Library resource is a general-purpose container for knowledge artifact definitions. It can be used to describe and expose existing knowledge artifacts such as logic libraries and information model descriptions, as well as to describe a collection of knowledge artifacts."/>
 			<min value="0"/>
 			<max value="*"/>
 			<constraint>
@@ -156,7 +156,7 @@
 		<element id="Library.version">
 			<path value="Library.version"/>
 			<short value="Business version of the library"/>
-			<definition value="The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
+			<definition value="The identifier that is used to identify this version of the library when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the library author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge artifacts, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts."/>
 			<comment value="There may be different library instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the library with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -319,7 +319,7 @@
 		</element>
 		<element id="Library.type">
 			<path value="Library.type"/>
-			<short value="logic-library | model-definition | asset-collection | module-definition"/>
+			<short value="logic-library | model-definition | asset-collection | module-definition | etc."/>
 			<definition value="Identifies the type of library such as a Logic Library, Model Definition, Asset Collection, or Module Definition."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -332,8 +332,8 @@
 					<valueString value="LibraryType"/>
 				</extension>
 				<strength value="extensible"/>
-				<description value="The type of knowledge asset this library contains."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/library-type"/>
+				<description value="The type of knowledge artifact this library contains."/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/library-type"/>
 			</binding>
 			<mapping>
 				<identity value="w5"/>

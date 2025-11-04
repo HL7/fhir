@@ -231,7 +231,6 @@
       <path value="Location.mode"/>
       <short value="instance | kind"/>
       <definition value="Indicates whether a resource instance represents a specific location or a class of locations."/>
-      <comment value="This is labeled as a modifier because whether or not the location is a class of locations changes how it can be used and understood."/>
       <requirements value="When using a Location resource for scheduling or orders, we need to be able to refer to a class of Locations instead of a specific Location."/>
       <min value="0"/>
       <max value="1"/>
@@ -258,8 +257,8 @@
     </element>
     <element id="Location.type">
       <path value="Location.type"/>
-      <short value="Type of function performed"/>
-      <definition value="Indicates the type of function performed at the location."/>
+      <short value="Types of services available at this location"/>
+      <definition value="Indicates the type of services that are available at this location."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -271,7 +270,7 @@
           <valueString value="LocationType"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Indicates the type of function performed at the location."/>
+        <description value="Indicates the type of services that are available at this location."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/service-type"/>
       </binding>
       <mapping>

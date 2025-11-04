@@ -169,9 +169,6 @@
 			</mapping>
 		</element>
 		<element id="ValueSet.versionAlgorithm[x]">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.versionAlgorithm[x]"/>
 			<short value="How to compare versions"/>
 			<definition value="Indicates the mechanism used to compare versions to determine which ValueSet is more current."/>
@@ -338,9 +335,6 @@
 			</mapping>
 		</element>
 		<element id="ValueSet.useContext">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.useContext"/>
 			<short value="The context that the content is intended to support"/>
 			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate value set instances."/>
@@ -432,9 +426,6 @@
 			</mapping>
 		</element>
 		<element id="ValueSet.copyrightLabel">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
 				<valueBoolean value="true"/>
 			</extension>
@@ -450,9 +441,6 @@
 			</type>
 		</element>
 		<element id="ValueSet.approvalDate">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.approvalDate"/>
 			<short value="When the ValueSet was approved by publisher"/>
 			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
@@ -468,9 +456,6 @@
 			</mapping>
 		</element>
 		<element id="ValueSet.lastReviewDate">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.lastReviewDate"/>
 			<short value="When the ValueSet was last reviewed by the publisher"/>
 			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
@@ -487,9 +472,6 @@
 			</mapping>
 		</element>
 		<element id="ValueSet.effectivePeriod">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.effectivePeriod"/>
 			<short value="When the ValueSet is expected to be used"/>
 			<definition value="The period during which the ValueSet content was or is planned to be in active use."/>
@@ -532,9 +514,6 @@
 			</binding>
 		</element>
 		<element id="ValueSet.author">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
 				<valueString value="The author, editor, reviewer, and endorser elements were originally modeled with a Contributor data type and a contributionType for the role, but the use of explicit elements makes the relationship more clear and is easier for implementers to understand and work with. Additional contribution types should be modeled with a specific extension for the contribution type to follow this pattern"/>
 			</extension>
@@ -548,9 +527,6 @@
 			</type>
 		</element>
 		<element id="ValueSet.editor">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.editor"/>
 			<short value="Who edited the ValueSet"/>
 			<definition value="An individual or organization primarily responsible for internal coherence of the ValueSet."/>
@@ -561,9 +537,6 @@
 			</type>
 		</element>
 		<element id="ValueSet.reviewer">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.reviewer"/>
 			<short value="Who reviewed the ValueSet"/>
 			<definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ValueSet."/>
@@ -575,9 +548,6 @@
 			</type>
 		</element>
 		<element id="ValueSet.endorser">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.endorser"/>
 			<short value="Who endorsed the ValueSet"/>
 			<definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the ValueSet for use in some setting."/>
@@ -589,9 +559,6 @@
 			</type>
 		</element>
 		<element id="ValueSet.relatedArtifact">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.relatedArtifact"/>
 			<short value="Additional documentation, citations, etc"/>
 			<definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
@@ -821,6 +788,7 @@
 				<description value="IETF language tag for a human language"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
 				<additional>
+				  <key value="b-vs-1"/>
 					<purpose value="starter"/>
 					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
 				</additional>
@@ -847,9 +815,6 @@
 			</binding>
 		</element>
 		<element id="ValueSet.compose.include.concept.designation.additionalUse">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.compose.include.concept.designation.additionalUse"/>
 			<short value="Additional ways how this designation would be used"/>
 			<definition value="Additional codes that detail how this designation would be used, if there is more than one use."/>
@@ -980,9 +945,6 @@
 			</mapping>
 		</element>
 		<element id="ValueSet.compose.include.copyright">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.compose.include.copyright"/>
 			<short value="A copyright statement for the specific code system included in the value set"/>
 			<definition value="A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element's system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present)."/>
@@ -1010,9 +972,6 @@
 			</mapping>
 		</element>
 		<element id="ValueSet.compose.property">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.compose.property"/>
 			<short value="Property to return if client doesn't override"/>
 			<definition value="A property to return in the expansion, if the client doesn't ask for any particular properties. May be either a code from the code system definition (convenient) or a the formal URI that refers to the property. The special value '*' means all properties known to the server."/>
@@ -1049,9 +1008,6 @@
 			</type>
 		</element>
 		<element id="ValueSet.expansion.next">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="ValueSet.expansion.next"/>
 			<short value="Opaque urls for paging through expansion results"/>
 			<definition value="As per paging Search results, the next URLs are opaque to the client, have no dictated structure, and only the server understands them."/>
@@ -1153,9 +1109,6 @@
 			</type>
 		</element>
 		<element id="ValueSet.expansion.property">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
 				<valueString value="400;400."/>
 			</extension>
@@ -1311,9 +1264,6 @@
 			<contentReference value="#ValueSet.compose.include.concept.designation"/>
 		</element>
 		<element id="ValueSet.expansion.contains.property">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
 				<valueString value="ConceptProperty"/>
 			</extension>
@@ -1441,61 +1391,6 @@
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#ValueSet.expansion.contains"/>
-		</element>
-		<element id="ValueSet.scope">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
-			<path value="ValueSet.scope"/>
-			<short value="Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description"/>
-			<definition value="Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="ValueSet.scope.inclusionCriteria">
-			<path value="ValueSet.scope.inclusionCriteria"/>
-			<short value="Criteria describing which concepts or codes should be included and why"/>
-			<definition value="Criteria describing which concepts or codes should be included and why."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ValueSet.scope.exclusionCriteria">
-			<path value="ValueSet.scope.exclusionCriteria"/>
-			<short value="Criteria describing which concepts or codes should be excluded and why"/>
-			<definition value="Criteria describing which concepts or codes should be excluded and why."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ValueSet.scope.scope.modelContext">
-			<path value="ValueSet.scope.scope.modelContext"/>
-			<short value="A statement that describes how this Value Set is to be used in an artifact"/>
-			<definition value="A statement that describes how this Value Set is to be used in an artifact."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
 		</element>
 	</differential>
 </StructureDefinition>

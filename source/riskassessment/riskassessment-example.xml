@@ -66,7 +66,12 @@
     <outcome>
       <text value="Breast Cancer"/>
     </outcome>
-    <probabilityDecimal value="0.000168"/>
+    <probabilityQuantity>
+      <value value="0.000168"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <high>
         <value value="53"/>
@@ -80,7 +85,12 @@
     <outcome>
       <text value="Breast Cancer"/>
     </outcome>
-    <probabilityDecimal value="0.000368"/>
+    <probabilityQuantity>
+      <value value="0.000368"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <low>
         <value value="54"/>
@@ -100,7 +110,12 @@
     <outcome>
       <text value="Breast Cancer"/>
     </outcome>
-    <probabilityDecimal value="0.000594"/>
+    <probabilityQuantity>
+      <value value="0.000594"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <low>
         <value value="58"/>
@@ -120,7 +135,12 @@
     <outcome>
       <text value="Breast Cancer"/>
     </outcome>
-    <probabilityDecimal value="0.000838"/>
+    <probabilityQuantity>
+      <value value="0.000838"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <low>
         <value value="63"/>
@@ -140,7 +160,12 @@
     <outcome>
       <text value="Breast Cancer"/>
     </outcome>
-    <probabilityDecimal value="0.001089"/>
+    <probabilityQuantity>
+      <value value="0.001089"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <low>
         <value value="68"/>
@@ -160,7 +185,12 @@
     <outcome>
       <text value="Breast Cancer"/>
     </outcome>
-    <probabilityDecimal value="0.001327"/>
+    <probabilityQuantity>
+      <value value="0.001327"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <low>
         <value value="73"/>
@@ -180,7 +210,12 @@
     <outcome>
       <text value="Breast Cancer"/>
     </outcome>
-    <probabilityDecimal value="0.001530"/>
+    <probabilityQuantity>
+      <value value="0.001530"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <low>
         <value value="78"/>
@@ -200,7 +235,12 @@
     <outcome>
       <text value="Breast Cancer"/>
     </outcome>
-    <probabilityDecimal value="0.001663"/>
+    <probabilityQuantity>
+      <value value="0.001663"/>
+      <unit value="%"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="%"/>
+    </probabilityQuantity>
     <whenRange>
       <low>
         <value value="83"/>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="diagnosticreport-relevant-information-types"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/diagnosticreport-relevant-information-types"/>
+  <version value="6.0.0-ballot3"/>
+  <name value="DiagnosticReportRelevantInformationTypes"/>
+  <title value="Diagnostic Report Relevant Information Types"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Valueset specifying how referenced information is considered relevant in a DiagnosticReport."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/diagnosticreport-relevant-information-types"/>
+    </include>
+  </compose>
+</ValueSet>

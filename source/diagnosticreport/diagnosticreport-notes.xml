@@ -101,6 +101,7 @@ as expert systems provide improved narrative reporting in high volume reports, s
 data to areas that have classically been narrative based, and the nature of the imaging and laboratory procedures are
 merging. Therefore, these patterns described above are only examples of how a diagnostic report can be used.
 </p>
+<p>DiagnosticReport could also contain Observations for tests that were not performed.  See <a href="https://build.fhir.org/observation.html#cancelled">Observation</a> for more details on how one documents that an observation was not performed.</p>
 	<a name="genetics"></a>
 	<h3>Genomic Reports</h3>
 	<p>
