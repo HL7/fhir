@@ -231,8 +231,10 @@ but in general, this approach matches what users expect most closely.
 in any of the contexts above:
 </p>
 <pre>
-%resource // the resource that contains the original node that is in %context
+%resource     // the resource that contains the original node that is in %context
 %rootResource // the container resource for the resource identified by %resource
+%profile      // the canonical URL of a profile that contains the invariant's fhirpath expression (only defined in profile invariants)
+              // Note: not all fhirpath engines support this profile variable, or the slice() function that usually uses it.
 </pre>
 <p>
 The resource is very often the context, such that %resource = %context.
@@ -357,13 +359,34 @@ Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start // s
 <a name="fn-slice"> </a>
 <h5><b>slice(structure : string, name : string) : collection</b></h5>
 <p>
-  Returns the given slice as defined in the given structure definition. The 
-  structure argument is a uri that resolves to the structure definition, and 
-  the name must be the name of a slice within that structure definition. 
-  If the structure cannot be resolved, or the name of the slice within the resolved structure is not present, or those parameters are empty, 
+  Returns the input collection filtered to items that conform to the specified profile slice.
+</p>
+<p>
+  The <code>structure</code> argument is the (possibly versioned) canonical uri of the structure definition that contains the specified slice.<br/>
+  The <code>name</code> argument is either the <code>ElementDefinition.sliceName</code> for the element slice
+  (if the sliceName is unique in the snapshot), or the <code>ElementDefinition.id</code> of the element slice.
+</p>
+<p>
+  The <code>structure</code> argument can also be the special variable <code>%profile</code> which refers to the profile in which the ElementDefinition.constraint
+  containing the FHIRPath is defined.  (This variable can only be used for FHIRPath appearing in constraints)
+</p>
+<p>
+  If the <code>structure</code> cannot be resolved, or the <code>name</code> of the slice is not present in the profile, or those parameters are empty,
   the return value will be an empty collection.
 </p>
-<p>For every element in the input collection, if the resolved slice is present on the element, it will be returned. If the slice does not match any element in the input collection, or if the input collection is empty, the return value will be an empty collection.</p>
+<p>If the slice does not match any element in the input collection, or if the input collection is empty, the return value will be an empty collection.</p>
+
+<p>
+For example, this invariant could appear in a Patient profile:
+</p>
+<pre class="fhirpath">
+// ensure that a patient has at least one home phone and one home email (based on the slicing defined in the profile)
+Patient.telecom.slice(%profile, 'homephone').exists() and Patient.telecom.slice(%profile, 'homeemail').exists()
+</pre>
+
+<blockquote>
+NOTE: not all FHIRPath engines are in a position to implement <code>slice()</code> as implementation requires implementation of a FHIR validation engine, which is not a small undertaking.
+</blockquote>
 
 <hr/>
 <a name="fn-checkModifiers"> </a>
