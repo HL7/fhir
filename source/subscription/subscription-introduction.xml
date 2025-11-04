@@ -19,10 +19,12 @@
     <a href="bundle.html#subscription-notification">Bundle</a> resources, of type <code>subscription-notification</code>.
   </p>
   <p>
-    Subscriptions are active resources; a server can only accept a subscription
-    if it will execute the specified channel for any resources subsequently
-    received. The subscription is no longer active once it is deleted from
-    the server.
+    Subscription resources do not represent concrete physical objects; they are representations of a state of the server. Changes 
+    from clients (e.g., requesting a new Subscription, changing configuration, etc.) are interpreted as requests to a 
+    server.  The server SHOULD only accept requests it expects to honor. A server will only activate Subscriptions (set the status 
+    to <code>active</code> and send notifications) if it supports the requested <a href="subscriptiontopic.html">SubscriptionTopic</a>, 
+    channel, payload, etc.. The subscription is not active when the <code>Subscription.status</code> field is not set to 
+    <code>active</code> or when the Subscription is deleted from the server.
   </p>
   <p>
     Using the <code>Subscription.content</code>, subscriptions can be configured to send notifications that include full resource 
