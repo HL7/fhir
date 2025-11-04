@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <DeviceDefinition xmlns="http://hl7.org/fhir">
-  <id value="prodspec"/>
+  <id value="example-prodspec"/>
 	<identifier>
 		<value value="789123"/>
 	</identifier>
 	<status value="active"/>
 	<experimental value="true"/>
-	<url value="http://hl7.org/fhir/DeviceDefinition/prodspec"/>
+	<url value="http://hl7.org/fhir/DeviceDefinition/example-prodspec"/>
 </DeviceDefinition>

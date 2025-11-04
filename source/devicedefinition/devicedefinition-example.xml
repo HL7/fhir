@@ -29,7 +29,7 @@
 	</deviceVersion>
 	<url value="http://hl7.org/fhir/DeviceDefinition/example"/>
 	<hasPart>
-		<definitionCanonical value="http://hl7.org/fhir/DeviceDefinition/prodspec"/>
+		<definitionCanonical value="http://hl7.org/fhir/DeviceDefinition/example-prodspec"/>
 	</hasPart>
 	<manufacturer>
 		<reference value="Organization/example"/>
