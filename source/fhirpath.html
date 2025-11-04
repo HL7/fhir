@@ -169,9 +169,9 @@ generally be treated as if it was the equivalent FHIRPath system type. The prima
 exception is the is() operation, where the difference is explicit:
 </p>
 <pre class="fhirpath">
-Patient.name.given.is(FHIR.string);
-Patient.name.given.is(System.string).not();
-Patient.name.given.getValue().is(System.string);
+Patient.name.given.is(FHIR.string)
+Patient.name.given.is(System.string).not()
+Patient.name.given.getValue().is(System.string)
 </pre>
 <p>
 This also applies to e.g. Resource.id:
@@ -186,8 +186,8 @@ for the few edge cases where the automatic conversion isn't appropriate. Note
 that ofType() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
-Patient.name.given.ofType(FHIR.string);
-Patient.name.given.ofType(System.string);
+Patient.name.given.ofType(FHIR.string)
+Patient.name.given.ofType(System.string)
 </pre>
 
 
@@ -271,6 +271,10 @@ In addition to the general purpose functions below, additional functions functio
   but is simpler to write. If the input collection is empty or the url is empty, 
   the return value will be an empty collection.</p>
 
+<pre class="fhirpath">
+Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName').value
+</pre>
+
 <hr/>
 <a name="fn-hasValue"> </a>
 <h5><b>hasValue() : Boolean</b></h5>
@@ -286,6 +290,10 @@ In addition to the general purpose functions below, additional functions functio
 <p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but, as described above, they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendants()</code>.</p>
 </blockquote>
 
+<pre class="fhirpath">
+Patient.active.hasValue()
+</pre>
+
 <hr/>
 <a name="fn-toString"> </a>
 <h5><b>toString() : string</b></h5>
@@ -295,11 +303,19 @@ In addition to the general purpose functions below, additional functions functio
   Otherwise the result is an empty collection.
 </p>
 
+<pre class="fhirpath">
+Patient.birthDate.toString()
+</pre>
+
 <hr/>
 <a name="fn-getValue"> </a>
 <h5><b>getValue() : System.[type]</b></h5>
 <p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
   and it has a primitive value (see discussion for hasValue()). Otherwise, the return value is empty.</p>
+
+<pre class="fhirpath">
+Patient.birthDate.getValue() // returns just the primitive, does not include extensions (such as the birthTime extension)
+</pre>
 
   <hr/>
 <a name="fn-resolve"> </a>
@@ -311,6 +327,11 @@ In addition to the general purpose functions below, additional functions functio
 <p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
   If the input is empty, the return value will be an empty collection.</p>
 
+<pre class="fhirpath">
+Patient.managingOrganization.resolve().name
+Observation.subject.where(resolve() is Patient)
+</pre>
+
   <hr/>
 <a name="fn-ofType2"> </a><a name="fn-ofType"> </a>
 <h5><b>ofType(type : type specifier) : collection</b></h5>
@@ -319,6 +340,11 @@ In addition to the general purpose functions below, additional functions functio
   only concrete core types are allowed as an argument. All primitives are considered to be independent 
   types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
+
+<pre class="fhirpath">
+Observation.value.ofType(canonical)
+Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start // selects either dateTime or Period starts (both of type dateTime)
+</pre>
 
 <hr/>
 <a name="fn-elementDefinition"> </a>
@@ -353,6 +379,10 @@ In addition to the general purpose functions below, additional functions functio
   and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
   the return value is empty.</p>
 
+<pre class="fhirpath">
+Patient.conformsTo('http://hl7.org/fhir/StructureDefinition/Patient')
+</pre>
+
   <hr/>
 <a name="fn-memberOf"> </a>
 <h5><b>memberOf(valueset : string) : Boolean</b></h5>
@@ -382,6 +412,10 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumes the given code.</p>
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
+
+<pre class="fhirpath">
+%terminologies.subsumes(Procedure.category, Procedure.code) = 'subsumes'
+</pre>
 
 <hr/>
 <a name="fn-subsumedBy"> </a>
