@@ -819,20 +819,13 @@
 			<path value="ActivityDefinition.relatedArtifact"/>
 			<short value="Additional documentation, citations, etc"/>
 			<definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both. In addition, the successor or predecessor of an ActivityDefinition SHOULD be an ActivityDefinition, dependencies of an ActivityDefinition SHOULD reference a resource, and ActivityDefinition resources SHOULD NOT have components."/>
 			<requirements value="Activity definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="RelatedArtifact"/>
 			</type>
-			<constraint>
-				<key value="adf-1"/>
-				<severity value="warning"/>
-				<human value="Successor or predecessor of an ActivityDefinition should be an ActivityDefinition"/>
-				<expression value="type in ('successor' | 'predecessor') implies ((resource.resolve() is ActivityDefinition) or (artifact.resolve() is ActivityDefinition))"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-			</constraint>
 			<constraint>
 				<key value="adf-2"/>
 				<severity value="warning"/>

@@ -863,20 +863,13 @@
 			<path value="PlanDefinition.relatedArtifact"/>
 			<short value="Additional documentation, citations"/>
 			<definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both. In addition, the successor or predecessor of a PlanDefinition SHOULD be a PlanDefinition, dependencies of a PlanDefinition SHOULD reference a resource, and a PlanDefinition SHOULD NOT have components."/>
 			<requirements value="Plan definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="RelatedArtifact"/>
 			</type>
-			<constraint>
-				<key value="pld-5"/>
-				<severity value="warning"/>
-				<human value="Successor or predecessor of an PlanDefinition should be an PlanDefinition"/>
-				<expression value="type in ('successor' | 'predecessor') implies ((resource.resolve() is PlanDefinition) or (artifact.resolve() is PlanDefinition))"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-			</constraint>
 			<constraint>
 				<key value="pld-6"/>
 				<severity value="warning"/>
