@@ -66,7 +66,7 @@
   <differential>
     <element id="Subscription">
       <path value="Subscription"/>
-      <short value="Notification about a SubscriptionTopic"/>
+      <short value="Information about a request for notifications to a client based on a SubscriptionTopic."/>
       <definition value="The subscription resource describes a particular client's request to be notified about a SubscriptionTopic."/>
       <alias value="WebHook"/>
       <alias value="Hook"/>
