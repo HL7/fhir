@@ -184,7 +184,8 @@
     <element id="Subscription.managingEntity">
       <path value="Subscription.managingEntity"/>
       <short value="Entity responsible for Subscription changes"/>
-      <definition value="Entity with authorization to make subsequent revisions to the Subscription and also determines what data the subscription is authorized to disclose."/>
+      <definition value="Entity with authorization to communicate with the server about this Subscription, such as requesting changes (e.g., updating an endpoint URL)."/>
+      <comment value="Note that the managing entity for a subscription does not need to be the client (e.g., in the case of server-managed Subscriptions)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
