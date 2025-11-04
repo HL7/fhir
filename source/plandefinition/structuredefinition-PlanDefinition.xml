@@ -791,7 +791,7 @@
 		</element>
 		<element id="PlanDefinition.author">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Author was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Author was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="PlanDefinition.author"/>
 			<short value="Who authored the content"/>
@@ -808,7 +808,7 @@
 		</element>
 		<element id="PlanDefinition.editor">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Editor was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Editor was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="PlanDefinition.editor"/>
 			<short value="Who edited the content"/>
@@ -825,7 +825,7 @@
 		</element>
 		<element id="PlanDefinition.reviewer">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Reviewer was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Reviewer was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="PlanDefinition.reviewer"/>
 			<short value="Who reviewed the content"/>
@@ -843,7 +843,7 @@
 		</element>
 		<element id="PlanDefinition.endorser">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Endorser was originally modeled using the now deprecated Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
+				<valueString value="Endorser was originally modeled using the now removed Contributor type, but was broken out in accordance with M&amp;M modeling principles."/>
 			</extension>
 			<path value="PlanDefinition.endorser"/>
 			<short value="Who endorsed the content"/>
@@ -863,13 +863,27 @@
 			<path value="PlanDefinition.relatedArtifact"/>
 			<short value="Additional documentation, citations"/>
 			<definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both. In addition, the successor or predecessor of a PlanDefinition SHOULD be a PlanDefinition, dependencies of a PlanDefinition SHOULD reference a resource, and a PlanDefinition SHOULD NOT have components."/>
 			<requirements value="Plan definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="RelatedArtifact"/>
 			</type>
+			<constraint>
+				<key value="pld-6"/>
+				<severity value="warning"/>
+				<human value="Dependencies of a PlanDefinition should reference a resource"/>
+				<expression value="type in ('depends-on' | 'part-of') implies ((resource.exists() xor resourceReference.exists()) or (artifact is canonical xor artifact is Reference))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+			</constraint>
+			<constraint>
+				<key value="pld-7"/>
+				<severity value="warning"/>
+				<human value="PlanDefinition should not have components"/>
+				<expression value="type != 'composed-of'"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+			</constraint>
 			<mapping>
 				<identity value="rim"/>
 				<map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
