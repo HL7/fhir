@@ -1147,7 +1147,7 @@
       </extension>
       <path value="Measure.group.subject[x]"/>
       <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
-      <definition value="The intended subjects for the measure. If this element is not provided, the root subject is used to determine the group."/>
+      <definition value="The intended subjects for the measure. If this element is not provided, there is no subject context (i.e. population criteria are evaluated from the perspective of the entire system, rather than from the perspective of a particular subject)."/>
       <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. If the subject is specified as a reference to a Group, it must be a definitional group."/>
       <min value="0"/>
       <max value="1"/>
@@ -1158,7 +1158,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
-      <meaningWhenMissing value="Patient"/>
+      <meaningWhenMissing value="Unfiltered context, i.e. population criteria are evaluated from the perspective of the entire system, rather than from the perspective of a particular subject."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
@@ -1169,7 +1169,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="N/A (to add?) { only applies for subject Patient? }"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Measure.group.basis">
