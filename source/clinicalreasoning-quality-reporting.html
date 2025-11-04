@@ -40,18 +40,40 @@
 	<li><b>Supplemental Data:</b> Additional descriptive information providing additional context to the population group being measured. Supplemental data is specified alongside the calculated measure scores, allowing a more nuanced analysis of performance.</li>
 </ul>
 
-<p>At their most basic, Measures evaluate items within a defined perspective and assign those items to populations. The type of the evaluated items that make up the populations is called the Measure's "basis," and one can say that a Measure is "based" on a FHIR resource type. The perspective within which those items are counted is the Measure's "subject."</p>
+<p>At their most basic, Measures evaluate items within a defined perspective and assign those items to populations. The type of the evaluated items that make up the populations is called the Measure's "basis," and one can say that a Measure is "based" on a FHIR resource type, such as Encounter or Procedure. The perspective from which those items are counted is the Measure's "subject" such as Patient or Location.</p>
 	
-<p>The <code>subject</code> element of the Measure indicates the intended subjects of a measure, or "who" the measure is about. While measures are often focused on evaluating from a patient perspective, this is not always the case. If no subject is specified, the measure subject is Patient, but Practitioners, Organizations, Locations, or even Devices can also be the subject of a measure.</p>
+<p>The <code>subject</code> element of the Measure indicates the intended subjects of a measure, or "who" the measure is about. While measures are often focused on evaluating from a patient perspective, this is not always the case. Measures are often about Patients, so the measure group subject is typically Patient, but Practitioners, Organizations, Locations, or even Devices can also be the subject of a measure. The subject determines the perspective from which the various criteria expressions in a measure are evaluated. For example, in a Patient-subject measure, the expression <code>[Observation]</code> refers only to the observations for a particular patient. If no group subject is specified, the context is unfiltered, i.e. population criteria are evaluated from the perspective of the entire system, rather than from the perspective of a particular subject.</p>
 
-<p>The <code>group.basis</code> element, referred to as the "population basis" or just "basis," specifies the type of elements in the population(s) as a result of measure calculation. Population Quality Measures generally fall into two categories: subject-based, and non-subject-based. In general, subject-based measures count the number of subjects in each population, while non-subject-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for subject-based measures indicates whether a subject matches the population criteria (true) or not (false). Non-subject-based measures return the item to be counted such as an encounter or procedure. For example:</p>
+<p>The <code>group.basis</code> and <code>group.basisRequirement</code> elements, referred to as the "population basis" or just "basis," specify the types of elements in the population(s). Population Quality Measures generally fall into two categories: subject-based, and non-subject-based. In general, subject-based measures count the number of subjects in each population, while non-subject-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for subject-based measures indicates whether a subject matches the population criteria (true) or not (false). Non-subject-based measures return the items to be counted such as encounters or procedures. For example:</p>
+
 <ul>
 	<li>A measure may calculate for which encounters the blood pressure was taken for all patients over the age of 50. This measure has a subject of Patient and a basis of Encounter, it is an encounter-based measure, and the populations will be lists of Encounters that pertain to the Patients that meet the age requirement.</li>
 	<li>A measure may count the number of available beds in a hospital location. This measure has a subject of Location, a basis of Device (for beds), so the populations would be the calculated number of beds for the Locations that are available from the data source.</li>
 </ul>
-<p>When the intended population type matches the <code>subject</code> type, the measure is referred to as "subject-based." For a subject-based measure, the <code>basis</code> is boolean because the subject and the population basis are the same, and the population criteria define yes/no values for each element in the population. For measures that have a population basis that is different than the subject, the <code>basis</code> element specifies the type of elements in the population. </p>
 
-<p>To summarize, the context of a measure is indicated using the <code>subject</code> element of the FHIR resource, and it indicates what types of resources the measure is about. The <code>basis</code> indicates what is being included in the measure populations during measure calculation. If the subject's type is the same as the intended population type, then the <code>basis</code> is boolean and indicates if a subject instance is included in a population or not.</p>
+<p>When the intended population basis matches the <code>subject</code> type, the measure is referred to as "subject-based." For a subject-based measure, the <code>basis</code> is boolean because the subject and the population basis are the same, and the population criteria define yes/no values for each element in the population. For measures that have a population basis that is different than the subject, the <code>basis</code> element specifies the type of elements in the population. </p>
+
+<p>In addition to the <code>basis</code> element, the <code>basisRequirement</code> element may be used to allow for measures that are counting multiple types of items. For example, a measure counting the number of eligible CT scans performed in a hospital outpatient setting may characterize an eligible CT scan using either a DiagnosticReport, or an Observation, depending on how the information is modeled in the available clinical systems. To allow for this, the measure would specify two different basisRequirements:</p>
+
+<pre><code>&lt;basisRequirement&gt;
+  &lt;type value=&quot;DiagnosticReport&quot;/&gt;
+  &lt;codeFilter&gt;
+    &lt;path value=&quot;code&quot;/&gt;
+    &lt;valueSet value=&quot;http://example.org/ValueSet/ctscan-diagnostic-report-codes&quot;/&gt;
+  &lt;/codeFilter&gt;
+&lt;/basisRequirement&gt;
+&lt;basisRequirement&gt;
+  &lt;type value=&quot;Observation&quot;/&gt;
+  &lt;codeFilter&gt;
+    &lt;path value=&quot;code&quot;/&gt;
+    &lt;valueSet value=&quot;http://example.org/ValueSet/ctscan-observation-codes&quot;/&gt;
+  &lt;/codeFilter&gt;
+&lt;/basisRequirement&gt;
+</code></pre>
+
+<p>If multiple basisRequirements are specified, criteria expressions may return data that satisfies ANY basisRequirement. A data element satisfies a basisRequirement if the instance `is` of the type, conforms to ALL the specified profiles, and matches ALL the codeFilters. basisRequirements SHALL specify type, MAY specify profile and codeFilter, and SHALL NOT specify dateFilter, valueFilter, limit, or sort. If basis is specified, any basisRequirement SHALL be consistent with the specified basis (i.e. the type of each basisRequirement SHALL be the same type as, or a subtype of the basis type).</p>
+
+<p>To summarize, the context of a measure is indicated using the <code>subject</code> element of the FHIR resource, and it indicates what types of resources the measure is about. The <code>basis</code> indicates what is being included in the measure populations during measure calculation. If the subject's type is the same as the intended population type, then the <code>basis</code> is boolean and expression criteria indicate whether a subject is included in a population or not.</p>
 
 <a name="measure-metadata"> </a>
 <h5>Measure Metadata</h5>
