@@ -179,7 +179,7 @@
     <use value="out"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="The results of the data collection, returned as a Bundle for each input subject. The first entries in each Bundle are MeasureReport(s) corresponding to the measures for which data was collected. The MeasureReport resources SHALL have a type of data-exchange. Subsequent entries in each Bundle are resources representing the data-of-interest for the measures, and referenced from the evaluatedResource element of the corresponding MeasureReport resources."/>
+    <documentation value="The results of the data collection, returned as a Bundle for each input subject. The first entries in each Bundle are MeasureReport(s) corresponding to the measures for which data was collected. The MeasureReport resources SHALL have a type of data-exchange. Subsequent entries in each Bundle are resources representing the data-of-interest for the measures, and referenced from the evaluatedResource element of the corresponding MeasureReport resources. See the [guidance](clinicalreasoning-quality-reporting.html#bundles-organized-by-subject) on Bundle structure for discussion about the Bundle content and organization.\n\nNote that even though there is a single parameter named return of type Bundle, it is a multi-cardinality parameter, and so will still be returned using a Parameters resource, as described in the general operations framework [response](operations.html#response)."/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

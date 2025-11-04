@@ -311,7 +311,7 @@
     <use value="out"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="The $care-gaps operation returns zero or more document Bundles, one for each input subject. Consistent with FHIR Documents generally, each Bundle SHALL have a Composition as the first entry in the document Bundle, and that Composition SHALL be limited to a single subject. See the [guidance on Bundle structure](https://build.fhir.org/clinicalreasoning-quality-reporting.html#bundles-organized-by-subject) for discussion about the Bundle content and organization. &#xD; Note that even though there is a single parameter named return of type Bundle, it is a multi-cardinality parameter, and so will still be returned using a Parameters resource, as described in the general operations framework [https://hl7.org/fhir/R4/operations.html#response](https://hl7.org/fhir/R4/operations.html#response)."/>
+    <documentation value="The $care-gaps operation returns zero or more document Bundles, one for each input subject. Consistent with FHIR Documents generally, each Bundle SHALL have a Composition as the first entry in the document Bundle, and that Composition SHALL be limited to a single subject. See the [guidance on Bundle structure](https://build.fhir.org/clinicalreasoning-quality-reporting.html#bundles-organized-by-subject) for discussion about the Bundle content and organization.\n\nNote that even though there is a single parameter named return of type Bundle, it is a multi-cardinality parameter, and so will still be returned using a Parameters resource, as described in the general operations framework [response](operations.html#response)."/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>
