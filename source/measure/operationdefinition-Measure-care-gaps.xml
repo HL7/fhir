@@ -193,7 +193,15 @@
   <resource value="Measure"/>
   <system value="false"/>
   <type value="true"/>
-  <instance value="true"/>
+  <instance value="false"/>
+  <parameter>
+    <name value="measureUrl"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="*"/>
+    <documentation value="The URL of a measure for which the gaps in care report will be created. A measure URL is specified in the [url](https://www.hl7.org/fhir/measure-definitions.html#Measure.url) element of the Measure resource. The measure URL remains the same when the measure is stored on different servers."/>
+    <type value="canonical"/>
+  </parameter>
   <parameter>
     <name value="periodStart"/>
     <use value="in"/>
@@ -215,7 +223,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Subject for which the care gaps report will be produced"/>
+    <documentation value="Subject(s) for which the care gaps report will be produced. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subjectGroup parameter."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -224,16 +232,8 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Subject for which the gaps in care report will be created is provided as a Group resource."/>
+    <documentation value="Subject for which the gaps in care report will be created is provided as a Group resource. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated.  (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subject parameter."/>
     <type value="Group"/>
-  </parameter>
-  <parameter>
-    <name value="parameters"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="Any input parameters for the Measure evaluation. If the measure uses CQL, the parameter types are mapped to CQL as specified in the Parameters and Data Requirements section of the Using CQL with FHIR Implementation Guide. Any parameters defined in this input will be bound by name to parameters defined in the logic library referenced from library element of the Measure. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL."/>
-    <type value="Parameters"/>
   </parameter>
   <parameter>
     <name value="practitioner"/>
@@ -258,66 +258,25 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Organization for which the gaps in care report will be created is provided as an Organization resource. Either 'organization' or 'organizationResource' SHALL be provided, but not both."/>
+    <documentation value="Organization for which the gaps in care report will be created is provided as an Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](clinicalreasoning-quality-reporting.html#ad-hoc-organizations) that are part of a provider group. Either 'organization' or 'organizationResource' SHALL be provided, but not both."/>
     <type value="Organization"/>
   </parameter>
-    <parameter>
-      <name value="status"/>
-      <use value="in"/>
-      <min value="1"/>
-      <max value="*"/>
-      <documentation value="Indicates status of a care gap. For all [open, closed, and prospective gaps], three seperate status parameters must be provided. For a positive proportion measure, gap means the patient is not in the numerator. For an inverse (negative) proportion measure (e.g., Diabetes: Hemoglobin A1c (HbA1c) Poor Control (&gt; 9%)), gap means the patient is in the numerator."/>
-      <type value="code"/>
-  </parameter>
   <parameter>
-    <name value="measureId"/>
+    <name value="location"/>
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="The id of a Measure resource that is on the server for which the gaps in care report will be created. E.g., the id of the Measure resource for Breast Cancer Screening measure."/>
-    <type value="id"/>
-  </parameter>
-  <parameter>
-    <name value="measureIdentifier"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation value="The business identifier of a measure for which the gaps in care will be reported. E.g., CMS125 is a CMS assigned identifier for the Breast Cancer Screening eCQM in their system. Note that the type of this parameter is a string with a search type of [token](https://www.hl7.org/fhir/search.html#token), so the $care-gaps operation has only simple input parameters and may be invoked using GET."/>
-    <type value="string"/>
-    <searchType value="token"/>
-  </parameter>
-  <parameter>
-    <name value="measureUrl"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation value="The URL of a measure for which the gaps in care report will be created. A measure URL is specified in the [url](https://www.hl7.org/fhir/measure-definitions.html#Measure.url) element of the Measure resource. The measure URL remains the same when the measure is stored on different servers."/>
-    <type value="canonical"/>
-  </parameter>
-  <parameter>
-    <name value="measureResource"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation value="The measure for which the gaps in care report will be created is provided as a Measure resource."/>
-    <type value="Measure"/>
-  </parameter>
-  <parameter>
-    <name value="measure"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation value="The measure for which the gaps in care report will be created. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance"/>
+    <documentation value="The location(s) for which the gaps in care report will be run. This parameter is reflected in the location element of the resulting MeasureReport(s)."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
   <parameter>
-    <name value="manifest"/>
+    <name value="status"/>
     <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="Specifies an asset-collection library that provides dependency version resolution and expansion rules for the operation. See the description of manifest in the Canonical Resource Management Infrastructure IG for a complete description of how manifest values are used to provide defaults for dependency version resolution and expansion parameters. Parameters specified directly in the operation override behaviors specified by the manifest parameter. In general, if this parameter is supplied, it is expected to be used in nested operation calls. For example, in evaluating a measure, if the expansion of a value set is required, this parameter SHALL be supplied to that expansion."/>
-    <type value="canonical"/>
+    <min value="1"/>
+    <max value="*"/>
+    <documentation value="Indicates status of a care gap. For all [open, closed, and prospective gaps], three seperate status parameters must be provided. For a positive proportion measure, gap means the patient is not in the numerator. For an inverse (negative) proportion measure (e.g., Diabetes: Hemoglobin A1c (HbA1c) Poor Control (&gt; 9%)), gap means the patient is in the numerator."/>
+    <type value="code"/>
   </parameter>
   <parameter>
     <name value="isDocument"/>
@@ -326,6 +285,26 @@
     <max value="1"/>
     <documentation value="The isDocument parameter controls whether a Gaps in Care Composition is returned in the Bundle (i.e. if the Bundle is of type 'Document'). When 'true,' the returned Bundles contain the Gaps in Care Composition. This parameter defaults to 'true.'"/>
     <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="parameters"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Any input parameters for the evaluation. Parameters defined in this input will be made available by name to the CQL expression. Parameter types are mapped to CQL as specified in the [Using CQL with FHIR](https://hl7.org/fhir/uv/cql/) implementation guide. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL."/>
+    <type value="Parameters"/>
+  </parameter>
+  <parameter>
+    <name value="manifest"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Specifies an asset-collection library that provides dependency version resolution and expansion rules for the operation. See the version manifest discussion in the [Canonical Resource Management Infrastructure IG](http://hl7.org/fhir/uv/crmi/version-manifest.html) for a complete description of how manifest values are used to provide defaults for dependency version resolution and expansion parameters. Parameters specified directly in the operation override behaviors specified by the manifest parameter. In general, if this parameter is supplied, it is expected to be used in nested operation calls. For example, in evaluating a measure, if the expansion of a value set is required, this parameter SHALL be supplied to that expansion."/>
+    <type value="canonical"/>
+    <targetProfile
+      value="http://hl7.org/fhir/StructureDefinition/Library"/>
   </parameter>
   <parameter>
     <name value="return"/>
