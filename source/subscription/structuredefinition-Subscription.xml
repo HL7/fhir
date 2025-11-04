@@ -366,9 +366,9 @@
     </element>
     <element id="Subscription.endpoint">
       <path value="Subscription.endpoint"/>
-      <short value="Where the channel points to"/>
-      <definition value="The url that describes the actual end-point to send notifications to."/>
-      <comment value="For rest-hook the end-point must be an `http:` or `https:` URL; for websockets, `ws:` or `wss:`; for email, a `mailto:` url; and for message the endpoint can be in any form of url the server understands (usually, `http/s`: or `mllp:`). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)."/>
+      <short value="URL where the channel sends notifications"/>
+      <definition value="Channel-specific URL that describes where notifications are sent."/>
+      <comment value="The URL requirements are based on channel type. For example, in a `rest-hook` channel, the URL must use the `http` or `https` protocol and be supplied by the client; in a `websocket` channel, the URL uses the `ws` or `wss` protocol and is supplied by the server.&#xA;&#xA;Note that the URI is allowed to be relative. Relative URLs are relative to the FHIR server base URL (since there may be more than one, clients should avoid using relative URIs)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
