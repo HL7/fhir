@@ -76,65 +76,23 @@
     <type value="canonical"/>
   </parameter>
   <parameter>
-    <name value="measure"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation
-      value="The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance"/>
-    <type value="string"/>
-    <searchType value="reference"/>
-  </parameter>
-  <parameter>
-    <name value="measureResource"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation
-      value="The measure to be evaluated is provided as a Measure resource."/>
-    <type value="Measure"/>
-  </parameter>
-  <parameter>
-    <name value="manifest"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation
-      value="Specifies an asset-collection library that provides dependency version resolution and expansion rules for the operation. See the description of manifest in the Canonical Resource Management Infrastructure IG for a complete description of how manifest values are used to provide defaults for dependency version resolution and expansion parameters. Parameters specified directly in the operation override behaviors specified by the manifest parameter. In general, if this parameter is supplied, it is expected to be used in nested operation calls. For example, in evaluating a measure, if the expansion of a value set is required, this parameter SHALL be supplied to that expansion."/>
-    <type value="canonical"/>
-    <targetProfile
-      value="http://hl7.org/fhir/StructureDefinition/Library"/>
-  </parameter>
-  <parameter>
-    <name value="programIdentifier"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation
-      value="The business identifier of the reporting program, for which measures are being evaluated. For example, downstream IGs could specify program identifiers. Mutually exclusive use with programUrl - it is an error to pass in both programIdentifier and programUrl parameters."/>
-    <type value="string"/>
-    <searchType value="token"/>
-  </parameter>
-  <parameter>
-    <name value="programUrl"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation
-      value="Mutually exclusive use with programIdentifier - it is an error to pass in both programIdentifier and programUrl parameters."/>
-    <type value="canonical"/>
-    <targetProfile
-      value="http://hl7.org/fhir/StructureDefinition/Library"/>
-  </parameter>
-  <parameter>
     <name value="subject"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
     <documentation
-      value="Subject for which the measure will be calculated. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter will be resolved as the subject of the measure based on the type of the subject. If multiple subjects of the same type are provided, the behavior is implementation-defined"/>
+      value="Subject(s) for which the measure will be calculated. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subjectGroup parameter."/>
     <type value="string"/>
     <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="subjectGroup"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Subjects for which the measure will be evaluated, provided as a Group resource. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated.  (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subject parameter."/>
+    <type value="Group"/>
   </parameter>
   <parameter>
     <name value="periodStart"/>
@@ -187,15 +145,6 @@
     <type value="dateTime"/>
   </parameter>
   <parameter>
-    <name value="subjectGroup"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation
-      value="Subject for which the measure will be evaluated provided as a Group resource."/>
-    <type value="Group"/>
-  </parameter>
-  <parameter>
     <name value="parameters"/>
     <use value="in"/>
     <min value="0"/>
@@ -213,6 +162,17 @@
       value="A reference to an Organization that will be populated in the MeasureReport.reporter"/>
     <type value="string"/>
     <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="manifest"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Specifies an asset-collection library that provides dependency version resolution and expansion rules for the operation. See the version manifest discussion in the [Canonical Resource Management Infrastructure IG](http://hl7.org/fhir/uv/crmi/version-manifest.html) for a complete description of how manifest values are used to provide defaults for dependency version resolution and expansion parameters. Parameters specified directly in the operation override behaviors specified by the manifest parameter. In general, if this parameter is supplied, it is expected to be used in nested operation calls. For example, in evaluating a measure, if the expansion of a value set is required, this parameter SHALL be supplied to that expansion."/>
+    <type value="canonical"/>
+    <targetProfile
+      value="http://hl7.org/fhir/StructureDefinition/Library"/>
   </parameter>
   <parameter>
     <name value="stratifier"/>
