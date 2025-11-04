@@ -71,7 +71,8 @@ describes a code system supplement. The following rules apply to code system sup
  <li>The <code>CodeSystem.url</code> for a supplement SHALL never appear in a <a href="datatypes.html#Coding">Coding.system</a></li>
  <li>The <code>CodeSystem.url</code> for a supplement must be under the control of the authority creating or publishing the supplement 
    (e.g. not in the same space as the code system being supplemented, unless the supplement is being issued by the same authority as the original code system</li>
- <li> A codesystem supplement cannot define any new CodeSystem.concept.code. i.e.: all CodeSystem.concept.code in the supplement must be a code from the "supplemented" code system</li>
+ <li> A codesystem supplement cannot define any new CodeSystem.concept.code. i.e.: all CodeSystem.concept.code in the supplement must 
+   be a code from the "supplemented" code system. Some code systems reserve code space for local use without explicitly declaring codes; these codes may be referenced in a supplement</li>
 </ul>
 <p>
 If a supplement needs to define new concepts/codes to use as property values, it can be paired with a new (possibly contained)
