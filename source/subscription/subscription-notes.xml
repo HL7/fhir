@@ -366,7 +366,7 @@
 	<p>
 		Email (SMTP) is not a secure channel. Implementers must ensure that any messages containing PHI have been
 		secured according to their policy requirements (e.g., use of a system such as <a
-			href="http://directproject.org/">Direct</a>).
+			href="https://directtrust.org/standards/the-direct-standard">Direct</a>).
 	</p>
 
 	<a name="messaging" />
