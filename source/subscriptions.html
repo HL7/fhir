@@ -91,22 +91,27 @@
 <a name="relationtofhircast"/>
 <h3>Relation to FHIRcast</h3>
 <p>
-  <a href="http://fhircast.org">FHIRcast</a> is a framework for user-activity synchronization across applications.  FHIRcast and Subscription are both conceptually based <a href="https://www.w3.org/TR/websub/">W3 WebSub</a>, and while the mechanics of two projects look similar, they are fundamentally different projects used to address different use cases.  In particular:
-  <ul>
-    <li>
-      <p>FHIRcast is designed to be used by multiple applications perhaps with the same user and typically on the same device</p>
-      <p>Subscriptions are designed to be used by multiple distinct systems, often outside of a user workflow</p>
-    </li>
-    <li>
-      <p>FHIRcast sends only single-event notifications</p>
-      <p>Subscriptions allow servers to batch multiple notifications in high-frequency scenarios</p>
-    </li>
-    <li>
-      <p>FHIRcast is designed around short-lived sessions</p>
-      <p>Subscriptions are intended to be long-lived resources</p>
-    </li>
-  </ul>
+<a href="http://fhircast.org/">FHIRcast</a> is a framework for context synchronization across applications. FHIRcast and Subscription 
+are both conceptually based on <a href="https://www.w3.org/TR/websub/">W3C WebSub</a>, and while the mechanics of the two projects 
+look similar, they are fundamentally different specifications used to address different use cases. In particular:
+<ul>
+  <li>FHIRcast is designed to be used to synchronize the current context (Patient/Encounter/...) between multiple applications, typically with the same user and on the same device.<br/>
+  Subscriptions are designed to be used by multiple distinct systems, often outside of a user workflow.</li>
+
+  <li>FHIRcast sends only single-event notifications.<br/>
+  Subscriptions allow servers to batch multiple notifications in high-frequency scenarios.</li>
+
+  <li>FHIRcast is designed around short-lived sessions.<br/>
+  Subscriptions are intended to be long-lived resources.</li>
+
+  <li>FHIRcast broadcasts the same notification to multiple subscribers concurrently.<br/>
+  Subscriptions can send the same event to multiple subscribers concurrently, but the contents are specific to each client.</li>
+
+  <li>FHIRcast is intended for real-time use and optimizes for speed of delivery (e.g., only single event notifications).<br/>
+  Subscriptions is intended for low-coupling interchange and optimizes for breadth of implementation (e.g., allows batch notifications).</li>
+</ul>
 </p>
+
 
 <a name="relationtomessaging"/>
 <h3>Relation to Messaging</h3>
