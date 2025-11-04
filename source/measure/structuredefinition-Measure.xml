@@ -1196,6 +1196,28 @@
         <map value="N/A (to add?) { only applies for subject Patient? }"/>
       </mapping>
     </element>
+    <element id="Measure.group.basisRequirement">
+      <path value="Measure.group.basisRequirement"/>
+      <short value="Population basis requirements"/>
+      <definition value="Specifies population basis requirements (i.e. what constitutes a case, or what is being counted) as a DataRequirement. If multiple basisRequirements are specified, criteria expressions may return data that satisfies ANY basisRequirement. A data element satisfies a basisRequirement if the instance `is` of the type, conforms to ALL the specified profiles, and matches ALL the codeFilters. basisRequirements SHALL specify type, MAY specify profile and codeFilter, and SHALL NOT specify dateFilter, valueFilter, limit, or sort. If basis is specified, any basisRequirement SHALL be consistent with the specified basis (i.e. the type of each basisRequirement SHALL be the same type as, or a subtype of the basis type)."/>
+      <requirements value="Allows population basis to be described with more flexibility, including the use of a profile and a code filter."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+      <constraint>
+        <key value="mea-7"/>
+        <severity value="error"/>
+        <human value="Basis requirements SHALL have a type, MAY have profile and codeFilter elements, and SHALL NOT specify dateFilter, valueFilter, limit, or sort"/>
+        <expression value="dateFilter.exists().not() and valueFilter.exists().not() and limit.exists().not() and sort.exists().not()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?) { only applies for subject Patient? }"/>
+      </mapping>
+    </element>
     <element id="Measure.group.scoring">
       <path value="Measure.group.scoring"/>
       <short value="proportion | ratio | continuous-variable | cohort | composite"/>
