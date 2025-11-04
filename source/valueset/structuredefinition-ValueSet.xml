@@ -596,12 +596,19 @@
 			<short value="Additional documentation, citations, etc"/>
 			<definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
 			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
-			<requirements value="A ValueSet must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
+			<requirements value="A ValueSet must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content. If the type is `successor` or `predecessor`, the related resource must be a ValueSet."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="RelatedArtifact"/>
 			</type>
+			<constraint>
+				<key value="vsd-12"/>
+				<severity value="error"/>
+				<human value="Related artifact can't be depends-on or composed-of"/>
+				<expression value="(type in ('depends-on' | 'composed-of')).not()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+			</constraint>
 		</element>
 		<element id="ValueSet.compose">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
