@@ -205,7 +205,7 @@
         <description value="The participant in the requests in the orchestration"/>
         <code value="participant"/>
         <type value="reference"/>
-        <expression value="RequestOrchestration.action.participant.actor.ofType(Reference) | RequestOrchestration.action.participant.actor.ofType(canonical)"/>
+        <expression value="RequestOrchestration.repeat(action).participant.actor.ofType(Reference) | RequestOrchestration.repeat(action).participant.actor.ofType(canonical)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -301,7 +301,7 @@
         <description value="A resource in an action of the request orchestration"/>
         <code value="action-resource"/>
         <type value="reference"/>
-        <expression value="RequestOrchestration.action.resource"/>
+        <expression value="RequestOrchestration.repeat(action).resource"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
