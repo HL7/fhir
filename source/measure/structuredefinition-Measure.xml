@@ -99,7 +99,7 @@
         <key value="mea-1"/>
         <severity value="error"/>
         <human value="Stratifier SHALL be either a single criteria or a set of criteria components"/>
-        <expression value="group.stratifier.all((code | description | criteria).exists() xor component.exists())"/>
+        <expression value="group.stratifier.all((code | description | criteria | valueSet).exists() xor component.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
       <mapping>
@@ -746,6 +746,14 @@
       <type>
         <code value="Quantity"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ReportingFrequency"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Reporting frequency units (e.g. /a, /mo)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/frequency-unit"/>
+      </binding>
     </element>
     <element id="Measure.topic">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
@@ -836,13 +844,20 @@
       <path value="Measure.relatedArtifact"/>
       <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both. In addition, the successor or predecessor of a Measure SHOULD be a Measure, and dependencies and components of a Measure SHOULD reference a resource."/>
       <requirements value="Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="RelatedArtifact"/>
       </type>
+			<constraint>
+				<key value="mea-8"/>
+				<severity value="warning"/>
+				<human value="Dependencies and components of a Measure should reference a resource"/>
+				<expression value="type in ('depends-on' | 'composed-of' | 'part-of') implies ((resource.exists() xor resourceReference.exists()) or (artifact is canonical xor artifact is Reference))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+			</constraint>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
@@ -1147,7 +1162,7 @@
       </extension>
       <path value="Measure.group.subject[x]"/>
       <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
-      <definition value="The intended subjects for the measure. If this element is not provided, the root subject is used to determine the group."/>
+      <definition value="The intended subjects for the measure. If this element is not provided, there is no subject context (i.e. population criteria are evaluated from the perspective of the entire system, rather than from the perspective of a particular subject)."/>
       <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. If the subject is specified as a reference to a Group, it must be a definitional group."/>
       <min value="0"/>
       <max value="1"/>
@@ -1158,7 +1173,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
-      <meaningWhenMissing value="Patient"/>
+      <meaningWhenMissing value="Unfiltered context, i.e. population criteria are evaluated from the perspective of the entire system, rather than from the perspective of a particular subject."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
@@ -1169,7 +1184,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="N/A (to add?) { only applies for subject Patient? }"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Measure.group.basis">
@@ -1191,6 +1206,28 @@
         <strength value="required"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?) { only applies for subject Patient? }"/>
+      </mapping>
+    </element>
+    <element id="Measure.group.basisRequirement">
+      <path value="Measure.group.basisRequirement"/>
+      <short value="Population basis requirements"/>
+      <definition value="Specifies population basis requirements (i.e. what constitutes a case, or what is being counted) as a DataRequirement. If multiple basisRequirements are specified, criteria expressions may return data that satisfies ANY basisRequirement. A data element satisfies a basisRequirement if the instance `is` of the type, conforms to ALL the specified profiles, and matches ALL the codeFilters. basisRequirements SHALL specify type, MAY specify profile and codeFilter, and SHALL NOT specify dateFilter, valueFilter, limit, or sort. If basis is specified, any basisRequirement SHALL be consistent with the specified basis (i.e. the type of each basisRequirement SHALL be the same type as, or a subtype of the basis type)."/>
+      <requirements value="Allows population basis to be described with more flexibility, including the use of a profile and a code filter."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+      <constraint>
+        <key value="mea-7"/>
+        <severity value="error"/>
+        <human value="Basis requirements SHALL have a type, MAY have profile and codeFilter elements, and SHALL NOT specify dateFilter, valueFilter, limit, or sort"/>
+        <expression value="dateFilter.exists().not() and valueFilter.exists().not() and limit.exists().not() and sort.exists().not()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?) { only applies for subject Patient? }"/>
