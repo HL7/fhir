@@ -16,7 +16,7 @@
         <description value="Actions controlled by this rule"/>
         <code value="action"/>
         <type value="token"/>
-        <expression value="Consent.provision.action"/>
+        <expression value="Consent.repeat(provision).action"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -35,7 +35,7 @@
         <description value="LOINC or SNOMED CT code, etc. in the content"/>
         <code value="action"/>
         <type value="token"/>
-        <expression value="Consent.provision.code"/>
+        <expression value="Consent.repeat(provision).code"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -54,7 +54,7 @@
         <description value="Resource for the actor (or group, by role)"/>
         <code value="actor"/>
         <type value="reference"/>
-        <expression value="Consent.provision.actor.reference"/>
+        <expression value="Consent.repeat(provision).actor.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -130,7 +130,7 @@
         <description value="The actual data reference"/>
         <code value="data"/>
         <type value="reference"/>
-        <expression value="Consent.provision.data.reference"/>
+        <expression value="Consent.repeat(provision).data.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -226,7 +226,7 @@
         <description value="Timeframe for this rule"/>
         <code value="period"/>
         <type value="date"/>
-        <expression value="Consent.provision.period"/>
+        <expression value="Consent.repeat(provision).period"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +245,7 @@
         <description value="Context of activities covered by this rule"/>
         <code value="purpose"/>
         <type value="token"/>
-        <expression value="Consent.provision.purpose"/>
+        <expression value="Consent.repeat(provision).purpose"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -264,7 +264,7 @@
         <description value="Security Labels that define affected resources"/>
         <code value="security-label"/>
         <type value="token"/>
-        <expression value="Consent.provision.securityLabel"/>
+        <expression value="Consent.repeat(provision).securityLabel"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
