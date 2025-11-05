@@ -2,7 +2,7 @@
 	<id value="example-expansion"/>
 	<meta>
 		<!--   many expansions are not shareable, but this one is   -->
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+		
 	</meta>
 	<text>
 		<status value="additional"/>
