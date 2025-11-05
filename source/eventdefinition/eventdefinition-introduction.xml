@@ -5,17 +5,25 @@
 <h2>Scope and Usage</h2>
 <p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
 
-[%impl-note%]
-The EventDefinition has been deprecated in favor of the <a href="subscriptiontopic.html">SubscriptionTopic</a> resource as the preferred resource for the representation of event definitions.
-[%end-note%]
-
-<p>The EventDefinition provides a reusable description of an event. The resource supports describing different kinds of events, including named events, periodic events, and data-based events. For each of these, the resource also supports a formal description of the event. For example, a 'monitor-emergency-admissions' event can be a named event, but also provide a formal description of the event as monitoring for encounters that occur in emergency department locations.</p>
+<p>The EventDefinition resource provides a reusable description of an event. The resource supports describing different kinds of events, including named events, periodic events, and data-based events. For each of these, the resource also supports a formal description of the event. For example, a 'monitor-emergency-admissions' event can be a named event, but also provide a formal description of the event as monitoring for encounters that occur in emergency department locations.</p>
 
 </div>
 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>The EventDefinition resource is intended to be used to provide a reusable description of events for use by other resources that require event definition, such as Subscription. EventDefinition is a definition of an event that could occur, whereas Subscription is asking for notification of events when they occur.</p>
+
+<p>The EventDefinition resource is intended to be used to provide a reusable description of events for use by other resources that require event definition, such as MessageDefinition. The SubscriptionTopic resource is focused on supporting the definition of topics that can be used in Subscriptions. EventDefinition is a definition of an event that could occur, whereas Subscription is asking for notification of events when they occur.</p>
+
+<p>The EventDefinition resource uses the <a href="metadatatypes.html#TriggerDefinition">TriggerDefinition</a> data type to represent the description of an event as one of:</p>
+
+<ul>
+  <li>Named event: An event identified by the implementation environment</li>
+  <li>Schedule event: An event occurs on a fixed or periodic schedule</li>
+  <li>Data event: An event that occurs when data is change such as a record being added, updated, or deleted</li>
+  <li>Subscription topic: An event that is defined by referencing a subscription topic</li>
+</ul>
+
+<p>This allows an EventDefinition to be used to reference a SubscriptionTopic, enabling subscriptions to be used in MessageDefinition and PlanDefinition.</p>
 
 </div>
 
