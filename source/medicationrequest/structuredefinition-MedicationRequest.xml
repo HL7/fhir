@@ -92,6 +92,13 @@
       <alias value="Order"/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="mps-1"/>
+        <severity value="warning"/>
+        <human value="If more than one dosageInstruction entry is present, then all entries must have a sequence"/>
+        <expression value="dosageInstruction.count() < 2 or dosageInstruction.all(sequence.exists())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+      </constraint>      
       <mapping>
         <identity value="workflow"/>
         <map value="Request"/>
