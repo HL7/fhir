@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Measure xmlns="http://hl7.org/fhir">
+  <id value="measure-EXM55-FHIR"/>
+  <url value="http://hl7.org/fhir/uv/cqm/Measure/measure-EXM55-FHIR"/>
+  <identifier>
+    <use value="official"/>
+    <system value="http://example.org/fhir/cqi/ecqm/Measure/Identifier/exm"/>
+    <value value="55"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="EXM55"/>
+  <title value="EXM55 - Median Emergency Department Visit Duration"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2025-08-13"/>
+  <publisher value="HL7 International / Clinical Quality Information"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description
+    value="This example illustrates a continuous variable measure represented as a FHIR eCQM"/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="venue"/>
+      <display value="Clinical Venue"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/uv/cqm/CodeSystem/intended-venue-codes"/>
+        <code value="eh"/>
+        <display value="EH"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>
+  <approvalDate value="2019-03-08"/>
+  <lastReviewDate value="2019-03-08"/>
+  <effectivePeriod>
+    <start value="2018-01-01"/>
+    <end value="2018-12-31"/>
+  </effectivePeriod>
+  <topic>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="57024-2"/>
+      <display value="Health Quality Measure Document"/>
+    </coding>
+  </topic>
+  <library value="http://hl7.org/fhir/uv/cqm/Library/EXM55"/>
+
+  <group id="group-1">
+    <linkId value-="primary"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
+        <code value="process"/>
+      </coding>
+    </type>
+    <basis value="Encounter"/>
+    <scoring>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+        <code value="continuous-variable"/>
+        <display value="Continuous Variable"/>
+      </coding>
+    </scoring>
+    <improvementNotation>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+        <code value="decrease"/>
+        <display value="Decreased score indicates improvement"/>
+      </coding>
+    </improvementNotation>
+    <population>
+      <linkId value="primary-exm55-initial-population"/>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="initial-population"/>
+          <display value="Initial Population"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Initial Population"/>
+      </criteria>
+    </population>
+    <population>
+      <linkId value="primary-exm55-measure-population"/>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="measure-population"/>
+          <display value="Measure Population"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Measure Population"/>
+      </criteria>
+    </population>
+    <population>
+      <linkId value="primary-exm55-measure-population-exclusion"/>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="measure-population-exclusion"/>
+          <display value="Measure Population Exclusion"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Measure Population Exclusion"/>
+      </criteria>
+    </population>
+    <population>
+      <linkId value="primary-exm55-measure-population-identifier"/>
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="measure-observation"/>
+          <display value="Measure Observation"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Measure Observation"/>
+      </criteria>
+      <inputPopulationId value="measure-population-identifier"/>
+      <aggregateMethod>
+        <coding>
+          <system value="http://hl7.org/fhir/CodeSystem/measure-aggregate-method"/>
+          <code value="median"/>
+          <display value="Median"/>
+        </coding>
+      </aggregateMethod>
+    </population>
+    <stratifier>
+      <linkId value="primary-exm55-stratification-1"/>
+      <code>
+        <coding>
+          <system value="http://example.org/stratification"/>
+          <code value="Stratification 1"/>
+          <display value="Stratification 1"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Stratification 1"/>
+      </criteria>
+    </stratifier>
+    <stratifier>
+      <linkId value="primary-exm55-stratification-2"/>
+      <code>
+        <coding>
+          <system value="http://example.org/stratification"/>
+          <code value="Stratification 2"/>
+          <display value="Stratification 2"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Stratification 2"/>
+      </criteria>
+    </stratifier>
+    <stratifier>
+      <linkId value="primary-exm55-stratification-3"/>
+      <code>
+        <coding>
+          <system value="http://example.org/stratification"/>
+          <code value="Stratification 3"/>
+          <display value="Stratification 3"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Stratification 3"/>
+      </criteria>
+    </stratifier>
+  </group>
+</Measure>
