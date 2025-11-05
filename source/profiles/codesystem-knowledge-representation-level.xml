@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
     <id value="knowledge-representation-level"/>
 		<meta>
-			<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+			
 		</meta>
     <extension url="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability">
       <valueCode value="shareable"/>

@@ -4,7 +4,7 @@
   <id value="languages"/>
   <meta>
     <lastUpdated value="2016-08-22T09:53:05.364+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>

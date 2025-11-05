@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="actordefinition-actor-code"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -34,7 +34,7 @@
   </contact>
   <description value="Code for the type of actor - system or human."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-code"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
   <property>

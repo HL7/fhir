@@ -2,10 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="provenance-history-record-activity"/>
-  <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/provenance-history-record-activity"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
   </extension>

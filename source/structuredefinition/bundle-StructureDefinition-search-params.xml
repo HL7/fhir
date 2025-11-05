@@ -559,6 +559,7 @@
         <code value="experimental"/>
         <type value="token"/>
         <expression value="StructureDefinition.experimental"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -424,6 +424,7 @@
         <code value="experimental"/>
         <type value="token"/>
         <expression value="SearchParameter.experimental"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
