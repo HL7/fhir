@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="DocumentReference"/>
   <meta>
     <lastUpdated value="2022-06-09T08:58:31.578+11:00"/>
@@ -587,7 +587,7 @@
           <valueString value="BodyStructure"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical body structures. May include laterality."/>
+          <valueMarkdown value="Codes describing anatomical body structures. May include laterality."/>
         </extension>
         <strength value="example"/>
         <description value="SNOMED CT Body Structures"/>
@@ -879,8 +879,8 @@
       <path value="DocumentReference.attester.party"/>
       <short value="Who attested the document"/>
       <definition value="Who attested the document in the specified way."/>
-      <requirements value="Identifies who has taken on the responsibility for accuracy of the document content."/>
       <comment value="Using Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. "/>
+      <requirements value="Identifies who has taken on the responsibility for accuracy of the document content."/>
       <min value="0"/>
       <max value="1"/>
       <type>

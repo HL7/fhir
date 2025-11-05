@@ -251,7 +251,8 @@ The status value overlaps with other properties, in particular, the inactive pro
 rules apply:
 </p>
 <ul>
- <li>If concept status is some kind of active, inactive must be set to true if present, and the concept is treated as inactive.</li>
+ <li>If concept status is some kind of active, inactive must be set to false if present, and the concept is treated as not inactive.</li>
+ <li>If concept status is some kind of inactive, inactive must be set to true if present, and the concept is treated as inactive.</li>
  <li>If concept status is some kind of retired, inactive must be set to true if present, and the concept is treated as inactive.</li>
  <li>If concept status indicates that the concept is experimental or deprecated, the determination of inactive is code system specific</li>
  <li>If neither concept properties are present default behavior for the CodeSystem applies.</li>

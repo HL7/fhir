@@ -40,7 +40,7 @@
   <concept>
     <code value="person"/>
     <display value="Person"/>
-    <definition value="A human being acting in directly."/>
+    <definition value="A human being acting directly."/>
   </concept>
   <concept>
     <code value="system"/>
