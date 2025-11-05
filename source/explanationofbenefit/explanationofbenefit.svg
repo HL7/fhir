@@ -1493,7 +1493,7 @@
    id="n4504"
    xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
    id="n4505"
-   xlink:href="https://build.fhir.org/ig/HL7/oo-incubator-ig/StructureDefinition-SupplyRequest.html#SupplyRequest">SupplyRequest</a>|<a
+   xlink:href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html#SupplyRequest">SupplyRequest</a>|<a
    id="n4506"
    xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
     <text
@@ -2494,7 +2494,7 @@
    id="n5048"
    xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
    id="n5049"
-   xlink:href="https://build.fhir.org/ig/HL7/oo-incubator-ig/StructureDefinition-SupplyRequest.html#SupplyRequest">SupplyRequest</a>|<a
+   xlink:href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html#SupplyRequest">SupplyRequest</a>|<a
    id="n5050"
    xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
     <text

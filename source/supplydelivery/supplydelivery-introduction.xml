@@ -32,7 +32,7 @@ Those associations are done in dedicated resources such as the MedicationDispens
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-The <a href="https://build.fhir.org/ig/HL7/oo-incubator-ig/StructureDefinition-DeviceDispense.html">DeviceDispense</a> and <a href="medicationdispense.html">MedicationDispense</a> resources are used to associate the device or medication with the specific patient for their use, while <a href="supplydelivery.html">SupplyDelivery</a> is solely focused on location and movement 
+The <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense</a> and <a href="medicationdispense.html">MedicationDispense</a> resources are used to associate the device or medication with the specific patient for their use, while <a href="supplydelivery.html">SupplyDelivery</a> is solely focused on location and movement 
 where the targeted patient or other person (e.g., devices used by a clinician), if included, are for delivery context only.</p>
 
 <p>

@@ -21,7 +21,7 @@ These instances can be linked in different ways, depending on the needs of the w
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
-    <p>The MedicationRequest resource is used to request or order medication for a subject. It may also be used to report a medication request or order from one organization or source to another.  When requesting supplies or devices when there is a patient focus or instructions regarding their use, <a href="https://build.fhir.org/ig/HL7/oo-incubator-ig/StructureDefinition-SupplyRequest.html">SupplyRequest</a> or <a href="devicerequest.html">DeviceRequest</a> should be used instead.  When reporting on the usage of a medication by a patient, the <a href="medicationstatement.html">MedicationStatement</a> resource should be used.</p>
+    <p>The MedicationRequest resource is used to request or order medication for a subject. It may also be used to report a medication request or order from one organization or source to another.  When requesting supplies or devices when there is a patient focus or instructions regarding their use, <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a> or <a href="devicerequest.html">DeviceRequest</a> should be used instead.  When reporting on the usage of a medication by a patient, the <a href="medicationstatement.html">MedicationStatement</a> resource should be used.</p>
 <p>
 <b>The Medication domain includes a number of related resources</b>
 </p>
