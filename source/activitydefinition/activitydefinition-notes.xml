@@ -786,6 +786,7 @@ group createActDef
 //    &quot;ad.dosage&quot;    : for src          as vvv check dosage.empty()
 endgroup</pre></code>
 
+<!-- 
 <a name="supplyrequest"> </a>
 <h4>SupplyRequest</h4>
 
@@ -840,6 +841,7 @@ group createActDef
     &quot;authoredOn&quot;   : for src                 make tgt.authoredOn = evaluate( src, now() )
 
 endgroup</pre></code>
+-->
 
 <a name="task"> </a>
 <h4>Task</h4>

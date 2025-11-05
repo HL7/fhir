@@ -110,7 +110,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="Claim.provider">
-        <missingTypes _pattern="Reference(Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, RelatedPerson, Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
             <resource value="Party responsible for the claim"/>
@@ -121,7 +121,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="Claim.insurer">
-        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, CareTeam, HealthcareService, Patient, Device, RelatedPerson)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
             <resource value="Target"/>

@@ -15,7 +15,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="MessageHeader.reason">
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Unknown"/>
         <extraTypes _resource="CodeableConcept" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Why was message header performed?"/>

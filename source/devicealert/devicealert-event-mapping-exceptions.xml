@@ -59,7 +59,10 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.product" resourcePath="DeviceAlert.device">
-        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct,Device,DeviceDefinition,Medication,NutritionProduct,Substance)" reason="Missing resource types are not relevant to resource use."/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown">
+            <!--Old pattern: CodeableReference(BiologicallyDerivedProduct,Device,DeviceDefinition,Medication,NutritionProduct,Substance)-->
+            <!--Old reason: Missing resource types are not relevant to resource use.-->
+        </missingTypes>
         <extraTypes _resource="Reference(Device,DeviceMetric)" reason="Use of Reference rather than CodeableReference appropriate to use case; inclusion of DeviceMetric allows improved specificity."/>
         <shortUnmatched reason="More precise, resource-specific wording.">
             <_pattern value="Product used/provided"/>
@@ -131,7 +134,10 @@
     <divergentElement patternPath="Event.reason" resourcePath="DeviceAlert.derivedFrom.observation">
         <lowerCardinality _pattern="0" _resource="1" reason="Cardinality is determined by the containing backbone element."/>
         <upperCardinality _pattern="*" _resource="1" reason="Cardinality is determined by the containing backbone element."/>
-        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Missing types are not relevant to resource use cases."/>
+        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Unknown">
+            <!--Old pattern: CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)-->
+            <!--Old reason: Missing types are not relevant to resource use cases.-->
+        </missingTypes>
         <extraTypes _resource="Reference(Observation)" reason="Use of Reference rather than CodeableReference appropriate to use case."/>
         <bindingExistence _pattern="true" _resource="false" reason="Resource datatype doesn't support binding."/>
         <shortUnmatched reason="More precise, resource-specific wording.">

@@ -713,7 +713,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyDelivery"/>
       </type>
       <isSummary value="false"/>
       <mapping>
