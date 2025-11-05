@@ -35,7 +35,7 @@
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
     <valueMarkdown
-      value="The effect of invoking this operation is to calculate the measure for the given subject(s), or all subjects if no subject is supplied. For individual and subject-list reports, the result is a set of Bundles, one for each evaluated subject, where the first entry in each bundle is a MeasureReport resource, and subsequent entries in the Bundle are resources evaluated or created as part of the measure evaluation. For the summary report, the result of this operation is a single bundle with a single MeasureReport of type summary. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"
+      value="The effect of invoking this operation is to calculate the specified measure(s) for the given subject(s), or a server-determined set of subjects if no subject is supplied. For `individual` and `subject-list` reports, the result is a set of Bundles, one for each evaluated subject, where the first entries in each bundle are MeasureReport resources, and subsequent entries in the Bundle are resources evaluated or created as part of the measure evaluation. For the summary report, the result of this operation is a single bundle with a MeasureReport for each calculated measure with a type of `summary`. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET."
     />
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-evaluate"/>
@@ -76,67 +76,6 @@
     <type value="canonical"/>
   </parameter>
   <parameter>
-    <name value="measure"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation
-      value="The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance"/>
-    <type value="string"/>
-    <searchType value="reference"/>
-  </parameter>
-  <parameter>
-    <name value="measureResource"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="*"/>
-    <documentation
-      value="The measure to be evaluated is provided as a Measure resource."/>
-    <type value="Measure"/>
-  </parameter>
-  <parameter>
-    <name value="manifest"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation
-      value="Specifies an asset-collection library that provides dependency version resolution and expansion rules for the operation. See the description of manifest in the Canonical Resource Management Infrastructure IG for a complete description of how manifest values are used to provide defaults for dependency version resolution and expansion parameters. Parameters specified directly in the operation override behaviors specified by the manifest parameter. In general, if this parameter is supplied, it is expected to be used in nested operation calls. For example, in evaluating a measure, if the expansion of a value set is required, this parameter SHALL be supplied to that expansion."/>
-    <type value="canonical"/>
-    <targetProfile
-      value="http://hl7.org/fhir/StructureDefinition/Library"/>
-  </parameter>
-  <parameter>
-    <name value="programIdentifier"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation
-      value="The business identifier of the reporting program, for which measures are being evaluated. For example, downstream IGs could specify program identifiers. Mutually exclusive use with programUrl - it is an error to pass in both programIdentifier and programUrl parameters."/>
-    <type value="string"/>
-    <searchType value="token"/>
-  </parameter>
-  <parameter>
-    <name value="programUrl"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation
-      value="Mutually exclusive use with programIdentifier - it is an error to pass in both programIdentifier and programUrl parameters."/>
-    <type value="canonical"/>
-    <targetProfile
-      value="http://hl7.org/fhir/StructureDefinition/Library"/>
-  </parameter>
-  <parameter>
-    <name value="subject"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation
-      value="Subject for which the measure will be calculated. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter will be resolved as the subject of the measure based on the type of the subject. If multiple subjects of the same type are provided, the behavior is implementation-defined"/>
-    <type value="string"/>
-    <searchType value="reference"/>
-  </parameter>
-  <parameter>
     <name value="periodStart"/>
     <use value="in"/>
     <min value="1"/>
@@ -155,6 +94,25 @@
     <type value="date"/>
   </parameter>
   <parameter>
+    <name value="subject"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Subject(s) for which the measure will be calculated. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subjectGroup parameter."/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="subjectGroup"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Subjects for which the measure will be evaluated, provided as a Group resource. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated.  (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subject parameter."/>
+    <type value="Group"/>
+  </parameter>
+  <parameter>
     <name value="reportType"/>
     <use value="in"/>
     <min value="0"/>
@@ -168,12 +126,29 @@
     </binding>
   </parameter>
   <parameter>
-    <name value="practitioner"/>
+    <name value="reporter"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation
-      value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, the measure will be calculated for subjects that have a primary relationship to the identified provider. How this relationship is determined is implementation-specific."/>
+    <documentation value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, systems MAY use this information to determine subjects for which the measure will be calculated, but how subjects are determined is implementation-specific. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporterResource parameter."/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="reporterResource"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The provider for which the report will be run, provided as an Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](clinicalreasoning-quality-reporting.html#ad-hoc-organizations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporter parameter."/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="location"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The location(s) for which the report will be run. This parameter is reflected in the location element of the resulting MeasureReport(s)."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -187,15 +162,6 @@
     <type value="dateTime"/>
   </parameter>
   <parameter>
-    <name value="subjectGroup"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation
-      value="Subject for which the measure will be evaluated provided as a Group resource."/>
-    <type value="Group"/>
-  </parameter>
-  <parameter>
     <name value="parameters"/>
     <use value="in"/>
     <min value="0"/>
@@ -205,14 +171,15 @@
     <type value="Parameters"/>
   </parameter>
   <parameter>
-    <name value="reporter"/>
+    <name value="manifest"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
     <documentation
-      value="A reference to an Organization that will be populated in the MeasureReport.reporter"/>
-    <type value="string"/>
-    <searchType value="reference"/>
+      value="Specifies an asset-collection library that provides dependency version resolution and expansion rules for the operation. See the version manifest discussion in the [Canonical Resource Management Infrastructure IG](http://hl7.org/fhir/uv/crmi/version-manifest.html) for a complete description of how manifest values are used to provide defaults for dependency version resolution and expansion parameters. Parameters specified directly in the operation override behaviors specified by the manifest parameter. In general, if this parameter is supplied, it is expected to be used in nested operation calls. For example, in evaluating a measure, if the expansion of a value set is required, this parameter SHALL be supplied to that expansion."/>
+    <type value="canonical"/>
+    <targetProfile
+      value="http://hl7.org/fhir/StructureDefinition/Library"/>
   </parameter>
   <parameter>
     <name value="stratifier"/>
@@ -342,7 +309,7 @@
     <min value="0"/>
     <max value="*"/>
     <documentation
-      value="The results of the measure calculation. The result of this operation will be a Bundle for each input subject, where the first entry of the Bundle is a MeasureReport representing the results of the calculation, and subsequent entries in the Bundle are resources created and/or evaluated as part of the calculation. See the MeasureReport resource for a complete description of the output of this operation. Note that implementations may choose to return a MeasureReport with a status of pending to indicate that the report is still being generated. In this case, the client can use a polling method to continually request the MeasureReport until the status is updated to complete"/>
+      value="The results of the measure evaluation, returned as a Bundle for each input subject. The first entries in each Bundle are MeasureReport(s) corresponding to the measures that were calculated. Subsequent entries in each Bundle are resources representing the data that was created or referenced during the calculation of the measures, and referenced from the appropriate element of the corresponding MeasureReport resources. See the [guidance](clinicalreasoning-quality-reporting.html#bundles-organized-by-subject) on Bundle structure for discussion about the Bundle content and organization.\n\nNote that even though there is a single parameter named return of type Bundle, it is a multi-cardinality parameter, and so will still be returned using a Parameters resource, as described in the general operations framework [response](operations.html#response)."/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

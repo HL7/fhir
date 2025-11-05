@@ -67,7 +67,7 @@
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Reason for current status"/>
-            <resource value="Reason administration not performed"/>
+            <resource value="Reason status of the administration changed"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Captures the reason for the current state of the medication administration."/>
