@@ -63,9 +63,9 @@
     <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
   </mapping>
   <mapping>
-    <identity value="IEEESDC" />
-    <uri value="urn:iso:std:iso:11073:20701" />
-    <name value="ISO/IEEE 11073-10201 Service-Oriented Device Connectivity (SDC)" />
+      <identity value="BICEPS" />
+      <uri value="urn:iso:std:iso:11073:10207" />
+      <name value="ISO/IEEE 11073-10207: Domain Information and Service Model for Service-Oriented Point-of-Care Medical Device Communication" />
   </mapping>
   <mapping>
     <identity value="ACOM" />
@@ -94,7 +94,7 @@
         <map value="Metric" />
       </mapping>
       <mapping>
-        <identity value="IEEESDC" />
+        <identity value="BICEPS" />
         <map value="MetricDescriptor" />
       </mapping>
     </element>
@@ -126,6 +126,7 @@
       </type>
       <isSummary value="true"/>
       <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because the status contains the codes entered-in-error and inactive that mark the resource as not currently valid."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricStatus"/>
@@ -149,8 +150,7 @@
         <code value="code"/>
       </type>
       <isSummary value="true"/>
-      <isModifier value="true"/>
-      <isModifierReason value="This must be filled out by the committee"/>
+      <isModifier value="false"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricOperationalStatus"/>
@@ -164,7 +164,7 @@
         <map value="Metric::Metric-Status"/>
       </mapping>
       <mapping>
-        <identity value="IEEESDC"/>
+        <identity value="BICEPS"/>
         <map value="Metric/ActivationState"/>
       </mapping>
     </element>
@@ -195,7 +195,7 @@
         <map value="Metric::Metric-Specification::category"/>
       </mapping>
       <mapping >
-        <identity value="IEEESDC"/>
+        <identity value="BICEPS"/>
         <map value="MetricDescriptor/MetricCategory"/>
       </mapping>
       <mapping>
@@ -234,7 +234,7 @@
         <map value="type = VMO::Type&#xA;type.text = VMO::Label-String"/>
       </mapping>
       <mapping>
-        <identity value="IEEESDC"/>
+        <identity value="BICEPS"/>
         <map value="MetricDescriptor/Type"/>
       </mapping>
       <mapping>
@@ -286,7 +286,7 @@
         <map value="unit = Metric::Unit-Code&#xA;unit.text = Unit::Label-String"/>
       </mapping>
       <mapping>
-        <identity value="IEEESDC"/>
+        <identity value="BICEPS"/>
         <map value="MetricDescriptor/Unit"/>
       </mapping>
       <mapping>
@@ -329,7 +329,7 @@
         <map value="value = Metric::Measure-Period::value or Metric::Metric-Specification::update-period&#xA;unit = Metric::Measure-Period::unit-code"/>
       </mapping>
       <mapping>
-        <identity value="IEEESDC"/>
+        <identity value="BICEPS"/>
         <map value="MetricDescriptor/DeterminationPeriod"/>
       </mapping>
     </element>
@@ -353,7 +353,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
       </binding>
       <mapping>
-        <identity value="IEEESDC"/>
+        <identity value="BICEPS"/>
         <map value="MetricDescriptor/MetricAvailability"/>
       </mapping>
     </element>
