@@ -240,6 +240,7 @@
         <code value="experimental"/>
         <type value="token"/>
         <expression value="SubscriptionTopic.experimental"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

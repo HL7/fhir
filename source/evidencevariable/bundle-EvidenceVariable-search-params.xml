@@ -306,6 +306,7 @@
         <code value="experimental"/>
         <type value="token"/>
         <expression value="EvidenceVariable.experimental"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

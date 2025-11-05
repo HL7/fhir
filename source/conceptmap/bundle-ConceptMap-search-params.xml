@@ -570,6 +570,7 @@
         <code value="experimental"/>
         <type value="token"/>
         <expression value="ConceptMap.experimental"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
