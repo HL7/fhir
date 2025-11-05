@@ -1,6 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Measure xmlns="http://hl7.org/fhir">
   <id value="measure-EXM55-FHIR"/>
+  <contained>
+    <Library xmlns="http://hl7.org/fhir">
+      <id value="EXM55"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="cqi"/>
+      </extension>
+      <url value="http://hl7.org/fhir/uv/cqm/Library/EXM55"/>
+      <identifier>
+        <use value="official"/>
+        <system value="http://example.org/fhir/cqi/ecqm/Library/Identifier"/>
+        <value value="EXM55"/>
+      </identifier>
+
+      <version value="5.0.0"/>
+      <name value="EXM55"/>
+      <title
+        value="EXM55 - Median Emergency Department Visit Duration Library (Example Continuous Variable Measure Library)"/>
+      <status value="active"/>
+      <experimental value="true"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
+          <code value="logic-library"/>
+        </coding>
+      </type>
+      <date value="2019-09-03"/>
+      <publisher value="HL7 International / Clinical Quality Information"/>
+      <contact>
+        <telecom>
+          <system value="url"/>
+          <value value="http://www.hl7.org/Special/committees/cqi"/>
+        </telecom>
+      </contact>
+      <description
+        value="This library is used as an example in the FHIR Continuous Variable Measure example"/>
+      <jurisdiction>
+        <coding>
+          <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+          <code value="001"/>
+        </coding>
+      </jurisdiction>
+      <approvalDate value="2019-08-03"/>
+      <lastReviewDate value="2019-08-03"/>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="FHIR model information"/>
+        <resource value="http://hl7.org/fhir/uv/cql/Library/FHIR-ModelInfo|4.0.1"/>
+      </relatedArtifact>
+      <relatedArtifact>
+        <type value="depends-on"/>
+        <display value="Library FHIRHelpers"/>
+        <resource value="http://hl7.org/fhir/uv/cql/Library/FHIRHelpers|4.0.1"/>
+      </relatedArtifact>
+      <parameter>
+        <name value="Measurement Period"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type value="Period"/>
+      </parameter>
+      <parameter>
+        <name value="Patient"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="1"/>
+        <type value="Patient"/>
+      </parameter>
+      <parameter>
+        <name value="Inpatient Encounter"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type value="Encounter"/>
+      </parameter>
+      <parameter>
+        <name value="Initial Population"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type value="Encounter"/>
+      </parameter>
+      <parameter>
+        <name value="Measure Population"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type value="Encounter"/>
+      </parameter>
+      <parameter>
+        <name value="Measure Population Exclusion"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type value="Encounter"/>
+      </parameter>
+      <parameter>
+        <name value="Stratification 1"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type value="Encounter"/>
+      </parameter>
+      <parameter>
+        <name value="Stratification 2"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type value="Encounter"/>
+      </parameter>
+      <parameter>
+        <name value="Stratification 3"/>
+        <use value="out"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type value="Encounter"/>
+      </parameter>
+      <dataRequirement>
+        <type value="Patient"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </dataRequirement>
+      <dataRequirement>
+        <type value="Encounter"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+        <mustSupport value="period"/>
+        <mustSupport value="use"/>
+        <mustSupport value="rank"/>
+        <mustSupport value="rank.value"/>
+        <mustSupport value="condition"/>
+        <mustSupport value="condition.reference"/>
+      </dataRequirement>
+      <dataRequirement>
+        <type value="Encounter"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+        <mustSupport value="type"/>
+        <mustSupport value="status"/>
+        <mustSupport value="period"/>
+        <mustSupport value="use"/>
+        <mustSupport value="rank"/>
+        <mustSupport value="rank.value"/>
+        <mustSupport value="condition"/>
+        <mustSupport value="condition.reference"/>
+        <mustSupport value="hospitalization"/>
+        <mustSupport value="hospitalization.admitSource"/>
+      </dataRequirement>
+      <dataRequirement>
+        <type value="Condition"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <mustSupport value="id"/>
+        <codeFilter>
+          <path value="id"/>
+        </codeFilter>
+      </dataRequirement>
+      <content>
+        <contentType value="text/cql"/>
+        <data
+          value="LyoNClRoaXMgZXhhbXBsZSBpcyBhIHdvcmsgaW4gcHJvZ3Jlc3MgYW5kIHNob3VsZCBub3QgYmUgY29uc2lkZXJlZCBhIGZpbmFsIHNwZWNpZmljYXRpb24NCm9yIHJlY29tbWVuZGF0aW9uIGZvciBndWlkYW5jZS4gVGhpcyBleGFtcGxlIHdpbGwgaGVscCBndWlkZSBhbmQgZGlyZWN0IHRoZSBwcm9jZXNzDQpvZiBmaW5kaW5nIGNvbnZlbnRpb25zIGFuZCB1c2FnZSBwYXR0ZXJucyB0aGF0IG1lZXQgdGhlIG5lZWRzIG9mIHRoZSB2YXJpb3VzIHN0YWtlaG9sZGVycw0KaW4gdGhlIG1lYXN1cmUgZGV2ZWxvcG1lbnQgY29tbXVuaXR5Lg0KKi8NCg0KbGlicmFyeSBFWE01NSB2ZXJzaW9uICc1LjAuMCcNCg0KdXNpbmcgRkhJUiB2ZXJzaW9uICc0LjAuMScNCg0KaW5jbHVkZSBobDcuZmhpci51di5jcWwuRkhJUkhlbHBlcnMgdmVyc2lvbiAnNC4wLjEnIGNhbGxlZCBGSElSSGVscGVycw0KDQpjb2Rlc3lzdGVtICJEaWFnbm9zaXMgUm9sZSI6ICdodHRwOi8vdGVybWlub2xvZ3kuaGw3Lm9yZy9Db2RlU3lzdGVtL2RpYWdub3Npcy1yb2xlJw0KDQp2YWx1ZXNldCAiRW1lcmdlbmN5IERlcGFydG1lbnQgVmlzaXQiIDogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjExNy4xLjcuMS4yOTInDQp2YWx1ZXNldCAiUHN5Y2hpYXRyaWMvTWVudGFsIEhlYWx0aCBQYXRpZW50IiA6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM4ODMuMy4xMTcuMS43LjEuMjk5Jw0KdmFsdWVzZXQgIkhvc3BpdGFsIFNldHRpbmdzIiA6ICdodHRwOi8vY3RzLm5sbS5uaWguZ292L2ZoaXIvVmFsdWVTZXQvMi4xNi44NDAuMS4xMTM3NjIuMS40LjExMTEuMTI2Jw0KDQpjb2RlICJCaWxsaW5nIjogJ2JpbGxpbmcnIGZyb20gIkRpYWdub3NpcyBSb2xlIiBkaXNwbGF5ICdCaWxsaW5nJw0KDQpwYXJhbWV0ZXIgIk1lYXN1cmVtZW50IFBlcmlvZCIgSW50ZXJ2YWw8RGF0ZVRpbWU+DQoNCmNvbnRleHQgUGF0aWVudA0KDQpkZWZpbmUgIkluaXRpYWwgUG9wdWxhdGlvbiIgOg0KICAiSW5wYXRpZW50IEVuY291bnRlciIgRW5jb3VudGVyDQogICAgd2l0aCBbIkVuY291bnRlciIgOiAiRW1lcmdlbmN5IERlcGFydG1lbnQgVmlzaXQiXSBFRA0KICAgICBzdWNoIHRoYXQgRUQuc3RhdHVzID0gJ2ZpbmlzaGVkJw0KICAgICAgIGFuZCBFRC5wZXJpb2QgZW5kcyAxIGhvdXIgb3IgbGVzcyBiZWZvcmUgc3RhcnQgb2YgRW5jb3VudGVyLnBlcmlvZA0KDQpkZWZpbmUgIk1lYXN1cmUgUG9wdWxhdGlvbiIgOg0KICAiSW5pdGlhbCBQb3B1bGF0aW9uIg0KDQpkZWZpbmUgIklucGF0aWVudCBFbmNvdW50ZXIiIDoNCiAgWyJFbmNvdW50ZXIiXSBFbmNvdW50ZXINCiAgICB3aGVyZSBMZW5ndGhJbkRheXMoRW5jb3VudGVyLnBlcmlvZCkgPD0gMTIwDQogICAgICBhbmQgRW5jb3VudGVyLnBlcmlvZCBlbmRzIGR1cmluZyAiTWVhc3VyZW1lbnQgUGVyaW9kIg0KDQpkZWZpbmUgIk1lYXN1cmUgUG9wdWxhdGlvbiBFeGNsdXNpb24iIDoNCiAgIklucGF0aWVudCBFbmNvdW50ZXIiIEVuY291bnRlcg0KICAgIHdpdGggWyJFbmNvdW50ZXIiIDogIkVtZXJnZW5jeSBEZXBhcnRtZW50IFZpc2l0Il0gRUQNCiAgICAgIHN1Y2ggdGhhdCBFRC5wZXJpb2QgZW5kcyAxIGhvdXIgb3IgbGVzcyBiZWZvcmUgc3RhcnQgb2YgRW5jb3VudGVyLnBlcmlvZA0KICAgICAgICBhbmQgRUQuc3RhdHVzID0gJ2ZpbmlzaGVkJw0KICAgICAgICBhbmQgRUQuaG9zcGl0YWxpemF0aW9uLmFkbWl0U291cmNlIGluICJIb3NwaXRhbCBTZXR0aW5ncyINCg0KZGVmaW5lIGZ1bmN0aW9uICJQcmluY2lwYWxEaWFnbm9zaXMiKEVuY291bnRlciBFbmNvdW50ZXIpOg0KCShzaW5nbGV0b24gZnJvbSAoRW5jb3VudGVyLmRpYWdub3NpcyBEIHdoZXJlIEQudXNlIH4gVG9Db25jZXB0KCJCaWxsaW5nIikgYW5kIEQucmFuay52YWx1ZSA9IDEpKSBQRA0KCQlyZXR1cm4gc2luZ2xldG9uIGZyb20gKFtDb25kaXRpb246IGlkIGluICJHZXRJZCIoUEQuY29uZGl0aW9uLnJlZmVyZW5jZSldKQ0KDQpkZWZpbmUgZnVuY3Rpb24gIkxlbmd0aEluRGF5cyIoVmFsdWUgSW50ZXJ2YWw8RGF0ZVRpbWU+KToNCglkaWZmZXJlbmNlIGluIGRheXMgYmV0d2VlbiBzdGFydCBvZiBWYWx1ZSBhbmQgZW5kIG9mIFZhbHVlDQoNCmRlZmluZSBmdW5jdGlvbiAiR2V0SWQiKHVyaSBTdHJpbmcpOg0KCUxhc3QoU3BsaXQodXJpLCAnLycpKQ0KDQpkZWZpbmUgIlN0cmF0aWZpY2F0aW9uIDEiIDoNCiAgIklucGF0aWVudCBFbmNvdW50ZXIiIEVuY291bnRlcg0KICAgIHdoZXJlIG5vdCAoUHJpbmNpcGFsRGlhZ25vc2lzKEVuY291bnRlcikuY29kZSBpbiAiUHN5Y2hpYXRyaWMvTWVudGFsIEhlYWx0aCBQYXRpZW50IikNCg0KZGVmaW5lICJTdHJhdGlmaWNhdGlvbiAyIiA6DQogICJJbnBhdGllbnQgRW5jb3VudGVyIiBFbmNvdW50ZXINCiAgICB3aGVyZSBQcmluY2lwYWxEaWFnbm9zaXMoRW5jb3VudGVyKS5jb2RlIGluICJQc3ljaGlhdHJpYy9NZW50YWwgSGVhbHRoIFBhdGllbnQiDQoNCmRlZmluZSAiU3RyYXRpZmljYXRpb24gMyIgOg0KICAiSW5wYXRpZW50IEVuY291bnRlciIgRW5jb3VudGVyDQogICAgd2hlcmUgUHJpbmNpcGFsRGlhZ25vc2lzKEVuY291bnRlcikgaXMgbnVsbA0KDQovL01lYXN1cmUgT2JzZXJ2YXRpb24NCmRlZmluZSBmdW5jdGlvbiAiUmVsYXRlZCBFRCBWaXNpdCIgKEVuY291bnRlciAiRW5jb3VudGVyIiApIDoNCiAgTGFzdChbIkVuY291bnRlciIgOiAiRW1lcmdlbmN5IERlcGFydG1lbnQgVmlzaXQiXSBFRA0KICAgIHdoZXJlIEVELnN0YXR1cyA9ICdmaW5pc2hlZCcNCiAgICAgIGFuZCBFRC5wZXJpb2QgZW5kcyAxIGhvdXIgb3IgbGVzcyBiZWZvcmUgc3RhcnQgb2YgRW5jb3VudGVyLnBlcmlvZA0KICAgIHNvcnQgYnkgc3RhcnQgb2YgcGVyaW9kICkNCg0KZGVmaW5lIGZ1bmN0aW9uICJNZWFzdXJlIE9ic2VydmF0aW9uIiAoRW5jb3VudGVyICJFbmNvdW50ZXIiICkgOg0KICBkdXJhdGlvbiBpbiBtaW51dGVzIG9mICJSZWxhdGVkIEVEIFZpc2l0IihFbmNvdW50ZXIpLnBlcmlvZA0K"
+        />
+      </content>
+    </Library>
+  </contained>
   <url value="http://hl7.org/fhir/uv/cqm/Measure/measure-EXM55-FHIR"/>
   <identifier>
     <use value="official"/>
@@ -55,7 +215,7 @@
       <display value="Health Quality Measure Document"/>
     </coding>
   </topic>
-  <library value="http://hl7.org/fhir/uv/cqm/Library/EXM55"/>
+  <library value="#EXM55"/>
 
   <group id="group-1">
     <linkId value-="primary"/>
