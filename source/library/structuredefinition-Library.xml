@@ -738,7 +738,7 @@
 			<path value="Library.relatedArtifact"/>
 			<short value="Additional documentation, citations, etc"/>
 			<definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both. In addition, the successor or predecessor of a Library SHOULD be a Library, and dependencies and components of a LLibrary SHOULD reference a resource."/>
+			<comment value="Each related artifact is either an attachment, or a reference to another resource, but not both. In addition, the successor or predecessor of a Library SHOULD be a Library, and dependencies and components of a Library SHOULD reference a resource."/>
 			<requirements value="Libraries must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
 			<min value="0"/>
 			<max value="*"/>

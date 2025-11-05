@@ -234,6 +234,15 @@
         <type value="markdown"/>
       </part>
       <part>
+        <name value="criteria"/>
+        <use value="in"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation 
+          value="An expression that returns the value of this component of the stratifier for a member of the population. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element, evaluated from the perspective of the measure subject. If this is a non-subject-based measure, the expression may be a reference to a function that takes an argument of the type of the measure basis, allowing the stratifier value to be determined for each member of the population."/>
+        <type value="Expression"/>
+      </part>
+      <part>
         <name value="valueSet"/>
         <use value="in"/>
         <min value="0"/>
