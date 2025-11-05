@@ -141,7 +141,10 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="AuditEvent.authorization">
-        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Not Appropriate"/>
+        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Unknown">
+            <!--Old pattern: CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)-->
+            <!--Old reason: Not Appropriate-->
+        </missingTypes>
         <extraTypes _resource="CodeableConcept" reason="Use-Case need"/>
         <shortUnmatched reason="Use-Case need">
             <_pattern value="Why was audit event performed?"/>

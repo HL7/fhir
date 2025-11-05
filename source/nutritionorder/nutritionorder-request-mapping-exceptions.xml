@@ -255,7 +255,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="NutritionOrder.requester">
-        <missingTypes _pattern="Reference(Organization,Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Organization, Patient, RelatedPerson, Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
             <resource value="Who ordered the diet, formula or nutritional supplement"/>
@@ -267,7 +267,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="NutritionOrder.performer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, CareTeam, HealthcareService, Patient, Device, RelatedPerson)" reason="Unknown"/>
         <extraTypes _resource="CodeableReference(CareTeam,Practitioner,PractitionerRole,RelatedPerson,Patient,Organization,Group)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">

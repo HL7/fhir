@@ -40,7 +40,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.replaces" resourcePath="ServiceRequest.replaces">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(ServiceRequest,MedicationRequest,RequestOrchestration,CarePlan,DeviceRequest,CommunicationRequest,NutritionOrder,VisionPrescription,SupplyRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(ServiceRequest,MedicationRequest,RequestOrchestration,CarePlan,DeviceRequest,CommunicationRequest,NutritionOrder,VisionPrescription)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Request(s) replaced by this service request"/>
             <resource value="What request replaces"/>
@@ -170,8 +170,8 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.product" resourcePath="ServiceRequest.orderDetail.parameterFocus[x]">
-        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct,Device,DeviceDefinition,Medication,NutritionProduct,Substance)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Device,DeviceRequest,Medication,MedicationRequest,BiologicallyDerivedProduct,Substance,SubstanceDefinition,SupplyRequest,MedicinalProductDefinition), canonical(DeviceDefinition), CodeableConcept" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,DeviceRequest,Medication,MedicationRequest,BiologicallyDerivedProduct,Substance,SubstanceDefinition,MedicinalProductDefinition), canonical(DeviceDefinition), CodeableConcept" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Product requested/ordered"/>

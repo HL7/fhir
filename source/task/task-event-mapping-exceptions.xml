@@ -92,7 +92,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.product" resourcePath="Task.focus">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct,Device,DeviceDefinition,Medication,NutritionProduct,Substance)" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
         <extraTypes _resource="BackboneElement" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Product used/provided"/>
@@ -105,7 +105,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="Task.for">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, Group)" reason="Unknown"/>
         <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>

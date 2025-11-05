@@ -20,7 +20,7 @@
 <ul>
     <li><strong>DeviceAssociation</strong> (this resource) - To clarify when tracking the lifecycle and traceability of a device, including assignment or dissociation with a patient, practitioner, location, or another device.</li>
 	<li><strong><a href="device.html">Device</a></strong> - The device that is, e.g., used, placed in or on, or owned by the subject referenced in the DeviceAssociation.</li>
-    <li><strong><a href="deviceusage.html">DeviceUsage</a></strong> when documenting a patient’s use of a device — typically clinical history or their ongoing reliance on the device.</li>
+    <li><strong><a href="https://build.fhir.org/ig/HL7/oo-incubator-ig/StructureDefinition-DeviceUsage.html">DeviceUsage</a></strong> when documenting a patient’s use of a device — typically clinical history or their ongoing reliance on the device.</li>
 	<li><strong><a href="procedure.html">Procedure</a></strong> when the device is involved in a clinical action, such as implantation, removal, or adjustment, where details of that intervention need to be recorded.</li>
 </ul>
 <p>These resources may be used together — for example, a procedure may establish or end an association, while DeviceUsage captures continued patient use.</p>

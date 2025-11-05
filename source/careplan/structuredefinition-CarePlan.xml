@@ -705,7 +705,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
       </type>
       <!-- <condition value="cpl-3"/> -->
       <mapping>

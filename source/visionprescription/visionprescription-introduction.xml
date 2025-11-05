@@ -52,7 +52,7 @@ Additional information regarding resources conveying electronic claims content a
 				</td>
 			</tr>	
 			<tr>
-				<td><a href="supplyrequest.html">SupplyRequest</a></td>
+				<td><a href="https://build.fhir.org/ig/HL7/oo-incubator-ig/StructureDefinition-SupplyRequest.html">SupplyRequest</a></td>
 				<td>This resource is used for inventory management of a supply item (which may include a medication, substance or device).
 				</td>
 			</tr>		

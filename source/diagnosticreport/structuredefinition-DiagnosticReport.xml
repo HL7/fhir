@@ -687,7 +687,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>
