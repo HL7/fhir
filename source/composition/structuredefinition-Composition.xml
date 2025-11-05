@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Composition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -481,7 +481,7 @@
       <path value="Composition.author"/>
       <short value="Who and/or what authored the composition"/>
       <definition value="Identifies who is responsible for the information in the composition, not necessarily who typed it in."/>
-	  <comment value="When the Composition is software-generated, a Device can be referenced. When a software-generated Composition is verified by a human (but not authored by that human), use the attester element to identify the human(s) who performed the verification."/>
+      <comment value="When the Composition is software-generated, a Device can be referenced. When a software-generated Composition is verified by a human (but not authored by that human), use the attester element to identify the human(s) who performed the verification."/>
       <requirements value="Identifies who is responsible for the content."/>
       <min value="0"/>
       <max value="*"/>
@@ -647,7 +647,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-	  <condition value="cmp-3"/>
+      <condition value="cmp-3"/>
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
@@ -821,28 +821,28 @@
       </binding>
     </element>
     <element id="Composition.relatesTo.target[x]">
-        <path value="Composition.relatesTo.target[x]"/>
-        <short value="The artifact that is related to this Composition"/>
-        <definition value="The artifact that is related to this Composition Resource."/>
-        <min value="1"/>
-        <max value="1"/>
-        <type>
-            <code value="uri"/>
-        </type>
-        <type>
-            <code value="Attachment"/>
-        </type>
-        <type>
-            <code value="canonical"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-        </type>
-        <type>
-            <code value="Reference"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-        </type>
-        <type>
-            <code value="markdown"/>
-        </type>
+      <path value="Composition.relatesTo.target[x]"/>
+      <short value="The artifact that is related to this Composition"/>
+      <definition value="The artifact that is related to this Composition Resource."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <type>
+        <code value="markdown"/>
+      </type>
     </element>
     <element id="Composition.event">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -939,7 +939,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-	  <condition value="cmp-3"/>
+      <condition value="cmp-3"/>
       <constraint>
         <key value="cmp-1"/>
         <severity value="error"/>

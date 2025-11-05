@@ -271,6 +271,8 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.relevantHistory" resourcePath="MedicationRequest.eventHistory">
+        <missingTypes _pattern="Reference(ProvenanceRelevantHistory)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Provenance)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Key events in history of medication request"/>
             <resource value="A list of events of interest in the lifecycle"/>

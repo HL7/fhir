@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
   <id value="DocumentReference-docref"/>
   <meta>
     <lastUpdated value="2022-12-14T10:01:24.148+11:00"/>
@@ -59,6 +59,13 @@
     </telecom>
   </contact>
   <description value="This operation is used to return all the references to documents related to a patient. &#xA;&#xA; The operation requires a patient id and takes the optional input parameters: &#xA;  - start date&#xA;  - end date&#xA;  - document type &#xA;&#xA;  - on demand &#xA;&#xA;  - profile &#xA;&#xA; and returns a [Bundle](bundle.html) of type &quot;searchset&quot; containing [DocumentReference](documentreference.html) resources for the patient. If the server has or can create documents that are related to the patient, and that are available for the given user, the server returns the DocumentReference resources needed to support the records.  The principle intended use for this operation is to provide a provider or patient with access to their available document information. &#xA;&#xA; This operation is *different* from a search by patient and type and date range because: &#xA;&#xA; 1. It is used to request a server to *generate* a document based on the specified parameters. &#xA;&#xA; 1. If no parameters are specified, the server SHALL return a DocumentReference to the patient's most current summary &#xA;&#xA; 1. If the server cannot *generate* a document based on the specified parameters, the operation will return an empty search bundle. &#xA;&#xA; Unless the client indicates they are only interested in 'on-demand' documents using the on-demand parameter, the server SHOULD return DocumentReference instances for existing documents that meet the request parameters. In this regard, this operation is similar to a FHIR RESTful query."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <affectsState value="true"/>
   <code value="docref"/>
   <comment value="- The server is responsible for determining what resources, if any, to return as [included](search.html#revinclude) resources rather than the client specifying which ones. This frees the client from needing to determine what it could or should ask for. For example, the server may return the referenced document as an included FHIR Binary resource within the return bundle. The server's CapabilityStatement should document this behavior. &#xA;&#xA; - The document itself can be subsequently retrieved using the link provided  in the `DocumentReference.content.attachment.url element`. The link could be a FHIR endpoint to a [Binary](binary.html) Resource or some other document repository. &#xA;&#xA; - It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single patient, or determine whether the context has the rights to the nominated patient, if there is one. If there is no nominated patient (e.g. the operation is invoked at the system level) and the context is not associated with a single patient record, then the server should return an error. Specifying the relationship between the context, a user and patient records is outside the scope of this specification"/>
@@ -97,6 +104,9 @@
     <documentation value=" The type relates to document type e.g. C-CDA Clinical Summary of Care (CCD) = LOINC 34133-9: Summary of episode note, and International Patient Summary (IPS) = LOINC 60591-5: Patient summary document.  If no type is provided, the summary document, if available, SHALL be in scope, and all other document types MAY be in scope. It is at the server's discretion how to respond if multiple types are provided. The server MAY return documents to any of the specified types. The server's CapabilityStatement should document its behavior and what types it supports"/>
     <type value="CodeableConcept"/>
     <binding>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <valueString value="??"/>
+      </extension>
       <strength value="required"/>
       <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
     </binding>

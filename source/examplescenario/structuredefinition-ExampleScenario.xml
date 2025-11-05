@@ -503,7 +503,7 @@
     </element>
     <element id="ExampleScenario.actor.type">
       <path value="ExampleScenario.actor.type"/>
-      <short value="system | non-system | individual | patient | practitioner | related-person | device | collective | care-team | group | healthcare-service | organization"/>
+      <short value="person | system | collective | other"/>
       <definition value="The category of actor - person or system."/>
       <min value="0"/>
       <max value="1"/>
