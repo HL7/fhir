@@ -383,7 +383,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
       </type>
       <isSummary value="true"/>
       <binding>

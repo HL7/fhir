@@ -16,7 +16,11 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="DocumentReference.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="More specific to the use-case for this resource"/>
-        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,Contract,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,SupplyRequest,VisionPrescription)" reason="More specific to the use-case for this resource"/>
+        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,Contract,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,VisionPrescription)" reason="Unknown">
+            <!--Old pattern: -->
+            <!--Old resource: Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,Contract,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,SupplyRequest,VisionPrescription)-->
+            <!--Old reason: More specific to the use-case for this resource-->
+        </extraTypes>
         <summary _pattern="true" _resource="false" reason="More specific to the use-case for this resource"/>
         <shortUnmatched reason="More specific to the use-case for this resource">
             <_pattern value="Fulfills plan, proposal or order"/>

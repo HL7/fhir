@@ -76,6 +76,7 @@
       <display value="Heart Valve Replacement"/>
     </item>
   </entry>
+  <!--
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Definition for blood collection tubes supply"/>
@@ -88,6 +89,7 @@
       <display value="Blood Tubes Supply"/>
     </item>
   </entry>
+  -->
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of a predecessor/successor relationship"/>
