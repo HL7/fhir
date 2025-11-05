@@ -16,7 +16,7 @@
         <description value="A biologically derived product within this packaged product"/>
         <code value="biological"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <expression value="PackagedProductDefinition.repeat(packaging).containedItem.item.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -35,7 +35,7 @@
         <description value="Any of the contained items within this packaged product"/>
         <code value="contained-item"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <expression value="PackagedProductDefinition.repeat(packaging).containedItem.item.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -54,7 +54,7 @@
         <description value="A device within this packaged product"/>
         <code value="device"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <expression value="PackagedProductDefinition.repeat(packaging).containedItem.item.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -92,7 +92,7 @@
         <description value="A manufactured item of medication within this packaged product"/>
         <code value="manufactured-item"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <expression value="PackagedProductDefinition.repeat(packaging).containedItem.item.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -111,7 +111,7 @@
         <description value="A manufactured item of medication within this packaged product"/>
         <code value="medication"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <expression value="PackagedProductDefinition.repeat(packaging).containedItem.item.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -149,7 +149,7 @@
         <description value="A nutrition product within this packaged product"/>
         <code value="nutrition"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <expression value="PackagedProductDefinition.repeat(packaging).containedItem.item.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -168,7 +168,7 @@
         <description value="A complete packaged product within this packaged product"/>
         <code value="package"/>
         <type value="reference"/>
-        <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
+        <expression value="PackagedProductDefinition.repeat(packaging).containedItem.item.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
