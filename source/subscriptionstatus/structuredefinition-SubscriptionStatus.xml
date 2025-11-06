@@ -214,7 +214,8 @@
     <element id="SubscriptionStatus.notificationEvent.additionalContext">
       <path value="SubscriptionStatus.notificationEvent.additionalContext"/>
       <short value="References related to the focus resource and/or context of this event"/>
-      <definition value="Additional context information for this event. Generally, this will contain references to additional resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects."/>
+      <definition value="Additional context information for this event. Generally, this will contain references to related resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects."/>
+      <comment value="Note that servers have discretion on related resources to include. SubscriptionTopic resources can include descriptions of likely or expected shapes in order to set implementer expectations. For details see [Notification Shapes](subscriptiontopic.html#notification-shape)." />
       <min value="0"/>
       <max value="*"/>
       <type>
