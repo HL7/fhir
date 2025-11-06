@@ -785,6 +785,7 @@
       <path value="ExampleScenario.instance.containedInstance"/>
       <short value="Resources contained in the instance"/>
       <definition value="References to other instances that can be found within this instance (e.g. the observations contained in a bundle)."/>
+      <requirements value="An instance may contain multiple resources - for example, a search response Bundle, a document Bundle, nested contained resources, etc.  In some cases it's useful to be able to talk about these contained instances distinctly, as they may appear in multiple locations in a scenario - sometimes contained, sometimes not.  For example, a scenario may include the creation of an Observation (stand-alone instance) followed by a search that results in a Bundle that contains that same Observation.  The ExampleScenario can highlight the fact that the 'created' instance and 'contained' instance are the same by having the Bundle refer to the same instance id."/>
       <min value="0"/>
       <max value="*"/>
       <type>
