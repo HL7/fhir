@@ -31,7 +31,7 @@ As such there is sometimes a need to cryptographically bind a signature so that 
 can verify authenticity, integrity, and rely on non-repudiation of the content.
 This functionality is provided through the <a href="datatypes.html#Signature">Signature</a> type found in the
 signature element in the <a href="provenance.html">Provenance</a> Resource.
-The signature can either be an electronic signature (e.g. an image of an ink signature), or a digital signature (cryptographic
+The signature can either be an electronic signature (e.g., an image of an ink signature), or a digital signature (cryptographic
 proof that the content has not changed), and in the case of a digital signature, either a JWS signature or an XML Digital Signature.
 </p>
 <p>
@@ -138,7 +138,7 @@ There are multiple aspects to signature verification:
 <ol>
    <li>Verifying the Digital Signature block itself by verifying the signature cryptographically</li>
    <li>For XML digital signatures, confirming that the signed content of interest is unmodified using the hash algorithm (for JWS signatures, this is inherently required as part of the previous step)</li>
-   <li>Confirming that the signer (e.g. the certificate) was authentic, not revoked, and appropriate to the signature purpose.</li>
+   <li>Confirming that the signer (e.g., the certificate) was authentic, not revoked, and appropriate to the signature purpose.</li>
    <li>Confirming the relationship between the signed content, the signer, and any consequences of the signature for the application.</li>
 </ol>
 <p>
@@ -156,7 +156,7 @@ signature can only be trusted if the certificate itself is verified against a tr
 At the certificate level, there is no ambiguity about the identity of the signer, as the certificate
 itself identifies the signer and this can be cryptographically verified, as explained above. But even 
 then, there are still challenges here. The certificate will typically contain an LDAP based identification
-of the person/software/organization that requested the certificate (e.g. 
+of the person/software/organization that requested the certificate (e.g., 
 <code>OU=IG Publisher,L=Ann Arbor,CN=hl7.org,O=HL7,ST=Michigan,C=us</code>). However:
 </p>
 <ul> 
@@ -324,7 +324,7 @@ When the signature is a JWS Digital Signature, the following rules apply:
     of the resource(s) as indicated in the <code>targetFormat</code> element as described above.</li>
 
  <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> 
-    or <code>Reference.identifier</code> that matches an identifier found in the X509 certificate. E.g. the Subject Name (<code>SN</code>),
+    or <code>Reference.identifier</code> that matches an identifier found in the X509 certificate. e.g., the Subject Name (<code>SN</code>),
     or one of the Subject Alternative Names (<code>SAN</code>)</li> 
  <li>The JWS protected header SHALL contain either a <code>kid</code> or an <code>x5c</code> property</li>
  <li>The Signature SHALL include a "srCms signer commitments" property for the Purpose(s) of Signature. 
@@ -357,7 +357,7 @@ When the signature is an XML Digital Signature, the following rules apply:
   <li>If a SignedSignatureProperties block is present, it SHOULD not have any whitespace between the elements</li>
   <li>The Signature SHALL contain a <code>X509Certificate</code></li>
   <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> or <code>Reference.identifier</code>
-    that matches an identifier found in the X509 certificate (e.g. the <code>Subject</code>, or one of the Subject Alternative Names</li> 
+    that matches an identifier found in the X509 certificate (e.g., the <code>Subject</code>, or one of the Subject Alternative Names</li> 
   <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
 </ul>
 

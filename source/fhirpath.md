@@ -27,7 +27,7 @@ The first fundamental operation is to select a set of elements by their path:
 
 	path.subPath.subPath - select all the elements on the path
   
-e.g. To select all the phone numbers for a patient
+e.g., To select all the phone numbers for a patient
 
 	telecom.value
 
@@ -44,7 +44,7 @@ Paths and polymorphic items:
 	\*\* - any descendent
 	name* - recursive uses of the element 
 	$context - the original context (see below for usage)
-	$resource - the original container resource (e.g. skip contained resources, but do not go past a root resource into a bundle, if it is contained in a bundle)
+	$resource - the original container resource (e.g., skip contained resources, but do not go past a root resource into a bundle, if it is contained in a bundle)
 	$parent - the element that contains $contex
 
 Note: $resource and $parent are only allowed in invariants
@@ -172,7 +172,7 @@ Note that only primitive elements have a string representation
 A simpler variation of matches that returns a boolean for a matching character sequence
 
 ### .distinct(path,path)
-Returns true if all the elements in the list are distinct when using the relative paths (simple paths only with no functions). If the elements in the list are primitives, this can be used with no paths (e.g. .distinct())
+Returns true if all the elements in the list are distinct when using the relative paths (simple paths only with no functions). If the elements in the list are primitives, this can be used with no paths (e.g., .distinct())
 
 ### .resolve()
 for each item in the collection, if it is a Reference, locate the target of the reference, and add it to the resulting collection. Else, ignore it 
@@ -183,7 +183,7 @@ Note: distinct() and resolve() are only allowed in the context of invariants, an
 6. Operations
 -------------
 
-The following operators are allowed to be used between path expressions (e.g. expr op expr):
+The following operators are allowed to be used between path expressions (e.g., expr op expr):
 
 ### = (Equals)
 True if the left collection is equal to the right collection
@@ -218,7 +218,7 @@ the inverse of the equivalent reaction
 ### >= (Greater or Equal)
 
 ### | (union collections)
-merge the two collections into a single list, eliminating any duplicate values (e.g. equal)
+merge the two collections into a single list, eliminating any duplicate values (e.g., equal)
  
 ### in
 test whether all the itesm in the left collection are in the right collection.
@@ -270,7 +270,7 @@ The following fixed values are set for all contexts:
 
 Implementers should note that defining additional fixed constants is a formal extension point for the langauge. Implementation Guides are allowed to define their own fixed constants, and implementers should provide some appropriate configuration framework to allow these constants to be provided to the evaluation engine at run time.
 
-	e.g. %us-zip = "[0-9]{5}(-[0-9]{4}){0,1}"
+	e.g., %us-zip = "[0-9]{5}(-[0-9]{4}){0,1}"
 
 8. Formal grammar
 -----------------------------------
@@ -295,7 +295,7 @@ constant    = "%" ("a"-"z" | "A-Z" | "0-9") ("a-z" | "A-Z" | "0-9" | "-" | ".")*
 
 Note:
 * Unicode whitespace is not explicitly shown in the grammar, but may be present around all terms and tokens in the grammar.
-* Non ascii (e.g. Unicode) characters only allowed in constants (they do not need to be escaped in constants, but can be)
+* Non ascii (e.g., Unicode) characters only allowed in constants (they do not need to be escaped in constants, but can be)
 
 
 9. Mapping Extensions

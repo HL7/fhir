@@ -92,7 +92,7 @@ There are a few base rules that apply for all operations:
 </p>
 <ul>
  <li>The FHIRPath statement must return a single element</li>
- <li>The FHIRPath statement SHALL NOT cross resources using the <code>resolve()</code> function (e.g. like <code>Observation.subject.resolve().identifier</code>).
+ <li>The FHIRPath statement SHALL NOT cross resources using the <code>resolve()</code> function (e.g., like <code>Observation.subject.resolve().identifier</code>).
      <code>resolve()</code> SHALL only be used to refer to contained resource within the resource being patched.
      Servers SHALL NOT allow patch operations to alter other resources than the nominated target, and SHOULD return an error if the patch operation tries</li>
  <li>The type of the value must be correct for the place at which it will be added/inserted. Servers SHALL return an error if the type is wrong</li>
@@ -184,7 +184,7 @@ Here is an example of adding an element:
 <p>
 Only some named datatypes (see <a href="datatypes.html#open">the list</a>) are allowed to be used
 directly in parameters. In order to add or insert other kinds of types - including anonymous
-elements (e.g. Observation.component, Timing.repeat), the content is defined by defining
+elements (e.g., Observation.component, Timing.repeat), the content is defined by defining
 the name as described above, and instead of providing a value, a set of parts that are values
 are provided. Here is an example:
 </p>
