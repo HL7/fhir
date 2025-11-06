@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="security-role-type-examples"/>
+  <id value="security-role-type-example"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
     <valueBoolean value="true"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/security-role-type-examples"/>
+  <url value="http://hl7.org/fhir/ValueSet/security-role-type-example"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.978"/>
@@ -31,7 +31,7 @@
   <copyright value="This is an example FHIR value set with sample codes derived from ISO-21298 - Functional and Structural Roles."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/security-structural-roles-examples"/>
+      <system value="http://hl7.org/fhir/security-structural-roles-example"/>
     </include>
   </compose>
 </ValueSet>
