@@ -181,31 +181,130 @@ by the FHIR specification.
 
 <p>In order to assist with consistency between code systems, the following basic property URIs are defined in the <a href="codesystem-concept-properties.html">Concept Properties</a> code system:</p>
 
-<table class="grid">
- <tr><td>http://hl7.org/fhir/concept-properties#status : code</td><td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
+<p>
+Note: all the properties in the table below are prefixed by <code>http://hl7.org/fhir/concept-properties#</code>
+such that the url that identifies the <code>status</code> property is actually <code>http://hl7.org/fhir/concept-properties#status</code>. The 
+prefix is omitted from the table to improve it's presentation.
+</p>
+
+<style>
+table.fixedfirst td:first-child {
+    white-space: nowrap;
+}
+</style>
+<table class="grid fixedfirst">
+ <tr>
+  <th>URL Tail</th>
+  <th>Type</th>
+  <th>Description</th>
+ </tr>
+ <tr>
+  <td><code>status</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#status');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
      <ul>
       <li>active - the concept is for normal use</li>
       <li>experimental - provided for trial, but may be removed in the future</li>
       <li>deprecated - the concept is outdated and planned to be withdrawn from use</li>
       <li>retired - still present for historical reasons, but no longer allowed to be used</li>
      </ul>
-   </td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#inactive : boolean</td><td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept status was last changed</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#parent : code</td><td>An immediate parent of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#child : code</td><td>An immediate child of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by its code) contains this concept as a component</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#synonym : code</td><td>This property contains an alternative code that may be used to identify this concept instead of the primary code (deprecated: use <code>alternateCode</code>, and see the <a href="#synonyms">discussion below</a>)</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#alternateCode : code</td><td>This property contains the code for another representation of this concept, with the same real-world meaning, in this code system</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#comment : string</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#itemWeight : decimal</td><td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#order : decimal</td><td>A property that indicates the order of the concept amongst its siblings in the code system e.g. severity. The code system specific purpose of the ordering is defined elsewhere</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#definition : string</td><td>The definition of the concept. This corresponds to CodeSystem.concept.definition and is not used in the definition of CodeSystems but is used when clients request the definition property be included in an expansion</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#lastVersionActive : string</td><td>If the code is not active (properties inActive or based on status), then this property conveys in what code system version it was last an active code</td></tr>
+  </td>
+ </tr>
+ <tr>
+  <td><code>inactive</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#inactive');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>boolean</td>
+  <td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false</td>
+ </tr>
+ <tr>
+  <td><code>effectiveDate</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#effectiveDate');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>date</td>
+  <td>The date at which the concept status was last changed</td>
+ </tr>
+ <tr>
+  <td><code>deprecationDate</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#status');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>date</td>
+  <td>Date Concept was deprecated</td>
+ </tr>
+ <tr>
+  <td><code>retirementDate</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#status');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>date</td>
+  <td>Date Concept was retired</td>
+ </tr>
+ <tr>
+  <td><code>notSelectable</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#notSelectable');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>boolean</td>
+  <td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td>
+ </tr>
+ <tr>
+  <td><code>parent</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#parent');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>An immediate parent of the concept in the hierarchy</td>
+ </tr>
+ <tr>
+  <td><code>child</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#child');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>An immediate child of the concept in the hierarchy</td>
+ </tr>
+ <tr>
+  <td><code>partOf</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#partOf');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>The concept identified in this property (by its code) contains this concept as a component</td>
+ </tr>
+ <tr>
+  <td><code>synonym</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#synonym');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>This property contains an alternative code that may be used to identify this concept instead of the primary code (deprecated: use <code>alternateCode</code>, and see the <a href="#synonyms">discussion below</a>)</td>
+ </tr>
+ <tr>
+  <td><code>alternateCode</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#alternateCode');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>This property contains the code for another representation of this concept, with the same real-world meaning, in this code system</td>
+ </tr>
+ <tr>
+  <td><code>comment</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#comment');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>string</td>
+  <td>A string that provides additional detail pertinent to the use or understanding of the concept</td>
+ </tr>
+ <tr>
+  <td><code>itemWeight</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#itemWeight');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>decimal</td>
+  <td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td>
+ </tr>
+ <tr>
+  <td><code>order</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#order');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>decimal</td>
+  <td>A property that indicates the order of the concept amongst its siblings in the code system e.g. severity. The code system specific purpose of the ordering is defined elsewhere</td>
+ </tr>
+ <tr>
+  <td><code>definition</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#definition');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>string</td>
+  <td>The definition of the concept. This corresponds to CodeSystem.concept.definition and is not used in the definition of CodeSystems but is used when clients request the definition property be included in an expansion</td>
+ </tr>
+ <tr>
+  <td><code>lastVersionActive</code><span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#lastVersionActive');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>string</td>
+  <td>If the code is not active (properties inActive or based on status), then this property conveys in what code system version it was last an active code</td>
+ </tr>
+ <tr>
+  <td><code>replacedBy[X]</code></td>
+  <td>string</td>
+  <td>
+   These two properties identify a concept that is considered to replace the use of this concept.  These properties are generally only used on deprecated, withdrawn or inactive concepts.
+   <br/>
+   Variant #1: replacedByCode<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#replacedByCode');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span>: Identifies another concept in the same code system 
+   <br/>
+   Variant #2: replacedByCoding<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#replacedByCoding');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span>: Identifies another concept in a different code system
+   <br/>
+   <br/>
+   Use cases:
+   <ul>
+    <li>replacing a with a new code/concept that corrects an error in a now retired concept</li>
+    <li>replacement of a temporary local code by something that's been added to LOINC or SNOMED CT and should be used instead</li>
+   </ul>
+  </td>
+ </tr>
 </table>
+
 <p>
 Code System representations SHOULD use these properties where possible and these codes for these properties. 
 Code System representations SHOULD regard the codes for these properties (e.g. status, inactive, notSelectable, etc.)

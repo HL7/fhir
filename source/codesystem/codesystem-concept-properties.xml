@@ -220,4 +220,22 @@
       <valueCode value="string"/>
     </property>
   </concept>
+  <concept>
+    <code value="replacedByCode"/>
+    <display value="ReplacedByCode"/>
+    <definition value="This property identifies a concept in this code system that is considered to replace the use of this concept.  This property is generally only used on deprecated, withdrawn or inactive concepts."/>
+    <property>
+      <code value="dataType"/>
+      <valueCode value="code"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="replacedByCoding"/>
+    <display value="ReplacedByCoding"/>
+    <definition value="This property identifies a concept in another code system that is considered to replace the use of this concept.  This property is generally only used on deprecated, withdrawn or inactive concepts."/>
+    <property>
+      <code value="dataType"/>
+      <valueCode value="Coding"/>
+    </property>
+  </concept>
 </CodeSystem>
