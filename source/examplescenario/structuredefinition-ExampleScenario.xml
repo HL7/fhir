@@ -945,7 +945,7 @@
     <element id="ExampleScenario.process.step.number">
       <path value="ExampleScenario.process.step.number"/>
       <short value="Sequential number of the step"/>
-      <definition value="The sequential number of the step, e.g. 1.2.5."/>
+      <definition value="The sequence number of the step, e.g. 1.2.5."/>
       <comment value="If step numbers are simultaneous, they will be the same.  Numbers don't have to be numeric.  E.g. '2c)' is a valid step number"/>
       <min value="0"/>
       <max value="1"/>
