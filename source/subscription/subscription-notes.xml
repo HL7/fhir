@@ -23,9 +23,9 @@
 	</p>
 
 	<a name="payloads" />
-	<h2>Payload Types</h2>
+	<h2>Notification Content</h2>
 	<p>
-		There are three options available when specifying the contents of a Notification: <code>empty</code>,
+		There are three options available when specifying the amount of content a notification will contain: <code>empty</code>,
 		<code>id-only</code>, and <code>full-resource</code>. These options change the level of detail conveyed in the
 		notification <code>Bundle</code>.
 	</p>

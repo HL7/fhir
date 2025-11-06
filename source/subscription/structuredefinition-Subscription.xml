@@ -458,8 +458,8 @@
     <element id="Subscription.content">
       <path value="Subscription.content"/>
       <short value="empty | id-only | full-resource"/>
-      <definition value="How much of the resource content to deliver in the notification payload. The choices are an empty payload, only the resource id, or the full resource content."/>
-      <comment value="Sending the payload has obvious security implications. The server is responsible for ensuring that the content is appropriately secured."/>
+      <definition value="How much resource content to deliver in the notification payloads. The choices are an empty payload, only the resource id, or the full resource content."/>
+      <comment value="Sending the payload has obvious security implications. The server is responsible for ensuring that the content is appropriately secured. For additional information, see [Notification Content](subscription.html#payloads)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

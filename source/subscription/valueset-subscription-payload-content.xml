@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Codes to represent how much resource content to send in the notification payload."/>
+  <description value="Codes to represent how much resource content to send in notification payloads."/>
   <immutable value="true"/>
   <compose>
     <include>
