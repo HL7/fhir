@@ -377,7 +377,7 @@ search. Additional notes about searching on versioned references to canonical UR
 </p>
 <ul>
  <li>Search only regards the latest version for each different logical resource id</li>
- <li>This search only works for specific data elements of type of uri that act as canonical URL's (see list below)</li>
+ <li>This search only works when resolving to resources having a <code>url</code> element of type uri that acts as the canonical URL for that resource (see list below)</li>
  <li>If there is no match (either because .version is empty or is different), the instance will not be matched, and will not appear in the result bundle</li>
  <li>If there are multiple matches (because the version is missing, or incomplete - see below) then it is a matter of policy to decide how to resolve this (see below)</li>
 </ul>
@@ -865,7 +865,7 @@ applies to the <code>Reference</code> as described above.
 <p>
 In principle, this datatype allows for either a reference or a concept, or both. If both are present,
 they are expected to be consistent with each other - e.g. the concept is to a code for headache, and
-the resource reference describes a headache. Note that it is not generally computably proveable whether
+the resource reference describes a headache. Note that it is not generally computably provable whether
 this is true or not.
 </p>
 <p>

@@ -295,6 +295,8 @@ They include the following:
 <li>FHIR defines several operations that MAY be supported by a server. Security implementations must evaluate whether a client can invoke these operations and what information SHOULD be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find Patient Matches using MPI-based Logic, and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
 <li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations SHOULD consider whether a client can initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
 <li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g. break the glass) (<a href="auditevent-example-breakglass-start.html">example</a>). </li>
+<li>Audit of the Access Control Decision: Any Access Control decision to deny an activity SHALL be recorded, and Access Control decisions to permit access SHOULD be recorded. The record SHOULD use the FHIR AuditEvent Resource.</li>
+<li>When an activity is specifically permitted or denied because of Consent terms, the Consent SHOULD be recorded in the AuditEvent as an AuditEvent.entity (<a href="auditevent-example-consent-authz.html">example</a>)</li>
 </ul>
 
 <a name="AuthZmethods"></a>
