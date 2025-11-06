@@ -31,7 +31,7 @@
   <copyright value="This is an example FHIR value set with sample codes derived from ISO-21298 - Functional and Structural Roles."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/sample-security-structural-roles"/>
+      <system value="http://hl7.org/fhir/security-structural-roles-examples"/>
     </include>
   </compose>
 </ValueSet>
