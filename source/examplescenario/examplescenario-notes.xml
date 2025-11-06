@@ -11,4 +11,12 @@ Creating examples is a lot of work, and creating ExampleScenarios is often an or
 In addition to the examples provided in the examples tab, you can also see some useful examples of ExampleScenario in the <a href="https://hl7.org/fhir/us/physical-activity/STU1/artifacts.html#7">Physical Activity implementation guide</a>.
 </p>
 
+<a name="contained"> </a>
+<h3>Contained</h3>
+<p>
+There are two notions of 'contained' in this resource - the generic 'contained' element inherited from DomainResource that allows other resources to be nested inside this ExampleScenario (e.g. Provenance, structureProfiles, or instance or instance.version content).  There is also a containedInstance element on ExampleScenario.instance.  This latter element reflects the nesting of content within the data shared as part of a scenario.  For example, highlighting that an instance initially received on its own (e.g. an Observation) is later conveyed in a Bundle (as a document, message or search response), or potentially a resource that was nested as a 'contained' resource in one instance is available in non-contained form or contained inside a different resource in a separate instance.
+</p>
+<p>
+In short, 'ExampleScenario.contained' is for nesting resources inside the ExampleScenario.  ExampleScenario.instance.containedInstance reflects the nesting of data being transmitted by an ExampleScenario operation as part of the scenario.
+</p>
 </div>
