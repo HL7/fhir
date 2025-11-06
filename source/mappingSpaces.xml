@@ -72,7 +72,7 @@
       </p>
       <ul>
         <li>clarifying the intended meaning of the data element</li>
-        <li>Quality checking the alignment between FHIR resource design and any coresponding SNOMED CT concept model</li>
+        <li>Quality checking the alignment between FHIR resource design and any corresponding SNOMED CT concept model</li>
         <li>Composition and decomposition of data instances by indicating the SNOMED CT concept model attribute whose value may be used to decompose a precoordinated concept into this data element</li>
       </ul>
 		</preamble>
