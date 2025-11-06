@@ -665,6 +665,22 @@
     and servers are not required to implement this functionality. Clients SHOULD be prepared to receive these queries,
     but SHALL function properly without them.
   </p>
+  <p>
+    In order to facilitate these workflows, a SubscriptionTopic can define a set of queries that MAY be included when a
+    notification is sent. These queries are described as a list of <a href="search.html">Search Queries</a> and optional
+    coded information about the query (i.e., what information it provides). The queries included in a SubscriptionTopic
+    are not required to be fully-resolvable, but rather a starting point or template for specific queries that are
+    included in notifications. 
+  </p>
+  <p>
+    When notifications are generated, a server that supports this feature SHOULD include the queries listed via 
+    <code>notificationShape.relatedQuery</code> if they exist and the workflow is one that can reasonably expect subscribers 
+    to be able to execute the queries (e.g., the client has access to the server). Note that support for including queries 
+    is optional and servers are not required to implement this functionality.
+  </p>
+  <p>
+    Clients SHOULD be prepared to receive these queries, but SHALL function properly without them.
+  </p>
 
   <a name="deriving" />
   <h2>Deriving from existing Subscription Topics</h2>
