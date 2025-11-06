@@ -343,14 +343,23 @@
   <p>
     Because FHIR search expressions are evaluated against a single resource, <code>queryCriteria</code> provides two
     elements for including criteria - <code>previous</code> for an expression tested against the resource as it existed
-    before the current interaction and <code>current</code> for an expression tested against the resource as it exists
-    after the current interaction.
+    <em>before</em> the current interaction has been applied and <code>current</code> for an expression tested against 
+    the resource as it exists <em>after</em> the current interaction.
   </p>
   <p>
-    When using query criteria, it is important to note the interaction between the <code>supportedInteraction</code>
-    element, the <code>previous</code> and <code>resultForCreate</code> elements, the <code>current</code> and
-    <code>resultForDelete</code> elements, and the <code>requireBoth</code> element. More information can be found in
-    the <a href="#resource-operation-pairs">Triggers and Resource Interactions</a> section of this page.
+    Because FHIR Queries cannot work against non-existent resources, the criteria include elements to define behavior when
+    one side of the test is not available. The <code>resultForCreate</code> element defines the result of the
+    <code>previous</code> test when the interaction is a <code>create</code> (i.e., no previous resource exists), while the
+    <code>resultForDelete</code> element defines the result of the <code>current</code> test when the interaction is a
+    <code>delete</code> (i.e., no current resource exists).
+  </p>
+  <p>
+    The <code>requireBoth</code> element defines how the results of the two tests are combined. If
+    <code>requireBoth</code> is <code>true</code>, both tests must evaluate to <code>true</code> for the overall
+    criteria to evaluate to <code>true</code>. If <code>requireBoth</code> is <code>false</code>, only one of the two
+    tests needs to evaluate to <code>true</code> for the overall criteria to evaluate to <code>true</code>.
+    More information can be found in the <a href="#resource-operation-pairs">Triggers and Resource Interactions</a> 
+    section of this page.
   </p>
   <p>
     Note that the query strings specified in <code>previous</code> and <code>current</code> are NOT required to be

@@ -673,6 +673,7 @@
 			<path value="SubscriptionTopic.trigger.queryCriteria"/>
 			<short value="Query based trigger rule"/>
 			<definition value="The FHIR query based rules that the server should use to determine when to trigger a notification for this subscription topic."/>
+			<comment value="For additional information about query criteria and their application, please see [Query Trigger Definitions](subscriptiontopic.html#query-criteria)." />
 			<min value="0"/>
 			<max value="1"/>
 			<type>
