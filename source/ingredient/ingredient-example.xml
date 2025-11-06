@@ -46,13 +46,13 @@
 			<concentrationRatio>
 				<!-- 5mg/1mg (which means - because the presentation is 50mg/tablet - it must be a 10mg tablet) -->
 				<numerator>
-					<value value="5"/> 
+					<value value="0.5"/> 
 					<unit value="mg"/>
 					<system value="http://unitsofmeasure.org"/> 
 					<code value="mg"/>
 				</numerator>
 				<denominator>
-					<!-- since this is for caculations, this is normally "1", a unitary ratio -->
+					<!-- since this is for calculations, this is normally "1", a unitary ratio -->
 					<value value="1"/> 
 					<unit value="mg"/>
 					<system value="http://unitsofmeasure.org"/> 
@@ -81,7 +81,7 @@
 				</substance>
 				<strengthRatio>
 					<numerator>
-						<value value="5.03"/> 
+						<value value="0.503"/> 
 						<unit value="mg"/>
 						<system value="http://unitsofmeasure.org"/> 
 						<code value="mg"/>
