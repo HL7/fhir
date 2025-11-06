@@ -458,6 +458,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.)"/>
       <condition value="exs-3"/>
       <condition value="exs-6"/>
       <condition value="exs-7"/>
@@ -510,6 +511,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="exs-24"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActorDefinitionActorType"/>
@@ -518,7 +520,6 @@
         <description value="The type of actor - system or non-system."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
       </binding>
-      <condition value="exs-24"/>
     </element>
     <element id="ExampleScenario.actor.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -847,6 +848,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.)"/>
       <condition value="exs-4"/>
       <condition value="exs-12"/>
       <condition value="exs-22"/>
@@ -924,6 +926,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.).  It also indicates the order in which the events occur."/>
       <condition value="exs-5"/>
       <constraint>
         <key value="exs-13"/>
@@ -956,6 +959,7 @@
       <min value="0"/>
       <max value="1"/>
       <contentReference value="#ExampleScenario.process"/>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.)"/>
     </element>
     <element id="ExampleScenario.process.step.workflow">
       <path value="ExampleScenario.process.step.workflow"/>
@@ -1106,6 +1110,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.)"/>
       <condition value="exs-13"/>
     </element>
     <element id="ExampleScenario.process.step.alternative.title">
@@ -1142,6 +1147,7 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ExampleScenario.process.step"/>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.).  It also indicates the order in which the events occur."/>
     </element>
     <element id="ExampleScenario.process.step.pause">
       <path value="ExampleScenario.process.step.pause"/>
