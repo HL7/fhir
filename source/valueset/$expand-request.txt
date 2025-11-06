@@ -3,7 +3,7 @@ GET [base]/ValueSet/23/$expand?filter=abdo
 
 --------------------------------------
 // Expanding a value set by it's canonical URL (version 1.1), with a text filter of "abdo"
-GET [base]/ValueSet/$expand?url=http://acme.com/fhir/ValueSet/23&valueSetVerson=1.1&filter=abdo
+GET [base]/ValueSet/$expand?url=http://acme.com/fhir/ValueSet/23&valueSetVersion=1.1&filter=abdo
 
 --------------------------------------
 // Expanding a value set that is specified by the client (using JSON)
