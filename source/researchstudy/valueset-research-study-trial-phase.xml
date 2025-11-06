@@ -2,7 +2,7 @@
   <id value="research-study-trial-phase"/>
   <meta>
     <lastUpdated value="2025-03-07T12:40:00+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>

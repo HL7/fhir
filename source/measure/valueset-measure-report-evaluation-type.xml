@@ -4,7 +4,7 @@
   <id value="measure-report-evaluation-type"/>
   <meta>
     <lastUpdated value="2025-03-18T15:21:02.749+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cqi"/>

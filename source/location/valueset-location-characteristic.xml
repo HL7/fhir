@@ -2,7 +2,7 @@
   <id value="location-characteristic"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
