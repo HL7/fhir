@@ -42,7 +42,10 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="QuestionnaireResponse.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="The resource scope is broader than the pattern assumptions and this element won't always be known"/>
-        <missingTypes _pattern="Reference(Patient,Group)" reason="With Questionnaire, anything can be a subject"/>
+        <missingTypes _pattern="Reference(Patient, Group)" reason="Unknown">
+            <!--Old pattern: Reference(Patient,Group)-->
+            <!--Old reason: With Questionnaire, anything can be a subject-->
+        </missingTypes>
         <extraTypes _resource="Reference(Resource)" reason="With Questionnaire, anything can be a subject"/>
         <shortUnmatched reason="Incorporates content from profile with context-specific wording">
             <_pattern value="Individual service was done for/to"/>

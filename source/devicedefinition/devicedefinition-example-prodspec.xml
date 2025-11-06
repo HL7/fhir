@@ -4,4 +4,7 @@
 	<identifier>
 		<value value="789123"/>
 	</identifier>
+	<status value="active"/>
+	<experimental value="true"/>
+	<url value="http://hl7.org/fhir/DeviceDefinition/example-prodspec"/>
 </DeviceDefinition>

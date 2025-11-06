@@ -23,12 +23,12 @@
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<identifier>
 			<system value="http://www.jurisdiction.com/nationalId"/>
 			<value value="123AB345"/>
 		</identifier>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 

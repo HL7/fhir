@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
+  <id value="wheelchair-request"/>
+  <identifier>
+    <value value="wheelchair_request.1"/>
+  </identifier>
+  <status value="active"/>
+  <intent value="order"/>
+  <priority value="routine"/>
+  <productCodeableConcept>
+    <coding>
+      <system value="http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets"/>
+      <code value="K0001"/>
+    </coding>
+    <text value="Standard wheelchair"/>
+  </productCodeableConcept>
+  <subject>
+    <reference value="Patient/bob"/>
+  </subject>
+  <occurrencePeriod>
+    <start value="2025-05-01"/>
+    <end value="2025-07-06"/>
+  </occurrencePeriod>
+  <authoredOn value="2025-05-01T09:33:27+07:00"/>
+  <requester>
+    <reference value="Practitioner/example"/>
+    <display value="Dr. Adam Careful"/>
+  </requester>
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="11865081000119107"/>
+      </coding>
+      <text value="Injury of left leg"/>
+    </concept>
+  </reason>
+  <insurance>
+    <reference value="Coverage/primiary-insurance"/>
+    <display value="Blue Cross Blue Shield"/>
+  </insurance>
+  <location>
+    <concept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+        <code value="PTRES"/>
+      </coding>
+      <text value="Patient's Residence"/>
+    </concept>
+  </location>
+  <supportingInfo>
+    <reference value="Observation/cognitive-status-observation"/>
+  </supportingInfo>
+  <note>
+    <text value="Patient has a broken left fibula and requires a wheelchair to move about their home while immobilizing the leg during recovery. Because the patient is a fall risk, as indicated after a cognitive assessment was completed, other mobility devices are not appropriate. A home assessment has been completed and the patient will be able to use the wheelchair without home modifications"/>
+  </note>
+</DeviceRequest>

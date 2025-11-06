@@ -14,7 +14,7 @@ in order to support consistent definitions for schema and UML derived code.
 [%file newnavbar%]
 
 
-<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> &amp; <a _target="blank" href="[%wg pher%]">[%wgt pher%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> &amp; <a _target="blank" href="[%wg pher%]">[%wgt pher%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
 <h2>Medications Module</h2>
@@ -147,9 +147,7 @@ This module is concerned with resources and functionality in 3 main domains:
 	<li>Listing a patient's current medications. This is represented using the <a href="list.html">List</a> resource, which allows an author
 		to construct a 'curated' list. This has features beyond a simple collection of resources - such as the ability
 		to state that the patient is not currently taking any medications at the time that the list is constructed,
-		or changes that are made at a point in time (sometimes called medication reconciliation). FHIR defines a number of specific
-		<a href="lifecycle.html#lists">functional lists</a> for this purpose, and a specific
-		<a href="list-operation-find.html">operation</a> to retrieve it. Note that FHIR does not describe how the
+		or changes that are made at a point in time (sometimes called medication reconciliation). Note that FHIR does not describe how the
 		list should be maintained by the individual system, as that will vary widely between implementations.
 	</li>
 	<li>Retrieving a list of Immunizations. This can be achieved using a <a href="http.html#search">simple query</a>
@@ -173,7 +171,7 @@ This module is concerned with resources and functionality in 3 main domains:
 <h3>Other resources</h3>
 	There are other resources that are of particular interest in the medication domain.
 	<ul>
-		<li> <a href="supplyrequest.html">SupplyRequest</a> and <a href="supplydelivery.html">SupplyDelivery</a> which,
+		<li> <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a> and <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyDelivery.html">SupplyDelivery</a> which,
 		like MedicationRequest, are 'detail' resources used as part of a <a href="workflow-module.html">workflow</a>. They are concerned with
 			the request of supplies used in the healthcare process. This includes supplies specifically used in the
 			treatment of patients as well as supply movement within an institution
@@ -184,10 +182,8 @@ This module is concerned with resources and functionality in 3 main domains:
     	<li><a title="[%resdesc PackagedProductDefinition%]" href="packagedproductdefinition.html">PackagedProductDefinition</a></li>
     	<li><a title="[%resdesc AdministrableProductDefinition%]" href="administrableproductdefinition.html">AdministrableProductDefinition</a></li>
     	<li><a title="[%resdesc RegulatedAuthorization%]" href="regulatedauthorization.html">RegulatedAuthorization</a></li>
-    <li><a title="[%resdesc Ingredient%]" href="ingredient.html">Ingredient</a></li>
+    	<li><a title="[%resdesc Ingredient%]" href="ingredient.html">Ingredient</a></li>
     	<li><a title="[%resdesc ManufacturedItemDefinition%]" href="manufactureditemdefinition.html">ManufacturedItemDefinition</a></li>
-    <li><a title="[%resdesc SubstancePolymer%]" href="substancepolymer.html">SubstancePolymer</a></li>
-    <li><a title="[%resdesc SubstanceReferenceInformation%]" href="substancereferenceinformation.html">SubstanceReferenceInformation</a></li>
     	<li><a title="[%resdesc SubstanceDefinition%]" href="substancedefinition.html">SubstanceDefinition</a></li>
     </ul>
       These resources are under development in association with several medication regulation authorities.</li>

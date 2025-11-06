@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Measure xmlns="http://hl7.org/fhir">
+  <id value="measure-BCSComponent"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-shareablemeasure"/>
+  </meta>
+  <language value="en"/>
+  <url value="http://hl7.org/fhir/Measure/BCSComponent"/>
+  <identifier>
+    <use value="official"/>
+    <value value="Breast Cancer Screening"/>
+  </identifier>
+  <version value="0.0.001"/>
+  <name value="BCSComponent"/>
+  <title value="Breast Cancer Screening"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2022-02-22T11:37:03-06:00"/>
+  <publisher value="HL7 International / Clinical Quality Information"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description value="This is an example only."/>
+  <effectivePeriod>
+    <start value="2022-01-01"/>
+    <end value="2022-12-31"/>
+  </effectivePeriod>
+  <library value="http://hl7.org/fhir/Library/BCSComponent"/>
+  <group>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
+        <code value="process"/>
+      </coding>
+    </type>
+    <basis value="boolean"/>
+    <scoring>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+        <code value="proportion"/>
+        <display value="Proportion"/>
+      </coding>
+    </scoring>
+    <improvementNotation>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+        <code value="increase"/>
+      </coding>
+    </improvementNotation>
+    <population id="2851A1BA-FBF8-4945-812E-6273F881CE13">
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="initial-population"/>
+          <display value="Initial Population"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Initial Population"/>
+      </criteria>
+    </population>
+    <population id="349C20C9-EA7E-4311-9E2D-CF81F1EBCEEF">
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="denominator"/>
+          <display value="Denominator"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Denominator"/>
+      </criteria>
+    </population>
+    <population id="369D1C75-B5D3-43EC-AEFC-2FF7F462306C">
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="denominator-exclusion"/>
+          <display value="Denominator Exclusion"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Denominator Exclusion"/>
+      </criteria>
+    </population>
+    <population id="6F1617E3-99D7-47E4-8392-85107BAA5311">
+      <code>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+          <code value="numerator"/>
+          <display value="Numerator"/>
+        </coding>
+      </code>
+      <criteria>
+        <language value="text/cql-identifier"/>
+        <expression value="Numerator"/>
+      </criteria>
+    </population>
+  </group>
+  <supplementalData id="25a16429-e866-438f-990a-3e3a5f2f8443">
+    <usage>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
+        <code value="supplemental-data"/>
+      </coding>
+    </usage>
+    <criteria>
+      <language value="text/cql-identifier"/>
+      <expression value="SDE Sex"/>
+    </criteria>
+  </supplementalData>
+</Measure>

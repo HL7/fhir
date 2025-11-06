@@ -67,7 +67,7 @@
 			</identifier>
 
 			<status value="active"/>
-			
+
 			<kind value="insurance"/>
 
 			<type>
@@ -156,9 +156,9 @@
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="#patient-1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -168,7 +168,7 @@
 
 	<provider>
 		<reference value="#org-org"/>
-	</provider>  
+	</provider>
 
 	<priority>
 		<coding>

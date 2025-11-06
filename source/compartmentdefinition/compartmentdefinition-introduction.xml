@@ -11,17 +11,43 @@ grouping of resources which share a common property. Compartments have two princ
  <li>Function as an access mechanism for finding a set of related resources quickly</li>
  <li>Provide a definitional basis for applying access control to resources quickly</li>
 </ul>
+<p>
+Each compartment definition is associated with exactly one FHIR resource type, identified
+by <code>CompartmentDefinition.code</code>.  The compartment also identifies all resources
+that are members of the compartment and what search parameters are used to determine membership.
+A compartment instance (the set of all resources tied to the 'compartment resource' - a resource
+instance of the compartment's type) contains all resources found by searching using the
+associated search parameters with a value of the compartment resource.  For example, the
+compartment for <code>Patient/123</code> would include <code>Account?subject=Patient/123</code>,
+<code>AllergyIntolerance?patient=Patient/123</code>, <code>AllergyIntolerance?asserter=Patient/123</code>, 
+etc.
+Each CompartmentDefinition instance will list all resources available for that FHIR release
+(<a href="structuredefinition.html#additional">Additional resources are handled separately</a>).
+Listed resources that have one or more .param elements are considered part of the compartment.
+Listed resources that do not have a .param element are considered to be outside the compartment.
+</p>
+
+
 <p><b>Notes:</b></p>
 <ul>
 <li>
-At present, compartment definitions can <i>only</i> be defined by HL7 International.  This is because
-their existence creates significant impact on the behavior of servers.
+At present, CompartmentDefinition instances can <i>only</i> be defined by HL7 International in this 
+specification.  This is because their existence creates significant impact on the behavior of servers.
+The CompartmentDefinitions defined  in this specification may be hosted on other servers. There is
+no mechanism to describe a given server's compartment implementation (e.g. resources not
+supported in the implementation of the compartment or additional resources included in the compartment).
 </li>
 <li>
 Although compartment definitions can be a useful foundation for access control, they may 
 not be sufficient for this purpose.  Resources outside the compartment might 
 still be appropriate to be made available or subject to compartment restrictions even 
 though they are not formally part of the compartment (see below about access rules).
+</li>
+<li>
+Resources that are not part of a compartment MAY still be returned in searches against the compartment
+by using the _include mechanism. Local convention can also include additional resources in
+compartment-based retrieval operations such as $everything. These resources are not 'in' the 
+compartment, but they are still available at server discretion.
 </li>
 </ul>
 </div> 
@@ -42,11 +68,11 @@ required to. Systems may publish <code>CompartmentDefinition</code> resources so
 other systems may make use of compartments properly.
 </p>
 <ul>
- <li>CompartmentDefinitions are used by <a href="capabilitystatement.html">CapabilityStatement</a> instances for specifying how resources are accessed</li>
-</ul>
-<ul>
- <li><a href="graphdefinition.html">GraphDefinition</a> also provides a mechanism for grouping resources, though it does not provide an additional search mechanism.
- Inclusion of resources in a <a href="graphdefinition.html">GraphDefinition</a> supports more complex criteria for inclusion than that allowed by CompartmentDefinition.</li>
+ <li>CompartmentDefinitions are used by <a href="capabilitystatement.html">CapabilityStatement</a> instances for specifying how resources are accessed
+   </li>
+ <li><a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a> also provides a mechanism for grouping resources, though it does not provide an additional search mechanism.
+   Inclusion of resources in a <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a> supports more complex criteria for inclusion than that allowed by CompartmentDefinition.
+   </li>
 </ul>
 
 </div> 

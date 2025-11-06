@@ -175,7 +175,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActorDefinition-jurisdiction"/>
-        <description value="Intended jurisdiction for the Actor Definition"/>
+        <description value="Jurisdiction of the authority that maintains the the Actor Definition"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ActorDefinition.jurisdiction"/>
@@ -294,6 +294,23 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="ActorDefinition.type"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ActorDefinition.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the ActorDefinition is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="ActorDefinition.experimental"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

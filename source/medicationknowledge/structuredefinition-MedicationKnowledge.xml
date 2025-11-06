@@ -518,23 +518,10 @@
       <path value="MedicationKnowledge.medicineClassification.type"/>
       <short value="The type of category for the medication (for example, therapeutic classification, therapeutic sub-classification)"/>
       <definition value="The type of category for the medication (for example, therapeutic classification, therapeutic sub-classification)."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-    </element>
-    <element id="MedicationKnowledge.medicineClassification.source[x]">
-      <path value="MedicationKnowledge.medicineClassification.source[x]"/>
-      <short value="The source of the classification"/>
-      <definition value="Either a textual source of the classification or a reference to an online source."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
-      </type>
-      <type>
-        <code value="uri"/>
+        <code value="CodeableConcept"/>
       </type>
     </element>
     <element id="MedicationKnowledge.medicineClassification.classification">
@@ -830,7 +817,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
       <isSummary value="true"/>
     </element>

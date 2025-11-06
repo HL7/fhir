@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="business"/>
@@ -31,7 +31,7 @@
   <version value="6.0.0"/>
   <name value="ResearchStudy"/>
   <title value="Research Study"/>
-  <status value="draft"/>
+  <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="HL7 International / Biomedical Research and Regulation"/>
   <contact>
@@ -82,7 +82,7 @@
     <element id="ResearchStudy">
       <path value="ResearchStudy"/>
       <short value="Investigation to increase healthcare-related patient-independent knowledge"/>
-      <definition value="A scientific study intended to increase health-related knowledge. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
+      <definition value="A research study is a scientific investigation designed to generate health-related knowledge. This can include clinical trials involving human participants (or animals in the case of veterinary clinical trials). These studies may be related to new ways to screen, prevent, diagnose, and treat disease. Research studies may also analyze data collected from individuals in the past (retrospective studies) or future (prospective studies) to understand specific outcomes or trends in particular populations."/>
       <comment value="The ResearchStudy Resource may be used for any type of research study, such as public health studies evaluating populations or systematic reviews evaluating research studies, and is not limited to clinical trials or limited to studies of individual people."/>
       <alias value="Study"/>
       <min value="0"/>
@@ -239,6 +239,7 @@
         <description value="IETF language tag for a human language"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
         <additional>
+				  <key value="b-rs-1"/>
           <purpose value="starter"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
         </additional>
@@ -323,13 +324,13 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ArtifactRelationshipType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of relationship to the related artifact."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
@@ -456,6 +457,7 @@
       <path value="ResearchStudy.studyDesign"/>
       <short value="Classifications of the study design characteristics"/>
       <definition value="Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc."/>
+	  <comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -579,7 +581,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
         <identity value="BRIDG5.1"/>
@@ -739,7 +741,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyPartyRole"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="desc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
       </binding>
@@ -810,7 +812,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyStudyStatus"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="defn."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
       </binding>
@@ -882,7 +884,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="BRIDG5.1"/>
@@ -941,7 +943,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="BRIDG5.1"/>
@@ -1192,6 +1194,7 @@
       <path value="ResearchStudy.objective.outcomeMeasure.summaryMeasure"/>
       <short value="Statistical measure for treatment effect estimate"/>
       <definition value="Statistical measure for treatment effect estimate."/>
+	  <comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1203,7 +1206,7 @@
         </extension>
         <strength value="example"/>
         <description value="The type of a statistic, e.g. relative risk or mean."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/statistic-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.objective.outcomeMeasure.endpointAnalysisPlan">

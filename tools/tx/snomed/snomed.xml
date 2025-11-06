@@ -143,6 +143,9 @@
   <concept id="16814004" display="Pneumococcal infectious disease">
     <display value="Pneumococcal infectious disease"/>
   </concept>
+  <concept id="17102003" display="Nasogastric tube">
+    <display value="Nasogastric tube"/>
+  </concept>
   <concept id="1773006" display="Free-standing radiology facility">
     <display value="Free-standing radiology facility"/>
   </concept>
@@ -752,6 +755,9 @@
   <concept id="385055001" display="Tablet">
     <display value="Tablet"/>
   </concept>
+  <concept id="385315009" display="Sudden onset">
+    <display value="Sudden onset"/>
+  </concept>
   <concept id="385356007" display="Tumor stage finding (finding)">
     <display value="Tumor stage finding (finding)"/>
   </concept>
@@ -1337,6 +1343,9 @@
   <concept id="434711009" display="Specimen container (physical object)">
     <display value="Specimen container (physical object)"/>
   </concept>
+  <concept id="434746001" display="Specimen vial (physical object)">
+    <display value="Specimen vial (physical object)"/>
+  </concept>
   <concept id="439091000124107" display="Easy to chew food (substance)">
     <display value="Easy to chew food (substance)"/>
   </concept>
@@ -1391,11 +1400,20 @@
   <concept id="46224007" display="Vaccination clinic">
     <display value="Vaccination clinic"/>
   </concept>
+  <concept id="465735003" display="Sliding microtome">
+    <display value="Sliding microtome"/>
+  </concept>
+  <concept id="467138008" display="Behind-the-ear air-conduction hearing aid (physical object)">
+    <display value="Behind-the-ear air-conduction hearing aid (physical object)"/>
+  </concept>
   <concept id="46947000" display="Chiropractic manipulation">
     <display value="Chiropractic manipulation"/>
   </concept>
   <concept id="46971007" display="Head of third metatarsal bone">
     <display value="Head of third metatarsal bone"/>
+  </concept>
+  <concept id="470571004" display="Gastrostomy tube">
+    <display value="Gastrostomy tube"/>
   </concept>
   <concept id="4740000" display="Herpes zoster">
     <display value="Herpes zoster"/>
@@ -1478,6 +1496,9 @@
   <concept id="61088005" display="Plastic">
     <display value="Plastic"/>
   </concept>
+  <concept id="61420007" display="Tube feeding of patient">
+    <display value="Tube feeding of patient"/>
+  </concept>
   <concept id="61462000" display="Malaria">
     <display value="Malaria"/>
   </concept>
@@ -1538,6 +1559,21 @@
   <concept id="70090004" display="Cowpox">
     <display value="Cowpox"/>
   </concept>
+  <concept id="701945002" display="Blood centrifugation system processing unit">
+    <display value="Blood centrifugation system processing unit"/>
+  </concept>
+  <concept id="702232008" display="Sweat specimen container IVD">
+    <display value="Sweat specimen container IVD"/>
+  </concept>
+  <concept id="702244006" display="Sterile urine specimen container">
+    <display value="Sterile urine specimen container"/>
+  </concept>
+  <concept id="702281005" display="Evacuated blood collection tube, thrombin/clot activator/gel separator">
+    <display value="Evacuated blood collection tube, thrombin/clot activator/gel separator"/>
+  </concept>
+  <concept id="702287009" display="Non-evacuated blood collection tube, potassium oxalate/sodium fluoride">
+    <display value="Non-evacuated blood collection tube, potassium oxalate/sodium fluoride"/>
+  </concept>
   <concept id="703763000" display="Precondition value (qualifier value)">
     <display value="Precondition value (qualifier value)"/>
   </concept>
@@ -1567,6 +1603,9 @@
   </concept>
   <concept id="706041008" display="Device for body fluid and tissue collection/transfer/processing (physical object)">
     <display value="Device for body fluid and tissue collection/transfer/processing (physical object)"/>
+  </concept>
+  <concept id="706226000" display="Continuous positive airway pressure/Bilevel positive airway pressure mask">
+    <display value="Continuous positive airway pressure/Bilevel positive airway pressure mask"/>
   </concept>
   <concept id="706689003" display="Application programme software">
     <display value="Application programme software"/>
@@ -1624,6 +1663,9 @@
   </concept>
   <concept id="72311000" display="Health maintenance organization">
     <display value="Health maintenance organization"/>
+  </concept>
+  <concept id="724053002" display="Antibiotic therapy for prevention of recurrent infection (procedure)">
+    <display value="Antibiotic therapy for prevention of recurrent infection (procedure)"/>
   </concept>
   <concept id="72511004" display="Fruit">
     <display value="Fruit"/>
@@ -1693,6 +1735,9 @@
   </concept>
   <concept id="78088001" display="Hospital-based outpatient ophthalmology clinic">
     <display value="Hospital-based outpatient ophthalmology clinic"/>
+  </concept>
+  <concept id="788800008" display="Delayed onset (qualifier value)">
+    <display value="Delayed onset (qualifier value)"/>
   </concept>
   <concept id="79491001" display="Hospital-based radiology facility">
     <display value="Hospital-based radiology facility"/>

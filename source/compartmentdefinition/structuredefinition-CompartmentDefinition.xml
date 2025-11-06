@@ -8,7 +8,7 @@
 		<valueString value="Foundation.Conformance"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
+		<valueCode value="normative"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
 		<valueInteger value="1"/>
@@ -418,24 +418,14 @@
 		<element id="CompartmentDefinition.resource.param">
 			<path value="CompartmentDefinition.resource.param"/>
 			<short value="Search Parameter Name, or chained parameters"/>
-			<definition value="The name of a search parameter that represents the link to the compartment. More than one may be listed because a resource may be linked to a compartment in more than one way,."/>
-			<comment value="If no search parameters are listed, then the resource is not linked to the compartment."/>
+			<definition value="The search parameter 'code' as defined in the core specification that represents the link to the compartment."/>
+			<comment value="More than one may be listed because a resource may be linked to a compartment in more than one way.  Note that a given server might use a different 'code' for the SearchParameter in their CapabilityStatement.  The inclusion rules are based on the 'base' HL7 search parameter code value, not the server-specific code value.  E.g. if a server uses code 'doc' instead of 'performer' for their Procedure performer search performer, the 'doc' search would still apply when determining membership in the Practitioner compartment. If no search parameters are listed, then the resource is not linked to the compartment."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
 				<code value="string"/>
 			</type>
 			<isSummary value="true"/>
-		</element>
-		<element id="CompartmentDefinition.resource.documentation">
-			<path value="CompartmentDefinition.resource.documentation"/>
-			<short value="Additional documentation about the resource and compartment"/>
-			<definition value="Additional documentation about the resource and compartment."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
 		</element>
 		<element id="CompartmentDefinition.resource.startParam">
 			<path value="CompartmentDefinition.resource.startParam"/>

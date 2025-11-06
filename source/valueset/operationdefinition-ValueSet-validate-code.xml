@@ -97,7 +97,7 @@
     <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The identifier that is used to identify a specific version of the value set to be used when validating the code. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available."/>
+    <documentation value="The identifier that is used to identify a specific version of the value set to be used when validating the code. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available"/>
     <type value="string"/>
   </parameter>
   <parameter>
@@ -121,7 +121,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The version of the system, if one was provided in the source data"/>
+    <documentation value="The version of the system, if one was provided in the source data. Note that this is a different parameter to system-version"/>
     <type value="string"/>
   </parameter>
   <parameter>
@@ -203,6 +203,22 @@
     <max value="1"/>
     <documentation value="If true, the terminology server is required to infer the system from evaluation of the value set definition. The inferSystem parameter is only to be used with the code parameter, and not with the coding nor codeableConcept parameters."/>
     <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="system-version"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Specifies a version to use for a system, if the value set does not specify which one to use. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56. Note that this is a different parameter to systemVersion"/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
+    <name value="check-system-version"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Edge Case: Specifies a version to use for a system. If a value set specifies a different version, an error is returned instead of the expansion. The format is the same as a canonical URL: [system]|[version] - e.g. http://loinc.org|2.56"/>
+    <type value="canonical"/>
   </parameter>
   <parameter>
     <name value="default-valueset-version"/>

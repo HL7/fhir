@@ -33,6 +33,138 @@
       <valueString value="$care-gaps-response.txt"/>
     </extension>
   </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request2.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request3.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request4.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request5.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request6.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request7.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request8.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request9.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request10.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request11.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request12.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$care-gaps-request13.txt"/>
+    </extension>
+  </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
     <valueMarkdown value="The effect of invoking this operation is to calculate a set of measures for a particular topic (e.g. Preventive Care and Screening) and return a document describing the results of each measure for the given subject. Note that it is up to the server to determine whether or not the generated care gaps report is persisted. If the server does not persist the results, the operation does not affect state and can be invoked with a GET"/>
   </extension>
@@ -63,11 +195,19 @@
   <type value="true"/>
   <instance value="false"/>
   <parameter>
+    <name value="measureUrl"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="*"/>
+    <documentation value="The URL of a measure for which the gaps in care report will be created. A measure URL is specified in the [url](https://www.hl7.org/fhir/measure-definitions.html#Measure.url) element of the Measure resource. The measure URL remains the same when the measure is stored on different servers."/>
+    <type value="canonical"/>
+  </parameter>
+  <parameter>
     <name value="periodStart"/>
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period s"/>
+    <documentation value="The start of a gaps through period. This may be the start of the measurement period defined by a measure, or a customized desired performance period start date determined by a payer, a provider, a measure program, and etc."/>
     <type value="date"/>
   </parameter>
   <parameter>
@@ -75,32 +215,103 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive"/>
+    <documentation value="The end of a gaps through period (the gaps through date). The gaps through date could be a past date or a future date. For example, today's date is 2020-06-18, 1) if periodEnd date is 2020-09-30, it returns gaps through 2020-09-30, and 2) if the periodEnd date is 2020-05-31, it returns gaps through 2020-05-31."/>
     <type value="date"/>
-  </parameter>
-  <parameter>
-    <name value="topic"/>
-    <use value="in"/>
-    <min value="1"/>
-    <max value="1"/>
-    <documentation value="The topic to be used to determine which measures are considered for the care gaps report. Any measure with the given topic will be included in the report"/>
-    <type value="string"/>
   </parameter>
   <parameter>
     <name value="subject"/>
     <use value="in"/>
-    <min value="1"/>
+    <min value="0"/>
     <max value="1"/>
-    <documentation value="Subject for which the care gaps report will be produced"/>
+    <documentation value="Subject(s) for which the care gaps report will be produced. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subjectGroup parameter."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
   <parameter>
+    <name value="subjectGroup"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Subject for which the gaps in care report will be created is provided as a Group resource. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated.  (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subject parameter."/>
+    <type value="Group"/>
+  </parameter>
+  <parameter>
+    <name value="practitioner"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Reference to a [Practitioner](practitioner.html) for which the gaps in care report will be created. For a practitioner focused gaps in care report, this is a required In Parameter. The Server needs to make sure that practitioner is authorized to get the gaps in care report for and know what measures the practitioner are eligible or qualified."/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="organization"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Reference to an [Organization](organization.html) for which the gaps in care report will be created. Either 'organization' or 'organizationResource' SHALL be provided, but not both."/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="organizationResource"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Organization for which the gaps in care report will be created is provided as an Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](clinicalreasoning-quality-reporting.html#ad-hoc-organizations) that are part of a provider group. Either 'organization' or 'organizationResource' SHALL be provided, but not both."/>
+    <type value="Organization"/>
+  </parameter>
+  <parameter>
+    <name value="location"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The location(s) for which the gaps in care report will be run. This parameter is reflected in the location element of the resulting MeasureReport(s)."/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="status"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="*"/>
+    <documentation value="Indicates status of a care gap. For all [open, closed, and prospective gaps], three seperate status parameters must be provided. For a positive proportion measure, gap means the patient is not in the numerator. For an inverse (negative) proportion measure (e.g., Diabetes: Hemoglobin A1c (HbA1c) Poor Control (&gt; 9%)), gap means the patient is in the numerator."/>
+    <type value="code"/>
+  </parameter>
+  <parameter>
+    <name value="isDocument"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The isDocument parameter controls whether a Gaps in Care Composition is returned in the Bundle (i.e. if the Bundle is of type 'Document'). When 'true,' the returned Bundles contain the Gaps in Care Composition. This parameter defaults to 'true.'"/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
+    <name value="parameters"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Any input parameters for the evaluation. Parameters defined in this input will be made available by name to the CQL expression. Parameter types are mapped to CQL as specified in the [Using CQL with FHIR](https://hl7.org/fhir/uv/cql/) implementation guide. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL."/>
+    <type value="Parameters"/>
+  </parameter>
+  <parameter>
+    <name value="manifest"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Specifies an asset-collection library that provides dependency version resolution and expansion rules for the operation. See the version manifest discussion in the [Canonical Resource Management Infrastructure IG](http://hl7.org/fhir/uv/crmi/version-manifest.html) for a complete description of how manifest values are used to provide defaults for dependency version resolution and expansion parameters. Parameters specified directly in the operation override behaviors specified by the manifest parameter. In general, if this parameter is supplied, it is expected to be used in nested operation calls. For example, in evaluating a measure, if the expansion of a value set is required, this parameter SHALL be supplied to that expansion."/>
+    <type value="canonical"/>
+    <targetProfile
+      value="http://hl7.org/fhir/StructureDefinition/Library"/>
+  </parameter>
+  <parameter>
     <name value="return"/>
     <use value="out"/>
-    <min value="1"/>
-    <max value="1"/>
-    <documentation value="The result of the care gaps report will be returned as a document bundle with a MeasureReport entry for each included measure"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The $care-gaps operation returns zero or more document Bundles, one for each input subject. Consistent with FHIR Documents generally, each Bundle SHALL have a Composition as the first entry in the document Bundle, and that Composition SHALL be limited to a single subject. See the [guidance on Bundle structure](https://build.fhir.org/clinicalreasoning-quality-reporting.html#bundles-organized-by-subject) for discussion about the Bundle content and organization.\n\nNote that even though there is a single parameter named return of type Bundle, it is a multi-cardinality parameter, and so will still be returned using a Parameters resource, as described in the general operations framework [response](operations.html#response)."/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

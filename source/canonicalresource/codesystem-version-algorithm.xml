@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="version-algorithm"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -56,11 +56,26 @@
   <concept>
     <code value="date"/>
     <display value="Date"/>
-    <definition value="Versions are expressed as an ISO date/time syntax (including syntaxes with only portions of a date)"/>
+    <definition value="Versions are expressed as an ISO date/time syntax (including syntaxes with only portions of a date) in the general format of YYYY-MM-DD (with or without separators). Inclusion of the time portion is optional."/>
   </concept>
   <concept>
     <code value="natural"/>
     <display value="Natural"/>
     <definition value="Sorted according to the algorithm defined here: [naturalordersort.org](http://www.naturalordersort.org/)"/>
+  </concept>
+  <concept>
+    <code value="major-minor"/>
+    <display value="Major/Minor"/>
+    <definition value="Similar to semver, but having only two components - i.e. a major and minor (integer) version number separated by a '.'.  The specific nature of what constitutes a major vs. minor increment is locally defined."/>
+  </concept>
+  <concept>
+    <code value="sct-url"/>
+    <display value="SNOMED-CT URL"/>
+    <definition value="Versions are expressed according to the SNOMED URL scheme. See the [Versions](https://terminology.hl7.org/SNOMEDCT.html#versions) topic for more details."/>
+  </concept>
+  <concept>
+    <code value="us-date"/>
+    <display value="US Date"/>
+    <definition value="Versions are expressed as an US date format, i.e. MMDDYYYY (with or without separators)."/>
   </concept>
 </CodeSystem>

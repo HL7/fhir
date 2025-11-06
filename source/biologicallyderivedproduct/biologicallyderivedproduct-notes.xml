@@ -1,5 +1,36 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
+	<h2>Notes</h2>
+	<a name="intendedrecipient"></a>
+	<h3>Intended Recipients</h3>
+
+	<p>In some areas of medicine, it is important to record the intended recipient for designated or directed BiologicallyDerivedProducts. The intended recipient represents the individual for whom the product was originally collected or manufactured, reflecting the purpose or intent behind its creation. This may differ from the actual recipient of the product during administration. Even in cases where the BiologicallyDerivedProduct is ultimately dispensed or administered to a different patient, the original intended recipient remains a factual and traceable aspect of the product’s history and should be persisted. This can be an important regulatory or accreditation requirement.</p>
+	
+	<p>There are two approaches to representing the intended recipient of a designated or directed BiologicallyDerivedProduct:</p>
+	
+	<ol>
+		<li>Within the collection order:
+			<ul>
+				<li>
+					Use <code>ServiceRequest.subject</code> to indicate the patient from whom the product is being collected, and <code>ServiceRequest.focus</code> to reference the patient who is the intended recipient. This approach associates the intended recipient with the order rather than the product itself.
+				</li>
+			</ul>
+		</li>
+		<li>Within the BiologicallyDerivedProduct resource:
+			<ul>	
+				<li>
+					Use the core extension <code>biologicallyderivedproduct-intendedRecipient</code> to explicitly record the intended recipient directly on the BiologicallyDerivedProduct. This approach ensures the intent remains associated with the product throughout its lifecycle, independent of any ordering context.
+				</li>
+			</ul>
+		</li>
+	</ol>
+
+	<p><strong>Preferred approach:</strong> The second approach is recommended, as it maintains the intended recipient as an intrinsic attribute of the BiologicallyDerivedProduct, supporting long-term traceability even if the original ServiceRequest is no longer available.</p>
+
+	<blockquote class="stu-note">
+		<p><strong>Note to Implementers:</strong> At the time of authorship, the <code>biologicallyderivedproduct-intendedRecipient</code> extension had not yet been published. It will be included in the <a href="https://hl7.org/fhir/extensions/extensions-BiologicallyDerivedProduct.html">FHIR Extension Pack</a> when available. Feedback from implementers is welcomed to inform further refinement and usage guidance.</p>
+	</blockquote>
+	
+	<p><strong>Important:</strong> When PHI from multiple patients (e.g., donor and recipient) is represented within a single BiologicallyDerivedProduct resource, systems should apply appropriate access controls and redaction practices to ensure that users only see the data they are authorized to view. Implementers should follow established standards such as ISBT 128, which governs when donor PHI may be included versus when coded identifiers (e.g., WMDA GRID) should be used.</p>
 
 </div>

@@ -4,7 +4,9 @@
   <!-- example product interacts with other drugs -->
   <type value="interaction"/>
   <subject>
-    <reference value="MedicinalProductDefinition/example"/>
+    <reference>
+      <reference value="MedicinalProductDefinition/example"/>
+    </reference>
   </subject>
   <interaction>
     <interactant>

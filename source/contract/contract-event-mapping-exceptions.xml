@@ -76,7 +76,7 @@
     <divergentElement patternPath="Event.subject" resourcePath="Contract.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, Group)" reason="Unknown"/>
         <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
@@ -165,7 +165,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="Contract.signer.party">
-        <missingTypes _pattern="Reference(CareTeam,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(CareTeam, Device)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed contract"/>
@@ -179,7 +179,7 @@
     <divergentElement patternPath="Event.reason" resourcePath="Contract.term.action.intent">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Unknown"/>
         <extraTypes _resource="CodeableConcept" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">

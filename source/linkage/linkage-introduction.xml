@@ -10,8 +10,7 @@ This resource allows the assertion of linkages between multiple resource instanc
 FHIR supports a process for sharing electronic records.  It is common for multiple records to exist that deal with the same real-world phenomenon.  This can result from information being captured by different systems or information being captured within a single system by different users (either deliberately to represent distinct perspectives or accidentally when a new record is created rather than updating an existing record).  These multiple records may be referred to as "duplicate" records, but in practice they aren't often actually "duplicate" in that the data represented (and the history of the records) will be at least somewhat distinct.
 </p>
 <p>
-In some cases, the solution after identifying duplicates is to deprecate one of the records (e.g. by changing the status to "Entered in Error") and to move all relevant information to the surviving record.  In other cases, the resource may support the ability to establish a linkage directly between the resources.  However, in some cases, both records may need to survive or there might be a desire to have both resources continue to be maintained, perhaps because the resources
-live on different servers or have different 'owners'.  The <b>Linkage</b> resource is intended to satisfy this use-case.
+In some cases, the solution after identifying duplicates is to deprecate one of the records (e.g. by changing the status to "Entered in Error") and to move all relevant information to the surviving record.  In other cases, both records may need to persist, perhaps because the resources live on different servers or have different 'owners'.
 </p>
 
 [%stu-note dstu%]
@@ -27,7 +26,7 @@ The Patient Care Work Group welcomes feedback <a href="http://hl7.org/fhir-issue
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-The <a href="person.html">Person</a> resource should be used to link a person independent of a specific health-related context. Linkage can be used for all other use cases.
+Do not use Linkage for Patient, Person, and Encounter, see <a href="patient.html#linking">the explanation on Patient</a> for more details. The <a href="person.html">Person</a> resource should be used to link a person independent of a specific health-related context. Linkage can be used for all other use cases.
 </p>
 </div>
 

@@ -68,6 +68,11 @@
     <uri value="http://hl7.org/v2"/>
     <name value="HL7 V2 Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="dicom"/>
+    <uri value="https://dicomstandard.org/current"/>
+    <name value="DICOM Tag Mapping"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="BodyStructure"/>
@@ -141,37 +146,6 @@
         <map value="statusCode"/>
       </mapping>
     </element>
-    <element id="BodyStructure.morphology">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="#13394."/>
-      </extension>
-      <path value="BodyStructure.morphology"/>
-      <short value="Kind of Structure"/>
-      <definition value="The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies."/>
-      <comment value="The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodyStructureCode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes describing anatomic morphology."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-code"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="SPM-4/SPM-5"/>
-      </mapping>
-    </element>
     <element id="BodyStructure.includedStructure">
       <path value="BodyStructure.includedStructure"/>
       <short value="Included anatomic location(s)"/>
@@ -219,6 +193,10 @@
         <identity value="openehr"/>
         <map value="Name of location"/>
       </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Body Part Examined (0018,0015) or Anatomic Region Sequence (0008,2218)"/>
+      </mapping>
     </element>
     <element id="BodyStructure.includedStructure.laterality">
       <path value="BodyStructure.includedStructure.laterality"/>
@@ -252,6 +230,10 @@
       <mapping>
         <identity value="openehr"/>
         <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Laterality (0020,0060)"/>
       </mapping>
     </element>
     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation">
@@ -391,6 +373,17 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element>
+    <element id="BodyStructure.includedStructure.image">
+      <path value="BodyStructure.includedStructure.image"/>
+      <short value="Image(s) of structural aspects"/>
+      <definition value="Image(s) used to identify aspects of an included or excluded structure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
     <element id="BodyStructure.includedStructure.qualifier">
       <path value="BodyStructure.includedStructure.qualifier"/>
       <short value="Code that represents the included structure qualifier"/>
@@ -423,6 +416,37 @@
       <mapping>
         <identity value="openehr"/>
         <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
+      </mapping>
+    </element>
+    <element id="BodyStructure.includedStructure.morphology">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="#13394."/>
+      </extension>
+      <path value="BodyStructure.includedStructure.morphology"/>
+      <short value="Kind of Structure"/>
+      <definition value="The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies."/>
+      <comment value="The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing anatomic morphology."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-code"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="SPM-4/SPM-5"/>
       </mapping>
     </element>
     <element id="BodyStructure.excludedStructure">
@@ -464,7 +488,7 @@
     <element id="BodyStructure.image">
       <path value="BodyStructure.image"/>
       <short value="Attached images"/>
-      <definition value="Image or images used to identify a location."/>
+      <definition value="Image(s) used to identify aspects of the overall structure."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -500,7 +524,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>

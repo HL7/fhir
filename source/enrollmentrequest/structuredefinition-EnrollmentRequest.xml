@@ -185,13 +185,14 @@
     </element>
     <element id="EnrollmentRequest.candidate">
       <path value="EnrollmentRequest.candidate"/>
-      <short value="The subject to be enrolled"/>
-      <definition value="Patient Resource."/>
+      <short value="The subject(s)to be enrolled"/>
+      <definition value="The subject or group of subjects to be enrolled."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="workflow"/>

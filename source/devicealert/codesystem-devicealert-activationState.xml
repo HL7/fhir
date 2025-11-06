@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="devicealert-activationState" />
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem" />
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev" />
@@ -39,16 +39,16 @@
   <concept>
     <code value="on" />
     <display value="On" />
-    <definition value="The signal will be annunciated during an alert condition" />
+    <definition value="The intended system function (e.g., detecting or signaling) is activated" />
   </concept>
   <concept>
     <code value="off" />
     <display value="Off" />
-    <definition value="The signal will not be annunciated during an alert condition" />
+    <definition value="The intended system function (e.g., detecting or signaling) is deactivated" />
   </concept>
   <concept>
     <code value="paused" />
     <display value="Paused" />
-    <definition value="Annunciation of the signal during an alert condition has been suppressed temporarily" />
+    <definition value="The intended system function (e.g., detecting or signaling) is temporarily suppressed" />
   </concept>
 </CodeSystem>

@@ -31,12 +31,17 @@
   <device>
     <reference value="#lab-analyzer"/>
   </device>
-  <status>
+  <status value="active"/>
+  <associationStatus>
     <coding>
-      <system value="http://hl7.org/fhir/deviceassociation-status"/>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
       <code value="attached"/>
+      <display value="Attached"/>
     </coding>
-  </status>
+  </associationStatus>
+  <subject>
+    <reference value="#repair-tech"/>
+  </subject>
   <period>
     <start value="2025-07-10T10:00:00Z"/>
     <end value="2025-07-10T12:00:00Z"/>
@@ -47,9 +52,6 @@
         <code value="on"/>
       </coding>
     </status>
-    <operator>
-      <reference value="#repair-tech"/>
-    </operator>
     <period>
       <start value="2025-07-10T10:00:00Z"/>
       <end value="2025-07-10T12:00:00Z"/>

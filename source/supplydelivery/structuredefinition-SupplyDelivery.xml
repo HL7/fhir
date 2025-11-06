@@ -241,7 +241,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.code"/>
+        <map value="Event.category"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -284,6 +284,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=PRD].role"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.product"/>
       </mapping>
     </element>
     <element id="SupplyDelivery.suppliedItem.quantity">
@@ -335,7 +339,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -424,6 +427,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=DST].role"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
       </mapping>
     </element>
     <element id="SupplyDelivery.receiver">

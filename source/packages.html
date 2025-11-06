@@ -9,7 +9,7 @@
 [%file newnavbar%]
 
 <h2>FHIR NPM Packages</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: n/a</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 FHIR Specifications are published in HTML format for human consumption, and as NPM packages for machine consumption.
@@ -23,7 +23,7 @@ Some important packages for FHIR Implementers:
   <li><code>hl7.terminology</code>: The package that contains all the code systems and value sets maintained by HL7 for all standards it publishes</li>
 </ul>
 
-<h3>FHIR NPM Packages</h3>
+<h3>FHIR NPM Package Structure</h3>
 <p>
 Each FHIR package is a tarball (tar in gzip) that contains a <code>package</code> folder that 
 contains:
@@ -44,6 +44,13 @@ Note that this specification is published as a package,
 and each <a href="implementationguide.html">Implementation Guide</a> is 
 published as a package, but this is not the only use for package, and other 
 packages exist.
+</p>
+<p>
+NPM FHIR Packages SHOULD contain an ImplementationGuide resource with the url:
+<code>{package-canonical}/ImplementationGuide/{packageId}</code> and the version to match the package version.
+</p>
+<p>
+It is reasonable for tooling to resolve a canonical reference to an implementation guide resource as the NPM FHIR Package matching that definition (e.g., per the dependsOn element of the implementation guide.
 </p>
 <h3>package.json</h3>
 <p>
@@ -77,6 +84,7 @@ specification, and defines some additional FHIR specific properties.
     <td>required</td>
     <td>Any dependencies SHALL be listed here - that is, any other package that 
       contains resources referred to by the resources in the package. 
+    <br/><br/>
       Packages SHOULD be referred to by the whole package version number and 
       not use wildcards, except for the patch version in a SemVer version reference.
       The x in the following example means that a package resolver should accept the package
@@ -86,6 +94,7 @@ specification, and defines some additional FHIR specific properties.
   "hl7.fhir.r5.core": "5.0.x"
 }
 </pre>
+    <br/><br/>
     A dependency on a core package is required, and this dependency defines the FHIR version used to resolve the contents of this dependency tree. If multiple core package dependencies are listed, the first instance is the version used.
     <br/><br/>
     Development packages may use a local path for the package version (see <a href="https://docs.npmjs.com/cli/v9/configuring-npm/package-json#local-paths">Local Paths</a> in the NPM documentation)
@@ -104,7 +113,8 @@ specification, and defines some additional FHIR specific properties.
   <tr>
     <td><b>canonical</b></td>
     <td>conditionally required</td>
-    <td>The canonical URL for the Implementation guide represented by the package, if this package represents a single Implementation Guide. This SHALL be present if the package is for an Implementation Guide and is optional for other packages.</td>
+    <td>The canonical URL for the Implementation guide represented by the package, if this package represents a single Implementation Guide.
+      This SHALL be present if the package is for an Implementation Guide and is optional for other packages.</td>
   </tr>
   <tr>
     <td><b>url</b></td>
@@ -133,7 +143,12 @@ specification, and defines some additional FHIR specific properties.
   <tr>
     <td><b>jurisdiction</b></td>
     <td>optional</td>
-    <td>A URL with the syntax <code>{system}#{code}</code>, from the <a href="valueset-jurisdiction.html">Jurisdiction</a> ValueSet. This value is provided to help users find the right package in the package registry</td>
+    <td>A URL with the syntax <code>{system}#{code}</code>, from the <a href="https://terminology.hl7.org/ValueSet-jurisdiction.html">Jurisdiction</a> ValueSet. This value is provided to help users find the right package in the package registry</td>
+  </tr>
+  <tr>
+    <td><b>languages</b></td>
+    <td>optional</td>
+    <td>An array of strings, where each value is an IETF language code from <a href="valueset-all-languages.html">AllLanguages ValueSet</a>, and indicates that the package contains content suitable for the specified language</td>
   </tr>
   <tr>
     <td><b>fhirVersions</b></td>
@@ -219,12 +234,30 @@ the same name in the resource identified by the filename, irrespective
 of resource type.
 </p>
 
-<h3>FHIR NPM Package Registry</h3>
+<a name="composition"></a>
+<h3>FHIR Package Composition</h3>
+
+<p>
+In theory, packages can contain an unlimited number of artifacts with unlimited size.  However, in practice, real-world tools
+will struggle or even fail if packages are too large.  Authors should consider this when deciding how they create packages.
+Ways to help manage this issue include:
+</p>
+<ul>
+  <li>Packaging 'extra' collateral such as testing support and examples in separate packages from the definitional content</li>
+  <li>Ensuring package artifacts are expressed in their 'minimal' form whenever possible (e.g. not including expansions of value sets)</li>
+  <li>When it's possible to control size (e.g. examples), try to keep sizes smaller.  For example, if there's a need to have an example of a video, 
+    make sure it's low resolution and short.</li>
+  <li>Consider publishing content in subsets if the overall number of files would be significant.  (This will also often speed the publication process.)</li>
+</ul>
+
+<a name="caching"></a>
+<h3>FHIR Package Caching</h3>
 <p>
 For user convenience, tools may choose 
 to use a <a href="https://confluence.hl7.org/display/FHIR/FHIR+Package+Cache">common local cache</a>.
 </p>
 
+<a name="registry"></a>
 <h3>FHIR NPM Package Registry</h3>
 <p>
 The FHIR packages are all hosted on the registry <a href="http://packages.fhir.org">http://packages.fhir.org</a>.

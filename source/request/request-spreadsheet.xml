@@ -1659,7 +1659,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">eventHistory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Provenance)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Provenance{http://hl7.org/fhir/StructureDefinition/provenance-relevant-history})</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4571,7 +4571,7 @@
     <Cell><Data ss:Type="String">directive</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Directive</Data></Cell>
-    <Cell><Data ss:Type="String">The request represents a legally binding instruction authored by a Patient or RelatedPerson</Data></Cell>
+    <Cell><Data ss:Type="String">The request represents an instruction authored by a Patient or RelatedPerson.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">order</Data></Cell>

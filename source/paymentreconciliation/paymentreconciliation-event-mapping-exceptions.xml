@@ -51,7 +51,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="PaymentReconciliation.paymentIssuer">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,CareTeam,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, CareTeam, Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed payment reconciliation"/>
             <resource value="Party generating payment"/>

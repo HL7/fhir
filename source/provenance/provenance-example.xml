@@ -8,7 +8,7 @@
 	</text>
 -->
 	<!-- 
-    where possible, provenance targets should be version specific,
+    where possible, provenance targets SHOULD be version specific,
     so that there is no ambiguity about which version of the 
     record this relates to
   -->

@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="biologicallyderivedproductdispense-match-status"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <text>
     <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This code system <code>http://hl7.org/fhir/biologicallyderivedproductdispense-match-status</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">crossmatched<a name="biologicallyderivedproductdispense-match-status-crossmatched"> </a></td><td>Crossmatched</td><td>The product has been serologically or electronically crossmatched for the recipient</td></tr><tr><td style="white-space:nowrap">selected<a name="biologicallyderivedproductdispense-match-status-selected"> </a></td><td>Selected</td><td>The product has been selected for the specific use of the recipient</td></tr><tr><td style="white-space:nowrap">unmatched<a name="biologicallyderivedproductdispense-match-status-unmatched"> </a></td><td>Unmatched</td><td>No specific matching has been carried out</td></tr><tr><td style="white-space:nowrap">least-incompatible<a name="biologicallyderivedproductdispense-match-status-least-incompatible"> </a></td><td>least incompatible</td><td>The product has been selected through crossmatching as least incompatible</td></tr></table></div>

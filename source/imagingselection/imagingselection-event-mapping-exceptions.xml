@@ -1,101 +1,91 @@
 <mappingExceptions pattern="Event" resource="ImagingSelection" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="ImagingSelection.identifier">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Business identifier for imaging selection"/>
-            <resource value="Business Identifiers for Imaging Selection"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Business identifiers assigned to this imaging selection by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
-            <resource value="Unique identifiers assigned to this imaging selection."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Uses different capitalization of MAY.">
             <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-            <resource value="This is a business identifiers, not a resource identifier -- see discussion under [Business Identifiers](resource.html#identifiers). "/>
+            <resource value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
         </commentsUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows identification of the imaging selection as it is known by various participating systems and in a way that remains consistent across servers."/>
-            <resource value="Allows imaging selections to be distinguished and referenced."/>
-        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="ImagingSelection.basedOn">
-        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <missingTypes _pattern="Reference(Request)" reason="Reference type not relevant to resource"/>
+        <extraTypes _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Additional reference types are relevant to resource"/>
+        <shortUnmatched reason="Imaging selection not typically based on a proposal">
             <_pattern value="Fulfills plan, proposal or order"/>
-            <resource value="Associated requests"/>
+            <resource value="Fulfills plan or order"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Imaging selection not typically based on a proposal">
             <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this imaging selection."/>
-            <resource value="A list of the diagnostic requests that resulted in this imaging selection being performed."/>
+            <resource value="A plan or order that is fulfilled in whole or in part by this imaging selection."/>
         </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows tracing of authorization for the imaging selection and tracking whether proposals/recommendations were acted upon."/>
-            <resource value=""/>
-        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="ImagingSelection.status">
-        <shortUnmatched reason="Unknown">
+        <shortUnmatched reason="Imaging selection status codes are specialized">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
             <resource value="available | entered-in-error | inactive | unknown"/>
         </shortUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="State diagram does not apply to imaging selection">
             <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-            <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses SHALL apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.category" resourcePath="ImagingSelection.category">
-        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <bindingExistence _pattern="false" _resource="true" reason="Example binding is useful for this resource"/>
+        <shortUnmatched reason="Definition is more specific to this resource">
             <_pattern value="High level categorization of imaging selection"/>
             <resource value="Classifies the imaging selection"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Definition is more specific to this resource">
             <_pattern value="Partitions the imaging selection into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
             <resource value="Classifies the general purpose of the imaging selection."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Comment not relevant to this resource">
             <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="ImagingSelection.code">
-        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <lowerCardinality _pattern="0" _resource="1" reason="Code is necessary to this resource"/>
+        <shortUnmatched reason="Definition is more specific to this resource">
             <_pattern value="What service was done"/>
             <resource value="Imaging Selection purpose text or code"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Definition is more specific to this resource">
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
             <resource value="Identifies the type of imaging selection."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="ImagingSelection.subject">
-        <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <extraTypes _resource="Reference(Device,Procedure,Practitioner,Medication,Substance,Specimen)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <lowerCardinality _pattern="1" _resource="0" reason="Subject might not always be present"/>
+        <extraTypes _resource="Reference(Device,Procedure,Practitioner,Medication,Substance,Specimen)" reason="Phantoms and other non-patient subjects can be subjects of imaging selections"/>
+        <shortUnmatched reason="Resource value is more specific">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="Subject of the selected instances"/>
+            <resource value="Who or what is the subject of the imaging selection"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Resource value is more specific">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The patient, or group of patients, location, device, organization, procedure or practitioner this imaging selection is about and into whose or what record the imaging selection is placed."/>
+            <resource value="The subject, typically a patient, of the imaging selection."/>
         </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
+        <requirementsUnmatched reason="Requirement is not needed for this resource">
             <_pattern value="Links the imaging selection to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="ImagingSelection.performer">
-        <extraTypes _resource="BackboneElement" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Who performed imaging selection and what they did"/>
-            <resource value="Selectors of the instances (human or machine)"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Indicates who or what performed the imaging selection and how they were involved."/>
-            <resource value="Selectors of the instances – human or machine."/>
+        <extraTypes _resource="BackboneElement" reason="Performer needs to be qualified with role"/>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.function" resourcePath="ImagingSelection.performer.function">
+        <bindingStrength _pattern="example" _resource="extensible" reason="Specific codes almost always applicable"/>
+        <definitionUnmatched reason="Don't want extra space at the end.">
+            <_pattern value="Distinguishes the type of involvement of the performer in the imaging selection.."/>
+            <resource value="Distinguishes the type of involvement of the performer in the imaging selection."/>
         </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingSelection.performer.actor">
+        <extraTypes _resource="Reference(HealthcareService)" reason="HealthcareService is a possible performer for an imaging selection"/>
+        <shortUnmatched reason="Better english">
+            <_pattern value="Who performed imaging selection"/>
+            <resource value="Who performed the imaging selection"/>
+        </shortUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Event.partOf" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.reported" reason="Not relevant for this resource"/>
@@ -103,8 +93,6 @@
     <unmappedElement patternPath="Event.relevantHistory" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.location" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.statusReason" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
-    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
     <unmappedElement patternPath="Event.note" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.encounter" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.recorded" reason="Not relevant for this resource"/>

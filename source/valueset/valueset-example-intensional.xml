@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="example-intensional"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <text>
     <status value="additional"/>

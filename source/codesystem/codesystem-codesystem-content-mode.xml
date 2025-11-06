@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="codesystem-content-mode"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -58,12 +58,12 @@
   <concept>
     <code value="example"/>
     <display value="Example"/>
-    <definition value="A subset of the valid externally defined concepts are included in the code system resource. There is no specific purpose or documented intent other than for illustrative purposes."/>
+    <definition value="A subset of the valid externally defined concepts are included in the code system resource. There is no specific purpose or documented intent other than for illustrative purposes. This example content mode should not be used if the content is better represented in a fragment."/>
   </concept>
   <concept>
     <code value="fragment"/>
     <display value="Fragment"/>
-    <definition value="A subset of the code system concepts are included in the code system resource. This is a curated subset released for a specific purpose under the governance of the code system steward, and that the intent, bounds and consequences of the fragmentation are clearly defined in the fragment or the code system documentation. Fragments are also known as partitions."/>
+    <definition value="A subset of the code system concepts that are included in the code system resource. This is a curated subset released for a specific purpose."/>
   </concept>
   <concept>
     <code value="complete"/>

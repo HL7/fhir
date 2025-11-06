@@ -391,7 +391,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -744,7 +744,7 @@
         <valueString value="#13290."/>
       </extension>
       <path value="Immunization.performer.actor"/>
-      <short value="Individual or organization who was performing"/>
+      <short value="Individual or organization who performed the event"/>
       <definition value="The practitioner or organization who performed the action."/>
       <comment value="When the individual practitioner who performed the action is known, it is best to send."/>
       <min value="1"/>
@@ -803,7 +803,7 @@
       </extension>
       <path value="Immunization.reason"/>
       <short value="Why immunization occurred"/>
-      <definition value="Describes why the immunization occurred in coded or textual form, or Indicates another resource (Condition, Observation or DiagnosticReport) whose existence justifies this immunization."/>
+      <definition value="Describes why the immunization occurred in coded or textual form, or indicates another resource (Condition, Observation or DiagnosticReport) whose existence justifies this immunization."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -876,7 +876,7 @@
         </extension>
         <strength value="example"/>
         <description value="The reason why a dose is considered to be subpotent."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-subpotent-reason"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/immunization-subpotent-reason"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -910,7 +910,7 @@
       </extension>
       <path value="Immunization.programEligibility.program"/>
       <short value="The program that eligibility is declared for"/>
-      <definition value="Indicates which program the patient had their eligility evaluated for."/>
+      <definition value="Indicates which program the patient had their eligibility evaluated for."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -938,7 +938,7 @@
       </extension>
       <path value="Immunization.programEligibility.programStatus"/>
       <short value="The patient's eligibility status for the program"/>
-      <definition value="Indicates the patient's eligility status for for a specific payment program."/>
+      <definition value="Indicates the patient's eligibility status for a specific payment program."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -953,7 +953,7 @@
         </extension>
         <strength value="example"/>
         <description value="x"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-program-eligibility"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/immunization-program-eligibility"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -966,7 +966,7 @@
       </extension>
       <path value="Immunization.fundingSource"/>
       <short value="Funding source for the vaccine"/>
-      <definition value="Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)."/>
+      <definition value="Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publicly purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -981,7 +981,7 @@
         </extension>
         <strength value="example"/>
         <description value="x"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-funding-source"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/immunization-funding-source"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -993,7 +993,7 @@
         <valueString value="Restored for R4 after an initial attempt to migrate to AdverseEvent (see #15124)."/>
       </extension>
       <path value="Immunization.reaction"/>
-      <short value="Details of a reaction that follows immunization"/>
+      <short value="Details of a reaction that followed the immunization"/>
       <definition value="Categorical data indicating that an adverse event is associated in time to an immunization."/>
       <comment value="A reaction may be an indication of an allergy or intolerance and, if this is determined to be the case, it should be recorded as a new AllergyIntolerance resource instance as most systems will not query against past Immunization.reaction elements."/>
       <min value="0"/>
@@ -1116,7 +1116,7 @@
         <valueString value="#19487 (cardinality changed), #15972 (changes to the value set)."/>
       </extension>
       <path value="Immunization.protocolApplied.targetDisease"/>
-      <short value="Vaccine preventatable disease being targeted"/>
+      <short value="Vaccine preventable disease being targeted"/>
       <definition value="The vaccine preventable disease the dose is being administered against."/>
       <min value="0"/>
       <max value="*"/>

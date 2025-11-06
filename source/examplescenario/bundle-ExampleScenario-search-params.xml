@@ -156,7 +156,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ExampleScenario-jurisdiction"/>
-        <description value="Intended jurisdiction for the example scenario"/>
+        <description value="Jurisdiction of the authority that maintains the the example scenario"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ExampleScenario.jurisdiction"/>
@@ -255,6 +255,23 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="ExampleScenario.version"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ExampleScenario.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the ExampleScenario is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="ExampleScenario.experimental"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -532,4 +532,28 @@
       <display value="Text Dose"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request to not perform due to allergy."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0349"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medicationrequest0349"/>
+      <display value="DoNotPerform"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request with 3 reasons to justify alternative."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequest0350"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medicationrequest0350"/>
+      <display value="Alternative (reasons)"/>
+    </item>
+  </entry>
 </List>

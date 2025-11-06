@@ -11,7 +11,7 @@
 
 
 <h2>FHIR-X-Query</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial use</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <h3 id="x-fhir-query-enhancements">x-fhir-query documentation</h3>
 <p>
@@ -53,6 +53,7 @@ NOTE: Some of the FHIRPath content may need to be escaped (percent-encoded) in o
     (i.e. the substitution will execute on the collection of codings resolved to within the CodeableConcept).</li>
   <li>If the expression resolves to an element of type Quantity, it will be converted to a search type of 'quantity'.</li>
   <li>If the expression resolves to a collection of more than one value, the substitution will be a list of comma-separated values (i.e. behaving as 'or').</li>
+  <li>If the result of the path expression is a type that does not have a conversion to a search parameter type listed above, that is an error.  The FHIRPath should drill deeper to a type that has a conversion.  For example, if a path results in a CodeableReference, the path should be extended to refer to the .concept or .reference sub-elements (which do have conversions defined).</li>
 </ul>   
 
 

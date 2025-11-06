@@ -230,4 +230,117 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicinalProductDefinition-operation-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicinalProductDefinition.operation.type.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-operation-type"/>
+        <description value="The type of manufacturing operation, as a reference to a plan or activity"/>
+        <code value="operation-type"/>
+        <type value="reference"/>
+        <expression value="MedicinalProductDefinition.operation.type.reference"/>
+        <processingMode value="normal"/>
+        <target value="ActivityDefinition"/>
+        <target value="PlanDefinition"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicinalProductDefinition-operation-type-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicinalProductDefinition.operation.type.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-operation-type-code"/>
+        <description value="The type of manufacturing operation, as a coded value"/>
+        <code value="operation-type-code"/>
+        <type value="token"/>
+        <expression value="MedicinalProductDefinition.operation.type.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicinalProductDefinition-operation-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicinalProductDefinition.operation.organization"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-operation-organization"/>
+        <description value="The organization or establishment responsible for (or associated with) the particular process or step"/>
+        <code value="operation-organization"/>
+        <type value="reference"/>
+        <expression value="MedicinalProductDefinition.operation.organization"/>
+        <processingMode value="normal"/>
+        <target value="Organization"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicinalProductDefinition-operation-organization-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-operation-organization-type"/>
+        <description value="Operaton organization and type, as a reference"/>
+        <code value="operation-organization-type"/>
+        <type value="composite"/>
+        <expression value="MedicinalProductDefinition"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="operation-organization"/>
+          <expression value="operation-organization"/>
+        </component>
+        <component>
+          <definition value="type"/>
+          <expression value="operation-type"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicinalProductDefinition-operation-organization-type-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-operation-organization-type-code"/>
+        <description value="Operaton organization and type, as a code"/>
+        <code value="operation-organization-type-code"/>
+        <type value="composite"/>
+        <expression value="MedicinalProductDefinition"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="operation-organization"/>
+          <expression value="operation-organization"/>
+        </component>
+        <component>
+          <definition value="type-code"/>
+          <expression value="operation-type-code"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  
 </Bundle>

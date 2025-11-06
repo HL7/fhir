@@ -1668,7 +1668,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Jurisdiction</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">extensible</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/jurisdiction" ss:StyleID="s62"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/jurisdiction</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/jurisdiction" ss:StyleID="s62"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/jurisdiction</Data></Cell>
     <Cell><Data ss:Type="String">Countries and regions within which this artifact is targeted for use.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="Default">

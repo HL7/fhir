@@ -76,7 +76,8 @@
   <differential>
     <element id="ClinicalUseDefinition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,250"/>
+        <valueCode value="0,180"/>
+        <!--valueCode value="0,250"/-->
       </extension>
       <path value="ClinicalUseDefinition"/>
       <short value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure"/>
@@ -234,13 +235,15 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.contraindication">
+
+    <element id="ClinicalUseDefinition.undesirableEffect">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="320,0"/>
+        <!--valueCode value="453,352"/-->
+        <valueCode value="453,336"/>
       </extension>
-      <path value="ClinicalUseDefinition.contraindication"/>
-      <short value="Specifics for when this is a contraindication"/>
-      <definition value="Specifics for when this is a contraindication."/>
+      <path value="ClinicalUseDefinition.undesirableEffect"/>
+      <short value="A possible negative outcome from the use of this treatment"/>
+      <definition value="Describe the possible undesirable effects (negative outcomes) from the use of the medicinal product as treatment."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -250,13 +253,13 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Contraindication"/>
+        <map value="Undesirable Effects"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure">
-      <path value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure"/>
-      <short value="The situation that is being documented as contraindicating against this item"/>
-      <definition value="The situation that is being documented as contraindicating against this item."/>
+    <element id="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect">
+      <path value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect"/>
+      <short value="The situation in which the undesirable effect may manifest"/>
+      <definition value="The situation in which the undesirable effect may manifest."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -266,119 +269,22 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DiseaseSymptomProcedure"/>
+          <valueString value="UndesirableEffectSymptom"/>
         </extension>
         <strength value="example"/>
-        <description value="A symptom, disease or procedure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/disease-symptom-procedure"/>
+        <description value="An undesirable effect of clinical use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-symptom"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Contraindication.Contraindications as &quot;Disease / Symptom / Procedure&quot; and Contraindication.Contraindications Text"/>
+        <map value="Undesirable Effects.Undesirable Effect as &quot;Symptom / Condition / Effect&quot;"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.contraindication.diseaseStatus">
-      <path value="ClinicalUseDefinition.contraindication.diseaseStatus"/>
-      <short value="The status of the disease or symptom for the contraindication"/>
-      <definition value="The status of the disease or symptom for the contraindication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
+    <element id="ClinicalUseDefinition.undesirableEffect.classification">
+      <path value="ClinicalUseDefinition.undesirableEffect.classification"/>
+      <short value="High level classification of the effect"/>
+      <definition value="High level classification of the effect."/>
       <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DiseaseStatus"/>
-        </extension>
-        <strength value="example"/>
-        <description value="The status of a disease or symptom."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/disease-status"/>
-      </binding>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Contraindication.Disease Status"/>
-      </mapping>
-    </element>
-    <element id="ClinicalUseDefinition.contraindication.comorbidity">
-      <path value="ClinicalUseDefinition.contraindication.comorbidity"/>
-      <short value="A comorbidity (concurrent condition) or coinfection"/>
-      <definition value="A comorbidity (concurrent condition) or coinfection."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DiseaseSymptomProcedure"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A symptom, disease or procedure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/disease-symptom-procedure"/>
-      </binding>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Contraindication.Comorbidity"/>
-      </mapping>
-    </element>
-    <element id="ClinicalUseDefinition.contraindication.indication">
-      <path value="ClinicalUseDefinition.contraindication.indication"/>
-      <short value="The indication which this is a contraindication for"/>
-      <definition value="The indication which this is a contraindication for."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="(the link from Contraindication to Therapeutic Indication)"/>
-      </mapping>
-    </element>
-    <element id="ClinicalUseDefinition.contraindication.applicability">
-      <path value="ClinicalUseDefinition.contraindication.applicability"/>
-      <short value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements"/>
-      <definition value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements."/>
-      <comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="ClinicalUseDefinition.contraindication.otherTherapy">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="733,27"/>
-      </extension>
-      <path value="ClinicalUseDefinition.contraindication.otherTherapy"/>
-      <short value="Information about use of the product in relation to other therapies described as part of the contraindication"/>
-      <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Contraindication.Other Therapy Specifics"/>
-      </mapping>
-    </element>
-    <element id="ClinicalUseDefinition.contraindication.otherTherapy.relationshipType">
-      <path value="ClinicalUseDefinition.contraindication.otherTherapy.relationshipType"/>
-      <short value="The type of relationship between the product indication/contraindication and another therapy"/>
-      <definition value="The type of relationship between the medicinal product indication or contraindication and another therapy."/>
-      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
@@ -386,49 +292,69 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TherapyRelationshipType"/>
+          <valueString value="UndesirableEffectClassification"/>
         </extension>
-        <strength value="preferred"/>
-        <description value="Classification of relationship between a therapy and a contraindication or an indication."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/therapy-relationship-type"/>
+        <strength value="example"/>
+        <description value="A categorisation for an undesirable effect."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-classification"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Other Therapy Specifics.Therapy Relationship Type"/>
+        <map value="Undesirable Effects.Symptom / Condition / Effect Classification"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.contraindication.otherTherapy.treatment">
-      <path value="ClinicalUseDefinition.contraindication.otherTherapy.treatment"/>
-      <short value="Reference to a specific medication, substance etc. as part of an indication or contraindication"/>
-      <definition value="Reference to a specific medication (active substance, medicinal product or class of products, biological, food etc.) as part of an indication or contraindication."/>
-      <min value="1"/>
+    <element id="ClinicalUseDefinition.undesirableEffect.frequencyOfOccurrence">
+      <path value="ClinicalUseDefinition.undesirableEffect.frequencyOfOccurrence"/>
+      <short value="How often the effect is seen"/>
+      <definition value="How often the effect is seen."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Therapy"/>
+          <valueString value="UndesirablEffectFrequency"/>
         </extension>
         <strength value="example"/>
-        <description value="A therapy."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/therapy"/>
+        <description value="A categorisation for a frequency of occurrence of an undesirable effect."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-frequency"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Other Therapy Specifics.Medication"/>
+        <map value="Undesirable Effects.Frequency of Occurrence"/>
       </mapping>
     </element>
+    <element id="ClinicalUseDefinition.undesirableEffect.management">
+      <path value="ClinicalUseDefinition.undesirableEffect.management"/>
+      <short value="Actions for managing the undesirable effect"/>
+      <definition value="Actions for managing the undesirable effect."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InteractionManagement"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A type of management for an interaction, contraindication or undesirable effect of a medication or other substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/interaction-management"/>
+      </binding>
+      <!--mapping>
+        <identity value="idmp"/>
+        <map value="Interactions.Management Actions"/>
+      </mapping-->
+    </element>
+    
     <element id="ClinicalUseDefinition.indication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,155"/>
+        <valueCode value="400,118"/>
+        <!--valueCode value="400,128"/-->
+        <!--valueCode value="400,155"/-->
       </extension>
       <path value="ClinicalUseDefinition.indication"/>
       <short value="Specifics for when this is an indication"/>
@@ -565,10 +491,11 @@
       <definition value="An unwanted side effect or negative outcome that may happen if you use the drug (or other subject of this resource) for this indication."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
+      <!--type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
-      </type>
+      </type-->
+      <contentReference value="#ClinicalUseDefinition.undesirableEffect"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -590,22 +517,250 @@
         <map value="n/a"/>
       </mapping>
     </element>
+
     <element id="ClinicalUseDefinition.indication.otherTherapy">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="733,-20"/>
+      </extension>
       <path value="ClinicalUseDefinition.indication.otherTherapy"/>
-      <short value="The use of the medicinal product in relation to other therapies described as part of the indication"/>
-      <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the indication."/>
+      <short value="Information about use of the product in relation to other therapies described as part of the contraindication"/>
+      <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication."/>
       <min value="0"/>
       <max value="*"/>
-      <contentReference value="#ClinicalUseDefinition.contraindication.otherTherapy"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Therapeutic Indication.Other Therapy Specifics"/>
+        <map value="Contraindication.Other Therapy Specifics"/>
       </mapping>
     </element>
+    
+    <element id="ClinicalUseDefinition.indication.otherTherapy.relationshipType">
+      <path value="ClinicalUseDefinition.indication.otherTherapy.relationshipType"/>
+      <short value="The type of relationship between the product indication/contraindication and another therapy"/>
+      <definition value="The type of relationship between the medicinal product indication or contraindication and another therapy."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TherapyRelationshipType"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Classification of relationship between a therapy and a contraindication or an indication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/therapy-relationship-type"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Other Therapy Specifics.Therapy Relationship Type"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.indication.otherTherapy.treatment">
+      <path value="ClinicalUseDefinition.indication.otherTherapy.treatment"/>
+      <short value="Reference to a specific medication, substance etc. as part of an indication or contraindication"/>
+      <definition value="Reference to a specific medication (active substance, medicinal product or class of products, biological, food etc.) as part of an indication or contraindication."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Therapy"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A therapy."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/therapy"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Other Therapy Specifics.Medication"/>
+      </mapping>
+    </element>
+    
+    <element id="ClinicalUseDefinition.contraindication">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="320,-70"/>
+        <!--valueCode value="320,-50"/-->
+        <!--valueCode value="320,0"/-->
+      </extension>
+      <path value="ClinicalUseDefinition.contraindication"/>
+      <short value="Specifics for when this is a contraindication"/>
+      <definition value="Specifics for when this is a contraindication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="cud-1"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Contraindication"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure">
+      <path value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure"/>
+      <short value="The situation that is being documented as contraindicating against this item"/>
+      <definition value="The situation that is being documented as contraindicating against this item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiseaseSymptomProcedure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A symptom, disease or procedure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/disease-symptom-procedure"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Contraindication.Contraindications as &quot;Disease / Symptom / Procedure&quot; and Contraindication.Contraindications Text"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.contraindication.diseaseStatus">
+      <path value="ClinicalUseDefinition.contraindication.diseaseStatus"/>
+      <short value="The status of the disease or symptom for the contraindication"/>
+      <definition value="The status of the disease or symptom for the contraindication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiseaseStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The status of a disease or symptom."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/disease-status"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Contraindication.Disease Status"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.contraindication.comorbidity">
+      <path value="ClinicalUseDefinition.contraindication.comorbidity"/>
+      <short value="A comorbidity (concurrent condition) or coinfection"/>
+      <definition value="A comorbidity (concurrent condition) or coinfection."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiseaseSymptomProcedure"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A symptom, disease or procedure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/disease-symptom-procedure"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Contraindication.Comorbidity"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.contraindication.indication">
+      <path value="ClinicalUseDefinition.contraindication.indication"/>
+      <short value="The indication which this is a contraindication for"/>
+      <definition value="The indication which this is a contraindication for."/>
+      <min value="0"/>
+      <max value="*"/>
+      <!--type
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </type-->
+      <contentReference value="#ClinicalUseDefinition.indication"/><!-- was below -->
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="(the link from Contraindication to Therapeutic Indication)"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.contraindication.applicability">
+      <path value="ClinicalUseDefinition.contraindication.applicability"/>
+      <short value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements"/>
+      <definition value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements."/>
+      <comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.contraindication.management">
+      <path value="ClinicalUseDefinition.contraindication.management"/>
+      <short value="Actions for managing the contraindication"/>
+      <definition value="Actions for managing the contraindication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InteractionManagement"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A type of management for an interaction, contraindication or undesirable effect of a medication or other substance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/interaction-management"/>
+      </binding>
+      <!--mapping>
+        <identity value="idmp"/>
+        <map value="Interactions.Management Actions"/>
+      </mapping-->
+    </element>
+    
+    <element id="ClinicalUseDefinition.contraindication.otherTherapy">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="733,20"/>
+      </extension>
+      <path value="ClinicalUseDefinition.contraindication.otherTherapy"/>
+      <short value="Information about use of the product in relation to other therapies described as part of the contraindication"/>
+      <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the contraindication."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#ClinicalUseDefinition.indication.otherTherapy"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="Contraindication.Other Therapy Specifics"/>
+      </mapping>
+    </element>
+    
     <element id="ClinicalUseDefinition.interaction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="375,480"/>
+        <valueCode value="385,495"/>
+        <!--valueCode value="375,490"/-->
+        <!--valueCode value="375,480"/-->
       </extension>
       <path value="ClinicalUseDefinition.interaction"/>
       <short value="Specifics for when this is an interaction"/>
@@ -670,6 +825,29 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Interactions.Interactant and Interactions.Interactions Text"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.interaction.interactant.route">
+      <path value="ClinicalUseDefinition.interaction.interactant.route"/>
+      <short value="The route by which the item is administered to cause the interaction"/>
+      <definition value="The route by which the item is administered to cause the interaction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTRouteCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.interaction.type">
@@ -757,12 +935,35 @@
           <valueString value="InteractionManagement"/>
         </extension>
         <strength value="example"/>
-        <description value="A type of management for an interaction of a medication or other substance."/>
+        <description value="A type of management for an interaction, contraindication or undesirable effect of a medication or other substance."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/interaction-management"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Interactions.Management Actions"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.interaction.severity">
+      <path value="ClinicalUseDefinition.interaction.severity"/>
+      <short value="The severity of the interaction"/>
+      <definition value="The severity of the interaction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceSeverity"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/reaction-event-severity"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.population">
@@ -797,98 +998,11 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.undesirableEffect">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="453,352"/>
-      </extension>
-      <path value="ClinicalUseDefinition.undesirableEffect"/>
-      <short value="A possible negative outcome from the use of this treatment"/>
-      <definition value="Describe the possible undesirable effects (negative outcomes) from the use of the medicinal product as treatment."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <condition value="cud-1"/>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Undesirable Effects"/>
-      </mapping>
-    </element>
-    <element id="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect">
-      <path value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect"/>
-      <short value="The situation in which the undesirable effect may manifest"/>
-      <definition value="The situation in which the undesirable effect may manifest."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="UndesirableEffectSymptom"/>
-        </extension>
-        <strength value="example"/>
-        <description value="An undesirable effect of clinical use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-symptom"/>
-      </binding>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Undesirable Effects.Undesirable Effect as &quot;Symptom / Condition / Effect&quot;"/>
-      </mapping>
-    </element>
-    <element id="ClinicalUseDefinition.undesirableEffect.classification">
-      <path value="ClinicalUseDefinition.undesirableEffect.classification"/>
-      <short value="High level classification of the effect"/>
-      <definition value="High level classification of the effect."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="UndesirableEffectClassification"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A categorisation for an undesirable effect."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-classification"/>
-      </binding>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Undesirable Effects.Symptom / Condition / Effect Classification"/>
-      </mapping>
-    </element>
-    <element id="ClinicalUseDefinition.undesirableEffect.frequencyOfOccurrence">
-      <path value="ClinicalUseDefinition.undesirableEffect.frequencyOfOccurrence"/>
-      <short value="How often the effect is seen"/>
-      <definition value="How often the effect is seen."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="UndesirablEffectFrequency"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A categorisation for a frequency of occurrence of an undesirable effect."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-frequency"/>
-      </binding>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Undesirable Effects.Frequency of Occurrence"/>
-      </mapping>
-    </element>
     <element id="ClinicalUseDefinition.warning">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="280,595"/>
+        <valueCode value="150,500"/>
+        <!--valueCode value="180,480"/-->
+        <!--valueCode value="280,595"/-->
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
       <short value="Critical environmental, health or physical risks or hazards. For example 'Do not operate heavy machinery', 'May cause drowsiness'"/>

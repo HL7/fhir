@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="action-applicability-behavior"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/action-applicability-behavior"/>
+  <version value="6.0.0"/>
+  <name value="ActionApplicabilityBehavior"/>
+  <title value="Action Applicability Behavior"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Defines applicability behavior of a group."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/action-applicability-behavior"/>
+  <content value="complete"/>
+  <concept>
+    <code value="all"/>
+    <display value="All"/>
+    <definition value="The applicability of each action is evaluated independently; if the applicability criteria for an action evaluates to true, it is applied."/>
+  </concept>
+  <concept>
+    <code value="any"/>
+    <display value="Any"/>
+    <definition value="The applicability of each action is evaluated in order; the first action for which the applicability criteria evaluates to true is applied, and processing of the parent action stops."/>
+  </concept>
+</CodeSystem>

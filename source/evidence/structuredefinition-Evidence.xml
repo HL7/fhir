@@ -11,7 +11,7 @@
 		<valueCode value="trial-use"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
+		<valueInteger value="4"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
 		<valueCode value="business"/>
@@ -79,6 +79,9 @@
 		<element id="Evidence">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="0,40"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Evidence/EvidenceVariable maturity level 4: Brian Alper/Joanne Dehnbostel: 19-0-0"/>
 			</extension>
 			<path value="Evidence"/>
 			<short value="Single evidence bit"/>
@@ -432,7 +435,7 @@
 			<path value="Evidence.copyright"/>
 			<short value="Intellectual property ownership, may include restrictions on use"/>
 			<definition value="A copyright statement relating to the Evidence and/or its contents. Copyright statements are legal notices of intellectual property ownership and may include restrictions on the use and publishing of the Evidence."/>
-			<comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/>
+			<comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the Evidence and/or its content."/>
 			<alias value="License"/>
 			<alias value="Restrictions"/>
@@ -453,7 +456,7 @@
 			<path value="Evidence.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
 			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -481,13 +484,13 @@
 		  <min value="1"/>
 		  <max value="1"/>
 		  <type>
-			<code value="code"/>
+			<code value="CodeableConcept"/>
 		  </type>
 		  <binding>
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 			  <valueString value="ArtifactRelationshipType"/>
 			</extension>
-			<strength value="required"/>
+			<strength value="extensible"/>
 			<description value="The type of relationship to the related artifact."/>
 			<valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
 		  </binding>
@@ -611,6 +614,7 @@
 			<path value="Evidence.variableDefinition.roleSubtype"/>
 			<short value="Sub-classification of the role of the variable"/>
 			<definition value="Sub-classification of the role of the variable."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -620,7 +624,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="EvidenceVariableRoleSubtype"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="example"/>
 				<description value="The sub-role that the variable plays."/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/variable-role-subtype"/>
 			</binding>
@@ -665,6 +669,7 @@
 			<path value="Evidence.variableDefinition.directnessMatch"/>
 			<short value="low | moderate | high | exact"/>
 			<definition value="Indication of quality of match between intended variable to actual variable."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -674,7 +679,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="EvidenceDirectness"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="example"/>
 				<description value="The quality of how direct the match is."/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/directness"/>
 			</binding>
@@ -683,6 +688,7 @@
 			<path value="Evidence.synthesisType"/>
 			<short value="The design of the synthesis (combination of studies) that produced this evidence"/>
 			<definition value="The design of the synthesis (combination of studies) that produced this evidence. The design is described with any number of synthesis characteristics, such as type of meta-analysis."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -692,7 +698,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="SynthesisType"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="example"/>
 				<description value="Types of combining results from a body of evidence (e.g. summary data meta-analysis)."/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/synthesis-type"/>
 			</binding>
@@ -701,6 +707,7 @@
 			<path value="Evidence.studyDesign"/>
 			<short value="The design of the study that produced this evidence"/>
 			<definition value="The design of the study that produced this evidence. The design is described with any number of study design characteristics."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -747,6 +754,7 @@
 			<path value="Evidence.statistic.statisticType"/>
 			<short value="Type of statistic, e.g., relative risk"/>
 			<definition value="Type of statistic, e.g., relative risk. The statistic type is a classification that formally defines the relationship between the variables (noted in Evidence.variableDefinition) and the value specification (noted in Evidence.statistic.quantity)."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -757,8 +765,8 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="StatisticType"/>
 				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/statistic-type"/>
+				<strength value="example"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/statistic-type"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic.category">
@@ -908,6 +916,7 @@
 		<element id="Evidence.statistic.attributeEstimate.type">
 			<path value="Evidence.statistic.attributeEstimate.type"/>
 			<short value="The type of attribute estimate, e.g., confidence interval or p value"/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -917,7 +926,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="AttributeEstimateType"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="example"/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/attribute-estimate-type"/>
 			</binding>
 		</element>
@@ -976,6 +985,7 @@
 			<path value="Evidence.statistic.modelCharacteristic.code"/>
 			<short value="Model specification"/>
 			<definition value="Description of a component of the method to generate the statistic."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -985,7 +995,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="StatisticModelCode"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="example"/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/statistic-model-code"/>
 			</binding>
 		</element>
@@ -1049,17 +1059,18 @@
 			<path value="Evidence.statistic.modelCharacteristic.variable.handling"/>
 			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | time-to-event | not-specified"/>
 			<definition value="How the variable is classified for use in adjusted analysis."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="code"/>
+				<code value="CodeableConcept"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableHandling"/>
+					<valueString value="EvidenceVariableHandlingExample"/>
 				</extension>
-				<strength value="required"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.valueCategory">
@@ -1133,6 +1144,7 @@
 			<path value="Evidence.certainty.type"/>
 			<short value="Aspect of certainty being rated"/>
 			<definition value="Aspect of certainty being rated."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1142,7 +1154,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="EvidenceCertaintyType"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="example"/>
 				<description value="The aspect of quality, confidence, or certainty."/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/certainty-type"/>
 			</binding>
@@ -1151,6 +1163,7 @@
 			<path value="Evidence.certainty.rating"/>
 			<short value="Assessment or judgement of the aspect"/>
 			<definition value="Assessment or judgement of the aspect."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1160,7 +1173,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="EvidenceCertaintyRating"/>
 				</extension>
-				<strength value="extensible"/>
+				<strength value="example"/>
 				<description value="The assessment of quality, confidence, or certainty."/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/certainty-rating"/>
 			</binding>

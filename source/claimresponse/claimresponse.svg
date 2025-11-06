@@ -958,7 +958,7 @@
    id="n2370"
    xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
    id="n2371"
-   xlink:href="supplyrequest.html#SupplyRequest">SupplyRequest</a>|<a
+   xlink:href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html#SupplyRequest">SupplyRequest</a>|<a
    id="n2372"
    xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
     <text
@@ -2494,7 +2494,7 @@
      class="diagram-class-linkage"><a
        id="n2949"
        xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail"><title
-   id="title65135">The third-tier service adjudications for payor added services</title>subDetail</a></text>
+   id="title65135">The third-tier service adjudications for payer added services</title>subDetail</a></text>
   <text
      id="n2950"
      x="295.870626"
@@ -2528,7 +2528,7 @@
      class="diagram-class-linkage"><a
        id="n2955"
        xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail"><title
-   id="title65143">The second-tier service adjudications for payor added services</title>detail</a></text>
+   id="title65143">The second-tier service adjudications for payer added services</title>detail</a></text>
   <text
      id="n2956"
      x="640.6366183905743"
@@ -2562,7 +2562,7 @@
      class="diagram-class-linkage"><a
        id="n2961"
        xlink:href="claimresponse-definitions.html#ClaimResponse.addItem"><title
-   id="title65151">The first-tier service adjudications for payor added product or service lines</title>addItem</a></text>
+   id="title65151">The first-tier service adjudications for payer added product or service lines</title>addItem</a></text>
   <text
      id="n2962"
      x="692.515626"

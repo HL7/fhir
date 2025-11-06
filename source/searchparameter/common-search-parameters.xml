@@ -165,7 +165,6 @@
         <base value="Procedure"/>
         <base value="ResearchSubject"/>
         <base value="RiskAssessment"/>
-        <base value="SupplyRequest"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -251,7 +250,6 @@
         <base value="AppointmentResponse"/>
         <base value="Basic"/>
         <base value="BiologicallyDerivedProduct"/>
-        <base value="BiologicallyDerivedProductDispense"/>
         <base value="BodyStructure"/>
         <base value="CarePlan"/>
         <base value="CareTeam"/>
@@ -270,7 +268,6 @@
         <base value="CoverageEligibilityResponse"/>
         <base value="DetectedIssue"/>
         <base value="DeviceRequest"/>
-        <base value="DeviceUsage"/>
         <base value="DiagnosticReport"/>
         <base value="DocumentReference"/>
         <base value="Encounter"/>
@@ -307,8 +304,6 @@
         <base value="ServiceRequest"/>
         <base value="ServiceRequest"/>
         <base value="Specimen"/>
-        <base value="SupplyDelivery"/>
-        <base value="SupplyRequest"/>
         <base value="Task"/>
         <base value="VisionPrescription"/>
       </SearchParameter>
@@ -326,7 +321,7 @@
         <base value="AppointmentResponse"/>
         <base value="AuditEvent"/>
         <base value="Basic"/>
-        <base value="BiologicallyDerivedProductDispense"/>
+        <base value="BiologicallyDerivedProduct"/>
         <base value="BodyStructure"/>
         <base value="CarePlan"/>
         <base value="CareTeam"/>
@@ -346,7 +341,6 @@
         <base value="DetectedIssue"/>
         <base value="DeviceAssociation"/>
         <base value="DeviceRequest"/>
-        <base value="DeviceUsage"/>
         <base value="DiagnosticReport"/>
         <base value="DocumentReference"/>
         <base value="Encounter"/>
@@ -382,8 +376,6 @@
         <base value="RiskAssessment"/>
         <base value="ServiceRequest"/>
         <base value="Specimen"/>
-        <base value="SupplyDelivery"/>
-        <base value="SupplyRequest"/>
         <base value="Task"/>
         <base value="VisionPrescription"/>
       </SearchParameter>

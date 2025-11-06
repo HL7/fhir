@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="DocumentReference"/>
   <meta>
     <lastUpdated value="2022-06-09T08:58:31.578+11:00"/>
@@ -219,7 +219,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
       <mapping>
@@ -458,7 +457,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="fhircomposition"/>
@@ -571,9 +570,9 @@
         <map value="DocumentEntry.referenceIdList"/>
       </mapping>
     </element>
-    <element id="DocumentReference.bodySite">
-      <path value="DocumentReference.bodySite"/>
-      <short value="Body part included"/>
+    <element id="DocumentReference.bodyStructure">
+      <path value="DocumentReference.bodyStructure"/>
+      <short value="Body structure included"/>
       <definition value="The anatomic structures included in the document."/>
       <min value="0"/>
       <max value="*"/>
@@ -584,13 +583,13 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite"/>
+          <valueString value="BodyStructure"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical locations. May include laterality."/>
+          <valueMarkdown value="Codes describing anatomical body structures. May include laterality."/>
         </extension>
         <strength value="example"/>
-        <description value="SNOMED CT Body site concepts"/>
+        <description value="SNOMED CT Body Structures"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
       </binding>
       <mapping>
@@ -797,6 +796,10 @@
         <code value="BackboneElement"/>
       </type>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
+      <mapping>
         <identity value="fhircomposition"/>
         <map value="Composition.attester"/>
       </mapping>
@@ -831,6 +834,10 @@
         <description value="The way in which a person authenticated a document."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.function"/>
+      </mapping>
       <mapping>
         <identity value="fhircomposition"/>
         <map value="Composition.attester.mode"/>
@@ -871,8 +878,8 @@
       <path value="DocumentReference.attester.party"/>
       <short value="Who attested the document"/>
       <definition value="Who attested the document in the specified way."/>
-      <requirements value="Identifies who has taken on the responsibility for accuracy of the document content."/>
       <comment value="Using Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. "/>
+      <requirements value="Identifies who has taken on the responsibility for accuracy of the document content."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -884,6 +891,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.witness"/>

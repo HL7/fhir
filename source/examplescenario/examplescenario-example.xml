@@ -26,13 +26,13 @@
   <purpose value="Purpose: this serves to demonstrate the performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."/>
   <actor>
     <key value="Nurse"/>
-    <type value="practitioner"/>
+    <type value="person"/>
     <title value="Nurse"/>
     <description value="The Nurse"/>
   </actor>
   <actor>
     <key value="MAP"/>
-    <type value="device"/>
+    <type value="other"/>
     <title value="Nurse's Tablet"/>
     <description value="The entity that receives the Administration Requests to show the nurse to perform them"/>
   </actor>

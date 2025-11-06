@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="Composition-search-params"/>
   <entry>
     <resource>
@@ -157,7 +157,7 @@
         <description value="A reference to data that supports this section"/>
         <code value="entry"/>
         <type value="reference"/>
-        <expression value="Composition.section.entry"/>
+        <expression value="Composition.repeat(section).entry"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -234,7 +234,7 @@
         <description value="Classification of section (recommended)"/>
         <code value="section"/>
         <type value="token"/>
-        <expression value="Composition.section.code"/>
+        <expression value="Composition.repeat(section).code"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -364,7 +364,7 @@
         <description value="Search on the section narrative of the resource"/>
         <code value="section-text"/>
         <type value="special"/>
-        <expression value="Composition.section.text | Composition.section.section.text"/>
+        <expression value="Composition.repeat(section).text"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -380,7 +380,7 @@
         <description value="Search on the section narrative of the resource"/>
         <code value="section-code-text"/>
         <type value="composite"/>
-        <expression value="Composition.section"/>
+        <expression value="Composition.repeat(section)"/>
         <processingMode value="normal"/>
         <component>
           <definition value="section"/>
