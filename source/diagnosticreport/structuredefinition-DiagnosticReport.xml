@@ -492,8 +492,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>   
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>   
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -532,6 +534,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -683,7 +687,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>

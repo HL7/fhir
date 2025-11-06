@@ -350,7 +350,6 @@ signatures.html
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
       <page type="resource" resource="Task"/>
-      <page type="resource" resource="Transport"/>
 <!--      <page type="resource" resource="Definition"/>
       <page type="resource" resource="Request"/>
       <page type="resource" resource="Event"/> -->
@@ -376,13 +375,6 @@ signatures.html
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>
       <page type="resource" resource="DeviceRequest"/>
-      <page type="resource" resource="DeviceDispense"/>
-      <page type="resource" resource="DeviceUsage"/>
-      <page type="resource" resource="SupplyRequest"/>
-      <page type="resource" resource="SupplyDelivery"/>
-      <page type="resource" resource="InventoryReport"/>
-      <page type="resource" resource="InventoryItem"/>
-      <page type="resource" resource="BiologicallyDerivedProductDispense"/>
       <page type="resource" resource="ExampleScenario"/>
     </page>
 

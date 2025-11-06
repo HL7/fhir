@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -908,7 +908,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended | subscription-topic</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">The type of triggering event</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1003,7 +1003,7 @@
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">3,1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">Timing|Reference(Schedule)|date|dateTime</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Timing|date|dateTime</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3506,7 +3506,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3596,8 +3595,8 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">required-type-elements</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">TriggerDefinition</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A named event requires a name, a periodic event requires timing, and a data event requires data</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">(type = 'named-event' implies name.exists()) and (type = 'periodic' implies timing.exists()) and (type.startsWith('data-') implies data.exists())</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A named event requires a name, a periodic event requires timing, and a data event requires data, a subscription topic requires a reference to a subscription topic</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">(type = 'named-event' implies name.exists()) and (type = 'periodic' implies timing.exists()) and (type.startsWith('data-') implies data.exists()) and (type = 'subscription-topic' implies subscriptionTopic.exists())</Data></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">((not(f:type/@value = 'named-event')) or name.exists()) and (not(f:type/@value = 'periodic') or timing.exists()) and (not(starts-with(f:type/@value, 'data-')) or data.exists())</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4027,6 +4026,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4038,7 +4038,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C7">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R4C7">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Search">
@@ -6311,7 +6311,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C14">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C14">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="some-code-list">
@@ -7010,12 +7010,12 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">subscription-topic</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
-    <Cell ss:StyleID="s157"/>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">Subscription Topic</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">The trigger occurs as defined by a subscription topic</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s141"/>
@@ -7479,7 +7479,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R9C9">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R3C6,R8C1:R9C6,R5C1:R7C3,R5C5:R7C6</Range>

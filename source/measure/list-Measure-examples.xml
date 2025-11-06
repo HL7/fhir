@@ -111,4 +111,16 @@
       <display value="Breast Cancer Screening (Proportion) Measure"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of Continuous Variable Measure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="measure-EXM55-FHIR"/>
+    </extension>
+    <item>
+      <reference value="Measure/measure-EXM55-FHIR"/>
+      <display value="Median Emergency Department Visit Duration (Continuous Variable) Measure Example"/>
+    </item>
+  </entry>
 </List>

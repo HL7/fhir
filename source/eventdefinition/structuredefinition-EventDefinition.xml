@@ -8,10 +8,10 @@
 		<valueString value="Specialized.Definitional Artifacts"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="deprecated"/>
+		<valueCode value="normative"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="0"/>
+		<valueInteger value="6"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
 		<valueCode value="anonymous"/>

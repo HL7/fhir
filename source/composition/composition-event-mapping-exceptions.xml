@@ -20,7 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="Composition.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,SupplyRequest,Task,Transport,VisionPrescription)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,Task,VisionPrescription)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows tracing of authorization for the composition and tracking whether proposals/recommendations were acted upon."/>
@@ -56,7 +56,7 @@
     <divergentElement patternPath="Event.subject" resourcePath="Composition.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, Group)" reason="Unknown"/>
         <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>

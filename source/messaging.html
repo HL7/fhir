@@ -38,9 +38,13 @@ Messages are <a href="bundle.html">Bundle</a> resources, with the following rule
     The bundle SHALL NOT include resources that are not part of a connected graph of RESTful references 
     (i.e., using <a href="references.html#Reference">Reference.reference</a>, <a href="references.html#canonical">canonical</a> 
     or a <a href="datatypes.html#uri">URI</a>) that includes the <code>MessageHeader</code>; 
-    i.e., It must be possible to traverse the references between resources in such a way that all resources are linked.
+    I.e. It must be possible to traverse the references between resources in such a way that all resources are linked.
+    See <a href="bundle.html#graphs">Graph-connected Bundles</a> for further details.
   </li>
 </ul>  
+
+All message Bundles SHALL be a [fully-interconnected graph](link to above).
+
 <p>
 The MessageHeader resource has a code - the message event - that identifies the
 nature of the request message, and it also carries additional request metadata.

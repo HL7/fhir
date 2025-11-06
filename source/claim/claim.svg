@@ -1407,7 +1407,7 @@
    id="n2879"
    xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
    id="n2880"
-   xlink:href="supplyrequest.html#SupplyRequest">SupplyRequest</a>|<a
+   xlink:href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html#SupplyRequest">SupplyRequest</a>|<a
    id="n2881"
    xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
     <text

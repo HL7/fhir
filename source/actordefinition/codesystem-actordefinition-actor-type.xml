@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="actordefinition-actor-type"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -32,62 +32,29 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of actor - system or human."/>
+  <description value="The type of actor - system or human or other."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
+  <concept>
+    <code value="person"/>
+    <display value="Person"/>
+    <definition value="A human being acting directly."/>
+  </concept>
   <concept>
     <code value="system"/>
     <display value="System"/>
     <definition value="A software application or collection of such applications functioning as or represented as a single entity.  (This would be instantiated in FHIR as a Device.)"/>
   </concept>
   <concept>
-    <code value="non-system"/>
-    <display value="Non System"/>
-    <definition value="A person, animal, (non-software) device, organization or other entity"/>
-    <concept>
-      <code value="individual"/>
-      <display value="Individual"/>
-      <definition value="A person or animal"/>
-      <concept>
-        <code value="patient"/>
-        <display value="Patient"/>
-      </concept>
-      <concept>
-        <code value="practitioner"/>
-        <display value="Practitioner"/>
-      </concept>
-      <concept>
-        <code value="related-person"/>
-        <display value="Related Person"/>
-      </concept>
-    </concept>
-    <concept>
-      <code value="device"/>
-      <display value="Device"/>
-      <definition value="A physical device acting in non-software capacity"/>
-    </concept>
-    <concept>
-      <code value="collective"/>
-      <display value="Collective"/>
-      <definition value="A group of people or animals"/>
-      <concept>
-        <code value="care-team"/>
-        <display value="Care Team"/>
-      </concept>
-      <concept>
-        <code value="group"/>
-        <display value="Group"/>
-      </concept>
-      <concept>
-        <code value="healthcare-service"/>
-        <display value="Healthcare Service"/>
-      </concept>
-      <concept>
-        <code value="organization"/>
-        <display value="Organization"/>
-      </concept>
-    </concept>
+    <code value="collective"/>
+    <display value="Collective"/>
+    <definition value="A group of people or animals"/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Some other kind of actor"/>
   </concept>
 </CodeSystem>

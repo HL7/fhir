@@ -427,16 +427,6 @@
 			</type>
 			<isSummary value="true"/>
 		</element>
-		<element id="CompartmentDefinition.resource.documentation">
-			<path value="CompartmentDefinition.resource.documentation"/>
-			<short value="Additional documentation about the resource and compartment"/>
-			<definition value="Additional documentation about the resource and compartment."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
 		<element id="CompartmentDefinition.resource.startParam">
 			<path value="CompartmentDefinition.resource.startParam"/>
 			<short value="Search Param for interpreting $everything.start"/>

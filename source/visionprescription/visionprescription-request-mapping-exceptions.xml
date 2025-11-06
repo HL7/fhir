@@ -114,7 +114,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="VisionPrescription.prescriber">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Organization,Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Organization, Patient, RelatedPerson, Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
             <resource value="Who authorized the vision prescription"/>

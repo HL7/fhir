@@ -29,7 +29,7 @@
   <purpose value="Purpose: this serves to demonstrate a scenario that uses service requests and Task resources to establish a handshake for order tracking."/>
   <actor>
     <key value="Clin"/>
-    <type value="practitioner"/>
+    <type value="person"/>
     <title value="Clinician"/>
     <description value="Clinician"/>
   </actor>
@@ -47,13 +47,13 @@
   </actor>
   <actor>
     <key value="LabMan"/>
-    <type value="practitioner"/>
+    <type value="person"/>
     <title value="Lab Man"/>
     <description value="Lab Person"/>
   </actor>
   <actor>
     <key value="Lab"/>
-    <type value="device"/>
+    <type value="other"/>
     <title value="Lab"/>
     <description value="Lab"/>
   </actor>

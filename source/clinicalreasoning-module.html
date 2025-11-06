@@ -67,7 +67,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>From the perspective of a Knowledge Content Provider, this module defines search functionality for using a FHIR server as a knowledge artifact repository.</p>
 
-<p>From the perspective of a Knowledge Evaluation Service Provider, this module defines operations and profiles in support of evaluating quality measures, and defining and using <a href="https://cds-hooks.hl7.org/">CDS Hooks</a> services.</p>
+<p>From the perspective of a Knowledge Evaluation Service Provider, this module defines operations and profiles in support of evaluating quality measures, and defining and using <a href="https://clinicalreasoning-cds-on-fhir.html/">Decision Support Services</a>.</p>
 
 <p>And finally, from the perspective of a Knowledge Evaluation Service Consumer, this module defines the expected available operations and behavior of a knowledge evaluation service.</p>
 
@@ -304,6 +304,12 @@ in order to support consistent definitions for schema and UML derived code.
 <p>As part of the ongoing CQF initiative pilot efforts, these developing specifications are being used to support knowledge artifact sharing, as well as evaluation of knowledge artifacts as part of decision support request/response and measure evaluation.</p>
 
 <p>This module continues the harmonization of quality domain specifications by defining an approach to using a FHIR server as a component of a knowledge system in both the Knowledge Repository and Knowledge Evaluation Service roles.</p>
+
+<p>More broadly, the FHIR Clinical Reasoning module provides a foundation for a Quality Improvement Ecosystem, depicted in the following diagram:</p>
+
+<img alt="Clinical Quality Improvement Ecosystem" src="clinicalreasoning-qi-ecosystem.png"/>
+
+<p>Also referred to as a "Learning Health System", the diagram highlights the ideal iterative flow of data from collection and reporting, becoming evidence through measurement and analysis, being synthesized into knowledge in the form of guidelines, operationalized as decision support, becoming actions through workflow implementation and integration with clinical care, ultimately producing data that feeds back into the cycle. This process can be seen at work throughout the healthcare industry, from the microcosm of direct patient-provider interactions to determine and understand the best course of treatment for a patient, through quality improvement initiatives enacted within institutions to drive better patient outcomes and provider experience, up to industry-wide efforts including payer-provider collaboration and quality programs. The FHIR Clinical Reasoning module and the implementation guides based on builds on the semantic interoperability enabled by FHIR to reduce friction throughout this cycle and across the settings in which it manifests to enable not only exchange of semantically interoperable data, but of knowledge.</p>
 
 <a name="related-specifications"></a>
 <h3>Related Specifications</h3>
