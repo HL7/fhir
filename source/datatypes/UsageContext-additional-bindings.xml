@@ -9,6 +9,7 @@
         <system value="http://hl7.org/fhir/usage-context-type"/>
         <code value="gender"/>
       </coding>
+    </valueCodeableConcept>
   </usage>
   <any value="false"/>
 </additional>
@@ -23,6 +24,7 @@
         <system value="http://hl7.org/fhir/usage-context-type"/>
         <code value="focus"/>
       </coding>
+    </valueCodeableConcept>
   </usage>
   <any value="false"/>
 </additional>
@@ -37,6 +39,7 @@
         <system value="http://hl7.org/fhir/usage-context-type"/>
         <code value="user"/>
       </coding>
+    </valueCodeableConcept>
   </usage>
   <any value="false"/>
 </additional>
@@ -51,6 +54,7 @@
         <system value="http://hl7.org/fhir/usage-context-type"/>
         <code value="workflow"/>
       </coding>
+    </valueCodeableConcept>
   </usage>
   <any value="false"/>
 </additional>
@@ -65,6 +69,7 @@
         <system value="http://hl7.org/fhir/usage-context-type"/>
         <code value="task"/>
       </coding>
+    </valueCodeableConcept>
   </usage>
   <any value="false"/>
 </additional>
@@ -79,6 +84,7 @@
         <system value="http://hl7.org/fhir/usage-context-type"/>
         <code value="venue"/>
       </coding>
+    </valueCodeableConcept>
   </usage>
   <any value="false"/>
 </additional>
@@ -93,6 +99,7 @@
         <system value="http://hl7.org/fhir/usage-context-type"/>
         <code value="jurisdiction"/>
       </coding>
+    </valueCodeableConcept>
   </usage>
   <any value="false"/>
 </additional>
