@@ -105,7 +105,12 @@
 			A heartbeat notification is a subscription-notification Bundle of type <code>heartbeat</code> sent without incrementing the subscription event count, though servers MAY include the most recent event in the notification.  For servers, heartbeat notifications allow systems to ensure  that the connection is still alive and valid.  For clients, heartbeat notifications serve as a method to detect errors in communication.  Note that a client is not required to take any action in receipt of a heartbeat beyond the channel-specific requirement for receiving an event notification (e.g., accepting the notification bundle with an HTTP 200).
 		</p>
     <p>
-      Heartbeat intervals are negotiated while creating a Subscription.  If accepted, servers SHOULD send one heartbeat per interval on the accepted subscription.
+      Heartbeat intervals are negotiated while creating a Subscription.  If accepted, servers SHOULD send a heartbeat notification whenever the channel 
+      has been inactive for the specified amount of time. For example, if the heartbeat interval is 60 seconds, the expectation is that there is never 
+      a period of 60 seconds that passes without sending at least one notification (either <code>event-notification</code> or <code>heartbeat<code>). 
+      Note that this is a minimum requirement - servers have discretion on how to implement testing: for example by resetting a timer when sending any 
+      notification, always sending a heartbeat on a fixed timer, etc.. Clients SHALL be able to handle receiving heartbeat notifications more often than
+      required, and SHOULD account for miniscule differences timing (e.g., clock drift).
     </p>
     <table class="grid">
       <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
