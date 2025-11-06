@@ -158,7 +158,7 @@ src.a2 as a check a2.length &lt;= 20 -&gt; tgt.a2 = a; // error if it's longer t
 Note that it is implicit here that the transformation engine is not required to expected to validate the
 output against that underlying structure definitions that may apply to it. An application may - and usually
 should - validate the outputs after the transforms, but the transform engine itself does not automatically validate the output
-(e.g. it does not assume that it's the final step in the process).
+(e.g., it does not assume that it's the final step in the process).
 </p>
 
 <a name="step4"></a>
@@ -186,7 +186,7 @@ src.a21 as a where a.convertsToInteger() -&gt; tgt.a21 = cast(a, "integer"); // 
 src.a21 as a where at1.convertsToInteger().not() -&gt; tgt.a21 = 0; // just assign it 0
 </pre>
 <p>
-More than one of these mapping rules may be present to handle all possible cases - e.g. rule_a21b combined with rule_a21c.
+More than one of these mapping rules may be present to handle all possible cases - e.g., rule_a21b combined with rule_a21c.
 </p>
 <p>
 Note that the mapping language does not itself define which primitive types exist. Typically,
@@ -308,7 +308,7 @@ dependent rules or groups.
 <a name="step8"></a>
 <h3>Step #8: Translation</h3>
 <p>
-A common translation pattern is to perform a translation e.g. from one set of codes to another
+A common translation pattern is to perform a translation e.g., from one set of codes to another
 </p>
 <table>
   <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>

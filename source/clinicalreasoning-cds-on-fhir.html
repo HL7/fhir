@@ -26,7 +26,7 @@
 
 <img alt="Surfacing Clinical Reasoning Behavior Natively in a FHIR Server" src="clinicalreasoning-cdsnative-approach.png"/>
 
-<p>Using this approach, applications manipulate patient data as they would for any other FHIR application, and at points in the clinical workflow where decision support should be provided (as indicated by the triggerDefinition elements of the PlanDefinitions in the system), the PlanDefinition/$apply operation is invoked, passing the current context (i.e. the subject, encounter, user, etc). The result is a series of request resources that can then be processed by the client application. These will typically be proposals to perform actions, and can be displayed to the user to determine the actual actions to be performed.</p>
+<p>Using this approach, applications manipulate patient data as they would for any other FHIR application, and at points in the clinical workflow where decision support should be provided (as indicated by the triggerDefinition elements of the PlanDefinitions in the system), the PlanDefinition/$apply operation is invoked, passing the current context (i.e., the subject, encounter, user, etc). The result is a series of request resources that can then be processed by the client application. These will typically be proposals to perform actions, and can be displayed to the user to determine the actual actions to be performed.</p>
 
 <p>For a more detailed treatment of how this process can be represented in and applied with FHIR Clinical Reasoning resources, see the <a href="http://hl7.org/fhir/uv/cpg/activityflow.html">Activity Flow</a> topic in the FHIR Clinical Guidelines implementation guide.</p>
 

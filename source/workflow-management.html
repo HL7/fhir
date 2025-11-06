@@ -58,8 +58,8 @@ in order to support consistent definitions for schema and UML derived code.
         <ul>
             <li>Uses the FHIR REST API for managing the workflow</li>
             <li>Both placer and fulfiller can track the state of the workflow</li>
-            <li>Can use this approach for request other than just fulfillment (e.g. to request status change or other updates)</li>
-            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+            <li>Can use this approach for request other than just fulfillment (e.g., to request status change or other updates)</li>
+            <li>There's an ability to negotiate fulfillment - i.e., the ability to say "no"</li>
             <li>Explicit acknowledgement that filler has received and agreed to act on the request</li>
             <li>Supports cancellation through ability of placer to change the status of the Task to cancelled.</li>
         </ul>
@@ -69,7 +69,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
             <li>Placer and fulfiller must have a FHIR server, and placer's FHIR server must allow "write" updates to the Task resource</li>
             <li>
-                <p>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)</p>
+                <p>Placer and filler may need to be able to communicate directly (i.e., know each other's respective endpoints)</p>
                 <ul>
                     <li>This could become unmanagable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
                     <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
@@ -118,8 +118,8 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Uses the FHIR REST API for managing the workflow</li>
             <li>Subscription/polling is targeted to a specific resource instance - much simpler than general subscription/polling infrastructure</li>
             <li>Both placer and fulfiller can track the state of the workflow</li>
-            <li>Can use this approach for request other than just when requesting fulfillment (e.g. to request status change or other updates)</li>
-            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+            <li>Can use this approach for request other than just when requesting fulfillment (e.g., to request status change or other updates)</li>
+            <li>There's an ability to negotiate fulfillment - i.e., the ability to say "no"</li>
             <li>Explicit acknowledgement that filler has received and agreed to act on the request</li>
             <li>Placer can attempt to cancel task in the event of order cancellation, but no guarantee</li>
             <li>Filler has control over whether task can be cancelled</li>
@@ -130,7 +130,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Additional complexity of using subscription or polling</li>
             <li>Placer and fulfiller must have a FHIR server and fulfiller's FHIR server must allow "write" creation of the Task resource by the placer</li>
             <li>
-                Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)
+                Placer and filler may need to be able to communicate directly (i.e., know each other's respective endpoints)
                 <ul>
                     <li>This could become unmanagable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
                     <li>Might not apply if there's a queue server</li>
@@ -169,7 +169,7 @@ in order to support consistent definitions for schema and UML derived code.
         </ol>
         <h4>Benefits</h4>
         <ul>
-            <li>Offloads responsibility for seeking fulfillment from the placer system, but more actively solicits fulfillment than a simple "post the task and see who takes it". Also, allows prioritized assignment of tasks (i.e. some fillers may be preferred
+            <li>Offloads responsibility for seeking fulfillment from the placer system, but more actively solicits fulfillment than a simple "post the task and see who takes it". Also, allows prioritized assignment of tasks (i.e., some fillers may be preferred
                 over others)</li>
         </ul>
         <h4>Limitations</h4>
@@ -207,8 +207,8 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Uses the FHIR REST API for managing the workflow</li>
             <li>No need to use subscription or polling</li>
             <li>Both placer and fulfiller can track and change the state of the workflow</li>
-            <li>Can use this approach for request other than just when requesting fulfillment (e.g. to request status change or other updates)</li>
-            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+            <li>Can use this approach for request other than just when requesting fulfillment (e.g., to request status change or other updates)</li>
+            <li>There's an ability to negotiate fulfillment - i.e., the ability to say "no"</li>
             <li>Explicit acknowledgement that filler has received and agreed to act on the request</li>
             <li>Placer can initiate task cancellation, but filler decides whether it's possible to cancel the task or not</li>
         </ul>
@@ -218,7 +218,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Need to keep the two Task states in sync</li>
             <li>Placer and fulfiller must each have a FHIR server and give the other side "write" access to create and update Task resources.</li>
             <li>
-                Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)
+                Placer and filler may need to be able to communicate directly (i.e., know each other's respective endpoints)
                 <ul>
                     <li>This could become unmanagable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
                     <li>Might not apply if there's a queue server</li>
@@ -250,10 +250,10 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <h4>Steps</h4>
         <ol>
-            <li>Placer sends message to filler with a MessageHeader, where the <code>focus</code> element points to the Task resource, also contained in the message. The message might or might not contain any other relevant resources (e.g. the actual request resource), or
+            <li>Placer sends message to filler with a MessageHeader, where the <code>focus</code> element points to the Task resource, also contained in the message. The message might or might not contain any other relevant resources (e.g., the actual request resource), or
                 an "event" code saying "please fulfill"</li>
             <li>Filler system sends a response containing the same Task resource, indicating receipt of the message and, optionally, an indication of their intention to fulfill the request</li>
-            <li>Filler system may send incremental messages to the placer showing progress (e.g. specimen collected, preliminary results, final results) by including an updated Task resource</li>
+            <li>Filler system may send incremental messages to the placer showing progress (e.g., specimen collected, preliminary results, final results) by including an updated Task resource</li>
             <li>Placer system may also send messages to the fulfiller containing the Task resource and updating the state of the workflow, for example cancelling the task</li>
         </ol>
         <h4>Benefits</h4>
@@ -261,8 +261,8 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Reduced number of communications</li>
             <li>All relevant data can be sent in one package</li>
             <li>Responses can be asynchronous, and content may be routed</li>
-            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
-            <li>Can request things other than just fulfillment (e.g. please suspend)</li>
+            <li>There's an ability to negotiate fulfillment - i.e., the ability to say "no"</li>
+            <li>Can request things other than just fulfillment (e.g., please suspend)</li>
             <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
         </ul>
         <h4>Limitations</h4>
@@ -274,7 +274,7 @@ in order to support consistent definitions for schema and UML derived code.
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
-            Appropriate when existing messaging infrastructure can be used (e.g. HL7 over HTTP, v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.), and a need to stay consistent with that architecture.
+            Appropriate when existing messaging infrastructure can be used (e.g., HL7 over HTTP, v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.), and a need to stay consistent with that architecture.
         </p>
         <h4>Usage Examples</h4>
         <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternJ-MessagingTaskfromplacertofulfiller">HL7 Confluence page</a></p>
@@ -349,7 +349,7 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <img alt="Diagram showing POST of &quot;request&quot; resource for filler system, response via Task workflow" src="workflow-optionh-a.png" />
         <ol>
-            <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. ServiceRequest etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler, placer or
+            <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g., ServiceRequest etc.) to the appropriate RESTful resource endpoint (e.g., [base]/MedicationRequest) on the filler, placer or
                 queue server system and sets a "tag" on the resource that indicates the request is "actionable"</li>
             <li>Filler POSTs a Task resource to its own system or a queue server system, pointing to the request resource and indicating intent to fulfill or refusal to fulfill</li>
             <li>Placer system uses either polling or pub/sub to become aware of the existence of the task and fulfillment intent</li>

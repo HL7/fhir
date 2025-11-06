@@ -138,11 +138,11 @@
 
 <p>For simplicity, resources that use logic libraries SHOULD reference at most one library to avoid the need to qualify expression references. Take, for example, the case of updating a library reference in a resource. If the resource has multiple library references, then every expression qualifier that referred to the previous library must be updated. However, if the libraries were combined into a single reference, then only the reference would need to be updated.</p>
 
-<p>When CQL expressions are identifier (i.e. using an Expression element with a language of <code>text/cql-identifier</code>), if the expression element has a <code>reference</code>, the identifier SHALL be to an expression in the referenced library.</p>
+<p>When CQL expressions are identifier (i.e., using an Expression element with a language of <code>text/cql-identifier</code>), if the expression element has a <code>reference</code>, the identifier SHALL be to an expression in the referenced library.</p>
 
 <a name="inline-expressions"/>
 <h5>Inline Expressions</h5>
-<p>When CQL expressions are included in-line (i.e. with a language specifier of <code>text/cql-expression</code>), then that expression SHALL have access to any libraries referenced by the resource (with either a <code>library</code> element or the <code>cqf-library</code> extension). This means that in-line expressions may reference declarations in those libraries by using the name of the library as a qualifier.</p>
+<p>When CQL expressions are included in-line (i.e., with a language specifier of <code>text/cql-expression</code>), then that expression SHALL have access to any libraries referenced by the resource (with either a <code>library</code> element or the <code>cqf-library</code> extension). This means that in-line expressions may reference declarations in those libraries by using the name of the library as a qualifier.</p>
 
 <p>For example, given a PlanDefinition with a library element referencing the Example library in this IG, the following CQL in-line expression is valid:</p>
 
@@ -194,7 +194,7 @@
 
 <a name="quantities"> </a>
 <h5>Use of FHIR Quantity</h5>
-<p>The mapping from FHIR Quantity to CQL <code>System.Quantity</code> can only be applied if the FHIR Quantity has a UCUM code, i.e. a system of <code>http://unitsofmeausure.org</code> and a code is present.</p>
+<p>The mapping from FHIR Quantity to CQL <code>System.Quantity</code> can only be applied if the FHIR Quantity has a UCUM code, i.e., a system of <code>http://unitsofmeausure.org</code> and a code is present.</p>
 
 <p>As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/R2/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath and CQL, according to the following map:</p>
 
