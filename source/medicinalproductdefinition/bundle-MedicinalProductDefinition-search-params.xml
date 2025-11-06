@@ -342,5 +342,24 @@
     </resource>
   </entry>
   
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicinalProductDefinition-name-country"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicinalProductDefinition.name.usage.country"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-name-country"/>
+        <description value="A country applicable to this product, as expressed by its name properties"/>
+        <code value="name-country"/>
+        <type value="token"/>
+        <expression value="MedicinalProductDefinition.name.usage.country"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
   
 </Bundle>
