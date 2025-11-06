@@ -18,13 +18,13 @@
   The <a href="metadatatypes.html#Expression">Expression</a> type indicates that one of the allowed languages is <code>application/x-fhir-query</code>.  
   This is defined as a FHIR <a href="http://hl7.org/fhir/R4/search.html">search</a> string.  Normally this will not include the base URL and is intended 
   to be invoked against the server that is in scope (usually based on the base URL of the resource containing the Expression).
-  However, in some cases, a full URL might be specified, i.e. if the author of the resource wants resources to always be retrieved from a
+  However, in some cases, a full URL might be specified, i.e., if the author of the resource wants resources to always be retrieved from a
   specific source.  
 </p>
 <p>
   In addition to the base query syntax, this specification allows for the injection of FHIRPath into the query expressions.  This allows the
   queries to take advantage of context when they are invoked.  Systems SHALL evaluate and substitute the results of such queries before executing them.  
-  The FHIRPaths are denoted by surrounding them with double curly-braces (i.e. <code>{{ fhirpath goes here }}</code>) in the same way expressions are denoted in the
+  The FHIRPaths are denoted by surrounding them with double curly-braces (i.e., <code>{{ fhirpath goes here }}</code>) in the same way expressions are denoted in the
   <a href="https://shopify.github.io/liquid">Liquid</a> templating language.
 </p>
 <p>
@@ -50,9 +50,9 @@ NOTE: Some of the FHIRPath content may need to be escaped (percent-encoded) in o
 <ul>
   <li>If the expression resolves to a complex element of type Coding, Identifier, or Reference, the element content will be substituted using the standard token format.</li>
   <li>If the expression resolves to a complex element of type CodeableConcept, the processing will behave as though the expression had an additional node specifying ".coding" 
-    (i.e. the substitution will execute on the collection of codings resolved to within the CodeableConcept).</li>
+    (i.e., the substitution will execute on the collection of codings resolved to within the CodeableConcept).</li>
   <li>If the expression resolves to an element of type Quantity, it will be converted to a search type of 'quantity'.</li>
-  <li>If the expression resolves to a collection of more than one value, the substitution will be a list of comma-separated values (i.e. behaving as 'or').</li>
+  <li>If the expression resolves to a collection of more than one value, the substitution will be a list of comma-separated values (i.e., behaving as 'or').</li>
   <li>If the result of the path expression is a type that does not have a conversion to a search parameter type listed above, that is an error.  The FHIRPath should drill deeper to a type that has a conversion.  For example, if a path results in a CodeableReference, the path should be extended to refer to the .concept or .reference sub-elements (which do have conversions defined).</li>
 </ul>   
 

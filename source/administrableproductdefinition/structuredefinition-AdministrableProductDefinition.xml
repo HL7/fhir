@@ -276,7 +276,7 @@
     <element id="AdministrableProductDefinition.code">
       <path value="AdministrableProductDefinition.code"/>
       <short value="A code that this product is known by, within some formal terminology. May be a PhPID"/>
-      <definition value="A code that this product is known by, within some formal terminology. May be a PhPID. PhPID is really a code or a label, and not an identifier, because it applies to multiple products"/>
+      <definition value="A code that this product is known by, within some formal terminology. May be a PhPID. PhPID is really a code or a label, and not an identifier, because it applies to multiple products."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -28,7 +28,7 @@
   <a name="read"> </a>
   <h3>Polling a single record</h3>
   <p>
-    This approach is used when the <i>data consumer</i> is only interested in a single resource that already exists.  For example, when monitoring a Task for progress or to see if it is complete (e.g. for <a href="exchanging-request.html#task">Task-based exchanges</a>).  Rather than performing a search, the <i>data consumer</i> simply executes a <code>read</code>.  To be more efficient, it uses the <code>If-modified-since</code> header specifying the <code>_lastUpdated</code> value of the most recent version it has retrieved.  This ensures that no data will be returned at all if the record has not changed since it was last looked at.
+    This approach is used when the <i>data consumer</i> is only interested in a single resource that already exists.  For example, when monitoring a Task for progress or to see if it is complete (e.g., for <a href="exchanging-request.html#task">Task-based exchanges</a>).  Rather than performing a search, the <i>data consumer</i> simply executes a <code>read</code>.  To be more efficient, it uses the <code>If-modified-since</code> header specifying the <code>_lastUpdated</code> value of the most recent version it has retrieved.  This ensures that no data will be returned at all if the record has not changed since it was last looked at.
   </p>
   <p>
     [%file polling-read.svg %]
