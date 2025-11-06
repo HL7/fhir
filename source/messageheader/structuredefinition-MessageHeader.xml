@@ -130,6 +130,7 @@
         </extension>
         <strength value="example"/>
         <description value="One of the message events defined as part of this version of FHIR."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/message-events"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
