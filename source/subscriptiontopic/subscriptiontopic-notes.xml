@@ -526,6 +526,14 @@
   <a name="filters-timing" />
   <h4>Filter Timing and Interactions</h4>
   <p>
+    Subscription processing (filter evaluation, content collection, and notification dispatch) is independent of the 
+    request that changes system state. Implementations are NOT required to block committing create/update/delete operations 
+    while evaluating subscriptions and are encouraged to implement their systems so that blocking does not occur. E.g., 
+    by performing subscription processing asynchronously via queues or background tasks. Included resources are expected,
+    though not required, to reflect a consistent post-commit view. Temporary delays or failures in subscription processing 
+    are expected and SHOULD NOT roll back or affect the originating interaction.
+  </p>
+  <p>
     When a server evaluates filters depends on the type of change covered by the topic. Guidance is provided based on
     implementation feedback, but note that all filters are defined to explicitly describe the state before and after the
     interaction occurs.
