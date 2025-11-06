@@ -2297,12 +2297,32 @@ around the semantics of the search and the rate at which the underlying resource
 updated, created or deleted.
 </p>
 [%impl-note%]
-Clients should avoid making assumptions about which behavior a server is implementing.
+<span class="fhir-conformance">Clients SHOULD avoid making assumptions about which paging behavior a server is implementing.</span>
 At present, there is no way for a client to interrogate the server to determine how
 paging continuity and integrity issues are handled. This may be addressed in the future,
 and feedback is welcome.
 [%end-note%]
 
+<a name="paging-best-practices"> </a>
+<h4>Paging Best Practices</h4>
+<p>
+  <span class="fhir-conformance">Servers SHOULD NOT include a <code>previous</code> (or <code>prev</code>) link on the initial result page.</span>
+  Since the initial page is the first page of results, there are no previous pages to navigate to, and including such a link would be misleading or confusing to clients.
+</p>
+<p>
+  <span class="fhir-conformance">Servers SHOULD NOT include a <code>next</code> link when the server knows there are no more results available.</span>
+  By not populating a <code>next</code> link when there are no more results, servers prevent clients from making unnecessary round-trip requests
+  to retrieve an empty result set. This improves efficiency and reduces load on both client and server systems.
+</p>
+<p>
+  <span class="fhir-conformance">Clients SHOULD be robust to handling a <code>next</code> link that returns no results.</span>
+  In multi-server or proxied environments, it is possible that the server providing the <code>next</code> link may not have access to all the data
+  available to the original server that provided the initial results. Therefore, clients should be prepared to handle cases where following a <code>next</code> link yields no additional results.
+</p>
+<p>
+  <span class="fhir-conformance">Clients SHOULD be robust to receiving a Bundle that is not full (i.e., contains fewer entries than requested via <code>_count</code>).</span>
+  A Bundle may not be full for various reasons, including data security/privacy redaction, size or count limitations, or reaching the end of available results.
+</p>
 
 <a name="head"/>
 <h3>Support for HEAD</h3>
