@@ -76,8 +76,8 @@
 		<tr><th>Element</th><th>Description</th></tr>
 	</thead>
 	<tbody>
-		<tr><td><a href="library-definitions.html#Library.name">name</a></td><td>A computer-friendly name for the artifact (e.g. LowSuicideRiskOrderSet <a href="plandefinition-example.html">example</a>)</td></tr>
-		<tr><td><a href="library-definitions.html#Library.title">title</a></td><td>A user-friendly title for the artifact (e.g. Low Suicide Risk Order Set <a href="plandefinition-example.html">example</a>)</td></tr>
+		<tr><td><a href="library-definitions.html#Library.name">name</a></td><td>A computer-friendly name for the artifact (e.g., LowSuicideRiskOrderSet <a href="plandefinition-example.html">example</a>)</td></tr>
+		<tr><td><a href="library-definitions.html#Library.title">title</a></td><td>A user-friendly title for the artifact (e.g., Low Suicide Risk Order Set <a href="plandefinition-example.html">example</a>)</td></tr>
 		<tr><td><a href="library-definitions.html#Library.status">status</a></td><td>The lifecycle status for the artifact (draft, active, or inactive) <a href="plandefinition-example.html">example</a></td></tr>
 		<tr><td><a href="library-definitions.html#Library.experimental">experimental</a></td><td>Whether the artifact is for testing purposes, rather than production usage <a href="plandefinition-example-kdn5-simplified.html">example</a></td></tr>
 		<tr><td><a href="library-definitions.html#Library.date">date</a></td><td>Date last changed <a href="plandefinition-example-kdn5-simplified.html">example</a></td></tr>
@@ -164,8 +164,8 @@
 		<tr><td>Trigger Definitions</td><td>Triggering events for the action. See the section on trigger definitions below for more information.</td></tr>
 		<tr><td>Condition</td><td>An optional condition specifying whether the action definition applies.</td></tr>
 		<tr><td>Timing</td><td>A description of when the action definition should occur.</td></tr>
-		<tr><td>Behavior</td><td>Various behaviors that communicate the intended semantics of groups and actions (e.g. selection behavior, grouping behavior, etc.)</td></tr>
-		<tr><td>Type</td><td>The type of action to be performed (e.g. create, update, delete, etc.)</td></tr>
+		<tr><td>Behavior</td><td>Various behaviors that communicate the intended semantics of groups and actions (e.g., selection behavior, grouping behavior, etc.)</td></tr>
+		<tr><td>Type</td><td>The type of action to be performed (e.g., create, update, delete, etc.)</td></tr>
 		<tr><td>Activity Definition</td><td>A description of what activity is to be performed. To enable reuse and modularity, ActivityDefinition resources may be reused by multiple action definitions.</td></tr>
 		<tr><td>Dynamic Values</td><td>Expressions that can be used to specify dynamic values for the resulting activity.</td></tr>
 		<tr><td>Child Actions</td><td>Each action may contain any number of child actions, allowing a hierarchy of actions to be described (for example, sections in an order set).</td></tr>
@@ -249,7 +249,7 @@
 
 <p>The Create, Update, and Remove actions indicate that particular resources should be created, updated, or removed, and the Fire Event action indicates that a particular named event should be triggered.</p>
 
-<p>Note that this element is optional, and is used to indicate what type of action is to be taken with the associated activity definition. For example, an action that indicates <code>create</code> with an activity definition that defines a referral request means that the referral request should be realized and the resulting resource created (i.e. applied to the patient's record). An action that indicates <code>update</code> with an activity definition would indicate that an existing resource on the patient's record should be updated based on the new resource content. For example:</p>
+<p>Note that this element is optional, and is used to indicate what type of action is to be taken with the associated activity definition. For example, an action that indicates <code>create</code> with an activity definition that defines a referral request means that the referral request should be realized and the resulting resource created (i.e., applied to the patient's record). An action that indicates <code>update</code> with an activity definition would indicate that an existing resource on the patient's record should be updated based on the new resource content. For example:</p>
 
 <pre><code>&lt;action&gt;
   &lt;description value=&quot;Update status of the referral to completed&quot;/&gt;
@@ -409,7 +409,7 @@
 
 <p>An Event-Condition-Action (ECA) rule is an artifact with the general syntax "on event, if condition is true, then do action." The event triggers the invocation of the rule; the condition is a logical test that, if satisfied or evaluates "true", causes an action; while the action describes a set of activities to be performed. These actions may in turn cause further events to occur, which may in turn cause other ECA rules to fire.</p>
 
-<p>Note that the "activity" to be performed may be to document a patient-specific assessment performed by a clinical decision support service (e.g. patient has a 37% chance of a heart attack in the next 5 years), not just recommendations/recommended actions. In this case, the action would be to "create" a RiskAssessment.</p>
+<p>Note that the "activity" to be performed may be to document a patient-specific assessment performed by a clinical decision support service (e.g., patient has a 37% chance of a heart attack in the next 5 years), not just recommendations/recommended actions. In this case, the action would be to "create" a RiskAssessment.</p>
 
 <p>The <a href="plandefinition.html">PlanDefinition</a> resource can be used to represent an ECA rule using the <code>action</code> element. A single, top-level <code>action</code> represents the overall rule, with the <code>trigger</code> element used to specify the triggering event(s), the <code>condition</code> element used to specify the applicable condition for the rule, and the <code>action</code> element describing the action to be performed.</p>
 
@@ -509,7 +509,7 @@
 <a name="order-set"> </a>
 <h4>Order Set</h4>
 
-<p>An order set is a pre-defined and approved group of orders related to a particular clinical context (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit) or a particular grouping (e.g. pediatrics, adult, males over 50, etc.). An order set is typically used as a checklist for clinicians when managing a patient with a specific context. It is a structured collection of orders relevant to that condition or context and presented to the clinician in a computerized provider order entry system (CPOE).</p>
+<p>An order set is a pre-defined and approved group of orders related to a particular clinical context (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit) or a particular grouping (e.g., pediatrics, adult, males over 50, etc.). An order set is typically used as a checklist for clinicians when managing a patient with a specific context. It is a structured collection of orders relevant to that condition or context and presented to the clinician in a computerized provider order entry system (CPOE).</p>
 
 <p>The <a href="plandefinition.html">PlanDefinition</a> resource can represent an Order Set using action definitions to define the orderable items in the order set. The items in an order set are typically organized hierarchically, as a set of sections, sub-sections, etc., with the actions themselves at the very bottom of the structure. In the PlanDefinition resource, each section, and sub-section, as well as the individual items are all represented as action definitions. Each group and/or subgroup may have behavior indicators associated with it, e.g., the number of actions that can/should/must be selected from the group of actions.</p>
 

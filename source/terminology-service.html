@@ -296,8 +296,8 @@ environment, but there is no explicit notion of this in the interface itself.
 <h3>Value Set Expansion</h3>
 <p>
 A value set describes a set of rules for what codes or concepts are considered to be in the value set.
-These rules might be simple (e.g. a direct list of codes from a specified version of a code system), or
-they might be quite complex (e.g. all codes with a particular property from an unspecified version of
+These rules might be simple (e.g., a direct list of codes from a specified version of a code system), or
+they might be quite complex (e.g., all codes with a particular property from an unspecified version of
 a code system).
 </p>
 <p>
@@ -307,7 +307,7 @@ As a summary, the client passes the server the following information:
 </p>
 <ul>
  <li> the value set (either by its URL on the RESTful interface, by its logical identifier <a href="valueset-definitions.html#ValueSet.url">(ValueSet.url)</a>, or directly as a parameter to the call)</li>
- <li> (Optionally) a text filter to use to restrict the codes that are returned (e.g. user input text). It is left to server discretion to choose how to apply the text filter</li>
+ <li> (Optionally) a text filter to use to restrict the codes that are returned (e.g., user input text). It is left to server discretion to choose how to apply the text filter</li>
  <li> (Optionally) a date at which the expansion should be evaluated (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
  <li> (Optionally) which page to retrieve - asking the server to break the expansion into a set of chunks</li>
  <li> (Optionally) other parameters that supply additional information about how to perform the expansion</li>
@@ -337,7 +337,7 @@ trees of concepts are not subject to paging and the server simply returns the en
 Some example uses for the expansion operation:
 </p>
 <ul>
- <li> get a list of codes to display in a User interface (e.g. a drop-down interface)</li>
+ <li> get a list of codes to display in a User interface (e.g., a drop-down interface)</li>
  <li> a variation on this is to offer the user a text box to type in. As the user types, call the expand operation to provide the user with a list of matching codes/concepts (like a browser search) </li>
  <li> fetch a list of codes to use when generating software programming instructions</li>
  <li> get a list of codes so that software can check whether a code is valid or not in a specific context</li>
@@ -416,10 +416,10 @@ The server returns some or all of the following information:
 <ul>
  <li> a human description of the system</li>
  <li> a recommended display for the code </li>
- <li> properties of the code (e.g. status) </li>
+ <li> properties of the code (e.g., status) </li>
  <li> other designations for the code (a value, optionally with language and/or a use code)</li>
  <li> relationships between this code and other codes (parent/child properties, etc.)</li>
- <li> Component properties of the specified code (e.g. to support reasoning) (e.g. decomposition)</li>
+ <li> Component properties of the specified code (e.g., to support reasoning) (e.g., decomposition)</li>
 </ul>
 <p>
 The recommended display for the code is a text representation of the code that the
@@ -546,7 +546,7 @@ can be returned (and see the definitions for <a href="https://terminology.hl7.or
 One way to determine whether a code is in a value set is to expand the value set
 (as described above), and then look at the returned codes to see if the code is in the expansion.
 However, this is not an efficient way to test whether a code is valid, and for some value sets
-(e.g. with infinite number of members), it cannot work. Instead, a FHIR terminology server
+(e.g., with infinite number of members), it cannot work. Instead, a FHIR terminology server
 provides <a href="valueset-operation-validate-code.html">a "validate-code" operation</a>. The client passes the server the following information:
 </p>
 <ul>
@@ -567,7 +567,7 @@ multiple codings are allowed and/or the codings provided are consistent with eac
 <p>
 Every code system has an implicit value set that is "all the concepts defined
 in the code system" (CodeSystem.valueSet). For some code systems, these value set URIs are defined
-in advance (e.g. for <a href="http://loinc.org">LOINC</a>, it is <code>http://loinc.org/vs</code>).
+in advance (e.g., for <a href="http://loinc.org">LOINC</a>, it is <code>http://loinc.org/vs</code>).
 However, for some code systems, they are not known. Clients can refer to these implicit
 value sets by providing the URI for the code system itself.
 </p>
@@ -809,7 +809,7 @@ HTTP/1.1 200 OK
 <h3>Translations</h3>
 <p>
 A client can ask a server to translate a concept from one value set to another. Typically, this
-is used to translate between code systems (e.g. from LOINC to SNOMED CT, or from a <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 V3</a> code to
+is used to translate between code systems (e.g., from LOINC to SNOMED CT, or from a <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 V3</a> code to
 a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> code). The client calls <a href="conceptmap-operation-translate.html">the translate operation</a> and passes the following parameters:
 </p>
 <ul>
@@ -823,7 +823,7 @@ The client passes either a concept map, or the value sets for the source and des
 If there is no concept map, then the server may determine the appropriate map to use from
 context provided in the value sets.
 If there is no particular context, the appropriate value sets would be the value sets for the
-entire coding system at question (e.g. from http://snomed.info/sct to http://loinc.org/vs).
+entire coding system at question (e.g., from http://snomed.info/sct to http://loinc.org/vs).
 The server performs the translation as it is able based on the concept maps that it knows about.
 If no single mapping can be determined, then the
 server returns an error. Some servers may require a concept map to use for the translation.

@@ -699,7 +699,7 @@
       d) by stylesheets to control how collections of
          html nodes are rendered into printed documents
       e) to make a link to a printable version of this document
-         e.g. a PostScript or PDF version (rel="alternate" media="print")
+         e.g., a PostScript or PDF version (rel="alternate" media="print")
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
@@ -1881,7 +1881,7 @@
       <xs:documentation>
       horizontal alignment attributes for cell contents
 
-      char        alignment char, e.g. char=':'
+      char        alignment char, e.g., char=':'
       charoff     offset for alignment char
       </xs:documentation>
     </xs:annotation>
