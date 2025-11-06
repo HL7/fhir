@@ -108,4 +108,22 @@ None of the standard resources will have direct references to Basic, aside from 
 "Any" resource.  As a result, most references to "Basic" will need to be performed using extensions.
 </p>
 
+<h4>Search Parameters against Basic</h4>
+<p>
+  Custom <a href="searchparameter.html">SearchParameters</a> can be defined against a <code>Basic</code> resource 
+  profile in the same manner as any other resource. However, because of the wide range of concepts that can be 
+  conveyed via <code>Basic</code>, the opportunity for collisions in the naming of search parameters is higher. 
+  While collisions <em>can</em> be resolved using the standard mechanism (checking parameter codes via the
+  <code>CapabilityStatement</code> and resolving canonical definitions), best practice is for search parameter codes 
+  to include the conceptual resource name represented as a prefix. For example, rather than defining a search parameter 
+  called <code>effectiveDate</code>, it would be better to have the search parameter code be 
+  <code>application-renewal-effective-date</code>. This same convention is recommended if leveraging <code>Basic</code> 
+  to represent resources during inter-version conversion (e.g., a future or legacy resource). For example, a search 
+  parameter might be coded as <code>personal-relationship-source</code> rather than just <code>source</code>.
+</p>
+<p>
+  Note that authors and implementers MAY still define and support non-prefixed codes; this guidance is an aid to 
+  interoperability and governance.
+</p>
+
 </div>
