@@ -11,7 +11,7 @@
 		<valueCode value="trial-use"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
+		<valueInteger value="4"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
 		<valueCode value="business"/>
@@ -80,6 +80,9 @@
 		<element id="EvidenceVariable">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="0,0"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+				<valueString value="Evidence/EvidenceVariable maturity level 4: Brian Alper/Joanne Dehnbostel: 19-0-0"/>
 			</extension>
 			<path value="EvidenceVariable"/>
 			<short value="A definition of an exposure, outcome, or other variable"/>
@@ -458,7 +461,7 @@
 			<path value="EvidenceVariable.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
 			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted . (e.g. 'All rights reserved', 'Some rights reserved')."/>
-			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -518,13 +521,13 @@
 		  <min value="1"/>
 		  <max value="1"/>
 		  <type>
-			<code value="code"/>
+			<code value="CodeableConcept"/>
 		  </type>
 		  <binding>
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 			  <valueString value="ArtifactRelationshipType"/>
 			</extension>
-			<strength value="required"/>
+			<strength value="extensible"/>
 			<description value="The type of relationship to the related artifact."/>
 			<valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
 		  </binding>
@@ -645,6 +648,7 @@
 			<path value="EvidenceVariable.handling"/>
 			<short value="boolean | continuous | dichotomous | ordinal | polychotomous | time-to-event | not-specified"/>
 			<definition value="The method of handling in statistical analysis."/>
+			<comment value="See the Evidence Based Medicine on FHIR Implementation Guide (https://hl7.org/fhir/uv/ebm) for Extensible and Preferred value sets for evidence-related terminologies."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -652,10 +656,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableHandling"/>
+					<valueString value="EvidenceVariableHandlingExample"/>
 				</extension>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling"/>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
 			</binding>
 		</element>
 		<element id="EvidenceVariable.category">

@@ -176,7 +176,7 @@
         <valueString value="Active - processed but not pickup Completed - process and pickup Aborted - process and put back in stock  This is not related to partialFill whioch is really a partialFulfillment of the order."/>
       </extension>
       <path value="MedicationDispense.status"/>
-      <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"/>
+      <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | unfulfilled | declined | unknown"/>
       <definition value="A code specifying the state of the set of dispense events."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
@@ -254,7 +254,7 @@
       <path value="MedicationDispense.category"/>
       <short value="Type of medication dispense"/>
       <definition value="Indicates the type of medication dispense (for example, drug classification like ATC, where meds would be administered, legal category of the medication.)."/>
-      <comment value="The category can be used to include where the medication is expected to be consumed or other types of dispenses.  Invariants can be used to bind to different value sets when profiling to bind."/>
+      <comment value="The category can be used to include where the medication is expected to be consumed or other types of dispenses.  Invariants can be used to bind to different value sets when profiling to bind.  &#xA;&#xA;The committee will revisit these codes, expecting to use a codesystem from [terminology.hl7.org](http://terminology.hl7.org)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -266,7 +266,7 @@
         </extension>
         <strength value="example"/>
         <description value="A code describing where the dispensed medication is expected to be consumed or administered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-category"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -275,8 +275,8 @@
     </element>
     <element id="MedicationDispense.medication">
       <path value="MedicationDispense.medication"/>
-      <short value="What medication was supplied"/>
-      <definition value="Identifies the medication supplied. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
+      <short value="What medication was (or was intended to be) supplied"/>
+      <definition value="Identifies the medication supplied (or intended to be supplied). This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
       <comment value="If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource."/>
       <min value="1"/>
       <max value="1"/>
@@ -333,7 +333,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -427,6 +427,7 @@
       <path value="MedicationDispense.performer.actor"/>
       <short value="Individual who was performing"/>
       <definition value="The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication."/>
+      <comment value="The different performer functions within a dispense process can vary - and some of these functions may be restricted to clinical professionals - such distinction is usually specific to a jurisdiction and context. While performer.function and performer.actor don't add restrictions on which resources can be referenced, this element is expected to be used according to the local restrictions, for example not allowing Group (e.g., household) or RelatedPerson to be the dispenser."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -527,8 +528,8 @@
     </element>
     <element id="MedicationDispense.quantity">
       <path value="MedicationDispense.quantity"/>
-      <short value="Amount dispensed"/>
-      <definition value="The amount of medication that has been dispensed. Includes unit of measure."/>
+      <short value="Amount of medication"/>
+      <definition value="The amount of medication that has been (or was intended to be) dispensed. Includes unit of measure."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -761,6 +762,29 @@
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]"/>
       </mapping>
     </element>
+    <element id="MedicationDispense.doseAdministrationAid">
+      <path value="MedicationDispense.doseAdministrationAid"/>
+      <short value="Type of adherence packaging to use for the dispense"/>
+      <definition value="Provides information about the type of adherence packaging supplied for the medication dispense."/>
+      <comment value="When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.&#xD;The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationDispenseDoseAdministrationAid"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="A coded concept describing the type of adherence packaging supplied for the medication dispense."/>
+        </extension>
+        <strength value="example"/>
+        <description value="DoseAdministrationAid"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-dose-aid"/>
+      </binding>
+    </element>
+
     <element id="MedicationDispense.substitution">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Significant discssion around this topic.  Might not have it right yet. What about the attribution?"/>

@@ -169,7 +169,7 @@
     <element id="DeviceUsage.status">
       <path value="DeviceUsage.status"/>
       <short value="preparation | active | completed | not-done | entered-in-error +"/>
-      <definition value="A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed."/>
+      <definition value="The current state of the device usage."/>
       <comment value="DeviceUsage is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).&#xD;&#xD;This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid. When the status is 'not-done', the [event-statusReason](http://hl7.org/fhir/StructureDefinition/event-statusReason) extension should be used to indicate why the DeviceUsage was not done."/>
       <min value="1"/>
       <max value="1"/>
@@ -213,6 +213,10 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
     </element>
     <element id="DeviceUsage.subject">
       <path value="DeviceUsage.subject"/>
@@ -233,7 +237,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="quick"/>
@@ -324,6 +328,10 @@
       <mapping>
         <identity value="quick"/>
         <map value="ClinicalStatement.statementDateTime"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.recorded"/>
       </mapping>
     </element>
     <element id="DeviceUsage.usageStatus">
@@ -433,6 +441,10 @@
         <identity value="w5"/>
         <map value="FiveWs.actor"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reported[x]"/>
+      </mapping>
     </element>
     <element id="DeviceUsage.device">
       <path value="DeviceUsage.device"/>
@@ -449,6 +461,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.product"/>
       </mapping>
     </element>
     <element id="DeviceUsage.reason">
@@ -484,10 +500,10 @@
         <map value="Action.indication.reason"/>
       </mapping>
     </element>
-    <element id="DeviceUsage.bodySite">
-      <path value="DeviceUsage.bodySite"/>
-      <short value="Target body site"/>
-      <definition value="Indicates the anotomic location on the subject's body where the device was used ( i.e. the target)."/>
+    <element id="DeviceUsage.bodyStructure">
+      <path value="DeviceUsage.bodyStructure"/>
+      <short value="Target body structure"/>
+      <definition value="Indicates the anatomic location on the subject's body where the device was used (i.e. the target)."/>
       <requirements value="Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]]."/>
       <min value="0"/>
       <max value="1"/>
@@ -498,13 +514,13 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite"/>
+          <valueString value="BodyStructure"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical locations. May include laterality."/>
+          <valueString value="Codes describing anatomical body structures. May include laterality."/>
         </extension>
         <strength value="example"/>
-        <description value="SNOMED CT Body site concepts"/>
+        <description value="SNOMED CT Body Structures"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
       </binding>
       <mapping>

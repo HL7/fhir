@@ -2,7 +2,7 @@
   <id value="xds-facilitycodes"/>
   <meta>
     <lastUpdated value="2015-03-17T12:06:30.047+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/xds-facilitycodes"/>
 	<identifier>

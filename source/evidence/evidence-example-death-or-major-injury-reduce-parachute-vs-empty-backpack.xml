@@ -34,7 +34,13 @@
 	</contact>
 	<copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
 	<relatesTo>
-		<type value="part-of"/>
+	    <type>
+	      <coding>
+        	<system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+        	<code value="part-of" />
+        	<display value="Part Of" />
+	      </coding>
+	    </type>
 		<targetReference>
 			<reference value="Composition/312172"/>
 			<type value="Composition"/>

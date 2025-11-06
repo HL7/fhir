@@ -194,7 +194,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Citation-jurisdiction"/>
-        <description value="Intended jurisdiction for the citation"/>
+        <description value="Jurisdiction of the authority that maintains the the citation"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="Citation.jurisdiction"/>
@@ -375,6 +375,23 @@
           <definition value="classifier"/>
           <expression value="classifier"/>
         </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Citation.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the Citation is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="Citation.experimental"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

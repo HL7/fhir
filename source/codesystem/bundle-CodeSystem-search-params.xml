@@ -16,7 +16,7 @@
         <description value="A code defined in the code system"/>
         <code value="code"/>
         <type value="token"/>
-        <expression value="CodeSystem.concept.code"/>
+        <expression value="CodeSystem.repeat(concept).code"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="CodeSystem-context-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.code"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="CodeSystem-context-type-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-context-type-quantity"/>
         <description value="A use context type and quantity- or range-based value assigned to the code system"/>
@@ -126,7 +126,7 @@
       <SearchParameter>
         <id value="CodeSystem-context-type-value"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-context-type-value"/>
         <description value="A use context type and value assigned to the code system"/>
@@ -213,7 +213,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-jurisdiction"/>
-        <description value="Intended jurisdiction for the code system"/>
+        <description value="Jurisdiction of the authority that maintains the the code system"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="CodeSystem.jurisdiction"/>
@@ -235,7 +235,7 @@
         <description value="A language in which a designation is provided"/>
         <code value="language"/>
         <type value="token"/>
-        <expression value="CodeSystem.concept.designation.language"/>
+        <expression value="CodeSystem.repeat(concept).designation.language"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -302,7 +302,7 @@
       <SearchParameter>
         <id value="CodeSystem-supplements"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CodeSystem.supplements"/>
@@ -397,7 +397,7 @@
       <SearchParameter>
         <id value="CodeSystem-effective"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CodeSystem.effectivePeriod"/>
@@ -418,7 +418,7 @@
           <valueString value="CodeSystem.relatedArtifact.resource"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="A resource that the CodeSystem is derived from"/>
         <code value="derived-from"/>
@@ -434,7 +434,7 @@
           <valueString value="CodeSystem.relatedArtifact.resource"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="The predecessor of the CodeSystem"/>
         <code value="predecessor"/>
@@ -450,12 +450,29 @@
           <valueString value="CodeSystem.topic"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Topics associated with the CodeSystem"/>
         <code value="topic"/>
         <type value="token"/>
         <expression value="CodeSystem.topic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CodeSystem.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the CodeSystem is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="CodeSystem.experimental"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

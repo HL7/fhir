@@ -522,6 +522,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Encounter-business-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.businessStatus.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-business-status"/>
+        <description value="The current business status of the Encounter"/>
+        <code value="business-status"/>
+        <type value="token"/>
+        <expression value="Encounter.businessStatus.code"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Encounter-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

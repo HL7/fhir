@@ -2,7 +2,7 @@
 	<id value="example"/>
 	<meta>
 		<!--   shareable value sets are fully described, and can be put in the HL7 registry   -->
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+		
 	</meta>
 	<text>
 		<status value="additional"/>

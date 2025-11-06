@@ -331,7 +331,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ARQ-8, SCH-8"/>
+        <map value="ARQ-8, SCH-8 or ARQ-7, SCH-7  - note these are all user tables - review with trading partners which v2 field is used for serviceType concepts is recommended."/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -352,7 +352,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="specialty"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>
       <mapping>
@@ -381,10 +381,6 @@
         <strength value="preferred"/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0276"/>
       </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="ARQ-7, SCH-7"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".code"/>
@@ -930,7 +926,7 @@
       <path value="Appointment.participant.type"/>
       <short value="Role of participant in the appointment"/>
       <definition value="Role of participant in the appointment."/>
-      <comment value="The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.&#xD;&#xD;If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.&#xD;&#xD;This value SHALL be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment."/>
+      <comment value="The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.&#xD;&#xD;If the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.&#xD;&#xD;This value SHALL be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.&#xD;&#xD;`Appointment.participant.type` can be used to differentiate references of the same type, such as Locations, not just Practitioners or PractitionerRoles.  For example, if an appointment is scheduled in a radiology department (Location #1), but has an arrival location of the North Check-in Desk (Location #2), then those locations could be differentiated using `Appointment.participant.type`." />
       <min value="0"/>
       <max value="*"/>
       <type>

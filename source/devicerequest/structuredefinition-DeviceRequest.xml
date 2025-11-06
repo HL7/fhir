@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="DeviceRequest"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -139,62 +139,6 @@
         <map value="ClinicalStatement.identifier"/>
       </mapping>
     </element>
-    <element id="DeviceRequest.instantiatesCanonical">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#10296][#11119]#13196]."/>
-      </extension>
-      <path value="DeviceRequest.instantiatesCanonical"/>
-      <short value="Instantiates FHIR protocol or definition"/>
-      <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this DeviceRequest."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="DeviceRequest.instantiatesUri">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#10296][#11119]#13196]."/>
-      </extension>
-      <path value="DeviceRequest.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition"/>
-      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this DeviceRequest."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesUri"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
     <element id="DeviceRequest.basedOn">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="DeviceRequest.prnReason."/>
@@ -320,7 +264,7 @@
     </element>
     <element id="DeviceRequest.intent">
       <path value="DeviceRequest.intent"/>
-      <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+      <short value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
       <comment value="This element is immutable. It cannot be changed for the same resource instance."/>
       <min value="1"/>
@@ -405,19 +349,29 @@
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc.)"/>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.doNotPerform"/>
+      </mapping>
     </element>
-    <element id="DeviceRequest.code">
+    <element id="DeviceRequest.product[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#14271]."/>
       </extension>
-      <path value="DeviceRequest.code"/>
+      <path value="DeviceRequest.product[x]"/>
       <short value="Device requested"/>
       <definition value="The details of the device to be used."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <type>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
       <isSummary value="true"/>
@@ -431,7 +385,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code"/>
+        <map value="Request.product"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -507,10 +461,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ParameterCode"/>
+          <valueString value="RequestOrderDetailParameterCode"/>
         </extension>
         <strength value="example"/>
-        <description value="A code that identifies the device detail."/>
+        <description value="Codes for order detail parameters."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-orderdetail-parameter-code"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -588,7 +543,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -724,6 +679,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -743,41 +702,6 @@
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
     </element>
-    <!-- <element id="DeviceRequest.performerType">
-      <path value="DeviceRequest.performerType"/>
-      <short value="Filler role"/>
-      <definition value="The desired kind of individual or entity to provide the device to the subject of the request (e.g., patient, location)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceRequestParticipantRole"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.performerType"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PRT"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PRF].role[scoper.determinerCode=KIND].code"/>
-      </mapping>
-    </element> -->
     <element id="DeviceRequest.performer">
       <path value="DeviceRequest.performer"/>
       <short value="Requested Filler"/>
@@ -811,6 +735,40 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"/>
+      </mapping>
+    </element>
+    <element id="DeviceRequest.location">
+      <path value="DeviceRequest.location"/>
+      <short value="Requested location"/>
+      <definition value="The preferred location(s) where the device should actually be used in coded or free text form. E.g. at home or nursing day care center."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="DeviceRequest.location"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <isModifier value="false"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceRequestLocation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A location type where devices are delivered."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=LOC].role[scoper.determinerCode=KIND].code"/>
       </mapping>
     </element>
     <element id="DeviceRequest.reason">

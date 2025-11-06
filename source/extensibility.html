@@ -17,8 +17,7 @@
 
 <a name="root"></a>
 <h1>Extensibility</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 This exchange specification is based on generally agreed common
@@ -66,6 +65,7 @@ Notes:
  <li>The <code>url</code> is a mandatory attribute / property and identifies a retrievable <a href="defining-extensions.html">extension definition</a> that defines the content and meaning of the extension</li>
  <li>Extensions are not allowed on <code>Extension.url</code> or on <code>Element.id</code>; see <a href="elementdefinition-definitions.html#ElementDefinition.representation">ElementDefinition.representation</a> for background</li>
  <li>The <code>url</code> SHALL be a URL, not a URN (e.g. not an OID or a UUID), and it SHALL be a reference to the canonical URL of a StructureDefinition that defines the extension. Except for child extensions defined within complex extensions, the URL SHALL be an absolute URL. </li>
+ <li>Complex extensions SHOULD have 'open' slicing on the extension element to allow use of other full URL extensions within the complex extension.  However, if creating a derived profile on a complex extension, that adds additional extension slices, those slices SHALL have full URLs.  This is because derived profiles are not defining the extension - i.e. they are not establishing the 'url' value for the extension.</li>
  <li>The structure definitions for the extension SHOULD be available to consumers of an instance.  The preferred mechanisms for achieving this availability are the direct resolvability of the extension's canonical URL and/or the publishing of the extension definition on a registry that is available and known to those systems that will be consuming the instances containing the extension</li>
  <li>An extension SHALL have either a value (i.e. a value[x] element) or sub-extensions, but not both. If present, the value[x] element SHALL have content (value attribute or other elements)</li>
  <li>If it is not safe for an application processing the content of the resource to ignore the extension it SHALL be represented using a <a href="#isModifier">Modifier Extension</a> rather than an <code>extension</code> element. 'Not safe' means that the extension causes information in other elements within the resource to be interpreted in a way that is not consistent with their base definition. See examples <a href="#modifierExtension">below</a>.</li>
@@ -119,6 +119,7 @@ In RDF (Turtle), the same extension looks like this:
   fhir:extension (
     [
       fhir:url [
+        fhir:l &lt;http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use&gt; ;
         fhir:v "http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use"^^xsd:anyURI
       ] ;
       fhir:value [

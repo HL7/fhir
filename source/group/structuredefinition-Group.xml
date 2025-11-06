@@ -9,7 +9,7 @@
     <valueString value="Base.Individuals"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -23,6 +23,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".active = false"/>
   </extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Group"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -85,10 +88,10 @@
       <min value="0"/>
       <max value="*"/>
       <constraint>
-        <key value="cnl-2"/>
+        <key value="grp-2"/>
         <severity value="error"/>
         <human value="Group.type SHALL be defined if Group.membership is either 'definitional' or 'enumerated'"/>
-        <expression value="Group.type.exists() or (Group.membership = 'conceptual')"/>
+        <expression value="type.exists() or (membership = 'conceptual')"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
@@ -360,9 +363,9 @@
     </element>
     <element id="Group.copyright">
       <path value="Group.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the Group and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the Group."/>
-      <comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/>
+      <short value="Notice about intellectual property ownership, can include restrictions on use"/>
+      <definition value="A copyright statement relating to the Group and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the Group."/>
+      <comment value="The short copyright declaration (e.g. (c) '2015+ xyz organization') should be sent in the copyrightLabel element without the copyright prefix (i.e., do not include '(c)' or the symbol)."/>
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the Group and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>
@@ -382,8 +385,8 @@
       </extension>
       <path value="Group.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
-      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -393,9 +396,9 @@
     </element>
     <element id="Group.type">
       <path value="Group.type"/>
-      <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen | medication | substance | biologicallyDerivedProduct | nutritionProduct"/>
+      <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen | medication | medicinalproductdefinition | substance | substancedefinition | biologicallyDerivedProduct | nutritionProduct"/>
       <definition value="Identifies the broad classification of the kind of resources the group includes."/>
-      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, PractitionerRole, Device, CareTeam, HealthcareService, Location, Organization, RelatedPerson, or Specimen for the other types.), or a Group of the resources of the appropriate type."/>
+      <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, PractitionerRole, Device, CareTeam, HealthcareService, Location, Organization, RelatedPerson, Specimen, Medication, Substance, BiologicallyDerivedProduct, or NutritionProduct for the other types.), or a Group of the resources of the appropriate type."/>
       <requirements value="Identifies what type of resources the group is made up of."/>
       <min value="0"/>
       <max value="1"/>
@@ -411,6 +414,7 @@
         <description value="Types of resources that are part of group."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/group-type"/>
       </binding>
+      <condition value="grp-2"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.class"/>
@@ -439,6 +443,7 @@
         <description value="The basis for membership in a group"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/group-membership-basis"/>
       </binding>
+      <condition value="grp-2"/>
     </element>
     <element id="Group.code">
       <path value="Group.code"/>
@@ -660,21 +665,30 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/definition-method"/>
       </binding>
     </element>
-    <element id="Group.characteristic.determinedBy[x]">
-      <path value="Group.characteristic.determinedBy[x]"/>
-      <short value="Defines the characteristic"/>
-      <definition value="Defines the characteristic (without using type and value) by either a Reference or an Expression."/>
-      <requirements value="The value of the characteristic is what determines group membership."/>
+    <element id="Group.characteristic.formula">
+      <path value="Group.characteristic.formula"/>
+      <short value="Formal algorithm to derive the value"/>
+      <definition value="A CQL, FHIRPath, or other expression that is used to generate the value for this characteristic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+    </element>
+    <element id="Group.characteristic.determiner">
+      <path value="Group.characteristic.determiner"/>
+      <short value="Who determines the value"/>
+      <definition value="The entity who is expected to evaluate the characteristic value for candidate group members."/>
+      <comment value="The expectation is that the determiner is someone who matches the characteristics specified by the referenced entity, not necessarily that the actual reference in the instance is to the entity.  For example, if specifying a PractitionerRole with just a PractitionerRole.type, it's fine for any PractitionerRole that matches or specializes that type to do the determination."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
-      </type>
-      <type>
-        <code value="Expression"/>
       </type>
     </element>
     <element id="Group.characteristic.offset">
@@ -771,7 +785,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="Group.member.entity">
@@ -794,7 +808,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>

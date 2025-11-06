@@ -1027,24 +1027,9 @@
 		<translation lang="it">Sostanza</translation>
 		<translation lang="es">Sustancia</translation>
 	</item>
-    <item id="SubstanceReferenceInformation">
-        <translation lang="en">SubstanceReferenceInformation</translation>
-    </item>
 	<item id="SubstanceDefinition">
 		<translation lang="en">SubstanceDefinition</translation>
 	</item>
-	<item id="SubstanceSourceMaterial">
-		<translation lang="en">SubstanceSourceMaterial</translation>
-	</item>
-    <item id="SubstancePolymer">
-        <translation lang="en">SubstancePolymer</translation>
-	</item>
-	<item id="SubstanceProtein">
-		<translation lang="en">SubstanceProtein</translation>
-	</item>
-	<item id="SubstanceNucleicAcid">
-		<translation lang="en">SubstanceNucleicAcid</translation>
-    </item>
 	<item id="SupplyDelivery">
 		<translation lang="en">SupplyDelivery</translation>
 		<translation lang="zh">供应交付</translation>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="examplescenario-operation-codes"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/examplescenario-operation-codes"/>
+  <version value="6.0.0"/>
+  <name value="ExampleScenarioOperationCode"/>
+  <title value="Example Scenario Operation Code"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines a set of codes that are used to indicate the supported operations of a testing engine or tool."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/restful-interaction"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="transport-reason"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/transport-reason"/>
+  <version value="6.0.0"/>
+  <name value="TransportReason"/>
+  <title value="Transport Reason Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2025-10-24T16:55:11+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+ <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Example ValueSet that can be used to describe reasons for transport."/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0003"/>
+      <concept>
+        <code value="A01"/>
+        <display value="ADT/ACK - Admit/visit notification"/>
+        <definition value="ADT/ACK - Admit/visit notification"/>
+      </concept>
+      <concept>
+        <code value="A02"/>
+        <display value="ADT/ACK - Transfer a patient"/>
+        <definition value="ADT/ACK - Transfer a patient"/>
+      </concept>
+      <concept>
+        <code value="A03"/>
+        <display value="ADT/ACK - Discharge/end visit"/>
+        <definition value="ADT/ACK - Discharge/end visit"/>
+      </concept>
+      <concept>
+        <code value="I12"/>
+        <display value="REF/RRI - Patient referral"/>
+        <definition value="REF/RRI - Patient referral"/>
+      </concept>
+      <concept>
+        <code value="O23"/>
+        <display value="OMI - Imaging order"/>
+        <definition value="OMI - Imaging order"/>
+      </concept>
+      <concept>
+        <code value="O27"/>
+        <display value="OMB - Blood product order"/>
+        <definition value="OMB - Blood product order"/>
+      </concept>
+      <concept>
+        <code value="S38"/>
+        <display value="Containers Prepared for Specimen Collection"/>
+        <definition value="Describes the event before specimen collection, when containers have been prepared"/>
+      </concept>
+      <concept>
+        <code value="R26"/>
+        <display value="OSM - Unsolicited Specimen Shipment Manifest Message"/>
+        <definition value="OSM - Unsolicited Specimen Shipment Manifest Message"/>
+      </concept>
+      <concept>
+        <code value="S47"/>
+        <display value="Specimen Sent to Archive"/>
+        <definition value="Describes the event when a specimen has been moved into storage"/>
+      </concept>
+      <concept>
+        <code value="S48"/>
+        <display value="Specimen Retrieved from Archive"/>
+        <definition value="Describes the event when a specimen has been moved out of storage"/>
+      </concept>
+      <concept>
+        <code value="U14"/>
+        <display value="INR/ACK – Automated Equipment Inventory Request"/>
+        <definition value="INR/ACK – Automated Equipment Inventory Request"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

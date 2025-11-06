@@ -725,7 +725,13 @@
       <copyright value="Published by the BMJ Publishing Group Limited. For permission to use (where not already granted under a licence) please go to http://group.bmj.com/group/rights-licensing/permissions."/>
     </abstract>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -748,11 +754,23 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <citation value="United States Parachute Association. Skydiver's Information Manual, 2018. https://uspa.org/Portals/0/files/Man_SIM_2018.pdf"/>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -775,7 +793,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -798,11 +822,23 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <citation value="ICD-10-CM Code V97.2. Parachutist Accident. https://icd.codes/icd10cm/V972"/>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -825,7 +861,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -848,11 +890,23 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <citation value="QuickTapSurvey [program]: TabbleDabble Inc., Toronto, Canada. https://www.quicktapsurvey.com"/>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -875,7 +929,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -898,7 +958,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -921,7 +987,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -944,7 +1016,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -967,7 +1045,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -990,7 +1074,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -1013,11 +1103,23 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <citation value="Newton SI. Law of Universal Gravitation. Philosophiæ Naturalis Principia Mathematica, 1687."/>
     </relatesTo>
     <relatesTo>
-      <type value="cites"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="cites" />
+          <display value="Cites" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
@@ -1040,7 +1142,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="correction-in"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="correction-in" />
+          <display value="Correction In" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="https://meshb.nlm.nih.gov/"/>
@@ -1064,7 +1172,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="comment-in"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="comment-in" />
+          <display value="Has Comment In" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="https://meshb.nlm.nih.gov/"/>
@@ -1088,7 +1202,13 @@
       </resourceReference>
     </relatesTo>
     <relatesTo>
-      <type value="comment-in"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="comment-in" />
+          <display value="Has Comment In" />
+        </coding>
+      </type>
       <classifier>
         <coding>
           <system value="https://meshb.nlm.nih.gov/"/>

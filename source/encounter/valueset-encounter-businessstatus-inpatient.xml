@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="encounter-businessstatus-inpatient"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/encounter-businessstatus-inpatient"/>
+  <version value="6.0.0"/>
+  <name value="EncounterBusinessStatusInpatient"/>
+  <title value="Encounter Business Status - Inpatient"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2025-10-29T00:00:00+00:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Business statuses for inpatient encounters."/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/encounter-businessstatus-inpatient"/>
+    </include>
+  </compose>
+</ValueSet>

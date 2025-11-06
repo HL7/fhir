@@ -240,7 +240,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="service-specialty"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="A specialty that a healthcare service may provide."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>
@@ -550,6 +550,7 @@
         <description value="IETF language tag for a human language"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
         <additional>
+				  <key value="b-hs-1"/>
           <purpose value="starter"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
         </additional>

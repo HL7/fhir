@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="deviceassociation-status"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -19,28 +19,23 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-status"/>
   <content value="complete"/>
   <concept>
-    <code value="implanted"/>
-    <display value="Implanted"/>
-    <definition value="The device is implanted in the patient."/>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The DeviceAssociation record is active."/>
   </concept>
   <concept>
-    <code value="explanted"/>
-    <display value="Explanted"/>
-    <definition value="The device is no longer implanted in the patient. Note that this is not the value to be used for devices that have never been implanted. In those cases, no value or a specific value can be used."/>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="The DeviceAssociation record is no longer active."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="The association was entered in error and therefore nullified."/>
-  </concept>
-  <concept>
-    <code value="attached"/>
-    <display value="Attached"/>
-    <definition value="The device is attached to the patient but not implanted in the patient."/>
+    <definition value="The DeviceAssociation record was entered in error."/>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The association status of the device has not been determined."/>
+    <definition value="The status of the DeviceAssociation record is unknown."/>
   </concept>
 </CodeSystem>

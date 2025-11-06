@@ -105,10 +105,12 @@
       </mapping>
     </element>
     <element id="Linkage.author">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#46592, J#46593"/>
+      </extension>
       <path value="Linkage.author"/>
       <short value="Who is responsible for linkages"/>
-      <definition value="Identifies the user or organization responsible for asserting the linkages as well as the user or organization who establishes the context in which the nature of each linkage is evaluated."/>
-      <requirements value="&quot;Primary&quot; for the same set of linked resources may be different from different user's/organization's perspectives."/>
+      <definition value="Identifies the user or organization responsible for asserting the linkages and establishing the context in which the nature of each linkage is evaluated."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -124,9 +126,12 @@
       </mapping>
     </element>
     <element id="Linkage.item">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#46594"/>
+      </extension>
       <path value="Linkage.item"/>
       <short value="Item to be linked"/>
-      <definition value="Identifies which record considered as the reference to the same real-world occurrence as well as how the items should be evaluated within the collection of linked items."/>
+      <definition value="Identifies a member of a set of resource instances considered to refer to the same real-world entity and classifies the role of the resource instance in the set."/>
       <min value="1"/>
       <max value="*"/>
       <type>

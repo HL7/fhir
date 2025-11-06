@@ -159,7 +159,7 @@
         <description value="Activity or plan definitions used by plan definition"/>
         <code value="definition"/>
         <type value="reference"/>
-        <expression value="PlanDefinition.action.definition.ofType(canonical) | PlanDefinition.action.definition.ofType(uri)"/>
+        <expression value="PlanDefinition.repeat(action).definition.ofType(canonical) | PlanDefinition.repeat(action).definition.ofType(uri)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -270,7 +270,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PlanDefinition-jurisdiction"/>
-        <description value="Intended jurisdiction for the plan definition"/>
+        <description value="Jurisdiction of the authority that maintains the the plan definition"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="PlanDefinition.jurisdiction"/>
@@ -521,6 +521,23 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="PlanDefinition.version"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PlanDefinition.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the PlanDefinition is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="PlanDefinition.experimental"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

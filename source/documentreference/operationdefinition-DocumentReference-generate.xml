@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
   <id value="DocumentReference-generate"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -59,6 +59,13 @@
     </telecom>
   </contact>
   <description value="A client can ask a server to generate a document reference from a document.&#xA;The server reads the existing document and generates a matching DocumentReference&#xA;resource, or returns one it has previously generated. Servers may be able to &#xA;return or generate document references for the following types of content:"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <affectsState value="true"/>
   <code value="generate"/>
   <comment value="The server either returns a search result containing a single document reference, &#xA;or it returns an error. &#xA;If the URI refers to another server, it is at the discretion of the &#xA;server whether to retrieve it or return an error."/>

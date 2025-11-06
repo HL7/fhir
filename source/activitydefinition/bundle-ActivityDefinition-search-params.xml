@@ -251,7 +251,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ActivityDefinition-jurisdiction"/>
-        <description value="Intended jurisdiction for the activity definition"/>
+        <description value="Jurisdiction of the authority that maintains the the activity definition"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ActivityDefinition.jurisdiction"/>
@@ -521,6 +521,23 @@
         <code value="kind"/>
         <type value="token"/>
         <expression value="ActivityDefinition.kind"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ActivityDefinition.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the ActivityDefinition is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="ActivityDefinition.experimental"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

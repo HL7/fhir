@@ -6,6 +6,12 @@
 Implementation Guides are published through the FHIR Package distribution system.
 For further details, see the <a href="packages.html">FHIR NPM Packages</a>.
 </p>
+<p>
+Choices around the types and volume of resources included in a single implementation guide
+can impact the size of the packages resulting from the publication of the implementation guide.
+When deciding on how to organize content and making decisions about what content to include,
+please consider the package guidance provided in the <a href="packages.html#composition">FHIR Package Composition</a> section.
+</p>
 
 <a name="authoring"></a>
 <h3>Authoring Implementation Guides</h3>
@@ -37,7 +43,7 @@ documentation (html). The resources typically specify some combination of:
 <li>API Details: <a href="capabilitystatement.html">Capability Statement</a>, <a href="operationdefinition.html">operation definitions</a> and 
 additional <a href="searchparameter.html">search parameters</a></li>
 <li>Clinical Logic: <a href="questionnaire.html">Questionnaires</a>, <a href="library.html">logic libraries</a> and <a href="measure.html">measure definitions</a></li>
-<li>Test Information: <a href="testscript.html">Test Scripts</a></li>
+<li>Test Information: Test Scripts</li>
 <li>Supporting Examples</li>
 </ul>
 <p>

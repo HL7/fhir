@@ -1,0 +1,1451 @@
+// 2) Returned on successful evaluation of the CMS146 measure for Patient/124 over a measurement period of the first 3 months of 2014
+HTTP/1.1 200 OK
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/measurereport.xsd">
+    <parameter>
+        <name value="return"/>
+        <resource>
+            <Bundle>
+                <type value="transaction-response"/>
+                <entry>
+                    <resource>
+                        <MeasureReport xmlns="http://hl7.org/fhir"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xsi:schemaLocation="http://hl7.org/fhir ../../schema/measurereport.xsd">
+                            <id value="measurereport-cms146-cat1-example"/>
+                            <text>
+                                <status value="generated"/>
+                                <div xmlns="http://www.w3.org/1999/xhtml">
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Id: </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;"
+                                                >MeasureReport/measurereport-cms146-cat1-example</td>
+                                        </tr>
+                                    </table>
+                                    <p/>
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Measure: </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <span style="padding-left: 25px;">
+                                                  <b>reference: </b>
+                                                  <span>Measure/CMS146</span>
+                                                  <br/>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p/>
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Type: </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;"
+                                                >individual</td>
+                                        </tr>
+                                    </table>
+                                    <p/>
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Patient: </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <span style="padding-left: 25px;">
+                                                  <b>reference: </b>
+                                                  <span>Patient/124</span>
+                                                  <br/>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p/>
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Period: </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <b>start: </b>
+                                                <span>Wed Jan 01 00:00:00 MST 2014</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <b>end: </b>
+                                                <span>Mon Mar 31 00:00:00 MDT 2014</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p/>
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Status: </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;"
+                                                >complete</td>
+                                        </tr>
+                                    </table>
+                                    <p/>
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Reporting Organization: </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <p style="margin-bottom: 5px;">
+                                                  <span>
+                                                  <b>name: </b>
+                                                  <span>Good Health Hospital</span>
+                                                  </span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Group:</b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px;">
+                                                <p style="margin-bottom: 5px;">
+                                                  <b>value: </b>
+                                                  <span>CMS146-group-1</span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px;">
+                                                <b>Population:</b>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>type: </b>
+                                                  <span>initial-population</span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>count: </b>
+                                                  <span>1</span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px;">
+                                                <b>Population:</b>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>type: </b>
+                                                  <span>numerator</span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>count: </b>
+                                                  <span>1</span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px;">
+                                                <b>Population:</b>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>type: </b>
+                                                  <span>denominator</span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>count: </b>
+                                                  <span>1</span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px;">
+                                                <b>Population:</b>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>type: </b>
+                                                  <span>denominator-exclusion</span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>count: </b>
+                                                  <span>0</span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <b>Stratifier:</b>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <span>
+                                                  <b>value: </b>
+                                                  <span>CMS146-group-1</span>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>true</span>
+                                                  <br/>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>initial-population</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>numerator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator-exclusion</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>false</span>
+                                                  <br/>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>initial-population</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>numerator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator-exclusion</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <b>Stratifier:</b>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <span>
+                                                  <b>value: </b>
+                                                  <span>CMS146-group-1</span>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>true</span>
+                                                  <br/>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>initial-population</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>numerator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator-exclusion</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>false</span>
+                                                  <br/>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>initial-population</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>numerator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator-exclusion</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <b>Stratifier:</b>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <span>
+                                                  <b>value: </b>
+                                                  <span>CMS146-group-1</span>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>male</span>
+                                                  <br/>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>initial-population</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>numerator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator-exclusion</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>female</span>
+                                                  <br/>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>initial-population</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>numerator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator-exclusion</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>other</span>
+                                                  <br/>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>initial-population</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>numerator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator-exclusion</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>unknown</span>
+                                                  <br/>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>initial-population</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>numerator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                  <span>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>Population:</b>
+                                                  </span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>type: </b>
+                                                  </span>
+                                                  <span>denominator-exclusion</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 50px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                  <br/>
+                                                  </span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <b>Supplemental:</b>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <span>
+                                                  <b>value: </b>
+                                                  <span>supplemental-data-gender</span>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>male</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>female</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>other</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>unknown</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <b>Supplemental:</b>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <span>
+                                                  <b>value: </b>
+                                                  <span>supplemental-data-deceased</span>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>true</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>0</span>
+                                                  </span>
+                                                </p>
+                                                <p style="padding-left: 25px; margin-bottom: 5px;">
+                                                  <b>Group:</b>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>value: </b>
+                                                  </span>
+                                                  <span>false</span>
+                                                  <span>
+                                                  <br/>
+                                                  <span style="padding-left: 25px;">
+                                                  <b>count: </b>
+                                                  </span>
+                                                  <span>1</span>
+                                                  </span>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p/>
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Evaluated Resources: </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-right: 25px;">
+                                                <span style="padding-left: 25px;">
+                                                  <b>reference: </b>
+                                                  <span>Bundle/456</span>
+                                                  <br/>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <p/>
+                                    <table class="grid dict">
+                                        <tr>
+                                            <td>
+                                                <b>Evaluated Resource: </b>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 25px; padding-right: 25px;">
+                                                <span style="padding-left: 25px;">
+                                                  <b>reference: </b>
+                                                  <span>Condition/example</span>
+                                                  <br/>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </text>
+                            <contained>
+                                <Organization>
+                                    <id value="reporter"/>
+                                    <name value="Good Health Hospital"/>
+                                </Organization>
+                            </contained>
+                            <identifier>
+                                <value value="measurereport-cms146-cat1-example-2017-03-13"/>
+                            </identifier>
+                            <status value="complete"/>
+                            <type value="individual"/>
+                            <measure value="http://example.org/fhir/Measure/CMS146"/>
+                            <subject>
+                                <reference value="Patient/124"/>
+                            </subject>
+                            <date value="2014-04-01"/>
+                            <reporter>
+                                <reference value="#reporter"/>
+                            </reporter>
+                            <period>
+                                <start value="2014-01-01"/>
+                                <end value="2014-03-31"/>
+                            </period>
+                            <group>
+                                <linkId value="CMS146-group-1"/>
+                                <scoring>
+                                    <coding>
+                                        <system
+                                            value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+                                        <code value="proportion"/>
+                                    </coding>
+                                </scoring>
+                                <improvementNotation>
+                                    <coding>
+                                        <system
+                                            value="http://terminology.hl7.org/CodeSystem/measure-improvement-notation"/>
+                                        <code value="increase"/>
+                                    </coding>
+                                </improvementNotation>
+                                <population>
+                                    <linkId value="CMS146-group-1-ip"/>
+                                    <code>
+                                        <coding>
+                                            <code value="initial-population"/>
+                                        </coding>
+                                    </code>
+                                    <count value="1"/>
+                                </population>
+                                <population>
+                                    <linkId value="CMS146-group-1-num"/>
+                                    <code>
+                                        <coding>
+                                            <code value="numerator"/>
+                                        </coding>
+                                    </code>
+                                    <count value="1"/>
+                                </population>
+                                <population>
+                                    <linkId value="CMS146-group-1-den"/>
+                                    <code>
+                                        <coding>
+                                            <code value="denominator"/>
+                                        </coding>
+                                    </code>
+                                    <count value="1"/>
+                                </population>
+                                <population>
+                                    <linkId value="CMS146-group-1-denex"/>
+                                    <code>
+                                        <coding>
+                                            <code value="denominator-exclusion"/>
+                                        </coding>
+                                    </code>
+                                    <count value="0"/>
+                                </population>
+                                <measureScoreQuantity>
+                                    <value value="1.0"/>
+                                </measureScoreQuantity>
+                                <stratifier>
+                                    <linkId value="CMS146-group-1-stratifier-ages-up-to-9"/>
+                                    <code>
+                                        <text value="stratifier-ages-up-to-9"/>
+                                    </code>
+                                    <stratum>
+                                        <valueBoolean value="true"/>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="initial-population"/>
+                                                </coding>
+                                            </code>
+                                            <count value="1"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="numerator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="1"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="1"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator-exclusion"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                    </stratum>
+                                    <stratum>
+                                        <valueBoolean value="false"/>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="initial-population"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="numerator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator-exclusion"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                    </stratum>
+                                </stratifier>
+                                <stratifier>
+                                    <linkId value="CMS146-group-1-stratifier-ages-10-plus"/>
+                                    <code>
+                                        <text value="stratifier-ages-10-plus"/>
+                                    </code>
+                                    <stratum>
+                                        <valueBoolean value="true"/>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="initial-population"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="numerator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator-exclusion"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                    </stratum>
+                                    <stratum>
+                                        <valueBoolean value="true"/>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="initial-population"/>
+                                                </coding>
+                                            </code>
+                                            <count value="1"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="numerator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="1"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="1"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator-exclusion"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                    </stratum>
+                                </stratifier>
+                                <stratifier>
+                                    <linkId value="CMS146-group-1-stratifier-gender"/>
+                                    <code>
+                                        <text value="stratifier-gender"/>
+                                    </code>
+                                    <stratum>
+                                        <valueCodeableConcept>
+                                            <text value="male"/>
+                                        </valueCodeableConcept>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="initial-population"/>
+                                                </coding>
+                                            </code>
+                                            <count value="1"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="numerator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="1"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="1"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator-exclusion"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                    </stratum>
+                                    <stratum>
+                                        <valueCodeableConcept>
+                                            <text value="female"/>
+                                        </valueCodeableConcept>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="initial-population"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="numerator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator-exclusion"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                    </stratum>
+                                    <stratum>
+                                        <valueCodeableConcept>
+                                            <text value="other"/>
+                                        </valueCodeableConcept>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="initial-population"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="numerator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator-exclusion"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                    </stratum>
+                                    <stratum>
+                                        <valueCodeableConcept>
+                                            <text value="unknown"/>
+                                        </valueCodeableConcept>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="initial-population"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="numerator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                        <population>
+                                            <code>
+                                                <coding>
+                                                  <code value="denominator-exclusion"/>
+                                                </coding>
+                                            </code>
+                                            <count value="0"/>
+                                        </population>
+                                    </stratum>
+                                </stratifier>
+                            </group>
+                            <evaluatedResource>
+                                <!-- Condition #example is a condition that was considered in evaluating the measure for Patient #124 -->
+                                <reference value="Condition/example"/>
+                            </evaluatedResource>
+                        </MeasureReport>
+                    </resource>
+                </entry>
+                <entry>
+                    <resource>
+                        <Measure>
+                            <id value="CMS146"/>
+                            ...
+                        </Measure>
+                    </resource>
+                </entry>
+                <entry>
+                    <resource>
+                        <Organization>
+                            <id value="reporter"/>
+                            <name value="Good Health Hospital"/>
+                        </Organization>
+                    </resource>
+                </entry>
+                <entry>
+                    <resource>
+                        <Patient>
+                            <id value="124"/>
+                            ... 
+                        </Patient>
+                    </resource>
+                </entry>
+                <entry>
+                    <resource>
+                        <Condition>
+                            <id value="example"/>
+                            ...
+                        </Condition>
+                    </resource>
+                </entry>
+            </Bundle>
+        </resource>
+    </parameter>
+</Parameters>

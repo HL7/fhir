@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -132,9 +132,9 @@
     </element>
     <element id="DetectedIssue.status">
       <path value="DetectedIssue.status"/>
-      <short value="preliminary | final | entered-in-error | unknown | mitigated"/>
+      <short value="preliminary | final | entered-in-error | unknown | mitigated | processing-error"/>
       <definition value="The current state of the detected issue."/>
-      <comment value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="A nominal state-transition diagram can be found in the (Event pattern documentation&#xa;&#xa;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is. Processing error is used to indicate that an error occurred attempting to evaluate a detected issue. For example, a DetectedIssue with a code of drug-drug interaction could have a status of processing-error to indicate that an error was encountered attempting to determine whether there was a drug-drug interaction."/>
       <alias value="status"/>
       <min value="1"/>
       <max value="1"/>
@@ -297,7 +297,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -547,6 +547,43 @@
         <strength value="example"/>
         <description value="A rating system that describes the quality of evidence such as the GRADE, DynaMed, or Oxford CEBM systems."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/evidence-quality"/>
+      </binding>
+    </element>
+    <element id="DetectedIssue.expectedOnsetType">
+      <path value="DetectedIssue.expectedOnsetType"/>
+      <short value="Time frame of clinical effect"/>
+      <definition value="The time frame in which the clinical effects of the detected issue may be expected to occur. Rapid refers to an expected onset within 24 hours. Delayed refers to an expected onset in more than 24 hours."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DetectedIssueExpectedOnsetType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Example codes illustrating expected onset type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-expected-onset-type"/>
+      </binding>
+    </element>
+    <element id="DetectedIssue.medicationClass">
+      <path value="DetectedIssue.medicationClass"/>
+      <short value="What medication class"/>
+      <definition value="Represents the medication class that is responsible for the detected issue."/>
+      <comment value="For example, for a duplicate therapy or an alergy alert, this class would represent the medication class to which the medications belong."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DetectedIssueExampleMedicationClass"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Example codes illustrating example medication classes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-example-medication-class"/>
       </binding>
     </element>
     <element id="DetectedIssue.managementCode">

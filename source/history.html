@@ -30,7 +30,7 @@ notes:
 <a name="history"></a>
 <h3>Version History since DSTU #1</h3>
 
-<table class="colsi"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure </a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
+<table class="colsi"><tbody><tr><td id="wg">Responsible Owner: <a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure </a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
 
 <p>
 For background to this version history, see <a href="versions.html">FHIR Version Management Policy</a>.
@@ -111,8 +111,8 @@ notes: do not list revision in the version
         <a href="devicemetric.html">DeviceMetric</a>, <a href="devicealert.html">DeviceAlert</a>, <a href="nutritionproduct.html">NutritionProduct</a>, 
         <a href="nutritionintake.html">NutritionIntake</a>, <a href="nutritionorder.html">NutritionOrder</a>, 
         <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, 
-        <a href="biologicallyderivedproductdispense.html">BiologicallyDerivedProductDispense</a>, 
-        <a href="supplydelivery.html">SupplyDelivery</a>, <a href="supplyrequest.html">SupplyRequest</a>, <a href="documentreference.html">DocumentReference</a></li>
+        <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-BiologicallyDerivedProductDispense.html">BiologicallyDerivedProductDispense</a>, 
+        <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyDelivery.html">SupplyDelivery</a>, <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a>, <a href="documentreference.html">DocumentReference</a></li>
       <li>The following Module Pages have been added or updated: <a href="diagnostics-module.html">Diagnostics</a>, <a href="device-module.html">Device</a>,
         <a href="nutrition-module.html">Nutrition</a>, <a href="biologically-derived-product-module.html">BDP</a></li>
     </ul>
@@ -153,26 +153,26 @@ notes: do not list revision in the version
       <li>New resources: 
         <a href="actordefinition.html">ActorDefinition</a>,
         <a href="artifactassessment.html">ArtifactAssessment</a>,
-        <a href="biologicallyderivedproductdispense.html">BiologicallyDerivedProductDispense</a>,
+        <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-BiologicallyDerivedProductDispense.html">BiologicallyDerivedProductDispense</a>,
         <a href="conditiondefinition.html">ConditionDefinition</a>,
         <a href="deviceassociation.html">DeviceAssociation</a>,
-        <a href="devicedispense.html">DeviceDispense</a>,
+        <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense</a>,
         <a href="encounterhistory.html">EncounterHistory</a>,
         <a href="formularyitem.html">FormularyItem</a>,
         <a href="genomicstudy.html">GenomicStudy</a>,
         <a href="imagingselection.html">ImagingSelection</a>,
-        <a href="inventoryitem.html">InventoryItem</a>,
-        <a href="inventoryreport.html">InventoryReport</a>,
+        <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryItem.html">InventoryItem</a>,
+        <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryReport.html">InventoryReport</a>,
         <a href="nutritionintake.html">NutritionIntake</a>,
         <a href="nutritionproduct.html">NutritionProduct</a>,
         <a href="permission.html">Permission</a>,
-        <a href="testplan.html">TestPlan</a> and
-        <a href="transport.html">Transport</a> + New types: 
+        TestPlan and
+        <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-Transport.html">Transport</a> + New types: 
         <a href="datatypes.html#integer64">integer64</a>,
         <a href="metadatatypes.html#Availability">Availability</a> and 
         <a href="metadatatypes.html#ExtendedContactDetail">ExtendedContactDetail</a>
       </li>
-      <li>Renamed resources <code>DeviceUseStatement</code> -&gt; <a href="deviceusage.html">DeviceUsage</a> and <code>RequestGroup</code> -&gt; <a href="requestorchestration.html">RequestOrchestration</a></li>
+      <li>Renamed resources <code>DeviceUseStatement</code> -&gt; <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a> and <code>RequestGroup</code> -&gt; <a href="requestorchestration.html">RequestOrchestration</a></li>
       <li>Removed resources 
         CatalogEntry (<a href="http://hl7.org/fhir/R4B/catalogentry.html">R4B</a>),
         DocumentManifest (<a href="http://hl7.org/fhir/R4B/documentmanifest.html">R4B</a>) (use [[%List%]]), 
@@ -196,7 +196,7 @@ notes: do not list revision in the version
             SubstanceSpecification -&gt; [[%SubstanceDefinition%]]</li>
           <li>Collapsed into [[%ClinicalUseDefinition%]] in R4B: MedicinalProductContraindication, MedicinalProductIndication, MedicinalProductInteraction, MedicinalProductUndesirableEffect</li>
           <li>Removed in R4B: types ProdCharacteristic and SubstanceAmount</li>
-          <li>Omitted from R4B due to limited scope: [[%SubstanceNucleicAcid%]], [[%SubstancePolymer%]], [[%SubstanceProtein%]], [[%SubstanceReferenceInformation%]], [[%SubstanceSourceMaterial%]]</li>
+          <li>Omitted from R4B due to limited scope: SubstanceNucleicAcid, SubstancePolymer, SubstanceProtein, SubstanceReferenceInformation, SubstanceSourceMaterial</li>
         </ul>
       </li>
       <li>Moved many code systems and value sets to <a href="http://terminology.hl7.org">terminology.hl7.org</a></li>
@@ -246,7 +246,7 @@ to a new type.
       <ul>
         <li>Change the way version numbering works</li>
         <li>New Resources: 
-          <a href="transport.html">Transport</a>, <a href="nutritionintake.html">NutritionIntake</a>,
+          <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-Transport.html">Transport</a>, <a href="nutritionintake.html">NutritionIntake</a>,
           <a href="actordefinition.html">ActorDefinition</a>, <a href="requirements.html">Requirements</a>,
           <a href="genomicstudy.html">GenomicStudy</a> and <a href="formularyitem.html">FormularyItem</a></li>
           <li>New Data Types: 
@@ -265,8 +265,8 @@ to a new type.
       Draft Ballot for R5 - May 2021 Ballot (Apr 14-20 2021). Significant changes:
       <ul>
         <li>Add <a href="datatypes.html#RatioRange">RatioRange</a> datatype</li>
-        <li>Rename DeviceUseStatement to <a href="deviceusage.html">DeviceUsage</a></li>
-        <li>New resources <a href="inventoryreport.html">InventoryReport</a>, <a href="citation.html">Citation</a>, EvidenceReport, and ClinicalUseIssue</li>
+        <li>Rename DeviceUseStatement to <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a></li>
+        <li>New resources <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryReport.html">InventoryReport</a>, <a href="citation.html">Citation</a>, EvidenceReport, and ClinicalUseIssue</li>
         <li>Updates for <a href="subscription.html">subscriptions</a>, <a href="medication-definition-module.html">medication definitions</a>, and <a href="evidence.html">evidence based medicine</a></li>
         <li>Ongoing development of other resources</li>
       </ul>
@@ -403,9 +403,9 @@ to a new type.
            <li>ResearchElementDefinition</li>
            <li>RiskEvidenceSynthesis</li>
            <li><a href="specimendefinition.html">SpecimenDefinition</a></li>
-           <li><a href="substancepolymer.html">SubstancePolymer</a></li>
-           <li><a href="substancereferenceinformation.html">SubstanceReferenceInformation</a></li>
-           <li><!--a href="substancespecification.html"-->SubstanceSpecification<!--/a--></li>
+           <li>SubstancePolymer</li>
+           <li>SubstanceReferenceInformation</li>
+           <li>SubstanceSpecification</li>
            <li><a href="terminologycapabilities.html">TerminologyCapabilities</a></li>
            <li><a href="verificationresult.html">VerificationResult</a></li>
          </ul>
@@ -540,8 +540,8 @@ to a new type.
        MedicinalProductPackaged,
        MedicinalProductPharmaceutical,
        <a href="insuranceplan.html">InsurancePlan</a>,
-       <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->,
-       <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a> and
+       SubstancePolymer,
+       SubstanceReferenceInformation and
          SubstanceSpecification.
        </li>
        <li>Renamed Resources: ProcedureRequest to <a href="servicerequest.html">ServiceRequest</a> &amp; BodySite to <a href="bodystructure.html">BodyStructure</a></li>
@@ -560,10 +560,10 @@ to a new type.
        <li>New Resources: <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
           <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>, 
           <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>, 
-          MedicinalProduct, MedicinalProductAuthorization <!--a href="medicinalproductclinicals.html"-->MedicinalProductClinicals<!--/a-->, 
+          MedicinalProduct, MedicinalProductAuthorization, MedicinalProductClinicals, 
           MedicinalProductIngredient, MedicinalProductPackaged, 
-          <!-- a href="medicinalproductpharmaceutical.html"-->MedicinalProductPharmaceutical<!--/a--> <!--a href="medicinalproductdevicespec.html"-->MedicinalProductDeviceSpec<!--/a-->, 
-          <!--a href="substancespecification.html"-->SubstanceSpecification<!--/a-->, <!--a href="substancepolymer.html"-->SubstancePolymer<!--/a-->, <a href="substancereferenceinformation.html">SubstanceReferenceInformation</a>, 
+          MedicinalProductPharmaceutical, MedicinalProductDeviceSpec, 
+          SubstanceSpecification, SubstancePolymer, SubstanceReferenceInformation, 
           <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, ItemInstance 
        </li>
        <li>Add draft support for bulk data (<a href="async.html">Asynchronous API</a> + <a href="nd-json.html">nd-json format</a>)</li>
@@ -590,7 +590,7 @@ to a new type.
       </p>
       <ul>
         <li>Reorder many resources and improve their definitions and bindings (Quality Assurance work)</li>
-        <li>Add draft resources <a href="adverseevent.html">AdverseEvent</a> and <a href="graphdefinition.html">GraphDefinition</a></li>
+        <li>Add draft resources <a href="adverseevent.html">AdverseEvent</a> and <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a></li>
         <li>Change to the <a href="profiling.html#discriminator">way discriminators work</a> in profiles (for profile/tooling authors)</li>
         <li>Finalization of the <a href="rdf.html">Turtle (RDF) format, along with JSON-LD (later removed)</a></li>
         <li>Consolidation of Version management issues into a single <a href="versions.html">Version Policy</a> page, and update to current policy</li>
@@ -739,7 +739,7 @@ to a new type.
          <li><a href="schedule.html">Schedule</a></li>
          <li><a href="slot.html">Slot</a></li>
          <li><a href="structuredefinition.html">StructureDefinition</a></li>
-         <li><a href="testscript.html">TestScript</a></li>
+         <li>TestScript</li>
          <li><a href="valueset.html">ValueSet</a></li>
         </ul>
         <p>
@@ -845,7 +845,7 @@ to a new type.
         </li>
         <li>Resources:
           <ul>
-            <li>New resources: <a href="account.html">Account</a>, <a href="implementationguide.html">ImplementationGuide</a>, <a href="testscript.html">TestScript</a></li>
+            <li>New resources: <a href="account.html">Account</a>, <a href="implementationguide.html">ImplementationGuide</a>, TestScript</li>
             <li>renamed: Contraindication -&gt; <a href="detectedissue.html">DetectedIssue</a>, MedicationPrescription -&gt; <a href="medicationrequest.html">MedicationRequest</a>, QuestionnaireAnswers -&gt; <a href="questionnaireresponse.html">QuestionnaireResponse</a></li>
             <li>removed: Supply</li>
             <li>changed: almost all resources - too many to list (1317 tasks worth of changes) - add, remove elements, change types, references, definitions &amp; value sets, re-order elements, provide much more documentation and new examples</li>
@@ -927,7 +927,7 @@ to a new type.
         <li>DataElement (now <a href="structuredefinition.html">StructureDefinition</a>) - total rewrite to use ElementDefinition</li>
         <li><a href="device.html">Device</a> - add status, manufactureDate</li>
         <li><a href="devicemetric.html">DeviceMetric</a> - rename operationalState to operationalStatus, add measurementMode, rename calibrationInfo to calibration, change color to an enumerations</li>
-        <li><a href="devicerequest.html">DeviceRequest</a>/<a href="deviceusage.html">DeviceUsage</a> - change to bodySite = code or Reference(BodySite)</li>
+        <li><a href="devicerequest.html">DeviceRequest</a>/<a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a> - change to bodySite = code or Reference(BodySite)</li>
         <li>DiagnosticRequest- change to bodySite = code or Reference(BodySite)</li>
         <li><a href="diagnosticreport.html">DiagnosticReport</a> - add encounter</li>
         <li><a href="documentreference.html">DocumentReference</a> - add format, remove policyManager, make content : Attachment, and remove several related attributes, remove service reference and add context.practiceSetting, sourcePatientInfo, and related</li>
@@ -1028,7 +1028,7 @@ to a new type.
         <li>DataElement (now <a href="structuredefinition.html">StructureDefinition</a>)</li>
         <li><a href="devicemetric.html">DeviceMetric</a></li>
         <li><a href="devicerequest.html">DeviceRequest</a> </li>
-        <li><a href="deviceusage.html">DeviceUsage</a></li>
+        <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a></li>
         <li><a href="enrollmentrequest.html">EnrollmentRequest</a></li>
         <li><a href="enrollmentresponse.html">EnrollmentResponse</a></li>
         <li><a href="episodeofcare.html">EpisodeOfCare</a></li>

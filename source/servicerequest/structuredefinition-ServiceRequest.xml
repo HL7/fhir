@@ -101,13 +101,6 @@
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
       <constraint>
-        <key value="bdystr-1"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if bodySite is not present"/>
-        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-      </constraint>
-      <constraint>
         <key value="asn-1"/>
         <severity value="error"/>
         <human value="asNeededFor SHALL only be present if asNeeded is empty or true"/>
@@ -166,62 +159,6 @@
         <map value="ClinicalStatement.identifier"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.instantiatesCanonical">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#10296][#11119]#13196]."/>
-      </extension>
-      <path value="ServiceRequest.instantiatesCanonical"/>
-      <short value="Instantiates FHIR protocol or definition"/>
-      <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this ServiceRequest."/>
-      <comment value="The PlanDefinition resource is used to describe series, sequences, or groups of actions to be taken, while the ActivityDefinition resource is used to define each specific step or activity to be performed. More information can be found in the [Boundaries and Relationships](plandefinition.html#12.23.2) section for PlanDefinition."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="ServiceRequest.instantiatesUri">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#10296][#11119]#13196]."/>
-      </extension>
-      <path value="ServiceRequest.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition"/>
-      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this ServiceRequest."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesUri"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
     <element id="ServiceRequest.basedOn">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10296][#11119]#13196]."/>
@@ -235,10 +172,12 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -276,7 +215,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -301,8 +239,6 @@
       <definition value="A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier."/>
       <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <requirements value="Some business processes need to know if multiple items were ordered as part of the same &quot;requisition&quot; for billing or other purposes."/>
-      <alias value="grouperId"/>
-      <alias value="groupIdentifier"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -395,7 +331,7 @@
         <valueString value="[#3720][#10296][#11119]#13196]."/>
       </extension>
       <path value="ServiceRequest.intent"/>
-      <short value="proposal | plan | directive | order +"/>
+      <short value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Whether the request is a proposal, plan, an original order or a reflex order."/>
       <comment value="This element is expected to be immutable. E.g. A 'proposal' instance should never change to be a 'plan' instance or 'order' instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xA;&#xA;One exception to this is that the granularity of ServiceRequest.intent is allowed to change. For example, a ServiceRequest identified as an 'order' might later be clarified to be a 'filler-order'. Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
       <min value="1"/>
@@ -465,6 +401,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;INT&quot;].code"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.category"/>
       </mapping>
     </element>
     <element id="ServiceRequest.priority">
@@ -638,23 +578,34 @@
         <map value="NTE"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.orderDetail.parameterFocus">
-      <path value="ServiceRequest.orderDetail.parameterFocus"/>
+    <element id="ServiceRequest.orderDetail.parameterFocus[x]">
+      <path value="ServiceRequest.orderDetail.parameterFocus[x]"/>
       <short value="The context of the order details by reference"/>
       <definition value="Indicates the context of the order details by reference."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
       </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.product"/>
+      </mapping>
     </element>    
     <element id="ServiceRequest.orderDetail.parameter">
       <path value="ServiceRequest.orderDetail.parameter"/>
@@ -679,11 +630,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ServiceRequestOrderDetailParameterCode"/>
+          <valueString value="RequestOrderDetailParameterCode"/>
         </extension>
         <strength value="example"/>
         <description value="Codes for order detail parameters."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-orderdetail-parameter-code"/>
       </binding>
     </element>    
     <element id="ServiceRequest.orderDetail.parameter.value[x]">
@@ -766,7 +717,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -794,7 +745,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1129,6 +1080,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DetectedIssue"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -1239,47 +1191,6 @@
         <map value=".participation[typeCode=SPC].role"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.bodySite">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="[#12505], [#12517][#11119]#13196]."/>
-      </extension>
-      <path value="ServiceRequest.bodySite"/>
-      <short value="Coded location on Body"/>
-      <definition value="Anatomic location where the procedure should be performed. This is the target site."/>
-      <comment value="ServiceRequest.bodyStructure is the preferred way to codify the target site of the requested service. Instead of using .bodySite.code, use .bodyStructure.includedStructure.structure.  Note that laterality in bodyStructure would use .bodyStructure.includedStructure.laterality, and the BodyStructure.includedStructure.structure code should not precoordinate the laterality."/>
-      <requirements value="Knowing where the procedure is performed is important for tracking if multiple sites are possible."/>
-      <alias value="location"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <condition value="bdystr-1"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical locations. May include laterality."/>
-        </extension>
-        <strength value="example"/>
-        <description value="SNOMED CT Body site concepts"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="SPM"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="targetSiteCode"/>
-      </mapping>
-      <mapping>
-        <identity value="quick"/>
-        <map value="Procedure.targetBodySite"/>
-      </mapping>
-    </element>
     <element id="ServiceRequest.bodyStructure">
       <path value="ServiceRequest.bodyStructure"/>
       <short value="BodyStructure-based location on the body"/>
@@ -1289,10 +1200,20 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <condition value="bdystr-1"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructure"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Codes describing anatomical body structures. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body Structures"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>

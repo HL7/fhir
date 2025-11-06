@@ -16,7 +16,7 @@
         <description value="This special parameter searches for codes in the value set. See additional notes on the ValueSet resource"/>
         <code value="code"/>
         <type value="token"/>
-        <expression value="ValueSet.expansion.contains.code | ValueSet.compose.include.concept.code"/>
+        <expression value="ValueSet.expansion.repeat(contains).code | ValueSet.compose.include.concept.code"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="ValueSet-context-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.code"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="ValueSet-context-type-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-context-type-quantity"/>
         <description value="A use context type and quantity- or range-based value assigned to the value set"/>
@@ -107,7 +107,7 @@
       <SearchParameter>
         <id value="ValueSet-context-type-value"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-context-type-value"/>
         <description value="A use context type and value assigned to the value set"/>
@@ -213,7 +213,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-jurisdiction"/>
-        <description value="Intended jurisdiction for the value set"/>
+        <description value="Jurisdiction of the authority that maintains the the value set"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ValueSet.jurisdiction"/>
@@ -359,7 +359,7 @@
       <SearchParameter>
         <id value="ValueSet-effective"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ValueSet.effectivePeriod"/>
@@ -380,7 +380,7 @@
           <valueString value="ValueSet.relatedArtifact.resource"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="A resource that the ValueSet is derived from"/>
         <code value="derived-from"/>
@@ -396,7 +396,7 @@
           <valueString value="ValueSet.relatedArtifact.resource"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="The predecessor of the ValueSet"/>
         <code value="predecessor"/>
@@ -412,12 +412,29 @@
           <valueString value="ValueSet.topic"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Topics associated with the ValueSet"/>
         <code value="topic"/>
         <type value="token"/>
         <expression value="ValueSet.topic"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ValueSet.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the ValueSet is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="ValueSet.experimental"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="group-type"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -106,9 +106,19 @@
     <definition value="Group contains Medication resources."/>
   </concept>
   <concept>
+    <code value="medicinalproductdefinition"/>
+    <display value="MedicinalProductDefinition"/>
+    <definition value="Group contains MedicinalProductDefinition resources."/>
+  </concept>
+  <concept>
     <code value="substance"/>
     <display value="Substance"/>
     <definition value="Group contains Substance resources."/>
+  </concept>
+  <concept>
+    <code value="substancedefinition"/>
+    <display value="SubstanceDefinition"/>
+    <definition value="Group contains SubstanceDefinition resources."/>
   </concept>
   <concept>
     <code value="biologicallyDerivedProduct"/>

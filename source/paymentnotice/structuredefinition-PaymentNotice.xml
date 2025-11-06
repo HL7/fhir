@@ -156,6 +156,19 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="PaymentNotice.statusReason">
+      <path value="PaymentNotice.statusReason"/>
+      <short value="Reason for status change"/>
+      <definition value="Used to indicate why the status has changed."/>
+      <comment value="Implementation guides may consider adding invariants such that if status = cancelled, statusReason SHALL be supplied."/>
+      <requirements value="This is used to implement conformance on other elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="PaymentNotice.request">
       <path value="PaymentNotice.request"/>
       <short value="Request reference"/>
@@ -172,7 +185,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="PaymentNotice.response">
@@ -182,12 +195,12 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/> 
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -332,7 +345,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PaymentStatus"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="The payment conveyance status codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/payment-status"/>
       </binding>
