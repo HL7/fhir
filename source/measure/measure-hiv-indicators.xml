@@ -34,14 +34,14 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-	    <language value="text/cql"/>
+	    <language value="text/cql-identifier"/>
 	    <expression value="Newly enrolled on antiretroviral therapy (ART) during measurement period"/>
       </criteria>
     </population>
     <stratifier>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP:SEX"/></coding></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Age Group/Sex"/>
       </criteria>
     </stratifier>
@@ -52,14 +52,14 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Newly enrolled on antiretroviral therapy (ART) during measurement period (pregnant and breastfeeding)"/>
       </criteria>
     </population>
     <stratifier>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PREG_BF"/></coding></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Pregnant/Breastfeeding"/>
       </criteria>
     </stratifier>
@@ -71,7 +71,7 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Receiving antiretroviral therapy (ART) at 12 months after initiating"/>
       </criteria>
     </population>
@@ -79,14 +79,14 @@
       <component>
         <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP"/></coding></code>
         <criteria>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Age Group"/>
         </criteria>
       </component>
       <component>
         <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="SEX"/></coding></code>
         <criteria>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Sex"/>
         </criteria>
       </component>
@@ -98,14 +98,14 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Receiving antiretroviral therapy (ART) at 12 months after initiating (pregnant and breastfeeding)"/>
       </criteria>
     </population>
     <stratifier>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PREG_BF"/></coding></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Pregnant/Breastfeeding"/>
       </criteria>
     </stratifier>
@@ -116,7 +116,7 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Initiated antiretroviral therapy (ART) in the 12 months prior to measurement period"/>
       </criteria>
     </population>
@@ -124,7 +124,7 @@
       <component>
         <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP"/></coding></code>
         <criteria>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Age Group"/>
         </criteria>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-age-range-example"/>
@@ -132,7 +132,7 @@
       <component>
         <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="SEX"/></coding></code>
         <criteria>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Sex"/>
         </criteria>
       </component>
@@ -144,14 +144,14 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Antenatal Care Visit or Live Birth during the Measurement Period"/>
       </criteria>
     </population>
     <stratifier>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PMTCT_HIV_STATUS"/></coding></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="PMTCT HIV Status"/>
       </criteria>
     </stratifier>
@@ -162,7 +162,7 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Antenatal Care Visit or Live Birth during Measurement Period (HIV Positive)"/>
       </criteria>
     </population>
@@ -173,14 +173,14 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="HIV-positive, pregnant, and receiving antiretroviral therapy (ART) to reduce the risk of mother-to-child-transmission during pregnancy"/>
       </criteria>
     </population>
     <stratifier>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PMTCT_ART_STATUS"/></coding></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="PMTCT ART Status"/>
       </criteria>
     </stratifier>
@@ -191,14 +191,14 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Living with HIV and on ART with suppressed viral load results (&lt;1000 copies/mL)"/>
       </criteria>
     </population>
     <stratifier>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP:SEX"/></coding></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Age Group/Sex"/>
       </criteria>
     </stratifier>
@@ -209,14 +209,14 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Received HIV Testing Services (HTS) and Recevied Test Results"/>
       </criteria>
     </population>
     <stratifier>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP:SEX:HIV_TEST_RESULTS"/></coding></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Age Group/Sex/HIV Test Results"/>
       </criteria>
     </stratifier>
@@ -227,14 +227,14 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="HIV Status Known at First Antenatal Care Visit"/>
       </criteria>
     </population>
     <stratifier>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="PMTCT_HIV_STATUS"/></coding></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="PMTCT HIV Status"/>
       </criteria>
     </stratifier>
@@ -245,14 +245,14 @@
     <population>
       <code><text value="cohort"/></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Receiving antiretroviral therapty (ART) and Viral Load Measurement in the past 12 months"/>
       </criteria>
     </population>
     <stratifier>
       <code><coding><system value="http://ihe.net/qrph/adx/"/><code value="AGE_GROUP:SEX"/></coding></code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Age Group/Sex"/>
       </criteria>
     </stratifier>

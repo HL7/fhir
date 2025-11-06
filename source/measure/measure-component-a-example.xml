@@ -26,7 +26,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Initial Population"/>
       </criteria>
     </population>
@@ -37,7 +37,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Denominator"/>
       </criteria>
     </population>
@@ -48,7 +48,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Numerator"/>
       </criteria>
     </population>
