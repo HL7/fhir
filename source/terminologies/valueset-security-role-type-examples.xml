@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="security-role-type-example"/>
+  <id value="security-role-type-examples"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
     <valueBoolean value="true"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/security-role-type-example"/>
+  <url value="http://hl7.org/fhir/ValueSet/security-role-type-examples"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.978"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="SecurityRoleType"/>
-  <title value="Security Role Type"/>
+  <name value="SecurityRoleTypeExamples"/>
+  <title value="Example Security Role Type"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2025-11-01"/>
