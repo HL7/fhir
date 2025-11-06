@@ -92,7 +92,7 @@ appropriate, or much more seriously, missing resources out in search results tha
  <li title="cross-resource"><input type="checkbox"/><a name="cross-resource"> </a>My system takes care to ensure that clients can (for servers) or will (for clients) find the information they need when content that might reasonably be exposed using more than one FHIR resource. Possible patterns: Support a single search across the applicable resources, or expose data through each applicable resource. See discussion on <a href="https://confluence.hl7.org/display/FHIR/Managing+Overlap+Between+Resources">Wiki Page</a> for further information</li>
  <li title="search-param-names"><input type="checkbox"/><a name="search-param-names">My client checks the names of search parameters and operation definitions in the HTTP server's <a href="capabilitystatement.html">CapabilityStatement</a> to see if they have been renamed on the local system</a></li>
  <li title="search-pages-client"><input type="checkbox"/><a name="search-pages-client">My client application checks for the existence of pages in search results (<code>Bundle.link</code> of type <code>next</code>) in the response to a search. Note: failure to page through the data will cause an application or its human user to be missing the full clinical picture for the patient</a></li>
- <li title="search-pages-server"><input type="checkbox"/><a name="search-pages-server">My server clearly documents how sorting works when performing searches, and how concurrency works when clients move between pages (e.g. if data in a page can change/duplicate across pages)</a></li>
+ <li title="search-pages-server"><input type="checkbox"/><a name="search-pages-server">My server clearly documents how sorting works when performing searches, and how concurrency works when clients move between pages (e.g., if data in a page can change/duplicate across pages)</a></li>
 </ol>
 
 <p><b>For clients</b></p>
@@ -106,7 +106,7 @@ appropriate, or much more seriously, missing resources out in search results tha
  <li title="missing-values"><input type="checkbox"/><a name="missing-values"> </a>My system caters for <a href="search.html#missing">parameters that have missing values</a> when doing search operations, and responds correctly to the client with regard to <a href="search.html#errors">erroneous search parameters</a></li>
  <li title="default-filters"><input type="checkbox"/><a name="default-filters"> </a>My system includes appropriate default filters when searching based on patient context - e.g. filtering out entered-in-error records, filtering to only include active, living patients if appropriate, and clearly documents these 
  (preferably including them in the self-link for a search)</li>
- <li title="subsetted"><input type="checkbox"/><a name="obs-focus"> </a>When clients have limited access to data for permission reasons (e.g. the data they receive might be <code>SUBSETTED</code>), my system handles update or create requests tagged in such a way by either rejecting them, or accepting them after carefully considering how to avoid accidental loss of data the updating client did not have access to, and taking into account the possibility that a client update might invalidate data the client was unaware of.</li>
+ <li title="subsetted"><input type="checkbox"/><a name="obs-focus"> </a>When clients have limited access to data for permission reasons (e.g., the data they receive might be <code>SUBSETTED</code>), my system handles update or create requests tagged in such a way by either rejecting them, or accepting them after carefully considering how to avoid accidental loss of data the updating client did not have access to, and taking into account the possibility that a client update might invalidate data the client was unaware of.</li>
 </ol>
 
 <a name="conformance"> </a>
@@ -128,7 +128,7 @@ particular fashion.
 <h3>Privacy Related Safety Checks</h3>
 <p>
 FHIR defines a set of capabilities to support data exchange. Not all the capabilities that FHIR enables may be appropriate or 
-legal for use in some combinations of context and jurisdiction (e.g. HIPAA for exchange between institutions). It is the 
+legal for use in some combinations of context and jurisdiction (e.g., HIPAA for exchange between institutions). It is the 
 responsibility of implementers to ensure that relevant regulations and other requirements are met.
 </p>
 
