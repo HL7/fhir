@@ -636,6 +636,7 @@
       <path value="ExampleScenario.instance.structureType"/>
       <short value="Data structure for example"/>
       <definition value="A code indicating the kind of data structure (FHIR resource or some other standard) this is an instance of."/>
+      <comment value="This element may be omitted if describing a step that doesn't involve the sharing of a data structure - e.g. a human action"/>
       <min value="1"/>
       <max value="1"/>
       <type>
