@@ -56,8 +56,8 @@ The following rules apply to code system fragments:
  <li>All fragments SHALL have the same CodeSystem.url</li>
  <li>Fragments can only be published by the code system authority, or according to a process defined by the authority, if they have defined one</li>
  <li>Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system, if one exists. Implementers should note that a "complete representation" of the code system might not exist in a single authoritative publication (e.g., SNOMED International with all modules/extensions)</li>
- <li>Publishing a code system in multiple fragments can create confusion for terminology servers and terminology service consumers. 
-   Code System authorities that publish fragments should be careful and communicate their intent clearly</li>
+ <li>Publishing a code system in multiple fragments can create confusion for terminology servers and terminology service consumers.</li>
+ <li>The intent, bounds and consequences of the fragmentation are clearly defined in the fragment or the code system documentation.</li>
 </ul>
 
 <a name="supplements"></a>
