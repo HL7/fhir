@@ -12,17 +12,17 @@ POST [base]/CodeSystem/$validate-code
     {
     "name" : "codeableConcept",
     "valueCodeableConcept" : {
-      "coding" : {
+      "coding" : [{
         "system" : "http://example.org",
-          "code" : "code",
-      "display" : "test"
-      }
+        "code" : "code",
+        "display" : "test"
+      }]
     }
   },
   {
     "name" : "codeSystem",
     "resource": {
-      "resourceType" : "codeSystem",
+      "resourceType" : "CodeSystem",
     [etc.]
     }
   }
