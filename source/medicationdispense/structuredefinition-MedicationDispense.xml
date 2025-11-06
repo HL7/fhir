@@ -96,7 +96,7 @@
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </constraint>
       <constraint>
-        <key value="mps-2"/>
+        <key value="mdd-2"/>
         <severity value="warning"/>
         <human value="If more than one dosageInstruction entry is present, then all entries must have a sequence"/>
         <expression value="dosageInstruction.count() &lt; 2 or dosageInstruction.all(sequence.exists())"/>
