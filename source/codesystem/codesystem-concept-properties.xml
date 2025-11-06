@@ -211,4 +211,13 @@
       <valueCode value="string"/>
     </property>
   </concept>
+  <concept>
+    <code value="lastVersionActive"/>
+    <display value="LastVersionActive"/>
+    <definition value="If the code is not active (properties inActive or based on status), then this property conveys in what code system version it was last an active code."/>
+    <property>
+      <code value="dataType"/>
+      <valueCode value="string"/>
+    </property>
+  </concept>
 </CodeSystem>

@@ -204,6 +204,7 @@ by the FHIR specification.
  <tr><td>http://hl7.org/fhir/concept-properties#itemWeight : decimal</td><td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#order : decimal</td><td>A property that indicates the order of the concept amongst its siblings in the code system e.g. severity. The code system specific purpose of the ordering is defined elsewhere</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#definition : string</td><td>The definition of the concept. This corresponds to CodeSystem.concept.definition and is not used in the definition of CodeSystems but is used when clients request the definition property be included in an expansion</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#lastVersionActive : string</td><td>If the code is not active (properties inActive or based on status), then this property conveys in what code system version it was last an active code</td></tr>
 </table>
 <p>
 Code System representations SHOULD use these properties where possible and these codes for these properties. 
