@@ -91,6 +91,7 @@ The following common use-cases are elaborated below:
 <li><a href="#AoD">Accounting of Disclosures and Access Reports</a></li>
 <li><a href="#privacy-consent">Privacy Consent</a></li>
 <li><a href="#provenance">Provenance</a></li>
+<li><a href="#consent-used">Consent Used</a></li>
 <li><a href="signatures.html">Digital and Electronic Signatures</a></li>
 <li><a href="#deId">De-Identification, Anonymization, and Pseudonymization</a></li>
 <li><a href="#testData">Security Considerations on Test Data</a></li>
@@ -333,6 +334,14 @@ then one uses reverse include to request that all Provenance records also be ret
 That is to add <code>?_revinclude=Provenance:target</code>. 
 
 For details, see <a href="search.html#revinclude">_revinclude</a>.
+</p>
+
+<a name="consent-used"></a>
+<h4>AuditEvent indicating authorizing Consent</h4>
+<p>
+<em>Use case:</em> For any given Resource, there is a need to determine the Consent that authorized the 
+given Resource to be created or updated. For example, a Privacy audit tracking down some data was recorded 
+when it is reported that the data should not have been gathered.
 </p>
 
 
