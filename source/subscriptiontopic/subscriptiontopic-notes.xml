@@ -8,6 +8,36 @@
     breadth of possible topics, detailed implementation guidance cannot be provided here. Following are a few points to
     consider when implementing a Subscription Topic within a server:
   </p>
+  <ul>
+    <li>
+      <b>Trigger Evaluation</b>: Determine how and when triggers will be evaluated in your system. Consider whether
+      evaluation will occur synchronously during resource interactions or asynchronously via background processing, and
+      how this affects notification timing and system performance.
+    </li>
+    <li>
+      <b>Filter Application</b>: Plan how subscription filters will be applied to limit notifications. Consider whether
+      filters will be evaluated in-process or via separate queries, and how filter complexity may impact system resources.
+    </li>
+    <li>
+      <b>Notification Delivery</b>: Design a reliable mechanism for delivering notifications that handles temporary failures,
+      retries, and subscriber unavailability. Consider whether notifications will be queued, and what happens if delivery
+      repeatedly fails.
+    </li>
+    <li>
+      <b>Authorization</b>: Ensure that subscription notifications respect the authorization context of the subscriber.
+      Only send notifications and include resources that the subscriber is authorized to access.
+    </li>
+    <li>
+      <b>Performance Impact</b>: Consider the performance implications of subscription processing on your server,
+      especially when many subscriptions are active or when complex trigger criteria are defined. Plan for scaling as
+      subscription usage grows.
+    </li>
+    <li>
+      <b>Testing and Validation</b>: Verify that your implementation correctly triggers notifications under all defined
+      conditions and that filters work as expected. Test edge cases like resource creation, deletion, and updates that
+      may partially match criteria.
+    </li>
+  </ul>
 
   <a name="defining" />
   <h2>Defining Subscription Topics</h2>
