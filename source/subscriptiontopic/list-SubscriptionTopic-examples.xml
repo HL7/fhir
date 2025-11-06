@@ -18,7 +18,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Beginning of clinical encounter"/>
+      <valueString value="Beginning of clinical encounter (FHIR)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="subscriptiontopic-example-admission"/>
@@ -28,4 +28,53 @@
       <display value="Admissions"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Beginning of clinical encounter (Basic)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="subscriptiontopic-example-admission-basic"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionTopic/admission-basic"/>
+      <display value="Admissions via Basic"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Beginning of clinical encounter (Binary)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="subscriptiontopic-example-admission-binary"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionTopic/admission-binary"/>
+      <display value="Admissions via Binary"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Beginning of clinical encounter (Logical Model)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="subscriptiontopic-example-admission-lm"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionTopic/admission-lm"/>
+      <display value="Admissions via Logical Model"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Beginning of clinical encounter (Parameters)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="subscriptiontopic-example-admission-parameters"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionTopic/admission-parameters"/>
+      <display value="Admissions via Parameters"/>
+    </item>
+  </entry>
+
 </List>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
+	<id value="admission-basic"/>
+	<url value="http://example.org/FHIR/SubscriptionTopic/admission-basic"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:0b67b140-59d0-4c49-9fe8-b62f7fcf4eb9"/>
+  </identifier>
+  <title value="admission-basic"/>
+	<status value="active"/>
+  <description value="Example admission topic using a Basic resource"/>
+	<trigger>
+		<description value="Basic Resource Admission being created or updated into an `in-progress` state"/>
+		<resource value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+    <supportedInteraction value="create"/>
+    <supportedInteraction value="update"/>
+		<queryCriteria>
+			<previous value="code=Admission&amp;admission-status:not=in-progress"/>
+      <resultForCreate value="test-passes"/>
+			<previous value="code=Admission&amp;admission-status=in-progress"/>
+      <resultForDelete value="test-fails"/>
+			<requireBoth value="true"/>
+		</queryCriteria>
+		<fhirPathCriteria value="(%previous.id.empty() or (%previous.extension('status') != 'in-progress')) and (%current.extension('status') = 'in-progress')"/>
+    <event>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0003"/>
+        <code value="A01"/>
+        <display value="ADT/ACK - Admit/visit notification"/>
+      </coding>
+    </event>
+    <canFilterBy>
+      <description value="Matching based on the Patient. Input is expected to be a search `reference` and match against a reference to the patient."/>
+      <resource value="Basic"/>
+      <filterParameter value="admission-patient"/>
+      <filterDefinition value="http://example.org/SearchParameters/Basic/admission-patient"/>
+    </canFilterBy>
+    <canFilterBy>
+      <description value="Matching based on the Patient Group. Input is expected to be a search `reference` and match against a reference to a group the patient has membership in."/>
+      <resource value="Basic"/>
+      <filterParameter value="admission-patient-group"/>
+      <filterDefinition value="http://example.org/SearchParameters/Basic/admission-patient-group"/>
+    </canFilterBy>
+    <notificationShape>
+      <resource value="Basic"/>
+      <include value="Basic:admission-patient"/>
+      <include value="Basic:admission-patient-group"/>
+      <include value="Basic:admission-diagnosis"/>
+    </notificationShape>
+	</trigger>
+</SubscriptionTopic>
