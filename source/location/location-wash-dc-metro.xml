@@ -18,6 +18,13 @@
 
     <status value="active"/> <!-- this record is active -->
 
+    <code>
+        <coding>
+            <system value="http://hl7.org/fhir/us/vr-common-library/CodeSystem/CodeSystem-us-states-territories-vr"/>
+            <code value="DC"/>
+            <display value="District of Columbia"/>
+        </coding>
+    </code>
     <name value="Washington, DC metro area"/>
 
     <form> <!-- This location is a collection of buildings or other locations such as a site or a campus -->

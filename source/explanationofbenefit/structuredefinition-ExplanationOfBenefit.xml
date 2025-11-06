@@ -1540,7 +1540,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>
@@ -2698,7 +2697,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
     </element>

@@ -443,6 +443,7 @@
         <code value="experimental"/>
         <type value="token"/>
         <expression value="EventDefinition.experimental"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

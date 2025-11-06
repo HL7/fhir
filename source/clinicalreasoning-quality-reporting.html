@@ -28,10 +28,11 @@
 
 <img alt="Measure Structure" src="clinicalreasoning-measure-structure.png" style="width:600px;height:400px"/>
 
-<p>Quality measures follow a general hierarchical structure that defines:</p>
+<p>Quality measures follow a general structure that defines:</p>
 
 <ul>
-	<li><p><b>Population Groups:</b> Groups of population criteria that define a particular area of measurement. A given Measure may include any number of population groups, each with different criteria for the various measure components.</p>
+  <li><p><b>Metadata:</b> Information about the measure such as identity, purpose, and usage.</p></li>
+	<li><p><b>Population Groups:</b> Groups of population criteria that define a specific measurement or rate. A given Measure may include any number of population groups, each defining a separate calculation including scoring method and population criteria.</p>
 		<ul>
 			<li><b>Populations:</b> Within each population group, a measure defines criteria appropriate to the type of measure being calculated. Each population type identifies a specific component of the calculation such as the <i>numerator</i>, <i>denominator</i>, and <i>initial population</i>.</li>
 			<li><b>Stratifiers:</b> Additional criteria used to subdivide a measure population along different dimensions such as race, age, social risk factors, income, or region. A measure may define any number of stratifiers for each population group.</li>
@@ -40,25 +41,66 @@
 	<li><b>Supplemental Data:</b> Additional descriptive information providing additional context to the population group being measured. Supplemental data is specified alongside the calculated measure scores, allowing a more nuanced analysis of performance.</li>
 </ul>
 
-<p>At their most basic, Measures evaluate items within a defined perspective and assign those items to populations. The type of the evaluated items that make up the populations is called the Measure's "basis," and one can say that a Measure is "based" on a FHIR resource type. The perspective within which those items are counted is the Measure's "subject."</p>
-	
-<p>The <code>subject</code> element of the Measure indicates the intended subjects of a measure, or "who" the measure is about. While measures are often focused on evaluating from a patient perspective, this is not always the case. If no subject is specified, the measure subject is Patient, but Practitioners, Organizations, Locations, or even Devices can also be the subject of a measure.</p>
-
-<p>The <code>group.basis</code> element, referred to as the "population basis" or just "basis," specifies the type of elements in the population(s) as a result of measure calculation. Population Quality Measures generally fall into two categories: subject-based, and non-subject-based. In general, subject-based measures count the number of subjects in each population, while non-subject-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for subject-based measures indicates whether a subject matches the population criteria (true) or not (false). Non-subject-based measures return the item to be counted such as an encounter or procedure. For example:</p>
-<ul>
-	<li>A measure may calculate for which encounters the blood pressure was taken for all patients over the age of 50. This measure has a subject of Patient and a basis of Encounter, it is an encounter-based measure, and the populations will be lists of Encounters that pertain to the Patients that meet the age requirement.</li>
-	<li>A measure may count the number of available beds in a hospital location. This measure has a subject of Location, a basis of Device (for beds), so the populations would be the calculated number of beds for the Locations that are available from the data source.</li>
-</ul>
-<p>When the intended population type matches the <code>subject</code> type, the measure is referred to as "subject-based." For a subject-based measure, the <code>basis</code> is boolean because the subject and the population basis are the same, and the population criteria define yes/no values for each element in the population. For measures that have a population basis that is different than the subject, the <code>basis</code> element specifies the type of elements in the population. </p>
-
-<p>To summarize, the context of a measure is indicated using the <code>subject</code> element of the FHIR resource, and it indicates what types of resources the measure is about. The <code>basis</code> indicates what is being included in the measure populations during measure calculation. If the subject's type is the same as the intended population type, then the <code>basis</code> is boolean and indicates if a subject instance is included in a population or not.</p>
-
 <a name="measure-metadata"> </a>
 <h5>Measure Metadata</h5>
 
 <p>Measures have metadata just like any other conformance or knowledge artifact in FHIR.  This includes metadata elements that are specific to measures and not needed for other knowledge artifacts.  For example metadata elements that are common across many knowledge artifacts including measures, are identifier, version and date.  Metadata elements that are specific to measures include measure scoring, rate aggregation, clinical recommendation statement and improvement notation.  For more information about each metadata element see the Measure Resource.</p>
 
 <p>Mappings from the V3 to the FHIR terminologies can be found in the <a href="https://hl7.org/fhir/uv/cqm/artifacts.html#terminology-concept-maps">Quality Measure IG</a>.</p>
+
+<a name="measure-population-groups"> </a>
+<h5>Measure Population Groups (Rates)</h5>
+
+<p>Each population group in a measure specifies how to calculate the measure using the following main elements:</p>
+
+<ul>
+  <li><b>Subject</b>: The <em>context</em> or perspective from which the measure is expressed, such as Patient or Location.</li>
+  <li><b>Basis</b>: The <em>type</em> of items in the populations, i.e. the items being counted.</li>
+  <li><b>Scoring</b>: The scoring method used to calculate the measure.</li>
+  <li><b>Improvement Notation</b>: How to interpret the score.</li>
+  <li><b>Population Criteria</b>: The criteria for the measure, such as Numerator and Denominator.</li>
+  <li><b>Stratifiers</b>: Stratifiers for the score, such as by Age Range.</li>
+</ul>
+
+<p>These calculation elements provide a flexible mechanism for describing measure specifications, along with a complete set of scoring methods that align with industry standard approaches for representing quality measure specifications. In addition, the Measure and MeasureReport resources are built to be extended, so that implementation guides can be introduced to provide additional guidance and extend the scoring methods that can be used.</p>
+
+<a name="subject-and-basis"> </a>
+<h6>Subject and Basis</h6>
+
+<p>At their most basic, Measures evaluate items within a defined perspective and assign those items to populations. The perspective from which those items are counted is the Measure's <em>subject</em> such as Patient or Location. The type of the evaluated items that make up the populations is called the Measure's <em>basis</em>, and one can say that a Measure is <em>based</em> on a FHIR resource type, such as Encounter or Procedure.</p>
+	
+<p>The <code>subject</code> element of the population group indicates the intended subjects of a measure, or <em>who</em> the measure is about. Measures are often about Patients, so the population group subject is typically Patient, but Practitioners, Organizations, Locations, or even Devices can also be the subject of a measure. The subject determines the perspective from which the various criteria expressions in a measure are evaluated. For example, in a Patient-subject measure, the expression <code>[Observation]</code> refers only to the observations for a particular patient. If no subject is specified for the population group, the context is unfiltered, i.e. population criteria are evaluated from the perspective of the entire system, rather than from the perspective of a particular subject.</p>
+
+<p>The <code>group.basis</code> and <code>group.basisRequirement</code> elements specify the types of elements in the population(s). Population Quality Measures generally fall into two categories: subject-based, and non-subject-based. In general, subject-based measures count the number of subjects in each population, while non-subject-based measures count the number of items (such as encounters) in each population. Although the calculation formulas are conceptually the same for both categories, for ease of expression, population criteria for subject-based measures indicates whether a subject matches the population criteria (true) or not (false). Non-subject-based measures return the items to be counted such as encounters or procedures. For example:</p>
+
+<ul>
+	<li>A measure may calculate for which encounters the blood pressure was taken for all patients over the age of 50. This measure has a subject of Patient and a basis of Encounter, it is an encounter-based measure, and the populations will be lists of Encounters that pertain to the Patients that meet the age requirement.</li>
+	<li>A measure may count the number of available beds in a hospital location. This measure has a subject of Location, a basis of Device (for beds), so the populations would be the calculated number of beds for the Locations that are available from the data source.</li>
+</ul>
+
+<p>When the intended population basis matches the <code>subject</code> type, the measure is referred to as "subject-based." For a subject-based measure, the <code>basis</code> is boolean because the subject and the population basis are the same, and the population criteria define yes/no values for each element in the population. For measures that have a population basis that is different than the subject, the <code>basis</code> element specifies the type of elements in the population. </p>
+
+<p>In addition to the <code>basis</code> element, the <code>basisRequirement</code> element may be used to allow for measures that are counting multiple types of items. For example, a measure counting the number of eligible CT scans performed in a hospital outpatient setting may characterize an eligible CT scan using either a DiagnosticReport, or an Observation, depending on how the information is modeled in the available clinical systems. To allow for this, the measure would specify two different basisRequirements:</p>
+
+<pre><code>&lt;basisRequirement&gt;
+  &lt;type value=&quot;DiagnosticReport&quot;/&gt;
+  &lt;codeFilter&gt;
+    &lt;path value=&quot;code&quot;/&gt;
+    &lt;valueSet value=&quot;http://example.org/ValueSet/ctscan-diagnostic-report-codes&quot;/&gt;
+  &lt;/codeFilter&gt;
+&lt;/basisRequirement&gt;
+&lt;basisRequirement&gt;
+  &lt;type value=&quot;Observation&quot;/&gt;
+  &lt;codeFilter&gt;
+    &lt;path value=&quot;code&quot;/&gt;
+    &lt;valueSet value=&quot;http://example.org/ValueSet/ctscan-observation-codes&quot;/&gt;
+  &lt;/codeFilter&gt;
+&lt;/basisRequirement&gt;
+</code></pre>
+
+<p>If multiple basisRequirements are specified, criteria expressions may return data that satisfies ANY basisRequirement. A data element satisfies a basisRequirement if the instance `is` of the type, conforms to ALL the specified profiles, and matches ALL the codeFilters. basisRequirements SHALL specify type, MAY specify profile and codeFilter, and SHALL NOT specify dateFilter, valueFilter, limit, or sort. If basis is specified, any basisRequirement SHALL be consistent with the specified basis (i.e. the type of each basisRequirement SHALL be the same type as, or a subtype of the basis type).</p>
+
+<p>To summarize, the context of a measure is indicated using the <code>subject</code> element of the FHIR resource, and it indicates what types of resources the measure is about. The <code>basis</code> indicates what is being included in the measure populations during measure calculation. If the subject's type is the same as the intended population type, then the <code>basis</code> is boolean and expression criteria indicate whether a subject is included in a population or not.</p>
 
 <a name="measure-logic"> </a>
 <h5>Measure Logic</h5>
@@ -70,7 +112,7 @@
 <a name="specifying-population-criteria"> </a>
 <h6>Population Criteria</h6>
 
-<p>A measure can include various population criteria, depending on the measure scoring being used. The following table shows which population criteria types are required (R), optional (O), or not permitted (NP) for proportion, ratio, and continuous variable measures. This table is adapted from Table 1 in the <a href="http://hl7.org/fhir/uv/cqm/measure-conformance.html#population-criteria">Quality Measure Implementation Guide</a>.</p>
+<p>A measure can include various population criteria, depending on the measure scoring being used. The following table shows which population criteria types are required (R), optional (O), or not permitted (NP) for proportion, ratio, continuous variable, cohort, and attestation measures. Note that these are the relationships for these scoring types. Additional population criteria types and scoring methods can be defined in implementation guides.</p>
 
 <table class="grid">
 	<thead>
@@ -132,6 +174,87 @@
 &lt;/group&gt;
 </code></pre>
 
+<p>The following sections describe the base scoring methods defined in this specification. For a more formal treatment of these scoring methods, as well as detailed examples and ongoing guidance, refer to the <a href="http://hl7.org/fhir/uv/cqm">Quality Measure</a> implementation guide.</p>
+
+<a name="proportion-measures"> </a>
+<h6>Proportion Measures</h6>
+
+<p>A <em>proportion</em> scoring measure is defined as the result of a fraction (number of events in the numerator divided by the number of events in the denominator). Proportion measures typically define an initial population, then denominator and numerator inclusion and exclusion criteria.</p>
+
+<p>Take the following steps to add labels to each case to determine population membership:</p>
+
+<ul>
+  <li>For each case that meets the <code>Initial Population</code> criteria, add the label <b>initial-population</b>.</li>
+  <li>For each case labeled <b>initial-population</b> that meets the <code>Denominator</code> criteria, add the label <b>denominator</b>.</li>
+  <li>For each case labeled <b>denominator</b> that meets the <code>Denominator Exclusion</code> criteria, add the label <b>denominator-exclusion</b>.</li>
+  <li>For each case labeled <b>denominator</b> and not <b>denominator-exclusion</b> that meets the <code>Numerator</code> criteria, add the label <b>numerator</b>.</li>
+  <li>For each case labeled <b>denominator</b> and not <b>denominator-exclusion</b> that does not meet <code>Numerator</code> criteria, if the case meets <code>Denominator Exception</code> criteria, add the label <b>denominator-exception</b></li>
+  <li>For each case labeled <b>numerator</b> that meets the <code>Numerator Exclusion</code> criteria, add the label <b>numerator-exclusion</b>.</li>
+</ul>
+
+<p>Population counts are then determined by simply counting the number of cases that are labeled with each population type code.</p>
+
+<p>The <em>performance rate</em> is then the number of patients in the Numerator (accounting for exclusions), divided by the number of patients in the Denominator (accounting for exclusions and exceptions). Performance rate can be calculated using this formula:</p>
+
+<pre><code>Performance rate = (Numerator - Numerator Exclusion) / (Denominator - Denominator Exclusion - Denominator Exception)</code></pre>
+
+<a name="ratio-measures"> </a>
+<h6>Ratio Measures</h6>
+
+<p>A <em>ratio</em> scoring measure is defined as the result of a ratio calculation. This is similar to a proportion scoring, with the exception that the numerator and denominator may be drawn from different initial populations, and are reported as a ratio (i.e. <code>N/D</code>), rather than a decimal. Ratio measures typically define initial population(s) and then numerator and denominator inclusion and exclusion criteria.</p>
+
+<p>Take the following steps to add labels to each case to determine population membership:</p>
+
+<ul>
+  <li>For each case that meets <code>Initial Population</code> criteria, add the label <b>initial-population</b>. Note that if the ratio measure uses multiple initial populations, one for the numerator, and one for the denominator, different labels must be used to distinguish the populations.</li>
+  <li>For each case labeled <b>initial-population</b> that meets the <code>Denominator</code> criteria, add the label <b>denominator</b>.</li>
+  <li>For each case labeled <b>denominator</b> that meets <code>Denominator Exclusion</code> criteria, add the label <b>denominator-exclusion</b>.</li>
+  <li>For each case labeled <b>initial population</b> that meets <code>Numerator</code> criteria, add the label <b>numerator</b>.</li>
+  <li>For each case labeled <b>numerator</b> that meets the <code>Numerator Exclusion</code> criteria, add the label <b>numerator-exclusion</b>.</li>
+</ul>
+
+<p>Population counts are then determined by simply counting the number of cases that are labeled with each population type code.</p>
+
+<p>The <em>performance ratio</em> is then the number of patients in the Numerator (accounting for exclusions), over the number of patients in the Denominator (accounting for exclusions and exceptions). Performance rate can be calculated using this formula:</p>
+
+<pre><code>Performance ratio = (Numerator - Numerator Exclusion) / (Denominator - Denominator Exclusion)</code></pre>
+
+<p>Note that ratio measures may also specify numerator and denominator measure observations, as an alternative to simply counting the members of the population (i.e. a ratio of continuous variable measures). This is useful for modeling measures such as a Standardized Infection Ratio, where the denominator is estimated based on population estimates, or predicted based on a statistical model. For an illustration of this approach using a Catheter Associated Urinary Tract Infection measure, refer to [Cooking With CQL - Session 93 - CAUTI Example](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/blob/master/Source/Cooking%20With%20CQL/93/CAUTI.md).</p>
+
+<a name="continuous-variable-measures"> </a>
+<h6>Continuous Variable Measures</h6>
+
+<p>A <em>continuous variable</em> scoring measure is defined by a measure observation calculation performed for each member of the population. Continuous variable measures typically define an initial population, then measure population inclusion and exclusion criteria, as well as a measure observation.</p>
+
+<p>For example, a continuous-variable measure may define time from check-in to time of antibiotic administration. Note that measure observations are actually a function in terms of the members of the population, not a filtering population criteria. Rather, measure observations are data elements, to be collected from each subject that satisfies the measure population inclusion and exclusion criteria, which are used to calculate the results for each member of the population.</p>
+
+<p>Take the following steps to add labels to each case to determine population membership:</p>
+
+<ul>
+  <li>For each case that meets <code>Initial Population</code> criteria, add the label <b>initial-population</b>.</li>
+  <li>For each case labeled <b>initial-population</b> that meets <code>Measure Population</code> criteria, add the label <b>measure-population</b>.</li>
+  <li>For each case labeled <b>measure-population</b> that meets <code>Measure Population Exclusion</code> criteria, add the label <b>measure-population-exclusion</b>.</li>
+</ul>
+
+<p>Population counts are then determined by simply counting the number of cases that are labeled with each population type code.</p>
+
+<p>The measure score is then determined by calculating the <code>Measure Observation</code> for each case that is labeled <b>measure-population</b> and not <b>measure-population-exclusion</b>, and aggregating the resulting measure observations using the <code>aggregateMethod</code>.</p>
+
+<a name="cohort-measures"> </a>
+<h6>Cohort Measures</h6>
+
+<p>A <em>cohort</em> scoring measure is simply the definition of a population, and the score is a count of the members of that population. Cohort measures typically define only an initial population to determine membership. Cohort measures are often used to determine baseline populations for a collection of measures. With supplemental data, cohort measures are often used as data collection tools to define a set of patients of interest, and a set of data elements to be collected for each member of that population.</p>
+
+<a name="attestation-measures"> </a>
+<h6>Attestation Measures</h6>
+
+<p>An <em>attestation</em> scoring measure indicates that the reporter of the measure is attesting the measure score. This is typically used for true/false attestations, but can be used for other types of measure scores as well. The key distinction is that the measure is not computably represented (i.e. as a calculation or aggregation performed on some data in the reporting system), but rather is a simple attestation made by the measure reporter.</p>
+
+<a name="multiple-populations"> </a>
+<h6>Measures with Multiple Populations</h6>
+
+<p>Quality measures often specify multiple rates, with different population crtiteria for each rate. This is different than stratifying the scores for the same population. For quality measures that contain multiple rates, the Measure will contain multiple group elements, where the criteria are specified once for each group. The <code>linkId</code> attribute of the <code>group</code> element is used to uniquely identify the group within the measure, as well as within the quality reporting results.</p>
+
 <a name="stratification-and-supplemental-data"> </a>
 <h5>Stratification and Supplemental Data</h5>
 
@@ -146,7 +269,179 @@
 	<li>A direct link from each stratum is associated with one or more quality improvement opportunities- stratification represents these improvement opportunities for specific measure subpopulations (i.e., each stratified population represents a different clinical pathway, or a different quality opportunity based on those specific variables on which the cohort was stratified upon).</li>
 </ul>
 
-<p>Measure stratification is specified using the <code>stratifier</code> element of the <a href="measure.html">Measure</a> resource. Stratification criteria are specified either as a reference to a CQL named expression within a Library (e.g. <code>CMS146.AgesUpToNine</code>), or as FHIR resource paths (e.g. <code>Patient.deceased</code>). When the stratification criteria is an expression, the stratification will yield as many result groups as the expression returns. For example, if the expression returns a boolean, then there would be two stratification groups: true and false. When the stratification criteria is a FHIR resource path, there will be as many stratification groups as possible values for the resource path.</p>
+<p>Measure stratification is specified using the <code>stratifier</code> element of the <a href="measure.html">Measure</a> resource. Stratification criteria are specified either as a reference to a CQL named expression within a Library (e.g. <code>CMS146.AgesUpToNine</code>), or as FHIR resource paths (e.g. <code>Patient.deceased</code>). When the stratification criteria is an expression, the stratification will yield as many result strata as the expression returns. For example, if the expression returns a boolean, then there would be two stratification groups: true and false. When the stratification criteria is a FHIR resource path, there will be as many stratification groups as possible values for the resource path.</p>
+
+<a name="criteria-based-stratifiers"> </a>
+<p><b>Criteria-based Stratifiers</b></p>
+
+<p>Using criteria-based stratifiers is the most straightforward stratification approach as it is simply another set of population criteria for the measure. The expressions used to define criteria-based stratifiers must be consistent with the basis of the measure (i.e. they must return the same type as all the other population criteria expressions in the measure. For example, consider stratification into three age ranges: 0-20, 21-40, 41+.</p>
+
+<p>NOTE: These examples are deliberately ignoring the measurement period, as well as the fact that age is a moving point now. Real measures will of course need to take these factors into account, but these examples are focusing solely on the structural representation of the various approaches to stratification.</p>
+
+<p>Subject-based</p>
+
+<p>Percentage of patients with a well-visit</p>
+
+<pre><code>
+define "Denominator":
+  Patient.active is true
+
+define "Numerator":
+  exists ([Encounter: "Well-Visit Encounter Codes"])
+</code></pre>
+
+<p>Criteria-based stratification by age range</p>
+
+<pre><code>
+define "Stratifier P0Y--P21Y":
+  Patient.ageInYears() between 0 and 20
+
+define "Stratifier P21Y--P41Y":
+  Patient.ageInYears() between 21 and 40
+
+define "Stratifier P41Y--P9999Y":
+  Patient.ageInYears() > 41
+</code></pre>
+
+<p>Non-subject-based</p>
+
+<p>Percentage of well-visits with a blood pressure observation</p>
+
+<pre><code>
+define "Denominator":
+  [Encounter: "Well-Visit Encounter Codes"]
+
+define "Numerator":
+  [Encounter: "Well-Visit Encounter Codes"] E
+    with [Observation: "Blood Pressure Observation Codes"] O such that O.issued during E.period
+</code></pre>
+
+<p>Criteria-based stratification by age range</p>
+
+<pre><code>
+define "Stratifier P0Y--P21Y":
+  [Encounter: "Well-Visit Encounter Codes"] E
+    where Patient.ageInYears() between 0 and 20
+
+define "Stratifier P21Y--P41Y":
+  [Encounter: "Well-Visit Encounter Codes"] E
+    where Patient.ageInYears() between 21 and 40
+
+define "Stratifier P41Y--P9999Y":
+  [Encounter: "Well-Visit Encounter Codes"] E
+    where Patient.ageInYears() > 41
+</code></pre>
+
+<a name="value-based-stratifiers"> </a>
+<p><b>Value-based Stratifiers</b></p>
+
+<p>Value-based stratifiers are expressed as a set of stratifier components, each one identifying a path or an expression that returns a value of a type other than the basis. Using the same simple example measures as above:</p>
+
+<p>Subject-based, valued-based, as a path, stratification by gender:</p>
+
+<pre><code>
+&lt;stratifier&gt;
+  &lt;component&gt;
+    &lt;criteria&gt;
+      &lt;expression value="gender"/&gt;
+    &lt;/criteria&gt;
+  &gt;/component&gt;
+&lt;/stratifier&gt;
+</code></pre>
+
+<p>Note that with value-based stratifiers represented as a path, the value is an expression written from the perspective of the measure subject (Patient in this case) for subject-based measures, but the measure basis for non-subject-based measures.</p>
+
+<p>Subject-based, value-based, as an expression</p>
+
+<pre><code>
+define "Age Range Stratifier":
+  case
+    when Patient.ageInYears() between 0 and 20 then 'P0Y--P21Y'
+    when Patient.ageInYears() between 21 and 40 then 'P21Y--P41Y'
+    when Patient.ageInYears() > 41 then 'P41Y--P9999Y'
+    else null
+  end
+</code></pre>
+
+<p>The first thing to note here is that this approach involved only a single stratification element to be defined, "Age Range Stratifier", rather than the criteria-based approach, which required defining a stratifier element for each stratification group. Obviouisly, the more stratification groups, the more economical this approach becomes.</p>
+
+<p>Non-subject-based</p>
+
+<p>Non-subject-based, value-based, as an expression</p>
+
+<pre><code>
+define function "Age Range Stratifier"(encounter Encounter):
+  case
+    when Patient.ageInYearsAt(start of encounter.period) between 0 and 20 then 'P0Y--P21Y'
+    when Patient.ageInYearsAt(start of encounter.period) between 21 and 40 then 'P21Y--P41Y'
+    when Patient.ageInYearsAt(start of encounter.period) > 41 then 'P41Y--P9999Y'
+    else null
+  end
+</code></pre>
+
+<p>Note that with value-based stratifiers represented as an expression, the expression is written from the perspective of the measure subject, but also defines a parameter with the type of the basis. This is the same approach used to calculate measure observations, because the stratifier expression must be evaluated for each member of the population to determine the stratum value to which that member of the population belongs.</p>
+
+<a name="component-stratifiers"> </a>
+<p><b>Component Stratifiers</b></p>
+
+<p>While criteria-based stratifiers are expressed using the <code>stratifier.criteria</code> element, value-based stratifiers are specified using any number of <code>component</code> elements. Each component stratifier specifies an expression that returns the value of the stratifier for members of the population. The advantage of using component stratifiers is that the combinations are computed, rather than having to be expressed. For example, consider the case of stratifying by age-range and gender, for the subject-based example measure:</p>
+
+<pre><code>
+define "Stratifier P0Y--P21Y":
+  Patient.ageInYears() between 0 and 20
+
+define "Stratifier P21Y--P41Y":
+  Patient.ageInYears() between 21 and 40
+
+define "Stratifier P41Y--P9999Y":
+  Patient.ageInYears() > 41
+
+define "Stratifier Male":
+  Patient.gender = 'male'
+
+define "Stratifier Female":
+  Patient.gender = 'female'
+</code></pre>
+
+<p>To do this using criteria-based stratifiers would require specifying a stratifier expression for each possible combination of age range group and gender. With even larger stratifications, this is untenable. Value-based stratifiers simplify this, so you could say:</p>
+
+<pre><code>
+define "Age Range Stratifier":
+  case
+    when Patient.ageInYearsAt(start of Encounter.period) between 0 and 20 then 'P0Y--P21Y'
+    when Patient.ageInYearsAt(start of Encounter.period) between 21 and 40 then 'P21Y--P41Y'
+    when Patient.ageInYearsAt(start of Encounter.period) > 41 then 'P41Y--P9999Y'
+    else null
+  end
+
+define "Gender Stratifier":
+  Patient.gender
+
+define "Age Range and Gender Stratifier":
+  "Age Range Stratifier" + ':' + Coalesce("Gender Stratifier", 'Unknown')
+</code></pre>
+
+<p>This is better, in that it only requires the creation of a single stratifier element referencing the "Age Range and Gender Stratifier" expression, but it arbitrarily forces construction of stratum values by combining the values from the other stratifiers. Component-based stratifiers allow this to be done directly:</p>
+
+<pre><code>
+&lt;stratifier&gt;
+  &lt;component&gt;
+    &lt;criteria&gt;
+      &lt;expression value="Age Range Stratifier"/&gt;
+    &lt;/criteria&gt;
+  &lt;/component&gt;
+  &lt;component&gt;
+    &lt;criteria&gt;
+      &lt;expression value="Gender Stratifier"/&gt;
+    &lt;/criteria&gt;
+  &lt;/component&gt;
+&lt;/stratifier&gt;
+</code></pre>
+
+<a name="valueset-stratifiers"> </a>
+<p>Using Value Sets for Stratification</p>
+
+<p>It is often the case that the set of possible values for a stratifiers is known and expressible using a terminology. When this is the case, the <code>valueSet</code> element of the stratifier may be used. When this is done, the value set used must be consistent with the other aspects of the stratifier definition. For example, given the "Age Range Stratifier" above, a value set with codes from the "Time Period Ranges" code system can be used to provide the expected possible values as part of the stratifier specification.</p>
 
 <a name="supplemental-data"/>
 <h6>Supplemental Data</h6>
@@ -168,17 +463,7 @@
   <li><b>MeasureReport:</b> <a href="measurereport-cms146-cat3-example.html">measurereport-cms146-cat3-example</a></li>
 </ul>
 
-<a name="multiple-populations"> </a>
-<h6>Measures with Multiple Populations</h6>
-
-<p>Quality measures often specify multiple rates, with different population crtiteria for each rate. This is different than stratifying the scores for the same population. For quality measures that contain multiple rates, the Measure will contain multiple group elements, where the criteria are specified once for each group. The <code>linkId</code> attribute of the <code>group</code> element is used to uniquely identify the group within the measure, as well as within the quality reporting results.</p>
-
-<a name="continuous-variable-measures"> </a>
-<h6>Continuous Variable Measures</h6>
-
-<p>Continuous variable measures may include a measure observation section. This section defines variables (for example, time from check-in to time of antibiotic administration) used to measure particular aspects of a process or outcome. Note that measure observations are not population criteria in that they do not filter the population in any way. Rather, measure observations are data elements, to be collected from each subject that satisfies the population criteria, which are used to calculate the results for each member of the population.</p>
-
-<a name="Data Criteria"> </a>
+<a name="data-criteria"> </a>
 <a name="data-requirements"> </a>
 <h6>Data Requirements</h6>
 
@@ -262,6 +547,67 @@ The next example demonstrates how to obtain the results of evaluating the measur
 <h5>Bundles Organized by Subject</h5>
 	
 <p>The Bundles used in the quality reporting operations enable the evaluation and exchange of data for multiple measures, while also constraining duplicate data. Bundles <b>SHOULD</b> be organized by subject, meaning that a Bundle <b>SHOULD</b> contain the resources, the including MeasureReport(s) and data of interest (in MeasureReport.evaluatedResources), for all of the measures that apply to a single subject. Resources that are not unique to the subject, such as Practitioner or Organization, may still be duplicated across Bundles.</p>
+
+<a name="ad-hoc-organizations"> </a>
+<h5>Ad-Hoc Organizations for Reporting Operations</h5>
+
+Data producers and consumers may want to gather data from different locations and providers within a large organization that is comprised of multiple sub-organizations. In such cases, it can be desirable to model portions of the organization from which data should be gathered as a way to target data requests. The $evaluate, $care-gaps, and $collect-data operations allow an Organization resource to be either referenced or passed in as part of the request body. If it is passed in, it can be an ad-hoc Organization created only as part of that request. PractitionerRole resources can be used to link Practitioner resources to the Organization to model the set of participating practitioners.
+
+The following ad-hoc organization example illustrates an Organization resource with a contained Practitioner and PractitionerRole resource. It assumes a simple attribution model for the patient-provider interactions. In practice, attribution of patient encounters to providers will be more sophisticated and include factors such as coverage, ACOs, etc.
+
+<pre><code>&lt;Organization&gt;
+  &lt;id value=&quot;ad-hoc-organization-example&quot;/&gt;
+  &lt;contained&gt;
+    &lt;Practitioner&gt;
+      &lt;id value=&quot;kelly-smith-1&quot;/&gt;
+      &lt;identifier&gt;
+        &lt;use value=&quot;official&quot;/&gt;
+        &lt;system value=&quot;urn:oid:2.16.840.1.113883.4.4&quot;/&gt;
+        &lt;value value=&quot;EIN-00YYZ&quot;/&gt;
+      &lt;/identifier&gt;
+      &lt;name&gt;
+        &lt;family value=&quot;Smith&quot;/&gt;
+        &lt;given value=&quot;Kelly&quot;/&gt;
+      &lt;/name&gt;
+    &lt;/Practitioner&gt;
+  &lt;/contained&gt;
+  &lt;contained&gt;
+    &lt;PractitionerRole&gt;
+      &lt;id value=&quot;kelly-smith-role&quot;/&gt;
+      &lt;identifier&gt;
+        &lt;use value=&quot;official&quot;/&gt;
+        &lt;system value=&quot;urn:oid:2.16.840.1.113883.4.4&quot;/&gt;
+        &lt;value value=&quot;EIN-00YYZ&quot;/&gt;
+      &lt;/identifier&gt;
+      &lt;active value=&quot;true&quot;/&gt;
+      &lt;practitioner&gt;
+        &lt;reference value=&quot;#kelly-smith-1&quot;/&gt;
+      &lt;/practitioner&gt;
+      &lt;organization&gt;
+        &lt;reference value=&quot;#&quot;/&gt;
+      &lt;/organization&gt;
+      &lt;code&gt;
+        &lt;coding&gt;
+          &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+          &lt;code value=&quot;133932002&quot;/&gt;
+          &lt;display value=&quot;Caregiver (person)&quot;/&gt;
+        &lt;/coding&gt;
+      &lt;/code&gt;
+      &lt;specialty&gt;
+        &lt;coding&gt;
+          &lt;system value=&quot;http://nucc.org/provider-taxonomy&quot;/&gt;
+          &lt;code value=&quot;122300000X&quot;/&gt;
+          &lt;display value=&quot;Dentist&quot;/&gt;
+        &lt;/coding&gt;
+      &lt;/specialty&gt;
+    &lt;/PractitionerRole&gt;
+  &lt;/contained&gt;
+  &lt;active value=&quot;true&quot;/&gt;
+  &lt;name value=&quot;Ad hoc organization example&quot;/&gt;
+&lt;/Organization&gt;
+</code></pre>
+
+The organization provided in $evaluate, $care-gaps, or $collect-data, whether in the provider parameter or the providerResource parameter, SHALL be the reporter in the resulting measure report(s) and SHALL be included as a contained resource if necessary. Note that when included as a contained resource in the measure report, the structure must be flattened so that the Organization does not have any contained resources because contained resources cannot themselves have contained resources. References among the contained resources SHALL be maintained.
 	
 <a name="duplicate-data"> </a>
 <h5>Duplicate Data</h5>

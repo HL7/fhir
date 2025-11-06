@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PlanDefinition xmlns="http://hl7.org/fhir">
+   <id value="low-suicide-risk-order-set"/>
+   <url value="http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set"/>
+   <title value="Low Suicide Risk Order Set"/>
+   <status value="active"/>
+   <experimental value="true"/>
+  <relatedArtifact>
+    <type value="depends-on"/>
+    <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
+    <artifactAttachment>
+      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/> <!-- This should be an error to define an attachment dependency -->
+    </artifactAttachment>
+  </relatedArtifact>
+   <!-- Actions -->
+   <action>
+      <title value="Suicide Risk Assessment and Outpatient Management"/>
+      <relatedAction>
+         <targetId value="12"/>
+         <relationship value="concurrent"/>
+      </relatedAction>
+      <action id="12">
+         <title value="Consults and Referrals"/>
+      </action>
+   </action>
+</PlanDefinition>

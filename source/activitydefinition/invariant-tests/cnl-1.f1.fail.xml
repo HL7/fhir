@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="referralPrimaryCareMentalHealthEx"/>
-  <url value="http://motivemi.com/artifacts/ActivityDefinition/referralPrimaryCareMentalHealthEx#234|123"/>
+  <url value="http://motivemi.com/artifacts/ActivityDefinition/referralPrimaryCareMentalHealthEx#234|123"/> <!-- This should be an error to include # or | in the url -->
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.19.8"/>
@@ -155,13 +155,11 @@
   <relatedArtifact>
     <type value="citation"/>
     <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
-    <document>
-      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
-    </document>
+    <artifactMarkdown value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
   </relatedArtifact>
   <relatedArtifact>
     <type value="predecessor"/>
-    <resource value="http://example.org/fhir/ActivityDefinition/referralPrimaryCareMentalHealth-initial"/>
+    <artifactCanonical value="http://example.org/fhir/ActivityDefinition/referralPrimaryCareMentalHealth-initial"/>
   </relatedArtifact>
   <!-- Kind indicates the type of resource that is defined by this activity, a ServiceRequest in this case -->
   <kind value="ServiceRequest"/>
@@ -178,7 +176,7 @@
 		   In this case, ServiceRequest.fulfillmentTime.start -->
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
         <valueExpression>
-          <language value="text/cql"/>
+          <language value="text/cql-expression"/>
           <expression value="Now()"/>
         </valueExpression>
       </extension>

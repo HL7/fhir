@@ -2,10 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="endpoint-connection-type"/>
-  <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-endpoint-connection-type"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>

@@ -215,7 +215,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -597,7 +596,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
       </type>
       <type>

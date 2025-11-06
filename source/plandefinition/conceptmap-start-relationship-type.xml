@@ -3,7 +3,7 @@
 <ConceptMap xmlns="http://hl7.org/fhir">
   <id value="start-relationship-type"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareableconceptmap"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>

@@ -4,7 +4,7 @@
   <id value="encounter-businessstatus-inpatient"/>
   <meta>
     <lastUpdated value="2025-10-29T00:00:00.000+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>

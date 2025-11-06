@@ -4,7 +4,7 @@
   <id value="genomicstudy-changetype"/>
   <meta>
     <lastUpdated value="2022-08-17T15:47:24.148-05:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cg"/>

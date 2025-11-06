@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="DeviceRequest-search-params"/>
   <entry>
     <resource>
@@ -13,10 +13,10 @@
           <valueString value="DeviceRequest.authoredOn"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-authored-on"/>
+        <status value="active"/>
         <description value="When the request transitioned to being actionable"/>
         <code value="authored-on"/>
         <type value="date"/>
-        <status value="active" />
         <expression value="DeviceRequest.authoredOn"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -33,10 +33,10 @@
           <valueString value="DeviceRequest.basedOn"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-based-on"/>
+        <status value="active"/>
         <description value="Plan/proposal/order fulfilled by this request"/>
         <code value="based-on"/>
         <type value="reference"/>
-        <status value="active" />
         <expression value="DeviceRequest.basedOn"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -53,10 +53,10 @@
           <valueString value="DeviceRequest.productCodeableConcept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-product"/>
+        <status value="active"/>
         <description value="Code for what is being requested/ordered"/>
         <code value="product"/>
         <type value="token"/>
-        <status value="active" />
         <expression value="DeviceRequest.product.ofType(CodeableConcept)"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -73,10 +73,10 @@
           <valueString value="DeviceRequest.productReference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-device"/>
+        <status value="active"/>
         <description value="Reference to resource that is being requested/ordered"/>
         <code value="device"/>
         <type value="reference"/>
-        <status value="active" />
         <expression value="DeviceRequest.product.ofType(Reference)"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -93,10 +93,10 @@
           <valueString value="DeviceRequest.encounter"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-encounter"/>
+        <status value="active"/>
         <description value="Encounter during which request was created"/>
         <code value="encounter"/>
         <type value="reference"/>
-        <status value="active" />
         <expression value="DeviceRequest.encounter"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -113,10 +113,10 @@
           <valueString value="DeviceRequest.occurrenceDateTime,DeviceRequest.occurrencePeriod"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-event-date"/>
+        <status value="active"/>
         <description value="When service should occur"/>
         <code value="event-date"/>
         <type value="date"/>
-        <status value="active" />
         <expression value="(DeviceRequest.occurrence.ofType(dateTime)) | (DeviceRequest.occurrence.ofType(Period))"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -133,10 +133,10 @@
           <valueString value="DeviceRequest.groupIdentifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-group-identifier"/>
+        <status value="active"/>
         <description value="Composite request this is part of"/>
         <code value="group-identifier"/>
         <type value="token"/>
-        <status value="active" />
         <expression value="DeviceRequest.groupIdentifier"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -153,10 +153,10 @@
           <valueString value="DeviceRequest.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-identifier"/>
+        <status value="active"/>
         <description value="Business identifier for request/order"/>
         <code value="identifier"/>
         <type value="token"/>
-        <status value="active" />
         <expression value="DeviceRequest.identifier"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -173,10 +173,10 @@
           <valueString value="DeviceRequest.insurance"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-insurance"/>
+        <status value="active"/>
         <description value="Associated insurance coverage"/>
         <code value="insurance"/>
         <type value="reference"/>
-        <status value="active" />
         <expression value="DeviceRequest.insurance"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -193,10 +193,10 @@
           <valueString value="DeviceRequest.intent"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-intent"/>
+        <status value="active"/>
         <description value="proposal | plan | original-order |reflex-order"/>
         <code value="intent"/>
         <type value="token"/>
-        <status value="active" />
         <expression value="DeviceRequest.intent"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -213,10 +213,10 @@
           <valueString value="DeviceRequest.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-patient"/>
+        <status value="active"/>
         <description value="Individual the service is ordered for"/>
         <code value="patient"/>
         <type value="reference"/>
-        <status value="active" />
         <expression value="DeviceRequest.subject.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
         <target value="Patient"/>
@@ -234,10 +234,10 @@
           <valueString value="DeviceRequest.performer.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-performer"/>
+        <status value="active"/>
         <description value="Desired performer for service"/>
         <code value="performer"/>
         <type value="reference"/>
-        <status value="active" />
         <expression value="DeviceRequest.performer.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -254,12 +254,11 @@
           <valueString value="DeviceRequest.performer.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-performer"/>
+        <status value="active"/>
         <description value="Desired performer for service"/>
         <code value="performer-code"/>
         <type value="token"/>
-        <status value="active" />
         <expression value="DeviceRequest.performer.concept"/>
-        <processingMode value="normal"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -275,10 +274,10 @@
           <valueString value="DeviceRequest.replaces"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-prior-request"/>
+        <status value="active"/>
         <description value="Request takes the place of referenced completed or terminated requests"/>
         <code value="prior-request"/>
         <type value="reference"/>
-        <status value="active" />
         <expression value="DeviceRequest.replaces"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -295,10 +294,10 @@
           <valueString value="DeviceRequest.requester"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-requester"/>
+        <status value="active"/>
         <description value="Who/what is requesting service"/>
         <code value="requester"/>
         <type value="reference"/>
-        <status value="active" />
         <expression value="DeviceRequest.requester"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -315,10 +314,10 @@
           <valueString value="DeviceRequest.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-status"/>
+        <status value="active"/>
         <description value="entered-in-error | draft | active |suspended | completed"/>
         <code value="status"/>
         <type value="token"/>
-        <status value="active" />
         <expression value="DeviceRequest.status"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -335,16 +334,16 @@
           <valueString value="DeviceRequest.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-subject"/>
+        <status value="active"/>
         <description value="Individual the service is ordered for"/>
         <code value="subject"/>
         <type value="reference"/>
-        <status value="active" />
         <expression value="DeviceRequest.subject"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
-   <entry>
+  <entry>
     <resource>
       <SearchParameter>
         <id value="DeviceRequest-location-code"/>
@@ -355,10 +354,10 @@
           <valueString value="DeviceRequest.location.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-location-code"/>
+        <status value="active"/>
         <description value="The preferred location specified in the DeviceRequest (coded)"/>
         <code value="location-code"/>
         <type value="token"/>
-        <status value="active" />
         <expression value="DeviceRequest.location.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>

@@ -827,6 +827,29 @@
         <map value="Interactions.Interactant and Interactions.Interactions Text"/>
       </mapping>
     </element>
+    <element id="ClinicalUseDefinition.interaction.interactant.route">
+      <path value="ClinicalUseDefinition.interaction.interactant.route"/>
+      <short value="The route by which the item is administered to cause the interaction"/>
+      <definition value="The route by which the item is administered to cause the interaction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTRouteCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient's body."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/route-codes"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="ClinicalUseDefinition.interaction.type">
       <path value="ClinicalUseDefinition.interaction.type"/>
       <short value="The type of the interaction e.g. drug-drug interaction, drug-lab test interaction"/>
@@ -918,6 +941,29 @@
       <mapping>
         <identity value="idmp"/>
         <map value="Interactions.Management Actions"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.interaction.severity">
+      <path value="ClinicalUseDefinition.interaction.severity"/>
+      <short value="The severity of the interaction"/>
+      <definition value="The severity of the interaction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllergyIntoleranceSeverity"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/reaction-event-severity"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.population">

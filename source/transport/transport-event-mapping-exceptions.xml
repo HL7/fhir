@@ -74,7 +74,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="Transport.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, Group)" reason="Unknown"/>
         <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
