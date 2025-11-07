@@ -402,7 +402,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -850,7 +849,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
       </type>
       <mapping>
         <identity value="workflow"/>

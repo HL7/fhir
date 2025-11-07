@@ -543,16 +543,6 @@
     <Cell ss:Index="8"><Data ss:Type="String">date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImmunizationEvaluation</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">date</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ImmunizationRecommendation</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">date</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ImplementationGuide</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

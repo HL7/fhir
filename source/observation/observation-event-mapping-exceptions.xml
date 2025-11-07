@@ -20,7 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="Observation.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,DeviceRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,DeviceRequest,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this observation."/>
             <resource value="A plan, proposal or order that is fulfilled in whole or in part by this event.  For example, a MedicationRequest may require a patient to have laboratory test performed before  it is dispensed."/>
