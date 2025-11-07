@@ -285,8 +285,8 @@
 		</element>
 		<element id="SubscriptionStatus.notificationEvent.authorizationHint.authorizationType">
 			<path value="SubscriptionStatus.notificationEvent.authorizationHint.authorizationType"/>
-			<short value="Authorization Type"/>
-			<definition value="Used by clients to determine what kind of authorization is appropriate in this context."/>
+			<short value="Classification of the authorization hint, e.g., 'oAuthChallengeToken'"/>
+			<definition value="Used by clients to determine what kind of authorization hint is being suggested by the sender."/>
 			<min value="1"/>
       <max value="1"/>
       <type>
@@ -300,7 +300,7 @@
 		</element>
 		<element id="SubscriptionStatus.notificationEvent.authorizationHint.value">
 			<path value="SubscriptionStatus.notificationEvent.authorizationHint.value"/>
-			<short value="Authorization Value"/>
+			<short value="Authorization value, as defined by the 'authorizationType'"/>
 			<definition value="A value related to the authorization (e.g., a token)."/>
 			<min value="0"/>
       <max value="1"/>

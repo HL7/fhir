@@ -138,6 +138,7 @@
   </entry>
 
 
+  <!--
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Notification Bundle containing an error state"/>
@@ -146,11 +147,10 @@
       <valueString value="notification-error"/>
     </extension>
     <item>
-      <reference value="Bundle/e2c9dc20-615e-4603-9005-74deb209cbb0"/>
+      <reference value="SubscriptionStatus/e2c9dc20-615e-4603-9005-74deb209cbb0"/>
       <display value="Subscription-Notification Bundle with Error"/>
     </item>
   </entry>
-
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Handshake Bundle (establish channel)"/>
@@ -159,7 +159,7 @@
       <valueString value="notification-handshake"/>
     </extension>
     <item>
-      <reference value="Bundle/54f808cf-d159-4c9b-accb-c33eb20f0ecc"/>
+      <reference value="SubscriptionStatus/54f808cf-d159-4c9b-accb-c33eb20f0ecc"/>
       <display value="Subscription-Notification Bundle with Handshake"/>
     </item>
   </entry>
@@ -171,7 +171,7 @@
       <valueString value="notification-heartbeat"/>
     </extension>
     <item>
-      <reference value="Bundle/3d20ea4b-90dc-4d0d-b15a-c7a893389401"/>
+      <reference value="SubscriptionStatus/3d20ea4b-90dc-4d0d-b15a-c7a893389401"/>
       <display value="Subscription-Notification Bundle with Heartbeat"/>
     </item>
   </entry>
@@ -184,7 +184,7 @@
       <valueString value="notification-empty"/>
     </extension>
     <item>
-      <reference value="Bundle/9601c07a-e34f-4945-93ca-6efb5394c995"/>
+      <reference value="SubscriptionStatus/9601c07a-e34f-4945-93ca-6efb5394c995"/>
       <display value="Subscription-Notification Bundle with an Empty notification"/>
     </item>
   </entry>
@@ -196,7 +196,7 @@
       <valueString value="notification-id-only"/>
     </extension>
     <item>
-      <reference value="Bundle/3945182f-d315-4dbf-9259-09d863c7e7da"/>
+      <reference value="SubscriptionStatus/3945182f-d315-4dbf-9259-09d863c7e7da"/>
       <display value="Subscription-Notification Bundle with an ID-Only notification"/>
     </item>
   </entry>
@@ -208,7 +208,7 @@
       <valueString value="notification-id-only-with-patient"/>
     </extension>
     <item>
-      <reference value="Bundle/920a46b7-045a-4773-82bd-8e90c3e15653"/>
+      <reference value="SubscriptionStatus/920a46b7-045a-4773-82bd-8e90c3e15653"/>
       <display value="Subscription-Notification Bundle with ID-Only with Patient"/>
     </item>
   </entry>
@@ -220,7 +220,7 @@
       <valueString value="notification-full-resource"/>
     </extension>
     <item>
-      <reference value="Bundle/00b99077-2bda-436e-98cc-a4f65d6c2fe0"/>
+      <reference value="SubscriptionStatus/00b99077-2bda-436e-98cc-a4f65d6c2fe0"/>
       <display value="Subscription-Notification Bundle with Full Resource"/>
     </item>
   </entry>
@@ -232,7 +232,7 @@
       <valueString value="notification-full-resource-with-patient"/>
     </extension>
     <item>
-      <reference value="Bundle/fdd78223-f79f-43b4-8979-ad49d4ac248c"/>
+      <reference value="SubscriptionStatus/fdd78223-f79f-43b4-8979-ad49d4ac248c"/>
       <display value="Subscription-Notification Bundle with Full Resource with Patient"/>
     </item>
   </entry>
@@ -245,7 +245,7 @@
       <valueString value="notification-query-status"/>
     </extension>
     <item>
-      <reference value="Bundle/40464b74-fad0-4f45-ab60-e67f949c5e92"/>
+      <reference value="SubscriptionStatus/40464b74-fad0-4f45-ab60-e67f949c5e92"/>
       <display value="Subscription-Notification Bundle for Query Status"/>
     </item>
   </entry>
@@ -258,7 +258,7 @@
       <valueString value="notification-query-event"/>
     </extension>
     <item>
-      <reference value="Bundle/787e69f6-81a8-44e4-b404-257013dec332"/>
+      <reference value="SubscriptionStatus/787e69f6-81a8-44e4-b404-257013dec332"/>
       <display value="Subscription-Notification Bundle for Event Query"/>
     </item>
   </entry>
@@ -271,7 +271,7 @@
       <valueString value="notification-message-full-resource"/>
     </extension>
     <item>
-      <reference value="Bundle/0f322dbe-4f8d-4cbd-9ecb-bc8dc6f65f6a"/>
+      <reference value="SubscriptionStatus/0f322dbe-4f8d-4cbd-9ecb-bc8dc6f65f6a"/>
       <display value="Subscription-Notification Bundle with Messaging"/>
     </item>
   </entry>
@@ -284,7 +284,7 @@
       <valueString value="notification-full-basic"/>
     </extension>
     <item>
-      <reference value="Bundle/fdd386f3-b4b5-426e-bd96-495eebda96d9"/>
+      <reference value="SubscriptionStatus/fdd386f3-b4b5-426e-bd96-495eebda96d9"/>
       <display value="Subscription-Notification Bundle using Basic"/>
     </item>
   </entry>
@@ -297,7 +297,7 @@
       <valueString value="notification-full-binary"/>
     </extension>
     <item>
-      <reference value="Bundle/97a86523-f61a-423c-93f5-ca1efc896b49"/>
+      <reference value="SubscriptionStatus/97a86523-f61a-423c-93f5-ca1efc896b49"/>
       <display value="Subscription-Notification Bundle using Binary"/>
     </item>
   </entry>
@@ -310,7 +310,7 @@
       <valueString value="notification-full-parameters"/>
     </extension>
     <item>
-      <reference value="Bundle/23633d50-ba72-435c-ae51-378d70cfc692"/>
+      <reference value="SubscriptionStatus/23633d50-ba72-435c-ae51-378d70cfc692"/>
       <display value="Subscription-Notification Bundle using Parameters"/>
     </item>
   </entry>
@@ -323,9 +323,10 @@
       <valueString value="notification-id-only-lm"/>
     </extension>
     <item>
-      <reference value="Bundle/9afb3cb3-6c64-474d-9412-d4d74ea7ecbe"/>
+      <reference value="SubscriptionStatus/9afb3cb3-6c64-474d-9412-d4d74ea7ecbe"/>
       <display value="Subscription-Notification Bundle using Logical Model"/>
     </item>
   </entry>
+  -->
 
 </List>
