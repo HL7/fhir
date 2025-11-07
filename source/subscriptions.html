@@ -384,6 +384,11 @@ Note that at the time of this publication, the <code>SubscriptionTopic</code> re
   <li>SHALL support at least one channel type, and SHOULD include one from the core-defined channel types</li>
   <li>SHALL support at least one Payload Type</li>
 </ul>
+<p>
+  When using out-of-band managed subscriptions, notifications will include the required <code>SubscriptionStatus.subscription</code> reference, though the
+  reference might not contain a literal reference and might not be resolvable. For details about how this reference should be populated in out-of-band 
+  scenarios, see the <a href="subscriptionstatus.html#subscription-reference">Subscription Reference</a> section of the SubscriptionStatus resource.
+</p>
 
 <a name="conformance-discovery"/>
 <h3>Discovery</h3>

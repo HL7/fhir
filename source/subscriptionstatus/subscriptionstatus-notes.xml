@@ -36,6 +36,18 @@
     <li><code>full-resource</code>: SHOULD be present</li>
   </ul>
 
+  <a name="subscription-reference" />
+  <h2>Subscription Reference</h2>
+  <p>
+    The <code>SubscriptionStatus.subscription</code> element contains a reference to the <a href="subscription.html">Subscription</a>
+    resource responsible for the notification. In most cases, this reference will resolve to an accessible Subscription resource on
+    the server. However, in some workflows, particularly those involving implicit or server-controlled subscriptions, the Subscription
+    resource may not be externally accessible or shared. In such cases, the Reference may use <code>Reference.identifier</code> to
+    represent an identifier or placeholder known only to the sender, or even <code>Reference.display</code> for a relevant literal
+    (e.g., friendly-name that can be referenced in support requests). Implementers SHOULD be aware that resolution of this reference
+    might not be possible on the receiving end.
+  </p>
+
   <a name="event-numbering" />
   <h2>Event Numbering</h2>
   <p>
@@ -47,7 +59,7 @@
     tracking of event numbers.
   </p>
   <p>
-    For channels that do not need event numbers, it is still desireable for clients to have an index for the events
+    For channels that do not need event numbers, it is still desirable for clients to have an index for the events
     present in a notification. In all cases, a value for <code>SubscriptionStatus.notificationEvent.eventNumber</code>
     is required - either the number in-sequence based on the total number of events on a subscription or a
     notification-bundle relative index (e.g., 1, 2, 3, etc.).
