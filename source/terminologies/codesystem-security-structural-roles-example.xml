@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="sample-security-structural-roles"/>
+  <id value="security-structural-roles-example"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
   </extension>
-  <url value="http://hl7.org/fhir/sample-security-structural-roles"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="6"/>
+  </extension>
+  <url value="http://hl7.org/fhir/security-structural-roles-example"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1800"/>
   </identifier>
-  <name value="SampleSecurityStructuralRoles"/>
-  <title value="Sample Codes for Security Structural Role"/>
+  <name value="SecurityStructuralRolesExamples"/>
+  <title value="Example Codes for Security Structural Role"/>
   <status value="draft"/>
   <experimental value="true"/>
+  <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
+      <value value="http://www.hl7.org/Special/committees/secure"/>
     </telecom>
-  </contact>
-  <contact>
     <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/security/index.cfm"/>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
   <description value="This codeSystem contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions.."/>

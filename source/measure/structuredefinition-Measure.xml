@@ -99,7 +99,7 @@
         <key value="mea-1"/>
         <severity value="error"/>
         <human value="Stratifier SHALL be either a single criteria or a set of criteria components"/>
-        <expression value="group.stratifier.all((code | description | criteria | valueSet).exists() xor component.exists())"/>
+        <expression value="group.stratifier.all((code | description | criteria).exists() xor component.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
       <mapping>

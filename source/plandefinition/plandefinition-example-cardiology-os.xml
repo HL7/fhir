@@ -33,7 +33,7 @@
           <!--  The expression here specifies the value for the timing of the resulting resource. In this case, referralRequest.fulfillmentTime.start  -->
           <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
             <valueExpression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression-expression"/>
               <expression value="Now()"/>
             </valueExpression>
           </extension>
@@ -85,7 +85,7 @@
       <dynamicValue>
         <path value="medicationRequest.priority"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-expression-expression"/>
           <expression value="'routine'"/>
         </expression>
       </dynamicValue>
@@ -184,7 +184,7 @@
       <dynamicValue>
         <path value="medicationRequest.priority"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-expression-expression"/>
           <expression value="'routine'"/>
         </expression>
       </dynamicValue>
@@ -283,7 +283,7 @@
       <dynamicValue>
         <path value="medicationRequest.priority" />
         <expression>
-            <language value="text/cql"/>
+            <language value="text/cql-expression-expression"/>
             <expression value="'routine'"/>
         </expression>
       </dynamicValue>
@@ -386,7 +386,7 @@
       <dynamicValue>
         <path value="medicationRequest.priority"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-expression-expression"/>
           <expression value="routine"/>
         </expression>
       </dynamicValue>
@@ -777,7 +777,7 @@
         <dynamicValue>
           <path value="timing.event"/>
           <expression>
-            <language value="text/cql"/>
+            <language value="text/cql-expression-expression"/>
             <expression value="Now()"/>
           </expression>
         </dynamicValue>
@@ -785,7 +785,7 @@
           <path value="specialty"/>
           <!--  This expression is code selector syntax in CQL, returning the code from the NPI provider taxonomy  -->
           <expression>
-            <language value="text/cql"/>
+            <language value="text/cql-expression-expression"/>
             <expression value="Code '261QM0850X' from CardiologyChestPainLogic.&#34;NUCC Provider Taxonomy&#34; display 'Adult Mental Health'"/>
           </expression>
         </dynamicValue>
@@ -793,35 +793,35 @@
           <!--  The fulfillmentTime element of the resulting ServiceRequest will be set to the result of the ServiceRequestFulfillmentTime expression defined in the SuicideRiskLogic library  -->
           <path value="occurrenceDateTime"/>
           <expression>
-            <language value="text/cql"/>
+            <language value="text/cql-expression-expression"/>
             <expression value="CardiologyChestPainLogic.ServiceRequestFulfillmentTime"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
           <path value="subject"/>
           <expression>
-            <language value="text/cql"/>
+            <language value="text/cql-expression-expression"/>
             <expression value="CardiologyChestPainLogic.Patient"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
           <path value="requester.agent"/>
           <expression>
-            <language value="text/cql"/>
+            <language value="text/cql-expression-expression"/>
             <expression value="CardiologyChestPainLogic.Practitioner"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
           <path value="reasonCode"/>
           <expression>
-            <language value="text/cql"/>
+            <language value="text/cql-expression"/>
             <expression value="CardiologyChestPainLogic.CardiologyReferralReason"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
           <path value="reasonReference"/>
           <expression>
-            <language value="text/cql"/>
+            <language value="text/cql-expression"/>
             <expression value="CardiologyChestPainLogic.RiskAssessment"/>
           </expression>
         </dynamicValue>
@@ -867,21 +867,21 @@
           <dynamicValue>
             <path value="status"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="'draft'"/>
             </expression>
           </dynamicValue>
           <dynamicValue>
             <path value="patient"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="CardiologyChestPainLogic.Patient"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
             <path value="prescriber"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="CardiologyChestPainLogic.Practitioner"/>
 		    </expression>
           </dynamicValue>
@@ -892,21 +892,21 @@
           <dynamicValue>
             <path value="status"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="'draft'"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
             <path value="patient"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="CardiologyChestPainLogic.Patient"/>
             </expression>
           </dynamicValue>
           <dynamicValue>
             <path value="prescriber"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="CardiologyChestPainLogic.Practitioner"/>
 		    </expression>
           </dynamicValue>
@@ -917,21 +917,21 @@
           <dynamicValue>
             <path value="status"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="'draft'"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
             <path value="patient"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="CardiologyChestPainLogic.Patient"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
             <path value="prescriber"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="CardiologyChestPainLogic.Practitioner"/>
 		    </expression>
           </dynamicValue>
@@ -948,21 +948,21 @@
           <dynamicValue>
             <path value="status"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="'draft'"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
             <path value="patient"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="CardiologyChestPainLogic.Patient"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
             <path value="prescriber"/>
             <expression>
-              <language value="text/cql"/>
+              <language value="text/cql-expression"/>
               <expression value="CardiologyChestPainLogic.Practitioner"/>
 		    </expression>
           </dynamicValue>

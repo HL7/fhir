@@ -232,6 +232,13 @@
       <comment value="To represent a medication that has 5 vials with 10ml in each vial and the medication code just represents a vial, then the number of Items would be '5 vial' and the amountPerItem would be '10ml/vial'. To represent a medication where there are 300 tablets and the code is for 100mg tablets, the number of items would be '300 tablets'" />
       <min value="0"/>
       <max value="1"/>
+      <constraint>
+        <key value="med-1"/>
+        <severity value="error"/>
+        <human value="Either numberOfItems or amountPerItem must exist"/>
+        <expression value="numberOfItems.exists() or amountPerItem.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+      </constraint>  
       <type>
         <code value="BackboneElement"/>
       </type>

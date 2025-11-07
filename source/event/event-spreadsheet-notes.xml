@@ -51,4 +51,25 @@
     on what data elements are most likely to be relevant for systems looking at Provenance from the perspective of eventHistory.
   </p>
 
+  <a name="identifier"> </a>
+  <h2>Use of 'identifier' and similar elements</h2>
+  <p>
+  The 'identifier' element is intended to be able to uniquely point to a single instance, however there are exceptions:
+  </p>
+  <ul>
+    <li>In order to be unique, both Identifier.system and Identifier.value must be present.</li>
+    <li>If the Identifier has an associated period, the identity only applies within that time-period.</li>
+    <li>There may be circumstances where the identifier might not always be unique.  For example, social security numbers could appear on multiple patients due to fraud, entry error, or the presence of multiple patient records for the same individual for legacy purposes or the needs of differing departments.</li>
+  </ul>
+  <p>
+Identifiers are not intended to act as 'classifiers' or 'categories', nor are they intended to convey identifiers for other business objects.
+  </p>
+  <p>
+Some systems may contain legacy information that puts inappropriate content in identifier elements (e.g. placing an insurance subscriber id in Patient.identifier when that should instead go in Coverage.subscriber).  In these situations, it is possible that values that are not actually 'proper' identifiers may still show up in identifier elements.  While this is not 'correct', systems should still be tolerant of identifiers that prove to be non-unique.
+  </p>
+  <p>
+Systems may choose to enforce that some identifiers systems must be unique within their system and only in the presence of such system enforcement can identifiers be safely used with a presumption that they will always resolve to only a single distinct record.
+If there is a need to convey 'categories' for resources, those can be conveyed in elements other than Resource.identifier.  Examples include .code, .category, special elements like .groupIdentifier, extensions, or meta.tags.
+  </p>
+
 </div>
