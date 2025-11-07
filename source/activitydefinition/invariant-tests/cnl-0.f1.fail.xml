@@ -155,13 +155,11 @@
   <relatedArtifact>
     <type value="citation"/>
     <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
-    <document>
-      <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
-    </document>
+    <artifactMarkdown value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
   </relatedArtifact>
   <relatedArtifact>
     <type value="predecessor"/>
-    <resource value="http://example.org/fhir/ActivityDefinition/referralPrimaryCareMentalHealth-initial"/>
+    <artifactCanonical value="http://example.org/fhir/ActivityDefinition/referralPrimaryCareMentalHealth-initial"/>
   </relatedArtifact>
   <!-- Kind indicates the type of resource that is defined by this activity, a ServiceRequest in this case -->
   <kind value="ServiceRequest"/>
@@ -178,7 +176,7 @@
 		   In this case, ServiceRequest.fulfillmentTime.start -->
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
         <valueExpression>
-          <language value="text/cql"/>
+          <language value="text/cql-expression"/>
           <expression value="Now()"/>
         </valueExpression>
       </extension>

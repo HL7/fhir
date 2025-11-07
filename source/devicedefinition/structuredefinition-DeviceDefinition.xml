@@ -870,10 +870,6 @@
         <code value="RelatedArtifact"/>
       </type>
     </element>
-
-
-
-
     <element id="DeviceDefinition.hasPart">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,325"/>
@@ -888,17 +884,27 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="DeviceDefinition.hasPart.reference">
-      <path value="DeviceDefinition.hasPart.reference"/>
+    <element id="DeviceDefinition.hasPart.definition[x]">
+      <path value="DeviceDefinition.hasPart.definition[x]"/>
       <short value="Reference to the part"/>
-      <definition value="Reference to the device that is part of the current device."/>
+      <definition value="The device that is part of the current device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.hasPart.count">
       <path value="DeviceDefinition.hasPart.count"/>
@@ -1100,6 +1106,7 @@
         <description value="Device output language."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
         <additional>
+				  <key value="b-dd-1"/>
           <purpose value="starter"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
         </additional>
@@ -1197,15 +1204,18 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
       </binding>
     </element>
-    <element id="DeviceDefinition.link.relatedDevice">
-      <path value="DeviceDefinition.link.relatedDevice"/>
+    <element id="DeviceDefinition.link.relatedDevice[x]">
+      <path value="DeviceDefinition.link.relatedDevice[x]"/>
       <short value="A reference to the linked device"/>
       <definition value="A reference to the linked device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

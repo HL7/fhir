@@ -34,7 +34,10 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="GuidanceResponse.performer">
         <lowerCardinality _pattern="1" _resource="0" reason="Not necessarily represented"/>
-        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,Patient,RelatedPerson)" reason="Specifically modeling service response"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, CareTeam, Patient, RelatedPerson)" reason="Unknown">
+            <!--Old pattern: Reference(Practitioner,PractitionerRole,Organization,CareTeam,Patient,RelatedPerson)-->
+            <!--Old reason: Specifically modeling service response-->
+        </missingTypes>
         <summary _pattern="true" _resource="false" reason="Not part of summary"/>
         <shortUnmatched reason="Specific text">
             <_pattern value="Who performed guidance response"/>
@@ -44,20 +47,6 @@
             <_pattern value="Indicates who or what performed the guidance response."/>
             <resource value="Provides a reference to the device that performed the guidance."/>
         </definitionUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Event.location" resourcePath="GuidanceResponse.location">
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Where guidance response occurred"/>
-            <resource value="Where the guidance response occurred"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="The principal physical location where the guidance response was performed."/>
-            <resource value="The principal pysical location where the guidance response was performed."/>
-        </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
-            <resource value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)"/>
-        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="GuidanceResponse.reason">
         <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
@@ -69,7 +58,9 @@
             <_pattern value="Describes why the guidance response occurred in coded or textual form or Indicates another resource whose existence justifies this guidance response."/>
             <resource value="Describes the reason for the guidance response in coded or textual form, or Indicates the reason the request was initiated. This is typically provided as a parameter to the evaluation and echoed by the service, although for some use cases, such as subscription- or event-based scenarios, it may provide an indication of the cause for the response."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="More specific text">
+        <commentsUnmatched reason="Unknown">
+            <!--Old resource: Although this reference can be used to point to any resource, it is typically expected to refer to subject-specific data appropriate to the subject of the guidance. For example, patient-based decision support would be expected to reference patient-level data. In addition, implementations should provide as much detail as possible by using the [http://hl7.org/fhir/StructureDefinition/targetElement](http://hl7.org/fhir/extensions/StructureDefinition-targetElement.html) and [http://hl7.org/fhir/StructureDefinition/targetPath](http://hl7.org/fhir/extensions/StructureDefinition-targetPath.html) extensions to indicate the specific elements relevant to providing the reason for the guidance.-->
+            <!--Old reason: More specific text-->
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>
             <resource value="Although this reference can be used to point to any resource, it is typically expected to refer to subject-specific data appropriate to the subject of the guidance. For example, patient-based decision support would be expected to reference patient-level data. In addition, implementations should provide as much detail as possible by using the [http://hl7.org/fhir/StructureDefinition/targetElement](https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-targetElement.html) and [http://hl7.org/fhir/StructureDefinition/targetPath](https://build.fhir.org/ig/HL7/fhir-extensions/StructureDefinition-targetPath.html) extensions to indicate the specific elements relevant to providing the reason for the guidance."/>
         </commentsUnmatched>

@@ -5065,7 +5065,6 @@
         <ns4:element name="codeSearch" elementType="FHIR.CodeSearchSupport"/>
         <ns4:element name="validateCode" elementType="FHIR.TerminologyCapabilities.ValidateCode"/>
         <ns4:element name="translation" elementType="FHIR.TerminologyCapabilities.Translation"/>
-        <ns4:element name="closure" elementType="FHIR.TerminologyCapabilities.Closure"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="HealthcareService" retrievable="true" primaryCodePath="type" baseType="FHIR.DomainResource">
         <ns4:element name="identifier">
@@ -8499,9 +8498,6 @@
         <ns4:element name="role" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="qualification" elementType="FHIR.CodeableConcept"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="TerminologyCapabilities.Closure" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="translation" elementType="FHIR.boolean"/>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="SearchParamType" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
@@ -9501,7 +9497,6 @@
         <ns4:element name="FamilyMemberHistory" elementType="FHIR.FamilyMemberHistory"/>
         <ns4:element name="Flag" elementType="FHIR.Flag"/>
         <ns4:element name="Goal" elementType="FHIR.Goal"/>
-        <ns4:element name="GraphDefinition" elementType="FHIR.GraphDefinition"/>
         <ns4:element name="Group" elementType="FHIR.Group"/>
         <ns4:element name="GuidanceResponse" elementType="FHIR.GuidanceResponse"/>
         <ns4:element name="HealthcareService" elementType="FHIR.HealthcareService"/>

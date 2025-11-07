@@ -6,6 +6,12 @@
 Implementation Guides are published through the FHIR Package distribution system.
 For further details, see the <a href="packages.html">FHIR NPM Packages</a>.
 </p>
+<p>
+Choices around the types and volume of resources included in a single implementation guide
+can impact the size of the packages resulting from the publication of the implementation guide.
+When deciding on how to organize content and making decisions about what content to include,
+please consider the package guidance provided in the <a href="packages.html#composition">FHIR Package Composition</a> section.
+</p>
 
 <a name="authoring"></a>
 <h3>Authoring Implementation Guides</h3>
@@ -56,7 +62,7 @@ In addition, in the human readable portions, implementation guides often:
 <a name="versions"></a>
 <h3>Multi-Version Implementation Guides</h3>
 <p>
-Most implementation guides target a single version - that is, they describe how to use a 
+Most implementation guides target a single version of FHIR - that is, they describe how to use a 
 particular version, and all the profiles, value sets and examples they contain etc. are valid 
 for that particular version. 
 </p>

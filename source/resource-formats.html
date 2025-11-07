@@ -16,9 +16,7 @@
 
 <a name="root"></a>
 <h1>Resource Formats</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
-
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <a name="wire"></a>
 <h3>Serialization Format Representations</h3>
@@ -72,7 +70,7 @@ The JSON format is similar to the XML format:
  <li>There are no namespaces in the JSON representation</li>
  <li>The type of the resource is represented differently in JSON - instead of being the name of the base object (there is none in JSON), it is carried as the property <code>resourceType</code></li>
  <li>The order of properties of an object is not significant in the JSON representation, though order within an array SHALL be maintained</li>
- <li>JSON does not have a notion of attributes versus elements, so attributes (e.g. <code>id</code>, <code>value</code>) are handled differently (see below)</li>
+ <li>JSON does not have a notion of attributes versus elements, so attributes (e.g., <code>id</code>, <code>value</code>) are handled differently (see below)</li>
  <li>JSON has the array notation, which is used to represent repeating elements. Note that arrays are used when the item might repeat, even if it does not repeat in a specific instance</li>
  <li>The XHTML <code>&lt;div&gt;</code> element in the <a href="narrative.html">Narrative</a> datatype is represented as a single escaped string of XHTML. This is to avoid problems in JSON with mixed content, etc. The XHTML SHALL still conform to the rules described for <a href="narrative.html">the Narrative</a></li>
  <li>For strings, leading and trailing whitespace is expected to be preserved in JSON. This difference is driven by XML Schema behavior</li>
@@ -99,28 +97,16 @@ String handling is slightly different between XML and JSON
 </p>
 
 
-<div class="draft-content">
-
 <a name="bulk"></a>
 <h4>Bulk Data Formats</h4>
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the bulk use formats are draft until 
-further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
-</p>
 <p>
 The XML and JSON formats are designed to support typical system process-based
 data exchange uses. FHIR is also used to exchange large amounts 
-of data- 1000s of records, or more (up to billions). The formats above
-can be used for this, but more suitable formats exist. This specification
-documents (or is exploring documenting) the following formats:
+of data- 1000s of records, or more (up to billions). This specification
+documents <a href="nd-json.html">ND-Json</a> (New line delimited JSON)
+for this usage.
 </p>
-<ul>
- <li><a href="nd-json.html">ND-Json</a> (New line delimited JSON)</li>
- <li>Google Protobuf (under consideration)</li>
- <li>Apache Parquet/Avro (bulk data formats under consideration)</li>
-</ul> 
 
-</div>
 [%file newfooter%]
 </body>
 </html>

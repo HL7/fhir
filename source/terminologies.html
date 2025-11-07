@@ -15,8 +15,8 @@
 <%txheader%>
 
 <h1>Using Codes in Resources</h1>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+
 <a name="bindings"></a>
 <p>
 Many elements in the FHIR resources have a <b>coded value</b>: some fixed string
@@ -25,7 +25,7 @@ sequence of characters and its meaning may be defined in one of several places:
 </p>
 <ul>
  <li>As one of a set of fixed values defined in this specification</li>
- <li>In an internet RFC (e.g. mime type, language)</li>
+ <li>In an internet RFC (e.g., mime type, language)</li>
  <li>An HL7 specification (<a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> code system, or <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> table)</li>
  <li>Some external terminology or ontology such as <a href="http://loinc.org">LOINC</a>, or <a href="http://www.snomed.org">SNOMED CT</a></li>
  <li>A locally maintained dictionary, look up table or enumeration in an application (for further discussion of locally defined value sets, see <a href="profiling.html">"Profiling FHIR")</a></li>
@@ -99,7 +99,7 @@ see the FHIR Confluence pages for <a href="https://confluence.hl7.org/display/FH
 <h2>Coded Values, Code Systems, and Value Sets</h2>
 <p>
 The set of coded values that is allowed in an element is known as a <a href="valueset.html">"value set"</a>. Anywhere these datatypes are used, the
-specification <b>"binds"></b> a value set to the element, and for the types code, Coding, and CodeableConcept, always does.
+specification <b>"binds"</b> a value set to the element, and for the types code, Coding, and CodeableConcept, always does.
 </p>
 <ul>
  <li><b><a href="codesystem.html">Code Systems</a></b> define concepts and give them meaning through formal definitions, and assign codes that represent the concepts</li>
@@ -117,17 +117,17 @@ LOINC code betrays its origin.
 <p>
 The code system identifier of the concept is necessary for interoperable data exchange.  
 Each code system is assigned a uri.  The combination of the code system identifier (uri) 
-and the concept identifier (e.g. code) is unique. Note that code system version may be 
+and the concept identifier (e.g., code) is unique. Note that code system version may be 
 necessary to achieve uniqueness when the code system does not follow concept permanence rules. 
 </p>
 <p>
 In the case of the mixed list example from the previous paragraph, there are two code systems: <a href="https://terminology.hl7.org/LOINC.html">LOINC</a> (http://loinc.org) 
 and a local one with the uri: http://example.com/codesystems/additional-test-codes. 
 The value set definition includes concept identifier (codes) from each of the two code systems. 
-ValueSet.url (e.g. "http://example.com/fhir/ValueSet/test-codes") is the canonical identifier for the value set. 
+ValueSet.url (e.g., "http://example.com/fhir/ValueSet/test-codes") is the canonical identifier for the value set. 
 The value set uri is not the same as the code system uri. Concepts are always identified by <code>code</code> and <code>system</code>, 
 except for the simple datatype <a href="datatypes.html#code">code</a> where the code system is fixed in a specification 
-(e.g. core specification, implementation guide, profile) and not represented explicitly.
+(e.g., core specification, implementation guide, profile) and not represented explicitly.
 </p>
 <p>
 Note that for some code systems, there is a single correct mechanism by which to represent
@@ -281,70 +281,28 @@ No display is provided in this example. See the discussion here: <a href="https:
 <h2>Controlling the use of Coded Values</h2>
 
 <p>
-When an element is bound to a value set, it has a binding that has these properties:
+When an element is bound to a value set, it has a <a href="elementdefinition-definitions.html#ElementDefinition.binding">binding</a> that has these properties:
 </p>
 <table class="grid">
- <tr><td>Name</td><td>A descriptive name used when presenting information about the binding</td></tr>
- <tr><td>Strength</td><td>How the binding should be understood - see below</td></tr>
- <tr><td>Reference</td><td>A URL that defines the value set. Usually, this is a direct reference to a <a href="valueset.html">ValueSet</a> resource, but can be a more indirect reference, where the value set is inferred</td></tr>
- <tr><td>Description</td><td>A text description of the use of the codes. If there is no reference, this must be populated. When there is a reference, this can be used to make additional notes about the use and implementation of the value set</td></tr>
+ <tr><td><b>strength</b></td><td>How the binding should be understood - see below</td></tr>
+ <tr><td><b>description</b></td><td>A text description of the use of the codes. If there is no reference, this must be populated. When there is a reference, this can be used to make additional notes about the use and implementation of the value set</td></tr>
+ <tr><td><b>valueSet</b></td><td>URL that defines the value set for the binding. Usually, this is a direct reference to a <a href="valueset.html">ValueSet</a> resource, but can be a more indirect reference, where the value set is inferred</td></tr>
 </table>
 <p>
-A binding is always represented using an <a href="elementdefinition-definitions.html#ElementDefinition.binding">ElementDefinition.binding</a>.
-</p>
-
-<div class="trial-content">
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-  Additional Bindings and the element <code>ElementDefinition.binding.additional</code> 
-  is considered <a href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a> for FHIR Release 5.
-</p>
-    
+Some bindings also have a name that is assigned for the convenience of implementers - used for code generation. 
+The name is not part of the formal definition of the binding, and is not used in processing. See the 
+<a href="https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-elementdefinition-bindingName.html">extension Binding name</a>.
+</p>    
 <p>
-In addition, elements may have additional bindings. These additional bindings do not replace the main binding, but 
-provide additional information about the use of codes in the element. Additional bindings have the following properties:
+In addition, elements may have <a href="elementdefinition-definitions.html#ElementDefinition.binding.additional">additional bindings</a>. These additional bindings do not replace 
+the main binding (the main binding always applies), but provide additional information and/or rules about the use of codes in the element
+sometimes in particular contexts of use. Additional bindings have the following properties:
 </p>
 <table class="grid">
-  <tr><td><b>purpose</b></td><td>
-    The use of this additional binding:
-    <ul>
-      <li><b>required</b> | <b>extensible</b> | <b>preferred</b>: These bindings have the same 
-       meaning as they do on the main binding, but are usually accompanied by some additional usage
-       details that restrict their application to particular context where a tighter binding 
-       is possible than in the general case</li>
-      <li><b>component</b>: the value set is a component of the main conformance binding. This is used to provide additional 
-          documentation about the use of the main value set, or parts of it. E.g. the main value set may allow for both SNOMED CT and LOINC, 
-          but the author wishes to provide additional specific documentation about how they are used (differently)</li>
-      <li><b>maximum</b>: If the main conformance binding has strength = extensible, then any codes used to extend 
-          that value set SHALL come from this specified "maximum value set". Note that this additional binding replaces 
-          the extension <code>http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet</code> extension
-          which is no longer defined in FHIR Release 5+ <i>This is deprecated - it is equivalent to <code>required</code></i></li>
-      <li><b>minimum</b>: Define a minimum set of codes that all conformant applications are required to accept as 
-          valid values. This is an <a href="obligations.html">obligation</a> for implementing applications, and is typically
-          associated with additional obligations expressing just what the application should do with the codes. Note that this additional binding replaces 
-          the extension <code>http://hl7.org/fhir/StructureDefinition/elementdefinition-minValueSet</code> extension
-          which is no longer defined in FHIR Release 5</li>
-      <li><b>candidate</b>: A value set that is a candidate to substitute for the overall conformance value set 
-          in some situations; usually these are defined in the documentation, or in the <code>usage</code> element</li>
-      <li><b>current</b>: A value set that is required to be used with new records. This would be the main conformance 
-          value set except that legacy records exist that don't meet this requirement, and never will. Again,
-          this is an application obligation, not something that can be tested in the resource instances themselves</li>
-      <li><b>ui</b>: This value set is provided to help with user look up in a given context</li>
-      <li><b>starter</b>: This value set is a good set of codes to start with when designing your system.
-         These are typically the important or commonly used codes. This is useful thing to provide when the 
-         conformance value set is very large, or infinite because of a grammar. Many systems can't implement
-         these so a starter set can help them get going</li>
-    </ul>
-  </td></tr>
-  <tr><td><b>valueSet</b></td><td>
-    A canonical URL that refers to the value set for the additional binding
-  </td></tr>
-  <tr><td><b>documentation</b></td><td>
-    Markdown that describes the use of this value set in this element, given the purpose and usage
-  </td></tr>
-  <tr><td><b>shortDoco</b></td><td>
-    A short plain text string, typically just a sentence, that summarizes the documentation, for use in the 
-    tabular formal of a profile
-  </td></tr>
+  <tr><td><b>purpose</b></td><td>The use of this additional binding. See <a href="#strength">below for details</a>.</td></tr>
+  <tr><td><b>valueSet</b></td><td>URL that defines the value set for the additional binding. This is a direct reference to a <a href="valueset.html">ValueSet</a> resource</td></tr>
+  <tr><td><b>documentation</b></td><td>Markdown that describes the use of this value set in this element, given the purpose and usage</td></tr>
+  <tr><td><b>shortDoco</b></td><td>A short plain text string, typically just a sentence, that summarizes the documentation, for use in the tabular formal of a profile</td></tr>
   <tr><td><b>usage</b></td><td>
     A set of qualifiers that restrict the scope of use for the additional binding. Typically, the binding is 
       restricted by jurisdiction/realm, but it may also be restricted to particular clinical or
@@ -367,7 +325,6 @@ If the data type is CodeableConcept or CodeableReference, then that would mean t
 are needed to satisfy the bindings. For other data types, this would be an error (in way or another).
 </p>
 
-</div>
 	
 <a name="references"></a>
 
@@ -479,7 +436,7 @@ server(s) don't know the value set, the system is unable to resolve
 the value set and must handle the error appropriately.
 </p>
 <p>
-The value set URL is allowed to be a URI such as a UUID (e.g. urn:uuid:c0e0d027-1250-4278-8f44-33a49dc67916).
+The value set URL is allowed to be a URI such as a UUID (e.g., urn:uuid:c0e0d027-1250-4278-8f44-33a49dc67916).
 These value sets can never be accessed directly, and must come from a terminology server. Note
 that HL7 Terminology defines many value sets that have a logical URL that is not resolvable
 (examples for <a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a>, <a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a>, and <a href="https://terminology.hl7.org/LOINC.html">LOINC</a>)
@@ -517,14 +474,6 @@ versions for the value set, the system using the value set should pick the lates
 of the value set and use that. Note that this applies to all <a href="references.html#canonical">conformance resources</a>.
 </p>
 
-<a name="unbound"></a>
-<h4>Unbound</h4>
-<p>
-Note that as a matter of ongoing development, a few elements that have coded datatypes are not bound to
-any value set at all. Bindings are to be provided for these elements.
-</p>
-
-
 <a name="strength"></a>
 
 <h3>Binding Strengths</h3>
@@ -533,10 +482,96 @@ Almost all the elements that have a coded datatype are bound to a value set. The
 are associated with various degrees of flexibility as to how closely the value set should be
 followed:
 </p>
-<%linkcodelist http://hl7.org/fhir/binding-strength%>
+<table class="codes">
+ <tr>
+  <th>code</th>
+  <th>Usage</th>
+  <th>Documentation</th>
+ </tr>
+ <tr>
+  <td><a href="#required">required</a></td>
+  <td>Binding and Additional</td>
+  <td>To be conformant, the concept in this element SHALL be from the specified value set.</td>
+ </tr>
+ <tr>
+  <td><a href="#extensible">extensible</a></td>
+  <td>Binding and Additional</td>
+  <td>To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.</td>
+ </tr>
+ <tr>
+  <td><a href="#preferred">preferred</a></td>
+  <td>Binding and Additional</td>
+  <td>Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.</td>
+ </tr>
+ <tr>
+  <td><a href="#example">example</a></td>
+  <td>Binding Only</td>
+  <td>Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.</td>
+ </tr>
+ <tr>
+  <td><a href="#descriptive">descriptive</a></td>
+  <td>Binding Only</td>
+  <td>There is no constraint on the allowed set of codes at the root level, though there may be additional bindings that apply in certain contexts.  The root binding element will be a description that gives guidance on potential downstream constraint of the allowed codes and/or highlights the presence of additional bindings.</td>
+ </tr>
+ <tr>
+  <td>component</td>
+  <td>Additional Only</td>
+  <td>the value set is a component of the main conformance binding. This is used to provide additional 
+          documentation about the use of the main value set, or parts of it. E.g. the main value set may allow for both SNOMED CT and LOINC, 
+          but the author wishes to provide additional specific documentation about how they are used (differently)</td>
+ </tr>
+ <tr>
+  <td>maximum</td>
+  <td>Additional Only</td>
+  <td>If the main conformance binding has strength = extensible, then any codes used to extend 
+          that value set SHALL come from this specified "maximum value set". Note that this additional binding replaces 
+          the extension <code>http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet</code> extension
+          which is no longer defined in FHIR Release 5+ <i>This is deprecated - it is equivalent to <code>required</code></i></td>
+ </tr>
+ <tr>
+  <td>minimum</td>
+  <td>Additional Only</td>
+  <td>Define a minimum set of codes that all conformant applications are required to accept as 
+          valid values. This is an <a href="obligations.html">obligation</a> for implementing applications, and is typically
+          associated with additional obligations expressing just what the application should do with the codes. Note that this additional binding replaces 
+          the extension <code>http://hl7.org/fhir/StructureDefinition/elementdefinition-minValueSet</code> extension
+          which is no longer defined in FHIR Release 5</td>
+ </tr>
+ <tr>
+  <td>candidate</td>
+  <td>Additional Only</td>
+  <td>A value set that is a candidate to substitute for the overall conformance value set 
+          in some situations; usually these are defined in the documentation, or in the <code>usage</code> element</td>
+ </tr>
+ <tr>
+  <td>current</td>
+  <td>Additional Only</td>
+  <td>A value set that is required to be used with new records. This would be the main conformance 
+          value set except that legacy records exist that don't meet this requirement, and never will. Again,
+          this is an application obligation, not something that can be tested in the resource instances themselves</td>
+ </tr>
+ <tr>
+  <td>ui</td>
+  <td>Additional Only</td>
+  <td>This value set is provided to help with user look up in a given context</td>
+ </tr>
+ <tr>
+  <td>starter</td>
+  <td>Additional Only</td>
+  <td>This value set is a good set of codes to start with when designing your system.
+         These are typically the important or commonly used codes. This is useful thing to provide when the 
+         conformance value set is very large, or infinite because of a grammar. Many systems can't implement
+         these so a starter set can help them get going</td>
+ </tr>
+</table>
+
 <p>
-The precise conformance criteria for 'required' and 'extensible' binding strengths vary by the datatype to which they are applied, as described in the paragraphs below.
+Notes:
 </p>
+<ul>
+  <li>When used in additional bindings, <b>required</b> | <b>extensible</b> | <b>preferred</b> are usually accompanied by some additional usage details that restrict their application to particular context where a tighter binding is possible than in the general case</li>
+  <li>The precise conformance criteria for 'required' and 'extensible' binding strengths vary by the datatype to which they are applied, as described in the paragraphs below</li>
+</ul>
 <p>
 Irrespective of the binding strength, when a <a href="structuredefinition.html">StructureDefinition</a> is used
 to describe local usage, it can bind the element to a different value set in order to be much more precise about
@@ -558,7 +593,7 @@ If the binding strength is required, the data element SHALL contain one of the v
 <p>
 Required binding strength is used for elements where the value needs to be strictly controlled so the element 
 can be interpreted with confidence. Required binding strength SHALL be used for elements with type code (unless 
-the element has a context-free (i.e. no binding.additional.usage present) 
+the element has a context-free (i.e., no binding.additional.usage present) 
 <a href="elementdefinition-definitions.html#ElementDefinition.binding.additional">additional binding</a> with purpose = maximum
 , a combination which is strongly discouraged as of R6). Exceptions to this rule need to be approved by the 
 FHIR-I work group which will document the patterns that qualify as exceptions.
@@ -588,14 +623,14 @@ The following  rules apply when required bindings are used with the <a href="dat
  <li>The codes in the value set expansion must be distinct independent of the code system. </li>
  <li>If the value set draws from multiple code systems or an HL7 defined code system, the value set must specify a version of each code system.
   <ul>
-   <li>i.e. If the code system evolves after publication of a specification with the binding, those changes do not have any impact on specification use. </li>
+   <li>i.e., If the code system evolves after publication of a specification with the binding, those changes do not have any impact on specification use. </li>
    <li>Where the value set is defined in the FHIR core specification, the list of allowed codes will be fixed in the core specification XML schema</li>
   </ul>
  </li>
  <li>the element is bound to some external standard that defines the set of valid codes that can be used (typical examples are <a href="http://www.rfc-editor.org/bcp/bcp13.txt">Mime Types</a>,
 <a href="http://tools.ietf.org/html/bcp47">Language Codes</a>, <a href="http://unitsofmeasure.org">UCUM</a>, etc.)</li>
  <li>The list of codes that can be used can only be extended in subsequent releases of the FHIR specification</li>
- <li>Comparison between codes is always case sensitive unless the codes are selected by reference (e.g. ValueSet.compose), and the referenced specification clearly states otherwise.</li>
+ <li>Comparison between codes is always case sensitive unless the codes are selected by reference (e.g., ValueSet.compose), and the referenced specification clearly states otherwise.</li>
  <li>If the bound value set is defined external to the specification, the binding must specify a value set version.</li>
 </ul>
 <p>
@@ -777,8 +812,8 @@ may bind the element to any value set they choose.
 <p>
 A binding strength of 'required' or 'extensible' does not indicate that ALL of the codes in the bound value set 
 will be supported. It constrains the set of codes that are allowed to be shared. If systems flag an element 
-as <a href="obligations.html">mustSupport</a>, the <a href="[%extensions-location%]StructureDefinition-elementdefinition-minValueSet.html">minimumValueSet 
-extension</a> SHOULD be used to identify a specific subset (possibly the full set) of the bound codes 
+as <a href="obligations.html">mustSupport</a>, an additional binding of purpose <code>minimum</code>
+SHOULD be used to identify a specific subset (possibly the full set) of the bound codes 
 that must be supported by implementers.
 </p>
 <p>
@@ -827,7 +862,7 @@ may be sealed by defining a simple list of enumerated codes, or it may include
 codes by their properties, along with a non-version specific reference to an
 underlying code system, in which case the list of valid concepts may change over time.
 </li>
-<li><a href="[%extensions-location%]StructureDefinition-elementdefinition-minValueSet.html">Extension minValueSet</a> may be used to define the minimum value set that is required for conformance. </li>
+<li>An additional binding with a purpose of <code>minimum</code> may be used to define the minimum value set that is required for conformance. </li>
 </ul>
 <!--
   <a name="strings"></a>

@@ -237,10 +237,14 @@ following these rules:
  <li>abstract SHALL be <code>false</code></li>
  <li>The type SHALL match the canonical URL exactly</li>
  <li>The baseDefinition SHALL be a direct reference to one of the abstract resources published by this specification 
-  (<a href="resource.html">Resource</a>, <a href="domainresource.html">DomainResource</a>, <a href="canonicalresource.html">CanonicalResource</a> or <a href="metadataresource.html">MetadataResource</a>)</li>
+  (<a href="resource.html">Resource</a> or <a href="domainresource.html">DomainResource</a>).
+  Resources MAY also use the <a href="http://hl7.org/fhir/StructureDefinition/structuredefinition-implements">implements</a>
+  extension to indicate adherence to the  <a href="canonicalresource.html">CanonicalResource</a> 
+  or <a href="metadataresource.html">MetadataResource</a> Interfaces</li>
  <li>The derivation SHALL be <code>specialization</code></li>
  <li>The root of the element path SHALL be the tail of the canonical URL</li>
  <li>The root of the element SHOULD be the name assigned by HL7 to the resource</li>
+ <li>The compartments for the resource are defined by using the (yet to be published) extension <code>http://hl7.org/fhir/StructureDefinition/additional-resource-compartment</code></li>
 </ul> 
 <p>
 Here is an example with other properties removed:

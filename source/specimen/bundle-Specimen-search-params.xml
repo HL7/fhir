@@ -90,14 +90,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.container.device.concept"/>
+          <valueString value="Specimen.container.device.ofType(CodeableConcept)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-container-device-code"/>
         <status value="active"/>
         <description value="The code associated with the specimen container"/>
         <code value="container-device-code"/>
         <type value="token"/>
-        <expression value="Specimen.container.device.concept"/>
+        <expression value="Specimen.container.device.ofType(CodeableConcept)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -251,14 +251,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.processing.device.concept"/>
+          <valueString value="Specimen.processing.device.ofType(CodeableConcept)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-processing-device-code"/>
         <status value="active"/>
         <description value="The code associated with the processing device"/>
         <code value="processing-device-code"/>
         <type value="token"/>
-        <expression value="Specimen.processing.device.concept"/>
+        <expression value="Specimen.processing.device.ofType(CodeableConcept)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -271,14 +271,14 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Specimen.collection.device.concept"/>
+          <valueString value="Specimen.collection.device.ofType(CodeableConcept)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-collection-device-code"/>
         <status value="active"/>
         <description value="The code associated with the collection device"/>
         <code value="collection-device-code"/>
         <type value="token"/>
-        <expression value="Specimen.collection.device.concept"/>
+        <expression value="Specimen.collection.device.ofType(CodeableConcept)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

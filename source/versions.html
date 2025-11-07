@@ -11,8 +11,8 @@
 [%file newnavbar%]
 
 
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+
 <h2>Version Management Policy</h2>
 
 <p>
@@ -54,19 +54,16 @@ different aspects of the specification.  They are as follows:
     </tr>
     <tr>
       <th style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><a name="normative"></a>Normative</th>
-      <td>This content was approved by the <a href="https://ansi.org">ANSI standards process</a> in a previous version (see <a href="history.html#normative">Normative status note</a>).
+      <td>This content was approved by the <a href="https://ansi.org">ANSI standards process</a>.
         It has been subject to review and production implementation in a wide variety of environments.
         The content is considered to be stable and has been 'locked', subjecting it to FHIR
         <a href="#change">Inter-version Compatibility Rules</a>.  While changes are possible, they are
         expected to be infrequent and are tightly constrained.
-        <br/><br/>
-        Note that this version of the specification <b>has NOT</b> been submitted to ANSI for 
-        consideration as a normative standard.
       </td>
     </tr><!--
     <tr>
       <td colspan="2">
-      For all content marked with one of the following indicators - i.e. not 'Normative', the following statement applies:
+      For all content marked with one of the following indicators - i.e., not 'Normative', the following statement applies:
       <blockquote>
       The information contained in this (portion of a document) is not part of this American National Standard (ANS) and has not been processed in accordance
       with ANSI’s requirements for an ANSI Standard. As such, this (portion of a document) may contain material that has not been subjected to public review or a
@@ -101,7 +98,7 @@ different aspects of the specification.  They are as follows:
       correction is complete after it has been subjected to ballot
       <br/>
       <br/>
-      Some resources with a standards status of 'draft' have an FMM level of 1 or 2 - this means that the committee 
+      Some resources with a standards status of 'draft' have an <a href="#maturity">FMM (FHIR Maturity Model)</a> level of 1 or 2 - this means that the committee 
       responsible for them is ready for them to be tested and balloting, but that balloting has not yet occurred. 
       Draft resources cannot have a <a href="#maturity">FMM</a> level greater than 2
     </td>
@@ -119,6 +116,11 @@ different aspects of the specification.  They are as follows:
   </tbody>
 </table>
 
+<p>
+Standards status, when found in a specification under ballot or in a Continuous Integration (CI) build reflects the intended
+status of the artifact after balloting is complete and the final publication is released.
+</p>
+
 <a name="mixed"></a>
 <h4>Mixed Normative content</h4>
 <p>
@@ -133,7 +135,7 @@ is labeled 'Normative'</i>:
 While HL7 prefers to avoid this outcome, there are several resources where the overall functionality
 of the artifact is clearly ready to be labeled as 'normative' while some very specific parts are known
 not to have the requisite level of implementation experience as the rest of the resource.
-E.g. <a href="bundle-definitions.html#Bundle.issues">Bundle.issues</a>.
+e.g., <a href="bundle-definitions.html#Bundle.issues">Bundle.issues</a>.
 </p>
 <p>
 Where a Normative resource contains elements marked as trial-use, these elements are clearly marked
@@ -163,14 +165,13 @@ reading/using these elements has the potential to cause breaking change to their
 
 <a name="levels"></a>
 <a name="maturity"></a>
-<h3>Maturity Levels</h3>
+<h3>The FHIR Maturity Model</h3>
 <p>
 The content of this release has been subject to significant review through ballot and other HL7 processes and many aspects of it have been
 implemented and subjected to interoperability testing through Connectathons and early adoption.  However, the degree of testing has varied.  Some resources
 have been well tested in a variety of environments.  Others have received relatively little real-world exercise.  In general, the infrastructure should be
 considered to be more stable than the resources themselves.  In some cases, there are issues on which input is specifically requested during the
-<a href="#stu">Trial Use</a> period
-(see the <a href="todo.html">Outstanding Issue List</a>, and known issues will arise after publication (refer to the
+<a href="#stu">Trial Use</a> period outstanding Issue List, and known issues will arise after publication (refer to the
 <a href="http://hl7.org/fhir-issues">FHIR Change Request</a> tracker for details.)
 Guidance from early implementation will help address these areas.
 </p>
@@ -180,11 +181,11 @@ All artifacts in this specification are assigned a "Maturity Level", known as FM
 The FMM level can be used by implementers to judge how advanced - and therefore stable - an artifact is. The following FMM levels are defined:
 </p>
 <table class="lines">
- <tr><td>Draft (0)</td><td>the artifact has been published on the current build. Artifacts with this level must have a standards status of <a href="#draft">Draft</a>.</td></tr>
+ <tr><td><b>FMM 0</b></td><td>the artifact has been published on the current build. Artifacts with this level must have a standards status of <a href="#draft">Draft</a>.</td></tr>
  <tr><td><b>FMM 1</b></td><td>FMM0 + the artifact produces no warnings during the build process and the responsible work group has indicated that they consider the artifact substantially complete and ready for implementation. For resources, profiles and implementation guides, the FHIR Management Group has approved the underlying resource/profile/IG proposal.</td></tr>
- <tr><td><b>FMM 2</b></td><td>FMM1 + the artifact has been tested and successfully supports interoperability among at least three independently developed systems leveraging most of the scope (e.g. at least 80% of the core data elements) using semi-realistic data and scenarios based on at least one of the declared scopes of the artifact (e.g. at a connectathon). These interoperability results must have been reported to and accepted by the FHIR Management Group.</td></tr>
+ <tr><td><b>FMM 2</b></td><td>FMM1 + the artifact has been tested and successfully supports interoperability among at least three independently developed systems leveraging most of the scope (e.g., at least 80% of the core data elements) using semi-realistic data and scenarios based on at least one of the declared scopes of the artifact (e.g., at a connectathon). These interoperability results must have been reported to and accepted by the FHIR Management Group.</td></tr>
  <tr><td><b>FMM 3</b></td><td>FMM2 + the artifact has been verified by the work group as meeting the <a href="https://confluence.hl7.org/display/FHIR/Conformance+QA+Criteria">Conformance Resource Quality Guidelines</a>; has been subject to a round of formal balloting; has at least 10 distinct implementer comments recorded in the tracker drawn from at least 3 organizations resulting in at least one substantive change.</td></tr>
- <tr><td><b>FMM 4</b></td><td>FMM3 + the artifact has been tested across its scope (see below), published in a formal publication (e.g. <code>STU</code>), and implemented in multiple prototype projects. As well, the responsible work group agrees the artifact is sufficiently stable to require implementer consultation for subsequent non-backward compatible changes.</td></tr>
+ <tr><td><b>FMM 4</b></td><td>FMM3 + the artifact has been tested across its scope (see below), published in a formal publication (e.g., <code>STU</code>), and implemented in multiple prototype projects. As well, the responsible work group agrees the artifact is sufficiently stable to require implementer consultation for subsequent non-backward compatible changes.</td></tr>
  <tr><td><b>FMM 5</b></td><td>FMM4 + the artifact has been published in two formal publication release cycles as <a href="#STU">STU</a> and has been implemented in at least 5 independent production systems in more than one country.</td></tr>
  <tr><td><b>FMM 6</b> (<a href="versions.html#std-process" title="Normative Content" class="normative-flag">N</a>)</td><td>FMM5 + the responsible work group and the FHIR management group agree the material is ready to lock down according to the <a href="#change">inter-version change</a> rules and the artifact has passed HL7 normative ballot.  This is synonymous with <a href="#normative">Normative</a> standard status.</td></tr>
 </table>
@@ -210,14 +211,14 @@ A detailed analysis of the basis for the maturity metrics for FHIR artifacts can
 <h3>FHIR Releases and Versioning</h3>
 
 <p>
-New versions of FHIR will be published on a release cycle of approximately 18-24 months.  This frequency is based on
-the timelines necessary to consult with implementers, to develop and review new content, as well as to undertake the
-formal balloting and reconciliation processes required for ANSI-approved standards.  This release cycle also ensures
-an opportunity to incorporate implementer feedback from earlier versions of the specification into subsequent versions.
-Limited-scope releases on a shorter timeline may occur occasionally where necessary to meet implementer needs.
+New versions of FHIR are published in an ongoing basis.  The time between publications is based on the timelines necessary
+to consult with implementers, to develop and review new content, as well as to undertake the formal balloting and reconciliation
+processes required for ANSI-approved standards.  This release cycle also ensures an opportunity to incorporate implementer
+feedback from earlier versions of the specification into subsequent versions. Limited-scope releases on a shorter timeline
+may occur occasionally where necessary to meet implementer needs.
 </p>
 <p>
-Each new release is assigned a unique version number. The FHIR version policy is based on
+Each new release of FHIR is assigned a unique version number. The FHIR version policy is based on
 <a href="http://semver.org/">Semantic versioning</a>, but with some differences due to the
 fact that FHIR is a specification, not a software API.
 </p>
@@ -238,12 +239,13 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
    <td valign="top">major</td>
    <td>
      <ul>
-       <li>Incremented when HL7 publishes FHIR as a significant new release of the specification, e.g. a <i>Trial Use</i> or <i>Normative</i> version of FHIR</li>
+       <li>Incremented when HL7 publishes FHIR as a significant new release of the specification, e.g., a <i>Trial Use</i> or <i>Normative</i> version of FHIR</li>
        <li>The first <i>Trial Use</i> was version 0</li>
        <li>FHIR Release 2 (DSTU) was version 1</li>
        <li>FHIR Release 3 (STU) was version 3 (skipped '2' to align the major numbers at implementer request)</li>
        <li>FHIR Release 4 (Normative + STU) is version 4</li>
        <li>FHIR Release 5 (STU) is version 5</li>
+       <li>FHIR Release 6 (Normative) is version 6</li>
      </ul>
    </td>
   </tr>
@@ -266,7 +268,7 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
      <ul>
        <li>Indicates an update including only technical corrections to a prior release</li>
        <li>Resets to 0 any time the minor version changes</li>
-       <li>E.g. 4.0.1 represents the first technical correction on the 4.0.0 release</li>
+       <li>e.g., 4.0.1 represents the first technical correction on the 4.0.0 release</li>
      </ul>
    </td>
   </tr>
@@ -274,7 +276,7 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
    <td valign="top">label</td>
    <td>
      <ul>
-       <li>A tag at the end of a release represents a 'working' version of the specification that is building up to the specified release number; e.g. 5.0.0-ballot1, 5.0.0-snapshot3, etc.</li>
+       <li>A tag at the end of a release represents a 'working' version of the specification that is building up to the specified release number; e.g., 5.0.0-ballot1, 5.0.0-snapshot3, etc.</li>
        <li>The content preceding the label indicates the 'intended' release number that will result at the conclusion of ballot, review, etc.</li>
        <li>label can be any string, however typical labels will be:
          <ul>
@@ -377,7 +379,7 @@ NOTE: The examples provided as part of this specification are never substantive.
 <p>
 However, in a healthcare context, many implementers are unwilling to
 consider some of these steps because of concerns about clinical risk or
-technical limitations in their software (e.g. schema-based processing).
+technical limitations in their software (e.g., schema-based processing).
 </p>
 
 <a name="f-compat"></a>
@@ -399,13 +401,13 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>Artifacts (resources, profiles, code systems, etc.)</td>
       <td>
-      New artifacts including new resources and datatypes may be introduced.  Existing artifacts will not have any computable identifiers (e.g. resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>.
+      New artifacts including new resources and datatypes may be introduced.  Existing artifacts will not have any computable identifiers (e.g., resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>.
       </td>
     </tr>
     <tr>
       <td>Elements</td>
       <td>
-       New optional elements and/or content (e.g. XML attributes, etc.) may be introduced
+       New optional elements and/or content (e.g., XML attributes, etc.) may be introduced
       at any location in resource and datatype structures provided they do not constitute "isModifier" elements.  However, the names, path
       and meaning of previously existing data elements will not be changed.
       This means there will be no change to resource names and no changes to names assigned to slices and
@@ -418,10 +420,10 @@ has a process allowing violation of these rules in <a href="https://confluence.h
       <a name="f-compat-cardianality"></a>
       Minimum element cardinalities will not be changed.  Upper cardinality may change from 1 to * only in circumstances
       where all elements except for the first repetition can be safely ignored. Note that this may change the path to the element in some 
-      syntaxes (e.g. JSON) and may also break FHIRPath expressions that don't allow for the possibility of repetitions.
+      syntaxes (e.g., JSON) and may also break FHIRPath expressions that don't allow for the possibility of repetitions.
       This may mean that an order is assigned to the repeating items or that there is no preference as to which 
       element is retained.  Systems should follow the <a href="#f-compat">rules above</a> for unexpected elements.
-      Because of the JSON and FHIRPath issues, changes to cardinality for normative elements will be minimized whenever possible, e.g. by defining new 
+      Because of the JSON and FHIRPath issues, changes to cardinality for normative elements will be minimized whenever possible, e.g., by defining new 
       sibling elements.
       </td>
     </tr>
@@ -468,7 +470,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
         <p>
         These expectations only apply to Value Sets and Code Systems maintained as part of the FHIR specification.  HL7
         cannot enforce these rules on terminology artifacts maintained by other authorities
-        - e.g. UCUM unit codes, ISO language codes, etc.
+        - e.g., UCUM unit codes, ISO language codes, etc.
         </p>
       </td>
     </tr>
@@ -486,8 +488,14 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>Datatypes</td>
       <td>
-      Except as described in the preceding paragraph, Datatypes will not be removed or changed except as allowed above for elements.  New datatypes may be introduced.  Types declared on existing elements will not be
-      removed or changed, except for the special case that <code>string</code> may be changed to <code>markdown</code>.
+      Except as described in the preceding paragraph, Datatypes will not be removed or changed except as allowed above for elements.
+      New datatypes may be introduced.  Types declared on existing elements will not be
+      removed or changed, except for the special case that types may be changed where the domain space of both the original and
+      new type is the same.  i.e., All possible values of the original type (with the constraints that were in place for that element) are legal values for the new type and vice versa.  At present, this includes:
+      <ul>
+        <li><code>string</code> may be changed to <code>markdown</code></li>
+        <li><code>code</code> may be changed to <code>uri</code></li>
+      </ul> 
       Additional datatypes may be added to elements which are already expressed as a choice of datatypes only if those elements are optional (minimum cardinality = 0).
       </td>
     </tr>
@@ -560,7 +568,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>References</td>
       <td>
-      Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), 
+      Where one conformance resource points to another (e.g., CapabilityStatement to profile, profile to profiles, profile to value set, etc.), 
       the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the 
       content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
       Additional resources or profiles can also be added to the list of available targets for a reference.
@@ -571,7 +579,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
 	<tr>
       <td>Conformance Language</td>
       <td>
-      SHALL statements cannot be broken (though they can be clarified) and new SHALL statements cannot be introduced unless they are conditional based on version. E.g. "Instances in version x and higher of FHIR SHALL..." Changes of SHOULD to MAY and vice versa as well as introducing new MAY and SHOULD statements are permitted.
+      SHALL statements cannot be broken (though they can be clarified) and new SHALL statements cannot be introduced unless they are conditional based on version. e.g., "Instances in version x and higher of FHIR SHALL..." Changes of SHOULD to MAY and vice versa as well as introducing new MAY and SHOULD statements are permitted.
       </td>
     </tr>
   </tbody>
@@ -593,7 +601,7 @@ The specification will provide guidance with deprecated materials showing how to
 <code>Deprecated</code> materials are eligible to be balloted to be <code>withdrawn</code> two years after their <code>deprecated</code> status is published.
 </p>
 <p>
-The computable artifact labels (e.g. codes, element names, urls, etc.) associated with withdrawn materials SHALL not be used in future versions of HL7 specifications.
+The computable artifact labels (e.g., codes, element names, urls, etc.) associated with withdrawn materials SHALL not be used in future versions of HL7 specifications.
 Materials marked "deprecated" may have that marking removed as part of a subsequent ballot at a later moment, while withdrawn materials SHALL NOT.
 </p>
 <p>
@@ -618,7 +626,7 @@ status of <i>Draft</i> or <i>Trial Use</i>.  These changes may be minor (clarifi
 resources, changes to serialization rules, eliminating or adding datatypes, etc.)  There is no commitment to backward or forward compatibility
 during the trial use process until content is normative.  Changes will not be made without cause, however the interests of long-term
 implementability will generally trump the impact on early adopters when determining what changes should be made.  This balance will
-shift more towards early adopters as maturity levels increase.  I.e. Impact on existing implementations will be weighted more highly
+shift more towards early adopters as maturity levels increase.  i.e., Impact on existing implementations will be weighted more highly
 for an FMM-level 5 artifact than they would for an FMM-level 1 artifact.
 </p>
 <p>
@@ -647,7 +655,12 @@ move through the maturity cycle. For this reason, all FHIR implementers are enco
 usage <a href="http://fhir.org/implementations/usage">here</a>, which captures contact and other information
 that will allow HL7 to perform appropriate monitoring of FHIR usage. Survey information is confidential and reported in aggregate only.
 </p>
-
+<p>
+One type of breaking change that can happen between trial-use versions is that elements that were previously mandatory might
+be removed or made optional.  When converting data from future releases of FHIR, no data will be available for these elements.
+The '1' minimum cardinality can be satisfied by sending a <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">data-absent-reason</a> extension with a value of "not-applicable".
+Systems SHOULD always check not only for an element but a value for the element when writing their logic.  
+</p>
 <a name="extensions"></a>
 <h3>Extensions for converting between versions</h3>
 
@@ -718,7 +731,7 @@ Implementers should be aware of the following issues when using these extensions
 <ul>
  <li>Implementations SHALL always use the equivalent element for data when one exists.  Cross-version extensions can be used for elements that don't exist, elements with types that do not exist, or elements whose maximum
    cardinality has changed from 1 to *. The version <a href="diff.html">differences</a> and <a href="r4maps.html">maps</a> (and their equivalent for other versions) can help determine when cross-version extensions are appropriate</li>
- <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc.)</li>
+ <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g., <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc.)</li>
  <li>Where complex datatypes have no equivalent in an earlier version, use a complex extension, 
   where the name of the child properties is the name of the complex extension components, and each of these subextensions
   are extensions that also follow this pattern (see example below).</li>
@@ -726,7 +739,7 @@ Implementers should be aware of the following issues when using these extensions
   and for additional children where there is a cardinality increase in the referenced (subsequent) version.</li>
  <li>If the change between versions is that the subsequent version allows a type that is not allowed in the 
   previous version, then whenever the type is allowed, it should be found in the element, but if it is not,
-  then it should be in an extension with the URL of the subsequent version e.g. 
+  then it should be in an extension with the URL of the subsequent version e.g., 
   <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.value</code> for types
   allowed in Observation.value in R5 that were not allowed in an earlier version.
  </li>
@@ -739,7 +752,7 @@ Implementers should be aware of the following issues when using these extensions
   only those targetProfile resources that have URLs that exist in the referencing version can exist.  
   If a resource has been renamed, it can't be used in the prior release (note: this is because there's no 
   computable way of determining what names would be allowed); the  <a href="[%extensions-location%]StructureDefinition-alternate-reference.html">alternate-reference</a>
-  and <a href="[%extensions-location%]StructureDefinition-alternate-canonical.html">alternate-canonical</a> extensions may be used in this context. E.g. if converting 
+  and <a href="[%extensions-location%]StructureDefinition-alternate-canonical.html">alternate-canonical</a> extensions may be used in this context. e.g., if converting 
   from a version that supports 3 target types when the target version only supports 2 target types, any repetition that referred to 
   the non-supported type would be represented as a reference or canonical instance where the content would just be the alternate extension (and a display, since something must be provided).
  </li>
@@ -752,7 +765,7 @@ Implementers should be aware of the following issues when using these extensions
  <li>
 The extension mechanism carries no information about cardinalities.  If converting from the extension
 mechanism to 'core' elements when up-converting or down-converting the resource, the conversion process 
-will need to know the max occurs for the element in the target version (e.g. to know whether the element 
+will need to know the max occurs for the element in the target version (e.g., to know whether the element 
 should be a JSON array or not).
 
  </li>
@@ -1101,7 +1114,7 @@ code of <code>  unsupported</code> can observe the presence of a cross-version e
 the resource had the data available but not a supported way to represent in the earlier (or later) version.</li>
  <li> 
 When processing the data, it is valid (and recommended) for a system to ignore or remove the place-holder value and use the correct value
-instead (e.g. storing the data in a database or converting the resource to a version that does contain a compatible definition). 
+instead (e.g., storing the data in a database or converting the resource to a version that does contain a compatible definition). 
 </li>
 <li>
   Again, it is always preferable to provide the data in a form that can be processed correctly by applications that don't understand 
@@ -1159,16 +1172,13 @@ Note for balloters: the R5 packages will be created when R5 is finalized. Until 
 <a name="plans"></a>
 <h3>Plans for future releases</h3>
 <p>
-This specification is the result of three years of work by HL7, it's standards, government and implementation partners, 
-along with the wider (huge) FHIR implementation community. The FHIR implementation community is now massive, and 
-the pace of publication has slowed (as is evident in the <a href="history.html">publication history</a>).
+This specification is the result of fifteen years of work by HL7, its standards, government and implementation partners, 
+along with the wider (huge) FHIR implementation community. This is the first full normative version of the standard - none of the 
+content in this specification is considered trial-use. 
 </p>
 <p>
-Accordingly, the pace of implementation adoption of new versions is slowing, and it is unclear how 
-quickly R5 will be adopted. HL7 will watch the market and survey it's many partners before deciding 
-how quickly to pursue the next release, and whether the next release will be a restricted branch 
-development from R5 (as R4B was to R4), or whether it will forge ahead with a full new version,
-which will be Release 6.
+The FHIR implementation community and implementation base is now massive and the pace of implementation adoption of
+new versions is slowing. 
 </p>
 <p>
 Note that for this release, the extensions have been moved out into a separate module and updated
@@ -1180,7 +1190,7 @@ information.
 Irrespective of the choice around publication speed and whether to publish partial new branch versions,
 HL7's general intent for the Release 6 is to move most of the resources in the Foundation, Base and Clinical layers (see the 
 'Category' tab in the <a href="resourcelist.html">Resources pages</a>) to full Normative status, along with
-a few other resources including e.g. Questionnaire. 
+a few other resources including e.g., Questionnaire. 
 </p>
 <p>
 Whatever HL7 decides to do with regard to the formal status of the resources, the next release will

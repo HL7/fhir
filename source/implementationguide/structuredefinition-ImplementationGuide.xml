@@ -8,7 +8,7 @@
 		<valueString value="Foundation.Conformance"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
+		<valueCode value="normative"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
 		<valueInteger value="1"/>
@@ -737,9 +737,9 @@
 		</element>
 		<element id="ImplementationGuide.definition.resource.profile">
 			<path value="ImplementationGuide.definition.resource.profile"/>
-			<short value="Profile(s) this is an example of"/>
+			<short value="Profile(s) this resource is valid against"/>
 			<definition value="If present, indicates profile(s) the instance is valid against."/>
-			<comment value="Examples: &#xA;&#xA;* StructureDefinition -&gt; Any &#xA;* ValueSet -&gt; expansion &#xA;* OperationDefinition -&gt; Parameters &#xA;* Questionnaire -&gt; QuestionnaireResponse."/>
+			<comment value="This can be used for both example and non-example resources to indicate profiles they are expected to be valid against.  E.g. a non-example ValueSet might be declared to be a valid 'ShareableValueSet'"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>

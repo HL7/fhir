@@ -14,7 +14,7 @@
 
 
 <a name="additional"></a>
-<h3>Using additional resources in Bundles</h3>
+<h3>Using Additional Resources in Bundles</h3>
 <p>
 Bundle entries contain resources which may be either be one of the <%res-type-count%> resources
 defined in this specification, or an <a href="resource.html#additional">additional resource</a>. 
@@ -299,7 +299,9 @@ How to resolve a reference in a Bundle:
     reference.reference is a conditional reference (e.g.
     "http://example.org/base/Patient?identifier=1234"):</p>
   <ul>
-    <li>Logically perform all creates, updates and deletes as defined in the Bundle.  (If this involves physically performing the creates, logical references will need to be removed or, potentially based on cardinality or business rules, replaced with a valid temporary reference.)
+    <li>Logically perform all creates, updates and deletes as defined in the Bundle.  (If this involves physically 
+    performing the creates, logical references will need to be removed or, potentially based on cardinality or 
+    business rules, replaced with a valid temporary reference.)
 Perform the [search] specified in the conditional reference on the server. <ul>
       <li>If the search succeeds with a single resource, the resolution succeeds (and ends)
         here.</li>
@@ -308,7 +310,15 @@ Perform the [search] specified in the conditional reference on the server. <ul>
     </ul></li>
     <li>Otherwise the resolution fails (and ends) here.</li>
   </ul>
-  <p>NOTE: It is sometimes not safe to perform resolution of conditional references within the Bundle because in some cases there may be multiple matches which, once the data hits the server, will turn into a single match due to mutually exclusive conditional create/conditional update rules.</p>
+  <p>NOTE: It is sometimes not safe to perform resolution of conditional references within the Bundle because in some cases
+  there may be multiple matches which, once the data hits the server, will turn into a single match due to mutually exclusive
+  conditional create/conditional update rules.</p>
+  
+  <p><b>Resolving canonical references:</b>
+  If the canonical reference is version-specific, look for an entry with a matching URL and version.   If the canonical omits version, look for an entry with a matching URL and if there is more than one, find the most recent version based on the versionAlgorithm. 
+  If there is exactly one, it's a match.  If there are no matches, then resolve as an external canonical as usual.  If there is more than one, it's an error.
+  </p>
+
   <p><b>Resolving other references.</b> If the rules above do not apply, the resolution fails (and
     ends) here. The reference has no defined meaning within this specification.</p>
   <p>Note that the rules for resolving references in contained resources are the same as those for
@@ -327,7 +337,19 @@ Perform the [search] specified in the conditional reference on the server. <ul>
 There is an <a href="bundle-references.html">example Bundle that demonstrates</a> these rules.
 </p>
 
+<a name="graphs"></a>
+<h3>Graph-connected Bundles</h3>
 
+<p>
+Both <a href="messaging.html">FHIR messages</a> and <a href="documents.html">FHIR documents</a> have 
+a requirement that all entries within the Bundle are interconnected.  This expectation means that
+all entries in the Bundle must produce a single graph of interconnected resources.
+These connections might be via Reference, canonical, url, or "href" references within narrative.
+</p>
+<p>
+Note that some references might be 'reverse' references, such as Provenances that point to resources
+within the Bundle.  These references are resolved as defined above.
+</p>
 
 <a name="rest"></a>
 <h3>Serving Bundles using the RESTful API</h3>

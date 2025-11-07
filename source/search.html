@@ -10,8 +10,7 @@
 
 <a name="base"></a>
 <h2>Search</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 Searching for resources is fundamental to the mechanics of FHIR.
@@ -226,7 +225,7 @@ patient.identifier=http%3A%2F%2Fexample.com%2Ffhir%2Fidentifier%2Fmrn%7C123456</
   search set is indeterminate: <a href="patient.html#match">Patient MPI Search</a>.
 </p>
 <p>
-  <span class="fhir-conformance">In the absence of any search filters, e.g. <code>GET [base]</code>, <code>GET [base]/Patient</code>, or
+  <span class="fhir-conformance">In the absence of any search filters, e.g., <code>GET [base]</code>, <code>GET [base]/Patient</code>, or
   <code>POST [base]/_search</code> or <code>POST [base]/Patient/_search</code> with no body, a server SHOULD
   return all records in scope of the search context.</span> <span class="fhir-conformance">Servers MAY reject a search as overly-broad, and SHOULD
   return an appropriate error in that situation (e.g., <a href="codesystem-issue-type.html#issue-type-too-costly">too-costly</a>).</span>
@@ -510,7 +509,7 @@ Note: Empty parameters are not an error - they are just ignored by the server.
 </p>
 <p>
 <span class="fhir-conformance">Where the content of the parameter is syntactically incorrect, servers SHOULD return an error.</span>
-<span class="fhir-conformance">However, where the issue is a logical condition (e.g. unknown subject or code), the server
+<span class="fhir-conformance">However, where the issue is a logical condition (e.g., unknown subject or code), the server
 SHOULD process the search, including processing the parameter - with the result of returning
 an empty search set, since the parameter cannot be satisfied.</span>
 </p>
@@ -627,7 +626,7 @@ see <a href="http.html#Http-Headers">HTTP Headers</a> on the HTTP Page.
   are used. <span class="fhir-conformance">When requesting searches in a bundle, systems SHOULD accept searches via GET, even if they do not typically accept GET-based 
   searches.</span> There is no standard way to convey POST-based searches within a Bundle and the architectural differences when searching via
   GET or POST are not relevant within a Bundle. <span class="fhir-conformance">Servers receiving searches within a Bundle SHOULD NOT impose any GET-specific limitations 
-  on search (i.e. restrictions not imposed on POST-based searches) that they would impose if the GET-based search had been received outside a Bundle.</span>
+  on search (i.e., restrictions not imposed on POST-based searches) that they would impose if the GET-based search had been received outside a Bundle.</span>
 </p>
 
 <a name="messaging"></a>
@@ -1442,7 +1441,7 @@ url:above=http://acme.org/fhir</span>
     as a case-insensitive and combining-character insensitive test when matching against the start of target string.  This modifier is used
     to do a 'standard' string search against code values.  Note that the handling of extended 
     <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
-    the server, i.e. the server decides if a search parameter matches on canonically equivalent characters or matches on
+    the server, i.e., the server decides if a search parameter matches on canonically equivalent characters or matches on
 		the actual used Unicode code points. Case-insensitive comparisons do not take locale into account, and will result in unsatisfactory results for certain locales. Character case definitions and conversions are out of scope for the FHIR standard, and the results of such operations are implementation dependent.
   </p>
   <p>
@@ -1476,7 +1475,7 @@ language:code-text=EN</span>
     The <code>contains</code> modifier allows clients to indicate that a supplied <code>string</code> input is used
     as a case-insensitive and combining-character insensitive test when matching anywhere in the target string. Note that the handling of extended 
     <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
-    the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters or matches on
+    the server, i.e., the server decides if a string search parameter matches on canonically equivalent characters or matches on
 		the actual used Unicode code points. Case-insensitive comparisons do not take locale into account, and will result in unsatisfactory results for certain locales. Character case definitions and conversions are out of scope for the FHIR standard, and the results of such operations are implementation dependent.
   </p>
   <p>
@@ -1510,7 +1509,7 @@ family:contains=son</span>
     The <code>exact</code> modifier allows clients to indicate that a supplied <code>string</code> input is the complete and 
     exact value that tested for a match, including casing and combining characters. Note that the handling of extended 
     <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
-    the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters or matches on
+    the server, i.e., the server decides if a string search parameter matches on canonically equivalent characters or matches on
 		the actual used Unicode code points. Case-insensitive comparisons do not take locale into account, and will result in unsatisfactory results for certain locales. Character case definitions and conversions are out of scope for the FHIR standard, and the results of such operations are implementation dependent.
   </p>
   <p>
@@ -1694,6 +1693,18 @@ code=http://snomed.info/sct|3738000&amp;_include=Observation:patient&amp;_includ
     More information can be found in the section <a href="#include">Including other resources</a>
   </p>
 
+[%dragons-start%]
+<h6>Performance Warning</h6>
+<p>
+Note that the iterate modifier causes implementations to perform a sub-query for each iterate directive for each resource it is based on.
+Using iterate directives can often reduce the total processing time of a set of queries (by reducing the number of round-trips) but
+can significantly increase the processing time of a single query.As noted in <a href="#include">Including Referenced Resources</a>, 
+servers have discretion about limiting the depth of recursion, which iterations to support, and how many resources to include. 
+When results are truncated, it is recommended for servers to inform clients via search outcome.
+
+</p>
+[%dragons-end%]
+
   <a name="modifiermissing"></a>
   <h5>missing</h5>
   <p>
@@ -1851,7 +1862,7 @@ Content-Type: application/x-www-form-urlencoded
 code:not-in=http://snomed.info/sct?fhir_vs=isa/235862008</span>
       </span>
     </span>
-    would match any conditions that <em>do not</em> contain any code from SNOMED CT that is a <code>235862008</code>, e.g. all codes <b>excluding</b>:
+    would match any conditions that <em>do not</em> contain any code from SNOMED CT that is a <code>235862008</code>, e.g., all codes <b>excluding</b>:
     <ul>
       <li>SNOMED <code>235862008</code> - Hepatitis due to infection (this code)</li>
       <li>SNOMED <code>773113008</code> - Acute infectious hepatitis (is-a 235862008)</li>
@@ -2174,22 +2185,22 @@ the prefixes described in the table below are used.  Note that in the following 
  <tr>
 	<td><code>gt</code></td>
 	<td>the resource value is greater than the parameter value</td>
-  <td>the range above the parameter value intersects (i.e. overlaps) with the range of the resource value</td>
+  <td>the range above the parameter value intersects (i.e., overlaps) with the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>lt</code></td>
 	<td>the resource value is less than the parameter value</td>
-  <td>the range below the parameter value intersects (i.e. overlaps) with the range of the resource value</td>
+  <td>the range below the parameter value intersects (i.e., overlaps) with the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>ge</code></td>
 	<td>the resource value is greater or equal to the parameter value</td>
-  <td>the range above the parameter value  intersects (i.e. overlaps) with the range of the resource value, or the range of the parameter value fully contains the range of the resource value</td>
+  <td>the range above the parameter value  intersects (i.e., overlaps) with the range of the resource value, or the range of the parameter value fully contains the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>le</code></td>
 	<td>the resource value is less or equal to the parameter value</td>
-  <td>the range below the parameter value intersects (i.e. overlaps) with the range of the resource value or the range of the parameter value fully contains the range of the resource value</td>
+  <td>the range below the parameter value intersects (i.e., overlaps) with the range of the resource value or the range of the parameter value fully contains the range of the resource value</td>
  </tr>
  <tr>
 	<td><code>sa</code></td>
@@ -2241,18 +2252,22 @@ are identified:
  <tr>
 	<td>range of the value</td>
 	<td>The limits implied by the precision of the value</td>
-  <td>The number 2.0 has a range of 1.95 to 2.05</td>
+  <td>
+    The number 2.0 has a range of 1.95 to 2.05<br/>
+    The range 1.5 -&gt; 2.3 has a range 1.50000000000000000000 to 2.50000000000000000000 (range is explicit, boundaries are treated as precise)
+  </td>
  </tr>
  <tr>
 	<td>range below the value</td>
 	<td>Up to the specified value</td>
-  <td>The range below 2.0 includes any value less or equal to &lt;2.00000000000000000000</td>
+  <td>The range below 2.0 includes any value less or equal to &lt;2.00000000000000000000<br/>
+    The range below 1.5 -&gt; 2.3 includes any value less or equal to &lt;1.50000000000000000000 </td>
  </tr>
  <tr>
 	<td>range above the value</td>
 	<td>The specified value and up</td>
   <td>The range above 2.0 includes any value greater or equal to &lt;2.00000000000000000000<br/>
-      The range after 2015-08-12T05:23:45 includes any time after 2015-08-12T05:23:45.000000000000000</td>
+    The range above 1.5 -&gt; 2.3 includes any value greater or equal to &lt;2.30000000000000000000</td>
  </tr>
  <tr>
   <td colspan="3"><b>Date / Time Values</b></td>
@@ -2476,7 +2491,7 @@ that fractional seconds MAY be ignored by servers.</span>
 <p>
 The <code>date</code> search type can be used to represent data from any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>,
 and <a href="datatypes.html#instant">instant</a> datatypes. <span class="fhir-conformance">Any degree of precision can be provided, but it SHALL
-be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if
+be populated from the left (e.g., can't specify a month without a year), except that the minutes SHALL be present if
 an hour is present, and you SHOULD provide a timezone if the time part is present.</span>
 <span class="fhir-conformance">Note: Time can consist of hours and minutes with no seconds, unlike the XML Schema dateTime type. Some user agents may escape the <code>:</code>
 characters in the URL, and servers SHALL handle this correctly.</span>
@@ -2488,9 +2503,9 @@ characters in the URL, and servers SHALL handle this correctly.</span>
 </p>
 <table class="grid">
  <tr><td><a href="datatypes.html#date">date</a></td><td>The range of the value is the day, month, or year as specified</td></tr>
- <tr><td><a href="datatypes.html#dateTime">dateTime</a></td><td>The range of the value as defined above; e.g. For example, the
+ <tr><td><a href="datatypes.html#dateTime">dateTime</a></td><td>The range of the value as defined above; e.g., For example, the
    date 2013-01-10 specifies all the time from 00:00 on 10-Jan 2013 to immediately before 00:00 on 11-Jan 2013</td></tr>
- <tr><td><a href="datatypes.html#instant">instant</a></td><td>An instant is considered a fixed point in time with an interval smaller than the precision of the system, i.e. an interval with an effective width of 0</td></tr>
+ <tr><td><a href="datatypes.html#instant">instant</a></td><td>An instant is considered a fixed point in time with an interval smaller than the precision of the system, i.e., an interval with an effective width of 0</td></tr>
  <tr><td><a href="datatypes.html#Period">Period</a></td><td>Explicit, though the upper or lower bound might not actually be specified in resources.</td></tr>
  <tr><td><a href="datatypes.html#Timing">Timing</a></td><td>the specified scheduling details are ignored and only the outer limits matter. For instance, a schedule that specifies every second day between
    31-Jan 2013 and 24-Mar 2013 includes 1-Feb 2013, even though that is on an odd day that is not specified by the period. This is
@@ -2606,8 +2621,8 @@ Other notes:
 <ul>
  <li>When the date parameter is not fully specified, matches against it are based on the behavior of intervals, where:
 	<ul>
-		<li>Dates with only the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, e.g. 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59].</li>
-		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59].</li>
+		<li>Dates with only the year specified are equivalent to an interval that starts at the first instant of January 1st to the last instant of December 31st, e.g., 2000 is equivalent to an interval of [2000-01-01T00:00, 2000-12-31T23:59].</li>
+		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g., 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59].</li>
 	</ul>
  </li>
  <li><span class="fhir-conformance">Where possible, the system SHOULD correct for timezones when performing queries.</span> <span class="fhir-conformance">Dates 
@@ -2813,13 +2828,14 @@ is uncontrolled and may be unpredictable.
 
 <p>
 The search processor may choose to perform a search based on <a href="datatypes.html#quantity">canonical units</a>
-(e.g. any value where the units can be converted to a value in mg in the case above). For example, an observation
+(e.g., any value where the units can be converted to a value in mg in the case above). For example, an observation
 may have a value of <code>23 mm/hr</code>. This is equal to <code>0.023 m/hr</code>. The search processor can
 choose to normalize all the values to a canonical unit such as <code>6.4e-6 m/sec</code>, and convert
 search terms to the same units (m/sec). Such conversions can be performed based on the semantics defined
-in <a href="http://unitsofmeasure.org">UCUM</a>
+in <a href="http://unitsofmeasure.org">UCUM</a>. Servers that do not search based on canonical units will not
+be able to search against ranges whose low and high quantities use different units or where the search
+expression uses different units than are found in low and high.
 </p>
-
 
 <a name="reference"></a>
 <h4>reference</h4>
@@ -2829,11 +2845,11 @@ Conditions where the subject is a particular patient, where the patient is selec
 The interpretation of a <i>reference</i> parameter is either (see <a href="#encoding-note">Encoding Note</a>):
 </p>
 <ul>
-  <li><b><code>[parameter]=[id]</code></b> the logical [id] of a resource using a local reference (i.e. a relative reference).</li>
-  <li><b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e. a relative reference),
-   for when the reference can point to different types of resources (e.g. <a href="observation-definitions.html#Observation.subject">Observation.subject</a>).</li>
+  <li><b><code>[parameter]=[id]</code></b> the logical [id] of a resource using a local reference (i.e., a relative reference).</li>
+  <li><b><code>[parameter]=[type]/[id]</code></b> the logical [id] of a resource of a specified type using a local reference (i.e., a relative reference),
+   for when the reference can point to different types of resources (e.g., <a href="observation-definitions.html#Observation.subject">Observation.subject</a>).</li>
   <li><b><code>[parameter]=[type]/[id]/_history/[version]</code></b> the logical [id] of a resource of a specified type using a 
-   local reference (i.e. a relative reference), for when the reference can point to different types of resources and a specific version is requested. Note 
+   local reference (i.e., a relative reference), for when the reference can point to different types of resources and a specific version is requested. Note 
    that server implementations may return an error when using this syntax if resource versions are not supported.  For more information, see 
    <a href="#versions">References and Versions</a>.</li>
   <li><b><code>[parameter]=[url]</code></b> where the [url] is an absolute URL - a reference to a resource by its absolute location, or by its canonical URL</li>
@@ -2907,7 +2923,7 @@ subject=123</span>
 </p>
 
 <p>
-Some resource references may point to more than one type of resource; e.g. <code>subject: Reference(Patient|Group|Device|..)</code>.
+Some resource references may point to more than one type of resource; e.g., <code>subject: Reference(Patient|Group|Device|..)</code>.
 In these cases, multiple resources may have the same logical identifier. <span class="fhir-conformance">Servers SHOULD fail a search where
 the logical id in a reference refers to more than one matching resource across different types.</span>
 In order to allow the client to perform a search in these situations the type is specified explicitly:
@@ -2980,7 +2996,7 @@ cannot.
 </p>
 <p>
 The reference search parameter type is mostly used for resource elements of type <code>Reference</code> or <code>canonical</code>.
-However, it is also be used to search resource elements of type <a href="resource.html">Resource</a> - i.e. where
+However, it is also be used to search resource elements of type <a href="resource.html">Resource</a> - i.e., where
 one resource is directly nested within another - see the <a href="bundle.html#search">Bundle
 search parameters</a> 'message' and 'composition' as an example of this.
 </p>
@@ -2990,7 +3006,7 @@ search parameters</a> 'message' and 'composition' as an example of this.
 <p>
 For a simple string search, a string parameter serves as the input for a search against
 sequences of characters. This search is insensitive to casing and included combining characters, like accents or other diacritical marks.
-<span class="fhir-conformance">Punctuation and non-significant whitespace (e.g. repeated space characters, tab vs space) SHOULD also be ignored.</span>
+<span class="fhir-conformance">Punctuation and non-significant whitespace (e.g., repeated space characters, tab vs space) SHOULD also be ignored.</span>
 Note that case-insensitive comparisons do not take locale into account, and will result in unsatisfactory results for certain locales. Character case 
 definitions and conversions are out of scope for the FHIR standard, and the results of such operations are implementation dependent.  By default, a 
 field matches a string query if the value of the field equals or starts with the supplied parameter value, after both have
@@ -3064,7 +3080,7 @@ though only a few servers are expected to offer this facility.
 When a string search parameter refers to the types <a href="datatypes.html#HumanName">HumanName</a> and <a href="datatypes.html#Address">Address</a>,
 the search covers the elements of type string, and does not cover elements such as <code>use</code> and <code>period</code>.
 <span class="fhir-conformance">For robust search, servers SHOULD search the parts of a family name independently.</span>
-E.g. searching either "Carreno" or "Quinones" should match a family name of "Carreno Quinones".
+e.g., searching either "Carreno" or "Quinones" should match a family name of "Carreno Quinones".
 <span class="fhir-conformance">HL7 affiliates MAY make more specific recommendations about search expectations regarding names
 in their specific culture.</span>
 </p>
@@ -3090,15 +3106,15 @@ booleans, <a href="datatypes.html#ContactPoint">ContactPoints</a>, and <a href="
 cases the URI portion (<code>[system]|</code>) is not used (only the <code>[code]</code> portion).
 </p>
 <p>
-For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features).
+For tokens, matches are literal (e.g., not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features).
 Match is case sensitive unless the underlying semantics for the context indicate that tokens are to be interpreted case-insensitively
-(see, e.g. <a href="codesystem-definitions.html#CodeSystem.caseSensitive">CodeSystem.caseSensitive</a>). Note that matches on <code>_id</code>
+(see, e.g., <a href="codesystem-definitions.html#CodeSystem.caseSensitive">CodeSystem.caseSensitive</a>). Note that matches on <code>_id</code>
 are always case sensitive. If the underlying datatype is <code><a href="datatypes.html#string">string</a></code>
 then the search is not case sensitive.
 </p>
 <p>
 <b>Note</b>: There are many challenging issues around case sensitivity and token searches. Some
-code systems are case sensitive (e.g. UCUM) while others are known not to be. For many code
+code systems are case sensitive (e.g., UCUM) while others are known not to be. For many code
 systems, it's ambiguous. Other kinds of values are also ambiguous. <span class="fhir-conformance">When in doubt, servers
 SHOULD treat tokens in a case-insensitive manner, on the grounds that including undesired
 data has less safety implications than excluding desired behavior.</span> <span class="fhir-conformance">Clients SHOULD always
@@ -3120,7 +3136,7 @@ Notes:
 </p>
 <ul>
  <li>The namespace URI and code both must be <a href="#escaping">escaped</a> correctly.
-If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>),
+If a system is not applicable (e.g., an element of type <a href="datatypes.html#uri">uri</a>),
 then just the form <code>[parameter]=[code]</code> is used.</li>
  <li><span class="fhir-conformance">For token parameters on elements of type <a href="datatypes.html#id">id</a>, <a href="datatypes.html#ContactPoint">ContactPoint</a>, 
   <a href="datatypes.html#uri">uri</a>, or <a href="datatypes.html#boolean">boolean</a>, the pipe symbol 
@@ -3265,7 +3281,7 @@ section:not=48765-2</span>
         </span>
       </td>
       <td>Search for any Composition that does not contain an Allergies and adverse reaction section. Note that this search does not return 
-        "any document that has a section that is not an Allergies and adverse reaction section" (e.g. in the presence of multiple possible 
+        "any document that has a section that is not an Allergies and adverse reaction section" (e.g., in the presence of multiple possible 
         matches, the <i>negation</i> applies to the set, not each individual entry)</td>
       </tr>
     <tr>
@@ -3980,7 +3996,7 @@ general-practitioner.name=Joe&amp;general-practitioner.address-state=MN</span>
   </span>
 </span>
 may return Patients cared for by Joe from CA and Jane from MN: no one practitioner need satisfy both conditions.
-E.g. the chains are evaluated separately. For use cases where the joins must be evaluated in groups,
+e.g., the chains are evaluated separately. For use cases where the joins must be evaluated in groups,
 there are either <a href="#composite">Composite</a> search parameters, or the <a href="#filter">_filter</a>
 parameter.
 </p>
@@ -4022,8 +4038,8 @@ referred to by at least one Observation where the observation has a code of 1234
 where the Observation refers to the patient resource in the patient search parameter.
 </p>
 <p>
-"Or" searches are allowed (e.g. <code>_has:Observation:patient:code=123,456</code>), and multiple <code>_has</code>
-parameters are allowed (e.g. <code>_has:Observation:patient:code=123&amp;_has:Observation:patient:code=456</code>).
+"Or" searches are allowed (e.g., <code>_has:Observation:patient:code=123,456</code>), and multiple <code>_has</code>
+parameters are allowed (e.g., <code>_has:Observation:patient:code=123&amp;_has:Observation:patient:code=456</code>).
 Note that each <code>_has</code> parameter is processed independently of other <code>_has</code> parameters.
 </p>
 <p>
@@ -4205,7 +4221,7 @@ type of resource, for example:
 <ul>
  <li>Using search across all resource types (<code>[base]?params...</code>)</li>
  <li>Using search with <a href="messaging.html">messaging</a></li>
- <li>Some search specifications inside other services e.g. decision support usage</li>
+ <li>Some search specifications inside other services e.g., decision support usage</li>
 </ul>
 <p>
 In these circumstances, the search criteria may need to specify one or more resource
@@ -4238,7 +4254,7 @@ types that the search applies to. This can be done by using the standard search 
 <h4>Implicit Resources</h4>
 <p>
   Some resources are defined <i>implicitly</i> rather than as explicit instances 
-  (e.g. <a href="codesystem.html#detailed-metadata">Implicit Code Systems</a>).  When searching 
+  (e.g., <a href="codesystem.html#detailed-metadata">Implicit Code Systems</a>).  When searching 
   resources where implicit instances might exist, it is up to the server whether they will include 
   implicit resources as part of the search set. <span class="fhir-conformance">Implementation Guides MAY set specific expectations 
   about search behavior around implicit resources.</span>
@@ -4281,7 +4297,7 @@ named queries to meet their own uses using an <a href="operationdefinition.html"
 <p>
   Servers do not need to support ANY such 'inherited' parameters unless explicitly documented in the operation's 
   description. <span class="fhir-conformance">Clients SHOULD NOT assume the availability of any search parameter that is not supported for 
-  general queries (i.e. listed in the server's <a href="capabilitystatement.html">CapabilityStatement</a>, either in 
+  general queries (i.e., listed in the server's <a href="capabilitystatement.html">CapabilityStatement</a>, either in 
   <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam">CapabilityStatement.rest.searchParam</a> or 
   <a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam">CapabilityStatement.rest.resource.searchParam</a>).</span>
   <span class="fhir-conformance">Servers MAY further document the search parameters they support for a specific <code>query</code> operation - either in text 
@@ -4565,7 +4581,7 @@ Notes:
     MAY or MAY NOT support the <code>text</code> sort modifier behavior, and MAY fall back to token-based sorting or
     disregard the value.</span></li>
   <li>When sorting on search parameters of <code>date</code> type, if the source data is not a 
-    single instance (e.g. a <a href="datatypes.html#Period">Period</a>) the sort behavior is server-defined. 
+    single instance (e.g., a <a href="datatypes.html#Period">Period</a>) the sort behavior is server-defined. 
     If more prescribed search behavior is needed, custom search parameters that assert specific behavior can be 
     defined. Note that most reference implementations search by the <code>start</code> of the period.</li>
 </ul>
@@ -4629,7 +4645,7 @@ single page. <span class="fhir-conformance">Servers SHALL NOT return more resour
 even if they don't support paging, but MAY return less than the client requested.</span>
 <span class="fhir-conformance">NOTE: This means that all servers that support search or history SHALL support
 checking the <code>_count</code> parameter.</span> <span class="fhir-conformance">The server SHOULD ensure that any pages reachable via 
-links (e.g. previous/next) respect the the original requested
+links (e.g., previous/next) respect the the original requested
 <code>_count</code> expectations (or a server-overridden max page size).</span>  Note:
 It is at the discretion of the search engine as to how to
 handle ongoing updates to the resources while the search
@@ -4959,7 +4975,7 @@ with the <a href="bundle-definitions.html#Bundle.entry.search.mode">entry.search
 set to <code>include</code>.  Note that if a resource is both a <code>match</code> directly
 and an <code>include</code>, the mode will be set to <code>match</code> (in some searches, it is not obvious 
 which resources arematches, and which are includes). If there is no value in the reference element, 
-no matching resource, or the resource cannot be retrieved (e.g. on a different server), then the resource is omitted and no
+no matching resource, or the resource cannot be retrieved (e.g., on a different server), then the resource is omitted and no
 error is returned.
 </p>
 <p>
@@ -4989,7 +5005,7 @@ _include=MedicationDispense:prescription&amp;_include:iterate=MedicationRequest:
 </p>
 <p>
   Details about the <code>iterate</code> modifier can be found in the section 
-  <a href="#modifieriterate">Modifier: iterate</a>.
+  <a href="#modifieriterate">Modifier: iterate</a>, including potential performance considerations.
 </p>
 <p>
 This technique applies to circular relationships as well. For example,
@@ -5080,7 +5096,7 @@ results for the convenience of the client.
 </p>
 <p>
   The <code>_graph</code> result parameter functions as a <a href="#reference">reference</a>
-  type search parameter.  The input is a reference to a <a href="graphdefinition.html">GraphDefinition</a>
+  type search parameter.  The input is a reference to a <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a>
   resource, which is used to define the graph of desired resources for inclusion.
 </p>
 
@@ -5519,7 +5535,7 @@ will match Questionnaire resources with a <code>Resource.language</code> of <cod
   element. For example, if a server returns a code value and its corresponding display by using a foreign-key reference to
   a code system, updates to the code system that affect the display name might not be reflected in the <code>lastUpdated</code> value
   of the resource holding the code. It is also possible that an underlying record might be updated in a way that is not surfaced in 
-  the FHIR representation of a resource (e.g. changing non-exposed metadata) which can cause <code>lastUpdated</code> to change even
+  the FHIR representation of a resource (e.g., changing non-exposed metadata) which can cause <code>lastUpdated</code> to change even
   when there is no apparent change in the data.
 </p>
 <p>
@@ -5773,8 +5789,8 @@ that an observation has been tagged as potentially life-threatening or with the 
   of a resource.
 </p>
 <p>
-  The <code>_text</code> search parameter is defined as a <a href="#string">string</a> type parameter.
-  While the actual format used by the parameter is implementation-dependant, the search is some form of string
+  The <code>_text</code> search parameter is defined as a <a href="#special">special</a> type parameter.
+  While the actual format used by the parameter is implementation-dependant, the search is some form of text
   which can be used for advanced searching.
 </p>
 <p>

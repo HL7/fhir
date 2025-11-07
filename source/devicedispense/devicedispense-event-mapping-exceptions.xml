@@ -208,6 +208,8 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.relevantHistory" resourcePath="DeviceDispense.relevantHistory">
+        <missingTypes _pattern="Reference(ProvenanceRelevantHistory)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Provenance)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Key events in history of device dispense"/>
             <resource value="A list of relevant lifecycle events"/>

@@ -8,7 +8,7 @@
     <valueString value="Foundation.Conformance"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -257,7 +257,7 @@
       <condition value="exs-4"/>
       <condition value="exs-5"/>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired ExampleScenario without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -458,6 +458,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.)"/>
       <condition value="exs-3"/>
       <condition value="exs-6"/>
       <condition value="exs-7"/>
@@ -503,13 +504,14 @@
     </element>
     <element id="ExampleScenario.actor.type">
       <path value="ExampleScenario.actor.type"/>
-      <short value="system | non-system | individual | patient | practitioner | related-person | device | collective | care-team | group | healthcare-service | organization"/>
+      <short value="person | system | collective | other"/>
       <definition value="The category of actor - person or system."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <condition value="exs-24"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ActorDefinitionActorType"/>
@@ -518,7 +520,6 @@
         <description value="The type of actor - system or non-system."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
       </binding>
-      <condition value="exs-24"/>
     </element>
     <element id="ExampleScenario.actor.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -635,6 +636,7 @@
       <path value="ExampleScenario.instance.structureType"/>
       <short value="Data structure for example"/>
       <definition value="A code indicating the kind of data structure (FHIR resource or some other standard) this is an instance of."/>
+      <comment value="This element may be omitted if describing a step that doesn't involve the sharing of a data structure - e.g. a human action"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -784,6 +786,7 @@
       <path value="ExampleScenario.instance.containedInstance"/>
       <short value="Resources contained in the instance"/>
       <definition value="References to other instances that can be found within this instance (e.g. the observations contained in a bundle)."/>
+      <requirements value="An instance may contain multiple resources - for example, a search response Bundle, a document Bundle, nested contained resources, etc.  In some cases it's useful to be able to talk about these contained instances distinctly, as they may appear in multiple locations in a scenario - sometimes contained, sometimes not.  For example, a scenario may include the creation of an Observation (stand-alone instance) followed by a search that results in a Bundle that contains that same Observation.  The ExampleScenario can highlight the fact that the 'created' instance and 'contained' instance are the same by having the Bundle refer to the same instance id."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -847,6 +850,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.)"/>
       <condition value="exs-4"/>
       <condition value="exs-12"/>
       <condition value="exs-22"/>
@@ -924,6 +928,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.).  It also indicates the order in which the events occur."/>
       <condition value="exs-5"/>
       <constraint>
         <key value="exs-13"/>
@@ -941,8 +946,8 @@
     <element id="ExampleScenario.process.step.number">
       <path value="ExampleScenario.process.step.number"/>
       <short value="Sequential number of the step"/>
-      <definition value="The sequential number of the step, e.g. 1.2.5."/>
-      <comment value="If step numbers are simultaneous, they will be the same.  Numbers don't have to be numeric.  E.g. '2c)' is a valid step number"/>
+      <definition value="The sequence number of the step, e.g. 1.2.5."/>
+      <comment value="If step numbers are simultaneous, they will be the same.  Numbers don't have to be numeric.  E.g. '2c' is a valid step number.  The 'number' should only contain the textual part of the step identifier, not any separating punctuation.  I.e. 'number' should be '2c' not '2c.' or '2c)' or '2c - '."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -956,6 +961,7 @@
       <min value="0"/>
       <max value="1"/>
       <contentReference value="#ExampleScenario.process"/>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.)"/>
     </element>
     <element id="ExampleScenario.process.step.workflow">
       <path value="ExampleScenario.process.step.workflow"/>
@@ -1106,6 +1112,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.)"/>
       <condition value="exs-13"/>
     </element>
     <element id="ExampleScenario.process.step.alternative.title">
@@ -1142,6 +1149,7 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ExampleScenario.process.step"/>
+      <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.).  It also indicates the order in which the events occur."/>
     </element>
     <element id="ExampleScenario.process.step.pause">
       <path value="ExampleScenario.process.step.pause"/>

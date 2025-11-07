@@ -4,9 +4,4 @@
   <id value="PlanDefinition-packs"/>
   <status value="current"/>
   <mode value="working"/>
-  <entry>
-    <item>
-      <reference value="ImplementationGuide/PlanDefinition-cdshooks"/>
-    </item>
-  </entry>
 </List>

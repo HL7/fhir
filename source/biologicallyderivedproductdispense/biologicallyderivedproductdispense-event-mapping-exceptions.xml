@@ -1,7 +1,6 @@
 <mappingExceptions pattern="Event" resource="BiologicallyDerivedProductDispense" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="BiologicallyDerivedProductDispense.identifier">
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Business identifier for biologically derived product dispense"/>
             <resource value="Business identifier for this dispense"/>
@@ -22,7 +21,6 @@
     <divergentElement patternPath="Event.basedOn" resourcePath="BiologicallyDerivedProductDispense.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
         <extraTypes _resource="Reference(ServiceRequest)" reason="Unknown"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="The order or request that this dispense is fulfilling"/>
@@ -39,7 +37,6 @@
     <divergentElement patternPath="Event.partOf" resourcePath="BiologicallyDerivedProductDispense.partOf">
         <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
         <extraTypes _resource="Reference(BiologicallyDerivedProductDispense)" reason="Unknown"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A larger event of which this particular biologically derived product dispense is a component or step."/>
             <resource value="A larger event of which this particular event is a component."/>
@@ -51,7 +48,6 @@
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="BiologicallyDerivedProductDispense.status">
         <modifier _pattern="true" _resource="false" reason="Unknown"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
             <resource value="preparation | in-progress | allocated | issued | unfulfilled | returned | entered-in-error | unknown"/>
@@ -67,9 +63,8 @@
     </divergentElement>
     <divergentElement patternPath="Event.product" resourcePath="BiologicallyDerivedProductDispense.product">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct,Device,DeviceDefinition,Medication,NutritionProduct,Substance)" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
         <extraTypes _resource="Reference(BiologicallyDerivedProduct)" reason="Unknown"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Product used/provided"/>
             <resource value="The BiologicallyDerivedProduct that is dispensed"/>
@@ -80,7 +75,6 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="BiologicallyDerivedProductDispense.subject">
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
             <resource value="The intended recipient(s) of the dispensed product"/>
@@ -96,7 +90,6 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="BiologicallyDerivedProductDispense.performer">
         <extraTypes _resource="BackboneElement" reason="Unknown"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed biologically derived product dispense and what they did"/>
             <resource value="Indicates who or what performed an action"/>
@@ -107,7 +100,6 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.location" resourcePath="BiologicallyDerivedProductDispense.location">
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Where biologically derived product dispense occurred"/>
             <resource value="Where the dispense occurred"/>
@@ -122,6 +114,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.note" resourcePath="BiologicallyDerivedProductDispense.note">
+        <summary _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Comments made about the event"/>
             <resource value="Additional notes"/>

@@ -14,9 +14,11 @@
             <_pattern value="What service was done"/>
             <resource value="Activity that occurred"/>
         </shortUnmatched>
-        <definitionUnmatched reason="More specific to the use-case">
+        <definitionUnmatched reason="Unknown">
+            <!--Old resource: An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.-->
+            <!--Old reason: More specific to the use-case-->
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
-            <resource value="An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities."/>
+            <resource value="An activity is something that occurs over a period of time and acts upon or with entities; it MAY include consuming, processing, transforming, modifying, relocating, using, or generating entities."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="Provenance.patient">
@@ -32,7 +34,7 @@
         </definitionUnmatched>
         <requirementsUnmatched reason="More specific description">
             <_pattern value="Links the provenance to the Patient context.  May also affect access control."/>
-            <resource value="When the .patient is populated it shall be accurate to the subject of the target data. The .patient shall not be populated when the target data created/updated (.target) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control."/>
+            <resource value="When the .patient is populated it SHALL be accurate to the subject of the target data. The .patient SHALL NOT be populated when the target data created/updated (.target) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.encounter" resourcePath="Provenance.encounter">
@@ -41,10 +43,16 @@
             <_pattern value="Encounter the provenance is part of"/>
             <resource value="Encounter within which this event occurred or which the event is tightly associated"/>
         </shortUnmatched>
-        <definitionUnmatched reason="More specific description">
+        <definitionUnmatched reason="Unknown">
+            <!--Old resource: This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests).-->
+            <!--Old reason: More specific description-->
             <_pattern value="The Encounter during which this provenance was created or to which the creation of this record is tightly associated."/>
-            <resource value="This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value="This will typically be the encounter the event occurred, but some events MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This will typically be the encounter the provenance was created during, but some provenances may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+            <resource value="This will typically be the encounter the provenance was created during, but some provenances MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+        </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="Provenance.occurred[x]">
         <missingTypes _pattern="Timing" reason="not applicable"/>
@@ -56,9 +64,12 @@
             <_pattern value="The date, period or timing when the provenance did occur or is occurring."/>
             <resource value="The period during which the activity occurred."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="More specific description">
+        <commentsUnmatched reason="Unknown">
+            <!--Old pattern: This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is "basedOn".  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events SHOULD NOT include an upper bound in the Period or Timing.bounds.
+.-->
+            <!--Old reason: More specific description-->
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value="The period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
+            <resource value="The period can be a little arbitrary; where possible, the time SHOULD correspond to human assessment of the activity time."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="Provenance.agent">
@@ -134,7 +145,10 @@
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="Provenance.why">
         <upperCardinality _pattern="*" _resource="1" reason="Use-Case need"/>
-        <missingTypes _pattern="CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)" reason="Not Appropriate"/>
+        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Unknown">
+            <!--Old pattern: CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)-->
+            <!--Old reason: Not Appropriate-->
+        </missingTypes>
         <extraTypes _resource="markdown" reason="Use-Case need"/>
         <summary _pattern="true" _resource="false" reason="Not needed"/>
         <bindingExistence _pattern="true" _resource="false" reason="not sure"/>

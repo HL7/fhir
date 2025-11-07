@@ -19,7 +19,7 @@
 	<applicability>
 		<condition>
 			<description value="Excludes billing code 13250 for same Encounter"/>
-			<language value="text/cql"/>
+			<language value="text/cql-expression"/>
 			<expression value="[some CQL expression]"/>
 		</condition>
 		<effectivePeriod>
@@ -30,7 +30,7 @@
 	<applicability>
 		<condition>
 			<description value="Applies only once per Encounter"/>
-			<language value="text/CQL"/>
+			<language value="text/cql-expression"/>
 			<expression value="[some CQL expression]"/>
 		</condition>
 		<effectivePeriod>

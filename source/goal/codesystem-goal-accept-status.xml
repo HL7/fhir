@@ -4,7 +4,7 @@
   <id value="goal-accept-status"/>
   <meta>
     <lastUpdated value="2023-01-31T07:07:38.434+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>

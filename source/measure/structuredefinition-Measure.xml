@@ -746,6 +746,14 @@
       <type>
         <code value="Quantity"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ReportingFrequency"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Reporting frequency units (e.g. /a, /mo)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/frequency-unit"/>
+      </binding>
     </element>
     <element id="Measure.topic">
 			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
@@ -836,13 +844,20 @@
       <path value="Measure.relatedArtifact"/>
       <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
-      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
+      <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both. In addition, the successor or predecessor of a Measure SHOULD be a Measure, and dependencies and components of a Measure SHOULD reference a resource."/>
       <requirements value="Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="RelatedArtifact"/>
       </type>
+			<constraint>
+				<key value="mea-8"/>
+				<severity value="warning"/>
+				<human value="Dependencies and components of a Measure should reference a resource"/>
+				<expression value="type in ('depends-on' | 'composed-of' | 'part-of') implies ((resource.exists() xor resourceReference.exists()) or (artifact is canonical xor artifact is Reference))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+			</constraint>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DOC,RSON,PREV, DRIV, USE, COMP] {successor would be PREV w/ inversionInd=true; No support for citation}"/>
@@ -1147,7 +1162,7 @@
       </extension>
       <path value="Measure.group.subject[x]"/>
       <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
-      <definition value="The intended subjects for the measure. If this element is not provided, the root subject is used to determine the group."/>
+      <definition value="The intended subjects for the measure. If this element is not provided, there is no subject context (i.e. population criteria are evaluated from the perspective of the entire system, rather than from the perspective of a particular subject)."/>
       <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. If the subject is specified as a reference to a Group, it must be a definitional group."/>
       <min value="0"/>
       <max value="1"/>
@@ -1158,7 +1173,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
-      <meaningWhenMissing value="Patient"/>
+      <meaningWhenMissing value="Unfiltered context, i.e. population criteria are evaluated from the perspective of the entire system, rather than from the perspective of a particular subject."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SubjectType"/>
@@ -1169,7 +1184,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="N/A (to add?) { only applies for subject Patient? }"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="Measure.group.basis">
@@ -1191,6 +1206,28 @@
         <strength value="required"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?) { only applies for subject Patient? }"/>
+      </mapping>
+    </element>
+    <element id="Measure.group.basisRequirement">
+      <path value="Measure.group.basisRequirement"/>
+      <short value="Population basis requirements"/>
+      <definition value="Specifies population basis requirements (i.e. what constitutes a case, or what is being counted) as a DataRequirement. If multiple basisRequirements are specified, criteria expressions may return data that satisfies ANY basisRequirement. A data element satisfies a basisRequirement if the instance `is` of the type, conforms to ALL the specified profiles, and matches ALL the codeFilters. basisRequirements SHALL specify type, MAY specify profile and codeFilter, and SHALL NOT specify dateFilter, valueFilter, limit, or sort. If basis is specified, any basisRequirement SHALL be consistent with the specified basis (i.e. the type of each basisRequirement SHALL be the same type as, or a subtype of the basis type)."/>
+      <requirements value="Allows population basis to be described with more flexibility, including the use of a profile and a code filter."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="DataRequirement"/>
+      </type>
+      <constraint>
+        <key value="mea-7"/>
+        <severity value="error"/>
+        <human value="Basis requirements SHALL have a type, MAY have profile and codeFilter elements, and SHALL NOT specify dateFilter, valueFilter, limit, or sort"/>
+        <expression value="dateFilter.exists().not() and valueFilter.exists().not() and limit.exists().not() and sort.exists().not()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?) { only applies for subject Patient? }"/>
@@ -1564,7 +1601,7 @@
       </extension>
       <path value="Measure.group.stratifier"/>
       <short value="Stratifier criteria for the measure"/>
-      <definition value="The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
+      <definition value="A stratifier for the measure, specified as either a criteria expression, or a set of components that define value-based stratifier expressions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1654,7 +1691,7 @@
     <element id="Measure.group.stratifier.criteria">
       <path value="Measure.group.stratifier.criteria"/>
       <short value="How the measure should be stratified"/>
-      <definition value="An expression that specifies the criteria for the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+      <definition value="An expression that specifies a criteria-based stratifier for the measure. This is typically the name of an expression defined within a referenced library, and SHALL use the same basis as other population criteria for the population group."/>
       <comment value="As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>
@@ -1683,36 +1720,13 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Measure.group.stratifier.valueSet">
-      <path value="Measure.group.stratifier.valueSet"/>
-      <short value="What stratum values?"/>
-      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
-      <comment value="This element may be used to define a stratifier rather than requiring the stratifier be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
-      </type>
-    </element>
-    <element id="Measure.group.stratifier.unit">
-      <path value="Measure.group.stratifier.unit"/>
-      <short value="What units?"/>
-      <definition value="Indicates what units, if any, stratifier values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units."/>
-      <comment value="This element may be used to define the expected units of stratum values, when that information cannot be inferred from the calculation logic directly."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
     <element id="Measure.group.stratifier.component">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,450"/>
       </extension>
       <path value="Measure.group.stratifier.component"/>
       <short value="Stratifier criteria component for the measure"/>
-      <definition value="A component of the stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
+      <definition value="A component of a value-based stratifier for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
       <comment value="Stratifiers are defined either as a single criteria, or as a set of component criteria."/>
       <min value="0"/>
       <max value="*"/>
@@ -1791,7 +1805,7 @@
     <element id="Measure.group.stratifier.component.criteria">
       <path value="Measure.group.stratifier.component.criteria"/>
       <short value="Component of how the measure should be stratified"/>
-      <definition value="An expression that specifies the criteria for this component of the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+      <definition value="An expression that returns the value of this component of the stratifier for a member of the population. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element, evaluated from the perspective of the measure subject. If this is a non-subject-based measure, the expression may be a reference to a function that takes an argument of the type of the measure basis, allowing the stratifier value to be determined for each member of the population."/>
       <comment value="As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>

@@ -42,7 +42,7 @@
         <code value="item-code"/>
         <base value="Questionnaire"/>
         <type value="token"/>
-        <expression value="Questionnaire.item.code"/>
+        <expression value="Questionnaire.repeat(item).code"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -64,7 +64,7 @@
         <code value="combo-code"/>
         <base value="Questionnaire"/>
         <type value="token"/>
-        <expression value="Questionnaire.code | Questionnaire.item.code"/>
+        <expression value="Questionnaire.code | Questionnaire.repeat(item).code"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -228,7 +228,7 @@
         <code value="definition"/>
         <base value="Questionnaire"/>
         <type value="uri"/>
-        <expression value="Questionnaire.item.definition"/>
+        <expression value="Questionnaire.repeat(item).definition"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -471,6 +471,23 @@
         <base value="Questionnaire"/>
         <type value="token"/>
         <expression value="Questionnaire.version"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Questionnaire.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the Questionnaire is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="Questionnaire.experimental"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

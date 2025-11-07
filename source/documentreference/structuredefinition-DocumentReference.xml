@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="DocumentReference"/>
   <meta>
     <lastUpdated value="2022-06-09T08:58:31.578+11:00"/>
@@ -219,7 +219,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
       <mapping>
@@ -458,7 +457,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="fhircomposition"/>
@@ -587,7 +586,7 @@
           <valueString value="BodyStructure"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical body structures. May include laterality."/>
+          <valueMarkdown value="Codes describing anatomical body structures. May include laterality."/>
         </extension>
         <strength value="example"/>
         <description value="SNOMED CT Body Structures"/>
@@ -879,8 +878,8 @@
       <path value="DocumentReference.attester.party"/>
       <short value="Who attested the document"/>
       <definition value="Who attested the document in the specified way."/>
-      <requirements value="Identifies who has taken on the responsibility for accuracy of the document content."/>
       <comment value="Using Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners. "/>
+      <requirements value="Identifies who has taken on the responsibility for accuracy of the document content."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1074,7 +1073,7 @@
         </extension>
         <strength value="example"/>
         <description value="Example Security Labels from the Healthcare Privacy and Security Classification System."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/security-label-examples"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/security-label-example"/>
       </binding>
       <mapping>
         <identity value="fhircomposition"/>

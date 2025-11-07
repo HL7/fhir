@@ -482,7 +482,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1136,9 +1136,6 @@
         <code value="ContactDetail"/>
       </type>
       <type>
-        <code value="Contributor"/>
-      </type>
-      <type>
         <code value="DataRequirement"/>
       </type>
       <type>
@@ -1345,9 +1342,6 @@
       </type>
       <type>
         <code value="ContactDetail"/>
-      </type>
-      <type>
-        <code value="Contributor"/>
       </type>
       <type>
         <code value="DataRequirement"/>

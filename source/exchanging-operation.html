@@ -13,7 +13,7 @@
 
 
 <h2>Exchanging with FHIR Operations</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
   <p>
     Custom FHIR <a href="operations.html">operations</a> allow a pre-defined set of data to be passed into a function call and a pre-defined set of data to be passed back.  They can be used to exchange information in two ways:
@@ -42,7 +42,7 @@
   <a name="process"> </a>
   <h3>Process Operations</h3>
   <p>
-    Process operations involve a <i>data source</i> invoking an operation on a <i>data consumer</i> passing a set of information for the consumer to 'process'.  I.e. consume the information, forward the information or otherwise do useful things with it.  The specific expectations are defined as part of the description of the operation.  The payload of the operation might be a single resource, a Bundle of resources or a Parameters instance with a collection of named parameters which might be resources, individual data elements or a mixture of them.  Such operations will generally have the <code>OperationDefinition.affectsState</code> set to 'true' as processing the same information more than once could potentially result in duplicate storage or delivery of data.  However, in some cases, repeated invocation might not be problematic and affectsState could be 'false'.
+    Process operations involve a <i>data source</i> invoking an operation on a <i>data consumer</i> passing a set of information for the consumer to 'process'.  i.e., consume the information, forward the information or otherwise do useful things with it.  The specific expectations are defined as part of the description of the operation.  The payload of the operation might be a single resource, a Bundle of resources or a Parameters instance with a collection of named parameters which might be resources, individual data elements or a mixture of them.  Such operations will generally have the <code>OperationDefinition.affectsState</code> set to 'true' as processing the same information more than once could potentially result in duplicate storage or delivery of data.  However, in some cases, repeated invocation might not be problematic and affectsState could be 'false'.
   </p>
   <p>
     Because the server processing the operation will need to understand *how* to process the data, these types of operations will tend to be specific rather than generic.  Also, because there's no expectation for a response to the operation other than an HTTP 200 indicating successful receipt of the data (or alternatively an error code potentially accompanied by an OperationOutcome), these operations will typically be <a href="#sync">synchronous</a>.

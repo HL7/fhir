@@ -10,12 +10,12 @@
 
 
 
-<table class="colstu"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
+<table class="colsi"><tbody><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
 
 <a name="knowledge-artifact-distribution"> </a>
 <h3>Sharing Knowledge Artifacts</h3>
 
-<p>One of the primary use cases of the Clinical Reasoning Module is to enable the sharing and distribution of computable clinical knowledge artifacts. Some general considerations for this use case are documented here, with a more complete and ongoing treatment in the <a href="[%ig crmi%]">Canonical Resource Management Infrastructure</a> implementation guide.</p>
+<p>One of the primary use cases of the Clinical Reasoning Module is to enable the sharing and distribution of computable clinical knowledge artifacts. Some general considerations for this use case are documented in this discussion, with a more complete and ongoing treatment in the <a href="[%ig crmi%]">Canonical Resource Management Infrastructure</a> implementation guide.</p>
 
 <img alt="Knowledge Artifact Sharing" src="clinicalreasoning-knowledge-artifact-distribution.png"/>
 
@@ -48,17 +48,19 @@
 </p>
 
 <p>
-  FHIRPath is a simple, yet powerful, model-independent expression language that is used extensively throughout FHIR to describe paths to elements on resources, and define invariants on profiles.
+  <a href="http://hl7.org/fhirpath">FHIRPath</a> is a simple, yet powerful, model-independent expression language that is used extensively throughout FHIR to describe paths to elements on resources, and define invariants on profiles.
 </p>
-<p>CQL is a superset of FHIRPath that provides an author-friendly format for the description of clinical logic, as well as a machine-friendly format for processing the logic.
+<p><a href="http://cql.hl7.org">Clinical Quality Language (CQL)</a> is a superset of FHIRPath that provides an author-friendly format for the description of clinical logic, as well as a machine-friendly, platform independent format for sharing and processing the logic.
 </p>
-<p>CDS Hooks is an HL7 standard specification for integrating decision support services with clinical systems. It is primarily focused on provide-facing remote decision support within an EMR.
+<p><a href="http://cds-hooks.hl7.org">CDS Hooks</a> is an HL7 standard specification for integrating decision support services with clinical systems. It is primarily focused on provide-facing remote decision support within an EMR.
 </p>
-<p>SMART-on-FHIR is an HL7 standard specification for integrating clinical applications into EMRs using FHIR.</p>
+<p><a href="http://hl7.org/fhir/smart-app-launch">SMART-on-FHIR</a> is an HL7 standard specification for integrating clinical applications into EMRs using FHIR.</p>
   
-<p>International Patient Summary (IPS) is a set of internationally applicable FHIR profiles used to share patient information across international boundaries. As a result, it forms an excellent foundation for expressing universally applicable content guidelines such as the WHO Antenatal Care (WHO ANC).</p>
-<p>US Core is a set of profiles focused on enabling exchange of the US Clinical Data for Interoperability (US CDI), and is supported by a broad range of EMR vendors within the US.</p>
-<p>QI Core is a set of profiles that derives from US Core to enable quality improvement use cases such as quality measurement and decision support within the US.
+<p><a href="http://hl7.org/fhir/uv/ips">International Patient Summary (IPS)</a> is a set of internationally applicable FHIR profiles used to share patient information across international boundaries. As a result, it forms an excellent foundation for expressing universally applicable content guidelines such as the WHO Antenatal Care (WHO ANC).</p>
+
+<p><a href="http://hl7.org/fhir/us/core">US Core</a> is a set of profiles focused on enabling exchange of the US Clinical Data for Interoperability (US CDI), and is supported by a broad range of EMR vendors within the US.</p>
+
+<p><a href="http://hl7.org/fhir/us/qicore">QI Core</a> is a set of profiles that derives from US Core to enable quality improvement use cases such as quality measurement and decision support within the US.
 </p>
 
 <p>To get started building a content implementation guide, refer to the <a href="https://github.com/cqframework/sample-content-ig">Sample Content IG</a>, and the <a href="https://github.com/cqframework/content-ig-walkthrough">Content IG</a> and <a href="https://github.com/cqframework/cqf-ccc">Colorectal Cancer</a> walkthroughs.</p>
@@ -67,7 +69,7 @@
 <h3>Distribution via Repository Services</h3>
 
 <p>
-  For distribution via a FHIR server, the search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="library.html">Library</a>, <a href="activitydefinition.html">ActivityDefinition</a>, <a href="plandefinition.html">PlanDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and <a href="measure.html">Measure</a> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
+  For distribution via a FHIR server, the search and read interactions defined by the FHIR infrastructure can be used. The <a href="library.html">Library</a>, <a href="activitydefinition.html">ActivityDefinition</a>, <a href="plandefinition.html">PlanDefinition</a>, <a href="questionnaire.html">Questionnaire</a>, and <a href="measure.html">Measure</a> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
 
 <p>Some general considerations for use are documented in what follows, with a more complete and ongoing treatment provided as part of the <a href="[%ig crmi%]">Canonical Resource Management Infrastructure</a> implementation guide, including:</p>
 
@@ -76,7 +78,7 @@
   <li><a href="https://hl7.org/fhir/uv/crmi/artifact-terminology-service.html">Artifact Terminology Service</a></li>
 </ul>
 
-<p>In particular, the <code>useContext</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the <code>useContext</code> element to indicate semantic usage context for an example suicide risk order set:</p>
+<p>In particular, the <code>useContext</code> elements is intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the <code>useContext</code> element to indicate semantic usage context for an example suicide risk order set:</p>
 
 <pre><code>  &lt;coverage&gt;
     &lt;patientAgeGroup&gt;
@@ -119,13 +121,13 @@
 
 <p>The <code>useContext</code> element can contain any number of characteristics that define the particular context of use for the artifact. Note that the base resource does not communicate the intended semantics when multiple useContext elements are present.</p>
 
-<p>In addition, the <code>useContext</code> element is intended to convey <i>prescriptive</i> semantics about the appropriate context of use for an artifact, while the <code>topic</code> element is intended to convey <i>descriptive</i> semantics suitable for indexing and searching using the <code>topic</code> search parameter.</p>
+<p>In addition, the <code>useContext</code> element is intended to convey <i>prescriptive</i> semantics about the appropriate context of use for an artifact, as well as <i>descriptive</i> semantics suitable for indexing and searching using the <code>topic</code> context type.</p>
 
 <p>The FHIR search interaction specifies that search results are returned in a Bundle, and the entries in that bundle allow a score to be specified, consistent with the Decision Support Service (DSS) relevance result. Note that the DSS score range is 1 to 100, while the FHIR score range is 0..1.</p>
 
 <p>The algorithm for determining relevance is not prescribed by this guidance. When calculating relevance, implementations are encouraged to take advantage of the metadata represented within the artifact to help users understand the relevance of the returned artifacts to their search criteria.</p>
 
-<p>To reduce the size of returned results and ensure efficient searching and retrieval, the Bundle returned SHOULD consist only of resources of the requested type. Dependencies of the resources returned SHOULD NOT be included unless specifically referenced by <a href="search.html#include">including</a>  the resources using the <code>_include</code> and <code>_revinclude</code> parameters.</p>
+<p>To reduce the size of returned results and ensure efficient searching and retrieval, the Bundle returned is recommended to consist only of resources of the requested type. Dependencies of the resources returned are not recommended to be included unless specifically referenced by <a href="search.html#include">including</a>  the resources using the <code>_include</code> and <code>_revinclude</code> parameters.</p>
 
 <p>Support for two different distribution use cases can be provided using the basic GET interaction:</p>
 

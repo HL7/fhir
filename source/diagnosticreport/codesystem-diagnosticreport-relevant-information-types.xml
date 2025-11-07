@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="diagnosticreport-relevant-information-types"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/diagnosticreport-relevant-information-types"/>
+  <version value="6.0.0-ballot3"/>
+  <name value="DiagnosticReportRelevantInformationTypes"/>
+  <title value="Diagnostic Report Relevant Information Types"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2025-11-01T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Concepts specifying how referenced information is considered relevant in a DiagnosticReport. Level 1 derives from v2-0936; Level 2 derives from v2-0937; PHX (Patient History) is added under SCI."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/diagnosticreport-relevant-information-types"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <concept>
+    <code value="QST"/>
+    <display value="Question"/>
+    <definition value="Question"/>
+    <concept>
+      <code value="AOE"/>
+      <display value="Ask at Order Entry"/>
+      <definition value="Ask at Order Entry"/>
+    </concept>
+    <concept>
+      <code value="ASC"/>
+      <display value="Ask at Specimen Collection"/>
+      <definition value="Ask at Specimen Collection"/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="RSLT"/>
+    <display value="Result"/>
+    <definition value="Result"/>
+    <concept>
+      <code value="MCS"/>
+      <display value="Micro Culture Status"/>
+      <definition value="Sub-type of RSLT (Result) This term identifies observations that give overall culture outcome, when no specific organism is being named."/>
+    </concept>
+    <concept>
+      <code value="MID"/>
+      <display value="Micro Isolate Descriptor"/>
+      <definition value="Sub-type of RSLT (Result) This term identifies any other observations about the isolate."/>
+    </concept>
+    <concept>
+      <code value="MIG"/>
+      <display value="Micro Isolate Growth Quantity"/>
+      <definition value="Sub-type of RSLT (Result) This term identifies growth levels of an isolate – can be numeric or categorical."/>
+    </concept>
+    <concept>
+      <code value="MIN"/>
+      <display value="Micro Isolate Name"/>
+      <definition value="NSub-type of RSLT (Result) This term identifies observations that name a specific organism either at the species or the genus level."/>
+    </concept>
+    <concept>
+      <code value="MOD"/>
+      <display value="Micro Other Descriptor"/>
+      <definition value="Sub-type of RSLT (Result) This term identifies observations that do not fit the culture status, but is not at the isolate level."/>
+    </concept>
+    <concept>
+      <code value="MSS"/>
+      <display value="Micro Sample Stain"/>
+      <definition value="Sub-type of RSLT (Result) This term identifies observations on gram stains (and other stains or smears) on the clinical sample."/>
+    </concept>
+    <concept>
+      <code value="SUP"/>
+      <display value="Supplemental Result"/>
+      <definition value="Supplemental Result"/>
+    </concept>
+    <concept>
+      <code value="SUR"/>
+      <display value="Susceptibility Related"/>
+      <definition value="Susceptibility Related"/>
+    </concept>
+    <concept>
+      <code value="UNSP"/>
+      <display value="Unspecified"/>
+      <definition value="Unspecified"/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="SCI"/>
+    <display value="Supporting Clinical Information"/>
+    <definition value="Supporting Clinical Information"/>
+    <concept>
+      <code value="PHX"/>
+      <display value="Patient History"/>
+      <definition value="Historical patient data"/>
+    </concept>
+  </concept>
+</CodeSystem>

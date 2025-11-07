@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
 [%file newnavbar%]
 
 
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <a name="root"></a>
 <h2>Security and Privacy Module</h2>
@@ -91,6 +91,7 @@ The following common use-cases are elaborated below:
 <li><a href="#AoD">Accounting of Disclosures and Access Reports</a></li>
 <li><a href="#privacy-consent">Privacy Consent</a></li>
 <li><a href="#provenance">Provenance</a></li>
+<li><a href="#consent-used">Consent Used</a></li>
 <li><a href="signatures.html">Digital and Electronic Signatures</a></li>
 <li><a href="#deId">De-Identification, Anonymization, and Pseudonymization</a></li>
 <li><a href="#testData">Security Considerations on Test Data</a></li>
@@ -106,7 +107,7 @@ FHIR is focused on the data access methods and encoding leveraging existing Secu
 Security in FHIR needs to focus on the set of considerations required to ensure that
 data can be discovered, accessed, or altered only in accordance with
 expectations and policies.  
-Implementation should leverage existing security standards and implementations to ensure that:
+Implementation SHOULD leverage existing security standards and implementations to ensure that:
 </p>
 
 <ul>
@@ -151,7 +152,7 @@ includes implementation guidance to ensure that:
   Resources can be tagged to indicate the sensitivity or confidentiality of the data they represent (<a href="security-labels.html">Security Labels</a>)
 </li>
 <li>
-  Data access records and audit logs can be shared with individuals, e.g. for accounting of disclosures (<a href="auditevent.html">Audit Event</a>)
+  Data access records and audit logs can be shared with individuals, e.g., for accounting of disclosures (<a href="auditevent.html">Audit Event</a>)
 </li>
 </ul>
 
@@ -164,7 +165,7 @@ Authorization and Access Control
 
 <p>
 
-<em>Use case:</em> A FHIR server should ensure that API access is allowed for
+<em>Use case:</em> A FHIR server SHOULD ensure that API access is allowed for
 authorized requests and denied for unauthorized requests.
 
 </p>
@@ -172,7 +173,7 @@ authorized requests and denied for unauthorized requests.
 <p>
 
 <em>Approach:</em> Authorization details can vary according to local policy,
-and according to the access scenario (e.g. sharing data among
+and according to the access scenario (e.g., sharing data among
 institution-internal subsystems vs. sharing data with trusted partners vs.
 sharing data with third-party user-facing apps). In general, FHIR enables a
 separation of concerns between the FHIR REST API and standards-based
@@ -192,7 +193,7 @@ For further details, see <a href="security.html#binding">Security: Authorization
 <a name="query-parameters"></a>
 <h5>Query Parameters Considerations</h5>
 <p>
-<em>Use-Case:</em> When a user has restricted rights but attempts to do a query they do not have rights to, they should not be given the data. Policy should be used to determine if the user query should result in an error, zero data, or the data one would get after removing the non-authorized parameters.
+<em>Use-Case:</em> When a user has restricted rights but attempts to do a query they do not have rights to, they SHOULD NOT be given the data. Policy SHOULD be used to determine if the user query SHOULD result in an error, zero data, or the data one would get after removing the non-authorized parameters.
 </p><p>
 <em>Approach:</em> Enforcement is by local enforcement methods. Note that community efforts are underway to explore a variety of
 approaches to enforcement. 
@@ -214,21 +215,21 @@ Context-Based, and/or Attribute-Based Access Control."
 
 <p>
 
-<em>Approach:</em> Ensure that the level of assurance for identity proofing reflects the appropriate risk, given the issued party's exposure to health information. Users should be identified and should have their Functional and/or Structural role 
-declared when these roles are related to the functionality the user is interacting with. Roles should 
-be conveyed using standard codes from <a href="valueset-security-role-type.html">Security Role Vocabulary</a>.
+<em>Approach:</em> Ensure that the level of assurance for identity proofing reflects the appropriate risk, given the issued party's exposure to health information. Users SHOULD be identified and SHOULD have their Functional and/or Structural role 
+declared when these roles are related to the functionality the user is interacting with. Roles SHOULD 
+be conveyed using codes, (e.g., <a href="valueset-security-role-type-example.html">Example Security Role Vocabulary</a>).
 </p><p>
-A purpose of use should be asserted for each requested action on a Resource.  Purpose of use 
-should be conveyed using standard codes from <a href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">Purpose of Use Vocabulary</a>.
+A purpose of use SHOULD be asserted for each requested action on a Resource.  Purpose of use 
+SHOULD be conveyed using standard codes from <a href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">Purpose of Use Vocabulary</a>.
 </p><p>
 The FHIR core specification does not include a "User" resource, as a User resource would be general IT and used well
 beyond healthcare workflows. A RESTful User resource is defined in 
 the <a href="https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management">System for Cross-domain Identity Management (SCIM) specification</a>.
-User role assignment is typically managed in the general IT system, but may be influenced by FHIR Resource binding. 
-For example, users that are Practitioners, the PractionerRole may indicate functional or structural roles. 
+User role assignment is typically managed in the general IT system, but MAY be influenced by FHIR Resource binding. 
+For example, users that are Practitioners, the PractionerRole MAY indicate functional or structural roles. 
 </p><p>
 When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
-the role of the user are managed by the OAuth authorization service (AS) and may be communicated 
+the role of the user are managed by the OAuth authorization service (AS) and MAY be communicated 
 in the security token where JWT tokens are used.
 
 For details, see
@@ -243,7 +244,7 @@ Audit Logging
 
 <p>
 
-<em>Use case:</em> "A FHIR server should keep a complete, tamper-proof log of
+<em>Use case:</em> "A FHIR server SHOULD keep a complete, tamper-proof log of
 all API access and other security- and privacy-relevant events".
 
 </p>
@@ -260,19 +261,19 @@ For details, see
 <a href="security.html#audit">Security: Audit</a>.
 
 </p>
-<p>Organizations should have a policy regarding purging of data, such as AuditEvent resources which can become numerous. Some types of AuditEvent may have limited value after a period (e.g. year) of time and may be archived and purged. This purge must be in alignment with regulations such as medical records retention, security, and privacy regulations. For example, purging AuditEvents that are related to Patient Privacy Transparency would not be purged until that patient was purged (See <a href="patient-operation-purge.html">Purge Patient Record Operation</a>).</p>
+<p>Organizations SHOULD have a policy regarding purging of data, such as AuditEvent resources which can become numerous. Some types of AuditEvent MAY have limited value after a period (e.g., year) of time and MAY be archived and purged. This purge must be in alignment with regulations such as medical records retention, security, and privacy regulations. For example, purging AuditEvents that are related to Patient Privacy Transparency would not be purged until that patient was purged (See <a href="patient-operation-purge.html">Purge Patient Record Operation</a>).</p>
 <a name="AoD"></a>
 <h4>Accounting of Disclosures and/or Access Report</h4>
 <p>
-<em>Use case:</em> "A Patient should be offered a report that informs about how their data is Collected, Used, and Disclosed."
+<em>Use case:</em> "A Patient SHOULD be offered a report that informs about how their data is Collected, Used, and Disclosed."
 </p><p>
 <em>Approach:</em> The AuditEvent resource can inform this report.
 </p><p>
 There are many motivations to provide a Patient with some report on how their data was used. There is a very restricted version of this in HIPAA as an "Accounting of Disclosures", there are others that would include more accesses. The result is a human readable report. The raw material used to create this report can be derived from a well recorded 'security audit log', specifically based on AuditEvent. The format of the report delivered to the Patient is not further discussed but might be: printed on paper, PDF, comma-separated file, or FHIR Document made up of filtered and crafted AuditEvent Resources.  The report would indicate, to the best ability, Who accessed What data from Where at When for Why purpose. The 'best ability' recognizes that some events happen during emergent conditions where some knowledge is not knowable. The report usually does need to be careful not to abuse the Privacy rights of the individual that accessed the data (Who).  The report would describe the data that was accessed (What), not duplicate the data. 
 </p><p>
-In order to enable Privacy Accounting of Disclosures and Access Logs, and to enable privacy office and security office audit log analysis, <a href="auditevent.html#patient">all AuditEvent records should include a reference to the Patient/Subject</a> of the activity being recorded. Reasonable efforts should be taken to assure the Patient/Subject is recorded, but it is recognized that there are times when this is not reasonable. See deeper details on AuditEvent.
+In order to enable Privacy Accounting of Disclosures and Access Logs, and to enable privacy office and security office audit log analysis, <a href="auditevent.html#patient">all AuditEvent records SHOULD include a reference to the Patient/Subject</a> of the activity being recorded. Reasonable efforts SHOULD be taken to assure the Patient/Subject is recorded, but it is recognized that there are times when this is not reasonable. See deeper details on AuditEvent.
 </p><p>
-Some events are known to be subject to the Accounting of Disclosures report when the event happens, thus can be recorded as an Accounting of Disclosures  - See <a href="auditevent-example-disclosure.html">example Accounting of Disclosures</a>.  Other events must be pulled from the security audit log. A security audit log will record ALL actions upon data regardless of if they are reportable to the Patient. This is true because the security audit log is used for many other purposes. - See <a href="security.html#audit">Audit Logging</a>. These recorded AuditEvents may need to be manipulated to protect organization or employee (provider) privacy constraints. Given the large number of AuditEvents, there may be multiple records of the same actual access event, so the reporting will need to de-duplicate.
+Some events are known to be subject to the Accounting of Disclosures report when the event happens, thus can be recorded as an Accounting of Disclosures  - See <a href="auditevent-example-disclosure.html">example Accounting of Disclosures</a>.  Other events must be pulled from the security audit log. A security audit log will record ALL actions upon data regardless of if they are reportable to the Patient. This is true because the security audit log is used for many other purposes. - See <a href="security.html#audit">Audit Logging</a>. These recorded AuditEvents MAY need to be manipulated to protect organization or employee (provider) privacy constraints. Given the large number of AuditEvents, there MAY be multiple records of the same actual access event, so the reporting will need to de-duplicate.
 
 </p>
 
@@ -291,15 +292,15 @@ Privacy Consent
 
 <em>Approach:</em> FHIR provides a Consent resource suitable for
 use by FHIR clients and servers to record current Privacy Consent state. The meaning of a consent or the absence of the consent is a local policy concern.
-The Privacy Consent may be a pointer to privacy rules documented elsewhere, such as a policy identifier or identifier in XACML.
+The Privacy Consent MAY be a pointer to privacy rules documented elsewhere, such as a policy identifier or identifier in XACML.
 The Privacy Consent has the ability to point at a scanned image of an ink-on-paper signing ceremony, 
 and supports digital signatures through use of <a href="provenance.html">Provenance</a>.
 The Privacy Consent has the ability to include some simple FHIR centric base and exception rules. 
 </p><p>
-When a use / access / disclosure is requested and an Access Control decision finds multiple Consent resources apply equally, a policy must cover this case. For example: one possible policy might be that the most recent Consent would be seen as more authoritative and thus apply rather than an older Consent. There may also be policy mechanisms to assure that only one Consent is ever active for a given Patient and context.
+When a use / access / disclosure is requested and an Access Control decision finds multiple Consent resources apply equally, a policy must cover this case. For example: one possible policy might be that the most recent Consent would be seen as more authoritative and thus apply rather than an older Consent. There MAY also be policy mechanisms to assure that only one Consent is ever active for a given Patient and context.
 </p><p>
-All uses of FHIR Resources would be security/privacy relevant and thus should be recorded in an <a href="auditevent.html">AuditEvent</a>. 
-The data access that qualifies as a Disclosure should additionally be recorded as a Disclosure, see <a href="auditevent-example-disclosure.html">Disclosure Audit Event Example</a>.
+All uses of FHIR Resources would be security/privacy relevant and thus SHOULD be recorded in an <a href="auditevent.html">AuditEvent</a>. 
+The data access that qualifies as a Disclosure SHOULD additionally be recorded as a Disclosure, see <a href="auditevent-example-disclosure.html">Disclosure Audit Event Example</a>.
 </p><p>
 For Privacy Consent guidance and examples, see
 <a href="consent.html">Consent Resource</a>.
@@ -310,7 +311,7 @@ For Privacy Consent guidance and examples, see
 Provenance
 </h4>
 <p>
-<em>Use case:</em> "All FHIR Resources should be capable of having the Provenance fully described."
+<em>Use case:</em> "All FHIR Resources SHOULD be capable of having the Provenance fully described."
 </p>
 <p>
 <em>Approach:</em> FHIR provides the Provenance resource suitable for
@@ -328,13 +329,26 @@ For details, see
 </p>
 <p>
 <em>Approach:</em> Given that a system is using Provenance records. 
-When one needs the Provenance records in addition to the results of a query on other records (e.g. Query on MedicationRequest), 
+When one needs the Provenance records in addition to the results of a query on other records (e.g., Query on MedicationRequest), 
 then one uses reverse include to request that all Provenance records also be returned. 
 That is to add <code>?_revinclude=Provenance:target</code>. 
 
 For details, see <a href="search.html#revinclude">_revinclude</a>.
 </p>
 
+<a name="consent-used"></a>
+<h4>AuditEvent indicating authorizing Consent</h4>
+<p>
+<em>Use case:</em> For any given Resource, there is a need to determine the Consent that authorized the 
+given Resource to be created or updated. For example, a Privacy audit tracking down some data was recorded 
+when it is reported that the data should not have been gathered.
+</p>
+<p>
+  <em>Trigger:</em> When there is a need to trace Resource create / update that were authorized by a Consent.
+</p>
+<p>
+  <em>Approach:</em> AuditEvent can <a href="security.html#6.1.0.5.1">record Access Control decisions</a> including permit and deny, and can indicate when that Access Control decision included rules from a Patient's Consent (e.g., <a href="auditevent-example-consent-authz.html">Example Consent recorded in the AuditEvent as an AuditEvent.entity</a>).
+</p>
 
 <a name="deId"></a>
 <h4>De-Identification, pseudonymization, anonymization</h4>
@@ -342,7 +356,7 @@ For details, see <a href="search.html#revinclude">_revinclude</a>.
 De-Identification is inclusive of pseudonymization and anonymization; which are the processes of reducing privacy risk by eliminating 
 and modifying data elements to meet a targeted use-case.
 </p><p>
-Use-Case: "Requesting Client should have access to De-Identified data only."
+Use-Case: "Requesting Client SHOULD have access to De-Identified data only."
 </p><p>
 <em>Trigger:</em> Based on an Access Control decision that results in a permit with an Obligation to De-Identify, the Results delivered 
 to the Requesting Client would be de-identified.
@@ -352,7 +366,7 @@ de-identification is best viewed as a process, not an algorithm - a process that
 </p><p>
 <ul>
 <li>
-<b>Direct-Identifier</b> - ISO/IEC 20889:2018 - attribute that alone enables unique identification of a data principal within a specific operational context. The operational context includes the information that the entity processing (e.g. de-identifying) the data processes, together with information that third parties and potential attackers can possess or that is in the public domain.
+<b>Direct-Identifier</b> - ISO/IEC 20889:2018 - attribute that alone enables unique identification of a data principal within a specific operational context. The operational context includes the information that the entity processing (e.g., de-identifying) the data processes, together with information that third parties and potential attackers can possess or that is in the public domain.
 </li><li>
 <b>Indirect-Identifier</b> - ISO/IEC 20889:2018 - attribute that, together with other attributes that can be in the dataset or external to it, enables unique identification of a data principal within a specific operational context.
 </li><li>
@@ -360,9 +374,9 @@ de-identification is best viewed as a process, not an algorithm - a process that
 </li></ul>
 Note that often Quasi-Identifier and Indirect-Identifier are often considered the same way.
 </p><p>
-<em>Modifying an element:</em> The de-identification process may determine that specific elements need to be modified to lower privacy 
-risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by 
-some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
+<em>Modifying an element:</em> The de-identification process MAY determine that specific elements need to be modified to lower privacy 
+risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g., "removed"), fuzzing (e.g., adjusting by 
+some random value), masking (e.g., encryption), pseudonym (e.g., replace with an alias), etc. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
 See standards below for further details.
 </p><p>
 <em>Discussion:</em>
@@ -395,18 +409,18 @@ This is a ramification of having the specimen identifier.
 One solution is to create pseudo specimen resources that will stand-in for the original specimen resource. 
 This pseudo specimen management is supplied by a trusted-third-party that maintains a database of pseudo-identifiers with authorized reversibility.
 </p><p>
-Care should be taken when modifying an isModifier elements, as the modification will change the meaning of the Resource.
+Care SHOULD be taken when modifying an isModifier elements, as the modification will change the meaning of the Resource.
 </p><p>
 De-Identified data might not be compliant with commonly imposed constraints on non-de-identified data, such as clinical 
-Profiles (e.g. VitalSigns). For example in VitalSigns profile there is a requirement to populate the <code>.effectiveDateTime</code>; 
+Profiles (e.g., VitalSigns). For example in VitalSigns profile there is a requirement to populate the <code>.effectiveDateTime</code>; 
 which would be an Indirect-Identifier; for which elimination, generalization, fuzzing, and/or timezone change 
 might be called for in the De-Identification analysis algorithm.
 </p><p>
 In practice, then, the de-identification process depends on the intended use of the data, the scope of the data being 
-extracted, and the risk associated with the release of the data (e.g. data released into the public domain has a 
+extracted, and the risk associated with the release of the data (e.g., data released into the public domain has a 
 different risk than internal sharing of data within a tightly managed organization with strong information security policies.)
 </p><p>
-<em>Security-label:</em> The resulting Resource should be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
+<em>Security-label:</em> The resulting Resource SHOULD be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
 </p><p>
 Further Standards: 
 <a href="https://www.iso.org/standard/45123.html">ISO/IEC 29100 Information technology - Security techniques - Privacy framework</a>, 
@@ -421,11 +435,11 @@ Further Standards:
 <a name="testData"></a>
 <h4>Using FHIR to publish test data</h4>
 <p>
-Use-Case: There are times when test data is needed. Test data are data that is not associated with any real patient. Test data are usually representative of expected data that is published for the purpose of testing. Test data may be fully fabricated, synthetic, or derived from use-cases that had previously caused failures.
+Use-Case: There are times when test data is needed. Test data are data that is not associated with any real patient. Test data are usually representative of expected data that is published for the purpose of testing. Test data MAY be fully fabricated, synthetic, or derived from use-cases that had previously caused failures.
 </p><p>
-<em>Trigger:</em> When test data are published it may be important to identify the data as test data. 
+<em>Trigger:</em> When test data are published it MAY be important to identify the data as test data. 
 </p><p>
-<em>Consideration:</em> This identification may be to assure that the test data is not misunderstood as real data, and that the test data is not factored into statistics or reporting. However, there is a risk that identifying test data may inappropriately thwart the intended test that the data are published to test.
+<em>Consideration:</em> This identification MAY be to assure that the test data is not misunderstood as real data, and that the test data is not factored into statistics or reporting. However, there is a risk that identifying test data MAY inappropriately thwart the intended test that the data are published to test.
 </p><p>
 <em>Discussion:</em> 
 </p><p>
@@ -449,10 +463,10 @@ Use-Case: There are times when data will have different authorization requiremen
 </p><p>
   <em>Trigger:</em> When data are exposed that has links (e.g., Reference) to other data that the recipient does not have access to.
 </p><p>
-  <em>Consideration:</em> Note that providing resources with links to other resources that are not accessible to the given user, does still expose the id (identifier) of that second resource. That id (identifier) should not directly expose information, but the id (identifier) may be seen in other resources as links also. The id (identifier) can then be used to correlate a set of resources, and this correlation needs to be considered in Privacy risk exposure. 
+  <em>Consideration:</em> Note that providing resources with links to other resources that are not accessible to the given user, does still expose the id (identifier) of that second resource. That id (identifier) SHOULD NOT directly expose information, but the id (identifier) MAY be seen in other resources as links also. The id (identifier) can then be used to correlate a set of resources, and this correlation needs to be considered in Privacy risk exposure. 
 </p>
 <p>
-  <em>Discussion:</em> This correlation may be desirable, or may present a Privacy risk that is unacceptable.
+  <em>Discussion:</em> This correlation MAY be desirable, or MAY present a Privacy risk that is unacceptable.
 </p>
 <p>
   <em>Considerations:</em> Note there is a risk when exposing security label segmented data to recipients that have limited authorization. 
@@ -475,7 +489,7 @@ technical approach to security and privacy.
 <li>
 more details about how to use digital Signatures for data integrity and
 non-repudiation, including an approach that supports some level of manipulation
-of resources (e.g. separating the entries in a bundle, or conversion between
+of resources (e.g., separating the entries in a bundle, or conversion between
 XML and JSON during processing),
 </li>
 <li>

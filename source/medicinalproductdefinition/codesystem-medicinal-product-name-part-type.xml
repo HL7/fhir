@@ -20,10 +20,10 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1924"/>
   </identifier>
-  <version value="6.0.0"/>
+  <version value="6.0.0-ballot3"/>
   <name value="ProductNamePartType"/>
   <title value="Product Name Part Type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -41,10 +41,6 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-name-part-type"/>
   <content value="complete"/>
-  <concept>
-    <code value="FullName"/>
-    <display value="Full name"/>
-  </concept>
   <concept>
     <code value="InventedNamePart"/>
     <display value="Invented name part"/>

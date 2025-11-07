@@ -93,7 +93,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="EpisodeOfCare.managingOrganization">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, CareTeam, Patient, Device, RelatedPerson)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed episode of care"/>
             <resource value="Organization that assumes responsibility for care coordination"/>
@@ -105,7 +105,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="EpisodeOfCare.careManager">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Organization,CareTeam,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Organization, CareTeam, Patient, Device, RelatedPerson)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed episode of care"/>
@@ -119,7 +119,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="EpisodeOfCare.careTeam">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, Patient, Device, RelatedPerson)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed episode of care"/>

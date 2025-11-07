@@ -16,8 +16,7 @@
 <a name="references"></a>
 <a name="Identification"></a>
 <h2>Resource References</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 Many of the defined elements in a resource are references to other resources. Using these
@@ -42,7 +41,7 @@ The only exception to this is the case of contained resources (see below). Note 
 practice, the relationships need to describe a logical and coherent record, and in the
 case of the Condition and Procedure described here, they would usually be required to have
 the same patient for their subjects. Profiles and/or implementation guides may make rules
-about this (also see <a href="graphdefinition.html">GraphDefinition</a>).
+about this (also see <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a>).
 </p>
 <p>
 This specification describes the use of references to other resources that have the same FHIR version as the source of the reference.
@@ -66,7 +65,6 @@ For canonical references, see below. The general references are handled by the <
 <a name="Reference"></a>
 <a name="reference"></a>
 <h3 style="margin-bottom: 1px">Reference</h3>
-[%dtstatus Reference%]
 <p style="background-color: gainsboro; border-left: solid 1px #808080; border-right: solid 1px #808080; border-bottom: solid 1px #808080; padding: 4px; margin-top: 0px">
 <!--xlp:Reference-->See also <a data-no-external="true" href="references-definitions.html#Reference">Detailed Descriptions</a>, <a data-no-external="true" href="references-profiles.html#Reference">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-references.html#Reference">Extensions</a>
 </p>
@@ -116,16 +114,15 @@ When the type is provided directly, it SHALL agree with the type determined by r
 the resource.
 </p>
 <p>
-Note that in practice, it is often not necessary to know what the type of the target resource is,
-unless it's going to be resolved anyway, so in many cases, specifying the type of the
-target resource is unnecessary.
+Note that if a literal reference to a FHIR resource is used, it is duplicative to include the type
+in the reference. However, in cases such as above, using Reference.identifier including the type is useful.
 </p>
 <p>
 In order to support <a href="structuredefinition.html#logical">Logical Models</a>,
 the <code>type</code> element has the type of "uri". Whenever <code>type</code>
 appears in resources, the uri is represented relative to the base URI
 <code>http://hl7.org/fhir/StructureDefinition/</code>. For resources (and including <a href="resource.html#additional">additional resources</a>), the
-value is simply a code that is the type of resource - e.g. "Patient".
+value is simply a code that is the type of resource - e.g., "Patient".
 </p>
 
 <a name="literal"></a>
@@ -181,7 +178,7 @@ Notes:
 
 <p>
 Note that in a bundle during a <a href="http.html#transaction">transaction</a>, reference URLs may actually contain
-logical URIs (e.g. OIDs or UUIDSs) that resolve within the transaction. When processing the transaction, the server
+logical URIs (e.g., OIDs or UUIDSs) that resolve within the transaction. When processing the transaction, the server
 replaces the logical URL with what is the correct literal URL at the completion of the transaction.
 </p>
 
@@ -215,7 +212,7 @@ of the reference, but there is no way for the application to convert this to a l
 directly references an actual resource. This situation may arise for several reasons:
 </p>
 <ul>
- <li>There is no server exposing any such resource. This is often the case with national identifiers (e.g. US SSN or NPI), and such identifiers are widely used</li>
+ <li>There is no server exposing any such resource. This is often the case with national identifiers (e.g.,   US SSN or NPI), and such identifiers are widely used</li>
  <li>The server that exposes the resource is not available to the source application, so it has no way to resolve an identifier to a reference</li>
  <li>The application is not in a RESTful environment - it is creating a message or a document</li>
 </ul>
@@ -257,7 +254,7 @@ a server to resolve the logical reference to a literal reference to a resource.
 <p>
 Irrespective of how the resolution occurs, any system processing a logical reference will only be
 able to resolve the identifier to a reference if it understands the business context in which the
-identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not.
+identifier is used. Sometimes this is global (e.g., a national identifier) but often it is not.
 </p>
 <p>
 For this reason, none of the useful mechanisms described for working with references (e.g.
@@ -302,6 +299,34 @@ a very short textual description.
 In general, the <code>display</code>, if populated, does not have identical content
 to the Resource.text of the referenced resource.  The purpose is to identify what's
 being referenced, not to more fully describe it.
+</p>
+
+<a name="additional"></a>
+<h3>Additional References</h3>
+<p>
+Sometimes there is a need to communicate a reference to a resource that is not a defined target
+for the element in the version of FHIR being used. There are two common situations for this:
+</p>
+<ul>
+ <li>A future (or past) version of FHIR allows a reference to additional targets and the system has
+  a need to be able to communicate such a reference. This may include references to resources that
+  don't even exist in the version of FHIR being used, in which case the target would be a Basic
+  instance using the <a href="versions.html#extensions">inter-version conversion rules</a>.</li>
+ <li>An <a href="resource.html#additional">additional resource</a> has been defined that is a logical target for the element. Core elements
+  aren't permitted to have resource targets that are additional resources, though profiles might
+  wish to allow pointing to them.</li>
+</ul>
+<p>
+In both of these cases, the solution is to use the <a href="https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-alternate-reference.html">alternate-reference</a> extension. It allows
+referencing any type of resource - including additional resources. The targetProfile used when
+profiling this extension is free to point to a narrower profile than a resource - e.g., a specific
+inter-version resource profile on Basic.
+</p>
+<p>
+In some cases, an additional resource may migrate to be a core resource and become allowed as a
+target resource. Systems that have not yet updated to support that new core resource may
+struggle with the migration of the reference from the <code>additional-reference</code> to the standard
+<code>Reference.reference</code> element. Communication partners will need to manage this transition."
 </p>
 
 <a name="canonical"></a>
@@ -352,21 +377,103 @@ search. Additional notes about searching on versioned references to canonical UR
 </p>
 <ul>
  <li>Search only regards the latest version for each different logical resource id</li>
- <li>This search only works for specific data elements of type of uri that act as canonical URL's (see list below)</li>
+ <li>This search only works when resolving to resources having a <code>url</code> element of type uri that acts as the canonical URL for that resource (see list below)</li>
  <li>If there is no match (either because .version is empty or is different), the instance will not be matched, and will not appear in the result bundle</li>
- <li>If there are multiple matches (because the version is missing, or incomplete) then it is a matter of policy to decide how to resolve this (see below)</li>
- <li></li>
+ <li>If there are multiple matches (because the version is missing, or incomplete - see below) then it is a matter of policy to decide how to resolve this (see below)</li>
+</ul>
+
+<a name="matching"></a>
+<h3>Version Matching for Canonical Resources</h3>
+<p>
+In order to work with Canonical Resources, it is necessary to be able to match version strings
+from versioned references to canonical resources to the resources themselves. Among other places, 
+versioned references arise in the following contexts:
+</p>
+<ul>
+ <li>Any Canonical Reference</li>
+ <li>Coding.system+version</li>
+ <li>ValueSet.compose.include.system+version</li>
+ <li>Dependencies between <a href="packages.html">packages</a></li>
 </ul>
 <p>
-Systems resolving references to canonical URLs SHOULD first try to resolve the reference using
-the canonical reference (e.g. search on a known registry of terminology, conformance, or knowledge
-resources as appropriate), and then fall back to direct resolution using the URL as
-a literal reference if a local version of the canonical resource cannot be found.
-This approach is safe because the approaches must refer to the same
-artifact, though implementations will need to make appropriate arrangements regarding
-the version and/or currency of their local copy of the artifact.
+If there is no stated version for the reference, or the version is a wildcard (see below), 
+<b>and if the reference is found in a resource in an <a href="packages.html">NPM Package</a></b>, 
+then any application looking for the correct version SHALL first look through the package and its dependencies 
+when resolving the reference. If no matching version is found in the package or its dependencies, the application
+can then look through any other resources it has available. This rule applies even once the resource is removed 
+from the package. Systems could consider using the 
+<a href="http://hl7.org.fhir/extensions/StructureDefinition-package-source.html">package-source extension</a> to
+track which resources came from which packages to support this.
 </p>
+<p>
+Some contexts of use require that applications consult a manifest that provides a default or mandatory version to 
+use for each canonical resource. In these contexts, the application SHALL use the version specified in the manifest
+when resolving the reference. This specification itself defines no such contexts, but implementation guides 
+based on this specification can detail how a manifest is applied to any particular context of us. Two examples
+of use of manifests are the <a href="https://build.fhir.org/ig/HL7/crmi-ig">CRMI</a> IG, and in the 
+<a href="https://build.fhir.org/ig/HL7/fhir-tx-ecosystem-ig">terminology ecosystem</a>, which both 
+use a <a href="parameters.html">Parameters</a> resource for this purpose. Typically, these manifests 
+must be consulted before looking through the package dependencies.
+</p>
+<p>
+Other ways target resources might be made available to applications:
+</p>
+<ul>
+  <li>The resource might be made available to the system through it's normal configuration</li>
+  <li>The application might resolve the reference using the canonical reference (e.g., search on a known registry
+    of terminology, conformance, or knowledge resources as appropriate)</li>
+  <li>The application might fall back to direct resolution using the URL as a literal reference if a local
+    version of the canonical resource cannot be found. Note: this approach is safe because the approaches
+    must refer to the same artifact, though implementations will need to make appropriate arrangements regarding
+    the version and/or currency of their local copy of the artifact.</li>
+</ul>
+<p>
+Applications are not required to look through external sources and registries, and production systems typically do not.
+</p>
+<p>
+If the reference has a version, then matching of version strings depends on the format of the string. The format can be determined either by looking at the
+<a href="canonicalresource-definitions.html#CanonicalResource.versionAlgorithm_x_">versionAlgorithm[x]</a> (if present)
+or inferred from the provided version.
+</p>
+<ul>
+  <li>
+    <b>SemVer</b>: If the format of the version is <a href="http://semver.org">semver</a>, then semver wildcard logic applies.  Specifically:
+     <ul>
+        <li><code>2.0</code> will not match anything (not valid semver, and no wildcard specified)</li>
+        <li><code>2.0.0</code> matches <code>2.0.0</code> and not <code>2.0.1</code> or <code>2.0.0-something</code> or <code>2.0.0+something</code></li>
+        <li><code>2.x.x</code> matches <code>2.0.1</code> and <code>2.1.0</code>, etc. but not <code>2.0.1-something</code></li>
+        <li><code>2.0.*</code> matches <code>2.0.0</code>, <code>2.0.1</code>, and not <code>2.0.0-something</code> or <code>2.0.0+something</code></li>
+        <li><code>2.0.0-*</code> matches <code>2.0.0-prerelease</code> or any other label but not <code>2.0.0+build</code></li>
+        <li><code>2.0.0+*</code> matches <code>2.0.0+build</code> or any other build but not <code>2.0.0</code> or <code>2.0.0-prerelease</code></li>
+        <li><code>2.0.x-x</code> matches <code>2.0.1-prerelease</code> or <code>2.0.1-prerelease</code> but not <code>2.0.0</code> or <code>2.0.1</code></li>
+        <li><code>2.0?</code> matches <code>2.0.1</code>, <code>2.0.0-build</code> etc - any valid semver that starts with <code>2.0</code></li>
+        <li><code>2.0.1?</code> matches <code>2.0.1</code>, <code>2.0.1-release</code>, <code>2.0.1+build</code> etc - anything that starts with <code>2.0.1</code></li>
+     </ul>
+  </li>
+  <li>
+    <b>date</b>: if the format of the version is a date, then date matching applies - the version matching string could be 
+      <code>YYYY</code>, <code>YYYYMM</code>, <code>YYYY-MM</code>, etc.  The separators specified must match the format of the date.  
+      e.g., If the version is <code>2024-01-05</code>, then <code>202401</code> won't match, but <code>2024-01</code> will.
+      On the other hand, if the version is <code>20240105</code>, then <code>202401</code> will match and <code>2024/01</code> will not
+  </li>
+  <li>
+    <b>url</b>: if the format of the version string is a url (a la snomed) then matching on URL applies - so matching is done by tokenizing
+    the URL on '/' and matching on all provided tokens.  i.e., <code>http://foo.com/bar</code> would match <code>http://foo.com/bar/1</code>, 
+    but would not match <code>http://foo.com/bar1</code>
+  </li>
+  <li>
+    <b>fallback</b>: otherwise, left matching of the string applies.  i.e., If the version starts with (case sensitive) the search string, it's a match.
+  </li>
+</ul>
+<p>
+If the stated or inferred <a href="canonicalresource-definitions.html#CanonicalResource.versionAlgorithm_x_">versionAlgorithm[x]</a> differs
+between two different versions of the same canonical resource (i.e., the <code>url</code>) properties match), applications generally follow 
+the fallback approach, but may choose some other approach. 
+</p>
+
 <a name="canonical-list"> </a>
+<h3>Canonical Resources</h3>
+
 <p>
 The following resources have <a href="canonicalresource.html">canonical URLs</a> and are allowed to be the target of references to a canonical URLs:
 </p>
@@ -386,9 +493,9 @@ When evaluating a canonical reference, a server may find that it has multiple
 matching resources. This may arise because:
 </p>
 <ul>
-  <li>No version was specified e.g. <code>http://example.org/CodeSystem/abc</code></li>
-  <li>A partial verion was specified e.g. <code>http://example.org/CodeSystem/abc|1.2</code> matches both versions <code>1.2.1</code> and <code>1.2.3-draft</code></li>
-  <li>A full version was specified e.g. <code>http://example.org/CodeSystem/abc|1.2.2</code> and the server had two different resources for version <code>1.2.2</code> </li>
+  <li>No version was specified e.g., <code>http://example.org/CodeSystem/abc</code></li>
+  <li>A partial version was specified e.g., <code>http://example.org/CodeSystem/abc|1.2.x</code> matches both versions <code>1.2.1</code> and <code>1.2.3-draft</code></li>
+  <li>A full version was specified e.g., <code>http://example.org/CodeSystem/abc|1.2.2</code> and the server had two different resources for version <code>1.2.2</code> </li>
 </ul>
 <p>
 The last case is generally regarded as an error - if the content of the resource changes, the version should too. 
@@ -398,18 +505,19 @@ process safeguards intended to prevent it). But the other two cases are not cons
 the system is intended to work, and the client is purposefully delegating to the server the task of determining
 the correct version to use. In general, the correct version to use is the latest version approved for 
 production use. This specification does not define the algorithm for servers to use to determine 
-the latest version. In principle, the server chooses based on the following information from the 
-resources:
+the latest version (except as noted above with regard to packages). In principle, the server chooses
+based on the following information from the resources:
 </p>
 <ul>
-  <li>Version e.g. Based on <a href="http://semver.org">Semver</a> Version practices, dateTime, etc.</li>
+  <li>Version e.g., Based on <a href="http://semver.org">Semver</a> Version practices, dateTime, etc.</li>
   <li>Publication Date</li>
   <li>Status</li>
+  <li>Package version and date (if known)</li>
 </ul>
 <p>
 Canonical resources are not required to use <code>Semver</code>, though HL7 recommends using 
 it, and follows SemVer for its own content. However, other publishers of canonical resources 
-follow other practices, and some kind of date based versioning schemes are not unsual.
+follow other practices, and some kind of date based versioning schemes are not unusual.
 Servers may have access to additional information or policy guidance that determines which 
 resource to choose as the default, and additional knowledge about how to reason with 
 the versioning scheme in use.
@@ -417,7 +525,7 @@ the versioning scheme in use.
 <p>
 Because determining the 'current' version when the algorithm is unknown is problematic, canonical resources
 SHOULD declare the <a href="canonicalresource-definitions.html#CanonicalResource.versionAlgorithm_x_">versionAlgorithm[x]</a>
-element to instruct servers on what altorithm to use for comparison.  In the absence of this element,
+as described above. In the absence of this element,
 servers MAY choose to guess the algorithm or use their own default logic to determine which
 resource to return in the event there are multiple candidate instances with the same canonical URL.
 </p>
@@ -441,6 +549,21 @@ The common case for this is internal references:
 </pre>
 <p>
 Which is the form for references to the contained value set inside the above example questionnaire.
+</p>
+
+<a name="canonical-references"></a>
+<h3>Canonical Uris and the Reference DataType</h3>
+
+<p>
+If the type of an element is Reference and there is a need to point to a canonical resource, the
+'standard' mechanism for referencing is pointing to a server-specific location the same as any
+non-canonical resource. Reference.reference MAY be populated by the canonical url for the resource,
+though this will only function if the canonical URL resolves. Note that this style of referencing
+cannot convey the 'version' element using the '|' suffix convention. It's also possible to specify a
+canonical url using Reference.identifier, where the system is 'urn:ietf:rfc:3986' and the value is
+the url (note that the version can't be conveyed this way either.) Systems that attempt to resolve
+references via Reference.identifier SHOULD resolve identifiers expressed this way, even if the
+canonical url is not included in the .identifier list of the canonical resource.
 </p>
 
 <a name="rendering"></a>
@@ -513,7 +636,7 @@ The exact details of this are out of scope for the FHIR standard.
 <p>
 Applications are encouraged to use the <code>Reference.display</code> element
 to store a user presentable representation of the resource for when the
-resource cannot be resolved (e.g. due to network errors). The <code>canonical</code>
+resource cannot be resolved (e.g., due to network errors). The <code>canonical</code>
 type does not have a display element because applications are generally expected
 to carry cached copies of the resources that are the target of the canonical
 references. If this functionality is still needed or desired anyway, the
@@ -592,7 +715,7 @@ The same example in JSON:
 </div>
 [%impl-note%]
 Contained resources are still a reference rather than being inlined directly
-into the element that is the reference (e.g. "asserter" above) to ensure that a
+into the element that is the reference (e.g., "asserter" above) to ensure that a
 single approach to resolving resource references can be used. Though direct containment
 would seem simpler, it would still be necessary to support internal references where the
 same contained resource is referenced more than once. In the end, all that it would achieve
@@ -617,7 +740,7 @@ Some notes about use and interpretation of contained resources:
   resources. Since there are no nested contained resources, there is only one container resource.</li>
   <li>Fragment-only URL References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
   Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained. To reference a contained resource in a
-  different entry within a Parameters or Bundle (or anywhere else), the reference must include the containing resource. E.g. Observation/123#pat.</li>
+  different entry within a Parameters or Bundle (or anywhere else), the reference must include the containing resource. e.g., Observation/123#pat.</li>
   <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
   <li>Contained resources SHALL NOT contain additional contained resources.</li>
   <li>Contained resources SHALL NOT contain <code>meta.versionId</code>, <code>meta.lastUpdated</code>, or <code>meta.security</code>.</li>
@@ -625,9 +748,9 @@ Some notes about use and interpretation of contained resources:
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it or if the contained resource references the container resource.</li>
   <li>Regarding history, it's possible to point to a contained resource within a version of the 
     containing resource (via <code>[type]/[id]/_history/[version]#[containedId]</code>), but it's 
-    not possible to refer to a version of a contained resource (i.e. this is invalid: 
+    not possible to refer to a version of a contained resource (i.e., this is invalid: 
     <code>[type]/[id]#[containedId]/_history/[version]</code>)</li>
-  <li>When a contained resource references its container or another contained resource within its container, it must always be a local relative reference (i.e. it must be or start with '#').  It's never possible to point to the container or a contained resource within it by absolute or versioned reference</li>
+  <li>When a contained resource references its container or another contained resource within its container, it must always be a local relative reference (i.e., it must be or start with '#').  It's never possible to point to the container or a contained resource within it by absolute or versioned reference</li>
 </ul>
 
 <p>
@@ -685,13 +808,13 @@ Some references are circular - that is, the reference points to another resource
 There are several reasons why a resource may refer to other resources of the same type:
 </p>
 <ul>
- <li>part-of: the resources describe a complex hierarchy composed of parts e.g. an organization structure</li>
- <li>builds-on: resources may add additional content to another resource by deriving from it e.g. extending type declarations</li>
- <li>replaces: one resource may be replaced by another due to changes over time e.g. replacing a prescription or to support patient merging </li>
- <li>uses/re-uses: a resource may use another resource in a modular arrangement e.g. library references or value sets including other value sets</li>
+ <li>part-of: the resources describe a complex hierarchy composed of parts e.g., an organization structure</li>
+ <li>builds-on: resources may add additional content to another resource by deriving from it e.g., extending type declarations</li>
+ <li>replaces: one resource may be replaced by another due to changes over time e.g., replacing a prescription or to support patient merging </li>
+ <li>uses/re-uses: a resource may use another resource in a modular arrangement e.g., library references or value sets including other value sets</li>
 </ul>
 <p>
-For parameters where the relationship is a strict hierarchy (i.e. where it would be wrong to have circular
+For parameters where the relationship is a strict hierarchy (i.e., where it would be wrong to have circular
 references, even transitively), there is <a href="search.html#recursive">additional search support</a> for traversing the
 hierarchy using :above and :below modifiers on the search parameters.
 </p>
@@ -714,11 +837,9 @@ References for which the hierarchical behavior is not specified:
  [%circular-references null%]
 </ul>
 
-<div class="draft-content">
 <a name="CodeableReference"></a>
 <a name="codeablereference"></a>
 <h2>CodeableReference - Reference by Instance or By Class</h2>
-[%dtstatus CodeableReference%]
 <p style="background-color: gainsboro; border-left: solid 1px #808080; border-right: solid 1px #808080; border-bottom: solid 1px #808080; padding: 4px; margin-top: 0px">
 <!--xlp:CodeableReference-->See also <a data-no-external="true" href="references-definitions.html#CodeableReference">Detailed Descriptions</a>, <a data-no-external="true" href="references-profiles.html#CodeableReference">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-references.html#CodeableReference">Extensions</a>
 </p>
@@ -727,10 +848,10 @@ References for which the hierarchical behavior is not specified:
 <p>
 A common pattern in healthcare records is that a single element may refer to either a concept in principle,
 or a specific instance of the concept as seen in practice. For instance, a medication may be prescribed
-because the patient has a headache - e.g. to refer to a headache by a SNOMED CT code for a kind of headache.
+because the patient has a headache - e.g., to refer to a headache by a SNOMED CT code for a kind of headache.
 Alternatively, the record may refer to a specific observation or problem in the problem list as evidence
 for the patient's headache, which conveys details specific to the patient. This is a particular example
-of a more general pattern; e.g. it also applies to locations (something happened 'in a hospital', vs
+of a more general pattern; e.g., it also applies to locations (something happened 'in a hospital', vs
 something happened in a particular identified hospital).
 </p>
 <p>
@@ -743,8 +864,8 @@ applies to the <code>Reference</code> as described above.
 </p>
 <p>
 In principle, this datatype allows for either a reference or a concept, or both. If both are present,
-they are expected to be consistent with each other - e.g. the concept is to a code for headache, and
-the resource reference describes a headache. Note that it is not generally computably proveable whether
+they are expected to be consistent with each other - e.g., the concept is to a code for headache, and
+the resource reference describes a headache. Note that it is not generally computably provable whether
 this is true or not.
 </p>
 <p>
@@ -771,9 +892,6 @@ This datatype is mostly used for reason for an action.
 <p>
 [%dt.constraints CodeableReference%]
 </p>
-</div>
-
-
 </div>
 
 [%file newfooter%]

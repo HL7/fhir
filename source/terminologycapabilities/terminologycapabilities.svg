@@ -863,43 +863,6 @@
    id="n1086"
    xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
   </g>
-  <g
-     id="n1090">
-    <rect
-       id="TerminologyCapabilities.closure"
-       x="0.0"
-       y="247.38212479999999"
-       rx="4"
-       ry="4"
-       width="123.20000000000002"
-       height="50.0"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
-    <line
-       id="n1091"
-       x1="0.0"
-       y1="275.3821248"
-       x2="123.20000000000002"
-       y2="275.3821248"
-       style="stroke:dimgrey;stroke-width:1" />
-    <text
-       id="n1092"
-       x="61.60000000000001"
-       y="267.3821248"
-       fill="black"
-       class="diagram-class-title">Closure</text>
-    <text
-       id="n1093"
-       x="6.0"
-       y="289.3821248"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n1094"
-   xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.closure.translation"><title
-   id="title8877">If cross-system closure is supported</title>translation</a> : <a
-   id="n1095"
-   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-  </g>
   <line
      id="n1099"
      x1="249.7630598"
@@ -1204,40 +1167,6 @@
      id="n1152"
      x="130.2447871"
      y="180.96833666720096"
-     fill="black"
-     class="diagram-class-linkage">[0..1]</text>
-  <line
-     id="n1153"
-     x1="249.7630598"
-     y1="218.26452330116757"
-     x2="123.20000000000002"
-     y2="254.66534098562414"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1154"
-     points="249.7630598,218.26452330116757 255.7630598,222.26452330116757 261.7630598,218.26452330116757 255.7630598,214.26452330116757 249.7630598,218.26452330116757"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(163.95422878729852 249.7630598 218.26452330116757)" />
-  <rect
-     id="n1155"
-     x="171.0"
-     y="229.0"
-     width="30.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1156"
-     x="186.0"
-     y="239.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n1157"
-       xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.closure"><title
-   id="title8958">Whether the $closure operation is supported</title>closure</a></text>
-  <text
-     id="n1158"
-     x="138.20000000000002"
-     y="250.66534098562414"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
 </svg>

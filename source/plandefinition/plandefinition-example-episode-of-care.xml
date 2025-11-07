@@ -15,7 +15,7 @@
     <condition>
       <kind value="applicability"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-expression"/>
         <expression value="ShouldCreateEpisodeOfCare"/>
       </expression>
     </condition>
@@ -40,7 +40,7 @@
         <extension>
           <url value="cqf-expression"/>
           <valueExpression>
-            <language value="text/cql"/>
+            <language value="text/cql-expression"/>
             <expression value="RelatedEncounters"/>
           </valueExpression>
         </extension>
@@ -48,7 +48,7 @@
       <dynamicValue>
         <path value="episodeOfCare"/> <!-- This is the path to the episodeOfCare element of the related encounter -->
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-expression"/>
           <expression value="%parent_target"/> <!-- This assumes the ability to "assign" a reference -->
         </expression>
       </dynamicValue>
