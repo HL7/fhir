@@ -236,22 +236,6 @@
     <Cell><Data ss:Type="String">date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ChargeItem</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
-    <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
-    <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">occurrence</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ChargeItemDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Citation</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim</Data></Cell>
     <Cell><Data ss:Type="String">subject | payee</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
@@ -433,12 +417,6 @@
     <Cell ss:Index="7"><Data ss:Type="String">subject | participant</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">date-start</Data></Cell>
     <Cell><Data ss:Type="String">end-date</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">EncounterHistory</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Endpoint</Data></Cell>
@@ -723,11 +701,6 @@
     <Cell><Data ss:Type="String">practitioner</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">PersonalRelationship</Data></Cell>
-    <Cell><Data ss:Type="String">source | target</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">source | target</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -876,10 +849,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">VerificationResult</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">status-date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">VisionPrescription</Data></Cell>
