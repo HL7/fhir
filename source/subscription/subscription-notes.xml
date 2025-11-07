@@ -298,8 +298,8 @@
 	</p>
 	<p>
 		To receive notifications via Email, a client requests a subscription with the channel type
-		(<code>Subscription.channelType</code>) of <code>email</code> (from the subscription-channel-type Code System)
-		and an endpoint (<code>Subscription.endpoint</code>) with the desired email URI (e.g.,
+		(<code>Subscription.channelType</code>) of <code>email</code> (from the <code>subscription-channel-type</code> 
+		Code System) and an endpoint (<code>Subscription.endpoint</code>) with the desired email URI (e.g.,
 		<code>mailto:public_health_notifications@example.org</code>).
 	</p>
 	<p>
