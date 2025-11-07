@@ -181,7 +181,7 @@
     <condition>
       <kind value="applicability"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Should Create Lactation Consult"/>
       </expression>
     </condition>
@@ -196,7 +196,7 @@
       <dynamicValue>
         <path value="/"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Create Lactation Consult Request"/>
         </expression>
       </dynamicValue>
