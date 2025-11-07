@@ -1,5 +1,22 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
+<p>
+Example Scenarios help to make the expected behavior of a collection of systems adhering to a guide more concrete.  It allows the author to say "Imagine you have a patient in situation X and Y needs to happen.  This is what the exchanges between the various imaginary systems might look like for that specific patient."
+</p>
+<p>
+Creating examples is a lot of work, and creating ExampleScenarios is often an order of magnitude more work, but being able to see the resulting diagrams of flows and click through to see the specific instances that are being exchanged can be extremely helpful in solidifying implementer understanding of the 'workflow' implied by an implementation guide.
+</p>
+<p>
+In addition to the examples provided in the examples tab, you can also see some useful examples of ExampleScenario in the <a href="https://hl7.org/fhir/us/physical-activity/STU1/artifacts.html#7">Physical Activity implementation guide</a>.
+</p>
 
+<a name="contained"> </a>
+<h3>Contained</h3>
+<p>
+There are two notions of 'contained' in this resource - the generic 'contained' element inherited from DomainResource that allows other resources to be nested inside this ExampleScenario (e.g. Provenance, structureProfiles, or instance or instance.version content).  There is also a containedInstance element on ExampleScenario.instance.  This latter element reflects the nesting of content within the data shared as part of a scenario.  For example, highlighting that an instance initially received on its own (e.g. an Observation) is later conveyed in a Bundle (as a document, message or search response), or potentially a resource that was nested as a 'contained' resource in one instance is available in non-contained form or contained inside a different resource in a separate instance.
+</p>
+<p>
+In short, 'ExampleScenario.contained' is for nesting resources inside the ExampleScenario.  ExampleScenario.instance.containedInstance reflects the nesting of data being transmitted by an ExampleScenario operation as part of the scenario.
+</p>
 </div>
