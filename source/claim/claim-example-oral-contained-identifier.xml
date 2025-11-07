@@ -44,9 +44,9 @@
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="#patient-1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 

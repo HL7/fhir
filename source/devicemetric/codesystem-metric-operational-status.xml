@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="metric-operational-status"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev"/>
@@ -53,21 +53,21 @@
   <concept>
     <code value="on"/>
     <display value="On"/>
-    <definition value="The DeviceMetric is operating and will generate Observations."/>
+    <definition value="The metric is operating and could generate observations."/>
   </concept>
   <concept>
     <code value="off"/>
     <display value="Off"/>
-    <definition value="The DeviceMetric is not operating."/>
+    <definition value="The metric is not operating."/>
   </concept>
   <concept>
     <code value="standby"/>
     <display value="Standby"/>
-    <definition value="The DeviceMetric is operating, but will not generate any Observations."/>
+    <definition value="The metric is operating, but is not expected to currently generate observations."/>
   </concept>
   <concept>
-    <code value="entered-in-error"/>
-    <display value="Entered In Error"/>
-    <definition value="The DeviceMetric was entered in error."/>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The metric's operational status is currently unknown."/>
   </concept>
 </CodeSystem>

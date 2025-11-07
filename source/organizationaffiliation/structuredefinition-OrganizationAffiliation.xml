@@ -232,7 +232,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OrganizationSpecialty"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="Specific specialty associated with the participating organization."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/c80-practice-codes"/>
       </binding>

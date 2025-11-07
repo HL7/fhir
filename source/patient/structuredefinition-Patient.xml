@@ -82,6 +82,11 @@
     <uri value="http://loinc.org"/>
     <name value="LOINC code for the element"/>
   </mapping>
+  <mapping>
+    <identity value="dicom"/>
+    <uri value="https://dicomstandard.org/current"/>
+    <name value="DICOM Tag Mapping"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="Patient"/>
@@ -110,6 +115,10 @@
       <mapping>
         <identity value="w5"/>
         <map value="administrative.individual"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="DICOM Tag Mapping"/>
       </mapping>
     </element>
     <element id="Patient.identifier">
@@ -144,6 +153,10 @@
         <identity value="cda"/>
         <map value=".id"/>
       </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Patient Identifier (0010,0020)"/>
+      </mapping>      
     </element>
     <element id="Patient.active">
       <path value="Patient.active"/>
@@ -205,6 +218,10 @@
         <identity value="cda"/>
         <map value=".patient.name"/>
       </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Patient Name (0010,0010) and Person Names to Use Sequence (0010,0011)"/>
+      </mapping>      
     </element>
     <element id="Patient.telecom">
       <path value="Patient.telecom"/>
@@ -283,6 +300,10 @@
         <identity value="cda"/>
         <map value=".patient.administrativeGenderCode"/>
       </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Patient's Sex (0010,0040)"/>
+      </mapping>      
     </element>
     <element id="Patient.birthDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -319,6 +340,10 @@
         <identity value="loinc"/>
         <map value="21112-8"/>
       </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Patient's Birth Date (0010,0030)"/>
+      </mapping>  
     </element>
     <element id="Patient.deceased[x]">
       <path value="Patient.deceased[x]"/>
@@ -348,6 +373,10 @@
       <mapping>
         <identity value="cda"/>
         <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Patient's Death Date in Alternative Calendar (0010,0034)"/>
       </mapping>
     </element>
     <element id="Patient.address">
@@ -534,9 +563,6 @@
       </mapping>
     </element>
     <element id="Patient.contact.role">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
       <path value="Patient.contact.role"/>
       <short value="The kind of functional role"/>
       <definition value="The nature of the functional role between the patient and the contact person."/>
@@ -593,9 +619,6 @@
       </mapping>
     </element>
     <element id="Patient.contact.additionalName">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
       <path value="Patient.contact.additionalName"/>
       <short value="Additional names for the contact person"/>
       <definition value="Additional names for the contact person."/>
@@ -668,9 +691,6 @@
       </mapping>
     </element>
     <element id="Patient.contact.additionalAddress">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
       <path value="Patient.contact.additionalAddress"/>
       <short value="Additional addresses for the contact person"/>
       <definition value="Additional addresses for the contact person."/>
@@ -829,6 +849,7 @@
         <description value="IETF language tag for a human language"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
         <additional>
+				  <key value="b-pat-1"/>
           <purpose value="starter"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
         </additional>

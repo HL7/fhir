@@ -1,4 +1,4 @@
-﻿<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+﻿<ClaimResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://hl7.org/fhir ../../schema/claimresponse.xsd">
 
 	<id value="R3501"/>
@@ -23,10 +23,10 @@
 	</type>
 
 	<use value="claim"/>
-	
-	<patient>
+
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -46,16 +46,16 @@
 	</request>
 
 	<outcome value="error" />
-	
+
 	<disposition value="Claim could not be processed"/>
-	
+
 	<formCode>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/forms-codes" />
 			<code value="2" />
 		</coding>
 	</formCode>
-	
+
 	<processNote>
 		<number value="1"/>
 		<type>
@@ -72,11 +72,11 @@
 			</coding>
 		</language>
 	</processNote>
-	
+
 	<communicationRequest>
 		<reference value="CommunicationRequest/fm-solicit"/>
 	</communicationRequest>
-	
+
 	<!-- Detailed error description -->
 	<error>
 		<itemSequence value="3"/>

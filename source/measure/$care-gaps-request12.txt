@@ -1,0 +1,2 @@
+//Request: the first example with an organization instead of a subject.
+GET [base]/Measure/$care-gaps?measureIdentifier=http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms|130&periodStart=2014-01&periodEnd=2014-03&status=open-gap&organization=Organization/124

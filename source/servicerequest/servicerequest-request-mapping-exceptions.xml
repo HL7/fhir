@@ -20,7 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.basedOn" resourcePath="ServiceRequest.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,DocumentReference,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder,DocumentReference)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="What request fulfills"/>
@@ -40,7 +40,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.replaces" resourcePath="ServiceRequest.replaces">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(ServiceRequest,MedicationRequest,RequestOrchestration,CarePlan,DeviceRequest,CommunicationRequest,NutritionOrder,VisionPrescription,SupplyRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(ServiceRequest,MedicationRequest,RequestOrchestration,CarePlan,DeviceRequest,CommunicationRequest,NutritionOrder,VisionPrescription)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Request(s) replaced by this service request"/>
             <resource value="What request replaces"/>
@@ -169,7 +169,9 @@
             <resource value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.product" resourcePath="ServiceRequest.orderDetail.parameterFocus">
+    <divergentElement patternPath="Request.product" resourcePath="ServiceRequest.orderDetail.parameterFocus[x]">
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,DeviceRequest,Medication,MedicationRequest,BiologicallyDerivedProduct,Substance,SubstanceDefinition,MedicinalProductDefinition), canonical(DeviceDefinition), CodeableConcept" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Product requested/ordered"/>
@@ -317,6 +319,8 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.relevantHistory" resourcePath="ServiceRequest.relevantHistory">
+        <missingTypes _pattern="Reference(ProvenanceRelevantHistory)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Provenance)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Key events in history of service request"/>
             <resource value="Request provenance"/>

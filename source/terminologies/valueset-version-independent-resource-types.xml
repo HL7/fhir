@@ -4,7 +4,7 @@
   <id value="version-independent-resource-types"/>
   <meta>
     <lastUpdated value="2021-01-17T07:06:13.533+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>

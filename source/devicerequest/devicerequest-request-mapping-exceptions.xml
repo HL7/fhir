@@ -133,8 +133,10 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.product" resourcePath="DeviceRequest.product">
+    <divergentElement patternPath="Request.product" resourcePath="DeviceRequest.product[x]">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device), canonical(DeviceDefinition), CodeableConcept" reason="Unknown"/>
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Product requested/ordered"/>
@@ -199,7 +201,6 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="DeviceRequest.requester">
-        <missingTypes _pattern="Reference(Patient,RelatedPerson)" reason="Unknown"/>
         <extraTypes _resource="Reference(CareTeam,Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
@@ -211,7 +212,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="DeviceRequest.performer">
-        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, CareTeam, HealthcareService, Patient, Device, RelatedPerson)" reason="Unknown"/>
         <extraTypes _resource="CodeableReference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
@@ -273,6 +274,8 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.relevantHistory" resourcePath="DeviceRequest.relevantHistory">
+        <missingTypes _pattern="Reference(ProvenanceRelevantHistory)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Provenance)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Key events in history of device request"/>
             <resource value="Request provenance"/>

@@ -23,9 +23,9 @@
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<billablePeriod>
 		<start value="2014-08-15"/>
@@ -80,7 +80,7 @@
 			<display value="Head trauma - concussion"/>
 		</coding>
 	</diagnosisRelatedGroup>
-	
+
 	<careTeam>
 		<sequence value="1"/>
 		<provider>
@@ -175,22 +175,22 @@
 		<productOrService>
 			<coding>
 				<system value="http://hl7.org/fhir/ex-serviceproduct"/>
-				<code value="exam"/> 
+				<code value="exam"/>
 			</coding>
 		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="125.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="125.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 	</item>
 
 	<total>
 		<value value="125.00"/>
-		<currency value="USD"/>  
+		<currency value="USD"/>
 	</total>
 </Claim>

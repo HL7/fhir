@@ -34,7 +34,7 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/> 
     </requester>
-    <reported value="true"></reported>
+    <isRecordOfRequest value="true"></reported>
     
     <dosageInstruction>
         <sequence value="1"/>

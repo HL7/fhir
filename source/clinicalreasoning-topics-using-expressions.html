@@ -10,12 +10,12 @@
 
 
 
-<table class="colstu"><tbody><tr><td id="wg">Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
+<table class="colsi"><tbody><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg cds%]">[%wgt cds%]</a></td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Trial Use</a></td></tr></tbody></table>
 
 <a name="using-expressions"> </a>
 <h3>Using Expressions</h3>
 
-<p>This topic discusses the use of expression logic within FHIR resources using expression languages such as <a href="fhirpath.html">FHIRPath</a> and <a href="http://cql.hl7.org/">Clinical Quality Language (CQL)</a>. The clinical reasoning module resources use the <a href="metadatatypes.html#expression">Expression</a> datatype to represent logic that enables dynamic functionality to be utilized directly within the Clinical Reasoning resources, as well as within FHIR resources more generally using extensions.</p>
+<p>This topic discusses the use of expression logic within FHIR resources using expression languages such as <a href="http://hl7.org/fhirpath.html">FHIRPath</a> and <a href="http://cql.hl7.org/">Clinical Quality Language (CQL)</a>. The clinical reasoning module resources use the <a href="metadatatypes.html#expression">Expression</a> datatype to represent logic that enables dynamic functionality to be utilized directly within the Clinical Reasoning resources, as well as within FHIR resources more generally using extensions.</p>
 
 <a name="expression elements"> </a>
 <h4>Expression Elements</h4>
@@ -87,6 +87,7 @@
 &lt;/event&gt;
 </code></pre>
 
+<p>Note that for backwards compatibility with implementations that were built prior to the introduction of <code>text/cql-identifier</code> and <code>text/cql-expression</code>, systems MAY treat expressions with <code>text/cql</code> as though they had specified <text>text/cql-identifier</text>, as this is a common pattern in existing content and implementations.</p>
 
 <a name="expression"> </a>
 <h5>Expression</h5>
@@ -137,6 +138,16 @@
 
 <p>For simplicity, resources that use logic libraries SHOULD reference at most one library to avoid the need to qualify expression references. Take, for example, the case of updating a library reference in a resource. If the resource has multiple library references, then every expression qualifier that referred to the previous library must be updated. However, if the libraries were combined into a single reference, then only the reference would need to be updated.</p>
 
+<p>When CQL expressions are identifier (i.e., using an Expression element with a language of <code>text/cql-identifier</code>), if the expression element has a <code>reference</code>, the identifier SHALL be to an expression in the referenced library.</p>
+
+<a name="inline-expressions"/>
+<h5>Inline Expressions</h5>
+<p>When CQL expressions are included in-line (i.e., with a language specifier of <code>text/cql-expression</code>), then that expression SHALL have access to any libraries referenced by the resource (with either a <code>library</code> element or the <code>cqf-library</code> extension). This means that in-line expressions may reference declarations in those libraries by using the name of the library as a qualifier.</p>
+
+<p>For example, given a PlanDefinition with a library element referencing the Example library in this IG, the following CQL in-line expression is valid:</p>
+
+<pre><code>exists (Example.&quot;Flexible Sigmoidoscopy Performed&quot;)</code></pre>
+
 <a name="evaluation-context"> </a>
 <h4>Evaluation Context</h4>
 <p>In general, when an expression is evaluated, it is evaluated in the context of the containing resource. This means that the resource is available within the expression so that the current values of the resource can be accessed.</p>
@@ -150,6 +161,8 @@
 <p>And because FHIRPath expressions can be used within CQL, the same approach works for accessing the context in a CQL expression.</p>
 
 <p>Knowledge artifacts with a <code>subject</code> element, such as Measure, establish the evaluation context based on that subject. For example, when the subject is <code>Patient</code>, the expression is evaluated in the context of a patient, passed in as an argument to the operation performing the evaluation. For example, the <code>Measure/$evaluate</code> operation takes a subject parameter that establishes the subject context for the evaluation. In CQL, this corresponds to the <code>context</code> for the expression.</p>
+
+<p>Note that subject at the root of Measure is being deprecated because it is more flexible to provide it on each group. If group.subject is not present then the CQL context is 'unfiltered'.</p>
 
 <a name="parameters"> </a>
 <h5>Parameters</h5>
@@ -181,7 +194,7 @@
 
 <a name="quantities"> </a>
 <h5>Use of FHIR Quantity</h5>
-<p>The mapping from FHIR Quantity to CQL <code>System.Quantity</code> can only be applied if the FHIR Quantity has a UCUM code, i.e. a system of <code>http://unitsofmeausure.org</code> and a code is present.</p>
+<p>The mapping from FHIR Quantity to CQL <code>System.Quantity</code> can only be applied if the FHIR Quantity has a UCUM code, i.e., a system of <code>http://unitsofmeausure.org</code> and a code is present.</p>
 
 <p>As part of the mapping, time-valued UCUM units are mapped to the <a href="http://hl7.org/fhirpath/R2/index.html#time-valued-quantities">calendar duration units</a> defined in FHIRPath and CQL, according to the following map:</p>
 
@@ -202,9 +215,11 @@
 
 <a name="fhirpath"> </a>
 <h4>FHIRPath</h4>
-<p><a href="fhirpath.html">FHIRPath</a> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="http://hl7.org/fhirpath">here</a>.</p>
+<p><a href="http://hl7.org/fhirpath.html">FHIRPath</a> is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data.</p>
 
 <p>FHIRPath is used throughout the FHIR specification whenever path selection is needed, such as in the definition of search parameters, or when describing invariants as part of the definition of resources and profiles. FHIRPath expressions generally provide a simple and effective means of navigating and accessing the elements of FHIR resources to retrieve data.</p>
+
+<p>Despite the name, FHIRPath is published as an independent specification from FHIR, allowing it to be used with any graph-structured data, not just FHIR. For more information on using FHIRPath with the FHIR specification, refer to the <a href="fhirpath.html">FHIRPath</a> topic.</p>
 
 <a name="clinical-quality-language"> </a>
 <h4>Clinical Quality Language</h4>

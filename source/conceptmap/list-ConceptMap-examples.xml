@@ -54,18 +54,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="CDS Hooks Indicator mapping to Request Priority"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="conceptmap-cdshooks-indicator"/>
-    </extension>
-    <item>
-      <reference value="ConceptMap/cdshooks-indicator"/>
-      <display value="CDS Hooks Indicator"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example Concept Map Metadata"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

@@ -8,7 +8,7 @@
 		<valueString value="Foundation.Conformance"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
+		<valueCode value="normative"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
 		<valueInteger value="1"/>
@@ -397,8 +397,8 @@
 		</element>
 		<element id="ActorDefinition.type">
 			<path value="ActorDefinition.type"/>
-			<short value="system | non-system | individual | patient | practitioner | related-person | device | collective | care-team | group | healthcare-service | organization"/>
-			<definition value="Whether the actor represents a human or an appliction."/>
+			<short value="person | system | collective | other"/>
+			<definition value="What type of actor this is."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -412,6 +412,21 @@
 				<strength value="required"/>
 				<description value="The type of actor - system or human."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-type"/>
+			</binding>
+		</element>
+		<element id="ActorDefinition.category">
+			<path value="ActorDefinition.category"/>
+			<short value="Further details about the type of actor"/>
+			<definition value="Further details about the type of actor."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-code"/>
 			</binding>
 		</element>
 		<element id="ActorDefinition.documentation">

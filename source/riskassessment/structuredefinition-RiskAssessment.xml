@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -264,7 +264,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -431,8 +431,15 @@
       <constraint>
         <key value="ras-2"/>
         <severity value="error"/>
-        <human value="Probability as a deciml must be &lt;= 100"/>
+        <human value="Probability as a decimal must be &lt;= 100"/>
         <expression value="probability.empty() or ((probability is decimal) implies ((probability as decimal) &lt;= 100))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+      </constraint>
+      <constraint>
+        <key value="ras-3"/>
+        <severity value="error"/>
+        <human value="Probability as a Quantity must be &lt;= 100%"/>
+        <expression value="probability.empty() or ((probability is Quantity) implies (((probability as Quantity).value &lt;= 100) and ((probability as Quantity).code = '%') and ((probability as Quantity).system = %ucum)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
       </constraint>
       <mapping>
@@ -469,7 +476,7 @@
     <element id="RiskAssessment.prediction.probability[x]">
       <path value="RiskAssessment.prediction.probability[x]"/>
       <short value="Likelihood of specified outcome"/>
-      <definition value="Indicates how likely the outcome is (in the specified timeframe)."/>
+      <definition value="Indicates how likely the outcome is (in the specified timeframe). Range SHOULD be expressed as a Quantity (with a unit of '%'), rather than as a decimal value to make sure the percentage semantics are clear."/>
       <comment value="If range is used, it represents the lower and upper bounds of certainty; e.g. 40-60%  Decimal values are expressed as percentages as well (max = 100)."/>
       <min value="0"/>
       <max value="1"/>
@@ -477,9 +484,13 @@
         <code value="decimal"/>
       </type>
       <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
         <code value="Range"/>
       </type>
       <condition value="ras-2"/>
+      <condition value="ras-3"/>
       <constraint>
         <key value="ras-1"/>
         <severity value="error"/>

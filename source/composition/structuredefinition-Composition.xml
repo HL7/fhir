@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Composition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/structure/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.)."/>
+  <description value="A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and has traceability to the author who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.)."/>
   <purpose value="To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
@@ -83,10 +83,17 @@
     <element id="Composition">
       <path value="Composition"/>
       <short value="A set of resources composed into a single coherent clinical statement with clinical attestation"/>
-      <definition value="A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.)."/>
+      <definition value="A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and has traceability to the author who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.)."/>
       <comment value="While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="cmp-3"/>
+        <severity value="warning"/>
+        <human value="If attester exists then the Composition either needs a text or a section"/>
+        <expression value="attester.empty() or text.exists() or section.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -180,6 +187,60 @@
         <map value="DocumentReference.version"/>
       </mapping>
     </element>
+    <element id="Composition.consent">
+      <path value="Composition.consent"/>
+      <short value="Represents informed consents and medico-legal transactions"/>
+      <definition value="References the consents associated with this document. Examples include a consent to perform the clinical service being documented (.event) or a consent for the information contained in the document to be released to a third party."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Consent"/>
+      </type>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".authorization.consent"/>
+      </mapping>
+    </element>
+    <element id="Composition.basedOn">
+      <path value="Composition.basedOn"/>
+      <short value="Fulfills plan, proposal or order"/>
+      <definition value="A plan, proposal or order that is fulfilled in whole or in part by this composition."/>
+      <requirements value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
+      <alias value="fulfills"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EnrollmentRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target"/>
+      </mapping>
+      <mapping>
+        <identity value="cda"/>
+        <map value=".inFulfillmentOf"/>
+      </mapping>
+    </element>
     <element id="Composition.status">
       <path value="Composition.status"/>
       <short value="registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown"/>
@@ -202,7 +263,7 @@
           <valueString value="ActStatus"/>
         </extension>
         <strength value="required"/>
-        <description value="The workflow/clinical status of the composition."/>
+        <description value="The workflow status of the composition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/composition-status"/>
       </binding>
       <mapping>
@@ -318,7 +379,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -420,8 +481,9 @@
       <path value="Composition.author"/>
       <short value="Who and/or what authored the composition"/>
       <definition value="Identifies who is responsible for the information in the composition, not necessarily who typed it in."/>
+      <comment value="When the Composition is software-generated, a Device can be referenced. When a software-generated Composition is verified by a human (but not authored by that human), use the attester element to identify the human(s) who performed the verification."/>
       <requirements value="Identifies who is responsible for the content."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
@@ -455,6 +517,75 @@
         <map value="DocumentReference.author"/>
       </mapping>
     </element>
+    <element id="Composition.participant">
+      <path value="Composition.participant"/>
+      <short value="Identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient"/>
+      <definition value="Identifies supporting entities, including parents, relatives, caregivers, insurance policyholders, guarantors, and others related in some way to the patient. A supporting person or organization is an individual or an organization with a relationship to the patient. A supporting person who is playing multiple roles would be recorded in multiple participants (e.g., emergency contact and next-of-kin)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Composition.participant.type">
+      <path value="Composition.participant.type"/>
+      <short value="AUT | AUTHEN | CST | LA | RCT | SBJ"/>
+      <definition value="Meaning and purpose of participation, in creation of the clinical document. The list includes: data entry person, informant, primary information recipient, and tracker. Other types are allowed."/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRClinicalDocParticipantVs"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="FHIR Clinical Document Participant Types. Author, Authenticator, Custodian, Legal Authenticator, Record Target and Subject are found in distinct, named fields in FHIR. Thus, these types are excluded."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/fhir-clinical-doc-participant"/>
+      </binding>
+    </element>
+    <element id="Composition.participant.function">
+      <path value="Composition.participant.function"/>
+      <definition value="Exact function of the participant in the creation of the clinical document. This is more granular than type."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ParticipationFunction"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="To specify the exact function an actor had in a service in all necessary detail."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ParticipationFunction"/>
+      </binding>
+    </element>
+    <element id="Composition.participant.time">
+      <path value="Composition.participant.time"/>
+      <short value="Time period of participation"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <element id="Composition.participant.party">
+      <path value="Composition.participant.party"/>
+      <short value="Who the participant is"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
     <element id="Composition.name">
       <path value="Composition.name"/>
       <short value="Name for this Composition (computer friendly)"/>
@@ -473,7 +604,7 @@
       <short value="Human Readable name/title"/>
       <definition value="Official human-readable label for the composition."/>
       <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
@@ -516,6 +647,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cmp-3"/>
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
@@ -597,6 +729,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="w5"/>
@@ -626,6 +759,8 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -686,28 +821,28 @@
       </binding>
     </element>
     <element id="Composition.relatesTo.target[x]">
-        <path value="Composition.relatesTo.target[x]"/>
-        <short value="The artifact that is related to this Composition"/>
-        <definition value="The artifact that is related to this Composition Resource."/>
-        <min value="1"/>
-        <max value="1"/>
-        <type>
-            <code value="uri"/>
-        </type>
-        <type>
-            <code value="Attachment"/>
-        </type>
-        <type>
-            <code value="canonical"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-        </type>
-        <type>
-            <code value="Reference"/>
-            <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-        </type>
-        <type>
-            <code value="markdown"/>
-        </type>
+      <path value="Composition.relatesTo.target[x]"/>
+      <short value="The artifact that is related to this Composition"/>
+      <definition value="The artifact that is related to this Composition Resource."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <type>
+        <code value="markdown"/>
+      </type>
     </element>
     <element id="Composition.event">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -760,7 +895,7 @@
       <path value="Composition.event.detail"/>
       <short value="The event(s) being documented, as code(s), reference(s), or both"/>
       <definition value="Represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which case the procedure being documented is necessarily a &quot;History and Physical&quot; act. The events may be included as a code or as a reference to an other resource."/>
-      <comment value="An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more events are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries."/>
+      <comment value="An event can further specialize the act inherent in Composition.type, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more events are included, they SHALL NOT conflict with the values inherent in Composition.type as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -804,6 +939,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cmp-3"/>
       <constraint>
         <key value="cmp-1"/>
         <severity value="error"/>
@@ -944,6 +1080,16 @@
         <map value=".text"/>
       </mapping>
     </element>
+    <element id="Composition.section.note">
+      <path value="Composition.section.note"/>
+      <short value="Information about the section contents that is not represented by any of the section entries"/>
+      <comment value="A comment, general note or annotation not coded elsewhere in the section."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
     <element id="Composition.section.orderedBy">
       <path value="Composition.section.orderedBy"/>
       <short value="Order of section entries"/>
@@ -961,7 +1107,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="What order applies to the items in the entry."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/list-order"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/list-order"/>
       </binding>
       <mapping>
         <identity value="rim"/>

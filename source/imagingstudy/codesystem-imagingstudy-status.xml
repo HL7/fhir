@@ -3,16 +3,16 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="imagingstudy-status"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="ii"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="4"/>
+    <valueInteger value="6"/>
   </extension>
   <url value="http://hl7.org/fhir/imagingstudy-status"/>
   <identifier>
@@ -68,6 +68,6 @@
   <concept>
     <code value="inactive"/>
     <display value="Inactive"/>
-    <definition value="The resource describes information that is no longer valid. This may include an ImagingStudy that was removed for retention policy reasons."/>
+    <definition value="The resource describes information that is no longer valid. This MAY include an ImagingStudy that was removed for retention policy reasons."/>
   </concept>
 </CodeSystem>

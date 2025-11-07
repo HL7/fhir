@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="actordefinition-actor-code"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/actordefinition-actor-code"/>
+  <version value="6.0.0"/>
+  <name value="ActorDefinitionActorCode"/>
+  <title value="ActorDefinition Actor Code"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom> 
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Code for the type of actor - system or human."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/actordefinition-actor-code"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <property>
+    <code value="abstract"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="non-system"/>
+    <display value="Non System"/>
+    <definition value="A person, animal, (non-software) device, organization or other entity"/>
+    <concept>
+      <code value="individual"/>
+      <display value="Individual"/>
+      <definition value="A person or animal"/>
+      <concept>
+        <code value="patient"/>
+        <display value="Patient"/>
+      </concept>
+      <concept>
+        <code value="practitioner"/>
+        <display value="Practitioner"/>
+      </concept>
+      <concept>
+        <code value="related-person"/>
+        <display value="Related Person"/>
+      </concept>
+    </concept>
+    <concept>
+      <code value="device"/>
+      <display value="Device"/>
+      <definition value="A physical device acting in non-software capacity"/>
+    </concept>
+    <concept>
+      <code value="collective"/>
+      <display value="Collective"/>
+      <definition value="A group of people or animals"/>
+      <property>
+        <code value="abstract"/>
+        <valueBoolean value="true"/>  
+      </property>
+      <concept>
+        <code value="care-team"/>
+        <display value="Care Team"/>
+      </concept>
+      <concept>
+        <code value="group"/>
+        <display value="Group"/>
+      </concept>
+      <concept>
+        <code value="healthcare-service"/>
+        <display value="Healthcare Service"/>
+      </concept>
+      <concept>
+        <code value="organization"/>
+        <display value="Organization"/>
+      </concept>
+    </concept>
+  </concept>
+</CodeSystem>

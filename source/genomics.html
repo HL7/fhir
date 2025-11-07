@@ -36,12 +36,12 @@
     [%file newnavbar%]
 
     <h2>Genomics in FHIR</h2>
-    <table class="colstu">
+    <table class="colsi">
       <tr>
-        <td id="wg">
+        <td id="wg">Responsible Owner: 
           <a _target="blank" href="[%wg cg%]">[%wgt cg%]</a> Work Group
         </td>
-        <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td>
+        
         <td id="ballot">
           <a href="versions.html#std-process">Standards Status</a>:
           <!--!ns!--><a href="versions.html#std-process">Trial Use</a>
@@ -58,8 +58,8 @@
       genomics, making it possible (and feasible) to undertake broad genetic
       testing on an individual in a clinically useful timeframe. Whereas not so
       long ago genomics was primarily of concern to bioinformaticists
-      interacting with such artifacts as alignment (e.g. BAM, CRAM) and variant
-      calling (e.g. VCF) data files, we are now seeing tremendous interest
+      interacting with such artifacts as alignment (e.g., BAM, CRAM) and variant
+      calling (e.g., VCF) data files, we are now seeing tremendous interest
       across the clinical community for integrating genomics findings and
       recommendations into the EHR and into the care process. To that end, the
       HL7 Clinical Genomics Work Group is developing a set of standards for
@@ -106,6 +106,11 @@
           entities rather than specimen source or annotated knowledge, it supports both
           patient/participant-specific use cases and population-based data, and both human and non-human
           data.
+        </p>
+      </li>
+      <li>
+        <p>
+          <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/">Molecular Definition Implementation Guide for Molecular Data Types</a> is an emerging product that includes profiles for structured representation of the fundamental concepts such as <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-sequence.html">Sequence</a>, <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-allele.html">Allele</a>, and <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-variation.html">Variation</a>, <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-haplotype.html">Haplotype</a>, and <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-genotype.html">Genotype</a>. This guide is work in progress and will evolve to represent additional concepts.
         </p>
       </li>
       <li>

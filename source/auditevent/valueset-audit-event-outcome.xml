@@ -3,16 +3,16 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="audit-event-outcome"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="6"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/audit-event-outcome"/>
   <identifier>
@@ -30,11 +30,11 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.2.264"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="AuditEventOutcome"/>
-  <title value="Audit Event Outcome"/>
+  <name value="AuditEventOutcomeExample"/>
+  <title value="Example Audit Event Outcome"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
@@ -46,7 +46,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Indicates whether the event succeeded or failed."/>
+  <description value="Example codes to indicate whether the event succeeded or failed."/>
   <immutable value="true"/>
   <compose>
 

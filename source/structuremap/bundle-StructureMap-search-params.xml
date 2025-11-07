@@ -297,4 +297,85 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureMap-source"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureMap-source"/>
+        <description value="A source StructureDefinition for the map"/>
+        <code value="source"/>
+        <type value="uri"/>
+        <expression value="StructureMap.structure.where(mode = 'source').url"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureMap-target"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureMap-target"/>
+        <description value="A target StructureDefinition for the map"/>
+        <code value="target"/>
+        <type value="uri"/>
+        <expression value="StructureMap.structure.where(mode = 'target').url"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureMap-queried"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureMap-queried"/>
+        <description value="A queried StructureDefinition for the map"/>
+        <code value="queried"/>
+        <type value="uri"/>
+        <expression value="StructureMap.structure.where(mode = 'queried').url"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="StructureMap-produced"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/StructureMap-produced"/>
+        <description value="A produced StructureDefinition for the map"/>
+        <code value="produced"/>
+        <type value="uri"/>
+        <expression value="StructureMap.structure.where(mode = 'produced').url"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="StructureMap.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the StructureMap is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="StructureMap.experimental"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

@@ -10,13 +10,18 @@
   <name value="FHIRRestfulInteractions"/>
   <title value="FHIR Restful Interactions"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project"/>
   <description value="The set of interactions defined by the RESTful part of the FHIR specification."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/restful-interaction"/>
   <hierarchyMeaning value="is-a"/>
   <content value="complete"/>
+  <property>
+    <code value="abstract"/>
+    <uri value="http://hl7.org/fhir/concept-properties#notSelectable"/>
+    <type value="boolean"/>
+  </property>
   <concept>
     <code value="read"/>
     <display value="read"/>
@@ -76,6 +81,10 @@
     <code value="history"/>
     <display value="history"/>
     <definition value="Retrieve the change history for a particular resource, type of resource, or the entire system."/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>  
+    </property>
     <concept>
       <code value="history-instance"/>
       <display value="history-instance"/>
@@ -106,6 +115,10 @@
     <code value="search"/>
     <display value="search"/>
     <definition value="Search a resource type or all resources based on some filter criteria."/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>  
+    </property>
     <concept>
       <code value="search-type"/>
       <display value="search-type"/>

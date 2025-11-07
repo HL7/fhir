@@ -211,7 +211,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="Consent.date">
@@ -673,7 +673,7 @@
         </extension>
         <strength value="example"/>
         <description value="Example Security Labels from the Healthcare Privacy and Security Classification System."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/security-label-examples"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/security-label-example"/>
       </binding>
     </element>
     <element id="Consent.provision.purpose">

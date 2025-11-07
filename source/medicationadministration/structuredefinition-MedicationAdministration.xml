@@ -200,7 +200,7 @@
     </element>
     <element id="MedicationAdministration.statusReason">
       <path value="MedicationAdministration.statusReason"/>
-      <short value="Reason administration not performed"/>
+      <short value="Reason status of the administration changed"/>
       <definition value="A code indicating why the status of the administration changed."/>
       <min value="0"/>
       <max value="*"/>
@@ -231,7 +231,8 @@
     <element id="MedicationAdministration.category">
       <path value="MedicationAdministration.category"/>
       <short value="Type of medication administration"/>
-      <definition value="The type of medication administration (for example, drug classification like ATC, where meds would be administered, legal category of the medication)."/>
+      <definition value="The type of medication administration."/>
+      <comment value= "The committee will revisit these codes, expecting to use a codesystem from [terminology.hl7.org](http://terminology.hl7.org)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -243,7 +244,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept describing where the medication administered is expected to occur."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-admin-category"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -305,7 +306,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -584,6 +585,7 @@
       <path value="MedicationAdministration.device"/>
       <short value="Device used to administer"/>
       <definition value="The device that is to be used for the administration of the medication (for example, PCA Pump)."/>
+      <comment value="When all that is known about the device is the type, and not specific instance data, like lot number etc., the device resource can still be used, as described in the [Device / DeviceDefinition Boundaries and Relationships section](https://build.fhir.org/device.html#bnr)." />
       <min value="0"/>
       <max value="*"/>
       <type>

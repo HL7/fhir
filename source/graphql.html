@@ -14,7 +14,7 @@
 
 <a name="root"></a>
 <h2>Using GraphQL with FHIR</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 <p>
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.
 This page describes how to use GraphQL with FHIR. The GraphQL interface may be implemented by
@@ -141,7 +141,7 @@ Note that in this usage, there MAY be multiple OperationOutcome, one for each <c
 <h3>Field Selection</h3>
 
 <p>
-Any FHIR defined field can be used directly e.g. this graphql against the Patient resource (r3)
+Any FHIR defined field can be used directly e.g., this graphql against the Patient resource (r3)
 </p>
 <pre class="graphql">
  { 
@@ -152,7 +152,7 @@ Any FHIR defined field can be used directly e.g. this graphql against the Patien
 Example: <a href="<%test-server%>/Patient/example/$graphql?query={name{text,given,family}}"><%test-server%>/Patient/example/$graphql?query={name{text,given,family}}</a> (note: examples are only informative).
 </p>
 <p>
-Polymorphic fields are represented by their JSON property name E.g. for Observation.value[x]:
+Polymorphic fields are represented by their JSON property name e.g., for Observation.value[x]:
 </p>
 <pre class="graphql">
  { 
@@ -166,7 +166,7 @@ Example: <a href="<%test-server%>/Observation/example/$graphql?query={valueQuant
 Note: This is because the leaf names have to correspond to scalar types, so there is no use selecting all the variants at once 
 </p>
 <p>
-Extensions on primitives: the JSON convention for primitives is observed. e.g. use _[name] for accessing extensions on primitives. So
+Extensions on primitives: the JSON convention for primitives is observed. e.g., use _[name] for accessing extensions on primitives. So
 </p>
 <pre class="graphql">
  {
@@ -280,7 +280,7 @@ there are no more entries returned.
 <h5>Resource references</h5>
 
 <p>
-An object of type <a href="references.html#Reference">Reference</a> can have an additional selection <code>resource</code>. This is an instruction to the server to resolve the reference, and then include the contents of the resource as specified by sub-selections in the property name "resource" (can be aliased). e.g. On Observation:
+An object of type <a href="references.html#Reference">Reference</a> can have an additional selection <code>resource</code>. This is an instruction to the server to resolve the reference, and then include the contents of the resource as specified by sub-selections in the property name "resource" (can be aliased). e.g., On Observation:
 </p>
 <pre class="graphql">
  { 
@@ -291,7 +291,7 @@ An object of type <a href="references.html#Reference">Reference</a> can have an 
 The resource selector has two arguments: 
 </p>
 <ul>
-<li><code>optional</code> : true | false. (default is false). If the server cannot resolve the reference (e.g. resource does not exist, or user security rights or choices do not permit resource to be seen), and optional is not true, the server returns an error instead of the graph output</li>
+<li><code>optional</code> : true | false. (default is false). If the server cannot resolve the reference (e.g., resource does not exist, or user security rights or choices do not permit resource to be seen), and optional is not true, the server returns an error instead of the graph output</li>
 <li>type : [Resource] - only selects resources of a particular type, or ignores them if are they not of the right type. Note that this is similar in effect to 
 <pre class="graphql">
  { 
@@ -501,14 +501,14 @@ The specification defines the 2 forms of searches to meet differing requirements
 <li>servers can fulfill the simpler search with much less resources, because they do not need to remember state about the searches in order to correctly construct follow up pages</li>
 </ul>
 <p>
-In general, clients should use the simple search, for efficiency purposes, where appropriate (e.g. where the user is not going see a 'next' button). This particularly applies when doing reverse reference resolution.
+In general, clients should use the simple search, for efficiency purposes, where appropriate (e.g., where the user is not going see a 'next' button). This particularly applies when doing reverse reference resolution.
 </p>
 
 <a name="reverse"></a>
 <h5>Reverse References</h5>
 
 <p>
-It's also possible to use search is a special mode, doing reverse lookups - e.g. list all the resources that refer to this resource. 
+It's also possible to use search is a special mode, doing reverse lookups - e.g., list all the resources that refer to this resource. 
 An example of this use is to look up a patient, and also retrieve all the Condition resources for the patient. 
 </p>
 <p>
@@ -540,7 +540,7 @@ The response for the query above would be
 Example: <a href="<%test-server%>/Patient/example/$graphql?query={name{family,given}ConditionList(_reference:patient){id,clinicalStatus}}"><%test-server%>/Patient/example/$graphql?query={name{family,given}ConditionList(_reference:patient){id,clinicalStatus}}</a> (note: examples are only informative).
 </p>
 <p>
-The "connection" based search option is also supported, as described above, with the addition of _reference. If the client wishes to pursue any of the cursor based links in the graphQL results it asks for back, then it initiates this a new separate query as defined above, rather than repeating the nested query. I.e. the 'cursor' argument is prohibited, except at the root of query.
+The "connection" based search option is also supported, as described above, with the addition of _reference. If the client wishes to pursue any of the cursor based links in the graphQL results it asks for back, then it initiates this a new separate query as defined above, rather than repeating the nested query. i.e., the 'cursor' argument is prohibited, except at the root of query.
 </p>
 <p class="example">
 Example: <a href="<%test-server%>/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}"><%test-server%>/Patient/example/$graphql?query={name{family,given}ConditionConnection(_reference:patient){count,offset,pagesize,first,previous,next,last,edges{mode,score,resource{...onCondition{resourceType,id,clinicalStatus}}}}}</a> (note: examples are only informative).
@@ -730,7 +730,7 @@ For a resource that has 2 names will result in the output
 }
 </pre>
 <p>
-Other uses might be e.g. Telecom @slice(use) to generate telecom.home for instance.
+Other uses might be e.g., Telecom @slice(use) to generate telecom.home for instance.
 </p>
 <p>
 Notes:
@@ -738,7 +738,7 @@ Notes:
 <ul>
  <li>In general, the intent of @slice is to break a list into multiple singletons. However 
   servers SHALL NOT treat the outputs as singletons unless this is explicitly specified using <code>@singleton</code></li>
- <li>The suffixes added by this method are cumulative when nesting e.g. .suffix1.suffix2</li>
+ <li>The suffixes added by this method are cumulative when nesting e.g., .suffix1.suffix2</li>
  <li>The same general outcome can be achieved by a set of fields, each with an alias 
    and a filter, if the possible values are known in advance</li>
 </ul>

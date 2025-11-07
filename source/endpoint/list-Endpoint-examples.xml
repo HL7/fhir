@@ -70,4 +70,40 @@
       <display value="direct"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an US Core FHIR REST endpoint"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="endpoint-example-uscorefhir"/>
+    </extension>
+    <item>
+      <reference value="Endpoint/example-usCore-fhir"/>
+      <display value="fhir-rest"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an XCA CCDA Referral Exchange endpoint"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="endpoint-example-ccdaxca"/>
+    </extension>
+    <item>
+      <reference value="Endpoint/example-ccda-xca"/>
+      <display value="ihe-xca"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an AU HL7v2 Referral Exchange endpoint"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="endpoint-example-auhl7v2"/>
+    </extension>
+    <item>
+      <reference value="Endpoint/example-au-hl7v2"/>
+      <display value="hl7v2-mllp"/>
+    </item>
+  </entry>
 </List>
