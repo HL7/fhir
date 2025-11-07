@@ -546,12 +546,55 @@ The following list specifies that transforms that can be specified. Each transfo
   <td>return a string that references the provided tree properly</td>
   <td>n/a</td>
  </tr>
+
  <tr>
-  <td>dateOp</td> 
-  <td>??</td> 
-  <td>Perform a date operation. Parameters to be documented</td>
+  <td>toDateTime</td> 
+  <td>format string</td> 
+  <td>Parse a string into a date-time object, see <a href="date-op-details">Date Operation Details</a> for format information.</td>
   <td>n/a</td>
  </tr>
+ <tr>
+  <td>unixToDateTime</td> 
+  <td>time-zone?</td> 
+  <td>
+    Convert a Unix-offset (ticks) into a date-time object, applying the specified time-zone information (not present will convert to UTC).
+    <br/>Note that if a different source epoch is required, this can be achieved by adding or subtracting the difference in ticks prior to calling this function.
+  </td>
+  <td>n/a</td>
+ </tr>
+
+ <tr>
+  <td>toDate</td> 
+  <td>format string</td> 
+  <td>Parse a string into a date object, see <a href="date-op-details">Date Operation Details</a> for format information.</td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>unixToDate</td> 
+  <td>time-zone?</td> 
+  <td>
+    Convert a Unix-offset (ticks) into a date object, applying the specified time-zone information (not present will convert to UTC).
+    <br/>Note that if a different source epoch is required, this can be achieved by adding or subtracting the difference in ticks prior to calling this function.
+  </td>
+  <td>n/a</td>
+ </tr>
+
+ <tr>
+  <td>toTime</td> 
+  <td>format string</td> 
+  <td>Parse a string into a time object, see <a href="date-op-details">Date Operation Details</a> for format information.</td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>unixToTime</td> 
+  <td>time-zone?</td> 
+  <td>
+    Convert a Unix-offset (ticks) into a time object, applying the specified time-zone information (not present will convert to UTC).
+    <br/>Note that if a different source epoch is required, this can be achieved by adding or subtracting the difference in ticks prior to calling this function.
+  </td>
+  <td>n/a</td>
+ </tr>
+
  <tr>
   <td>uuid</td> 
   <td>n/a</td> 
@@ -566,7 +609,7 @@ The following list specifies that transforms that can be specified. Each transfo
  </tr>
  <tr>
   <td>translate</td> 
-  <td>(varies))</td> 
+  <td>(varies)</td> 
   <td>translate(source, uri_of_map) - use the <a href="fhirpath.html#txapi">translate operation</a></td>
   <td>n/a</td>
  </tr>
@@ -612,6 +655,146 @@ The following list specifies that transforms that can be specified. Each transfo
 <p>
 TODO: explain how optional parameters work with transforms (append only?), document list mode
 </p>
+
+<a name="date-op-details"></a>
+<h5>Date Operation Details</h5>
+<p>
+  Parsing textual content into date/time values is a complex task, given the wide variety of formats in use in the real world. 
+  The <code>dateOp</code> function provides a way to parse a wide variety of date/time formats into FHIR date/time types.
+  Unfortunately, there is no single standard for date/time formats across the contexts where FHIR is used (e.g., most programming
+  languages have their own date/time formats), so the <code>dateOp</code> function defines the following format codes below.
+</p>
+<p>
+  Note that:
+  <ul>
+    <li>Format codes are case-sensitive.</li>
+    <li>Any character not represented by a format code is treated as a literal and must match exactly in the input string.</li>
+    <li>Only a subset of the codes are <em>required</em>, implementations may vary.</li>
+  </ul>
+</p>
+<table class="grid">
+  <thead>
+    <th>Format Code</th>
+    <th>Support</th>
+    <th>Description</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>yy</code></td>
+      <td>optional</td>
+      <td>
+        2-digit year (e.g., 80 for 1980)
+        <br/>Implementations have discretion on how to interpret the century for 2-digit years (e.g., based on contextual knowledge).
+        <br/>A common approach is to interpret values 00-49 as 2000-2049 and 50-99 as 1950-1999.
+        <br/>Note that this format code is discouraged due to the ambiguity it introduces.
+      </td>
+    </tr>
+    <tr>
+      <td><code>yyyy</code></td>
+      <td>required</td>
+      <td>4-digit year (e.g., 2024)</td>
+    </tr>
+    <tr>
+      <td><code>M</code></td>
+      <td>optional</td>
+      <td>1- or 2-digit month of year (1=January, etc.)</td>
+    </tr>
+    <tr>
+      <td><code>MM</code></td>
+      <td>required</td>
+      <td>2-digit month of year (01=January, etc.)</td>
+    </tr>
+    <tr>
+      <td><code>MMM</code></td>
+      <td>optional</td>
+      <td>The localized abbreviated name of the month (e.g., 'Jun' for en-US, 'juin' for fr-FR)</td>
+    </tr>
+    <tr>
+      <td><code>MMMM</code></td>
+      <td>optional</td>
+      <td>The localized full name of the month (e.g., 'June' for en-US, 'juni' for da-DK)</td>
+    </tr>
+    <tr>
+      <td><code>d</code></td>
+      <td>optional</td>
+      <td>1- or 2-digit day of month (1 through 31)</td>
+    </tr>
+    <tr>
+      <td><code>dd</code></td>
+      <td>required</td>
+      <td>2-digit day of month (01 through 31)</td>
+    </tr>
+    <tr>
+      <td><code>h</code></td>
+      <td>optional</td>
+      <td>1- or 2-digit hour of AM/PM (1 through 12)</td>
+    </tr>
+    <tr>
+      <td><code>hh</code></td>
+      <td>required</td>
+      <td>2-digit hour of AM/PM (01 through 12)</td>
+    </tr>
+    <tr>
+      <td><code>H</code></td>
+      <td>optional</td>
+      <td>1- or 2-digit hour of day (00 through 23)</td>
+    </tr>
+    <tr>
+      <td><code>HH</code></td>
+      <td>required</td>
+      <td>2-digit hour of day (00 through 23)</td>
+    </tr>
+    <tr>
+      <td><code>m</code></td>
+      <td>optional</td>
+      <td>1- or 2-digit minute of hour (0 through 59)</td>
+    </tr>
+    <tr>
+      <td><code>mm</code></td>
+      <td>required</td>
+      <td>2-digit minute of hour (00 through 59)</td>
+    </tr>
+    <tr>
+      <td><code>s</code></td>
+      <td>optional</td>
+      <td>1- or 2-digit second of minute (0 through 59)</td>
+    </tr>
+    <tr>
+      <td><code>ss</code></td>
+      <td>required</td>
+      <td>2-digit second of minute (00 through 59)</td>
+    </tr>
+    <tr>
+      <td><code>S[+]</code></td>
+      <td>required</td>
+      <td>
+        1-digit fraction of second (0 through 9)
+        <br/>Note that consecutive fractional seconds are grouped together, e.g. <code>SSS</code> for milliseconds.
+        <br/>Implementations MUST support at least 3 digits (milliseconds); support for additional digits is optional.
+      </td>
+    </tr>
+    <tr>
+      <td><code>a</code></td>
+      <td>required</td>
+      <td>
+        1- or 2-letter localized AM/PM specifier.
+        <br/>e.g., en-US: <code>A</code>, <code>AM</code>, <code>P</code>, etc.
+        <br/>e.g., ja-JP: <code>午</code>, <code>午前</code>, etc.
+      </td>
+    </tr>
+    <tr>
+      <td><code>z</code></td>
+      <td>optional</td>
+      <td>Time zone literal (name or id). E.g., <code>America/Los_Angeles</code>, <code>Pacific Standard Time</code>, or <code>PST</code>.</td>
+    </tr>
+    <tr>
+      <td><code>Z</code></td>
+      <td>required</td>
+      <td>Time zone offset from UTC (e.g., <code>+0200</code>, <code>-0500</code>) or <code>Z</code> literal for UTC</td>
+    </tr>
+  </tbody>
+</table>
+
 
 <a name="type-cast"> </a>
 <h4>Type Wrangling</h4>
