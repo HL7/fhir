@@ -294,7 +294,8 @@
     behavior - there is no resource available to test against. In order to filter correctly, a combination of
     <code>resultForCreate</code> and <code>requireBoth</code> must be specified. For example, setting both
     <code>resultForCreate</code> and <code>requireBoth</code> to <code>true</code> or <code>false</code> will result in
-    criteria that can be tested against all interactions with expected behavior.
+    criteria that can be tested against all interactions with expected behavior. For more details, see the
+    <a href="#query-criteria">Query (Search) Trigger Definitions</a> section.
   </p>
   <p>
     When using <code>fhirPathCriteria</code> during a create, the <code>%previous</code> variable will be set to empty
@@ -315,7 +316,8 @@
     behavior - there is no resource available to test against. In order to filter correctly, a combination of
     <code>resultForDelete</code> and <code>requireBoth</code> must be specified. For example, setting both
     <code>resultForDelete</code> and <code>requireBoth</code> to <code>true</code> or <code>false</code> will result in
-    criteria that can be tested against all interactions with expected behavior.
+    criteria that can be tested against all interactions with expected behavior. For more details, see the
+    <a href="#query-criteria">Query (Search) Trigger Definitions</a> section.
   </p>
   <p>
     When using <code>fhirPathCriteria</code> during a delete, the <code>%current</code> variable will be set to empty
@@ -391,6 +393,154 @@
     More information can be found in the <a href="#resource-operation-pairs">Triggers and Resource Interactions</a> 
     section of this page.
   </p>
+  <p>
+    In order to filter correctly on FHIR interactions, a combination of 
+    <code>resultForCreate</code>, <code>resultForDelete</code>, and <code>requireBoth</code> must be specified. 
+    The following table summarizes the behavior based on the settings of these parameters:
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Interaction</th>
+          <th><code>resultForCreate</code></th>
+          <th><code>resultForDelete</code></th>
+          <th><code>requireBoth</code></th>
+          <th>Behavior</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>create</code></td>
+          <td><code>test-passes</code></td>
+          <td><em>not used</em></td>
+          <td><code>true</code></td>
+          <td>
+            Notification triggered if the <code>current</code> criteria match.
+            <br/>Missing prior version passes.
+            <br/>Both tests must pass for notification.
+            <br/>Current version is tested.
+            <br/>If current passes, notification is sent.
+          </td>
+        </tr>
+        <tr>
+          <td><code>create</code></td>
+          <td><code>test-passes</code></td>
+          <td><em>not used</em></td>
+          <td><code>false</code></td>
+          <td>
+            Notification is <em>always</em> triggered.
+            <br/>Missing prior version passes.
+            <br/>Only a single pass is required.
+            <br/>Notification is sent.
+          </td>
+        </tr>
+        <tr>
+          <td><code>create</code></td>
+          <td><code>test-fails</code></td>
+          <td><em>not used</em></td>
+          <td><code>true</code></td>
+          <td>
+            Notification is <em>never</em> triggered.
+            <br/>Missing prior version fails.
+            <br/>Two passes are required.
+            <br/>Notification is not sent.
+          </td>
+        </tr>
+        <tr>
+          <td><code>create</code></td>
+          <td><code>test-fails</code></td>
+          <td><em>not used</em></td>
+          <td><code>false</code></td>
+          <td>
+            Notification triggered if the <code>current</code> criteria match.
+            <br/>Missing prior version fails.
+            <br/>Only one test must pass for notification.
+            <br/>Current version is tested.
+            <br/>If current passes, notification is sent.
+          </td>
+        </tr>
+
+        <tr>
+          <td><code>delete</code></td>
+          <td><em>not used</em></td>
+          <td><code>test-passes</code></td>
+          <td><code>true</code></td>
+          <td>
+            Notification triggered if the <code>previous</code> criteria match.
+            <br/>Missing current version passes.
+            <br/>Both tests must pass for notification.
+            <br/>Previous version is tested.
+            <br/>If previous passes, notification is sent.
+          </td>
+        </tr>
+        <tr>
+          <td><code>delete</code></td>
+          <td><em>not used</em></td>
+          <td><code>test-passes</code></td>
+          <td><code>false</code></td>
+          <td>
+            Notification is <em>always</em> triggered.
+            <br/>Missing current version passes.
+            <br/>Only a single pass is required.
+            <br/>Notification is sent.
+          </td>
+        </tr>
+        <tr>
+          <td><code>delete</code></td>
+          <td><em>not used</em></td>
+          <td><code>test-fails</code></td>
+          <td><code>true</code></td>
+          <td>
+            Notification is <em>never</em> triggered.
+            <br/>Missing current version fails.
+            <br/>Two passes are required.
+            <br/>Notification is not sent.
+          </td>
+        </tr>
+        <tr>
+          <td><code>delete</code></td>
+          <td><em>not used</em></td>
+          <td><code>test-fails</code></td>
+          <td><code>false</code></td>
+          <td>
+            Notification triggered if the <code>previous</code> criteria match.
+            <br/>Missing current version fails.
+            <br/>Only one test must pass for notification.
+            <br/>Previous version is tested.
+            <br/>If previous passes, notification is sent.
+          </td>
+        </tr>
+
+        <tr>
+          <td><code>update</code></td>
+          <td><em>not used</em></td>
+          <td><em>not used</em></td>
+          <td><code>true</code></td>
+          <td>
+            Notification triggered if <b>both</b> <code>previous</code> and <code>current</code> criteria match.
+            <br/>Previous version is tested.
+            <br/>If previous fails, notification is not sent.
+            <br/>Current version is tested
+            <br/>If current fails, notification is not sent.
+            <br/>If both pass, notification is sent.
+          </td>
+        </tr>
+        <tr>
+          <td><code>update</code></td>
+          <td><em>not used</em></td>
+          <td><em>not used</em></td>
+          <td><code>false</code></td>
+          <td>
+            Notification triggered if <b>either</b> <code>previous</code> or <code>current</code> criteria match.
+            <br/>Previous version is tested.
+            <br/>If previous passes, notification is sent.
+            <br/>Current version is tested
+            <br/>If current passes, notification is sent.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </p>
+
   <p>
     Note that the query strings specified in <code>previous</code> and <code>current</code> are NOT required to be
     URL-encoded. Implementers should be defensive when processing these query criteria and check for both URL-encoded
