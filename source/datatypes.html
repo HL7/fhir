@@ -160,8 +160,8 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 
  <tr>
   <td>date<a name="date"></a></td>
-  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is a subset of
-    <a href="https://www.iso.org/iso-8601-date-and-time-format.html">[ISO8601]</a>: YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no timezone offset</b>. Dates SHALL be valid dates.</td>
+  <td>A date, or partial date (e.g., just year or year + month) as used in human communication. The format is a subset of
+    <a href="https://www.iso.org/iso-8601-date-and-time-format.html">[ISO8601]</a>: YYYY, YYYY-MM, or YYYY-MM-DD, e.g., 2018, 1973-06, or 1905-08-23. <b>There SHALL be no timezone offset</b>. Dates SHALL be valid dates.</td>
   <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
   <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
  </tr>
@@ -173,7 +173,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 </tr>
 <tr>
   <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
-  <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. The format is a subset of <a href="https://www.iso.org/iso-8601-date-and-time-format.html">[ISO8601]</a>: YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g. 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
+  <td>A date, date-time or partial date (e.g., just year or year + month) as used in human communication. The format is a subset of <a href="https://www.iso.org/iso-8601-date-and-time-format.html">[ISO8601]</a>: YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g., 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
    If hours and minutes are specified, a timezone offset SHALL be populated. Actual timezone codes can be sent using the <%extension http://hl7.org/fhir/StructureDefinition/timezone%> extension, if desired.
    Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Milliseconds are optionally allowed. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
   <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
@@ -214,7 +214,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 
 <tr>
   <td>instant<a name="instant"></a></td>
-  <td>An instant in time in a format that is a subset of <a href="https://www.iso.org/iso-8601-date-and-time-format.html">[ISO8601]</a>: YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a timezone offset.
+  <td>An instant in time in a format that is a subset of <a href="https://www.iso.org/iso-8601-date-and-time-format.html">[ISO8601]</a>: YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g., 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a timezone offset.
     Actual timezone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.  Sub-millisecond precision is optionally allowed.
     Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
   <td>xs:dateTime</td>
@@ -274,7 +274,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 
 <tr>
   <td>oid<a name="oid"></a></td>
-  <td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>); e.g. urn:oid:1.2.3.4.5</td>
+  <td>An OID represented as a URI (<a href="http://www.ietf.org/rfc/rfc3001.txt">RFC 3001</a>); e.g., urn:oid:1.2.3.4.5</td>
   <td>xs:anyURI</td>
   <td>JSON string - uri</td>
  </tr>
@@ -381,7 +381,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 
  <tr>
   <td>uuid<a name="uuid"></a></td>
-  <td>A UUID (aka GUID) represented as a URI (<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>); e.g. urn:uuid:c757873d-ec9a-4326-a141-556f43239520</td>
+  <td>A UUID (aka GUID) represented as a URI (<a href="http://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a>); e.g., urn:uuid:c757873d-ec9a-4326-a141-556f43239520</td>
   <td>xs:anyURI</td>
   <td>JSON string - uri</td>
  </tr>
@@ -403,9 +403,9 @@ Notes:
  <li>For decimal values, the XML special values <code>INF</code>, <code>-INF</code> and <code>NaN</code> are not allowed, and JSON is restricted to the <a href="https://www.w3.org/TR/xmlschema-2/">precision limits documented in XML schema for xs:double and xs:decimal</a></li>
  <li>The precision of the decimal value has significance:<a name="precision"></a>
     <ul>
-      <li>e.g. 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>
+      <li>e.g., 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>
       <li>Implementations SHALL handle decimal values in ways that preserve and respect the precision of the value as represented for presentation purposes.</li>
-      <li>Implementations are not required to perform calculations with these numbers differently, though they may choose to do so (i.e. preserve significance).</li>
+      <li>Implementations are not required to perform calculations with these numbers differently, though they may choose to do so (i.e., preserve significance).</li>
       <li>See implementation comments for <a href="xml.html#schema-gen">XML</a>, <a href="json.html#decimal">JSON</a> and <a href="rdf.html#decimal">RDF</a>.</li>
       <li>In object code, implementations that might meet this constraint are GMP implementations or equivalents to Java BigDecimal that implement arbitrary precision, or a combination of a (64 bit) floating point value with a precision field.</li>
       <li>Note that large and/or highly precise values are extremely rare in medicine. One element where highly precise decimals may be encountered is the <a href="location.html">Location</a> coordinates. Irrespective of this, the limits documented in XML Schema apply.</li>
@@ -419,8 +419,8 @@ Notes:
         The regexes <code>[\r\n\t\x{0020}-\x{FFFF}]*</code> or <code>[\r\n\t\u0020-\uFFFF]*</code> are better expressions of the constraints on string, but poorly supported (see <a href="https://www.regular-expressions.info/unicode.html">Regex Tutorial</a> for details).
         The <code>string</code> regex also applies to <code>markdown</code> as well. The regex does not enforce the length limit</li>
      <li>The Unicode issues also apply to the regex for <code>code</code>.</li>
-     <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
-     <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is always needed.</li>
+     <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g., caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
+     <li>The regexes may allow a broader set of values than are actually valid (e.g., leap years) so additional validation is always needed.</li>
    </ul>
  </li>
  <li>Leap second are allowed in the datetime, instant and time types. Note, though, that many systems and libraries do not support leap seconds. Applications reading times SHOULD accept and handle leap seconds gracefully, and applications producing them MAY choose to avoid encoding leap seconds.</li>
@@ -442,7 +442,7 @@ Notes:
  </li>
  <li>About the markdown datatype:
    <ul>
-     <li>Markdown is a string, and subject to the same rules (e.g. length limit, valid characters)</li>
+     <li>Markdown is a string, and subject to the same rules (e.g., length limit, valid characters)</li>
      <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions
          on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format, with the exception of support for inline HTML which is not supported.</li>
      <li>Processors SHALL treat embedded XML tags as string content, not as tags. This may be done by pre-processing and escaping any <code>"&gt;"</code>
@@ -468,7 +468,7 @@ When presenting markdown as plain text, implementers may wish to reverse this tr
 <h3>Representations in XML, JSON, and Turtle</h3>
 
 <p>
-All elements using these primitive types may have one or more of a value as described above, an internal identity (e.g. xml:id), and extensions.
+All elements using these primitive types may have one or more of a value as described above, an internal identity (e.g., xml:id), and extensions.
 For an example, take an element of name "count" and type "integer".
 </p>
 <p><b>XML</b></p>
@@ -588,7 +588,7 @@ data that has a MIME type.
 The actual content of an Attachment can be conveyed directly using the <code>data</code> element
 or a <code>URL</code> reference can be provided. If both are provided, the reference SHALL
 point to the same content as found in the data. The reference can never be reused to point to
-some different data (i.e. the reference is version specific). The <code>URL</code> reference SHALL
+some different data (i.e., the reference is version specific). The <code>URL</code> reference SHALL
 point to a location that resolves to actual data; some URIs such as cid: meet this requirement.
 If the URL is a relative reference, it is interpreted in the same way as a <a href="references.html#references">resource reference</a>.
 </p>
@@ -666,7 +666,7 @@ If the code is taken from a CodeSystem resource, <code>CodeSystem.url</code> is 
 correct value for the system element. Resolvable URLs are generally preferred by
 implementers over non-resolvable URNs, particularly opaque URNs such as OIDs (urn:oid:)
 or UUIDs (urn:uuid:). The system URI SHALL NOT contain a reference to a value set
-(e.g. <code>ValueSet.url</code>), since value sets just define the set of codes
+(e.g., <code>ValueSet.url</code>), since value sets just define the set of codes
 which are intended for use in a specific context, not the meaning of the codes themselves.
 </p>
 <p>
@@ -679,14 +679,14 @@ Note that the following systems SHOULD always have a version specified:
  <li>Various versions of ICD (note: the major releases are labeled as different code systems altogether, but there is variation within versions)</li>
 </ul>
 <p>
-More generally, any classification (e.g.  a code system that includes concepts with relative definitions such as "not otherwise coded"
+More generally, any classification (e.g.,  a code system that includes concepts with relative definitions such as "not otherwise coded"
 will require a version. See the <a href="codesystem.html#versioning">discussion of code system versions in the Code System resource</a> for
 further discussion on versioning.
 </p>
 
 <p>
 If present, the <code>code</code> SHALL be a syntactically correct symbol as defined by the <code>system</code>.
-In some code systems such as SNOMED CT, the symbol may be an expression composed of other predefined symbol (e.g. post-coordination).
+In some code systems such as SNOMED CT, the symbol may be an expression composed of other predefined symbol (e.g., post-coordination).
 Note that codes are case sensitive unless specified otherwise by the code system. The <code>display</code>
 is a text representation of the code defined by the <code>system</code> and is used to display
 the meaning of the code by an application that is not aware of the <code>system</code>.
@@ -705,7 +705,7 @@ are not allowed in <code>Coding.display</code>.
 <p>
 If one of the available display strings is labeled as preferred, it SHOULD be used (note that <code>CodeSystem.concept.display</code> is preferred
 for the base resource language if it is populated, but other display strings may be preferred in other languages, or for other usages).
-If the code system does not define a text representation for display (e.g. SNOMED CT Expressions) then the 'display' element cannot be
+If the code system does not define a text representation for display (e.g., SNOMED CT Expressions) then the 'display' element cannot be
 populated, and the meaning of the code won't be accessible to systems that don't understand the code expression.
 </p>
 
@@ -721,7 +721,7 @@ Thus, systems SHOULD populate the <code>Coding.system</code> whenever the system
 If the system is present, and there is no code, then this is understood to mean that there
 is no suitable code in the system in which to represent the concept. The implication of this is
 that implementers SHOULD never provide a system without a code unless this is the intended
-meaning AND it is appropriate for the code system and version.  (E.g. the code system does
+meaning AND it is appropriate for the code system and version.  (e.g., the code system does
 not have an 'OTHER' concept.)  This approach cannot be used if an appropriate code might
 exist within the code system but does not exist within the bound ValueSet.
 </p>
@@ -732,7 +732,7 @@ how the codes are related can only be determined by consulting the definitions o
 </p>
 <p>
 A coding may be marked as a "userSelected" if a user selected the particular coded value
-in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists,
+in a user interface (e.g., the user selects an item in a pick-list). If a user selected coding exists,
 it is the preferred choice for performing translations etc.
 </p>
 
@@ -754,7 +754,7 @@ This specification defines two types for representing coded values:
 </p>
 <ul>
  <li><b>Coding</b>: a simple direct reference to a code defined by a code system</li>
- <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e. a list of references to codes defined by code systems)</li>
+ <li><b>CodeableConcept</b>: a text description and/or a list of Codings (i.e., a list of references to codes defined by code systems)</li>
 </ul>
 <p>
 The <code>Coding</code> datatype corresponds to the simple case of selecting
@@ -837,7 +837,7 @@ Multiple codings can be present for several reasons:
 <ul>
   <li>Retaining legacy/internal codes while also providing 'standard' codes</li>
   <li>Allowing migration by supporting both older and newer terminology coding expectations</li>
-  <li>Meeting needs of different data consumers which may require codings to be present from different code systems and/or which represent the concept at different levels of precision (e.g. one system might only handle general codes like 'Diabetes' while another might want something more specific, such as "Type II diabetes, well-controlled")</li>
+  <li>Meeting needs of different data consumers which may require codings to be present from different code systems and/or which represent the concept at different levels of precision (e.g., one system might only handle general codes like 'Diabetes' while another might want something more specific, such as "Type II diabetes, well-controlled")</li>
 </ul>
 <p>
 Typical behavior is to expose all codings known that some portion of the interface clients are likely to have uses for.
@@ -925,7 +925,7 @@ This datatype can be <a href="terminologies.html#Quantity">bound</a> to a <a hre
 
 <p>
 The <code>value</code> contains the numerical value of the quantity, including an implicit precision.
-If no comparator is specified, the value is a point value (i.e. '='). The <code>comparator</code> element can never be ignored.
+If no comparator is specified, the value is a point value (i.e., '='). The <code>comparator</code> element can never be ignored.
 </p>
 <p>
 The <code>unit</code> element contains a displayable unit that defines what is measured.
@@ -993,9 +993,9 @@ of the Quantity datatype.
    <td></td>
    <td colspan="2">
    [%impl-note%]
-    If the duration value is specified as a whole number (e.g. 1 month), then
+    If the duration value is specified as a whole number (e.g., 1 month), then
     when the duration is added or subtracted to a given date(time), the outcome should be rounded
-    to the nearest natural calendar division - e.g. Feb. 1 + 1 mo = March 1, not March 2 or 3
+    to the nearest natural calendar division - e.g., Feb. 1 + 1 mo = March 1, not March 2 or 3
     (since 1 month in is defined in UCUM as 30 days).
    [%end-note%]
    </td>
@@ -1143,7 +1143,7 @@ just rules applied where the Quantity type is used to represent Money amounts.
 A set of ordered Quantity values defined by a low and high limit.
 </p>
 <p>
-A Range specifies a set of possible values; usually, one value from the range applies (e.g. "give the patient between 2 and 4 tablets").
+A Range specifies a set of possible values; usually, one value from the range applies (e.g., "give the patient between 2 and 4 tablets").
 Ranges are typically used in instructions.
 </p>
 [%dt Range 5%]
@@ -1157,7 +1157,7 @@ The <code>comparator</code> flag on the <code>low</code> or <code>high</code> el
 used to represent out of range measurements: A quantity type with the comparator element should be used instead.
 </p>
 <p>
-The low and the high values are inclusive and are assumed to have arbitrarily high precision; e.g. the range 1.5 to 2.5
+The low and the high values are inclusive and are assumed to have arbitrarily high precision; e.g., the range 1.5 to 2.5
 includes 1.50, and 2.50 but not 1.49 or 2.51.
 </p>
 <div class="use">
@@ -1187,13 +1187,13 @@ of Ratio.
 [%dt Ratio 6%]
 <p>
 Examples where a Quantity is typically used are rates, densities, concentrations.
-Examples where a Ratio is used are: titers (e.g. 1:128); concentration ratios where
-the denominator is significant (e.g. 5mg/10mL); observed frequencies (e.g. 2 repetitions/8 hr),
+Examples where a Ratio is used are: titers (e.g., 1:128); concentration ratios where
+the denominator is significant (e.g., 5mg/10mL); observed frequencies (e.g., 2 repetitions/8 hr),
 and where the numerator or denominator is an amount of a currency (no UCUM code for $ etc.).
 </p>
 <p>
 Common factors in the numerator and denominator are not automatically cancelled out. Ratios are not
-simply "structured numbers" - for example, blood pressure measurements (e.g. "120/60") are not ratios.
+simply "structured numbers" - for example, blood pressure measurements (e.g., "120/60") are not ratios.
 </p>
 <p>
 A proper ratio has both a numerator and a denominator; however, these are not mandatory in order
@@ -1232,7 +1232,7 @@ of RatioRange.
 [%dt RatioRange 6%]
 <p>
 Common factors in the numerator and denominator are not automatically cancelled out. Ratios are not
-simply "structured numbers" - for example, blood pressure measurements (e.g. "120/60") are not ratios.
+simply "structured numbers" - for example, blood pressure measurements (e.g., "120/60") are not ratios.
 </p>
 <p>
 A proper ratio range has one of the numerators and a denominator; however, these are not mandatory in order
@@ -1264,9 +1264,9 @@ A time period defined by a start and end date/time.
 </p>
 <p>
 A period specifies a range of times. The context
-of use will specify whether the entire range applies (e.g. "the patient
+of use will specify whether the entire range applies (e.g., "the patient
 was an inpatient of the hospital for this time range") or one value
-from the period applies (e.g. "give to the patient between 2 and 4 pm on 24-Jun 2013").
+from the period applies (e.g., "give to the patient between 2 and 4 pm on 24-Jun 2013").
 </p>
 [%dt Period 7%]
 <p>
@@ -1358,7 +1358,7 @@ errors.
 
 
 <p>
-The <code>system</code> is an absolute URI that defines a set of identifiers (i.e. how the <code>value</code> is made unique).
+The <code>system</code> is an absolute URI that defines a set of identifiers (i.e., how the <code>value</code> is made unique).
 It might be a specific application or a recognized standard/specification for a set of identifiers
 or a way of making identifiers unique.
 FHIR defines <a href="identifier-registry.html">some useful or important system URIs directly</a>. Here are some
@@ -1397,7 +1397,7 @@ others would appear on <a href="servicerequest.html">ServiceRequest</a>.
 <p>
 Identifiers are expected to be globally unique by nature of the combination of system and value.
 In some cases, the 'value' element is already globally unique independent of Identifier.system.
-Typically, these are absolute URIs of some kind (e.g. an OID, a UUID, or a URI with no trailing local part).
+Typically, these are absolute URIs of some kind (e.g., an OID, a UUID, or a URI with no trailing local part).
 In such a case, an <code>Identifier.system</code> value <a href="identifier-registry.html">may be established</a> by the assigner
 or community to identify that collection of identifiers
 </p>
@@ -1408,13 +1408,13 @@ expressed as a URI (OIDs and UUIDs using <code>urn:oid:</code> and <code>urn:uui
 <a href="datatypes-mappings.html#ii">note on the V3 mapping</a> and the <a href="datatypes-examples.html#Identifier">examples</a>.
 </p>
 <p>
-In some cases, the system might not be known - only the value is known (e.g. a simple device that scans a barcode),
+In some cases, the system might not be known - only the value is known (e.g., a simple device that scans a barcode),
 or the system is known implicitly (simple exchange in a limited context, often driven by barcode readers).
 In this case, no useful matching may be performed using the value unless the system can be safely inferred by the
 context. Applications should provide a <code>system</code> wherever possible, as information sharing in a wider context
 is very likely to arise eventually, and values without a system are inherently limited in use.  Whether or not the proper
 <code>Identifier.system</code> is known, the human-readable label for the <code>Identifier.value</code> typically appears
-in <code>Identifier.type.text</code>.  E.g. 'BC provincial health number'.
+in <code>Identifier.type.text</code>.  e.g., 'BC provincial health number'.
 </p>
 <p>
 In addition to the <code>system</code> (which provides a uniqueness scope) and the <code>value</code>, identifiers may also have a
@@ -1482,11 +1482,11 @@ understanding of how name works.</b>
 </p>
 <p>
 The multiple given parts and family name combine to form a single name.
-Where a person has alternate names that may be used in place of each other (e.g. Nicknames, Aliases),
+Where a person has alternate names that may be used in place of each other (e.g., Nicknames, Aliases),
 these are different instances of <code>HumanName</code>.
 </p>
 <p>
-The text element specifies the entire name as it should be displayed e.g. in an application UI.
+The text element specifies the entire name as it should be displayed e.g., in an application UI.
 This may be provided instead of or as well as the specific parts. Applications updating a
 name SHALL ensure that when both text and parts are present, no content is included in the
 text that isn't found in a part. The correct order of assembly of the parts is culture
@@ -1502,8 +1502,8 @@ generally rely on the text form for presentation and use the parts for index/sea
 For this reason, applications SHOULD populate the text element for future robustness.
 </p>
 <p>
-In some cultures (e.g. German, Dutch, Spanish, Portuguese), family names are complex and composed of
-various parts that may need to be managed separately, e.g. they have differing significance
+In some cultures (e.g., German, Dutch, Spanish, Portuguese), family names are complex and composed of
+various parts that may need to be managed separately, e.g., they have differing significance
 for searching. In these cases, the full family name is populated in <code>family</code>,
 and a decomposition of the name can be provided using the <code>family</code> extensions
 <a href="[%extensions-location%]StructureDefinition-humanname-own-name.html">own-name</a>,
@@ -1515,7 +1515,7 @@ and a decomposition of the name can be provided using the <code>family</code> ex
 </p>
 <p>
 For robust search, servers should search the parts of a family name independently.
-E.g. Searching either Carreno or Quinones should match a family name of "Carreno Quinones".
+e.g., Searching either Carreno or Quinones should match a family name of "Carreno Quinones".
 HL7 affiliates, and others producing implementation guides, may make more specific recommendations about how search should work
 in specific cultures or environments.
 </p>
@@ -1559,7 +1559,7 @@ ought not to appear on an address line.  However "XYZ Retirement Home" would be 
 on the address line, as that is not found in the Patient.name.
 </p>
 <p>
-The text element Specifies the entire address as it should be displayed e.g. on a postal label, 
+The text element Specifies the entire address as it should be displayed e.g., on a postal label, 
 using a newline delimiter for each line (e.g., \n). This may be provided instead of or as well 
 as the specific parts. Applications updating an address SHALL ensure that when both text and 
 parts are present, no content is included in the text that isn't found in a part.
@@ -1744,7 +1744,7 @@ Methods to express the "event" or "context" that is reference point for time rel
   <ol>
     <li>Describing an exact duration (quantity with a numerical value and time-specific unit), in which case offsetDuration is used.</li>
     <li>Describing a one-sided interval, in which case offsetDuration is used and includes offsetDuration.comparator with an appropriate code (&gt;, &gt;=, &lt;, or &lt;=).</li>
-    <li>Describing a two-sided interval, in which case offsetRange is used, and the Quantity datatype within the low and high values are limited to Duration datatype (i.e. limited to time-specific units).</li>
+    <li>Describing a two-sided interval, in which case offsetRange is used, and the Quantity datatype within the low and high values are limited to Duration datatype (i.e., limited to time-specific units).</li>
     <li>Describing the same moment of time as the relevant event (offset = 0), in which case offsetDuration.value = 0 and units are unnecessary.</li>
   </ol>
 </p>
@@ -1759,7 +1759,7 @@ Methods to express the "event" or "context" that is reference point for time rel
 
 <p>
 A <a href="signatures.html">Signature</a> holds an electronic representation of a signature and its supporting context in a FHIR accessible form.
-The signature may either be a cryptographic type (e.g. XML DigSig or a JWS), which is able to provide non-repudiation proof, or
+The signature may either be a cryptographic type (e.g., XML DigSig or a JWS), which is able to provide non-repudiation proof, or
 it may be a graphical image that represents a signature or a digital-signature process.
 </p>
 [%dt Signature 14%]
@@ -1774,7 +1774,7 @@ Notes:
 <ul>
  <li>The Signature datatype can be used to hold a digital-signature, but may also be used to hold electronic-signatures.</li>
  <li>Electronic-Signatures, such as image of ink signature, do not protect the signed content from change, but do carry details about who signed, when signature happened, and what the signature means.</li>
- <li>Digital-Signatures (e.g. Xml DigSig or JOSE) do protect the content when implemented properly - see <a href="signatures.html">Signatures</a> for further details.</li>
+ <li>Digital-Signatures (e.g., Xml DigSig or JOSE) do protect the content when implemented properly - see <a href="signatures.html">Signatures</a> for further details.</li>
 </ul>
 <p>
 Signature is used in the following places: [%dtusage Signature%], and also there is an
