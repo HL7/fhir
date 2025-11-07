@@ -13,6 +13,7 @@
           <valueString value="Consent.provision.action"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-action"/>
+        <status value="active"/>
         <description value="Actions controlled by this rule"/>
         <code value="action"/>
         <type value="token"/>
@@ -32,6 +33,7 @@
           <valueString value="Consent.provision.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-action"/>
+        <status value="active"/>
         <description value="LOINC or SNOMED CT code, etc. in the content"/>
         <code value="action"/>
         <type value="token"/>
@@ -51,6 +53,7 @@
           <valueString value="Consent.provision.actor.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-actor"/>
+        <status value="active"/>
         <description value="Resource for the actor (or group, by role)"/>
         <code value="actor"/>
         <type value="reference"/>
@@ -70,6 +73,7 @@
           <valueString value="Consent.category"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-category"/>
+        <status value="active"/>
         <description value="Classification of the consent statement - for indexing/retrieval"/>
         <code value="category"/>
         <type value="token"/>
@@ -89,6 +93,7 @@
           <valueString value="Consent.grantee"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-consentor"/>
+        <status value="active"/>
         <description value="Who is agreeing to the policy and rules"/>
         <code value="grantee"/>
         <type value="reference"/>
@@ -108,6 +113,7 @@
           <valueString value="Consent.controller"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-controller"/>
+        <status value="active"/>
         <description value="Consent Enforcer"/>
         <code value="controller"/>
         <type value="reference"/>
@@ -127,6 +133,7 @@
           <valueString value="Consent.provision.data.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-data"/>
+        <status value="active"/>
         <description value="The actual data reference"/>
         <code value="data"/>
         <type value="reference"/>
@@ -146,6 +153,7 @@
           <valueString value="Consent.date"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-date"/>
+        <status value="active"/>
         <description value="When consent was agreed to"/>
         <code value="date"/>
         <type value="date"/>
@@ -165,6 +173,7 @@
           <valueString value="Consent.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-identifier"/>
+        <status value="active"/>
         <description value="Identifier for this record (external references)"/>
         <code value="identifier"/>
         <type value="token"/>
@@ -184,6 +193,7 @@
           <valueString value="Consent.manager"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-manager"/>
+        <status value="active"/>
         <description value="Consent workflow management"/>
         <code value="manager"/>
         <type value="reference"/>
@@ -203,6 +213,7 @@
           <valueString value="Consent.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-patient"/>
+        <status value="active"/>
         <description value="Who the consent applies to"/>
         <code value="patient"/>
         <type value="reference"/>
@@ -223,6 +234,7 @@
           <valueString value="Consent.provision.period"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-period"/>
+        <status value="active"/>
         <description value="Timeframe for this rule"/>
         <code value="period"/>
         <type value="date"/>
@@ -242,6 +254,7 @@
           <valueString value="Consent.provision.purpose"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-purpose"/>
+        <status value="active"/>
         <description value="Context of activities covered by this rule"/>
         <code value="purpose"/>
         <type value="token"/>
@@ -261,6 +274,7 @@
           <valueString value="Consent.provision.securityLabel"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-security-label"/>
+        <status value="active"/>
         <description value="Security Labels that define affected resources"/>
         <code value="security-label"/>
         <type value="token"/>
@@ -280,6 +294,7 @@
           <valueString value="Consent.sourceReference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-source-reference"/>
+        <status value="active"/>
         <description value="Search by reference to a Consent, DocumentReference, Contract  or QuestionnaireResponse"/>
         <code value="source-reference"/>
         <type value="reference"/>
@@ -299,6 +314,7 @@
           <valueString value="Consent.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-status"/>
+        <status value="active"/>
         <description value="draft | active | inactive | entered-in-error | unknown"/>
         <code value="status"/>
         <type value="token"/>
@@ -318,6 +334,7 @@
           <valueString value="Consent.subject"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-subject"/>
+        <status value="active"/>
         <description value="Who the consent applies to"/>
         <code value="subject"/>
         <type value="reference"/>
@@ -337,6 +354,7 @@
           <valueString value="Consent.verification.verified"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-verified"/>
+        <status value="active"/>
         <description value="Has been verified"/>
         <code value="verified"/>
         <type value="token"/>
@@ -356,6 +374,7 @@
           <valueString value="Consent.verification.date"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-verified-date"/>
+        <status value="active"/>
         <description value="When consent verified"/>
         <code value="verified-date"/>
         <type value="date"/>
