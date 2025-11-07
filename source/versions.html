@@ -680,24 +680,25 @@ or incompatible ways, and it may be necessary to carry data elements from past v
 in order to allow seamless round-tripping.
 </p>
 <p>
-In order to help implementers with this problem, any element defined in any version of FHIR
-is automatically assigned an extension URL that uniquely identifies the element and can be used
-in instances of any other version of FHIR. The extension URL for an element can automatically be derived:
+  In order to help authors and implementers address this problem, HL7 defines a set of cross-version
+  packages that define extensions for every element that is present in all other major versions of FHIR.
+  These extensions allow data from other versions to be represented in a standard way. In order to make
+  detection of these extensions easier, they are defined with a standard URL pattern:
 </p>
 <pre>
 http://hl7.org/fhir/[defining_version]/StructureDefinition/extension-[Path]
 </pre>
 <p>
-where [version] is taken from this list:
+where [defining_version] is taken from this list:
 </p>
 <table class="grid">
 <tr>
-<td><a href="http://hl7.org/fhir/DSTU2">FHIR DSTU2</a></td>
-<td>1.0</td>
+  <td><a href="http://hl7.org/fhir/DSTU2">FHIR DSTU2</a></td>
+  <td>1.0</td>
 </tr>
 <tr>
-<td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
-<td>3.0</td>
+  <td><a href="http://hl7.org/fhir/STU3">FHIR R3</a> (STU3, or just R3)</td>
+  <td>3.0</td>
 </tr>
 <tr>
   <td><a href="http://hl7.org/fhir/r4">FHIR R4</a> (mixed STU/Normative)</td>
@@ -713,12 +714,19 @@ where [version] is taken from this list:
 </tr>
 </table>
 <p>
-This table includes the formal milestone releases for DSTU2 and on, which are the only releases for which this process is defined.  Older versions than that are not supported.  Technical correction releases are not listed because they will never introduce or change elements.  Ballot and interim releases are not supported for use in implementation environments
+  This table includes the formal milestone releases for DSTU2 and on, which are the only releases for which this process is defined.  
+  Older versions than that are not supported.  Technical correction releases are not listed because they will never introduce or change elements. 
+  Ballot and interim releases are not supported for use in implementation environments
 </p>
 <p>
-The [Path] is actually the ElementDefinition.id from the relevant
-StructureDefinition for the element. This leads to URLs like the
-following:
+  Note that not every element will have an extension from a given FHIR version.  Extensions are only
+  defined for elements that do not have a way of representing the data in the target version - e.g.
+  elements that do not exist, elements with types that do not exist, or elements with changes that
+  prevent direct representation (e.g. maximum cardinality changes from <code>1</code> to <code>*</code>).
+</p>
+<p>
+The <code>[Path]</code> is actually the <code>ElementDefinition.id</code> from the relevant <code>StructureDefinition</code> for the element. 
+This leads to URLs <em>like</em> following:
 </p>
 <table class="grid">
  <tr><td><code>http://hl7.org/fhir/4.0/StructureDefinition/extension-Bundle.signature</code></td><td><a href="http://hl7.org/fhir/4.0/bundle-definitions.html#Bundle.signature">R4 Signature Element on Bundle</a></td></tr>
@@ -726,407 +734,13 @@ following:
  <tr><td><code>http://hl7.org/fhir/1.0/StructureDefinition/extension-ValueSet.extensible</code></td><td><a href="http://hl7.org/fhir/DSTU2/valueset-definitions.html#ValueSet.extensible">DSTU2 ValueSet.extensible</a></td></tr>
 </table>
 <p>
-Implementers should be aware of the following issues when using these extensions:
-</p>
-<ul>
- <li>Implementations SHALL always use the equivalent element for data when one exists.  Cross-version extensions can be used for elements that don't exist, elements with types that do not exist, or elements whose maximum
-   cardinality has changed from 1 to *. The version <a href="diff.html">differences</a> and <a href="r4maps.html">maps</a> (and their equivalent for other versions) can help determine when cross-version extensions are appropriate</li>
- <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g., <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc.)</li>
- <li>Where complex datatypes have no equivalent in an earlier version, use a complex extension, 
-  where the name of the child properties is the name of the complex extension components, and each of these subextensions
-  are extensions that also follow this pattern (see example below).</li>
- <li>This same pattern applies for any new elements not found in datatypes in earlier versions,
-  and for additional children where there is a cardinality increase in the referenced (subsequent) version.</li>
- <li>If the change between versions is that the subsequent version allows a type that is not allowed in the 
-  previous version, then whenever the type is allowed, it should be found in the element, but if it is not,
-  then it should be in an extension with the URL of the subsequent version e.g., 
-  <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.value</code> for types
-  allowed in Observation.value in R5 that were not allowed in an earlier version.
- </li>
- <li>It is always an error to use a cross version extension in the same version e.g.
-  the extension <code>http://hl7.org/fhir/5.0/StructureDefinition/extension-...</code> could
-  never appear in an R5 instance.
- </li>
- <li>
-  If the data element being referenced has <code>targetProfile</code> elements that refer to resources, 
-  only those targetProfile resources that have URLs that exist in the referencing version can exist.  
-  If a resource has been renamed, it can't be used in the prior release (note: this is because there's no 
-  computable way of determining what names would be allowed); the  <a href="[%extensions-location%]StructureDefinition-alternate-reference.html">alternate-reference</a>
-  and <a href="[%extensions-location%]StructureDefinition-alternate-canonical.html">alternate-canonical</a> extensions may be used in this context. e.g., if converting 
-  from a version that supports 3 target types when the target version only supports 2 target types, any repetition that referred to 
-  the non-supported type would be represented as a reference or canonical instance where the content would just be the alternate extension (and a display, since something must be provided).
- </li>
- <li>
-  When converting a data type to a target version where that type does not exist (i.e it's either a simple type that
-  will use the mapping table below, or a complex type that will be converted to a set of child extensions), if the 
-  converted element is a choice, there will be a <a href="[%extensions-location%]StructureDefinition-datatype.html">child extension _datatype</a>   
-  added to the element that will contain the name of the complex type in the source version.
- </li>
- <li>
-  The extension mechanism carries no information about cardinalities. If converting from the extension mechanism to 'core' elements when up-converting or 
-  down-converting the resource, the conversion process will need to know the max occurs for the extension or the element in the target version (e.g., to 
-  know whether the element should be a JSON array or not).
- </li>
- <li>
-  The vocabulary bindings can be to a specific value set version, but the expansions of those value sets 
-  will be based on the context of the version of FHIR being used, NOT the version of core the extension 
-  definition is taken from.
- </li>
- <li>If the referenced type includes target resources that are not supported in the adopting version, those resources will be removed.  If the result is that NO target resources are allowed, then the inter-version extension is not permitted.</li>
- <li>Where mapping simple types, the type conversions are shown in the table below. The mapping table SHALL be used.</li>
- <li>
-  Systems SHALL annotate required elements that cannot be provided when using inter-version-conversion by using the extension: 
-  <code>http://hl7.org/fhir/StructureDefinition/data-absent-reason</code> with the code <code>unsupported</code>.
- </li>
-</ul>
-<p>
-This table shows the mapping between primitive datatypes across versions:
+  Further details can be found in the individual cross-version definition packages.
 </p>
 
-<table class="grid">
- <tr> <td>R5</td>           <td>R4</td>             <td>R3</td>            <td>DSTU2</td> </tr>
- <tr> <td>base64Binary</td> <td>base64Binary</td>   <td>base64Binary</td>  <td>base64Binary</td> </tr>
- <tr> <td>boolean</td>      <td>boolean</td>        <td>boolean</td>       <td>boolean</td> </tr>
- <tr> <td>canonical</td>    <td>canonical</td>      <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
- <tr> <td>code</td>         <td>code</td>           <td>code</td>          <td>code</td> </tr>
- <tr> <td>date</td>         <td>date</td>           <td>date</td>          <td>date</td> </tr>
- <tr> <td>dateTime</td>     <td>dateTime</td>       <td>dateTime</td>      <td>dateTime</td> </tr>
- <tr> <td>decimal</td>      <td>decimal</td>        <td>decimal</td>       <td>decimal</td> </tr>
- <tr> <td>id</td>           <td>id</td>             <td>id</td>            <td>id</td> </tr>
- <tr> <td>instant</td>      <td>instant</td>        <td>instant</td>       <td>instant</td> </tr>
- <tr> <td>integer</td>      <td>integer</td>        <td>integer</td>       <td>integer</td> </tr>
- <tr> <td>markdown</td>     <td>markdown</td>       <td>markdown</td>      <td>markdown</td> </tr>
- <tr> <td>oid</td>          <td>oid</td>            <td>oid</td>           <td>oid</td> </tr>
- <tr> <td>positiveInt</td>  <td>positiveInt</td>    <td>positiveInt</td>   <td>positiveInt</td> </tr>
- <tr> <td>string</td>       <td>string</td>         <td>string</td>        <td>string</td> </tr>
- <tr> <td>time</td>         <td>time</td>           <td>time</td>          <td><i>string</i></td>  </tr>
- <tr> <td>time</td>         <td>unsignedInt</td>    <td>unsignedInt</td>   <td>unsignedInt</td> </tr>
- <tr> <td>uri</td>          <td>uri</td>            <td>uri</td>           <td>uri</td> </tr>
- <tr> <td>url</td>          <td>url</td>            <td><i>(uri)</i></td>  <td><i>(uri)</i></td> </tr>
- <tr> <td>uuid</td>         <td>uuid</td>           <td>uuid</td>          <td><i>(uri)</i></td> </tr>
- <tr> <td>integer64</td>    <td><i>string</i></td>  <td><i>string</i></td> <td><i>string</i></td> </tr>
-</table>
 
 <a name="extensions-examples-primitive"></a>
-<h4>Examples for Primitive Data Types</h4>
-
-<p>
-To Do
-</p>
-
 <a name="extensions-examples-complex"></a>
-<h4>Examples for Complex Data Types</h4>
-
-<p>
-There are several different variations when it comes to representing a complex datatype that has no equivalent in an earlier version.
-This section illustrates those situations.
-</p>
-<p><b>A complex datatype in a resource</b></p>
-<p>
-This is how it appears in R6:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Immunization",
-    "status" : "completed",
-    "vaccineCode" : {
-      "text" : "something"
-    },
-    "patient" : {
-      "reference" : "Patient/something"
-    },
-    "administeredProduct" : {
-      "reference" : {
-        "reference" : "Medication/something"
-      }
-    },
-    "occurrenceDateTime" : "2024-01-01T01:01:01Z"
-  }
-</pre>
-<p>
-  This is how the same data appears in R4 using a cross-version extension:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Immunization",
-    "status" : "completed",
-    "vaccineCode" : {
-      "text" : "something"
-    },
-    "patient" : {
-      "reference" : "Patient/something"
-    },
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-Immunization.administeredProduct",
-      "extension" : [{
-        "url" : "reference",
-        "valueReference" : {
-          "reference" : "Medication/something"
-        }
-      }]
-    }],
-    "occurrenceDateTime" : "2024-01-01T01:01:01Z"
-  }
-</pre>
-<p>
-Note that this is an R5 extension, since valueAttachment was introduced in R5. 
-</p>
-<p><b>A complex datatype in a resource for a choice element</b></p>
-
-<p>
-  This is how it appears in R6:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Parameters",
-    "parameter" : [{
-      "name" : "ref",
-      "valueCodeableReference" : {
-        "concept" : {
-          "text" : "Something"
-        }
-      }
-    }]
-  }
-</pre>
-
-<p>
-  This is how the same data appears in R4 using a cross-version extension:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Parameters",
-    "parameter" : [{
-      "name" : "ref",
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-Parameters.parameter.value%5Bx%5D",
-        "extension" : [{
-          "url" : "_datatype",
-          "valueString" : "CodeableReference"
-        },{
-          "url" : "concept",
-          "valueCodeableConcept" : {
-            "text" : "Something"
-          }
-        }
-      }]
-    }]
-  }
-</pre>
-    
-<p><b>A complex data type in an extension</b></p>
-<p>
-  The extension <code>http://hl7.org/fhir/StructureDefinition/immunization-procedure</code> is defined
-  in the extensions pack, but uses the R5 specific data type <code>CodeableReference</code>. This 
-  is how it appears in R6:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Immunization",
-    "status" : "completed",
-    "vaccineCode" : {
-      "text" : "something"
-    },
-    "patient" : {
-      "reference" : "Patient/something"
-    },
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/immunization-procedure",
-      "valueCodeableReference" : {
-        "concept" : {
-          "text" : "something"
-        },
-        "reference" : {
-          "display" : "something"
-        }
-      }
-    }],
-    "occurrenceDateTime" : "2024-01-01T01:01:01Z"
-  }
-</pre>
-
-<p>
-  This is how the same extension appears in R4 using a cross-version representation of the CodeableReference:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Immunization",
-    "id" : "xver-immunization2-r4",
-    "status" : "completed",
-    "vaccineCode" : {
-      "text" : "something"
-    },
-    "patient" : {
-      "reference" : "Patient/something"
-    },
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/immunization-procedure",
-      "extension" : [{
-        "url" : "_datatype",
-        "valueString" : "CodeableReference"
-      }, {
-        "url" : "concept",
-        "valueCodeableConcept" : {
-          "text" : "something"
-        }
-      }, {
-        "url" : "reference",
-        "valueReference" : {
-          "display" : "something"
-        }
-      }]
-    }],
-    "occurrenceDateTime" : "2024-01-01T01:01:01Z"
-  }
-</pre>
-    
-
-<p><b>A complex data type in an sub-extension</b></p>
-<p>
-This is how it appears in R6:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Patient",
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/patient-sexParameterForClinicalUse",
-      "extension" : [{
-        "url" : "value",
-        "valueCodeableConcept" : {
-          "coding" : [{
-            "system" : "http://terminology.hl7.org/CodeSystem/sex-parameter-for-clinical-use",
-            "code" : "specified"
-          }]
-        }
-      },{
-        "url" : "supportingInfo",
-        "valueCodeableReference" : {
-          "concept" : {
-            "text" : "Per Registration Questions"
-          },
-          "reference" : {
-            "display" : "DocumentReference/Something"
-          }
-        }
-      }]
-    }]
-  }
-</pre>
-
-<p>
-  This is how the same data appears in R4 using a cross-version extension:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Patient",
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/individual-genderIdentity",
-      "extension" : [{
-        "url" : "supportingInfo",
-        "extension" : [{
-          "url" : "_datatype",
-          "valueString" : "valueCodeableReference"
-        },{
-          "url" : "concept",
-          "valueReference" : {
-            "text" : "Per Registration Questions"
-          }
-        },{
-          "url" : "reference",
-          "valueReference" : {
-            "display" : "DocumentReference/Something"
-          }
-        }]
-      }]
-    }]
-  }
-</pre>
-  
-
 <a name="extensions-examples-mandatory"></a>
-<h4>Examples for working with Mandatory elements</h4>
-
-<p>
-The situation with required elements is more complicated. This is when the data that is 
-being represented using a cross-version extension is data for an element that is mandatory
-in the earlier version. The intent of the mandatory element is that proper data 
-must be provided, but the desire is to provide a different form of data using a cross-version extension.
-</p>
-<p>
-Implementers should note that wherever possible, the correct data should be provided. But in 
-the case that this is not possible, this example shows how the cross-version extension should be used.
-</p>
-<p>
-Here is the data in R6 format, a CodeableReference in a <a href="task.html">Task</a> input parameter:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Task",
-    "status" : "draft",
-    "input" : [{
-      "type" : { "text" : "code-me-please" },
-      "valueCodeableReference" : {
-        "concept" : {
-          "text" : "Something"
-        }
-      }
-    }]
-  }
-</pre>
-<p>
-The representation of the cross-version extension is the same in R4, but there must also be 
-an actual Task.input.value that is valid in R4. This is done using the 
-<a href="https://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html">Data Absent Reason</a> extension:
-</p>
-<pre class="json">
-  {
-    "resourceType" : "Task",
-    "id" : "xver-task-r5",
-    "status" : "draft",
-    "input" : [{
-      "type" : { "text" : "code-me-please" },
-      "_valueBoolean" : {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-          "valueCode" : "unsupported"
-        }]
-      },
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-Task.input.value%5Bx%5D",
-        "extension" : [{
-          "url" : "_datatype",
-          "valueString" : "CodeableReference"
-        }, {
-          "url" : "concept",
-          "valueCodeableConcept": {
-            "text" : "Something"
-          }
-        }]
-      }]
-    }]
-  }
-</pre>
-<p>
-Implementer Notes:
-</p>
-<ul>
-  <li>The choice of boolean as the placeholder value that holds the data-absent-reason is arbitrary, and another type could be used, but it's a lot simpler for implementations if it's a primitive type of some kind.  </li>
- <li>Systems processing the resource that find the <a href="https://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html">Data Absent Reason</a>
-code of <code>  unsupported</code> can observe the presence of a cross-version extension to understand that the system that authored
-the resource had the data available but not a supported way to represent in the earlier (or later) version.</li>
- <li> 
-When processing the data, it is valid (and recommended) for a system to ignore or remove the place-holder value and use the correct value
-instead (e.g., storing the data in a database or converting the resource to a version that does contain a compatible definition). 
-</li>
-<li>
-  Again, it is always preferable to provide the data in a form that can be processed correctly by applications that don't understand 
-  cross-version extensions; this technique here is documented for situations where that isn't possible. In this specific case, for 
-  instance, it would generally be better to use a valueCodeableConcept and provide the reference as an extension. However 
-  doing this requires specific knowledge of the use of the parameter, and isn't a decision that can be made be intermediaries or
-  generic library code.
-</li>
-</ul>
-
 <a name="extensions-definitions"></a>
 <h4>Formal Definitions for extensions</h4>
   
@@ -1194,7 +808,6 @@ instead (e.g., storing the data in a database or converting the resource to a ve
 		<td><a href="https://hl7.org/fhir/uv/xver-r5.r6/">hl7.fhir.uv.xver-r6.r6</a></td>
 		<td style="background-color: #EEEEEE">n/a</td>
 	</tr>
-
 </table>
 
 <p>
@@ -1229,13 +842,13 @@ a few other resources including e.g., Questionnaire.
 Whatever HL7 decides to do with regard to the formal status of the resources, the next release will
 include additional clarifications, resources, profiles and quality enhancements over the current release based on
 implementation experience and ongoing development work. It will also incorporate fixes for issues raised with 
-the <a href="http://hl7.org/fhir-issues">FHIR issue tracker</a>.  It may be useful for implementers
+the <a href="http://hl7.org/fhir-issues">FHIR issue tracker</a>.  It might be useful for implementers
 of this release to review the candidate current release (at <a href="https://build.fhir.org">http://build.fhir.org</a>)
 to get a sense of what changes are likely coming and perhaps to find more robust definitions and guidance than are 
 available in this release.
 </p>
 <p>
-Some implementers who are dependent on content that exists in a draft release may choose to implement based
+Some implementers who are dependent on content that exists in a draft release might choose to implement based
 on a particular snapshot of the development release, though in doing so, they will limit their potential 
 communication partners. In addition, implementers should be aware that most of the implementation tooling 
 including those provided by HL7 will not support interim versions other than the latest release.
