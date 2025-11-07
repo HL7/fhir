@@ -105,9 +105,9 @@
   <h2>Notification Types</h2>
   <p>
     This specification describes five distinct outbound notification types: <em>Event</em>, <em>Handshake</em>,
-    <em>Heartbeat</em>, <em>Query Status</em>, and <em>Query Event</em>. For each, the notification body is a <a
-      href="bundle.html">subscription-notification Bundle</a> with a <a
-      href="subscriptionstatus.html">SubscriptionStatus</a> resource used to convey Subscription and notification
+    <em>Heartbeat</em>, <em>Query Status</em>, and <em>Query Event</em>. For each, the notification body is a 
+    <a href="bundle.html">subscription-notification Bundle</a> with a 
+    <a href="subscriptionstatus.html">SubscriptionStatus</a> resource used to convey Subscription and notification
     details.
   </p>
 
@@ -292,81 +292,82 @@
   </p>
   <p>
     Heartbeat intervals are negotiated while creating a Subscription. If accepted, servers SHOULD send a heartbeat
-    notification whenever the channel
-    has been inactive for the specified amount of time. For example, if the heartbeat interval is 60 seconds, the
-    expectation is that there is never
-    a period of 60 seconds that passes without sending at least one notification (either <code>event-notification</code>
-    or
-    <code>heartbeat<code>). 
-      Note that this is a minimum requirement - servers have discretion on how to implement testing: for example by resetting a timer when sending any 
-      notification, always sending a heartbeat on a fixed timer, etc.. Clients SHALL be able to handle receiving heartbeat notifications more often than
-      required, and SHOULD account for miniscule differences timing (e.g., clock drift).
-    </p>
-    <table class="grid">
+    notification whenever the channel has been inactive for the specified amount of time. For example, if the heartbeat 
+    interval is 60 seconds, the expectation is that there is never a period of 60 seconds that passes without sending at 
+    least one notification (either <code>event-notification</code> or <code>heartbeat</code>). Note that this is a 
+    minimum requirement - servers have discretion on how to implement testing: for example by resetting a timer when sending any 
+    notification, always sending a heartbeat on a fixed timer, etc.. Clients SHALL be able to handle receiving heartbeat notifications more often than
+    required, and SHOULD account for miniscule differences timing (e.g., clock drift).
+  </p>
+  <table class="grid">
+    <thead>
       <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
-      <tr><td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).
-    </td>
-    </tr>
-    <tr>
-      <td>SubscriptionStatus.type</td>
-      <td>Required</td>
-      <td>SHALL be <code>heartbeat</code></td>
-    </tr>
-    <tr>
-      <td>SubscriptionStatus.eventsSinceSubscriptionStart</td>
-      <td>Recommended</td>
-      <td>The presence of this value allows clients to detect missing notifications. Recommended for subscriptions with
-        best-effort delivery, optional for subscriptions with guaranteed delivery.<br />Note: this value SHALL NOT be
-        incremented by sending a <code>heartbeat</code> notification.</td>
-    </tr>
-    <tr>
-      <td>SubscriptionStatus.notificationEvent</td>
-      <td>Special</td>
-      <td>A server MAY include historical events for a client with a <code>heartbeat</code>, if any exist. For example,
-        a server MAY opt to include the most recent event since the last successful transmission to the client. Details
-        about specific elements within this structure are included in this table.</td>
-    </tr>
-    <tr>
-      <td>SubscriptionStatus.notificationEvent.eventNumber</td>
-      <td>Special</td>
-      <td>If a server is including any prior events, this element is required for subscriptions with best-effort
-        delivery and optional for subscriptions with guaranteed delivery. See <a href="#event-number">Event
-          Numbering</a> for details.</td>
-    </tr>
-    <tr>
-      <td>SubscriptionStatus.notificationEvent.timestamp</td>
-      <td>Special</td>
-      <td>If a server is including any prior events, <code>timestamp</code> is recommended, so that clients can process
-        historical events with proper context.</td>
-    </tr>
-    <tr>
-      <td>SubscriptionStatus.notificationEvent.focus</td>
-      <td>Special</td>
-      <td>Links contained in the <code>focus</code> element contain resource IDs, so will or will not be present based
-        on the payload level relevant to the notification:<ul>
-          <li><code>empty</code>: SHALL NOT be present</li>
-          <li><code>id-only</code>: SHALL be present if a <code>notificationEvent</code> is included</li>
-          <li><code>full-resource</code>: SHALL be present if a <code>notificationEvent</code> is present</li>
-        </ul>Note that servers SHOULD include the <code>Reference.type</code> element if if the type is not specified in
-        <code>Reference.reference</code></td>
-    </tr>
-    <tr>
-      <td>SubscriptionStatus.notificationEvent.additionalContext</td>
-      <td>Special</td>
-      <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.
-        Presence is determined based on the payload level relevant to the notification, if they are available:<ul>
-          <li><code>empty</code>: SHALL NOT be present</li>
-          <li><code>id-only</code>: SHOULD be present if a <code>notificationEvent</code> is present</li>
-          <li><code>full-resource</code>: SHOULD be present if a <code>notificationEvent</code> is present</li>
-        </ul>Note that servers SHOULD include the <code>Reference.type</code> element if if the type is not specified in
-        <code>Reference.reference</code></td>
-    </tr>
-    <tr>
-      <td>SubscriptionStatus.topic</td>
-      <td>Optional</td>
-      <td>See <a href="#content-phi">Content and PHI</a>.</td>
-    </tr>
-    </table>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SubscriptionStatus.status</td><td>Recommended</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td>
+      </tr>
+      <tr>
+        <td>SubscriptionStatus.type</td>
+        <td>Required</td>
+        <td>SHALL be <code>heartbeat</code></td>
+      </tr>
+      <tr>
+        <td>SubscriptionStatus.eventsSinceSubscriptionStart</td>
+        <td>Recommended</td>
+        <td>The presence of this value allows clients to detect missing notifications. Recommended for subscriptions with
+          best-effort delivery, optional for subscriptions with guaranteed delivery.<br />Note: this value SHALL NOT be
+          incremented by sending a <code>heartbeat</code> notification.</td>
+      </tr>
+      <tr>
+        <td>SubscriptionStatus.notificationEvent</td>
+        <td>Special</td>
+        <td>A server MAY include historical events for a client with a <code>heartbeat</code>, if any exist. For example,
+          a server MAY opt to include the most recent event since the last successful transmission to the client. Details
+          about specific elements within this structure are included in this table.</td>
+      </tr>
+      <tr>
+        <td>SubscriptionStatus.notificationEvent.eventNumber</td>
+        <td>Special</td>
+        <td>If a server is including any prior events, this element is required for subscriptions with best-effort
+          delivery and optional for subscriptions with guaranteed delivery. See <a href="#event-number">Event
+            Numbering</a> for details.</td>
+      </tr>
+      <tr>
+        <td>SubscriptionStatus.notificationEvent.timestamp</td>
+        <td>Special</td>
+        <td>If a server is including any prior events, <code>timestamp</code> is recommended, so that clients can process
+          historical events with proper context.</td>
+      </tr>
+      <tr>
+        <td>SubscriptionStatus.notificationEvent.focus</td>
+        <td>Special</td>
+        <td>Links contained in the <code>focus</code> element contain resource IDs, so will or will not be present based
+          on the payload level relevant to the notification:<ul>
+            <li><code>empty</code>: SHALL NOT be present</li>
+            <li><code>id-only</code>: SHALL be present if a <code>notificationEvent</code> is included</li>
+            <li><code>full-resource</code>: SHALL be present if a <code>notificationEvent</code> is present</li>
+          </ul>Note that servers SHOULD include the <code>Reference.type</code> element if if the type is not specified in
+          <code>Reference.reference</code></td>
+      </tr>
+      <tr>
+        <td>SubscriptionStatus.notificationEvent.additionalContext</td>
+        <td>Special</td>
+        <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.
+          Presence is determined based on the payload level relevant to the notification, if they are available:<ul>
+            <li><code>empty</code>: SHALL NOT be present</li>
+            <li><code>id-only</code>: SHOULD be present if a <code>notificationEvent</code> is present</li>
+            <li><code>full-resource</code>: SHOULD be present if a <code>notificationEvent</code> is present</li>
+          </ul>Note that servers SHOULD include the <code>Reference.type</code> element if if the type is not specified in
+          <code>Reference.reference</code></td>
+      </tr>
+      <tr>
+        <td>SubscriptionStatus.topic</td>
+        <td>Optional</td>
+        <td>See <a href="#content-phi">Content and PHI</a>.</td>
+      </tr>
+    </tbody>
+  </table>
   <ul>
     <li>
       <a href="notification-heartbeat.html">Example heartbeat notification</a>

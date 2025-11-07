@@ -94,7 +94,7 @@
   </p>
 
   <a name="non-fhir-data"></a>
-  <h3>Non-FHIR Data</h4>
+  <h3>Non-FHIR Data</h3>
   <p>
     A Subscription Topic can be intended for use with a non-FHIR focus. There are several approaches for including and 
     describing non-FHIR data in relation to subscriptions. Each approach has different trade-offs in terms of complexity, type
