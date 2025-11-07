@@ -9,10 +9,10 @@
     <valueString value="Foundation.Security"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="6"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -176,7 +176,7 @@
         </extension>
         <strength value="example"/>
         <description value="A classification of the type of consents found in a consent statement."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/consent-category"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/consent-category-example"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
