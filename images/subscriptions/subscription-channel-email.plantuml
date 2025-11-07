@@ -33,10 +33,10 @@ end
 
 group Email Subscription Processing
 else Server sends heartbeat
-    S -> E: Message with readable content and attached Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: heartbeat""
+    S -> E: Message with readable content and attached Bundle:\n""            Bundle.type: subscription-notification""\n""SubscriptionStatus.type: heartbeat""
     ...
 else Server sends event-notification
-    S -> E: Message with readable content and attached Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: event-notification""
+    S -> E: Message with readable content and attached Bundle:\n""            Bundle.type: subscription-notification""\n""SubscriptionStatus.type: event-notification""
     ...
 end
 @enduml
