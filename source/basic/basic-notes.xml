@@ -56,11 +56,54 @@ without any particular constraints on what they may choose to talk about.  Basic
 mechanism to handle those circumstances.
 </p>
 <p>
-Wherever possible, the "standard" FHIR resources should be used, even for narrative-only content.  That's because
+Wherever possible, the "standard" FHIR resources SHOULD be used, even for narrative-only content.  That's because
 subsequent revisions of the narrative-only content might choose to encode pieces or even all of the narrative content.
 Encoding can occur with "Basic" as well.  Extensions can point to other resources (contained or stand-alone) that
 fully encode pieces of the free-form narrative found in the Basic resource.  If no appropriate other resource exists
 for the meaning of the content, extensions can also be used.
+</p>
+
+<a name="ref"></a>
+<h2>Referencing Basic resources</h2>
+<p>
+None of the standard resources will have direct references to Basic, aside from those that allow linking to
+"Any" resource.  As a result, most references to "Basic" will need to be performed using extensions.
+</p>
+
+<a name="canonical"></a>
+<h3>Basic as a Canonical Resource Wrapper</h3>
+<p>
+When using <a href="versions.html#extensions">cross-version extensions</a> to represent canonical resources that do
+not exist in the FHIR version being used (such as resource types introduced in later FHIR versions), the Basic resource can serve
+as a wrapper to represent those canonical resources. In such cases:
+</p>
+<ul>
+  <li>The Basic resource <em>can</em> be treated as representing a canonical resource for referencing purposes</li>
+  <li>References to the Basic resource from cross-version extensions can use canonical reference patterns</li>
+  <li>The <code>code</code> element SHALL identify that the Basic instance represents a canonical resource type</li>
+</ul>
+<p>
+This pattern enables implementers to work with canonical resources from other FHIR versions while maintaining
+compatibility with version-specific infrastructure. See the <a href="versions.html#extensions">versions page</a> 
+and the cross-version extension packages for more details on this approach.
+</p>
+
+<h4>Search Parameters against Basic</h4>
+<p>
+  Custom <a href="searchparameter.html">SearchParameters</a> can be defined against a <code>Basic</code> resource 
+  profile in the same manner as any other resource. However, because of the wide range of concepts that can be 
+  conveyed via <code>Basic</code>, the opportunity for collisions in the naming of search parameters is higher. 
+  While collisions <em>can</em> be resolved using the standard mechanism (checking parameter codes via the
+  <code>CapabilityStatement</code> and resolving canonical definitions), best practice is for search parameter codes 
+  to include the conceptual resource name represented as a prefix. For example, rather than defining a search parameter 
+  called <code>effectiveDate</code>, it would be better to have the search parameter code be 
+  <code>application-renewal-effective-date</code>. This same convention is recommended if leveraging <code>Basic</code> 
+  to represent resources during inter-version conversion (e.g., a future or legacy resource). For example, a search 
+  parameter might be coded as <code>personal-relationship-source</code> rather than just <code>source</code>.
+</p>
+<p>
+  Note that authors and implementers MAY still define and support non-prefixed codes; this guidance is an aid to 
+  interoperability and governance.
 </p>
 
 <a name="bp"></a>
@@ -100,30 +143,5 @@ There are several good practices to follow when making use of the Basic resource
   with common practices within similar resource families (other request resources, medication-related resources), etc.
   </li>
 </ol>
-
-<a name="ref"></a>
-<h2>Referencing Basic resources</h2>
-<p>
-None of the standard resources will have direct references to Basic, aside from those that allow linking to
-"Any" resource.  As a result, most references to "Basic" will need to be performed using extensions.
-</p>
-
-<h4>Search Parameters against Basic</h4>
-<p>
-  Custom <a href="searchparameter.html">SearchParameters</a> can be defined against a <code>Basic</code> resource 
-  profile in the same manner as any other resource. However, because of the wide range of concepts that can be 
-  conveyed via <code>Basic</code>, the opportunity for collisions in the naming of search parameters is higher. 
-  While collisions <em>can</em> be resolved using the standard mechanism (checking parameter codes via the
-  <code>CapabilityStatement</code> and resolving canonical definitions), best practice is for search parameter codes 
-  to include the conceptual resource name represented as a prefix. For example, rather than defining a search parameter 
-  called <code>effectiveDate</code>, it would be better to have the search parameter code be 
-  <code>application-renewal-effective-date</code>. This same convention is recommended if leveraging <code>Basic</code> 
-  to represent resources during inter-version conversion (e.g., a future or legacy resource). For example, a search 
-  parameter might be coded as <code>personal-relationship-source</code> rather than just <code>source</code>.
-</p>
-<p>
-  Note that authors and implementers MAY still define and support non-prefixed codes; this guidance is an aid to 
-  interoperability and governance.
-</p>
 
 </div>
