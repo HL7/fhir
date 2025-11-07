@@ -25,8 +25,8 @@ implement this interface:
 
 <ul style="column-count: 3">
 <li><a href="activitydefinition.html">ActivityDefinition</a></li>
-<li><a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
-<li><a href="citation.html">Citation</a></li>
+<li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItemDefinition.html">ChargeItemDefinition</a></li>
+<li><a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html">Citation</a></li>
 <li><a href="codesystem.html">CodeSystem</a></li>
 <li><a href="conceptmap.html">ConceptMap</a></li>
 <li><a href="conditiondefinition.html">ConditionDefinition</a></li>

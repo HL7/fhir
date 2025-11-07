@@ -261,18 +261,6 @@
         <map value=".inboundRelationship(typeCode=COMP].source[classCode&lt;=PCPR, moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="Invoice.date">
-      <path value="Invoice.date"/>
-      <short value="DEPRICATED"/>
-      <definition value="Depricared by the element below."/>
-      <requirements value="Required to suppress the Data Type VirtualServiceDetail: ERROR: Invoice::date: Expression 'Invoice.date' has illegal path."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="false"/>
-    </element>
     <element id="Invoice.creation">
       <path value="Invoice.creation"/>
       <short value="When posted"/>
@@ -454,7 +442,7 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItem"/>
+        <!-- <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItem"/> -->
       </type>
       <type>
         <code value="CodeableConcept"/>
