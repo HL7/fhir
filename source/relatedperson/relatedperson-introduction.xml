@@ -50,7 +50,7 @@ Example RelatedPersons are:
 	section for more details on that example.
 </p>
 <p>
-	<b>Boundaries between this and <a href="personalrelationship.html">PersonalRelationship</a></b><br/>
+	<b>Boundaries between this and <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a></b><br/>
 	The RelatedPerson resource contains the details of both the individual and their relationship to the patient.
 	RelatedPerson would be used when the individual is documented within the context of a patient's chart.
 </p>

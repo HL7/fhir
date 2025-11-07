@@ -21,7 +21,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.basedOn" resourcePath="MedicationRequest.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,MedicationRequest,ServiceRequest,ImmunizationRecommendation,RequestOrchestration)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,MedicationRequest,ServiceRequest,RequestOrchestration)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="A plan or request that is fulfilled in whole or in part by this medication request"/>

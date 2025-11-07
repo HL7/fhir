@@ -29,6 +29,13 @@ in order to support consistent definitions for schema and UML derived code.
 
         <a name="root"></a>
         <h2>Ad-Hoc Workflow Communication Patterns</h2>
+        <p>
+          This section of the specification is focused on the specifics of initiating a request for something to be done and then managing that request through to completion/termination.  
+          There are a wide range of pre-requisite steps to creating requests, including patient identification, determining service performers, linking to conditions, goals, etc., pointing to 
+          higher-order requests.  This section does not get into those pre-requisites.  However, certain request workflow approaches may impose architectural requirements on what pre-requisites 
+          are necessary and for whom.  For example, if a request is initiated by posting a Task to a fulfilling system, the placer may first need to determine who the Patient is in that system.  
+          This will not be necessary if they are creating the Task in the placer environment. 
+        </p>
 
         <a name="optiona"></a>
         <h3>Option A: Simple RESTful POST or PUT</h3>

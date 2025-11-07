@@ -265,7 +265,6 @@ signatures.html
 
       <page type="resource" resource="EpisodeOfCare"/>
       <page type="resource" resource="Encounter"/>
-      <page type="resource" resource="EncounterHistory"/>
       <page type="resource" resource="Account"/>
       <page type="resource" resource="Flag"/>
 
@@ -282,8 +281,6 @@ signatures.html
       <page type="resource" resource="ResearchStudy"/>
       <page type="resource" resource="ResearchSubject"/>
       <page type="resource" resource="BiologicallyDerivedProduct"/>
-  	  <page type="resource" resource="ChargeItem"/>
-  	  <page type="resource" resource="ChargeItemDefinition"/>
   	  <page type="resource" resource="ObservationDefinition"/>
   	  <page type="resource" resource="SpecimenDefinition"/>
       <page title="Product Pattern" filename="product.html"/>
@@ -292,10 +289,8 @@ signatures.html
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
 	    <page type="resource" resource="InsuranceProduct"/>
-      <page type="resource" resource="PersonalRelationship"/>
 	    <!-- <page type="resource" resource="Network"/> -->
 	    <page type="resource" resource="OrganizationAffiliation"/>
-	    <page type="resource" resource="VerificationResult"/>
     </page>
 
     <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">
@@ -336,8 +331,6 @@ signatures.html
       <page type="resource" resource="Medication"/>
       <page type="resource" resource="MedicationKnowledge"/>
       <page type="resource" resource="Immunization"/>
-      <page type="resource" resource="ImmunizationEvaluation"/>
-      <page type="resource" resource="ImmunizationRecommendation"/>
       <page title="Dosage" filename="dosage.html">
         <page title="Examples" filename="dosage-examples.html"/>
         <page title="Detailed Descriptions" filename="dosage-definitions.html"/>
@@ -409,7 +402,6 @@ signatures.html
       <page type="resource" resource="ArtifactAssessment"/>
       <page type="resource" resource="ConditionDefinition"/>
       <page type="resource" resource="EventDefinition"/>
-      <page type="resource" resource="Citation"/>
       <page type="resource" resource="Evidence"/>
       <page type="resource" resource="EvidenceVariable"/>
       <page type="resource" resource="Library"/>
