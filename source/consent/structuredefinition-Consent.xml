@@ -456,8 +456,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="Consent.verification.verificationType">
-      <path value="Consent.verification.verificationType"/>
+    <element id="Consent.verification.type">
+      <path value="Consent.verification.type"/>
       <short value="Business case of verification"/>
       <definition value="Extensible list of verification type starting with verification and re-validation."/>
       <comment value="This allows the verification element to hold multiple use cases including RelatedPerson verification of the Grantee decision and periodic re-validation of the consent."/>
