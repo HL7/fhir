@@ -2316,12 +2316,12 @@ and feedback is welcome.
 </p>
 <p>
   <span class="fhir-conformance">Clients SHOULD be robust to handling a <code>next</code> link that returns no results.</span>
-  In multi-server or proxied environments, it is possible that the server providing the <code>next</code> link may not have access to all the data
+  In multi-server or proxied environments, it is possible that the server providing the <code>next</code> link does not have access to all the data
   available to the original server that provided the initial results. Therefore, clients should be prepared to handle cases where following a <code>next</code> link yields no additional results.
 </p>
 <p>
   <span class="fhir-conformance">Clients SHOULD be robust to receiving a Bundle that is not full (i.e., contains fewer entries than requested via <code>_count</code>).</span>
-  A Bundle may not be full for various reasons, including data security/privacy redaction, size or count limitations, or reaching the end of available results.
+  A Bundle can include fewer resources for various reasons, including data security/privacy redaction, size or count limitations, or reaching the end of available results.
 </p>
 
 <a name="head"/>

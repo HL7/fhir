@@ -16,7 +16,7 @@
 		<queryCriteria>
 			<previous value="code=Admission&amp;admission-status:not=in-progress"/>
       <resultForCreate value="test-passes"/>
-			<previous value="code=Admission&amp;admission-status=in-progress"/>
+			<current value="code=Admission&amp;admission-status=in-progress"/>
       <resultForDelete value="test-fails"/>
 			<requireBoth value="true"/>
 		</queryCriteria>

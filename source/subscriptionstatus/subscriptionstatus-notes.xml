@@ -41,7 +41,7 @@
     The <code>SubscriptionStatus.subscription</code> element contains a reference to the <a href="subscription.html">Subscription</a>
     resource responsible for the notification. In most cases, this reference will resolve to an accessible Subscription resource on
     the server. However, in some workflows, particularly those involving implicit or server-controlled subscriptions, the Subscription
-    resource may not be externally accessible or shared. In such cases, the Reference may use <code>Reference.identifier</code> to
+    resource might not be externally accessible or shared. In such cases, the Reference may use <code>Reference.identifier</code> to
     represent an identifier or placeholder known only to the sender, or even <code>Reference.display</code> for a relevant literal
     (e.g., friendly-name that can be referenced in support requests). Implementers SHOULD be aware that resolution of this reference
     might not be possible on the receiving end.
@@ -168,7 +168,7 @@
     <tr>
       <td>SubscriptionStatus.notificationEvent.additionalContext</td>
       <td>Special</td>
-      <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.
+      <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY NOT exist.
         Presence is determined based on the payload level relevant to the notification, if they are available:<ul>
           <li><code>empty</code>: SHALL NOT be present</li>
           <li><code>id-only</code>: SHOULD be present</li>
@@ -256,7 +256,7 @@
     <tr>
       <td>SubscriptionStatus.notificationEvent.additionalContext</td>
       <td>Special</td>
-      <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.
+      <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY NOT exist.
         Presence is determined based on the payload level relevant to the notification, if they are available:<ul>
           <li><code>empty</code>: SHALL NOT be present</li>
           <li><code>id-only</code>: SHOULD be present if a <code>notificationEvent</code> is present</li>
@@ -353,7 +353,7 @@
       <tr>
         <td>SubscriptionStatus.notificationEvent.additionalContext</td>
         <td>Special</td>
-        <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.
+        <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY NOT exist.
           Presence is determined based on the payload level relevant to the notification, if they are available:<ul>
             <li><code>empty</code>: SHALL NOT be present</li>
             <li><code>id-only</code>: SHOULD be present if a <code>notificationEvent</code> is present</li>
@@ -490,7 +490,7 @@
     <tr>
       <td>SubscriptionStatus.notificationEvent.additionalContext</td>
       <td>Special</td>
-      <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY not exist.
+      <td>Links contained in the <code>additionalContext</code> element contain resource IDs and MAY or MAY NOT exist.
         Presence is determined based on the payload level relevant to the notification, if they are available:<ul>
           <li><code>empty</code>: SHALL NOT be present</li>
           <li><code>id-only</code>: SHOULD be present</li>

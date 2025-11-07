@@ -137,7 +137,7 @@
   <p>
     If non-FHIR data is expected to be persisted and referenced like other FHIR resources, the <a href="basic.html">Basic</a>
     resource can be used. However, implementers must be aware that Basic requires mandatory
-    fields (code, subject) that may not be meaningful for all non-FHIR events, and the non-FHIR data must be encoded
+    fields (code, subject) that might not be meaningful for all non-FHIR events, and the non-FHIR data must be encoded
     using extensions or contained resources.
   </p>
   <p>
