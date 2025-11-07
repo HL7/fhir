@@ -177,7 +177,6 @@
         <base value="AllergyIntolerance"/>
         <base value="AuditEvent"/>
         <base value="Basic"/>
-        <base value="ChargeItem"/>
         <base value="Condition"/>
         <base value="DetectedIssue"/>
         <base value="DeviceRequest"/>
@@ -206,7 +205,6 @@
         <code value="encounter"/>
         <base value="AuditEvent"/>
         <base value="CarePlan"/>
-        <base value="ChargeItem"/>
         <base value="Claim"/>
         <base value="ClinicalAssessment"/>
         <base value="Communication"/>
@@ -216,7 +214,6 @@
         <base value="DeviceRequest"/>
         <base value="DiagnosticReport"/>
         <base value="DocumentReference"/>
-        <base value="EncounterHistory"/>
         <base value="ExplanationOfBenefit"/>
         <base value="Flag"/>
         <base value="ImagingStudy"/>
@@ -253,7 +250,6 @@
         <base value="BodyStructure"/>
         <base value="CarePlan"/>
         <base value="CareTeam"/>
-        <base value="ChargeItem"/>
         <base value="Claim"/>
         <base value="ClaimResponse"/>
         <base value="ClinicalAssessment"/>
@@ -325,7 +321,6 @@
         <base value="BodyStructure"/>
         <base value="CarePlan"/>
         <base value="CareTeam"/>
-        <base value="ChargeItem"/>
         <base value="Claim"/>
         <base value="ClaimResponse"/>
         <base value="ClinicalAssessment"/>

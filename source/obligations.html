@@ -31,6 +31,10 @@ and <code>obligation</code> features of <a href="elementdefinition.html">Element
 Note that since the base specification is only describing the interfaces and resources, not any particular 
 solution, the base application does not specify any applications obligations in the resource definitions.
 </p>
+<p>
+Obligations may dive deeply into the functional capabilities of systems.  Most interoperability specifications tread lightly (and <b>SHOULD</b> tread lightly) 
+in this space.  However, when a specification is created for use in a narrowly defined space, setting very specific expectations on display, storage, data entry, etc. may be necessary.
+</p>
 
 <a name="mustSupport"></a>
 <h3>MustSupport</h3>
@@ -58,7 +62,7 @@ Profiles can make the expectations clear by either:
 </ul>
 
 <p>
-Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of
+Note that an element that has the property IsModifier is not necessarily a "key" element (e.g., one of
 the important elements to make use of the resource), nor is it automatically mustSupport - however both
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>  

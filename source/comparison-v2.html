@@ -69,7 +69,7 @@ The meaning of these extensions is opaque without prior manual explanation by th
 are supposed to be restricted to data elements that do not affect the meaning of the "standard" segments.
 FHIR <a href="extensibility.html">Extensions</a>, on the other hand, can appear at any level (including
 within datatypes).  <a href="extensibility.html#modifierExtension">ModifierExtensions</a> may be used
-in circumstances where an extension can change the meaning of other elements (e.g. the introduction
+in circumstances where an extension can change the meaning of other elements (e.g., the introduction
 of a negation indicator on a record).  Finally, the meaning of FHIR extensions is discoverable by resolving
 the URI that defines the extension.  The URI approach also ensures that extensions created by independent
 systems won't collide. (This can be an issue with Z-segments.)
@@ -92,7 +92,7 @@ human readable content to be provided for each resource.
 <b>Update behavior:</b> HL7 V2 data is typically exchanged in "snapshot" mode - updates are communicated by
 sending a complete copy of the instance with the new data filled in.  However, some segments and messages in
 HL7 V2 support more sophisticated exchanges where only changed data is sent and codes or special values indicate
-what sort of change is to occur (e.g. add this address, remove this name).  Out-of-the-box, FHIR only functions
+what sort of change is to occur (e.g., add this address, remove this name).  Out-of-the-box, FHIR only functions
 using snapshot mode.  While the use of <a href="extensibility.html#modifierExtension">ModifierExtensions</a> to
 introduce equivalent behavior to HL7 V2 is possible, doing so would create interoperability issues and would make
 use of the resources difficult outside the messaging paradigm.
@@ -125,9 +125,9 @@ as part of the core FHIR specification.  The FHIR extension registry <!-- Todo: 
 to defining local extensions.  If time permits, the relevant HL7 WG should be contacted with a request to define
 additional HL7 V2 extensions if needed ones are not present.  If time does not permit, applications can define their
 own extensions, but should have a migration plan for if/when HL7 defines it later.  For Z-segments, URIs should
-be defined to be specific to the system/environment that defined the Z-segment (e.g. http://acme.org/fhir/extensions/consent),
+be defined to be specific to the system/environment that defined the Z-segment (e.g., http://acme.org/fhir/extensions/consent),
 not based on the name of the Z-segment itself (given that Z-segments with the same name but different meaning may
-exist) (e.g. http://hl7.org/ZAC).
+exist) (e.g., http://hl7.org/ZAC).
 </p>
 <p>
 <b>Resource identification:</b><a name="HL7 V2-identification"></a> HL7 V2 messages will often reference objects that
@@ -145,7 +145,7 @@ captured for a given object might be identical in all uses, in other cases the i
 example, the sending system might convey historical phone numbers for old records and current phone numbers
 for newer records.  Alternatively, the message design might allow expression of different amounts of detail
 in different portions of the message or the sending application might simply be designed to convey different
-amounts of detail in different portions of the message (e.g. conveying phone number for an ordering clinician,
+amounts of detail in different portions of the message (e.g., conveying phone number for an ordering clinician,
 but not for a data-entry clinician).  When converting to FHIR, all references to the same "object" will generally
 have a single resource identifier and be referenced only once in the instance - with the complete set of
 information needed/available.  This creates two challenges:
@@ -157,7 +157,7 @@ information needed/available.  This creates two challenges:
   be determined by the implementer performing the conversion.</li>
   <li><i>If multiple versions of data are present, what set of data should be used - or should multiple versions
   be sent with distinct history ids?  (And if the latter, what is the 'order' of the versions?</i>  If the order
-  of the versions can be determined by data in the message (e.g. assuming older order dates have "older"
+  of the versions can be determined by data in the message (e.g., assuming older order dates have "older"
   demographics), dates can be specified on the entry <i>updated</i> element to indicate relative ordering.
   If the ordering can't be determined, it will be difficult to merge the data into a single resource or
   represent it using multiple resources.</li>

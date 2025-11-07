@@ -11,9 +11,11 @@
     <system value="http://example.org"/>
     <value value="risk-assessment-breastcancer1"/>
   </identifier>
+  <!--
   <basedOn>
     <reference value="ImmunizationRecommendation/example"/>
   </basedOn>
+  -->
   <parent>
     <reference value="DiagnosticReport/example"/>
   </parent>

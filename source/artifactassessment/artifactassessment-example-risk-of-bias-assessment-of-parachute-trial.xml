@@ -31,7 +31,7 @@
 	</identifier>
 	<title value="Risk of Bias Assessment of PARACHUTE trial"/>
 	<artifactReference>
-		<reference value="Citation/306957"/>
+	  <!-- <reference value="Citation/306957"/> -->
 		<type value="Citation"/>
 		<display value="30545967 Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial."/>
 	</artifactReference>

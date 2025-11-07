@@ -67,8 +67,12 @@
           </coding>
         </type>
         <targetReference>
+        <!-- This was as citation; should become so once Additional Resources are fully figured out
           <reference value="Citation/32137"/>
           <type value="Citation"/>
+          -->
+          <reference value="DocumentReference/32137"/>
+          <type value="DocumentReference"/>
           <display value="JournalArticleCitation: ADA 2021 Standards of Medical Care 8. Obesity Management for the Treatment of Type 2 Diabetes"/>
         </targetReference>
     </relatesTo>
@@ -160,8 +164,12 @@
           </coding>
         </type>
         <targetReference>
+        <!-- was a citation
           <reference value="Citation/33089"/>
           <type value="Citation"/>
+          -->
+          <reference value="DocumentReference/33089"/>
+          <type value="DocumentReference"/>
           <display value="JournalArticleCitation: Metabolic Surgery in the Treatment Algorithm for Type 2 Diabetes: A Joint Statement by International Diabetes Organizations"/>
         </targetReference>
     </relatesTo>

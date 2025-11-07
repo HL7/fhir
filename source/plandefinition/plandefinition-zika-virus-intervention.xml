@@ -799,7 +799,7 @@
     <condition>
       <kind value="applicability"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Is Patient Pregnant"/>
       </expression>
     </condition>
@@ -807,7 +807,7 @@
       <condition>
         <kind value="applicability"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Should Administer Zika Virus Exposure Assessment"/>
         </expression>
       </condition>
@@ -817,7 +817,7 @@
       <condition>
         <kind value="applicability"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Should Order Serum + Urine rRT-PCR Test"/>
         </expression>
       </condition>
@@ -827,7 +827,7 @@
       <condition>
         <kind value="applicability"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Should Order Serum Zika Virus IgM + Dengue Virus IgM"/>
         </expression>
       </condition>
@@ -837,7 +837,7 @@
       <condition>
         <kind value="applicability"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Should Consider IgM Antibody Testing"/>
         </expression>
       </condition>
@@ -847,7 +847,7 @@
       <condition>
         <kind value="applicability"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Should Provide Mosquito Prevention and Contraception Advice"/>
         </expression>
       </condition>

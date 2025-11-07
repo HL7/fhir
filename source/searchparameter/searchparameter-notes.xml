@@ -1,4 +1,39 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<a name="notes"></a>
+<h2>Notes</h2>
+<ul>
+  <li>
+    If the extension's context specifies multiple resources, they are represented with multiple 
+    elements in the <code>SearchParameter.base</code> array
+  </li>
+</ul>
+
+<a name="fhirpath"></a>
+<h2>Use of FHIRPath in Expressions</h2>
+<ul>
+  <li>
+    An expression like <code>Resource.descendents().extension('extension-url').value</code> is possible, but this 
+    is a low performance option for a server to evaluate, and search parameter expressions are performance 
+    sensitive
+  </li>
+  <li>
+    While SearchParameter.expression allows for the full use of FHIRPath, including resolve() in a search
+    parameter definition makes it difficult to support for transactional servers. For that reason, this
+    specification does not define parameters that link across resource instance boundaries.<br/>
+    This specification does use search parameters with resolve() to narrow types
+    (e.g., Observation.subject.resolve() is Patient). We recommend that other specifications follow the
+    same practice - chaining is the mechanism defined to search across resource boundaries.
+  </li>
+</ul>
+
+<blockquote class="note-to-balloters">
+  <p>
+    Balloter feedback requested: We are seeking input on approaches to managing the balance between expressiveness and performance impact on servers from the use of various FHIRPath features in search parameter expressions.
+  </p>
+</blockquote>
+
+
 <a name="srch"></a>
 <h2>SearchParameters on Extensions</h2>
 <p>
@@ -41,19 +76,5 @@ Patient.extension('http://example.org/fhir/StructureDefinition/extension-thumb-l
  | Patient.contact.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value
  | Practitioner.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value
 </pre>
-<p>
-Notes:
-</p>
-<ul>
-  <li>
-    If the extension's context specifies multiple resources, they are represented with multiple 
-    elements in the <code>SearchParameter.base</code> array
-  </li>
-  <li>
-    An expression like <code>Resource.descendents.extension('extension-url').value</code> is possible, but this 
-    is a low performance option for a server to evaluate, and search parameter expressions are performance 
-    sensitive
-  </li>
-</ul>
 
 </div>

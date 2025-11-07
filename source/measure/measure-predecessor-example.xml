@@ -439,7 +439,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="InitialPopulation1"/>
       </criteria>
     </population>
@@ -450,7 +450,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Denominator1"/>
       </criteria>
     </population>
@@ -461,7 +461,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="DenominatorExclusions1"/>
       </criteria>
     </population>
@@ -472,7 +472,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Numerator1"/>
       </criteria>
     </population>
@@ -491,7 +491,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="InitialPopulation2"/>
       </criteria>
     </population>
@@ -502,7 +502,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Denominator2"/>
       </criteria>
     </population>
@@ -513,7 +513,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="DenominatorExclusions2"/>
       </criteria>
     </population>
@@ -524,7 +524,7 @@
         </coding>
       </code>
       <criteria>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Numerator2"/>
       </criteria>
     </population>

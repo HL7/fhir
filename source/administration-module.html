@@ -38,7 +38,7 @@ in order to support consistent definitions for schema and UML derived code.
                         <li><a href="patient.html">Patient</a></li>
                         <li><a href="relatedperson.html">RelatedPerson</a></li>
                         <li><a href="person.html">Person</a></li>
-                        <li><a href="personalrelationship.html">PersonalRelationship</a></li>
+                        <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a></li>
                         <li><a href="group.html">Group</a></li>
                         <li><a href="practitioner.html">Practitioner</a></li>
                         <li><a href="practitionerrole.html">PractitionerRole</a></li>
@@ -57,13 +57,11 @@ in order to support consistent definitions for schema and UML derived code.
                         <li><a href="specimendefinition.html">SpecimenDefinition</a></li>
                     </ul>
                 </td>
-
-
                 <td>
                     <ul>
                         <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
                         <li><a href="encounter.html">Encounter</a></li>
-                        <li><a href="encounterhistory.html">EncounterHistory</a></li>
+                        <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-EncounterHistory.html">EncounterHistory</a></li>
                         <li><a href="appointment.html">Appointment</a></li>
                         <li><a href="appointmentresponse.html">AppointmentResponse</a></li>
                         <li><a href="flag.html">Flag</a></li>
@@ -96,14 +94,13 @@ in order to support consistent definitions for schema and UML derived code.
             [%res-item RelatedPerson%]
             [%res-item Person%]
             [%res-item Group%]
-            [%res-item PersonalRelationship%]
         </table>
         <div>
             <img src="administration-module-person.png" alt="Image showing the relationship between resources representing people" width="584px" />
         </div>
 [%impl-note%]
                 <a href="patient.html#links">Patient linking</a> should also be considered when evaluating
-                searches with references to other resources. e.g. searching for a patient's conditions for a patient.<br />
+                searches with references to other resources. e.g., searching for a patient's conditions for a patient.<br />
                 At present the specification does not define if the links should be also followed to include
                 conditions that reference the linked patients too. We are currently seeking feedback on this.
 [%end-note%]
@@ -132,17 +129,17 @@ in order to support consistent definitions for schema and UML derived code.
             is used to describe the role or relationship of the individual (member) has with the group, not with other members of the group.
         </p>
         <p>
-            The relationship between the members of the group can be quite complex, and transient over time, and is recorded using the <a href="personalrelationship.html">PersonalRelationship</a> resource,
+            The relationship between the members of the group can be quite complex, and transient over time, and is recorded using the <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> resource,
             which connects 2 members of the group together (only members of type <a href="patient.html">Patient</a>, <a href="relatedperson.html">RelatedPerson</a>).
         </p>
         <p>
-            The <a href="personalrelationship.html">PersonalRelationship</a> resource can also be used outside the group, in these cases it can also reference non group members, including <a href="person.html">Person</a> resources.
+            The <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> resource can also be used outside the group, in these cases it can also reference non group members, including <a href="person.html">Person</a> resources.
         </p>
         <p>
-            Some use cases might require a <a href="personalrelationship.html">PersonalRelationship</a> resource which can overlap with the relationship defined inside the <a href="relatedperson.html">RelatedPerson</a> resource.
+            Some use cases might require a <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> resource which can overlap with the relationship defined inside the <a href="relatedperson.html">RelatedPerson</a> resource.
         </p>
         <p>
-            <a href="personalrelationship.html">PersonalRelationship</a> can be used to document "possible/suspected" relationships, such as a doctor recording that 2 people may be related, or in an evacuation centre trying to locate and connect people may record possible connections (individuals may be unconscious).
+            <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> can be used to document "possible/suspected" relationships, such as a doctor recording that 2 people may be related, or in an evacuation centre trying to locate and connect people may record possible connections (individuals may be unconscious).
         </p>
 
         <a name="agg-pop"></a>
@@ -269,7 +266,7 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             While Organization, Location, Device and other non-person-identifying records are generally subject to less stringent
             security precautions, such data must still be protected to avoid safety issues
-            (e.g. someone maliciously changing the ingredients associated with a drug to cause/fail to cause alerts)
+            (e.g., someone maliciously changing the ingredients associated with a drug to cause/fail to cause alerts)
         </p>
         <p>
             Devices can be linked to Patients.  If this occurs, they must be protected as any other patient-linked element
@@ -329,16 +326,16 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <ul>
             <li>
-                <b>Managing a Master Record of a Patient and a Person</b> (e.g. MPI)<br/>
+                <b>Managing a Master Record of a Patient and a Person</b> (e.g., MPI)<br/>
                 A <a href="patient.html">Patient</a> resource is used to describe patient demographic information and any updates to it.
                 It can be used to communicate <a href="patient.html">Patient</a> information to other systems
-                (e.g. other registries, clinical, ancillary and financial systems).
+                (e.g., other registries, clinical, ancillary and financial systems).
                 Some systems distinguish the Patient Registry (or Client Registry) from the Person Registry.
                 A <a href="person.html">Person</a> resource is a base for the Person Registry system.
                 The Patient/Person Management use case includes creation, update, as well as merge/unmerge and link/unlink scenarios.
             </li>
             <li>
-                <b>Managing a Master Record of a Provider and Service Catalogue</b> (e.g. Provider Registry, Service Directory)<br />
+                <b>Managing a Master Record of a Provider and Service Catalogue</b> (e.g., Provider Registry, Service Directory)<br />
                 A <a href="practitioner.html">Practitioner</a> resource is a base resource for enabling the registry of individuals, related to providing health care services.
                 Other resources, such as <a href="organization.html">Organization</a>, <a href="location.html">Location</a>, <a href="healthcareservice.html">HealthcareService</a>, are creating a complete picture of where, how and by whom
                 the care services are offered to a patient. The resources can be used for managing the master record or as a reference in

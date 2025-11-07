@@ -1899,7 +1899,7 @@
 				</extension>
 				<strength value="example"/>
 				<description value="Codes for the role of the action performer."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/security-role-type"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/security-role-type-example"/>
 			</binding>
 		</element>
 		<element id="Contract.term.action.performer">

@@ -101,7 +101,7 @@ notes: do not list revision in the version
       <li><a href="resource.html#additional">Additional Resources</a>: Allowing for development of FHIR Resources in other specifications </li>
       <li><a href="group.html">Group</a>: Allowing for groups to act collectively, or receive care collectively - change made based on feedback from LMICs countries, and also for social care</li>
       <li>New data types: <a href="datatypes.html#relativetime">RelativeTime</a></li>
-      <li>New Resources: <a href="devicealert.html">DeviceAlert</a>, <a href="insuranceproduct.html">InsuranceProduct</a>, <a href="moleculardefinition.html">MolecularDefinition</a>, <a href="personalrelationship.html">PersonalRelationship</a></li>
+      <li>New Resources: <a href="devicealert.html">DeviceAlert</a>, <a href="insuranceproduct.html">InsuranceProduct</a>, <a href="moleculardefinition.html">MolecularDefinition</a>, <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a></li>
       <li>Removed Resources: EvidenceReport</li>
       <li>Significant changes have been made to the <a href="observation-vitalsigns.html">Vital Signs Profiles</a>, and the profile <a href="medicalproductofhumanorigin.html">Medical Product of Human Origin</a> profile has been added</li>
       <li>The following resources have been updated: <a href="researchstudy.html">ResearchStudy</a>, <a href="researchsubject.html">ResearchSubject</a>,
@@ -157,7 +157,7 @@ notes: do not list revision in the version
         <a href="conditiondefinition.html">ConditionDefinition</a>,
         <a href="deviceassociation.html">DeviceAssociation</a>,
         <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense</a>,
-        <a href="encounterhistory.html">EncounterHistory</a>,
+        <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-EncounterHistory.html">EncounterHistory</a>,
         <a href="formularyitem.html">FormularyItem</a>,
         <a href="genomicstudy.html">GenomicStudy</a>,
         <a href="imagingselection.html">ImagingSelection</a>,
@@ -266,7 +266,7 @@ to a new type.
       <ul>
         <li>Add <a href="datatypes.html#RatioRange">RatioRange</a> datatype</li>
         <li>Rename DeviceUseStatement to <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a></li>
-        <li>New resources <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryReport.html">InventoryReport</a>, <a href="citation.html">Citation</a>, EvidenceReport, and ClinicalUseIssue</li>
+        <li>New resources <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryReport.html">InventoryReport</a>, <a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html">Citation</a>, EvidenceReport, and ClinicalUseIssue</li>
         <li>Updates for <a href="subscription.html">subscriptions</a>, <a href="medication-definition-module.html">medication definitions</a>, and <a href="evidence.html">evidence based medicine</a></li>
         <li>Ongoing development of other resources</li>
       </ul>
@@ -288,7 +288,7 @@ to a new type.
       2nd Milestone for R5 - May 2020 Virtual Connectathon Stable Version. Significant changes:
       <ul>
        <li>Further Development of the Subscription framework (<a href="subscriptionstatus.html">SubjectStatus</a>, rename Topic to SubscriptionTopic)</li>
-       <li>Add new Resources <a href="permission.html">Permission</a>, <a href="nutritionproduct.html">NutritionProduct</a>, <a href="citation.html">Citation</a>, and EvidenceReport</li>
+       <li>Add new Resources <a href="permission.html">Permission</a>, <a href="nutritionproduct.html">NutritionProduct</a>, <a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html">Citation</a>, and EvidenceReport</li>
       </ul>
     </td>
   </tr>
@@ -309,12 +309,12 @@ to a new type.
           <a href="regulatedauthorization.html" title="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product.">RegulatedAuthorization</a></li>
       <li>Rework <a href="marketingstatus.html">MarketingStatus</a> (relax cardinality constraints) and 
         <a href="productshelflife.html">ProductShelfLife</a> Types</li>
-      <li>Rework &amp; rename MedicinalProduct -&gt; <a href="medicinalproductdefinition.html" title="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc.).">MedicinalProductDefinition</a></li>
+      <li>Rework &amp; rename MedicinalProduct -&gt; <a href="medicinalproductdefinition.html" title="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g., regulatory use, drug catalogs, to support prescribing, adverse events management etc.).">MedicinalProductDefinition</a></li>
       <li>Rework &amp; rename MedicinalProductIngredient -&gt; <a href="ingredient.html" title="An ingredient of a manufactured item or pharmaceutical product.">Ingredient</a></li>
       <li>Rework &amp; rename SubstanceSpecification -&gt; <a href="substancedefinition.html" title="The detailed description of a substance, typically at a level beyond what is used for prescribing.">SubstanceDefinition</a></li> 
       <li>Rework <a href="evidence.html" title="The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (eg population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence.">Evidence</a> and 
         <a href="evidencevariable.html" title="The EvidenceVariable resource describes an element that knowledge (Evidence) is about.">EvidenceVariable</a> Resources</li>
-       <li>Add <a href="citation.html" title="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.">Citation</a> and
+       <li>Add <a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html" title="The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources.">Citation</a> and
         EvidenceReport Resources</li>
        <li>Remove EffectEvidenceSynthesis and RiskEvidenceSynthesis Resources</li>
        <li>Add canonical as an allowed type for <code>subject[x]</code> to 
@@ -376,14 +376,14 @@ to a new type.
        <li>New Resources:
          <ul style="-moz-column-count: 3; -moz-column-gap: 20px;  -webkit-column-count: 3;  -webkit-column-gap: 20px;  column-count: 3;  column-gap: 20px;">
            <li><a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a></li>
-           <li><a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
+           <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItemDefinition.html">ChargeItemDefinition</a></li>
            <li><a href="devicedefinition.html">DeviceDefinition</a></li>
            <li>EffectEvidenceSynthesis</li>
            <li><a href="eventdefinition.html">EventDefinition</a></li>
            <li><a href="evidence.html">Evidence</a></li>
            <li><a href="evidencevariable.html">EvidenceVariable</a></li>
            <li><a href="examplescenario.html">ExampleScenario</a></li>
-           <li><a href="immunizationevaluation.html">ImmunizationEvaluation</a></li>
+           <li><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationEvaluation.html">ImmunizationEvaluation</a></li>
            <li><a href="insuranceplan.html">InsurancePlan</a></li>
            <li><a href="invoice.html">Invoice</a></li>
            <li><a href="medicationknowledge.html">MedicationKnowledge</a></li>
@@ -407,7 +407,7 @@ to a new type.
            <li>SubstanceReferenceInformation</li>
            <li>SubstanceSpecification</li>
            <li><a href="terminologycapabilities.html">TerminologyCapabilities</a></li>
-           <li><a href="verificationresult.html">VerificationResult</a></li>
+           <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-VerificationResult.html">VerificationResult</a></li>
          </ul>
        </li>
        <li>Renamed Resources:
@@ -490,7 +490,7 @@ to a new type.
       <p><b>This is only the major changes</b>. More comprehensive lists can be found in the ballot introduction (later removed).</p>
       <p>Major changes in the other parts of the specification:</p>
       <ul>
-       <li>New Resources: <a href="medicationknowledge.html">MedicationKnowledge</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="chargeitemdefinition.html">ChargeItemDefinition</a></li>
+       <li>New Resources: <a href="medicationknowledge.html">MedicationKnowledge</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItemDefinition.html">ChargeItemDefinition</a></li>
        <li>Renamed Resources: <code>OrgnizationRole</code> to <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <code>EligibilityRequest</code> to <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>, 
          <code>EligibilityResponse</code> to <a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a>, and <code>ProductPlan</code> to <a href="insuranceplan.html">InsurancePlan</a></li>
        <li>Significant rework around devices - in the <a href="device.html">Device</a> resource, remove <code>DeviceComponent</code> + new resource <a href="devicedefinition.html">DeviceDefinition</a></li>
@@ -521,7 +521,7 @@ to a new type.
        <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>,
        <a href="eventdefinition.html">EventDefinition</a>,
        <a href="examplescenario.html">ExampleScenario</a>,
-       <a href="immunizationevaluation.html">ImmunizationEvaluation</a>,
+       <a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationEvaluation.html">ImmunizationEvaluation</a>,
        <a href="invoice.html">Invoice</a>,
        ItemInstance,
        <a href="observationdefinition.html">ObservationDefinition</a>,
@@ -530,7 +530,7 @@ to a new type.
        <a href="specimendefinition.html">SpecimenDefinition</a>,
        <a href="terminologycapabilities.html">TerminologyCapabilities</a>,
        UserSession and
-       <a href="verificationresult.html">VerificationResult</a>,
+       <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-VerificationResult.html">VerificationResult</a>,
        and a new set of resources for medication knowledge management:
        MedicinalProduct,
        MedicinalProductAuthorization,
@@ -559,7 +559,7 @@ to a new type.
        <li>Many minor changes to datatypes, resources, operations</li>
        <li>New Resources: <a href="specimendefinition.html">SpecimenDefinition</a>, <a href="observationdefinition.html">ObservationDefinition</a>, 
           <a href="examplescenario.html">ExampleScenario</a>, <a href="terminologycapabilities.html">TerminologyCapabilities</a>, UserSession, <a href="invoice.html">Invoice</a>, 
-          <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="verificationresult.html">VerificationResult</a>, 
+          <a href="insuranceplan.html">InsurancePlan</a>, OccupationalData, <a href="organizationaffiliation.html">OrganizationAffiliation</a>, <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-VerificationResult.html">VerificationResult</a>, 
           MedicinalProduct, MedicinalProductAuthorization, MedicinalProductClinicals, 
           MedicinalProductIngredient, MedicinalProductPackaged, 
           MedicinalProductPharmaceutical, MedicinalProductDeviceSpec, 
@@ -648,7 +648,7 @@ to a new type.
       <p><b>Publication Changes:</b></p>
       <ul>
        <li>Move the US Realm implementation guides out of the specification (see <a href="http://www.fhir.org/guides/registry">http://www.fhir.org/guides/registry</a>)</li>
-       <li>Rework the home page, and introduce modules as a way to navigate the specification + add significant new implementer advice (e.g. "<a href="modules.html">Getting Started</a>")</li>
+       <li>Rework the home page, and introduce modules as a way to navigate the specification + add significant new implementer advice (e.g., "<a href="modules.html">Getting Started</a>")</li>
        <li>Change the Navigation menu to focus on indexes to the content in the specification</li>
        <li>Move FHIRPath expression language to its <a href="http://hl7.org/fhirpath">long term home</a></li>
       </ul>
@@ -939,7 +939,6 @@ to a new type.
         <li><code>ImagingObjectSelection</code> - remove retrieveAETitle, rename retrieveUrl to url, add frames</li>
         <li><a href="imagingstudy.html">ImagingStudy</a> - add laterality, change url to attachment</li>
         <li><a href="immunization.html">Immunization</a> - add encounter, rename subject to patient, rename refusedIndicator to wasNotGiven, rename refusalReason to reasonNotGiven</li>
-        <li><a href="immunizationrecommendation.html">ImmunizationRecommendation</a> - rename subject to patient</li>
         <li><a href="list.html">List</a> - add title, status, change ordered to orderedBy, add note</li>
         <li><a href="location.html">Location</a> - remove status</li>
         <li><a href="medication.html">Medication</a> - add batch</li>

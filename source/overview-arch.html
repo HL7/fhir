@@ -95,8 +95,8 @@ In addition, FHIR aligns to the following architectural principles:
 </p>
 <ol>
 <li>
-Reuse and Composability – FHIR resources are designed with the 80/20 rule in mind – focus
-on the 20% of requirements that satisfy 80% of the interoperability needs. To this end,
+Reuse and Composability – FHIR resources are designed based on an "80% rule" where only those elements that are expected 
+to be used by most implementers (~80%+ of systems) are included in the resource data models. To this end,
 resources are designed to meet the general or common data requirements of many use cases
 to avoid the proliferation of numerous, overlapping and redundant resources. Extension and customizations exist
 (see <a href="profiling.html">FHIR Profiles</a>) to allow common, somewhat generic resources to be adopted
@@ -424,7 +424,7 @@ There is potential for ambiguity, duplication, inaccurate and/or conflicting inf
 Imagine the scenario where Resource Type A (e.g., procedure) references Resource Type B (e.g., encounter) and Resource Type C (e.g., patient), and Resource Type B (e.g., encounter)
 also references Resource Type C (e.g., patient). In this scenario, is a reference to Resource A to Resource C meant to provide the same information as the reference
 from Resource B to Resource C? If so, is this duplication of information problematic? Note that this is not unique to FHIR - it is an innate property of information systems.
-If an actual instance of A, and the B that it references, reference different instances of Resource C (e.g. the procedure references patient X and an encounter for patient Y),
+If an actual instance of A, and the B that it references, reference different instances of Resource C (e.g., the procedure references patient X and an encounter for patient Y),
 how does the system know that the references are intentionally different versus an error or data anomaly? The problem is that there is limited ability to describe the
 intent of the reference which leads to the possibility of ambiguity and error. The <a href="linkage.html">Linkage resource</a> can be used to help with this problem,
 but additional capabilities may be considered in the future to allow systems to address referential integrity.

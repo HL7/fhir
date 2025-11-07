@@ -540,7 +540,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Claim"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Account"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Invoice"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItem"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
       </type>
