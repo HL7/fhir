@@ -5,7 +5,7 @@
 
 <p>
 OperationDefinitions can describe entirely new operations, but they can also describe a restricted implementation
-of an existing operation e.g. when a server implements some but not all the features of an operation defined in 
+of an existing operation, e.g. when a server implements some but not all the features of an operation defined in 
 another specification. These are called derived operation definitions.
 </p>
 <p>
@@ -30,6 +30,64 @@ clarify documentation, and even change the code for the operation (see next sect
 The derived operation can't change the nature of the operation itself, nor can 
 it change add types to parameters or prohibit mandatory parameters.
 </p>
+
+<p>
+  When deriving from another operation, the following rules SHOULD be followed. Note that these rules
+  are asserted as SHOULD rather than SHALL only because they were introduced after the resource became 
+  normative. Systems that fail to follow these rules are likely to result in unsafe interoperability.
+</p>
+<ul>
+  <li>SHOULD NOT change the value of <code>affectsState</code> from the original OperationDefinition</li>
+  <li>SHOULD have the same <code>kind</code> as the original OperationDefinition</li>
+  <li>SHOULD have <code>experimental=false</code> if the original OperationDefinition has <code>experimental=true</code></li>
+  <li>SHOULD have a <code>resource</code> that is equivalent to or a subset of the original OperationDefinition <code>target</code></li>
+  <li>SHOULD NOT set <code>system</code>, <code>type</code>, or <code>instance</code> to 'true' if they were false in the original OperationDefinition</li>
+  <li>if the original <code>inputProfile</code> is valued, SHOULD have an <code>inputProfile</code> valued such that:
+    <ul>
+      <li>the <code>inputProfile</code> is the same as, is a profile of, or <a href="http://hl7.org/fhir/StructureDefinition/structuredefinition-imposeProfile">imposes</a> the original <code>inputProfile</code>, or</li>
+      <li>the <code>inputProfile</code> is otherwise compatible with the original <code>inputProfile</code> (all parameters profiled with min cardinality 1 from the original <code>inputProfile</code> are profiled; all parameters profiled in the original <code>inputProfile</code> are profiled with equivalent or tighter constraints)</li>
+    </ul>
+  </li>
+  <li>if the original <code>outputProfile</code> is valued, SHOULD have an <code>outputProfile</code> valued such that:
+    <ul>
+      <li>the outputProfile is the same as, is a profile of, or <a href="http://hl7.org/fhir/StructureDefinition/structuredefinition-imposeProfile">imposes</a> the original outputProfile, or</li>
+      <li>the outputProfile is otherwise compatible with the original outputProfile (all parameters profiled with min cardinality 1 from the original outputProfile are profiled; all parameters profiled in the original outputProfile are profiled with equivalent or tighter constraints)</li>
+    </ul>
+  </li>
+  <li>SHOULD have a <code>parameter</code> with the same <code>name</code> as any <code>parameter</code> of the original OperationDefinition that has a <code>parameter.min</code> value of greater than zero</li>
+  <li>for any <code>parameter</code> with the same <code>parameter.name</code> as a <code>parameter</code> of the original OperationDefinition,
+    <ul>
+      <li>SHOULD have the same <code>use</code> as the original <code>parameter</code></li>
+      <li>SHOULD have the same or greater <code>min</code> value as the original <code>parameter</code></li>
+      <li>SHOULD have the same or lesser <code>max</code> value as the original <code>parameter</code></li>
+      <li>if the original <code>parameter.type</code> is valued, SHOULD have the same <code>type</code> as the original <code>parameter</code></li>
+      <li>if the original <code>parameter.allowedType</code> is valued, SHOULD have an <code>allowedType</code> that is the same or a subset of the original <code>parameter.allowedType</code></li>
+      <li>if the original <code>parameter.targetProfile</code> is valued, SHOULD only include <code>targetProfile</code> that are the same as, or profiles of, original <code>parameter.targetProfile</code> entries. It is also possible to reduce the number of allowed targetProfiles.</li>
+      <li>if the original <code>parameter.searchType</code> is valued, SHOULD have a <code>searchType</code> with the same value as the original <code>parameter.searchType</code></li>
+      <li>if the original <code>parameter.binding</code> is valued, SHOULD have a <code>binding</code> with the same values as, or values meeting the constraints of, the original <code>parameter.binding</code></li>
+      <li>if the original <code>parameter.referencedFrom</code> is valued, SHOULD have a <code>referencedFrom</code> with the same values.</li>
+      <li>if the original <code>parameter.part</code> is valued,
+        <ul>
+          <li>SHOULD have a <code>part</code> with the same <code>name</code> as any <code>part</code> of the original OperationDefinition with a <code>min</code> value of greater than zero</li>
+          <li>for any <code>part</code> with the same <code>name</code> as a <code>part</code> of the original OperationDefinition, SHOULD meet the above derivation rules</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>If parameters are removed, the interpretation is that those parameters SHOULD be ignored, not that they are erroneous to include. Note that unexpected parameters SHOULD generally be ignored by implementations.</li>
+  <li>Additional optional parameters not present in the base observation MAY be added.
+    <ul>
+      <li>Such parameters SHOULD be safe to ignore if the operation is invoked on a system that only supports the base definition.</li>
+      <li>It is discouraged to introduce parameters with the same name as a parameter that was removed as part of a higher-level derivation. Behavior in this situation is undefined.</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote class="ballot-note">
+Request for ballot feedback: We would like the 'SHOULD' assertions above to become 'SHALL' assertions.
+We are invoking our usual implementer outreach process to find out whether anyone else objects, but please file tickets for any rules you do not believe can be enforced that way.
+</blockquote>
+
 
 <a name="renaming"></a>
 <a name="code"></a>
@@ -82,7 +140,7 @@ both. Its capability statement will say:
 <p>
 If a general purpose cross server client is looking for the implementation of the 
 http://fhir.orgb.com/meta/OperationDefinition/dothis operation and wants to be
-robust against this name clash problem, instead of simply executing the $dothis
+robust against this name clash problem, instead of simply executing the <code>$dothis</code>
 operation, it can look at the server's <a href="capabilitystatement.html">CapabilityStatement</a> for the underlying
 definition URI and then execute with the name given in the capability statement.
 </p>
@@ -148,7 +206,7 @@ with the value of the search parameter "_query" set to the name provided in the 
 Named queries are a kind of search: both client and server must conform to all the requirements of search, 
 including regarding the content of the result bundle. From a client's perspective, it's really just a kind 
 of search, though it may have a completely separate processing pipeline.
-Named queries cannot be invoked using the $[operationname] mechanism.
+Named queries cannot be invoked using the <code>$[operationname]</code> mechanism.
 </p>
 <p>
 If the named query is to be performed over the RESTful API, all the parameters must be simple search parameters,
@@ -178,7 +236,7 @@ The definition of an operation distinguishes between these two, since they have 
 </p>
 <p>
 As an example, take the <a href="valueset-operation-expand.html">ValueSet.$expand operation</a>.  
-This operation takes a valueset as a direct parameter. The type of the parameter is 
+This operation takes a ValueSet as a direct parameter. The type of the parameter is 
 defined as 'ValueSet'. In a <a href="parameters.html">Parameters</a> resource, it would be represented like this:
 </p>
 <pre class="xml">

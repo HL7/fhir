@@ -254,7 +254,7 @@
 			<path value="SearchParameter.derivedFrom"/>
 			<short value="Original definition for the search parameter"/>
 			<definition value="Where this search parameter is originally defined. If a derivedFrom is provided, then the details in the search parameter must be consistent with the definition from which it is defined. i.e. the parameter should have the same meaning, and (usually) the functionality should be a proper subset of the underlying search parameter."/>
-			<comment value="The intent of this is that a server can designate that it provides support for a search parameter defined in the specification itself (e.g.  [`value-quantity`](http://hl7.org/fhir/SearchParameter/Observation-value-quantity), but detail how it is supported by the server."/>
+			<comment value="The intent of this is that a server can designate that it provides support for a search parameter defined in the specification itself (e.g.  [`value-quantity`](http://hl7.org/fhir/SearchParameter/Observation-value-quantity), but detail how it is supported by the server. This canonical reference SHOULD always be version-specific, as different versions of the base resource may have changes that would cause the derived search parameter to not be a valid derivation."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -332,7 +332,7 @@
 			</extension>
 			<path value="SearchParameter.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual tresponsible for the release and ongoing maintenance of the search parameter."/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the search parameter."/>
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the search parameter is the organization or individual primarily responsible for the maintenance and upkeep of the search parameter. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the search parameter. This item SHOULD be populated unless the information is available from context."/>
 			<requirements value="Helps establish the &quot;authority/credibility&quot; of the search parameter.  May also allow for contact."/>
 			<min value="0"/>
@@ -713,7 +713,7 @@
 		</element>
 		<element id="SearchParameter.component.expression">
 			<path value="SearchParameter.component.expression"/>
-			<short value="Subexpression relative to main expression"/>
+			<short value="Sub-expression relative to main expression"/>
 			<definition value="A sub-expression that defines how to extract values for this component from the output of the main SearchParameter.expression."/>
 			<comment value="This expression overrides the expression in the definition and extracts the index values from the outcome of the composite expression."/>
 			<min value="1"/>

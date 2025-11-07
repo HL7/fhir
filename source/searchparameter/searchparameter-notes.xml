@@ -121,4 +121,34 @@ parameter in addition to the primary <code>code</code> value.
 <b>Example:</b> A search parameter previously named <code>authoredon</code> might be updated to use <code>authored</code> as the primary code (for consistency with other resources) while retaining <code>authoredon</code> as an alias for backward compatibility.
 </p>
 
+<a name="deriving"></a>
+<h2>Deriving Search Parameters</h2>
+
+<p>
+When one SearchParameter has a <code>derivedFrom</code> referencing another SearchParameter, the following rules SHOULD be followed. 
+Note that these rules are asserted as SHOULD rather than SHALL only because they were introduced after the resource became normative. 
+Systems that fail to follow these rules are likely to result in unsafe interoperability.
+</p>
+<p>
+A derived SearchParameter:
+</p>
+<ul>
+  <li>SHOULD NOT have <code>experimental=false</code> if the original SearchParameter has <code>experimental=true</code></li>
+  <li>SHOULD have the same <code>type</code> as the original SearchParameter</li>
+  <li>SHOULD have the same <code>processingMode</code> as the original SearchParameter</li>
+  <li>
+    SHOULD NOT have values for <code>multipleOr</code> or <code>multipleAnd</code> that contradict a value stated in the original SearchParameter. 
+    I.e. If the base does not declare these, the derived SearchParameter can. However, if the base does declare them, the derived SearchParameter SHOULD have the same values.
+  </li>
+  <li>SHOULD have a <code>target</code> that is equivalent to or a subset of the original SearchParameter <code>target</code></li>
+  <li>SHOULD have <code>comparator</code> and <code>modifier</code> values that are the same as or a superset of those defined in the base.</li>
+  <li>SHOULD have the same number of components listed in the same order, where the <code>definition</code> must be the same or a derived SearchParameter, and the <code>expression</code> must be the same.</li>
+  <li>MAY add values for <code>chain</code> but SHOULD NOT remove or re-order values already listed in the base.</li>
+</ul>
+
+<blockquote class="ballot-note">
+Request for ballot feedback: We would like the 'SHOULD' assertions above to become 'SHALL' assertions.
+We are invoking our usual implementer outreach process to find out whether anyone else objects, but please file tickets for any rules you do not believe can be enforced that way.
+</blockquote>
+
 </div>
