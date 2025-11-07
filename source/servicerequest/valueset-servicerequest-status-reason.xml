@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="servicerequest-status-reason"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/servicerequest-status-reason"/>
+  
+  <version value="6.0.0"/>
+  <name value="ServiceRequestStatusReason"/>
+  <title value="Service Request Status Reason"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International - Orders and Observations"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Example codes indicating the reason why the service request is in its current status (e.g., on hold, cancelled, suspended). Note that these are in no way complete and might not even be appropriate for some uses."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/servicerequest-status-reason"/>
+    </include>
+  </compose>
+</ValueSet>

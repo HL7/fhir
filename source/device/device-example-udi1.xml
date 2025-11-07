@@ -22,8 +22,8 @@
 	</identifier>
 	<udiCarrier>
 		<deviceIdentifier value="00844588003288"/>
-		<issuer value="http://hl7.org/fhir/NamingSystem/gs1"/>
-		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+		<issuer value="http://hl7.org/fhir/NamingSystem/gs1-di"/>
+		<jurisdiction value="http://hl7.org/fhir/NamingSystem/us-fda-udi"/>
 		<carrierAIDC value="XWQyMDExMDg1NzY3NDAwMjAxNzE3MTQxMTIwMTBOWUZVTDAx4oaUMjExOTI4MzfihpQ3MTNBMUIyQzNENEU1RjZH"/>
 		<carrierHRF value="{01}00844588003288{17}141120{10}7654321D{21}10987654d321"/>
 		<entryType value = "barcode"/>
@@ -63,7 +63,7 @@
 	</association> -->
 	<safety>
 		<coding>
-			<system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
+			<system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
 			<code value="mr-unsafe"/>
 			<display value="MR Unsafe"/>
 		</coding>

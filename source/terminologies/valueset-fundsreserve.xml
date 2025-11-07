@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="fundsreserve"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -12,7 +12,7 @@
   <name value="FundsReservationCodes"/>
   <title value="Funds Reservation Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -20,8 +20,8 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample funds reservation type codes."/>
-  <copyright value="This is an example set."/>
+  <description value="This value set includes funds reservation type codes."/>
+  <copyright value="HL7 International."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/fundsreserve"/>

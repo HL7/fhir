@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DeviceAssociation xmlns="http://hl7.org/fhir">
+  <id value="tablet-association"/>
+  <contained>
+    <Practitioner>
+      <id value="example-practitioner"/>
+      <name>
+        <family value="Nguyen"/>
+        <given value="Alex"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Device>
+      <id value="tablet-device"/>
+      <status value="active"/>
+      <name>
+        <value value="handPad Pro"/>
+        <type>
+          <coding>
+            <code value="model-name"/>
+          </coding>
+        </type>
+      </name>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="464572002"/>
+          <display value="Palmtop computer"/>
+        </coding>
+      </type>
+    </Device>
+  </contained>
+  <device>
+    <reference value="#tablet-device"/>
+  </device>
+  <status value="active"/>
+  <associationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+      <code value="attached"/>
+      <display value="Attached"/>
+    </coding>
+  </associationStatus>
+  <subject>
+    <reference value="#example-practitioner"/>
+  </subject>
+  <period>
+    <start value="2023-06-01"/>
+  </period>
+</DeviceAssociation>

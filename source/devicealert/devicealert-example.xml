@@ -3,24 +3,104 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/devicealert.xsd">
 	<id value="example" />
 	<identifier>
-		<system value="http://goodcare.org/DeviceAlert/id" />
-		<value value="345675" />
+		<use value="official"/>
+		<type>
+			<text value="Alarm Unique Id"/>
+		</type>
+		<value value="0600dcFFFF750001^^^EUI-64_d1130a75-316c-4401-88c4-9c71704cdf6b_d629bc41-0310-4fec-b1a4-41356b66a7eb" />
 	</identifier>
-	<status value="completed"/>
+	<status value="in-progress"/>
 	<type value="physiological" />
+	<priority>
+		<coding>
+			<system value="http://hl7.org/fhir/devicealert-priority"/>
+			<code value="medium"/>
+			<display value="Medium Priority"/>
+		</coding>
+	</priority>
+	<code>
+		<coding>
+			<system value="urn:iso:std:iso:11073:10101" />
+			<code value="196670"/>
+			<display value="MDC_EVT_LO"/>
+		</coding>
+	</code>
 	<subject>
 		<reference value="Patient/pat1"/>
 	</subject>
-	<source>
+	<presence value="true"/>
+	<occurrencePeriod>
+		<start value="2025-10-30T10:00:00Z"/>
+	</occurrencePeriod>
+	<device>
 		<reference value="Device/example" />
-	</source>
-	<condition>
-		<code>
+	</device>
+	<derivedFrom>
+		<observation>
+			<reference value="Observation/f001"/>
+			<type value="Observation"/>
+		</observation>
+		<limit>
+			<low>
+				<value value="87"/>
+				<unit value="MDC_DIM_PERCENT"/>
+				<system value="urn:iso:std:iso:11073:10101"/>
+				<code value="262688"/>
+			</low>
+			<high>
+				<value value="98"/>
+				<unit value="MDC_DIM_PERCENT"/>
+				<system value="urn:iso:std:iso:11073:10101"/>
+				<code value="262688"/>
+			</high>
+		</limit>
+	</derivedFrom>
+	<acknowledged value="false"/>
+	<label value="**SpO2   86  &lt;87  "/>
+	<signal>
+		<activationState>
 			<coding>
-				<system value="urn:iso:std:iso:11073:10101" />
-				<code value="196688"/>
+				<system value="http://hl7.org/fhir/devicealert-activationState"/>
+				<code value="on"/>
+				<display value="On"/>
 			</coding>
-		</code>
-		<presence value="true"/>
-	</condition>
+		</activationState>
+		<presence>
+			<coding>
+				<system value="http://hl7.org/fhir/devicealert-presence"/>
+				<code value="on"/>
+				<display value="On"/>
+			</coding>
+		</presence>
+		<indication>
+			<start value="2025-10-30T10:00:00Z"/>
+		</indication>
+		<type>
+			<coding>
+				<system value="urn:iso:std:iso:11073:10101"/>
+				<code value="188420"/>
+				<display value="MDC_TEMP_RECT"/>
+			</coding>
+			<text value="Light annunciator"/>
+		</type>
+		<annunciator>
+			<concept>
+				<coding>
+					<system value="urn:iso:std:iso:11073:10101"/>
+					<code value="188420"/>
+					<display value="MDC_TEMP_RECT"/>
+				</coding>
+				<text value="Light annunciator"/>
+			</concept>
+			<reference value="Device/example"/>
+		</annunciator>
+		<manifestation>
+			<coding>
+				<system value="http://hl7.org/fhir/devicealert-manifestation"/>
+				<code value="visual"/>
+				<display value="Visual"/>
+			</coding>
+			<text value="visual alert"/>
+		</manifestation>
+	</signal>
 </DeviceAlert>

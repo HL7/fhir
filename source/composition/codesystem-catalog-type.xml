@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="catalog-type"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="sd"/>
+  </extension>
+  <url value="http://hl7.org/fhir/catalog-type"/>
+  <version value="6.0.0"/>
+  <name value="CatalogType"/>
+  <title value="Catalog Type"/>
+  <experimental value="true"/>
+  <description value="CatalogType"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="medication"/>
+    <display value="Medication Catalog"/>
+    <definition value="Medication Catalog."/>
+  </concept>
+  <concept>
+    <code value="device"/>
+    <display value="Device Catalog"/>
+    <definition value="Device Catalog."/>
+  </concept>
+  <concept>
+    <code value="protocol"/>
+    <display value="Protocol List"/>
+    <definition value="Protocol List."/>
+  </concept>
+  <concept>
+    <code value="status"/>
+    <display value="Status"/>
+    <definition value="Status."/>
+  </concept>
+</CodeSystem>

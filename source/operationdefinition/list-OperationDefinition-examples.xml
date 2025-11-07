@@ -90,24 +90,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="ConceptMap Closure"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="operation-conceptmap-closure"/>
-    </extension>
-    <flag>
-      <coding>
-        <system value="http://hl7.org/fhir/build/CodeSystem/example-type"/>
-        <code value="tool"/>
-      </coding>
-    </flag>
-    <item>
-      <reference value="null/ConceptMap-closure"/>
-      <display value="cmclosure"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Library data requirements"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

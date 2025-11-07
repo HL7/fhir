@@ -6,13 +6,13 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Basic Image Selection"/>
+      <valueString value="Single Frame Image Selection"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="imagingselection-example-basic-image-selection"/>
+      <valueString value="imagingselection-example-single-frame-image-selection"/>
     </extension>
     <item>
-      <reference value="ImagingSelection/example-basic-image-selection"/>
+      <reference value="ImagingSelection/example-single-frame-image-selection"/>
       <display value="General"/>
     </item>
   </entry>
@@ -85,6 +85,30 @@
     </extension>
     <item>
       <reference value="ImagingSelection/example-3d-image-region-selection"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Waveform Channel Selection"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="imagingselection-example-waveform-channel-selection"/>
+    </extension>
+    <item>
+      <reference value="ImagingSelection/example-waveform-channel-selection"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RT Structure Set Selection"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="imagingselection-example-rt-structure-set-region-selection"/>
+    </extension>
+    <item>
+      <reference value="ImagingSelection/example-rt-structure-set-region-selection"/>
       <display value="General"/>
     </item>
   </entry>

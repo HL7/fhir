@@ -111,7 +111,7 @@ Until recently, there were no 'standard' SearchParameters defined to allow searc
 <ul>
   <li>The meaning of answers in a QuestionnaireResponse is often contextual based on other answers within the form, making it very difficult (and potentially risky) to infer information from the inclusion of a QuestionnaireResponse in response to a search.</li>
   <li>When searching based on linkId, the search SHOULD also filter by the Questionnaire, and typically a specific version of the Questionnaire because linkIds can be re-used across forms and mean very different things.</li>
-  <li>Searching for data in QuestionnaireResponses behaves in an opaque/proprietary way because Questionnaires are rarely standardized across organization.  The best practice for making data accessible for search is therefore to <a href="https://build.fhir.org/ig/HL7/sdc/extraction.html">extract</a> information from completed QuestionnaireResponses into other FHIR resources that are more standardized and can be better understood and searched for across organizations.</li>
+  <li>Searching for data in QuestionnaireResponses behaves in an opaque/proprietary way because Questionnaires are rarely standardized across organization.  The best practice for making data accessible for search is therefore to <a href="https://hl7.org/fhir/uv/sdc/STU3/extraction.html">extract</a> information from completed QuestionnaireResponses into other FHIR resources that are more standardized and can be better understood and searched for across organizations.</li>
   <li>Because of the complexity of indexing recursive data structures and the potential for large volumes of data elements, search parameters on linkId and answers might not be widely supported.</li>
   <li>Search on QuestionnaireResponses means that the server is often not aware of the 'meaning' of the data being searched or being returned.  This makes applying access control policies, consent, etc. more difficult or even impossible.</li>
 </ul>
@@ -137,7 +137,7 @@ When working with QuestionnaireResponses, there may be FHIRPath <a href="metadat
 <li>The <code>%context</code> variable will be set to the QuestionnaireResponse if the expression extension is defined on the Questionnaire root. Otherwise, it will be interpreted as the QuestionnaireResponse.item(s) whose linkId matches the linkId of the Questionnaire.item the expression extension was defined in. I.e. while the extensions and expressions are defined in the Questionnaire, they are evaluated in the context of the corresponding item(s) in the QuestionnaireResponse.
 </li>
 <li>
-All expressions that specify a 'name' can be accessed by other expressions appearing on the same item or any descendant item as though that name was part of context. The same is true for the 'name' element in the <a href="https://build.fhir.org/ig/HL7/sdc/StructureDefinition-sdc-questionnaire-launchContext.html">launchContext extension</a>. For example, a variable with the name 'score' could be accessed in FHIRPath or CQL using %score.
+All expressions that specify a 'name' can be accessed by other expressions appearing on the same item or any descendant item as though that name was part of context. The same is true for the 'name' element in the <a href="https://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaire-launchContext.html">launchContext extension</a>. For example, a variable with the name 'score' could be accessed in FHIRPath or CQL using %score.
 </li>
 </ul>
 <p>
@@ -145,7 +145,7 @@ In addition, a couple of additional variables are defined for use with extension
 </p>
 <ul>
   <li><code>%questionnaire</code> corresponds to the Questionnaire resource resolved to by the QuestionnaireResponse.questionnaire element. It is in scope for all expressions defined in the Questionnaire.</li>
-  <li><code>qitem</code> is defined as a shortcut to get to the Questionnaire.item that corresponds to the context QuestionnaireResponse.item (based on matching linkId). It is only valid for FHIRPath expressions defined within a Questionnaire item.</li>
+  <li><code>%qitem</code> is defined as a shortcut to get to the Questionnaire.item that corresponds to the context QuestionnaireResponse.item (based on matching linkId). It is only valid for FHIRPath expressions defined within a Questionnaire item.</li>
 </ul>
 
 </div>

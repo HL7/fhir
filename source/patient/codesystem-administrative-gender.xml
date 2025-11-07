@@ -4,7 +4,7 @@
   <id value="administrative-gender"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <text>
     <status value="extensions"/>
@@ -248,35 +248,31 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
   <content value="complete"/>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="Male"/>
-    </extension>
     <code value="male"/>
     <display value="Male"/>
     <definition value="Male."/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="Female"/>
-    </extension>
     <code value="female"/>
     <display value="Female"/>
     <definition value="Female."/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="The administrative gender is a value other than male/female/unknown. Where this value is selected, systems may often choose to include an extension with the localized more specific value."/>
-    </extension>
     <code value="other"/>
     <display value="Other"/>
     <definition value="Other."/>
+    <property>
+      <code value="comments"/>
+      <valueString value="The administrative gender is a value other than male/female/unknown. Where this value is selected, systems may often choose to include an extension with the localized more specific value."/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="A proper value is applicable, but not known.  Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)"/>
-    </extension>
     <code value="unknown"/>
     <display value="Unknown"/>
     <definition value="Unknown."/>
+    <property>
+      <code value="comments"/>
+      <valueString value="A proper value is applicable, but not known.  Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)"/>
+    </property>
   </concept>
 </CodeSystem>

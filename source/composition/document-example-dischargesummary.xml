@@ -93,7 +93,7 @@
             </div>
           </text>
           <entry>
-            <reference value="urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81"/>
+            <reference value="http://fhir.healthintersections.com.au/open/Observation/example1"/>
           </entry>
         </section>
       <!--   Points to the  medications on discharge   -->
@@ -155,10 +155,10 @@
           <!--   This is an entry that refers to a MedicationRequest resource in this document.
                 It is a new medication (as indicated by the flag)  -->
           <entry>
-            <reference value="urn:uuid:124a6916-5d84-4b8c-b250-10cefb8e6e86"/>
+            <reference value="http://fhir.healthintersections.com.au/open/MedicationRequest/example2"/>
           </entry>
           <entry>
-            <reference value="urn:uuid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
+            <reference value="http://fhir.healthintersections.com.au/open/MedicationStatement/example3"/>
           </entry>
         </section>
       <!--   Points to the  allergies   -->
@@ -206,7 +206,7 @@
             </div>
           </text>
           <entry>
-            <reference value="urn:uuid:47600e0f-b6b5-4308-84b5-5dec157f7637"/>
+            <reference value="http://fhir.healthintersections.com.au/open/AllergyIntolerance/example4"/>
           </entry>
         </section>
       </Composition>
@@ -321,9 +321,10 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="urn:uuid:541a72a8-df75-4484-ac89-ac4923f03b81"/>
+    <fullUrl value="http://fhir.healthintersections.com.au/open/Observation/example1"/>
     <resource>
       <Observation>
+        <id value="example1"/>
         <meta>
           <lastUpdated value="2013-05-05T16:13:03Z"/>
         </meta>
@@ -353,9 +354,10 @@
   </entry>
 <!--   The first medication in the medications list   -->
   <entry>
-    <fullUrl value="urn:uuid:124a6916-5d84-4b8c-b250-10cefb8e6e86"/>
+    <fullUrl value="http://fhir.healthintersections.com.au/open/MedicationRequest/example2"/>
     <resource>
       <MedicationRequest>
+        <id value="example2"/>
         <meta>
           <lastUpdated value="2013-05-05T16:13:03Z"/>
         </meta>
@@ -439,9 +441,10 @@
   </entry>
 <!--   The second medication in the medications list   -->
   <entry>
-    <fullUrl value="urn:uuid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
+    <fullUrl value="http://fhir.healthintersections.com.au/open/MedicationStatement/example3"/>
     <resource>
       <MedicationStatement>
+        <id value="example3"/>
       <!--   The Human readible version of the medication statement  -->
         <text>
           <status value="generated"/>
@@ -476,9 +479,10 @@
   </entry>
 <!--   The Allergy.  -->
   <entry>
-    <fullUrl value="urn:uuid:47600e0f-b6b5-4308-84b5-5dec157f7637"/>
+    <fullUrl value="http://fhir.healthintersections.com.au/open/AllergyIntolerance/example4"/>
     <resource>
       <AllergyIntolerance>
+        <id value="example4"/>
         <meta>
           <lastUpdated value="2013-05-05T16:13:03Z"/>
         </meta>

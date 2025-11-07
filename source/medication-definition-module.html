@@ -14,7 +14,7 @@ in order to support consistent definitions for schema and UML derived code.
 [%file newnavbar%]
 
 
-<table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg brr%]">[%wgt brr%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg brr%]">[%wgt brr%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="root"></a>
 <h2>Medication Definition Module</h2>
@@ -106,7 +106,7 @@ This module is concerned with resources and functionality in areas such as:
 				physical packaging of a product. These pack types can be associated with an "owning" MedicinalProductDefinition, to represent the range of different pack 
 				sizes for that product. These may have different legal statuses and availability, or be packaged in different ways. 
 				The resource allows describing which drug items and associated co-packaged devices are within them. The actual contained items are handled by
-				specific resources (e.g. <a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a> and <a href="devicedefinition.html">DeviceDefinition</a>).
+				specific resources (e.g., <a href="manufactureditemdefinition.html">ManufacturedItemDefinition</a> and <a href="devicedefinition.html">DeviceDefinition</a>).
 			</p>
 		</td>
 	</tr>
@@ -250,7 +250,7 @@ This module is concerned with resources and functionality in areas such as:
 	<p>There are other resources that are of particular interest to the medication definition domain.</p>
 	<ul>
 		<li> <a href="medication.html">Medication</a> This is the resource to use for prescribing use cases, and anywhere that an actual medication instance is needed.</li>
-		<li> <a href="substance.html">Substance</a> The substance resource has a limited subset of data, and is aimed at prescribing use cases. Unlike SubstanceDefinition, it can be an actual instance of a substance (e.g. an amount of an ingredient or raw material).</li>
+		<li> <a href="substance.html">Substance</a> The substance resource has a limited subset of data, and is aimed at prescribing use cases. Unlike SubstanceDefinition, it can be an actual instance of a substance (e.g., an amount of an ingredient or raw material).</li>
 		<li> <a href="devicedefinition.html">DeviceDefinition</a> A DeviceDefinition can be used to represent a device that is inside the package of a medicinal product, within the PackagedProductDefinition resource.</li>
 		<li> <a href="organization.html">Organization</a> Many regulatory processes are centred around organizations (pharma companies, drug manufacturers, regulatory agencies). These are all represented by Organizations, and are referenced by many of the module's resources.</li>
 	</ul>
@@ -283,7 +283,7 @@ This module is concerned with resources and functionality in areas such as:
 		The <a href="medicinalproductdefinition.html">MedicinalProductDefinition</a> resource, and the others in this module (show lower in the diagram), 
 		cover the detailed defining data of medicinal products, 
 		to a level that is only occasionally needed for day-to-day prescribing 
-		(e.g. for look-ups of unfamiliar products), but that is commonly required by manufacturers and regulators.
+		(e.g., for look-ups of unfamiliar products), but that is commonly required by manufacturers and regulators.
 	</p>
 	<p>
 		These Medication Definition resources are information about drugs (and related products), and drug product information is useful any 

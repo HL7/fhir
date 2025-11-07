@@ -359,7 +359,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -395,7 +395,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="Procedure.encounter">
@@ -722,6 +722,9 @@
       </mapping>
     </element>
     <element id="Procedure.reason">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#50636"/>
+      </extension>
       <path value="Procedure.reason"/>
       <short value="The justification that the procedure was performed"/>
       <definition value="The coded reason or reference why the procedure was performed. This may be a coded entity of some type, be present as text, or be a reference to one of several resources that justify the procedure."/>
@@ -735,6 +738,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -795,14 +799,14 @@
     </element>
 	<element id="Procedure.bodyStructure">
 	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#39288, J#41690"/>
+        <valueString value="J#39288, J#51792 reverted J#41690"/>
       </extension>
       <path value="Procedure.bodyStructure"/>
       <short value="Target body structure"/>
       <definition value="Indicates the body structure on the subject's body where the procedure was performed."/>
       <comment value="Should be consistent with Procedure.code.  Cannot be used if Procedure.bodySite is used."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
@@ -814,12 +818,12 @@
     </element>
     <element id="Procedure.outcome">
 	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#40516"/>
+        <valueString value="J#40516, J#47823"/>
       </extension>
       <path value="Procedure.outcome"/>
       <short value="The result of procedure"/>
       <definition value="The short term outcome of the procedure assessed during the procedure, at the conclusion of the procedure, during the immediate post-performance period, or at discharge. The outcome is usually expected to be within the encounter during which the procedure was performed."/>
-      <comment value="If outcome contains narrative text only, it can be captured using the CodeableConcept.text. Procedure.outcome are short term outcomes because long term outcomes are typically documented as Observations.  For example, a cardiac stent procedure may have two Procedure.outcomes of successful placement of stent and successful reestablishment of blood flow, but the long term outcome of no further cardiac events would not be documented as a Procedure.outcome and instead documented as an Observation."/>
+      <comment value="If outcome contains narrative text only, it can be captured using the CodeableConcept.text. Procedure.outcome are short term outcomes because long term outcomes are typically documented as Observations.  For example, a cardiac stent procedure may have two Procedure.outcomes of successful placement of stent and successful reestablishment of blood flow, but the long term outcome of no further cardiac events would not be documented as a Procedure.outcome and instead documented as an Observation.  In the ICU where patient is intubated and attached to a ventilator, the ventilator parameter settings can include respiratory rate, tidal volume, FiO2, and PEEP. The Procedure.code = ventilator parameter adjustment.  The Procedure.outcome is 0..* Reference(Observation) where each Observation instance supports documenting respiratory rate, tidal volume, FiO2, and PEEP."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -841,7 +845,10 @@
       </mapping>
     </element>
     <element id="Procedure.report">
-      <path value="Procedure.report"/>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#31952"/>
+      </extension>
+	  <path value="Procedure.report"/>
       <short value="Any report resulting from the procedure"/>
       <definition value="This could be a histology result, pathology report, surgical report, etc."/>
       <comment value="There could potentially be multiple reports - e.g. if this was a procedure which took multiple biopsies resulting in a number of anatomical pathology reports."/>
@@ -852,6 +859,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </type>
       <mapping>
         <identity value="rim"/>

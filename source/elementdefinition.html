@@ -16,15 +16,12 @@ no repeating primitives in datatypes? No id's on primitives in datatypes...No da
 <h1>Element Definition</h1>
 <table class="colsn">
 		<tr>
-				<td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
-				<td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td>
+				<td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
+				
 				<td id="ballot"><a href="versions.html#std-process">Standards Status</a>:
 						<!--!ns!--><a href="versions.html#std-process">Normative</a></td>
 		</tr>
 </table>
-[%normative page infrastructure%]
-
-
 <p>Types Framework Cross Reference: 
   <a href="types.html">Base Types</a>
   |
@@ -86,11 +83,11 @@ same path must conform.
 		context in which the meaning of the element is understood. When Elements are defined, the following rules apply:
 </p>
 <ul>
-		<li>Element names (the parts of a path delineated by the '.' character) SHALL NOT contain whitespace (i.e. Unicode characters marked as whitespace)</li>
+		<li>Element names (the parts of a path delineated by the '.' character) SHALL NOT contain whitespace (i.e., Unicode characters marked as whitespace)</li>
 		<li>Element names SHALL NOT contain the characters ,:;'"/|?!@#$%^&amp;*()[]{}</li>
 		<li>Element names SHOULD not contain non-ASCII characters</li>
 		<li>Element names SHALL NOT exceed 64 characters in length</li>
-		<li>Element paths cannot imply elements that are not explicitly defined i.e. a.b.c.d cannot be defined unless a.b.c is explicitly defined</li>
+		<li>Element paths cannot imply elements that are not explicitly defined i.e., a.b.c.d cannot be defined unless a.b.c is explicitly defined</li>
 		<li>By convention, each path starts with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and datatypes (except for Primitive datatypes) follow this convention, but logical
 				models are not required to do so</li>
 </ul>
@@ -107,8 +104,8 @@ same path must conform.
 		<li>Data Elements</li>
 </ul>
 <p>
-		StructureDefinitions with <a href="structuredefinition-definitions.html#StructureDefinition.derivation">derivation</a> = <code>constraint</code> (i.e. Resource and Datatype profiles) are not allowed to define or include ElementDefinitions
-		with a path not defined within the base type definition from which they derive (e.g. in the FHIR specification).
+		StructureDefinitions with <a href="structuredefinition-definitions.html#StructureDefinition.derivation">derivation</a> = <code>constraint</code> (i.e., Resource and Datatype profiles) are not allowed to define or include ElementDefinitions
+		with a path not defined within the base type definition from which they derive (e.g., in the FHIR specification).
 </p>
 
 <a name="id"></a>
@@ -119,7 +116,7 @@ same path must conform.
 <ul>
 		<li>The id will be constructed as a dot separated string, each part corresponding to a token in the path</li>
 		<li>For each token in the path, use the syntax <code>pathpart:slicename/reslicename</code></li>
-		<li>For type choice elements, the id reflects the type slice. e.g. For path = Patient.deceased[x], the id of the boolean slice type element is Patient.deceased[x]:deceasedBoolean</li>
+		<li>For type choice elements, the id reflects the type slice. e.g., For path = Patient.deceased[x], the id of the boolean slice type element is Patient.deceased[x]:deceasedBoolean</li>
 </ul>
 <p>
 		Note that in a profile with no slices, this id will match the path exactly and entirely.
@@ -337,18 +334,18 @@ same path must conform.
 	  <li>Expected/Not Expected: this is used in the table to indicate that the element SHOULD or SHOULD NOT be present, but that 
 			real world StructureDefinitions may be encountered that differ from this guidance, and that these are not invalid</li>
 		<li>Type definition: A StructureDefinition without a <code>baseDefinition</code> element, or where the derivation type is 'specialization'</li>
-		<li>Constraint definition: A StructureDefinition with a <code>baseDefinition</code> element and a derivation of 'constraint' - e.g. a definition of a structure that constrains another base structure, referring to the differential portion</li>
+		<li>Constraint definition: A StructureDefinition with a <code>baseDefinition</code> element and a derivation of 'constraint' - e.g., a definition of a structure that constrains another base structure, referring to the differential portion</li>
 		<li><sup>†</sup>: The element's presence, and value, must match the definition in the base definition</li>
 		<li><sup>‡</sup>: The element content must be consistent with that matching element in the base definition</li>
 		<li><sup>♉︎</sup>: In general base definitions should not set mustSupport to true, and no HL7 resources do - mustSupport is usually associated with specific contexts of use</li>
 		<li><sup>∆</sup>: Additional constraints and mappings can be defined, but they do not replace the ones in the base definition</li>
-		<li><sup>§</sup>: The cardinality on a type places constraints on references to that type. I.e. profiles referencing the type must fall
+		<li><sup>§</sup>: The cardinality on a type places constraints on references to that type. i.e., profiles referencing the type must fall
 			 within the cardinality bounds of the type itself. This most commonly occurs with Extension profiles, where the profile 
-			 may prohibit the extension from repeating (max=1), or less commonly, make the extension mandatory (min=1) - i.e. if the 
+			 may prohibit the extension from repeating (max=1), or less commonly, make the extension mandatory (min=1) - i.e., if the 
 			 extension is referenced in a profile, it must be marked as mandatory.</li>
 		<li>For some simple types, rather than pointing to a FHIR datatype, the element will be defined as having a datatype defined by [FHIRPath].
-		E.g. <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a>. This occurs when the generic behavior of the FHIR primitive type is not desired
-		(e.g. inheriting extension, id, etc.). Implementations should map these FHIRPath datatypes to the appropriate simple datatype defined in their implementation language.
+		e.g., <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a>. This occurs when the generic behavior of the FHIR primitive type is not desired
+		(e.g., inheriting extension, id, etc.). Implementations should map these FHIRPath datatypes to the appropriate simple datatype defined in their implementation language.
 		For example, in Java, FHIRPath System.String might best map to the `java.lang.String` class.</li>
 		<li>In addition, when an element has a datatype of <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a> then it will typically also include a
 		<a href="[%extensions-location%]StructureDefinition-structuredefinition-fhir-type.html">structuredefinition-fhir-type</a> extension. This extension might further constrain the allowed value of an element that might be treated as a string.
@@ -421,6 +418,19 @@ same path must conform.
 				<ul>
 						<li><code>slicing</code> must be present</li>
 						<li><code>min</code> governs the number of total occurrences of the sliced element including the number of occurrences in the open portion of the slice (individual slices may have a different <code>min</code> value). </li>
+						<li>the constraints that apply across all slices and entries of the element are: <code>max</code>, <code>type</code> (<code>code</code>, <code>profile</code>, 
+							<code>targetProfile</code>, <code>aggregation</code> and <code>versioning</code>), 
+							<code>fixed[x]</code>, <code>pattern[x]</code>, <code>minValue[x]</code>, <code>maxValue[x]</code>, <code>maxLength</code>, <code>constraints</code>, 
+						  required and extensible bindings (including additional bindings), 
+							<code>mustHaveValue</code>, <code>valueAlternatives</code>. Obligations apply across all slices unless the obligation specifies an 'applicable-number'
+            </li>
+						<li><code>mustSupport</code> assertions that do not specify otherwise cannot be assumed to apply to all slices and entries.
+							 This is for legacy reasons - the only way to determine the applicability of mustSupport and unspecified obligations is to read the
+							 applicable documentation, and in the absence of this, consult the relevant implementation community (see further discussion on 
+							 <a href="obligations.html">the implementation obligations page</a>). Note that a slice labelled as must-support can't be considered
+							 to have no need to support just because the slicer element is not labelled as must-support - the documentation (if available) must
+							 be consulted.
+						</li>
 				</ul>
 		</li>
 </ul>
@@ -430,8 +440,8 @@ same path must conform.
 	Elements that allow a choice of multiple types can be constrained. In principle, there are two different types of constraints to apply:
 </p>
 <ul>
- <li>A constraint that applies to the element as a whole - e.g. as restricting the cardinality, or limiting the choice of types</li>
- <li>A constraint that applies to the use of a particular type - e.g. value set binding</li>
+ <li>A constraint that applies to the element as a whole - e.g., as restricting the cardinality, or limiting the choice of types</li>
+ <li>A constraint that applies to the use of a particular type - e.g., value set binding</li>
 </ul>
 <p>
  When constraining elements with multiple types, the following rules apply:
@@ -453,12 +463,6 @@ same path must conform.
 			If the element is omitted, it is NOT treated as though the fixed value or pattern had been specified</li>
 </ul>
 	
-<div class="trial-content">
-<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-	This section and the elements <code>mustHaveValue</code> and <code>valueAlternatives</code>
-	are considered <a href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a> for FHIR Release 5.
-</p>
-
 <a name="primitives"></a>
 <h3>Primitive Values</h3>
 
@@ -494,7 +498,7 @@ but <b>has no effect when the value is present</b>.
 <p>
 For further discussion regarding populating primitive values, see <a href="exchanging.html#primitives">Exchanging Data using FHIR</a>.
 </p>
-</div>
+
 <a name="aggregation"> </a>
 <h3>Rules about Aggregation</h3>
 <ul>
@@ -528,7 +532,7 @@ For further discussion regarding populating primitive values, see <a href="excha
 </p>
 <ul>
 		<li>The value must be known by all implementations</li>
-		<li>When an element has a default value, it can never be unknown - e.g. it is implicitly mandatory</li>
+		<li>When an element has a default value, it can never be unknown - e.g., it is implicitly mandatory</li>
 		<li>The default value can never be changed</li>
 		<li>The presence of a default value interacts with minimum cardinality and the <a href="search.html#modifiers">:missing search token</a> in ways that create confusion for implementations</li>
 </ul>
@@ -561,9 +565,9 @@ See <a href="obligations.html">Implementation Obligations</a> for the proper use
 
 [%file newfooter%]
 
-<script src="external/jquery/jquery.js">
+<script src="assets/js/jquery.js">
 </script>
-<script src="jquery-ui.min.js">
+<script src="assets/js/jquery-ui.min.js">
 </script>
 <script>
 try {

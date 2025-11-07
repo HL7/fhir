@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BiologicallyDerivedProduct xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/BiologicallyDerivedProduct.xsd">
+  <id value="example-apheresis-platelet"/>  
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/medicalproductofhumanorigin"/>
+  </meta>
+  <productCategory>
+    <coding>
+      <system value="http://hl7.org/fhir/product-category"/>
+      <code value="mpho"/>
+    </coding>
+    <text value="Medical Product of Human Origin"/>
+  </productCategory>
+  <productCode>
+    <coding>
+      <system value="https://www.isbt128.org/uri/ProductDescriptionCode"/>
+      <code value="E3046"/>
+    </coding>
+    <text value="Apheresis Platelets, Irradiated, Leukocyte reduced"/>
+  </productCode>
+  <identifier>
+    <system value="https://www.isbt128.org/uri/MPHOUniqueIdentifier"/>
+    <value value="00000E3046A999924123457000000"/> 
+  </identifier>
+  <biologicalSourceEvent>
+    <system value="https://www.isbt128.org/uri/DonationIdentificationNumber"/>
+    <value value="A999924123457"/>
+  </biologicalSourceEvent>
+  <division value="000000"/>
+  <expirationDate value="2024-02-02T23:59:00-05:00"/>
+</BiologicallyDerivedProduct>

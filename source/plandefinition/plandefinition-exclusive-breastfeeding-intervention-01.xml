@@ -195,7 +195,7 @@
     <condition>
       <kind value="applicability"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Should Create Assessment Order"/>
       </expression>
     </condition>
@@ -210,7 +210,7 @@
       <dynamicValue>
         <path value="/"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Create Breastfeeding Risk Assessment"/>
         </expression>
       </dynamicValue>
@@ -226,7 +226,7 @@
       <dynamicValue>
         <path value="/"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Communication Request to Provider"/>
         </expression>
       </dynamicValue>

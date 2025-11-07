@@ -124,7 +124,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Is total MME &gt;= 50?"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Is MME 50 Or More?"/>
       </expression>
     </condition>
@@ -133,21 +133,21 @@
     <dynamicValue>
       <path value="action.title"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="getSummary"/>
       </expression>
     </dynamicValue>
     <dynamicValue>
       <path value="action.description"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="getDetail"/>
       </expression>
     </dynamicValue>
     <dynamicValue>
       <path value="activity.extension"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="getIndicator"/>
       </expression>
     </dynamicValue>

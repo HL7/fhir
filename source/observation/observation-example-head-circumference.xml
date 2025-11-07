@@ -13,14 +13,6 @@
 		</coding>
 		<text value="Vital Signs"/>
 	</category>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="9843-4"/>
-			<display value="Head Occipital-frontal circumference"/>
-		</coding>
-		<text value="Head Circumference"/>
-	</category>
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>

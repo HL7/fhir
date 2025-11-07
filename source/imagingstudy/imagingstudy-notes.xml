@@ -17,7 +17,7 @@ A referenced DICOM SOP instance could be:
 <a name="dicom-uids"></a>
 <h3>DICOM UIDs</h3>
 <p>
-DICOM Series Instance UID and SOP Instance UID use the <code>id</code> datatype, and are encoded directly. For example, an image with SOP Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430045.1.1</code> is encoded in <code>ImagingStudy.series.instance.uid</code> as <code>“2.16.124.113543.1154777499.30246.19789.3503430045.1.1”</code>.
+DICOM Series Instance UID and SOP Instance UID use the <code>id</code> datatype and are encoded directly. For example, an image with SOP Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430045.1.1</code> is encoded in <code>ImagingStudy.series.instance.uid</code> as <code>“2.16.124.113543.1154777499.30246.19789.3503430045.1.1”</code>.
 </p>
 <p>
 The ImagingStudy's DICOM Study Instance UID is encoded in the <code>ImagingStudy.identifier</code> element, which is of the <code>Identifier</code> datatype. When encoding a DICOM UID in an <code>Identifier</code> datatype, use the Identifier system of <code>“urn:dicom:uid”</code>, and prefix the UID value with <code>“urn:oid:”</code>. Therefore, an ImagingStudy with DICOM Study Instance UID of <code>2.16.124.113543.1154777499.30246.19789.3503430046</code> is encoded as:
@@ -33,7 +33,7 @@ The ImagingStudy's DICOM Study Instance UID is encoded in the <code>ImagingStudy
 <a name="accession-number"></a>
 <h3>Accession Number</h3>
 <p>
-The study accession number is encoded as <a href="https://build.fhir.org/references.html#reference">Reference.identifier</a> element using the <code>ACSN</code> identifier type, e.g.:
+The study accession number is encoded as <a href="references.html#reference">Reference.identifier</a> element using the <code>ACSN</code> identifier type, e.g.:
 <pre class="json">
 
 "basedOn": [
@@ -59,7 +59,7 @@ The study accession number is encoded as <a href="https://build.fhir.org/referen
 <h3>ImagingStudy Endpoints</h3>
 <p>
 The ImagingStudy.endpoint elements and ImagingStudy.series.endpoint elements indicate network 
-services that can be used to access the studies, series, or instances; for example, a DICOM WADO-RS server. An 
+services that can be used to access the studies, series, and instances; for example, a DICOM WADO-RS server. An 
 ImagingStudy.series.endpoint of a particular Endpoint.connectionType provides that service for that 
 series, and all contained instances. An ImagingStudy.endpoint of a particular connection type provides 
 that service for all series in that study that do not have a specified Endpoint of that type, and their 
@@ -71,24 +71,24 @@ archive servers, per-series endpoints are required. For the identified services 
 a series would be stored together, and thus instance-level endpoints are not defined.
 </p>
 <p>
-Different Endpoint connection types MAY have different capabilities, protocols or requirements; and the specified 
-<code>Endpoint.address</code> MAY require manipulation. See below for the details on use of imaging-related Endpoint connection types.
+Different Endpoint connection types can have different capabilities, protocols or requirements.
+Furthermore, the specified <code>Endpoint.address</code> 
+identifies the DICOM Web Service Base URI (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.2.html">DICOM PS 3.18 Section 8.2</a> ). 
+The URL needed to retrieve image data might need to be constructed from this base URL.
+See below for the details on use of imaging-related Endpoint connection types.
 </p>
 <a name="wado-rs"></a>
-<h3>WADO-RS</h3>
+<h4>WADO-RS</h4>
 <p>
 An <code>Endpoint.connectionType</code> of code <code>dicom-wado-rs</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
-identifies a DICOM WADO-RS service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
-That is, only the scheme, authority and path are included. Sub-services, such as <code>study</code>, SHALL NOT be specified. 
-The path SHALL NOT contain a trailing slash.
+identifies a DICOM WADO-RS service. 
 </p>
 <p>
-The DICOM WADO-RS (Web Access to DICOM Objects, RESTful mode) service uses a RESTful approach to instance retrieval.
+The DICOM WADO-RS (Web Access to DICOM Objects, RESTful mode) service uses a RESTful approach to study, series, and instance retrieval.
 This service allows for retrieval of native DICOM SOP instances, or instances “rendered” into other formats, including
 JPEG and MPEG. The media type of a response is specified by the request Accept header (preferred); or, by the <code>accept</code>
 query parameters. Supported media types depend on the  capabilities of the WADO-RS server and the classification of the instance 
-as “single frame,” “multi-frame,” “video,” “text,” or “other.” The WADO-RS service also allows retrieval of study
-or series level information.
+as "single frame", "multi-frame", "video", "text", or "other". 
 </p>
 <p>
 The path to retrieve a DICOM instance is constructed by appending the appropriate sub-resource paths to the <code>Endpoint.address</code> value.
@@ -96,10 +96,10 @@ The path to retrieve a DICOM instance is constructed by appending the appropriat
 <p>
 For example, using the following information in a fictional ImagingStudy resource:
 <ul>
-<li>the WADO-RS service base url of <code>“https://pacs.hospital.org/wado-rs”</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
-<li>the DICOM Study Instance UID of <code>“1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
-<li>the DICOM Series Instance UID of <code>“1.2.250.1.59.40211.789001276.14556172.67789”</code> found in <code>ImagingStudy.series.uid</code>, and</li>
-<li>the DICOM SOP Instance UID of <code>“1.2.250.1.59.40211.2678810.87991027.899772.2”</code> found in <code>ImagingStudy.series.instance.uid</code></li>
+<li>the WADO-RS service base URL of <code>https://pacs.hospital.org/wado-rs</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
+<li>the DICOM Study Instance UID of <code>1.2.250.1.59.40211.12345678.678910</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
+<li>the DICOM Series Instance UID of <code>1.2.250.1.59.40211.789001276.14556172.67789</code> found in <code>ImagingStudy.series.uid</code>, and</li>
+<li>the DICOM SOP Instance UID of <code>1.2.250.1.59.40211.2678810.87991027.899772.2</code> found in <code>ImagingStudy.series.instance.uid</code></li>
 </ul>
 we can construct the WADO-RS URL to issue an HTTP GET for a native DICOM PS3.10 instance file (if consistent with the Accept header):
 </p>
@@ -112,7 +112,7 @@ https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/ser
 Query parameters on the "rendered" sub-resource can control other aspects of the rendering including: the rendered dimensions, the
 quality (compression ratio), the region of interest to render, the brightness/contrast (window center/width)
 adjustments, and whether to “burn” patient or study demographics into the rendered result. Specific frames
-of a multi-frame instance MAY be retrieved using the frames sub-resource.
+of a multi-frame instance can be retrieved using the frames sub-resource.
 </p>
 <p>
 For example, provided the Accept header indicates a preference for image/jpeg, the example above can be
@@ -126,7 +126,7 @@ https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/ser
 
 </pre>
 <p>
-If the WADO-RS service supports the DICOMweb thumbnail resource, a representative image can be requested, for example, to display alongside the study. The URL would look as follows:
+If the specified WADO-RS service supports the DICOMweb thumbnail resource, a representative image of the study can be requested, for example, to display alongside the study. The URL would look as follows:
 </p>
 <pre>
 
@@ -138,16 +138,15 @@ For further details on DICOM WADO-RS capabilities including additional rendering
 see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.4.html.">DICOM PS 3.18 Section 10.4</a>.
 </p>
 <a name="wado-uri"></a>
-<h3>WADO-URI</h3>
+<h4>WADO-URI</h4>
 <p>An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
-identifies a DICOM WADO-URI service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
-That is, only the scheme, authority and path are included. Neither a question mark (“?”) nor any query parameters SHALL be included.
+identifies a DICOM WADO-URI service.
 </p>
 <p>
 The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
 for retrieval of native DICOM instances, or instances “rendered” into other formats, including JPEG and MPEG. The media
 type of a response is specified by the request Accept header (preferred); or, by the contentType query parameter.
-Supported media types depend on the classification of the instance as “single frame,” “multi-frame,” “video,” “text,” or “other.”
+Supported media types depend on the classification of the instance as "single frame", "multi-frame", "video", "text", or "other."
 </p>
 <p>
 The query to retrieve a DICOM instance is constructed by appending the appropriate query parameters to the <code>Endpoint.address</code> value.
@@ -155,10 +154,10 @@ The query to retrieve a DICOM instance is constructed by appending the appropria
 <p>
 For example, using the following information in a fictional ImagingStudy resource:
 <ul>
-<li>the WADO-URI service base url of <code>“https://pacs.hospital.org/wado-uri”</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
-<li>the DICOM Study Instance UID of <code>1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
-<li>the DICOM Series Instance UID of <code>“1.2.250.1.59.40211.789001276.14556172.67789”</code> found in <code>ImagingStudy.series.uid</code>, and</li>
-<li>the DICOM SOP Instance UID of <code>“1.2.250.1.59.40211.2678810.87991027.899772.2”</code> found in <code>ImagingStudy.series.instance.uid</code></li>
+<li>the WADO-URI service base URL of <code>https://pacs.hospital.org/wado-uri</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
+<li>the DICOM Study Instance UID of <code>1.2.250.1.59.40211.12345678.678910</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>urn:dicom:uid</code>,</li>
+<li>the DICOM Series Instance UID of <code>1.2.250.1.59.40211.789001276.14556172.67789</code> found in <code>ImagingStudy.series.uid</code>, and</li>
+<li>the DICOM SOP Instance UID of <code>1.2.250.1.59.40211.2678810.87991027.899772.2</code> found in <code>ImagingStudy.series.instance.uid</code></li>
 </ul>
 we can construct the WADO-URI URL to issue an HTTP GET for a native DICOM PS3.10 instance file (if consistent with the Accept header):
 </p>
@@ -186,47 +185,14 @@ https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40
 For further details on DICOM WADO-URI capabilities including additional rendering parameters,
 see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/chapter_9.html">DICOM PS 3.18 Chapter 9</a>.
 </p>
-<a name="iid"></a>
-<h3>IID</h3>
-<p>An <code>Endpoint.connectionType</code> of code <code>ihe-iid</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, 
-identifies an IHE <b>Invoke Image Display (IID)</b> service. The <code>Endpoint.address</code> identifies the HTTP(S) service base url. 
-That is, only the scheme, authority and path are included. Neither a question mark (“?”) nor any query parameters SHALL be included.
-</p>
-<p>
-The IHE <b>Invoke Image Display (IID)</b> service provides a standardized mechanism to launch a viewer in a particular study 
-context. (IID also supports invoking a particular patient context, but that is not profiled here.) An IID-type Endpoint SHOULD 
-be used only at the study level. As well as invoking the viewer on a particular study, query parameters can request particular 
-viewer capabilities, image quality, and more.
-</p>
-<p>
-To launch a viewer, append the appropriate query parameters to <code>Endpoint.address</code> value.
-</p>
-<p>
-For example, using the following information in a fictional ImagingStudy resource:
-<ul>
-<li>the WADO-URI service base url of <code>“https://pacs.hospital.org/IHEInvokeImageDisplay”</code> found in an <code>ImagingStudy.endpoint.address</code>,</li>
-<li>the DICOM Study Instance UID of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code> found in an <code>ImagingStudy.identifier</code> having <code>Identifier.system</code> of <code>“urn:dicom:uid”</code>,</li>
-</ul>
-we can construct the IID URL to invoke a diagnostic quality viewer on the indicated study:
-</p>
-<pre>
-
-https://pacs.hospital.org/IHEInvokeImageDisplay?requestType=STUDY&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;diagnosticQuality=true
-
-</pre>
-<p>
-For further details on IHE Invoke Image Display capabilities including additional parameters, see
-the <a href="http://www.ihe.net/Technical_Frameworks/#radiology">IHE Technical Frameworks</a>, 
-or the introduction on the <a href="http://wiki.ihe.net/index.php/Invoke_Image_Display">IHE IID Profile Wiki</a>.
-</p>
 
 
 <a name="additional-dicom-attributes"></a>
 <h3>Additional DICOM attributes</h3>
 <p>
-Some imaging uses MAY require information beyond what is present in an ImagingStudy resource. Many of the DICOM patient and study level attributes are found in the FHIR Patient, Procedure, or other resources which are referenced from an ImagingStudy instance. Other DICOM content MAY be transformed into other FHIR resources, such as DiagnosticReports or Observations, which are not directly referenced, but MAY be easily found.
+Some imaging uses might require information beyond what is present in an ImagingStudy resource. Many of the DICOM patient and study level attributes are found in the FHIR Patient, Procedure, or other resources which are referenced from an ImagingStudy instance. Other DICOM content might be transformed into other FHIR resources, such as DiagnosticReports or Observations, which are not directly referenced, but can be easily found.
 </p><p>
-Although many ImagingStudy consumers are expected to need only the DICOM information contained in FHIR resources, some MAY need additional DICOM attributes. For these cases, which by their nature involve more imaging-aware consumers, the most flexible solution is to leverage the DICOM WADO-RS metadata-only endpoint to retrieve an XML or JSON representation of the DICOM study, series, instance, or frame information.
+Although many ImagingStudy consumers are expected to need only the DICOM information contained in FHIR resources, some might need additional DICOM attributes. For these cases, which by their nature involve more imaging-aware consumers, the most flexible solution is to leverage the DICOM WADO-RS metadata-only endpoint to retrieve an XML or JSON representation of the DICOM study, series, instance, or frame information.
 </p><p>
 A benefit of using the metadata endpoint in this way is that the ImagingStudy creator does not need to know each of the attributes that each of the (current or future) ImagingStudy consumers is (or will be) interested in.
 </p>
@@ -277,73 +243,85 @@ The WADO-RS server then returns the complete DICOM metadata for the requested se
 </p>
 
 <a name="use-case"></a>
-<h3>Use Case</h3>
-<a name="ehr-usecase"></a>
-<h4>EHR access to imaging studies</h4>
-<p>
-Amy, a family physician, would like to see a list of available studies for her patient, 
-Alex, filtered by ImagingStudy.status=available to exclude studies without images. 
-Her EHR
-client makes a FHIR call for all <a href="imagingstudy.html">ImagingStudy</a> objects available for Alex.
-In the response, she is able to see the study date, procedure, modality, and accession number, for each
-study returned. There is enough information provided in the response to obtain a thumbnail via a WADO-RS
-call, or to launch a viewer using an <a href="http://www.ihe.net">IHE Radiology - Invoke Image Display (IID)</a>
-profile call using the url elements found in the <a href="imagingstudy.html">ImagingStudy</a>.
-</p>
+<h3>Use Cases</h3>
 <a name="scheduled"></a>
 <h4>Comprehensive Imaging Scheduled Workflow</h4>
 <p>
-Joe Angina complains of shortness of breath and occasional chest pain to his primary care physician, Dr. Pat Down at
-Local MultiClinic, who orders a stress echocardiogram; the order is created as a FHIR <a href="task.html">Task</a>
-resource to manage the workflow, with a link to a <a href="servicerequest.html">ServiceRequest</a> resource with
-the details of the request.   The order is scheduled and assigned to cardiologist Dr. Art Skann, also at Local MultiClinic.
+<em>Note:</em> reporting workflow is not described in this use case.
 </p>
+<ol>
+<li>Hospital ordering system creates a <a href="servicerequest.html">ServiceRequest</a> and related resources ordering an echocardiogram for a patient, linked to a <a href="patient.html">Patient</a> resource</li>
+<li>Radiology Information System creates DICOM Modality Worklist (MWL) entry based on the service request and related patient information
+  <ul>
+    <li>Patient identifiers and demographics</li>
+    <li>Accession Number</li>
+    <li>Procedure to be performed</li>
+    <li>Study Instance UID</li>
+  </ul>
+</li>
+<li>Ultrasound technologist queries MWL entry and selects relevant entry</li>
+<li>Patient is scanned and ultrasound device creates an echocardiogram with patient demographics and order information based on the MWL entry</li>
+<li>Echocardiogram is sent to image archive and stored</li>
+<li>Image archive creates an <a href="imagingstudy.html">ImagingStudy</a>
+  <ul>
+    <li><code>subject</code> is current <a href="patient.html">Patient</a></li>
+    <li><code>basedOn</code> includes current <a href="servicerequest.html">ServiceRequest</a></li>
+    <li><code>identifier</code> is Study Instance UID</li>
+    <li><code>endpoint</code> points to image archive WADO-RS service</li>
+    <li><code>modality</code> is US</li>
+  </ul>
+</li>
+<li>Image archive notifies EMR of imaging study</li>
+<li>Radiology reading workstation retrieves study images from image archive</li>
+<li>Radiologist reads study and selects several images as "key images"</li>
+<li>Radiology reading workstation sends DICOM Key Object Selection (KOS) to image archive</li>
+<li>Image archive updates imaging study to include KOS
+  <ul>
+    <li><code>modality</code> is now US,KOS</li>
+    <li>KOS series added</li>
+  </ul>
+</li>
+<li>Imaging study available to EMR clients</li>
+</ol>
+
+
+<a name="ehr-usecase"></a>
+<h4>EHR access to imaging studies</h4>
+
 <p>
-On the scheduled day of the exam, Joe arrives at the echo lab to meet with Dr. Skann and have the study done.
-Dr. Skann’s workstation shows the daily list of <a href="task.html">Task</a>, and he follows the link to retrieve the
-<a href="servicerequest.html">ServiceRequest</a>. (He may follow the links through the
-referenced <a href="patient.html">Patient</a> resource to access Joe’s electronic 
-medical record, but that is not the concern of this storyboard.)
 </p>
-<p>
-The <a href="task.html">Task</a> and <a href="servicerequest.html">ServiceRequest</a> has been transcoded to a DICOM Modality Worklist
-Scheduled Procedure Step, and in the echo lab the equipment has downloaded the Modality Worklist.  The
-study is performed, and the acquired images and sonographer’s preliminary measurements are stored in the
-Local MultiClinic Picture Archiving and Communication System (PACS).  The PACS creates
-an <a href="imagingstudy.html">ImagingStudy</a> resource for each study it manages.
-</p>
-<p>
-Dr. Skann interprets the study on a PACS workstation, and he selects two key image frames to be included
-in the diagnostic report; this selection is stored back to the PACS as a DICOM Key Object Selection with
-the title "For Report Attachment", and the PACS makes it available (transcodes it) as a
-FHIR <a href="imagingstudy.html">ImagingStudy</a> resource.  Dr. Skann dictates the
-report using a structured data entry report writing program, including a recommendation for a cardiac
-catheterization procedure, and signs it.  The report writing program formats the report
-as a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> document,
-retrieves the <a href="imagingstudy.html">ImagingStudy</a> resource, and inserts the
-referenced key images into the report.
-</p>
-<p>
-Dr. Down meets again with Joe, and they review the results of the stress test.  Joe has a question about
-the findings that the key images in the report do not show, so Dr. Down uses the Local MultiClinic EMR
-to query the PACS for the full <a href="imagingstudy.html">ImagingStudy</a> resource and uses the references there to open an image
-display for the full study.  Joe agrees to proceed to catheterization, and Dr. Down sends a referral to
-the Ginormous University Hospital cath department and triggers the PACS to share the echo study
-through the Metropolitan Health Information Exchange.
-</p>
-<p>
-The PACS creates an imaging study as an <a href="imagingstudy.html">ImagingStudy</a>
-resource, which includes all the
-images but excludes the sonographer’s preliminary measurements (which as a matter of policy are
-not shared outside the Local MultiClinic). The imaging study is published to the Metro HIE. (In
-accordance with <a href="http://www.ihe.net">IHE XDS-I</a>, the images themselves are not directly
-published to the HIE, but available for on-demand retrieval from the PACS.)
-</p>
-<p>
-At Ginormous Hospital, Dr. Cora Plummer receives the cath referral, and looks up the study in the
-Metro HIE registry.  She retrieves the study <a href="imagingstudy.html">ImagingStudy</a>,
-and uses it to access the shared images, which she uses to prepare for the cath procedure.
-</p>
+<ol>
+<li>EMR client searches for imaging studies for a patient:
+  <ul>
+    <li>Search parameters:
+      <ul>
+        <li><code>status=available</code></li>
+        <li><code>subject.identifier=[identifier for selected patient]</code></li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li>Image archive returns matching imaging studies, each containing:
+  <ul>
+    <li>Study Instance UID (<code>ImagingStudy.identifier</code>)</li>
+    <li>Accession Number (<code>ImagingStudy.basedOn.identifier</code>)</li>
+    <li>Procedure codes (<code>ImagingStudy.procedure</code>)</li>
+    <li>Imaging modalities in study (<code>ImagingStudy.modality</code>)</li>
+    <li>WADO-RS endpoint (<code>ImagingStudy.endpoint</code>) pointing to image archive hosting DICOM study</li>
+  </ul>
+</li>
+<li>EMR user selects relevant imaging study based on search results</li>
+<li>EMR client launches enterprise image viewer
+  <ul>
+    <li>Passes WADO-RS endpoint and Study Instance UID</li>
+  </ul>
+</li>
+<li>Enterprise image viewer loads image data from image archive
+  <ul>
+    <li>Makes WADO-RS call to endpoint with specified Study Instance UID</li>
+  </ul>
+</li>
+</ol>
 
 
 <!-- old use-case replaced August 2015, CP #7679
@@ -380,19 +358,23 @@ capable DICOM viewing software.
 <a name="size"></a>
 <h3>Size Considerations</h3>
 <p>
-Depending on the modality and procedure type, a DICOM study can range from having one or two instances instance (as in many X-ray procedures) to several thousand instances (for some CT exams). The number of series within a study has far less variability, and is usually under twenty, although post-processing, computer-aided detection, and AI applications MAY cause modest increases. An ImagingStudy resource describing a large DICOM study would itself be of significant size.
+Depending on the modality and procedure type, a DICOM study can range from having one or two instances (as in many X-ray procedures) to several thousand instances (for some CT exams) or even tens of thousands (for functional MRI studies). The number of series within a study has far less variability, and is usually under twenty, although post-processing, computer-aided detection, and AI applications could cause modest increases. An ImagingStudy resource describing a large DICOM study would itself be of significant size.
 </p><p>
-Issuing narrowly-tailored queries can help a client avoid search results containing many ImagingStudy resources. The _summary=true query parameter will omit several resource elements, including all instance-level elements; this can be used to examine search results before retrieving the full instances. If a server limits the byte size of search bundle, this MAY impact the number of ImagingStudy resources returned per search result page; a client can use the _count query parameter to influence the number of resources per search result page.
+Issuing narrowly tailored queries can help a client avoid search results containing many ImagingStudy resources. The _summary=true query parameter will omit several resource elements, including all instance-level elements; this can be used to examine search results before retrieving the full instances. If a server limits the byte size of search bundle, this can impact the number of ImagingStudy resources returned per search result page; a client can use the _count query parameter to influence the number of resources per search result page.
 </p><p>
-When populating an ImagingStudy resource, storing an update for each DICOM instance in the study could result in sending previously sent information repeatedly--an issue that grows as the study size increases. It might also result in a server maintaining thousands of versions of the resource. Repeated, rapid updates of an ImagingStudy MAY lead to resource contention.
-</p><p>
-Although not reflected in the ImagingStudy resource, the size of an individual referenced instance MAY be anywhere from a few kilobytes (a compressed 256x256 pixel MR or 640x480 pixel ultrasound image) to a gigabyte or more (for digital breast tomography imaging). When retrieving the referenced content of an ImagingStudy, consider whether all DICOM instances are needed, whether DICOM instances are used concurrently or sequentially, and what rendering or Transfer Syntax is appropriate for the use case.
+Although not reflected in the ImagingStudy resource, the size of an individual referenced instance can be anywhere from a few kilobytes (a compressed 256x256 pixel MR or 640x480 pixel ultrasound image) to a gigabyte or more (for digital breast tomography imaging). When retrieving the referenced content of an ImagingStudy,
+applications can consider methods to reduce transfer time, such as:
 </p>
+<ul>
+<li>Loading only specific instances or series</li>
+<li>Specifying compressed Transfer Syntaxes</li>
+<li>etc.</li>
+</ul>
 
 <a name="workflow"></a>
 <h3>ImagingStudy Create and Update Workflow</h3>
 <p>
-The ImagingStudy resource can be hosted by an image archive application - such as a PACS or Vendor-Neutral Archive - or a more general healthcare informatics application such as an EMR. In some cases it MAY be hosted in both locations.
+The ImagingStudy resource can be hosted by an image archive application — such as a PACS or Vendor-Neutral Archive — or a more general healthcare informatics application such as an EMR. In some cases, it could be hosted in both locations.
 </p><p>
 However, the image archive is typically the source of truth for the content of the ImagingStudy.
 </p><p>
@@ -406,20 +388,26 @@ In this scenario, the image archive:
   <li>Hosts FHIR ImagingStudy resources</li>
   <li>Hosts DICOM / DICOMweb endpoints</li>
   <li>Ensures consistency between the FHIR and DICOM metadata</li>
-  <li>Ensures consistency between ImagingStudy and key related resources</li>
-    <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+  <li>Ensures consistency between ImagingStudy and key related resources
+    <ul><li>Patient, ServiceRequest, etc.</li></ul>
+  </li>
 </ul>
 <p>
 The image archive could share ImagingStudy information by:
 </p>
 <ul>
-  <li>EMR performing on-demand FHIR ImagingStudy searches</li>
-    <li><ul><li>Typically using the Accession Number associated with a service request. e.g., <code>GET http://example.org/fhir/ImagingStudy?basedOn=ServiceRequest/123&amp;status=available</code></li></ul></li>
-  <li>Subscription to ImagingStudy resources</li>
-    <li><ul><li>e.g. Requesting notification when ImagingStudy.status=available</li></ul></li>
-  <li>Legacy mechanisms, such as:</li>
-    <li><ul><li>HL7 v2 messages</li>
-    <li>DICOM Instance Availability notification</li></ul></li>
+  <li>EMR performing on-demand FHIR ImagingStudy searches
+    <ul><li>Typically using the Accession Number associated with a service request. e.g., <code>GET http://example.org/fhir/ImagingStudy?basedOn=ServiceRequest/123&amp;status=available</code></li></ul>
+  </li>
+  <li>Subscription to ImagingStudy resources
+    <ul><li>e.g. Requesting notification when ImagingStudy.status=available</li></ul>
+  </li>
+  <li>Legacy mechanisms, such as:
+    <ul>
+      <li>HL7 v2 messages</li>
+      <li>DICOM Instance Availability notification</li>
+    </ul>
+  </li>
 </ul>
 <h4>EMR hosts ImagingStudy</h4>
 <p>
@@ -427,33 +415,43 @@ In this scenario, the image archive:
 </p>
 <ul>
   <li>Hosts DICOM / DICOMweb endpoints</li>
-  <li>Ensures consistency between DICOM and key FHIR resources</li>
-  <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+  <li>Ensures consistency between DICOM and key FHIR resources
+    <ul><li>Patient, ServiceRequest, etc.</li></ul>
+  </li>
 </ul>
 <p>
 while the EMR:
 </p>
 <ul>
   <li>Hosts FHIR ImagingStudy resources</li>
-  <li>Ensures consistency between ImagingStudy and key related resources</li>
-  <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+  <li>Ensures consistency between ImagingStudy and key related resources
+    <ul><li>Patient, ServiceRequest, etc.</li></ul>
+  </li>
 </ul>
 <p>
 The image archive could share ImagingStudy information by:
 </p>
 <ul>
-<li>EMR performing on-demand DICOM / DICOMweb searches</li>
-<li><ul><li>Typically using Accession Number</li>
-        <li>Response would be converted from DICOM to FHIR</li>
-        <li><ul><li>ImagingStudy is intended to support mapping to and from DICOM / DICOMweb search responses</li></ul></li>
-    </ul></li>
-<li>Image archive creating / updating ImagingStudy resources hosted in EMR</li>
-<li><ul><li>Either via PUT method or by posting a Bundle</li></ul></li>
-<li>Subscription to ImagingStudy resources</li>
-  <li><ul><li>As above example</li></ul></li>
-<li>Legacy mechanisms, such as:</li>
-<li><ul><li>HL7 v2 messages</li>
-        <li>DICOM Instance Availability notification</li></ul></li>
+<li>EMR performing on-demand DICOM / DICOMweb searches
+  <ul>
+    <li>Typically using Accession Number</li>
+    <li>Response would be converted from DICOM to FHIR
+        <ul><li>ImagingStudy is intended to support mapping to and from DICOM / DICOMweb search responses</li></ul>
+    </li>
+  </ul>
+</li>
+<li>Image archive creating / updating ImagingStudy resources hosted in EMR
+  <ul><li>Either via PUT method or by posting a Bundle</li></ul>
+</li>
+<li>Subscription to ImagingStudy resources
+  <ul><li>As above example</li></ul>
+</li>
+<li>Legacy mechanisms, such as:
+  <ul>
+    <li>HL7 v2 messages</li>
+    <li>DICOM Instance Availability notification</li>
+  </ul>
+</li>
 </ul>
 <h4>Both image archive and EMR host ImagingStudy</h4>
 <p>
@@ -463,39 +461,110 @@ In this scenario, the image archive:
   <li>Hosts FHIR ImagingStudy resources</li>
   <li>Hosts DICOM / DICOMweb endpoints</li>
   <li>Ensures consistency between the FHIR and DICOM metadata</li>
-  <li>Ensures consistency between ImagingStudy and key related resources</li>
-  <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+  <li>Ensures consistency between ImagingStudy and key related resources
+    <ul><li>Patient, ServiceRequest, etc.</li></ul>
+  </li>
 </ul>
 <p>
 while the EMR:
 </p>
 <ul>
   <li>Hosts FHIR ImagingStudy resources</li>
-  <li>Ensures consistency between ImagingStudy and key related resources</li>
-  <li><ul><li>Patient, ServiceRequest, etc.</li></ul></li>
+  <li>Ensures consistency between ImagingStudy and key related resources
+    <ul><li>Patient, ServiceRequest, etc.</li></ul>
+  </li>
 </ul>
 <p>
 Mechanisms for ensuring consistency between two systems holding representations of the same data are still in development.
 </p><p>
-As the image archive is the "source of truth", the above methods MAY still be applicable. See Provenance resource.
+As the image archive is the "source of truth," the above methods might still be applicable. See Provenance resource.
 </p>
 
 <a name="status"></a>
 <h3>ImagingStudy.status</h3>
 <p>
-Typically, an ImagingStudy is a FHIR representation of imaging data that is stored in a DICOM device, such as an image archive (e.g. PACS). The value of the status element reflects the status of this representation and does not necessarily reflect the status of either the underlying imaging data or any ServiceRequest or Task resources that resulted in the ImagingStudy being created.
+Typically, an ImagingStudy is a FHIR representation of imaging data that is stored in a DICOM device, such as an image archive (e.g., PACS). The value of the status element reflects the status of this representation and does not necessarily reflect the status of either the underlying imaging data or any ServiceRequest or Task resources that resulted in the ImagingStudy being created.
 </p><p>
-In some cases, the ImagingStudy MAY be created before any images have been acquired. In this case, the <code>.status</code> will have a value of <code>registered</code>. A <code>registered</code>  ImagingStudy SHOULD NOT be used to load images.
+In some cases, the ImagingStudy could be created before any images have been acquired. In this case, the <code>.status</code> will have a value of <code>registered</code>.
 </p><p>
-After images have been acquired, the ImagingStudy will have a status of <code>available</code>. At this stage the ImagingStudy MAY be presented to viewing applications.
+After at least some images have been acquired and the ImagingStudy has been updated to reflect that, the ImagingStudy will have a status of <code>available</code>. At this stage the ImagingStudy can be presented to viewing applications.
 </p><p>
-If the ImagingStudy is cancelled before images are acquired its status SHOULD be set to <code>cancelled</code>.
+If the ImagingStudy is canceled before images are acquired its status SHOULD be set to <code>cancelled</code>.
 </p><p>
-If the ImagingStudy is incorrect it MAY be corrected with an update operation or set to <code>entered-in-error</code> and replaced with a new ImagingStudy.
+If the ImagingStudy is incorrect - e.g., due to images being acquired with the wrong modality worklist entry selected — it might be corrected with an update operation or set to <code>entered-in-error</code> and replaced with a new ImagingStudy.
 </p><p>
-Additional DICOM images, key object notes, etc. MAY be created at a later time so a status of <code>complete</code> is not meaningful for an ImagingStudy. For this reason, this status is not defined for an ImagingStudy.
+Additional DICOM images, key object notes, etc. could be created later, so a status of <code>complete</code> is not meaningful for an ImagingStudy. For this reason, this status is not defined for an ImagingStudy.
 </p><p>
 Any applications waiting for the completion of an imaging-related ServiceRequest or Task SHOULD track the progress of those resources directly.
 </p>
+
+<a name="source"></a>
+<h3>Source of ImagingStudy Content</h3>
+<p>
+An ImagingStudy might be created to represent the content of:
+</p>
+<ul>
+<li>A DICOMweb Studies Service Search response
+<ul>
+<li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.6.3.3.html">DICOM PS 3.18 Section 10.6.3.3</a></li>
+</ul>
+</li>
+<li>A DICOM Study Root Query / Retrieve response
+<ul>
+<li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_C.6.2.html#sect_C.6.2.1">DICOM PS 3.4 Section C.6.2.1</a></li>
+</ul>
+</li>
+<li>An IHE XDS-I Manifest KOS Document
+<ul>
+<li>See <a href="https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_TF_Vol2.pdf">IHE RAD TF Volume 2 Section 4.68.4.1.2.1.1</a></li>
+</ul>
+</li>
+</ul>
+<p>
+The set of ImagingStudy elements is broadly aligned with these three information models.
+</p>
+
+
+
+<a name="procedures"></a>
+<h3>Imaging Study Procedures</h3>
+<p>
+In DICOM, a Study can be related to two types of "procedures": requested procedures and performed procedures.
+</p>
+<p>
+In the FHIR model, "requested procedures" are represented by the <code>ServiceRequest</code> resource while "performed procedures" are represented by the <code>Procedure</code> resource.
+</p>
+<p>
+Therefore, the requested procedure associated with a particular imaging study would typically be encoded as the <code>ServiceRequest</code> that the imaging study is basedOn.
+</p>
+<p>
+Similarly, the performed procedure would be encoded as the <code>ImagingStudy.procedure</code>that the imaging study is part of.
+</p>
+<p>
+  Searching for an imaging study by its requested procedure can be done by including <code>based-on</code> as a search parameter, and by its performed procedure by including <code>procedure</code> as a search parameter.
+</p>
+
+<a name="laterality"></a>
+<h3>Body Site and Laterality</h3>
+<p>
+The <code>series.bodySite</code> element can include the laterality of the (possibly paired) anatomic structures examined – e.g. left knee, bilateral lungs, etc. This can be conveyed in several ways:
+</p>
+<ul>
+  <li><code>series.bodySite</code> contains an anatomic code that includes laterality, e.g.
+    <pre class="json">
+"bodySite": {
+  "concept": {
+    "coding": [{
+      "system": "http://snomed.info/sct",
+      "code": "5951000",
+      "display": "Left wrist"
+    }]
+  }
+}
+    </pre>
+  </li>
+  <li><code>series.bodySite</code> contains a reference to a <code>BodyStructure</code> resource whose <code>includedStructure.structure</code> element contains an anatomic code that includes laterality</li>
+  <li><code>series.bodySite</code> contains a reference to a <code>BodyStructure</code> resource whose <code>includedStructure</code> element includes a laterality value. See this <a href="bodystructure-example-dicom-includedStructure.html">example BodyStructure representation of the Left Wrist, with laterality and SNOMED coding for anatomical structure</a>.</li>
+</ul>
 
 </div>

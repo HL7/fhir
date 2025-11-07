@@ -48,4 +48,10 @@ This resource does not deal with the supply or transfer of non-medication relate
 </p>
 </div>
     
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
+The code system used in medication dispense category is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.hl7.org</a>.
+</p>
+</blockquote>
+
 </div>

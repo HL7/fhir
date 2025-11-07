@@ -4,7 +4,7 @@
   <id value="written-languages"/>
   <meta>
     <lastUpdated value="2016-08-22T09:53:05.364+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -37,24 +37,24 @@
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Arabisk"/>
         </designation>
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Arabic"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Arabisch"/>
         </designation>
@@ -65,48 +65,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Bengali"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Bengaals"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Бенгальский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="孟加拉语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Bengalisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Bengalsk"/>
         </designation>
@@ -117,48 +117,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Czech"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Tsjechisch"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Чешский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="捷克语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Tschechisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Tjekkisk"/>
         </designation>
@@ -169,48 +169,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Danish"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Deens"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Датский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="丹麦语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Dänisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Dansk"/>
         </designation>
@@ -221,48 +221,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="German"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Duits"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Немецкий"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="德语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Deutsch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Tysk"/>
         </designation>
@@ -273,48 +273,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Greek"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Grieks"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Греческий"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="希腊语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Griechisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Græsk"/>
         </designation>
@@ -325,48 +325,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="English"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Engels"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Английский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="英语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Englisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Engelsk"/>
         </designation>
@@ -377,48 +377,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Spanish"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Spaans"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Испанский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="西班牙语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Spanisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Spansk"/>
         </designation>
@@ -429,48 +429,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Finnish"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Fins"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Финский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="芬兰语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Finnisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Finsk"/>
         </designation>
@@ -481,48 +481,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="French"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Frans"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Французский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="法语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Französisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Fransk"/>
         </designation>
@@ -533,40 +533,40 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Frisian"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Fries"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="弗里士兰语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Friesisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Frisisk"/>
         </designation>
@@ -577,24 +577,24 @@
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Hindi"/>
         </designation>
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Hindi"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Hindi"/>
         </designation>
@@ -605,48 +605,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Croatian"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Kroatisch"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Хорватский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="克罗地亚语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Kroatisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Kroatisk"/>
         </designation>
@@ -657,48 +657,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Italian"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Italiaans"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Итальянский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="意大利语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Italienisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Italiensk"/>
         </designation>
@@ -709,48 +709,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Japanese"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Japans"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Японский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="日语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Japanisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Japansk"/>
         </designation>
@@ -761,48 +761,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Korean"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Koreaans"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Корейский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="朝鲜语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Koreanisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Koreansk"/>
         </designation>
@@ -813,48 +813,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Dutch"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Nederlands"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Нидерландский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="荷兰语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Niederländisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Hollandsk"/>
         </designation>
@@ -865,48 +865,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Norwegian"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Noors"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Норвежский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="挪威语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Norwegisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Norsk"/>
         </designation>
@@ -917,24 +917,24 @@
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Punjabi"/>
         </designation>
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Punjabi"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Punjabi"/>
         </designation>
@@ -945,8 +945,8 @@
         <designation>
           <language value="pl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Polskie"/>
         </designation>
@@ -957,48 +957,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Portuguese"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Portugees"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Португальский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="葡萄牙语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Portugiesisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Portugisisk"/>
         </designation>
@@ -1009,48 +1009,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Russian"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Russisch"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Русский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="俄语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Russisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Russisk"/>
         </designation>
@@ -1061,48 +1061,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Serbian"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Servisch"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Сербский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="塞尔维亚语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Serbisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Serbisk"/>
         </designation>
@@ -1113,48 +1113,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Swedish"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Zweeds"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Шведский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="瑞典语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Schwedisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Svensk"/>
         </designation>
@@ -1165,48 +1165,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Telugu"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Teloegoe"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Телугу"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="泰卢固语"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Telugu"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Telugu"/>
         </designation>
@@ -1217,48 +1217,48 @@
         <designation>
           <language value="en"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Chinese"/>
         </designation>
         <designation>
           <language value="nl"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Chinees"/>
         </designation>
         <designation>
           <language value="ru"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Kитайский"/>
         </designation>
         <designation>
           <language value="zh"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="中文"/>
         </designation>
         <designation>
           <language value="de"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Chinesisch"/>
         </designation>
         <designation>
           <language value="da"/>
           <use>
-            <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
-            <code value="display"/>
+            <system value="http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra"/>
+            <code value="preferredForLanguage"/>
           </use>
           <value value="Kinesisk"/>
         </designation>

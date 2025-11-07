@@ -187,7 +187,7 @@
         </extension>
         <strength value="example"/>
         <description value="Jurisdiction codes"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
         <identity value="idmp"/>
@@ -203,6 +203,8 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

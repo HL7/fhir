@@ -1,29 +1,25 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
-<p>
- The DeviceMetric resource describes dynamic properties that characterize a direct or derived, quantitative or qualitative setting, or calculation produced by a medical device i.e, readings and settings of, or from the device. 
- The DeviceMetric resource can also be used to describe the properties relevant to the metric such as status, last calibration time and type, measurement mode, color, and link to the parent Device.
-</p>
-</div>
-
-<div>
-<a name="bnr"></a>
-<h2>Boundaries and Relationships</h2>
-<p>
- These are the DeviceMetric related resources:
-</p>
-<ul>
- <li><a href="device.html">Device:</a>  The physical, virtual, or software device that this DeviceMetric is for. Note that the Device.property element is used to record static characteristics or properties of the Device.</li>
-</ul>
- <ul>
-  <li><a href="devicedefinition.html">DeviceDefinition:</a>  Describes a "kind" of device - not a specific instance of the device. Note alternatively to Device the DeviceDefinition.property element may be used to record static characteristics or properties of the DeviceDefinition.</li>
- </ul> 
- <ul>
-  <li><a href="observation.html">Observation:</a>  Used to record the particular value of the DeviceMetric at a point in time.</li>
- </ul> 
-
-</div>
+    <div>
+        <a name="scope"/>
+        <h2>Scope and Usage</h2>
+        <p>
+    The DeviceMetric resource describes dynamic properties that characterize a direct or derived, quantitative or qualitative setting, or calculation produced by a medical device, i.e., readings and settings of, or from, the device.
+ The DeviceMetric resource can also be used to describe the properties relevant to the metric such as status, last calibration time and type, measurement mode, color, and to link to the parent Device.
+        </p>
+        </div>
+        <div>
+        <a name="bnr"/>
+        <h2>Boundaries and Relationships</h2>
+        <p>
+        These are the DeviceMetric-related resources:
+        </p>
+        <ul>
+            <li>
+                <a href="device.html"><b>Device:</b></a> The physical, virtual, or software device that this <b>DeviceMetric</b> is for. Note that the <code>Device.property</code> element is used to record static characteristics or properties of the <b>Device</b>.</li>
+            <li>
+                <a href="observation.html"><b>Observation:</b></a> Used to record the particular value of the <b>DeviceMetric</b> at a point in time.</li>
+            <li>
+                <a href="devicealert.html"><b>DeviceAlert:</b></a> Can refer to a DeviceMetric to identify the detector of the alert condition via the <code>device</code> data element.</li>
+        </ul>
+    </div>
 </div>

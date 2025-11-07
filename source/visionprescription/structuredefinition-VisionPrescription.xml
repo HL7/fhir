@@ -144,6 +144,23 @@
         <map value=".outboundRelationship[typeCode=FLFS].target"/>
       </mapping>
     </element>
+    
+    <element id="VisionPrescription.groupIdentifier">
+      <path value="VisionPrescription.groupIdentifier"/>
+      <short value="Composite request identifier"/>
+      <definition value="A shared identifier common to all Vision Prescriptions that were authorized more or less simultaneously by a single author, representing the composite or group identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.groupIdentifier"/>
+      </mapping>
+    </element>
+
     <element id="VisionPrescription.status">
       <path value="VisionPrescription.status"/>
       <short value="active | cancelled | draft | entered-in-error"/>
@@ -179,6 +196,37 @@
         <map value="Act.status"/>
       </mapping>
     </element>
+
+   <element id="VisionPrescription.priority">
+    <path value="VisionPrescription.priority"/>
+    <short value="routine | urgent | asap | stat"/>
+    <definition value="Indicates how quickly the vision prescription should be addressed with respect to other requests."/>
+    <meaningWhenMissing value="If missing, this request should be performed with normal priority."/>
+    <min value="0"/>
+    <max value="1"/>
+    <type>
+      <code value="code"/>
+    </type>
+    <isSummary value="true"/>
+    <binding>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+        <valueString value="RequestPriority"/>
+      </extension>
+      <strength value="required"/>
+      <description value="The priority of the request."/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/request-priority"/>
+    </binding>
+    <mapping>
+      <identity value="workflow"/>
+      <map value="Request.priority"/>
+    </mapping>
+    <mapping>
+      <identity value="w5"/>
+      <map value="FiveWs.grade"/>
+    </mapping>
+  </element>
+
+
     <element id="VisionPrescription.created">
       <path value="VisionPrescription.created"/>
       <short value="Response creation date"/>
@@ -209,7 +257,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>

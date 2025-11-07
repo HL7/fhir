@@ -56,8 +56,8 @@ The following rules apply to code system fragments:
  <li>All fragments SHALL have the same CodeSystem.url</li>
  <li>Fragments can only be published by the code system authority, or according to a process defined by the authority, if they have defined one</li>
  <li>Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system, if one exists. Implementers should note that a "complete representation" of the code system might not exist in a single authoritative publication (e.g., SNOMED International with all modules/extensions)</li>
- <li>Publishing a code system in multiple fragments can create confusion for terminology servers and terminology service consumers. 
-   Code System authorities that publish fragments should be careful and communicate their intent clearly</li>
+ <li>Publishing a code system in multiple fragments can create confusion for terminology servers and terminology service consumers.</li>
+ <li>The intent, bounds and consequences of the fragmentation are clearly defined in the fragment or the code system documentation.</li>
 </ul>
 
 <a name="supplements"></a>
@@ -71,7 +71,8 @@ describes a code system supplement. The following rules apply to code system sup
  <li>The <code>CodeSystem.url</code> for a supplement SHALL never appear in a <a href="datatypes.html#Coding">Coding.system</a></li>
  <li>The <code>CodeSystem.url</code> for a supplement must be under the control of the authority creating or publishing the supplement 
    (e.g. not in the same space as the code system being supplemented, unless the supplement is being issued by the same authority as the original code system</li>
- <li> A codesystem supplement cannot define any new CodeSystem.concept.code. i.e.: all CodeSystem.concept.code in the supplement must be a code from the "supplemented" code system</li>
+ <li> A codesystem supplement cannot define any new CodeSystem.concept.code. i.e.: all CodeSystem.concept.code in the supplement must 
+   be a code from the "supplemented" code system. Some code systems reserve code space for local use without explicitly declaring codes; these codes may be referenced in a supplement</li>
 </ul>
 <p>
 If a supplement needs to define new concepts/codes to use as property values, it can be paired with a new (possibly contained)
@@ -120,7 +121,6 @@ places:
  <li><a href="valueset-definitions.html#ValueSet.compose.include.filter.property">ValueSet</a>: <code>ValueSet.compose.include.filter.property</code> can refer to any defined code system property</li>
  <li><a href="codesystem-operations.html#lookup">$lookup operation</a>: In <code>Parameters.parameter.name</code> when returning information about a code</li>
  <li><a href="conceptmap-operations.html#translate">$translate operation</a>: In <code>Parameters.parameter.part.name</code> for dependencies and products</li>
- <li><a href="codesystem-operations.html#compose">$find-matches operation</a>: In <code>Parameters.parameter.name</code> when providing codes, and in <code>Parameters.parameter.name</code> when asking for codes</li>
 </ul>
 <p>
 Properties are defined using the following elements:
@@ -181,30 +181,130 @@ by the FHIR specification.
 
 <p>In order to assist with consistency between code systems, the following basic property URIs are defined in the <a href="codesystem-concept-properties.html">Concept Properties</a> code system:</p>
 
-<table class="grid">
- <tr><td>http://hl7.org/fhir/concept-properties#status : code</td><td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
+<p>
+Note: all the properties in the table below are prefixed by <code>http://hl7.org/fhir/concept-properties#</code>
+such that the url that identifies the <code>status</code> property is actually <code>http://hl7.org/fhir/concept-properties#status</code>. The 
+prefix is omitted from the table to improve it's presentation.
+</p>
+
+<style>
+table.fixedfirst td:first-child {
+    white-space: nowrap;
+}
+</style>
+<table class="grid fixedfirst">
+ <tr>
+  <th>URL Tail</th>
+  <th>Type</th>
+  <th>Description</th>
+ </tr>
+ <tr>
+  <td>...status<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#status');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
      <ul>
       <li>active - the concept is for normal use</li>
       <li>experimental - provided for trial, but may be removed in the future</li>
       <li>deprecated - the concept is outdated and planned to be withdrawn from use</li>
       <li>retired - still present for historical reasons, but no longer allowed to be used</li>
      </ul>
-   </td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#inactive : boolean</td><td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept status was last changed</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#parent : code</td><td>An immediate parent of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#child : code</td><td>An immediate child of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by its code) contains this concept as a component</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#synonym : code</td><td>This property contains an alternative code that may be used to identify this concept instead of the primary code (deprecated: use <code>alternateCode</code>, and see the <a href="#synonyms">discussion below</a>)</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#alternateCode : code</td><td>This property contains the code for another representation of this concept, with the same real-world meaning, in this code system</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#comment : string</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#itemWeight : decimal</td><td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#order : decimal</td><td>A property that indicates the order of the concept amongst its siblings in the code system e.g. severity. The code system specific purpose of the ordering is defined elsewhere</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#definition : string</td><td>The definition of the concept. This corresponds to CodeSystem.concept.definition and is not used in the definition of CodeSystems but is used when clients request the definition property be included in an expansion</td></tr>
+  </td>
+ </tr>
+ <tr>
+  <td>...inactive<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#inactive');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>boolean</td>
+  <td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false</td>
+ </tr>
+ <tr>
+  <td>...effectiveDate<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#effectiveDate');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>date</td>
+  <td>The date at which the concept status was last changed</td>
+ </tr>
+ <tr>
+  <td>...deprecationDate<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#status');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>date</td>
+  <td>Date Concept was deprecated</td>
+ </tr>
+ <tr>
+  <td>...retirementDate<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#status');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>date</td>
+  <td>Date Concept was retired</td>
+ </tr>
+ <tr>
+  <td>...notSelectable<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#notSelectable');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>boolean</td>
+  <td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td>
+ </tr>
+ <tr>
+  <td>...parent<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#parent');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>An immediate parent of the concept in the hierarchy</td>
+ </tr>
+ <tr>
+  <td>...child<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#child');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>An immediate child of the concept in the hierarchy</td>
+ </tr>
+ <tr>
+  <td>...partOf<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#partOf');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>The concept identified in this property (by its code) contains this concept as a component</td>
+ </tr>
+ <tr>
+  <td>...synonym<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#synonym');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>This property contains an alternative code that may be used to identify this concept instead of the primary code (deprecated: use <code>alternateCode</code>, and see the <a href="#synonyms">discussion below</a>)</td>
+ </tr>
+ <tr>
+  <td>...alternateCode<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#alternateCode');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>code</td>
+  <td>This property contains the code for another representation of this concept, with the same real-world meaning, in this code system</td>
+ </tr>
+ <tr>
+  <td>...comment<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#comment');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>string</td>
+  <td>A string that provides additional detail pertinent to the use or understanding of the concept</td>
+ </tr>
+ <tr>
+  <td>...itemWeight<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#itemWeight');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>decimal</td>
+  <td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td>
+ </tr>
+ <tr>
+  <td>...order<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#order');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>decimal</td>
+  <td>A property that indicates the order of the concept amongst its siblings in the code system e.g. severity. The code system specific purpose of the ordering is defined elsewhere</td>
+ </tr>
+ <tr>
+  <td>...definition<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#definition');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>string</td>
+  <td>The definition of the concept. This corresponds to CodeSystem.concept.definition and is not used in the definition of CodeSystems but is used when clients request the definition property be included in an expansion</td>
+ </tr>
+ <tr>
+  <td>...lastVersionActive<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#lastVersionActive');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>string</td>
+  <td>If the code is not active (properties inActive or based on status), then this property conveys in what code system version it was last an active code</td>
+ </tr>
+ <tr>
+  <td>...replacedBy[X]</td>
+  <td>string</td>
+  <td>
+   These two properties identify a concept that is considered to replace the use of this concept.  These properties are generally only used on deprecated, withdrawn or inactive concepts.
+   <br/>
+   Variant #1: ...replacedByCode<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#replacedByCode');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span>: Identifies another concept in the same code system 
+   <br/>
+   Variant #2: ...replacedByCoding<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#replacedByCoding');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span>: Identifies another concept in a different code system
+   <br/>
+   <br/>
+   Use cases:
+   <ul>
+    <li>replacing a with a new code/concept that corrects an error in a now retired concept</li>
+    <li>replacement of a temporary local code by something that's been added to LOINC or SNOMED CT and should be used instead</li>
+   </ul>
+  </td>
+ </tr>
 </table>
+
 <p>
 Code System representations SHOULD use these properties where possible and these codes for these properties. 
 Code System representations SHOULD regard the codes for these properties (e.g. status, inactive, notSelectable, etc.)
@@ -245,6 +345,21 @@ In addition to these status codes, concepts may also be labeled 'notSelectable' 
 which means "not to be used in some circumstances", though the exact circumstances need to be clarified 
 somewhere. This is sometimes also considered a status, though it's usually dependent on the context
 of use (e.g. set in a ValueSet).
+</p>
+<p>
+The status value overlaps with other properties, in particular, the inactive property. In general, the following 
+rules apply:
+</p>
+<ul>
+ <li>If concept status is some kind of active, inactive must be set to false if present, and the concept is treated as not inactive.</li>
+ <li>If concept status is some kind of inactive, inactive must be set to true if present, and the concept is treated as inactive.</li>
+ <li>If concept status is some kind of retired, inactive must be set to true if present, and the concept is treated as inactive.</li>
+ <li>If concept status indicates that the concept is experimental or deprecated, the determination of inactive is code system specific</li>
+ <li>If neither concept properties are present default behavior for the CodeSystem applies.</li>
+</ul>
+<p>
+The status also relates to properties such as deprecation and retirement date. The status of the concept SHOULD 
+always be consistent with these other properties.
 </p>
 
 <a name="synonyms"></a>
@@ -322,7 +437,6 @@ Subsumption based logic arises explicitly or implicitly in the following places 
 <ul>
  <li><a href="codesystem-operations.html#subsumes">CodeSystem $subsumes operation</a></li>
  <li><a href="codesystem-operations.html#lookup">CodeSystem $lookup operation</a></li>
- <li><a href="conceptmap-operations.html#closure">ConceptMap $closure operation</a></li>
  <li><a href="search.html#subsumption">Search by subsumption</a></li>
  <li><a href="valueset-operations.html#expand">ValueSet $expand operation</a></li>
  <li><a href="valueset-operations.html#validate-code">ValueSet $validate-code operation</a></li>
@@ -423,6 +537,13 @@ The following filters are defined for all code systems that support "is-a" relat
    <td>descendent-of</td>
    <td>[string] concept code</td>
    <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include descendant codes only).</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>concept</td>
+   <td>in | not-in</td>
+   <td>[string] a comma separated list of codes, or a value set uri</td>
+   <td>Concepts in the list, or concepts in the value set expansion.</td>
    <td></td>
  </tr>
  <tr>

@@ -1578,23 +1578,6 @@
         <ns4:element name="organization" elementType="FHIR.Reference"/>
         <ns4:element name="period" elementType="FHIR.Period"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MolecularSequence.Quality" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="type" elementType="FHIR.qualityType"/>
-        <ns4:element name="standardSequence" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="start" elementType="FHIR.integer"/>
-        <ns4:element name="end" elementType="FHIR.integer"/>
-        <ns4:element name="score" elementType="FHIR.Quantity"/>
-        <ns4:element name="method" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="truthTP" elementType="FHIR.decimal"/>
-        <ns4:element name="queryTP" elementType="FHIR.decimal"/>
-        <ns4:element name="truthFN" elementType="FHIR.decimal"/>
-        <ns4:element name="queryFP" elementType="FHIR.decimal"/>
-        <ns4:element name="gtFP" elementType="FHIR.decimal"/>
-        <ns4:element name="precision" elementType="FHIR.decimal"/>
-        <ns4:element name="recall" elementType="FHIR.decimal"/>
-        <ns4:element name="fScore" elementType="FHIR.decimal"/>
-        <ns4:element name="roc" elementType="FHIR.MolecularSequence.Roc"/>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MedicationKnowledge.MedicineClassification" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="classification">
@@ -2099,17 +2082,6 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </ns4:element>
         <ns4:element name="authorizationUrl" elementType="FHIR.uri"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MolecularSequence.ReferenceSeq" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="chromosome" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="genomeBuild" elementType="FHIR.string"/>
-        <ns4:element name="orientation" elementType="FHIR.orientationType"/>
-        <ns4:element name="referenceSeqId" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="referenceSeqPointer" elementType="FHIR.Reference"/>
-        <ns4:element name="referenceSeqString" elementType="FHIR.string"/>
-        <ns4:element name="strand" elementType="FHIR.strandType"/>
-        <ns4:element name="windowStart" elementType="FHIR.integer"/>
-        <ns4:element name="windowEnd" elementType="FHIR.integer"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MeasureReport.Population1" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="code" elementType="FHIR.CodeableConcept"/>
@@ -5093,7 +5065,6 @@
         <ns4:element name="codeSearch" elementType="FHIR.CodeSearchSupport"/>
         <ns4:element name="validateCode" elementType="FHIR.TerminologyCapabilities.ValidateCode"/>
         <ns4:element name="translation" elementType="FHIR.TerminologyCapabilities.Translation"/>
-        <ns4:element name="closure" elementType="FHIR.TerminologyCapabilities.Closure"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="HealthcareService" retrievable="true" primaryCodePath="type" baseType="FHIR.DomainResource">
         <ns4:element name="identifier">
@@ -5597,14 +5568,6 @@
         <ns4:element name="action">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.PlanDefinition.Action"/>
         </ns4:element>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MolecularSequence.Variant" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="start" elementType="FHIR.integer"/>
-        <ns4:element name="end" elementType="FHIR.integer"/>
-        <ns4:element name="observedAllele" elementType="FHIR.string"/>
-        <ns4:element name="referenceAllele" elementType="FHIR.string"/>
-        <ns4:element name="cigar" elementType="FHIR.string"/>
-        <ns4:element name="variantPointer" elementType="FHIR.Reference"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="ExplanationOfBenefit.SupportingInfo" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="sequence" elementType="FHIR.positiveInt"/>
@@ -6777,10 +6740,6 @@
         <ns4:element name="dynamicValue">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.ActivityDefinition.DynamicValue"/>
         </ns4:element>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MolecularSequence.Inner" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="start" elementType="FHIR.integer"/>
-        <ns4:element name="end" elementType="FHIR.integer"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="SupplyRequest.Parameter" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="code" elementType="FHIR.CodeableConcept"/>
@@ -8034,13 +7993,6 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.MeasureReport.Stratifier"/>
         </ns4:element>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MolecularSequence.StructureVariant" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="variantType" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="exact" elementType="FHIR.boolean"/>
-        <ns4:element name="length" elementType="FHIR.integer"/>
-        <ns4:element name="outer" elementType="FHIR.MolecularSequence.Outer"/>
-        <ns4:element name="inner" elementType="FHIR.MolecularSequence.Inner"/>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="ValueSet.Compose" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="lockedDate" elementType="FHIR.date"/>
         <ns4:element name="inactive" elementType="FHIR.boolean"/>
@@ -8427,36 +8379,6 @@
         <ns4:element name="ifMatch" elementType="FHIR.string"/>
         <ns4:element name="ifNoneExist" elementType="FHIR.string"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MolecularSequence" retrievable="true" baseType="FHIR.DomainResource">
-        <ns4:element name="identifier">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
-        </ns4:element>
-        <ns4:element name="type" elementType="FHIR.sequenceType"/>
-        <ns4:element name="coordinateSystem" elementType="FHIR.integer"/>
-        <ns4:element name="patient" elementType="FHIR.Reference"/>
-        <ns4:element name="specimen" elementType="FHIR.Reference"/>
-        <ns4:element name="device" elementType="FHIR.Reference"/>
-        <ns4:element name="performer" elementType="FHIR.Reference"/>
-        <ns4:element name="quantity" elementType="FHIR.Quantity"/>
-        <ns4:element name="referenceSeq" elementType="FHIR.MolecularSequence.ReferenceSeq"/>
-        <ns4:element name="variant">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.MolecularSequence.Variant"/>
-        </ns4:element>
-        <ns4:element name="observedSeq" elementType="FHIR.string"/>
-        <ns4:element name="quality">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.MolecularSequence.Quality"/>
-        </ns4:element>
-        <ns4:element name="readCoverage" elementType="FHIR.integer"/>
-        <ns4:element name="repository">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.MolecularSequence.Repository"/>
-        </ns4:element>
-        <ns4:element name="pointer">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
-        </ns4:element>
-        <ns4:element name="structureVariant">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.MolecularSequence.StructureVariant"/>
-        </ns4:element>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CapabilityStatementKind" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
@@ -8575,9 +8497,6 @@
         <ns4:element name="responsible" elementType="FHIR.boolean"/>
         <ns4:element name="role" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="qualification" elementType="FHIR.CodeableConcept"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="TerminologyCapabilities.Closure" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="translation" elementType="FHIR.boolean"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="SearchParamType" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
@@ -9443,14 +9362,6 @@
         <ns4:element name="value" elementType="FHIR.Quantity"/>
         <ns4:element name="supportingInformation" elementType="FHIR.string"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MolecularSequence.Repository" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="type" elementType="FHIR.repositoryType"/>
-        <ns4:element name="url" elementType="FHIR.uri"/>
-        <ns4:element name="name" elementType="FHIR.string"/>
-        <ns4:element name="datasetId" elementType="FHIR.string"/>
-        <ns4:element name="variantsetId" elementType="FHIR.string"/>
-        <ns4:element name="readsetId" elementType="FHIR.string"/>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="ActionConditionKind" retrievable="false" baseType="FHIR.Element">
         <ns4:element name="value" elementType="System.String"/>
     </ns4:typeInfo>
@@ -9586,7 +9497,6 @@
         <ns4:element name="FamilyMemberHistory" elementType="FHIR.FamilyMemberHistory"/>
         <ns4:element name="Flag" elementType="FHIR.Flag"/>
         <ns4:element name="Goal" elementType="FHIR.Goal"/>
-        <ns4:element name="GraphDefinition" elementType="FHIR.GraphDefinition"/>
         <ns4:element name="Group" elementType="FHIR.Group"/>
         <ns4:element name="GuidanceResponse" elementType="FHIR.GuidanceResponse"/>
         <ns4:element name="HealthcareService" elementType="FHIR.HealthcareService"/>
@@ -9622,7 +9532,6 @@
         <ns4:element name="MedicinalProductUndesirableEffect" elementType="FHIR.MedicinalProductUndesirableEffect"/>
         <ns4:element name="MessageDefinition" elementType="FHIR.MessageDefinition"/>
         <ns4:element name="MessageHeader" elementType="FHIR.MessageHeader"/>
-        <ns4:element name="MolecularSequence" elementType="FHIR.MolecularSequence"/>
         <ns4:element name="NamingSystem" elementType="FHIR.NamingSystem"/>
         <ns4:element name="NutritionOrder" elementType="FHIR.NutritionOrder"/>
         <ns4:element name="Observation" elementType="FHIR.Observation"/>
@@ -9831,29 +9740,6 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="PlanDefinition.DynamicValue" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="path" elementType="FHIR.string"/>
         <ns4:element name="expression" elementType="FHIR.Expression"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MolecularSequence.Roc" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="score">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.integer"/>
-        </ns4:element>
-        <ns4:element name="numTP">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.integer"/>
-        </ns4:element>
-        <ns4:element name="numFP">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.integer"/>
-        </ns4:element>
-        <ns4:element name="numFN">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.integer"/>
-        </ns4:element>
-        <ns4:element name="precision">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.decimal"/>
-        </ns4:element>
-        <ns4:element name="sensitivity">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.decimal"/>
-        </ns4:element>
-        <ns4:element name="fMeasure">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.decimal"/>
-        </ns4:element>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="StructureMap.Structure" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="url" elementType="FHIR.canonical"/>
@@ -10779,10 +10665,6 @@
         <ns4:element name="reason" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="amount" elementType="FHIR.Money"/>
         <ns4:element name="value" elementType="FHIR.decimal"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MolecularSequence.Outer" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="start" elementType="FHIR.integer"/>
-        <ns4:element name="end" elementType="FHIR.integer"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="ExampleScenario.ContainedInstance" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="resourceId" elementType="FHIR.string"/>

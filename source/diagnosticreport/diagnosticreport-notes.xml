@@ -78,9 +78,9 @@ If the report has been withdrawn following a previous final release, the Diagnos
 Typically, a report is either: all data, no narrative (e.g. Core lab) or a mix of data with some concluding narrative (e.g. Structured Pathology Report, Bone Density), or all narrative (for example a typical imaging report, histopathology).  This resource provides for these 3 different presentations:
 </p>
 	<ul>
-		<li>As atomic data items: a hierarchical set of nested references to Observation resources often including pathologist/radiologist interpretation(s),  one or more images, and possibly with a conclusion and/or one or more coded diagnoses</li>
-		<li>As narrative: an XHTML presentation in the standard resource narrative</li>
-		<li>As a "presented form": A rich text representation of the report - typically a PDF</li>
+	    <li>As atomic data items: a hierarchical set of nested references to Observation resources often including pathologist/radiologist interpretation(s) (in .result), one or more images (in .study with reference to imagingStudy or in .media), and possibly with a conclusion and/or one or more coded diagnoses (in .conclusionCode)</li>
+	    <li>As narrative: an XHTML presentation in .text </li>
+	    <li>As a rich text representation of the report - typically a PDF (in .presentedForm)</li>
 	</ul>
 	<p>
 Note that the conclusion and the coded diagnoses are part of the atomic data and SHOULD be duplicated in the narrative and in the presented form if the latter is present.
@@ -101,6 +101,7 @@ as expert systems provide improved narrative reporting in high volume reports, s
 data to areas that have classically been narrative based, and the nature of the imaging and laboratory procedures are
 merging. Therefore, these patterns described above are only examples of how a diagnostic report can be used.
 </p>
+<p>DiagnosticReport could also contain Observations for tests that were not performed.  See <a href="https://build.fhir.org/observation.html#cancelled">Observation</a> for more details on how one documents that an observation was not performed.</p>
 	<a name="genetics"></a>
 	<h3>Genomic Reports</h3>
 	<p>

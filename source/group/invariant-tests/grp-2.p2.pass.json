@@ -1,0 +1,47 @@
+{
+  "resourceType": "Group",
+  "id": "grp-2.p2.pass.json",
+  "identifier" : [{
+    "system" : "http://someveterinarianclinic.org/fhir/NamingSystem/herds",
+    "value" : "12345678"
+  }],
+  "name" : "John's herd",
+  "type" : "animal",
+  "code" : {
+    "coding": [{
+      "system": "http://hl7.org/fhir/group-code",
+      "code": "herd",
+      "display": "Herd"
+    }],
+    "text": "Horse"
+  },
+  "quantity" : 25,
+  "characteristic" : [{
+    "code" : {
+      "coding": [{
+        "system": "http://snomed.info/sct",
+        "code": "260905004",
+        "display": "Condition"
+      }]
+    },
+    "valueCodeableConcept" : {
+      "text" : "colic"
+    },
+    "exclude" : false,
+    "instancesRange" : {
+      "low" : {
+        "value" : 5,
+        "code": "1"
+      }
+    }
+  },
+  {
+    "code" : {
+      "text" : "owner"
+    },
+    "valueCodeableConcept" : {
+      "text" : "John Smith"
+    },
+    "exclude" : false
+  }]
+}

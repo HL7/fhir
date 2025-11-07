@@ -54,6 +54,11 @@
     <name value="Workflow Pattern"/>
   </mapping>
   <mapping>
+    <identity value="rx-dispense-rmim"/>
+    <uri value="http://www.hl7.org/v3/PORX_RM020070UV"/>
+    <name value="V3 Pharmacy Dispense RMIM"/>
+  </mapping>  
+  <mapping>
     <identity value="script10.6"/>
     <uri value="http://ncpdp.org/SCRIPT10_6"/>
     <name value="Mapping to NCPDP SCRIPT 10.6"/>
@@ -138,15 +143,14 @@
     <element id="MedicationRequest.basedOn">
       <path value="MedicationRequest.basedOn"/>
       <short value="A plan or request that is fulfilled in whole or in part by this medication request"/>
-      <definition value="A plan or request that is fulfilled in whole or in part by this medication request."/>
+      <definition value="Whenever the medication request is being issued because of another request, eg. a procedure that is being planned (ServiceRequest) and MedicationRequests are known to be needed, this element documents those requests."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>        
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>   
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
       </type>
       <isSummary value="true"/>
@@ -286,9 +290,9 @@
     </element>
     <element id="MedicationRequest.intent">
       <path value="MedicationRequest.intent"/>
-      <short value="proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
+      <short value="proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option (immutable)"/>
       <definition value="Whether the request is a proposal, plan, or an original order."/>
-      <comment value="It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#xD;&#xD;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#xD;&#xD;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
+      <comment value="This element is expected to be immutable. E.g. A 'proposal' instance should never change to be a 'plan' instance or 'order' instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value. It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.&#xD;&#xD;An instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.&#xD;&#xD;This element is labeled as a modifier because the intent alters when and how the resource is actually applicable."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -322,7 +326,7 @@
       <path value="MedicationRequest.category"/>
       <short value="Grouping or category of medication request"/>
       <definition value="An arbitrary categorization or grouping of the medication request.  It could be used for indicating where meds are intended to be administered, eg. in an inpatient setting or in a patient's home, or a legal category of the medication."/>
-      <comment value="The category can be used to include where the medication is expected to be consumed or other types of requests.  The examplar value set represents where the meds are intended to be administered and is just one example of request categorization."/>
+      <comment value="The category can be used to include where the medication is expected to be consumed or other types of requests.  The exemplar value set represents where the meds are intended to be administered and is just one example of request categorization.  &#10;&#10;The committee will revisit these codes, expecting to use a codesystem from [terminology.hl7.org](http://terminology.hl7.org)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -334,7 +338,7 @@
         </extension>
         <strength value="example"/>
         <description value="A coded concept identifying where the medication is to be consumed or administered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-admin-location"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-category"/>
       </binding>
       <mapping>
         <identity value="script10.6"/>
@@ -386,7 +390,16 @@
       <definition value="If true, indicates the provider is ordering a patient should not take the specified medication. The reason for this order can be provided in the .reason element. A MedicationRequest with .doNotPerform = true will not result in any dispense or administration. 
 A request not to take or administer medication is a standalone request, and does not update any other medication request.  
 When true, active orders that may exist for the same medication are expected to be canceled/ended, and new orders for the same medication are not expected."/>
-      <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;."/>
+<comment value="If do not perform is not specified, the request is a positive request (e.g., &quot;do perform&quot;).  &#xA;&#xA;
+The attributes provided with the request qualify what is not to be done.  &#xA;&#xA;
+If a performerType is specified, then the &quot;do not&quot; request only applies to performers of that type.  &#xA;&#xA;
+Qualifiers include: code, subject, occurrence, performerType and performer.  &#xA;&#xA;&#xA;&#xA;
+
+For example:  &#xA;&#xA;
+* doNotPerform=true + code=Lithium → &quot;do not give Lithium&quot; (any other med is ok)  &#xA;&#xA;
+* doNotPerform=true + dosage.timing.when=lunch → &quot;do not give at lunch&quot; (not impacting giving at other times)  &#xA;&#xA;
+* doNotPerform=true + dosage.route=oral → &quot;do not give orally&quot; (not impacting other routes)  &#xA;&#xA;
+" />
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -464,7 +477,7 @@ When true, active orders that may exist for the same medication are expected to 
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -478,8 +491,8 @@ When true, active orders that may exist for the same medication are expected to 
     <element id="MedicationRequest.informationSource">
       <path value="MedicationRequest.informationSource"/>
       <short value="The person or organization who provided the information about this request, if the source is someone other than the requestor"/>
-      <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor. The informationSource element is generally used when details of a prescription are being reported by someone who is not the requestor, e.g., I indicate that I received a prescription for a med out of my jurisdiction and the details are recorded in the system as a MedicationRequest. Normally when this element is populated, the .reported element would be set to &quot;true&quot;."/>
-      <comment value="MedicationStatement is indeed intended to capture that the patient is on a given medication, or is expected/planned to be on, whether this is reported by the patient or any other entity. In some cases, however, there has been a need for MedicationRequest.reported and .informationSource to represent that an order exists, as reported by someone. The informationSource is therefore not the &quot;original requester&quot;, but the reporter of that MedicationRequest."/>
+      <definition value="The person or organization who provided the information about this request, if the source is someone other than the requestor. The informationSource element is generally used when details of a prescription are being reported by someone who is not the requestor, e.g., I indicate that I received a prescription for a med out of my jurisdiction and the details are recorded in the system as a MedicationRequest. Normally when this element is populated, the .isRecordOfRequest element would be set to &quot;true&quot;."/>
+      <comment value="MedicationStatement is indeed intended to capture that the patient is on a given medication, or is expected/planned to be on, whether this is reported by the patient or any other entity. In some cases, however, there has been a need for MedicationRequest.isRecordOfRequest and .informationSource to represent that an order exists, as reported by someone. The informationSource is therefore not the &quot;original requester&quot;, but the reporter of that MedicationRequest."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -612,16 +625,18 @@ When true, active orders that may exist for the same medication are expected to 
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.reported">
-      <path value="MedicationRequest.reported"/>
-      <short value="Reported rather than primary record"/>
-      <definition value="Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.  It may also indicate the source of the report."/>
+    <element id="MedicationRequest.isRecordOfRequest">
+      <path value="MedicationRequest.isRecordOfRequest"/>
+      <short value="Whether this is record of a Medication Request or the actual request itself"/>
+      <definition value="The information in this instance is a record of the Medication Request and is not request or order itself and should not be considered as such, i.e. the information should not be used for medication dispense | supply and administration."/>
       <comment value="If not populated, then assume that this is the original record and not reported"/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
+      <!-- <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because this element explicitly makes the request not an authoritative record but for information purposes."/> -->
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -725,7 +740,7 @@ When true, active orders that may exist for the same medication are expected to 
     <element id="MedicationRequest.reason">
       <path value="MedicationRequest.reason"/>
       <short value="Reason or indication for ordering or not ordering the medication"/>
-      <definition value="The reason or the indication for ordering or not ordering the medication."/>
+      <definition value="When the medication request was issued as a result of something that occurred, i.e. a lab test or a performed procedure, this documents those reasons."/>
       <comment value="This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference."/>
       <min value="0"/>
       <max value="*"/>
@@ -735,6 +750,7 @@ When true, active orders that may exist for the same medication are expected to 
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>        
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/> 
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -845,12 +861,18 @@ When true, active orders that may exist for the same medication are expected to 
         <map value="SubstanceAdministration.text"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.effectiveDosePeriod">
-      <path value="MedicationRequest.effectiveDosePeriod"/>
-      <short value="Period over which the medication is to be taken"/>
-      <definition value="The period over which the medication is to be taken.  Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions."/>
+    <element id="MedicationRequest.effectiveTiming[x]">
+      <path value="MedicationRequest.effectiveTiming[x]"/>
+      <short value="Period over which the medication is to be taken, can be specified as a duration or a range"/>
+      <definition value="The period over which the medication is to be taken. Can be specified as a duration or a range. Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions."/>
       <min value="0"/>
       <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
       <type>
         <code value="Period"/>
       </type>
@@ -1064,8 +1086,16 @@ When true, active orders that may exist for the same medication are expected to 
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Annotation"/>
+        <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationRequestDispenserInstructions"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept specifying predefined dispensing instructions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-dispenser-instructions"/>
+      </binding>
       <mapping>
         <identity value="rim"/>
         <map value="Supply.text"/>
@@ -1092,6 +1122,30 @@ When true, active orders that may exist for the same medication are expected to 
         <map value="Supply.administerableMedication.product.asContent.container.code"/>
       </mapping>
     </element>
+    <element id="MedicationRequest.dispenseRequest.destination">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="for inpatient setting this is core, but this might not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?"/>
+      </extension>
+      <path value="MedicationRequest.dispenseRequest.destination"/>
+      <short value="Where the medication is expected to be delivered"/>
+      <definition value="Identification of the facility/location where the medication is expected to be delivered."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="RXD-13 Dispense-to Location; RXD-30 Dispense to Pharmacy; RXD-31 Dispense to Pharmacy Address"/>
+      </mapping>
+      <mapping>
+        <identity value="rx-dispense-rmim"/>
+        <map value="CombinedMedicationDispense.SupplyEvent.destination"/>
+      </mapping>
+    </element>
+
+
     <element id="MedicationRequest.substitution">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,200"/>

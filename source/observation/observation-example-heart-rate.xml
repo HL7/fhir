@@ -13,14 +13,6 @@
 		</coding>
 		<text value="Vital Signs"/>
 	</category>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="8867-4"/>
-			<display value="Heart rate"/>
-		</coding>
-		<text value="Heart rate"/>
-	</category>
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>

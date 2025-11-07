@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DeviceAssociation xmlns="http://hl7.org/fhir">
+  <id value="robot-association"/>
+  <contained>
+    <Patient>
+      <id value="example-patient"/>
+      <name>
+        <family value="Doe"/>
+        <given value="John"/>
+      </name>
+    </Patient>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="example-practitioner"/>
+      <name>
+        <family value="Nguyen"/>
+        <given value="Alex"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Device>
+      <id value="surgical-robot"/>
+      <status value="active"/>
+      <name>
+        <value value="Da Vinci Xi"/>
+        <type>
+          <coding>
+            <code value="model-name"/>
+          </coding>
+        </type>
+      </name>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="466893009"/>
+          <display value="Robotic surgical system"/>
+        </coding>
+      </type>
+    </Device>
+  </contained>
+  <device>
+    <reference value="#surgical-robot"/>
+  </device>
+  <status value="active"/>
+  <associationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+      <code value="attached"/>
+      <display value="Attached"/>
+    </coding>
+  </associationStatus>
+  <subject>
+    <reference value="#example-practitioner"/>
+  </subject>
+  <focus>
+    <reference value="#example-patient"/>
+  </focus>
+  <period>
+    <start value="2025-07-01T08:00:00Z"/>
+    <end value="2025-07-01T12:00:00Z"/>
+  </period>
+  <operation>
+    <status>
+      <coding>
+        <code value="on"/>
+      </coding>
+    </status>
+    <period>
+      <start value="2025-07-01T08:00:00Z"/>
+      <end value="2025-07-01T12:00:00Z"/>
+    </period>
+  </operation>
+</DeviceAssociation>

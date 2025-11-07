@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="bodystructure-code"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -25,7 +25,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes all codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 442083009 (Anatomical or acquired body site (body structure))."/>
+  <description value="This value set includes all codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 118956008 (Body structure, altered from its original anatomical structure (morphologic abnormality))."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
@@ -33,7 +33,7 @@
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
-        <value value="49755003"/>
+        <value value="118956008"/>
       </filter>
     </include>
   </compose>

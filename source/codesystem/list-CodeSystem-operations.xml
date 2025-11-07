@@ -19,9 +19,4 @@
       <reference value="OperationDefinition/CodeSystem-subsumes"/>
     </item>
   </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/CodeSystem-find-matches"/>
-    </item>
-  </entry>
 </List>

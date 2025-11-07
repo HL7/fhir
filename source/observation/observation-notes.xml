@@ -11,9 +11,29 @@
 		</a>
 	  <h3>Subject of an Observation</h3>
 		<p>
-		Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately.  However,  three attributes may be used for representing the focus of the observation if it is not the subject itself.  The <code>specimen</code> and <code>bodySite</code>  elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and  <code>focus</code> represents specific aspect of the subject that are the point of attention such as another observation or a device implanted in a patient.
-		 </p>
-				<a name="obsgrouping">
+		Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately.  However,  three attributes may be used for representing the focus of the observation if it is not the subject itself.  The <code>specimen</code>, <code>bodySite</code>, and <code>bodyStructure</code> elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and  <code>focus</code> represents specific aspect of the subject that are the point of attention such as another observation or a device implanted in a patient.
+		</p>
+		<p>
+		There may be some confusion about what to record in the subject, focus, and device elements, and the observation-recording extension, particularly involving Devices.
+		</p>
+		<ul>
+			<li>
+			The subject is whose (or what entity’s) record the observation should appear in. If the Observation is about another person, device, or location, but collected in the context of a particular patient, then the subject is that patient. Devices may be the subject of an observation when the record is about the device itself absent a patient (or other) context, such as a calibration record. A subject is expected except when the resource is not finalized, has been anonymized, or similar.
+			</li>
+			<li>
+			When the Observation is about someone or something other than subject, that person or entity is recorded in the focus element. An observation about a patient’s home would record the patient as the subject, and the home location as the focus. An implanted artificial hip device could be the focus of a wear measurement Observation with a patient subject.
+			</li>
+			<li>
+			The device element is used to record the Device (or within a device, the DeviceMetric) that provides the measurement, analysis, or setting configuration recorded in the Observation. For example, the radiology software generating the hip prosthetic wear measurement would be recorded in device. In the calibration record above, one would expect the device element to be populated with the calibration device providing the measurements about the subject device.
+			</li>
+			<li>
+			In some cases, the source of the observation is not the entity recording it. This may be, for example, a radiologist-dictated observation entered by a transcriptionist, or a reading off a thermometer entered into the chart by a nurse. If it is important to record that the person or device that made the observation is not the person or device that entered it into the record, then the observation-recording extension may be used.
+			</li>
+		</ul>
+		<p>
+		Note that a device could appear in any of these elements depending on the role it is playing in a particular Observation; there is no fixed element where a device would be recorded. Similarly, patients, related persons, practitioners and other entities may in may appear in various elements. As a result, finding all Observations involving a particular device, etc. may require multiple searches. 
+		</p>
+		<a name="obsgrouping">
 		</a>
 		<h3>Observation Grouping</h3>
 		<p>Many observations need to be grouped together in some fashion to document critical
@@ -41,7 +61,7 @@
 				<code>$stats</code> operation</a>).  Therefore <strong>all</strong> code-value and component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.  Components should only be used when there is only one method, one observation, one performer, one device, and one time.  Some use cases for using this structure include:
 			</p>
 		<ol>
-			<li>Observations that are commonly produced and interpreted together. For example, systolic and diastolic blood pressure are represented as a single <a href="observation-example-bloodpressure.html">Blood pressure panel</a>.</li>
+			<li>Observations that are commonly produced and interpreted together. For example, systolic and diastolic blood pressure are represented as a single <a href="observation-example-bloodpressure.html">Blood pressure panel</a>. Another example are ST segment measurements from the different ECG leads (e.g.,  ST I, ST II, etc.).</li>
 			<li>Assessment tool results that are commonly produced and interpreted together.  For example, a newborn <a href="observation-example-5minute-apgar-score.html">Apgar score</a>  that is a single Observation with five components.</li>
 			<li>Representing multiple answers to a question (<a href="questionnaireresponse.html#bnr">relationship and boundaries</a> between Observation and Questionnaire/QuestionnaireResponse). For example, reporting the <a href="observation-example-alcohol-type.html">types of alcohol</a> consumed by a patient</li>
 		</ol>
@@ -66,6 +86,12 @@
 	          When linking to other Observations from which an Observation is derived.  In this case both <code>Observation.code</code> and <code>Observation.value[x]</code> are present,  and the linked observations are listed in <code>Observation.derivedFrom</code>.  An example of this would be a <a href="observation-example-bmi-using-related.html">Body Mass Index (BMI)</a> Observation where the height and weight measurements are referenced.
 	           </li>
 		</ol>
+		
+		<a name="obsdelta">
+		</a>
+		<h3>Observation Delta</h3>
+		<p>To perform a delta check one can instantiate a new observation (the comparison observation) with <code>derivedFrom</code> populated with references to the two prior Observations that triggered the delta check. Also, the <code>Observation.interpretation</code> of the comparison Observation has the code of the interpretation of the delta check.</p>
+		
 		<a name="usingcodes">
 		</a>
 	  <h3> Using codes in Observation </h3>
@@ -318,6 +344,7 @@
 			</li>
 			<li>See above section on <a href="#usingcodes">Using codes for result values</a>
 			</li>
+			<li>See section <a href="json.html#primitive">JSON representation of primitive elements</a> for additional information on significant digits in decimal values.</li>
 			<li> The Attachment data type is used to represent an observation result value if the <em>actual</em> value is a binary file such as an image. If the observation result value is <em>derived</em> from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using DocumentReference and referenced in the Observation with <code>derivedFrom</code>.  Images that are referenced as part of a report should be represented with <code>DiagnosticReport.media</code> or, if the entire report is in a binary format such as pdf,  with <code>DiagnosticReport.presentedForm</code>.<br/>
 
 			</li>
@@ -358,6 +385,14 @@
 		<a name="cancelled"></a>
 	  <h3>Cancelled or Not Performed Observations</h3>
 		<p>If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "cancelled" and the specific details given - preferably as coded  values in the dataAbsentReason or valueCodeableConcept element.  Additional information may be provided in the `note` element as well.  The <a href="observation-example-unsat.html">specimen reject example</a> demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.</p>
+		<p>For Observations that will not or were not performed:</p>
+		<ul>
+		    <li>We create one Observation for each Test result or Panel that was requested that will not be performed</li>
+    		<li>Observation.code to identify each Test result or Panel requested to be performed</li>
+    		<li>Observation.dataAbsentReason with an appropriate Reason</li>
+    		<li>Observation.note with a human readable explanation</li>
+    		<li>If the reason is a specific specimen condition, reference this via Specimen.condition</li>
+		</ul>
 		<a name="observation-operations">
 		</a>
 		<a name="genetics"></a>
@@ -368,7 +403,7 @@
 		Beyond the structured, computable data available in DiagnosticReport and Observation, metadata about the analysis performed is captured in the <a href="genomicstudy.html">GenomicStudy</a> resource. GenomicStudy aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
 		</p>
 		<p>
-		When referencing genomic analysis from an Observation, the <code>partOf</code> attribute MAY be used to reference the GenomicStudy that led to this observation being made. Another option is that <code>derivedFrom</code> MAY be used to reference a DocumentReference when the observation was derived from the data in the file, even with that file was produced as part of a GenomicStudy output. Also, <code>derivedFrom</code> MAY be used to reference the GenomicStudy where the data was produced.
+		When referencing genomic analysis from an Observation, the <code>partOf</code> attribute MAY be used to reference the GenomicStudy that led to this observation being made. Another option is that <code>derivedFrom</code> MAY be used to reference a DocumentReference when the observation was derived from the data in the file, even when that file was produced as part of a GenomicStudy output. Also, <code>derivedFrom</code> MAY be used to reference the GenomicStudy where the data was produced.
 		</p>
 
 	<a name="ops"></a>

@@ -107,6 +107,10 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
     </element>
     <element id="DeviceDispense.basedOn">
       <path value="DeviceDispense.basedOn"/>
@@ -119,6 +123,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
     </element>
     <element id="DeviceDispense.partOf">
       <path value="DeviceDispense.partOf"/>
@@ -218,6 +226,10 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
     </element>
     <element id="DeviceDispense.device">
       <path value="DeviceDispense.device"/>
@@ -239,18 +251,23 @@
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.product"/>
+      </mapping>
     </element>
     <element id="DeviceDispense.subject">
       <path value="DeviceDispense.subject"/>
       <short value="Who the dispense is for"/>
       <definition value="A link to a resource representing the person to whom the device is intended."/>
-      <comment value="What about 'this measuring Device is now asigned to Dr X who needs it now'?"/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -259,7 +276,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -274,6 +291,7 @@
       <path value="DeviceDispense.receiver"/>
       <short value="Who collected the device or where the medication was delivered"/>
       <definition value="Identifies the person who picked up the device or the person or location where the device was delivered.  This may be a patient or their caregiver, but some cases exist where it can be a healthcare professional or a location."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -283,6 +301,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -360,6 +379,7 @@
       <path value="DeviceDispense.performer.actor"/>
       <short value="Individual who was performing"/>
       <definition value="The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the device."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -371,6 +391,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -394,6 +415,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
       </mapping>
     </element>
     <element id="DeviceDispense.type">
@@ -507,8 +532,8 @@
         <code value="markdown"/>
       </type>
     </element>
-    <element id="DeviceDispense.eventHistory">
-      <path value="DeviceDispense.eventHistory"/>
+    <element id="DeviceDispense.relevantHistory">
+      <path value="DeviceDispense.relevantHistory"/>
       <short value="A list of relevant lifecycle events"/>
       <definition value="A summary of the events of interest that have occurred, such as when the dispense was verified."/>
       <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
@@ -521,6 +546,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.relevantHistory"/>
       </mapping>
     </element>
   </differential>

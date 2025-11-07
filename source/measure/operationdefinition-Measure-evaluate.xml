@@ -34,7 +34,9 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="The effect of invoking this operation is to calculate the measure for the given subject(s), or all subjects if no subject is supplied. For individual and subject-list reports, the result is a set of Bundles, one for each evaluated subject, where the first entry in each bundle is a MeasureReport resource, and subsequent entries in the Bundle are resources evaluated or created as part of the measure evaluation. For the summary report, the result of this operation is a single bundle with a single MeasureReport of type summary. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>
+    <valueMarkdown
+      value="The effect of invoking this operation is to calculate the specified measure(s) for the given subject(s), or a server-determined set of subjects if no subject is supplied. For `individual` and `subject-list` reports, the result is a set of Bundles, one for each evaluated subject, where the first entries in each bundle are MeasureReport resources, and subsequent entries in the Bundle are resources evaluated or created as part of the measure evaluation. For the summary report, the result of this operation is a single bundle with a MeasureReport for each calculated measure with a type of `summary`. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET."
+    />
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-evaluate"/>
   <version value="6.0.0"/>
@@ -54,57 +56,32 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The evaluate operation processes the given Measure(s) to produce the corresponding MeasureReport(s). This operation expects that Measure resources used have a computable representation."/>
+  <description
+    value="The evaluate operation processes the given Measure(s) to produce the corresponding MeasureReport(s). This operation expects that Measure resources used have a computable representation. The value of title elements in the resulting [MeasureReport](clinicalreasoning-quality-reporting.html#measure-report) should be copied from the corresponding elements on the Measure."/>
   <affectsState value="false"/>
   <code value="evaluate"/>
-  <comment value="The effect of invoking this operation is to calculate the measure for the given subject, or all subjects if no subject is supplied, and return the results as a MeasureReport resource of the appropriate type. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>
+  <comment
+    value="The effect of invoking this operation is to calculate the measure for the given subject, or all subjects if no subject is supplied, and return the results as a MeasureReport resource of the appropriate type. Note that whether or not this operation affects the state of the server depends on whether the server persists the generated MeasureReport. If the MeasureReport is not persisted, this operation can be invoked with GET"/>
   <resource value="Measure"/>
   <system value="false"/>
   <type value="true"/>
-  <instance value="true"/>
+  <instance value="false"/>
   <parameter>
-    <name value="measure"/>
+    <name value="measureUrl"/>
     <use value="in"/>
-    <scope value="type"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="The measure to evaluate. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter is required, or a url (and optionally version) must be supplied."/>
-    <type value="Measure"/>
-  </parameter>
-  <parameter>
-    <name value="url"/>
-    <use value="in"/>
-    <scope value="type"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="The url of the measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter (and optionally the version), or the measure parameter must be supplied"/>
+    <min value="1"/>
+    <max value="*"/>
+    <documentation
+      value="The URL of the measure(s) to be evaluated. A measure URL is specified in the url element of the Measure resource. The measure URL remains the same when the measure is stored on different servers."/>
     <type value="canonical"/>
-    <targetProfile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
-  </parameter>
-  <parameter>
-    <name value="version"/>
-    <use value="in"/>
-    <scope value="type"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="The version of the measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter may only be used if the url parameter is supplied, and the version is not supplied with it."/>
-    <type value="string"/>
-  </parameter>
-  <parameter>
-    <name value="subject"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="Subject for which the measure will be calculated. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter will be resolved as the subject of the measure based on the type of the subject. If multiple subjects of the same type are provided, the behavior is implementation-defined"/>
-    <type value="string"/>
-    <searchType value="reference"/>
   </parameter>
   <parameter>
     <name value="periodStart"/>
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive"/>
+    <documentation
+      value="The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive"/>
     <type value="date"/>
   </parameter>
   <parameter>
@@ -112,15 +89,36 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive"/>
+    <documentation
+      value="The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive"/>
     <type value="date"/>
+  </parameter>
+  <parameter>
+    <name value="subject"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Subject(s) for which the measure will be calculated. The subject may be a Patient, Practitioner, PractitionerRole, Organization, Location, Device, or Group. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subjectGroup parameter."/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="subjectGroup"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Subjects for which the measure will be evaluated, provided as a Group resource. Subjects provided in this parameter SHALL match the subjectType of the measure being evaluated.  (e.g. if the Measure.group.subjectType is Patient, the subject SHALL be a reference to a Patient or a Group of Patients). If no subject is provided, what subjects are evaluated is up to the server. This parameter cannot be used with the subject parameter."/>
+    <type value="Group"/>
   </parameter>
   <parameter>
     <name value="reportType"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The type of measure report: individual, subject-list, or summary. If not specified, a default value of individual will be used if the subject parameter is supplied, otherwise, summary will be used. NOTE: Implementations should support the use of `subject` for individual and `population` for summary for backwards compatibility with existing implementations."/>
+    <documentation
+      value="The type of measure report: `individual`, `subject-list`, or `summary`. If not specified, a default value of `summary` will be used if the subject parameter is supplied and is a `Group` resource; a default value of `individual` will be used if the subject parameter is supplied and is not a `Group` resource; otherwise, a default value of `summary` will be used. NOTE: Implementations should support the use of `subject` for `individual` and `population` for `summary` for backwards compatibility with existing implementations."/>
     <type value="code"/>
     <binding>
       <strength value="required"/>
@@ -128,11 +126,20 @@
     </binding>
   </parameter>
   <parameter>
-    <name value="provider"/>
+    <name value="reporter"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, the measure will be calculated for subjects that have a primary relationship to the identified provider. How this relationship is determined is implementation-specific."/>
+    <documentation value="The provider for which the report will be run. This may be a reference to a Practitioner, PractitionerRole, or Organization. If specified, systems MAY use this information to determine subjects for which the measure will be calculated, but how subjects are determined is implementation-specific. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporterResource parameter."/>
+    <type value="string"/>
+    <searchType value="reference"/>
+  </parameter>
+  <parameter>
+    <name value="reporterResource"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The provider for which the report will be run, provided as an Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](clinicalreasoning-quality-reporting.html#ad-hoc-organizations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporter parameter."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -140,8 +147,8 @@
     <name value="location"/>
     <use value="in"/>
     <min value="0"/>
-    <max value="1"/>
-    <documentation value="The location for which the report will be run."/>
+    <max value="*"/>
+    <documentation value="The location(s) for which the report will be run. This parameter is reflected in the location element of the resulting MeasureReport(s)."/>
     <type value="string"/>
     <searchType value="reference"/>
   </parameter>
@@ -150,7 +157,8 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The date the results of this measure were last received. This parameter is only valid for patient-level reports and is used to indicate when the last time a result for this patient was received. This information can be used to limit the set of resources returned for a patient-level report"/>
+    <documentation
+      value="The date the results of this measure were last received. This parameter is only valid for patient-level reports and is used to indicate when the last time a result for this patient was received. This information can be used to limit the set of resources returned for a patient-level report"/>
     <type value="dateTime"/>
   </parameter>
   <parameter>
@@ -158,14 +166,168 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Any input parameters for the evaluation. Parameters defined in this input will be made available by name to the CQL expression. Parameter types are mapped to CQL as specified in the [Using CQL with FHIR](https://hl7.org/fhir/uv/cql/) implementation guide. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL."/>    <type value="Parameters"/>
+    <documentation
+      value="Any input parameters for the evaluation. Parameters defined in this input will be made available by name to the CQL expression. Parameter types are mapped to CQL as specified in the [Using CQL with FHIR](https://hl7.org/fhir/uv/cql/) implementation guide. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL."/>
+    <type value="Parameters"/>
+  </parameter>
+  <parameter>
+    <name value="manifest"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation
+      value="Specifies an asset-collection library that provides dependency version resolution and expansion rules for the operation. See the version manifest discussion in the [Canonical Resource Management Infrastructure IG](http://hl7.org/fhir/uv/crmi/version-manifest.html) for a complete description of how manifest values are used to provide defaults for dependency version resolution and expansion parameters. Parameters specified directly in the operation override behaviors specified by the manifest parameter. In general, if this parameter is supplied, it is expected to be used in nested operation calls. For example, in evaluating a measure, if the expansion of a value set is required, this parameter SHALL be supplied to that expansion."/>
+    <type value="canonical"/>
+    <targetProfile
+      value="http://hl7.org/fhir/StructureDefinition/Library"/>
+  </parameter>
+  <parameter>
+    <name value="stratifier"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation
+      value="Additional stratifier criteria for the measure. The resulting MeasureReport will contain this additional stratifier information as well as any stratifiers defined in the Measure being reported."/>
+    <part>
+      <name value="measureUrl"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation
+        value="If the evaluate operation is for multiple measures, this parameter may be used to specify which measures the additional stratifier should be reported on. If not specified, the stratifier will be reported on all the measures. Note that if this results in a stratifier definition that cannot be interpreted correctly for the measure being reported, the behavior is at server discretion; it may throw an error, or simply ignore the additional stratifier definition."/>
+      <type value="canonical"/>
+    </part>
+    <part>
+      <name value="groupId"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation
+        value="If the measure being evaluated has multiple groups, this parameter may be used to specify which groups the additional stratifier should be reported on. If not specified, the stratifier will be reported on all groups in the measure being reported. Note that if this results in a stratifier definition that cannot be interpreted correctly for the measure group being reported, the behavior is at server discretion; it may throw an error, or simply ignore the additional stratifier definition."/>
+      <type value="string"/>
+    </part>
+    <part>
+      <name value="component"/>
+      <use value="in"/>
+      <min value="1"/>
+      <max value="*"/>
+      <documentation
+        value="One or more components of the stratifier definition. Additional stratifiers are reported in the MeasureReport in the same way as stratifiers defined in the Measure."/>
+      <part>
+        <name value="code"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="Meaning of the stratifier component."/>
+        <type value="code"/>
+        <binding>
+          <strength value="example"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+        </binding>
+      </part>
+      <part>
+        <name value="description"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation value="Human readable description of the stratifier component"/>
+        <type value="markdown"/>
+      </part>
+      <part>
+        <name value="criteria"/>
+        <use value="in"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation 
+          value="An expression that returns the value of this component of the stratifier for a member of the population. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element, evaluated from the perspective of the measure subject. If this is a non-subject-based measure, the expression may be a reference to a function that takes an argument of the type of the measure basis, allowing the stratifier value to be determined for each member of the population."/>
+        <type value="Expression"/>
+      </part>
+      <part>
+        <name value="valueSet"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation
+          value="A value set defining possible stratifier values. If both expression and valueset are specified, they SHALL be consistent (i.e. the expression SHALL evaluate to a code that is a member of the specified valueset)."/>
+        <type value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </part>
+      <part>
+        <name value="unit"/>
+        <use value="in"/>
+        <min value="0"/>
+        <max value="1"/>
+        <documentation
+          value="Indicates what units, if any, stratifier values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units. This information SHOULD be provided if it cannot be inferred from the stsratifier expression directly."/>
+        <type value="string"/>
+      </part>
+    </part>
+  </parameter>
+  <parameter>
+    <name value="supplementalData"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation
+      value="What additional supplemental data should be reported with the measure. This additional data is specified in the same was as supplemental data in the Measure resource, and is reported in the same way in the MeasureReport."/>
+    <part>
+      <name value="measureUrl"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation
+        value="If the evaluate operation is for multiple measures, this parameter may be used to specify which measures the additional supplemental data should be reported on. If not specified, the stratifier will be reported on all the measures. Note that if this results in a stratifier definition that cannot be interpreted correctly for the measure being reported, the behavior is at server discretion; it may throw an error, or simply ignore the additional stratifier definition."/>
+      <type value="canonical"/>
+    </part>
+    <part>
+      <name value="code"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation value="Meaning of the supplemental data."/>
+      <type value="CodeableConcept"/>
+      <binding>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-supplemental-data-example"/>
+      </binding>
+    </part>
+    <part>
+      <name value="usage"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation value="supplemental-data | risk-adjustment | factor"/>
+      <type value="CodeableConcept"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/measure-data-usage"/>
+      </binding>
+    </part>
+    <part>
+      <name value="description"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="1"/>
+      <documentation value="Human readable description of this supplemental data element"/>
+      <type value="markdown"/>
+    </part>
+    <part>
+      <name value="criteria"/>
+      <use value="in"/>
+      <min value="1"/>
+      <max value="1"/>
+      <documentation
+        value="Expression describing the additional data to be reported. This may be the name of an expression in a library, or it may be a path to a specific data element, reachable from the subject being evaluated."/>
+      <type value="Expression"/>
+    </part>
   </parameter>
   <parameter>
     <name value="return"/>
     <use value="out"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="The results of the measure calculation. The result of this operation will be a Bundle for each input subject, where the first entry of the Bundle is a MeasureReport representing the results of the calculation, and subsequent entries in the Bundle are resources created and/or evaluated as part of the calculation. See the MeasureReport resource for a complete description of the output of this operation. Note that implementations may choose to return a MeasureReport with a status of pending to indicate that the report is still being generated. In this case, the client can use a polling method to continually request the MeasureReport until the status is updated to complete"/>
+    <documentation
+      value="The results of the measure evaluation, returned as a Bundle for each input subject. The first entries in each Bundle are MeasureReport(s) corresponding to the measures that were calculated. Subsequent entries in each Bundle are resources representing the data that was created or referenced during the calculation of the measures, and referenced from the appropriate element of the corresponding MeasureReport resources. See the [guidance](clinicalreasoning-quality-reporting.html#bundles-organized-by-subject) on Bundle structure for discussion about the Bundle content and organization.\n\nNote that even though there is a single parameter named return of type Bundle, it is a multi-cardinality parameter, and so will still be returned using a Parameters resource, as described in the general operations framework [response](operations.html#response)."/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

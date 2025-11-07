@@ -1,134 +1,127 @@
 <mappingExceptions pattern="Event" resource="ImagingStudy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <divergentElement patternPath="Event.identifier" resourcePath="ImagingStudy.identifier">
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Includes baseline comments with additional text specific to resource and capitalization of MAY">
             <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
-            <resource value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)). It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number, or an accession number may be used to relate a Task, an ImagingStudy and a DiagnosticReport. See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
+            <resource value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number, or an accession number MAY be used to relate a Task, an ImagingStudy and a DiagnosticReport.  See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="ImagingStudy.basedOn">
-        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <missingTypes _pattern="Reference(Request)" reason="Reference type not relevant to resource"/>
+        <extraTypes _resource="Reference(CarePlan,ServiceRequest,Appointment,Task)" reason="Additional reference types are relevant to resource"/>
+        <shortUnmatched reason="Proposal not relevant for this resource">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Fulfills plan or order"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Proposal not relevant for this resource">
             <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this imaging study."/>
             <resource value="A plan or order that is fulfilled in whole or in part by this imaging study."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.partOf" resourcePath="ImagingStudy.partOf">
-        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Procedure)" reason="Unknown"/>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="A larger event of which this particular imaging study is a component or step."/>
-            <resource value="A larger event of which this particular ImagingStudy is a component or step.  For example,  an ImagingStudy as part of a procedure."/>
-        </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
-            <_pattern value="Not to be used to link an imaging study to an Encounter - use 'context' for that."/>
-            <resource value="To link an ImagingStudy to an Encounter use `encounter`."/>
-        </commentsUnmatched>
-    </divergentElement>
     <divergentElement patternPath="Event.partOf" resourcePath="ImagingStudy.procedure">
-        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(PlanDefinition,ActivityDefinition)" reason="Unknown"/>
-        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <missingTypes _pattern="Reference(Event)" reason="Reference type not relevant to resource"/>
+        <extraTypes _resource="Reference(Procedure)" reason="Additional reference type is relevant to resource"/>
+        <shortUnmatched reason="Meaning is more specific in this resource">
             <_pattern value="Part of referenced event"/>
-            <resource value="Associated procedure(s)"/>
+            <resource value="Imaging performed procedure(s)"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Meaning is more specific in this resource">
             <_pattern value="A larger event of which this particular imaging study is a component or step."/>
-            <resource value="A procedure or set of procedures during which this imaging study data was created."/>
+            <resource value="The performed procedure(s) during which the data associated with this imaging study was created."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Context element not present in this resource">
             <_pattern value="Not to be used to link an imaging study to an Encounter - use 'context' for that."/>
-            <resource value=""/>
+            <resource value="To link an imaging study to an Encounter use `encounter`."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="ImagingStudy.status">
-        <shortUnmatched reason="Unknown">
+        <shortUnmatched reason="Imaging study status codes are specialized">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
             <resource value="registered | available | cancelled | entered-in-error | unknown | inactive"/>
         </shortUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="State transition diagram does not apply to imaging study statuses">
             <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="ImagingStudy.subject">
-        <extraTypes _resource="Reference(Device)" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <extraTypes _resource="Reference(Device)" reason="Phantoms can be subjects of imaging studies"/>
+        <shortUnmatched reason="More specific definition used">
             <_pattern value="Individual service was done for/to"/>
             <resource value="Who or what is the subject of the study"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="More specific definition used">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
             <resource value="The subject, typically a patient, of the imaging study."/>
         </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
+        <requirementsUnmatched reason="Requirement is not needed for this resource">
             <_pattern value="Links the imaging study to the Patient context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.encounter" resourcePath="ImagingStudy.encounter">
-        <shortUnmatched reason="Unknown">
+        <shortUnmatched reason="Imaging studies not generally part of an encounter">
             <_pattern value="Encounter the imaging study is part of"/>
             <resource value="Encounter with which this imaging study is associated"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Imaging studies not generally part of an encounter -- only loosely associated">
             <_pattern value="The Encounter during which this imaging study was created or to which the creation of this record is tightly associated."/>
-            <resource value="The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made."/>
+            <resource value="The healthcare event (e.g. a patient and healthcare provider interaction) during which the imaging data represented by this imaging study was acquired."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Imaging studies not generally part of an encounter">
             <_pattern value="This will typically be the encounter the imaging study was created during, but some imaging studys may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
-            <resource value="This will typically be the encounter the event occurred within, but some events MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission test)."/>
+            <resource value=""/>
         </commentsUnmatched>
-        <requirementsUnmatched reason="Unknown">
+        <requirementsUnmatched reason="Requirement not needed for this resource">
             <_pattern value="Links the imaging study to the Encounter context.  May also affect access control."/>
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="ImagingStudy.started">
-        <missingTypes _pattern="Period, Timing" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <missingTypes _pattern="Period, Timing" reason="Imaging study started is always an instant"/>
+        <shortUnmatched reason="Started is more specific than occurrence">
             <_pattern value="When imaging study occurred/is occurring"/>
             <resource value="When the study was started"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Started is more specific than occurrence">
             <_pattern value="The date, period or timing when the imaging study did occur or is occurring."/>
             <resource value="Date and time the study started."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Comment not relevant for this resource">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer" resourcePath="ImagingStudy.series.performer">
-        <extraTypes _resource="BackboneElement" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <extraTypes _resource="BackboneElement" reason="Performer needs to be qualified with role"/>
+        <shortUnmatched reason="Performer is at the series level not the imaging study level">
             <_pattern value="Who performed imaging study and what they did"/>
             <resource value="Who performed the series"/>
         </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Performer is at the series level not the imaging study level">
             <_pattern value="Indicates who or what performed the imaging study and how they were involved."/>
             <resource value="Indicates who or what performed the series and how they were involved."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.performer.function" resourcePath="ImagingStudy.series.performer.function">
+        <bindingStrength _pattern="example" _resource="extensible" reason="Specific codes almost always applicable"/>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer.actor" resourcePath="ImagingStudy.series.performer.actor">
+        <extraTypes _resource="Reference(HealthcareService)" reason="HealthcareService is a possible performer for an ImagingStudy.series"/>
+    </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="ImagingStudy.reason">
-        <definitionUnmatched reason="Unknown">
+        <definitionUnmatched reason="Patterns has unnecessary capital">
             <_pattern value="Describes why the imaging study occurred in coded or textual form or Indicates another resource whose existence justifies this imaging study."/>
             <resource value="Describes why the imaging study occurred in coded or textual form or indicates another resource whose existence justifies this imaging study."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="Imaging study does not contain text element">
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>
-            <resource value=""/>
+            <resource value="This MAY correspond to the indications or reasons encoded in an associated service request."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.note" resourcePath="ImagingStudy.note">
-        <summary _pattern="false" _resource="true" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
+        <summary _pattern="false" _resource="true" reason="All elements above instance level are included in summary by convention"/>
+        <shortUnmatched reason="More specific definition used">
             <_pattern value="Comments made about the event"/>
             <resource value="Comments made about the imaging study"/>
         </shortUnmatched>
@@ -137,8 +130,6 @@
     <unmappedElement patternPath="Event.relevantHistory" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.code" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.statusReason" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="Event.performer.actor" reason="Not relevant for this resource"/>
-    <unmappedElement patternPath="Event.performer.function" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.category" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.recorded" reason="Not relevant for this resource"/>
     <unmappedElement patternPath="Event.product" reason="Not relevant for this resource"/>

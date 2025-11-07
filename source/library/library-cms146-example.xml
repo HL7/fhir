@@ -488,6 +488,16 @@
   </type>
   <date value="2015-07-22"/>
   <description value="Logic for CMS 146: Appropriate Testing for Children with Pharyngitis"/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="age"/>
+    </code>
+    <valueRange>
+      <low><value value="3"/><unit value="a"/></low>
+      <high><value value="18"/><unit value="a"/></high>
+    </valueRange>
+  </useContext>
   <relatedArtifact>
     <type value="depends-on"/>
     <resource value="http://hl7.org/fhir/Library/library-quick-model-definition"/>

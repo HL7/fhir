@@ -112,16 +112,16 @@
       <display value="BMI Height and Weight"/>
     </item>
   </entry>
-  <entry>
+    <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Oxygen Saturation by Pulse Oximetry Example (DeviceMetricObservation profile)"/>
+      <valueString value="IV Pump Flow Rate (Device)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="observation-example-satO2"/>
+      <valueString value="observation-example-devicemetricfocus"/>
     </extension>
     <item>
-      <reference value="Observation/satO2"/>
-      <display value="Oxygen Saturation (SpO2)"/>
+      <reference value="Observation/example-observation-device-flowratemetric"/>
+      <display value="IV Pump Flow Rate"/>
     </item>
   </entry>
   <entry>

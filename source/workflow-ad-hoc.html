@@ -16,7 +16,7 @@ in order to support consistent definitions for schema and UML derived code.
     [%file newnavbar%]
 
     
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
         <!-- Tabs for navigation -->
         <ul class="nav nav-tabs">
@@ -29,8 +29,13 @@ in order to support consistent definitions for schema and UML derived code.
 
         <a name="root"></a>
         <h2>Ad-Hoc Workflow Communication Patterns</h2>
-
-        <p><i>TODO: Discussion (or reference to one) on Polling and Subscription</i></p>
+        <p>
+          This section of the specification is focused on the specifics of initiating a request for something to be done and then managing that request through to completion/termination.  
+          There are a wide range of pre-requisite steps to creating requests, including patient identification, determining service performers, linking to conditions, goals, etc., pointing to 
+          higher-order requests.  This section does not get into those pre-requisites.  However, certain request workflow approaches may impose architectural requirements on what pre-requisites 
+          are necessary and for whom.  For example, if a request is initiated by posting a Task to a fulfilling system, the placer may first need to determine who the Patient is in that system.  
+          This will not be necessary if they are creating the Task in the placer environment. 
+        </p>
 
         <a name="optiona"></a>
         <h3>Option A: Simple RESTful POST or PUT</h3>
@@ -59,18 +64,18 @@ in order to support consistent definitions for schema and UML derived code.
             execution, then this approach won't suffice. This approach is listed here to make sure that implementers consider whether they can make this one work first before falling back to one of the more sophisticated patterns.
         </p>
         <h4>Usage Examples</h4>
-        <p><i>???</i></p>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternA-SimpleRESTfulPOSTorPUT">HL7 Confluence page</a></p>
 
         <a name="optionb"></a>
         <h3>Option B: Direct POST of request to fulfiller's system</h3>
         <img alt="Diagram showing direct POST of request to fulfiller's system workflow" src="workflow-optionb.png" />
         <h4>Steps</h4>
         <ol>
-            <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationrequest.html">MedicationRequest</a>,
-                <a href="servicerequest.html">ServiceRequest</a>, etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler system and places an <a href="https://terminology.hl7.org/CodeSystem-common-tags.html#common-tags-actionable">actionable</a>
+            <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g., <a href="medicationrequest.html">MedicationRequest</a>,
+                <a href="servicerequest.html">ServiceRequest</a>, etc.) to the appropriate RESTful resource endpoint (e.g., [base]/MedicationRequest) on the filler system and places an <a href="https://terminology.hl7.org/CodeSystem-common-tags.html#common-tags-actionable">actionable</a>
                 <a href="resource.html#simple-tags">tag</a> on the resource that indicates the request is intended to be acted upon, not merely stored.</li>
             <li>The filler synchronously responds with a "201" indicating that they have received and stored (created) the resource on their system</li>
-            <li>At some later point, the filler POSTs an 'event' resource (e.g. <a href="medicationdispense.html">MedicationDispense</a>,
+            <li>At some later point, the filler POSTs an 'event' resource (e.g., <a href="medicationdispense.html">MedicationDispense</a>,
                 <a href="diagnosticreport.html">DiagosticReport</a>, <a href="encounter.html">Encounter</a>, etc.) to the appropriate resource endpoint on the placer system, including a <code>basedOn</code> link to the 'request' resource that the action
                 was performed in fulfillment of.</li>
             <li>The placer system synchronously responds with a "201" indicating they've received and store (created) the resource on their system</li>
@@ -83,7 +88,7 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Limitations</h4>
         <ul>
             <li>Can only use when requesting fulfillment (can't use to request status change or other updates)</li>
-            <li>Placer and filler must be able to communicate directly (i.e. know each other's respective endpoints), must each have a FHIR server, and must have "write" permissions to each other's servers. This could become unmanagable if there are a
+            <li>Placer and filler must be able to communicate directly (i.e., know each other's respective endpoints), must each have a FHIR server, and must have "write" permissions to each other's servers. This could become unmanagable if there are a
                 large (or dynamic) number of placers and fillers that need to communicate</li>
             <li>No indication of agreement to act on the request</li>
             <li>There's no ability to negotiate fulfillment - no ability to say "no"</li>
@@ -96,19 +101,18 @@ in order to support consistent definitions for schema and UML derived code.
             actually use messaging architecture.
         </p>
         <h4>Usage Examples</h4>
-        <p>
-        </p>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternB-DirectPOSTofrequesttofulfiller'ssystem">HL7 Confluence page</a></p>
 
         <a name="optionc"></a>
         <h3>Option C: POST of request to placer/queue server system, receiver uses polling or subscription</h3>
         <img alt="Diagram showing POST of request to placer/queue server system, receiver uses polling workflow" src="workflow-optionc.png" />
         <h4>Steps</h4>
         <ol>
-            <li>Placer system creates a 'request' resource (e.g. ServiceRequest etc.) by a system action or a POST on either its own system or a third-party queue server system and places an "actionable" tag on the resource
+            <li>Placer system creates a 'request' resource (e.g., ServiceRequest etc.) by a system action or a POST on either its own system or a third-party queue server system and places an "actionable" tag on the resource
                 that indicates the request is intended to be acted upon. The request explicitly identifies the intended fullfiller</li>
             <li>The filler system uses polling (or a subscription) at the placer or queue server system to see if there are any "new" requests that: are tagged as "actionable", have the filler identified as the intended performer, and are a type of request
                 "of interest" to the filler.</li>
-            <li>At some later point, the filler creates an 'event' resource (e.g. MedicationDispense, DiagosticReport, Encounter, etc.) via a system action, or a POST on either its own system, the same queue server as the request was placed on, or some alternate
+            <li>At some later point, the filler creates an 'event' resource (e.g., MedicationDispense, DiagosticReport, Encounter, etc.) via a system action, or a POST on either its own system, the same queue server as the request was placed on, or some alternate
                 queue server, including a link to the 'request' resource that the action was performed in fulfillment of</li>
             <li>The placer system uses polling (or a subscription) to the filler or queue server system to see if there are any "new" events that are tied to any outstanding requests the placer has initiated</li>
         </ol>
@@ -134,8 +138,7 @@ in order to support consistent definitions for schema and UML derived code.
             This pattern could be used when there's no support/need for complexity of Task, usually for simple two step workflows. This is a more typically RESTful approach where data resides on the server "owned" by the data creator and is accessed by other systems.
         </p>
         <h4>Usage Examples</h4>
-        <p>
-        </p>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternC-POSTofrequesttoplacer/queueserversystem,receiverusespollingorsubscription">HL7 Confluence page</a></p>
         <a name="optiond"></a>
         <h3>Option D: Messaging request from placer to filler &amp; acknowledgment</h3>
         <p>
@@ -146,15 +149,15 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Placer sends message to filler system including Request resource (and other relevant resources) along with a MessageHeader with an "event" code saying "please fulfill" and "data" element pointing to the Request resource as the item to fulfill.
                 Message could potentially use Task instead of MessageHeader.event to convey desired action (ongoing discussion)</li>
             <li>Filler system sends a response indicating receipt of the message and, optionally an indication of their intention to fulfill the request</li>
-            <li>Filler system may send incremental messages to the placer showing progress (e.g. specimen collected, preliminary results, final results)</li>
+            <li>Filler system may send incremental messages to the placer showing progress (e.g., specimen collected, preliminary results, final results)</li>
         </ol>
         <h4>Benefits</h4>
         <ul>
             <li>Reduced number of communications</li>
             <li>All relevant data sent in one package</li>
             <li>Responses can be asynchronous, and content may be routed</li>
-            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
-            <li>Can request things other than just fulfillment (e.g. please suspend)</li>
+            <li>There's an ability to negotiate fulfillment - i.e., the ability to say "no"</li>
+            <li>Can request things other than just fulfillment (e.g., please suspend)</li>
             <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
         </ul>
         <h4>Limitations</h4>
@@ -168,8 +171,10 @@ in order to support consistent definitions for schema and UML derived code.
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
-            Existing messaging infrastructure (e.g. v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.) and a need to stay consistent with that architecture
+            Existing messaging infrastructure (e.g., v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.) and a need to stay consistent with that architecture
         </p>
+        <h4>Usage Examples</h4>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternD-Messagingrequestfromplacertofiller&amp;acknowledgment">HL7 Confluence page</a></p>
 
         <a name="optione"></a>
         <h3>Option E: Services request from placer to filler &amp; acknowledgment</h3>
@@ -195,6 +200,8 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             TBD
         </p>
+        <h4>Usage Examples</h4>
+        <p>See IGs that follow this pattern on the <a href="https://confluence.hl7.org/pages/viewpage.action?pageId=234784905#WorkflowPatternExamples-WorkflowPatternE-Servicesrequestfromplacertofiller&amp;acknowledgment">HL7 Confluence page</a></p>
 
         <a name="additional"></a>
         <h3>Additional Scenarios</h3>

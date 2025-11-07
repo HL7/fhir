@@ -16,12 +16,12 @@ in order to support consistent definitions for schema and UML derived code.
     [%file newnavbar%]
 
     
-        <table class="colstu">
+        <table class="colsi">
             <tr>
-                <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
-                <td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td>
+                <td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
+                
                 <td id="ballot"><a href="versions.html#std-process">Standards Status</a>:
-                    <!--!ns!--><a href="versions.html#std-process">Trial Use</a></td>
+                    <!--!ns!--><a href="versions.html#std-process">Informative</a></td>
             </tr>
         </table>
 
@@ -87,6 +87,11 @@ in order to support consistent definitions for schema and UML derived code.
             <li>The descriptions of these patterns focus on the notion of requesting fulfillment of a request. However most of these patterns are also applicable to requests for status change, requests for information, etc. If a pattern is limited in the
                 types of execution it can trigger, this will be noted in the "limitations" section.</li>
         </ul>
+
+        <h3>Communication Pattern Considerations</h3>
+        <p>
+          Many of the workflow patterns involve the creation or update of records on one system (which might be the placer, filler or intermediary) and the need for another system to be aware of the newly created or updated record.  There are two general-purpose RESTful mechanisms in FHIR to create this awareness: polling and subscriptions.  Polling makes use of general search mechanisms, while subscriptions makes use of the <a href="subscription.html">Subscription resource</a> and other associated resources.  In our discussion of workflow, we will simply refer to "polling or subscription" without differentiating which approach is used.  For guidance in deciding whether polling or subscriptions are a more appropriate architecture for a specific implementation space, refer to the <a href="exchanging.html#subscription">Approaches to Exchanging FHIR Data</a> section in this specification.
+        </p>
 
         <h3>Workflow State</h3>
         <p>

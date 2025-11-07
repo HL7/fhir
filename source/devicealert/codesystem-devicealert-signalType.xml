@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="devicealert-signalType" />
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1" />
+  </extension>
+  <url value="http://hl7.org/fhir/devicealert-signalType" />
+  <version value="6.0.0" />
+  <name value="DeviceAlertSignalType" />
+  <title value="Device Alert Signal Type" />
+  <status value="active" />
+  <experimental value="false" />
+  <date value="2023-12-10T10:01:24+11:00" />
+  <publisher value="HL7 International / Health Care Devices" />
+
+  <contact>
+    <telecom>
+      <system value="url" />
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices" />
+    </telecom>
+    <telecom>
+      <system value="email" />
+      <value value="fhir@lists.hl7.org" />
+    </telecom>
+  </contact>
+  <description value="Describes the annunciator of a device alert." />
+  <caseSensitive value="true" />
+  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-signalType" />
+  <content value="complete" />
+  <concept>
+    <code value="strobe-white" />
+    <display value="White Strobe" />
+    <definition value="White flashing light" />
+  </concept>
+  <concept>
+    <code value="text-2m" />
+    <display value="Text (2 m)" />
+    <definition value="Text readable at a distance of 2 meters" />
+  </concept>
+  <concept>
+    <code value="fast-pulse" />
+    <display value="Intermittent Vibration (Rapid)" />
+    <definition value="A rapid intermittent (alternating) vibration" />
+  </concept>
+</CodeSystem>

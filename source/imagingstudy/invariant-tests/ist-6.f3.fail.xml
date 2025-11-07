@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example is used with detectedissue-example-dup, so don't make changes that would cause it to no longer be a duplicate -->
+<ImagingStudy xmlns="http://hl7.org/fhir">
+	<id value="ist-4.f2.fail"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>
+	</text>
+	<identifier>
+		<system value="urn:dicom:uid"/>
+		<value value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
+	</identifier>
+	<status value="available"/>
+	<subject>
+		<reference value="Patient/dicom"/>
+	</subject>
+	<started value="2011-01-01T11:01:20+03:00"/>
+	<reason>
+		<reference>
+			<reference value="Observation/656"/>
+		</reference>
+	</reason>
+<!-- ist-6 needs to not have the root level numberOf values as those are caught by others, but does need a series that has the series numberOfInstances different than the count of instances -->
+    <series>
+        <uid value="2.16.124.113543.6003.2588828330.45298.17418.2723805631"/>
+        <number value="4"/>
+        <modality>
+            <coding>
+                <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+                <code value="CT"/>
+            </coding>
+        </modality>
+        <description value="CT Surview 180"/>
+        <numberOfInstances value="1"/>
+        <bodySite>
+            <reference>
+                <reference value="BodyStructure/tumor"/>
+            </reference>
+        </bodySite>
+        <instance>
+            <uid value="2.16.124.113543.6003.189642796.63084.16748.2599092904"/>
+            <sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+            <number value="4"/>
+        </instance>
+    </series>
+	<series>
+		<uid value="2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
+		<number value="3"/>
+		<modality>
+		  <coding>
+			<system value="http://dicom.nema.org/resources/ontology/DCM"/>
+			<code value="CT"/>
+		  </coding>
+		</modality> 
+		<description value="CT Surview 180"/>
+		<numberOfInstances value="1"/>
+		<bodySite>
+			<reference>
+				<reference value="BodyStructure/tumor"/>
+			</reference>
+		</bodySite>
+		<instance>
+			<uid value="2.16.124.113543.6003.189642796.63084.16748.2599092903"/>
+			<sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+			<number value="1"/>
+		</instance>
+		<instance>
+			<uid value="2.16.124.113543.6003.189642796.63084.16748.2599092904"/>
+			<sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+			<number value="4"/>
+		</instance>
+	</series>   
+</ImagingStudy>

@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="not-classified"/>
@@ -174,20 +174,20 @@
     </element>
     <element id="ArtifactAssessment.relatesTo.type">
       <path value="ArtifactAssessment.relatesTo.type"/>
-      <short value="documentation | justification | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | specification-of | created-with | cite-as | summarizes"/>
+      <short value="documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as | reprint | reprint-of | summarizes"/>
       <definition value="The type of relationship to the related artifact."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ArtifactRelationshipType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of relationship to the related artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/artifact-relationship-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
     </element>
     <element id="ArtifactAssessment.relatesTo.target[x]">
@@ -240,8 +240,8 @@
         <valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
       </extension>
       <path value="ArtifactAssessment.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the artifact assessment and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the artifact assessment."/>
+      <short value="Notice about intellectual property ownership, can include restrictions on use"/>
+      <definition value="A copyright statement relating to the artifact assessment and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the artifact assessment."/>
       <requirements value="Consumers must be able to determine any legal restrictions on the use of the artifact assessment and/or its content."/>
       <alias value="License"/>
       <alias value="Restrictions"/>
@@ -333,7 +333,7 @@
           <valueString value="EvidenceCertaintyType"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/certainty-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/certainty-type"/>
       </binding>
     </element>
     <element id="ArtifactAssessment.content.classifier">
@@ -350,7 +350,7 @@
           <valueString value="EvidenceCertaintyRating"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/certainty-rating"/>
       </binding>
     </element>
     <element id="ArtifactAssessment.content.quantity">

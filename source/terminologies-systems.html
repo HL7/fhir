@@ -14,7 +14,8 @@
 <%txheader systems%>
 
 <h2>Code Systems</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
+
 
 <p>
 The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> datatype.
@@ -22,10 +23,9 @@ For URIs specified here for code systems defined as part of FHIR, they SHALL be 
 here, the correct URI may be determined by working through the following list, in order:
 </p>
 <ul>
- <li>the HL7 OID Registry</li>
- <li>the documentation associated with the code system</li>
- <li>consulting the owner of the code system</li>
- <li>asking on the HL7 vocabulary mailing list</li>
+ <li><a href="https://terminology.hl7.org/">HL7 Terminology's (THO) most recent published version</a></li>
+ <li><a href="https://build.fhir.org/ig/HL7/UTG/">THO continuous integration build</a></li>
+ <li>Ask on the HL7 Terminology Services Management Group (TSMG) mailing list</li>
 </ul>
 
 <p>
@@ -100,7 +100,7 @@ here, the correct URI may be determined by working through the following list, i
  </tr>
  <tr>
    <td>http://fdasis.nlm.nih.gov <a name="http://fdasis.nlm.nih.gov"></a></td>
-   <td><a href="http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm">Unique Ingredient Identifier (UNII)</a></td>
+   <td><a href="https://www.fda.gov/industry/fda-data-standards-advisory-board/fdas-global-substance-registration-system">Unique Ingredient Identifier (UNII)</a></td>
    <td><a href="https://terminology.hl7.org/UNII.html">Using UNII with HL7 Standards</a></td>
    <td style="color : DarkGrey">2.16.840.1.113883.4.9</td>
  </tr>
@@ -170,8 +170,8 @@ FHIR itself.
 
 
 
-<script src="external/jquery/jquery.js"> </script>
-<script src="jquery-ui.min.js"> </script>
+<script src="assets/js/jquery.js"> </script>
+<script src="assets/js/jquery-ui.min.js"> </script>
 <script>
 try {
   var currentTabIndex = sessionStorage.getItem('fhir-codesystem-tab-index');

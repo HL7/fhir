@@ -5,7 +5,7 @@
     <p>This resource is an <a href="workflow.html#event">
       <em>event resource</em>
     </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
-    <p>A selection of data from an ImagingStudy. The selection MAY be:</p>
+    <p>A selection of data from an ImagingStudy. The selection might be:</p>
     <ul>
       <li>All DICOM SOP Instances in a single DICOM Series</li>
       <li>A set of DICOM SOP Instances within a single DICOM Series</li>
@@ -14,44 +14,43 @@
       <li>A set of content items within one or more DICOM Structured Report SOP Instances</li>
       <li>...</li>
     </ul>
-    <p>May also represent regions within the <a href="imagingstudy.html">ImagingStudy</a>, including:</p>
+    <p>Can also represent regions within the <a href="imagingstudy.html">ImagingStudy</a>, including:</p>
     <ul>
       <li>A 2D region within one or more DICOM image SOP Instances</li>
-      <li>A 3D region within a DICOM frame of reference</li>
+      <li>A 3D region within a DICOM Frame of Reference</li>
     </ul>
     <p>Uses for ImagingSelection resources include:</p>
     <ul>
-      <li>Identifying a specific set of images or frames as the focus of an <a href="observation.html">Observation</a></li>
-      <li>Identifying a spatial region or volume as the focus of an <a href="observation.html">Observation</a></li>
+      <li>Identifying a specific set of images or frames that an <a href="observation.html">Observation</a> is derived from</li>
+      <li>Identifying a spatial region or volume that an <a href="observation.html">Observation</a> is derived from</li>
       <li>Identifying the set of image coordinates as the focus of a measurement represented by an <a href="observation.html">Observation</a></li>
       <li>Identifying a node in a DICOM Structured Report SOP Instance from which an <a href="observation.html">Observation</a> is derived</li>
       <li>Identifying images, frames or presentation states selected as part of shared application context in a context-sharing environment</li>
       <li>Identifying a specific set of images, frames or presentation states to be presented</li>
     </ul>
-    <p>All DICOM SOP Instances referenced in a single ImagingSelection resource SHALL be part of the same DICOM Series (and therefore also the same DICOM Study). In order to reference SOP Instances in multiple Studies or Series it is necessary to create multiple ImagingSelection resources.</p>
+    <p>All DICOM SOP Instances referenced in a single ImagingSelection resource are part of the same DICOM Series (and therefore also the same DICOM Study). In order to reference SOP Instances in multiple Studies or Series it is necessary to create multiple ImagingSelection resources.</p>
   </div>
   <div>
     <a name="bnr"></a>
     <h2>Boundaries and Relationships</h2>
     <p>
-        The <a href="imagingstudy.html">ImagingStudy</a> resource is used to store details of an entire DICOM Study and associated information, including its relationship to other resources, such as <a href="servicerequest.html">ServiceRequest</a> and <a href="encounter.html">Encounter</a>.
+        The <a href="imagingstudy.html">ImagingStudy</a> resource is used to store details of an entire DICOM Study and its relationship to other resources, such as <a href="patient.html">Patient</a>. <a href="servicerequest.html">ServiceRequest</a> and <a href="encounter.html">Encounter</a>.
         </p>
         <p>
-        The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference to a specific set of specific set of images, frames, waveforms or image regions. Instances of this resource are created for specific clinical purposes and are unlikely to change once created.
+        The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference a subset of a study. Instances of this resource are created for specific clinical purposes and are unlikely to change once created.
         </p>
         <p>
-        An <a href="observation.html">Observation</a> MAY be related to a set of images in the following ways.
+        An <a href="observation.html">Observation</a> typically relates to a set of images in the following ways.
         </p>
         <ul>
-          <li><a href="observation.html">Observation.partOf</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a></li>
-          <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to a specific set of images, frames, waveforms or image regions</li>
-          <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to a specific set of images, frames, waveforms or image regions</li>
-          <li><a href="observation.html">Observation.focus</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of the set of images, frames, waveforms or image regions described by the <a href="imagingselection.html">ImagingSelection</a></li>
+          <li><a href="observation.html">Observation.partOf</a> references an <a href="imagingstudy.html">ImagingStudy</a></li>
+          <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to an identified subset of a study</li>
+          <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to an identified subset of a study</li>
+          <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of an identified subset of a study</li>
         </ul>
       
     
-      <p>The <a href="documentreference.html">DocumentReference</a> resource is used to to store non-DICOM images, video, or audio with relevant metadata. The <a href="documentreference.html">DocumentReference</a> resource might be appropriate for including a rendered DICOM image in cases where only the image is needed and not the full image context.</p>
-      <p>The <a href="binary.html">Binary</a> resource to store arbitrary content.</p>
+      <p>The <a href="documentreference.html">DocumentReference</a> resource is used to store non-DICOM images, video, or audio with relevant metadata. The <a href="documentreference.html">DocumentReference</a> resource might be appropriate for including a rendered DICOM image in cases where only the image is needed and not the full image context.</p>
     
     
     </div>

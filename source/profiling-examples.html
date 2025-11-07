@@ -14,7 +14,7 @@
 
 
 <h2>Slicing and Discriminator Examples</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <a name="contacts"></a>
 <h3>Slicing Patient Telecom element</h3>
@@ -441,7 +441,7 @@ In a StructureDefinition, this will look like:
 </pre>  
 <p>
 Note: much of the definition detail has been left out, and only the parts relevant to the pattern are shown.
-E.g. A real blood pressure profile would fix unit, an overall Observation code etc.
+e.g., A real blood pressure profile would fix unit, an overall Observation code etc.
 </p>
 
 <a name="extensions"></a>  
@@ -537,8 +537,8 @@ Here is a patient example that conforms to this profile:
 <h3>Diagnostic Report &amp; Observation</h3>
 <p>
 In this example, a profile on a diagnostic report says that it must have
-four observations, each with a different LOINC code (e.g. a classic lab panel).
-In this case (taken from the <a href="lipidprofile.html">Example
+four observations, each with a different LOINC code (e.g., a classic lab panel).
+In this case (taken from the <a href="diagnosticreport-example-lipid-panel.html">Example
 Lipid Profile</a>), the structure that applies to DiagnosticReport will say that
 there are four slices on DiagnosticReport.result, each conforming to a different structure,
 which are also contained in the same profile. Each of those structures will constrain

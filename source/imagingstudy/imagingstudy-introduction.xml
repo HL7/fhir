@@ -7,10 +7,9 @@
 	The ImagingStudy resource provides information on available imaging data.
 </p>
 <p>
-An ImagingStudy provides information on a DICOM imaging study, and the series and imaging objects in 
+An ImagingStudy provides information on a single DICOM imaging study, and the series and imaging objects in 
 that study. It also provides information on how to retrieve that information (in a native DICOM 
-format, or in a rendered format, such as JPEG). ImagingStudy is used to make information 
-about a single DICOM study available. 
+format, or in a rendered format, such as JPEG).
 </p>
 <p>
 This resource provides mappings of its elements to DICOM attributes.  DICOM attributes are identified 
@@ -29,33 +28,33 @@ query (e.g., a DICOMweb search transaction) in the simplest cases. The DICOM ins
 resource; use of a DICOM service is needed (e.g., a DICOMweb retrieve transaction).
 </p>
 <p> 
-An ImagingStudy SHALL reference one DICOM Study.
+One ImagingStudy SHALL reference one DICOM Study.
 </p>
-<p>This resource may change as additional information is added to the related DICOM Study.</p>
+<p>This resource can change as additional information is added to the related DICOM Study.</p>
+<p>See notes for guidance on <a href="imagingstudy.html#source">how imaging study element values can be populated</a> and <a href="imagingstudy.html#workflow">when imaging studies are typically created and updated</a>.</p>
 </div>
 
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-    The <a href="imagingstudy.html">ImagingStudy</a> resource is used to store details of an entire DICOM Study and associated information, including its relationship to other resources, such as <a href="servicerequest.html">ServiceRequest</a> and <a href="encounter.html">Encounter</a>.
+    The <a href="imagingstudy.html">ImagingStudy</a> resource is used to store details of an entire DICOM Study and its relationships to other resources, such as <a href="patient.html">Patient</a>, <a href="servicerequest.html">ServiceRequest</a>, and <a href="encounter.html">Encounter</a>.
     </p>
     <p>
-		The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference to a specific set of specific set of images, frames, waveforms or image regions. Instances of this resource are created for specific clinical purposes and are unlikely to change once created.
+		The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference to a subset of a study. Instances of this resource are created for specific clinical purposes and are unlikely to change once created.
 		</p>
 		<p>
-		An <a href="observation.html">Observation</a> MAY be related to a set of images in the following ways.
+		An <a href="observation.html">Observation</a> typically relates to a set of images in the following ways.
 		</p>
 		<ul>
-		  <li><a href="observation.html">Observation.partOf</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a></li>
-		  <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to a specific set of images, frames, waveforms or image regions</li>
-		  <li><a href="observation.html">Observation.derivedFrom</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to a specific set of images, frames, waveforms or image regions</li>
-		  <li><a href="observation.html">Observation.focus</a> MAY reference an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of the set of images, frames, waveforms or image regions described by the <a href="imagingselection.html">ImagingSelection</a></li>
+		  <li><a href="observation.html">Observation.partOf</a> references an <a href="imagingstudy.html">ImagingStudy</a></li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it directly relates to an identified subset of a study</li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingstudy.html">ImagingStudy</a> when it does not relate to an identified subset of a study.</li>
+		  <li><a href="observation.html">Observation.derivedFrom</a> references an <a href="imagingselection.html">ImagingSelection</a> when it is a measurement of an identified subset of a study described by the <a href="imagingselection.html">ImagingSelection</a></li>
 		</ul>
 	
 
-	<p>The <a href="documentreference.html">DocumentReference</a> resource is used to to store non-DICOM images, video, or audio with relevant metadata. The <a href="documentreference.html">DocumentReference</a> resource might be appropriate for including a rendered DICOM image in cases where only the image is needed and not the full image context.</p>
-	<p>The <a href="binary.html">Binary</a> resource to store arbitrary content.</p>
+	<p>The <a href="documentreference.html">DocumentReference</a> resource is used to store non-DICOM images, video, or audio with relevant metadata. The <a href="documentreference.html">DocumentReference</a> resource might be appropriate for including a rendered DICOM image in cases where only the image is needed and not the full image context.</p>
 
 
 </div>

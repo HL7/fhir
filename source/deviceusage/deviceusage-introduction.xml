@@ -5,33 +5,31 @@
 <h2>Scope and Usage</h2>
 <div>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-   <p>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow pattern for <a href="workflow.html#event"><em>event</em> resources</a>.</p>
-
     <p>
-        This resource records the use of a healthcare-related device by a patient. The record is the
-        result of a report of use by the patient, a provider or a related person. The resource can be used to note 
-        the use of an assistive device such as a wheelchair or hearing aid, a contraceptive such an
-        intra-uterine device, or other implanted devices such as a pacemaker.
+        This resource records the use of a healthcare-related device by the patient, a provider or a related person, and is primarily used for patient-reported or second-hand reporting. The resource can be used to note the use of an assistive device such as a wheelchair or hearing aid, a contraceptive, or an implanted device such as a pacemaker. It may also be used, for example, to capture an approximate assertion that the patient used the device over a six month period.
     </p>
+   <p>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
+
 </div>
 
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource is different from DeviceRequest which records a request to use the device. This also is distinct from the Procedure resource
-which may describe the implantation or explantation of a device.
+There are several resources that can be used to represent device use events or requests. The following Resources should be used in the following manner:
 </p>
-</div>
+<p> 
+<a href="devicerequest.html">DeviceRequest</a> - records a request to use the device.
+</p>
 
-<!-- (optional):
-<div>
-<h2>Background and Context</h2>
-<p>
-Provides additional detail on exactly how the resource is to be used 
+<p> 
+<a href="procedure.html">Procedure</a>- records the implant or explant event of a device in a patient.
+</p>
+
+<p> 
+<a href="deviceassociation.html">DeviceAssociation</a> - If precise information (e.g., from the assigning system) about the association of the device with the patient is known, DeviceAssociation is the typical mechanism to record the information.
 </p>
 </div>
--->
 
 </div>
 </div>

@@ -43,7 +43,10 @@ As a dietitian, it is important to be able to know what a person is consuming an
 <p>
 Having intake documented within its own resource allows for consistency in documentation across multiple disciplines and settings. In some instances, the Observation resource has been extended to capture intake; while this allows for a quick way to document intake, the Observation resource does not provide all the detail necessary, such as capturing energy and nutrients (including vitamins, minerals, carbohydrates, etc.). Previous implementation attempts of using the Observation resource have noted this is cumbersome and has required too many extensions without being able to document all the necessary details tied to ingredients in food (i.e., solid and/or liquid) products.
 </p>
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
+The <a href="valueset-nutritionintake-status-reason.html">nutritionintake-status-reason</a> code system used in NutritionIntake.statusReason is currently defined in the FHIR specification, but is expected to be moved to <a href="http://terminology.hl7.org">HL7 Terminology</a> (THO).
+</p>
+</blockquote>
 </div>
-
-
 </div>

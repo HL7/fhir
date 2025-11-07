@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="task-inputoutput-parameter-type"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -60,5 +60,20 @@
     <code value="filler-order"/>
     <display value="Filler Order"/>
     <definition value="The order number associated with the filler."/>
+  </concept>
+  <concept>
+    <code value="data-query"/>
+    <display value="data query input"/>
+    <definition value="Indicates the parameters of a FHIR RESTful search to be executed whose results are requested by a data-request Task. The content will be the portion of the query URL following the 'base'. E.g.  `Observation?code=foo`."/>
+  </concept>
+  <concept>
+    <code value="data-code"/>
+    <display value="data code input"/>
+    <definition value="A code describing the information requested by a data-request Task - often a code for a type of document"/>
+  </concept>
+  <concept>
+    <code value="data-value"/>
+    <display value="data values output"/>
+    <definition value="A FHIR resource, typically a search-set Bundle, containing the requested information in response to a data-request Task"/>
   </concept>
 </CodeSystem>

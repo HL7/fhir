@@ -20,7 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="DiagnosticReport.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,ImmunizationRecommendation,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
@@ -47,6 +47,21 @@
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.category" resourcePath="DiagnosticReport.category">
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="High level categorization of diagnostic report"/>
+            <resource value="Service category"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Partitions the diagnostic report into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value="Multiple categories are allowed using various categorization schemes.   The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="DiagnosticReport.code">
@@ -91,7 +106,7 @@
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the diagnostic report to the Encounter context.  May also affect access control."/>
-            <resource value="Links the request to the Encounter context."/>
+            <resource value="Links the report to the Encounter context."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="DiagnosticReport.effective[x]">
@@ -112,7 +127,6 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="DiagnosticReport.performer">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,RelatedPerson)" reason="Unknown"/>
         <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed diagnostic report"/>
@@ -126,22 +140,30 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="DiagnosticReport.resultsInterpreter">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed diagnostic report"/>
-            <resource value="Primary result interpreter"/>
+            <resource value="Who analyzed and reported the conclusions and interpretations"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what performed the diagnostic report."/>
             <resource value="The practitioner or organization that is responsible for the report's conclusions and interpretations."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.note" resourcePath="DiagnosticReport.note">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about the event"/>
+            <resource value="Comments about the diagnostic report"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the diagnostic report by the performer, subject or other participants."/>
+            <resource value="Comments about the diagnostic report."/>
+        </definitionUnmatched>
+    </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.reason" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
-    <unmappedElement patternPath="Event.note" reason="Unknown"/>
-    <unmappedElement patternPath="Event.category" reason="Unknown"/>
     <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
     <unmappedElement patternPath="Event.product" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer" reason="Unknown"/>

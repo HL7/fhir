@@ -1659,7 +1659,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">eventHistory</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Provenance)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference(Provenance{http://hl7.org/fhir/StructureDefinition/provenance-relevant-history})</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4523,7 +4523,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="request-intent">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="10" ss:StyleID="s166" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="12" ss:StyleID="s166" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s101" ss:Width="95.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s167"/>
    <Column ss:AutoFitWidth="0" ss:Index="5" ss:StyleID="s101" ss:Width="202.0"/>
@@ -4547,6 +4547,20 @@
     <Cell><Data ss:Type="String">The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActMood.PRP</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell><Data ss:Type="String">solicit-offer</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">#1</Data></Cell>
+    <Cell><Data ss:Type="String">Solicit Offer</Data></Cell>
+    <Cell><Data ss:Type="String">The request is a solicitation from one party for an offer from another party for a service (e.g. a request for a provider to offer their services or a request to quote a price)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="90">
+    <Cell><Data ss:Type="String">offer-response</Data></Cell>
+    <Cell><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">#1</Data></Cell>
+    <Cell><Data ss:Type="String">Offer Response</Data></Cell>
+    <Cell><Data ss:Type="String">The request is a response to a solicitation from another party for an offer for a service (e.g. a provider offering their services or providing a quote for a service)</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">plan</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
@@ -4557,7 +4571,7 @@
     <Cell><Data ss:Type="String">directive</Data></Cell>
     <Cell><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Directive</Data></Cell>
-    <Cell><Data ss:Type="String">The request represents a legally binding instruction authored by a Patient or RelatedPerson</Data></Cell>
+    <Cell><Data ss:Type="String">The request represents an instruction authored by a Patient or RelatedPerson.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell><Data ss:Type="String">order</Data></Cell>

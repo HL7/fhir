@@ -15,12 +15,12 @@
         <display value="Solution for injection"/>
       </coding>
     </doseForm>
-  <totalVolume>
+  <!-- <totalVolume>
     <value value="1"></value>
     <unit value="ml"></unit>
     <system value="http://unitsofmeasure.org"></system>
     <code value="ml"></code>
-  </totalVolume>
+  </totalVolume> -->
     <ingredient>
       <item>
         <concept>

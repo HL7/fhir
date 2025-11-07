@@ -29,10 +29,10 @@
 	</subType>
 
 	<use value="claim"/>
-	
-	<patient>
+
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -52,7 +52,7 @@
 	</request>
 
 	<outcome value="complete" />
-	
+
 	<disposition value="Claim settled as per contract."/>
 
 	<payeeType>
@@ -66,7 +66,7 @@
 
 	<item>
 
-		<itemSequence value="1"/> 
+		<itemSequence value="1"/>
 
 		<adjudication>
 			<category>
@@ -89,7 +89,7 @@
 			<amount>
 				<value value="10.00"/>
 				<currency value="USD"/>
-			</amount>  
+			</amount>
 		</adjudication>
 
 		<adjudication>
@@ -119,7 +119,7 @@
 			<amount>
 				<value value="90.47"/>
 				<currency value="USD"/>
-			</amount>	
+			</amount>
 		</adjudication>
 
 	</item>
@@ -132,10 +132,10 @@
 		</category>
 		<amount>
 			<value value="135.57"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
-	
+
 	<total>
 		<category>
 			<coding>
@@ -144,8 +144,8 @@
 		</category>
 		<amount>
 			<value value="90.47"/>
-			<currency value="USD"/> 
-		</amount> 
+			<currency value="USD"/>
+		</amount>
 	</total>
 
 	<!-- Payment details -->
@@ -155,18 +155,18 @@
 				<system value="http://terminology.hl7.org/CodeSystem/ex-paymenttype"/>
 				<code value="complete"/>
 			</coding>
-		</type>	
+		</type>
 
 		<date value="2014-08-31"/>
 
 		<amount>
 			<value value="100.47"/>
 			<currency value="USD"/>
-		</amount>	
+		</amount>
 
 		<identifier>
 			<system value="http://www.BenefitsInc.com/fhir/paymentidentifier"/>
 			<value value="201408-2-1569478"/>
-		</identifier>	
+		</identifier>
 	</payment>
 </ClaimResponse>

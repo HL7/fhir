@@ -71,7 +71,7 @@
     <divergentElement patternPath="Request.intent" resourcePath="RequestOrchestration.intent">
         <shortUnmatched reason="Unknown">
             <_pattern value="proposal | plan | order (immutable)"/>
-            <resource value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+            <resource value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates the level of authority/intentionality associated with the request orchestration and where the request fits into the workflow chain."/>
@@ -154,7 +154,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.occurrence[x]" resourcePath="RequestOrchestration.action.timing[x]">
-        <extraTypes _resource="Duration, Range, Age" reason="Unknown"/>
+        <extraTypes _resource="Duration, Range, RelativeTime, Age" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="When service should (not) occur"/>
@@ -177,7 +177,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="RequestOrchestration.author">
-        <missingTypes _pattern="Reference(Organization,Patient,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Organization, Patient, RelatedPerson)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
@@ -190,7 +190,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="RequestOrchestration.action.participant">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, CareTeam, HealthcareService, Patient, Device, RelatedPerson)" reason="Unknown"/>
         <extraTypes _resource="BackboneElement" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">

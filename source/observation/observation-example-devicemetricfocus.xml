@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns="http://hl7.org/fhir">
+	<id value="example-observation-device-flowratemetric"/>
+	<type value="collection"/>
+	<entry>
+		<fullUrl value="http://hl7.org/fhir/Observation/example-observation-device-flowratemetric"/>
+		<resource>
+			<Observation xmlns="http://hl7.org/fhir">
+				<id value="example-observation-device-flowratemetric"/>
+				<identifier>
+					<system value="http://goodcare.org/observation/id"/>
+					<value value="1191144-10"/>
+				</identifier>
+				<status value="final"/>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="8977-1"/>
+						<display value="Fluid intake intravascular 8 hour"/>
+					</coding>
+				</code>
+				<subject>
+					<reference value="Device/example-IV-pump"/>
+				</subject>
+				<focus>
+					<reference value="DeviceMetric/example-iv-pump-flowratemetric"/>
+				</focus>
+				<effectiveDateTime value="2024-12-05T09:30:10+01:00"/>
+				<valueQuantity>
+					<value value="150"/>
+					<unit value="milliliter per 8 hour"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mL/(8.h)"/>
+				</valueQuantity>
+				<device>
+					<reference value="Device/example-IV-pump"/>
+				</device>
+			</Observation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://hl7.org/fhir/DeviceAssociation/example-device-patient-association"/>
+		<resource>
+			<DeviceAssociation xmlns="http://hl7.org/fhir">
+				<id value="example-device-patient-association"/>
+				<device>
+					<reference value="Device/example-IV-pump"/>
+				</device>
+				<status value="active"/>
+				<associationStatus>
+					<coding>
+					<system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+					<code value="attached"/>
+					<display value="Attached"/>
+					</coding>
+				</associationStatus>
+				<subject>
+					<reference value="Patient/pat1"/>
+					<display value="Donald Duck"/>
+				</subject>
+			</DeviceAssociation>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="http://hl7.org/fhir/DeviceMetric/example-iv-pump-flowratemetric"/>
+		<resource>
+			<DeviceMetric xmlns="http://hl7.org/fhir">
+				<id value="example-iv-pump-flowratemetric"/>
+				<status value="active"/>
+				<operationalStatus value="on"/>
+				<type>
+					<coding>
+						<system value="urn:iso:std:iso:11073:10101"/>
+						<code value="157784"/>
+						<display value="MDC_FLOW_FLUID_PUMP"/>
+					</coding>
+				</type>
+				<unit>
+					<coding>
+						<system value="http://unitsofmeasure.org"/>
+						<code value="mL/(8.h)"/>
+						<display value="mL/(8.h)"/>
+					</coding>
+				</unit>
+				<device>
+					<reference value="Device/example-IV-pump"/>
+				</device>
+				<category>
+					<coding>
+						<system value="http://hl7.org/fhir/metric-category"/>
+						<code value="measurement"/>
+						<display value="Measurement"/>
+					</coding>
+				</category>
+			</DeviceMetric>
+		</resource>
+	</entry>
+</Bundle>

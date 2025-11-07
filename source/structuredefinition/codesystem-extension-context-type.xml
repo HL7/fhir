@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="extension-context-type"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -51,7 +51,8 @@
   <concept>
     <code value="element"/>
     <display value="Element ID"/>
-    <definition value="The context is any element that has an ElementDefinition.id that matches that found in the expression. This includes ElementDefinition Ids that have slicing identifiers. The full path for the element is [url]#[elementid]. If there is no #, the Element id is one defined in the base specification. When an element has assigned type, the type is also an assigned id for this element, which means that the type can also be used here."/>
+    <definition value="The context is any element that has an ElementDefinition.id that matches that found in the expression. 
+    This includes ElementDefinition Ids that have slicing identifiers, and also includes specialization logic (see [Extension Context](defining-extensions.html#context)). The full path for the element is [url]#[elementid]. If there is no #, the Element id is one defined in the base specification. When an element has assigned type, the type is also an assigned id for this element, which means that the type can also be used here."/>
   </concept>
   <concept>
     <code value="extension"/>

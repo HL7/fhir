@@ -13,14 +13,6 @@
 		</coding>
 		<text value="Vital Signs"/>
 	</category>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="8310-5"/>
-			<display value="Body temperature"/>
-		</coding>
-		<text value="Body temperature"/>
-	</category>
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>

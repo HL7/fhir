@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="task-code"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -61,5 +61,10 @@
     <code value="resume"/>
     <display value="Re-activate the focal resource"/>
     <definition value="Transition the focal resource from 'suspended' to 'active' or 'in-progress' as appropriate for the resource type."/>
+  </concept>
+  <concept>
+    <code value="data-request"/>
+    <display value="data request task"/>
+    <definition value="A type of Task asking the Task.owner to deliver the data corresponding to the characteristics defined by the Task.inputs to the Task.requester"/>
   </concept>
 </CodeSystem>

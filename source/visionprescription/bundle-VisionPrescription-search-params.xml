@@ -116,4 +116,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+  <resource>
+    <SearchParameter>
+      <id value="VisionPrescription-product"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+        <valueString value="VisionPrescription.lensSpecification.product"/>
+      </extension>
+      <url value="http://hl7.org/fhir/build/SearchParameter/VisionPrescription-product"/>
+      <description value="The type of product being prescribed"/>
+      <code value="product"/>
+      <type value="token"/>
+      <expression value="VisionPrescription.lensSpecification.product"/>
+      <processingMode value="normal"/>
+    </SearchParameter>
+  </resource>
+</entry>
 </Bundle>

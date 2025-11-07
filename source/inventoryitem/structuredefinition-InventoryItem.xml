@@ -523,12 +523,14 @@
       <path value="InventoryItem.instance.subject"/>
       <short value="The subject that the item is associated with"/>
       <definition value="The subject that the item is associated with."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>      
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="InventoryItem.instance.location">

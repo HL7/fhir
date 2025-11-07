@@ -282,7 +282,7 @@
     </element>
     <element id="BiologicallyDerivedProduct.collection.collector">
       <path value="BiologicallyDerivedProduct.collection.collector"/>
-      <short value="Individual performing collection"/>
+      <short value="Individual performing the collection"/>
       <definition value="Healthcare professional who is performing the collection."/>
       <min value="0"/>
       <max value="1"/>
@@ -292,21 +292,32 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
       </type>
     </element>
-    <element id="BiologicallyDerivedProduct.collection.source">
-      <path value="BiologicallyDerivedProduct.collection.source"/>
-      <short value="The patient who underwent the medical procedure to collect the product or the organization that facilitated the collection"/>
-      <definition value="The patient or entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product."/>
+    <element id="BiologicallyDerivedProduct.collection.sourcePatient">
+      <path value="BiologicallyDerivedProduct.collection.sourcePatient"/>
+      <short value="The patient who underwent the medical procedure to collect the product"/>
+      <definition value="The patient providing the product."/>
+      <comment value="The collection.source may reference an identifiable patient. Implementers shall ensure the appropriate data access controls are established."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
         <identity value="ISBT128Code"/>
         <map value="Global Registration Identifier for Donors"/>
       </mapping>
+    </element>
+    <element id="BiologicallyDerivedProduct.collection.sourceOrganization">
+      <path value="BiologicallyDerivedProduct.collection.sourceOrganization"/>
+      <short value="The organization that facilitated the collection"/>
+      <definition value="The entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
     </element>
     <element id="BiologicallyDerivedProduct.collection.collected[x]">
       <path value="BiologicallyDerivedProduct.collection.collected[x]"/>
@@ -336,7 +347,7 @@
       <path value="BiologicallyDerivedProduct.storageTempRequirements"/>
       <short value="Product storage temperature requirements"/>
       <definition value="The temperature requirements for storage of the biologically-derived product."/>
-      <comment value="May be extracted from information held in the Product Description Code."/>
+      <comment value="May be extracted from information held in the productCode element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -377,7 +388,7 @@
       <path value="BiologicallyDerivedProduct.property.value[x]"/>
       <short value="Property values"/>
       <definition value="Property values."/>
-      <comment value="The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available. The type of value will depend on the property type and is specified in ST-027."/>
+      <comment value="The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available."/>
       <min value="1"/>
       <max value="1"/>
       <type>

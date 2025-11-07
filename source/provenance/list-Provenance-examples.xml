@@ -25,7 +25,7 @@
     </extension>
     <item>
       <reference value="Provenance/example1"/>
-      <display value="Targetted #1"/>
+      <display value="Targeted #1"/>
     </item>
   </entry>
   <entry>
@@ -37,7 +37,7 @@
     </extension>
     <item>
       <reference value="Provenance/example2"/>
-      <display value="Targetted #2"/>
+      <display value="Targeted #2"/>
     </item>
   </entry>
   <entry>
@@ -49,10 +49,45 @@
     </extension>
     <item>
       <reference value="Provenance/example3"/>
-      <display value="Targetted #3"/>
+      <display value="Targeted #3"/>
     </item>
   </entry>
   <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Targeted Provenance Example for an extension - race came from admission paperwork"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example4"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example4"/>
+      <display value="Targeted #4"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance indicating authorizing AuditEvent which indicates authorizing Consent"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example5"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example5"/>
+      <display value="Authorizing AuditEvent"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance indicating authorizing Consent"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example6"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example6"/>
+      <display value="Authorizing Consent"/>
+    </item>
+  </entry>  <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Provenance holding a signature"/>
     </extension>
@@ -74,30 +109,6 @@
     <item>
       <reference value="Provenance/consent-signature"/>
       <display value="Consent Signature"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence recorded by a Biocompute objects"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="provenance-example-biocompute-object"/>
-    </extension>
-    <item>
-      <reference value="Provenance/example-biocompute-object"/>
-      <display value="Biocompute Object"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="MolecularSequence for CWL workflow project"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="provenance-example-cwl"/>
-    </extension>
-    <item>
-      <reference value="Provenance/example-cwl"/>
-      <display value="CWL Workflow"/>
     </item>
   </entry>
   <entry>
@@ -170,6 +181,18 @@
     <item>
       <reference value="Provenance/example-anon0"/>
       <display value="De-Identification / Re-Identificaiton using Provenance"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of using Provenance in a SearchSet Bundle to indicate the source of the entries, where Provenance is targeting version specific resources."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-bundle-allergyintolerance"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-bundle-allergyintolerance"/>
+      <display value="Provenance in a SearchSet Bundle for AllergyIntolerance"/>
     </item>
   </entry>
 </List>

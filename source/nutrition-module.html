@@ -12,7 +12,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
     [%file newnavbar%]
 
-    <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+    <table class="colsi"><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
     <a name="root"></a>
     <h2>Nutrition Module</h2>
@@ -24,7 +24,7 @@ in order to support consistent definitions for schema and UML derived code.
     
     <a name="intro"></a>
     <h3>Introduction</h3>
-    <p>The Nutrition module in FHIR provides a structured framework to document and manage consumable food, drinks, and supplements integral to patient care. It captures essential information on nutrition-related items and how they are utilized, whether for therapeutic purposes or routine consumption. Nutrition is key in patient care, from standard diets to more specialized nutrition delivery systems.</p>
+    <p>The Nutrition module in FHIR provides a structured framework to document and manage consumable food, drinks, and supplements integral to patient care. It captures essential information on nutrition-related items and how they are utilized, whether for therapeutic purposes or routine consumption. Nutrition is key in patient care, from standard diets to more specialized nutrition delivery systems.  For more inforamtion, please see the <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=609">HL7 Domain Analysis Model: Nutrition Care, Release 3</a></p>
 
     <a name="index"></a>
     <h3>Index</h3>
@@ -124,26 +124,23 @@ in order to support consistent definitions for schema and UML derived code.
     </table>
 
     <br />
-    <p>The diagram below illustrates the relationship between the related resources associated with nutrition resources.</p>
-    <img src="nutrition-module-resources-relation.png" alt="Image showing the Nutrition resources and related resources" />
-
     <p>
         The Nutrition module is designed to differentiate between various types of nutritional intake and their relevant documentation: 
     </p>
 
     <p>
         <b>NutritionIntake:</b> This resource is used to document the intake of foods, drinks, oral nutrition supplements, and other consumables like infant formula or breastmilk. It records patient consumption—whether past, present, or planned—based on inputs from the patient, family members, or healthcare providers. 
-        <li>Add examples</li>
+        See <a href="https://build.fhir.org/nutritionintake-examples.html">Nutrition Intake Examples</a>
     </p>
 
     <p>
         <b>NutritionProduct:</b> Focuses on identifying consumable food products, both solid and liquid, intended for human consumption. This includes general food items, beverages, and other nutritional consumables used in patient care settings. 
-        <li>Add examples</li>
+        See <a href="https://build.fhir.org/nutritionproduct-examples.html">Nutrition Product Examples</a>
     </p>
 
     <p>
         <b>NutritionOrder:</b> This resource describes various dietary requests made for patients. It includes general oral diets (e.g., General Healthy diet), therapeutic diets (e.g., low-sodium or fluid-restricted diets), oral nutrition supplements, enteral feedings (tube feeding), and infant formulas. 
-        <li>Add examples</li>
+        See <a href="https://build.fhir.org/nutritionorder-examples.html">Nutrition Order Examples</a>
     </p>
 
     <a name="uses"></a>
@@ -181,6 +178,7 @@ in order to support consistent definitions for schema and UML derived code.
         <li>The dietitian performs a comprehensive nutrition assessment (Observation). A 52-year-old male was seen in the amyotrophic lateral sclerosis (ALS) clinic regarding placement of a gastrostomy tube (GT) as they have been losing weight and respiratory status is worsening making it difficult for the patient to take medications, to eat, and to maintain weight.
             <ul>
                 <li>In the multi-disciplinary office visit including the speech therapist and dietitian, the dietitian identified the patient's nutritional status to be moderate malnutrition (<strong>Observation</strong>). Speech therapy noted that the patient requires IDDSI minced and moist level 5 foods and IDDSI mildly thick level 2 drinks. Due to the patient's inadequate oral intake meeting &lt; 50% of needs and weight loss, the dietitian also recommended placement of GT with 750 mLs of a high protein enteral nutrition feeding via an evening bolus to provide 750 kcals and 45 gm protein.</li>
+                <li>Nutrition education was provided pre-op during the multi-disciplinary office visit.</li>
                 <li>Indication for G-tube is: Dysphagia, increased work of breathing.</li>
             </ul>
         </li>
@@ -206,7 +204,7 @@ in order to support consistent definitions for schema and UML derived code.
                 </li>
             </ul>
         </li>
-        <li>The <strong>NutritionOrder</strong> is sent to Food &amp; Nutrition Services via HL7-compliant interface to the FNMS.</li>
+        <li>The <strong>NutritionOrder</strong> is transmitted to the Durable Medical Equipment (DME) supplier (tube feed &amp; tube feedinb supplies) &amp; home care agency.</li>
         <li>The enteral home care company provides enteral feeding supplies and instructions for the patient and caregivers at home based on the referral from the ALS clinic physician.</li>
         <li>The patient will follow-up with speech therapy and dietitian at the next multidisciplinary clinic visit for speech and nutrition monitoring and evaluation of the care plan with revisions as needed.</li>
     </ol>
@@ -253,6 +251,43 @@ in order to support consistent definitions for schema and UML derived code.
         <li>The facility's staff is instructed to document the <a href="nutritionintake.html">patient's food intake</a>, including regular meals, supplements, and foods brought from home. Patient reports the food and fluid consumed.</li>
         <li>The dietitian meets with the patient's daughter to discuss the nutrition care plan and is encouraged to bring the patient's favorite foods from home.</li>
         <li>The dietitian schedules regular nutrition monitoring and evaluation per MDS (Minimum Data Set) requirements to track the patient's weight, intake, and nutritional status, adjusting the nutrition care plan as needed.</li>
+    </ol>
+
+    <a name="usecase-human-milk"></a>
+    <b>Human Milk Use Case.</b>
+    <ol>
+        <li>Infant is delivered and admitted to Mother/Parent-Baby unit</li>
+        <li>Interprofessional team provides education on breastfeeding and determines parent desired feeding plan.</li>
+        <li>Parent desires to breastfeed/provide breastmilk and medical provider <a href="nutritionorder.html">orders breastfeeding via PO ad lib/on demand</a>.</li>
+        <li>Nurse <a href="nutritionintake.html">documents feeding duration (minutes) during stay</a>.</li>
+        <li>Infant continues to feed well, <a href="observation.html">maintains/gains weight</a>, and is discharged home ad lib breastfeeding within 48-72hrs of delivery.</li>
+    </ol>
+
+    <a name="usecase-formula"></a>
+    <b>Formula Use Case.</b>
+    <ol>
+        <li>Infant is delivered and admitted to Mother/Parent-Baby unit</li>
+        <li>Interprofessional team provides education on breastfeeding and determines parent desired feeding plan.</li>
+        <li>Parent decides to formula feed only.  . Medical provider <a href="nutritionorder.html">orders Standard/Term 20kcal/oz formula (Nutrition Product) via PO ad lib/on demand using bottle</a>.</li>
+        <li>Nurse <a href="nutritionintake.html">documents feeding amounts during stay in flowsheet</a>.</li>
+        <li>Infant feeds well, <a href="observation.html">maintains/gains weight</a>, and is discharged home ad lib formula feeding within 48-72hrs of delivery.</li>
+    </ol>
+
+    <a name="usecase-breast-milk-and-formula"></a>
+    <b>Human Breast Milk and Infant Formula Use Case.</b>
+    <ol>
+        <li>Preterm infant was delivered and admitted to the NICU at a <a href="observation.html">weight of 1500 grams</a>.</li>
+        <li>Nurse initiates <a href="nutritionorder.html">trophic enteral feeding for a newborn in the neonatal intensive care unit at 20ml/kg with mother’s breast milk (or donor human milk)</a> via an orogastric feeding tube per medical provider order based on unit feeding protocol.</li>
+        <li>Medical provider refers neonate to Registered Dietitian Nutritionist (RDN) for <a href="clinicalassessment.html">nutrition assessment</a> and management (composition and advancement) of enteral feeding. Documentation is in the electronic health record (EHR) implementing the Nutrition Care Process.</li>
+        <li>RDN with order writing privileges prescribes for <a href="nutritionorder.html">enteral feeding advancements of 20ml/kg per day to a goal of 160ml/kg per day</a> of <a href="nutritionproduct.html">mother’s (or donor human milk) breast milk </a> RDN enters prescription into EHR via CPOE.</li>
+        <li>RDN prescribed feedings are initiated. Upon follow up and monitoring and evaluation, feeding tolerance is assessed and Care Plan and Goal developed.  <a href="nutritionproduct.html">Human milk fortifier (HMF)</a> at 22kcal/oz is added to the Nutrition Order.</li>
+        <li>After a few more days, the neonate currently weighs 1400 grams and has symptoms of feeding intolerance.
+            <ul>
+                <li>Nutrition follow up conducted and infants condition are modified accordingly to reflect noted feeding intolerance.</li>
+                <li>The care team, including the neonate’s mother, agrees to try a treatment formula (amino acid formula) infant formula at 22kcal/oz continuing advancing by 20ml/kg per day to a goal rate of 160ml/kg per day. Documentation and prescription are entered into the EHR.</li>
+            </ul>
+        </li>
+        <li>After treatment period is complete (about 2 weeks), the treatment formula is discontinued and feedings with 22kcal/oz of fortified mother’s (donor) milk are resumed at the previous goal of 160ml/kg per day. Neonate demonstrates satisfactory growth and current weight is now 1800 grams. Documentation and prescription are entered in the EHR.</li>
     </ol>
 
     <a name="secpriv"></a>

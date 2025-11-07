@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="transport-status-reason"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -20,8 +20,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1930"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="TransportStatus"/>
-  <title value="Transport Status"/>
+  <name value="TransportStatusReason"/>
+  <title value="Transport Status Reason"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>

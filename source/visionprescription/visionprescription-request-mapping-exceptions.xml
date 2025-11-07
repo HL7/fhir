@@ -35,6 +35,24 @@
             <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.groupIdentifier" resourcePath="VisionPrescription.groupIdentifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Composite request this is part of"/>
+            <resource value="Composite request identifier"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
+            <resource value="A shared identifier common to all Vision Prescriptions that were authorized more or less simultaneously by a single author, representing the composite or group identifier."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.status" resourcePath="VisionPrescription.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
@@ -96,7 +114,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="VisionPrescription.prescriber">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Organization,Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Organization, Patient, RelatedPerson, Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
             <resource value="Who authorized the vision prescription"/>
@@ -108,9 +126,7 @@
     </divergentElement>
     <unmappedElement patternPath="Request.intent" reason="Unknown"/>
     <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
-    <unmappedElement patternPath="Request.priority" reason="Unknown"/>
     <unmappedElement patternPath="Request.occurrence" reason="Unknown"/>
-    <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
     <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
     <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DeviceAssociation xmlns="http://hl7.org/fhir">
+  <id value="lab-device-association"/>
+  <contained>
+    <Practitioner>
+      <id value="repair-tech"/>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Device>
+      <id value="lab-analyzer"/>
+      <status value="active"/>
+      <name>
+        <value value="Beckman AU5800"/>
+        <type>
+          <coding>
+            <code value="model-name"/>
+          </coding>
+        </type>
+      </name>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="11987000"/>
+          <display value="Clinical chemistry analyzer"/>
+        </coding>
+      </type>
+    </Device>
+  </contained>
+  <device>
+    <reference value="#lab-analyzer"/>
+  </device>
+  <status value="active"/>
+  <associationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+      <code value="attached"/>
+      <display value="Attached"/>
+    </coding>
+  </associationStatus>
+  <subject>
+    <reference value="#repair-tech"/>
+  </subject>
+  <period>
+    <start value="2025-07-10T10:00:00Z"/>
+    <end value="2025-07-10T12:00:00Z"/>
+  </period>
+  <operation>
+    <status>
+      <coding>
+        <code value="on"/>
+      </coding>
+    </status>
+    <period>
+      <start value="2025-07-10T10:00:00Z"/>
+      <end value="2025-07-10T12:00:00Z"/>
+    </period>
+  </operation>
+</DeviceAssociation>

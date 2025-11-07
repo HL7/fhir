@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DeviceAssociation xmlns="http://hl7.org/fhir">
+  <id value="bp-monitor-association"/>
+  <contained>
+    <Patient>
+      <id value="example-patient"/>
+      <name>
+        <family value="Doe"/>
+        <given value="John"/>
+      </name>
+    </Patient>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="nurse-1"/>
+      <name>
+        <family value="Smith"/>
+        <given value="Nora"/>
+      </name>
+    </Practitioner>
+  </contained>
+  <!--<contained>
+    <Practitioner>
+      <id value="nurse-2"/>
+      <name>
+        <family value="Lee"/>
+        <given value="Samuel"/>
+      </name>
+    </Practitioner>
+  </contained>-->
+  <contained>
+    <Device>
+      <id value="bp-monitor"/>
+      <status value="active"/>
+      <name>
+        <value value="Omron HBP-1320"/>
+        <type>
+          <coding>
+            <code value="model-name"/>
+          </coding>
+        </type>
+      </name>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="258057004"/>
+          <display value="Non-invasive blood pressure monitor"/>
+        </coding>
+      </type>
+    </Device>
+  </contained>
+  <contained>
+    <BodyStructure>
+      <id value="left-arm-structure"/>
+      <includedStructure>
+        <structure>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="368208006"/>
+            <display value="Left upper arm structure"/>
+          </coding>
+        </structure>
+      </includedStructure>
+      <description value="Cuff placement site for BP measurement"/>
+      <patient>
+        <reference value="#example-patient"/>
+      </patient>
+    </BodyStructure>
+  </contained>
+  <device>
+    <reference value="#bp-monitor"/>
+  </device>
+  <status value="active"/>
+  <associationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+      <code value="attached"/>
+      <display value="Attached"/>
+    </coding>
+  </associationStatus>
+  <subject>
+    <reference value="#nurse-1"/>
+  </subject>
+  <focus>
+    <reference value="#example-patient"/>
+  </focus>
+  <bodyStructure>
+    <reference value="#left-arm-structure"/>
+  </bodyStructure>
+  <period>
+    <start value="2025-06-01"/>
+    <end value="2025-06-05"/>
+  </period>
+  <operation>
+    <status>
+      <coding>
+        <code value="on"/>
+      </coding>
+    </status>
+    <period>
+      <start value="2025-06-01"/>
+      <end value="2025-06-05"/>
+    </period>
+  </operation>
+</DeviceAssociation>

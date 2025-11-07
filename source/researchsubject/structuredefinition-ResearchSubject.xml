@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="4"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -31,7 +31,7 @@
   <version value="6.0.0"/>
   <name value="ResearchSubject"/>
   <title value="Research Subject"/>
-  <status value="draft"/>
+  <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="HL7 International / Biomedical Research and Regulation"/>
   <contact>
@@ -238,7 +238,7 @@
         </extension>
         <strength value="example"/>
         <description value="Indicates the progression of a study subject through a study."/>
-		<valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
+		<valueSet value="http://terminology.hl7.org/ValueSet/research-subject-state"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -304,10 +304,9 @@
     </element>
     <element id="ResearchSubject.subjectMilestone.milestone">
       <path value="ResearchSubject.subjectMilestone.milestone"/>
-      <short value="SignedUp | Screened | Randomized"/>
-      <definition value="A specific event in the research subjects journey through a research study."/>
+      <definition value="A specific event in the research subject's journey through a research study."/>
       <min value="1"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -317,7 +316,7 @@
         </extension>
         <strength value="example"/>
         <description value="Indicates the progression of a study subject through a study."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-milestone"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-subject-milestone"/>
       </binding>
     </element>
     <element id="ResearchSubject.subjectMilestone.date">
@@ -334,41 +333,38 @@
       <path value="ResearchSubject.subjectMilestone.reason"/>
       <definition value="A rationale that provides additional clarification for the milestone that was captured or documented."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="StateChangeReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates why the state of the subject changed."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/state-change-reason"/>
+      </binding>
     </element>
-    <element id="ResearchSubject.assignedComparisonGroup">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-        <valueString value="This ought to have an identifier as well as a name&#xA;&#xA;OR - allocation is to a Group which is part of a planDefinition which represents an Arm."/>
-      </extension>
-      <path value="ResearchSubject.assignedComparisonGroup"/>
-      <short value="What path should be followed"/>
-      <definition value="The name of the arm in the study the subject is expected to follow as part of this study."/>
-      <comment value="Maybe this is really PlanDefinition."/>
+    <element id="ResearchSubject.comparisonGroup">
+      <path value="ResearchSubject.comparisonGroup"/>
+      <short value="A group to which the subject is assigned"/>
+      <definition value="A group to which the subject is assigned. This group assignment is used for administration or analysis."/>
+      <comment value="This grouping is used for study administration (such as assignment to arms in a trial) or study analysis (such as groupings for observational studies or sensitivity analyses)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="id"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
-      <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="Arm &gt; ExperimentalUnit &gt; BiologicEntity &gt; Subject &gt; StudySubject"/>
-      </mapping>
-    </element>
-    <element id="ResearchSubject.actualComparisonGroup">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
-        <valueString value="This ought to have an identifier as well as a name&#xA;&#xA;OR - allocation is to a Group which is part of a planDefinition which represents an Arm."/>
-      </extension>
-      <path value="ResearchSubject.actualComparisonGroup"/>
-      <short value="What path was followed"/>
-      <definition value="The name of the arm in the study the subject actually followed as part of this study."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="id"/>
-      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ExampleComparisonGroup"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Example values for defining comparison groups."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/example-comparison-group"/>
+      </binding>
       <mapping>
         <identity value="BRIDG5.1"/>
         <map value="Arm &gt; ExperimentalUnit &gt; BiologicEntity &gt; Subject &gt; StudySubject"/>
@@ -377,7 +373,7 @@
     <element id="ResearchSubject.consent">
       <path value="ResearchSubject.consent"/>
       <short value="Agreement to participate in study"/>
-      <definition value="A record of the patient's informed agreement to participate in the study."/>
+      <definition value="Agreement to participate in a study as well as other research agreements, e.g. to acknowledge additional risks, to agree to a protocol deviation, or to agree to more invasive validation subsidies."/>
       <min value="0"/>
       <max value="*"/>
       <type>

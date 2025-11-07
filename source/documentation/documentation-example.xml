@@ -38,8 +38,8 @@
 	 <content>
 	    <attachment>
 		   <contentType value="application/pdf" />
-		   <url value="http://happyvalley.com/docs/AB12345" />
-		   <size value="104274" />
+		   <url value="https://www.fhir.org/fhir-glossy.pdf" />
+		   <size value="387569" />
 	    </attachment>
 	 </content>
      <date value="2010-02-01"/>

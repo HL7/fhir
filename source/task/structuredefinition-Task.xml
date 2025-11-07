@@ -91,7 +91,7 @@
         <key value="tsk-1"/>
         <severity value="error"/>
         <human value="Task.restriction is only allowed if the Task is seeking fulfillment and a focus is specified."/>
-        <expression value="restriction.exists() implies code.coding.where(code='fulfill' and system='http://hl7.org/fhir/CodeSystem/task-code').exists() and focus.exists()"/>
+        <expression value="restriction.exists() implies (code.coding.where(code='fulfill' and system='http://hl7.org/fhir/CodeSystem/task-code').exists() and focus.exists() and focus.value.ofType(Reference).exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Task"/>
       </constraint>
       <mapping>
@@ -127,47 +127,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".id"/>
-      </mapping>
-    </element>
-    <element id="Task.instantiatesCanonical">
-      <path value="Task.instantiatesCanonical"/>
-      <short value="Formal definition of task"/>
-      <definition value="The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
-      <requirements value="Enables a formal definition of how the task is to be performed, enabling automation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.instantiatesCanonical, Event.instantiatesCanonical"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
-    <element id="Task.instantiatesUri">
-      <path value="Task.instantiatesUri"/>
-      <short value="Formal definition of task"/>
-      <definition value="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
-      <requirements value="Enables a formal definition of how the task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation to be associated with a task), enabling automation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesUri"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
     <element id="Task.basedOn">
@@ -276,7 +235,7 @@
       <definition value="An explanation as to why this task is held, failed, was refused, etc."/>
       <comment value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
       </type>
@@ -292,6 +251,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.statusReason, Event.statusReason"/>
       </mapping>
     </element>
     <element id="Task.businessStatus">
@@ -389,7 +352,7 @@
       <path value="Task.doNotPerform"/>
       <short value="True if Task is prohibiting action"/>
       <definition value="If true indicates that the Task is asking for the specified action to *not* occur."/>
-      <comment value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#xA;&#xA;In some cases, the Request.code may pre-coordinate prohibition into the requested action. E.g. 'NPO' (nothing by mouth), 'DNR' (do not recussitate). If this happens, doNotPerform SHALL NOT be set to true. I.e. The resource shall not have double negation. (E.g. 'Do not DNR').&#xA;&#xA;doNotPerform should ONLY be used with Tasks that are tightly bounded in time or process phase.  E.g. 'Do not fulfill the midnight dose of medication X tonight due to the early morning scheduled procedure, where the nurse could reasonably check off 'Med X not given at midnight as instructed'.  Similarly, a decision support proposal that a patient should not be given a standard intake questionnaire (because the patient is cognitively impaired) would be marked as 'complete' or 'rejected' when the clinician preps the CarePlan or order set after reviewing the decision support results.  If there is a need to create a standing order to not do something that can't be satisfied by a single 'non-action', but rather an ongoing refusal to perform the function, MedicationRequest, ServiceRequest or some other form of authorization should be used."/>
+      <comment value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#xA;&#xA;In some cases, the Request.code may pre-coordinate prohibition into the requested action. E.g. 'NPO' (nothing by mouth), 'DNR' (do not resuscitate). If this happens, doNotPerform SHALL NOT be set to true. I.e. The resource SHALL NOT have double negation. (E.g. 'Do not DNR').&#xA;&#xA;When Task.focus refers to a Request Resource, it is that Request's doNotPerform Flag that indicates that the action should not be performed. A Task can be used to request that authorized action is not performed by having task.focus point to that request resource and use Task.code as the do not perform indicator.&#xA;&#xA;Note that the use of doNotPerform and negation in Task.code can cause ambiguity and the impact of this should be considered not only for task but also for all related resources."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -400,7 +363,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code, Event.code"/>
+        <map value="Request.doNotPerform, Event.doNotPerform"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -462,13 +425,12 @@
       <path value="Task.focus"/>
       <short value="What task is acting on"/>
       <definition value="The request being fulfilled or the resource being manipulated (changed, suspended, etc.) by this task."/>
-      <comment value="If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.)."/>
+      <comment value="If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.). Typically a Task should only have one focus.  If multiple focuses are provided, then action must be taken on the complete set as a whole (i.e,. all must be accepted, rejected, cancelled, held, completed, etc. as a whole). If there is a possibility to have different statuses for different focuses, then there SHALL be a separate Task instance for each focus."/>
       <requirements value="Used to identify the thing to be done."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <code value="BackboneElement"/>
       </type>
       <condition value="tsk-1"/>
       <isSummary value="true"/>
@@ -480,6 +442,26 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=SUBJ].target"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.product, Event.product"/>
+      </mapping>
+    </element>
+    <element id="Task.focus.value[x]">
+      <path value="Task.focus.value[x]"/>
+      <short value="What task is acting on"/>
+      <definition value="What task is acting on."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</type>
+      <isSummary value="true"/>
     </element>
     <element id="Task.for">
       <path value="Task.for"/>
@@ -500,7 +482,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -588,7 +570,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.authoredOn"/>
+        <map value="Request.authoredOn, Event.recorded"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -623,12 +605,14 @@
       <path value="Task.requester"/>
       <short value="Who is asking for task to be done"/>
       <definition value="The creator of the task."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <requirements value="Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
@@ -653,6 +637,7 @@
       <path value="Task.requestedPerformer"/>
       <short value="Who should perform the Task"/>
       <definition value="The kind of participant or specific participant that should perform the task."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <requirements value="Use to distinguish tasks on different activity queues."/>
       <min value="0"/>
       <max value="*"/>
@@ -666,6 +651,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -692,7 +678,7 @@
       <path value="Task.owner"/>
       <short value="Responsible individual"/>
       <definition value="Party responsible for managing task execution."/>
-      <comment value="Tasks may be created with an owner not yet identified."/>
+      <comment value="Tasks may be created with an owner not yet identified. Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <requirements value="Identifies who is expected to perform this task."/>
       <alias value="Performer"/>
       <alias value="Executer"/>
@@ -706,6 +692,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -758,6 +745,7 @@
       <path value="Task.performer.actor"/>
       <short value="Who performed the task"/>
       <definition value="The actor or entity who performed the task."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -766,10 +754,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -793,6 +781,10 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
       </mapping>
     </element>
     <element id="Task.reason">
@@ -901,7 +893,7 @@
       <path value="Task.restriction"/>
       <short value="Constraints on fulfillment tasks"/>
       <definition value="If the Task.focus is a request resource and the task is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
-      <comment value="Task.restriction can only be present if the Task is seeking fulfillment of another Request resource, and the restriction identifies what subset of the authorization conveyed by the request is supposed to be fulfilled by this Task. A possible example could be a standing order (the request) covering a significant time period and/or individuals, while the Task seeks fulfillment for only a subset of that time-period and a single individual."/>
+      <comment value="This element should only be used when the Task is seeking fulfillment of a request resource that authorizes a broader set of subjects, repetitions and/or time-period than the Task itself is seeking execution against.  It is not used otherwise."/>
       <requirements value="Sometimes when fulfillment is sought, you don't want full fulfillment."/>
       <min value="0"/>
       <max value="1"/>
@@ -947,8 +939,9 @@
     </element>
     <element id="Task.restriction.recipient">
       <path value="Task.restriction.recipient"/>
-      <short value="For whom is fulfillment sought?"/>
-      <definition value="For requests that are targeted to more than one potential recipient/target, to identify who is fulfillment is sought for."/>
+      <short value="Individual or entity from whom fulfillment is being sought"/>
+      <definition value="For requests directed at multiple potential recipients or targets, this is used to specify the individual or entity from whom fulfillment is being sought."/>
+      <comment value="If seeking fulfillment of a ServiceRequest where the ServiceRequest.subject was a Group of devices, but the Task was only seeking execution against a single device. If just creating a Task that is to manipulate a device in the absence of a broader order, there's no need for restriction.recipient.  The Device to be manipulated would be the Task.focus (and potentially the Task.for - if the action wasn't for the benefit of a Patient or some other record)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -959,6 +952,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -1142,9 +1136,6 @@
         <code value="ContactDetail"/>
       </type>
       <type>
-        <code value="Contributor"/>
-      </type>
-      <type>
         <code value="DataRequirement"/>
       </type>
       <type>
@@ -1171,6 +1162,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="???"/>
+      </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.supportingInfo"/>
       </mapping>
     </element>
     <element id="Task.output">
@@ -1347,9 +1342,6 @@
       </type>
       <type>
         <code value="ContactDetail"/>
-      </type>
-      <type>
-        <code value="Contributor"/>
       </type>
       <type>
         <code value="DataRequirement"/>

@@ -9,10 +9,10 @@
     <valueString value="Foundation.Security"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="6"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="not-classified"/>
@@ -31,8 +31,8 @@
   <version value="6.0.0"/>
   <name value="Provenance"/>
   <title value="Provenance"/>
-  <status value="draft"/>
-  <date value="2021-04-07T08:58:31.578+11:00"/>
+  <status value="active"/>
+  <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/secure/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies."/>
+  <description value="Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which MAY impact security, privacy, and trust policies."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -85,8 +85,8 @@
       </extension>
       <path value="Provenance"/>
       <short value="Who, What, When for a set of resources"/>
-      <definition value="Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies."/>
-      <comment value="Some parties may be duplicated between the target resource and its provenance.  For instance, the prescriber is usually (but not always) the author of the prescription resource. This resource is defined with close consideration for W3C Provenance."/>
+      <definition value="Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which MAY impact security, privacy, and trust policies."/>
+      <comment value="Some parties MAY be duplicated between the target resource and its provenance.  For instance, the prescriber is usually (but not always) the author of the prescription resource. This resource is defined with close consideration for W3C Provenance."/>
       <alias value="History"/>
       <alias value="Event"/>
       <alias value="Activity"/>
@@ -113,7 +113,7 @@
       <path value="Provenance.target"/>
       <short value="Target Reference(s) (usually version specific)"/>
       <definition value="The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity."/>
-      <comment value="Target references are usually version specific, but might not be, if a version has not been assigned or if the provenance information is part of the set of resources being maintained (i.e. a document). When using the RESTful API, the identity of the resource might not be known (especially not the version specific one); the client may either submit the resource first, and then the provenance, or it may submit both using a single transaction. See the notes on transaction for further discussion."/>
+      <comment value="Target references are usually version specific, but might not be, if a version has not been assigned or if the provenance information is part of the set of resources being maintained (i.e. a document). When using the RESTful API, the identity of the resource might not be known (especially not the version specific one); the client MAY either submit the resource first, and then the provenance, or it MAY submit both using a single transaction. See the notes on transaction for further discussion."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -142,7 +142,7 @@
       <path value="Provenance.occurred[x]"/>
       <short value="When the activity occurred"/>
       <definition value="The period during which the activity occurred."/>
-      <comment value="The period can be a little arbitrary; where possible, the time should correspond to human assessment of the activity time."/>
+      <comment value="The period can be a little arbitrary; where possible, the time SHOULD correspond to human assessment of the activity time."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -196,7 +196,7 @@
     <element id="Provenance.policy">
       <path value="Provenance.policy"/>
       <short value="Policy or plan the activity was defined by"/>
-      <definition value="Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc."/>
+      <definition value="Policy or plan the activity was defined by. Typically, a single activity MAY have multiple applicable policy documents, such as patient consent, guarantor funding, etc."/>
       <comment value="For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element."/>
       <min value="0"/>
       <max value="*"/>
@@ -310,7 +310,7 @@
     <element id="Provenance.activity">
       <path value="Provenance.activity"/>
       <short value="Activity that occurred"/>
-      <definition value="An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities."/>
+      <definition value="An activity is something that occurs over a period of time and acts upon or with entities; it MAY include consuming, processing, transforming, modifying, relocating, using, or generating entities."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -347,9 +347,6 @@
       </mapping>
     </element>
     <element id="Provenance.basedOn">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Provenance.basedOn"/>
       <short value="Workflow authorization within which this event occurred"/>
       <definition value="A plan, proposal or order that is fulfilled in whole or in part by this provenance."/>
@@ -370,14 +367,11 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EnrollmentRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Transport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
         -->
 
@@ -400,13 +394,10 @@
       </mapping>
     </element>
     <element id="Provenance.patient">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Provenance.patient"/>
       <short value="The patient is the subject of the data created/updated (.target) by the activity"/>
       <definition value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
-      <requirements value="When the .patient is populated it shall be accurate to the subject of the target data. The .patient shall not be populated when the target data created/updated (.target) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control."/>
+      <requirements value="When the .patient is populated it SHALL be accurate to the subject of the target data. The .patient SHALL NOT be populated when the target data created/updated (.target) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity.  May also affect access control."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -420,7 +411,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -432,13 +423,10 @@
       </mapping>
     </element>
     <element id="Provenance.encounter">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Provenance.encounter"/>
       <short value="Encounter within which this event occurred or which the event is tightly associated"/>
-      <definition value="This will typically be the encounter the event occurred, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
-      <comment value="This will typically be the encounter the provenance was created during, but some provenances may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <definition value="This will typically be the encounter the event occurred, but some events MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <comment value="This will typically be the encounter the provenance was created during, but some provenances MAY be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
       <requirements value="Links the provenance to the Encounter context.  May also affect access control."/>
       <min value="0"/>
       <max value="1"/>
@@ -470,8 +458,8 @@
       <path value="Provenance.agent"/>
       <short value="Actor involved"/>
       <definition value="An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place."/>
-      <comment value="Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa."/>
-      <requirements value="An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility."/>
+      <comment value="Several agents MAY be associated (i.e. has some responsibility for an activity) with an activity and vice-versa."/>
+      <requirements value="An agent can be a person, an organization, software, device, or other entities that MAY be ascribed responsibility."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -581,7 +569,7 @@
         </extension>
         <strength value="example"/>
         <description value="The role that a provenance agent played with respect to the activity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/security-role-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/security-role-type-example"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -655,9 +643,6 @@
       </mapping>
     </element>
     <element id="Provenance.entity">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
       </extension>
@@ -695,6 +680,7 @@
       <type>
         <code value="code"/>
       </type>
+      <meaningWhenMissing value="No role declared or available."/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -721,7 +707,7 @@
       <path value="Provenance.entity.what"/>
       <short value="Identity of entity"/>
       <definition value="Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative."/>
-      <comment value="The what.identifier should be used for entities that are not a Resource type."/>
+      <comment value="The what.identifier SHOULD be used for entities that are not a Resource type."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -760,12 +746,9 @@
       </mapping>
     </element>
     <element id="Provenance.signature">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Provenance.signature"/>
       <short value="Signature on target"/>
-      <definition value="A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated."/>
+      <definition value="A digital signature on the target Reference(s). The signer SHOULD match a Provenance.agent. The purpose of the signature is indicated."/>
       <min value="0"/>
       <max value="*"/>
       <type>

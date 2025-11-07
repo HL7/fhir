@@ -1,12 +1,5 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
-    
-    [%stu-note dstu%]
-
-      Molecular Definition resource will replace <a href="molecularsequence.html"> Molecular Sequence</a> resource. Current page of the <a href="molecularsequence.html"> Molecular Sequence</a> is temporarily available for referencing and review purposes.
-
-    [%end-note%]
-
   <h2>Scope and Usage</h2>
   <p>
     The MolecularDefinition resource represents molecular entities (e.g., nucleotide or protein sequences) for both clinical and non-clinical use cases, including translational research. The resource is definitional, in that it focuses on discrete, computable, and semantically expressive data structures that reflect the genomic domain. Because the resource focuses on the molecular entities rather than specimen source or annotated knowledge, it supports both patient/participant-specific use cases and population-based data, and both human and non-human data.
@@ -37,10 +30,10 @@
   <div>
   <h2>Boundaries and Relationships</h2>
   <p>
-    The MolecularDefinition resource should be profiled and used to capture representations of molecular concepts such as sequence, allele, haplotype, and genotype.
+    As a definitional resource, MolecularDefintion should be profiled to consistently represent molecular concepts. Profiles for structured representation of the fundamental concepts can be found in the <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/">Molecular Definition Implementation Guide for Molecular Data Types</a> that includes <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-sequence.html">Sequence</a>, <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-allele.html">Allele</a>, and <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-variation.html">Variation</a>, <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-haplotype.html">Haplotype</a>, and <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-genotype.html">Genotype</a> profiles. This guide is work in progress and will evolve to represent additional concepts.
   </p>
   <p>
-    This resource does not capture workflow (e.g., test ordering/resulting process), the method of obtaining or specifying the molecular content (e.g., the test or assay), or the interpretation of the results (e.g., clinical impact). Those concepts will be captured by profiles of Observation and by the Genomic Study resource. In particular, the Genomics Reporting Implementation Guide contains extensive support for the observation and reporting of clinical genomic results.
+    This resource does not capture workflow (e.g., test ordering/resulting process), the method of obtaining or specifying the molecular content (e.g., the test or assay), or the interpretation of the results (e.g., clinical impact). Those concepts will be captured by profiles of <a href="observation.html">Observation</a> and by the <a href="genomicstudy.html">Genomic Study</a> resource. In particular, the Genomics Reporting Implementation Guide contains extensive support for the observation and reporting of clinical genomic results.
   </p>
 
   </div>

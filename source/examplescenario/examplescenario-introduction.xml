@@ -4,8 +4,11 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>
-This resource is used in implementation guides or other specifications to provide examples for how certain workflows would manifest.
-It can be used to show how instances would evolve over time as well as the interplay of systems over time to accomplish a particular end-state.  It
+ExampleScenario provides examples for how certain data exchange workflows might manifest.  This resource is similar to <a href="implementationguide.html">ImplementationGuide</a>, <a href="requirements.html">Requirements</a>, <a href="actordefinition.html">ActorDefinition</a>, and other resources that will typically only be exchanged as part of implementation 
+guide packages and will be used by implementers to understand how to design systems rather than being used to share information between clinical systems.
+</p>
+<p>
+This resource can be used to show how instances would evolve over time as well as the interplay of systems over time to accomplish a particular end-state.  It
 will frequently be used to generate sequence diagrams, but also provides further information about all of the entities within the sequence diagrams,
 including the instances shared as part of the exchange.
 </p>

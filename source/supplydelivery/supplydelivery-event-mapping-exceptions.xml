@@ -57,25 +57,44 @@
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.code" resourcePath="SupplyDelivery.type">
+    <divergentElement patternPath="Event.category" resourcePath="SupplyDelivery.type">
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
-        <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="What service was done"/>
+            <_pattern value="High level categorization of supply delivery"/>
             <resource value="Category of supply event"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
+            <_pattern value="Partitions the supply delivery into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
             <resource value="Indicates the type of supply being provided.  Examples include: Medication, Device, Biologically Derived Product."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value=""/>
+        </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.subject" resourcePath="SupplyDelivery.patient">
+    <divergentElement patternPath="Event.product" resourcePath="SupplyDelivery.suppliedItem">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product used/provided"/>
+            <resource value="The item that is delivered or supplied"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the product supplied or manipulated by this supply delivery."/>
+            <resource value="The item that is being delivered or has been supplied."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="SupplyDelivery.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Organization)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="Patient for whom the item is supplied"/>
+            <resource value="Individual(s) or organization  for whom the item is supplied"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
@@ -113,14 +132,30 @@
             <resource value="The individual or organization responsible for supplying the delivery."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.location" resourcePath="SupplyDelivery.destination">
+        <extraTypes _resource="Reference(Practitioner,PractitionerRole,Organization)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Where supply delivery occurred"/>
+            <resource value="Where the delivery was sent"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The principal physical location where the supply delivery was performed."/>
+            <resource value="Identification of the facility, location or person where the delivery is shipped to."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <doubleMappedElement patternPath="Event.location" reason="Unknown"/>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.reason" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Event.code" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
     <unmappedElement patternPath="Event.note" reason="Unknown"/>
-    <unmappedElement patternPath="Event.category" reason="Unknown"/>
     <unmappedElement patternPath="Event.encounter" reason="Unknown"/>
     <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="Event.product" reason="Unknown"/>
 </mappingExceptions>

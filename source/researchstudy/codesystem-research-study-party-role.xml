@@ -2,7 +2,7 @@
   <id value="research-study-party-role"/>
   <meta>
     <lastUpdated value="2022-05-12T12:40:00+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
@@ -92,6 +92,11 @@
   <concept>
     <code value="irb"/>
     <display value="Institutional Review Board"/>
-    <definition value="A group of individuals that reviews and monitors research involving human subjects. "/>
+    <definition value="A group of individuals that reviews and monitors research involving human subjects."/>
+  </concept>
+  <concept>
+    <code value="data-monitoring"/>
+    <display value="Data Monitoring"/>
+    <definition value="An organization or individual who monitors the validity and integrity of collected data while prioritizing participant safety and study integrity. The organization may be called a Data Monitoring Committee (DMC) or Data and Safety Monitoring Board (DSMB)."/>
   </concept>
 </CodeSystem>

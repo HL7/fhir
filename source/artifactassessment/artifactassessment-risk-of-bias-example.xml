@@ -18,7 +18,7 @@
     <content>
         <type>
             <coding>
-                <system value="http://hl7.org/fhir/certainty-type"/>
+                <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
                 <version value="6.0.0"/>
                 <code value="RiskOfBias"/>
                 <display value="Risk of bias"/>
@@ -27,7 +27,7 @@
         </type>
         <classifier>
             <coding>
-                <system value="http://hl7.org/fhir/certainty-rating"/>
+                <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                 <version value="6.0.0"/>
                 <code value="extremely-serious-concern"/>
                 <display value="extremely serious concern"/>
@@ -45,7 +45,7 @@
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <version value="6.0.0"/>
                     <code value="no-concern"/>
                     <display value="no serious concern"/>
@@ -72,7 +72,7 @@
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <version value="6.0.0"/>
                     <code value="serious-concern"/>
                     <display value="serious concern"/>
@@ -143,7 +143,7 @@
                 </type>
                 <classifier>
                     <coding>
-                        <system value="http://hl7.org/fhir/certainty-rating"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                         <version value="6.0.0"/>
                         <code value="serious-concern"/>
                         <display value="serious concern"/>
@@ -180,7 +180,7 @@
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <version value="6.0.0"/>
                     <code value="very-serious-concern"/>
                     <display value="very serious concern"/>
@@ -209,7 +209,7 @@
                 </type>
                 <classifier>
                     <coding>
-                        <system value="http://hl7.org/fhir/certainty-rating"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                         <version value="6.0.0"/>
                         <code value="very-serious-concern"/>
                         <display value="very serious concern"/>
@@ -282,7 +282,7 @@
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <version value="6.0.0"/>
                     <code value="no-concern"/>
                     <display value="no serious concern"/>
@@ -309,7 +309,7 @@
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <version value="6.0.0"/>
                     <code value="no-concern"/>
                     <display value="no serious concern"/>
@@ -336,7 +336,7 @@
             </type>
             <classifier>
                 <coding>
-                    <system value="http://hl7.org/fhir/certainty-rating"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                     <version value="6.0.0"/>
                     <code value="very-serious-concern"/>
                     <display value="very serious concern"/>
@@ -365,7 +365,7 @@
                 </type>
                 <classifier>
                     <coding>
-                        <system value="http://hl7.org/fhir/certainty-rating"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                         <version value="6.0.0"/>
                         <code value="very-serious-concern"/>
                         <display value="very serious concern"/>
@@ -401,7 +401,7 @@
                 </type>
                 <classifier>
                     <coding>
-                        <system value="http://hl7.org/fhir/certainty-rating"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
                         <version value="6.0.0"/>
                         <code value="very-serious-concern"/>
                         <display value="very serious concern"/>
@@ -430,7 +430,7 @@
         <summary value="Results not consistent with critically ill cohort."/>
         <type>
             <coding>
-                <system value="http://hl7.org/fhir/certainty-type"/>
+                <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
                 <version value="6.0.0"/>
                 <code value="Inconsistency"/>
                 <display value="Inconsistency"/>

@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="devicealert-annunciation"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev"/>
@@ -12,13 +12,13 @@
     <valueCode value="draft"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="2"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/devicealert-annunciation"/>
   <version value="6.0.0"/>
   <name value="DeviceAlertAnnunciationCodes"/>
   <title value="DeviceAlert Annunciation Codes"/>
-  <status value="draft"/>
+  <status value="active" />
   <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>

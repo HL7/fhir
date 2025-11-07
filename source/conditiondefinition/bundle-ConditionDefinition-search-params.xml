@@ -175,7 +175,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ConditionDefinition-jurisdiction"/>
-        <description value="Intended jurisdiction for the condition definition"/>
+        <description value="Jurisdiction of the authority that maintains the the condition definition"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ConditionDefinition.jurisdiction"/>

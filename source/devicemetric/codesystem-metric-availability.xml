@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="metric-availability"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <url value="http://hl7.org/fhir/metric-availability"/>
+  <version value="6.0.0"/>
+  <name value="DeviceMetricAvailability"/>
+  <title value="Device Metric Availability"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2025-07-02T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The availability of the means from which a metric state/value is derived."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
+  <content value="complete"/>
+  <concept>
+    <code value="intr"/>
+    <display value="Intermittent"/>
+    <definition value="Stopping or ceasing for a time; alternately ceasing and beginning again."/>
+  </concept>
+  <concept>
+    <code value="cont"/>
+    <display value="Continuous"/>
+    <definition value="Without break, cessation, or interruption; without intervening time."/>
+  </concept>
+</CodeSystem>

@@ -11,7 +11,7 @@
 
 
 <h2>Guide to Resources</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
 The FHIR specification defines a set of resources, and an infrastructure for handling resources.
@@ -65,7 +65,7 @@ Where to find common concepts in this specification:
  <tr><td>Proposed Diet Order</td><td>An oral diet order</td><td><a href="nutritionorder.html">NutritionOrder</a> </td></tr>
  <tr><td>Proposed respiratory order</td><td>Oxygen delivery</td><td>Not done yet</td></tr>
  <tr><td>Proposed Medications</td><td>Aspirin, Lisinopril</td><td><a href="medicationrequest.html">MedicationRequest</a> </td></tr>
- <tr><td>Proposed Supply</td><td>Wheel Chair, Food Tray</td><td><a href="supplyrequest.html">SupplyRequest</a> </td></tr>
+ <tr><td>Proposed Supply</td><td>Wheel Chair, Food Tray</td><td><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a> </td></tr>
 
  <tr><td colspan="3"><b>Interdisciplinary Care Planning</b></td></tr>
  <tr><td>Patient Goal</td><td>Reduce risk of falls, lose weight</td><td><a href="goal.html">Goal</a> (as part of a <a href="careplan.html">CarePlan</a>)</td></tr>
@@ -123,7 +123,7 @@ the future, etc. This table summarizes the categories:
  </tr>
  <tr>
   <td><a name="Thing"></a>Unrelated</td>
-  <td>A record that doesn't relate to time (e.g. a fixed entity)</td>
+  <td>A record that doesn't relate to time (e.g., a fixed entity)</td>
  </tr>
 </table>
 <p>
@@ -204,7 +204,7 @@ Supports the medication and immunization processes. Some points of note:
  <li>Prescription = a <code>MedicationRequest</code></li>
  <li>In some records, medication orders, administration, and statements might not be well differentiated. Generally, use <code>MedicationStatement</code> if records are unclear</li>
  <li>A medication chart (or variants) will use multiple different types of medication resources</li>
- <li>When prescribing is done by an external system (e.g. most ambulatory e-prescribing), the <code>Medication</code> resource is not used. It is generally used to represent information in formularies and to describe custom formulations</li>
+ <li>When prescribing is done by an external system (e.g., most ambulatory e-prescribing), the <code>Medication</code> resource is not used. It is generally used to represent information in formularies and to describe custom formulations</li>
 </ul>
 
 <table class="grid">
@@ -216,8 +216,8 @@ Supports the medication and immunization processes. Some points of note:
 <tr><td><a href="medicationrequest.html">MedicationRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a>. This has a <a href="lifecycle.html#current">current List</a></td></tr>
 <tr><td><a href="medicationstatement.html">MedicationStatement</a></td><td><a href="#ongoing">Ongoing</a> / <a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a>. This has a <a href="lifecycle.html#current">Current List</a></td></tr>
 <tr><td><a href="immunization.html">Immunization</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
-<tr><td><a href="immunizationevaluation.html">ImmunizationEvaluation</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
-<tr><td><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationEvaluation.html">ImmunizationEvaluation</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationRecommendation.html">ImmunizationRecommendation</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="formularyitem.html">FormularyItem</a></td><td><a href="#past">Past</a></td><td>Role</td><td></td></tr>
 </table>
 
@@ -232,7 +232,7 @@ recording the following kinds of data:
  <li>Laboratory Results</li>
  <li>Vital Signs (including Blood Pressure)</li>
  <li>Physical Examinations</li>
- <li>Social history (e.g. Smoking History)</li>
+ <li>Social history (e.g., Smoking History)</li>
 </ul>
 <p>
 and many more things beside. Note that 'everything is an observation', but implementations should not
@@ -245,7 +245,7 @@ use Observation where <a href="condition.html">Condition</a> is more appropriate
 A DiagnosticReport connects the process of 'reporting', linking process identifiers, visual
 presentations of a report, and conclusions/interpretations with the Observations. ServiceRequests capture the request from an authorized clinician to initiate the diagnostic process.
 <code>Specimen</code> and <code>BodyStructure</code> are used to record the details of specimen collection
-although BodyStructure can also be used with other resources (e.g. Operation location details on a Procedure).
+although BodyStructure can also be used with other resources (e.g., Operation location details on a Procedure).
 </p>
 <p>
 The resource <code>ImagingStudy</code> is provided to make links to diagnostic
@@ -330,14 +330,14 @@ procedures, public health procedures, herds of cattle, etc.).
 
 <p>
 <code>Location</code> - for where things happen. Locations are either by instance (e.g.
-this particular room at a given address or GPS coordinates) or by kind (e.g. the back
+this particular room at a given address or GPS coordinates) or by kind (e.g., the back
 of some ambulance). The same applies to <code>Substance</code>, for some kind of
-material (e.g. chemical) used in healthcare - it may refer to an identified instance
-(e.g. bottle) or a kind of chemical.
+material (e.g., chemical) used in healthcare - it may refer to an identified instance
+(e.g., bottle) or a kind of chemical.
 </p>
 <p>
 The <code>Person</code> resource is used to track associations between different
-patient records across the provision of healthcare (e.g. "master patient indexes").
+patient records across the provision of healthcare (e.g., "master patient indexes").
 Person resources are not referred directly from other resources; their use is for
 dedicated person registries.
 </p>
@@ -464,11 +464,11 @@ Todo: these resources are all draft. Bringing them to maturity and testing their
 <tr><td><a href="task.html">Task</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="communicationrequest.html">CommunicationRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
 <tr><td><a href="devicerequest.html">DeviceRequest</a></td><td><a href="#present">Present</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
-<tr><td><a href="deviceusage.html">DeviceUsage</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="processrequest.html">ProcessRequest</a></td><td><a href="#present">Present</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a></td></tr>
 <tr><td><a href="processresponse.html">ProcessResponse</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
-<tr><td><a href="supplydelivery.html">SupplyDelivery</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
-<tr><td><a href="supplyrequest.html">SupplyRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyDelivery.html">SupplyDelivery</a></td><td><a href="#present">Present</a></td><td>Act</td><td></td></tr>
+<tr><td><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>
 </table>
 
 <h3>Infrastructure</h3>
@@ -597,7 +597,7 @@ code systems.
 </p>
 <p>
 A <code>NamingSystem</code> resource represents an external provider of codes
-or identifiers (e.g. an external code system such as SNOMED CT, or an identification system such
+or identifiers (e.g., an external code system such as SNOMED CT, or an identification system such
 as an institution MRN). The naming system resource exists to share the identification and registration
 of these systems, to foster consistency in their identification.
 </p>
@@ -675,8 +675,6 @@ retrieval and review.
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="implementationguide.html">ImplementationGuide</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
-<tr><td><a href="testscript.html">TestScript</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
-<tr><td><a href="testreport.html">TestReport</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
 </table>
 
 <h3>Financial</h3>

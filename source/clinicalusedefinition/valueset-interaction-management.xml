@@ -4,7 +4,7 @@
   <id value="interaction-management"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <text>
     <status value="generated"/>
@@ -57,7 +57,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="A type of management for an interaction of a medication or other substance."/>
+  <description value="A type of management for an interaction, contraindication or undesirable effect of a medication or other substance."/>
   <immutable value="true"/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>

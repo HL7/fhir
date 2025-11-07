@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="devicealert-status" />
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem" />
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev" />
@@ -12,20 +12,21 @@
     <valueCode value="draft" />
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0" />
+    <valueInteger value="2" />
   </extension>
   <url value="http://hl7.org/fhir/devicealert-status" />
   <version value="6.0.0" />
   <name value="DeviceAlertStatus" />
   <title value="Device Alert Status" />
-  <status value="draft" />
+  <status value="active" />
   <experimental value="false" />
   <date value="2023-12-10T10:01:24+11:00" />
-  <publisher value="HL7 (FHIR Project)" />
+  <publisher value="HL7 International / Health Care Devices" />
+
   <contact>
     <telecom>
       <system value="url" />
-      <value value="http://hl7.org/fhir" />
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices" />
     </telecom>
     <telecom>
       <system value="email" />
@@ -50,5 +51,10 @@
     <code value="entered-in-error" />
     <display value="Entered in Error" />
     <definition value="This alert record was created in error and is not valid." />
+  </concept>
+  <concept>
+    <code value="unknown" />
+    <display value="Unknown" />
+    <definition value="The status of the alert is not known." />
   </concept>
 </CodeSystem>

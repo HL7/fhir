@@ -21,7 +21,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="Immunization.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,MedicationRequest,ServiceRequest,ImmunizationRecommendation)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,MedicationRequest,ServiceRequest)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Authority that the immunization event is based on"/>
@@ -136,7 +136,7 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reported[x]" resourcePath="Immunization.primarySource">
-        <missingTypes _pattern="Reference(Patient,RelatedPerson,Practitioner,PractitionerRole,Organization)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, RelatedPerson, Practitioner, PractitionerRole, Organization)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Reported rather than primary record"/>
             <resource value="Indicates context the data was captured in"/>
@@ -151,7 +151,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reported[x]" resourcePath="Immunization.informationSource">
-        <missingTypes _pattern="boolean, Reference(Patient,RelatedPerson,Practitioner,PractitionerRole,Organization)" reason="Unknown"/>
+        <missingTypes _pattern="boolean, Reference(Patient, RelatedPerson, Practitioner, PractitionerRole, Organization)" reason="Unknown"/>
         <extraTypes _resource="CodeableReference(Patient,Practitioner,PractitionerRole,RelatedPerson,Organization)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
@@ -191,10 +191,10 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="Immunization.performer.actor">
-        <missingTypes _pattern="Reference(CareTeam,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(CareTeam, Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed immunization"/>
-            <resource value="Individual or organization who was performing"/>
+            <resource value="Individual or organization who performed the event"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what performed the immunization."/>
@@ -224,7 +224,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Describes why the immunization occurred in coded or textual form or Indicates another resource whose existence justifies this immunization."/>
-            <resource value="Describes why the immunization occurred in coded or textual form, or Indicates another resource (Condition, Observation or DiagnosticReport) whose existence justifies this immunization."/>
+            <resource value="Describes why the immunization occurred in coded or textual form, or indicates another resource (Condition, Observation or DiagnosticReport) whose existence justifies this immunization."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>

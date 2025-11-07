@@ -11,47 +11,12 @@
   </entry>
   <entry>
     <item>
-      <reference value="OperationDefinition/Resource-meta"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/Resource-meta-add"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/Resource-meta-delete"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
       <reference value="OperationDefinition/Resource-convert"/>
     </item>
   </entry>
   <entry>
     <item>
       <reference value="OperationDefinition/Resource-graphql"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/Resource-graph"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/Resource-large-resource-add"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/Resource-large-resource-remove"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/Resource-large-resource-filter"/>
     </item>
   </entry>
 </List>

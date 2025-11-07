@@ -156,7 +156,7 @@
 			<a href="observation-example-sample-data.html">EKG Example using SampledData data type</a>
 		</li>
 		<li>
-			<a href="observation-example-satO2.html">Oxygen Saturation by Pulse Oximetry Example (DeviceMetricObservation profile)</a>
+			<a href="observation-example-devicemetricfocus.html">IV Pump Flow Rate (Device)</a>
 		</li>
 	</ul>
 	<h3>PHD Generated Data</h3>
@@ -228,9 +228,6 @@
 		</li>
 		<li>
 			<a href="observation-example-bmi-using-related.html">BMI with links to Height and Weight</a>
-		</li>
-		<li>
-			<a href="observation-example-satO2.html">Oxygen Saturation by Pulse Oximetry Example (DeviceMetricObservation profile)</a>
 		</li>
 		<li>
 			<a href="observation-example-bloodpressure.html">Blood Pressure Measurement</a>

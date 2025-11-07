@@ -63,9 +63,27 @@
 		<resource>
 			<Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				<id value="rtt"/>
-				<accessionIdentifier>
+				<identifier>
+				    <type>
+					  <coding>
+						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						  <code value="ACSN"/>
+						  <display value="Accession ID"/>
+					   </coding>
+				    </type>
 					<system value="http://acme.com/labs/accession-ids"/>
-					<value value="20150816-00124"/>
+					<value value="20150816-001245"/>
+				</identifier>
+				<accessionIdentifier>
+				    <type>
+					  <coding>
+						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						  <code value="ACSN"/>
+						  <display value="Accession ID"/>
+					   </coding>
+				    </type>
+					<system value="http://acme.com/labs/accession-ids"/>
+					<value value="20150816-001245"/>
 				</accessionIdentifier>
 				<type>
 					<coding>
@@ -85,7 +103,9 @@
 				</collection>
 				<container>
 				  <device>
+					<reference>	
 	                <reference value="Device/device-example-specimen-container-example-sst-vacutainer"/>
+	              </reference>	
 	              </device>	
 				</container>
 			</Specimen>
@@ -96,8 +116,26 @@
 		<resource>
 			<Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				<id value="ltt"/>
+				<identifier>
+				    <type>
+					  <coding>
+						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						  <code value="ACSN"/>
+						  <display value="Accession ID"/>
+					   </coding>
+				    </type>
+					<system value="http://acme.com/lab/accession-ids"/>
+					<value value="20150816-00124"/>
+				</identifier>
 				<accessionIdentifier>
-					<system value="http://acme.com/labs/accession-ids"/>
+				    <type>
+					  <coding>
+						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						  <code value="ACSN"/>
+						  <display value="Accession ID"/>
+					   </coding>
+				    </type>
+					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
 				</accessionIdentifier>
 				<type>
@@ -118,7 +156,9 @@
 				</collection>
 				<container>
 					<device>
+					<reference>
 	                <reference value="Device/device-example-specimen-container-lavender-vacutainer"/>
+	              </reference>	
 	              </device>	
 				</container>
 			</Specimen>
@@ -129,8 +169,26 @@
 		<resource>
 			<Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 				<id value="urine"/>
+				<identifier>
+				    <type>
+					  <coding>
+						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						  <code value="ACSN"/>
+						  <display value="Accession ID"/>
+					   </coding>
+				    </type>
+					<system value="http://acme.com/lab/accession-ids"/>
+					<value value="20150816-00124"/>
+				</identifier>
 				<accessionIdentifier>
-					<system value="http://acme.com/labs/accession-ids"/>
+				    <type>
+					  <coding>
+						  <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						  <code value="ACSN"/>
+						  <display value="Accession ID"/>
+					   </coding>
+				    </type>
+					<system value="http://acme.com/lab/accession-ids"/>
 					<value value="20150816-00124"/>
 				</accessionIdentifier>
 				<type>
@@ -151,8 +209,10 @@
 				</collection>
 				<container>
 					<device>
-	                <reference value="Device/device-example-specimen-container-polycup"/>
-	              </device>	
+                      <reference>	
+	                	<reference value="Device/device-example-specimen-container-polycup"/>
+    	              </reference>	
+				  </device>	
 				</container>
 			</Specimen>
 		</resource>

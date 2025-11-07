@@ -71,7 +71,7 @@
     <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="A canonical reference to a value set. The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server"/>
+    <documentation value="A reference to the canonical URL of a value set. The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server"/>
     <type value="uri"/>
   </parameter>
   <parameter>
@@ -229,6 +229,14 @@
     <type value="string"/>
   </parameter>
   <parameter>
+    <name value="handle-unclosed-expansion"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="If true this asserts that you will correctly handle an unclosed expansion and the returned expansion SHALL include the valueset-unclosed extension if the value set is unclosed.  If handle-unclosed-expansion is set to false the server SHALL return an error if the value set is unclosed."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
     <name value="exclude-system"/>
     <use value="in"/>
     <min value="0"/>
@@ -289,7 +297,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Specifies an library that provides expansion rules for the operation. The library has an extension expansionParameters that references a contained Parameters resource that contains additional $expand parameters. See the [CRMI specification description of manifests]https://build.fhir.org/ig/HL7/crmi-ig/StructureDefinition-crmi-manifestlibrary.html) and [CRMI expansion rules](https://build.fhir.org/ig/HL7/crmi-ig/artifact-terminology-service.html#expansion-rules) for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter."/>
+    <documentation value="Specifies an library that provides expansion rules for the operation. The library has an extension expansionParameters that references a contained Parameters resource that contains additional $expand parameters. See the [CRMI specification description of manifests]https://hl7.org/fhir/uv/crmi/STU1/StructureDefinition-crmi-manifestlibrary.html) and [CRMI expansion rules](https://hl7.org/fhir/uv/crmi/STU1/artifact-terminology-service.html#expansion-rules) for a complete description of how manifest values are used to provide defaults for expansion parameters. Parameters specified directly in an $expand operation override behaviors specified by the manifest parameter."/>
     <type value="canonical"/>
     <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
   </parameter>

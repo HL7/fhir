@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="lipid-ldl-codes"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -15,7 +15,7 @@
   </identifier>
   <version value="6.0.0"/>
   <name value="LDLCodes"/>
-  <title value="L D L Codes"/>
+  <title value="LDL Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2015-06-23T10:59:44+10:00"/>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="observation-interpretation-context"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/observation-interpretation-context"/>
+  
+  <version value="6.0.0"/>
+  <name value="ObservationInterpretationContextCodes"/>
+  <title value="Observation Interpretation Context Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International / Orders and Observations"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders"/>
+    </telecom>
+  </contact>
+  <description value="Codes identifying contextual factors that affect interpretation of observations. Examples include conditions or states such as diabetic, fasting, or paraplegic that may be critical to understanding the significance of an observation. This is an example value set and implementations may use other codes or reference specific conditions as needed."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/observation-interpretation-context"/>
+    </include>
+  </compose>
+</ValueSet>

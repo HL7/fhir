@@ -10,15 +10,5 @@
   <publisher value="HL7"/>
   <description value="Defines common extensions used with or related to the ConceptMap resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/shareableconceptmap"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/publishableconceptmap"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

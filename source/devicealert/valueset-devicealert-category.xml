@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="devicealert-category"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1" />
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/devicealert-category"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAlertCategoryCodes"/>
+  <title value="DeviceAlert Category Codes"/>
+  <status value="active" />
+  <experimental value="false"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="DeviceAlert Category Codes"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/devicealert-category"/>
+    </include>
+  </compose>
+</ValueSet>

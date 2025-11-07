@@ -7,12 +7,18 @@
 		<lastUpdated value="2025-02-25T20:01:47.665Z"/>
 		<profile value="http://hl7.org/fhir/uv/ebm/StructureDefinition/risk-of-bias"/>
 	</meta>
+	<!-- artifact-url is not allowed on ArtifactAssessment. Should it be? -->
+	<!--
 	<extension url="http://hl7.org/fhir/StructureDefinition/artifact-url">
 		<valueUri value="https://fevir.net/resources/ArtifactAssessment/307449"/>
 	</extension>
+	-->
+	<!-- artifact-description is not allowed on ArtifactAssessment. Should it be? -->
+	<!--
 	<extension url="http://hl7.org/fhir/StructureDefinition/artifact-description">
 		<valueMarkdown value="This is an example of the RiskOfBias Profile."/>
 	</extension>
+	-->
 	<identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>
@@ -25,7 +31,7 @@
 	</identifier>
 	<title value="Risk of Bias Assessment of PARACHUTE trial"/>
 	<artifactReference>
-		<reference value="Citation/306957"/>
+	  <!-- <reference value="Citation/306957"/> -->
 		<type value="Citation"/>
 		<display value="30545967 Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial."/>
 	</artifactReference>

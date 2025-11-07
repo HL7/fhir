@@ -4,8 +4,20 @@
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
 		<a name="dstu"></a>
-		<p>Vital signs is one of the first areas where there is a need for a single, global vocabulary to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vital Signs profiles set the minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient.  These include the "primary" vital signs of heart rate, respiratory rate, blood pressure (systolic and diastolic) and body temperature, plus additional measurements such as body height, body weight, BMI and oxygen saturation. Support for basic mandatory searching of resources is defined below in the <a href="#Quick_Start">Quick Start</a> section. When a FHIR implementation supports any of the vital signs observations listed below, the implementation <strong>SHALL</strong> conform to the vital signs base profile and also the profile for the specific vital sign observation.</p>
-		<p><i>[Note: These profiles have been updated and were originally derived from and based on the minimum mandatory conformance requirements for accessing patient data as defined by the <a href="http://argonautwiki.hl7.org/index.php?title=Main_Page">Argonaut</a> pilot implementations that were developed, balloted, and published in FHIR DSTU2 as part of the ONC sponsored <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a> project.]</i></p>
+		<p>Vital signs is one of the first areas where there is a need for a single, global vocabulary to allow for ubiquitous access and re-use. 
+			Particularly with the use of wearables by patients where they want to/need to share information from those devices. To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. 
+			The FHIR Vital Signs profiles set the minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient. 
+			These include the "primary" vital signs of heart rate, respiratory rate, blood pressure (systolic and diastolic) and body temperature, plus additional measurements such as body height, body weight, BMI and oxygen saturation. 
+			Support for basic mandatory searching of resources is defined below in the <a href="#Quick_Start">Quick Start</a> section. 
+		</p>	
+		<p>When a FHIR implementation supports any of the vital signs observations listed in the table below, the implementation <strong>SHALL</strong> conform to the <a href="vitalsigns.html">Vital Signs Base</a> profile and also the profile for the specific vital sign observation.  
+			The <a href="valueset-observation-vitalsign-measurement.html">observation-vitalsign-measurement</a> value set bound to <code>Observation.code</code> in the Vital Signs Base profile contains the set of <code>code</code> values for Observation instances which are expected to conform with the Vital Signs Base profile.  
+			Similarly, the corresponding <code>observation-vitalsign-*</code> value set bound to <code>Observation.code</code> in a specific Vital Signs Profile contains the set of <code>code</code> values for Observation instances which are expected to conform with that specific profile.  
+			When the <code>code</code> value in an Observation instance is populated using a code system that is not included in the definition of the <a href="valueset-observation-vitalsign-measurement.html">observation-vitalsign-measurement</a> value set, any code that is considered to be semantically equivalent to one of the codes that is included in the value set should also be considered to require that Observation instance to conform to both the Vital Signs Base and the corresponding specific Vital Signs Profile.  
+		</p>	
+		<p>Instances of the Observation resource that contain de-identified data that is no longer associated with a specific patient or measurements coming directly from a device that have not yet been associated with a patient are not required to conform to the Vital Signs profiles.
+		</p>
+		<p><i>[Note: These profiles have been updated and were originally derived from and based on the minimum mandatory conformance requirements for accessing patient data as defined by the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">Argonaut</a> pilot implementations that were developed, balloted, and published in the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">U.S. Data Access Framework (DAF) FHIR Implementation Guide (IG) DSTU2</a> as part of the ONC sponsored <a href="https://oncprojectracking.healthit.gov/wiki/spaces/TechLabSC/pages/16123301/DAF+Home">Data Access Framework (DAF)</a> project.]</i></p>
 	</div>
 	<div>
 		<a name="bnc"></a>
@@ -17,7 +29,7 @@
 		<ul>
 			<li>Query for vital signs of a particular patient</li>
 		</ul>
-		<h5>Mandatory Data Elements and Terminology</h5>
+		<h3>Mandatory Data Elements and Terminology</h3>
 		<p>The following data-elements are mandatory (i.e. data SHALL be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content">
 				<strong>Profile Definitions</strong>
 			</a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
@@ -27,9 +39,12 @@
 		<ol>
 			<li>a status</li>
 			<li>a 'category' code of 'vital-signs'</li>
-			<li>an additional "interoperability category" LOINC code in the 'category' element which specifies the high level (methodless) category for what is being measured
+			<ul>
+				<li>When needed, one or more additional category codes (from the preferred HL7 observation-category or a different code system) may also be included along with the 'vital-signs' category code.</li>
+			</ul>
+		<li>an additional "interoperability standard" high level (methodless LOINC) code for what is being measured
 <ul>
-					<li>The code for the actual measurement is specified in the 'code' element.  This code (which may be from LOINC or a different code system) typically will be more specific than the "interoperability category" LOINC code.</li>
+					<li>The selected code for the actual measurement will often be different from (usually more specific than) the "interoperability standard" code.  When that is the case, the selected code (from LOINC or a different code system) is expected to also be included in the 'code' element, as a repetition of 'code.coding', in addition to the "interoperability standard" code.  Potentially other codes (from the same or different code systems) may also be included as appropriate (also as additional 'code.coding' repetitions).</li>
 				</ul>
 			</li>
 			<li>a patient</li>
@@ -55,7 +70,9 @@
 		<a name="vitals-table"></a>
 		<h2>Formal View of Specific Vital Signs Profile Content</h2>
 		<ul>
-			<li>The table below represents the set of vital sign concepts and the profiles that have been defined for representing them in the Observation resource, along with the associated required high level (methodless) LOINC "interoperability category" codes, and the UCUM units of measure codes that are used for representing the vital signs observations. These terminology bindings are <a href="terminologies.html#extensible">extensible</a> and require that when a system supports any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
+			<li>The Vital Signs Profiles are intended to be applied only to point-in-time observations as the "Interoperability Standard" codes selected only reflect point-in-time concepts.  Any calculated observations based on two or more point-in-time vital sign observations cannot be based on these Vital Signs profile and its components, thus one cannot add the point-in-time vital sign observation "Interoperability Standard" code in Observation.code.  Separate profiles and appropriate LOINC codes representing such calculated vital sign related observations must be created.</li>
+			<li>While such profiles cannot be derived from the vital signs profile directly or indirectly, they may use the vital-signs observation category "vital-signs" to enable queries for all observations related to vital signs generally, i.e., use <a href="http://terminology.hl7.org/CodeSystem/observation-category">Observation.category = "vital-signs"</a></li>
+			<li>The table below represents the set of vital sign concepts and the profiles that have been defined for representing them in the Observation resource, along with the associated required high level (methodless) LOINC "interoperability standard" codes, and the UCUM units of measure codes that are used for representing the vital signs observations. These terminology bindings are <a href="terminologies.html#extensible">extensible</a> and require that when a system supports any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
 			<li>The first column of this table links to the formal views of the individual profile for each vital sign.</li>
 			<li>Other profiles may make rules about which vital sign must be present, or must be present as part of a panel, or may expand the list to include other vital signs.</li>
 		</ul>
@@ -64,7 +81,7 @@
 			<thead>
 				<tr>
 					<th>Profile Name</th>
-					<th>"Interoperability Category" (LOINC)</th>
+					<th>"Interoperability Standard" Code (LOINC)</th>
 					<th>LOINC Name and Comments</th>
 					<th>UCUM Unit Code</th>
 					<th id="example">Examples</th>
@@ -119,9 +136,6 @@
 						<em>Oxygen saturation in Arterial blood</em>
 						<p>The 2708-6 code or the more specific 59408-5 <em>Oxygen saturation in Arterial blood by Pulse oximetry</em> code (or another appropriate code for arterial oxygen saturation) may be used in Observation.code to specify the actual measurement that was performed.</p></td>
 					<td>%</td>
-					<td>
-						<a href="observation-example-satO2.html">Oxygen Saturation Example</a>
-					</td>
 				</tr>
 				<tr>
 					<td>
@@ -170,7 +184,7 @@
 					<td>29463-7</td>
 					<td>
 						<em>Body weight</em>
-						<p>The more specific code 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY also be used in Observation.code to specify the actual measurement that was performed.</p></td>
+						<p>The more specific code 8352-7  - <em>Clothing worn during measure</em>  and  8361-8 - <em>Body position with respect to gravity</em> MAY be used as an additional Observation.component or as a linked Observation (e.g, using hasMember).</p></td>
 					<td>g, kg,[lb_av], [oz_av]</td>
 					<td>
 						<a href="observation-example.html">Body Weight Example</a>
@@ -191,7 +205,7 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="bp.html">Blood pressure systolic and diastolic</a>
+						<a href="bp.html">Blood pressure arterial systolic and diastolic</a>
 					</td>
 					<td>85354-9</td>
 					<td>
@@ -204,11 +218,11 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="bp.html">Systolic blood pressure</a>
+						<a href="bp.html">Systolic arterial blood pressure</a>
 					</td>
 					<td>8480-6</td>
 					<td>
-						<em>Systolic blood pressure</em>
+						<em>Systolic arterial blood pressure</em>
 						<p>Observation.component code for a blood pressure Observation</p></td>
 					<td>mm[Hg]</td>
 					<td>
@@ -217,11 +231,11 @@
 				</tr>
 				<tr>
 					<td>
-						<a href="bp.html">Diastolic blood pressure</a>
+						<a href="bp.html">Diastolic arterial blood pressure</a>
 					</td>
 					<td>8462-4</td>
 					<td>
-						<em>Diastolic blood pressure</em>
+						<em>Diastolic arterial blood pressure</em>
 						<p>Observation.component code for a blood pressure Observation</p></td>
 					<td>mm[Hg]</td>
 					<td>
@@ -263,9 +277,9 @@
 			<li>A server has rejected any unauthorized requests by returning an HTTP 401 Unauthorized response code.</li>
 		</ul>
 		<hr/>
-		<h4>
+		<h3>
 			GET [base]/Observation?patient=[id]&amp;category=vital-signs
-		</h4>
+		</h3>
 		<p>
 			<strong>Example:</strong>
 			Search for all Vital Signs measurements for a patient
@@ -287,9 +301,9 @@
 			<li>(Status 403): insufficient scope</li>
 		</ul>
 		<hr/>
-		<h4>
+		<h3>
 			GET [base]/Observation?patient=[id]&amp;code=[vital sign LOINC{,LOINC2,LOINC3,...}]
-		</h4>
+		</h3>
 		<p>
 			<strong>Example:</strong>
 Search for all heart rate observations for a patient:</p>
@@ -316,9 +330,9 @@ Search for all heart rate, respiratory rate and blood pressure observations for 
 			<li>(Status 403): insufficient scope</li>
 		</ul>
 		<hr/>
-		<h4>
+		<h3>
 			GET [base]/Observation?patient=[id]&amp;category=vital-signs&amp;date=[date]{&amp;date=[date]}
-		</h4>
+		</h3>
 		<p>
 			<strong>Example:</strong>
 Find all the blood pressures after 2015-01-14</p>

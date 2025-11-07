@@ -95,7 +95,7 @@
 			<coding>
 				<system value="http://loinc.org"/>
 				<code value="11348-0"/>
-				<display value="History of past illness Narrative"/>
+				<display value="History of Past illness note"/>
 			</coding>
 		</code>
 		<!-- <text>

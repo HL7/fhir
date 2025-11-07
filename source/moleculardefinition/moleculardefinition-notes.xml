@@ -5,7 +5,7 @@
   <h2>Notes</h2>
 
   <h3>Encodings</h3>
-  <p>Molecular sequences are represented using numerous encodings, which are not always explicitly specified. The <code>representation.literal.encoding</code> attribute captures this information directly, so that implementors can validate the content of messages and computationally determine how a particular sequence should be interpreted.</p>
+  <p>Molecular Definitions are represented using numerous encodings, which are not always explicitly specified. The <code>representation.literal.encoding</code> attribute captures this information directly, so that implementors can validate the content of messages and computationally determine how a particular sequence should be interpreted.</p>
   
   <p>The examples below illustrate different encodings, which could be used to create terms for this attribute. They are based on the IUPAC symbols for nucleotide and amino acid sequences.</p>
   <ul>

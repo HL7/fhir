@@ -83,8 +83,8 @@ edited by Eric Haas Health eData Inc
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="37202001"/>
-					<display value="Plant fiber"/>
+					<code value="68992005"/>
+					<display value="Cellulose"/>
 				</coding>
 			</modifier>
 			<amount>

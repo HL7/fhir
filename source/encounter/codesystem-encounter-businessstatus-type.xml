@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="encounter-businessstatus-type"/>
+  <meta>
+    <lastUpdated value="2025-10-29T00:00:00.000+00:00"/>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/encounter-businessstatus-type"/>
+  <version value="6.0.0"/>
+  <name value="EncounterBusinessStatusType"/>
+  <title value="Encounter Business Status Type"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2025-10-29T00:00:00+00:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The kind of workflow the business status is tracking."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/encounter-businessstatus-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="inpatient"/>
+    <display value="Inpatient"/>
+    <definition value="The business status is tracking an inpatient workflow."/>
+  </concept>
+  <concept>
+    <code value="outpatient"/>
+    <display value="Outpatient"/>
+    <definition value="The business status is tracking an outpatient workflow."/>
+  </concept>
+  <concept>
+    <code value="emergency"/>
+    <display value="Emergency"/>
+    <definition value="The business status is tracking an emergency workflow."/>
+  </concept>
+</CodeSystem>

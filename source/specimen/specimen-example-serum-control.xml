@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns="http://hl7.org/fhir">
 	<id value="sst-control"/>
-	<accessionIdentifier>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="ACSN"/>
+				<display value="Accession"/>
+			</coding>
+		</type>
 		<system value="http://acme.com/labs/accession-ids"/>
 		<value value="20150816-00124-qc"/>
-	</accessionIdentifier>
+	</identifier>
 	<type>
 		<coding>
 			<system value="http://snomed.info/sct"/>
@@ -20,7 +27,9 @@
 	</role>
 	<container>
 	  <device>
+  	   	 <reference>
 	      <reference value="Device/device-example-specimen-container-example-sst-vacutainer"/>
+  	   	 </reference>
 	  </device>
 	</container>
 </Specimen>

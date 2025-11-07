@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="qualification-status"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -16,7 +16,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2137"/>
   </identifier>
-  <version value="6.0.0-ballot2"/>
+  <version value="6.0.0-ballot3"/>
   <name value="QualificationStatus"/>
   <title value="Qualification Status"/>
   <status value="active"/>

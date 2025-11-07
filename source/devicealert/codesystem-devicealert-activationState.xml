@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="devicealert-activationState" />
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem" />
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev" />
@@ -12,20 +12,20 @@
     <valueCode value="draft" />
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0" />
+    <valueInteger value="2" />
   </extension>
   <url value="http://hl7.org/fhir/devicealert-activationState" />
   <version value="6.0.0" />
   <name value="DeviceAlertActivationState" />
   <title value="Device Alert Activation State" />
-  <status value="draft" />
+  <status value="active" />
   <experimental value="false" />
   <date value="2023-12-10T10:01:24+11:00" />
-  <publisher value="HL7 (FHIR Project)" />
+  <publisher value="HL7 International / Health Care Devices" />
   <contact>
     <telecom>
       <system value="url" />
-      <value value="http://hl7.org/fhir" />
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices" />
     </telecom>
     <telecom>
       <system value="email" />
@@ -39,16 +39,16 @@
   <concept>
     <code value="on" />
     <display value="On" />
-    <definition value="The signal will be announciated during an alert condition" />
+    <definition value="The intended system function (e.g., detecting or signaling) is activated" />
   </concept>
   <concept>
     <code value="off" />
     <display value="Off" />
-    <definition value="The signal will not be announciated during an alert condition" />
+    <definition value="The intended system function (e.g., detecting or signaling) is deactivated" />
   </concept>
   <concept>
     <code value="paused" />
     <display value="Paused" />
-    <definition value="Annunciation of the signal during an alert condition has been suppressed temporarily" />
+    <definition value="The intended system function (e.g., detecting or signaling) is temporarily suppressed" />
   </concept>
 </CodeSystem>

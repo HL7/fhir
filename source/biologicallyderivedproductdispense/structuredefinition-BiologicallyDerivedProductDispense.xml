@@ -3,13 +3,13 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="BiologicallyDerivedProductDispense"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft"/>
+    <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="business"/>
+    <valueCode value="patient"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -74,6 +74,10 @@
         <identity value="w5"/>
         <map value="administrative.device"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.identifier">
       <path value="BiologicallyDerivedProductDispense.identifier"/>
@@ -84,6 +88,10 @@
       <type>
         <code value="Identifier"/>
       </type>
+        <mapping>
+          <identity value="workflow"/>
+          <map value="Event.identifier"/>
+        </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.basedOn">
       <path value="BiologicallyDerivedProductDispense.basedOn"/>
@@ -95,10 +103,14 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </type>
+       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.basedOn"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.partOf">
       <path value="BiologicallyDerivedProductDispense.partOf"/>
-      <short value="Short description"/>
+      <short value="Part of referenced event"/>
       <definition value="A larger event of which this particular event is a component."/>
       <min value="0"/>
       <max value="*"/>
@@ -109,6 +121,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.status">
       <path value="BiologicallyDerivedProductDispense.status"/>
@@ -133,6 +149,10 @@
         <description value="Describes the lifecycle of the dispense."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
       </binding>
+        <mapping>
+          <identity value="workflow"/>
+          <map value="Event.status"/>
+        </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.originRelationshipType">
       <path value="BiologicallyDerivedProductDispense.originRelationshipType"/>
@@ -168,17 +188,27 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.product"/>
+      </mapping>
     </element>
-    <element id="BiologicallyDerivedProductDispense.patient">
-      <path value="BiologicallyDerivedProductDispense.patient"/>
-      <short value="The intended recipient of the dispensed product"/>
-      <definition value="A link to a resource representing the patient that the product is dispensed for."/>
+    <element id="BiologicallyDerivedProductDispense.subject">
+      <path value="BiologicallyDerivedProductDispense.subject"/>
+      <short value="The intended recipient(s) of the dispensed product"/>
+      <definition value="A link to a resource representing the individual(s) that the product is dispensed for."/>
+      <comment value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.subject"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.matchStatus">
       <path value="BiologicallyDerivedProductDispense.matchStatus"/>
@@ -213,6 +243,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.performer.function">
       <path value="BiologicallyDerivedProductDispense.performer.function"/>
@@ -259,6 +293,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.quantity">
       <path value="BiologicallyDerivedProductDispense.quantity"/>
@@ -311,6 +349,10 @@
       <type>
         <code value="Annotation"/>
       </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
     </element>
     <element id="BiologicallyDerivedProductDispense.usageInstruction">
       <path value="BiologicallyDerivedProductDispense.usageInstruction"/>

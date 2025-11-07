@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="PaymentReconciliation-search-params"/>
   <entry>
     <resource>
@@ -157,11 +157,11 @@
   <entry>
     <resource>
       <SearchParameter>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PaymentReconciliation.allocation.encounter"/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.allocation.encounter"/>
         </extension>
         <description value="The encounter to which payment or adjustment was applied."/>
         <code value="allocation-encounter"/>
@@ -174,11 +174,11 @@
   <entry>
     <resource>
       <SearchParameter>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PaymentReconciliation.allocation.account"/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PaymentReconciliation.allocation.account"/>
         </extension>
         <description value="The account to which payment or adjustment was applied."/>
         <code value="allocation-account"/>

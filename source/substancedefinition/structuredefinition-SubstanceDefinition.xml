@@ -104,8 +104,8 @@
     </element>
     <element id="SubstanceDefinition.version">
       <path value="SubstanceDefinition.version"/>
-      <short value="A business level version identifier of the substance"/>
-      <definition value="A business level version identifier of the substance."/>
+      <short value="A business level edition or revision identifier"/>
+      <definition value="A business level edition or revision identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -126,6 +126,8 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -157,8 +159,8 @@
     </element>
     <element id="SubstanceDefinition.domain">
       <path value="SubstanceDefinition.domain"/>
-      <short value="If the substance applies to human or veterinary use"/>
-      <definition value="If the substance applies to human or veterinary use."/>
+      <short value="The applicable usage of the substance, as an example human or veterinary"/>
+      <definition value="The applicable usage of the substance, as an example human or veterinary."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -216,6 +218,7 @@
         <map value="Substance.Comment"/>
       </mapping>
     </element>
+    <!--
     <element id="SubstanceDefinition.informationSource">
       <path value="SubstanceDefinition.informationSource"/>
       <short value="Supporting literature"/>
@@ -232,6 +235,7 @@
         <map value="Substance.Reference_Source"/>
       </mapping>
     </element>
+    -->
     <element id="SubstanceDefinition.note">
       <path value="SubstanceDefinition.note"/>
       <short value="Textual comment about the substance's catalogue or registry record"/>
@@ -591,6 +595,9 @@
         <code value="Quantity"/>
       </type>
       <type>
+        <code value="Range"/>
+      </type>
+      <type>
         <code value="date"/>
       </type>
       <type>
@@ -603,22 +610,6 @@
       <mapping>
         <identity value="idmp-substance"/>
         <map value="Physical Characteristics, attribute's value"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.referenceInformation">
-      <path value="SubstanceDefinition.referenceInformation"/>
-      <short value="General information detailing this substance"/>
-      <definition value="General information detailing this substance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceReferenceInformation"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp-substance"/>
-        <map value="Reference_Information"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.molecularWeight">
@@ -1155,6 +1146,7 @@
         <description value="IETF language tag for a human language"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
         <additional>
+				  <key value="b-sdef-1"/>
           <purpose value="starter"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
         </additional>
@@ -1203,7 +1195,7 @@
         </extension>
         <strength value="example"/>
         <description value="Jurisdiction codes"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
       </binding>
       <mapping>
         <identity value="idmp-substance"/>
@@ -1480,54 +1472,6 @@
       <mapping>
         <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Reference_Source"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.nucleicAcid">
-      <path value="SubstanceDefinition.nucleicAcid"/>
-      <short value="Data items specific to nucleic acids"/>
-      <definition value="Data items specific to nucleic acids."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp-substance"/>
-        <map value="(used to add specifics of Nucleic Acids to Substances)"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.polymer">
-      <path value="SubstanceDefinition.polymer"/>
-      <short value="Data items specific to polymers"/>
-      <definition value="Data items specific to polymers."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstancePolymer"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp-substance"/>
-        <map value="(used to  add specifics of Polymers to Substances)"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.protein">
-      <path value="SubstanceDefinition.protein"/>
-      <short value="Data items specific to proteins"/>
-      <definition value="Data items specific to proteins."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceProtein"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp-substance"/>
-        <map value="(used to  add specifics of Proteins to Substances)"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.sourceMaterial">

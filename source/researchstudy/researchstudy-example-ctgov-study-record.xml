@@ -363,11 +363,23 @@
 		<value value="A Single-center Randomized Double-blind Placebo-controlled Study to Investigate the Safety Tolerability and PK of SAD and MAD of AP303 Following Oral Administration and the Effect of Food on the PK of AP303 in Healthy Subjects"/>
 	</label>
 	<relatesTo>
-		<type value="transforms"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="transforms" />
+          <display value="Transforms" />
+        </coding>
+      </type>
 		<targetUri value="https://clinicaltrials.gov/api/v2/studies/NCT05503693?format=json"/>
 	</relatesTo>
 	<relatesTo>
-		<type value="transformed-with"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+          <code value="transformed-with" />
+          <display value="Transformed With" />
+        </coding>
+      </type>
 		<targetAttachment>
 			<url value="https://fevir.net/resources/Project/29885"/>
 			<title value="Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter"/>
@@ -383,7 +395,7 @@
 	</primaryPurposeType>
 	<phase>
 		<coding>
-			<system value="http://hl7.org/fhir/study-design"/>
+			<system value="https://fevir.net/sevco"/>
 			<code value="SEVCO:01030"/>
 			<display value="Phase 1 trial"/>
 		</coding>

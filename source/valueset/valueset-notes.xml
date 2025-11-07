@@ -48,79 +48,116 @@ using the facilities provided by the <a href="codesystem.html">code system</a>. 
 <a name="compose"></a>
 <h3>Compose</h3>
 <p>
-VSD Content Logical Definition (CLD) is analogous to FHIR <code>ValueSet.compose</code>. The ValueSet author creates the expression (intensional definition), the extensional list, or a text description of <code>ValueSet.scope</code> and <code>ValueSet.description</code>. There are three ways to accomplish ValueSet definitions in FHIR:
+The rules for the content of the value set are found in the <code>ValueSet.compose</code> element, which are 
+analogous to the Content Logical Definition (CLD) as defined by the <a href="https://confluence.hl7.org/display/VOC/Characteristics+of+a+Value+Set+Definition+%28VSD%29+Project">VSD Project</a>.
+The ValueSet compose is a set of instructions for what codes are in the ValueSet, and defined by the author consistent with the <code>ValueSet.description</code>
 </p>
-<ol>
- <li>Computable Expression Option 1</li>
- <ol>
-	<li><code>ValueSet.compose</code></li>
- </ol>
- <li>Computable Expression Option 2</li>
- <ol>
-	<li><a href="[%extensions-location%]StructureDefinition-valueset-expression.html">Extension ValueSet.valueset-expression</a></li>
-	<ol>
-		<li>If valued with <code>ValueSet.compose</code>, must be an expression that aligns with the <code>ValueSet.compose</code></li>
-		<li>If valued without <code>ValueSet.compose</code>, must be a computable expression (e.g., ECL)</li>
-	</ol>
- </ol>
- <li>Non-computable Expression</li>
- <ol>
-	<li><a href="[%extensions-location%]StructureDefinition-valueset-rules-text.html">Extension ValueSet.valueset-rules-text</a></li>
-	<ol>
-		<li>An expression that is not computable and is meant to be interpreted by a human</li>
-		<li>May be valued <em>with</em> or <em>without</em> <code>ValueSet.compose</code></li>
-	</ol>
- </ol>
-</ol>
+<p>
+The ValueSet composition can be defined in a number of ways:
+</p>
+<ul>
+ <li>By listing the codes that are in the ValueSet explicitly using <code>ValueSet.compose.include.concept</code></li>
+ <li>By specifying the codes for inclusion using filter expressions in <code>ValueSet.compose.include.filter</code></li>
+ <li>If the language in filter cannot be used, using the <a href="[%extensions-location%]StructureDefinition-valueset-expression.html">Extension ValueSet.valueset-expression</a> 
+  to define some alternative expression, though this can only be evaluated by a system that understands the syntax used in the expression</li>
+  <li>For a few value sets, there is no formal expression, and the rules are expressed using the <a href="[%extensions-location%]StructureDefinition-valueset-rules-text.html">Extension ValueSet.valueset-rules-text</a>
+    that is not computable and is meant to be interpreted by a human. Such value sets are rare</li>
+</ul> 
+<p>
+The first approach - listing codes explicitly - is called an 'extensional' definition; all the other ways are called 'intensional' definitions.
+</p>
 
 <a name="filters"></a>
-<h3>Filters </h3>
+<h3>Filters</h3>
+
+<p><b>Mapping from VSD to <code>ValueSet.compose</code></b></p>
+
+<table class="grid">
+ <tr>
+  <td>VSD Scenario</td>
+  <td>FHIR Implementation</td>
+ </tr>
+ <tr>
+  <td>When the <code>ValueSet.compose</code> is an expression (<code>ValueSet.expression</code>), declare the type of expression here</td>
+  <td>
+   <ul>
+    <li><code>compose.include.filter.op</code> = "property"</li>
+    <li><code>compose.include.filter.op</code> = regex</li>
+    <li><code>compose.include.filter.value</code> = "property value"</li>
+  </ul>
+  </td>
+ </tr>
+ <tr>
+  <td>When the <code>ValueSet.compose</code> describes Concepts to include based on CodeSystem properties</td>
+  <td>
+   <p><code>compose.include.filter.property</code> = "property name"</p>
+   <p>Either the Value or Expression must be provided</p>
+   <p>Value:</p>
+   <ul>
+    <li><code>compose.include.filter.op</code> = "="</li>
+    <li><code>compose.include.filter.value</code> =<em>the value</em></li>
+   </ul>
+   <p>Expression:</p>
+   <ul>
+    <li><code>compose.include.filter.op</code> = "regex"</li>
+    <li><code>compose.include.filter.value</code> =<em>the Expression</em></li>
+   </ul>
+  </td>
+ </tr>
+ <tr>
+  <td>When the <code>ValueSet.compose</code> defines the types of relationships between concepts to include in the ValueSet Expansion</td>
+  <td>
+   <p><code>compose.filter.property</code> = "RelationshipType"</p>
+   <p>(note: filter property is a string in VSD, code in FHIR)</p>
+   <ul>
+    <li><code>compose.filter.property.op</code> = "="</li>
+    <li><code>compose.filter.property.value</code> = a code defined by the CodeSystem</li>
+   </ul>
+   <p>Example:</p>
+   <p>to find all concepts in SNOMED CT with the SNOMED CT laterality qualifier relationship to the SNOMED CT concept "left":</p>
+   <ul>
+    <li><code>filter.property.name</code> = '272741003'</li>
+    <li><code>filter.property.op</code> = '='</li>
+    <li><code>filter.property.value</code> = '7771000'</li>
+   </ul>
+  </td>
+ </tr>
+</table>
+
+
+<a name="filter-values"></a>
+<h3>Using Filter Values</h3>
 <p>
-VSD describes filters for the Content Logical Definition. FHIR uses filters in the <code>ValueSet.compose</code> to implement the VSD features.
+The element <code>compose.include.filter.value</code> is a string. The actual format of the value depends on the 
+value of <code>compose.include.filter.op</code> and/or the definitions of the underlying CodeSystem. The following
+rules apply (in order).
+</p>
+<ul>
+ <li>If the <code>op</code> is <code>regex</code>, the format is a regex expression</li>
+ <li>If the <code>op</code> is <code>exists</code>, the format is a <a href="datatypes.html#boolean">boolean</a> (<code>true</code> or <code>false</code>)</li>
+ <li>If the <code>op</code> is <code>in</code> or <code>not-in</code>, the format is either a comma-separated list of <a href="datatypes.html#code">code</a> values, or an absolute <a href="datatypes.html#uri">uri</a>, which is a canonical reference to a ValueSet.
+   If the value is a code or list of codes, the interpretation of the codes is subject to the CodeSystem e.g. for SNOMED-CT reference sets. If the value is a valueSet uri, then commas and percents should be percent encoded</li>
+ <li>If the <code>property</code> is <code>concept</code>, the format is a <a href="datatypes.html#code">code</a></li>
+ <li>If the name in <code>property</code> refers to a <a href="codesystem.html#filters">CodeSystem filter</a>, the format is as defined in the filter table on the CodeSystem page, or as described in the applicable <code>CodeSystem.filter.value</code></li> 
+ <li>If the name in <code>property</code> refers to a <a href="codesystem.html#defined-props">CodeSystem property</a>, the format is as defined in the following table</li>
+</ul>
+<p>
+The format of <code>compose.include.filter.value</code> for Code System Properties depends on the property type:
 </p>
 <table class="grid">
-<tr>
-<td>Scenario</td>
-<td>FHIR Implementation</td>
-</tr>
-<tr>
-<td>When the <code>ValueSet.compose</code> is an expression (<code>ValueSet.expression</code>), declare the type of expression here</td>
-<td>
-<p><code>compose.include.filter.op</code> = "property"</p>
-<p><code>compose.include.filter.op</code> = regex</p>
-<p><code>compose.include.filter.value</code> = "property value"</p>
-</td>
-</tr>
-<tr>
-<td>When the <code>ValueSet.compose</code> describes Concepts to include based on CodeSystem properties</td>
-<td>
-<p><code>compose.include.filter.property</code> = "property name"</p>
-<p>Either the Value or Expression must be provided</p>
-<p>Value:</p>
-<p><code>compose.include.filter.op</code> = "="</p>
-<p><code>compose.include.filter.value</code> =<em>the value</em></p>
-<p>Expression:</p>
-<ul>
-<li><code>compose.include.filter.op</code> = "regex"</li>
-<li><code>compose.include.filter.value</code> =<em>the Expression</em></li>
-</ul>
-</td>
-</tr>
-<tr>
-<td>When the <code>ValueSet.compose</code> defines the types of relationships between concepts to include in the ValueSet Expansion</td>
-<td>
-<p><code>compose.filter.property</code> = "RelationshipType"</p>
-<p>(note: filter property is a string in VSD, code in FHIR)</p>
-<p><code>compose.filter.property.op</code> = "="</p>
-<p><code>compose.filter.property.value</code> = a code defined by the CodeSystem</p>
-<p>Example:</p>
-<p>to find all concepts in SNOMED CT with the SNOMED CT laterality qualifier relationship to the SNOMED CT concept "left":</p>
-<p><code>filter.property.name</code> = '272741003'</p>
-<p><code>filter.property.op</code> = '='</p>
-<p><code>filter.property.value</code> = '7771000'</p>
-</td>
-</tr>
-</table>
+ <tr><td>string</td><td>Use the string directly</td></tr>
+ <tr><td>integer</td><td>Use the integer value directly</td></tr>
+ <tr><td>boolean</td><td>Use <code>true</code> or <code>false</code></td></tr>
+ <tr><td>dateTime</td><td>Use ISO 8601 format, following the precision rules for the <a href="datatypes.html#dateTime">dateTime</a> data type</td></tr>
+ <tr><td>decimal</td><td>Use the decimal value directly</td></tr>
+ <tr><td>code</td><td>Use the code directly</td></tr>
+ <tr><td>Coding</td><td>Use the format <code>system</code>(|<code>version</code>)#<code>code</code>, 
+ which is effectively a <a href="datatypes.html#canonical">canonical</a> reference to the CodeSystem, followed by # and then the code in the CodeSystem. There is no way to specify the display</td></tr>
+</table> 
+<p>
+For the ordered data types (integer, decimal and dateTime), the <a href="search.html#prefix">search prefixes</a> can be used (eq, ne, gt, lt, ge, le, sa, eb, ap).
+Note that the Coding syntax is <b>not</b> the search syntax.
+</p>
 
 <a name="csnote"></a>
 <h4>Code Systems Note</h4>
@@ -205,9 +242,6 @@ In FHIR, <code>ValueSet.publisher</code> satisfies the requirements for both pub
 Description and Purpose are standard elements that appear in many FHIR resources. Neither fully supports the intent of the VSD Scope element, however <code>ValueSet.description</code> does support Focus as defined in VSD.
 </p>
 <p>
-In combination with <code>ValueSet.description</code>, <code>ValueSet.scope</code> is used by a <code>ValueSet.author</code> to communicate the semantic space the ValueSet expansion is intended to cover to other authors and users and to create specific descriptions of what is included and what is excluded. Inclusion criteria should not be used to repeat the Content Logical Definition (<code>ValueSet.compose</code>) (see the first example below).
-</p>
-<p>
 When a ValueSet definition includes other ValueSets, use <code>ValueSet.description</code> to provide information about the included value sets in context of the parent value set.
 </p>
 <p>
@@ -220,20 +254,14 @@ Example:
 <tr>
 <td>Value Set Name</td>
 <td>Description</td>
-<td>Scope Inclusion Criteria</td>
-<td>Scope Exclusion Criteria</td>
 </tr>
 <tr>
 <td>Body Site Value Set</td>
 <td>All SNOMED CT anatomic structures, locations, abnormal structures that can be considered to describe an anatomical site.</td>
-<td><b>Bad Example:</b> SNOMED CT concepts descending from the Anatomical Structure (91723000) or Acquired body structure (body structure) (289115004) or Anatomical site notations for tumor staging (body structure) (258331007) or Body structure, altered from its original anatomical structure (morphologic abnormality) (118956008) or Physical anatomical entity (body structure) (91722005).</td>
-<td>None</td>
 </tr>
 <tr>
 <td>Familial Hypercholesterolemia</td>
 <td>This value set contains terms defining familial hypercholesterolemia, regardless of genetic origin.</td>
-<td><b>Good Example:</b> Terms identifying familial hypercholesterolemia diagnoses.</td>
-<td>Familial combined hyperlipidemia, polygenic hypercholesterolemia, pure hypercholesterolemia not specifically familial. There are no ICD-9-CM codes specific to familial hypercholesterolemia, hence no ICD-9-CM codes are included in this value set.</td>
 </tr>
 </table>
 

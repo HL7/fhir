@@ -12,12 +12,12 @@ HL7 seeks specific feedback on the implementability of one resource type with mu
 
 <p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.   It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow pattern for <a href="workflow.html#event"><em>event</em> resources</a>.</strong></p>
 <p>
-The SupplyDelivery is used to document actual movement of supplies (e.g., medications, devices, substances, biologically derived products) from one location to another, where the intended patient or person (e.g., doctor) may also be known. 
-This includes supplies specifically used in the treatment of patients as well as supply movement within an institution (transport a set of supplies from materials management to a service unit (nurse station). 
+The SupplyDelivery is used to document the dispatch (e.g., time of dispatch, content) and/or receipt (e.g., time or receipt, content) of, e.g., supplies, people, devices, patients, biologically derived products.
+This includes delivery of supplies within or across institution such as transport a set of supplies from materials management to a service unit, e.g., nurse station, or biologically derived products from the supplier to the hospital.
 This resource does not include the provisioning of transportation services.  The SupplyDelivery does not imply that this supply has already been dispensed to the that patient or person, while it could be reserved for that patient or person. 
 Those associations are done in dedicated resources such as the MedicationDispense and DeviceDispense.
 </p>
-<p>Sample use cases include:</p>
+<p>Sample use cases include:</p> 
 <ul>
 <li>Movement of bulk supplies between locations</li>
 <li>Receipt of bulk supplies</li> 
@@ -32,15 +32,15 @@ Those associations are done in dedicated resources such as the MedicationDispens
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource has a boundary with <a href="devicedispense.html">DeviceDispense</a> and <a href="medicationdispense.html">Medicationdispense</a>:
-The DeviceDispense and MedicationDispense resources are used to associate the device or medication with the specific patient for their use, while SupplyDelivery is solely focused on location and movement 
+The <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense</a> and <a href="medicationdispense.html">MedicationDispense</a> resources are used to associate the device or medication with the specific patient for their use, while <a href="supplydelivery.html">SupplyDelivery</a> is solely focused on location and movement 
 where the targeted patient or other person (e.g., devices used by a clinician), if included, are for delivery context only.</p>
 
 <p>
-To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done, as the context of the use case actually determines which date of either resource is considered the purchase date.
+To determine the purchase date, a search of <a href="devicerequest.html">DeviceRequest</a>, <a href="supplyrequest.html">SupplyRequest</a>, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done, as the context of the use case actually determines which date of either resource is considered the purchase date.
 </p>
-
-
+<p>
+The <a href="transport.html">Transport</a> resource documents the movement of the supplies, people, patients, etc. between dispatch and receipt including, e.g., time of movement, transporter, average temperature during transport.
+</p>
 </div>
 
 </div>

@@ -468,10 +468,6 @@
     <Cell><Data ss:Type="String">MessageHeader</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2"><Data ss:Type="String">Sequence</Data></Cell>
-    <Cell><Data ss:Type="String">MolecularSequence</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NamingSystem</Data></Cell>
     <Cell><Data ss:Type="String">NamingSystem</Data></Cell>
     <Cell><Data ss:Type="String">NamingSystem</Data></Cell>
@@ -668,9 +664,6 @@
     <Cell><Data ss:Type="String">Substance</Data></Cell>
     <Cell><Data ss:Type="String">Substance</Data></Cell>
     <Cell><Data ss:Type="String">Substance</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="3"><Data ss:Type="String">SubstancePolymer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Index="3"><Data ss:Type="String">SubstanceReferenceInformation</Data></Cell>

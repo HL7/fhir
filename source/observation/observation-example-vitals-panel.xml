@@ -13,14 +13,6 @@
 		</coding>
 		<text value="Vital Signs"/>
 	</category>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="85353-1"/>
-			<display value="Vital signs, weight, height, head circumference, oxygen saturation and BMI panel"/>
-		</coding>
-		<text value="Vital signs Panel"/>
-	</category>
 	<code><!-- Deprecated LOINC -replaced  by 85353-1 for this profile
 		<coding>
 			<system value="http://loinc.org"/>

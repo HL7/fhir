@@ -70,6 +70,26 @@
     <uri value="http://fda.gov/UDI"/>
     <name value="UDI Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="btle"/>
+    <uri value="https://www.bluetooth.com"/>
+    <name value="Bluetooth Technology"/>
+  </mapping>
+    <mapping>
+      <identity value="ACOM" />
+      <uri value="urn:iso:std:iso:11073:10206"/>
+      <name value="ISO/IEEE 11073-10206 Abstract Content Information Model (ACOM)"/>
+    </mapping>
+    <mapping>
+        <identity value="DIM" />
+        <uri value="urn:iso:std:iso:11073:10201" />
+        <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
+    </mapping>
+  <mapping>
+    <identity value="BICEPS"/>
+    <uri value="urn:iso:std:iso:11073:10207"/>
+    <name value="ISO/IEEE 11073-10207: Domain Information and Service Model for Service-Oriented Point-of-Care Medical Device Communication"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="Device"/>
@@ -139,6 +159,22 @@
         <identity value="udi"/>
         <map value="The serial number which is a component of the production identifier (PI), a conditional, variable portion of a UDI.   The identifier.type code should be set to “SNO”(Serial Number) and the system left empty."/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="system = urn:oid &#xA; value = DIS System ID characteristic value (8 octets hexadecimal string)"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="system = IEEE EUI-64 or similar &#xA; value = SystemInfo.system-identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="system = IEEE EUI-64 or a local system &#xA; value = VMS::System-Id, MDS::Soft-ID"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="system = .../ProductionSpecification/ComponentId/Root &#xA; value = .../ProductionSpecification/ComponentId/Extension"/>
+      </mapping>
     </element>
     <!-- <element id="Device.displayName">
       <path value="Device.displayName"/>
@@ -157,7 +193,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
     </element>
@@ -183,6 +219,11 @@
         <identity value="rim"/>
         <map value=".id and .code"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS UDI for Medical Devices characteristic value fields - See Bluetooth GATT Specification Supplement (https://www.bluetooth.com/specifications/gss/) for details)"/>
+        <comment value="See [Bluetooth GATT Specification Supplement](https://www.bluetooth.com/specifications/gss/) for details)"/>
+      </mapping>
     </element>
     <element id="Device.udiCarrier.deviceIdentifier">
       <path value="Device.udiCarrier.deviceIdentifier"/>
@@ -207,11 +248,27 @@
         <identity value="udi"/>
         <map value="The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device."/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Device Identifier field from DIS UDI for Medical Devices characteristic"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.udi.deviceIdentifier"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Production-Specification[spec-type=device-identifier]::prod-spec"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/UDI/DeviceIdentifier"/>
+      </mapping>
     </element>
     <element id="Device.udiCarrier.deviceIdentifierSystem">
       <path value="Device.udiCarrier.deviceIdentifierSystem"/>
       <short value="The namespace for the device identifier value"/>
-      <definition value="Establishes the namespace for the device identifier value that is an URL, OID, urn or uuid."/>
+      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the device identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -237,6 +294,22 @@
         <identity value="udi"/>
         <map value="All UDIs are to be issued under a system operated by an Jurisdiction-accredited issuing agency.&#xA;GS1 DIs: &#xA; http://hl7.org/fhir/NamingSystem/gs1&#xA;HIBCC DIs:&#xA; http://hl7.org/fhir/NamingSystem/hibcc&#xA;ICCBBA DIs for blood containers:&#xA; http://hl7.org/fhir/NamingSystem/iccbba-blood&#xA;ICCBA DIs for other devices:&#xA; http://hl7.org/fhir/NamingSystem/iccbba-other"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Issuer field from DIS UDI for Medical Devices characteristic"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.udi.issuer"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Udi::udi-issuer"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/UDI/Issuer"/>
+      </mapping>
     </element>
     <element id="Device.udiCarrier.jurisdiction">
       <path value="Device.udiCarrier.jurisdiction"/>
@@ -252,11 +325,27 @@
         <identity value="rim"/>
         <map value="Role.scoper"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Authority field from DIS UDI for Medical Devices characteristic"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.udi.authority"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Udi::udi-authority"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/UDI/Jurisdictions"/>
+      </mapping>
     </element>
     <element id="Device.udiCarrier.carrierAIDC">
       <path value="Device.udiCarrier.carrierAIDC"/>
       <short value="UDI Machine Readable value"/>
-      <definition value="The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation as printed on the packaging of the device - e.g., a barcode or RFID.   Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats *SHALL* be base64 encoded."/>
+      <definition value="The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation as printed on the packaging of the device - e.g., a barcode , 2D Matrix, or RFID. Some AIDC representations contain non-printable characters and cannot be represented in a string format.  For this reason, AIDC format SHALL be base64Binary encoded."/>
       <comment value="The AIDC form of UDIs should be scanned or otherwise used for the identification of the device whenever possible to minimize errors in records resulting from manual transcriptions. If separate barcodes for DI and PI are present, concatenate the string with DI first and in order of human readable expression on label."/>
       <alias value="Automatic Identification and Data Capture"/>
       <min value="0"/>
@@ -276,8 +365,8 @@
     </element>
     <element id="Device.udiCarrier.carrierHRF">
       <path value="Device.udiCarrier.carrierHRF"/>
-      <short value="UDI Human Readable Barcode String"/>
-      <definition value="The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device."/>
+      <short value="UDI Human Readable value"/>
+      <definition value="The full UDI carrier as the human readable form (HRF) representation as printed on the packaging of the device."/>
       <comment value="If separate barcodes for DI and PI are present, concatenate the string with DI first and in order of human readable expression on label."/>
       <alias value="Human Readable Form"/>
       <min value="0"/>
@@ -293,6 +382,22 @@
       <mapping>
         <identity value="udi"/>
         <map value="A unique device identifier (UDI) on a device label in plain text"/>
+      </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Label field from DIS UDI for Medical Devices characteristic"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.udi.label"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Udi::udi-label"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/UDI/HumanReadableForm"/>
       </mapping>
     </element>
     <element id="Device.udiCarrier.entryType">
@@ -317,10 +422,14 @@
         <identity value="rim"/>
         <map value="NA"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="electronic-transmission"/>
+      </mapping>
     </element>
     <element id="Device.status">
       <path value="Device.status"/>
-      <short value="active | inactive | entered-in-error"/>
+      <short value="active | inactive | entered-in-error | unknown"/>
       <definition value="The Device record status. This is not the status of the device like availability."/>
       <min value="0"/>
       <max value="1"/>
@@ -391,6 +500,10 @@
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
+      <mapping>
+        <identity value="udi"/>
+        <map value="A distinct identification code required by §1271.290(c), the product contains or consists of human cells or tissues that are intended for implantation, transplantation, infusion, or transfer into a human recipient as defined under 21 CFR 1271.3.  This may also be known as the donation identification number (DIN) or a value to trace the product's origin."/>
+      </mapping>
     </element>
     <element id="Device.manufacturer">
       <path value="Device.manufacturer"/>
@@ -413,13 +526,29 @@
         <identity value="udi"/>
         <map value="N/A"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS Manufacturer Name String characteristic value"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.system-manufacturer"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::System-Model::manufacturer, VMD::Vmd-Model::manufacturer"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/Manufacturer"/>
+      </mapping>
     </element>
     <element id="Device.manufactureDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.manufactureDate"/>
-      <short value="Date when the device was made"/>
+      <short value="A production identifier that indicates the date when the device was made"/>
       <definition value="The date and time when the device was manufactured."/>
       <min value="0"/>
       <max value="1"/>
@@ -438,13 +567,21 @@
         <identity value="udi"/>
         <map value="The date a specific device was manufactured - which is a component of the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”."/>
       </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Production-Specification[spec-type=manufacture-date]::prod-spec"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/ManufactureDate"/>
+      </mapping>
     </element>
     <element id="Device.expirationDate">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.expirationDate"/>
-      <short value="Date and time of expiry of this device (if applicable)"/>
+      <short value="A production identifier that indicates the date and time of expiry of this device (if applicable)"/>
       <definition value="The date and time beyond which this device is no longer valid or should not be used (if applicable)."/>
       <min value="0"/>
       <max value="1"/>
@@ -463,13 +600,21 @@
         <identity value="udi"/>
         <map value="the expiration date of a specific device -  which is a component of the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”."/>
       </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Production-Specification[spec-type=expiry-date]::prod-spec"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/ExpirationDate"/>
+      </mapping>
     </element>
     <element id="Device.lotNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.lotNumber"/>
-      <short value="Lot number of manufacture"/>
+      <short value="A production identifier that indicates the Lot number of manufacture"/>
       <definition value="Lot number assigned by the manufacturer."/>
       <min value="0"/>
       <max value="1"/>
@@ -488,13 +633,21 @@
         <identity value="udi"/>
         <map value="The lot or batch number within which a device was manufactured - which is a component of the production identifier (PI), a conditional, variable portion of a UDI."/>
       </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Production-Specification[spec-type=lot-number]::prod-spec"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/LotNumber"/>
+      </mapping>
     </element>
     <element id="Device.serialNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
       <path value="Device.serialNumber"/>
-      <short value="Serial number assigned by the manufacturer"/>
+      <short value="A production identifier that indicates the Serial number assigned by the manufacturer"/>
       <definition value="The serial number assigned by the organization when the device was manufactured."/>
       <comment value="Alphanumeric Maximum 20. While a serial number is a type of identifier, in the context of devices for which a UDI is required, thus a serial number may be part of the production identifier, it is more informative to have the serial number as a dedicated attribute together with the other UDI production identifier.  When the device is not subject to including the UDI (e.g., its presence and exchange is not mandated by local regulatory requirements or specific use case at hand), thus the concept of production identifiers is not relevant as a set, it remains helpful for consistency to still use Device.serialNumber rather than using Device.identifier with an appropriate type.  Systems that do not realize an identifier is a serial number may place it in Device.identifier or if the identifier.system is known for the serial number, it may also be populated in the Device.identifier as a globally unique id_."/>
       <min value="0"/>
@@ -509,6 +662,22 @@
       <mapping>
         <identity value="rim"/>
         <map value=".playedRole[typeCode=MANU].id"/>
+      </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS Serial Number String characteristic value"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.serial-number"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Production-Specification[spec-type=serial-number]::prod-spec"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/SerialNumber"/>
       </mapping>
     </element>
     <element id="Device.name">
@@ -617,6 +786,22 @@
         <identity value="rim"/>
         <map value=".softwareName (included as part)"/>
       </mapping>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS Model Number String characteristic value"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.system-model-number"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::System-Model::model-number, VMD::Vmd-Model::model-number"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="modelNumber = MdsDescriptor/MetaData/ModelNumber &#xA; name = MdsDescriptor/MetaData/ModelName"/>
+      </mapping>
     </element>
     <element id="Device.partNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -638,6 +823,14 @@
       <mapping>
         <identity value="rim"/>
         <map value=".playedRole[typeCode=MANU].id"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Production-Specification[spec-type=part-number]::prod-spec"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/MetaData/PartNumber"/>
       </mapping>
     </element>
     <element id="Device.category">
@@ -680,6 +873,22 @@
         <description value="Codes to identify medical devices."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
+      <mapping>
+        <identity value="btle"/>
+        <map value="text = Appearance Value name or Primary Service name &#xA; coding = Appearance Value or Primary Service UUID"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="MDC_MOC_VMS_MDS_SIMP (fixed value for PHD)"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="type = VMO::Type, VMS::System-Type &#xA; type.text = VMO::Label-String"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/Type, MdsDescriptor/Vmd/Type, MdsDescriptor/Vmd/Channel/Type"/>
+      </mapping>
     </element>
     <element id="Device.deviceVersion">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -688,6 +897,7 @@
       <path value="Device.deviceVersion"/>
       <short value="The actual design of the device or software version running on the device"/>
       <definition value="The actual design of the device or software version running on the device."/>
+      <comment value="The combination of type and component SHOULD be unique across all repetitions of version."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -712,6 +922,22 @@
         <description value="The type of version indicated for the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
       </binding>
+      <mapping>
+        <identity value="btle"/>
+        <map value="Bluetooth-UUID"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="MDC code for a version (MDC_ID_PROD_SPEC_FW, MDC_ID_PROD_SPEC_HW, MDC_ID_PROD_SPEC_SW)"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Production-Specification[spec-type=xx-revision]::spec-type (with xx replaced by hw, sw or fw)"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value=".../ProductionSpecification/SpecType"/>
+      </mapping>
     </element>
     <element id="Device.deviceVersion.component">
       <path value="Device.deviceVersion.component"/>
@@ -726,6 +952,14 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Production-Specification[spec-type=xx-revision]::component-id (with xx replaced by hw, sw or fw)"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="/ProductionSpecification/ComponentId"/>
       </mapping>
     </element>
     <element id="Device.deviceVersion.installDate">
@@ -751,6 +985,22 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="btle"/>
+        <map value="DIS Firmware Revision characteristic value or DIS Hardware Revision characteristic value or DIS Software Revision characteristic value"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.firmware-, hardware-, software-revision"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="VMS::Production-Specification[spec-type=xx-revision]::prod-spec (with xx replaced by hw, sw or fw)"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value=".../ProductionSpecification/ProductionSpec"/>
+      </mapping>
     </element>
     <element id="Device.conformsTo">
       <path value="Device.conformsTo"/>
@@ -779,6 +1029,10 @@
         <description value="The kind of standards used by the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
       </binding>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="communication (fixed value)"/>
+      </mapping>
     </element>
     <element id="Device.conformsTo.specification">
       <path value="Device.conformsTo.specification"/>
@@ -797,6 +1051,10 @@
         <description value="The type of version indicated for the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-type"/>
       </binding>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.System-Type-Spec-List[i].type"/>
+      </mapping>
     </element>
     <element id="Device.conformsTo.version">
       <path value="Device.conformsTo.version"/>
@@ -807,6 +1065,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.System-Type-Spec-List[i].version"/>
+      </mapping>
     </element>
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -821,6 +1083,18 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="clock attributes (as ASN1ToHL7 code)"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="MDS::Clock::time-support attributes"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/Clock/TimeProtocol, MdsDescriptor/Clock/Type"/>
+      </mapping>
     </element>
     <element id="Device.property.type">
       <path value="Device.property.type"/>
@@ -1056,6 +1330,7 @@
       <path value="Device.additive"/>
       <short value="Material added to a container device"/>
       <definition value="Material added to a container device (typically used in specimen collection or initial processing).  The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
+      <comment value="A Procedure can be used to document details of the addition of a substance to the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1078,7 +1353,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1114,47 +1389,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".playedRole[classCode=CONT].quantity"/>
-      </mapping>
-    </element>
-    <element id="Device.additive.performer">
-      <path value="Device.additive.performer"/>
-      <short value="Entity adding substance to the container"/>
-      <definition value="The performer who adds the substance to the container."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.actor"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PFM].role"/>
-      </mapping>
-    </element>
-    <element id="Device.additive.performed">
-      <path value="Device.additive.performed"/>
-      <short value="When the additive substance was added to the container"/>
-      <definition value="Time when the additive substance was placed into the container by the performer."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.done[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".effectiveTime"/>
       </mapping>
     </element>
     <element id="Device.contact">
@@ -1319,6 +1553,10 @@
       <mapping>
         <identity value="rim"/>
         <map value="NA"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MdsDescriptor/Vmd/Channel/SafetyClassification"/>
       </mapping>
     </element>
     <element id="Device.parent">

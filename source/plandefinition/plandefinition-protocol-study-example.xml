@@ -318,7 +318,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Informed Consent"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
   </action>
@@ -341,7 +341,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Initial Single Blind Placebo dose"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <timingDuration>
@@ -366,7 +366,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="First dose of treatment where total drug dose of [Drug A] per day is 0.5 mg."/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <timingDuration>
@@ -391,7 +391,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Last dose of treatment"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
   </action>
@@ -411,7 +411,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Informed Consent"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
   </action>
@@ -434,7 +434,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="First dose of Single Blind Placebo"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <timingDuration>
@@ -459,7 +459,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Intial dose of treatment where total drug dose of [Drug A] per day is 1.0 mg."/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <timingDuration>
@@ -484,7 +484,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Last dose of treatment"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
   </action>
@@ -497,7 +497,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Screening"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -511,7 +511,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="single-blind placebo start"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -525,7 +525,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Treatment start"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -539,7 +539,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="5 weeks after treatment start"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -553,7 +553,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="10 weeks after treatment start"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -567,7 +567,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="15 weeks after treatment start"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -581,7 +581,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="20 weeks after treatment start"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -595,7 +595,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="25 weeks after treatment start"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -609,7 +609,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="30 weeks after treatment start"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -623,7 +623,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="start of follow-up"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>

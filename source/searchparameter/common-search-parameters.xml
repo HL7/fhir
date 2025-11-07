@@ -165,7 +165,6 @@
         <base value="Procedure"/>
         <base value="ResearchSubject"/>
         <base value="RiskAssessment"/>
-        <base value="SupplyRequest"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -178,7 +177,6 @@
         <base value="AllergyIntolerance"/>
         <base value="AuditEvent"/>
         <base value="Basic"/>
-        <base value="ChargeItem"/>
         <base value="Condition"/>
         <base value="DetectedIssue"/>
         <base value="DeviceRequest"/>
@@ -207,7 +205,6 @@
         <code value="encounter"/>
         <base value="AuditEvent"/>
         <base value="CarePlan"/>
-        <base value="ChargeItem"/>
         <base value="Claim"/>
         <base value="ClinicalAssessment"/>
         <base value="Communication"/>
@@ -217,7 +214,6 @@
         <base value="DeviceRequest"/>
         <base value="DiagnosticReport"/>
         <base value="DocumentReference"/>
-        <base value="EncounterHistory"/>
         <base value="ExplanationOfBenefit"/>
         <base value="Flag"/>
         <base value="ImagingStudy"/>
@@ -250,10 +246,10 @@
         <base value="Appointment"/>
         <base value="AppointmentResponse"/>
         <base value="Basic"/>
+        <base value="BiologicallyDerivedProduct"/>
         <base value="BodyStructure"/>
         <base value="CarePlan"/>
         <base value="CareTeam"/>
-        <base value="ChargeItem"/>
         <base value="Claim"/>
         <base value="ClaimResponse"/>
         <base value="ClinicalAssessment"/>
@@ -268,7 +264,6 @@
         <base value="CoverageEligibilityResponse"/>
         <base value="DetectedIssue"/>
         <base value="DeviceRequest"/>
-        <base value="DeviceUsage"/>
         <base value="DiagnosticReport"/>
         <base value="DocumentReference"/>
         <base value="Encounter"/>
@@ -292,7 +287,6 @@
         <base value="MedicationDispense"/>
         <base value="MedicationRequest"/>
         <base value="MedicationStatement"/>
-        <base value="MolecularSequence"/>
         <base value="NutritionIntake"/>
         <base value="NutritionOrder"/>
         <base value="Observation"/>
@@ -306,8 +300,6 @@
         <base value="ServiceRequest"/>
         <base value="ServiceRequest"/>
         <base value="Specimen"/>
-        <base value="SupplyDelivery"/>
-        <base value="SupplyRequest"/>
         <base value="Task"/>
         <base value="VisionPrescription"/>
       </SearchParameter>
@@ -325,10 +317,10 @@
         <base value="AppointmentResponse"/>
         <base value="AuditEvent"/>
         <base value="Basic"/>
+        <base value="BiologicallyDerivedProduct"/>
         <base value="BodyStructure"/>
         <base value="CarePlan"/>
         <base value="CareTeam"/>
-        <base value="ChargeItem"/>
         <base value="Claim"/>
         <base value="ClaimResponse"/>
         <base value="ClinicalAssessment"/>
@@ -344,7 +336,6 @@
         <base value="DetectedIssue"/>
         <base value="DeviceAssociation"/>
         <base value="DeviceRequest"/>
-        <base value="DeviceUsage"/>
         <base value="DiagnosticReport"/>
         <base value="DocumentReference"/>
         <base value="Encounter"/>
@@ -367,7 +358,6 @@
         <base value="MedicationDispense"/>
         <base value="MedicationRequest"/>
         <base value="MedicationStatement"/>
-        <base value="MolecularSequence"/>
         <base value="NutritionIntake"/>
         <base value="NutritionOrder"/>
         <base value="Observation"/>
@@ -381,8 +371,6 @@
         <base value="RiskAssessment"/>
         <base value="ServiceRequest"/>
         <base value="Specimen"/>
-        <base value="SupplyDelivery"/>
-        <base value="SupplyRequest"/>
         <base value="Task"/>
         <base value="VisionPrescription"/>
       </SearchParameter>
@@ -402,7 +390,6 @@
         <base value="EpisodeOfCare"/>
         <base value="Invoice"/>
         <base value="MedicationDispense"/>
-        <base value="MolecularSequence"/>
         <base value="Specimen"/>
       </SearchParameter>
     </resource>

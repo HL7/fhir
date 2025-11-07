@@ -1,0 +1,105 @@
+<additional>
+  <key value="uc-bind-gender"/>
+  <purpose value="required"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+  <usage>
+    <code value="UsageContext.code"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/usage-context-type"/>
+        <code value="gender"/>
+      </coding>
+    </valueCodeableConcept>
+  </usage>
+  <any value="false"/>
+</additional>
+<additional>
+  <key value="uc-bind-focus"/>
+  <purpose value="starter"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+  <usage>
+    <code value="UsageContext.code"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/usage-context-type"/>
+        <code value="focus"/>
+      </coding>
+    </valueCodeableConcept>
+  </usage>
+  <any value="false"/>
+</additional>
+<additional>
+  <key value="uc-bind-user"/>
+  <purpose value="starter"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/provider-taxonomy"/>
+  <usage>
+    <code value="UsageContext.code"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/usage-context-type"/>
+        <code value="user"/>
+      </coding>
+    </valueCodeableConcept>
+  </usage>
+  <any value="false"/>
+</additional>
+<additional>
+  <key value="uc-bind-workflow"/>
+  <purpose value="starter"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
+  <usage>
+    <code value="UsageContext.code"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/usage-context-type"/>
+        <code value="workflow"/>
+      </coding>
+    </valueCodeableConcept>
+  </usage>
+  <any value="false"/>
+</additional>
+<additional>
+  <key value="uc-bind-task"/>
+  <purpose value="starter"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActTaskCode"/>
+  <usage>
+    <code value="UsageContext.code"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/usage-context-type"/>
+        <code value="task"/>
+      </coding>
+    </valueCodeableConcept>
+  </usage>
+  <any value="false"/>
+</additional>
+<additional>
+  <key value="uc-bind-venue"/>
+  <purpose value="starter"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType"/>
+  <usage>
+    <code value="UsageContext.code"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/usage-context-type"/>
+        <code value="venue"/>
+      </coding>
+    </valueCodeableConcept>
+  </usage>
+  <any value="false"/>
+</additional>
+<additional>
+  <key value="uc-bind-jurisdiction"/>
+  <purpose value="exetensible"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
+  <usage>
+    <code value="UsageContext.code"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/usage-context-type"/>
+        <code value="jurisdiction"/>
+      </coding>
+    </valueCodeableConcept>
+  </usage>
+  <any value="false"/>
+</additional>

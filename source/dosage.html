@@ -12,7 +12,7 @@
 
 <%dtxheader base Dosage%>
 <h1>Dosage</h1>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 
 <p>Types Framework Cross Reference: 
@@ -40,6 +40,7 @@ Content
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Dosage%]
+[%tx Dosage%]
 </div>
 
 <p>
@@ -49,8 +50,8 @@ Dosage is used in the following places: [%dtusage Dosage%]
 
 [%file newfooter%]
 
-<script src="external/jquery/jquery.js"> </script>
-<script src="jquery-ui.min.js"> </script>
+<script src="assets/js/jquery.js"> </script>
+<script src="assets/js/jquery-ui.min.js"> </script>
 <script>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');

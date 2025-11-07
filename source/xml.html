@@ -21,9 +21,7 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="root"></a>
 <h2>XML Representation of Resources</h2>
 
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 The XML representation for a resource is described using this format: 
@@ -83,7 +81,7 @@ base document name is the name of the resource as allocated by HL7, the namespac
 FHIR namespace, and an additional
 attribute is present, <code>resourceDefinition</code>. The resourceDefinition value contains a 
 canonical reference to the definition of the resource and always includes the version explicitly,
-e.g.  
+e.g.,  
 </p>
 
 <pre class="xml">
@@ -109,7 +107,7 @@ Also, see note about the schema and additional resources below.
 <h3>XML Representation for repeating elements</h3>
 
 <p>
-An element that has a maximum cardinality of >1 (e.g. <code>x..*</code> in the definitions) may occur more than once in the instance.
+An element that has a maximum cardinality of >1 (e.g., <code>x..*</code> in the definitions) may occur more than once in the instance.
 In XML, this is simply done by repeating the XML element multiple times. 
 </p>
 
@@ -328,68 +326,8 @@ Note that most code generation frameworks ignore the pattern restriction.
 <a name="digsig"></a>
 
 <h3>Canonical XML</h3>
-<p>
-Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bundle</a> and <a href="provenance.html#signature">Provenance</a>). 
-</p>
-<p>
-This specification defines the following method for canonicalizing FHIR resources, when represented as 
-XML. Each XML instance or fragment that is part of the collection being signed SHALL:
-</p>
-<ul>
- <li>Contain no whitespace other than single spaces in attribute values and in the XHTML in the <a href="narrative.html">Narrative</a></li>
- <li>Use default namespaces for the FHIR and XHTML namespaces</li>
- <li>Omit all comments</li>
- <li>Always use the Unicode character representation for any XML entities (e.g. <code>&amp;#39;</code> instead of <code>&amp;quot;</code>)</li>
- <li>Include the XML processing instruction <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></li>
- <li>Using the XML canonical method <a href="http://www.w3.org/TR/xmldsig-core1/#sec-Canonical">Canonical XML 1.1</a> (<code>http://www.w3.org/2006/12/xml-c14n11</code>)</li>
-</ul>
-<p>
-This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/xml</code>. The 
-following additional canonicalization URIs are also defined:
-</p>
-<table class="grid">
- <tr>
-  <td>http://hl7.org/fhir/canonicalization/xml#data</td>
-  <td>The narrative (<code>Resource.text</code>) is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
- </tr>
- <tr>
-  <td>http://hl7.org/fhir/canonicalization/xml#static</td>
-  <td>In addition to narrative (Resource.text), the <code>Resource.meta</code> element is removed. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed.  Note that workflow and security tags may contain information important to the handling of the resource, so meta elements should be protected from tampering by other means if unsigned.</td>
- </tr>
- <tr>
-  <td>http://hl7.org/fhir/canonicalization/xml#narrative</td>
-  <td>The method only retains the <code>Resource.id</code> and Narrative (<code>Resource.text</code></td>
- </tr>
- <tr>
-  <td>http://hl7.org/fhir/canonicalization/xml#document</td>
-  <td>The signs everything in a Bundle, except for the Bundle.id and Bundle.metadata on the root Bundle (allows for a document to be copied from server to server)</td>
- </tr>
-</table>
-<p>
-These canonicalization methods allow systems the flexibility to sign the various portions of 
-the resource that matter for the workflow the signature serves. These canonicalization algorithms 
-do not work for enveloped signatures. This will be researched and addressed in a future release. 
-This specification may define additional canonicalizations in the future, and other specifications might also define 
-additional canonicalization methods.
-</p>
 
-[%impl-note%]
-One consequence of signing the document is that URLs, identifiers and internal references are frozen and 
-cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed 
-ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is 
-recommended that systems consider carefully the impact of any signature processes. The impact of signatures
-on <a href="documents.html">Document bundles</a> and their related processes is the most well understood
-use of digital signatures.
-[%end-note%]
-
-<p>
-Note that following normalization procedures in XML can assign the same normalized text to resources 
-with slightly different meanings, since leading whitespace matters in markdown text, and the XML representation 
-serializes the <a href="datatypes.html#markdown">markdown</a> datatype using attributes.
-</p>
-
-
-
+<p>See <a href="signatures.html#xml">Signatures</a> for details.</p>
 
 <!-- Todo: Relax NG, RDF, eCore -->
 

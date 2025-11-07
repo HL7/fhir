@@ -16,7 +16,7 @@ in order to support consistent definitions for schema and UML derived code.
     [%file newnavbar%]
 
     
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
         <!-- Tabs for navigation -->
         <ul class="nav nav-tabs">
@@ -30,8 +30,52 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="root"></a>
         <h2>Usage Examples for Workflow Patterns</h2>
 
-        <p><i>Future home for examples</i></p>
+        <a name="optionF-ex1"> </a>
+        <h3>Option F Scenario - Creation of Task on placer's system</h3>
+        <p><b>Lab order to known performer</b></p>
+        <p>A provider orders a serum glucose test for a patient to the local/regional lab.</p>
+        <p>
+          The local/regional lab has an established relationship with the medical clinic where the lab has a subscription that monitors for assigned lab orders.
+          Prior to a patient's annual visit, their GP creates a lab requisition for a new serum glucose test to ensure they have current results to discuss at the
+          patient's visit.  Their nurse assigns fulfillment of the requisition to the local lab, which receives a notification and accepts the lab order.  The patient
+          visits a collection site and their blood is processed.  Upon completion, the Task is updated by the lab with a link to the DiagnosticReport and is marked
+          as 'completed'.  The EHR retrieves the DiagnosticReport and associated Observations and presents them to the clinician for review prior to the patient's
+          arrival for their visit.
+        </p>
 
+        <a name="optionG-ex1"> </a>
+        <h3>Option G Scenario - POST of Task to fulfiller's system</h3>
+        <p><b>Outpatient prescription</b></p>
+        <p>
+            A patient is suffering from a poison ivy rash and is prescribed a steroid medication to manage the reaction. The provider asks the patient for his preferred pharmacy 
+            and creates the Task at the specified pharmacy's system pointing to the MedicationRequest on the provider's system. The patient is running late
+            and by the time he arrives at the pharmacy, it is closed. He calls the clinic where the provider practices and requests that the pharmacy where the order is 
+            to be fulfilled is changed to one that is open around the clock. The staff at the
+            clinic cancels the Task at the original pharmacy and creates a new Task at the requested new one. The new pharmacy updates the Task to accepted and 
+            prepares the dispense.  By the time the patient arrives at the new pharmacy, the medication is ready for pickup. Once the medication is picked up is fulfilled, the clinic receives
+            the notification that the Task is complete with a link to the MedicationDispense confirming the details of the dispensed medication and quantity.  At 
+            some later point, when it is believed the patient has likely completed the use of the medication, the MedicationRequest is also marked as complete.
+        </p>
+
+
+        <a name="optionH-ex1"> </a>
+        <h3>Option H Scenario - POST of Task to a workflow broker</h3>
+ 
+        <a name="optionI-ex1"> </a>
+        <h3>Option I Scenario - POST of Task to fulfiller's system, followed by POST of sub-Task on placer's system</h3>
+        <p><b>Outpatient referral</b></p>
+        <p>
+            A patient is seen by her Primary Care Provider (PCP) for shortness of breath and the provider decides to refer her to a cardiologist. Because of the referral, the provider's system creates ServiceRequest resource and POSTs a Task resource to a cardiologist's practice
+            system, requesting a referral. This places the referral request on a referral coordinator's work list to review. Upon accepting the referral, the Task is updated as accepted and a new sub-Task, referencing both the ServiceRequest and the
+            Task created by the provider's system, is created on the provider's system. The patient gets an appointment with the cardiologist and the sub-Task is updated with that information, allowing the provider's system to inform the provider of
+            the change.
+        </p>
+        <p>
+            The patient misplaces the information about the appointment and misses the visit with the cardiologist. The cardiologist's system updates the sub-Task to indicate the no-show and the PCP is alerted of the missed appointment. The provider's staff gets
+            hold of the patient and schedules another appointment for her with the cardiologist. Because of the cardiologist's system scheduling the appointment, the sub-Task is updated with that information. The patient is seen and the sub-Task
+            is updated accordingly. The cardiologist document the findings about the patient and updates the sub-Task as complete, adding references to the resources representing the findings. The PCP is alerted of the updates and marks the referral
+            as complete, which updates the original Task and the ServiceRequest as complete as well.
+        </p>
 
     [%file newfooter%]
 </body>

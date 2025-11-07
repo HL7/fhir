@@ -14,9 +14,7 @@
 
 <a name="json"></a>
 <h2>JSON Representation of Resources</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 The JSON representation for a resource is based on the <a href="https://www.rfc-editor.org/info/std90">JSON format described in STD 90 (RFC 8259)</a>, and is described using this format:
@@ -46,7 +44,7 @@ Using this format:
    <ol>
      <li><code>property1</code> has a primitive datatype; the value of the property will be as described for the stated type</li>
      <li><code>property2</code> has a complex datatype; the value of the property is an object that has the content as described for the stated type</li>
-     <li><code>property3</code> is an object property that contains additional properties (e.g. propertyA; the allowable properties are listed, and also include extensions as appropriate)</li>
+     <li><code>property3</code> is an object property that contains additional properties (e.g., propertyA; the allowable properties are listed, and also include extensions as appropriate)</li>
      <li><code>property4</code> is an array property that contains items which are objects themselves. The items may have any of the types already encountered in points 1-3</li>
      <li><code>propertyA</code> is an example of an object property that has a binding to a value set - the Short description is a link to the value set. In addition, the binding strength is shown </li>
      <li><code>propertyB</code> is an example of an object property that has a reference to a particular kind of resource </li>
@@ -82,7 +80,7 @@ When <a href="resource.html#additional">additional resources</a> are represented
 resourceType property contains the name of the resource as allocated by HL7, and an additional
 property is present, <code>resourceDefinition</code>. The resourceDefinition value is a 
 canonical reference to the definition of the resource and always includes the version explicitly,
-e.g.  
+e.g.,  
 </p>
 
 <pre class="json">
@@ -115,7 +113,7 @@ a <a href="resource-formats.html#comparison">comparison between the JSON and XML
 </p>
 
 <p>
-An element that has a maximum cardinality of >1 (e.g. <code>x..*</code> in the definitions) may occur more than once in the instance.
+An element that has a maximum cardinality of >1 (e.g., <code>x..*</code> in the definitions) may occur more than once in the instance.
 In JSON, this is done by using an array type. Note that:
 </p>
 <ul>
@@ -178,7 +176,7 @@ The FHIR types <a href="datatypes.html#integer">integer</a>, <a href="datatypes.
 <a href="datatypes.html#positiveInt">positiveInt</a> and <a href="datatypes.html#decimal">decimal</a> are represented 
 as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
 as a JSON boolean, and all other types (including <a href="datatypes.html#integer64">integer64</a>) are represented as a JSON string which has the same content as that specified for the relevant datatype. Whitespace is always significant
-(i.e. no leading and trailing spaces for non-strings).</p>
+(i.e., no leading and trailing spaces for non-strings).</p>
 <pre class="json">
  "code" : "abc",
  "birthDate" : "1972-11-30",
@@ -197,10 +195,10 @@ as a JSON boolean, and all other types (including <a href="datatypes.html#intege
 [%dragons-start%]
 <p>
 When using a JavaScript JSON.parse() implementation, note that JavaScript natively supports only one numeric datatype, which is a floating point number.
-This can cause loss of precision for FHIR numbers. In particular, trailing 0s after a decimal point will be lost e.g. 2.00 will be converted to 2.
+This can cause loss of precision for FHIR numbers. In particular, trailing 0s after a decimal point will be lost e.g., 2.00 will be converted to 2.
 The FHIR decimal datatype is defined such that precision, including trailing zeros, is preserved for presentation purposes, and this
 is widely regarded as critical for correct presentation of clinical measurements. Implementations should consider using a custom parser and big number library
-(e.g. <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) to meet these requirements.
+(e.g., <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) to meet these requirements.
 See also <a href="[%extensions-location%]StructureDefinition-quantity-precision.html">the precision extension</a>.
 </p>
 [%dragons-end%]
@@ -358,57 +356,8 @@ There is <a href="json-edge-cases.json">a sample file</a> with many edge cases t
 <a name="canonical"></a>
 
 <h3>Canonical JSON</h3>
-<p>
-Resources and/or Bundles may be digitally signed (see <a href="bundle.html">Bundle</a> and <a href="provenance.html">Provenance</a>).
-</p>
-<p>
-This specification defines the following method for canonicalizing FHIR resources, when represented as
-JSON. The signed set of fragments SHALL be transformed such that:
-</p>
-<ul>
- <li>No whitespace other than single spaces in property values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
- <li>Properties are ordered alphabetically within each object</li>
- <li>Multiple fragments are concatenated with no intervening white-space in the order defined by the element with the <a href="datatypes.html#Signature">Signature</a> datatype</li>
-</ul>
-<p>
-This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json</code>. The
-following additional canonicalization URIs are also defined:
-</p>
-<table class="grid">
- <tr>
-  <td>http://hl7.org/fhir/canonicalization/json#data</td>
-  <td>The narrative (<code>Resource.text</code>) is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
- </tr>
- <tr>
-  <td>http://hl7.org/fhir/canonicalization/json#static</td>
-  <td>In addition to narrative (Resource.text), the <code>Resource.meta</code> element is removed. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed.  Note that workflow and security tags may contain information important to the handling of the resource, so meta elements should be protected from tampering by other means if unsigned.</td>
- </tr>
- <tr>
-  <td>http://hl7.org/fhir/canonicalization/json#narrative</td>
-  <td>This method only retains the <code>Resource.id</code> and <code>Narrative</code> elements</td>
- </tr>
- <tr>
-  <td>http://hl7.org/fhir/canonicalization/json#document</td>
-  <td>The signs everything in a Bundle, except for the Bundle.id and Bundle.metadata on the root Bundle (allows for a document to be copied from server to server)</td>
- </tr>
-</table>
-<p>
-These canonicalization methods allow system the flexibility to sign the various portions of
-the resource that matter for the workflow the signature serves. These canonicalization algorithms 
-do not work for enveloped signatures. This will be researched and addressed in a future release. This specification may define 
-additional canonicalizations in the future, and other specifications might also define 
-additional canonicalization methods.
-</p>
 
-[%impl-note%]
-One consequence of signing the document is that URLs, identifiers and internal references are frozen and
-cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed
-ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is
-recommended that systems consider carefully the impact of any signature processes. The impact of signatures
-on <a href="documents.html">Document bundles</a> and their related processes is the most well understood
-use of digital signatures.
-[%end-note%]
-
+<p>See <a href="signatures.html#json">Signatures</a> for details.</p>
 
 [%file newfooter%]
 </body>

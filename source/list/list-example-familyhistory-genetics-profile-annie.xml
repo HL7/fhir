@@ -129,7 +129,7 @@
       <condition>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
+            <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
             <code value="C4908"/>
             <display value="Ovarian Carcinoma"/>
           </coding>
@@ -226,7 +226,7 @@
       <condition>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
+            <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
             <code value="C4872"/>
             <display value="Breast Carcinoma"/>
           </coding>
@@ -316,7 +316,7 @@
       <condition>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
+            <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
             <code value="C2955"/>
             <display value="Colorectal Carcinoma"/>
           </coding>
@@ -388,7 +388,7 @@
       <condition>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
+            <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
             <code value="C2955"/>
             <display value="Rectal Carcinoma"/>
           </coding>
@@ -461,7 +461,7 @@
       <condition>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
+            <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
             <code value="C2924"/>
             <display value="Ductal Carcinoma In Situ of the Breast"/>
           </coding>
@@ -822,7 +822,7 @@
       <condition>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
+            <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
             <code value="C3224"/>
             <display value="Melanoma"/>
           </coding>
@@ -1024,7 +1024,7 @@
       <condition>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.3.26.1.1"/>
+            <system value="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"/>
             <code value="C4872"/>
             <display value="Breast Carcinoma"/>
           </coding>

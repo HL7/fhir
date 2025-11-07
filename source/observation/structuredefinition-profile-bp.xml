@@ -82,26 +82,17 @@
       <short value="FHIR Blood Pressure Profile"/>
       <definition value="This profile defines  how to represent Blood Pressure observations in FHIR using a standard LOINC code and UCUM units of measure.  This is a grouping structure. It has no value in Observation.valueQuantity but contains at least one component (systolic and/or diastolic)."/>
     </element>
-    <element id="Observation.category">
-      <path value="Observation.category"/>
-      <min value="2"/>
-    </element>
-    <element id="Observation.category:BPCode">
-      <path value="Observation.category"/>
-      <sliceName value="BPCode"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.code">
+      <path value="Observation.code"/>
+      <short value="Blood Pressure"/>
+      <definition value="Blood Pressure"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="85354-9"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.code">
-      <path value="Observation.code"/>
-      <short value="Blood Pressure"/>
-      <definition value="Blood Pressure."/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignBPPanel"/>
@@ -120,11 +111,7 @@
       <slicing>
         <discriminator>
           <type value="value"/>
-          <path value="extension.url"/>
-        </discriminator>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="extension.value"/>
+          <path value="code"/>
         </discriminator>
         <ordered value="false"/>
         <rules value="open"/>
@@ -144,52 +131,21 @@
         <key value="vsp-3-sbp"/>
         <severity value="error"/>
         <human value="If the systolic BP component exists and there is no component value a component data absent reason must be present."/>
-        <expression value="component.value.exists() or component.dataAbsentReason.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/bp"/>
+        <expression value="value.exists() or dataAbsentReason.exists()"/>
       </constraint>
       <mustSupport value="true"/>
     </element>
-    <element id="Observation.component:SystolicBP.extension">
-      <path value="Observation.component.extension"/>
-      <slicing>
-        <discriminator>
-          <type value="value"/>
-          <path value="url"/>
-        </discriminator>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="value"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="1"/>
-    </element>
-    <element id="Observation.component:SystolicBP.extension:SBPCode">
-      <path value="Observation.component.extension"/>
-      <sliceName value="SBPCode"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/observation-componentCategory"/>
-      </type>
-    </element>
-    <element id="Observation.component:SystolicBP.extension:SBPCode.value[x]">
-      <path value="Observation.component.extension.value[x]"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.component:SystolicBP.code">
+      <path value="Observation.component.code"/>
+      <short value="Systolic Blood Pressure"/>
+      <definition value="Systolic Blood Pressure"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="8480-6"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.component:SystolicBP.code">
-      <path value="Observation.component.code"/>
-      <short value="Systolic Blood Pressure"/>
-      <definition value="Systolic Blood Pressure."/>
-      <min value="1"/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignSystolicBP"/>
@@ -241,52 +197,21 @@
         <key value="vsp-3-dbp"/>
         <severity value="error"/>
         <human value="If the diastolic BP component exists and there is no component value a component data absent reason must be present."/>
-        <expression value="component.value.exists() or component.dataAbsentReason.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+        <expression value="value.exists() or dataAbsentReason.exists()"/>
       </constraint>
       <mustSupport value="true"/>
     </element>
-    <element id="Observation.component:DiastolicBP.extension">
-      <path value="Observation.component.extension"/>
-      <slicing>
-        <discriminator>
-          <type value="value"/>
-          <path value="url"/>
-        </discriminator>
-        <discriminator>
-          <type value="pattern"/>
-          <path value="value"/>
-        </discriminator>
-        <rules value="open"/>
-      </slicing>
-      <min value="1"/>
-    </element>
-    <element id="Observation.component:DiastolicBP.extension:DBPCode">
-      <path value="Observation.component.extension"/>
-      <sliceName value="DBPCode"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/observation-componentCategory"/>
-      </type>
-    </element>
-    <element id="Observation.component:DiastolicBP.extension:DBPCode.value[x]">
-      <path value="Observation.component.extension.value[x]"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Observation.component:DiastolicBP.code">
+      <path value="Observation.component.code"/>
+      <short value="Diastolic Blood Pressure"/>
+      <definition value="Diastolic Blood Pressure"/>
       <patternCodeableConcept>
         <coding>
           <system value="http://loinc.org"/>
           <code value="8462-4"/>
         </coding>
       </patternCodeableConcept>
-    </element>
-    <element id="Observation.component:DiastolicBP.code">
-      <path value="Observation.component.code"/>
-      <short value="Diastolic Blood Pressure"/>
-      <definition value="Diastolic Blood Pressure."/>
-      <min value="1"/>
+      <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="VitalSignDiastolicBP"/>

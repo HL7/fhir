@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Specimen xmlns="http://hl7.org/fhir">
+    <id value="liver-biopsy"/>
+    <identifier>
+        <system value="http://lab.acme.org/specimens/2024"/>
+        <value value="LB-2024-001"/>
+    </identifier>
+    <identifier>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+                <code value="ACSN"/>
+                <display value="Accession ID"/>
+            </coding>
+        </type>
+        <system value="http://pathology.acme.org/accession"/>
+        <value value="PB24-00789"/>
+    </identifier>
+    <status value="available"/>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="119376003"/>
+            <display value="Tissue specimen"/>
+        </coding>
+    </type>
+    <subject>
+        <reference value="Patient/example"/>
+        <display value="Peter Patient"/>
+    </subject>
+    <receivedTime value="2024-03-15T10:30:00Z"/>
+    <request>
+        <reference value="ServiceRequest/liver-biopsy-request"/>
+    </request>
+    <collection>
+        <collector>
+            <reference value="Practitioner/gastroenterologist"/>
+        </collector>
+        <collectedDateTime value="2024-03-15T09:45:00Z"/>
+        <quantity>
+            <value value="1.5"/>
+            <unit value="cm"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="cm"/>
+        </quantity>
+        <method>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="129314006"/>
+                <display value="Biopsy - action"/>
+            </coding>
+        </method>
+        <bodySite>
+            <concept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="10200004"/>
+                    <display value="Liver structure"/>
+                </coding>
+            </concept>
+        </bodySite>
+        <procedure>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="62438007"/>
+                <display value="Percutaneous needle biopsy of liver"/>
+            </coding>
+        </procedure>
+    </collection>
+    <processing>
+        <description value="Fixed in 10% neutral buffered formalin"/>
+        <additive>
+            <concept>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/v2-0371"/>
+                    <code value="F10"/>
+                    <display value="10% Formalin"/>
+                </coding>
+            </concept>
+        </additive>
+        <timeDateTime value="2024-03-15T10:45:00Z"/>
+    </processing>
+    <container>
+        <deviceCanonical value="http://hl7.org/fhir/Device/specimen-container-formalin"/>
+        <specimenQuantity>
+            <value value="1"/>
+            <unit value="specimen"/>
+        </specimenQuantity>
+    </container>
+    <condition>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="48883003"/>
+        </coding>
+    </condition>
+    <note>
+        <text value="Core biopsy specimen obtained for evaluation of hepatic steatosis and fibrosis. Adequate tissue for histopathological assessment."/>
+    </note>
+</Specimen>
+

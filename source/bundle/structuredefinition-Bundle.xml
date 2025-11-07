@@ -621,7 +621,7 @@
 			<path value="Bundle.entry.response.etag"/>
 			<short value="The Etag for the resource (if relevant)"/>
 			<definition value="The Etag for the resource, if the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency))."/>
-			<comment value="Etags match the Resource.meta.versionId. The ETag has to match the version id in the header if a resource is included."/>
+			<comment value="Etags match the Resource.meta.versionId. The ETag has to match the version id in the header if a resource is included - e.g. W/'1'"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -655,11 +655,15 @@
 			<isSummary value="true"/>
 		</element>
 		<element id="Bundle.signature">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+					<valueString value="Implementation and anslysis raised many issues around signature verification and workflow, and our guidance is to use Provenance with signature instead"/>
+				</extension>
+				<valueCode value="deprecated"/>
+			</extension>
 			<path value="Bundle.signature"/>
-			<short value="Digital Signature"/>
-			<definition value="Digital Signature - base64 encoded. XML-DSig or a JWS."/>
-			<comment value="The signature could be created by the &quot;author&quot; of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific."/>
-			<requirements value="A Signature holds an electronic representation of a signature and its supporting context in a FHIR accessible form. The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or it may be a graphical image that represents a signature or a signature process. This element allows capturing signatures on documents, messages, transactions or even search responses, to support content-authentication, non-repudiation or other business cases. This is primarily relevant where the bundle may travel through multiple hops or via other mechanisms where HTTPS non-repudiation is insufficient."/>
+			<short value="Digital Signature (deprecated: use Provenance Signatures)"/>
+			<definition value="Digital Signature: XML-DSig or JWS. This element is deprecated, and [Provenance based Signatures](signatures.html#Bundle) should be used instead."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

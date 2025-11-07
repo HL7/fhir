@@ -9,12 +9,28 @@
 	<contained>
 		<Specimen>
 			<id value="stool"/>
-			<accessionIdentifier>
-				<!-- accession identifier - e.g. assigned by the labaratory when it is received.
-     This is common, unlike specimen identifier -->
+			<identifier>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						<code value="ACSN"/>
+						<display value="Accession ID"/>
+					</coding>
+				</type>
 				<system value="http://lab.acme.org/specimens/2015"/>
 				<value value="X352356"/>
-			</accessionIdentifier>
+			</identifier>
+			<identifier>
+				<type>
+					<coding>
+						<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+						<code value="ACSN"/>
+						<display value="Accession ID"/>
+					</coding>
+				</type>
+				<system value="http://lab.acme.org/specimens/2015"/>
+				<value value="X352356"/>
+			</identifier>
 			<status value="unavailable"/>
 			<type>
 				<!--
@@ -56,10 +72,28 @@
 			</collection>
 		</Specimen>
 	</contained>
-	<accessionIdentifier>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="ACSN"/>
+				<display value="Accession ID"/>
+			</coding>
+		</type>
 		<system value="http://lab.acme.org/specimens/2011"/>
 		<value value="X352356-ISO1"/>
-	</accessionIdentifier>
+	</identifier>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="ACSN"/>
+				<display value="Accession ID"/>
+			</coding>
+		</type>
+		<system value="http://lab.acme.org/specimens/2011"/>
+		<value value="X352356-ISO1"/>
+	</identifier>
 	<status value="available"/>
 	<type>
 		<coding>

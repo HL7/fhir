@@ -4,7 +4,7 @@
   <id value="filter-operator"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <text>
     <status value="extensions"/>
@@ -490,20 +490,22 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     <definition value="The specified property of the code equals the provided value."/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="The definition of is-a is that all the properties of the value are true for the specified property of the code, which means that a code has an is-a relationship with itself. To exclude the root code, use descendent-of"/>
-    </extension>
     <code value="is-a"/>
     <display value="Is A (by subsumption)"/>
     <definition value="Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (include descendant codes and self)."/>
+    <property>
+      <code value="comments"/>
+      <valueString value="The definition of is-a is that all the properties of the value are true for the specified property of the code, which means that a code has an is-a relationship with itself. To exclude the root code, use descendent-of"/>
+    </property>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="The definition of is-a is that all the properties of the value are true for the specified property of the code. &#xA;&#xA;Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelling &quot;descendent&quot; is maintained in the code for backwards compatibility reasons"/>
-    </extension>
     <code value="descendent-of"/>
     <display value="Descendent Of (by subsumption)"/>
     <definition value="Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include descendant codes only)."/>
+    <property>
+      <code value="comments"/>
+      <valueString value="The definition of is-a is that all the properties of the value are true for the specified property of the code. &#xA;&#xA;Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelling &quot;descendent&quot; is maintained in the code for backwards compatibility reasons"/>
+    </property>
   </concept>
   <concept>
     <code value="is-not-a"/>
@@ -526,12 +528,13 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     <definition value="The specified property of the code is not in the set of codes or concepts specified in the provided value (comma-separated list)."/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="The definition of is-a is that all the properties of the value are true for the specified property of the code, which means that a code has an is-a relationship with itself. To exclude the root code, add it explicitly to as an exclude"/>
-    </extension>
     <code value="generalizes"/>
     <display value="Generalizes (by Subsumption)"/>
     <definition value="Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e. include ancestor codes and self)."/>
+    <property>
+      <code value="comments"/>
+      <valueString value="The definition of is-a is that all the properties of the value are true for the specified property of the code, which means that a code has an is-a relationship with itself. To exclude the root code, add it explicitly to as an exclude"/>
+    </property>
   </concept>
   <concept>
     <code value="child-of"/>

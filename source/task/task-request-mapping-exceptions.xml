@@ -71,6 +71,19 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.statusReason" resourcePath="Task.statusReason">
+        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference" reason="Unknown"/>
+        <summary _pattern="false" _resource="true" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the task. Note that any change to the state requires the removal of any existing statusReasons, and, if appropriate, populating new statusReasons."/>
+            <resource value="An explanation as to why this task is held, failed, was refused, etc."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;suspended&quot; or &quot;cancelled&quot;.  The reason why the task was created at all is captured in reasonCode, not here. ."/>
+            <resource value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.intent" resourcePath="Task.intent">
         <modifier _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
@@ -97,19 +110,23 @@
             <resource value="Indicates how quickly the Task should be addressed with respect to other requests."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.code" resourcePath="Task.doNotPerform">
-        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="boolean" reason="Unknown"/>
-        <modifier _pattern="false" _resource="true" reason="Unknown"/>
-        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
+    <divergentElement patternPath="Request.doNotPerform" resourcePath="Task.doNotPerform">
         <shortUnmatched reason="Unknown">
-            <_pattern value="Service requested/ordered"/>
+            <_pattern value="true if request is prohibiting action"/>
             <resource value="True if Task is prohibiting action"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <_pattern value="If true indicates that the task is asking for the specified action to *not* occur."/>
             <resource value="If true indicates that the Task is asking for the specified action to *not* occur."/>
         </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="The attributes provided with the request qualify what is not to be done.  For example, if an effectiveTime is provided, the &quot;do not&quot; request only applies within the specified time.  If a performerType is specified then the &quot;do not&quot; request only applies to performers of that type.  Qualifiers include: code, subject, occurrence, performerType and performer.&#10;&#10;In some cases, the Request.code may pre-coordinate prohibition into the requested action.  E.g. &quot;NPO&quot; (nothing by mouth), &quot;DNR&quot; (do not recussitate).  If this happens, doNotPerform SHALL NOT be set to true.  I.e. The resource shall not have double negation. (E.g. &quot;Do not DNR&quot;)."/>
+            <resource value="The attributes provided with the Task qualify what is not to be done. For example, if a requestedPeriod is provided, the 'do not' request only applies within the specified time. If a requestedPerformer is specified then the 'do not' request only applies to performers of that type. Qualifiers include: code, subject, occurrence, requestedPerformer and performer.&#10;&#10;In some cases, the Request.code may pre-coordinate prohibition into the requested action. E.g. 'NPO' (nothing by mouth), 'DNR' (do not resuscitate). If this happens, doNotPerform SHALL NOT be set to true. I.e. The resource SHALL NOT have double negation. (E.g. 'Do not DNR').&#10;&#10;When Task.focus refers to a Request Resource, it is that Request's doNotPerform Flag that indicates that the action should not be performed. A Task can be used to request that authorized action is not performed by having task.focus point to that request resource and use Task.code as the do not perform indicator.&#10;&#10;Note that the use of doNotPerform and negation in Task.code can cause ambiguity and the impact of this should be considered not only for task but also for all related resources."/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Supports things like Do Not Recussitate, Nothing by mouth, etc."/>
+            <resource value=""/>
+        </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.code" resourcePath="Task.code">
         <bindingStrength _pattern="example" _resource="extensible" reason="Unknown"/>
@@ -122,9 +139,22 @@
             <resource value="A name or code (or both) briefly describing what the task involves."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.product" resourcePath="Task.focus">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product requested/ordered"/>
+            <resource value="What task is acting on"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the product whose supply or manipulation is authorized by this task."/>
+            <resource value="The request being fulfilled or the resource being manipulated (changed, suspended, etc.) by this task."/>
+        </definitionUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="Task.for">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, Group)" reason="Unknown"/>
         <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual the service is ordered/prohibited for"/>
@@ -180,6 +210,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="Task.requester">
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
             <resource value="Who is asking for task to be done"/>
@@ -192,7 +223,7 @@
     <divergentElement patternPath="Request.performerType" resourcePath="Task.requestedPerformer">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson)" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(Practitioner,PractitionerRole,Organization,CareTeam,HealthcareService,Patient,Device,RelatedPerson,Group)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Desired kind of service performer"/>
@@ -204,11 +235,12 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="If specified without indicating a performer, this indicates that the performer must be (or can't be) of the specified type.  If specified with a performer then it indicates the requirements of the performer if the designated performer is not available.  If doNotPerform is true, then only one of performerType and performer should be present."/>
-            <resource value=""/>
+            <resource value="Group is only allowed in the circumstance where the group represents a family or a household, and should not represent groups of Practitioners where other more specific resources can be used instead."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.performer" resourcePath="Task.owner">
-        <missingTypes _pattern="Reference(HealthcareService,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(HealthcareService, Device)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Specific desired (non)performer"/>
             <resource value="Responsible individual"/>
@@ -239,6 +271,24 @@
             <resource value="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant to the Task."/>
         </definitionUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.supportingInfo" resourcePath="Task.input.value[x]">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Any)" reason="Unknown"/>
+        <extraTypes _resource="date, Meta, Address, Attachment, integer, Count, DataRequirement, Dosage, uuid, Identifier, Coding, SampledData, id, positiveInt, Distance, integer64, Period, Duration, canonical, Range, RelatedArtifact, base64Binary, UsageContext, Timing, decimal, CodeableConcept, ParameterDefinition, dateTime, code, string, oid, instant, ContactPoint, HumanName, Money, markdown, Ratio, Age, Reference(Resource), TriggerDefinition, Quantity, uri, url, Annotation, ContactDetail, boolean, Expression, Signature, unsignedInt, time" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Extra information to use in performing request"/>
+            <resource value="Content to use in performing the task"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Information that may be needed by/relevant to the performer in their execution of this task."/>
+            <resource value="The value of the input parameter as a basic type."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.note" resourcePath="Task.note">
         <shortUnmatched reason="Unknown">
             <_pattern value="Comments made about task"/>
@@ -254,6 +304,8 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.relevantHistory" resourcePath="Task.relevantHistory">
+        <missingTypes _pattern="Reference(ProvenanceRelevantHistory)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Provenance)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Key events in history of task"/>
             <resource value="Key events in history of the Task"/>
@@ -268,10 +320,6 @@
         </commentsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
-    <unmappedElement patternPath="Request.supportingInfo" reason="Unknown"/>
     <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
-    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
-    <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
-    <unmappedElement patternPath="Request.product" reason="Unknown"/>
 </mappingExceptions>

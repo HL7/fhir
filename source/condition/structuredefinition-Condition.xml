@@ -95,12 +95,6 @@
         <expression value="abatement.exists() implies (clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and (code='inactive' or code='resolved' or code='remission')).exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </constraint>
-      <constraint>
-        <key value="con-2"/>
-        <severity value="warning"/>
-        <human value="If category is problems list item, the clinicalStatus should not be unknown"/>
-        <expression value="category.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-category' and code='problem-list-item').exists() implies clinicalStatus.coding.where(system='http://terminology.hl7.org/CodeSystem/condition-clinical' and code='unknown').exists().not()"/>
-      </constraint>
 	  <constraint>
         <key value="con-4"/>
         <severity value="error"/>
@@ -160,7 +154,6 @@
         <code value="CodeableConcept"/>
       </type>
       <condition value="con-3"/>
-      <condition value="con-2"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because the status contains codes that mark the condition as no longer active."/>
       <isSummary value="true"/>
@@ -235,6 +228,9 @@
       </mapping>
     </element>
     <element id="Condition.category">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#48358"/>
+      </extension>
       <path value="Condition.category"/>
       <short value="problem-list-item | encounter-diagnosis"/>
       <definition value="A category assigned to the condition."/>
@@ -244,12 +240,11 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="con-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConditionCategory"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="A category assigned to the condition."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-category"/>
       </binding>
@@ -426,7 +421,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -503,12 +498,13 @@
     </element>
     <element id="Condition.abatement[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#23020."/>
+        <valueString value="GF#23020, J#50437"/>
       </extension>
       <path value="Condition.abatement[x]"/>
       <short value="When in resolution/remission"/>
       <definition value="The date or estimated date that the condition resolved or went into remission. This is called &quot;abatement&quot; because of the many overloaded connotations associated with &quot;remission&quot; or &quot;resolution&quot; - Some conditions, such as chronic conditions, are never really resolved, but they can abate."/>
-      <comment value="There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.&#xA;Because a Condition.code can represent multiple levels of granularity and can be modified over time, the onset and abatement dates can have ambiguity whether those dates apply to the current Condition.code or an earlier representation of that Condition.code.   For example, if the Condition.code was initially documented as severe asthma, then it is ambiguous whether the onset and abatement dates apply to asthma (overall in that subject's lifetime) or when asthma transitioned to become severe."/>
+      <comment value="There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.&#xA;Because a Condition.code can represent multiple levels of granularity and can be modified over time, the onset and abatement dates can have ambiguity whether those dates apply to the current Condition.code or an earlier representation of that Condition.code.   For example, if the Condition.code was initially documented as severe asthma, then it is ambiguous whether the onset and abatement dates apply to asthma (overall in that subject's lifetime) or when asthma transitioned to become severe. Period is generally used to convey an imprecise abatement that occurred within the time period. Range is generally used to convey an imprecise age range (e.g. 4 to 6 years old)."/>
+	  
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -565,7 +561,7 @@
     </element>
 	<element id="Condition.recorder">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14007, J#34394, J#39602"/>
+        <valueString value="GF#14007, J#34394, J#39602, J#41403"/>
       </extension>
       <path value="Condition.recorder"/>
       <short value="Who recorded the condition"/>
@@ -579,6 +575,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -592,7 +589,7 @@
     </element>
     <element id="Condition.asserter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11089, GF#22270, J#39602"/>
+        <valueString value="GF#11089, GF#22270, J#39602, J#41403"/>
       </extension>
       <path value="Condition.asserter"/>
       <short value="Person or device that asserts this condition"/>
@@ -606,6 +603,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -696,9 +694,6 @@
     </element>	
 -->
     <element id="Condition.stage">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,0"/>
       </extension>
@@ -800,9 +795,6 @@
       </mapping>
     </element>
     <element id="Condition.evidence">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J#32481, J#42981"/>
       </extension>

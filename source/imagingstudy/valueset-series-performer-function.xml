@@ -3,10 +3,16 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="series-performer-function"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="ii"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="6"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/series-performer-function"/>
   <identifier>
@@ -49,6 +55,12 @@
       <concept>
         <code value="REF"/>
         <display value="referrer"/>
+      </concept>
+      <concept>
+        <code value="DEV"/>
+      </concept>
+      <concept>
+        <code value="LOC"/>
       </concept>
     </include>
   </compose>

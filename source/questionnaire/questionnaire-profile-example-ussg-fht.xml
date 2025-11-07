@@ -53,7 +53,7 @@ Note: The URLs used for LOINC objects have not been approved by the LOINC organi
 							<include>
 								<system value="http://unitsofmeasure.org"/>
 								<concept>
-									<code value="[lb_i]"/>
+									<code value="[lb_av]"/>
 									<display value="pounds"/>
 								</concept>
 								<concept>

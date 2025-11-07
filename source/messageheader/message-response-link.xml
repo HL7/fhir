@@ -34,7 +34,7 @@
           </identifier> 
           <code value="ok"/>
           <details>
-            <reference value="OperationOutcome/03f9aa7d-b395-47b9-84e0-053678b6e4e3"/>
+            <reference value="urn:uuid:03f9aa7d-b395-47b9-84e0-053678b6e4e3"/>
           </details>
         </response>
 

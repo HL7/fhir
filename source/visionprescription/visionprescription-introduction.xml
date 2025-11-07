@@ -33,8 +33,8 @@ Additional information regarding resources conveying electronic claims content a
 
 		<table border="1" cellpadding="1" cellspacing="2" frame="box">
 			<tr>
-				<td>VisionPrescription</td>
-				<td>The VisionPrescription resource is used to provide the authorized specification of lenses for glasses and contacts.</td>
+				<td>VisionPrescription (this resource)</td>
+				<td>This resource is used to prescribe, authorize, and request provision of lenses for glasses or contacts.</td>
 			</tr>
 			<tr>
 				<td><a href="devicerequest.html">DeviceRequest</a></td>
@@ -50,7 +50,12 @@ Additional information regarding resources conveying electronic claims content a
 				<td><a href="servicerequest.html">ServiceRequest</a></td>
 				<td>This resource is used to prescribe, authorize, and request provision of health care services such as consultative or rehabilitative services.
 				</td>
-			</tr>			
+			</tr>	
+			<tr>
+				<td><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a></td>
+				<td>This resource is used for inventory management of a supply item (which may include a medication, substance or device).
+				</td>
+			</tr>		
 		</table>
 
 	</div>

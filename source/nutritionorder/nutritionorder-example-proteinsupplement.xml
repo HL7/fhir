@@ -32,39 +32,32 @@ edited by Eric Haas Health eData Inc
 	<additive>
 		<modularType>
 			<concept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="443581000124102"/>
-				<display value="Modular protein formula component (product)"/>
-			</coding>
-			<coding>
-				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
-				<code value="1000"/>
-				<display value="High Protein Powder"/>
-			</coding>
-			<text value="High Protein Powder"/>
-		</concept>
+  			<coding>
+  				<system value="http://snomed.info/sct"/>
+  				<code value="443581000124102"/>
+  				<display value="Modular protein formula component (product)"/>
+  			</coding>
+  			<coding>
+  				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
+  				<code value="1000"/>
+  				<display value="High Protein Powder"/>
+  			</coding>
+  			<text value="High Protein Powder"/>
+  		</concept>
 		</modularType>
 		<productName value="Beneprotein"/>
-		<schedule>
-			<timing>
-				<repeat>
-					<boundsPeriod>
-						<start value="2015-02-10T15:00:00Z"/>
-					</boundsPeriod>
-					<frequency value="3"/>
-					<period value="24"/>
-					<periodUnit value="h"/>
-				</repeat>
-			</timing>
-		</schedule>
 		<quantity>
 			<value value="1"/>
 			<unit value="scoop"/>
 			<system value="http://unitsofmeasure.org"/>
 			<code value="{scoop}"/>
 		</quantity>
-		<!-- EH:  use the .instructions element to list diet  supplement order-->
-		<note value="Beneprotein 1 scoop TID with meal.starting on  2015-02-10"/>
+    <routeOfAdministration>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration"/>
+        <code value="PO"/>
+        <display value="Swallow, oral"/>
+      </coding>
+    </routeOfAdministration>
 	</additive>
 </NutritionOrder>

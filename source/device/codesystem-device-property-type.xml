@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="device-property-type"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/device-property-type"/>
+  <version value="6.0.0"/>
+  <name value="DevicePropertyType"/>
+  <title value="Device Property Type (Example only)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 Orders and Observations Workgroup"/>
+  <description value="The fixed characteristics or conditions of the device. These codes are for example purposes only."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="material"/>
+    <display value="Material"/>
+    <definition value="Describes the substance used in the construction of the device."/>
+  </concept>
+  <concept>
+    <code value="size"/>
+    <display value="Size"/>
+    <definition value="Describes the specific dimensions or the measurement of a device."/>
+  </concept>
+  <concept>
+    <code value="storage"/>
+    <display value="Storage Condition"/>
+    <definition value="Describes the specific environmental factors needed for the device."/>
+  </concept>
+  <concept>
+    <code value="color"/>
+    <display value="Color"/>
+    <definition value="Describes the range of colors that may be displayed or expressed on a device."/>
+  </concept>
+</CodeSystem>

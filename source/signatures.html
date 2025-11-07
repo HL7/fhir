@@ -19,65 +19,659 @@ Outstanding issues:
 
 
 <h1>Digital Signatures</h1>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 1</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
-
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
-<em>Use case:</em> "Digital Signature is needed to prove authenticity, integrity, and non-repudiation."
-</p><p>
-<em>Approach:</em> FHIR Resources are often parts of Medical Record or are communicated as part of formal Medical Documentation. 
-As such there is a need to cryptographically bind a signature so that the receiving or consuming actor can verify authenticity, integrity, and non-repudiation.
-This functionality is provided through the signature element in <a href="provenance.html">Provenance</a> Resource. 
-Where the signature can be any local policy agreed to signature including Digital Signature methods and Electronic Signature.
-</p><p>
-Digital Signatures bind cryptographically the exact contents, so that any changes will make the Digital Signature invalid. 
-When a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
-the server is expected to update relevant elements that it manages (id, lastupdated, etc.). 
-These changes, although expected of normal RESTful create/update operations, will break any Digital Signature that has been calculated prior. 
-One solution is to create the Digital Signature after the REST create operation completes, one must first confirm that the resulting 
-created/updated Resource is as expected, then the Digital Signature is formed.
-Another solution is to use a canonicalization that excuses these dynamic elements.
-</p><p>
-A variation of this happens in Messaging, Documents, and other interaction models. 
-For details, see 
-<a href="updates.html">Ramifications of storage/retrieval variations</a>
+Digital Signatures are needed to prove the authenticity and integrity of health records generally, and specifically
+for FHIR content and to establish the grounds for non-repudiation.
+</p>
+<p>
+FHIR Resources are often parts of Medical Record or are communicated as part of formal Medical Documentation. 
+As such there is sometimes a need to cryptographically bind a signature so that the receiving or consuming actor
+can verify authenticity, integrity, and rely on non-repudiation of the content.
+This functionality is provided through the <a href="datatypes.html#Signature">Signature</a> type found in the
+signature element in the <a href="provenance.html">Provenance</a> Resource.
+The signature can either be an electronic signature (e.g., an image of an ink signature), or a digital signature (cryptographic
+proof that the content has not changed), and in the case of a digital signature, either a JWS signature or an XML Digital Signature.
+</p>
+<p>
+In general, signatures are not used when exchanging information directly between systems,
+as the transport arrangements between systems are expected to provide the necessary assurances of authenticity 
+and integrity. The need for signatures arises when the content is being used across multiple systems, 
+or when the content is stored for later retrieval and users need to verify that has not been changed. 
+In addition, there may be regulatory requirements that require the use of signatures, including 
+signatures that are applied subsequently to the content being created.
+</p>
+<p>
+Due the wide set of choices around the use of electronic and digital signatures, 
+local policy and applicable implementation guides are required to define how signatures
+should be created when authoring FHIR content, and what actions should be taken to 
+establish full verification when checking signatures. This specification 
+defines a common set of actions that will cryptographically verify all conformant signatures, but 
+this is not enough by itself to establish trustworthiness.
+</p>
+<p>
+The goal of the FHIR specification with regard to signatures is two-fold:
+</p>
+<ol>
+ <li>Provide implementations with the capabilities needed to enable the set of local policies that are needed</li>
+ <li>Make the actual signature verification process fully interoperable</li>
+</ol>
+<p>
+If implementers follow all the conformance points below (both the "SHALL" and the "SHOULD" points), then any FHIR consumer will be able to verify 
+any digital signature.
 </p>
 
+<a name="cautions"></a>
+<h2>Cautions around the use of digital signatures</h2>
 
 <p>
-This specification recommends the use of <a href="datatypes.html#XML">W3C Digital Signatures</a> 
-or <a href="datatypes.html#JSON">JSON Digital Signatures</a> for digital signatures. 
-Resources can be signed using the <a href="provenance.html">Provenance</a> resource to carry a 
-signature. 
-The <a href="datatypes.html#signature">Signature datatype</a> is available to support various signature types including non-repudiation purposes. 
+The use of digital signatures with FHIR content comes with multiple challenges that 
+implementers using digital signatures have to manage:
 </p>
 <ul>
- <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation.</li>
- <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
- <li>The JSON Digital-Signature SHOULD conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-LT</a> for support of Long Term signatures.</li>
- <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
+  <li>Ongoing change to the content</li>
+  <li>Uncertainty about what is signed</li>
+  <li>Extent of signature verification</li>
+  <li>Challenges identifying who signed the content</li>
+</ul>
+
+
+<a name="change"></a>
+<h3>Ongoing change to the content</h3>
+<p>
+Once a resource or set of resources is signed, any change to the URLs, identifiers and the expression 
+of internal references will invalidate the signature, along with other changes to the data and/or narrative. 
+From the point of view of the signature, then, these things are frozen. However interoperability between system often requires systems to adjust 
+URLs between relative and absolute, and to re-identify resources or references to resources, and/or 
+to adjust other content, including coded values, in order to <a href="managing.html">Manage system integration</a>. 
+</p>
+<p>
+For example, when a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
+the server is expected, at a minimum, to update relevant elements that it manages (id, lastUpdated, etc.). 
+These changes, although expected of normal RESTful create/update operations, will break any existing Digital Signature
+that covers these elements. 
+Variations of this same pattern happens in Messaging, Documents, and other interaction models. 
+For details, see <a href="updates.html">Ramifications of storage/retrieval variations</a>. This 
+specification defines a number of canonicalization methods that allow systems to choose what parts 
+of the Resource they want to sign, but systems will have to make difficult trade-offs between
+security and practicality in this regard.
+</p>
+<p>
+For this reason, it is recommended that systems consider carefully the impact of any signature processes,
+particularly associated with RESTful APIs. One solution is to create the Digital Signature after the REST
+create operation completes, which requires systems must first confirm that the resulting 
+created/updated Resource is as expected, and then sign with the Digital Signature.
+Another solution is to use a canonicalization that excuses these dynamic elements, but this 
+opens to problems around changing referenced resources that imply a very different meaning to the 
+resource.
+</p>
+<p>
+The impact of signatures on <a href="documents.html">Document bundles</a> 
+and their related processes is the most well understood use of digital signatures, as the attestation of a 
+documents is inherently associated with the frozen bundle.
+</p>
+
+<a name="uncertainty"></a>
+
+<h3>Uncertainty about what is signed</h3>
+<p>
+Signing content and the consequential non-repudiation is often associated with human user actions, 
+and human-level accountability. However, human users do not sign the resources themselves, they 
+sign some representation of the resource, and the difference between these two forms is a 
+challenge for implementers. When the goal of the digital signature includes human-level non-repudiation, 
+implementers should pay careful attention to the resource narrative as the signed form in such cases.
+</p>
+<p>
+One potential approach systems might take is to include plain text or image representations of the 
+signature content beside the digital signature, so that humans can be clear about what was signed 
+from a human user perspective.
+</p>
+
+<a name="extent"></a>
+
+<h3>Extent of signature verification</h3>
+
+<p>
+There are multiple aspects to signature verification:
+</p>
+<ol>
+   <li>Verifying the Digital Signature block itself by verifying the signature cryptographically</li>
+   <li>For XML digital signatures, confirming that the signed content of interest is unmodified using the hash algorithm (for JWS signatures, this is inherently required as part of the previous step)</li>
+   <li>Confirming that the signer (e.g., the certificate) was authentic, not revoked, and appropriate to the signature purpose.</li>
+   <li>Confirming the relationship between the signed content, the signer, and any consequences of the signature for the application.</li>
+</ol>
+<p>
+Local policy and implementation guides are required to guide implementations here. While full conformance to 
+this specification will enable the first and second aspects of signature verification, it does not (and 
+cannot) speak to the third and fourth points; local guidance is required here. The signer stated in the 
+signature can only be trusted if the certificate itself is verified against a trusted certificate authority.
+</p>
+
+<a name="signer"></a>
+
+<h3>Understanding who signed the content</h3>
+
+<p>
+At the certificate level, there is no ambiguity about the identity of the signer, as the certificate
+itself identifies the signer and this can be cryptographically verified, as explained above. But even 
+then, there are still challenges here. The certificate will typically contain an LDAP based identification
+of the person/software/organization that requested the certificate (e.g., 
+<code>OU=IG Publisher,L=Ann Arbor,CN=hl7.org,O=HL7,ST=Michigan,C=us</code>). However:
+</p>
+<ul> 
+  <li>This is not necessarily the same as the person who signed the content.</li>
+  <li>The user won't easily be able to resolve the LDAP identification to a known entity within their context of use.</li>
+  <li>An application verifying the signature and presenting it to the user won't typically be able to relate the identity in the certificate to a FHIR reference / etc.</li>
+  <li>Statements about the signer in the Provenance resource in <code>.agent</code> 
+    are easier to relate to the context, but can only be trusted to the extent that they can be validated by comparison to the signature contents.</li>
 </ul>
 <p>
-<a href="documents.html#signatures">Documents may be signed</a> using an 
-enveloped or enveloping 
-signature. A specification for enveloped and enveloping signatures on documents are profiled in 
-the <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-37.html">IHE Document Digital Signature (DSG) Profile</a>.
+There are some mitigations possible here. Certificate authorities can issue certificates that include additional identifiers 
+that match to system level identifiers or URLs that allow precise identification of the signer, though this requires administrative practices 
+that are not normal for most certificate authorities. Alternatively, identifiers in the certificate - either the LDAP name, additional 
+identifiers or the certificate ID itself can be registered as identifiers (usually) in Practitioner or Organization resources (or others),
+but this also requires administrative overhead.
+</p>
+
+<a name="canonicalization"></a>
+<h2>Canonicalization</h2>
+<p>
+A consistent representation of resources in their wire formats (JSON and XML) is required to 
+make signatures interoperable; this is called 'Canonicalizing' resources. Because of the complexities around the interplay between 
+data exchange and human-level signatures, FHIR defines a number of ways of canonicalizing resources
+that are suitable for different purposes. 
 </p>
 <p>
-SMART Health Cards defines a <a href="https://spec.smarthealth.cards/#health-cards-are-encoded-as-compact-serialization-json-web-signatures-jws">signature protocol for FHIR Bundles</a> based on the W3C Verifiable Credentials Data Model, and it has been internationally adopted for secure, granulart verification of health information such as COVID-19 immunizations and test results.
+The canonicalization methods SHOULD be represented in the <code>Signature.targetFormat</code> element, as shown 
+here:
 </p>
-[%stu-note dstu%]
-We would welcome reports of implementation experience. 
-See <a href="https://confluence.hl7.org/display/FHIR/Digital+Signatures">discussion on use of Digital Signature in FHIR</a>
+<pre class="json">
+{
+  "resourceType": "Signature",
+  "targetFormat": "application/fhir+json;canonicalization=http://hl7.org/fhir/canonicalization/json"
+}
+</pre>
+
+<a name="json"></a>
+<h3>JSON</h3>
+<p>
+This specification defines the following method for canonicalizing FHIR resources, when represented as JSON. 
 </p>
 <p>
-Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
-[%end-note%]
+When JSON resources are canonicalized, they SHALL be canonicalized in accordance with the 
+<a href="https://www.rfc-editor.org/rfc/rfc8785">JSON Canonicalization Scheme defined in RFC 8785</a>. 
+</p>
+<p>
+This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json</code>. 
+</p>
+<p>
+When a provenance has multiple targets resources that are signed, the resources are placed in a JSON Array
+preserving the <code>Provenance.target</code> order which itself is canonicalized according to the rules of RFC 8785.
+</p>
+
+<a name="json-xml"></a>
+<h3>JSON-XML (XML Safe JSON Canonicalization)</h3>
+<p>
+The simple JSON Canonicalization defined above has a potentially serious limitation: it does not
+allow for the reconstruction of a standard payload for signature verification if (and only if) the 
+resource is represented as XML at some point in the life cycle between signing and verification.
+This happens because in the XML format, XHTML elements (Resource and Section Narratives) 
+are part of the XML DOM, and whitespace and namespaces may be reorganised without changing the canonical XHTML.
+</p>
+<p>
+However most implementers never use the XML format, and the JSON Canonicalization is sufficient when it is not.
+If XML is in scope (and implementers should note that this is a requirement that might arise retrospectively), 
+then this alternative canonicalization <code>JSON-XML</code> method should be used. The rules for 
+this canonicalization are the same as for the JSON canonicalization, except that:
+</p>
+<ul>
+  <li>Prior to serialization, the content of any xhtml in the narrative SHALL be canonicalized according to the
+XML canonicalization rules defined for XML below.</li>
+</ul>
+<p>
+This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json-xml</code>. 
+</p>
+
+<a name="xml"></a>
+<h3>XML</h3>
+
+<p>
+This specification defines the following method for canonicalizing FHIR resources, when represented as 
+XML. Resources are canonicalized using XML canonical method <a href="http://www.w3.org/TR/xmldsig-core1/#sec-Canonical">Canonical XML 1.1</a> (<code>http://www.w3.org/2006/12/xml-c14n11</code>).
+In addition, the following rules apply:
+</p>
+<ul>
+  <li>The XHTML <a href="narrative.html">Narrative</a> SHALL be canonicalized following these same rules</li>
+  <li>Whitespace in other primitive values SHALL not be altered (including multiple spaces in markdown)</li>
+  <li>Resources are to contain no whitespace other than as found in attribute values and in the XHTML in the narrative, and single spaces between attributes in XML elements </li>
+  <li>Use default namespaces for the FHIR and XHTML namespaces</li>
+  <li>Omit all comments</li>
+  <li>Include the XML processing instruction <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></li>
+  <li>When sets of resources are signed, each seperate resource is an additional <code>Reference</code> entry in the <code>SignedInfo</code> </li>
+</ul>
+<p>
+This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/xml</code>.
+</p>
+<p>
+When a provenance has multiple targets resources that are signed, the multiple canonicalized XMLs are contained in the digital signature as separate signed content in the order 
+in which the targets are defined.
+</p>
 
 
+<a name="variants"></a>
+<h3>Canonicalization Variants</h3>
+<p>
+The following additional canonicalization URIs are also defined for all three forms defined above:
+</p>
+<table class="grid">
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/{fmt}#data</td>
+  <td><code>Resource.text</code> is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/{fmt}#static</td>
+  <td><code>Resource.text</code> and <code>Resource.meta</code> are omitted prior to signing. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed.  Note that workflow and security tags may contain information important to the handling of the resource, so meta elements should be protected from tampering by other means if the resource is signed with this canonicalization.</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/{fmt}#narrative</td>
+  <td>Only <code>Resource.id</code> and Narrative (<code>Resource.text</code> are signed</td>
+ </tr>
+ <tr>
+  <td>http://hl7.org/fhir/canonicalization/{fmt}#document</td>
+  <td>The Document <code>Bundle.id</code> and <code>Bundle.metadata</code> on the root Bundle are omitted prioer to signing. This allows for a document to be copied from server to server</td>
+ </tr>
+</table>
+<p>
+These canonicalization methods allow systems the flexibility to sign the various portions of 
+the resource that matter for the workflow the signature serves, per the discussion above. 
+This specification may define additional canonicalizations in the future, and other specifications
+might also define  additional canonicalization methods.
+</p>
 
+
+<a name="methods"></a>
+<h3>Digital Signature Methods</h3>
+
+<p>
+This specification makes rules about the use of JWS - JSON Web Signatures, and XML Digital Signatures.
+Other signature methods can be used, but this specification says nothing about their use.
+Note that SMART Health Cards defines a <a href="https://hl7.org/fhir/uv/smart-health-cards-and-links">signature
+protocol for FHIR Bundles</a> based on the W3C Verifiable Credentials Data Model, and it has been
+internationally adopted for secure, granular verification of health information such as COVID-19 immunizations and test results.
+</p>
+
+<p>
+Implementers should note that the choice of JSON vs XML digital signature is partially independent of 
+the format of the resource that contains the signature, and also independent of the 
+<code>Signature.targetFormat</code>. However mixing formats creates challenges, and implementers SHOULD 
+generally use JSON signatures with the JSON canonicalization in JSON resources, and XML signatures with the XML canonicalization in XML resources.
+</p>
+
+<a name="JWS"></a>
+<h3>JWS/JSON Signatures</h3>
+
+<p>
+When the signature is a JWS Digital Signature, the following rules apply:
+</p>
+<ul>
+ <li>The Signature.data is base64 encoded JWS-Signature as specified in <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
+ <li>The value of Signature.sigFormat is <code>application/jose</code> and this SHOULD be populated</li>
+ <li>The <code>Signature.targetFormat</code> SHOULD be populated, and the value SHOULD contain a canonicalization URL from those defined above. The custom protected header property <code>canon</code> MAY be also be used to identify the canonicalization method</li>
+ <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature
+    (where the content that is signed is separate from the signature itself), and the payload SHALL be omitted</li>
+ <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> 
+    of the resource(s) as indicated in the <code>targetFormat</code> element as described above.</li>
+
+ <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> 
+    or <code>Reference.identifier</code> that matches an identifier found in the X509 certificate. e.g., the Subject Name (<code>SN</code>),
+    or one of the Subject Alternative Names (<code>SAN</code>)</li> 
+ <li>The JWS protected header SHALL contain either a <code>kid</code> or an <code>x5c</code> property</li>
+ <li>The Signature SHALL include a "srCms signer commitments" property for the Purpose(s) of Signature. 
+    The Purpose can be the action being attested to, or the role associated with the signature. The <code>Signature.type</code> shall come from ASTM E1762-95(2013). 
+    The Signature.type SHALL contain the same values as the srCms element.</li>
+ <li>The JWS protected header SHOULD have a <code>sigT</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL agree</li>
+ <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
+ <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
+</ul>
+
+<a name="DigSig"></a>
+<h3>XML Digital Signatures</h3>
+
+<p>
+When the signature is an XML Digital Signature, the following rules apply:
+</p>
+<ul>
+  <li>The Signature.data is base64 encoded XML Digital Signature as specified in <a href="https://www.w3.org/TR/xmldsig-core/">XML Signature Syntax and Processing Version 1.1</a></li>
+  <li>The value of Signature.sigFormat is <code>application/pkcs7-signature</code> and this SHOULD be populated</li>
+  <li>The <code>Signature.targetFormat</code> SHOULD be populated, and the value SHOULD contain a canonicalization URL from those defined above</li>
+  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
+  <li>When FHIR Resources are signed, the signature is across either the <a href="xml.html#canonical">Canonical XML form</a> or <a href="json.html#canonical">Canonical JSON form</a> 
+    of the resource(s) as indicated in the <code>targetFormat</code> element.</li>
+  <li>The Signature SHOULD include a "xades CommitmentTypeId" element for the Purpose(s) of Signature. 
+    The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). 
+    The Signature.type SHALL contain the same values as the srCms element.</li>
+  <li>The Signature SHOULD conform to <a href="https://www.w3.org/TR/XAdES/">XAdES-X-L</a> for support of <a href="https://www.w3.org/TR/XAdES/#Syntax_forXAdES-X-L_form">Long Term signatures</a>. The XAdES-X-L specification adds the timestamp of the signing, 
+       inclusion of the signing certificate, and statement of revocation.</li>
+  <li>Specifically, SignedSignatureProperties SHOULD have a <code>SigningTime</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL be equal</li>
+  <li>If a SignedSignatureProperties block is present, it SHOULD not have any whitespace between the elements</li>
+  <li>The Signature SHALL contain a <code>X509Certificate</code></li>
+  <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> or <code>Reference.identifier</code>
+    that matches an identifier found in the X509 certificate (e.g., the <code>Subject</code>, or one of the Subject Alternative Names</li> 
+  <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
+</ul>
+
+
+<a name="Provenance"></a>
+<h3>Digital Signatures in Provenance Resources</h3>
+<p>
+When a provenance resource is used to carry a signature, the following rules apply:
+</p>
+<ol>
+ <li>The Signature elements <code>type</code>, <code>when</code>, <code>who</code>, and <code>onBehalfOf</code>
+   duplicate the Provenance elements <code>agent.type</code>, <code>occurredDateTime</code>, <code>agent.who</code>, and <code>agent.onBehalfOf</code>
+  and SHOULD not be used</li>
+ <li>If they are present, they SHALL agree with the values in the Provenance resource</li> 
+ <li>
+  Since all digital signatures in the same provenance share the same signer, time, purpose etc, the primary use if 
+  multiple signatures is to include different media representations of the signature such as text and images as 
+  described above and if these are present, they should be signed by the digital signature(s).
+ </li>
+</ol>
+
+
+<a name="Bundles"></a>
+<h3>Signing Bundles</h3>
+<p>
+The most common use of signatures in FHIR is to sign a Document Bundle, and embed the signature inside the Bundle.
+In this approach, Documents are signed by Provenance resources contained within the document Bundle. Note that it 
+is not necessary to sign Bundles with embedded signatures like this - systems and/or ecosystems may choose to 
+use enveloping signatures (<a href="https://w3c.github.io/wot-ejs/">JSON</a>, <a href="https://www.w3.org/Signature/Drafts/WD-xmldsig-core-200005plc/Overview.html#sec-o-SignatureProperty">XML</a>), where the the signed data is included within the signature itself, 
+or make the Provenance resources avilable separately. However, if the signature is being embedded in the 
+Bundle, then the following rules SHALL be observed:
+</p>
+<ol>
+ <li>Signatures SHALL be in a Provenance resource (there may be more than one such signature)</li>
+ <li>The Provenance resources with these signatures SHALL be in entries in the Bundle</li>
+ <li>The <code>Provenance.target</code> with a <code>reference</code> value of exactly <code>Bundle/[id]</code> 
+   where id is the id of the Bundle, such that the target identifies that the Bundle itself is being signed. Note that if 
+   the Provenance does not have a target of `Bundle/[id]` it does not represent an embedded signature, does not sign the Bundle, 
+   and is not subject to the rules documented here</li>
+ <li>The Provenance resource SHALL have a <code>Provenance.signature</code> element that contains the signature of the Bundle,
+   with all entries that contain embedded signing provenance resources removed (that is, all entries that have a resource where the Provenance.targets includes
+   a reference to <code>Bundle/{id}</code></li>   
+ <li>The Provenance resource is allowed to indicate that it signs additional resources, including the special target value <code>#</code>
+  which indicates that it signs itself in addition to the Bundle (but not including any Provenance.signature containing a digital signature). 
+ </li>
+ <li>Alternatively, the target might include the <code>fullUrl</code> of another entry in the Bundle, indicating that
+  this additional resource is also signed. Since the only entries that are not signed are other signatures, this is used 
+  to sign additional signatures. In such cases, the Provenance.signature is also signed. If the target is not in the Bundle,
+  this specification does not define how such references are resolved.
+ </li>
+</ol>
+
+<p>
+Bundle resources include the <code>Bundle.signature</code>, element, but a number of issues with its use have been
+identified, and the element is deprecated. Applications SHOULD use the method described above to sign Bundles (which may be 
+pre-adopted when working with earlier versions of the FHIR specification).
+</p>
+
+<a name="examples"></a>
+<h2>Worked Examples</h2>
+
+<p>Note: the example below is based on Bundle.signature, and needs to be reworked. Here's a reformatted 
+  example of a bundle that is invalid (for now)</p>
+
+<pre class="json">
+{
+  "resourceType" : "Bundle",
+  "id" : "signed",
+  "identifier" : {
+    "system" : "http://something1",
+    "value" : "something2"
+  },
+  "type" : "collection",
+  "timestamp" : "2024-06-09T11:06:35+10:00",
+  "link" : [{
+    "relation" : "self",
+    "url" : "http://something3"
+  }],
+  "entry" : [{
+    "fullUrl" : "http://something5",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "obs1",
+      "text" : {
+        "status" : "generated",
+        "div" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;a name=\"Observation_obs1\"> &lt;/a>This is a simple &lt;b>example&lt;/b>&lt;/div>"
+      },
+      "status" : "final",
+      "code" : {
+        "text" : "something"
+      },
+      "valueQuantity" : {
+        "value" : 1
+      }
+    }
+  },{
+    "fullUrl" : "urn:uuid:b5dd98c2-002c-4da0-9cbf-bcb612e1d29c",
+    "resource" : {
+      "resourceType" : "Provenance",
+      "id" : "prov1",
+      "target" : [{
+        "reference" : "Bundle/signed"
+      }],
+      "occurredDateTime" : "2025-07-01T08:48:05Z",
+      "agent" : [{
+        "type" : {
+          "coding" :[{
+            "system" : "urn:iso-astm:E1762-95:2013",
+            "code" : "1.2.840.10065.1.12.1.1"
+          }]
+        },
+        "who" : {
+          "identifier" : {
+            "system" : "http://example.org/certificates",
+            "value" : "OU=IG Publisher,L=Ann Arbor,CN=hl7.org,O=HL7,ST=Missouri,C=us"
+          }
+        }
+      }],
+      "signature" : [{
+        "targetFormat" : "application/fhir+json;canonicalization=http://hl7.org/fhir/canonicalization/json",
+        "sigFormat" : "application/jose",
+        "data" : "ZXlKMGVYQWlPaUpLVDFORklpd2ljM0pEYlhNaU9sdDdJbU52YlcxSlpDSTZleUpwWkNJNkluVnlianB2YVdRNk1TNHlMamcwTUM0eE1EQTJOUzR4TGpFeUxqRXVNU0lzSW1SbGMyTWlPaUpCZFhSb2IzSW5jeUJUYVdkdVlYUjFjbVVpZlgxZExDSmhiR2NpT2lKU1V6STFOaUlzSW5OcFoxUWlPaUl5TURJMUxUQTNMVEF4VkRBNE9qUTRPakExV2lJc0ltTmhibTl1SWpvaWFIUjBjRG92TDJoc055NXZjbWN2Wm1ocGNpOWpZVzV2Ym1sallXeHBlbUYwYVc5dUwycHpiMjRpTENKNE5XTWlPbHNpVFVsSlJHOTZRME5CYjNGblFYZEpRa0ZuU1VKQlJFRk9RbWRyY1docmFVYzVkekJDUVZFd1JrRkVRbkpOVVhOM1ExRlpSRlpSVVVkRmQwb3hZM3BGVWsxQk9FZEJNVlZGUTBGM1NWUlhiSHBqTWpreFkyMXJlRVJFUVV0Q1owNVdRa0Z2VFVFd2FFMU9la1ZSVFVFMFIwRXhWVVZCZDNkSVlVZDNNMHh0T1hsYWVrVlRUVUpCUjBFeFZVVkNkM2RLVVZjMWRVbEZSbmxaYlRsNVRWSlZkMFYzV1VSV1VWRk1SRUY0U2xKNVFsRmtWMHB6WVZoT2IxcFlTWGRJYUdOT1RXcFZkMDVxUlRWTlJFbDZUVVJOZWxkb1kwNU5hbGwzVG1wSmQwMUVTWHBOUkUxNlYycENjazFSYzNkRFVWbEVWbEZSUjBWM1NqRmpla1ZTVFVFNFIwRXhWVVZEUVhkSlZGZHNlbU15T1RGamJXdDRSRVJCUzBKblRsWkNRVzlOUVRCb1RVNTZSVkZOUVRSSFFURlZSVUYzZDBoaFIzY3pURzA1ZVZwNlJWTk5Ra0ZIUVRGVlJVSjNkMHBSVnpWMVNVVkdlVmx0T1hsTlVsVjNSWGRaUkZaUlVVeEVRWGhLVW5sQ1VXUlhTbk5oV0U1dldsaEpkMmRuUldwTlFUQkhRMU54UjFOSllqTkVVVVZDUVZGVlFVRTBTVUpGUVVGM1oyZEZURUZ2U1VKQlowTTVWWE00ZGpCVmVVOTVLMWhYVEZKbVpqSTVSMGhSWVRsaGVIRjBSR0Z2TjJGNmMxZHVSakl2UVVKa1p6Rm5ObVJQUmk4d1dtdHlhRXhrY1VwSlUybzRUV3hUVURWV1RHOTFOamRwV2tsSU1GSjRVazFtVTBFd1pTOW1hVGxFUlRoUlUzcHdTVTlzZFdWbFNESk5PRkV5Vm1WelMzQXphRWxyY0N0NFEyRkhVR0pqTkV3d2ExcFdhMFUyUlZjclZGVlNOMUZVY3pGT2EyRjRkSGRaZGxjNE4yZExlbTQyUWt3d1dYZ3ZOVzExTVZWR1YyTktMMWgwVEVocmFXRm5kRWxpVTJsRldGTmtjMnA0ZG1sUFlrcE5NbE5oVmpOMFlVTmhZWGxIUzFaR2NGVTJjbEJNUkM5V1VtRnlkRFphVURGRFNsRXllbXhKYzJ0RlJVOXVibFZMUlZWMWQyTkdjRXczZERWR1dHbElWazlZTUdoYU5XWnpkVWRaZERoRmRVeDNZVGRuYVVWUmRtWXZVR0ZSWWxSeVZGWk5UMlJMU0M5RlIxWktTVGd4VFdaT1ozcEZZbkpCTDBOMlkwY3ZiR2RITTBSTkswcDNTVVJCVVVGQ2J6RkJkMVJxUVdSQ1owNVdTRkUwUlVablVWVnhRa3R2TW1sUk1GSTFjalZIYVU1c2FESnpUa042UlhFNVVVbDNTSGRaUkZaU01HcENRbWQzUm05QlZYRkNTMjh5YVZFd1VqVnlOVWRwVG14b01uTk9RM3BGY1RsUlNYZEVRVmxFVmxJd1ZFSkJWWGRCZDBWQ0wzcEJUa0puYTNGb2EybEhPWGN3UWtGUk1FWkJRVTlEUVZGSlFXazRSbFp6Y1ZwS05FOW1hV2xuYW1kd05DdERaVWhFZURaTVNsSjFjVFpaYjJsT1pYSjRTalJzSzBWVU5FSmlOMm80UlM5RVJHVkZabVZpUlZGMmQxQnlhR3hQZVVaUFpubHZjM3BoUW01R09FVndMMGhyTjA5cU5tTndUR2h2UVVocVpWWXpSMVY1S3pONFp6Tk9Rak5FZFVVM1NtaHVlRGs1YTNkbVVrdzVkRTlZU2pVclRHd3hRVWxvZVZRd1NrbEVPRW8yTHprNVVUVldiWGRUUTFWbFVtWnVhRzV1YVdkYWJIZFRORlpvUVc5aGJtaHljWHAzV0had1QyTnZLMGg1YUV3d2VUTnRiV0pDU0M5bFMxVXJTRFZRSzB3eVNVWnBVMFpNTmxoQlREUlFUVE53V1VrdmVtb3JUbmxvUVZoYVdscDNiR3hTYW05SlMyWnNSMDlQT0VoVll6VnBTbWxVU0doWmJ6QnBTMU14YkZCNFEwaHZTM2xCSzJGV1JXRldSUzluYjNGQ2QyOWxNMVk1YlhoSVFYbzBWWEU0WlM5aFVUQlBabU5wUm0xcU5UVnpObTE0TldWVlpIazFiRkZ4Wm05bGEwVTlJbDE5Li5vUDFVd2xHQll2TllLREFpc2h6YThQbThjbDltMXkwbWkxVGMtZTdER2dUMEVGMG1xSV8tN3o3aFNQR1NPWEJISmRqcE00MHVZMHE1UlJ4MXFUdi1jbVhGQW52NHd4TXFHYzZ3U3VkbTZmMXRkTGdMbGZwUTlaOTh0cEZnSDBQejU2aWpmLUxqb0I1dVBtbV9Sb1Nyd2V3RlFuN0xocFk5Wm9wQWVUVVNTY1R5OUFGOW1Cdnd1MXZUbWFMeE9TSkR6b0djbmxmV3RKZ09fN29yMmVfS2ZKZDUzdGRYZkFOaVpmQURZcFEzaHhmLTJTWF9HYzVaZ3J4WGl0V2tGUDVSaFRYb3lycUMzSFlKNko2M1BnSzhEVmxMcWNFLXgzUXBZMDB3UXB2MUEtSGdjUGhKY3Rhc3k3QmJwbkszeldfdUxNRFZGYjl0OHVJV095a210UlJwZUtJ"
+      }]
+    }
+  }]
+}
+</pre>
+
+
+<a name="example-jws"></a>
+<h3>JWS example</h3>
+
+<p>
+Here's an example of a signed Bundle.
+</p>
+
+<pre class="json">
+{
+  "resourceType" : "Bundle",
+  "id" : "signed",
+  "identifier" : {
+    "system" : "http://something1",
+    "value" : "something2"
+  },
+  "type" : "collection",
+  "timestamp" : "2024-06-09T11:06:35+10:00",
+  "link" : [{
+    "relation" : "self",
+    "url" : "http://something3"
+  }],
+  "entry" : [{
+    "fullUrl" : "http://something5",
+    "resource" : {
+      "resourceType" : "Observation",
+      "id" : "obs1",
+      "text" : {
+        "status" : "generated",
+        "div" : "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;a name=\"Observation_obs1\"> &lt;/a>This is a simple &lt;b>example&lt;/b>&lt;/div>"
+      },
+      "status" : "final",
+      "code" : {
+        "text" : "something"
+      },
+      "valueQuantity" : {
+        "value" : 1
+      }
+    }
+  }],
+  "signature" : {
+    "type" : [{
+      "system" : "urn:iso-astm:E1762-95:2013",
+      "code" : "1.2.840.10065.1.12.1.1"
+    }],
+    "when" : "2025-07-01T08:48:05Z",
+    "who" : {
+      "identifier" : {
+        "system" : "http://example.org/certificates",
+        "value" : "OU=IG Publisher,L=Ann Arbor,CN=hl7.org,O=HL7,ST=Missouri,C=us"
+      }
+    },
+    "targetFormat" : "application/fhir+json;canonicalization=http://hl7.org/fhir/canonicalization/json",
+    "sigFormat" : "application/jose",
+    "data" : "ZXlKMGVYQWlPaUpLVDFORklpd2ljM0pEYlhNaU9sdDdJbU52YlcxSlpDSTZleUpwWkNJNkluVnlianB2YVdRNk1TNHlMamcwTUM0eE1EQTJOUzR4TGpFeUxqRXVNU0lzSW1SbGMyTWlPaUpCZFhSb2IzSW5jeUJUYVdkdVlYUjFjbVVpZlgxZExDSmhiR2NpT2lKU1V6STFOaUlzSW5OcFoxUWlPaUl5TURJMUxUQTNMVEF4VkRBNE9qUTRPakExV2lJc0ltTmhibTl1SWpvaWFIUjBjRG92TDJoc055NXZjbWN2Wm1ocGNpOWpZVzV2Ym1sallXeHBlbUYwYVc5dUwycHpiMjRpTENKNE5XTWlPbHNpVFVsSlJHOTZRME5CYjNGblFYZEpRa0ZuU1VKQlJFRk9RbWRyY1docmFVYzVkekJDUVZFd1JrRkVRbkpOVVhOM1ExRlpSRlpSVVVkRmQwb3hZM3BGVWsxQk9FZEJNVlZGUTBGM1NWUlhiSHBqTWpreFkyMXJlRVJFUVV0Q1owNVdRa0Z2VFVFd2FFMU9la1ZSVFVFMFIwRXhWVVZCZDNkSVlVZDNNMHh0T1hsYWVrVlRUVUpCUjBFeFZVVkNkM2RLVVZjMWRVbEZSbmxaYlRsNVRWSlZkMFYzV1VSV1VWRk1SRUY0U2xKNVFsRmtWMHB6WVZoT2IxcFlTWGRJYUdOT1RXcFZkMDVxUlRWTlJFbDZUVVJOZWxkb1kwNU5hbGwzVG1wSmQwMUVTWHBOUkUxNlYycENjazFSYzNkRFVWbEVWbEZSUjBWM1NqRmpla1ZTVFVFNFIwRXhWVVZEUVhkSlZGZHNlbU15T1RGamJXdDRSRVJCUzBKblRsWkNRVzlOUVRCb1RVNTZSVkZOUVRSSFFURlZSVUYzZDBoaFIzY3pURzA1ZVZwNlJWTk5Ra0ZIUVRGVlJVSjNkMHBSVnpWMVNVVkdlVmx0T1hsTlVsVjNSWGRaUkZaUlVVeEVRWGhLVW5sQ1VXUlhTbk5oV0U1dldsaEpkMmRuUldwTlFUQkhRMU54UjFOSllqTkVVVVZDUVZGVlFVRTBTVUpGUVVGM1oyZEZURUZ2U1VKQlowTTVWWE00ZGpCVmVVOTVLMWhYVEZKbVpqSTVSMGhSWVRsaGVIRjBSR0Z2TjJGNmMxZHVSakl2UVVKa1p6Rm5ObVJQUmk4d1dtdHlhRXhrY1VwSlUybzRUV3hUVURWV1RHOTFOamRwV2tsSU1GSjRVazFtVTBFd1pTOW1hVGxFUlRoUlUzcHdTVTlzZFdWbFNESk5PRkV5Vm1WelMzQXphRWxyY0N0NFEyRkhVR0pqTkV3d2ExcFdhMFUyUlZjclZGVlNOMUZVY3pGT2EyRjRkSGRaZGxjNE4yZExlbTQyUWt3d1dYZ3ZOVzExTVZWR1YyTktMMWgwVEVocmFXRm5kRWxpVTJsRldGTmtjMnA0ZG1sUFlrcE5NbE5oVmpOMFlVTmhZWGxIUzFaR2NGVTJjbEJNUkM5V1VtRnlkRFphVURGRFNsRXllbXhKYzJ0RlJVOXVibFZMUlZWMWQyTkdjRXczZERWR1dHbElWazlZTUdoYU5XWnpkVWRaZERoRmRVeDNZVGRuYVVWUmRtWXZVR0ZSWWxSeVZGWk5UMlJMU0M5RlIxWktTVGd4VFdaT1ozcEZZbkpCTDBOMlkwY3ZiR2RITTBSTkswcDNTVVJCVVVGQ2J6RkJkMVJxUVdSQ1owNVdTRkUwUlVablVWVnhRa3R2TW1sUk1GSTFjalZIYVU1c2FESnpUa042UlhFNVVVbDNTSGRaUkZaU01HcENRbWQzUm05QlZYRkNTMjh5YVZFd1VqVnlOVWRwVG14b01uTk9RM3BGY1RsUlNYZEVRVmxFVmxJd1ZFSkJWWGRCZDBWQ0wzcEJUa0puYTNGb2EybEhPWGN3UWtGUk1FWkJRVTlEUVZGSlFXazRSbFp6Y1ZwS05FOW1hV2xuYW1kd05DdERaVWhFZURaTVNsSjFjVFpaYjJsT1pYSjRTalJzSzBWVU5FSmlOMm80UlM5RVJHVkZabVZpUlZGMmQxQnlhR3hQZVVaUFpubHZjM3BoUW01R09FVndMMGhyTjA5cU5tTndUR2h2UVVocVpWWXpSMVY1S3pONFp6Tk9Rak5FZFVVM1NtaHVlRGs1YTNkbVVrdzVkRTlZU2pVclRHd3hRVWxvZVZRd1NrbEVPRW8yTHprNVVUVldiWGRUUTFWbFVtWnVhRzV1YVdkYWJIZFRORlpvUVc5aGJtaHljWHAzV0had1QyTnZLMGg1YUV3d2VUTnRiV0pDU0M5bFMxVXJTRFZRSzB3eVNVWnBVMFpNTmxoQlREUlFUVE53V1VrdmVtb3JUbmxvUVZoYVdscDNiR3hTYW05SlMyWnNSMDlQT0VoVll6VnBTbWxVU0doWmJ6QnBTMU14YkZCNFEwaHZTM2xCSzJGV1JXRldSUzluYjNGQ2QyOWxNMVk1YlhoSVFYbzBWWEU0WlM5aFVUQlBabU5wUm0xcU5UVnpObTE0TldWVlpIazFiRkZ4Wm05bGEwVTlJbDE5Li5vUDFVd2xHQll2TllLREFpc2h6YThQbThjbDltMXkwbWkxVGMtZTdER2dUMEVGMG1xSV8tN3o3aFNQR1NPWEJISmRqcE00MHVZMHE1UlJ4MXFUdi1jbVhGQW52NHd4TXFHYzZ3U3VkbTZmMXRkTGdMbGZwUTlaOTh0cEZnSDBQejU2aWpmLUxqb0I1dVBtbV9Sb1Nyd2V3RlFuN0xocFk5Wm9wQWVUVVNTY1R5OUFGOW1Cdnd1MXZUbWFMeE9TSkR6b0djbmxmV3RKZ09fN29yMmVfS2ZKZDUzdGRYZkFOaVpmQURZcFEzaHhmLTJTWF9HYzVaZ3J4WGl0V2tGUDVSaFRYb3lycUMzSFlKNko2M1BnSzhEVmxMcWNFLXgzUXBZMDB3UXB2MUEtSGdjUGhKY3Rhc3k3QmJwbkszeldfdUxNRFZGYjl0OHVJV095a210UlJwZUtJ"
+  }
+}
+</pre>
+
+<p>
+The raw data for the signature is (after decoding the base64):
+</p>
+<pre>
+eyJ0eXAiOiJKT1NFIiwic3JDbXMiOlt7ImNvbW1JZCI6eyJpZCI6InVybjpvaWQ6MS4yLjg0MC4xMDA2NS4xLjEyLjEuMSIsImRlc2MiOiJBdXRob3IncyBTaWduYXR1cmUifX1dLCJhbGciOiJSUzI1NiIsInNpZ1QiOiIyMDI1LTA3LTAxVDA4OjQ4OjA1WiIsImNhbm9uIjoiaHR0cDovL2hsNy5vcmcvZmhpci9jYW5vbmljYWxpemF0aW9uL2pzb24iLCJ4NWMiOlsiTUlJRG96Q0NBb3FnQXdJQkFnSUJBREFOQmdrcWhraUc5dzBCQVEwRkFEQnJNUXN3Q1FZRFZRUUdFd0oxY3pFUk1BOEdBMVVFQ0F3SVRXbHpjMjkxY21reEREQUtCZ05WQkFvTUEwaE1OekVRTUE0R0ExVUVBd3dIYUd3M0xtOXlaekVTTUJBR0ExVUVCd3dKUVc1dUlFRnlZbTl5TVJVd0V3WURWUVFMREF4SlJ5QlFkV0pzYVhOb1pYSXdIaGNOTWpVd05qRTVNREl6TURNeldoY05Nall3TmpJd01ESXpNRE16V2pCck1Rc3dDUVlEVlFRR0V3SjFjekVSTUE4R0ExVUVDQXdJVFdsemMyOTFjbWt4RERBS0JnTlZCQW9NQTBoTU56RVFNQTRHQTFVRUF3d0hhR3czTG05eVp6RVNNQkFHQTFVRUJ3d0pRVzV1SUVGeVltOXlNUlV3RXdZRFZRUUxEQXhKUnlCUWRXSnNhWE5vWlhJd2dnRWpNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJFQUF3Z2dFTEFvSUJBZ0M5VXM4djBVeU95K1hXTFJmZjI5R0hRYTlheHF0RGFvN2F6c1duRjIvQUJkZzFnNmRPRi8wWmtyaExkcUpJU2o4TWxTUDVWTG91NjdpWklIMFJ4Uk1mU0EwZS9maTlERThRU3pwSU9sdWVlSDJNOFEyVmVzS3AzaElrcCt4Q2FHUGJjNEwwa1pWa0U2RVcrVFVSN1FUczFOa2F4dHdZdlc4N2dLem42QkwwWXgvNW11MVVGV2NKL1h0TEhraWFndEliU2lFWFNkc2p4dmlPYkpNMlNhVjN0YUNhYXlHS1ZGcFU2clBMRC9WUmFydDZaUDFDSlEyemxJc2tFRU9ublVLRVV1d2NGcEw3dDVGWGlIVk9YMGhaNWZzdUdZdDhFdUx3YTdnaUVRdmYvUGFRYlRyVFZNT2RLSC9FR1ZKSTgxTWZOZ3pFYnJBL0N2Y0cvbGdHM0RNK0p3SURBUUFCbzFBd1RqQWRCZ05WSFE0RUZnUVVxQktvMmlRMFI1cjVHaU5saDJzTkN6RXE5UUl3SHdZRFZSMGpCQmd3Rm9BVXFCS28yaVEwUjVyNUdpTmxoMnNOQ3pFcTlRSXdEQVlEVlIwVEJBVXdBd0VCL3pBTkJna3Foa2lHOXcwQkFRMEZBQU9DQVFJQWk4RlZzcVpKNE9maWlnamdwNCtDZUhEeDZMSlJ1cTZZb2lOZXJ4SjRsK0VUNEJiN2o4RS9ERGVFZmViRVF2d1ByaGxPeUZPZnlvc3phQm5GOEVwL0hrN09qNmNwTGhvQUhqZVYzR1V5KzN4ZzNOQjNEdUU3SmhueDk5a3dmUkw5dE9YSjUrTGwxQUloeVQwSklEOEo2Lzk5UTVWbXdTQ1VlUmZuaG5uaWdabHdTNFZoQW9hbmhycXp3WHZwT2NvK0h5aEwweTNtbWJCSC9lS1UrSDVQK0wySUZpU0ZMNlhBTDRQTTNwWUkvemorTnloQVhaWlp3bGxSam9JS2ZsR09POEhVYzVpSmlUSGhZbzBpS1MxbFB4Q0hvS3lBK2FWRWFWRS9nb3FCd29lM1Y5bXhIQXo0VXE4ZS9hUTBPZmNpRm1qNTVzNm14NWVVZHk1bFFxZm9la0U9Il19..oP1UwlGBYvNYKDAishza8Pm8cl9m1y0mi1Tc-e7DGgT0EF0mqI_-7z7hSPGSOXBHJdjpM40uY0q5RRx1qTv-cmXFAnv4wxMqGc6wSudm6f1tdLgLlfpQ9Z98tpFgH0Pz56ijf-LjoB5uPmm_RoSrwewFQn7LhpY9ZopAeTUSScTy9AF9mBvwu1vTmaLxOSJDzoGcnlfWtJgO_7or2e_KfJd53tdXfANiZfADYpQ3hxf-2SX_Gc5ZgrxXitWkFP5RhTXoyrqC3HYJ6J63PgK8DVlLqcE-x3QpY00wQpv1A-HgcPhJctasy7BbpnK3zW_uLMDVFb9t8uIWOykmtRRpeKI
+</pre>
+<p>
+This JWS signature has 3 parts: header, payload, and signature. 
+</p>
+<p><b>Header</b></p>
+<p>
+The header is json:
+</p>
+<pre class="json">
+{
+  "typ": "JOSE",
+  "srCms": [
+    {
+      "commId": {
+        "id": "urn:oid:1.2.840.10065.1.12.1.1",
+        "desc": "Author's Signature"
+      }
+    }
+  ],
+  "alg": "RS256",
+  "sigT": "2025-07-01T08:48:05Z",
+  "canon": "http://hl7.org/fhir/canonicalization/json",
+  "x5c": [
+    "MIIDozCCAoqgAwIBAgIBADANBgkqhkiG9w0BAQ0FADBrMQswCQYDVQQGEwJ1czERMA8GA1UECAwITWlzc291cmkxDDAKBgNVBAoMA0hMNzEQMA4GA1UEAwwHaGw3Lm9yZzESMBAGA1UEBwwJQW5uIEFyYm9yMRUwEwYDVQQLDAxJRyBQdWJsaXNoZXIwHhcNMjUwNjE5MDIzMDMzWhcNMjYwNjIwMDIzMDMzWjBrMQswCQYDVQQGEwJ1czERMA8GA1UECAwITWlzc291cmkxDDAKBgNVBAoMA0hMNzEQMA4GA1UEAwwHaGw3Lm9yZzESMBAGA1UEBwwJQW5uIEFyYm9yMRUwEwYDVQQLDAxJRyBQdWJsaXNoZXIwggEjMA0GCSqGSIb3DQEBAQUAA4IBEAAwggELAoIBAgC9Us8v0UyOy+XWLRff29GHQa9axqtDao7azsWnF2/ABdg1g6dOF/0ZkrhLdqJISj8MlSP5VLou67iZIH0RxRMfSA0e/fi9DE8QSzpIOlueeH2M8Q2VesKp3hIkp+xCaGPbc4L0kZVkE6EW+TUR7QTs1NkaxtwYvW87gKzn6BL0Yx/5mu1UFWcJ/XtLHkiagtIbSiEXSdsjxviObJM2SaV3taCaayGKVFpU6rPLD/VRart6ZP1CJQ2zlIskEEOnnUKEUuwcFpL7t5FXiHVOX0hZ5fsuGYt8EuLwa7giEQvf/PaQbTrTVMOdKH/EGVJI81MfNgzEbrA/CvcG/lgG3DM+JwIDAQABo1AwTjAdBgNVHQ4EFgQUqBKo2iQ0R5r5GiNlh2sNCzEq9QIwHwYDVR0jBBgwFoAUqBKo2iQ0R5r5GiNlh2sNCzEq9QIwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQ0FAAOCAQIAi8FVsqZJ4Ofiigjgp4+CeHDx6LJRuq6YoiNerxJ4l+ET4Bb7j8E/DDeEfebEQvwPrhlOyFOfyoszaBnF8Ep/Hk7Oj6cpLhoAHjeV3GUy+3xg3NB3DuE7Jhnx99kwfRL9tOXJ5+Ll1AIhyT0JID8J6/99Q5VmwSCUeRfnhnnigZlwS4VhAoanhrqzwXvpOco+HyhL0y3mmbBH/eKU+H5P+L2IFiSFL6XAL4PM3pYI/zj+NyhAXZZZwllRjoIKflGOO8HUc5iJiTHhYo0iKS1lPxCHoKyA+aVEaVE/goqBwoe3V9mxHAz4Uq8e/aQ0OfciFmj55s6mx5eUdy5lQqfoekE="
+  ]
+}
+</pre>
+<p>
+Comments on the contents of the header:
+</p>
+<ul>
+  <li>the <code>srCms</code> is as defined by JAdES-B-T. It SHOULD be present, and if present, and Signature.type is present, they SHALL agree, as this example does</li>
+  <li>the <code>sigT</code> is as defined by JAdES-B-T. It SHOULD be present, and if present, and Signature.when is present, they SHALL agree, as this example does</li>
+  <li>The <code>canon</code> is optional, but if it it is present, and Signature.targetFormat is present and specifies a canonicalization, they SHALL agree, as this example does. Note that the signature should explicitly state the canonicalization 
+       since this is the most troublesome part of the signature verification</li>
+  <li>This signature includes the public key directly (as this does). Alternatively, it might specify a <code>kid</code> that identifies the key, which must be retrieved from some key management arrangement</li>
+  <li>Irrespective of how the public key is found, the signature is only trustable if the certificate itself is verified, and doing that is outside the scope of the FHIR specification</li>
+</ul>
+<p><b>Payload</b></p>
+<p>
+The payload is not provided, since this is a detached signature. In order to verify the signature, the verifying application must rebuild the payload as the signing application did, using the same canonicalization, and with Bundle.signature removed. 
+In this case, that is:
+</p>
+<pre>
+{"entry":[{"fullUrl":"http://something5","resource":{"code":{"text":"something"},"id":"obs1","resourceType":"Observation","status":"final","text":{"div":"&lt;div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;a name=\"Observation_obs1\"> &lt;/a>This is a simple &lt;b>example&lt;/b>&lt;/div>","status":"generated"},"valueQuantity":{"value":1}}}],"id":"signed","identifier":{"system":"http://something1","value":"something2"},"link":[{"relation":"self","url":"http://something3"}],"resourceType":"Bundle","timestamp":"2024-06-09T11:06:35+10:00","type":"collection"}
+</pre>
+<p>
+Using Base64URL encoding, This encodes to 
+</p>
+<pre>
+eyJlbnRyeSI6W3siZnVsbFVybCI6Imh0dHA6Ly9zb21ldGhpbmc1IiwicmVzb3VyY2UiOnsiY29kZSI6eyJ0ZXh0Ijoic29tZXRoaW5nIn0sImlkIjoib2JzMSIsInJlc291cmNlVHlwZSI6Ik9ic2VydmF0aW9uIiwic3RhdHVzIjoiZmluYWwiLCJ0ZXh0Ijp7ImRpdiI6IjxkaXYgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sXCI-PGEgbmFtZT1cIk9ic2VydmF0aW9uX29iczFcIj4gPC9hPlRoaXMgaXMgYSBzaW1wbGUgPGI-ZXhhbXBsZTwvYj48L2Rpdj4iLCJzdGF0dXMiOiJnZW5lcmF0ZWQifSwidmFsdWVRdWFudGl0eSI6eyJ2YWx1ZSI6MX19fV0sImlkIjoic2lnbmVkIiwiaWRlbnRpZmllciI6eyJzeXN0ZW0iOiJodHRwOi8vc29tZXRoaW5nMSIsInZhbHVlIjoic29tZXRoaW5nMiJ9LCJsaW5rIjpbeyJyZWxhdGlvbiI6InNlbGYiLCJ1cmwiOiJodHRwOi8vc29tZXRoaW5nMyJ9XSwicmVzb3VyY2VUeXBlIjoiQnVuZGxlIiwidGltZXN0YW1wIjoiMjAyNC0wNi0wOVQxMTowNjozNSsxMDowMCIsInR5cGUiOiJjb2xsZWN0aW9uIn0
+</pre>
+<p>
+Note that the payload SHALL be empty in the resource, but if the Java validator finds a payload, it will inspect the payload to determine whether there is a content or a canonicalization problem, and this can be useful when debugging signatures.
+</p>
+
+<p><b>Signature</b></p>
+<p>
+The key that signed this is a developmental key with a published private key:
+</p>
+<pre>
+
+-----BEGIN CERTIFICATE-----
+MIIDozCCAoqgAwIBAgIBADANBgkqhkiG9w0BAQ0FADBrMQswCQYDVQQGEwJ1czER
+MA8GA1UECAwITWlzc291cmkxDDAKBgNVBAoMA0hMNzEQMA4GA1UEAwwHaGw3Lm9y
+ZzESMBAGA1UEBwwJQW5uIEFyYm9yMRUwEwYDVQQLDAxJRyBQdWJsaXNoZXIwHhcN
+MjUwNjE5MDIzMDMzWhcNMjYwNjIwMDIzMDMzWjBrMQswCQYDVQQGEwJ1czERMA8G
+A1UECAwITWlzc291cmkxDDAKBgNVBAoMA0hMNzEQMA4GA1UEAwwHaGw3Lm9yZzES
+MBAGA1UEBwwJQW5uIEFyYm9yMRUwEwYDVQQLDAxJRyBQdWJsaXNoZXIwggEjMA0G
+CSqGSIb3DQEBAQUAA4IBEAAwggELAoIBAgC9Us8v0UyOy+XWLRff29GHQa9axqtD
+ao7azsWnF2/ABdg1g6dOF/0ZkrhLdqJISj8MlSP5VLou67iZIH0RxRMfSA0e/fi9
+DE8QSzpIOlueeH2M8Q2VesKp3hIkp+xCaGPbc4L0kZVkE6EW+TUR7QTs1NkaxtwY
+vW87gKzn6BL0Yx/5mu1UFWcJ/XtLHkiagtIbSiEXSdsjxviObJM2SaV3taCaayGK
+VFpU6rPLD/VRart6ZP1CJQ2zlIskEEOnnUKEUuwcFpL7t5FXiHVOX0hZ5fsuGYt8
+EuLwa7giEQvf/PaQbTrTVMOdKH/EGVJI81MfNgzEbrA/CvcG/lgG3DM+JwIDAQAB
+o1AwTjAdBgNVHQ4EFgQUqBKo2iQ0R5r5GiNlh2sNCzEq9QIwHwYDVR0jBBgwFoAU
+qBKo2iQ0R5r5GiNlh2sNCzEq9QIwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQ0F
+AAOCAQIAi8FVsqZJ4Ofiigjgp4+CeHDx6LJRuq6YoiNerxJ4l+ET4Bb7j8E/DDeE
+febEQvwPrhlOyFOfyoszaBnF8Ep/Hk7Oj6cpLhoAHjeV3GUy+3xg3NB3DuE7Jhnx
+99kwfRL9tOXJ5+Ll1AIhyT0JID8J6/99Q5VmwSCUeRfnhnnigZlwS4VhAoanhrqz
+wXvpOco+HyhL0y3mmbBH/eKU+H5P+L2IFiSFL6XAL4PM3pYI/zj+NyhAXZZZwllR
+joIKflGOO8HUc5iJiTHhYo0iKS1lPxCHoKyA+aVEaVE/goqBwoe3V9mxHAz4Uq8e
+/aQ0OfciFmj55s6mx5eUdy5lQqfoekE=
+-----END CERTIFICATE-----
+</pre>
+<pre>
+-----BEGIN PRIVATE KEY-----
+MIIEwQIBADANBgkqhkiG9w0BAQEFAASCBKswggSnAgEAAoIBAgC9Us8v0UyOy+XW
+LRff29GHQa9axqtDao7azsWnF2/ABdg1g6dOF/0ZkrhLdqJISj8MlSP5VLou67iZ
+IH0RxRMfSA0e/fi9DE8QSzpIOlueeH2M8Q2VesKp3hIkp+xCaGPbc4L0kZVkE6EW
++TUR7QTs1NkaxtwYvW87gKzn6BL0Yx/5mu1UFWcJ/XtLHkiagtIbSiEXSdsjxviO
+bJM2SaV3taCaayGKVFpU6rPLD/VRart6ZP1CJQ2zlIskEEOnnUKEUuwcFpL7t5FX
+iHVOX0hZ5fsuGYt8EuLwa7giEQvf/PaQbTrTVMOdKH/EGVJI81MfNgzEbrA/CvcG
+/lgG3DM+JwIDAQABAoIBAQ3lKAOwbtgEKwg/IwNxFL3CmmYlMqiuB3ITvvn2hGMp
+iqbS1NKsfA0GcbRILrzzhhEcWRmRmGCdOF00vzkwp6iiFyRxK3JkluDxRIPMlLDa
+0wwnHQIdkm/5NoeuM27kTn/qyG++x6Iitq4C+FwqczQWoyCN+9VtAd7yIL6cj9eT
+9N2qPIH4dAHfbp0gN1yTqTJi/IoIk2nAFs/6CBzjDS8jbr5qdEtX/VRVhVvb4p0k
+ICle9wQ6VMCUM9tEJaPea7NqieJ+z7fFVKGMthFnIKqJ9VHpjpcRHgjH/6HqAvvM
+pnRnWH3pIk9AXJSZ5s5dM4W4pLEXy3OX1Eizud7HSzdRAoGBDgmZRLl3hIJZXAO7
+PN+wTT+J1qg3NcIXJcJvescMLTewWymkpfDISbhHlZYVtqPlkaz6pw3mpaRQRd/k
+IY4gDmNwaxgmJ5LpGk6TGu2emkKr+95Cj2HaiYTRaOz3UVlpnTYvm7UTcNkfzXXe
+mVXyfzJtl8SapVFaZpV5v2QobGfrAoGBDXyrANX2PD7c1NgbmGhhKs2wzpWL6o2s
+0CHYQsAuxsvbO1YZr1e/wuPNtlmHQllIa5y1yRnhUkvjs62Ne2fvjGFFbbGew9WJ
+kuBwGrfCziX9OYtLumSIw1ahodA1rQRpty5KImeCWXOGoTkgrMzlQ7/avlqZk1El
+xED6gbkZpQ+1AoGBAIb/yQMmqEW1Ua2aNRk6KEzAwt2i5VQbRoHdakFcBb7X0zTn
+SIyZGZvgpI/01N2nXCehavEsvwBDO7zDdzc9oQy/Rmar2ES+mQxmnlZa5PSoPVgG
+LBjC+vOQYl60k8vGGe/VLgZJaq3dcfyBlkUSTRD56P+rx5YczUnEPxpmIlxtAoGB
+DMvdX+SiRZULZ7NHs3pNvxP8DnYbk8cqUSvbibHYb+wZrRnLMu+Z1SrZEoutZwlZ
+Sikc3Zp9i9zPRbqEQ7NguJvOCP7++SYQ6teh5ee2oGuw8Dk297nNfTEkGGh5lRhb
+yV7VHgGBzqdq9GtEkk+xs29D91n03q6em69fP1fFejQFAoGBB/k1UBOMCjo+iNPH
+bI+OzUqOy5NL7nd+SqB9FG53VE+w1b8XfCW3Cuf0Vm52AFudtXuAt5aEsezAJsfV
+2XZfr+txSIgRbbFWQ39VccOFjckVzD2egXnFdL5Ac2s9JkAJZHqWU8pppJTVEuPF
+KrYFFnz13zUOg9B7zxatELWn9rNV
+-----END PRIVATE KEY-----
+</pre>
+<p>
+The signature can be verified by passing the public key, the header, the reconstructed payload, and the signature to a JWS library.
+This signature is valid.
+</p>
 [%file newfooter%]
     
     
 </body>
+
 </html>

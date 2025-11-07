@@ -31,7 +31,6 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseDefinition-contraindication-reference"/>
         <description value="The situation that is being documented as contraindicating against this item, as a reference"/>
         <code value="contraindication-reference"/>
         <type value="reference"/>
@@ -162,13 +161,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ClinicalUseDefinition.subject"/>
+          <valueString value="ClinicalUseDefinition.subject.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseDefinition-product"/>
         <description value="The medicinal product for which this is a clinical usage issue"/>
         <code value="product"/>
         <type value="reference"/>
-        <expression value="ClinicalUseDefinition.subject.where(resolve() is MedicinalProductDefinition)"/>
+        <expression value="ClinicalUseDefinition.subject.reference.where(resolve() is MedicinalProductDefinition)"/>
         <processingMode value="normal"/>
         <target value="MedicinalProductDefinition"/>
       </SearchParameter>
@@ -182,13 +181,32 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ClinicalUseDefinition.subject"/>
+          <valueString value="ClinicalUseDefinition.subject.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseDefinition-subject"/>
         <description value="The resource for which this is a clinical usage issue"/>
         <code value="subject"/>
         <type value="reference"/>
-        <expression value="ClinicalUseDefinition.subject"/>
+        <expression value="ClinicalUseDefinition.subject.reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ClinicalUseDefinition-subject-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ClinicalUseDefinition.subject.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ClinicalUseDefinition-subject-code"/>
+        <description value="The coded item for which this is a clinical usage issue"/>
+        <code value="subject-code"/>
+        <type value="token"/>
+        <expression value="ClinicalUseDefinition.subject.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -231,5 +249,4 @@
       </SearchParameter>
     </resource>
   </entry>
-
 </Bundle>

@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="vma-urine"/>
-	<accessionIdentifier>
-		<!-- accession identifier - e.g. assigned by the labaratory when it is received.
-     This is common, unlike specimen identifier -->
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="ACSN"/>
+				<display value="Accession ID"/>
+			</coding>
+		</type>
 		<system value="http://lab.acme.org/specimens/2015"/>
 		<value value="X352356"/>
-	</accessionIdentifier>
+	</identifier>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+				<code value="ACSN"/>
+				<display value="Accession ID"/>
+			</coding>
+		</type>
+		<system value="http://lab.acme.org/specimens/2015"/>
+		<value value="X352356"/>
+	</identifier>
 	<status value="available"/>
 	<type>
 		<!--
@@ -54,9 +70,7 @@
 		<timeDateTime value="2015-08-18T08:10:00Z"/>
 	</processing>
 	<container>
-	<device>
-	      <reference value="Device/device-example-specimen-container-polycup"/>
-	   </device>
+		<deviceCanonical value="http://hl7.org/fhir/Device/device-example-specimen-container-polycup"/>
 		<specimenQuantity>
 			<value value="10"/>
 			<unit value="mls"/>

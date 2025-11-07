@@ -21,7 +21,13 @@
   <title value="Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior"/>
   <status value="draft"/>
   <relatesTo>
-    <type value="cites"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type" />
+        <code value="cites" />
+        <display value="Cites" />
+      </coding>
+    </type>
     <targetMarkdown value="Figure 2 Lees 2016 &lt;b&gt;Citation:&lt;/b&gt; Lees KR, Emberson J, Blackwell L, Bluhmki E, Davis SM, Donnan GA, et al; Stroke Thrombolysis Trialists’ Collaborators Group. Effects of alteplase for acute stroke on the distribution of functional outcomes: a pooled analysis of 9 trials. Stroke. 2016;47:2373-2379. PMID 27507856 &lt;b&gt;URL:&lt;/b&gt; https://doi.org/10.1161/STROKEAHA.116.013644"/>
   </relatesTo>
   <description value="mRS 0-2 at 90 days Odds Ratio 1.2 for Alteplase vs. No Alteplase in patients with acute ischemic stroke 3-4.5 hours prior"/>
@@ -76,7 +82,7 @@
   </synthesisType>
   <studyDesign>
     <coding>
-      <system value="http://hl7.org/fhir/study-design"/>
+      <system value="https://fevir.net/sevco"/>
       <code value="SEVCO:01003"/>
       <display value="randomized assignment"/>
     </coding>
@@ -84,9 +90,9 @@
   <statistic>
     <statisticType>
       <coding>
-        <system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
-        <code value="C16932"/>
-        <display value="Odds Ratio"/>
+        <system value="https://fevir.net/sevco"/>
+        <code value="STATO:0000182"/>
+        <display value="odds ratio"/>
       </coding>
     </statisticType>
     <quantity>
@@ -119,14 +125,14 @@
     <description value="Very low certainty due to risk of bias, inconsistency, imprecision, and indirectness"/>
     <type>
       <coding>
-        <system value="http://hl7.org/fhir/certainty-type"/>
+        <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
         <code value="Overall"/>
         <display value="Overall certainty"/>
       </coding>
     </type>
     <rating>
       <coding>
-        <system value="http://hl7.org/fhir/certainty-rating"/>
+        <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
         <code value="very-low"/>
         <display value="Very low quality"/>
       </coding>
@@ -134,14 +140,14 @@
     <subcomponent>
       <type>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-type"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
           <code value="PublicationBias"/>
           <display value="Publication bias"/>
         </coding>
       </type>
       <rating>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-rating"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
           <code value="no-concern"/>
           <display value="no serious concern"/>
         </coding>
@@ -153,14 +159,14 @@
       </note>
       <type>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-type"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
           <code value="Inconsistency"/>
           <display value="Inconsistency"/>
         </coding>
       </type>
       <rating>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-rating"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
           <code value="serious-concern"/>
           <display value="serious concern"/>
         </coding>
@@ -172,14 +178,14 @@
       </note>
       <type>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-type"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
           <code value="Imprecision"/>
           <display value="Imprecision"/>
         </coding>
       </type>
       <rating>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-rating"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
           <code value="serious-concern"/>
           <display value="serious concern"/>
         </coding>
@@ -191,14 +197,14 @@
       </note>
       <type>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-type"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
           <code value="Indirectness"/>
           <display value="Indirectness"/>
         </coding>
       </type>
       <rating>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-rating"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
           <code value="serious-concern"/>
           <display value="serious concern"/>
         </coding>
@@ -210,14 +216,14 @@
       </note>
       <type>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-type"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
           <code value="RiskOfBias"/>
           <display value="Risk of bias"/>
         </coding>
       </type>
       <rating>
         <coding>
-          <system value="http://hl7.org/fhir/certainty-rating"/>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
           <code value="serious-concern"/>
           <display value="serious concern"/>
         </coding>

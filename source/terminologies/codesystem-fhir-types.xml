@@ -39,6 +39,7 @@
   </contact> 
   <description value="One of the types defined as part of this version of FHIR."/> 
   <caseSensitive value="true"/> 
+  <hierarchyMeaning value="is-a"/>
   <content value="complete"/> 
   <property> 
     <code value="abstract-type"/> 

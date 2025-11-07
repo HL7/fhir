@@ -16,6 +16,7 @@
       <display value="Example"/>
     </item>
   </entry>
+  <!--
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Transforms an ActivityDefinition to a SupplyRequest"/>
@@ -28,4 +29,5 @@
       <display value="SupplyRequest Transform"/>
     </item>
   </entry>
+  -->
 </List>

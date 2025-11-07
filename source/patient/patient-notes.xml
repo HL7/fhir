@@ -29,7 +29,7 @@ Where there is a need to implement an automated MRN Identifier created for a pat
 </p>
 	
 <a name="merge"></a>
-<h2>Merging records <a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a></h2>
+<h2>Merging records</h2>
 <p>
 There are two common approaches for resolving duplicate patient records: merging and linking.  Linking duplicate patients is described in the <a href="#links">Linking Patients</a> section, or merging duplicate patients as described in the <a href="patient-operation-merge.html">$merge</a> operation page. 
 </p>

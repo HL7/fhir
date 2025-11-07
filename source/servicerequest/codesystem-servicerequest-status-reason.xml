@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="servicerequest-status-reason"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/servicerequest-status-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.3325"/>
+  </identifier>
+  <version value="6.0.0-ballot3"/>
+  <name value="ServiceRequestStatusReasonCodes"/>
+  <title value="Service Request Status Reason Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International - Orders and Observations"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="Codes indicating the reason why a service request is in its current status."/>
+  <copyright value="Copyright HL7. Licensed under creative commons public domain"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-status-reason"/>
+  <content value="complete"/>
+  <concept>
+    <code value="no-longer-clinically-necessary"/>
+    <display value="No longer clinically necessary"/>
+    <definition value="The service is no longer clinically necessary or relevant for the patient's care."/>
+  </concept>
+  <concept>
+    <code value="pre-approval-denied"/>
+    <display value="Pre-approval denied"/>
+    <definition value="Pre-authorization or approval for the service was denied by the payer or authorization entity."/>
+  </concept>
+</CodeSystem>

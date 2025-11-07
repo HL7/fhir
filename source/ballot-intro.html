@@ -11,93 +11,100 @@
 
 
 <h2>R6 Ballot Roadmap</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-Welcome to the FHIR Release 6 (R6) 3rd ballot. 
+Welcome to the first full ballot of FHIR Release 6 (R6). 
 </p>
 <p>
-This ballot is the third ballot of R6, and the last of the draft ballots; the next
-ballot (expected in the January 2026 cycle) is the full mixed normative/trial use ballot.
-</p>
-<p>
-While comment is welcome on all of the content, we are particularly interested in 
-comments addressing:</p>
-<ul>
-  <li>Structural changes needed prior to finalization</li>
-  <li>the readiness of the content for the upcoming full ballot, and</li> 
-  <li>comments that relate to maturity levels and readiness for Normative</li> 
-</ul>
-<p>
-In addition, Balloters attention is drawn to the following areas of interest:
+This ballot is a Normative ballot - all of the specification is being balloted as a 
+full Normative ANSI Standard. As such, balloters should note the following about the 
+ballot process:
 </p>
 <ul>
-<li><a href="resource.html#additional">Additional Resources</a>: Allowing for development of FHIR Resources in other specifications </li>
-<li><a href="group.html">Group</a>: Allowing for groups to act collectively, or receive care collectively - change made based on feedback from LMICs countries, and also for social care</li>
-<li>New data types: <a href="datatypes.html#relativetime">RelativeTime</a></li>
-<li>New Resources: <a href="devicealert.html">DeviceAlert</a>, <a href="insuranceproduct.html">InsuranceProduct</a>, 
-  <a href="moleculardefinition.html">MolecularDefinition</a>, <a href="personalrelationship.html">PersonalRelationship</a></li>
-<li>Removed Resources: EvidenceReport</li>
-<li>Significant changes have been made to the <a href="observation-vitalsigns.html">Vital Signs Profiles</a>,
-and the profile <a href="medicalproductofhumanorigin.html">Medical Product of Human Origin</a> profile has been added</li>
-<li>The following resources have been updated and contain both structural and narrative revisions
-  <ul>
-    <li><a href="researchstudy.html">ResearchStudy</a></li>
-    <li><a href="researchsubject.html">ResearchSubject</a></li>
-    <li><a href="measure.html">Measure</a></li>
-    <li><a href="measurereport.html">MeasureReport</a></li>
-    <li><a href="servicerequest.html">ServiceRequest</a>, <a href="task.html">Task</a></li>
-    <li><a href="specimen.html">Specimen</a></li>
-    <li><a href="observation.html">Observation</a>, <a href="diagnosticreport.html">DiagnosticReport</a></li>
-    <li><a href="device.html">Device</a>, <a href="deviceassociation.html">DeviceAssociation</a>, <a href="devicedefinition.html">DeviceDefinition</a>, <a href="devicemetric.html">DeviceMetric</a>, <a href="devicealert.html">DeviceAlert</a></li>
-    <li><a href="nutritionproduct.html">NutritionProduct</a>, <a href="nutritionintake.html">NutritionIntake</a>, <a href="nutritionorder.html">NutritionOrder</a></li>
-    <li><a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, <a href="biologicallyderivedproductdispense.html">BiologicallyDerivedProductDispense</a></li>
-    <li><a href="supplydelivery.html">SupplyDelivery</a>, <a href="supplyrequest.html">SupplyRequest</a></li>
-    <li><a href="documentreference.html">DocumentReference</a></li>
-  </ul>
-</li>
-<li>Committees have asked for feedback on these resources:
-  <ul>
-    <li><a href="researchstudy.html">ResearchStudy</a></li>
-    <li><a href="researchsubject.html">ResearchSubject</a></li>
-    <li><a href="measure.html">Measure</a> - In particular ballot questions on the Measure page</li>
-    <li><a href="measurereport.html">MeasureReport</a> - In particular ballot questions on the MeasureReport page</li>
-    <li>And also these resources, though there have been no significant updates: <a href="specimendefinition.html">SpecimenDefinition</a>, 
-      <a href="observationdefinition.html">ObservationDefinition</a>, <a href="devicedispense.html">DeviceDispense</a>,
-      <a href="deviceusage.html">DeviceUsage</a>, <a href="devicerequest.html">DeviceRequest</a>, <a href="bodystructure.html">BodyStructure</a>,
-      <a href="visionprescription.html">VisionPrescription</a>, and <a href="transport.html">Transport</a>
-    </li>
-  </ul>
-</li>
-<li>The following Module Pages have been added or updated:
-  <ul>
-    <li><a href="diagnostics-module.html">Diagnostics</a></li>
-    <li><a href="device-module.html">Device</a></li>
-    <li><a href="nutrition-module.html">Nutrition</a></li>
-    <li><a href="biologically-derived-product-module.html">BDP</a></li>
-  </ul>
-</li>
+  <li>As a normative standard, any substantive changes - that is, changes that impact on implementations - must be approved by the ballot - in other words, reballot is required</li>
+  <li>You must sign up for the first ballot to participate in later ballots; if you do not have time to participate for a round of balloting, please abstain so that quorum levels are met</li> 
+  <li></li> 
 </ul>
+<p>
+Balloters should keep the following in mind about ballot scope:
+</p>
+<ul>
+  <li>Some of the content in this ballot is earmarked to move to <a href="http://terminology.hl7.org">terminology.hl7.org</a> (THO). FMG's position is that moving valuesets from the specification to THO is not <i>itself</i> a substantive change</li>
+  <li>Moving CodeSystems from core to THO is also only a substantive changes if (a) the CodeSystem is bound to a Coding, CodeableConcept, or CodeableReference, and (b) the URL changes</li>
+  <li>Implicit in that is that forcing minor changes in URLs etc on Implementation Guides is not itself substantive</li>
+  <li>The cross version comparisons, difference analysis, structure maps and transforms have not been updated for this ballot. This will be done for the next ballot</li>
+</ul>
+<p>
+And these notes about breaking changes:
+</p>
+<ul>
+  <li>This specification is fully normative, so once this ballot is complete, no breaking changes are allowed in future publications</li>
+  <li>Technically, this is 'forwards' compatibility: that existing implementations will not have to change for future versions. 
+     However, in practice, whether this is true depends on implementation choices. As such, the <a href="versions.html#change">Rules for Inter-version Compatibility</a>
+     are of particular importance for balloters to consider
+  </li>
+  <li>If content was normative in R4, then this specification is not allowed to contain breaking changes to that content under the rules published in <i>this</i>
+    version, so balloters should pay particular attention to these areas</li>
+  <li>As R5 was not normative, breaking changes from R5 are allowed</li>
+  <li>Other parts of the specification may contain breaking changes from previous versions</li>
+</ul>
+<p>
+Balloter's attention is drawn to three useful links at the bottom of every page:
+</p>
+<p><img src="compare-links-r5-ballot.png"/></p>
+<p>
+These are very useful when preparing ballot comments.
+</p>
 
+<a name="details"></a>
+<h3>Details of Changes in this version</h3>
 <p>
-Beyond this, almost all the less mature resources have extensive changes, but there are many 
-thousands of individual changes. At this time, the version comparison functionality is not
-working; we are endeavouring to have this functional by the time the ballot opens. 
+This section lists the major changes between this version and the last version (draft ballot 3).
+Note that there thousands of changes between this version and the last version, so there's no list of <i>all</i> changes.
 </p>
+<ul>
+  <li>Immature resources and other artifacts have been moved out of this specification into other IGs, often labelled as 'incubator IGs'. Here's the list:
+   <ul>
+      <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-BiologicallyDerivedProductDispense.html">BiologicallyDerivedProductDispense</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItem.html">ChargeItem</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItemDefinition.html">ChargeItemDefinition</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html">Citation Resource</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-EncounterHistory.html">EncounterHistory</a></li>
+      <li><a href="https://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationEvaluation.html">ImmunizationEvaluation</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationRecommendation.html">ImmunizationRecommendation</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryItem.html">InventoryItem</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryReport.html">InventoryReport</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyDelivery.html">SupplyDelivery</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/fhir-testing-ig/en/StructureDefinition-TestPlan.html">TestPlan</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/fhir-testing-ig/en/StructureDefinition-TestReport.html">TestReport</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/fhir-testing-ig/en/StructureDefinition-TestScript.html">TestScript</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-Transport.html">Transport</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-VerificationResult.html">VerificationResult</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/capstmt/OperationDefinition-CapabilityStatement-subset.html">CapabilityStatement.$subset</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/capstmt/OperationDefinition-CapabilityStatement-conforms.html">DocumentReCapabilityStatementference.$conforms</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/capstmt/OperationDefinition-CapabilityStatement-implements.html">CapabilityStatement.$implements</a></li>
+      <li><a href="https://build.fhir.org/HL7/api-incubator/OperationDefinition-DocumentReference-generate.html">DocumentReference.$generate</a></li>
+      <li><a href="https://build.fhir.org/HL7/api-incubator/OperationDefinition-SpecimenDefinition-apply.html">SpecimenDefinition.$apply</a></li>
+      <li><a href="https://build.fhir.org/HL7/api-incubator/OperationDefinition-ChargeItemDefinition-apply.html">ChargeDefinition.$apply</a></li>
+      <li><a href="https://build.fhir.org/HL7/api-incubator/OperationDefinition-Resource-graph.html">Resource.$graph</a></li>
+      <li><a href="https://build.fhir.org/HL7/api-incubator/OperationDefinition-Resource-meta.html">Resource.$meta</a></li>
+      <li><a href="https://build.fhir.org/HL7/api-incubator/OperationDefinition-Resource-meta-add.html">Resource.$meta-add</a></li>
+      <li><a href="https://build.fhir.org/HL7/api-incubator/OperationDefinition-Resource-meta-delete.html">Resource.$meta-delete</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/api-incubator/async-bulk.html">Asynchronous Bulk Data Request</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/api-incubator/async-bundle.html">Asynchronous Bundle Request</a></li>      
+   </ul>
+  </li>
+</ul>
 
 <a name="process"></a>
 <h3>The FHIR R6 Ballot Process</h3>
 
-<p>
-This is the third of a series of draft ballots on R6, where different candidate resources for normative 
-status in the final R6 version undergo focused review in order to try and reduce the overall ballot load
-of the final R6 ballot. 
-</p>
-
-<p>
-Balloter's attention is drawn to two useful links at the bottom of every page: <img src="compare-links-r5-ballot.png"/>.
-These are very useful when preparing ballot comments.
-</p>
 <p>
 This ballot is using HL7's <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">Jira balloting process</a>. As such, ballot comments will need to 
 be submitted in Jira and, in general, balloting spreadsheets will not be used. Some organizational 
@@ -111,9 +118,6 @@ A webinar will be held part-way through the ballot cycle to provide an opportuni
 <a href="https://chat.fhir.org/#narrow/stream/184932-JIRA.2FConfluence">Jira/Confluence  stream</a> on <code>http://chat.fhir.org</code>.
 </p>
 <p>
-Because this is only a draft ballot, committees are not required to response to comment, but will endeavour to do so.
-</p>
-<p>
 When submitting your ballot feedback, if you have a general comment on something that you see occurring multiple times, please include 
 at least a couple of specific locations where you see the issue.  As much as possible, capture each separate concern as a distinct 
 <a href="http://hl7.org/fhir-issues">tracker item</a>; it makes our job of reconciling much easier.  Also, don't forget to 
@@ -122,22 +126,13 @@ If you want to reference additional URLs, include them in the text of your ballo
 </p>
 <p>
 If you have questions that are interfering with the ability to review the specification or submit ballot comments, please contact one of 
-the co-chairs of the FHIR Management Group: <a href="mailto:lloyd@lmckenzie.com">Lloyd McKenzie</a> or 
-<a href="mailto:david.hay25@gmail.com">David Hay</a>.
+the co-chairs of the FHIR Management Group: <a href="mailto:bryn@smiledigitalhealth.com">Bryn Rhodes</a> or 
+<a href="mailto:sarah.gaunt@lantanagroup.com">Sarah Gaunt</a>.
 </p>
 <p>
 Thanks for taking the time to review the FHIR specification.  We appreciate any feedback you can provide.
 </p>
 
-
-<a name="maps"></a>
-<p>
-The difference analysis in this ballot for resources is still between Release 5 and Release 4. This will be updated
-when Release 6 is prior to publication of the final specification. In the meantime, balloters are welcome to comment on suggested 
-improvements to the mappings and difference statements, but these cannot be the 
-basis for negative votes. Contributions may also be made directly 
-(join the <a href="https://chat.fhir.org/#narrow/stream/133-R3.2FR4-Conversion.20work">conversation at chat.fhir.org</a>).
-</p>
 
 
 [%file newfooter%]

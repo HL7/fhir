@@ -12,35 +12,41 @@ variables:
 
 
 jobs:
-- job: setupEnvironment
+
+- job: buildAndPublishSpecification
+  timeoutInMinutes: 120
   steps:
+  - checkout: self
+    clean: true
+  # Set up the Java environment for the build.
   - task: Bash@3
     displayName: 'Download java sdk'
     inputs:
       targetType: 'inline'
-      script: 'wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.15+10/openlogic-openjdk-11.0.15+10-linux-x64.tar.gz -O $(Build.ArtifactStagingDirectory)/java11.tar.gz'
+      script: 'wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/17.0.16+8/openlogic-openjdk-17.0.16+8-linux-x64.tar.gz -O $(Build.ArtifactStagingDirectory)/java17.tar.gz'
   - task: JavaToolInstaller@0
     inputs:
-      versionSpec: "11"
+      versionSpec: "17"
       jdkArchitectureOption: x64
       jdkSourceOption: LocalDirectory
-      jdkFile: "$(Build.ArtifactStagingDirectory)/java11.tar.gz"
-      jdkDestinationDirectory: ""
+      jdkFile: "$(Build.ArtifactStagingDirectory)/java17.tar.gz"
+      jdkDestinationDirectory: "$(Build.ArtifactStagingDirectory)/build-jdk"
   - task: Bash@3
+    displayName: 'Display JAVA_HOME'
     inputs:
       targetType: 'inline'
       script: |
-        echo JAVA_HOME set to -> $JAVA_HOME
-        echo JAVA_HOME_11_X64 set to -> $JAVA_HOME_11_X64
-        echo which java returns
+        echo JAVA_HOME is $JAVA_HOME
+        echo JAVA_HOME_17_X64 is $JAVA_HOME_17_X64
+  - task: Bash@3
+    displayName: 'which java'
+    inputs:
+      targetType: 'inline'
+      script: |
         which java
 
-- job: buildAndPublishSpecification
-  dependsOn: setupEnvironment
-  timeoutInMinutes: 120
-  steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
-  - task: Gradle@2
+  - task: Gradle@3
     inputs:
       gradleWrapperFile: 'gradlew'
       javaHomeOption: 'JDKVersion'

@@ -417,12 +417,9 @@
 			<isSummary value="true"/>
 		</element>
 		<element id="CapabilityStatement.jurisdiction">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
 			<path value="CapabilityStatement.jurisdiction"/>
-			<short value="Intended jurisdiction for capability statement (if applicable)"/>
-			<definition value="A legal or geographic region in which the capability statement is intended to be used."/>
+			<short value="Jurisdiction of the authority that maintains the capability statement (if applicable)"/>
+			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
 			<comment value="It may be possible for the capability statement to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
 			<min value="0"/>
 			<max value="*"/>
@@ -439,7 +436,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="Countries and regions within which this artifact is targeted for use."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
 			</binding>
 		</element>
 		<element id="CapabilityStatement.purpose">
@@ -469,8 +466,8 @@
 				<valueBoolean value="true"/>
 			</extension>
 			<path value="CapabilityStatement.copyright"/>
-			<short value="Use and/or publishing restrictions"/>
-			<definition value="A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the capability statement."/>
+			<short value="Notice about intellectual property ownership, can include restrictions on use"/>
+			<definition value="A copyright statement relating to the capability statement and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the capability statement."/>
 			<comment value="..."/>
 			<requirements value="Consumers must be able to determine any legal restrictions on the use of the capability statement and/or its content."/>
 			<alias value="License"/>
@@ -494,8 +491,8 @@
 			</extension>
 			<path value="CapabilityStatement.copyrightLabel"/>
 			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+			<comment value="The copyright symbol and the '(c)' textual representation SHOULD NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
 			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -707,6 +704,7 @@
 				<description value="The mime type of an attachment. Any valid mime type is allowed (BCP 13; RFCs 2045, 2046, 2047, 4288, 4289 and 2049), and also `json`, `xml`, and `ttl`."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/supplemented-mimetypes"/>
 				<additional>
+				  <key value="b-cs-1"/>
 					<purpose value="starter"/>
 					<valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
 				</additional>
@@ -763,6 +761,7 @@
 				<description value="IETF language tag for a human language"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
 				<additional>
+				  <key value="b-cs-2"/>
 					<purpose value="starter"/>
 					<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
 				</additional>
@@ -808,7 +807,7 @@
 		<element id="CapabilityStatement.rest.mode">
 			<path value="CapabilityStatement.rest.mode"/>
 			<short value="client | server"/>
-			<definition value="Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations."/>
+			<definition value="Identifies whether this portion of the statement is describing the ability to initiate or receive restful interactions."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -925,11 +924,11 @@
 		<element id="CapabilityStatement.rest.resource.type">
 			<path value="CapabilityStatement.rest.resource.type"/>
 			<short value="A resource type that is supported"/>
-			<definition value="A type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional)."/>
+			<definition value="A relative URL, in which case it is a type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional), or else a full URL referring to some other type that specialises the base resource (e.g. a custom resource)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="code"/>
+				<code value="uri"/>
 			</type>
 			<condition value="cpb-9"/>
 			<isSummary value="true"/>
@@ -940,7 +939,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
 				</extension>
-				<strength value="required"/>
+				<strength value="extensible"/>
 				<description value="One of the resource types defined as part of this version of FHIR. Note that this includes additional resources, and is not a fixed list"/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/extended-resource-types"/>
 			</binding>
@@ -1007,8 +1006,8 @@
 				<valueCode value="-20,470"/>
 			</extension>
 			<path value="CapabilityStatement.rest.resource.interaction"/>
-			<short value="What operations are supported?"/>
-			<definition value="Identifies a restful operation supported by the solution."/>
+			<short value="What interactions are supported?"/>
+			<definition value="Identifies a restful interaction supported by the solution."/>
 			<comment value="In general, a Resource will only appear in a CapabilityStatement if the server actually has some capabilities - e.g. there is at least one interaction supported. However interactions can be omitted to support summarization (_summary = true)."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1019,7 +1018,7 @@
 		<element id="CapabilityStatement.rest.resource.interaction.code">
 			<path value="CapabilityStatement.rest.resource.interaction.code"/>
 			<short value="read | vread | update | update-conditional | patch | patch-conditional | delete | delete-conditional-single | delete-conditional-multiple | delete-history | delete-history-version | history-instance | history-type | create | create-conditional | search-type"/>
-			<definition value="Coded identifier of the operation, supported by the system resource."/>
+			<definition value="Coded identifier of the interaction, supported by the system resource."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -1030,7 +1029,7 @@
 					<valueString value="TypeRestfulInteraction"/>
 				</extension>
 				<strength value="required"/>
-				<description value="Operations supported by REST at the type or instance level."/>
+				<description value="Interactions supported by REST at the type or instance level."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/type-restful-interaction"/>
 			</binding>
 		</element>
@@ -1039,8 +1038,8 @@
 				<valueBoolean value="true"/>
 			</extension>
 			<path value="CapabilityStatement.rest.resource.interaction.documentation"/>
-			<short value="Anything special about operation behavior"/>
-			<definition value="Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'."/>
+			<short value="Anything special about interaction behavior"/>
+			<definition value="Guidance specific to the implementation of this interaction, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'."/>
 			<requirements value="REST allows a degree of variability in the implementation of RESTful solutions that is useful for exchange partners to be aware of."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1073,8 +1072,8 @@
 		<element id="CapabilityStatement.rest.resource.readHistory">
 			<path value="CapabilityStatement.rest.resource.readHistory"/>
 			<short value="Whether vRead can return past versions"/>
-			<definition value="A flag for whether the server is able to return past versions as part of the vRead operation."/>
-			<comment value="It is useful to support the vRead operation for current operations, even if past versions aren't available."/>
+			<definition value="A flag for whether the server is able to return past versions as part of the vRead interaction."/>
+			<comment value="It is useful to support the vRead interaction for current interactions, even if past versions aren't available."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1084,7 +1083,7 @@
 		<element id="CapabilityStatement.rest.resource.updateCreate">
 			<path value="CapabilityStatement.rest.resource.updateCreate"/>
 			<short value="If update can commit to a new identity"/>
-			<definition value="A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server."/>
+			<definition value="A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this interaction means that the server allows the client to create new identities on the server."/>
 			<comment value="Allowing the clients to create new identities on the server means that the system administrator needs to have confidence that the clients do not create clashing identities between them. Obviously, if there is only one client, this won't happen. While creating identities on the client means that the clients need to be managed, it's much more convenient for many scenarios if such management can be put in place."/>
 			<min value="0"/>
 			<max value="1"/>
@@ -1191,7 +1190,7 @@
 			<path value="CapabilityStatement.rest.resource.searchInclude"/>
 			<short value="_include values supported by the server"/>
 			<definition value="A list of _include values supported by the server."/>
-			<comment value="Documenting [`_include`](http://hl7.org/fhir/R5/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. Support for *iterative* (a.k.a., recursive) `_include` is communicated by listing the iterative includes values supported by the server in the `searchInclude` element of the &quot;root&quot; resource type. For example, to support the following search:&#xA;&#xA;`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&amp;_include:iterate=DeviceRequest:device`&#xA;&#xA;These values would be listed as part of capabilities for &quot;CarePlan&quot;:&#xA;&#xA;&quot;searchInclude&quot; : [&quot;CarePlan:activity-reference:DeviceRequest&quot;,&quot;DeviceRequest:device&quot;],&#xA;"/>
+			<comment value="Documenting [`_include`](http://hl7.org/fhir/R5/search.html#revinclude) support helps set conformance expectations for the desired system. Still, it is a level of detail that might not be exposed by production servers or clients when using CapabilityStatement to describe an actual implementation. If this list is empty, the server does not support includes. The wildcard, `*`, is an allowed value and used to signal support for requests using an \* in place of a specific value. In a `CapabilityStatement`, listing an `*` makes no assertions beyond that support - the actual search parameters available still must be listed individually. Support for *iterative* (a.k.a., recursive) `_include` is communicated by listing the iterative includes values supported by the server in the `searchInclude` element of the &quot;root&quot; resource type. For example, to support the following search:&#xA;&#xA;`GET [base]/CarePlan?_include=CarePlan:activity-reference:DeviceRequest&amp;_include:iterate=DeviceRequest:device`&#xA;&#xA;These values would be listed as part of capabilities for &quot;CarePlan&quot;:&#xA;&#xA;&quot;searchInclude&quot; : [&quot;CarePlan:activity-reference:DeviceRequest&quot;,&quot;DeviceRequest:device&quot;]"/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1219,7 +1218,7 @@
 			<path value="CapabilityStatement.rest.resource.searchParam"/>
 			<short value="Search parameters supported by implementation"/>
 			<definition value="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation."/>
-			<comment value="The search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
+			<comment value="The search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions. &#xA;If documenting a parameter that is not a 'true' SearchParameter (such as _format, _count, etc.), the .definition element SHALL be omitted and the type SHOULD be 'special'."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1344,7 +1343,7 @@
 				<valueCode value="550,490"/>
 			</extension>
 			<path value="CapabilityStatement.rest.interaction"/>
-			<short value="What operations are supported?"/>
+			<short value="What interactions are supported?"/>
 			<definition value="A specification of restful operations supported by the system."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -1355,7 +1354,7 @@
 		<element id="CapabilityStatement.rest.interaction.code">
 			<path value="CapabilityStatement.rest.interaction.code"/>
 			<short value="transaction | batch | search-system | history-system"/>
-			<definition value="A coded identifier of the operation, supported by the system."/>
+			<definition value="A coded identifier of the interaction, supported by the system."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -1366,7 +1365,7 @@
 					<valueString value="SystemRestfulInteraction"/>
 				</extension>
 				<strength value="required"/>
-				<description value="Operations supported by REST at the system level."/>
+				<description value="Interactions supported by REST at the system level."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/system-restful-interaction"/>
 			</binding>
 		</element>
@@ -1375,8 +1374,8 @@
 				<valueBoolean value="true"/>
 			</extension>
 			<path value="CapabilityStatement.rest.interaction.documentation"/>
-			<short value="Anything special about operation behavior"/>
-			<definition value="Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented."/>
+			<short value="Anything special about interaction behavior"/>
+			<definition value="Guidance specific to the implementation of this interaction, such as limitations on the kind of transactions allowed, or information about system wide search is implemented."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1390,7 +1389,7 @@
 			<path value="CapabilityStatement.rest.searchParam"/>
 			<short value="Search parameters for searching all resources"/>
 			<definition value="Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation. This is only for searches executed against the system-level endpoint."/>
-			<comment value="Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
+			<comment value="Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions. &#xA;If documenting a parameter that is not a 'true' SearchParameter (such as _format, _count, etc.), the .definition element SHALL be omitted and the type SHOULD be 'special'."/>
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#CapabilityStatement.rest.resource.searchParam"/>

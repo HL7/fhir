@@ -9,7 +9,7 @@
 [%file newnavbar%]
 
 <h2>Variations between Submitted data and Retrieved data</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 5</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 <a name="community"></a>
 
 <p>
@@ -33,9 +33,9 @@ of core elements.
 </p>
 <p>
 For elements that are part of the resource, the expectation is that "most" systems will support the element.
-i.e. most systems will support capturing a patient's name, gender and date of birth.  But "most" does not mean
+i.e., most systems will support capturing a patient's name, gender and date of birth.  But "most" does not mean
 "all". It is possible to be fully FHIR conformant and claim to support the Patient resource, but be incapable
-of storing any of those data elements.  There are use-cases where names may be unnecessary (e.g. agricultural
+of storing any of those data elements.  There are use-cases where names may be unnecessary (e.g., agricultural
 veterinary systems, anonymized reporting, etc.) and similar use-cases for almost every data element.  No FHIR
 resource elements start off as <a href="elementdefinition-definitions.html#ElementDefinition.mustSupport">mustSupport</a>
 and very few resource elements start off with a minimum cardinality other than "0".
@@ -88,7 +88,7 @@ is not permitted to see.
 <p>
 Some servers may add additional data elements (or more commonly, extensions) based on information they
 have generated or inferred from data in the resource, from other resources or other information of
-which the server is aware.  i.e. an instance queried after being created or updated might have <i>more</i>
+which the server is aware.  i.e., an instance queried after being created or updated might have <i>more</i>
 information present than was included on the originally submitted record
 </p>
 
@@ -110,7 +110,7 @@ elements included in the instance would be updated.  Technically, this same appr
 </p>
 <p>
 One of the types of changes that can occur when a resource is created or updated
-is 'de-containing' a resource - i.e. taking a reference to a contained resource and turning
+is 'de-containing' a resource - i.e., taking a reference to a contained resource and turning
 it into a reference to a distinct resource based on pre-existing server information.
 Typically, this can occur when the server has access to business logic - specifically,
 statements about uniqueness that can be verified against some repository - that the client

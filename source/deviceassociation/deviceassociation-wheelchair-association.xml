@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DeviceAssociation xmlns="http://hl7.org/fhir">
+  <id value="wheelchair-association"/>
+  <contained>
+    <Patient>
+      <id value="example-patient"/>
+      <name>
+        <family value="Doe"/>
+        <given value="John"/>
+      </name>
+    </Patient>
+  </contained>
+  <contained>
+    <Device>
+      <id value="wheelchair-device"/>
+      <status value="active"/>
+      <name>
+        <value value="Quickie Q500"/>
+        <type>
+          <coding>
+            <code value="model-name"/>
+          </coding>
+        </type>
+      </name>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="58938008"/>
+          <display value="Wheelchair"/>
+        </coding>
+      </type>
+    </Device>
+  </contained>
+  <device>
+    <reference value="#wheelchair-device"/>
+  </device>
+   <status value="active"/>
+  <associationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+      <code value="attached"/>
+      <display value="Attached"/>
+    </coding>
+  </associationStatus>
+  <subject>
+    <reference value="#example-patient"/>
+  </subject>
+  <period>
+    <start value="2024-01-01"/>
+    <end value="2025-12-31"/>
+  </period>
+</DeviceAssociation>

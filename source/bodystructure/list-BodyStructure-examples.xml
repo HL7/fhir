@@ -40,4 +40,16 @@
       <display value="Skin Patch"/>
     </item>
   </entry>
+    <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="This example demonstrates a DICOM-derived BodyStructure representation of the Left Wrist, with laterality and SNOMED coding for anatomical structure."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="bodystructure-example-dicom-includedStructure"/>
+    </extension>
+    <item>
+      <reference value="BodyStructure/dicom-includedStructure"/>
+      <display value="DICOM-derived BodyStructure (Left Wrist)"/>
+    </item>
+  </entry>
 </List>

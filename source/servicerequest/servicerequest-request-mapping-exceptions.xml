@@ -20,7 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.basedOn" resourcePath="ServiceRequest.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,DocumentReference,ServiceRequest,MedicationRequest,RequestOrchestration,NutritionOrder,DocumentReference)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="What request fulfills"/>
@@ -40,7 +40,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.replaces" resourcePath="ServiceRequest.replaces">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(ServiceRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(ServiceRequest,MedicationRequest,RequestOrchestration,CarePlan,DeviceRequest,CommunicationRequest,NutritionOrder,VisionPrescription)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Request(s) replaced by this service request"/>
             <resource value="What request replaces"/>
@@ -90,10 +90,20 @@
             <resource value="The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, revoked or placed on-hold. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.statusReason" resourcePath="ServiceRequest.statusReason">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the service request. Note that any change to the state requires the removal of any existing statusReasons, and, if appropriate, populating new statusReasons."/>
+            <resource value="Provides reason why the service request status is what it is. The statusReason can be used to explain why a service request is suspended, cancelled, or on hold, including administrative and clinical reasons."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;suspended&quot; or &quot;cancelled&quot;.  The reason why the service request was created at all is captured in reasonCode, not here. ."/>
+            <resource value="This is generally not present when the service request has a status of 'active' or 'completed'. There is potential overlap between ServiceRequest.reason (why the service is being requested) and ServiceRequest.statusReason (why the request is in its current status) early in the performance of the request when the reason for the service request might influence the initial status."/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.intent" resourcePath="ServiceRequest.intent">
         <shortUnmatched reason="Unknown">
             <_pattern value="proposal | plan | order (immutable)"/>
-            <resource value="proposal | plan | directive | order +"/>
+            <resource value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates the level of authority/intentionality associated with the service request and where the request fits into the workflow chain."/>
@@ -101,7 +111,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#10;&#10;One exception to this is that the granularity of Request.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur.&#10;&#10;When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
-            <resource value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable. This element is immutable. It cannot be changed for the same resource instance. For child ServiceRequests, the default statuses could be the same as the parent ServiceRequest but does not need to be."/>
+            <resource value="This element is expected to be immutable. E.g. A 'proposal' instance should never change to be a 'plan' instance or 'order' instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#10;&#10;One exception to this is that the granularity of ServiceRequest.intent is allowed to change. For example, a ServiceRequest identified as an 'order' might later be clarified to be a 'filler-order'. Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
@@ -132,6 +142,21 @@
             <resource value="Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc."/>
         </requirementsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Request.category" resourcePath="ServiceRequest.category">
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Partitions the service request into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="Classification of service"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Partitions the service request into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior."/>
+            <resource value="A code that classifies the service for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Categorization might be done automatically (inferred by code) or manually by user assertion.  The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled.  As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'.&#10;In general, there should not be a 'strong' binding ('required' or 'extensible') on the category element overall.  Instead, the element can be sliced and bindings can be asserted that apply to particular repetitions."/>
+            <resource value="Used for filtering what service request are retrieved and displayed."/>
+        </requirementsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Request.code" resourcePath="ServiceRequest.code">
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
         <extraTypes _resource="CodeableReference(ActivityDefinition,PlanDefinition)" reason="Unknown"/>
@@ -142,6 +167,19 @@
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
             <resource value="A code or reference that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that has been requested."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.product" resourcePath="ServiceRequest.orderDetail.parameterFocus[x]">
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Device,DeviceRequest,Medication,MedicationRequest,BiologicallyDerivedProduct,Substance,SubstanceDefinition,MedicinalProductDefinition), canonical(DeviceDefinition), CodeableConcept" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product requested/ordered"/>
+            <resource value="The context of the order details by reference"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the product whose supply or manipulation is authorized by this service request."/>
+            <resource value="Indicates the context of the order details by reference."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="ServiceRequest.subject">
@@ -281,6 +319,8 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.relevantHistory" resourcePath="ServiceRequest.relevantHistory">
+        <missingTypes _pattern="Reference(ProvenanceRelevantHistory)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Provenance)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Key events in history of service request"/>
             <resource value="Request provenance"/>
@@ -295,8 +335,5 @@
         </commentsUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
-    <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
-    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
-    <unmappedElement patternPath="Request.product" reason="Unknown"/>
 </mappingExceptions>

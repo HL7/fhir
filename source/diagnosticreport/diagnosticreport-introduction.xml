@@ -3,7 +3,7 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-<p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.   It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow pattern for <a href="workflow.html#event"><em>event</em> resources</a>.</strong></p>
+<p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>. This resource is an <a href="workflow.html#event"><em>event</em> resource</a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong></p>
 <p>
 A diagnostic report is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,
@@ -75,6 +75,10 @@ In contrast to the <a href="observation.html">Observation</a> resource, the Diag
 
 <p>
 If you have a highly structured report, then use DiagnosticReport - it has data and workflow support.  Details about the request for a diagnostic investigation are captured in the various "request" resources (e.g., the <a href="servicerequest.html">ServiceRequest</a>) and allow the report to connect to clinical workflows. For more narrative driven reports with less work flow (histology/mortuary, etc.), the <a href="composition.html">Composition</a> resource would be more appropriate.
+</p>
+
+<p>
+The performer and resultsInterpreter elements support references to Patient and RelatedPerson to accommodate self-performed and at-home testing scenarios. When the performer or resultsInterpreter references the same Patient as the subject, this indicates that the patient performed the test themselves (e.g., home glucose monitoring, self-administered COVID-19 tests). When these elements reference a RelatedPerson, this indicates that a family member, caregiver, or other related individual performed the test or interpreted the results on behalf of the patient. The performer element indicates who physically performed or was responsible for the diagnostic procedure, while resultsInterpreter indicates who was responsible for the clinical interpretation of the results. Both roles may be filled by the patient or a related person in home-based and self-care scenarios.
 </p>
 
 <p>

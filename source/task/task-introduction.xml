@@ -10,7 +10,7 @@
     </p>
     <p> Concretely the Task resource could be used in FHIR to serve different purposes like: </p>
 <ul>
-<li>operationalize a Request (but could exists without a Request),</li>
+<li>operationalize a Request (but could exist without a Request),</li>
 <li>communicate between Filler and Placer,</li>
 <li>track business status (i.e. collection of specimen, dispense of medication, procedure scheduled),</li>
 <li>communicate the results of the execution of the Task via .output,</li>
@@ -25,6 +25,18 @@
       happen, such as a patient presenting themselves so that the action to be performed
       can actually be performed. Often these real-world dependencies are only implicit in the order
       details. </p>
+<p>If a Task is seeking to instantiate or modify something, the entity to be instantiated or modified SHALL be pointed to by the Task.focus.</p>
+
+[%stu-note dstu%]
+ <code>Task.instantiatesCanonical</code> and <code>Task.instantiatesURI</code> have been removed from the core elements. Instead, use the following workflow extensions:
+  <ul>
+    <li><a href="http://hl7.org/fhir/StructureDefinition/workflow-triggeredBy">workflow-triggeredBy</a></li>
+    <li><a href="http://hl7.org/fhir/StructureDefinition/workflow-generatedFrom">workflow-generatedFrom</a></li>
+    <li><a href="http://hl7.org/fhir/StructureDefinition/workflow-compliesWith">workflow-compliesWith</a></li>
+    <li><a href="http://hl7.org/fhir/StructureDefinition/workflow-shallComplyWith">workflow-shallComplyWith</a></li>
+  </ul>
+[%end-note%]
+
   </div>
   <div>
     <a name="bnc"></a>
@@ -84,13 +96,7 @@
     section of the Request pattern. Information about the details of the fulfillment 
     of an authorization may be handled by additional Task resource instances.</p>
 
-     <p>Tasks may have named inputs and outputs. Inputs represent
-     information that may or must be present in order for a task to
-     complete. Outputs represent intermediate or final results produced by a
-     task. For example, in a task supporting reading of radiology image, the
-     inputs might include both the imaging study to be read, as well as
-     relevant prior images. Outputs could represent radiology measurements
-     as well as the Radiologist's diagnostic report. </p>
+     <p>Tasks may have named inputs and outputs. Inputs represent information that is provided in order for a task to be completed. Outputs represent intermediate or final results produced while performing a task. For example, in a task supporting reading of radiology images, the inputs might include both the imaging study to be read, as well as relevant prior images. Outputs could represent radiology measurements as well as the Radiologist's diagnostic report. </p>
 
     <p>Inputs and outputs are tracked by the task because workflow
     management activity may automate the transfer of outputs from one task

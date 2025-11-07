@@ -38,7 +38,15 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		</coding>
 	</excludeFoodModifier>
 	<enteralFormula>
-
+    <type>
+      <concept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="441541000124107"/>
+          <display value="High energy enteral formula"/>
+        </coding>
+      </concept>
+    </type>
 		<baseFormulaType>
 			<concept>
 			<coding>

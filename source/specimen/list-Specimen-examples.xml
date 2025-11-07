@@ -64,4 +64,16 @@
       <display value="Pooled serum"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Liver biopsy specimen"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="specimen-example-liver-biopsy"/>
+    </extension>
+    <item>
+      <reference value="Specimen/liver-biopsy"/>
+      <display value="Liver biopsy"/>
+    </item>
+  </entry>
 </List>

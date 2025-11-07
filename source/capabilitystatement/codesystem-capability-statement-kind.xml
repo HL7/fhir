@@ -4,7 +4,7 @@
   <id value="capability-statement-kind"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <text>
     <status value="extensions"/>
@@ -227,12 +227,13 @@
     <definition value="The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by /metadata for a FHIR server end-point."/>
   </concept>
   <concept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="Elements marked as 'optional' represent configurable capabilities"/>
-    </extension>
     <code value="capability"/>
     <display value="Capability"/>
     <definition value="The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation."/>
+    <property>
+      <code value="comments"/>
+      <valueString value="Elements marked as 'optional' represent configurable capabilities"/>
+    </property>
   </concept>
   <concept>
     <code value="requirements"/>

@@ -13,13 +13,6 @@
 		</coding>
 		<text value="Vital Signs"/>
 	</category>
-	<category>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="39156-5"/>
-			<display value="Body mass index (BMI) [Ratio]"/>
-		</coding>
-	</category>
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>

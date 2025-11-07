@@ -14,8 +14,7 @@
 
 <a name="impl-obligations"></a>
 <h2>Implementation Obligations</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial-Use</a><!--!ns!--></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a><!--!ns!--></td></tr></table>
 
 <p>
 The FHIR specification is primarily concerned with valid interfaces of various kinds (APIs, messaging, etc.)
@@ -31,6 +30,10 @@ and <code>obligation</code> features of <a href="elementdefinition.html">Element
 <p>
 Note that since the base specification is only describing the interfaces and resources, not any particular 
 solution, the base application does not specify any applications obligations in the resource definitions.
+</p>
+<p>
+Obligations may dive deeply into the functional capabilities of systems.  Most interoperability specifications tread lightly (and <b>SHOULD</b> tread lightly) 
+in this space.  However, when a specification is created for use in a narrowly defined space, setting very specific expectations on display, storage, data entry, etc. may be necessary.
 </p>
 
 <a name="mustSupport"></a>
@@ -59,15 +62,24 @@ Profiles can make the expectations clear by either:
 </ul>
 
 <p>
-Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of
+Note that an element that has the property IsModifier is not necessarily a "key" element (e.g., one of
 the important elements to make use of the resource), nor is it automatically mustSupport - however both
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>  
 
 <p>
-The base FHIR specification is intended to be independent of any particular implementation context, 
-so no elements are flagged as <code>mustSupport</code>=true as part of the base specification, and 
-no obligations are defined for any elements (except for an example profile).
+The base FHIR specification is intended to be independent of any particular implementation context, so
+no elements are flagged as <code>mustSupport</code>=true or assigned obligations as part of the resource definitions
+in base specification (though obligations and/or mustSupport are used in some profiles defined in the base specification).
+</p>
+
+<p>
+When a repeating element is labelled as 'must-support', it can be ambiguous whether the intent
+is that at least one of the repeating elements must be supported, or whether every element must be
+supported. The must support documentation SHOULD explicitly discuss this issue, and make the
+expectations in such cases clear to the implementers. In the absence of such documentation,
+implementer cannot be sure what the meaning of the specification is, though the community may
+issue new advice to clarify the meaning.
 </p>
 
 <a name="obligations"></a>
@@ -79,6 +91,12 @@ with its use by providing one or more obligations using the <%extension http://h
 For further details about how to use the obligation extension, consult <a href="<%extensions-location%>StructureDefinition-obligation.html">the extension documentation</a>.
 </p>
 
+<p>
+If an element has obligations, it SHOULD also set the mustSupport flag to true. However, in some cases, legacy
+interpretation of the meaning of mustSupport makes making the flag true problematic. If an element with obligations
+has the mustSupport flag left as false, the mustSupport documentation of that profile or IG SHOULD document the
+rationale for the discrepancy.
+</p>
 [%file newfooter%]
 </body>
 </html>

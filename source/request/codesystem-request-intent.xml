@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="request-intent"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <url value="http://hl7.org/fhir/request-intent"/>
   <identifier>
@@ -33,7 +33,7 @@
   <concept>
     <code value="directive"/>
     <display value="Directive"/>
-    <definition value="The request represents a legally binding instruction authored by a Patient or RelatedPerson."/>
+    <definition value="The request represents an instruction authored by a Patient or RelatedPerson."/>
   </concept>
   <concept>
     <code value="order"/>

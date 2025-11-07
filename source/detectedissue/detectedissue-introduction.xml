@@ -19,7 +19,7 @@ It does not apply to technical issues (e.g. lack of user permissions) but could 
 <p>
 This resource represents a specific instance of a potential issue for a particular patient. It is <b>not</b> intended to represent general patient-independent knowledge, the <a href="clinicalusedefinition.html">ClinicalUseDefinition</a> resource is defined for that purpose. This resource is also <b>not</b> intended to be used in defining general prohibitions on actions such as "No NSAIDs", "No solid oral dose forms" or "No MRIs - metallic tattoos".  
 These guidelines can be captured using the <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="adverseevent.html">AdverseEvent</a> and/or <a href="flag.html">Flag</a> resources.  
-Similarly, this resource is not to be used to capture clinical facts that may imply contraindications such as pregnancy, breast feeding, patient preferences, past procedures, etc.  These would be represented using <a href="condition.html">Condition</a>, <a href="procedure.html">Procedure</a> or other resources.
+Similarly, this resource is not to be used to capture clinical facts that may imply contraindications such as pregnancy, breast feeding, patient preferences, past procedures, etc.  These would be represented using <a href="condition.html">Condition</a>, <a href="procedure.html">Procedure</a> or other resources. The DetectedIssue resource is not intended to be used to capture alerts from devices such as heart monitors.
 </p>
 </div>
 
@@ -33,6 +33,7 @@ This resource only applies to documenting a risk associated with a specific plan
 <p>This resource is limited to clinical issues associated with a proposed or ongoing action.  It does not cover technical issues such as lack of permission, duplicate identifiers, insufficient data, and other business rule violations. Technical issues are conveyed using the <a href="operationoutcome.html">OperationOutcome</a> resource.  
 It is possible to have both <a href="operationoutcome.html">OperationOutcome</a> and <code>DetectedIssue</code> together, where the OperationOutcome might 
 indicate that a requested action was rejected due to a clinical issue and the DetectedIssue provides the details of the issue.</p>
+<p>When author is a Device in a DetectedIssue, this typically represents the software service that supplied the detected issue as part of a clinical decision support request and response, as opposed to an alert from a monitoring device. The DeviceAlert resource should be used for that use case.</p>
 </div>
 
 <div>

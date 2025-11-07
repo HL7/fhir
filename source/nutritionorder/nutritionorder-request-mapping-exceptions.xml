@@ -75,7 +75,7 @@
     <divergentElement patternPath="Request.intent" resourcePath="NutritionOrder.intent">
         <shortUnmatched reason="Unknown">
             <_pattern value="proposal | plan | order (immutable)"/>
-            <resource value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
+            <resource value="proposal | solicit-offer | offer-response | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates the level of authority/intentionality associated with the nutrition order and where the request fits into the workflow chain."/>
@@ -137,40 +137,37 @@
             <resource value="The food (i.e. solid and/or liquid) type(s) (e.g. meats, all foods)  that the texture modification applies to."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.code" resourcePath="NutritionOrder.supplement.type">
-        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(NutritionProduct)" reason="Unknown"/>
+    <divergentElement patternPath="Request.product" resourcePath="NutritionOrder.supplement.type">
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Service requested/ordered"/>
+            <_pattern value="Product requested/ordered"/>
             <resource value="Type of supplement product requested"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <_pattern value="Indicates the product whose supply or manipulation is authorized by this nutrition order."/>
             <resource value="The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.code" resourcePath="NutritionOrder.enteralFormula.type">
-        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(NutritionProduct)" reason="Unknown"/>
+    <divergentElement patternPath="Request.product" resourcePath="NutritionOrder.enteralFormula.type">
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Service requested/ordered"/>
+            <_pattern value="Product requested/ordered"/>
             <resource value="Type of patient enteral feeding"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <_pattern value="Indicates the product whose supply or manipulation is authorized by this nutrition order."/>
             <resource value="The type of adult or pediatric enteral feeding such as an adult standard formula with fiber or a soy-based infant feeding."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Request.code" resourcePath="NutritionOrder.additive.modularType">
-        <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference(NutritionProduct)" reason="Unknown"/>
+    <divergentElement patternPath="Request.product" resourcePath="NutritionOrder.additive.modularType">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="Service requested/ordered"/>
+            <_pattern value="Product requested/ordered"/>
             <resource value="Type of modular component to add to the oral diet, supplement, and/or enteral feeding"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A code that identifies the specific service or action being asked to be done (or not done)."/>
+            <_pattern value="Indicates the product whose supply or manipulation is authorized by this nutrition order."/>
             <resource value="Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the oral diet, supplement, and/or enteral feeding."/>
         </definitionUnmatched>
     </divergentElement>
@@ -258,7 +255,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.requester" resourcePath="NutritionOrder.requester">
-        <missingTypes _pattern="Reference(Organization,Patient,RelatedPerson,Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Organization, Patient, RelatedPerson, Device)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who/what is requesting service"/>
             <resource value="Who ordered the diet, formula or nutritional supplement"/>
@@ -266,6 +263,20 @@
         <definitionUnmatched reason="Unknown">
             <_pattern value="Who initiated the {{request}} and has responsibility for its activation."/>
             <resource value="The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Request.performer" resourcePath="NutritionOrder.performer">
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, CareTeam, HealthcareService, Patient, Device, RelatedPerson)" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(CareTeam,Practitioner,PractitionerRole,RelatedPerson,Patient,Organization,Group)" reason="Unknown"/>
+        <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Specific desired (non)performer"/>
+            <resource value="Who is intended to perform the administration of the nutrition order"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what is being asked to perform (or not perform) the {{request}}."/>
+            <resource value="The specified desired performer of the nutrition order."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.supportingInfo" resourcePath="NutritionOrder.oralDiet.instruction">
@@ -335,7 +346,6 @@
     <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
     <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
     <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
-    <unmappedElement patternPath="Request.performer" reason="Unknown"/>
     <unmappedElement patternPath="Request.category" reason="Unknown"/>
     <unmappedElement patternPath="Request.reason" reason="Unknown"/>
     <unmappedElement patternPath="Request.reported" reason="Unknown"/>
@@ -343,5 +353,4 @@
     <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
     <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
-    <unmappedElement patternPath="Request.product" reason="Unknown"/>
 </mappingExceptions>

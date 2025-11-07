@@ -72,17 +72,17 @@
             <resource value="A name or code (or both) briefly describing what the transport involves."/>
         </definitionUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.subject" resourcePath="Transport.for">
+    <divergentElement patternPath="Event.subject" resourcePath="Transport.subject">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Patient,Group)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Patient, Group)" reason="Unknown"/>
         <extraTypes _resource="Reference(Resource)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="Beneficiary of the Transport"/>
+            <resource value="Beneficiary of the Transport (such as patient or subject)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The entity who benefits from the performance of the service specified in the transport (e.g., the patient)."/>
+            <resource value="The entity who benefits from the performance of the service specified in the transport (such as patient or subject)."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the transport to the Patient context.  May also affect access control."/>
@@ -107,47 +107,32 @@
             <resource value="For some transports it may be important to know the link between the encounter the transport originated within."/>
         </requirementsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.occurrence[x]" resourcePath="Transport.completionTime">
-        <missingTypes _pattern="Period, Timing" reason="Unknown"/>
+    <divergentElement patternPath="Event.occurrence[x]" resourcePath="Transport.period">
+        <missingTypes _pattern="dateTime, Timing" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="When transport occurred/is occurring"/>
-            <resource value="Completion time of the event (the occurrence)"/>
+            <resource value="When transport is occurring/occurred"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The date, period or timing when the transport did occur or is occurring."/>
-            <resource value="Identifies the completion time of the event (the occurrence)."/>
+            <resource value="The period when the transport event is occurring or did occur."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value=""/>
+            <resource value="The status code allows differentiation of whether the timing reflects an ongoing event or historic one. Ongoing transports should not include an end in the Period."/>
         </commentsUnmatched>
     </divergentElement>
-    <divergentElement patternPath="Event.performer.function" resourcePath="Transport.performerType">
-        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <summary _pattern="true" _resource="false" reason="Unknown"/>
-        <shortUnmatched reason="Unknown">
-            <_pattern value="Type of performance"/>
-            <resource value="Requested performer"/>
-        </shortUnmatched>
-        <definitionUnmatched reason="Unknown">
-            <_pattern value="Distinguishes the type of involvement of the performer in the transport.."/>
-            <resource value="The kind of participant that should perform the transport."/>
-        </definitionUnmatched>
-        <requirementsUnmatched reason="Unknown">
-            <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
-            <resource value="Use to distinguish transports on different activity queues."/>
-        </requirementsUnmatched>
-    </divergentElement>
-    <divergentElement patternPath="Event.performer.actor" resourcePath="Transport.owner">
+    <divergentElement patternPath="Event.performer.actor" resourcePath="Transport.performer">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
+        <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <extraTypes _resource="Reference(HealthcareService)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed transport"/>
-            <resource value="Responsible individual"/>
+            <resource value="Who or what performs the transport"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates who or what performed the transport."/>
-            <resource value="Individual organization or Device currently responsible for transport execution."/>
+            <resource value="Identifies the entity expected to perform the transport."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="Transport.reason">
@@ -180,6 +165,7 @@
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
     <unmappedElement patternPath="Event.location" reason="Unknown"/>
     <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
     <unmappedElement patternPath="Event.category" reason="Unknown"/>
     <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
     <unmappedElement patternPath="Event.product" reason="Unknown"/>

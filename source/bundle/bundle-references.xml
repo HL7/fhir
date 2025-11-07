@@ -213,7 +213,7 @@
     </resource>
   </entry>
 	
-  <!-- idnetifier based reference, resolves to first patient -->
+  <!-- identifier based reference, resolves to first patient -->
   <entry>
     <fullUrl value="http://example.org/fhir/Observation/48"/>
     <resource>
