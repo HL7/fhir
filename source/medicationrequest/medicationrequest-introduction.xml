@@ -53,7 +53,7 @@ These instances can be linked in different ways, depending on the needs of the w
 
 <blockquote class="ballot-note">
 <p><b>Note to Balloters:</b>
-The code system used in medication request category is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.fhir.org</a>.
+The code system used in medication request category is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.hl7.org</a>.
 </p>
 </blockquote>
 

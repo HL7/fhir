@@ -104,8 +104,8 @@
     </element>
     <element id="SubstanceDefinition.version">
       <path value="SubstanceDefinition.version"/>
-      <short value="A business level version identifier of the substance"/>
-      <definition value="A business level version identifier of the substance."/>
+      <short value="A business level edition or revision identifier"/>
+      <definition value="A business level edition or revision identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -159,8 +159,8 @@
     </element>
     <element id="SubstanceDefinition.domain">
       <path value="SubstanceDefinition.domain"/>
-      <short value="If the substance applies to human or veterinary use"/>
-      <definition value="If the substance applies to human or veterinary use."/>
+      <short value="The applicable usage of the substance, as an example human or veterinary"/>
+      <definition value="The applicable usage of the substance, as an example human or veterinary."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -593,6 +593,9 @@
       </type>
       <type>
         <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
       </type>
       <type>
         <code value="date"/>

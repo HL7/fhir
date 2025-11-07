@@ -72,7 +72,7 @@
       </p>
       <ul>
         <li>clarifying the intended meaning of the data element</li>
-        <li>Quality checking the alignment between FHIR resource design and any coresponding SNOMED CT concept model</li>
+        <li>Quality checking the alignment between FHIR resource design and any corresponding SNOMED CT concept model</li>
         <li>Composition and decomposition of data instances by indicating the SNOMED CT concept model attribute whose value may be used to decompose a precoordinated concept into this data element</li>
       </ul>
 		</preamble>
@@ -472,15 +472,6 @@
 		<title>ISO/IEEE 11073-10207: Domain Information and Service Model for Service-Oriented Point-of-Care Medical Device Communication</title>
 		<id>BICEPS</id>
 		<sort>44</sort>
-		<publish>true</publish>
-	</space>
-	<space>
-		<url>urn:iso:std:iso:11073:20701</url>
-		<link>https://standards.ieee.org/ieee/11073-20701/10223</link>
-		<columnName>ISO/IEEE 11073-20701</columnName>
-		<title>ISO/IEEE 11073-20701: Service oriented medical device exchange architecture and protocol binding</title>
-		<id>IEEESDC</id>
-		<sort>45</sort>
 		<publish>true</publish>
 	</space>
 	<space>

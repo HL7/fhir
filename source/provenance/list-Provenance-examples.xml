@@ -66,6 +66,29 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance indicating authorizing AuditEvent which indicates authorizing Consent"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example5"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example5"/>
+      <display value="Authorizing AuditEvent"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance indicating authorizing Consent"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example6"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example6"/>
+      <display value="Authorizing Consent"/>
+    </item>
+  </entry>  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Provenance holding a signature"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

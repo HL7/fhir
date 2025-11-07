@@ -234,6 +234,15 @@
         <type value="markdown"/>
       </part>
       <part>
+        <name value="criteria"/>
+        <use value="in"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation 
+          value="An expression that returns the value of this component of the stratifier for a member of the population. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element, evaluated from the perspective of the measure subject. If this is a non-subject-based measure, the expression may be a reference to a function that takes an argument of the type of the measure basis, allowing the stratifier value to be determined for each member of the population."/>
+        <type value="Expression"/>
+      </part>
+      <part>
         <name value="valueSet"/>
         <use value="in"/>
         <min value="0"/>
@@ -261,6 +270,15 @@
     <max value="*"/>
     <documentation
       value="What additional supplemental data should be reported with the measure. This additional data is specified in the same was as supplemental data in the Measure resource, and is reported in the same way in the MeasureReport."/>
+    <part>
+      <name value="measureUrl"/>
+      <use value="in"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation
+        value="If the evaluate operation is for multiple measures, this parameter may be used to specify which measures the additional supplemental data should be reported on. If not specified, the stratifier will be reported on all the measures. Note that if this results in a stratifier definition that cannot be interpreted correctly for the measure being reported, the behavior is at server discretion; it may throw an error, or simply ignore the additional stratifier definition."/>
+      <type value="canonical"/>
+    </part>
     <part>
       <name value="code"/>
       <use value="in"/>

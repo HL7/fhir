@@ -99,7 +99,7 @@
         <key value="mea-1"/>
         <severity value="error"/>
         <human value="Stratifier SHALL be either a single criteria or a set of criteria components"/>
-        <expression value="group.stratifier.all((code | description | criteria | valueSet).exists() xor component.exists())"/>
+        <expression value="group.stratifier.all((code | description | criteria).exists() xor component.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       </constraint>
       <mapping>
@@ -1601,7 +1601,7 @@
       </extension>
       <path value="Measure.group.stratifier"/>
       <short value="Stratifier criteria for the measure"/>
-      <definition value="The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
+      <definition value="A stratifier for the measure, specified as either a criteria expression, or a set of components that define value-based stratifier expressions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1691,7 +1691,7 @@
     <element id="Measure.group.stratifier.criteria">
       <path value="Measure.group.stratifier.criteria"/>
       <short value="How the measure should be stratified"/>
-      <definition value="An expression that specifies the criteria for the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+      <definition value="An expression that specifies a criteria-based stratifier for the measure. This is typically the name of an expression defined within a referenced library, and SHALL use the same basis as other population criteria for the population group."/>
       <comment value="As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>
@@ -1720,36 +1720,13 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
-    <element id="Measure.group.stratifier.valueSet">
-      <path value="Measure.group.stratifier.valueSet"/>
-      <short value="What stratum values?"/>
-      <definition value="A value set defining the set of possible values for stratum in this stratifier. If criteria and valueSet are both present, they SHALL be consistent (i.e. criteria expressions SHALL produce stratum values that are codes in the value set referenced by this element). Note that this MAY be strictly at the code level (e.g. an Age Range code that is just the string value `01Y--05Y` with the system ignored)."/>
-      <comment value="This element may be used to define a stratifier rather than requiring the stratifier be defined with logic. For example, a measure may reference a value set defining possible age ranges, rather than (and potentially in addition to) embedding the calculation of the age ranges into measure logic. See the MeasureStratifierAgeRangeExample value set for an example."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
-      </type>
-    </element>
-    <element id="Measure.group.stratifier.unit">
-      <path value="Measure.group.stratifier.unit"/>
-      <short value="What units?"/>
-      <definition value="Indicates what units, if any, stratifier values are expected to be expressed in. This element SHOULD be specified in UCUM units or calendar units."/>
-      <comment value="This element may be used to define the expected units of stratum values, when that information cannot be inferred from the calculation logic directly."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
     <element id="Measure.group.stratifier.component">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,450"/>
       </extension>
       <path value="Measure.group.stratifier.component"/>
       <short value="Stratifier criteria component for the measure"/>
-      <definition value="A component of the stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
+      <definition value="A component of a value-based stratifier for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path."/>
       <comment value="Stratifiers are defined either as a single criteria, or as a set of component criteria."/>
       <min value="0"/>
       <max value="*"/>
@@ -1828,7 +1805,7 @@
     <element id="Measure.group.stratifier.component.criteria">
       <path value="Measure.group.stratifier.component.criteria"/>
       <short value="Component of how the measure should be stratified"/>
-      <definition value="An expression that specifies the criteria for this component of the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
+      <definition value="An expression that returns the value of this component of the stratifier for a member of the population. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element, evaluated from the perspective of the measure subject. If this is a non-subject-based measure, the expression may be a reference to a function that takes an argument of the type of the measure basis, allowing the stratifier value to be determined for each member of the population."/>
       <comment value="As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>

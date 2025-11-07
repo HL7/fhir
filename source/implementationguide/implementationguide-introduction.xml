@@ -19,7 +19,7 @@ In particular, validators are able to use the ImplementationGuide resource to va
 against the implementation guide as a whole. The significant conformance expectation introduced 
 by the ImplementationGuide resource is the idea of <a href="#default">Default Profiles</a>. 
 Implementations may conform to multiple implementation guides at once, but this requires that 
-the implementation guides are compatible (see <a href="#compatibility">below</a>).
+the implementation guides are compatible.
 </p>
 </div>
 

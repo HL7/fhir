@@ -143,14 +143,14 @@
     <condition>
       <kind value="applicability"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="NoScreening"/>
       </expression>
     </condition>
     <dynamicValue>
       <path value="$this"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="ChlamydiaScreeningRequest"/>
       </expression>
     </dynamicValue>

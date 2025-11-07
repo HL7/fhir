@@ -32,7 +32,7 @@ starts with a <a href="composition.html">Composition</a> and contains specific f
 resources. Changes to a document Bundle may risk invalidating the attestation present within the document.  
 Implementations SHOULD have policies around when documents can be 'updated' (new version of the same 
 instance) vs. when a distinct document needs to be created, as well as what types of change are permitted, 
-in order to retain attestation validity.  These rules might vary based on the type of document (e.g. legal 
+in order to retain attestation validity.  These rules might vary based on the type of document (e.g., legal 
 documents, clinical documents, etc.).</p>
 <p>
 Documents built in this fashion may be exchanged between systems and
@@ -43,9 +43,9 @@ Applications that declare support for FHIR documents with <a href="capabilitysta
 </p>
 <p>
 FHIR documents may serve clinical purposes (focused on patient healthcare information) and 
-non-clinical purposes (e.g. practice guidelines, patient handouts, etc.). HL7 has plans to 
+non-clinical purposes (e.g., practice guidelines, patient handouts, etc.). HL7 has plans to 
 develop profiles in the future giving additional guidance on appropriate representation of 
-clinical documents in general, specific types of clinical documents (e.g. Consolidated CDA), 
+clinical documents in general, specific types of clinical documents (e.g., Consolidated CDA), 
 and other non-clinical documents (Death Certificate, Medication Registration Information).
 </p>
 <p>FHIR documents are not intended to capture unbounded data sets such as all data stored in an EHR. Rather, 
@@ -107,7 +107,7 @@ The document bundle SHALL include only:
  <li>The composition set: the single Composition resource, and the resources it links to</li>
  <li>
   The supporting information: Any resources that are part of the graph of resources that reference or are referenced 
-  from the composition set, either directly or indirectly (e.g. recursively in a chain).  Such references SHALL use 
+  from the composition set, either directly or indirectly (e.g., recursively in a chain).  Such references SHALL use 
   <a href="references.html#Reference">Reference.reference</a>, <a href="references.html#canonical">canonical</a> 
     or a <a href="datatypes.html#uri">URI</a>
     See <a href="bundle.html#graphs">Graph-connected Bundles</a> for further details.</li>
@@ -158,7 +158,7 @@ collated narrative portions in order:
 </p>
 <p>
   The presentation of the document is called the 'attested content' of the document. The text of resources 
-  outside Composition and the subject resource are not considered attested content (e.g. a <a href="condition.html">Condition</a> resource). 
+  outside Composition and the subject resource are not considered attested content (e.g., a <a href="condition.html">Condition</a> resource). 
   Specifically, the <code>Composition.attester</code> attests to the presented form of the document.
 </p>
 <p>
@@ -292,7 +292,7 @@ of posting to them:
 <table class="grid">
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
  <tr> <td><a href="bundle.html">[baseurl]/Bundle</a></td> <td>Document Bundle</td> <td>This works like a normal end-point
-   for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle,
+   for managing a type of resource, but it works with whole document bundles - i.e., a read operation returns a bundle,
    an update gets a bundle and a search returns a bundle of bundles. Note that if documents are POSTed
    using a <a href="http.html#create">create</a> interaction the Bundle.id will change, but the Bundle.identifier will not. See <a href="bundle.html#rest">Serving Bundles using the RESTful API</a> for further comment</td></tr>
  <tr> <td><a href="composition.html">[baseurl]/Composition</a></td> <td>Composition Resource</td> <td>The normal end-point for managing
@@ -304,7 +304,7 @@ of posting to them:
    so usually this would be associated with a <a href="documentreference.html">Document Reference</a> so that applications
    can find and process the document, though this is not required</td> </tr>
 
- <tr> <td><a href="http.html#transaction">[baseurl]</a> (e.g. a transaction)</td> <td>Document Bundle</td> <td>Ignore the
+ <tr> <td><a href="http.html#transaction">[baseurl]</a> (e.g., a transaction)</td> <td>Document Bundle</td> <td>Ignore the
    fact that the bundle is a document and process all of the resources that it contains as individual resources. Clients SHOULD
    not expect that a server that receives a document submitted using this method will be able to reassemble the document exactly. (Even if the
    server can reassemble the document (see below), the result cannot be expected to be in the same order, etc.  Thus a document signature will

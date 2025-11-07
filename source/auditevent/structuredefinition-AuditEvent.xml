@@ -682,7 +682,7 @@
         </extension>
         <strength value="example"/>
         <description value="What security role enabled the agent to participate in the event."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/security-role-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/security-role-type-example"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -1147,7 +1147,7 @@
         </extension>
         <strength value="example"/>
         <description value="Example Security Labels from the Healthcare Privacy and Security Classification System."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/security-label-examples"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/security-label-example"/>
       </binding>
       <mapping>
         <identity value="w5"/>

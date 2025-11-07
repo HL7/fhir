@@ -204,12 +204,12 @@ Web Health Care and Life Sciences Interest Group</a>.
         <ul>
           <li>the subject <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> is wrapped with '<code class="rdf">&lt; ... &gt;</code>',</li>
           <li>the type (<code class="rdf">fhir:Observation</code>) and
-            following properties (e.g. <code class="rdf">fhir:status</code>)
+            following properties (e.g., <code class="rdf">fhir:status</code>)
             are prefixed names (like XML namespaced names),</li>
           <li>assertions following a ';' re-use the same subject,</li>
           <li>anonymous nodes are declared with '<code class="rdf">[ ... ]</code>'s,</li>
           <li>and literals with a quoted value and an optional datatype
-            preceded by '^^' (e.g. <code class="rdf">"http://loinc.org"^^xsd:anyURI</code>).</li>
+            preceded by '^^' (e.g., <code class="rdf">"http://loinc.org"^^xsd:anyURI</code>).</li>
         </ul>
 
         <h3><a name="serialization-conventions"></a>FHIR Turtle
@@ -233,10 +233,10 @@ href="fhir.shex">fhir.shex</a>
         <a name="resources"></a>
         <h4>Representing Resources</h4>
           <p> Each resource is represented as a set of RDF triples. When
-            a resource has a persistent identity (e.g. it can be found
+            a resource has a persistent identity (e.g., it can be found
             at a particular URL -- usually a FHIR RESTful server), then
             that URL is its identity. Resources with no persistent
-            identity (e.g. bundles from search results) have the
+            identity (e.g., bundles from search results) have the
             identity of the root document -- "&lt;&gt;" in Turtle syntax.
             In the above example, the resource is the subject: <code
               class="rdf">&lt;http://example.org/fhir/Observation/bgpanel&gt;</code>.
@@ -299,7 +299,7 @@ href="fhir.shex">fhir.shex</a>
             Observation's JSON structure definition</a>.)
             In other formats (XML, JSON), a FHIR property with a choice
             of value types has the type appended to the property name,
-            e.g. <span class="json">valueQuantity</span> if the value is a
+            e.g., <span class="json">valueQuantity</span> if the value is a
             <a href="datatypes.html#Quantity">Quantity</a> (i.e., Observation.valueQuantity).
             But in FHIR RDF, it is written as a polymorphic <code class="rdf">fhir:value</code> property,
             and the object asserts its type explicitly, as shown in the
@@ -615,7 +615,7 @@ href="fhir.shex">fhir.shex</a>
             including in the case of multiple versions of a resource.</p>
 
           <p>
-            When parsed into RDF, all URIs are absolute, e.g. <code>http://example.org/some/path.ext</code>.
+            When parsed into RDF, all URIs are absolute, e.g., <code>http://example.org/some/path.ext</code>.
             The Turtle syntax for RDF leverages the same <a href="https://datatracker.ietf.org/doc/html/rfc3986#section-5.2">relative URL resolution</a> as HTML.
             The FHIR examples (available from the downloads page) and this document follow some conventions described below with the goal of
           </p>
@@ -763,7 +763,7 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
           a prefix and a reference, separated by a colon, such as
           <code class="rdf">loinc:29463-7</code>.
           Although some RDF systems have treated CURIEs
-          directly as FHIR Codes -- i.e. including the "loinc:" prefix as part of the code --
+          directly as FHIR Codes -- i.e., including the "loinc:" prefix as part of the code --
           non-prefixed FHIR codes like <code class="rdf">29463-7</code> are strongly
           preferred because they align better with the use of IRI stems
           described herein.
