@@ -207,17 +207,16 @@ or, in JSON:
 </pre>
 
 <p>
-Other parameters are passed by reference. For example, the <a href="chargeitemdefinition-operation-apply.html">ChargeItemDefinition.$apply operation</a> 
-takes two parameters of type Reference - one to the chargeItem and the other to the account.  The type of the 
-parameters is <code>Reference(Charge)</code> and <code>Reference(Account)</code>, respectively.  The expectation is that the server performing the 
+Other parameters are passed by reference. For example, the <a href="plandefinition-operation-apply.html">PlanDefinition.$apply operation</a> 
+takes more than one parameters of type Reference - subject, encounter and organization. The expectation is that the server performing the 
 operation will resolve those references as part of the operation execution.
-In a parameters resource, the chargeItem parameter would be represented like this: 
+In a parameters resource, the subject parameter would be represented like this: 
 </p>
 <pre class="xml">
   &lt;parameter&gt;
-    &lt;name value=&quot;chargeItem&quot;/&gt;
+    &lt;name value=&quot;subject&quot;/&gt;
     &lt;valueReference&gt;
-      &lt;reference value="ChargeItem/123"/&gt;
+      &lt;reference value="Patient/123"/&gt;
     &lt;/valueReference&gt;
   &lt;/parameter&gt; 
 </pre>
@@ -227,9 +226,9 @@ or, in JSON:
 <pre>
  "parameter": [
     {
-      "name": "chargeItem",
+      "name": "subject",
       "valueReference" : {
-        "reference" : "ChargeItem/123"
+        "reference" : "Patient/123"
       }
     }
   ]

@@ -20,7 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="Composition.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,Task,VisionPrescription)" reason="Unknown"/>
+        <extraTypes _resource="Reference(Appointment,AppointmentResponse,CarePlan,Claim,CommunicationRequest,CoverageEligibilityRequest,DeviceRequest,EnrollmentRequest,MedicationRequest,NutritionOrder,RequestOrchestration,ServiceRequest,Task,VisionPrescription)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Allows tracing of authorization for the composition and tracking whether proposals/recommendations were acted upon."/>

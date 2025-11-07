@@ -218,6 +218,7 @@
         <map value="Substance.Comment"/>
       </mapping>
     </element>
+    <!--
     <element id="SubstanceDefinition.informationSource">
       <path value="SubstanceDefinition.informationSource"/>
       <short value="Supporting literature"/>
@@ -234,6 +235,7 @@
         <map value="Substance.Reference_Source"/>
       </mapping>
     </element>
+    -->
     <element id="SubstanceDefinition.note">
       <path value="SubstanceDefinition.note"/>
       <short value="Textual comment about the substance's catalogue or registry record"/>

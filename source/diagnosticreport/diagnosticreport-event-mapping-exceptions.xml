@@ -20,7 +20,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="DiagnosticReport.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,ImmunizationRecommendation,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,MedicationRequest,NutritionOrder,ServiceRequest)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>

@@ -21,7 +21,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="Immunization.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,MedicationRequest,ServiceRequest,ImmunizationRecommendation)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,MedicationRequest,ServiceRequest)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Authority that the immunization event is based on"/>
