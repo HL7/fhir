@@ -56,7 +56,7 @@ This status information is often used for other things, and often an analysis of
 This could be done by scanning through all the resource history versions of the encounter, checking the period of each,
 and then doing some form of post processing. However, this information is not always completed in real-time (or even in the same system)
 and needs to be updated over time - as a result the resource history is not adequate to satisfy these needs, and subsequently 
-the new <a href="encounterhistory.html">EncounterHistory</a> resource provides this information<br/>
+the new <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-EncounterHistory.html">EncounterHistory</a> resource provides this information<br/>
 [%stu-note dstu%]
 In FHIR R4 and earlier this was done using the statusHistory and classHistory backbone elements, however with longer
 duration encounters (where a patient encounter might be considered active for years) this would become increasingly inefficient,
