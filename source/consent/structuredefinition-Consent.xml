@@ -501,8 +501,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
-    <element id="Consent.verification.verificationDate">
-      <path value="Consent.verification.verificationDate"/>
+    <element id="Consent.verification.date">
+      <path value="Consent.verification.date"/>
       <short value="When consent verified"/>
       <definition value="Date(s) verification was collected."/>
       <comment value="Allows for history of verification/validation."/>

@@ -456,8 +456,8 @@
        fill="#000000"
        class="diagram-class-detail"><a
    id="n995"
-   xlink:href="consent-definitions.html#Consent.verification.verificationType"><title
-   id="title27894">Extensible list of verification type starting with verification and re-validation</title>verificationType</a> : <a
+   xlink:href="consent-definitions.html#Consent.verification.type"><title
+   id="title27894">Extensible list of verification type starting with verification and re-validation</title>type</a> : <a
    id="n996"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n997"
@@ -508,8 +508,8 @@
        fill="#000000"
        class="diagram-class-detail"><a
    id="n1029"
-   xlink:href="consent-definitions.html#Consent.verification.verificationDate"><title
-   id="title27917">Date(s) verification was collected</title>verificationDate</a> : <a
+   xlink:href="consent-definitions.html#Consent.verification.date"><title
+   id="title27917">Date(s) verification was collected</title>date</a> : <a
    id="n1030"
    xlink:href="datatypes.html#dateTime">dateTime</a> [0..*]</text>
   </g>
