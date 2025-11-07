@@ -94,8 +94,8 @@
     </element>
     <element id="AdministrableProductDefinition.identifier">
       <path value="AdministrableProductDefinition.identifier"/>
-      <short value="An identifier for the administrable product"/>
-      <definition value="An identifier for the administrable product."/>
+      <short value="An identifier for the administrable product instance"/>
+      <definition value="An identifier for the administrable product instance."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -104,7 +104,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="PhPID"/>
+        <map value="n/a"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -273,6 +273,34 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="AdministrableProductDefinition.code">
+      <path value="AdministrableProductDefinition.code"/>
+      <short value="A code that this product is known by, within some formal terminology. May be a PhPID"/>
+      <definition value="A code that this product is known by, within some formal terminology. May be a PhPID. PhPID is really a code or a label, and not an identifier, because it applies to multiple products."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicationFormalRepresentation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A coded concept that defines the type of a medication."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+      </binding>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="PhPID"/>
+      </mapping>
+    </element>
+    
     <element id="AdministrableProductDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="500,35"/>
@@ -325,6 +353,9 @@
       </type>
       <type>
         <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
       </type>
       <type>
         <code value="date"/>

@@ -177,7 +177,7 @@
       <path value="ClinicalUseDefinition.subject"/>
       <short value="The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning"/>
       <definition value="The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
