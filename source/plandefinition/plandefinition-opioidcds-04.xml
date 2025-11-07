@@ -124,7 +124,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Check whether the opioid prescription for the existing patient is extended-release without any opioids-with-abuse-potential prescribed in the past 90 days."/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Inclusion Criteria"/>
       </expression>
     </condition>
@@ -133,21 +133,21 @@
     <dynamicValue>
       <path value="action.title"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Get Summary"/>
       </expression>
     </dynamicValue>
     <dynamicValue>
       <path value="action.description"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Get Detail"/>
       </expression>
     </dynamicValue>
     <dynamicValue>
       <path value="activity.extension"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Get Indicator"/>
       </expression>
     </dynamicValue>

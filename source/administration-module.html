@@ -38,7 +38,7 @@ in order to support consistent definitions for schema and UML derived code.
                         <li><a href="patient.html">Patient</a></li>
                         <li><a href="relatedperson.html">RelatedPerson</a></li>
                         <li><a href="person.html">Person</a></li>
-                        <li><a href="personalrelationship.html">PersonalRelationship</a></li>
+                        <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a></li>
                         <li><a href="group.html">Group</a></li>
                         <li><a href="practitioner.html">Practitioner</a></li>
                         <li><a href="practitionerrole.html">PractitionerRole</a></li>
@@ -57,13 +57,11 @@ in order to support consistent definitions for schema and UML derived code.
                         <li><a href="specimendefinition.html">SpecimenDefinition</a></li>
                     </ul>
                 </td>
-
-
                 <td>
                     <ul>
                         <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
                         <li><a href="encounter.html">Encounter</a></li>
-                        <li><a href="encounterhistory.html">EncounterHistory</a></li>
+                        <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-EncounterHistory.html">EncounterHistory</a></li>
                         <li><a href="appointment.html">Appointment</a></li>
                         <li><a href="appointmentresponse.html">AppointmentResponse</a></li>
                         <li><a href="flag.html">Flag</a></li>
@@ -96,7 +94,6 @@ in order to support consistent definitions for schema and UML derived code.
             [%res-item RelatedPerson%]
             [%res-item Person%]
             [%res-item Group%]
-            [%res-item PersonalRelationship%]
         </table>
         <div>
             <img src="administration-module-person.png" alt="Image showing the relationship between resources representing people" width="584px" />
@@ -132,17 +129,17 @@ in order to support consistent definitions for schema and UML derived code.
             is used to describe the role or relationship of the individual (member) has with the group, not with other members of the group.
         </p>
         <p>
-            The relationship between the members of the group can be quite complex, and transient over time, and is recorded using the <a href="personalrelationship.html">PersonalRelationship</a> resource,
+            The relationship between the members of the group can be quite complex, and transient over time, and is recorded using the <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> resource,
             which connects 2 members of the group together (only members of type <a href="patient.html">Patient</a>, <a href="relatedperson.html">RelatedPerson</a>).
         </p>
         <p>
-            The <a href="personalrelationship.html">PersonalRelationship</a> resource can also be used outside the group, in these cases it can also reference non group members, including <a href="person.html">Person</a> resources.
+            The <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> resource can also be used outside the group, in these cases it can also reference non group members, including <a href="person.html">Person</a> resources.
         </p>
         <p>
-            Some use cases might require a <a href="personalrelationship.html">PersonalRelationship</a> resource which can overlap with the relationship defined inside the <a href="relatedperson.html">RelatedPerson</a> resource.
+            Some use cases might require a <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> resource which can overlap with the relationship defined inside the <a href="relatedperson.html">RelatedPerson</a> resource.
         </p>
         <p>
-            <a href="personalrelationship.html">PersonalRelationship</a> can be used to document "possible/suspected" relationships, such as a doctor recording that 2 people may be related, or in an evacuation centre trying to locate and connect people may record possible connections (individuals may be unconscious).
+            <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a> can be used to document "possible/suspected" relationships, such as a doctor recording that 2 people may be related, or in an evacuation centre trying to locate and connect people may record possible connections (individuals may be unconscious).
         </p>
 
         <a name="agg-pop"></a>

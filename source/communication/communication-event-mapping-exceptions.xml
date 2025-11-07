@@ -16,7 +16,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.basedOn" resourcePath="Communication.basedOn">
         <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
-        <extraTypes _resource="Reference(CarePlan,CommunicationRequest,DeviceRequest,ImmunizationRecommendation,MedicationRequest,NutritionOrder,ServiceRequest,Task,VisionPrescription)" reason="Unknown"/>
+        <extraTypes _resource="Reference(CarePlan,CommunicationRequest,DeviceRequest,MedicationRequest,NutritionOrder,ServiceRequest,Task,VisionPrescription)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Fulfills plan, proposal or order"/>
             <resource value="Request fulfilled by this communication"/>
