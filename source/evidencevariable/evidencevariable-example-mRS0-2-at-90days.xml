@@ -28,7 +28,7 @@
    		  </code>
    		  <valueExpression>
    		    <description value="mRS 0-2"/>
-  		    <language value="text/cql"/>
+  		    <language value="text/cql-expression"/>
    		    <expression value="[&quot;Observation&quot;: code in &quot;75859-9|LOINC&quot;] mRS where mRS.value between 0 and 2"/>
   		  </valueExpression>
   		  <exclude value="false"/>

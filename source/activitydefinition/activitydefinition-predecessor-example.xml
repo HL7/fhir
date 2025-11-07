@@ -268,7 +268,7 @@
 		   In this case, ServiceRequest.fulfillmentTime.start -->
       <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
         <valueExpression>
-          <language value="text/cql"/>
+          <language value="text/cql-expression"/>
           <expression value="Now()"/>
         </valueExpression>
       </extension>
