@@ -15,7 +15,7 @@
 <a name="SOA"></a>
 <a name="soa"></a>
 <h2>Using Resources with Services and Service-oriented Architecture</h2>
-<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 2</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
 Though FHIR resources are primarily designed for the <a href="http.html">RESTful HTTP-based implementation</a>, it is not
@@ -374,7 +374,7 @@ by any reference to the resource, it must be maintained when the resource is exc
 resources to the one being exchanged can still be resolved. Any use of resources in a service environment needs to address
 how these references can be resolved. This can be achieved by delegating the reference resolution to a RESTful framework,
 by ensuring that all the relevant resources are contained in the service call, or by making some service-based arrangement
-by which additional resources can be retrieved.   Services that exchange resources SHOULD maintain resource identity.
+by which additional resources can be retrieved.   Services that exchange resources should preserve resource identity when it is known.
 Further, as explicit version tracking is not a guaranteed capability of a service call, services that exchange resources
 should include version information associated with resources being exchanged.
 </p>
@@ -484,7 +484,7 @@ this table:
  <td>FHIR Batch allows for concatenation of multiple process steps. SOA Orchestration allows for fine grained control, grouping and sequencing of multiple operations</td>
  </tr>
  <tr>
- <td>Provides for management of data coherence (e.g. Deadlocks, transactions)</td>
+ <td>Provides for management of data coherence (e.g., Deadlocks, transactions)</td>
  <td align="center">&#9675;</td>
  <td align="center">&#9675;</td>
  <td align="center">&#9679;</td>

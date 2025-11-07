@@ -47,10 +47,10 @@
         </denominator>
       </amount>
     </ingredient>
-    <batch>
+    <instance>
       <lotNumber value="12345"/>
       <expirationDate value="2018-12-22"/>
-    </batch>
+    </instance>
   </product>
   <package>
     <container>

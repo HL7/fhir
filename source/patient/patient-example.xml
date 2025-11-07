@@ -76,8 +76,7 @@
 	<address>
 		<use value="home"/>
 		<type value="both"/>
-		<text value="534 Erewhon St
-PeasantVille, Rainbow, Vic  3999"/>
+		<text value="534 Erewhon St&#xA;PeasantVille, Rainbow, Vic  3999"/>
 		<line value="534 Erewhon St"/>
 		<city value="PleasantVille"/>
 		<district value="Rainbow"/>

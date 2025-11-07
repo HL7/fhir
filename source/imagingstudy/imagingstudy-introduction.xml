@@ -30,8 +30,8 @@ resource; use of a DICOM service is needed (e.g., a DICOMweb retrieve transactio
 <p> 
 One ImagingStudy SHALL reference one DICOM Study.
 </p>
-<p>This resource may change as additional information is added to the related DICOM Study.</p>
-<p>See notes for guidance on <a href="imagingstudy.html#source">how imaging study element values can be populated</a> and <a href="imagingstudy.html#workflow">when imaging studies may be created and updated</a>.</p>
+<p>This resource can change as additional information is added to the related DICOM Study.</p>
+<p>See notes for guidance on <a href="imagingstudy.html#source">how imaging study element values can be populated</a> and <a href="imagingstudy.html#workflow">when imaging studies are typically created and updated</a>.</p>
 </div>
 
 <div>

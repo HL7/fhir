@@ -10,15 +10,5 @@
   <publisher value="HL7"/>
   <description value="Defines common extensions and profiles used with or related to the NamingSystem resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/shareablenamingsystem"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/publishablenamingsystem"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

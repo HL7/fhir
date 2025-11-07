@@ -59,7 +59,7 @@
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
-  <type value="Encounter"/>
+  <type value="EncounterHistory"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
   <derivation value="specialization"/>
   <differential>
@@ -238,7 +238,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>

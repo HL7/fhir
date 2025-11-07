@@ -56,7 +56,7 @@
     <divergentElement patternPath="Event.status" resourcePath="MedicationDispense.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
-            <resource value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"/>
+            <resource value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | unfulfilled | declined | unknown"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the medication dispense."/>
@@ -73,11 +73,11 @@
         <extraTypes _resource="CodeableReference(Medication)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="What service was done"/>
-            <resource value="What medication was supplied"/>
+            <resource value="What medication was (or was intended to be) supplied"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A code that identifies the specific service or action that was or is being performed."/>
-            <resource value="Identifies the medication supplied. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
+            <resource value="Identifies the medication supplied (or intended to be supplied). This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="MedicationDispense.subject">

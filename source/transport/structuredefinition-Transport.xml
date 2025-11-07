@@ -12,7 +12,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="2"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="patient"/>
@@ -85,7 +85,7 @@
       <max value="*"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event,Request"/>
+        <map value="Event"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -333,7 +333,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -594,6 +594,7 @@
         </extension>
         <strength value="example"/>
         <description value="Indicates why the transport is needed.  E.g. Suspended because patient admitted to hospital."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/transport-reason"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -610,7 +611,7 @@
     </element>
     <element id="Transport.priorTransport">
       <path value="Transport.priorTransport"/>
-      <short value="THe most recent transport"/>
+      <short value="The most recent transport"/>
       <definition value="The immediately preceding Transport event."/>
       <min value="0"/>
       <max value="1"/>

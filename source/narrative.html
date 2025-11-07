@@ -17,8 +17,7 @@
 <a name="Narrative"></a>
 <a name="narrative"></a>
 <h2>Narrative</h2>
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 Any resource that is a <a href="domainresource.html">DomainResource</a> (all resources except <a href="bundle.html">Bundle</a>, <a href="parameters.html">Parameters</a> and <a href="binary.html">Binary</a>) 
@@ -52,7 +51,7 @@ content</a> from other resources and still be considered generated.
 </p>
 <p>
 For example, the narrative for a MedicationRequest might include brief summary information
-about the referenced patient, prescriber and medication.  Some resources (e.g. List)
+about the referenced patient, prescriber and medication.  Some resources (e.g., List)
 can provide specific rules about what content must (or must not) be included in the resource narrative.
 Consideration would be given to the fact that referenced resources may be updated without updating
 referencing resources, so the proportion of content of a referenced resource included
@@ -114,7 +113,7 @@ The contents of the <i>div</i> element are an XHTML fragment that SHALL contain 
 chapters 7-11 (except section 4 of chapter 9) and 15 of the HTML 4.0 standard, &lt;a&gt; elements (either name or href),
 images and internally contained style attributes.
 The XHTML content SHALL NOT contain
-a <code>head</code>, a <code>body</code> element, external stylesheet references, deprecated elements, scripts, forms, base/link/xlink, frames, iframes, objects or event related attributes (e.g. <code>onClick</code>).
+a <code>head</code>, a <code>body</code> element, external stylesheet references, deprecated elements, scripts, forms, base/link/xlink, frames, iframes, objects or event related attributes (e.g., <code>onClick</code>).
 This is to ensure that the content of the narrative is contained within the resource and that there is no active content.  Such content would introduce
 security issues and potentially safety issues with regard to extracting text from the XHTML. Note that 
 even with these restrictions, there are still several important <a href="security.html#narrative">security risks</a> associated with displaying the narrative.
@@ -281,13 +280,18 @@ Authoring systems can use these classes, which SHALL be supported by all renderi
  <tr> <td>circle</td> <td>List bullets are hollow discs</td> <td>{ list-style-type : circle }</td> </tr>
  <tr> <td>square</td> <td>List bullets are solid squares</td> <td>{ list-style-type: square }</td> </tr>
  <tr> <td>unlist</td> <td>List with no bullets</td> <td>{ list-style-type: none }</td> </tr>
+ <tr> <td>nolist</td> <td>List with no bullets</td> <td>{ list-style-type: none }</td> </tr>
 </table>
 <p>
-Note: for testing purposes, there is an <a href="basic-example-narrative.html">example resource</a> that includes
-all of these styles. It is also available <a href="narrative-examples.html">as XHTML</a> and a
-<a href="fhir-runtime.css">standard stylesheet</a> that includes all of these styles.  Use of styles
-not on this list will require an arrangement between producing and consuming systems.
+Notes:
 </p>
+<ul>
+  <li>nolist and unlist are duplicates to clear up past confusion</li>
+  <li>for testing purposes, there is an <a href="basic-example-narrative.html">example resource</a> that includes
+    all of these styles. It is also available <a href="narrative-examples.html">as XHTML</a> and a
+    <a href="fhir-runtime.css">standard stylesheet</a> that includes all of these styles.</li>
+  <li>Use of styles not on this list will require an arrangement between producing and consuming systems.</li>
+</ul>
 
 <p>
 Authoring systems may refer to additional classes, but cannot rely on the fact
@@ -313,7 +317,7 @@ Authoring systems may fix the following styling aspects of the content:
 <p>
 These style properties are specified in-line using the <code>style</code> attribute. Rendering systems
 SHOULD respect any of these rendering styles when they are specified in the <code>style</code>
-attribute, although appropriate interpretation is allowed in certain contexts (e.g. a low-contrast display for dark
+attribute, although appropriate interpretation is allowed in certain contexts (e.g., a low-contrast display for dark
 rooms or a high-contrast display for the visually impaired may adjust colors accordingly).
 </p>
 <p>
@@ -363,7 +367,7 @@ originalText:
 <p>
 This indicates that the word "Asthma" in the narrative is the original text from which the SNOMED CT code "asthma"
 was derived by some text processing method. Typically, this method is associated with resources built from 
-CDA documents. The same method can be used to reference across resource boundaries, e.g. between a resource
+CDA documents. The same method can be used to reference across resource boundaries, e.g., between a resource
 and the composition that represents it:
 </p>
 <pre class="xml">
@@ -422,7 +426,7 @@ In particular:
 the match between the XHTML <code>div</code> and <code>span</code> elements and styles, and
 those that include nested tables (possibly with images) as well, make rendering consistency
 difficult, and implementations SHOULD avoid these</li>
- <li>The use of styles e.g. bolding, italics and color; SHOULD NOT be used as the
+ <li>The use of styles e.g., bolding, italics and color; SHOULD NOT be used as the
    sole way to convey meaning or semantics, but should be used in conjunction with other
    data elements to ensure consistent, long term interoperability. </li>
 </ul>

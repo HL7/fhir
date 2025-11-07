@@ -24,7 +24,7 @@
 
 <h2>Appendix: HL7 EHR System Functional Model and FHIR</h2>
 
-<table class="colsi"><tr><td id="wg"><a target="blank" href="[%wg ehr%]">[%wgt ehr%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a target="blank" href="[%wg ehr%]">[%wgt ehr%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 
 
@@ -112,15 +112,15 @@ The EHR system functional model describes several modes for interaction between 
 
 <tr><th>Interaction Modes</th><th>FHIR Options</th></tr>
 
-<tr><td>Unsolicited Notifications<br/>e.g. a patient has arrived for a clinic appointment </td><td><ul><li>Create/update new resource via HTTP</li><li>Push resources using Bundle</li><li>Send FHIR <a href="messaging.html">Message</a> (if appropriate event is defined)</li></ul></td></tr>
+<tr><td>Unsolicited Notifications<br/>e.g., a patient has arrived for a clinic appointment </td><td><ul><li>Create/update new resource via HTTP</li><li>Push resources using Bundle</li><li>Send FHIR <a href="messaging.html">Message</a> (if appropriate event is defined)</li></ul></td></tr>
 
-<tr><td>Query/Response<br/>e.g. Is Adam Everyman known to the system? Yes, MRN is 12345678.</td><td><ul><li>Search with parameters</li><li>A query message (though not defined yet)</li></ul></td></tr>
+<tr><td>Query/Response<br/>e.g., Is Adam Everyman known to the system? Yes, MRN is 12345678.</td><td><ul><li>Search with parameters</li><li>A query message (though not defined yet)</li></ul></td></tr>
 
-<tr><td>Service Request and Response<br/>e.g. Laboratory Order for Fasting Blood Sugar and a response containing the results of the test.  </td><td>Could be supported either through Messaging or SOA solutions.  Request/Response support is not yet defined</td></tr>
+<tr><td>Service Request and Response<br/>e.g., Laboratory Order for Fasting Blood Sugar and a response containing the results of the test.  </td><td>Could be supported either through Messaging or SOA solutions.  Request/Response support is not yet defined</td></tr>
 
-<tr><td>Information Interchange between organizations (e.g. in a RHIO, or in a National Health System)  </td><td><ul><li>Pub/sub using bundles (push or pull)</li><li>RESTful interface</li><li>FHIR messaging</li></ul></td></tr>
+<tr><td>Information Interchange between organizations (e.g., in a RHIO, or in a National Health System)  </td><td><ul><li>Pub/sub using bundles (push or pull)</li><li>RESTful interface</li><li>FHIR messaging</li></ul></td></tr>
 
-<tr><td>Structured / Unstructured clinical document, e.g. dictated surgical note </td><td>See the <a href="documents.html">Documents</a></td></tr>
+<tr><td>Structured / Unstructured clinical document, e.g., dictated surgical note </td><td>See the <a href="documents.html">Documents</a></td></tr>
 
 </table>
 

@@ -2,7 +2,7 @@
   <id value="research-study-trial-phase"/>
   <meta>
     <lastUpdated value="2025-03-07T12:40:00+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
@@ -31,7 +31,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Classifiers of clinical trial progression for human use."/>
+  <description value="Classifiers of clinical trial progression for human use. This is a copy of codes from SEVCO."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/study-design"/>

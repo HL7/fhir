@@ -71,13 +71,13 @@
         <display value="Solution (basic dose form)"/>
       </coding>
     </doseForm>
-  <totalVolume>
+  <!-- <totalVolume>
     <numerator>
      <value value="10"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="L"/>
     </numerator>
-  </totalVolume>
+  </totalVolume> -->
     <ingredient>
       <item>
       <reference>

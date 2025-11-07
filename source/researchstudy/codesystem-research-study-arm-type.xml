@@ -3,7 +3,7 @@
 	<id value="research-study-arm-type"/>
 	<meta>
 		<lastUpdated value="2022-05-15T16:55:11.085+11:00"/>
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+		
 	</meta>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="brr"/>

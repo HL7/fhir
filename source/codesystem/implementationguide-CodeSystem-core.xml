@@ -10,15 +10,5 @@
   <publisher value="HL7"/>
   <description value="Core profiles and extensions defined for the CodeSystem resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/shareablecodesystem"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/publishablecodesystem"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

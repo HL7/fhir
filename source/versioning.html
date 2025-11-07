@@ -13,7 +13,7 @@
 
 
 <h2>Managing Multiple FHIR Versions</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
 This FHIR specification is one in a <a href="http://hl7.org/fhir/directory.html">series of publications of the FHIR specification</a>.
@@ -83,7 +83,7 @@ in place (or as well as) CapabilityStatement.fhirVersion:
 
 <p>
 The most common strategy for handling change between versions of FHIR is to use different end-points for different versions.
-e.g. http://acme.com/fhir/r2 and http://acme.com/fhir/r3. However, this can be
+e.g., http://acme.com/fhir/r2 and http://acme.com/fhir/r3. However, this can be
 problematic because it means that the same record has a different identity depending on
 the version of FHIR in use - though this can also be useful; it depends on the context.
 </p>
@@ -188,7 +188,7 @@ This technique can be used with all versions of FHIR, including R2 and R3:
 <p>
 Note that the url pattern <code>http://hl7.org/fhir/{ver}/StructureDefinition/{type}</code> is
 not the normal URL for the relevant structure definitions. StructureDefinitions with these 
-URLs are found in the package <code>hl7.fhir.r{x}.core{x}</code> e.g. <code>hl7.fhir.r4.core4</code>.
+URLs are found in the package <code>hl7.fhir.r{x}.core</code> e.g., <code>hl7.fhir.r4.core</code>.
 </p>
 
 <a name="managing"> </a>

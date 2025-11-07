@@ -657,10 +657,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-regulatory-identifier-type"/>
       </binding>
     </element>
-    <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifier">
-      <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifier"/>
+    <element id="DeviceDefinition.regulatoryIdentifier.identifier">
+      <path value="DeviceDefinition.regulatoryIdentifier.identifier"/>
       <short value="The identifier itself"/>
-      <definition value="The identifier itself."/>
+      <definition value="The identifier used in the associated regulatory context."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -679,18 +679,18 @@
     </element>
     <element id="DeviceDefinition.regulatoryIdentifier.jurisdiction">
       <path value="DeviceDefinition.regulatoryIdentifier.jurisdiction"/>
-      <short value="The jurisdiction to which the deviceIdentifier applies"/>
-      <definition value="The jurisdiction to which the deviceIdentifier applies."/>
+      <short value="Relevant jurisdiction governing the identifier"/>
+      <definition value="The applicable jurisdiction overseeing the enforcement of the Identifier."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="uri"/>
       </type>
     </element>
-    <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifierSystem">
-      <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifierSystem"/>
+    <element id="DeviceDefinition.regulatoryIdentifier.identifierSystem">
+      <path value="DeviceDefinition.regulatoryIdentifier.identifierSystem"/>
       <short value="The namespace for the device identifier value"/>
-      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the device identifier."/>
+      <definition value="Establishes the namespace for the issuing agency's system (e.g, GS1's GTIN, ICCBBA's ISBT-128) used to create the identifier."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -870,10 +870,6 @@
         <code value="RelatedArtifact"/>
       </type>
     </element>
-
-
-
-
     <element id="DeviceDefinition.hasPart">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,325"/>
@@ -888,17 +884,27 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="DeviceDefinition.hasPart.reference">
-      <path value="DeviceDefinition.hasPart.reference"/>
+    <element id="DeviceDefinition.hasPart.definition[x]">
+      <path value="DeviceDefinition.hasPart.definition[x]"/>
       <short value="Reference to the part"/>
-      <definition value="Reference to the device that is part of the current device."/>
+      <definition value="The device that is part of the current device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.hasPart.count">
       <path value="DeviceDefinition.hasPart.count"/>
@@ -1100,6 +1106,7 @@
         <description value="Device output language."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
         <additional>
+				  <key value="b-dd-1"/>
           <purpose value="starter"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
         </additional>
@@ -1197,16 +1204,26 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
       </binding>
     </element>
-    <element id="DeviceDefinition.link.relatedDevice">
-      <path value="DeviceDefinition.link.relatedDevice"/>
+    <element id="DeviceDefinition.link.relatedDevice[x]">
+      <path value="DeviceDefinition.link.relatedDevice[x]"/>
       <short value="A reference to the linked device"/>
       <definition value="A reference to the linked device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.note">
       <path value="DeviceDefinition.note"/>
@@ -1466,6 +1483,13 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceProduct"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.chargeItem.count">
       <path value="DeviceDefinition.chargeItem.count"/>

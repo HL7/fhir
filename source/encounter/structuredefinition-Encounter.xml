@@ -159,6 +159,81 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
+    <element id="Encounter.businessStatus">
+      <path value="Encounter.businessStatus"/>
+      <short value="A granular, workflows specific set of statuses that apply to the encounter"/>
+      <definition value="A granular, workflows specific set of statuses that apply to the encounter."/>
+      <comment value="Note that Encounters have complex lifecycles, and may have multiple concurrent business statuses that are differentiated based on type.  This property should only be used for current business statuses.  Historical businessStatuses should be captured in EncounterHistory to avoid the Encounter resource becoming so large as to be difficult to process."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Encounter.businessStatus.code">
+      <path value="Encounter.businessStatus.code"/>
+      <short value="The current business status"/>
+      <definition value="The current business status."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BusinessStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The current business status."/>
+        <additional>
+          <key value="inpatient"/>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/encounter-businessstatus-inpatient"/>
+          <documentation value="Inpatient business statuses: pre-admit | pend-admit | admit | discharge | unknown"/>
+        </additional>
+        <additional>
+          <key value="outpatient"/>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/encounter-businessstatus-outpatient"/>
+          <documentation value="Outpatient business statuses: check-in | check-out"/>
+        </additional>
+        <additional>
+          <key value="emergency"/>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/encounter-businessstatus-emergency"/>
+          <documentation value="Emergency business statuses: arrived | triaged | dismissed | unknown"/>
+        </additional>
+      </binding>
+    </element>
+    <element id="Encounter.businessStatus.type">
+      <path value="Encounter.businessStatus.type"/>
+      <short value="The kind of workflow the status is tracking"/>
+      <definition value="The kind of workflow the status is tracking."/>
+      <comment value="For example, if an Encounter started as an emergency visit, but was upgraded to an inpatient admission, the Encounter may have two businessStatus codes, one with a type of &quot;emergency&quot;, and one with a type of &quot;inpatient&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Business Status Type"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The kind of workflow the status is tracking (e.g., inpatient, outpatient, emergency)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-businessstatus-type"/>
+      </binding>
+    </element>
+    <element id="Encounter.businessStatus.effectiveDate">
+      <path value="Encounter.businessStatus.effectiveDate"/>
+      <short value="When the encounter entered this business status"/>
+      <definition value="The date/time when the encounter entered this business status."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
     <element id="Encounter.class">
       <path value="Encounter.class"/>
       <short value="Classification of patient encounter context - e.g. Inpatient, outpatient"/>
@@ -311,7 +386,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>

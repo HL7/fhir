@@ -23,12 +23,6 @@
 		<system value="http://lab.acme.org/specimens/2015"/>
 		<value value="X352356"/>
 	</identifier>
-	<accessionIdentifier>
-		<!-- accession identifier - e.g. assigned by the labaratory when it is received.
-     This is common, unlike specimen identifier -->
-		<system value="http://lab.acme.org/specimens/2015"/>
-		<value value="X352356"/>
-	</accessionIdentifier>
 	<status value="available"/>
 	<type>
 		<!--
@@ -76,11 +70,7 @@
 		<timeDateTime value="2015-08-18T08:10:00Z"/>
 	</processing>
 	<container>
-	<device>
-  	   	 <reference>
-	      <reference value="Device/device-example-specimen-container-polycup"/>
-  	   	 </reference>
-	   </device>
+		<deviceCanonical value="http://hl7.org/fhir/Device/device-example-specimen-container-polycup"/>
 		<specimenQuantity>
 			<value value="10"/>
 			<unit value="mls"/>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="deliverydevice-code"/>
+  <meta>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/deliverydevice-code"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value=""/>
+  </identifier>
+  <version value="6.0.0-ballot3"/>
+  <name value="DeliveryDeviceCode"/>
+  <title value="Delivery Device Code"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International / Orders and Observations"/>
+  <description value="Codes for devices used for enteral formula delivery."/>
+  <copyright value="This material derives from the HL7 Terminology (THO). THO is copyright ©1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see: https://terminology.hl7.org/license"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="17102003"/>
+        <display value="Nasogastric tube"/>
+      </concept>
+      <concept>
+        <code value="470571004"/>
+        <display value="Gastrostomy tube"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

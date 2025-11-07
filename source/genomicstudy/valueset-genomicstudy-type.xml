@@ -4,7 +4,7 @@
   <id value="genomicstudy-type"/>
   <meta>
     <lastUpdated value="2022-08-17T16:25:24.148-05:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <text>
     <status value="generated"/>

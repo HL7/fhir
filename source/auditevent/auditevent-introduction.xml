@@ -29,15 +29,15 @@ A record of an event relevant for purposes such as operations, privacy, security
 <a name="bnc"></a>
 <h2>Background and Context</h2>
 <p>
-All actors - such as applications, processes, and services - involved in an auditable event should record an AuditEvent. 
+All actors - such as applications, processes, and services - involved in an auditable event SHOULD record an AuditEvent. 
 This will likely result in multiple AuditEvent entries that show whether privacy and security 
 safeguards, such as access control, are properly functioning across an enterprise's system-of-systems. 
 Thus, it is typical to get an auditable event recorded by both the application in a workflow process and the servers that support them. 
-For this reason, duplicate entries are expected, which is helpful because it may aid in the detection of 
+For this reason, duplicate entries are expected, which is helpful because it MAY aid in the detection of 
 security, privacy, or other operational problems. For example, 
 fewer than expected actors being recorded in a multi-actor process or attributes related to those records being in 
 conflict, which is an indication of a security problem.
-There may be non-participating actors, such as trusted intermediary, that also detect a security, privacy, or operational relevant event and thus would record an AuditEvent.
+There MAY be non-participating actors, such as trusted intermediary, that also detect a security, privacy, or operational relevant event and thus would record an AuditEvent.
 </p>
 <p>
 Security relevant events are not limited to communications or RESTful events. They include: 
@@ -53,21 +53,21 @@ Security relevant events are not limited to communications or RESTful events. Th
 </ul>
 <p>
 See the 
-<a href="valueset-audit-event-type.html">Audit Event Category</a> vocabulary for guidance on some security relevant event categories.
+<a href="valueset-audit-event-type-example.html">Audit Event Category</a> vocabulary for guidance on some security relevant event categories.
 </p>
 <p>
 The AuditEvent resource holds the details of an event in terms of who, what, where, when, and why. 
 Where the identification of the who participated is the agent. 
-An agent can be a person, an organization, software, device, or other actors that may be ascribed responsibility.  
+An agent can be a person, an organization, software, device, or other actors that MAY be ascribed responsibility.  
 What objects were used/created/updated is recorded as the entity. 
-An entity is an identifiable physical, digital, conceptual or other kind of thing; entities may be real or imaginary.
+An entity is an identifiable physical, digital, conceptual or other kind of thing; entities MAY be real or imaginary.
 </p>
 <p>
     The content of an AuditEvent is primarily intended for administrative use; used by security system administrators, security and privacy information managers, records management personnel, etc. 
-    The AuditEvent may also inform the Patient about uses of their data.  
+    The AuditEvent MAY also inform the Patient about uses of their data.  
     This content can be accessible or used directly by other healthcare users, such as providers or patients for gaining insight into who and what has been done. 
     The AuditEvent record includes very sensitive information so access to the AuditEvent would be highly privileged and controlled. 
-    For example, when providing AuditEvent to a patient the data feed would be limited to the Patient compartment, and the content may be subsetted or masked in order to meet privacy needs. 
+    For example, when providing AuditEvent to a patient the data feed would be limited to the Patient compartment, and the content MAY be subsetted or masked in order to meet privacy needs. 
     The AuditEvent record is not intended to replace other audit logs, but rather used to enhance them, or to be used as an API to many audit logs.
 </p>
 <p>
@@ -77,7 +77,7 @@ A <a href="provenance.html">Provenance</a> resource contains overlapping
 information, but is a record-keeping assertion that gathers information about the context in which the information 
 in a resource "came to be" in its current state, e.g., whether it was created de novo or obtained from another entity 
 in whole, part, or by transformation. Provenance resources are prepared by the application that initiates the 
-create/update of the resource and may be persisted with the AuditEvent target resource. 
+create/update of the resource and MAY be persisted with the AuditEvent target resource. 
 </p>
 </div>
 

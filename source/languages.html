@@ -13,7 +13,7 @@
 
 <a name="identity"></a>
 <h2>Multi-Language support in FHIR (Localization/Internationalization)</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: n/a</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
 In general, with regard to human language, the content in resources falls into one of three categories
@@ -54,7 +54,7 @@ FHIR offers the following facilities for dealing with languages:
 <h3>Specification</h3>
 <p>
 The specification itself is published and balloted in English (US). 
-There are projects to translate this to other languages (e.g. 
+There are projects to translate this to other languages (e.g., 
 <a href="http://fhir-ru.github.io/index.html">Russian </a> and 
 <a href="https://std.jpfhir.jp/">Japanese</a>), but these 
 are generally not well maintained.
@@ -227,8 +227,16 @@ Content-Language: en-US
 If present, the content language header must match the language of 
 the resource (if specified).
 </p>
-
- <li><a href="#names">Languages in Names and Addresses</a></li>
+<p>
+If a server changes the primary language of text based on a request
+for a resource in a particular language, that altered version is likely
+no longer an appropriate basis for making updates to the server.
+Servers can ensure that the provided resource is not used as a basis
+for making updates by opting to not include an eTag as part of the
+response and enforcing version-specific updates. Alternatively, they
+might include a meta.tag of <a href="https://terminology.hl7.org/CodeSystem-v3-ObservationValue.html#v3-ObservationValue-TRSLT">TRSLT</a> to designate that the resource
+has been translated and is not an appropriate basis for updates.
+</p>
 
 <a name="names"></a>
 <h3>Languages in Names and Addresses</h3>

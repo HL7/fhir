@@ -334,7 +334,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -439,7 +439,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="instant"/>
+        <code value="dateTime"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -492,8 +492,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>   
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>   
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -532,6 +534,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -665,7 +669,7 @@
         </extension>
         <strength value="example"/>
         <description value="The code value for the role of the supporting information in the diagnostic report."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0936"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnosticreport-relevant-information-types"/>
       </binding>
     </element>
     <element id="DiagnosticReport.supportingInfo.reference">
@@ -683,10 +687,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
     <element id="DiagnosticReport.media">

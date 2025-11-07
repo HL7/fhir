@@ -4,7 +4,7 @@
   <id value="package-material"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>

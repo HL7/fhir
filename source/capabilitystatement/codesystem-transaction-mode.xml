@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="transaction-mode"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <url value="http://hl7.org/fhir/transaction-mode"/>
   <identifier>

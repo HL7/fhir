@@ -7,9 +7,12 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
     <valueString value="Foundation.Terminology"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="normative"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+		<valueCode value="6.0.0"/>
+	</extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
@@ -536,7 +539,7 @@
     <element id="ConceptMap.relatedArtifact">
       <path value="ConceptMap.relatedArtifact"/>
       <short value="Additional documentation, citations, etc"/>
-      <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
+      <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts. If the type is `successor` or `predecessor`, the related resource must be a ConceptMap."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="A ConceptMap must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
       <min value="0"/>
@@ -544,6 +547,13 @@
       <type>
         <code value="RelatedArtifact"/>
       </type>
+			<constraint>
+				<key value="cmd-14"/>
+				<severity value="error"/>
+				<human value="Related artifact can't be depends-on or composed-of"/>
+				<expression value="(type in ('depends-on' | 'composed-of')).not()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+			</constraint>
     </element>
       <element id="ConceptMap.property">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -804,7 +814,7 @@
       <constraint>
         <key value="cmd-4"/>
         <severity value="error"/>
-        <human value="If noMap is present, target SHALL NOT be present"/>
+        <human value="If noMap is present and has a value of 'true', target SHALL NOT be present"/>
         <expression value="(noMap.exists() and noMap=true) implies target.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
@@ -813,6 +823,19 @@
         <severity value="error"/>
         <human value="Either code or valueSet SHALL be present but not both."/>
         <expression value="(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
+      </constraint>
+      <constraint>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+          <valueMarkdown value="Encourage documentation when noMap is true explaining why"/>
+        </extension>
+        <key value="cmd-12"/>
+        <severity value="warning"/>
+        <human value="If ConceptMap.group.element.noMap is present and has a value of 'true', there SHOULD be some comments, unless the status is 'draft'"/>
+        <expression value="comment.exists() or (%resource.status = 'draft') or (noMap != true)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>
@@ -866,6 +889,16 @@
       </type>
       <condition value="cmd-4"/>
     </element>
+    <element id="ConceptMap.group.element.comment">
+      <path value="ConceptMap.group.element.comment"/>
+      <short value="Comments related to the mapping of the source element"/>
+      <definition value="Comments related to the mapping of the source element, potentially including why there is no target."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="ConceptMap.group.element.target">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="TargetElement"/>
@@ -884,9 +917,15 @@
       </type>
       <condition value="cmd-4"/>
       <constraint>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+          <valueMarkdown value="Encourage documentation when map is source-is-broader-than-target or not-related-to is true explaining the ramifications"/>
+        </extension>
         <key value="cmd-1"/>
-        <severity value="error"/>
-        <human value="If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments, unless the status is 'draft'"/>
+        <severity value="warning"/>
+        <human value="If the map is source-is-broader-than-target or not-related-to, there SHOULD be some comments, unless the status is 'draft'"/>
         <expression value="comment.exists() or (%resource.status = 'draft') or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
@@ -966,8 +1005,8 @@
     </element>
     <element id="ConceptMap.group.element.target.comment">
       <path value="ConceptMap.group.element.target.comment"/>
-      <short value="Description of status/issues in mapping"/>
-      <definition value="A description of status/issues in mapping that conveys additional information not represented in  the structured data."/>
+      <short value="Comments related to the mapping to the target element"/>
+      <definition value="Comments related to the mapping to the target element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1162,6 +1201,19 @@
         <expression value="(mode != 'other-map') implies otherMap.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
+      <constraint>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+          <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation">
+          <valueMarkdown value="Encourage documentation when noMap is true explaining why"/>
+        </extension>
+        <key value="cmd-13"/>
+        <severity value="warning"/>
+        <human value="If ConceptMap.group.unmapped is present, there SHOULD be some comments, unless the status is 'draft'."/>
+        <expression value="comment.exists() or (%resource.status = 'draft')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
+      </constraint>
     </element>
     <element id="ConceptMap.group.unmapped.mode">
       <path value="ConceptMap.group.unmapped.mode"/>
@@ -1212,6 +1264,16 @@
         <code value="string"/>
       </type>
       <condition value="cmd-8"/>
+    </element>
+    <element id="ConceptMap.group.unmapped.comment">
+      <path value="ConceptMap.group.unmapped.comment"/>
+      <short value="Comments related to the choice of how to handle unmapped elements"/>
+      <definition value="Comments related to the choice of how to handle unmapped elements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="ConceptMap.group.unmapped.valueSet">
       <path value="ConceptMap.group.unmapped.valueSet"/>

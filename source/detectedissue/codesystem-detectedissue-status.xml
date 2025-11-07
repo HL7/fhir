@@ -2,7 +2,7 @@
   <id value="detectedissue-status"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
@@ -42,5 +42,10 @@
     <code value="mitigated"/>
     <display value="Mitigated"/>
     <definition value="Indicates the detected issue has been mitigated"/>
+  </concept>
+  <concept>
+    <code value="processing-error"/>
+    <display value="Processing error"/>
+    <definition value="Indicates that an error occurred in the evaluation of the proposed action. For example, a drug/drug interaction detected issue could have a status of processing-error to indicate that an error was encountered attempting to determine whether there was a drug-drug interaction."/>
   </concept>
 </CodeSystem>

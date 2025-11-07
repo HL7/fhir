@@ -31,8 +31,10 @@
   <description value="Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen"/>
   <!--	Use the lipid servicerequest example -->
   <focus>
-    <reference value="ServiceRequest/lipid"/>
-    <display value="Lipid Panel Request"/>
+    <valueReference>
+      <reference value="ServiceRequest/lipid"/>
+      <display value="Lipid Panel Request"/>
+    </valueReference>
   </focus>
   <!--	who the task is for
 -->

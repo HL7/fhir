@@ -23,9 +23,9 @@
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -72,7 +72,7 @@
 				<code value="15"/>
 			</coding>
 		</code>
-		<timingDate value="2012-04-07"/>
+		<timingDateTime value="2012-04-07"/>
 		<reason>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/missingtoothreason"/>
@@ -127,12 +127,12 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="135.57"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 	</item>
 
 	<item>
@@ -147,14 +147,14 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="105.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="105.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<bodySite>
-			<site> 
+			<site>
 				<concept>
 					<coding>
 						<system value="http://fdi.org/fhir/oraltoothcodes"/>
@@ -183,12 +183,12 @@
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="1100.00"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="1100.00"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 		<bodySite>
 			<site>
 				<concept>
@@ -197,7 +197,7 @@
 						<code value="36"/>
 					</coding>
 				</concept>
-			</site>	
+			</site>
 		</bodySite>
 		<detail>
 			<sequence value="1"/>
@@ -209,13 +209,13 @@
 			</productOrService>
 			<unitPrice>
 				<value value="1000.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<factor value="0.75"/>	<!-- Student discount -->
 			<net>
 				<value value="750.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 		<detail>
 			<sequence value="2"/>
@@ -227,12 +227,12 @@
 			</productOrService>
 			<unitPrice>
 				<value value="350.00"/>
-				<currency value="USD"/> 
-			</unitPrice> 
+				<currency value="USD"/>
+			</unitPrice>
 			<net>
 				<value value="350.00"/>
-				<currency value="USD"/> 
-			</net> 
+				<currency value="USD"/>
+			</net>
 		</detail>
 	</item>
 

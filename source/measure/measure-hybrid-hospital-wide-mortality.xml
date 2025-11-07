@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Measure xmlns="http://hl7.org/fhir">
+    <id value="measure-hybrid-hospital-wide-mortality"/>
+    <url
+        value="http://somewhere.org/fhir/uv/mycontentig/Measure/HybridHospitalWideMortalityFHIRExample"/>
+     <identifier>
+        <use value="official"/>
+        <value value="hospital-wide-mortality-measure"/>
+    </identifier>
+    <version value="0.5.3"/>
+    <name value="HybridHospitalWideMortality"/>
+    <title
+        value="Core Clinical Data Elements for the Hybrid Hospital-Wide (All-Condition, All-Procedure) Risk-Standardized Mortality Measure (HWM) FHIR Example"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2025-09-30T04:16:55+00:00"/>
+    <publisher value="HL7 International - Clinical Quality Information"/>
+    <description
+        value="This logic is intended to extract electronic clinical data. This is not an electronic clinical quality measure and this logic will not produce measure results. Instead, it will produce a file containing the data that CMS will link with administrative claims to risk adjust the Hybrid HWM outcome measure. It is designed to extract the first resulted set of vital signs and basic laboratory results obtained from encounters for adult Medicare Fee-For-Service patients admitted to acute care short stay hospitals."/>
+     <copyright
+        value="Limited proprietary coding is contained in these specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets.&#xA;&#xA;This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2021 International Health Terminology Standards Development Organisation. All rights reserved.&#xA;&#xA;LOINC(R) copyright 2004-2021 Regenstrief Institute, Inc."/>
+    <approvalDate value="2023-08-14"/>
+    <lastReviewDate value="2023-08-14"/>
+    <effectivePeriod>
+        <start value="2024-07-01"/>
+        <end value="2025-06-30"/>
+    </effectivePeriod>
+    <library
+        value="http://somewhere.org/fhir/uv/mycontentig/Library/HybridHospitalWideMortalityFHIRExample"/>
+    <disclaimer
+        value="These performance specifications are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications.&#xA;&#xA;THE MEASURES AND SPECIFICATIONS ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND.&#xA;&#xA;Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM]."/>
+    <rationale
+        value="The intent of this logic is to extract the FIRST set of clinical data elements from hospital electronic health records (EHRs) for all qualifying encounters. The data will be linked with administrative claims to risk adjust the Hybrid HWM outcome measure. This work addresses stakeholder concerns that clinical data garnered from patients, and used by clinicians to guide diagnostic decisions and treatment, are preferable to administrative claims data when profiling hospitals’ case mix. We are calling the list of data elements for extraction the &quot;HWM-specific core clinical data elements&quot;. The core clinical data elements are the first set of vital signs and basic laboratory tests resulted from encounters for adult patients, age 65 to 94 (Initial Population), after they arrive at the hospital to which they are subsequently admitted. For example, this first set of data values are often captured in the emergency department or in the pre-operative area, sometimes hours before a patient is admitted to that same facility. &#xA;Encounters over the age of 94 are not included to avoid holding hospitals responsible for the survival of the oldest elderly patients, who may be less likely to have survival as a primary goal. While we acknowledge that many elderly patients do have survival beyond 30 days as a primary goal for their hospitalization, with input from our Technical Expert Panel and work groups, we decided to only include encounters between 65 and 94 years of age.&#xA;&#xA;These core clinical data elements were selected because they: 1. reflect patients' clinical status when they first present to the hospital; 2. are clinically and statistically relevant to patient outcomes; 3. are consistently obtained on adult inpatient encounters based on current clinical practice; 4. are captured with a standard definition and recorded in a standard format across providers; and 5. are entered in structured fields that are feasibly retrieved from current EHR systems (YNHHSC/CORE, 2015). &#xA;&#xA;Additional data called Linking Variables are used to link EHR data files with administrative claims data for CMS to calculate results for the measure, which are: date of birth; sex; admission date; and discharge date."/>
+    <clinicalRecommendationStatement
+        value="The logic is not meant to guide or alter the care patients receive. The purpose of this core clinical data elements logic is to extract clinical data that are already routinely captured in EHRs from encounters for hospitalized adult patients. It is not intended to require that clinical staff perform additional measurements or tests that are not needed for diagnostic assessment or treatment of patients."/>
+    <group id="6385011c4ba3d47c885c02aa">
+       <type>
+           <coding>
+               <system value="http://terminology.hl7.org/CodeSystem/measure-type"/>
+               <code value="outcome"/>
+               <display value="Outcome"/>
+           </coding>
+       </type>
+        <basis value="Encounter"/>
+        <scoring>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/measure-scoring"/>
+                <code value="cohort"/>
+                <display value="Cohort"/>
+            </coding>
+        </scoring>
+        <population id="24BB5BA9-820F-4958-B8AA-AA8962E9E398">
+            <code>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/measure-population"/>
+                    <code value="initial-population"/>
+                    <display value="Initial Population"/>
+                </coding>
+            </code>
+            <description
+                value="All encounters age 65 to 94 years at the start of an inpatient admission, who are discharged during the measurement period (length of stay &lt;365 days).&#xA;&#xA;NOTE: All encounters meeting the above criteria should be included."/>
+            <criteria>
+                <language value="text/cql-identifier"/>
+                <expression value="Initial Population"/>
+            </criteria>
+        </population>
+    </group>
+    <supplementalData id="results">
+        <usage>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/measure-data-usage"/>
+                <code value="supplemental-data"/>
+            </coding>
+        </usage>
+        <description value="Results"/>
+        <criteria>
+            <language value="text/cql-identifier"/>
+            <expression value="Results"/>
+        </criteria>
+    </supplementalData>
+</Measure>

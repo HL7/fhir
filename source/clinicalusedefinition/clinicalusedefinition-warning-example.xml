@@ -10,7 +10,9 @@
     </coding>
   </category>
   <subject>
-    <reference value="MedicinalProductDefinition/example"/>
+    <reference>
+      <reference value="MedicinalProductDefinition/example"/>
+    </reference>
   </subject>
   <warning>
     <description value="May cause drowsiness. Avoid driving or operating heavy machinery."/>

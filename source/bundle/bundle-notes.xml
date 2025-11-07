@@ -14,7 +14,7 @@
 
 
 <a name="additional"></a>
-<h3>Using additional resources in Bundles</h3>
+<h3>Using Additional Resources in Bundles</h3>
 <p>
 Bundle entries contain resources which may be either be one of the <%res-type-count%> resources
 defined in this specification, or an <a href="resource.html#additional">additional resource</a>. 
@@ -230,7 +230,7 @@ Applications reading a Bundle should always <a href="references.html#bundle-refs
 by its identity in the bundle first before trying to access it by its URL externally.
 </p>
 <p>
-Note that reference.value in entry resources can use any URI scheme (in addition to using
+Note that reference.reference in entry resources can use any URI scheme (in addition to using
 relative values like "Patient/123").</p>
 
 <p>
@@ -238,27 +238,27 @@ How to resolve a reference in a Bundle:
 </p>
 
 
-  <p><b>Resolving urns.</b> If the reference.value is a URN (always absolute) (e.g.
+  <p><b>Resolving urns.</b> If the reference.reference is a URN (always absolute) (e.g.
     "urn:uuid:9d1714da-b7e6-455b-bfd2-69ce0ff5fb12")</p>
   <ul>
-    <li>Look for an entry with a fullUrl that matches the reference.value</li>
+    <li>Look for an entry with a fullUrl that matches the reference.reference</li>
     <li>If one is found, the resolution succeeds (and ends) here</li>
     <li>Otherwise, the resolution fails (and ends) here. The reference has no defined meaning within
       this specification.</li>
   </ul>
-  <p><b>Resolving absolute references.</b> If the reference.value is an absolute URL (e.g.,
+  <p><b>Resolving absolute references.</b> If the reference.reference is an absolute URL (e.g.,
     "https://fhir.example.org/base/Patient/123",
     "https://fhir.example.org/base/Patient/123/_history/a"):</p>
   <ul>
-    <li>If the reference.value is versionless (i.e. it has no "/_history/" path segment - e.g.
+    <li>If the reference.reference is versionless (i.e. it has no "/_history/" path segment - e.g.
       "https://fhir.example.org/base/Patient/123"): <ul>
-        <li>Look for an entry with a fullUrl that matches the reference.value</li>
+        <li>Look for an entry with a fullUrl that matches the reference.reference</li>
         <li>If one is found, the resolution succeeds (and ends) here</li>
         <li>If more than one is found, the server MAY look for the most recent version (based on
           meta.lastUpdated). If it is able to find exactly one most recent this way, the resolution
           succeeds (and ends) here</li>
       </ul></li>
-    <li>If the reference.value includes a "_history" path segment (e.g.
+    <li>If the reference.reference includes a "_history" path segment (e.g.
       "https://fhir.example.org/base/Patient/123/_history/a"), split the value into two parts: a
       versionless reference (e.g. "https://fhir.example.org/base/Patient/123" and a version id (e.g.
       "a") <ul>
@@ -274,7 +274,7 @@ How to resolve a reference in a Bundle:
           within this specification.</li>
       </ul></li>
   </ul>
-  <p><b>Resolving relative references against a RESTful base.</b> If the reference.value is of the
+  <p><b>Resolving relative references against a RESTful base.</b> If the reference.reference is of the
     form "[type]/[id]" (e.g., "Patient/123"):</p>
   <ul>
     <li>If the Bundle entry containing the reference has a fullUrl matching the RESTful URL regex
@@ -296,10 +296,13 @@ How to resolve a reference in a Bundle:
     </li>
   </ul>
   <p>Resolving conditional references. If the reference occurs in a transaction Bundle and the
-    reference.value is a conditional reference (e.g.
+    reference.reference is a conditional reference (e.g.
     "http://example.org/base/Patient?identifier=1234"):</p>
   <ul>
-    <li>Perform the [search] specified in the conditional reference on the server. <ul>
+    <li>Logically perform all creates, updates and deletes as defined in the Bundle.  (If this involves physically 
+    performing the creates, logical references will need to be removed or, potentially based on cardinality or 
+    business rules, replaced with a valid temporary reference.)
+Perform the [search] specified in the conditional reference on the server. <ul>
       <li>If the search succeeds with a single resource, the resolution succeeds (and ends)
         here.</li>
       <li>If the search succeeds with multiple matching resources, resolution fails (and ends)
@@ -307,6 +310,15 @@ How to resolve a reference in a Bundle:
     </ul></li>
     <li>Otherwise the resolution fails (and ends) here.</li>
   </ul>
+  <p>NOTE: It is sometimes not safe to perform resolution of conditional references within the Bundle because in some cases
+  there may be multiple matches which, once the data hits the server, will turn into a single match due to mutually exclusive
+  conditional create/conditional update rules.</p>
+  
+  <p><b>Resolving canonical references:</b>
+  If the canonical reference is version-specific, look for an entry with a matching URL and version.   If the canonical omits version, look for an entry with a matching URL and if there is more than one, find the most recent version based on the versionAlgorithm. 
+  If there is exactly one, it's a match.  If there are no matches, then resolve as an external canonical as usual.  If there is more than one, it's an error.
+  </p>
+
   <p><b>Resolving other references.</b> If the rules above do not apply, the resolution fails (and
     ends) here. The reference has no defined meaning within this specification.</p>
   <p>Note that the rules for resolving references in contained resources are the same as those for
@@ -325,7 +337,19 @@ How to resolve a reference in a Bundle:
 There is an <a href="bundle-references.html">example Bundle that demonstrates</a> these rules.
 </p>
 
+<a name="graphs"></a>
+<h3>Graph-connected Bundles</h3>
 
+<p>
+Both <a href="messaging.html">FHIR messages</a> and <a href="documents.html">FHIR documents</a> have 
+a requirement that all entries within the Bundle are interconnected.  This expectation means that
+all entries in the Bundle must produce a single graph of interconnected resources.
+These connections might be via Reference, canonical, url, or "href" references within narrative.
+</p>
+<p>
+Note that some references might be 'reverse' references, such as Provenances that point to resources
+within the Bundle.  These references are resolved as defined above.
+</p>
 
 <a name="rest"></a>
 <h3>Serving Bundles using the RESTful API</h3>

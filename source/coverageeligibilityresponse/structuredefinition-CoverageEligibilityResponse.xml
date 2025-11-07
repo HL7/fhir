@@ -194,7 +194,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="cdanetv4"/>
@@ -224,7 +224,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DatesType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/datestype"/>
       </binding>
     </element>
@@ -282,8 +282,8 @@
     <element id="CoverageEligibilityResponse.requestor">
       <path value="CoverageEligibilityResponse.requestor"/>
       <short value="Party responsible for the request"/>
-      <definition value="The provider which is responsible for the request."/>
-      <comment value="This party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
+      <definition value="The provider which is responsible for the eligibility, claim, predetermination or preauthorization request."/>
+      <comment value="This party is responsible for the request but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -581,7 +581,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="CoverageEligibilityResponse.insurance.item.network">
@@ -617,7 +617,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitUnit"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Unit covered/serviced - individual or family."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-unit"/>
       </binding>
@@ -636,7 +636,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitTerm"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Coverage unit - annual, lifetime."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-term"/>
       </binding>
@@ -678,7 +678,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Deductable, visits, co-pay, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-type"/>
       </binding>

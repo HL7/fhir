@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="measurement-property"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -31,8 +31,8 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-        <property value="parent"/>
-        <op value="="/>
+        <property value="concept"/>
+        <op value="is-a"/>
         <value value="118598001"/>
       </filter>
     </include>

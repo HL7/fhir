@@ -2,7 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <name value="ObservationReferenceRangeMeaningCodes"/>
   <title value="Observation Reference Range Meaning Codes"/>
