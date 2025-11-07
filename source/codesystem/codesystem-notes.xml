@@ -621,91 +621,175 @@ would match a concept with a retiredDate of 2022-09-12. However:
 would not match a concept with a retiredDate of 2022-09-12.
 </p>
 
-<!--
-<div class="draft-content">
-<p>
-This <a href="versions.html#std-process" title="Draft Content" class="draft-flag">draft section</a> about the relationships between rich terminologies and structured content is still undergoing review.
-</p>
-
-<a name="implicit"></a>
-<a name="detailed-metadata"></a>
+<a name="implicit-code-systems"> </a>
 <h2>Implicit Code Systems</h2>
 <p>
-Some other parts of the FHIR infrastructure define set of concepts that may also be treated 
-as code systems. This is most useful when mapping between systems using <a href="conceptmap.html">Concept Maps</a>. 
-This table summarizes how to treat these items as a terminology:
+Some other parts of the FHIR infrastructure define set of concepts that may also be treated as code systems. This is most useful when mapping between systems using <a title="[%resdesc ConceptMap%]" href="conceptmap.html">Concept Maps</a>, but might also be useful for other code system related functionality (e.g. subsetting using <a title="[%resdesc ValueSet%]" href="valueset.html">Value Sets</a>). The table below summarizes how to treat these items as a code system:
 </p>
 <table class="grid">
- <tr>
-  <td><a href="structuredefinition.html">StructureDefinition</a></td>
-  <td>The <code>StructureDefinition.url</code> (canonical URL) is the <code>system</code>. Each <code>.snapshot.element.id</code> in the snapshot is a code in the code system</td>
- </tr>
- <tr>
-  <td><a href="questionnaire.html">Questionnaire</a></td>
-  <td>The <code>Questionnaire.url</code> (canonical URL) is the <code>system</code>. Each <code>.item.linkId</code> in the snapshot is a code in the code system. Items with no linkId cannot be addressed</td>
- </tr>
- <tr>
-  <td><a href="medication.html">Medication</a></td>
-  <td>Medication resources are a bit different, since they don't have a canonical URL, the resource does not hold multiple items. So to refer to a medication resource, the system
-    is [base]/Medication, where [base] is the server address. The <a href="resource.html#id">Logical Id</a> of the resource is the code</td>
- </tr>
+ <!-- StructureDefinition -->
+   <tr>
+   <td rowspan="5"><b><a title="[%resdesc StructureDefinition%]" href="structuredefinition.html">StructureDefinition</a></b></td>
+   <td><b>URL</b> (CodeSystem.url)</td>
+   <td><code><a href="structuredefinition-definitions.html#StructureDefinition.url">StructureDefinition.url</a></code></td>
+   </tr>
+
+   <tr>
+   <td><b>Concept</b> (CodeSystem.concept)</td>
+   <td>Each <code><a href="structuredefinition-definitions.html#StructureDefinition.snapshot.element">StructureDefinition.snapshot.element</a></code> element corresponds to a code system concept.</td>
+   </tr>
+
+   <tr>
+   <td><b>Code</b> (CodeSystem.concept.code)</td>
+   <td><code><a href="types-definitions.html#Element.id">StructureDefinition.snapshot.element.id</a></code></td>
+   </tr>
+
+   <tr>
+   <td><b>Display</b> (CodeSystem.concept.display)</td>
+   <td><code><a href="elementdefinition-definitions.html#ElementDefinition.label">StructureDefinition.snapshot.element.label</a></code> if one exists, otherwise <code><a href="elementdefinition-definitions.html#ElementDefinition.short">StructureDefinition.snapshot.element.short</a></code></td>
+   </tr>
+
+   <tr>
+   <td><b>Definition</b> (CodeSystem.concept.definition)</td>
+   <td><code><a href="elementdefinition-definitions.html#ElementDefinition.definition">StructureDefinition.snapshot.element.definition</a></code></td>
+   </tr>
+
+ <!-- Questionnaire -->
+   <tr>
+   <td rowspan="5"><b><a title="[%resdesc Questionnaire%]" href="questionnaire.html">Questionnaire</a></b></td>
+   <td><b>URL</b> (CodeSystem.url)</td>
+   <td><code><a href="questionnaire-definitions.html#Questionnaire.url">Questionnaire.url</a></code></td>
+   </tr>
+
+   <tr>
+   <td><b>Concept</b> (CodeSystem.concept)</td>
+   <td>Each <code><a href="questionnaire-definitions.html#Questionnaire.item">Questionnaire.item</a></code> element corresponds to a code system concept.</td>
+   </tr>
+
+   <tr>
+   <td><b>Code</b> (CodeSystem.concept.code)</td>
+   <td><code><a href="questionnaire-definitions.html#Questionnaire.item.linkId">Questionnaire.item.linkId</a></code>. Note: <code>Questionnaire.item</code> elements without a linkId cannot be addressed.</td>
+   </tr>
+
+   <tr>
+   <td><b>Display</b> (CodeSystem.concept.display)</td>
+   <td><code><a href="questionnaire-definitions.html#Questionnaire.item.text">Questionnaire.item.text</a></code></td>
+   </tr>
+
+   <tr>
+   <td><b>Definition</b> (CodeSystem.concept.definition)</td>
+   <td>Questionnaire-based implicit code system concepts do not have a definition.</td>
+   </tr>
+
+ <!-- Requirements -->
+   <tr>
+   <td rowspan="5"><b><a title="[%resdesc Requirements%]" href="requirements.html">Requirements</a></b></td>
+   <td><b>URL</b> (CodeSystem.url)</td>
+   <td><code><a href="requirements-definitions.html#Requirements.url">Requirements.url</a></code></td>
+   </tr>
+
+   <tr>
+   <td><b>Concept</b> (CodeSystem.concept)</td>
+   <td>Each <code><a href="requirements-definitions.html#Requirements.statement">Requirements.statement</a></code> element corresponds to a code system concept.</td>
+   </tr>
+
+   <tr>
+   <td><b>Code</b> (CodeSystem.concept.code)</td>
+   <td><code><a href="requirements-definitions.html#Requirements.statement.key">Requirements.statement.key</a></code></td>
+   </tr>
+
+   <tr>
+   <td><b>Display</b> (CodeSystem.concept.display)</td>
+   <td><code><a href="requirements-definitions.html#Requirements.statement.label">Requirements.statement.label</a></code> if one exists, otherwise <code><a href="requirements-definitions.html#Requirements.statement.key">Requirements.statement.key</a></code>.</td>
+   </tr>
+
+   <tr>
+   <td><b>Definition</b> (CodeSystem.concept.definition)</td>
+   <td><code><a href="requirements-definitions.html#Requirements.statement.requirement">Requirements.statement.requirement</a></code></td>
+   </tr>
+
+ <!-- Measure -->
+   <tr>
+   <td rowspan="5"><b><a title="[%resdesc Measure%]" href="measure.html">Measure</a></b></td>
+   <td><b>URL</b> (CodeSystem.url)</td>
+   <td><code><a href="measure-definitions.html#Measure.url">Measure.url</a></code></td>
+   </tr>
+
+   <tr>
+   <td><b>Concept</b> (CodeSystem.concept)</td>
+   <td>
+   Each Measure element with a <code>linkId</code> element corresponds to a code system concept. Specifically,
+   <ul>
+   <li><code><a href="measure-definitions.html#Measure.group">Measure.group</a></code></li>
+   <li><code><a href="measure-definitions.html#Measure.group.population">Measure.group.population</a></code></li>
+   <li><code><a href="measure-definitions.html#Measure.group.stratifier">Measure.group.stratifier</a></code></li>
+   <li><code><a href="measure-definitions.html#Measure.group.stratifier.component">Measure.group.stratifier.component</a></code></li>
+   <li><code><a href="measure-definitions.html#Measure.supplementalData">Measure.supplementalData</a></code></li>
+   </ul>
+   </td>
+   </tr>
+
+   <tr>
+   <td><b>Code</b> (CodeSystem.concept.code)</td>
+   <td>
+   <ul>
+   <li><code><a href="measure-definitions.html#Measure.group.linkId">Measure.group.linkId</a></code> for Measure.group concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.group.population.linkId">Measure.group.population.linkId</a></code> for Measure.group.population concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.group.stratifier.linkId">Measure.group.stratifier.linkId</a></code> for Measure.group.stratifier concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.group.stratifier.component.linkId">Measure.group.stratifier.component.linkId</a></code> for Measure.group.stratifier.component concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.supplementalData.linkId">Measure.supplementalData.linkId</a></code> for Measure.supplementalData concepts.</li>
+   </ul>  
+   </td>
+   </tr>
+
+   <tr>
+   <td><b>Display</b> (CodeSystem.concept.display)</td>
+   <td>
+   <ul>
+   <li><code><a href="measure-definitions.html#Measure.group.title">Measure.group.title</a></code> for Measure.group concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.group.population.title">Measure.group.population.title</a></code> for Measure.group.population concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.group.stratifier.title">Measure.group.stratifier.title</a></code> for Measure.group.stratifier concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.group.stratifier.component.code">Measure.group.stratifier.component.code</a></code> for Measure.group.stratifier.component concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.supplementalData.description">Measure.supplementalData.description</a></code> for Measure.supplementalData concepts.</li>
+   </ul>
+   </td>
+   </tr>
+
+   <tr>
+   <td><b>Definition</b> (CodeSystem.concept.definition)</td>
+   <td>
+   <ul>
+   <li><code><a href="measure-definitions.html#Measure.group.description">Measure.group.description</a></code> for Measure.group concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.group.population.description">Measure.group.population.description</a></code> for Measure.group.population concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.group.stratifier.description">Measure.group.stratifier.description</a></code> for Measure.group.stratifier concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.group.stratifier.component.description">Measure.group.stratifier.component.description</a></code> for Measure.group.stratifier.component concepts.</li>
+   <li><code><a href="measure-definitions.html#Measure.supplementalData.description">Measure.supplementalData.description</a></code> for Measure.supplementalData concepts.</li>
+   </ul> 
+   </td>
+   </tr>
 </table>
-<p>
-The use of these implicit code systems is not yet well tested, so this section remains
-informative.
-</p>
 
 <p>
-For medications, the relationship between the code system and the medication resource
-is complex. Many medication related code systems (e.g. RxNorm, DM+D, AMT, etc.) represent 
-more complex information than just code, display name and code system.  These often 
-contain information about the content of the medication
-A similar principle applies to observation definitions, which overlap significantly
-with LOINC and other related code systems, which contain a set of observation 
-definitions, that contain methods, units, etc. Other similar arrangements exist
-for <a href="location.html">Location</a> and many other kinds of resource.
-</p>
-<p>
-In FHIR, these are handled by splitting the concept into two distinct parts - the
-Terminology, (<b>Code System</b> &amp; <code>ValueSet</code> resources) is used to
-manage the codes, display names and relationships.  A separate "detail"
-resource (e.g., <a href="medication.html">Medication resource instances</a> for RxNorm code details,
-<a href="observationdefinition.html">ObservationDefinition</a> instances for LOINC code details, or 
-<a href="location.html">Location</a>, etc.) is used to convey detailed
-information (dose form &amp; strength, allowed data type or permitted values, address &amp;
-hours of operation, etc.).  One "detail" resource instance is created for each code.
-</p>
-<p>
-This division accomplishes several things:
+The above resource instances continue to use their <code>url</code> value as they normally would. However, whenever that URL appears as a value in the following fixed number of elements or parameters it SHALL be interpreted to be the implicit code system:
 </p>
 <ul>
-<li>It allows generic systems that support terminology management to perform standard
-terminology operations on code systems dealing with complex structures - code lookup,
-validation, subsumption testing, mapping and translation.</li>
-<li>It allows information to be exchanged about individual medications, data elements
-and locations.  Codes can't be retrieved individually in FHIR - it is necessary to
-retrieve the entire resource.  By packaging the detailed information in separate
-resources, independent retrieval and update is possible.</li>
-<li>It supports use-cases for sharing medication, location, observation type and
-similar information in circumstances where the code may be unknown, unavailable or
-occasionally non-existent (e.g., custom compounds, non-registered locations).  Having
-a distinct resource supports these capabilities, which would not be possible using
-<code>CodeSystem</code>/<code>ValueSet</code>.</li>
+<li><code><a href="datatypes-definitions.html#Coding.system">Coding.system</a></code></li>
+<li><code><a href="valueset-definitions.html#ValueSet.compose.include.system">ValueSet.compose.include.system</a></code></li>
+<li><code><a href="valueset-definitions.html#ValueSet.compose.exclude">ValueSet.compose.exclude.system</a></code></li>
+<li><code><a href="conceptmap-definitions.html#ConceptMap.group.source">ConceptMap.group.source</a></code></li>
+<li><code><a href="conceptmap-definitions.html#ConceptMap.group.target">ConceptMap.group.target</a></code></li>
+<li><code><a href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.uri">TerminologyCapabilities.codeSystem.uri</a></code></li>
+<li><code>exclude-system</code>, <code>system-version</code>, <code>check-system-version</code>, and <code>force-system-version</code> input parameters to <code><a href="valueset-operation-expand.html">$expand on ValueSet</a></code> operation.</li> 
+<li><code>system-version</code>, <code>check-system-version</code> and <code>force-system-version</code> input parameters to <code><a href="valueset-operation-validate-code.html">$validate-code on ValueSet</a></code> operation.</li> 
+<li><code>url</code> input parameter to <code><a href="codesystem-operation-validate-code.html">$validate-code on CodeSystem</a></code> operation.</li> 
 </ul>
-<p>
-Note that this division in FHIR does not imply that a similar division is required in
-the internal representation used by systems exposing a FHIR interface.  Similarly, some
-systems may choose to only expose or maintain one aspect of such information types (i.e.
-only the discrete resource instances or only the value set).
-</p>
-<p>
-The linkage between the "detail" resource and the Terminology resources is accomplished via the
-<code>code</code> element (or equivalent) on the detail resource.  As well, the "name" or
-"title" on the detail resource generally corresponds with the display name on the matching
-code.  Most detail resources will also have an "identifier" element.  This <i>can</i> be
-set to the same value and namespace as the code, but if the only identifier a resource has
-is its defining code, it may be better to omit the identifier entirely. .
-</p>
-</div>
--->
+
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b></p>
+<ul>
+<li>The list may be expanded in future, but these are cases already in use by the implementer community.</li>
+<li>Code system properties are not defined at this time, but ballot feedback on this is welcome.</li>
+</ul> 
+</blockquote>
+
 </div>
