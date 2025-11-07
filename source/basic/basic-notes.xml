@@ -31,17 +31,6 @@ Therefore, use of 'custom' resources is <b>NOT</b> considered to be conformant w
 extensions may make the Basic resource slightly more complex and less visually appealing, it is the only safe
 and approved mechanism for sharing resource concepts not representable using standard HL7-defined resources.
 </p>
-<p>
-It is expected that future versions of the interface tooling will be able to generate object interfaces on the
-basis of profiles.  Where this occurs, the complexity of custom resource elements being expressed as extensions
-should be transparent to the internal code of systems that support that particular variant of the Basic resource.
-This should further reduce the cost of using 'Basic' as opposed to custom resources.
-</p>
-<p>
-NOTE: This position is subject to change based on implementation experience.  Alternative mechanisms for
-handling custom resource requirements in a safe manner may be explored.  Ideas around alternative technical 
-strategies for managing this issue are welcome.
-</p>
 
 <a name="docs"></a>
 <h2>Documents and narrative-only resources</h2>
