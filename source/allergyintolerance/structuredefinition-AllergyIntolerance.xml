@@ -437,11 +437,11 @@
     </element>
 	<element id="AllergyIntolerance.recorder">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#32916,J#34396,J#39513,J#44517"/>
+        <valueString value="J#32916,J#34396,J#39513,J#44517, J#48804"/>
       </extension>
       <path value="AllergyIntolerance.recorder"/>
       <short value="Who recorded the sensitivity"/>
-      <definition value="Individual who recorded the record and takes responsibility for its content."/>
+      <definition value="Individual who recorded the record and takes responsibility for accurately recording its content."/>
       <comment value="Because the recorder takes responsibility for accurately recording information in the record, the recorder is the most recent author.  The recorder might or might not be the asserter.  By contrast, the recordedDate is when the allergy or intolerance was first recorded."/>
       <alias value="Author"/>
       <min value="0"/>

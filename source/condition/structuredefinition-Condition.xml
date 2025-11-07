@@ -561,11 +561,11 @@
     </element>
 	<element id="Condition.recorder">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#14007, J#34394, J#39602, J#41403"/>
+        <valueString value="GF#14007, J#34394, J#39602, J#41403, J#48804"/>
       </extension>
       <path value="Condition.recorder"/>
       <short value="Who recorded the condition"/>
-      <definition value="Individual who recorded the record and takes responsibility for its content."/>
+      <definition value="Individual who recorded the record and takes responsibility for accurately recording its content."/>
       <comment value="Because the recorder takes responsibility for accurately recording information in the record, the recorder is the most recent author.  The recorder might or might not be the asserter.  By contrast, the recordedDate is when the condition was first recorded."/>
       <min value="0"/>
       <max value="1"/>
