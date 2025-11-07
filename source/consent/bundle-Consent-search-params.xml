@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Consent-action"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.provision.action"/>
@@ -16,7 +16,7 @@
         <description value="Actions controlled by this rule"/>
         <code value="action"/>
         <type value="token"/>
-        <expression value="Consent.provision.action"/>
+        <expression value="Consent.repeat(provision).action"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -35,7 +35,7 @@
         <description value="LOINC or SNOMED CT code, etc. in the content"/>
         <code value="action"/>
         <type value="token"/>
-        <expression value="Consent.provision.code"/>
+        <expression value="Consent.repeat(provision).code"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Consent-actor"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.provision.actor.reference"/>
@@ -54,7 +54,7 @@
         <description value="Resource for the actor (or group, by role)"/>
         <code value="actor"/>
         <type value="reference"/>
-        <expression value="Consent.provision.actor.reference"/>
+        <expression value="Consent.repeat(provision).actor.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Consent-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.category"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="Consent-grantee"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.grantee"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="Consent-controller"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.controller"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="Consent-data"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.provision.data.reference"/>
@@ -130,7 +130,7 @@
         <description value="The actual data reference"/>
         <code value="data"/>
         <type value="reference"/>
-        <expression value="Consent.provision.data.reference"/>
+        <expression value="Consent.repeat(provision).data.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="Consent-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.date"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="Consent-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.identifier"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="Consent-manager"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.manager"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="Consent-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.subject"/>
@@ -217,7 +217,7 @@
       <SearchParameter>
         <id value="Consent-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.provision.period"/>
@@ -226,7 +226,7 @@
         <description value="Timeframe for this rule"/>
         <code value="period"/>
         <type value="date"/>
-        <expression value="Consent.provision.period"/>
+        <expression value="Consent.repeat(provision).period"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -236,7 +236,7 @@
       <SearchParameter>
         <id value="Consent-purpose"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.provision.purpose"/>
@@ -245,7 +245,7 @@
         <description value="Context of activities covered by this rule"/>
         <code value="purpose"/>
         <type value="token"/>
-        <expression value="Consent.provision.purpose"/>
+        <expression value="Consent.repeat(provision).purpose"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -255,7 +255,7 @@
       <SearchParameter>
         <id value="Consent-security-label"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.provision.securityLabel"/>
@@ -264,7 +264,7 @@
         <description value="Security Labels that define affected resources"/>
         <code value="security-label"/>
         <type value="token"/>
-        <expression value="Consent.provision.securityLabel"/>
+        <expression value="Consent.repeat(provision).securityLabel"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -274,7 +274,7 @@
       <SearchParameter>
         <id value="Consent-source-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.sourceReference"/>
@@ -293,7 +293,7 @@
       <SearchParameter>
         <id value="Consent-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.status"/>
@@ -312,7 +312,7 @@
       <SearchParameter>
         <id value="Consent-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.subject"/>
@@ -331,7 +331,7 @@
       <SearchParameter>
         <id value="Consent-verified"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.verification.verified"/>
@@ -350,16 +350,16 @@
       <SearchParameter>
         <id value="Consent-verified-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Consent.verification.verificationDate"/>
+          <valueString value="Consent.verification.date"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-verified-date"/>
         <description value="When consent verified"/>
         <code value="verified-date"/>
         <type value="date"/>
-        <expression value="Consent.verification.verificationDate"/>
+        <expression value="Consent.verification.date"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

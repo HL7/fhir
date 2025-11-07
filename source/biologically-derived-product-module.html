@@ -12,7 +12,7 @@ in order to support consistent definitions for schema and UML derived code.
 <body>
     [%file newnavbar%]
 
-    <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+    <table class="colsi"><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
     <a name="root"></a>
     <h2>Biologically Derived Product Module</h2>
@@ -36,7 +36,7 @@ in order to support consistent definitions for schema and UML derived code.
         Examples of non-human derived products include: porcine dermis and porcine heart valves.
     </p>
     <p>
-        In most countries BDP are regulated separately from medicines and medical devices and have specific traceability requirements including the need to be able to trace back to the donor, and the need to retain traceability records for very long periods (e.g. 30 years from time of use for tissues and cells clinically applied in the EU).
+        In most countries BDP are regulated separately from medicines and medical devices and have specific traceability requirements including the need to be able to trace back to the donor, and the need to retain traceability records for very long periods (e.g., 30 years from time of use for tissues and cells clinically applied in the EU).
     </p>
     <p>
         Some BDP are regulated as medical devices in some jurisdictions and these may need to be managed through the Medical Devices module in FHIR. Traceability and lookback functionality will need to take into account that material from a single donation event may result in products that are managed as both biologics and medical devices. Care will need to be taken when products cross international boundaries as the regulatory framework may change, thus a product regulated as a medical device in the US may be regulated as Tissues and Cells in the EU.
@@ -55,7 +55,7 @@ in order to support consistent definitions for schema and UML derived code.
             <td>
                 <ul>
                     <li><a href="biologicallyderivedproduct.html">Biologically Derived Product</a></li>
-                    <li><a href="biologicallyderivedproductdispense.html">Biologically Derived Product Dispense</a></li>
+                    <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-BiologicallyDerivedProductDispense.html">Biologically Derived Product Dispense</a></li>
                 </ul>
             </td>
         </tr>
@@ -82,15 +82,15 @@ in order to support consistent definitions for schema and UML derived code.
 
                     This resource carries a unique identifier together with elements for the donation identification number, product description code and the division number. These are essential for BDP of human origin to ensure globally unique identification and to meet traceability requirements.
 
-                    The BDP carries information on important characteristics of the product (e.g. blood group; expiration date; red cell antigen profile; collection type; CMV status).
+                    The BDP carries information on important characteristics of the product (e.g., blood group; expiration date; red cell antigen profile; collection type; CMV status).
                 </p>
             </td>
         </tr>
         <tr>
-            <td><a href="supplydelivery.html">Supply Delivery</a></td>
+            <td><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyDelivery.html">Supply Delivery</a></td>
             <td>
                 <p>
-                    The SupplyDelivery resource (SD) carries information on a consignment of BDP shipped from a supplier (e.g. blood center; tissue bank; eye bank; registry; manufacturer) to a hospital BDP custodian entity (e.g. transfusion laboratory; sterile supplies). The stage element of SupplyDelivery allows the dispatch and receipt events to be captured. The SD references the BDP of each of the products in the consignment.
+                    The SupplyDelivery resource (SD) carries information on a consignment of BDP shipped from a supplier (e.g., blood center; tissue bank; eye bank; registry; manufacturer) to a hospital BDP custodian entity (e.g., transfusion laboratory; sterile supplies). The stage element of SupplyDelivery allows the dispatch and receipt events to be captured. The SD references the BDP of each of the products in the consignment.
                 </p>
             </td>
         </tr>
@@ -103,7 +103,7 @@ in order to support consistent definitions for schema and UML derived code.
             </td>
         </tr>
         <tr>
-            <td><a href="biologicallyderivedproductdispense.html">Biologically Derived Product Dispense</a></td>
+            <td><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-BiologicallyDerivedProductDispense.html">Biologically Derived Product Dispense</a></td>
             <td>
                 <p>
                     In response to the ServiceRequest, the BDP custodian carries out any necessary testing and releases the BDP for use. The BDPDispense resource (BDPD) carries information regarding the dispense including the BDP instance and the identification of the intended recipient.
@@ -114,7 +114,7 @@ in order to support consistent definitions for schema and UML derived code.
             <td valign="top"><a href="procedure.html">Procedure</a></td>
             <td>
                 <p>
-                    The clinical team receiving the BDP and associated BDPD performs the clinical application (e.g. transfusion; transplant; etc.) and the event is recorded using the Procedure resource. This resource references the BDP and the recipient identifier, together with relevant information regarding the clinical application activity.
+                    The clinical team receiving the BDP and associated BDPD performs the clinical application (e.g., transfusion; transplant; etc.) and the event is recorded using the Procedure resource. This resource references the BDP and the recipient identifier, together with relevant information regarding the clinical application activity.
                 </p>
             </td>
         </tr>
@@ -129,7 +129,7 @@ in order to support consistent definitions for schema and UML derived code.
 
     <a name="example-celltherapy"></a>
     <h4>Cellular Therapy</h4>
-    <p>It is possible for a ServiceRequest to specify a collection event (procedure) and then a subsequent ServiceRequest for the BDPDispense and infusion (procedure). The procedure would collect from the donor patient and result in a BDP that could later be dispensed to the recipient patient. This is a common occurrence for standard of care blood and marrow transplant (BMT) centers that find a matching donor for an intended recipient, collect healthy blood-forming stem cells, and infuse those cells into a recipient patient. For some indications it is also common for stem cells to be collected from a patient prior to them receiving other treatments (e.g. chemotherapy, radiation), with the cryopreserved cells later being thawed and infused back into the patient.</p>
+    <p>It is possible for a ServiceRequest to specify a collection event (procedure) and then a subsequent ServiceRequest for the BDPDispense and infusion (procedure). The procedure would collect from the donor patient and result in a BDP that could later be dispensed to the recipient patient. This is a common occurrence for standard of care blood and marrow transplant (BMT) centers that find a matching donor for an intended recipient, collect healthy blood-forming stem cells, and infuse those cells into a recipient patient. For some indications it is also common for stem cells to be collected from a patient prior to them receiving other treatments (e.g., chemotherapy, radiation), with the cryopreserved cells later being thawed and infused back into the patient.</p>
     <img src="biologicallyderivedproduct-module-celltherapyexample.png" alt="Image showing the usage of the Biologically Derived Product and related resources for cell therapy" />
     <br />
 
@@ -394,10 +394,10 @@ in order to support consistent definitions for schema and UML derived code.
     </ul>
     <p>In the context of blood transfusion, observations based on tests performed on specimens collected from the patient fulfil a number of important roles:</p>
     <ol>
-        <li>To help determine the need for the clinical application of a BDP (e.g. platelet count on patient specimen gives indication if platelet transfusion is required)</li>
+        <li>To help determine the need for the clinical application of a BDP (e.g., platelet count on patient specimen gives indication if platelet transfusion is required)</li>
         <li>To determine important serological information about the patient prior to transfusion (blood group of patient, presence of atypical antibodies)</li>
-        <li>To ensure the selection of safe product for the patient (e.g. blood crossmatch using a patient specimen ensures compatibility between red blood cell units and patient)</li>
-        <li>Follow-up specimen collection can provide information on efficacy of treatment and the need for additional clinical support (e.g. post-transfusion platelet count can indicate effectiveness of platelet therapy)</li>
+        <li>To ensure the selection of safe product for the patient (e.g., blood crossmatch using a patient specimen ensures compatibility between red blood cell units and patient)</li>
+        <li>Follow-up specimen collection can provide information on efficacy of treatment and the need for additional clinical support (e.g., post-transfusion platelet count can indicate effectiveness of platelet therapy)</li>
         <li>Investigation of suspected transfusion reaction will involve the analysis of pre- and post- transfusion specimens</li>
     </ol>
 
@@ -410,7 +410,7 @@ in order to support consistent definitions for schema and UML derived code.
     <b>Workflow</b>
     <ul>
         <li><a href="servicerequest.html">ServiceRequest</a></li>
-        <li><a href="supplydelivery.html">SupplyDelivery</a></li>
+        <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyDelivery.html">SupplyDelivery</a></li>
     </ul>
 
     <a name="secpriv"></a>

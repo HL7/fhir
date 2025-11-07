@@ -1281,54 +1281,6 @@
    id="n1740"
    xlink:href="datatypes.html#decimal">decimal</a> »</text>
   </g>
-  <g
-     id="n1752">
-    <rect
-       id="ValueSet.scope"
-       x="374.76469999999995"
-       y="21.692456"
-       rx="4"
-       ry="4"
-       width="145.20000000000002"
-       height="64.0"
-       filter="url(#shadow1)"
-       style="fill:#ecffec;stroke:black;stroke-width:1" />
-    <line
-       id="n1753"
-       x1="374.76469999999995"
-       y1="49.692456"
-       x2="519.9647"
-       y2="49.692456"
-       style="stroke:dimgrey;stroke-width:1" />
-    <text
-       id="n1754"
-       x="447.36469999999997"
-       y="41.692456"
-       fill="black"
-       class="diagram-class-title">Scope</text>
-    <text
-       id="n1755"
-       x="380.76469999999995"
-       y="63.692456"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n1756"
-   xlink:href="valueset-definitions.html#ValueSet.scope.inclusionCriteria"><title
-   id="title120286">Criteria describing which concepts or codes should be included and why</title>inclusionCriteria</a> : <a
-   id="n1757"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
-    <text
-       id="n1761"
-       x="380.76469999999995"
-       y="77.69245599999999"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n1762"
-   xlink:href="valueset-definitions.html#ValueSet.scope.exclusionCriteria"><title
-   id="title120291">Criteria describing which concepts or codes should be excluded and why</title>exclusionCriteria</a> : <a
-   id="n1763"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
-  </g>
   <line
      id="n1767"
      x1="715.80763"
@@ -1817,40 +1769,6 @@
      id="n1852"
      x="361.69656999999995"
      y="207.0612866389215"
-     fill="black"
-     class="diagram-class-linkage">[0..1]</text>
-  <line
-     id="n1853"
-     x1="272.8"
-     y1="143.68350104818967"
-     x2="385.2910748186423"
-     y2="85.69245599999999"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1854"
-     points="272.8,143.68350104818967 278.8,147.68350104818967 284.8,143.68350104818967 278.8,139.68350104818967 272.8,143.68350104818967"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-27.271868284316906 272.8 143.68350104818967)" />
-  <rect
-     id="n1855"
-     x="318.0"
-     y="107.0"
-     width="22.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1856"
-     x="329.0"
-     y="117.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n1857"
-       xlink:href="valueset-definitions.html#ValueSet.scope"><title
-   id="title120414">Description of the semantic space the Value Set Expansion is intended to cover and should further clarify the text in ValueSet.description</title>scope</a></text>
-  <text
-     id="n1858"
-     x="385.2910748186423"
-     y="99.69245599999999"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
 </svg>

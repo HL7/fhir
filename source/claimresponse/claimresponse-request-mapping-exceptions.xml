@@ -1,0 +1,44 @@
+<mappingExceptions pattern="Request" resource="ClaimResponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Request.supportingInfo" resourcePath="ClaimResponse.supportingInfo">
+        <missingTypes _pattern="Reference(Any)" reason="Unknown"/>
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Extra information to use in performing request"/>
+            <resource value="Supporting information"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Information that may be needed by/relevant to the performer in their execution of this claim response."/>
+            <resource value="Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
+            <resource value="Often there are multiple jurisdiction specific valuesets which are required."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Request.intent" reason="Unknown"/>
+    <unmappedElement patternPath="Request.insurance" reason="Unknown"/>
+    <unmappedElement patternPath="Request.priority" reason="Unknown"/>
+    <unmappedElement patternPath="Request.subject" reason="Unknown"/>
+    <unmappedElement patternPath="Request.occurrence" reason="Unknown"/>
+    <unmappedElement patternPath="Request.status" reason="Unknown"/>
+    <unmappedElement patternPath="Request.groupIdentifier" reason="Unknown"/>
+    <unmappedElement patternPath="Request.deliverTo" reason="Unknown"/>
+    <unmappedElement patternPath="Request.replaces" reason="Unknown"/>
+    <unmappedElement patternPath="Request.note" reason="Unknown"/>
+    <unmappedElement patternPath="Request.basedOn" reason="Unknown"/>
+    <unmappedElement patternPath="Request.encounter" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performer" reason="Unknown"/>
+    <unmappedElement patternPath="Request.requester" reason="Unknown"/>
+    <unmappedElement patternPath="Request.category" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.identifier" reason="Unknown"/>
+    <unmappedElement patternPath="Request.authoredOn" reason="Unknown"/>
+    <unmappedElement patternPath="Request.reported" reason="Unknown"/>
+    <unmappedElement patternPath="Request.relevantHistory" reason="Unknown"/>
+    <unmappedElement patternPath="Request.code" reason="Unknown"/>
+    <unmappedElement patternPath="Request.statusReason" reason="Unknown"/>
+    <unmappedElement patternPath="Request.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Request.doNotPerform" reason="Unknown"/>
+    <unmappedElement patternPath="Request.product" reason="Unknown"/>
+</mappingExceptions>

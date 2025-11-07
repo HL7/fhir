@@ -135,4 +135,42 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RegulatedAuthorization-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RegulatedAuthorization.type"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RegulatedAuthorization-type"/>
+        <description value="Overall type of this authorization, for example drug marketing approval, orphan drug designation"/>
+        <code value="type"/>
+        <type value="token"/>
+        <expression value="RegulatedAuthorization.type"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="RegulatedAuthorization-validity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RegulatedAuthorization.validityPeriod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/RegulatedAuthorization-validity"/>
+        <description value="The time period in which the regulatory approval, clearance or licensing is in effect"/>
+        <code value="validity"/>
+        <type value="date"/>
+        <expression value="RegulatedAuthorization.validityPeriod"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

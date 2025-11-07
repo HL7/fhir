@@ -480,4 +480,20 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="location-code"/>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Location.code"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Location-code"/>
+        <description value="The code of the location"/>
+        <code value="code"/>
+        <type value="token"/>
+        <expression value="Location.code"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

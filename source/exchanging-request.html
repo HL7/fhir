@@ -13,7 +13,7 @@
 
 
 <h2>Exchanges Allowing Human Intervention</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
   <p>
     This page covers the mechanisms for requesting data when there is a potential for humans to be involved in the process of finding, organizing, filtering, and/or reviewing the data shared prior to exchange.  Guidance on whether these 'request' mechanisms are appropriate is found <a href="exchanging.html#human">here</a> and guidance for choosing between the <a href="#request">CommunicationRequest</a> and <a href="#task">Task</a> approaches can be found <a href="exchanging.html#formal">here</a>.
@@ -24,7 +24,7 @@
   <a name="request"> </a>
   <h3>Requesting exchange using CommunicationRequest</h3>
   <p>
-    The basics of this mechanism are that a formal CommunicationRequest - generally with a <code>focus</code> of 'order' - is created that defines the data to be shared and who it is to be shared with.  For the purposes of this documentation, the focus is on the system requesting the data and receiving the data being the same (the <i>data consumer</i>), however it is possible - and in fact common - for this mechanism to be used when the data is to flow to a different party.  I.e. party A (the requester) authorizes the <i>data source</i> to transmit a specified set of data to a third-party <i>data consumer</i>.
+    The basics of this mechanism are that a formal CommunicationRequest - generally with a <code>focus</code> of 'order' - is created that defines the data to be shared and who it is to be shared with.  For the purposes of this documentation, the focus is on the system requesting the data and receiving the data being the same (the <i>data consumer</i>), however it is possible - and in fact common - for this mechanism to be used when the data is to flow to a different party.  i.e., party A (the requester) authorizes the <i>data source</i> to transmit a specified set of data to a third-party <i>data consumer</i>.
   </p>
   <p>
     In FHIR, a <a href="request.html">request</a> resources represent plans, proposals or orders (authorizations) for actions to occur.  However, they do not, by themselves, directly solicit action.  Some sort of process must occur that triggers a solicitation for the 'request' to be fulfilled.  There are numerous mechanisms in FHIR for seeking such fulfillment - all described in the FHIR core specification section on <a href="workflow-communications.html">workflow communication patterns</a>.  The following diagrams and descriptions summarize the key steps in each flow and some of the considerations associated with each of the options.
@@ -66,7 +66,7 @@
   <a name="cr-task"> </a>
   <h4>CommunicationRequest plus Task</h4>
   <p>
-    This approach uses Task to seek fulfillment of the CommunicationRequest.  It eliminates the need for Communication to link together the data returned.  It also allows explicit monitoring of the state (e.g. acceptance/rejection, progress) prior to completion.  Note that this flow is similar to the Task-only flow described <a href="#task">below</a>, with the primary difference being that it uses a formal CommunicationRequest 'order' to define the data requested rather than just using the Task itself.
+    This approach uses Task to seek fulfillment of the CommunicationRequest.  It eliminates the need for Communication to link together the data returned.  It also allows explicit monitoring of the state (e.g., acceptance/rejection, progress) prior to completion.  Note that this flow is similar to the Task-only flow described <a href="#task">below</a>, with the primary difference being that it uses a formal CommunicationRequest 'order' to define the data requested rather than just using the Task itself.
   </p>
   <p>
     This approach aligns with <a href="workflow-management.html#optiong">Option G</a> in the FHIR core workflow communication patterns, where the Task is posted directly to the filler's system (<i>data source</i>).  Alternate workflows using Task where the Task lives on the placer's system (<i>data consumer</i>) - <a href="workflow-management.html#optionf">Option F</a> or on an intermediary system <a href="workflow-management.html#optionH">Option H</a>, however those require either <a href="exchanging-polling.html">polling</a> or <a href="exchanging-subscription.html">subscription</a> by the <i>data source</i>.  In general these alternatives would only make sense if the request for information wasn't directed to a specific <i>data source</i> (which would be unusual) or if the <i>data consumer</i> did not have authority to post a Task directly to the <i>data source</i>'s system.
@@ -88,7 +88,7 @@
   </p>
   <a name="cr-task4"> </a>
   <p>
-    <b>Step 4:</b> The <i>data source</i> may optionally update the Task to change the status (e.g. from <code>requested</code> to <code>accepted</code> or <code>rejected</code> and eventually to <code>in-progress</code> or <code>on-hold</code>.  The <i>data source</i> might also update the Task.businessStatus element to convey additional information around progress, such as reasons for delay or expected timeframe for delivery.
+    <b>Step 4:</b> The <i>data source</i> may optionally update the Task to change the status (e.g., from <code>requested</code> to <code>accepted</code> or <code>rejected</code> and eventually to <code>in-progress</code> or <code>on-hold</code>.  The <i>data source</i> might also update the Task.businessStatus element to convey additional information around progress, such as reasons for delay or expected timeframe for delivery.
   </p>
   <a name="cr-task5"> </a>
   <p>
@@ -128,7 +128,7 @@
   </p>
   <a name="task2"> </a>
   <p>
-    <b>Step 2:</b> The <i>data source</i> may optionally update the Task to change the status (e.g. from <code>requested</code> to <code>accepted</code> or <code>rejected</code> and eventually to <code>in-progress</code> or <code>on-hold</code>.  The <i>data source</i> might also update the Task.businessStatus element to convey additional information around progress, such as reasons for delay or expected timeframe for delivery.
+    <b>Step 2:</b> The <i>data source</i> may optionally update the Task to change the status (e.g., from <code>requested</code> to <code>accepted</code> or <code>rejected</code> and eventually to <code>in-progress</code> or <code>on-hold</code>.  The <i>data source</i> might also update the Task.businessStatus element to convey additional information around progress, such as reasons for delay or expected timeframe for delivery.
   </p>
   <a name="task3"> </a>
   <p>

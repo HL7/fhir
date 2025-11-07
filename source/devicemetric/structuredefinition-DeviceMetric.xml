@@ -11,7 +11,7 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="2"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
     <valueCode value="anonymous"/>
@@ -20,7 +20,7 @@
     <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".operationalStatus = entered-in-error"/>
+    <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceMetric"/>
   <identifier>
@@ -57,6 +57,21 @@
     <uri value="http://hl7.org/v3"/>
     <name value="RIM Mapping"/>
   </mapping>
+  <mapping>
+    <identity value="DIM" />
+    <uri value="urn:iso:std:iso:11073:10201" />
+    <name value="ISO/IEEE 11073-10201 Domain Information Model (DIM)" />
+  </mapping>
+  <mapping>
+      <identity value="BICEPS" />
+      <uri value="urn:iso:std:iso:11073:10207" />
+      <name value="ISO/IEEE 11073-10207: Domain Information and Service Model for Service-Oriented Point-of-Care Medical Device Communication" />
+  </mapping>
+  <mapping>
+    <identity value="ACOM" />
+    <uri value="urn:iso:std:iso:11073:10206"/>
+    <name value="ISO/IEEE 11073-10206 Abstract Content Information Model (ACOM)"/>
+  </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="DeviceMetric"/>
@@ -74,6 +89,14 @@
         <identity value="w5"/>
         <map value="administrative.device"/>
       </mapping>
+      <mapping>
+        <identity value="DIM" />
+        <map value="Metric" />
+      </mapping>
+      <mapping>
+        <identity value="BICEPS" />
+        <map value="MetricDescriptor" />
+      </mapping>
     </element>
     <element id="DeviceMetric.identifier">
       <path value="DeviceMetric.identifier"/>
@@ -89,6 +112,95 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="DeviceMetric.status">
+      <path value="DeviceMetric.status"/>
+      <short value="active | inactive | entered-in-error | unknown"/>
+      <definition value="Indicates current state of the record."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because the status contains the codes entered-in-error and inactive that mark the resource as not currently valid."/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceMetricStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the status of the DeviceMetric."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/metric-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="DeviceMetric.operationalStatus">
+      <path value="DeviceMetric.operationalStatus"/>
+      <short value="on | off | standby | unknown"/>
+      <definition value="Indicates current operational state of the device. For example: On, Off, Standby, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <isModifier value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceMetricOperationalStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the operational status of the DeviceMetric."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/metric-operational-status"/>
+      </binding>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Status"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="Metric/ActivationState"/>
+      </mapping>
+    </element>
+    <element id="DeviceMetric.category">
+      <path value="DeviceMetric.category"/>
+      <short value="The kind of metric represented"/>
+      <definition value="Indicates the category of the observation generation process. A DeviceMetric can be, for example, a setting, measurement, or calculation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceMetricCategory"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Describes the category of the metric."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/metric-category"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Specification::category"/>
+      </mapping>
+      <mapping >
+        <identity value="BICEPS"/>
+        <map value="MetricDescriptor/MetricCategory"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="Filled in when this can be derived from SystemInfo.observation-type-list[i]"/>
       </mapping>
     </element>
     <element id="DeviceMetric.type">
@@ -115,7 +227,36 @@
       </binding>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.class"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="type = VMO::Type&#xA;type.text = VMO::Label-String"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MetricDescriptor/Type"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="SystemInfo.observation-type-list[i]"/>
+      </mapping>
+    </element>
+    <element id="DeviceMetric.device">
+      <path value="DeviceMetric.device"/>
+      <short value="The device to which this DeviceMetric applies"/>
+      <definition value="The device to which this DeviceMetric applies. The referenced device may be a top-level device or a component of a device."/>
+      <comment value="If the reference is not to a top-level device, the top-level device may be reached through the device's `parent` element (possibly recursively)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="DeviceMetric.unit">
@@ -140,44 +281,23 @@
         <description value="IEEE 11073-10101"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ucum-units" />
       </binding>
-    </element>
-    <element id="DeviceMetric.device">
-      <path value="DeviceMetric.device"/>
-      <short value="The device to which this DeviceMetric applies"/>
-      <definition value="The device to which this DeviceMetric applies. The referenced device may be a top-level device or a component of a device."/>
-      <comment value="If the reference is not to a top-level device, the top-level device may be reached through the device's `parent` element (possibly recursively)."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="DeviceMetric.operationalStatus">
-      <path value="DeviceMetric.operationalStatus"/>
-      <short value="on | off | standby | entered-in-error"/>
-      <definition value="Indicates current operational state of the device. For example: On, Off, Standby, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceMetricOperationalStatus"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Describes the operational status of the DeviceMetric."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-operational-status"/>
-      </binding>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="unit = Metric::Unit-Code&#xA;unit.text = Unit::Label-String"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MetricDescriptor/Unit"/>
+      </mapping>
+      <mapping>
+        <identity value="ACOM"/>
+        <map value="UCUM unit used for SystemInfo.observation-type-list[i] observations"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.color">
       <path value="DeviceMetric.color" />
       <short value="Color name (from CSS4) or #RRGGBB code" />
-      <definition
-        value="The preferred color associated with the metric (e.g., display color). This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth; the metrics are displayed in different characteristic colors, such as HR in blue, BP in green, and PR and SpO2 in magenta." />
+      <definition value="The preferred color associated with the metric (e.g., display color). This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth; the metrics are displayed in different characteristic colors, such as HR in blue, BP in green, and PR and SpO2 in magenta." />
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -189,28 +309,9 @@
         <description value="Describes the typical color of representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/color-codes"/>
       </binding>
-    </element>
-    <element id="DeviceMetric.category">
-      <path value="DeviceMetric.category"/>
-      <short value="The kind of metric represented"/>
-      <definition value="Indicates the category of the observation generation process. A DeviceMetric can be, for example, a setting, measurement, or calculation."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceMetricCategory"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Describes the category of the metric."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-category"/>
-      </binding>
       <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
+        <identity value="DIM"/>
+        <map value="Metric::Color"/>
       </mapping>
     </element>
     <element id="DeviceMetric.measurementFrequency">
@@ -223,6 +324,14 @@
         <code value="Quantity"/>
       </type>
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM"/>
+        <map value="value = Metric::Measure-Period::value or Metric::Metric-Specification::update-period&#xA;unit = Metric::Measure-Period::unit-code"/>
+      </mapping>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MetricDescriptor/DeterminationPeriod"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.availability">
       <path value="DeviceMetric.availability"/>
@@ -243,6 +352,10 @@
         <description value="Describes the availability of the metric"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
       </binding>
+      <mapping>
+        <identity value="BICEPS"/>
+        <map value="MetricDescriptor/MetricAvailability"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.calibration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
@@ -276,6 +389,10 @@
         <description value="Describes the type of a metric calibration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-type"/>
       </binding>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Calibration::cal-type"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.calibration.state">
       <path value="DeviceMetric.calibration.state"/>
@@ -295,6 +412,10 @@
         <description value="Describes the state of a metric calibration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-state"/>
       </binding>
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Calibration::cal-state"/>
+      </mapping>
     </element>
     <element id="DeviceMetric.calibration.time">
       <path value="DeviceMetric.calibration.time"/>
@@ -306,6 +427,10 @@
         <code value="instant"/>
       </type>
       <isSummary value="false" />
+      <mapping>
+        <identity value="DIM"/>
+        <map value="Metric::Metric-Calibration::cal-time"/>
+      </mapping>
     </element>
   </differential>
 </StructureDefinition>

@@ -21,9 +21,7 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="root"></a>
 <h2>XML Representation of Resources</h2>
 
-<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
-
-[%normative page infrastructure%]
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg its%]">[%wgt its%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
 The XML representation for a resource is described using this format: 
@@ -83,7 +81,7 @@ base document name is the name of the resource as allocated by HL7, the namespac
 FHIR namespace, and an additional
 attribute is present, <code>resourceDefinition</code>. The resourceDefinition value contains a 
 canonical reference to the definition of the resource and always includes the version explicitly,
-e.g.  
+e.g.,  
 </p>
 
 <pre class="xml">
@@ -109,7 +107,7 @@ Also, see note about the schema and additional resources below.
 <h3>XML Representation for repeating elements</h3>
 
 <p>
-An element that has a maximum cardinality of >1 (e.g. <code>x..*</code> in the definitions) may occur more than once in the instance.
+An element that has a maximum cardinality of >1 (e.g., <code>x..*</code> in the definitions) may occur more than once in the instance.
 In XML, this is simply done by repeating the XML element multiple times. 
 </p>
 

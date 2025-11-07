@@ -26,7 +26,7 @@
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Whether the device is currently active"/>
-            <resource value="active | inactive | entered-in-error"/>
+            <resource value="active | inactive | entered-in-error | unknown"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Whether this device record is in active use."/>

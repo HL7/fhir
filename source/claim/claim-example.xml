@@ -18,14 +18,14 @@
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
 			<code value="oral"/>
-		</coding>	
+		</coding>
 	</type>
 
 	<use value="claim"/>
 
-	<patient>
+	<subject>
 		<reference value="Patient/1"/>
-	</patient>
+	</subject>
 
 	<created value="2014-08-16"/>
 
@@ -63,7 +63,7 @@
 		<diagnosisCodeableConcept>
 			<coding>
 				<code value="123456"/>
-			</coding> 
+			</coding>
 		</diagnosisCodeableConcept>
 	</diagnosis>
 
@@ -85,17 +85,17 @@
 		<productOrService>
 			<coding>
 				<code value="1200"/>
-			</coding> 
+			</coding>
 		</productOrService>
 		<servicedDate value="2014-08-16"/>
 		<unitPrice>
 			<value value="135.57"/>
-			<currency value="USD"/> 
-		</unitPrice> 
+			<currency value="USD"/>
+		</unitPrice>
 		<net>
 			<value value="135.57"/>
-			<currency value="USD"/> 
-		</net> 
+			<currency value="USD"/>
+		</net>
 	</item>
 
 </Claim>

@@ -38,11 +38,11 @@ implement this interface:
 <li><a href="compartmentdefinition.html">CompartmentDefinition</a></li>
 <li><a href="conceptmap.html">ConceptMap</a></li>
 <li><a href="conditiondefinition.html">ConditionDefinition</a></li>
+<li><a href="devicedefinition.html">DeviceDefinition</a></li>
 <li><a href="eventdefinition.html">EventDefinition</a></li>
 <li><a href="evidence.html">Evidence</a></li>
 <li><a href="evidencevariable.html">EvidenceVariable</a></li>
 <li><a href="examplescenario.html">ExampleScenario</a></li>
-<li><a href="graphdefinition.html">GraphDefinition</a></li>
 <li><a href="implementationguide.html">ImplementationGuide</a></li>
 <li><a href="library.html">Library</a></li>
 <li><a href="measure.html">Measure</a></li>
@@ -59,11 +59,11 @@ implement this interface:
 <li><a href="structuremap.html">StructureMap</a></li>
 <li><a href="subscriptiontopic.html">SubscriptionTopic</a></li>
 <li><a href="terminologycapabilities.html">TerminologyCapabilities</a></li>
-<li><a href="testplan.html">TestPlan</a></li>
-<li><a href="testscript.html">TestScript</a></li>
 <li><a href="valueset.html">ValueSet</a></li>
 </ul>
-
+<p>
+Other <a href="resource.html#additional">Additional Resources</a> may implement CanonicalResource.
+</p>
 
 </div>
 

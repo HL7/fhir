@@ -270,7 +270,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/SearchParameter-jurisdiction"/>
-        <description value="Intended jurisdiction for the search parameter"/>
+        <description value="Jurisdiction of the authority that maintains the the search parameter"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="SearchParameter.jurisdiction"/>
@@ -407,6 +407,23 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="SearchParameter.version"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="SearchParameter.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the SearchParameter is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="SearchParameter.experimental"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -1,21 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DeviceAssociation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+<DeviceAssociation xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
   <id value="example"/>
   <device>
     <reference value="Device/prod1"/>
   </device>
-  <status>
+  <status value="active"/>
+  <identifier>
+    <system value="http://acme.com/deviceassociations/id"/>
+    <value value="DA12345"/>
+  </identifier>
+  <relationship>
     <coding>
-      <system value="http://hl7.org/fhir/deviceassociation-status"/>
-      <code value= "implanted"/>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-relationship"/>
+      <code value="patient"/>
+      <display value="Patient"/>
     </coding>
-  </status>
+  </relationship>
+  <operation>
+  <status>
+      <coding>
+        <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-operation-status"/>
+        <code value="standby"/>
+        <display value="Stand By"/>
+      </coding>
+    </status>
+    <operator>
+      <reference value="Practitioner/prac1"/>
+      <display value="Dr. John Smith"/>
+    </operator>
+  </operation>
+  <period>
+    <start value="2023-01-01T08:00:00Z"/>
+    <end value="2023-12-31T17:00:00Z"/> 
+  </period>
+  <!-- Association/operational state moved here -->
+  <associationStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
+      <code value="implanted"/>
+      <display value="Implanted"/>
+    </coding>
+  </associationStatus>
 
   <subject>
     <reference value="Patient/pat1"/>
-    <display value="Donald Duck"/> 
+    <display value="Donald Duck"/>
   </subject>
 
   <!-- insert contents here -->
-  
+
 </DeviceAssociation>

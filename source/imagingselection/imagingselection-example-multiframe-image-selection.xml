@@ -1,10 +1,16 @@
 <ImagingSelection xmlns="http://hl7.org/fhir">
   <id value="example-multiframe-image-selection"/>
   <status value="available"/>
-  <code>
+  <category>
     <coding>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <code value="113036"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+      <code value="121080"/>
     </coding>
   </code>
   <subject>
@@ -14,6 +20,24 @@
       <value value="KUTGIQCVCDRHVBUK"/>
     </identifier>
   </subject>
+  <basedOn>
+    <type value="ServiceRequest"/>
+    <identifier>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+          <code value="ACSN"/>
+        </coding>
+      </type>
+      <value value="W12342398"/>
+      <assigner>
+        <reference value="Organization/dicom-organization"/>
+      </assigner>
+    </identifier>
+  </basedOn>
+  <basedOn>
+    <reference value="ServiceRequest/example"/>
+  </basedOn>
   <derivedFrom>
     <type value="ImagingStudy"/>
     <identifier>
@@ -27,9 +51,9 @@
   <instance>
     <uid value="1.2.840.113747.20080222.35738167368358372924412538783781.2.1"/>
     <sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2.1"/>
-    <subset value="1"/>
-    <subset value="2"/> 
-    <subset value="3"/> 
-    <subset value="4"/> 
+    <frameNumber value="1"/>
+    <frameNumber value="2"/>
+    <frameNumber value="3"/>
+    <frameNumber value="4"/>
   </instance>
 </ImagingSelection>

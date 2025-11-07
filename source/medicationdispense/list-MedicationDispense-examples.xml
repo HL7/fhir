@@ -388,4 +388,28 @@
       <display value="Future dated"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Declined Dispense - out of stock"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0334"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0334"/>
+      <display value="Declined dispense"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Declined Dispense - not picked up"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationdispense0335"/>
+    </extension>
+    <item>
+      <reference value="MedicationDispense/meddisp0335"/>
+      <display value="Declined (Cancelled / not picked up) dispense"/>
+    </item>
+  </entry>    
 </List>

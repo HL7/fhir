@@ -13,7 +13,7 @@ in order to support consistent definitions for schema and UML derived code.
     [%file newnavbar%]
 
     
-        <table class="colsi"><tr><td id="wg">Work Group <a _target="blank" href="[%wg pa%]">[%wgt pa%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+        <table class="colsi"><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg pa%]">[%wgt pa%]</a> </td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
         <a name="root"></a>
         <h2>Administration Module</h2>
@@ -78,7 +78,7 @@ in order to support consistent definitions for schema and UML derived code.
                         <li><a href="devicedefinition.html">DeviceDefinition</a></li>
                         <li><a href="devicemetric.html">DeviceMetric</a></li>
                         <li><a href="substance.html">Substance</a></li>
-                        <li><a href="inventoryitem.html">InventoryItem</a></li>
+                        <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryItem.html">InventoryItem</a></li>
                     </ul>
                 </td>
             </tr>
@@ -103,7 +103,7 @@ in order to support consistent definitions for schema and UML derived code.
         </div>
 [%impl-note%]
                 <a href="patient.html#links">Patient linking</a> should also be considered when evaluating
-                searches with references to other resources. e.g. searching for a patient's conditions for a patient.<br />
+                searches with references to other resources. e.g., searching for a patient's conditions for a patient.<br />
                 At present the specification does not define if the links should be also followed to include
                 conditions that reference the linked patients too. We are currently seeking feedback on this.
 [%end-note%]
@@ -172,6 +172,9 @@ in order to support consistent definitions for schema and UML derived code.
                 Resources shown with a dotted box are described in other sections of the specification:
                 <code>Coverage</code> and <code>Claim</code> are from the <a href="financial-module.html">section on Finance</a>.
 [%end-note%]
+[%impl-note%]
+                This diagram shows the relationships between resource types.  Relationships between instances of resources may include references to multiple instances of the same type. For example, an Encounter and an Account for the same human being may reference separate Patient resource instances, as noted in <code>Account.subject</code>.  Those Patient resources should be linked using <code>Patient.link</code> with a type of <code>seealso</code>.
+[%end-note%]
 
         <a name="dir-reg"></a>
         <h4>Service Provider Directory Resources</h4>
@@ -218,7 +221,8 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="dev-sub"></a>
         <h4>Devices and Substances</h4>
         <p>
-            Other assets are often registered in the administration system, and maintained as master files.
+            Other assets are often registered in the administration system, and maintained as master files.<br/>
+            Refer to the <a href="device-module.html">device module</a> for additional details.
         </p>
         <table class="bare">
             <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
@@ -265,7 +269,7 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             While Organization, Location, Device and other non-person-identifying records are generally subject to less stringent
             security precautions, such data must still be protected to avoid safety issues
-            (e.g. someone maliciously changing the ingredients associated with a drug to cause/fail to cause alerts)
+            (e.g., someone maliciously changing the ingredients associated with a drug to cause/fail to cause alerts)
         </p>
         <p>
             Devices can be linked to Patients.  If this occurs, they must be protected as any other patient-linked element
@@ -325,16 +329,16 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <ul>
             <li>
-                <b>Managing a Master Record of a Patient and a Person</b> (e.g. MPI)<br/>
+                <b>Managing a Master Record of a Patient and a Person</b> (e.g., MPI)<br/>
                 A <a href="patient.html">Patient</a> resource is used to describe patient demographic information and any updates to it.
                 It can be used to communicate <a href="patient.html">Patient</a> information to other systems
-                (e.g. other registries, clinical, ancillary and financial systems).
+                (e.g., other registries, clinical, ancillary and financial systems).
                 Some systems distinguish the Patient Registry (or Client Registry) from the Person Registry.
                 A <a href="person.html">Person</a> resource is a base for the Person Registry system.
                 The Patient/Person Management use case includes creation, update, as well as merge/unmerge and link/unlink scenarios.
             </li>
             <li>
-                <b>Managing a Master Record of a Provider and Service Catalogue</b> (e.g. Provider Registry, Service Directory)<br />
+                <b>Managing a Master Record of a Provider and Service Catalogue</b> (e.g., Provider Registry, Service Directory)<br />
                 A <a href="practitioner.html">Practitioner</a> resource is a base resource for enabling the registry of individuals, related to providing health care services.
                 Other resources, such as <a href="organization.html">Organization</a>, <a href="location.html">Location</a>, <a href="healthcareservice.html">HealthcareService</a>, are creating a complete picture of where, how and by whom
                 the care services are offered to a patient. The resources can be used for managing the master record or as a reference in

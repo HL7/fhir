@@ -12,11 +12,11 @@ POST [base]/ValueSet/$validate-code
     {
     "name" : "codeableConcept",
     "valueCodeableConcept" : {
-      "coding" : {
+      "coding" : [{
         "system" : "http://loinc.org",
-          "code" : "1963-8",
-      "display" : "test"
-      }
+        "code" : "1963-8",
+        "display" : "test"
+      }]
     }
   },
   {

@@ -175,7 +175,7 @@
           <valueString value="{{name}}.jurisdiction"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-jurisdiction"/>
-        <description value="Intended jurisdiction for the terminology capabilities"/>
+        <description value="Jurisdiction of the authority that maintains the the terminology capabilities"/>
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="TerminologyCapabilities.jurisdiction"/>
@@ -293,6 +293,23 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="TerminologyCapabilities.version"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="TerminologyCapabilities.experimental"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <description value="Whether the TerminologyCapabilities is experimental"/>
+        <code value="experimental"/>
+        <type value="token"/>
+        <expression value="TerminologyCapabilities.experimental"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

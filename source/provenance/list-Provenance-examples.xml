@@ -25,7 +25,7 @@
     </extension>
     <item>
       <reference value="Provenance/example1"/>
-      <display value="Targetted #1"/>
+      <display value="Targeted #1"/>
     </item>
   </entry>
   <entry>
@@ -37,7 +37,7 @@
     </extension>
     <item>
       <reference value="Provenance/example2"/>
-      <display value="Targetted #2"/>
+      <display value="Targeted #2"/>
     </item>
   </entry>
   <entry>
@@ -49,10 +49,45 @@
     </extension>
     <item>
       <reference value="Provenance/example3"/>
-      <display value="Targetted #3"/>
+      <display value="Targeted #3"/>
     </item>
   </entry>
   <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Targeted Provenance Example for an extension - race came from admission paperwork"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example4"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example4"/>
+      <display value="Targeted #4"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance indicating authorizing AuditEvent which indicates authorizing Consent"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example5"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example5"/>
+      <display value="Authorizing AuditEvent"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance indicating authorizing Consent"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example6"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example6"/>
+      <display value="Authorizing Consent"/>
+    </item>
+  </entry>  <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Provenance holding a signature"/>
     </extension>

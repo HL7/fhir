@@ -290,7 +290,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -344,11 +344,12 @@
 	
 	<element id="Goal.acceptance.participant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#44978, J#28217"/>
+        <valueString value="J#44978, J#28217, J#48366"/>
       </extension>
       <path value="Goal.acceptance.participant"/>
       <short value="Individual or organization whose acceptance is reflected"/>
       <definition value="The person ororganization whose acceptance/priority is being reflected."/>
+	  <comment value="Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -359,6 +360,7 @@
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
 	
@@ -539,14 +541,42 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/goal-status-reason"/>
       </binding>
     </element>
+	<element id="Goal.recorder">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#48366"/>
+      </extension>
+      <path value="Goal.recorder"/>
+      <short value="Who recorded the goal"/>
+      <definition value="Individual who recorded the record and takes responsibility for its content."/>
+      <comment value="Because the recorder takes responsibility for accurately recording information in the record, the recorder is the most recent author.  The recorder might or might not be the source who established the goal. Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role"/>
+      </mapping>
+    </element>
     <element id="Goal.source">
 	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#41409"/>
+        <valueString value="J#41409, J#48366"/>
       </extension>
       <path value="Goal.source"/>
       <short value="Who's responsible for creating Goal?"/>
       <definition value="Indicates whose goal this is - patient goal, practitioner goal, etc."/>
-      <comment value="This is the individual or team responsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.). Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
+      <comment value="This is the individual or team responsible for establishing the goal, not necessarily who recorded it. Using Group is only allowed when the group represents a family or a household and should not represent groups of Practitioners."/>
       <min value="0"/>
       <max value="1"/>
       <type>

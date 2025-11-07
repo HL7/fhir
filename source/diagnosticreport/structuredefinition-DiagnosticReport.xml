@@ -259,6 +259,10 @@
         <identity value="rim"/>
         <map value="inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code &lt; LabService].code"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.category"/>
+      </mapping>
     </element>
     <element id="DiagnosticReport.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -330,7 +334,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -435,7 +439,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="instant"/>
+        <code value="dateTime"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -488,8 +492,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>   
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>   
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -528,6 +534,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -614,6 +622,10 @@
         <identity value="rim"/>
         <map value="unknown"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.note"/>
+      </mapping>
     </element>
     <element id="DiagnosticReport.study">
       <path value="DiagnosticReport.study"/>
@@ -632,6 +644,7 @@
       <path value="DiagnosticReport.supportingInfo"/>
       <short value="Additional information supporting the diagnostic report"/>
       <definition value="This backbone element contains supporting information that was used in the creation of the report not included in the results already included in the report."/>
+      <comment value="Supporting information should only be used for resources that are not referenced elsewhere within the same DiagnosticReport, e.g., DiagnosticReport.comparison."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -656,7 +669,7 @@
         </extension>
         <strength value="example"/>
         <description value="The code value for the role of the supporting information in the diagnostic report."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0936"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnosticreport-relevant-information-types"/>
       </binding>
     </element>
     <element id="DiagnosticReport.supportingInfo.reference">
@@ -674,10 +687,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Citation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/AllergyIntolerance"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
     <element id="DiagnosticReport.media">
@@ -860,6 +873,18 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Communication"/>
       </type>
        <isSummary value="false"/>
+    </element>
+    <element id="DiagnosticReport.comparison">
+      <path value="DiagnosticReport.comparison"/>
+      <short value="Prior data and findings for comparison"/>
+      <definition value="Prior data and findings made available for comparison when determining the current interpretation."/>
+      <comment value="The List.entry.item can be profiled down to indicate a ImagingStudy | DiagnosticReport | Observation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/List"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>

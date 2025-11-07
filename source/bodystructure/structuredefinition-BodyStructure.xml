@@ -373,6 +373,17 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element>
+    <element id="BodyStructure.includedStructure.image">
+      <path value="BodyStructure.includedStructure.image"/>
+      <short value="Image(s) of structural aspects"/>
+      <definition value="Image(s) used to identify aspects of an included or excluded structure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
     <element id="BodyStructure.includedStructure.qualifier">
       <path value="BodyStructure.includedStructure.qualifier"/>
       <short value="Code that represents the included structure qualifier"/>
@@ -477,7 +488,7 @@
     <element id="BodyStructure.image">
       <path value="BodyStructure.image"/>
       <short value="Attached images"/>
-      <definition value="Image or images used to identify a location."/>
+      <definition value="Image(s) used to identify aspects of the overall structure."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -513,7 +524,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>

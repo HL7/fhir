@@ -91,7 +91,7 @@
   </xs:element>
   <xs:element name="name">
     <xs:annotation>
-      <xs:documentation>The name of the element in FHIR (using dotted notation, i.e. Person.Name)</xs:documentation>
+      <xs:documentation>The name of the element in FHIR (using dotted notation, i.e., Person.Name)</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:normalizedString">
@@ -111,7 +111,7 @@
   </xs:element>
   <xs:element name="path">
     <xs:annotation>
-      <xs:documentation>The path to the FHIR element (i.e. the FHIR name) that the extension applies to</xs:documentation>
+      <xs:documentation>The path to the FHIR element (i.e., the FHIR name) that the extension applies to</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:normalizedString">
@@ -140,7 +140,7 @@
   </xs:element>
   <xs:element name="maxOccurs">
     <xs:annotation>
-      <xs:documentation>The path to the FHIR element (i.e. the FHIR name) that the extension applies to</xs:documentation>
+      <xs:documentation>The path to the FHIR element (i.e., the FHIR name) that the extension applies to</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:union memberTypes="xs:nonNegativeInteger">

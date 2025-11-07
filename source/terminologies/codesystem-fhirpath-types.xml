@@ -39,6 +39,10 @@
     <display value="Integer"/>
   </concept>
   <concept>
+    <code value="http://hl7.org/fhirpath/System.Long"/>
+    <display value="Long"/>
+  </concept>
+  <concept>
     <code value="http://hl7.org/fhirpath/System.Time"/>
     <display value="Time"/>
   </concept>

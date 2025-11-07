@@ -124,7 +124,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Check whether the existing patient, without an end of life condition or risk assessment in the past 90 days, has taken an opioid-with-abuse-potential for 7 of the past 10 days or 63 of the past 90 days."/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Inclusion Criteria"/>
       </expression>
     </condition>
@@ -133,21 +133,21 @@
     <dynamicValue>
       <path value="action.title"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Get Summary"/>
       </expression>
     </dynamicValue>
     <dynamicValue>
       <path value="action.description"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Get Detail"/>
       </expression>
     </dynamicValue>
     <dynamicValue>
       <path value="action.extension"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Get Indicator"/>
       </expression>
     </dynamicValue>

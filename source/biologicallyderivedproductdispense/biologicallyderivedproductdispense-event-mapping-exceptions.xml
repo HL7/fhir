@@ -1,24 +1,139 @@
 <mappingExceptions pattern="Event" resource="BiologicallyDerivedProductDispense" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
-    <unmappedElement patternPath="Event.partOf" reason="Unknown"/>
+    <divergentElement patternPath="Event.identifier" resourcePath="BiologicallyDerivedProductDispense.identifier">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business identifier for biologically derived product dispense"/>
+            <resource value="Business identifier for this dispense"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Business identifiers assigned to this biologically derived product dispense by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Unique instance identifiers assigned to a biologically derived product dispense. Note: This is a business identifier, not a resource identifier."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value=""/>
+        </commentsUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows identification of the biologically derived product dispense as it is known by various participating systems and in a way that remains consistent across servers."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.basedOn" resourcePath="BiologicallyDerivedProductDispense.basedOn">
+        <missingTypes _pattern="Reference(Request)" reason="Unknown"/>
+        <extraTypes _resource="Reference(ServiceRequest)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Fulfills plan, proposal or order"/>
+            <resource value="The order or request that this dispense is fulfilling"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A plan, proposal or order that is fulfilled in whole or in part by this biologically derived product dispense."/>
+            <resource value="The order or request that the dispense is fulfilling. This is a reference to a ServiceRequest resource."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Allows tracing of authorization for the biologically derived product dispense and tracking whether proposals/recommendations were acted upon."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.partOf" resourcePath="BiologicallyDerivedProductDispense.partOf">
+        <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
+        <extraTypes _resource="Reference(BiologicallyDerivedProductDispense)" reason="Unknown"/>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="A larger event of which this particular biologically derived product dispense is a component or step."/>
+            <resource value="A larger event of which this particular event is a component."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Not to be used to link an biologically derived product dispense to an Encounter - use 'context' for that."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.status" resourcePath="BiologicallyDerivedProductDispense.status">
+        <modifier _pattern="true" _resource="false" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
+            <resource value="preparation | in-progress | allocated | issued | unfulfilled | returned | entered-in-error | unknown"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the biologically derived product dispense."/>
+            <resource value="A code specifying the state of the dispense event."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+            <resource value=""/>
+        </commentsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.product" resourcePath="BiologicallyDerivedProductDispense.product">
+        <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
+        <extraTypes _resource="Reference(BiologicallyDerivedProduct)" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Product used/provided"/>
+            <resource value="The BiologicallyDerivedProduct that is dispensed"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates the product supplied or manipulated by this biologically derived product dispense."/>
+            <resource value="A link to a resource identifying the biologically derived product that is being dispensed."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.subject" resourcePath="BiologicallyDerivedProductDispense.subject">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Individual service was done for/to"/>
+            <resource value="The intended recipient(s) of the dispensed product"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The individual or set of individuals the action is being or was performed on."/>
+            <resource value="A link to a resource representing the individual(s) that the product is dispensed for."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Links the biologically derived product dispense to the Patient context.  May also affect access control."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.performer" resourcePath="BiologicallyDerivedProductDispense.performer">
+        <extraTypes _resource="BackboneElement" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Who performed biologically derived product dispense and what they did"/>
+            <resource value="Indicates who or what performed an action"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Indicates who or what performed the biologically derived product dispense and how they were involved."/>
+            <resource value="Indicates who or what performed an action."/>
+        </definitionUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.location" resourcePath="BiologicallyDerivedProductDispense.location">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Where biologically derived product dispense occurred"/>
+            <resource value="Where the dispense occurred"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The principal physical location where the biologically derived product dispense was performed."/>
+            <resource value="The physical location where the dispense was performed."/>
+        </definitionUnmatched>
+        <requirementsUnmatched reason="Unknown">
+            <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
+            <resource value=""/>
+        </requirementsUnmatched>
+    </divergentElement>
+    <divergentElement patternPath="Event.note" resourcePath="BiologicallyDerivedProductDispense.note">
+        <summary _pattern="false" _resource="true" reason="Unknown"/>
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Comments made about the event"/>
+            <resource value="Additional notes"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Comments made about the biologically derived product dispense by the performer, subject or other participants."/>
+            <resource value="Additional notes."/>
+        </definitionUnmatched>
+    </divergentElement>
     <unmappedElement patternPath="Event.reported" reason="Unknown"/>
     <unmappedElement patternPath="Event.reason" reason="Unknown"/>
     <unmappedElement patternPath="Event.relevantHistory" reason="Unknown"/>
     <unmappedElement patternPath="Event.code" reason="Unknown"/>
-    <unmappedElement patternPath="Event.location" reason="Unknown"/>
-    <unmappedElement patternPath="Event.status" reason="Unknown"/>
-    <unmappedElement patternPath="Event.subject" reason="Unknown"/>
     <unmappedElement patternPath="Event.statusReason" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.actor" reason="Unknown"/>
     <unmappedElement patternPath="Event.performer.function" reason="Unknown"/>
-    <unmappedElement patternPath="Event.note" reason="Unknown"/>
     <unmappedElement patternPath="Event.category" reason="Unknown"/>
     <unmappedElement patternPath="Event.encounter" reason="Unknown"/>
     <unmappedElement patternPath="Event.recorded" reason="Unknown"/>
     <unmappedElement patternPath="Event.occurrence" reason="Unknown"/>
-    <unmappedElement patternPath="Event.product" reason="Unknown"/>
-    <unmappedElement patternPath="Event.performer" reason="Unknown"/>
-    <unmappedElement patternPath="Event.identifier" reason="Unknown"/>
-    <unmappedElement patternPath="Event.basedOn" reason="Unknown"/>
     <unmappedElement patternPath="Event.researchStudy" reason="Unknown"/>
 </mappingExceptions>

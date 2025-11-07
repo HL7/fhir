@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="ldl"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Observation ldl</b></p><a name="ldl"> </a><a name="hcldl"> </a><a name="ldl-en-US"> </a><p><b>status</b>: Final</p><p><b>category</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/observation-category laboratory}">Laboratory</span>, <span title="Codes:{urn:oid:1.2.840.114350.1.13.177.2.7.10.798268.30 Lab}">Lab</span></p><p><b>code</b>: <span title="Codes:{http://loinc.org 2089-1}">LDL</span></p><p><b>subject</b>: <a href="Patient/pat2">Donald, Duck</a></p><p><b>effective</b>: 2015-08-16T06:40:17Z</p><p><b>issued</b>: 2015-08-16T08:40:17Z</p><p><b>value</b>: 161 mg/dL<span style="background: LightGoldenRodYellow"> (Details: UCUM  code = 'mg/dL')</span></p><p><b>interpretation</b>: <span title="Codes:{http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation H}">High</span></p><p><b>specimen</b>: <a href="Specimen/sst">Serum sample</a></p><h3>ReferenceRanges</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Text</b></td></tr><tr><td style="display: none">*</td><td>&lt;100</td></tr></table></div>
+  </text>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="laboratory"/>
+      <display value="Laboratory"/>
+    </coding>
+    <text value="Laboratory"/>
+  </category>
+  <category>
+    <coding>
+      <system value="urn:oid:1.2.840.114350.1.13.177.2.7.10.798268.30"/>
+      <code value="Lab"/>
+      <display value="Lab"/>
+    </coding>
+    <text value="Lab"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="2089-1"/>
+      <display value="Cholesterol in LDL [Mass/volume] in Serum or Plasma"/>
+    </coding>
+    <text value="LDL"/>
+  </code>
+  <subject>
+    <reference value="Patient/pat2"/>
+  </subject>
+  <effectiveDateTime value="2015-08-16T06:40:17Z"/>
+  <issued value="2015-08-16T08:40:17Z"/>
+  <valueQuantity>
+    <value value="161"/>
+    <unit value="mg/dL"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="mg/dL"/>
+  </valueQuantity>
+  <interpretation>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"/>
+      <code value="H"/>
+      <display value="High"/>
+    </coding>
+    <text value="High"/>
+  </interpretation>
+  <specimen>
+    <reference value="Specimen/sst"/>
+    <display value="Serum sample"/>
+  </specimen>
+  <referenceRange>
+    <high>
+      <value value="100"/>
+      <comparator value="&gt;"/>
+      <unit value="mg/dL"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg/dL"/>
+    </high>
+  </referenceRange>
+</Observation>

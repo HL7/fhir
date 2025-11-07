@@ -13,7 +13,7 @@
 
 <a name="identity"></a>
 <h2>Using FHIR in persistent stores</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: n/a</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
 Applications can use the resources defined by FHIR by storing them natively 
@@ -38,7 +38,7 @@ In principle, resources are designed for exchange between systems,
 rather than as a database storage format. One practical consequence 
 of this is that in some way, resources are highly denormalised, so 
 that granular exchanges are fairly stand alone. (Note that in some
-ways, resources are also highly normalised; e.g. Patient demographic
+ways, resources are also highly normalised; e.g., Patient demographic
 details are only found in the Patient resource).
 </p>
 <p>
@@ -50,7 +50,7 @@ To illustrate this, consider using an RxNorm code as a medication code. In a pre
   &lt;concept&gt;
    &lt;coding&gt;
      &lt;system value="http://www.nlm.nih.gov/research/umls/rxnorm"/&gt;
-     &lt;code value=""/&gt;
+     &lt;code value="123431232"/&gt;
    &lt;/coding&gt;
    &lt;/concept&gt;
   &lt;/medication&gt;
@@ -144,9 +144,9 @@ including:
 </p>
 <ul>
  <li>Classic SQL servers with JSON support (built in, or added on top by the application)</li>
- <li>NoSQL servers (e.g. <a href="https://github.com/mongodb/mongo">Mongodb</a>, <a href="http://couchdb.apache.org/">Couch</a>,
+ <li>NoSQL servers (e.g., <a href="https://github.com/mongodb/mongo">Mongodb</a>, <a href="http://couchdb.apache.org/">Couch</a>,
    <a href="http://hadoop.apache.org/">Hadoop</a>, or <a href="https://cloud.google.com/bigquery/">Big Query</a>)</li>
- <li>Some <a href="rdf.html">RDF</a> based store using the RDF in the Turtle format, or in some native triple store (e.g. <a href="https://jena.apache.org/">Jena</a>)</li>
+ <li>Some <a href="rdf.html">RDF</a> based store using the RDF in the Turtle format, or in some native triple store (e.g., <a href="https://jena.apache.org/">Jena</a>)</li>
 </ul>
 <p>
 This specification does not recommend any particular approach. The rest of 
@@ -175,8 +175,8 @@ to the existing reference/identifier in the <a href="references.html">Reference<
 and <a href="datatypes.html#canonical">canonical</a> datatypes. 
 </p>
 <p>
-The <a href="rdf.html">RDF format</a> does this explicitly for references and 
-codings (<a href="rdf.html#reference">fhir:reference</a> and <a href="rdf.html#concept">fhir:concept</a>).
+The <a href="rdf.html">RDF (Turtle) format</a> does this explicitly for references and 
+codings (<a href="rdf.html#reference">fhir:Reference</a> and <a href="rdf.html#canonical">fhir:Canonical</a>).
 </p>
 <p>
 Applications that store JSON, will have to remove the extension for exchange, 

@@ -117,14 +117,14 @@
       <kind value="applicability"/>
       <expression>
         <description value="Patient has not had a urine screening in the past 12 months"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="No Screenings in Past Year"/>
       </expression>
     </condition>
     <dynamicValue>
       <path value="activity.extension"/>
       <expression>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Get Indicator"/>
       </expression>
     </dynamicValue>
@@ -163,7 +163,7 @@
       <kind value="applicability"/>
       <expression>
         <description value="Patient has a positive urine screening in the past 12 months"/>
-        <language value="text/cql"/>
+        <language value="text/cql-identifier"/>
         <expression value="Has Positive Screening?"/>
       </expression>
     </condition>
@@ -195,21 +195,21 @@
         <kind value="applicability"/>
         <expression>
           <description value="Patient has a positive urine screening in the past 12 months for opioid(s), which is not prescribed"/>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Has Unprescribed Opioids?"/>
         </expression>
       </condition>
       <dynamicValue>
         <path value="activity.extension"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Get Indicator"/>
         </expression>
       </dynamicValue>
       <dynamicValue>
         <path value="action.description"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Inconsistent Unprescribed Opioids"/>
         </expression>
       </dynamicValue>
@@ -245,21 +245,21 @@
         <kind value="applicability"/>
         <expression>
           <description value="Patient has a positive urine screening in the past 12 months, which does not include prescribed opioids"/>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Has Missing Opioids?"/>
         </expression>
       </condition>
       <dynamicValue>
         <path value="activity.extension"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Get Indicator"/>
         </expression>
       </dynamicValue>
       <dynamicValue>
         <path value="action.description"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Inconsistent Missing Opioids"/>
         </expression>
       </dynamicValue>
@@ -292,21 +292,21 @@
         <kind value="applicability"/>
         <expression>
           <description value="Patient has a positive urine screening in the past 12 months for illicit drugs"/>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Has Illicit Drugs in Screening?"/>
         </expression>
       </condition>
       <dynamicValue>
         <path value="activity.extension"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Get Indicator"/>
         </expression>
       </dynamicValue>
       <dynamicValue>
         <path value="action.description"/>
         <expression>
-          <language value="text/cql"/>
+          <language value="text/cql-identifier"/>
           <expression value="Inconsistent Illicit Drugs"/>
         </expression>
       </dynamicValue>

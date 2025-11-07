@@ -14,7 +14,7 @@
 
 
 <h2>Validating Resources</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
 This page provides an overview of how the FHIR specification supports validation of resources. 
@@ -159,7 +159,7 @@ Notes:
 <p>
 Note that all these validation methods are incomplete; they 
 can only validate the computable aspects of conformance. There are always 
-additional rules made in narrative that they are not able to check (e.g. a rule 
+additional rules made in narrative that they are not able to check (e.g., a rule 
 such as "All the clinically important content in the data SHALL be in the 
 narrative", which might be made in an implementation guide, but could never be checked 
 by a conformance tool).
@@ -184,7 +184,7 @@ prove conformance to the specification. For further information, see
 <h3>Correct Use of Validation</h3>
 
 <p>
-Servers and clients may be configured to validate content when it is received (e.g. some of 
+Servers and clients may be configured to validate content when it is received (e.g., some of 
 the public testing services validate resources on create/update). This can be done both 
 during development and in production use of applications in healthcare processes. 
 While use during the development cycle is highly recommended, use during production 
@@ -193,7 +193,7 @@ might not always be a good idea:
 <ul>
  <li>Validation - particularly full validation including terminology - can be quite computationally demanding. 
    This can impose unacceptable time delays in a production system</li>
- <li>In production, validation can cause the loss of critical health care data (e.g. one field 
+ <li>In production, validation can cause the loss of critical health care data (e.g., one field 
     has an unexpected value due to poor data entry, so all data associated with the resource is lost)</li>
  <li>Validation may fail poor historical data that cannot be fixed - and this is usually difficult to test (and poorly tested)</li>
 </ul>

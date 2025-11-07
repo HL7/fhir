@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="encounter-participant-type"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -46,12 +46,23 @@
       </filter>
     </include>
     <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="LOC"/>
+      </filter>
+    </include>
+    <include>
       <system value="http://terminology.hl7.org/CodeSystem/participant-type"/>
     </include>
     <exclude>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
       <concept>
         <code value="_ParticipationAncillary"/>
+      </concept>
+      <concept>
+        <code value="ELOC"/>
       </concept>
     </exclude>
   </compose>

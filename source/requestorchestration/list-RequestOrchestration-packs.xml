@@ -4,9 +4,4 @@
   <id value="RequestOrchestration-packs"/>
   <status value="current"/>
   <mode value="working"/>
-  <entry>
-    <item>
-      <reference value="ImplementationGuide/RequestOrchestration-cdshooks"/>
-    </item>
-  </entry>
 </List>

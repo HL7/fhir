@@ -18,7 +18,7 @@ in order to support consistent definitions for schema and UML derived code.
 
     <table class="colsi">
         <tr>
-            <td id="wg">Work Group <a target="_blank" href="[%wg oo%]">[%wgt oo%]</a></td>
+            <td id="wg">Responsible Owner: Work Group <a target="_blank" href="[%wg oo%]">[%wgt oo%]</a></td>
             <td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a
                     href="versions.html#std-process">Informative</a></td>
         </tr>
@@ -114,15 +114,14 @@ in order to support consistent definitions for schema and UML derived code.
     <a name="org-dr-obs"></a>
     <h3>Organizing Related DiagnosticReport and Observation Resources</h3>
     <p>
-        Many observations need to be grouped together in some fashion to document critical relationships for
-        interpretation of the observations. The methods to do so primarily are through DiagnosticReport using
+        Many observations need to be grouped together in some fashion to document the relationships necessary for interpretation of the observations. The methods to do so primarily are through DiagnosticReport using
         DiagnosticReport.result
         and Observation using Observation.component, Observation.hasMember, and Observation.derivedFrom. Note that
-        Composition may also be used to organize the content of a diagnostic report, but that is only for purpose of
+        Composition may also be used to organize the content of a diagnostic report (in DiagnosticReport.composition), but that is only for purpose of
         readability,
-        not to record critical relationships for interpretations. See DiagnosticReport.composition and Composition for
-        further considerations for that separate purpose.
+        not to record the relationships necessary for interpretation.
     </p>
+    <p>Note: When an observation is not performed and if this needs to be communicated as part of a reporting, the Observation would be used to document that it was not performed and why.  The DiagnosticReport would include such observation when that documentation was necessary. For more information see <a href="https://build.fhir.org/observation.html#cancelled">Observation</a>.</p>
     <h4>Laboratory Results</h4>
     <p>
         Relationships between observations are important to understand for the following use cases in particular:
@@ -188,11 +187,11 @@ in order to support consistent definitions for schema and UML derived code.
         Observation is also linked to through the Obervation.hasMember of the identified organism Observation.
     </p>
     <p>
-        If a new authorization was needed to perform the susceptibility panel as sometimes the overall ServiceRequest
-        covers it, and other times a new authorization is required, the Susceptibility Panel Observation.basedOn will
-        reference the
-        appropriate ServiceRequest, while, if present, the Susceptibility Panel ServiceRequest.basedOn will reference
-        the initial ServiceRequest.
+        If a new authorization is required:
+        <ul>
+            <li>A new ServiceRequest is created which is basedOn the original ServiceRequest; and</li>
+            <li>Observation.basedOn points to the new ServiceRequest</li>
+        </ul>
     </p>
     <p>
         The individual susceptibility observations are linked to the Susceptibility Panel by the Observation.hasMember
@@ -299,6 +298,44 @@ in order to support consistent definitions for schema and UML derived code.
         between the observations.
     </p>
 
+    <h4>Imaging</h4>
+
+    <h5>Representation of DICOM SR measurements using FHIR resources</h5>
+    <p>DICOM® Structured Report (DICOM® SR) is a standard for recording clinical imaging observations made regarding a diagnostic or interventional imaging procedure. Imaging Observations are made by humans, such as a sonographer making measurements on recently acquired ultrasound image, a Radiologist recording observations on suspected lesions, or by a machine, such as an automated AI Algorithm providing qualitative and quantitative observations.</p>
+
+    <p>The standards for recording clinical observations, DICOM® SR and HL7 FHIR Observation resource are bridged by the DICOM SR IG by the transformation of the DICOM SR attributes to the HL7 FHIR Observation Resource.</p>
+
+    <b>Example use cases:</b>
+    <ul>
+        <li>Extracting imaging results for use in reporting.</li>
+        <li>Extracting imaging results for FHIRcast content sharing.</li>
+    </ul>
+
+    <p>
+        <div>
+            <img src="diagnostic-module-imaging-fig1.png" alt="Extracting imaging results for use in reporting" width="1000" />
+            <figure>Figure 1: Extracting imaging results for use in reporting.</figure>
+        </div>
+    </p>
+
+    <p>DICOM SR mapping to FHIR is limited to the Observation resource and a small set of related resources. The resultant mapping is provided, as a minimum, a composition or bundle of Observations. Depending on the use case, the observations may be part of or contained in a Diagnostic Report. Use case-specific requirements to construct a diagnostic report(e.g., Mammography) may require the transformation described in the DICOM SR IG. However, the detailed elaboration of those use cases are not in scope in that IG or here in the Diagnostics module.</p>
+
+    <p>
+        <div>
+            <img src="diagnostic-module-imaging-fig2.png" alt="DICOM SR measurements and finding site represented with FHIR resource profiles" width="750" />
+            <figure>Figure 2: DICOM SR measurements and finding site represented with FHIR resource profiles.</figure>
+        </div>
+    </p>
+
+    <p>The mapping of the core DICOM SR measurement groups, measurements and qualitative analysis content items are covered by the Observation resource profiles, representing various measurements related DICOM SR templates. The Observation resource profiles depend on number of ImagingSelection resource profiles, as shown in Figure 3. FindingSite profiles the BodyStructure resource representing a finding site content item from the DICOM SR templates.</p>
+
+    <p>
+        <div>
+            <img src="diagnostic-module-imaging-fig3.png" alt="ObservationImagingSelection profiles" width="500" />
+            <figure>Figure 3: ObservationImagingSelection profiles.</figure>
+        </div>
+    </p>
+
     <a name="uses"></a>
     <h3>Common Use Cases</h3>
     <p>
@@ -321,7 +358,7 @@ in order to support consistent definitions for schema and UML derived code.
         diagnostic orders and reports.
     </p>
     <ul>
-        <li>recording <a href="observation-vitalsigns.html">vital signs</a> such as <a href="observation-example-f202-temperature.html">temperature</a>, <a href="observation-example-bloodpressure.html">blood pressure</a>, <a href="observation-example-respiratory-rate.html">respiratory rate</a>, <a href="observation-example-heart-rate.html">heart rate</a>, <a href="observation-example-satO2.html">oxygen saturation</a></li>
+        <li>recording <a href="observation-vitalsigns.html">vital signs</a> such as <a href="observation-example-f202-temperature.html">temperature</a>, <a href="observation-example-bloodpressure.html">blood pressure</a>, <a href="observation-example-respiratory-rate.html">respiratory rate</a>, <a href="observation-example-heart-rate.html">heart rate</a></li>
         <li>recording other observations of a patient's social history such as tobacco use</li>
         <li>recording other characteristics of a patient such as pregnancy status (note: The Condition resource may be
             used to represent these as well)</li>

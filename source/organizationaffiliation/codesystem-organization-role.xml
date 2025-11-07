@@ -3,10 +3,16 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="organization-role"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/organization-role"/>
   <identifier>
@@ -18,7 +24,7 @@
   <title value="Organization Affiliation Role"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to its affiliation with another."/>
+  <description value="This example code system defines a set of codes that can be used to indicate the role of one Organization in relation to its affiliation with another."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

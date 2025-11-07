@@ -207,10 +207,10 @@
 				Server responds with a success code and creates the subscription.
 			</li>
 			<li>
-				Client requests a websocket binding token, by invoking the <a href="subscription-operation-get-ws-binding-token.html">$get-ws-binding-token</a> operation via REST.  Note: this call is intended to be repeated as necessary (e.g., prior to a token expiring, a client should request a new one).
+				Client requests a websocket binding token, by invoking the <a href="https://build.fhir.org/ig/HL7/fhir-subscription-backport-ig/OperationDefinition-get-ws-binding-token.html">$get-ws-binding-token</a> operation via REST.  Note: this call is intended to be repeated as necessary (e.g., prior to a token expiring, a client should request a new one).
 			</li>
 			<li>
-        Client parses the response of the <a href="subscription-operation-get-ws-binding-token.html">$get-ws-binding-token</a> operation to extract a <code>token</code>, <code>expiration</code>, and <code>websocket-url</code>.
+        Client parses the response of the <a href="https://build.fhir.org/ig/HL7/fhir-subscription-backport-ig/OperationDefinition-get-ws-binding-token.html">$get-ws-binding-token</a> operation to extract a <code>token</code>, <code>expiration</code>, and <code>websocket-url</code>.
 			</li>
       <li>
         Client connects to the server via websockets, via the returned <code>websocket-url</code> (<code>wss://</code> preferred).

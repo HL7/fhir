@@ -27,7 +27,9 @@
   </contained>
   <type value="indication"/>
   <subject>
-    <reference value="MedicinalProductDefinition/example"/>
+    <reference>
+      <reference value="MedicinalProductDefinition/example"/>
+    </reference>
   </subject>
   <!-- example product is indicated for Prevention of venous thromboembolic events -->
   <indication>

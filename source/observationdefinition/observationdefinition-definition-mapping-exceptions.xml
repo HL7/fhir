@@ -222,7 +222,7 @@
     <divergentElement patternPath="Definition.jurisdiction" resourcePath="ObservationDefinition.jurisdiction">
         <shortUnmatched reason="Unknown">
             <_pattern value="Intended jurisdiction for observation definition (if applicable)"/>
-            <resource value="Intended jurisdiction for this ObservationDefinition (if applicable)"/>
+            <resource value="Jurisdiction of the authority that maintains the this ObservationDefinition (if applicable)"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A legal or geographic region in which the observation definition is intended to be used."/>
@@ -249,8 +249,8 @@
     </divergentElement>
     <divergentElement patternPath="Definition.copyright" resourcePath="ObservationDefinition.copyright">
         <definitionUnmatched reason="Unknown">
-            <_pattern value="A copyright statement relating to the observation definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the observation definition."/>
-            <resource value="Copyright statement relating to the ObservationDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the ObservationDefinition."/>
+            <_pattern value="A copyright statement relating to the observation definition and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the observation definition."/>
+            <resource value="Copyright statement relating to the ObservationDefinition and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the ObservationDefinition."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Consumers of the observation definition must be able to determine any legal restrictions on the use of the artifact and/or its content."/>

@@ -194,6 +194,20 @@
         <map value=".code"/>
       </mapping>
     </element>
+    <!--
+    <element id="Invoice.type">
+      <path value="Invoice.type"/>
+      <short value="Kind of invoice"/>
+      <definition value="The nature of the invoice such as: proforma, initial, interim, final, or adjustment."/>
+      <requirements value="To identfy the nature of the invoice."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>  
+      </type>
+      <isSummary value="true"/>
+    </element>
+    -->
     <element id="Invoice.subject">
       <path value="Invoice.subject"/>
       <short value="Recipient(s) of goods and services"/>
@@ -214,7 +228,7 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
+        <map value="FiveWs.subject"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -354,7 +368,7 @@
     </element>
     <element id="Invoice.issuer">
       <path value="Invoice.issuer"/>
-      <short value="Issuing Organization of Invoice"/>
+      <short value="Issuing entity"/>
       <definition value="The organizationissuing the Invoice."/>
       <comment value="Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered."/>
       <min value="0"/>
@@ -362,6 +376,8 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
       </type>
       <isSummary value="false"/>
       <mapping>
