@@ -549,48 +549,48 @@ The following list specifies that transforms that can be specified. Each transfo
 
  <tr>
   <td>toDateTime</td> 
-  <td>format string</td> 
-  <td>Parse a string into a date-time object, see <a href="date-op-details">Date Operation Details</a> for format information.</td>
+  <td>source, format string</td> 
+  <td>Parse a string into a date-time object, see <a href="date-op-details">Date Time Transformation Details</a> for format information.</td>
   <td>n/a</td>
  </tr>
  <tr>
   <td>unixToDateTime</td> 
-  <td>time-zone?</td> 
+  <td>source, time-zone offset?</td> 
   <td>
     Convert a Unix-offset (ticks) into a date-time object, applying the specified time-zone information (not present will convert to UTC).
-    <br/>Note that if a different source epoch is required, this can be achieved by adding or subtracting the difference in ticks prior to calling this function.
+    <br/>Note that if a different source epoch is required, this can be achieved by adding or subtracting the difference in ticks prior to calling this transform.
   </td>
   <td>n/a</td>
  </tr>
 
  <tr>
   <td>toDate</td> 
-  <td>format string</td> 
-  <td>Parse a string into a date object, see <a href="date-op-details">Date Operation Details</a> for format information.</td>
+  <td>source, format string</td> 
+  <td>Parse a string into a date object, see <a href="date-op-details">Date Time Transformation Details</a> for format information.</td>
   <td>n/a</td>
  </tr>
  <tr>
   <td>unixToDate</td> 
-  <td>time-zone?</td> 
+  <td>source, time-zone offset?</td> 
   <td>
     Convert a Unix-offset (ticks) into a date object, applying the specified time-zone information (not present will convert to UTC).
-    <br/>Note that if a different source epoch is required, this can be achieved by adding or subtracting the difference in ticks prior to calling this function.
+    <br/>Note that if a different source epoch is required, this can be achieved by adding or subtracting the difference in ticks prior to calling this transform.
   </td>
   <td>n/a</td>
  </tr>
 
  <tr>
   <td>toTime</td> 
-  <td>format string</td> 
-  <td>Parse a string into a time object, see <a href="date-op-details">Date Operation Details</a> for format information.</td>
+  <td>source, format string</td> 
+  <td>Parse a string into a time object, see <a href="date-op-details">Date Time Transformation Details</a> for format information.</td>
   <td>n/a</td>
  </tr>
  <tr>
   <td>unixToTime</td> 
-  <td>time-zone?</td> 
+  <td>source, time-zone offset?</td> 
   <td>
     Convert a Unix-offset (ticks) into a time object, applying the specified time-zone information (not present will convert to UTC).
-    <br/>Note that if a different source epoch is required, this can be achieved by adding or subtracting the difference in ticks prior to calling this function.
+    <br/>Note that if a different source epoch is required, this can be achieved by adding or subtracting the difference in ticks prior to calling this transform.
   </td>
   <td>n/a</td>
  </tr>
@@ -657,12 +657,12 @@ TODO: explain how optional parameters work with transforms (append only?), docum
 </p>
 
 <a name="date-op-details"></a>
-<h5>Date Operation Details</h5>
+<h5>Date Time Transformation Details</h5>
 <p>
   Parsing textual content into date/time values is a complex task, given the wide variety of formats in use in the real world. 
-  The <code>dateOp</code> function provides a way to parse a wide variety of date/time formats into FHIR date/time types.
+  The date and time translations provide a way to parse a wide variety of date/time formats into FHIR date/time types.
   Unfortunately, there is no single standard for date/time formats across the contexts where FHIR is used (e.g., most programming
-  languages have their own date/time formats), so the <code>dateOp</code> function defines the following format codes below.
+  languages have their own date/time formats), so the this specification defines the following format codes below.
 </p>
 <p>
   Note that:
