@@ -141,6 +141,13 @@
 		beneficial to combine notifications to reduce traffic and overhead. Note that servers SHALL NOT delay sending
 		notification longer than time span specified by <code>Subscription.heartbeat</code>.
 	</p>
+	<p>
+		The <code>Subscription.maxCount</code> element allows clients to specify the maximum number of events
+		that can be combined in a single notification. When present, servers SHALL NOT include more than the
+		specified number of events in a notification bundle. Note that this is not a strict limit on the total
+		number of entries in a bundle, as dependent resources (e.g., included related resources) can be 
+		present in Bundles, in addition to the event notifications.
+	</p>
 
 	<a name="channels" />
 	<h2>Channels</h2>
