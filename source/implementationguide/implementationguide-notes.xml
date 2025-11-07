@@ -62,7 +62,7 @@ In addition, in the human readable portions, implementation guides often:
 <a name="versions"></a>
 <h3>Multi-Version Implementation Guides</h3>
 <p>
-Most implementation guides target a single version - that is, they describe how to use a 
+Most implementation guides target a single version of FHIR - that is, they describe how to use a 
 particular version, and all the profiles, value sets and examples they contain etc. are valid 
 for that particular version. 
 </p>

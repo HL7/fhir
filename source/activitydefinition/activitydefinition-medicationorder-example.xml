@@ -253,7 +253,7 @@
 		<path value="dispenseRequest.numberOfRepeatsAllowed"/>
 		<expression>
 			<description value="dispenseRequest.numberOfRepeatsAllowed is three (3)"/>
-			<language value="text/cql"/>
+			<language value="text/cql-expression"/>
 			<expression value="3"/>
 		</expression>
 	</dynamicValue>
@@ -261,7 +261,7 @@
 		<path value="dispenseRequest.quantity"/>
 		<expression>
 			<description value="dispenseRequest.quantity is thirty (30) tablets"/>
-			<language value="text/cql"/>
+			<language value="text/cql-expression"/>
 			<expression value="30 '{tbl}'"/>
 		</expression>
 	</dynamicValue>
