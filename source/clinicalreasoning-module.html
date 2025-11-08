@@ -75,7 +75,7 @@ in order to support consistent definitions for schema and UML derived code.
 <h3>Index</h3>
 
 <a name="index-resources"></a>
-<h4>Resources</h4>
+<h4>Resources and DataTypes</h4>
 
 <table class="grid">
 	<thead>
@@ -86,14 +86,17 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="artifactassessment.html">ArtifactAssessment</a></td><td>A resource to capture assessments of knowledge artifacts such as ratings, classifiers, reviews, and comments.</td></tr>
 		<tr><td><a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html">Citation</a></td><td>Represents the identification, location, and contributor attribution for a knowledge artifact.</td></tr>
 		<tr><td><a href="metadatatypes.html#DataRequirement.html">DataRequirement</a></td><td>A datatype that represents a general data requirement for a knowledge asset such as a decision support rule or quality measure.</td></tr>
+		<tr><td><a href="evidence.html">EventDefinition</a></td><td>Represents the definition of an event.</td></tr>
 		<tr><td><a href="evidence.html">Evidence</a></td><td>Represents a single analytic result about a group.</td></tr>
 		<tr><td><a href="evidencevariable.html">EvidenceVariable</a></td><td>Represents the elements that evidence is about, such as the elements of a PICO question.</td></tr>
 		<tr><td><a href="guidanceresponse.html">GuidanceResponse</a></td><td>Represents the result from invoking a decision support service.</td></tr>
 		<tr><td><a href="library.html">Library</a></td><td>Provides a container for knowledge artifacts that includes logic libraries, model definitions, and asset collections.</td></tr>
 		<tr><td><a href="measure.html">Measure</a></td><td>Represents a clinical quality measure and provides evaluation through the $evaluate-measure operation.</td></tr>
 		<tr><td><a href="measurereport.html">MeasureReport</a></td><td>Represents the response to a specific measure evaluation request returned by the $evaluate-measure operation.</td></tr>
+		<tr><td><a href="metadatatypes.html#ParameterDefinition.html">ParameterDefinition</a></td><td>Represents the definition of a parameter to logic.</td></tr>
 		<tr><td><a href="plandefinition.html">PlanDefinition</a></td><td>Represents the description of a plan for accomplishing a particular goal. This resource is used to represent a broad variety of clinical knowledge artifacts including decision support rules, order sets, and protocols.</td></tr>
 		<tr><td><a href="requestorchestration.html">RequestOrchestration</a></td><td>Represents a group of options for a particular subject that can be used to accomplish a particular goal. This resource is often, but not always, the result of applying a PlanDefinition to a particular patient.</td></tr>
+		<tr><td><a href="triggerDefinition.html">TriggerDefinition</a></td><td>Represents the definition of a triggering event. Used in EventDefinition and PlanDefinition to define the characteristics of an event.</td></tr>
 	</tbody>
 </table>
 
@@ -309,7 +312,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <img alt="Clinical Quality Improvement Ecosystem" src="clinicalreasoning-qi-ecosystem.png"/>
 
-<p>Also referred to as a "Learning Health System", the diagram highlights the ideal iterative flow of data from collection and reporting, becoming evidence through measurement and analysis, being synthesized into knowledge in the form of guidelines, operationalized as decision support, becoming actions through workflow implementation and integration with clinical care, ultimately producing data that feeds back into the cycle. This process can be seen at work throughout the healthcare industry, from the microcosm of direct patient-provider interactions to determine and understand the best course of treatment for a patient, through quality improvement initiatives enacted within institutions to drive better patient outcomes and provider experience, up to industry-wide efforts including payer-provider collaboration and quality programs. The FHIR Clinical Reasoning module and the implementation guides based on builds on the semantic interoperability enabled by FHIR to reduce friction throughout this cycle and across the settings in which it manifests to enable not only exchange of semantically interoperable data, but of knowledge.</p>
+<p>Also referred to as a "Learning Health System", the diagram highlights the ideal iterative flow of data from clinical care, measurement, and reporting, becoming evidence through analytics and synthesis into knowledge in the form of guidelines and protocols, operationalized as decision support, process improvement, and integration with clinical care, ultimately producing data that feeds back into the cycle. This process can be seen at work throughout the healthcare industry, from the microcosm of direct patient-provider interactions to determine and understand the best course of treatment for a patient, through quality improvement initiatives enacted within institutions to drive better patient outcomes and provider experience, up to industry-wide efforts including payer-provider collaboration and quality programs. The FHIR Clinical Reasoning module and the implementation guides based on it, build on the semantic interoperability enabled by FHIR to reduce friction throughout this cycle and across the settings in which it manifests to enable not only exchange of semantically interoperable data, but of knowledge.</p>
 
 <a name="related-specifications"></a>
 <h3>Related Specifications</h3>
