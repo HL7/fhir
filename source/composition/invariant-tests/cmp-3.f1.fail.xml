@@ -67,19 +67,40 @@
 		</targetReference>
 	</relatesTo>
 	<event>
-		<code>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-				<code value="HEALTHREC"/>
-				<display value="health record"/>
-			</coding>
-		</code>
 		<period>
 			<start value="2010-07-18"/>
 			<end value="2012-11-12"/>
 		</period>
 		<detail>
-			<reference value="Observation/example"/>
+			<concept>
+				<coding>
+					<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+					<code value="HEALTHREC"/>
+					<display value="health record"/>
+				</coding>
+			</concept>
+			<reference>
+				<reference value="Observation/example"/>
+			</reference>
 		</detail>
 	</event>
+	<section>
+		<title value="History of present illness"/>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="11348-0"/>
+				<display value="History of Past illness note"/>
+			</coding>
+		</code>
+		<entry>
+			<reference value="Condition/stroke"/>
+		</entry>
+		<entry>
+			<reference value="Condition/example"/>
+		</entry>
+		<entry>
+			<reference value="Condition/example2"/>
+		</entry>
+	</section>
 </Composition>
