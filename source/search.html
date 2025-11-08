@@ -276,7 +276,9 @@ parameter(s)
     syntax is for disambiguation between an <a href="http.html#read">instance read</a> and a compartment search, which would 
     otherwise share the same URL.
     <p>
-      The outcome of a compartment search is the same as the equivalent system or type search and will have full URLs that are not compartment-specific (e.g. fullUrls reference <code>[base]/Observation/[id]</code>, not <code>[base]/Patient/[id]/Observation/[id]</code>). References within returned resources are also not rewritten to include the compartment path.
+      The outcome of a compartment search is the same as the equivalent system or type search and will have full URLs that are not compartment-specific 
+      (e.g. fullUrls reference <code>[base]/Observation/[id]</code>, not <code>[base]/Patient/[pat-id]/Observation/[id]</code>). References within returned 
+      resources are also not rewritten to include the compartment path.
     </p>
     <span class='http-search-example'>
       <span class='http-verb-selector'>Show as unencoded: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
@@ -2258,8 +2260,8 @@ the prefixes described in the table below are used.  Note that in the following 
       <br/><b>Boundary interpretation:</b> The lower boundary of the resource value is greater than or equal to the lower boundary of the parameter value
        AND the upper boundary of the resource value is less than or equal to the upper boundary of the parameter value.
       <br/><b>Resource interval tests:</b>
-      <br/>&nbsp;<code>resource-lower: [parameter-Lower, parameter-upper]</code>
-      <br/>&nbsp;<code>resource-upper: [parameter-Lower, parameter-upper]</code>
+      <br/>&nbsp;<code>resource-lower: [parameter-lower, parameter-upper]</code>
+      <br/>&nbsp;<code>resource-upper: [parameter-lower, parameter-upper]</code>
   </td>
  </tr>
  <tr>
@@ -2269,7 +2271,7 @@ the prefixes described in the table below are used.  Note that in the following 
       <br/><b>Boundary interpretation:</b> The lower boundary of the resource value is greater than the upper boundary of the parameter value 
        OR the upper boundary of the resource value is less than the lower boundary of the parameter value.
       <br/><b>Resource interval tests:</b>
-      <br/>&nbsp;<code>resource-lower: (parameter-Upper, ∞)</code>
+      <br/>&nbsp;<code>resource-lower: (parameter-upper, ∞)</code>
       <br/>&nbsp;<code>resource-upper: (-∞, parameter-lower)</code>
   </td>
  </tr>
@@ -2366,8 +2368,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
              |--[P]--|
-|--[R]--|
-      </pre></td>
+|--[R]--|</pre></td>
       <td></td>
       <td><code>ne</code></td>
       <td></td>
@@ -2381,8 +2382,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
         |--[P]--|
-|--[R]--|
-      </pre></td>
+|--[R]--|</pre></td>
       <td></td>
       <td><code>ne</code></td>
       <td></td>
@@ -2396,8 +2396,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
     |--[P]--|
-|--[R]--|
-      </pre></td>
+|--[R]--|</pre></td>
       <td></td>
       <td><code>ne</code></td>
       <td></td>
@@ -2411,8 +2410,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
     |--[P]--|
-|--[R]------|
-      </pre></td>
+|--[R]------|</pre></td>
       <td></td>
       <td><code>ne</code></td>
       <td></td>
@@ -2426,8 +2424,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
   |--[P]--|
-|----[R]----|
-      </pre></td>
+|----[R]----|</pre></td>
       <td></td>
       <td><code>ne</code></td>
       <td><code>gt</code></td>
@@ -2441,8 +2438,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
  |----[P]----|
-[R]
-      </pre></td>
+[R]</pre></td>
       <td><code>eq</code></td>
       <td></td>
       <td></td>
@@ -2456,8 +2452,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
 |----[P]----|
-|--[R]--|
-      </pre></td>
+|--[R]--|</pre></td>
       <td><code>eq</code></td>
       <td></td>
       <td></td>
@@ -2471,8 +2466,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
 |--[P]--|
-|--[R]--|
-      </pre></td>
+|--[R]--|</pre></td>
       <td><code>eq</code></td>
       <td></td>
       <td></td>
@@ -2486,8 +2480,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
 |--[P]--|
-|--[R]----|
-      </pre></td>
+|--[R]----|</pre></td>
       <td></td>
       <td><code>ne</code></td>
       <td><code>gt</code></td>
@@ -2501,8 +2494,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
 |----[P]----|
-  |--[R]--|
-      </pre></td>
+  |--[R]--|</pre></td>
       <td><code>eq</code></td>
       <td></td>
       <td></td>
@@ -2516,8 +2508,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
 |---[P]---|
-  |--[R]--|
-      </pre></td>
+  |--[R]--|</pre></td>
       <td><code>eq</code></td>
       <td></td>
       <td></td>
@@ -2531,8 +2522,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
 |--[P]--|
-    |--[R]--|
-      </pre></td>
+    |--[R]--|</pre></td>
       <td></td>
       <td><code>ne</code></td>
       <td><code>gt</code></td>
@@ -2546,8 +2536,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
 |----[P]----|
-           [R]
-      </pre></td>
+           [R]</pre></td>
       <td><code>eq</code></td>
       <td></td>
       <td></td>
@@ -2561,8 +2550,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
 |--[P]--|
-        |--[R]--|
-      </pre></td>
+        |--[R]--|</pre></td>
       <td></td>
       <td><code>ne</code></td>
       <td><code>gt</code></td>
@@ -2576,8 +2564,7 @@ the prefixes described in the table below are used.  Note that in the following 
     <tr>
       <td><pre>
 |--[P]--|
-            |--[R]--|
-      </pre></td>
+            |--[R]--|</pre></td>
       <td></td>
       <td><code>ne</code></td>
       <td><code>gt</code></td>

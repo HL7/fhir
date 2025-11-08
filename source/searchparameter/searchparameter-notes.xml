@@ -133,7 +133,7 @@ Systems that fail to follow these rules are likely to result in unsafe interoper
 A derived SearchParameter:
 </p>
 <ul>
-  <li>SHOULD NOT have <code>experimental=false</code> if the original SearchParameter has <code>experimental=true</code></li>
+  <li>SHOULD have the same <code>experimental</code> as the original SearchParameter</li>
   <li>SHOULD have the same <code>type</code> as the original SearchParameter</li>
   <li>SHOULD have the same <code>processingMode</code> as the original SearchParameter</li>
   <li>

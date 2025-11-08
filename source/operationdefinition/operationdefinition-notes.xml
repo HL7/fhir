@@ -39,7 +39,7 @@ it change add types to parameters or prohibit mandatory parameters.
 <ul>
   <li>SHOULD NOT change the value of <code>affectsState</code> from the original OperationDefinition</li>
   <li>SHOULD have the same <code>kind</code> as the original OperationDefinition</li>
-  <li>SHOULD have <code>experimental=false</code> if the original OperationDefinition has <code>experimental=true</code></li>
+  <li>SHOULD have the same <code>experimental</code> as the original OperationDefinition</li>
   <li>SHOULD have a <code>resource</code> that is equivalent to or a subset of the original OperationDefinition <code>target</code></li>
   <li>SHOULD NOT set <code>system</code>, <code>type</code>, or <code>instance</code> to 'true' if they were false in the original OperationDefinition</li>
   <li>if the original <code>inputProfile</code> is valued, SHOULD have an <code>inputProfile</code> valued such that:
