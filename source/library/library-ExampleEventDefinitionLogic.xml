@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Library xmlns="http://hl7.org/fhir">
+  <id value="ExampleEventDefinitionLogic"/>
+  <url value="http://hl7.org/fhir/EventDefinition/ExampleEventDefinitionLogic"/>
+  <version value="1.0.0"/>
+  <name value="ExampleEventDefinitionLogic"/>
+  <title value="Example EventDefinition Logic"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <type>
+    <coding>
+      <code value="logic-library"/>
+    </coding>
+  </type>
+  <date value="2016-03-08"/>
+  <description value="Example EventDefinition Logic"/>
+  <content>
+    <contentType value="text/cql"/>
+    <data value="bGlicmFyeSBFeGFtcGxlRXZlbnREZWZpbml0aW9uTG9naWMKCnVzaW5nIEZISVIKCmluY2x1ZGUgRkhJUkhlbHBlcnMKCmNvZGVzeXN0ZW0gIkxPSU5DIjogJ2h0dHA6Ly9sb2luYy5vcmcnCgpjb2RlICJMQTY1NzctNnxodHRwOi8vbG9pbmMub3JnIjogJ0xBNjU3Ny02JyBmcm9tICJMT0lOQyIKCnZhbHVlc2V0ICJTdGljayBUZXN0IENvZGVzIjogJ2h0dHA6Ly9leGFtcGxlLm9yZy9WYWx1ZVNldC9zdGljay10ZXN0LWNvZGVzJwoKY29udGV4dCBQYXRpZW50CgpwYXJhbWV0ZXIgJWNvbnRleHQgRW5jb3VudGVyCgpkZWZpbmUgU3RpY2tUZXN0OgogIFtPYnNlcnZhdGlvbjogIlN0aWNrIFRlc3QgQ29kZXMiXSBPCiAgICB3aGVyZSBPLnN0YXR1cyBpbiB7ICdmaW5hbCcsICdhbWVuZGVkJywgJ2NvcnJlY3RlZCcgfQoKLy8gVGhlc2UgZnVuY3Rpb25zIGFyZSBhbGwgY2FuZGlkYXRlcyBmb3IgW0ZISVJDb21tb25dKGh0dHBzOi8vaGw3Lm9yZy9maGlyL3V2L2NxbC9MaWJyYXJ5LUZISVJDb21tb24uaHRtbCkKLy8gT3IgcGVyaGFwcyBhIEZISVJDb21tb25PYnNlcnZhdGlvbiBsaWJyYXJ5CmRlZmluZSBmbHVlbnQgZnVuY3Rpb24gbmVnYXRpdmUob2JzZXJ2YXRpb25zIExpc3Q8T2JzZXJ2YXRpb24+KToKICBvYnNlcnZhdGlvbnMgTwogICAgd2hlcmUgTy5pbnRlcnByZXRhdGlvbiB+ICJMQTY1NzctNnxodHRwOi8vbG9pbmMub3JnIgoKZGVmaW5lIGZsdWVudCBmdW5jdGlvbiBkdXJpbmcob2JzZXJ2YXRpb25zIExpc3Q8T2JzZXJ2YXRpb24+LCBlbmNvdW50ZXIgRW5jb3VudGVyKToKICBvYnNlcnZhdGlvbnMgTwogICAgd2hlcmUgTy5pc3N1ZWQgZHVyaW5nIG1pbnV0ZSBvZiBlbmNvdW50ZXIucGVyaW9kCgpkZWZpbmUgZmx1ZW50IGZ1bmN0aW9uIHdpdGhpbihvYnNlcnZhdGlvbnMgTGlzdDxPYnNlcnZhdGlvbj4sIHF1YW50aXR5IFF1YW50aXR5KToKICBvYnNlcnZhdGlvbnMgTwogICAgd2hlcmUgKE8uaXNzdWVkICsgcXVhbnRpdHkpIG9uIG9yIGFmdGVyIG1pbnV0ZSBvZiBOb3coKQoKZGVmaW5lIGZsdWVudCBmdW5jdGlvbiBjb25zZWN1dGl2ZWx5KG9ic2VydmF0aW9ucyBMaXN0PE9ic2VydmF0aW9uPik6CiAgb2JzZXJ2YXRpb25zIE8KICAgIHNvcnQgYnkgaXNzdWVkCgpkZWZpbmUgZmx1ZW50IGZ1bmN0aW9uIGNvbnNlY3V0aXZlbHlBZnRlcihvYnNlcnZhdGlvbnMgTGlzdDxPYnNlcnZhdGlvbj4sIG9ic2VydmF0aW9uIE9ic2VydmF0aW9uKToKICBvYnNlcnZhdGlvbnMgTwogICAgd2hlcmUgTy5pc3N1ZWQgb24gb3IgYWZ0ZXIgb2JzZXJ2YXRpb24uaXNzdWVkCiAgICBzb3J0IGJ5IGlzc3VlZA=="/>
+  </content>
+</Library>

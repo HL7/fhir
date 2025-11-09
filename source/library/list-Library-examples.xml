@@ -256,4 +256,16 @@
       <display value="HIV Indicators"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example EventDefinition Logic"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="library-ExampleEventDefinitionLogic"/>
+    </extension>
+    <item>
+      <reference value="Library/ExampleEventDefinitionLogic"/>
+      <display value="Example Event Definition Logic"/>
+    </item>
+  </entry>
 </List>
