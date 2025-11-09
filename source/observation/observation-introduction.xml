@@ -29,7 +29,7 @@
     <sup>*</sup>The boundaries between clinical findings and disorders remains a challenge in medical ontology.  Refer to the <a href="#bnr">Boundaries</a> section below and in <a href="condition.html#bnr">Condition</a> for general guidance.  These boundaries can be clarified by profiling Observation for a particular use case.
     </p>
     <a name="core"></a>
-    <h3>Core Profiles for Observation <a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a></h3>
+    <h3>Core Profiles for Observation</h3>
     <p>The following set of core <a href="profiling.html">profiles</a> for the Observation resource have been defined. Implementations using the Observation resource when expressing the profile-specific concepts as structured data, <strong>SHALL</strong> conform to the specified profiles:</p>
     <table class="grid">
       <thead>

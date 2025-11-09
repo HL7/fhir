@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="example"/>
-	<url value="http://example.org/FHIR/R5/SubscriptionTopic/example"/>
+	<url value="http://example.org/FHIR/SubscriptionTopic/example"/>
 	<identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:uuid:1caa02ba-051b-4602-8856-65921748ae76"/>

@@ -75,7 +75,7 @@
   <implementationGuide value="http://example.org/fhir/us/lab"/>
   <rest>
     <mode value="server"/>
-    <documentation value="Main FHIR endpoint for acem health"/>
+    <documentation value="Main FHIR endpoint for ACME health"/>
     <security>
       <cors value="true"/>
       <service>

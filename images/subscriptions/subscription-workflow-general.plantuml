@@ -29,7 +29,7 @@ end
 
 group Server Accepting or Rejecting a Subscription
 else Valid Subscription, without Handshake
-  S -->> C: Success: status = ""active""
+  S -->> C: Success: ""Subscription.status = active""
   note right of S: Send notifications...
   ...
 else Valid Subscription, with Handshake Success
@@ -43,7 +43,7 @@ else Valid Subscription, with Handshake Success
   note right of S: Send notifications...
   ...
 else Valid Subscription, with Handshake Failure
-  S -->> C: Success: status = ""requested""
+  S -->> C: Success: ""Subscription.status = requested""
   S ->> E: Handshake
   E -->> S: Failure, e.g.:\n""404: Not Found""
   note right of S

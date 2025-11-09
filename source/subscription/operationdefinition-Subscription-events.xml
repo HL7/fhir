@@ -63,7 +63,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The starting event number, inclusive of this event (lower bound)."/>
+    <documentation value="The lowest event number to be included in the response (lower bound, inclusive)."/>
     <type value="integer64"/>
   </parameter>
   <parameter>
@@ -71,7 +71,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The ending event number, inclusive of this event (upper bound)."/>
+    <documentation value="The highest event number to be included in the response (upper bound, inclusive)."/>
     <type value="integer64"/>
   </parameter>
   <parameter>

@@ -23,13 +23,13 @@ else Client binds via initial token
   C -> E: Connect\n""wss://example.org/fhirWss""
 
   C -> E: ""bind-with-token: token-abc""
-  return Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: handshake""
+  return Bundle:\n""            Bundle.type: subscription-notification""\n""SubscriptionStatus.type: handshake""
 
 else Sever sends heartbeat
-    E -> C: Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: heartbeat""
+    E -> C: Bundle:\n""            Bundle.type: subscription-notification""\n""SubscriptionStatus.type: heartbeat""
     ...
 else Server sends event-notification
-    E -> C: Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: event-notification""
+    E -> C: Bundle:\n""            Bundle.type: subscription-notification""\n""SubscriptionStatus.type: event-notification""
     ...
 else Token is expiring soon
     C -> S: FHIR Operation:\n"".../Subscription/example/$get-ws-binding-token""
@@ -38,7 +38,7 @@ else Token is expiring soon
     C o->o E: Client checks the url and establishes\na new connection if necessary
 
     C -> E: ""bind-with-token: token-def""
-    return Bundle:\n""            Bundle.type: history""\n""SubscriptionStatus.type: handshake""
+    return Bundle:\n""            Bundle.type: subscription-notification""\n""SubscriptionStatus.type: handshake""
     ...
 else Either system may end a session
   C x-x E: Disconnect

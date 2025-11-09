@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="DiagnosticReport"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -240,7 +240,7 @@
           <valueString value="DiagnosticServiceSection"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes for diagnostic service sections."/>
+          <valueMarkdown value="Codes for diagnostic service sections."/>
         </extension>
         <strength value="example"/>
         <description value="HL7 V2 table 0074"/>
@@ -283,7 +283,7 @@
           <valueString value="DiagnosticReportCodes"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes that describe Diagnostic Reports."/>
+          <valueMarkdown value="Codes that describe Diagnostic Reports."/>
         </extension>
         <strength value="preferred"/>
         <description value="LOINC Codes for Diagnostic Reports"/>
@@ -461,12 +461,12 @@
       <comment value="This is a summary of the report, not a list of results."/>
       <min value="0"/>
       <max value="*"/>
-       <type>
+      <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
-       </type>
-       <isSummary value="true"/>
-      </element>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="DiagnosticReport.performer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="12/22/2016 EH: 8936,11428,13169."/>
@@ -664,7 +664,7 @@
           <valueString value="DiagnosticReportSupportingInfoType"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Supporting information role code"/>
+          <valueMarkdown value="Supporting information role code"/>
         </extension>
         <strength value="example"/>
         <description value="The code value for the role of the supporting information in the diagnostic report."/>
@@ -793,7 +793,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/> 
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
@@ -802,7 +802,7 @@
           <valueString value="AdjunctDiagnosis"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Diagnosis codes provided as adjuncts to the report."/>
+          <valueMarkdown value="Diagnosis codes provided as adjuncts to the report."/>
         </extension>
         <strength value="example"/>
         <description value="SNOMED CT Clinical Findings"/>
@@ -835,7 +835,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
-       <isSummary value="true"/>
+      <isSummary value="true"/>
     </element>
     <element id="DiagnosticReport.presentedForm">
       <path value="DiagnosticReport.presentedForm"/>
@@ -869,7 +869,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Communication"/>
       </type>
-       <isSummary value="false"/>
+      <isSummary value="false"/>
     </element>
     <element id="DiagnosticReport.comparison">
       <path value="DiagnosticReport.comparison"/>

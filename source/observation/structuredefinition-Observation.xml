@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Observation"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -669,7 +669,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>   
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -734,15 +734,9 @@
         <code value="Period"/>
       </type>
       <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
         <code value="Attachment"/>
       </type>
       <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
       </type>
@@ -909,7 +903,7 @@
           <valueString value="BodySite"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical locations. May include laterality."/>
+          <valueMarkdown value="Codes describing anatomical locations. May include laterality."/>
         </extension>
         <strength value="example"/>
         <description value="SNOMED CT Body site concepts"/>
@@ -948,7 +942,7 @@
           <valueString value="BodyStructure"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="Codes describing anatomical body structures. May include laterality."/>
+          <valueMarkdown value="Codes describing anatomical body structures. May include laterality."/>
         </extension>
         <strength value="example"/>
         <description value="SNOMED CT Body Structures"/>
@@ -1062,27 +1056,16 @@
       </mapping>
     </element>
     <element id="Observation.referenceRange">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="The change from the SimpleQuantity to Quantity datatype for Observation.referenceRange 'low'          and 'high' elements enables the use of Quantity.comparator to fully express the different ranges in use.           It makes a clear distinction between &gt; vs. &gt;= and &lt; vs. &lt;=.  In FHIR R5 and earlier, absent the          ability to use the 'comparator' element in SimpleQuantity (SimpleQuantity is a datatype profile of Quantity that          disallows the use of 'comparator'), the interpretation of the range is &lt;=, which is different than how that          may have been expressed in other reporting, technically requiring different valuations across reporting methods,          e.g., if valued 5 in one method where it is interpreted as &lt;5 should then be represented in          Observation.referenceRange in FHIR R5 or earlier as 4.999999999 when interpreted as &lt;=4.999999999.          Observation.referenceRange in FHIR R6 fixes that by being able to align across any reporting methods."/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,320"/>
       </extension>
       <path value="Observation.referenceRange"/>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="The change from the SimpleQuantity to Quantity datatype for Observation.referenceRange 'low' 
-        and 'high' elements enables the use of Quantity.comparator to fully express the different ranges in use.  
-        It makes a clear distinction between &gt; vs. &gt;= and &lt; vs. &lt;=.  In FHIR R5 and earlier, absent the 
-        ability to use the 'comparator' element in SimpleQuantity (SimpleQuantity is a datatype profile of Quantity that 
-        disallows the use of 'comparator'), the interpretation of the range is &lt;=, which is different than how that 
-        may have been expressed in other reporting, technically requiring different valuations across reporting methods, 
-        e.g., if valued 5 in one method where it is interpreted as &lt;5 should then be represented in 
-        Observation.referenceRange in FHIR R5 or earlier as 4.999999999 when interpreted as &lt;=4.999999999. 
-        Observation.referenceRange in FHIR R6 fixes that by being able to align across any reporting methods."/>
-      </extension>
       <short value="Provides guide for interpretation"/>
       <definition value="Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an &quot;OR&quot;.   In other words, to represent two distinct target populations, two `referenceRange` elements would be used."/>
-      <comment value="Most observations only have one generic reference range. Systems MAY choose to restrict to only 
-      supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient's age, 
-      gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference 
-      range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties."/>
+      <comment value="Most observations only have one generic reference range. Systems MAY choose to restrict to only        supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient's age,        gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference        range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties."/>
       <requirements value="Knowing what values are considered &quot;normal&quot; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts."/>
       <min value="0"/>
       <max value="*"/>
@@ -1107,23 +1090,12 @@
     </element>
     <element id="Observation.referenceRange.low">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="See the 'committee-notes' text on Observation.referenceRange above for explanation 
-        of the rationale for changing the datatype on Observation.referenceRange.low from SimpleQuantity to Quantity.  
-        The 'referenceRange.low' comment text below further describes the additional capabilities that this provides 
-        by allowing the Observation.referenceRange.low.comparator element to be used to specify whether the reference 
-        range low bound is is to be understood as exclusive ('&gt;') or inclusive ('&gt;=') of the value.
-        
-        [#3882]."/>
+        <valueString value="See the 'committee-notes' text on Observation.referenceRange above for explanation          of the rationale for changing the datatype on Observation.referenceRange.low from SimpleQuantity to Quantity.           The 'referenceRange.low' comment text below further describes the additional capabilities that this provides          by allowing the Observation.referenceRange.low.comparator element to be used to specify whether the reference          range low bound is is to be understood as exclusive ('&gt;') or inclusive ('&gt;=') of the value.                  [#3882]."/>
       </extension>
       <path value="Observation.referenceRange.low"/>
       <short value="Low Range, if relevant"/>
       <definition value="The value of the low bound of the reference range."/>
-      <comment value="When low.comparator is not populated (the low.comparator element was not available prior to 
-      FHIR R6), the low bound of the reference range endpoint is inclusive of the value (e.g., reference range is 
-      '&gt;=5' - '&lt;=9').  Alternatively, this can be specified explicitly by populating low.comparator = '&gt;='.  
-      When the low bound of the reference range endpoint is intended to be exclusive of the value (e.g., reference range 
-      is '&gt;5' - '&lt;9'), this is specified with low.comparator = '&gt;'.  If the low bound is omitted,  it is 
-      assumed to be meaningless (e.g., reference range is '&lt;=2.3')."/>
+      <comment value="When low.comparator is not populated (the low.comparator element was not available prior to        FHIR R6), the low bound of the reference range endpoint is inclusive of the value (e.g., reference range is        '&gt;=5' - '&lt;=9').  Alternatively, this can be specified explicitly by populating low.comparator = '&gt;='.         When the low bound of the reference range endpoint is intended to be exclusive of the value (e.g., reference range        is '&gt;5' - '&lt;9'), this is specified with low.comparator = '&gt;'.  If the low bound is omitted,  it is        assumed to be meaningless (e.g., reference range is '&lt;=2.3')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1148,21 +1120,12 @@
     </element>
     <element id="Observation.referenceRange.high">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="See the 'committee-notes' text on Observation.referenceRange above for explanation 
-        of the rationale for changing the datatype on Observation.referenceRange.high from SimpleQuantity to Quantity.  
-        The 'referenceRange.high' comment text below further describes the additional capabilities that this provides 
-        by allowing the Observation.referenceRange.high.comparator element to be used to specify whether the reference 
-        range high bound is to be understood as exclusive ('&lt;') or inclusive ('&lt;=') of the value."/>
+        <valueString value="See the 'committee-notes' text on Observation.referenceRange above for explanation          of the rationale for changing the datatype on Observation.referenceRange.high from SimpleQuantity to Quantity.           The 'referenceRange.high' comment text below further describes the additional capabilities that this provides          by allowing the Observation.referenceRange.high.comparator element to be used to specify whether the reference          range high bound is to be understood as exclusive ('&lt;') or inclusive ('&lt;=') of the value."/>
       </extension>
       <path value="Observation.referenceRange.high"/>
       <short value="High Range, if relevant"/>
       <definition value="The value of the high bound of the reference range."/>
-      <comment value="When high.comparator is not populated (the high.comparator element was not available prior to 
-      FHIR R6), the high bound of the reference range endpoint is inclusive of the value (e.g., reference range is 
-      '&gt;=5' - '&lt;=9').  Alternatively, this can be specified explicitly by populating high.comparator = '&lt;='.  
-      When the high bound of the reference range endpoint is intended to be exclusive of the value (e.g., reference range 
-      is '&gt;5' - '&lt;9'), this is specified with high.comparator = '&lt;'.  If the high bound is omitted,  it is 
-      assumed to be meaningless (e.g., reference range is '&gt;=2.3')."/>
+      <comment value="When high.comparator is not populated (the high.comparator element was not available prior to        FHIR R6), the high bound of the reference range endpoint is inclusive of the value (e.g., reference range is        '&gt;=5' - '&lt;=9').  Alternatively, this can be specified explicitly by populating high.comparator = '&lt;='.         When the high bound of the reference range endpoint is intended to be exclusive of the value (e.g., reference range        is '&gt;5' - '&lt;9'), this is specified with high.comparator = '&lt;'.  If the high bound is omitted,  it is        assumed to be meaningless (e.g., reference range is '&gt;=2.3')."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1493,15 +1456,9 @@
         <code value="Period"/>
       </type>
       <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
         <code value="Attachment"/>
       </type>
       <type>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
       </type>

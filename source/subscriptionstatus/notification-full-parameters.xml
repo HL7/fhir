@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
+  <id value="23633d50-ba72-435c-ae51-378d70cfc692"/>
+  <type value="subscription-notification"/>
+  <timestamp value="2020-04-17T10:24:13.1882432-05:00" />
+  <entry>
+    <fullUrl value="urn:uuid:9bb01542-f6f5-48a2-a08d-af2e42658db9"/>
+    <resource>
+      <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
+        <id value="9bb01542-f6f5-48a2-a08d-af2e42658db9"/>
+        <status value="active"/>
+        <type value="event-notification"/>
+        <eventsSinceSubscriptionStart value="20"/>
+        <notificationEvent>
+          <eventNumber value="20"/>
+          <focus>
+            <reference value="http://example.org/FHIR/Parameters/AD-6729"/>
+          </focus>
+        </notificationEvent>
+        <subscription>
+          <reference value="http://example.org/FHIR/Subscription/PARAMETERS-123"/>
+        </subscription>
+        <topic value="http://example.org/FHIR/SubscriptionTopic/admission-parameters"/>
+      </SubscriptionStatus>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/FHIR/Parameters/AD-6729" />
+    <resource>
+      <Parameters xmlns="http://hl7.org/fhir">
+        <id value="AD-6729" />
+        <meta>
+          <versionId value="1" />
+          <lastUpdated value="2019-08-07T10:49:22Z" />
+        </meta>
+        <parameter>
+          <name value="status"/>
+          <valueCode value="in-progress"/>
+        </parameter>
+        <parameter>
+          <name value="patient"/>
+          <valueReference>
+            <reference value="Patient/ABC"/>
+          </valueReference>
+        </parameter>
+        <parameter>
+          <name value="patient-group"/>
+          <valueReference>
+            <reference value="Group/XYZ"/>
+          </valueReference>
+        </parameter>
+      </Parameters>
+    </resource>
+  </entry>
+</Bundle>

@@ -156,4 +156,56 @@
     </item>
   </entry>
 
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Notification Bundle for Basic resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="notification-full-basic"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionStatus/fdd386f3-b4b5-426e-bd96-495eebda96d9"/>
+      <display value="Notification using Basic"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Notification Bundle for Binary resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="notification-full-binary"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionStatus/97a86523-f61a-423c-93f5-ca1efc896b49"/>
+      <display value="Notification using Binary"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Notification Bundle for Parameters resource"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="notification-full-parameters"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionStatus/23633d50-ba72-435c-ae51-378d70cfc692"/>
+      <display value="Notification using Parameters"/>
+    </item>
+  </entry>
+
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Notification Bundle for Logical Model"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="notification-id-only-lm"/>
+    </extension>
+    <item>
+      <reference value="SubscriptionStatus/9afb3cb3-6c64-474d-9412-d4d74ea7ecbe"/>
+      <display value="Notification using Logical Model"/>
+    </item>
+  </entry>
+
 </List>
