@@ -66,7 +66,7 @@
   <differential>
     <element id="Subscription">
       <path value="Subscription"/>
-      <short value="Notification about a SubscriptionTopic"/>
+      <short value="Information about a request for notifications to a client based on a SubscriptionTopic"/>
       <definition value="The subscription resource describes a particular client's request to be notified about a SubscriptionTopic."/>
       <alias value="WebHook"/>
       <alias value="Hook"/>
@@ -184,12 +184,15 @@
     <element id="Subscription.managingEntity">
       <path value="Subscription.managingEntity"/>
       <short value="Entity responsible for Subscription changes"/>
-      <definition value="Entity with authorization to make subsequent revisions to the Subscription and also determines what data the subscription is authorized to disclose."/>
+      <definition value="Entity with authorization to communicate with the server about this Subscription, such as requesting changes (e.g., updating an endpoint URL)."/>
+      <comment value="Note that the managing entity for a subscription does not need to be the client (e.g., in the case of server-managed Subscriptions)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
@@ -363,9 +366,9 @@
     </element>
     <element id="Subscription.endpoint">
       <path value="Subscription.endpoint"/>
-      <short value="Where the channel points to"/>
-      <definition value="The url that describes the actual end-point to send notifications to."/>
-      <comment value="For rest-hook the end-point must be an `http:` or `https:` URL; for websockets, `ws:` or `wss:`; for email, a `mailto:` url; and for message the endpoint can be in any form of url the server understands (usually, `http/s`: or `mllp:`). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)."/>
+      <short value="URL where the channel sends notifications"/>
+      <definition value="Channel-specific URL that describes where notifications are sent."/>
+      <comment value="The URL requirements are based on channel type. For example, in a `rest-hook` channel, the URL must use the `http` or `https` protocol and be supplied by the client; in a `websocket` channel, the URL uses the `ws` or `wss` protocol and is supplied by the server.&#xA;&#xA;Note that the URI is allowed to be relative. Relative URLs are relative to the FHIR server base URL (since there may be more than one, clients should avoid using relative URIs)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -455,8 +458,8 @@
     <element id="Subscription.content">
       <path value="Subscription.content"/>
       <short value="empty | id-only | full-resource"/>
-      <definition value="How much of the resource content to deliver in the notification payload. The choices are an empty payload, only the resource id, or the full resource content."/>
-      <comment value="Sending the payload has obvious security implications. The server is responsible for ensuring that the content is appropriately secured."/>
+      <definition value="How much resource content to deliver in the notification payloads. The choices are an empty payload, only the resource id, or the full resource content."/>
+      <comment value="Sending the payload has obvious security implications. The server is responsible for ensuring that the content is appropriately secured. For additional information, see [Notification Content](subscription.html#payloads)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

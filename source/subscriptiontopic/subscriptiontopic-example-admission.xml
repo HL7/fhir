@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="admission"/>
-	<url value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
+	<url value="http://example.org/FHIR/SubscriptionTopic/admission"/>
 	<identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:uuid:915c2040-b0a8-4935-adf8-94d6e1a74052"/>
@@ -20,7 +20,7 @@
       <resultForDelete value="test-fails"/>
 			<requireBoth value="true"/>
 		</queryCriteria>
-		<fhirPathCriteria value="%previous.status!='in-progress' and %current.status='in-progress'"/>
+		<fhirPathCriteria value="(%previous.id.empty() or (%previous.status != 'in-progress')) and (%current.status = 'in-progress')"/>
     <event>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/v2-0003"/>

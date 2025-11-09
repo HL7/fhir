@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
+  <id value="97a86523-f61a-423c-93f5-ca1efc896b49"/>
+  <type value="subscription-notification"/>
+  <timestamp value="2020-04-17T10:24:13.1882432-05:00" />
+  <entry>
+    <fullUrl value="urn:uuid:7472c5f7-bdff-4229-a977-a0a60d5e7cfc"/>
+    <resource>
+      <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
+        <id value="7472c5f7-bdff-4229-a977-a0a60d5e7cfc"/>
+        <status value="active"/>
+        <type value="event-notification"/>
+        <eventsSinceSubscriptionStart value="20"/>
+        <notificationEvent>
+          <eventNumber value="20"/>
+          <focus>
+            <reference value="http://example.org/FHIR/Binary/AD-337"/>
+          </focus>
+        </notificationEvent>
+        <subscription>
+          <reference value="http://example.org/FHIR/Subscription/BINARY-123"/>
+        </subscription>
+        <topic value="http://example.org/FHIR/SubscriptionTopic/admission-binary"/>
+      </SubscriptionStatus>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/FHIR/Binary/AD-337" />
+    <resource>
+      <Binary xmlns="http://hl7.org/fhir">
+        <id value="AD-337" />
+        <meta>
+          <versionId value="1" />
+          <lastUpdated value="2019-08-07T10:49:22Z" />
+        </meta>
+        <contentType value="application/pdf"/>
+      </Binary>
+    </resource>
+  </entry>
+</Bundle>

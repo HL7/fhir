@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
+	<id value="admission-lm"/>
+	<url value="http://example.org/FHIR/SubscriptionTopic/admission-lm"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:44c36873-5167-4b17-a15d-df4f8cb51343"/>
+  </identifier>
+  <title value="admission-lm"/>
+	<status value="active"/>
+  <description value="Example admission topic using a Logical Model"/>
+	<trigger>
+		<description value="Logical Model of Admission being created or updated into an `in-progress` state"/>
+		<resource value="http://example.org/LogicalModels/Admission"/>
+    <supportedInteraction value="create"/>
+    <supportedInteraction value="update"/>
+    <event>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0003"/>
+        <code value="A01"/>
+        <display value="ADT/ACK - Admit/visit notification"/>
+      </coding>
+    </event>
+    <canFilterBy>
+      <description value="Matching based on the Patient. Input is expected to be a search `token` and match against the ID of the patient."/>
+      <resource value="http://example.org/LogicalModels/Admission"/>
+      <filterParameter value="Patient"/>
+      <filterDefinition value="http://example.org/LogicalModels/Admission/Match_Patient"/>
+    </canFilterBy>
+    <canFilterBy>
+      <description value="Matching based on the Patient Group. Input is expected to be a `string` and match against the logical group name where a patient has membership."/>
+      <resource value="http://example.org/LogicalModels/Admission"/>
+      <filterParameter value="PatientGroup"/>
+      <filterDefinition value="http://example.org/LogicalModels/Admission/Match_Patient_Group"/>
+    </canFilterBy>
+    <notificationShape>
+      <resource value="http://example.org/LogicalModels/Admission"/>
+    </notificationShape>
+	</trigger>
+</SubscriptionTopic>
