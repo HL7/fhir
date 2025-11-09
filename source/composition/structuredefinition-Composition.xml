@@ -87,13 +87,6 @@
       <comment value="While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical."/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="cmp-3"/>
-        <severity value="warning"/>
-        <human value="If attester exists then the Composition either needs a text or a section"/>
-        <expression value="attester.empty() or text.exists() or section.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
-      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -220,7 +213,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EnrollmentRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
@@ -952,6 +944,13 @@
         <severity value="error"/>
         <human value="A section can only have an emptyReason if no entries are included"/>
         <expression value="emptyReason.empty() or entry.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+      </constraint>
+      <constraint>
+        <key value="cmp-3"/>
+        <severity value="warning"/>
+        <human value="If attester exists then the Composition either needs a text or a section"/>
+        <expression value="%resource.attester.exists() implies(text.exists() or section.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
       </constraint>
       <mapping>

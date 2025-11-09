@@ -90,6 +90,41 @@
         <expression value="(ClinicalUseDefinition.indication.count() + ClinicalUseDefinition.contraindication.count() + ClinicalUseDefinition.interaction.count() + ClinicalUseDefinition.undesirableEffect.count() + ClinicalUseDefinition.warning.count())  &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </constraint>
+      <constraint>
+        <key value="cud-2"/>
+        <severity value="error"/>
+        <human value="ClinicalUseDefinition.contraindication can only be used when type is 'contraindication'"/>
+        <expression value="ClinicalUseDefinition.contraindication.empty() or ClinicalUseDefinition.type='contraindication'"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </constraint>
+      <constraint>
+        <key value="cud-3"/>
+        <severity value="error"/>
+        <human value="ClinicalUseDefinition.indication can only be used when type is 'indication'"/>
+        <expression value="ClinicalUseDefinition.indication.empty() or ClinicalUseDefinition.type='indication'"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </constraint>
+      <constraint>
+        <key value="cud-4"/>
+        <severity value="error"/>
+        <human value="ClinicalUseDefinition.undesirableEffect can only be used when type is 'undesirable-effect'"/>
+        <expression value="ClinicalUseDefinition.undesirableEffect.empty() or ClinicalUseDefinition.type='undesirable-effect'"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </constraint>
+      <constraint>
+        <key value="cud-5"/>
+        <severity value="error"/>
+        <human value="ClinicalUseDefinition.interaction can only be used when type is 'interaction'"/>
+        <expression value="ClinicalUseDefinition.interaction.empty() or ClinicalUseDefinition.type='interaction'"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </constraint>
+      <constraint>
+        <key value="cud-6"/>
+        <severity value="error"/>
+        <human value="ClinicalUseDefinition.warning can only be used when type is 'warning'"/>
+        <expression value="ClinicalUseDefinition.warning.empty() or ClinicalUseDefinition.type='warning'"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition"/>
@@ -414,7 +449,7 @@
     <element id="ClinicalUseDefinition.indication.comorbidity">
       <path value="ClinicalUseDefinition.indication.comorbidity"/>
       <short value="A comorbidity or coinfection as part of the indication"/>
-      <definition value="A comorbidity (concurrent condition) or coinfection as part of the indication."/>
+      <definition value="A comorbidity (concurrent condition) or coinfection as part of the indication. Where this repeats it means that any one of these is relevant, rather than all of them needing to be present."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -897,7 +932,7 @@
     <element id="ClinicalUseDefinition.contraindication.comorbidity">
       <path value="ClinicalUseDefinition.contraindication.comorbidity"/>
       <short value="A comorbidity (concurrent condition) or coinfection"/>
-      <definition value="A comorbidity (concurrent condition) or coinfection."/>
+      <definition value="A comorbidity (concurrent condition) or coinfection. Where this repeats it means that any one of these is relevant, rather than all of them needing to be present."/>
       <min value="0"/>
       <max value="*"/>
       <type>

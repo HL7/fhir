@@ -70,7 +70,7 @@ condition-independent and instead focused on a particular type of care (e.g. psy
 or the care delivered by a particular practitioner or group of practitioners.
 </p>
 <p>
-An <a href="immunizationrecommendation.html">ImmunizationRecommendation</a> can be interpreted as a narrow
+An <a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationRecommendation.html">ImmunizationRecommendation</a> can be interpreted as a narrow
 type of CarePlan dealing only with immunization events.  Where such information could appear in either
 resource, the immunization-specific resource is preferred.
 </p>
