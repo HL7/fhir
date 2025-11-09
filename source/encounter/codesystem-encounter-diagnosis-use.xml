@@ -43,9 +43,11 @@
   <concept>
     <code value="working"/>
     <display value="Working"/>
+    <definition value="Provisional diagnosis used during the encounter or episode of care that may be refined or changed."/>
   </concept>
   <concept>
     <code value="final"/>
     <display value="Final"/>
+    <definition value="Final diagnosis established at the end of the encounter or episode of care."/>
   </concept>
 </CodeSystem>
