@@ -697,7 +697,7 @@
     <element id="ClinicalUseDefinition.contraindication.comorbidity">
       <path value="ClinicalUseDefinition.contraindication.comorbidity"/>
       <short value="A comorbidity (concurrent condition) or coinfection"/>
-      <definition value="A comorbidity (concurrent condition) or coinfection."/>
+      <definition value="A comorbidity (concurrent condition) or coinfection. Where this repeats it means that any one of these is relevant, rather than all of them needing to be present."/>
       <min value="0"/>
       <max value="*"/>
       <type>
