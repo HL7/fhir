@@ -2,4 +2,125 @@
 
 <!-- insert xhtml content here -->
 
+<h2>Examples</h2>
+
+<p>The following examples illustrate EventDefinition resources representing the event "3 consecutive negative stick tests" using the different approaches to event representation supported by the resource.</p>
+
+<h3>Named Event</h3>
+
+<p>The <em>named event</em> approach uses a name, or code to identify the event. In this approach, a unique code for the event is agreed upon by both sides of an integration. The <a href="https://terminology.hl7.org/ValueSet-v3-ActEncounterCode.html">Workflow</a> and <a href="https://terminology.hl7.org/ValueSet-v3-ActTaskCode.html">Task</a> usage context types are another example. CDS Hooks hook names are another example of this approach.</p>
+
+<p>The following example illustrates this approach for a <code>three-consecutive-negative-stick-tests</code> event:</p>
+
+<pre><code>&lt;trigger&gt;
+  &lt;type value=&quot;named-event&quot;/&gt;
+  &lt;code&gt;
+    &lt;coding&gt;
+      &lt;system value=&quot;http://example.org/CodeSystem/events&quot;/&gt;
+      &lt;code value=&quot;three-consecutive-negative-stick-tests&quot;/&gt;
+    &lt;/coding&gt;
+  &lt;/code&gt;
+&lt;/trigger&gt;
+</code></pre>
+
+<h3>Data Event</h3>
+
+<p>Alternatively, a trigger may be identified as a <em>data event</em>. In this approach, a <a href="metadatatypes.html#DataRequirement">DataRequirement</a> is used to identify the data change event:</p>
+
+<pre><code>&lt;trigger&gt;
+  &lt;type value=&quot;data-changed&quot;/&gt;
+  &lt;data&gt;
+    &lt;type value=&quot;Observation&quot;/&gt;
+    &lt;codeFilter&gt;
+      &lt;path value=&quot;code&quot;/&gt;
+      &lt;valueSet value=&quot;http://example.org/ValueSet/stick-test-codes&quot;/&gt;
+    &lt;/codeFilter&gt;
+  &lt;/data&gt;
+  &lt;condition&gt;
+    &lt;language value=&quot;text/cql-expression&quot;/&gt;
+    &lt;expression value=&quot;StickTest.consecutivelyFrom(%context).take(3).negative().count() = 3&quot;/&gt;
+  &lt;/condition&gt;
+&lt;/trigger&gt;
+</code></pre>
+
+<p>This example indicates that the event should be triggered when Observations with a code matching a code in the <code>http://example.org/ValueSet/stick-test-codes</code> value set is created, updated, or deleted.</p>
+
+<p>In addition, the example has a <code>condition</code> element providing an expression that is evaluated as part of determining whether or not the event is triggered. If the expression evaluates to <code>true</code>, the event is triggered.</p>
+
+<p>The expression in this case:</p>
+
+<pre><code>StickTest.consecutivelyFrom(%context).take(3).negative().count() = 3</code></pre>
+
+<p>Relies on the fluent functions defined in the <a href="library-ExampleEventDefinitionLogic.html"><code>ExampleEventDefinitionLogic</code></a> library:</p>
+
+<pre><code>define StickTest:
+  [Observation: "Stick Test Codes"] O
+    where O.status in { 'final', 'amended', 'corrected' }
+
+define fluent function negative(observations List&lt;Observation&gt;):
+  observations O
+    where O.interpretation ~ "LA6577-6|http://loinc.org"
+
+define fluent function during(observations List&lt;Observation&gt;, encounter Encounter):
+  observations O
+    where O.issued during minute of encounter.period
+
+define fluent function within(observations List&lt;Observation&gt;, quantity Quantity):
+  observations O
+    where (O.issued + quantity) on or after minute of Now()
+
+define fluent function consecutively(observations List&lt;Observation&gt;):
+  observations O
+    sort by issued
+
+define fluent function consecutivelyFrom(observations List&lt;Observation&gt;, observation Observation):
+  observations O
+    where O.issued on or after observation.issued
+    sort by issued
+</code></pre>
+
+<!--
+```cql
+//StickTest.during(encounter)
+//StickTest.within(3 hours)
+//StickTest.consecutively().take(3).negative().count() = 3
+//StickTest.consecutivelyFrom(%context).take(3).negative().count() = 3
+```
+-->
+
+<p>Alternatively, if a profile is available, it can be used to define the data requirement, as well as to provide the starting data element in the expression:</p>
+
+<pre><code>&lt;trigger&gt;
+  &lt;type value=&quot;data-changed&quot;/&gt;
+  &lt;data&gt;
+    &lt;type value=&quot;Observation&quot;/&gt;
+    &lt;profile value=&quot;http://example.org/StructureDefinition/stick-test-profile&quot;/&gt;
+  &lt;/data&gt;
+  &lt;condition&gt;
+    &lt;language value=&quot;text/cql-expression&quot;/&gt;
+    &lt;expression value=&quot;[StickTestProfile].consecutivelyFrom(%context).take(3).negative().count() = 3&quot;/&gt;
+  &lt;/condition&gt;
+&lt;/trigger&gt;
+</code></pre>
+
+<h3>Periodic Event</h3>
+
+<p>And finally, the <em>periodic</em> approach can be used to indicate the event should occur on a timing:</p>
+
+<pre><code>&lt;trigger&gt;
+  &lt;type value=&quot;periodic&quot;/&gt;
+  &lt;timingTiming&gt;
+    &lt;repeat&gt;
+      &lt;frequency value=&quot;1&quot;/&gt;
+      &lt;period value=&quot;3&quot;/&gt;
+      &lt;periodUnit value=&quot;h&quot;/&gt;
+    &lt;/repeat&gt;
+  &lt;/timingTiming&gt;
+  &lt;condition&gt;
+    &lt;language value=&quot;text/cql-expression&quot;/&gt;
+    &lt;expression value=&quot;StickTest.within(3 hours).consecutively.take(3).negative().count() = 3&quot;/&gt;
+  &lt;/condition&gt;
+&lt;/trigger&gt;
+</code></pre>
+
 </div>

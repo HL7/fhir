@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<EventDefinition xmlns="http://hl7.org/fhir">
+  <id value="example-data"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="6"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-library">
+    <valueCanonical value="http://hl7.org/fhir/EventDefinition/ExampleEventDefinitionLogic"/>
+  </extension>
+  <url value="http://hl7.org/fhir/EventDefinition/example-data"/>
+  <name value="DataEventDefinitionExample"/>
+  <title value="Data EventDefinition Example"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="Example of an EventDefinition using the data event approach."/>
+  <purpose value="Monitor when 3 consecutive negative stick tests have occurred using a data change event."/>
+  <trigger>
+    <type value="data-changed"/>
+    <data>
+      <type value="Observation"/>
+      <codeFilter>
+        <path value="code"/>
+        <valueSet value="http://example.org/ValueSet/stick-test-codes"/>
+      </codeFilter>
+    </data>
+    <condition>
+      <language value="text/cql-expression"/>
+      <expression value="StickTest.consecutivelyAfter(%context).take(3).negative().count() = 3"/>
+    </condition>
+  </trigger>
+</EventDefinition>

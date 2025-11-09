@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<EventDefinition xmlns="http://hl7.org/fhir">
+  <id value="example-named"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="6"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <url value="http://hl7.org/fhir/EventDefinition/example-named"/>
+  <name value="NamedEventDefinitionExample"/>
+  <title value="Named EventDefinition Example"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="Example of an EventDefinition using the named event approach."/>
+  <purpose value="Monitor when 3 consecutive negative stick tests have occurred using a named event."/>
+  <trigger>
+    <type value="named-event"/>
+    <code>
+      <coding>
+        <system value="http://example.org/CodeSystem/events"/>
+        <code value="three-consecutive-negative-stick-tests"/>
+        <display value="3 consecutive negative stick tests"/>
+      </coding>
+    </code>
+  </trigger>
+</EventDefinition>
