@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   id="n1340"
+   id="n1324"
    version="1.1"
-   width="1363.5478"
-   height="847.795244"
+   width="1397.10124"
+   height="842.021384"
    sodipodi:docname="capabilitystatement.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview46797"
+     id="namedview11966"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,17 +21,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.91379265"
-     inkscape:cx="681.77393"
-     inkscape:cy="424.05682"
+     inkscape:zoom="0.89184663"
+     inkscape:cx="699.11123"
+     inkscape:cy="421.03652"
      inkscape:window-width="1390"
      inkscape:window-height="1205"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="31"
      inkscape:window-maximized="0"
-     inkscape:current-layer="n1340" />
+     inkscape:current-layer="n1324" />
   <defs
-     id="defs46171">
+     id="defs11338">
     <filter
        id="shadow1"
        x="-0.041536051"
@@ -43,1151 +43,1079 @@
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset46162" />
+         id="feOffset11329" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix46164" />
+         id="feColorMatrix11331" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur46166" />
+         id="feGaussianBlur11333" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend46168" />
+         id="feBlend11335" />
     </filter>
   </defs>
   <g
-     id="n1341">
+     id="n1325">
     <rect
        id="CapabilityStatement"
-       x="327.16517899999997"
-       y="19.77386"
+       x="339.92617599999994"
+       y="0.0"
        rx="4"
        ry="4"
        width="308.88000000000005"
-       height="386.0"
+       height="414.0"
        filter="url(#shadow1)"
        style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1342"
-       x1="327.16517899999997"
-       y1="47.77386"
-       x2="636.045179"
-       y2="47.77386"
+       id="n1326"
+       x1="339.92617599999994"
+       y1="28.0"
+       x2="648.806176"
+       y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1343"
-       x="481.605179"
-       y="39.77386"
+       id="n1327"
+       x="494.366176"
+       y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">CapabilityStatement<tspan
    class="diagram-class-title-link"
-   id="tspan46177"> (<a
-   id="n1344"
+   id="tspan11344"> (<a
+   id="n1328"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
    style="font-style: italic">DomainResource</a>) +<a
-   id="n1345"
+   id="n1329"
    xlink:href="canonicalresource.html#CanonicalResource"
    class="diagram-class-reference"
    style="font-style: italic">CanonicalResource</a></tspan></text>
     <text
-       id="n1346"
-       x="333.16517899999997"
-       y="61.77386"
+       id="n1330"
+       x="345.92617599999994"
+       y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1347"
+   id="n1331"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.url"><title
-   id="title46180">An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers</title>url</a> : <a
-   id="n1348"
+   id="title11347">An absolute URI that is used to identify this capability statement when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this capability statement is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the capability statement is stored on different servers</title>url</a> : <a
+   id="n1332"
    xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
-       id="n1352"
-       x="333.16517899999997"
-       y="75.77386"
+       id="n1336"
+       x="345.92617599999994"
+       y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1353"
+   id="n1337"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.identifier"><title
+   id="title11352">A formal identifier that is used to identify this CapabilityStatement when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n1338"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1342"
+       x="345.92617599999994"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1343"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.version"><title
-   id="title46185">The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
-   id="n1354"
+   id="title11357">The identifier that is used to identify this version of the capability statement when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the capability statement author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n1344"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n1358"
-       x="333.16517899999997"
-       y="89.77386"
+       id="n1348"
+       x="345.92617599999994"
+       y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1359"
+   id="n1349"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.versionAlgorithm_x_"><title
-   id="title46190">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
-   id="n1360"
+   id="title11362">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n1350"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
-   id="n1361"
+   id="n1351"
    xlink:href="datatypes.html#string">string</a>|<a
-   id="n1362"
+   id="n1352"
    xlink:href="datatypes.html#Coding">Coding</a>; <a
-   id="n1363"
+   id="n1353"
    xlink:href="valueset-version-algorithm.html"><title
-     id="n1364">null (Strength=Extensible)</title></a></text>
+     id="n1354">null (Strength=Extensible)</title></a></text>
     <text
-       id="n1365"
-       x="353.16517899999997"
-       y="103.77386"
+       id="n1355"
+       x="365.92617599999994"
+       y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1366"
+   id="n1356"
    xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
     <text
+       id="n1366"
+       x="345.92617599999994"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1367"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.name"><title
+   id="title11373">A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n1368"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n1369"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1370">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
        id="n1376"
-       x="333.16517899999997"
-       y="117.77386"
+       x="345.92617599999994"
+       y="126.0"
        fill="black"
        class="diagram-class-detail"><a
    id="n1377"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.name"><title
-   id="title46201">A natural language name identifying the capability statement. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
-   id="n1378"
-   xlink:href="datatypes.html#string">string</a> [0..1] « <a
-   id="n1379"
-   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
-   xlink:href="conformance-rules.html#constraints"><title
-   id="n1380">This element has or is affected by some invariants</title>C</a> »</text>
-    <text
-       id="n1386"
-       x="333.16517899999997"
-       y="131.77386"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n1387"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.title"><title
-   id="title46208">A short, descriptive, user-friendly title for the capability statement</title>title</a> : <a
-   id="n1388"
+   id="title11380">A short, descriptive, user-friendly title for the capability statement</title>title</a> : <a
+   id="n1378"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
+       id="n1382"
+       x="345.92617599999994"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1383"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.status"><title
+   id="title11385">The status of this capability statement. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1384"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1385"
+   xlink:href="valueset-publication-status.html"><title
+   id="n1386">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
        id="n1392"
-       x="333.16517899999997"
-       y="145.77386"
+       x="345.92617599999994"
+       y="154.0"
        fill="black"
        class="diagram-class-detail"><a
    id="n1393"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.status"><title
-   id="title46213">The status of this capability statement. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
-   id="n1394"
-   xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1395"
-   xlink:href="valueset-publication-status.html"><title
-   id="n1396">null (Strength=Required)</title>PublicationStatus</a>! »</text>
-    <text
-       id="n1402"
-       x="333.16517899999997"
-       y="159.77386"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n1403"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.experimental"><title
-   id="title46220">A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
-   id="n1404"
+   id="title11392">A Boolean value to indicate that this capability statement is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage</title>experimental</a> : <a
+   id="n1394"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n1408"
-       x="333.16517899999997"
-       y="173.77386"
+       id="n1398"
+       x="345.92617599999994"
+       y="168.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1409"
+   id="n1399"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.date"><title
-   id="title46225">The date  (and optionally time) when the capability statement was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes</title>date</a> : <a
-   id="n1410"
+   id="title11397">The date  (and optionally time) when the capability statement was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the capability statement changes</title>date</a> : <a
+   id="n1400"
    xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
     <text
-       id="n1414"
-       x="333.16517899999997"
-       y="187.77386"
+       id="n1404"
+       x="345.92617599999994"
+       y="182.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1415"
+   id="n1405"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.publisher"><title
-   id="title46230">The name of the organization or individual responsible for the release and ongoing maintenance of the capability statement</title>publisher</a> : <a
-   id="n1416"
+   id="title11402">The name of the organization or individual responsible for the release and ongoing maintenance of the capability statement</title>publisher</a> : <a
+   id="n1406"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n1420"
-       x="333.16517899999997"
-       y="201.77386"
+       id="n1410"
+       x="345.92617599999994"
+       y="196.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1421"
+   id="n1411"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.contact"><title
-   id="title46235">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
-   id="n1422"
+   id="title11407">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n1412"
    xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text
+       id="n1416"
+       x="345.92617599999994"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1417"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.description"><title
+   id="title11412">A free text natural language description of the capability statement from a consumer's perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP</title>description</a> : <a
+   id="n1418"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1] « <a
+   id="n1419"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1420">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
        id="n1426"
-       x="333.16517899999997"
-       y="215.77386"
+       x="345.92617599999994"
+       y="224.0"
        fill="black"
        class="diagram-class-detail"><a
    id="n1427"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.description"><title
-   id="title46240">A free text natural language description of the capability statement from a consumer's perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP</title>description</a> : <a
-   id="n1428"
-   xlink:href="datatypes.html#markdown">markdown</a> [0..1] « <a
-   id="n1429"
-   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
-   xlink:href="conformance-rules.html#constraints"><title
-   id="n1430">This element has or is affected by some invariants</title>C</a> »</text>
-    <rect
-       id="n1436"
-       x="328.16517899999997"
-       y="219.77386"
-       width="306.88000000000005"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
-    <text
-       id="n1437"
-       x="333.16517899999997"
-       y="229.77386"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n1438"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.useContext"><title
-   id="title46248">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate capability statement instances</title>useContext</a> : <a
-   id="n1439"
+   id="title11419">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate capability statement instances</title>useContext</a> : <a
+   id="n1428"
    xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
     <text
-       id="n1444"
-       x="333.16517899999997"
-       y="243.77386"
+       id="n1432"
+       x="345.92617599999994"
+       y="238.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1445"
+   id="n1433"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.actorDefinition"><title
+   id="title11424">ActorDefinitions to describe the specific sets of functionality supported by (or that should be supported by) systems (via obligations)</title>actorDefinition</a> : <a
+   id="n1434"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1435"
+   xlink:href="actordefinition.html#ActorDefinition">ActorDefinition</a> »</text>
+    <text
+       id="n1440"
+       x="345.92617599999994"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1441"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.jurisdiction"><title
-   id="title46253">A legal or geographic region in which the capability statement is intended to be used</title>jurisdiction</a> : <a
-   id="n1446"
+   id="title11430">A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use</title>jurisdiction</a> : <a
+   id="n1442"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n1447"
-   xlink:href="valueset-jurisdiction.html"><title
-   id="n1448">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+   id="n1443"
+   xlink:href="http://terminology.hl7.org/6.5.0/ValueSet-jurisdiction.html"><title
+   id="n1444">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
     <text
-       id="n1454"
-       x="333.16517899999997"
-       y="257.77386"
+       id="n1450"
+       x="345.92617599999994"
+       y="266.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1455"
+   id="n1451"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.purpose"><title
-   id="title46260">Explanation of why this capability statement is needed and why it has been designed as it has</title>purpose</a> : <a
-   id="n1456"
+   id="title11437">Explanation of why this capability statement is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n1452"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n1460"
-       x="333.16517899999997"
-       y="271.77386"
+       id="n1456"
+       x="345.92617599999994"
+       y="280.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1461"
+   id="n1457"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.copyright"><title
-   id="title46265">A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the capability statement</title>copyright</a> : <a
-   id="n1462"
+   id="title11442">A copyright statement relating to the capability statement and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the capability statement</title>copyright</a> : <a
+   id="n1458"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n1466"
-       x="333.16517899999997"
-       y="285.77386"
+       id="n1462"
+       x="345.92617599999994"
+       y="294.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1467"
+   id="n1463"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.copyrightLabel"><title
-   id="title46270">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
-   id="n1468"
+   id="title11447">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n1464"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n1472"
-       x="333.16517899999997"
-       y="299.77386"
+       id="n1468"
+       x="345.92617599999994"
+       y="308.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1473"
+   id="n1469"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.kind"><title
-   id="title46275">The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)</title>kind</a> : <a
-   id="n1474"
+   id="title11452">The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)</title>kind</a> : <a
+   id="n1470"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1475"
+   id="n1471"
    xlink:href="valueset-capability-statement-kind.html"><title
-   id="n1476">null (Strength=Required)</title>CapabilityStatementKind</a>! » « <a
-   id="n1477"
+   id="n1472">null (Strength=Required)</title>CapabilityStatementKind</a>! » « <a
+   id="n1473"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n1478">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n1474">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n1486"
-       x="333.16517899999997"
-       y="313.77386"
+       id="n1482"
+       x="345.92617599999994"
+       y="322.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1487"
+   id="n1483"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.instantiates"><title
-   id="title46284">Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details</title>instantiates</a> : <a
-   id="n1488"
+   id="title11461">Reference to a canonical URL of another CapabilityStatement that this software implements. This capability statement is a published API description that corresponds to a business service. The server may actually implement a subset of the capability statement it claims to implement, so the capability statement must specify the full capability details</title>instantiates</a> : <a
+   id="n1484"
    xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
-   id="n1489"
+   id="n1485"
    xlink:href="capabilitystatement.html#CapabilityStatement">CapabilityStatement</a> »</text>
-    <rect
-       id="n1494"
-       x="328.16517899999997"
-       y="317.77386"
-       width="306.88000000000005"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
     <text
-       id="n1495"
-       x="333.16517899999997"
-       y="327.77386"
+       id="n1490"
+       x="345.92617599999994"
+       y="336.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1496"
+   id="n1491"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.imports"><title
-   id="title46291">Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them</title>imports</a> : <a
-   id="n1497"
+   id="title11467">Reference to a canonical URL of another CapabilityStatement that this software adds to. The capability statement automatically includes everything in the other statement, and it is not duplicated, though the server may repeat the same resources, interactions and operations to add additional details to them</title>imports</a> : <a
+   id="n1492"
    xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
-   id="n1498"
+   id="n1493"
    xlink:href="capabilitystatement.html#CapabilityStatement">CapabilityStatement</a> »</text>
     <text
-       id="n1504"
-       x="333.16517899999997"
-       y="341.77386"
+       id="n1498"
+       x="345.92617599999994"
+       y="350.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1505"
+   id="n1499"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.fhirVersion"><title
-   id="title46297">The version of the FHIR specification that this CapabilityStatement describes (which SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no default value</title>fhirVersion</a> : <a
-   id="n1506"
+   id="title11473">The version of the FHIR specification that this CapabilityStatement describes (which SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no default value</title>fhirVersion</a> : <a
+   id="n1500"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1507"
+   id="n1501"
    xlink:href="valueset-FHIR-version.html"><title
-   id="n1508">null (Strength=Required)</title>FHIRVersion</a>! »</text>
+   id="n1502">null (Strength=Required)</title>FHIRVersion</a>! »</text>
     <text
-       id="n1514"
-       x="333.16517899999997"
-       y="355.77386"
+       id="n1508"
+       x="345.92617599999994"
+       y="364.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1515"
+   id="n1509"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.format"><title
-   id="title46304">A list of the formats supported by this implementation using their content types</title>format</a> : <a
-   id="n1516"
+   id="title11480">A list of the formats supported by this implementation using their content types</title>format</a> : <a
+   id="n1510"
    xlink:href="datatypes.html#code">code</a> [1..*] « <a
-   id="n1517"
-   xlink:href="valueset-mimetypes.html"><title
-   id="n1518">null (Strength=Required)</title>MimeTypes</a>! »</text>
+   id="n1511"
+   xlink:href="valueset-supplemented-mimetypes.html"><title
+   id="n1512">null (Strength=Required)</title>SupplementedMimeTypes</a>! »</text>
     <text
-       id="n1524"
-       x="333.16517899999997"
-       y="369.77386"
+       id="n1518"
+       x="345.92617599999994"
+       y="378.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1525"
+   id="n1519"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.patchFormat"><title
-   id="title46311">A list of the patch formats supported by this implementation using their content types</title>patchFormat</a> : <a
-   id="n1526"
+   id="title11487">A list of the patch formats supported by this implementation using their content types</title>patchFormat</a> : <a
+   id="n1520"
    xlink:href="datatypes.html#code">code</a> [0..*] « <a
-   id="n1527"
-   xlink:href="valueset-mimetypes.html"><title
-   id="n1528">null (Strength=Required)</title>MimeTypes</a>! »</text>
+   id="n1521"
+   xlink:href="valueset-patchmimetypes.html"><title
+   id="n1522">The mime type of an attachment. Any valid mime type is allowed. (Strength=Required)</title>PatchMimeTypes</a>! »</text>
     <text
-       id="n1534"
-       x="333.16517899999997"
-       y="383.77386"
+       id="n1528"
+       x="345.92617599999994"
+       y="392.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1535"
+   id="n1529"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.acceptLanguage"><title
-   id="title46318">A list of the languages supported by this implementation that are usefully supported in the ```Accept-Language``` header</title>acceptLanguage</a> : <a
-   id="n1536"
+   id="title11494">A list of the languages supported by this implementation that are usefully supported in the ```Accept-Language``` header</title>acceptLanguage</a> : <a
+   id="n1530"
    xlink:href="datatypes.html#code">code</a> [0..*] « <a
-   id="n1537"
+   id="n1531"
    xlink:href="valueset-all-languages.html"><title
-   id="n1538">null (Strength=Required)</title>AllLanguages</a>! »</text>
+   id="n1532">null (Strength=Required)</title>AllLanguages</a>! »</text>
     <text
-       id="n1544"
-       x="333.16517899999997"
-       y="397.77386"
+       id="n1538"
+       x="345.92617599999994"
+       y="406.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1545"
+   id="n1539"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.implementationGuide"><title
-   id="title46325">A list of implementation guides that the server does (or should) support in their entirety</title>implementationGuide</a> : <a
-   id="n1546"
+   id="title11501">A list of implementation guides that the server does (or should) support in their entirety</title>implementationGuide</a> : <a
+   id="n1540"
    xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
-   id="n1547"
+   id="n1541"
    xlink:href="implementationguide.html#ImplementationGuide">ImplementationGuide</a> »</text>
   </g>
   <g
-     id="n1552"
-     transform="translate(-77.698152,-6.566041)">
+     id="n1546">
     <rect
        id="CapabilityStatement.software"
-       x="124.28519"
-       y="41.043442"
+       x="59.34803500000001"
+       y="14.703541000000001"
        rx="4"
        ry="4"
-       width="127.6"
-       height="78"
-       filter="url(#shadow1)"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1553"
-       x1="124.28519"
-       y1="69.043442"
-       x2="251.88519"
-       y2="69.043442"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1554"
-       x="188.08519"
-       y="61.043442"
-       fill="#000000"
-       class="diagram-class-title">Software</text>
-    <text
-       id="n1555"
-       x="130.28519"
-       y="83.043442"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1556"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.software.name"><title
-   id="title46335">Name the software is known by</title>name</a> : <a
-   id="n1557"
-   xlink:href="datatypes.html#string">string</a> [1..1]</text>
-    <text
-       id="n1561"
-       x="130.28519"
-       y="97.043442"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1562"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.software.version"><title
-   id="title46340">The version identifier for the software covered by this statement</title>version</a> : <a
-   id="n1563"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
-    <text
-       id="n1567"
-       x="130.28519"
-       y="111.04344"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1568"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.software.releaseDate"><title
-   id="title46345">Date this version of the software was released</title>releaseDate</a> : <a
-   id="n1569"
-   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
-  </g>
-  <g
-     id="n1573"
-     transform="translate(-30.641525,1.0943402)">
-    <rect
-       id="CapabilityStatement.implementation"
-       x="41.953156"
-       y="158.92162"
-       rx="4"
-       ry="4"
-       width="198"
-       height="78"
-       filter="url(#shadow1)"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1574"
-       x1="41.953156"
-       y1="186.92162"
-       x2="239.95316"
-       y2="186.92162"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1575"
-       x="140.95316"
-       y="178.92162"
-       fill="#000000"
-       class="diagram-class-title">Implementation</text>
-    <text
-       id="n1576"
-       x="47.953156"
-       y="200.92162"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1577"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.implementation.description"><title
-   id="title46354">Information about the specific installation that this capability statement relates to</title>description</a> : <a
-   id="n1578"
-   xlink:href="datatypes.html#markdown">markdown</a> [1..1]</text>
-    <text
-       id="n1582"
-       x="47.953156"
-       y="214.92162"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1583"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.implementation.url"><title
-   id="title46359">An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces</title>url</a> : <a
-   id="n1584"
-   xlink:href="datatypes.html#url">url</a> [0..1]</text>
-    <rect
-       id="n1588"
-       x="42.953156"
-       y="218.92162"
-       width="196"
-       height="14"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:0" />
-    <text
-       id="n1589"
-       x="47.953156"
-       y="228.92162"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1590"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.implementation.custodian"><title
-   id="title46365">The organization responsible for the management of the instance and oversight of the data on the server at the specified URL</title>custodian</a> : <a
-   id="n1591"
-   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n1592"
-   xlink:href="organization.html#Organization">Organization</a> »</text>
-  </g>
-  <g
-     id="n1598">
-    <rect
-       id="CapabilityStatement.rest"
-       x="362.97195"
-       y="441.57306000000005"
-       rx="4"
-       ry="4"
-       width="246.40000000000003"
+       width="127.60000000000001"
        height="78.0"
        filter="url(#shadow1)"
        style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1599"
-       x1="362.97195"
-       y1="469.57306000000005"
-       x2="609.37195"
-       y2="469.57306000000005"
+       id="n1547"
+       x1="59.34803500000001"
+       y1="42.703541"
+       x2="186.948035"
+       y2="42.703541"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1600"
-       x="486.17195000000004"
-       y="461.57306000000005"
+       id="n1548"
+       x="123.14803500000002"
+       y="34.703541"
        fill="black"
-       class="diagram-class-title">Rest</text>
+       class="diagram-class-title">Software</text>
     <text
-       id="n1601"
-       x="368.97195"
-       y="483.57306000000005"
+       id="n1549"
+       x="65.34803500000001"
+       y="56.703541"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1602"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.mode"><title
-   id="title46375">Identifies whether this portion of the statement is describing the ability to initiate or receive restful operations</title>mode</a> : <a
-   id="n1603"
-   xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1604"
-   xlink:href="valueset-restful-capability-mode.html"><title
-   id="n1605">null (Strength=Required)</title>RestfulCapabilityMode</a>! » « <a
-   id="n1606"
-   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
-   xlink:href="conformance-rules.html#constraints"><title
-   id="n1607">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n1550"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.software.name"><title
+   id="title11511">Name the software is known by</title>name</a> : <a
+   id="n1551"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text
-       id="n1615"
-       x="368.97195"
-       y="497.57306000000005"
+       id="n1555"
+       x="65.34803500000001"
+       y="70.703541"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1616"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.documentation"><title
-   id="title46384">Information about the system's restful capabilities that apply across all applications, such as security</title>documentation</a> : <a
-   id="n1617"
-   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+   id="n1556"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.software.version"><title
+   id="title11516">The version identifier for the software covered by this statement</title>version</a> : <a
+   id="n1557"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n1621"
-       x="368.97195"
-       y="511.57306000000005"
+       id="n1561"
+       x="65.34803500000001"
+       y="84.703541"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1622"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.compartment"><title
-   id="title46389">An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL </title>compartment</a> : <a
-   id="n1623"
-   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
-   id="n1624"
-   xlink:href="compartmentdefinition.html#CompartmentDefinition">CompartmentDefinition</a> »</text>
+   id="n1562"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.software.releaseDate"><title
+   id="title11521">Date this version of the software was released</title>releaseDate</a> : <a
+   id="n1563"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
   </g>
   <g
-     id="n1629"
-     transform="translate(-16.415103,20.792463)">
+     id="n1567">
     <rect
-       id="CapabilityStatement.rest.security"
-       x="44.75563"
-       y="331.86496"
+       id="CapabilityStatement.implementation"
+       x="24.072628"
+       y="140.24210019999998"
        rx="4"
        ry="4"
-       width="259.60001"
-       height="78"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1630"
-       x1="44.75563"
-       y1="359.86496"
-       x2="304.35562"
-       y2="359.86496"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1631"
-       x="174.55563"
-       y="351.86496"
-       fill="#000000"
-       class="diagram-class-title">Security</text>
-    <text
-       id="n1632"
-       x="50.75563"
-       y="373.86496"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1633"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.security.cors"><title
-   id="title46399">Server adds CORS headers when responding to requests - this enables Javascript applications to use the server</title>cors</a> : <a
-   id="n1634"
-   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <text
-       id="n1638"
-       x="50.75563"
-       y="387.86496"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1639"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.security.service"><title
-   id="title46404">Types of security services that are supported/required by the system</title>service</a> : <a
-   id="n1640"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n1641"
-   xlink:href="valueset-restful-security-service.html"><title
-   id="n1642">null (Strength=Extensible)</title>RestfulSecurityService</a>+ »</text>
-    <text
-       id="n1648"
-       x="50.75563"
-       y="401.86496"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1649"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.security.description"><title
-   id="title46411">General description of how security works</title>description</a> : <a
-   id="n1650"
-   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
-  </g>
-  <g
-     id="n1654">
-    <rect
-       id="CapabilityStatement.rest.resource"
-       x="356.591999"
-       y="571.795244"
-       rx="4"
-       ry="4"
-       width="259.6"
-       height="246.0"
+       width="198.00000000000003"
+       height="78.0"
        filter="url(#shadow1)"
        style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1655"
-       x1="356.591999"
-       y1="599.795244"
-       x2="616.191999"
-       y2="599.795244"
+       id="n1568"
+       x1="24.072628"
+       y1="168.24210019999998"
+       x2="222.07262800000004"
+       y2="168.24210019999998"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1656"
-       x="486.391999"
-       y="591.795244"
+       id="n1569"
+       x="123.07262800000001"
+       y="160.24210019999998"
        fill="black"
-       class="diagram-class-title">Resource</text>
+       class="diagram-class-title">Implementation</text>
     <text
-       id="n1657"
-       x="362.591999"
-       y="613.795244"
+       id="n1570"
+       x="30.072628"
+       y="182.24210019999998"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1658"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.type"><title
-   id="title46420">A type of resource exposed via the restful interface</title>type</a> : <a
-   id="n1659"
+   id="n1571"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.implementation.description"><title
+   id="title11530">Information about the specific installation that this capability statement relates to</title>description</a> : <a
+   id="n1572"
+   xlink:href="datatypes.html#markdown">markdown</a> [1..1]</text>
+    <text
+       id="n1576"
+       x="30.072628"
+       y="196.24210019999998"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1577"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.implementation.url"><title
+   id="title11535">An absolute base URL for the implementation.  This forms the base for REST interfaces as well as the mailbox and document interfaces</title>url</a> : <a
+   id="n1578"
+   xlink:href="datatypes.html#url">url</a> [0..1]</text>
+    <text
+       id="n1582"
+       x="30.072628"
+       y="210.24210019999998"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1583"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.implementation.custodian"><title
+   id="title11540">The organization responsible for the management of the instance and oversight of the data on the server at the specified URL</title>custodian</a> : <a
+   id="n1584"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1585"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+  </g>
+  <g
+     id="n1590"
+     transform="translate(-11.21269,30.274263)">
+    <rect
+       id="CapabilityStatement.rest"
+       x="375.73294"
+       y="421.79919"
+       rx="4"
+       ry="4"
+       width="246.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1591"
+       x1="375.73294"
+       y1="449.79919"
+       x2="622.13293"
+       y2="449.79919"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1592"
+       x="498.93295"
+       y="441.79919"
+       fill="#000000"
+       class="diagram-class-title">Rest</text>
+    <text
+       id="n1593"
+       x="381.73294"
+       y="463.79919"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1594"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.mode"><title
+   id="title11550">Identifies whether this portion of the statement is describing the ability to initiate or receive restful interactions</title>mode</a> : <a
+   id="n1595"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1660"
-   xlink:href="valueset-resource-types.html"><title
-   id="n1661">null (Strength=Required)</title>ResourceType</a>! » « <a
-   id="n1662"
-   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   id="n1596"
+   xlink:href="valueset-restful-capability-mode.html"><title
+   id="n1597">null (Strength=Required)</title>RestfulCapabilityMode</a>! » « <a
+   id="n1598"
+   style="color:#301212;font-weight:bold"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n1663">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n1599">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1607"
+       x="381.73294"
+       y="477.79919"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1608"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.documentation"><title
+   id="title11559">Information about the system's restful capabilities that apply across all applications, such as security</title>documentation</a> : <a
+   id="n1609"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1613"
+       x="381.73294"
+       y="491.79919"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1614"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.compartment"><title
+   id="title11564">An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by its canonical URL </title>compartment</a> : <a
+   id="n1615"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1616"
+   xlink:href="compartmentdefinition.html#CompartmentDefinition">CompartmentDefinition</a> »</text>
+  </g>
+  <g
+     id="n1621">
+    <rect
+       id="CapabilityStatement.rest.security"
+       x="41.101524"
+       y="332.883563"
+       rx="4"
+       ry="4"
+       width="259.6"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
+    <line
+       id="n1622"
+       x1="41.101524"
+       y1="360.883563"
+       x2="300.701524"
+       y2="360.883563"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1623"
+       x="170.901524"
+       y="352.883563"
+       fill="black"
+       class="diagram-class-title">Security</text>
+    <text
+       id="n1624"
+       x="47.101524"
+       y="374.883563"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1625"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.security.cors"><title
+   id="title11574">Server adds CORS headers when responding to requests - this enables Javascript applications to use the server</title>cors</a> : <a
+   id="n1626"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1630"
+       x="47.101524"
+       y="388.883563"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1631"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.security.service"><title
+   id="title11579">Types of security services that are supported/required by the system</title>service</a> : <a
+   id="n1632"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1633"
+   xlink:href="valueset-restful-security-service.html"><title
+   id="n1634">null (Strength=Extensible)</title>RestfulSecurityService</a>+ »</text>
+    <text
+       id="n1640"
+       x="47.101524"
+       y="402.883563"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1641"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.security.description"><title
+   id="title11586">General description of how security works</title>description</a> : <a
+   id="n1642"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n1646"
+     transform="translate(-21.304111,61.669796)">
+    <rect
+       id="CapabilityStatement.rest.resource"
+       x="369.353"
+       y="552.02136"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="260"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1647"
+       x1="369.353"
+       y1="580.02136"
+       x2="628.953"
+       y2="580.02136"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1648"
+       x="499.15298"
+       y="572.02136"
+       fill="#000000"
+       class="diagram-class-title">Resource</text>
+    <text
+       id="n1649"
+       x="375.353"
+       y="594.02136"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1650"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.type"><title
+   id="title11595">A relative URL, in which case it is a type of resource exposed via the restful interface, either a resource defined in this specification, or an [additional resource](resource.html#additional), or else a full URL referring to some other type that specialises the base resource (e.g. a custom resource)</title>type</a> : <a
+   id="n1651"
+   xlink:href="datatypes.html#uri">uri</a> [1..1] « <a
+   id="n1652"
+   xlink:href="valueset-extended-resource-types.html"><title
+   id="n1653">null (Strength=Extensible)</title>ExtendedResourceTypes</a>+ » « <a
+   id="n1654"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1655">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1663"
+       x="375.353"
+       y="608.02136"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1664"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.definition"><title
+   id="title11604">The definition of the resource, if the resource is an additional resource. If it is not an additional resource, then this element must not be present</title>definition</a> : <a
+   id="n1665"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1666"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
     <text
        id="n1671"
-       x="362.591999"
-       y="627.795244"
-       fill="black"
+       x="375.353"
+       y="622.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1672"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.profile"><title
-   id="title46429">A system-wide profile that is applied across *all* instances of the resource supported by the system. For example, if declared on Observation, this profile is the &quot;superset&quot; of capabilities for laboratory *and* vitals *and* other domains. See further discussion in [Using Profiles](profiling.html#profile-uses)</title>profile</a> : <a
+   id="title11610">A system-wide profile that is applied across *all* instances of the resource supported by the system. For example, if declared on Observation, this profile is the &quot;superset&quot; of capabilities for laboratory *and* vitals *and* other domains. See further discussion in [Using Profiles](profiling.html#profile-uses)</title>profile</a> : <a
    id="n1673"
    xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
    id="n1674"
    xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
-    <rect
-       id="n1679"
-       x="357.591999"
-       y="631.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
     <text
-       id="n1680"
-       x="362.591999"
-       y="641.795244"
-       fill="black"
+       id="n1679"
+       x="375.353"
+       y="636.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1681"
+   id="n1680"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.supportedProfile"><title
-   id="title46436">A list of profiles representing different use cases the system hosts/produces. A supported profile is a statement about the functionality of the data and services provided by the server (or the client) for supported use cases. For example, a system can define and declare multiple Observation profiles for laboratory observations, vital sign observations, etc. By declaring supported profiles, systems provide a way to determine whether individual resources are conformant. See further discussion in [Using Profiles](profiling.html#profile-uses)</title>supportedProfile</a> : <a
-   id="n1682"
+   id="title11616">A list of profiles representing different use cases the system hosts/produces. A supported profile is a statement about the functionality of the data and services provided by the server (or the client) for supported use cases. For example, a system can define and declare multiple Observation profiles for laboratory observations, vital sign observations, etc. By declaring supported profiles, systems provide a way to determine whether individual resources are conformant. See further discussion in [Using Profiles](profiling.html#profile-uses)</title>supportedProfile</a> : <a
+   id="n1681"
    xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
-   id="n1683"
+   id="n1682"
    xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> »</text>
     <text
-       id="n1689"
-       x="362.591999"
-       y="655.795244"
-       fill="black"
+       id="n1687"
+       x="375.353"
+       y="650.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1690"
+   id="n1688"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.documentation"><title
-   id="title46442">Additional information about the resource type used by the system</title>documentation</a> : <a
-   id="n1691"
+   id="title11622">Additional information about the resource type used by the system</title>documentation</a> : <a
+   id="n1689"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
-    <rect
-       id="n1695"
-       x="357.591999"
-       y="659.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
     <text
-       id="n1696"
-       x="362.591999"
-       y="669.795244"
-       fill="black"
+       id="n1693"
+       x="375.353"
+       y="664.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1697"
+   id="n1694"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.versioning"><title
-   id="title46448">This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API</title>versioning</a> : <a
-   id="n1698"
+   id="title11627">This field is set to no-version to specify that the system does not support (server) or use (client) versioning for this resource type. If this has some other value, the server must at least correctly track and populate the versionId meta-property on resources. If the value is 'versioned-update', then the server supports all the versioning features, including using e-tags for version integrity in the API</title>versioning</a> : <a
+   id="n1695"
    xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n1699"
+   id="n1696"
    xlink:href="valueset-versioning-policy.html"><title
-   id="n1700">null (Strength=Required)</title>ResourceVersionPolicy</a>! »</text>
-    <rect
-       id="n1707"
-       x="357.591999"
-       y="673.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+   id="n1697">null (Strength=Required)</title>ResourceVersionPolicy</a>! »</text>
     <text
-       id="n1708"
-       x="362.591999"
-       y="683.795244"
-       fill="black"
+       id="n1703"
+       x="375.353"
+       y="678.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1709"
+   id="n1704"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.readHistory"><title
-   id="title46456">A flag for whether the server is able to return past versions as part of the vRead operation</title>readHistory</a> : <a
+   id="title11634">A flag for whether the server is able to return past versions as part of the vRead interaction</title>readHistory</a> : <a
+   id="n1705"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1709"
+       x="375.353"
+       y="692.02136"
+       fill="#000000"
+       class="diagram-class-detail"><a
    id="n1710"
-   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <rect
-       id="n1715"
-       x="357.591999"
-       y="687.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
-    <text
-       id="n1716"
-       x="362.591999"
-       y="697.795244"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n1717"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.updateCreate"><title
-   id="title46462">A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this operation means that the server allows the client to create new identities on the server</title>updateCreate</a> : <a
-   id="n1718"
+   id="title11639">A flag to indicate that the server allows or needs to allow the client to create new identities on the server (that is, the client PUTs to a location where there is no existing resource). Allowing this interaction means that the server allows the client to create new identities on the server</title>updateCreate</a> : <a
+   id="n1711"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <rect
-       id="n1723"
-       x="357.591999"
-       y="701.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
     <text
-       id="n1724"
-       x="362.591999"
-       y="711.795244"
-       fill="black"
+       id="n1715"
+       x="375.353"
+       y="706.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1725"
+   id="n1716"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalCreate"><title
-   id="title46468">A flag that indicates that the server supports conditional create</title>conditionalCreate</a> : <a
-   id="n1726"
+   id="title11644">A flag that indicates that the server supports conditional create</title>conditionalCreate</a> : <a
+   id="n1717"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <rect
-       id="n1731"
-       x="357.591999"
-       y="715.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
     <text
-       id="n1732"
-       x="362.591999"
-       y="725.795244"
-       fill="black"
+       id="n1721"
+       x="375.353"
+       y="720.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1733"
+   id="n1722"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalRead"><title
-   id="title46474">A code that indicates how the server supports conditional read</title>conditionalRead</a> : <a
-   id="n1734"
+   id="title11649">A code that indicates how the server supports conditional read</title>conditionalRead</a> : <a
+   id="n1723"
    xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n1735"
+   id="n1724"
    xlink:href="valueset-conditional-read-status.html"><title
-   id="n1736">null (Strength=Required)</title>ConditionalReadStatus</a>! »</text>
-    <rect
-       id="n1743"
-       x="357.591999"
-       y="729.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+   id="n1725">null (Strength=Required)</title>ConditionalReadStatus</a>! »</text>
     <text
-       id="n1744"
-       x="362.591999"
-       y="739.795244"
-       fill="black"
+       id="n1731"
+       x="375.353"
+       y="734.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1745"
+   id="n1732"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalUpdate"><title
-   id="title46482">A flag that indicates that the server supports conditional update</title>conditionalUpdate</a> : <a
-   id="n1746"
+   id="title11656">A flag that indicates that the server supports conditional update</title>conditionalUpdate</a> : <a
+   id="n1733"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <rect
-       id="n1751"
-       x="357.591999"
-       y="743.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
     <text
-       id="n1752"
-       x="362.591999"
-       y="753.795244"
-       fill="black"
+       id="n1737"
+       x="375.353"
+       y="748.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1753"
+   id="n1738"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalPatch"><title
-   id="title46488">A flag that indicates that the server supports conditional patch</title>conditionalPatch</a> : <a
-   id="n1754"
+   id="title11661">A flag that indicates that the server supports conditional patch</title>conditionalPatch</a> : <a
+   id="n1739"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <rect
-       id="n1759"
-       x="357.591999"
-       y="757.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
     <text
-       id="n1760"
-       x="362.591999"
-       y="767.795244"
-       fill="black"
+       id="n1743"
+       x="375.353"
+       y="762.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1761"
+   id="n1744"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.conditionalDelete"><title
-   id="title46494">A code that indicates how the server supports conditional delete</title>conditionalDelete</a> : <a
-   id="n1762"
+   id="title11666">A code that indicates how the server supports conditional delete</title>conditionalDelete</a> : <a
+   id="n1745"
    xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n1763"
+   id="n1746"
    xlink:href="valueset-conditional-delete-status.html"><title
-   id="n1764">null (Strength=Required)</title>ConditionalDeleteStatus</a>! »</text>
-    <rect
-       id="n1771"
-       x="357.591999"
-       y="771.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+   id="n1747">null (Strength=Required)</title>ConditionalDeleteStatus</a>! »</text>
     <text
-       id="n1772"
-       x="362.591999"
-       y="781.795244"
-       fill="black"
+       id="n1753"
+       x="375.353"
+       y="776.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1773"
+   id="n1754"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.referencePolicy"><title
-   id="title46502">A set of flags that defines how references are supported</title>referencePolicy</a> : <a
-   id="n1774"
+   id="title11673">A set of flags that defines how references are supported</title>referencePolicy</a> : <a
+   id="n1755"
    xlink:href="datatypes.html#code">code</a> [0..*] « <a
-   id="n1775"
+   id="n1756"
    xlink:href="valueset-reference-handling-policy.html"><title
-   id="n1776">null (Strength=Required)</title>ReferenceHandlingPolicy</a>! »</text>
-    <rect
-       id="n1783"
-       x="357.591999"
-       y="785.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+   id="n1757">null (Strength=Required)</title>ReferenceHandlingPolicy</a>! »</text>
     <text
-       id="n1784"
-       x="362.591999"
-       y="795.795244"
-       fill="black"
+       id="n1763"
+       x="375.353"
+       y="790.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1785"
+   id="n1764"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchInclude"><title
-   id="title46510">A list of _include values supported by the server</title>searchInclude</a> : <a
-   id="n1786"
+   id="title11680">A list of _include values supported by the server</title>searchInclude</a> : <a
+   id="n1765"
    xlink:href="datatypes.html#string">string</a> [0..*]</text>
-    <rect
-       id="n1791"
-       x="357.591999"
-       y="799.795244"
-       width="257.6"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
     <text
-       id="n1792"
-       x="362.591999"
-       y="809.795244"
-       fill="black"
+       id="n1769"
+       x="375.353"
+       y="804.02136"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1793"
+   id="n1770"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchRevInclude"><title
-   id="title46516">A list of _revinclude (reverse include) values supported by the server</title>searchRevInclude</a> : <a
-   id="n1794"
+   id="title11685">A list of _revinclude (reverse include) values supported by the server</title>searchRevInclude</a> : <a
+   id="n1771"
    xlink:href="datatypes.html#string">string</a> [0..*]</text>
   </g>
   <g
-     id="n1799"
-     transform="translate(-37.207566,-1.0943402)">
+     id="n1775">
     <rect
        id="CapabilityStatement.rest.resource.interaction"
-       x="58.299068"
-       y="663.37744"
+       x="33.852499"
+       y="642.5092397999999"
        rx="4"
        ry="4"
-       width="198"
-       height="64"
+       width="198.00000000000003"
+       height="64.0"
        filter="url(#shadow1)"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1800"
-       x1="58.299068"
-       y1="691.37744"
-       x2="256.29907"
-       y2="691.37744"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1776"
+       x1="33.852499"
+       y1="670.5092397999999"
+       x2="231.85249900000002"
+       y2="670.5092397999999"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1801"
-       x="157.29907"
-       y="683.37744"
-       fill="#000000"
+       id="n1777"
+       x="132.85249900000002"
+       y="662.5092397999999"
+       fill="black"
        class="diagram-class-title">ResourceInteraction</text>
     <text
-       id="n1802"
-       x="64.299072"
-       y="705.37744"
-       fill="#000000"
+       id="n1778"
+       x="39.852499"
+       y="684.5092397999999"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1803"
+   id="n1779"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.interaction.code"><title
-   id="title46525">Coded identifier of the operation, supported by the system resource</title>code</a> : <a
-   id="n1804"
+   id="title11694">Coded identifier of the interaction, supported by the system resource</title>code</a> : <a
+   id="n1780"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1805"
+   id="n1781"
    xlink:href="valueset-type-restful-interaction.html"><title
-   id="n1806">null (Strength=Required)</title>TypeRestfulInteraction</a>! »</text>
+   id="n1782">null (Strength=Required)</title>TypeRestfulInteraction</a>! »</text>
     <text
-       id="n1812"
-       x="64.299072"
-       y="719.37744"
-       fill="#000000"
+       id="n1788"
+       x="39.852499"
+       y="698.5092397999999"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1813"
+   id="n1789"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.interaction.documentation"><title
-   id="title46532">Guidance specific to the implementation of this operation, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'</title>documentation</a> : <a
-   id="n1814"
+   id="title11701">Guidance specific to the implementation of this interaction, such as 'delete is a logical delete' or 'updates are only allowed with version id' or 'creates permitted from pre-authorized certificates only'</title>documentation</a> : <a
+   id="n1790"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
   </g>
   <g
-     id="n1818"
-     transform="translate(-38.301906)">
+     id="n1794">
     <rect
        id="CapabilityStatement.rest.resource.searchParam"
-       x="45.540909"
-       y="523.11426"
+       x="20.0"
+       y="503.34039999999993"
        rx="4"
        ry="4"
-       width="215.60001"
-       height="92"
+       width="215.60000000000002"
+       height="92.0"
        filter="url(#shadow1)"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1819"
-       x1="45.540909"
-       y1="551.11426"
-       x2="261.1409"
-       y2="551.11426"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1795"
+       x1="20.0"
+       y1="531.3403999999999"
+       x2="235.60000000000002"
+       y2="531.3403999999999"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1820"
-       x="153.34091"
-       y="543.11426"
-       fill="#000000"
+       id="n1796"
+       x="127.80000000000001"
+       y="523.3403999999999"
+       fill="black"
        class="diagram-class-title">SearchParam</text>
     <text
-       id="n1821"
-       x="51.540909"
-       y="565.11426"
-       fill="#000000"
+       id="n1797"
+       x="26.0"
+       y="545.3403999999999"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1822"
+   id="n1798"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam.name"><title
-   id="title46541">The label used for the search parameter in this particular system's API - i.e. the 'name' portion of the name-value pair that will appear as part of the search URL.  This SHOULD be the same as the SearchParameter.code of the defining SearchParameter.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple SearchParameters that happen to share the same code</title>name</a> : <a
-   id="n1823"
+   id="title11710">The label used for the search parameter in this particular system's API - i.e. the 'name' portion of the name-value pair that will appear as part of the search URL.  This SHOULD be the same as the SearchParameter.code of the defining SearchParameter.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple SearchParameters that happen to share the same code</title>name</a> : <a
+   id="n1799"
    xlink:href="datatypes.html#string">string</a> [1..1] « <a
-   id="n1824"
-   style="color:#301212;font-weight:bold"
+   id="n1800"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n1825">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n1801">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n1831"
-       x="51.540909"
-       y="579.11426"
-       fill="#000000"
+       id="n1807"
+       x="26.0"
+       y="559.3403999999999"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1832"
+   id="n1808"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam.definition"><title
-   id="title46548">An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [SearchParameter.url](searchparameter-definitions.html#SearchParameter.url)). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs</title>definition</a> : <a
-   id="n1833"
+   id="title11717">An absolute URI that is a formal reference to where this parameter was first defined, so that a client can be confident of the meaning of the search parameter (a reference to [SearchParameter.url](searchparameter-definitions.html#SearchParameter.url)). This element SHALL be populated if the search parameter refers to a SearchParameter defined by the FHIR core specification or externally defined IGs</title>definition</a> : <a
+   id="n1809"
    xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
-   id="n1834"
+   id="n1810"
    xlink:href="searchparameter.html#SearchParameter">SearchParameter</a> »</text>
     <text
-       id="n1839"
-       x="51.540909"
-       y="593.11426"
-       fill="#000000"
+       id="n1815"
+       x="26.0"
+       y="573.3403999999999"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1840"
+   id="n1816"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam.type"><title
-   id="title46554">The type of value a search parameter refers to, and how the content is interpreted</title>type</a> : <a
-   id="n1841"
+   id="title11723">The type of value a search parameter refers to, and how the content is interpreted</title>type</a> : <a
+   id="n1817"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1842"
+   id="n1818"
    xlink:href="valueset-search-param-type.html"><title
-   id="n1843">null (Strength=Required)</title>SearchParamType</a>! »</text>
+   id="n1819">null (Strength=Required)</title>SearchParamType</a>! »</text>
     <text
-       id="n1849"
-       x="51.540909"
-       y="607.11426"
-       fill="#000000"
+       id="n1825"
+       x="26.0"
+       y="587.3403999999999"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1850"
+   id="n1826"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam.documentation"><title
-   id="title46561">This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms</title>documentation</a> : <a
-   id="n1851"
+   id="title11730">This allows documentation of any distinct behaviors about how the search parameter is used.  For example, text matching algorithms</title>documentation</a> : <a
+   id="n1827"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
   </g>
   <g
-     id="n1855"
-     transform="translate(20.792463,-1.0943402)">
+     id="n1831">
     <rect
        id="CapabilityStatement.rest.resource.operation"
-       x="730.34778"
-       y="621.41559"
+       x="763.9012399999999"
+       y="600.5473897999999"
        rx="4"
        ry="4"
-       width="233.2"
-       height="78"
+       width="233.20000000000002"
+       height="78.0"
        filter="url(#shadow1)"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1856"
-       x1="730.34778"
-       y1="649.41559"
-       x2="963.54779"
-       y2="649.41559"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1832"
+       x1="763.9012399999999"
+       y1="628.5473897999999"
+       x2="997.10124"
+       y2="628.5473897999999"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1857"
-       x="846.94781"
-       y="641.41559"
-       fill="#000000"
+       id="n1833"
+       x="880.5012399999999"
+       y="620.5473897999999"
+       fill="black"
        class="diagram-class-title">Operation</text>
     <text
-       id="n1858"
-       x="736.34778"
-       y="663.41559"
-       fill="#000000"
+       id="n1834"
+       x="769.9012399999999"
+       y="642.5473897999999"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1859"
+   id="n1835"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.operation.name"><title
-   id="title46570">The name of the operation or query. For an operation, this name is prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called. This SHOULD be the same as the OperationDefinition.code of the defining OperationDefinition.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple OperationDefinition that happen to share the same code</title>name</a> : <a
-   id="n1860"
+   id="title11739">The name of the operation or query. For an operation, this name is prefixed with $ and used in the URL. For a query, this is the name used in the _query parameter when the query is called. This SHOULD be the same as the OperationDefinition.code of the defining OperationDefinition.  However, it can sometimes differ if necessary to disambiguate when a server supports multiple OperationDefinition that happen to share the same code</title>name</a> : <a
+   id="n1836"
    xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text
-       id="n1864"
-       x="736.34778"
-       y="677.41559"
-       fill="#000000"
+       id="n1840"
+       x="769.9012399999999"
+       y="656.5473897999999"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1865"
+   id="n1841"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.operation.definition"><title
-   id="title46575">Where the formal definition can be found. If a server references the base definition of an Operation (i.e. from the specification itself such as ```http://hl7.org/fhir/OperationDefinition/ValueSet-expand```), that means it supports the full capabilities of the operation - e.g. both GET and POST invocation.  If it only supports a subset, it must define its own custom [OperationDefinition](operationdefinition.html#) with a 'base' of the original OperationDefinition.  The custom definition would describe the specific subset of functionality supported</title>definition</a> : <a
-   id="n1866"
+   id="title11744">Where the formal definition can be found. If a server references the base definition of an Operation (i.e. from the specification itself such as ```http://hl7.org/fhir/OperationDefinition/ValueSet-expand```), that means it supports the full capabilities of the operation - e.g. both GET and POST invocation.  If it only supports a subset, it must define its own custom [OperationDefinition](operationdefinition.html#) with a 'base' of the original OperationDefinition.  The custom definition would describe the specific subset of functionality supported</title>definition</a> : <a
+   id="n1842"
    xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
-   id="n1867"
+   id="n1843"
    xlink:href="operationdefinition.html#OperationDefinition">OperationDefinition</a> »</text>
     <text
-       id="n1872"
-       x="736.34778"
-       y="691.41559"
-       fill="#000000"
+       id="n1848"
+       x="769.9012399999999"
+       y="670.5473897999999"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1873"
+   id="n1849"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.operation.documentation"><title
-   id="title46581">Documentation that describes anything special about the operation behavior, possibly detailing different behavior for system, type and instance-level invocation of the operation</title>documentation</a> : <a
-   id="n1874"
+   id="title11750">Documentation that describes anything special about the operation behavior, possibly detailing different behavior for system, type and instance-level invocation of the operation</title>documentation</a> : <a
+   id="n1850"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
   </g>
   <g
-     id="n1878">
+     id="n1854">
     <rect
        id="CapabilityStatement.rest.interaction"
-       x="752.630366"
-       y="475.031256"
+       x="765.391363"
+       y="455.25739599999997"
        rx="4"
        ry="4"
        width="206.8"
@@ -1195,780 +1123,776 @@
        filter="url(#shadow1)"
        style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1879"
-       x1="752.630366"
-       y1="503.031256"
-       x2="959.430366"
-       y2="503.031256"
+       id="n1855"
+       x1="765.391363"
+       y1="483.25739599999997"
+       x2="972.1913629999999"
+       y2="483.25739599999997"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1880"
-       x="856.030366"
-       y="495.031256"
+       id="n1856"
+       x="868.7913629999999"
+       y="475.25739599999997"
        fill="black"
        class="diagram-class-title">SystemInteraction</text>
     <text
-       id="n1881"
-       x="758.630366"
-       y="517.031256"
+       id="n1857"
+       x="771.391363"
+       y="497.25739599999997"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1882"
+   id="n1858"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.interaction.code"><title
-   id="title46590">A coded identifier of the operation, supported by the system</title>code</a> : <a
-   id="n1883"
+   id="title11759">A coded identifier of the interaction, supported by the system</title>code</a> : <a
+   id="n1859"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1884"
+   id="n1860"
    xlink:href="valueset-system-restful-interaction.html"><title
-   id="n1885">null (Strength=Required)</title>SystemRestfulInteraction</a>! »</text>
+   id="n1861">null (Strength=Required)</title>SystemRestfulInteraction</a>! »</text>
+    <text
+       id="n1867"
+       x="771.391363"
+       y="511.25739599999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1868"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.interaction.documentation"><title
+   id="title11766">Guidance specific to the implementation of this interaction, such as limitations on the kind of transactions allowed, or information about system wide search is implemented</title>documentation</a> : <a
+   id="n1869"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n1873">
+    <rect
+       id="CapabilityStatement.messaging"
+       x="789.0710389999999"
+       y="255.626123"
+       rx="4"
+       ry="4"
+       width="149.60000000000002"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
+    <line
+       id="n1874"
+       x1="789.0710389999999"
+       y1="283.626123"
+       x2="938.671039"
+       y2="283.626123"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1875"
+       x="863.8710389999999"
+       y="275.626123"
+       fill="black"
+       class="diagram-class-title">Messaging</text>
+    <text
+       id="n1876"
+       x="795.0710389999999"
+       y="297.626123"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1877"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.reliableCache"><title
+   id="title11775">Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)</title>reliableCache</a> : <a
+   id="n1878"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
+    <text
+       id="n1882"
+       x="795.0710389999999"
+       y="311.626123"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1883"
+   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.documentation"><title
+   id="title11780">Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner</title>documentation</a> : <a
+   id="n1884"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n1888">
+    <rect
+       id="CapabilityStatement.messaging.endpoint"
+       x="760.369374"
+       y="367.720436"
+       rx="4"
+       ry="4"
+       width="198.00000000000003"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1889"
+       x1="760.369374"
+       y1="395.720436"
+       x2="958.369374"
+       y2="395.720436"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1890"
+       x="859.369374"
+       y="387.720436"
+       fill="black"
+       class="diagram-class-title">Endpoint</text>
     <text
        id="n1891"
-       x="758.630366"
-       y="531.031256"
+       x="766.369374"
+       y="409.720436"
        fill="black"
        class="diagram-class-detail"><a
    id="n1892"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.interaction.documentation"><title
-   id="title46597">Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented</title>documentation</a> : <a
-   id="n1893"
-   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
-  </g>
-  <g
-     id="n1897"
-     transform="translate(14.226422,21.886803)">
-    <rect
-       id="CapabilityStatement.messaging"
-       x="762.08362"
-       y="253.51318"
-       rx="4"
-       ry="4"
-       width="149.60001"
-       height="64"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1898"
-       x1="762.08362"
-       y1="281.51318"
-       x2="911.68365"
-       y2="281.51318"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1899"
-       x="836.88367"
-       y="273.51318"
-       fill="#000000"
-       class="diagram-class-title">Messaging</text>
-    <text
-       id="n1900"
-       x="768.08362"
-       y="295.51318"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1901"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.reliableCache"><title
-   id="title46606">Length if the receiver's reliable messaging cache in minutes (if a receiver) or how long the cache length on the receiver should be (if a sender)</title>reliableCache</a> : <a
-   id="n1902"
-   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
-    <text
-       id="n1906"
-       x="768.08362"
-       y="309.51318"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1907"
-   xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.documentation"><title
-   id="title46611">Documentation about the system's messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner</title>documentation</a> : <a
-   id="n1908"
-   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
-  </g>
-  <g
-     id="n1912"
-     transform="translate(-18.603783,36.113226)">
-    <rect
-       id="CapabilityStatement.messaging.endpoint"
-       x="766.21216"
-       y="351.38107"
-       rx="4"
-       ry="4"
-       width="198"
-       height="64"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1913"
-       x1="766.21216"
-       y1="379.38107"
-       x2="964.21216"
-       y2="379.38107"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1914"
-       x="865.21216"
-       y="371.38107"
-       fill="#000000"
-       class="diagram-class-title">Endpoint</text>
-    <text
-       id="n1915"
-       x="772.21216"
-       y="393.38107"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1916"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.endpoint.protocol"><title
-   id="title46620">A list of the messaging transport protocol(s) identifiers, supported by this endpoint</title>protocol</a> : <a
-   id="n1917"
+   id="title11789">A list of the messaging transport protocol(s) identifiers, supported by this endpoint</title>protocol</a> : <a
+   id="n1893"
    xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
-   id="n1918"
+   id="n1894"
    xlink:href="valueset-message-transport.html"><title
-   id="n1919">null (Strength=Extensible)</title>MessageTransport</a>+ »</text>
+   id="n1895">null (Strength=Extensible)</title>MessageTransport</a>+ »</text>
     <text
-       id="n1925"
-       x="772.21216"
-       y="407.38107"
-       fill="#000000"
+       id="n1901"
+       x="766.369374"
+       y="423.720436"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1926"
+   id="n1902"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.endpoint.address"><title
-   id="title46627">The network address of the endpoint. For solutions that do not use network addresses for routing, it can be just an identifier</title>address</a> : <a
-   id="n1927"
+   id="title11796">The network address of the endpoint. For solutions that do not use network addresses for routing, it can be just an identifier</title>address</a> : <a
+   id="n1903"
    xlink:href="datatypes.html#url">url</a> [1..1]</text>
   </g>
   <g
-     id="n1931"
-     transform="translate(15.320762,-7.6603812)">
+     id="n1907">
     <rect
        id="CapabilityStatement.messaging.supportedMessage"
-       x="722.1499"
-       y="154.46617"
+       x="750.2316589999999"
+       y="127.03192880000002"
        rx="4"
        ry="4"
-       width="224.39999"
-       height="64"
+       width="224.4"
+       height="64.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1932"
-       x1="722.1499"
-       y1="182.46617"
-       x2="946.54987"
-       y2="182.46617"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1908"
+       x1="750.2316589999999"
+       y1="155.0319288"
+       x2="974.6316589999999"
+       y2="155.0319288"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1933"
-       x="834.34985"
-       y="174.46617"
-       fill="#000000"
+       id="n1909"
+       x="862.431659"
+       y="147.0319288"
+       fill="black"
        class="diagram-class-title">SupportedMessage</text>
     <text
-       id="n1934"
-       x="728.1499"
-       y="196.46617"
-       fill="#000000"
+       id="n1910"
+       x="756.2316589999999"
+       y="169.0319288"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1935"
+   id="n1911"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.supportedMessage.mode"><title
-   id="title46636">The mode of this event declaration - whether application is sender or receiver</title>mode</a> : <a
-   id="n1936"
+   id="title11805">The mode of this event declaration - whether application is sender or receiver</title>mode</a> : <a
+   id="n1912"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1937"
+   id="n1913"
    xlink:href="valueset-event-capability-mode.html"><title
-   id="n1938">null (Strength=Required)</title>EventCapabilityMode</a>! »</text>
+   id="n1914">null (Strength=Required)</title>EventCapabilityMode</a>! »</text>
     <text
-       id="n1944"
-       x="728.1499"
-       y="210.46617"
-       fill="#000000"
+       id="n1920"
+       x="756.2316589999999"
+       y="183.0319288"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1945"
+   id="n1921"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.supportedMessage.definition"><title
-   id="title46643">Points to a message definition that identifies the messaging event, message structure, allowed responses, etc</title>definition</a> : <a
-   id="n1946"
+   id="title11812">Points to a message definition that identifies the messaging event, message structure, allowed responses, etc</title>definition</a> : <a
+   id="n1922"
    xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
-   id="n1947"
+   id="n1923"
    xlink:href="messagedefinition.html#MessageDefinition">MessageDefinition</a> »</text>
   </g>
   <g
-     id="n1952"
-     transform="translate(48.150967,-8.7547214)">
+     id="n1928">
     <rect
        id="CapabilityStatement.document"
-       x="716.20239"
-       y="37.665199"
+       x="777.114354"
+       y="9.136617600000001"
        rx="4"
        ry="4"
-       width="246.39999"
-       height="78"
+       width="246.40000000000003"
+       height="78.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1953"
-       x1="716.20239"
-       y1="65.665199"
-       x2="962.60236"
-       y2="65.665199"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1929"
+       x1="777.114354"
+       y1="37.1366176"
+       x2="1023.5143540000001"
+       y2="37.1366176"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1954"
-       x="839.4024"
-       y="57.665199"
-       fill="#000000"
+       id="n1930"
+       x="900.3143540000001"
+       y="29.1366176"
+       fill="black"
        class="diagram-class-title">Document</text>
     <text
-       id="n1955"
-       x="722.20239"
-       y="79.665199"
-       fill="#000000"
+       id="n1931"
+       x="783.114354"
+       y="51.1366176"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1956"
+   id="n1932"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.document.mode"><title
-   id="title46653">Mode of this document declaration - whether an application is a producer or consumer</title>mode</a> : <a
-   id="n1957"
+   id="title11822">Mode of this document declaration - whether an application is a producer or consumer</title>mode</a> : <a
+   id="n1933"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1958"
+   id="n1934"
    xlink:href="valueset-document-mode.html"><title
-   id="n1959">null (Strength=Required)</title>DocumentMode</a>! » « <a
-   id="n1960"
-   style="color:#301212;font-weight:bold"
+   id="n1935">null (Strength=Required)</title>DocumentMode</a>! » « <a
+   id="n1936"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n1961">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n1937">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n1969"
-       x="722.20239"
-       y="93.665199"
-       fill="#000000"
+       id="n1945"
+       x="783.114354"
+       y="65.1366176"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1970"
+   id="n1946"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.document.documentation"><title
-   id="title46662">A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc</title>documentation</a> : <a
-   id="n1971"
+   id="title11831">A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc</title>documentation</a> : <a
+   id="n1947"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n1975"
-       x="722.20239"
-       y="107.6652"
-       fill="#000000"
+       id="n1951"
+       x="783.114354"
+       y="79.1366176"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1976"
+   id="n1952"
    xlink:href="capabilitystatement-definitions.html#CapabilityStatement.document.profile"><title
-   id="title46667">A profile on the document Bundle that constrains which resources are present, and their contents</title>profile</a> : <a
-   id="n1977"
+   id="title11836">A profile on the document Bundle that constrains which resources are present, and their contents</title>profile</a> : <a
+   id="n1953"
    xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
-   id="n1978"
+   id="n1954"
    xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> » « <a
-   id="n1979"
-   style="color:#301212;font-weight:bold"
+   id="n1955"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n1980">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n1956">This element has or is affected by some invariants</title>C</a> »</text>
   </g>
   <line
-     id="n1987"
-     x1="327.16517899999997"
-     y1="142.93573574944423"
-     x2="251.88518800000003"
-     y2="108.893950169033"
+     id="n1963"
+     x1="339.92617599999994"
+     y1="143.2232000187728"
+     x2="186.948035"
+     y2="80.05008230278618"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1988"
-     points="327.16517899999997,142.93573574944423 333.16517899999997,146.93573574944423 339.16517899999997,142.93573574944423 333.16517899999997,138.93573574944423 327.16517899999997,142.93573574944423"
+     id="n1964"
+     points="339.92617599999994,143.2232000187728 345.92617599999994,147.2232000187728 351.92617599999994,143.2232000187728 345.92617599999994,139.2232000187728 339.92617599999994,143.2232000187728"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-155.66740742046943 327.16517899999997 142.93573574944423)" />
+     transform="rotate(-157.56156793891185 339.92617599999994 143.2232000187728)" />
   <rect
-     id="n1989"
-     x="271.5"
-     y="118.0"
+     id="n1965"
+     x="245.5"
+     y="104.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1990"
-     x="289.0"
-     y="128.0"
+     id="n1966"
+     x="263.0"
+     y="114.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1991"
+       id="n1967"
        xlink:href="capabilitystatement-definitions.html#CapabilityStatement.software"><title
-   id="title46679">Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation</title>software</a></text>
+   id="title11848">Software that is covered by this capability statement.  It is used when the capability statement describes the capabilities of a particular software version, independent of an installation</title>software</a></text>
   <text
-     id="n1992"
-     x="266.885188"
-     y="104.893950169033"
+     id="n1968"
+     x="201.948035"
+     y="76.05008230278618"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n1993"
-     x1="327.16517899999997"
-     y1="206.04036136425873"
-     x2="239.95315400000004"
-     y2="202.23796527932132"
+     id="n1969"
+     x1="339.92617599999994"
+     y1="195.45406803268236"
+     x2="222.07262800000004"
+     y2="186.6433386405883"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1994"
-     points="327.16517899999997,206.04036136425873 333.16517899999997,210.04036136425873 339.16517899999997,206.04036136425873 333.16517899999997,202.04036136425873 327.16517899999997,206.04036136425873"
+     id="n1970"
+     points="339.92617599999994,195.45406803268236 345.92617599999994,199.45406803268236 351.92617599999994,195.45406803268236 345.92617599999994,191.45406803268236 339.92617599999994,195.45406803268236"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-177.50351674632367 327.16517899999997 206.04036136425873)" />
+     transform="rotate(-175.7245218836052 339.92617599999994 195.45406803268236)" />
   <rect
-     id="n1995"
-     x="252.5"
-     y="197.0"
+     id="n1971"
+     x="249.5"
+     y="184.0"
      width="61.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1996"
-     x="283.0"
-     y="207.0"
+     id="n1972"
+     x="280.0"
+     y="194.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1997"
+       id="n1973"
        xlink:href="capabilitystatement-definitions.html#CapabilityStatement.implementation"><title
-   id="title46687">Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program</title>implementation</a></text>
+   id="title11856">Identifies a specific implementation instance that is described by the capability statement - i.e. a particular installation, rather than the capabilities of a software program</title>implementation</a></text>
   <text
-     id="n1998"
-     x="254.95315400000004"
-     y="198.23796527932132"
+     id="n1974"
+     x="237.07262800000004"
+     y="182.6433386405883"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
+     id="n1975"
+     x1="375.73294699999997"
+     y1="427.4048185160042"
+     x2="300.701524"
+     y2="407.0669292063527"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1976"
+     points="375.73294699999997,427.4048185160042 381.73294699999997,431.4048185160042 387.73294699999997,427.4048185160042 381.73294699999997,423.4048185160042 375.73294699999997,427.4048185160042"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-164.83392431004035 375.73294699999997 427.4048185160042)" />
+  <rect
+     id="n1977"
+     x="320.5"
+     y="410.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1978"
+     x="338.0"
+     y="420.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1979"
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.security"><title
+   id="title11864">Information about security implementation from an interface perspective - what a client needs to know</title>security</a></text>
+  <text
+     id="n1980"
+     x="315.701524"
+     y="403.0669292063527"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1981"
+     x1="369.35299599999996"
+     y1="679.3594266039662"
+     x2="231.85249900000002"
+     y2="676.5395462885002"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1982"
+     points="369.35299599999996,679.3594266039662 375.35299599999996,683.3594266039662 381.35299599999996,679.3594266039662 375.35299599999996,675.3594266039662 369.35299599999996,679.3594266039662"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-178.82513446003472 369.35299599999996 679.3594266039662)" />
+  <rect
+     id="n1983"
+     x="276.0"
+     y="670.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1984"
+     x="300.0"
+     y="680.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1985"
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.interaction"><title
+   id="title11872">Identifies a restful interaction supported by the solution</title>interaction</a></text>
+  <text
+     id="n1986"
+     x="246.85249900000002"
+     y="672.5395462885002"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1987"
+     x1="369.35299599999996"
+     y1="635.6450469064384"
+     x2="235.60000000000002"
+     y2="587.8563409760086"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1988"
+     points="369.35299599999996,635.6450469064384 375.35299599999996,639.6450469064384 381.35299599999996,635.6450469064384 375.35299599999996,631.6450469064384 369.35299599999996,635.6450469064384"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-160.33866209691567 369.35299599999996 635.6450469064384)" />
+  <rect
+     id="n1989"
+     x="278.0"
+     y="604.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1990"
+     x="302.0"
+     y="614.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1991"
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam"><title
+   id="title11880">Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation</title>searchParam</a></text>
+  <text
+     id="n1992"
+     x="250.60000000000002"
+     y="583.8563409760086"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1993"
+     x1="628.952996"
+     y1="667.564455106524"
+     x2="763.9012399999999"
+     y2="652.5341225348177"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1994"
+     points="628.952996,667.564455106524 634.952996,671.564455106524 640.952996,667.564455106524 634.952996,663.564455106524 628.952996,667.564455106524"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-6.355324546640879 628.952996 667.564455106524)" />
+  <rect
+     id="n1995"
+     x="676.5"
+     y="653.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1996"
+     x="696.0"
+     y="663.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1997"
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.operation"><title
+   id="title11888">Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the operation, and the parameters</title>operation</a></text>
+  <text
+     id="n1998"
+     x="743.9012399999999"
+     y="648.5341225348177"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
      id="n1999"
-     x1="375.3958366309375"
-     y1="441.57306000000005"
-     x2="285.3317433690625"
-     y2="409.864964"
+     x1="498.9717401754619"
+     y1="499.79920000000857"
+     x2="499.0236854151265"
+     y2="552.0213840000215"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n2000"
-     points="375.3958366309375,441.57306000000005 381.3958366309375,445.57306000000005 387.3958366309375,441.57306000000005 381.3958366309375,437.57306000000005 375.3958366309375,441.57306000000005"
+     points="498.9717401754619,499.79920000000857 504.9717401754619,503.79920000000857 510.9717401754619,499.79920000000857 504.9717401754619,495.79920000000857 498.9717401754619,499.79920000000857"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-160.6047984597389 375.3958366309375 441.57306000000005)" />
+     transform="rotate(89.94300808987629 498.9717401754619 499.79920000000857)" />
   <rect
      id="n2001"
-     x="312.5"
-     y="418.0"
+     x="480.5"
+     y="518.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n2002"
-     x="330.0"
-     y="428.0"
+     x="498.0"
+     y="528.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n2003"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.security"><title
-   id="title46695">Information about security implementation from an interface perspective - what a client needs to know</title>security</a></text>
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource"><title
+   id="title11896">A specification of the restful capabilities of the solution for a specific resource type</title>resource</a></text>
   <text
      id="n2004"
-     x="285.3317433690625"
-     y="423.864964"
+     x="499.0236854151265"
+     y="548.0213840000215"
      fill="black"
-     class="diagram-class-linkage">[0..1]</text>
+     class="diagram-class-linkage">[0..*]</text>
   <line
      id="n2005"
-     x1="356.591999"
-     y1="695.024883709975"
-     x2="256.29906900000003"
-     y2="695.2023200686633"
+     x1="622.1329470000001"
+     y1="469.6124366499942"
+     x2="765.391363"
+     y2="479.86057238304056"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n2006"
-     points="356.591999,695.024883709975 362.591999,699.024883709975 368.591999,695.024883709975 362.591999,691.024883709975 356.591999,695.024883709975"
+     points="622.1329470000001,469.6124366499942 628.1329470000001,473.6124366499942 634.1329470000001,469.6124366499942 628.1329470000001,465.6124366499942 622.1329470000001,469.6124366499942"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(179.8986334941244 356.591999 695.024883709975)" />
+     transform="rotate(4.09174136315693 622.1329470000001 469.6124366499942)" />
   <rect
      id="n2007"
-     x="282.0"
-     y="688.0"
+     x="669.0"
+     y="467.0"
      width="48.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n2008"
-     x="306.0"
-     y="698.0"
+     x="693.0"
+     y="477.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n2009"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.interaction"><title
-   id="title46703">Identifies a restful operation supported by the solution</title>interaction</a></text>
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.interaction"><title
+   id="title11904">A specification of restful operations supported by the system</title>interaction</a></text>
   <text
      id="n2010"
-     x="271.29906900000003"
-     y="691.2023200686633"
+     x="745.391363"
+     y="475.86057238304056"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n2011"
-     x1="356.591999"
-     y1="645.813592164431"
-     x2="261.140907"
-     y2="609.7939299481842"
+     x1="375.73294699999997"
+     y1="490.1910282603996"
+     x2="235.60000000000002"
+     y2="523.6225502721502"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n2012"
-     points="356.591999,645.813592164431 362.591999,649.813592164431 368.591999,645.813592164431 362.591999,641.813592164431 356.591999,645.813592164431"
+     points="375.73294699999997,490.1910282603996 381.73294699999997,494.1910282603996 387.73294699999997,490.1910282603996 381.73294699999997,486.1910282603996 375.73294699999997,490.1910282603996"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-159.3253744073993 356.591999 645.813592164431)" />
+     transform="rotate(166.5817606002995 375.73294699999997 490.1910282603996)" />
   <rect
      id="n2013"
-     x="284.0"
-     y="620.0"
+     x="281.0"
+     y="499.0"
      width="48.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n2014"
-     x="308.0"
-     y="630.0"
+     x="305.0"
+     y="509.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n2015"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.searchParam"><title
-   id="title46711">Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation</title>searchParam</a></text>
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam"><title
+   id="title11912">Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation. This is only for searches executed against the system-level endpoint</title>searchParam</a></text>
   <text
      id="n2016"
-     x="276.140907"
-     y="605.7939299481842"
+     x="250.60000000000002"
+     y="519.6225502721502"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n2017"
-     x1="616.191999"
-     y1="682.4185805852849"
-     x2="730.3478"
-     y2="671.5336196776254"
+     x1="582.1850540207782"
+     y1="499.79920000000004"
+     x2="797.2491329792211"
+     y2="600.5473897999998"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n2018"
-     points="616.191999,682.4185805852849 622.191999,686.4185805852849 628.191999,682.4185805852849 622.191999,678.4185805852849 616.191999,682.4185805852849"
+     points="582.1850540207782,499.79920000000004 588.1850540207782,503.79920000000004 594.1850540207782,499.79920000000004 588.1850540207782,495.79920000000004 582.1850540207782,499.79920000000004"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-5.446788106085221 616.191999 682.4185805852849)" />
+     transform="rotate(25.101051643482315 582.1850540207782 499.79920000000004)" />
   <rect
      id="n2019"
-     x="653.5"
-     y="669.0"
+     x="669.5"
+     y="543.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n2020"
-     x="673.0"
-     y="679.0"
+     x="689.0"
+     y="553.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n2021"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.operation"><title
-   id="title46719">Definition of an operation or a named query together with its parameters and their meaning and type. Consult the definition of the operation for details about how to invoke the operation, and the parameters</title>operation</a></text>
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.operation"><title
+   id="title11920">Definition of an operation or a named query together with its parameters and their meaning and type</title>operation</a></text>
   <text
      id="n2022"
-     x="710.3478"
-     y="667.5336196776254"
+     x="797.2491329792211"
+     y="596.5473897999998"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n2023"
-     x1="486.212010795011"
-     y1="519.5730600000243"
-     x2="486.26565341573513"
-     y2="571.795243999979"
+     x1="498.09085912350866"
+     y1="414.0"
+     x2="498.2311951071651"
+     y2="421.7992000000013"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n2024"
-     points="486.212010795011,519.5730600000243 492.212010795011,523.5730600000243 498.212010795011,519.5730600000243 492.212010795011,515.5730600000243 486.212010795011,519.5730600000243"
+     points="498.09085912350866,414.0 504.09085912350866,418.0 510.09085912350866,414.0 504.09085912350866,410.0 498.09085912350866,414.0"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(89.94114580331363 486.212010795011 519.5730600000243)" />
+     transform="rotate(88.96915171192518 498.09085912350866 414.0)" />
   <rect
      id="n2025"
-     x="468.5"
-     y="538.0"
-     width="35.0"
+     x="489.5"
+     y="410.0"
+     width="17.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n2026"
-     x="486.0"
-     y="548.0"
+     x="498.0"
+     y="420.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n2027"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource"><title
-   id="title46727">A specification of the restful capabilities of the solution for a specific resource type</title>resource</a></text>
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest"><title
+   id="title11928">A definition of the restful capabilities of the solution, if any</title>rest</a></text>
   <text
      id="n2028"
-     x="486.26565341573513"
-     y="567.795243999979"
+     x="498.2311951071651"
+     y="417.7992000000013"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n2029"
-     x1="609.37195"
-     y1="489.3862966499943"
-     x2="752.630366"
-     y2="499.63443238304063"
+     x1="862.5859311640654"
+     y1="319.6261229999982"
+     x2="860.6544818359345"
+     y2="367.7204359999996"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n2030"
-     points="609.37195,489.3862966499943 615.37195,493.3862966499943 621.37195,489.3862966499943 615.37195,485.3862966499943 609.37195,489.3862966499943"
+     points="862.5859311640654,319.6261229999982 868.5859311640654,323.6261229999982 874.5859311640654,319.6261229999982 868.5859311640654,315.6261229999982 862.5859311640654,319.6261229999982"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(4.091741363156927 609.37195 489.3862966499943)" />
+     transform="rotate(92.29974091990542 862.5859311640654 319.6261229999982)" />
   <rect
      id="n2031"
-     x="657.0"
-     y="487.0"
-     width="48.0"
+     x="843.5"
+     y="336.0"
+     width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n2032"
-     x="681.0"
-     y="497.0"
+     x="861.0"
+     y="346.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n2033"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.interaction"><title
-   id="title46735">A specification of restful operations supported by the system</title>interaction</a></text>
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.endpoint"><title
+   id="title11936">An endpoint (network accessible address) to which messages and/or replies are to be sent</title>endpoint</a></text>
   <text
      id="n2034"
-     x="732.630366"
-     y="495.63443238304063"
+     x="860.6544818359345"
+     y="363.7204359999996"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n2035"
-     x1="362.97195"
-     y1="513.3472714415693"
-     x2="261.140907"
-     y2="540.4368179886271"
+     x1="863.5128567330122"
+     y1="255.62612299999455"
+     x2="862.7898412669875"
+     y2="191.0319288000028"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n2036"
-     points="362.97195,513.3472714415693 368.97195,517.3472714415693 374.97195,513.3472714415693 368.97195,509.3472714415693 362.97195,513.3472714415693"
+     points="863.5128567330122,255.62612299999455 869.5128567330122,259.62612299999455 875.5128567330122,255.62612299999455 869.5128567330122,251.62612299999455 863.5128567330122,255.62612299999455"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(165.1029420544446 362.97195 513.3472714415693)" />
+     transform="rotate(-90.64129609982591 863.5128567330122 255.62612299999455)" />
   <rect
      id="n2037"
-     x="288.0"
-     y="519.0"
-     width="48.0"
+     x="828.0"
+     y="216.0"
+     width="70.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n2038"
-     x="312.0"
-     y="529.0"
+     x="863.0"
+     y="226.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n2039"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam"><title
-   id="title46743">Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation. This is only for searches executed against the system-level endpoint</title>searchParam</a></text>
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.supportedMessage"><title
+   id="title11944">References to message definitions for messages this system can send or receive</title>supportedMessage</a></text>
   <text
      id="n2040"
-     x="276.140907"
-     y="536.4368179886271"
+     x="862.7898412669875"
+     y="205.0319288000028"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n2041"
-     x1="564.4084904203033"
-     y1="519.57306"
-     x2="768.7112595796968"
-     y2="621.4156"
+     x1="648.806176"
+     y1="240.69887566573112"
+     x2="789.0710389999999"
+     y2="271.3047302274237"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n2042"
-     points="564.4084904203033,519.57306 570.4084904203033,523.57306 576.4084904203033,519.57306 570.4084904203033,515.57306 564.4084904203033,519.57306"
+     points="648.806176,240.69887566573112 654.806176,244.69887566573112 660.806176,240.69887566573112 654.806176,236.69887566573112 648.806176,240.69887566573112"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(26.495718043870383 564.4084904203033 519.57306)" />
+     transform="rotate(12.309034180627908 648.806176 240.69887566573112)" />
   <rect
      id="n2043"
-     x="646.5"
-     y="563.0"
+     x="698.5"
+     y="249.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n2044"
-     x="666.0"
-     y="573.0"
+     x="718.0"
+     y="259.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n2045"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest.operation"><title
-   id="title46751">Definition of an operation or a named query together with its parameters and their meaning and type</title>operation</a></text>
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging"><title
+   id="title11952">A description of the messaging capabilities of the solution</title>messaging</a></text>
   <text
      id="n2046"
-     x="768.7112595796968"
-     y="617.4156"
+     x="769.0710389999999"
+     y="267.3047302274237"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n2047"
-     x1="484.89640168849206"
-     y1="405.77386000000115"
-     x2="485.50688427538245"
-     y2="441.5730599999988"
+     x1="648.806176"
+     y1="146.56159404697212"
+     x2="800.6565303856388"
+     y2="87.13661760000002"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n2048"
-     points="484.89640168849206,405.77386000000115 490.89640168849206,409.77386000000115 496.89640168849206,405.77386000000115 490.89640168849206,401.77386000000115 484.89640168849206,405.77386000000115"
+     points="648.806176,146.56159404697212 654.806176,150.56159404697212 660.806176,146.56159404697212 654.806176,142.56159404697212 648.806176,146.56159404697212"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(89.02303164031633 484.89640168849206 405.77386000000115)" />
+     transform="rotate(-21.372347506570566 648.806176 146.56159404697212)" />
   <rect
      id="n2049"
-     x="476.5"
-     y="416.0"
-     width="17.0"
+     x="706.5"
+     y="109.0"
+     width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n2050"
-     x="485.0"
-     y="426.0"
+     x="724.0"
+     y="119.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n2051"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.rest"><title
-   id="title46759">A definition of the restful capabilities of the solution, if any</title>rest</a></text>
+       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.document"><title
+   id="title11960">A document definition</title>document</a></text>
   <text
      id="n2052"
-     x="485.50688427538245"
-     y="437.5730599999988"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n2053"
-     x1="846.146256498896"
-     y1="317.5131799999999"
-     x2="855.9495435011036"
-     y2="351.38106000000016"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n2054"
-     points="846.146256498896,317.5131799999999 852.146256498896,321.5131799999999 858.146256498896,317.5131799999999 852.146256498896,313.5131799999999 846.146256498896,317.5131799999999"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(73.85655564153078 846.146256498896 317.5131799999999)" />
-  <rect
-     id="n2055"
-     x="833.5"
-     y="327.0"
-     width="35.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n2056"
-     x="851.0"
-     y="337.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n2057"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.endpoint"><title
-   id="title46767">An endpoint (network accessible address) to which messages and/or replies are to be sent</title>endpoint</a></text>
-  <text
-     id="n2058"
-     x="855.9495435011036"
-     y="347.38106000000016"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n2059"
-     x1="836.0650335854273"
-     y1="253.51318000000174"
-     x2="835.1684804145725"
-     y2="218.46617699999842"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n2060"
-     points="836.0650335854273,253.51318000000174 842.0650335854273,257.51318000000174 848.0650335854273,253.51318000000174 842.0650335854273,249.51318000000174 836.0650335854273,253.51318000000174"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-91.46538954519367 836.0650335854273 253.51318000000174)" />
-  <rect
-     id="n2061"
-     x="800.0"
-     y="228.0"
-     width="70.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n2062"
-     x="835.0"
-     y="238.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n2063"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging.supportedMessage"><title
-   id="title46775">References to message definitions for messages this system can send or receive</title>supportedMessage</a></text>
-  <text
-     id="n2064"
-     x="835.1684804145725"
-     y="232.46617699999842"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n2065"
-     x1="636.045179"
-     y1="244.39373515139573"
-     x2="762.0836400000001"
-     y2="270.19871055345516"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n2066"
-     points="636.045179,244.39373515139573 642.045179,248.39373515139573 648.045179,244.39373515139573 642.045179,240.39373515139573 636.045179,244.39373515139573"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(11.570768694387592 636.045179 244.39373515139573)" />
-  <rect
-     id="n2067"
-     x="679.5"
-     y="250.0"
-     width="39.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n2068"
-     x="699.0"
-     y="260.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n2069"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.messaging"><title
-   id="title46783">A description of the messaging capabilities of the solution</title>messaging</a></text>
-  <text
-     id="n2070"
-     x="742.0836400000001"
-     y="266.19871055345516"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n2071"
-     x1="636.045179"
-     y1="154.02375919457123"
-     x2="736.8806805701038"
-     y2="115.66519999999997"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n2072"
-     points="636.045179,154.02375919457123 642.045179,158.02375919457123 648.045179,154.02375919457123 642.045179,150.02375919457123 636.045179,154.02375919457123"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-20.827179380012083 636.045179 154.02375919457123)" />
-  <rect
-     id="n2073"
-     x="668.5"
-     y="127.0"
-     width="35.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n2074"
-     x="686.0"
-     y="137.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n2075"
-       xlink:href="capabilitystatement-definitions.html#CapabilityStatement.document"><title
-   id="title46791">A document definition</title>document</a></text>
-  <text
-     id="n2076"
-     x="736.8806805701038"
-     y="129.66519999999997"
+     x="800.6565303856388"
+     y="101.13661760000002"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

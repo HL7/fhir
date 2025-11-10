@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   id="n741"
+   id="n777"
    version="1.1"
-   width="1224.2029458000002"
-   height="472.2658964"
+   width="1178.7914082"
+   height="540.303754"
    sodipodi:docname="terminologycapabilities.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview8964"
+     id="namedview15926"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,17 +21,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.0178051"
-     inkscape:cx="612.1015"
-     inkscape:cy="235.80154"
+     inkscape:zoom="1.0570149"
+     inkscape:cx="589.86872"
+     inkscape:cy="271.04633"
      inkscape:window-width="1390"
-     inkscape:window-height="1198"
+     inkscape:window-height="1187"
      inkscape:window-x="0"
-     inkscape:window-y="44"
+     inkscape:window-y="40"
      inkscape:window-maximized="0"
-     inkscape:current-layer="n741" />
+     inkscape:current-layer="n777" />
   <defs
-     id="defs8586">
+     id="defs15535">
     <filter
        id="shadow1"
        x="-0.066919194"
@@ -43,592 +43,609 @@
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset8577" />
+         id="feOffset15526" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix8579" />
+         id="feColorMatrix15528" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur8581" />
+         id="feGaussianBlur15530" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8583" />
+         id="feBlend15532" />
     </filter>
   </defs>
   <g
-     id="n742">
+     id="n778">
     <rect
        id="TerminologyCapabilities"
-       x="249.7630598"
+       x="246.599314"
        y="4.2902708999999914"
        rx="4"
        ry="4"
        width="340.56000000000006"
        height="330.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n743"
-       x1="249.7630598"
+       id="n779"
+       x1="246.599314"
        y1="32.290270899999996"
-       x2="590.3230598"
+       x2="587.159314"
        y2="32.290270899999996"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n744"
-       x="420.04305980000004"
+       id="n780"
+       x="416.879314"
        y="24.290270899999992"
        fill="black"
        class="diagram-class-title  diagram-class-resource">TerminologyCapabilities<tspan
    class="diagram-class-title-link"
-   id="tspan8592"> (<a
-   id="n745"
+   id="tspan15541"> (<a
+   id="n781"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
    style="font-style: italic">DomainResource</a>) +<a
-   id="n746"
+   id="n782"
    xlink:href="canonicalresource.html#CanonicalResource"
    class="diagram-class-reference"
    style="font-style: italic">CanonicalResource</a></tspan></text>
     <text
-       id="n747"
-       x="255.7630598"
+       id="n783"
+       x="252.599314"
        y="46.290270899999996"
        fill="black"
        class="diagram-class-detail"><a
-   id="n748"
+   id="n784"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.url"><title
-   id="title8595">An absolute URI that is used to identify this terminology capabilities when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this terminology capabilities is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the terminology capabilities is stored on different servers</title>url</a> : <a
-   id="n749"
+   id="title15544">An absolute URI that is used to identify this terminology capabilities when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this terminology capabilities is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the terminology capabilities is stored on different servers</title>url</a> : <a
+   id="n785"
    xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
-       id="n753"
-       x="255.7630598"
+       id="n789"
+       x="252.599314"
        y="60.290270899999996"
        fill="black"
        class="diagram-class-detail"><a
-   id="n754"
+   id="n790"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.identifier"><title
-   id="title8600">A formal identifier that is used to identify this terminology capabilities when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
-   id="n755"
+   id="title15549">A formal identifier that is used to identify this terminology capabilities when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n791"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n759"
-       x="255.7630598"
+       id="n795"
+       x="252.599314"
        y="74.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n760"
+   id="n796"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.version"><title
-   id="title8605">The identifier that is used to identify this version of the terminology capabilities when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the terminology capabilities author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
-   id="n761"
+   id="title15554">The identifier that is used to identify this version of the terminology capabilities when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the terminology capabilities author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n797"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n765"
-       x="255.7630598"
+       id="n801"
+       x="252.599314"
        y="88.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n766"
+   id="n802"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.versionAlgorithm_x_"><title
-   id="title8610">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
-   id="n767"
+   id="title15559">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n803"
    xlink:href="types.html#DataType">DataType</a> [0..1] « <a
-   id="n768"
+   id="n804"
    xlink:href="datatypes.html#string">string</a>|<a
-   id="n769"
+   id="n805"
    xlink:href="datatypes.html#Coding">Coding</a>; <a
-   id="n770"
+   id="n806"
    xlink:href="valueset-version-algorithm.html"><title
-     id="n771">null (Strength=Extensible)</title></a></text>
+     id="n807">null (Strength=Extensible)</title></a></text>
     <text
-       id="n772"
-       x="275.7630598"
+       id="n808"
+       x="272.599314"
        y="102.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n773"
+   id="n809"
    xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
     <text
-       id="n783"
-       x="255.7630598"
+       id="n819"
+       x="252.599314"
        y="116.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n784"
+   id="n820"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.name"><title
-   id="title8621">A natural language name identifying the terminology capabilities. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
-   id="n785"
+   id="title15570">A natural language name identifying the terminology capabilities. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n821"
    xlink:href="datatypes.html#string">string</a> [0..1] « <a
-   id="n786"
+   id="n822"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n787">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n823">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n793"
-       x="255.7630598"
+       id="n829"
+       x="252.599314"
        y="130.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n794"
+   id="n830"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.title"><title
-   id="title8628">A short, descriptive, user-friendly title for the terminology capabilities</title>title</a> : <a
-   id="n795"
+   id="title15577">A short, descriptive, user-friendly title for the terminology capabilities</title>title</a> : <a
+   id="n831"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n799"
-       x="255.7630598"
+       id="n835"
+       x="252.599314"
        y="144.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n800"
+   id="n836"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.status"><title
-   id="title8633">The status of this terminology capabilities. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
-   id="n801"
+   id="title15582">The status of this terminology capabilities. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n837"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n802"
+   id="n838"
    xlink:href="valueset-publication-status.html"><title
-   id="n803">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+   id="n839">null (Strength=Required)</title>PublicationStatus</a>! »</text>
     <text
-       id="n809"
-       x="255.7630598"
+       id="n845"
+       x="252.599314"
        y="158.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n810"
+   id="n846"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.experimental"><title
-   id="title8640">A Boolean value to indicate that this terminology capabilities is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
-   id="n811"
+   id="title15589">A Boolean value to indicate that this terminology capabilities is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage</title>experimental</a> : <a
+   id="n847"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n815"
-       x="255.7630598"
+       id="n851"
+       x="252.599314"
        y="172.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n816"
+   id="n852"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.date"><title
-   id="title8645">The date  (and optionally time) when the terminology capabilities was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes</title>date</a> : <a
-   id="n817"
+   id="title15594">The date  (and optionally time) when the terminology capabilities was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes</title>date</a> : <a
+   id="n853"
    xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
     <text
-       id="n821"
-       x="255.7630598"
+       id="n857"
+       x="252.599314"
        y="186.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n822"
+   id="n858"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.publisher"><title
-   id="title8650">The name of the organization or individual responsible for the release and ongoing maintenance of the terminology capabilities</title>publisher</a> : <a
-   id="n823"
+   id="title15599">The name of the organization or individual responsible for the release and ongoing maintenance of the terminology capabilities</title>publisher</a> : <a
+   id="n859"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n827"
-       x="255.7630598"
+       id="n863"
+       x="252.599314"
        y="200.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n828"
+   id="n864"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.contact"><title
-   id="title8655">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
-   id="n829"
+   id="title15604">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n865"
    xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text
-       id="n833"
-       x="255.7630598"
+       id="n869"
+       x="252.599314"
        y="214.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n834"
+   id="n870"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.description"><title
-   id="title8660">A free text natural language description of the terminology capabilities from a consumer's perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP</title>description</a> : <a
-   id="n835"
+   id="title15609">A free text natural language description of the terminology capabilities from a consumer's perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP</title>description</a> : <a
+   id="n871"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1] « <a
-   id="n836"
+   id="n872"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n837">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n873">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n843"
-       x="255.7630598"
+       id="n879"
+       x="252.599314"
        y="228.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n844"
+   id="n880"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.useContext"><title
-   id="title8667">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate terminology capabilities instances</title>useContext</a> : <a
-   id="n845"
+   id="title15616">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate terminology capabilities instances</title>useContext</a> : <a
+   id="n881"
    xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
-    <rect
-       id="n849"
-       x="250.7630598"
-       y="232.2902709"
-       width="338.56000000000006"
-       height="14.0"
-       style="fill:#ffcccc;stroke:black;stroke-width:0" />
     <text
-       id="n850"
-       x="255.7630598"
+       id="n885"
+       x="252.599314"
        y="242.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n851"
+   id="n886"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.jurisdiction"><title
-   id="title8673">A legal or geographic region in which the terminology capabilities is intended to be used</title>jurisdiction</a> : <a
-   id="n852"
+   id="title15621">A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use</title>jurisdiction</a> : <a
+   id="n887"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n853"
-   xlink:href="valueset-jurisdiction.html"><title
-   id="n854">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+   id="n888"
+   xlink:href="http://terminology.hl7.org/6.5.0/ValueSet-jurisdiction.html"><title
+   id="n889">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
     <text
-       id="n861"
-       x="255.7630598"
+       id="n895"
+       x="252.599314"
        y="256.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n862"
+   id="n896"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.purpose"><title
-   id="title8680">Explanation of why this terminology capabilities is needed and why it has been designed as it has</title>purpose</a> : <a
-   id="n863"
+   id="title15628">Explanation of why this terminology capabilities is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n897"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n867"
-       x="255.7630598"
+       id="n901"
+       x="252.599314"
        y="270.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n868"
+   id="n902"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.copyright"><title
-   id="title8685">A copyright statement relating to the terminology capabilities and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the terminology capabilities</title>copyright</a> : <a
-   id="n869"
+   id="title15633">A copyright statement relating to the terminology capabilities and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the terminology capabilities</title>copyright</a> : <a
+   id="n903"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n873"
-       x="255.7630598"
+       id="n907"
+       x="252.599314"
        y="284.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n874"
+   id="n908"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.copyrightLabel"><title
-   id="title8690">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
-   id="n875"
+   id="title15638">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n909"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n879"
-       x="255.7630598"
+       id="n913"
+       x="252.599314"
        y="298.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n880"
+   id="n914"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.kind"><title
-   id="title8695">The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)</title>kind</a> : <a
-   id="n881"
+   id="title15643">The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)</title>kind</a> : <a
+   id="n915"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n882"
+   id="n916"
    xlink:href="valueset-capability-statement-kind.html"><title
-   id="n883">null (Strength=Required)</title>CapabilityStatementKind</a>! » « <a
-   id="n884"
+   id="n917">null (Strength=Required)</title>CapabilityStatementKind</a>! » « <a
+   id="n918"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n885">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n919">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n893"
-       x="255.7630598"
+       id="n927"
+       x="252.599314"
        y="312.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n894"
+   id="n928"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.lockedDate"><title
-   id="title8704">Whether the server supports lockedDate</title>lockedDate</a> : <a
-   id="n895"
+   id="title15652">Whether the server supports lockedDate</title>lockedDate</a> : <a
+   id="n929"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n899"
-       x="255.7630598"
+       id="n933"
+       x="252.599314"
        y="326.2902709"
        fill="black"
        class="diagram-class-detail"><a
-   id="n900"
+   id="n934"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSearch"><title
-   id="title8709">The degree to which the server supports the code search parameter on ValueSet, if it is supported</title>codeSearch</a> : <a
-   id="n901"
+   id="title15657">The degree to which the server supports the code search parameter on ValueSet, if it is supported</title>codeSearch</a> : <a
+   id="n935"
    xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n902"
+   id="n936"
    xlink:href="valueset-code-search-support.html"><title
-   id="n903">null (Strength=Required)</title>CodeSearchSupport</a>! »</text>
+   id="n937">null (Strength=Required)</title>CodeSearchSupport</a>! »</text>
   </g>
   <g
-     id="n909">
+     id="n943">
     <rect
        id="TerminologyCapabilities.software"
-       x="3.163745800000001"
+       x="0.0"
        y="79.14501899999999"
        rx="4"
        ry="4"
        width="101.2"
        height="64.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n910"
-       x1="3.163745800000001"
+       id="n944"
+       x1="0.0"
        y1="107.14501899999999"
-       x2="104.3637458"
+       x2="101.2"
        y2="107.14501899999999"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n911"
-       x="53.7637458"
+       id="n945"
+       x="50.6"
        y="99.14501899999999"
        fill="black"
        class="diagram-class-title">Software</text>
     <text
-       id="n912"
-       x="9.163745800000001"
+       id="n946"
+       x="6.0"
        y="121.14501899999999"
        fill="black"
        class="diagram-class-detail"><a
-   id="n913"
+   id="n947"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.software.name"><title
-   id="title8720">Name the software is known by</title>name</a> : <a
-   id="n914"
+   id="title15668">Name the software is known by</title>name</a> : <a
+   id="n948"
    xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text
-       id="n918"
-       x="9.163745800000001"
+       id="n952"
+       x="6.0"
        y="135.145019"
        fill="black"
        class="diagram-class-detail"><a
-   id="n919"
+   id="n953"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.software.version"><title
-   id="title8725">The version identifier for the software covered by this statement</title>version</a> : <a
-   id="n920"
+   id="title15673">The version identifier for the software covered by this statement</title>version</a> : <a
+   id="n954"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
   </g>
   <g
-     id="n924">
+     id="n958">
     <rect
        id="TerminologyCapabilities.implementation"
-       x="3.879552500000001"
+       x="0.7158066999999999"
        y="0.0"
        rx="4"
        ry="4"
-       width="118.80000000000001"
+       width="127.60000000000001"
        height="64.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n925"
-       x1="3.879552500000001"
+       id="n959"
+       x1="0.7158066999999999"
        y1="28.0"
-       x2="122.67955250000001"
+       x2="128.3158067"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n926"
-       x="63.27955250000001"
+       id="n960"
+       x="64.5158067"
        y="20.0"
        fill="black"
        class="diagram-class-title">Implementation</text>
     <text
-       id="n927"
-       x="9.8795525"
+       id="n961"
+       x="6.7158067"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n928"
+   id="n962"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.implementation.description"><title
-   id="title8734">Information about the specific installation that this terminology capability statement relates to</title>description</a> : <a
-   id="n929"
-   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+   id="title15682">Information about the specific installation that this terminology capability statement relates to</title>description</a> : <a
+   id="n963"
+   xlink:href="datatypes.html#markdown">markdown</a> [1..1]</text>
     <text
-       id="n933"
-       x="9.8795525"
+       id="n967"
+       x="6.7158067"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n934"
+   id="n968"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.implementation.url"><title
-   id="title8739">An absolute base URL for the implementation</title>url</a> : <a
-   id="n935"
+   id="title15687">An absolute base URL for the implementation</title>url</a> : <a
+   id="n969"
    xlink:href="datatypes.html#url">url</a> [0..1]</text>
   </g>
   <g
-     id="n939"
-     transform="translate(52.07284,41.26527)">
+     id="n973">
     <rect
        id="TerminologyCapabilities.codeSystem"
-       x="214.9315"
-       y="355.1377"
+       x="263.8405942"
+       y="396.40297"
        rx="4"
        ry="4"
        width="206.8"
-       height="78"
+       height="92.0"
        filter="url(#shadow1)"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n940"
-       x1="214.9315"
-       y1="383.1377"
-       x2="421.73151"
-       y2="383.1377"
-       style="stroke:#696969;stroke-width:1" />
+       id="n974"
+       x1="263.8405942"
+       y1="424.40297"
+       x2="470.6405942"
+       y2="424.40297"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n941"
-       x="318.33151"
-       y="375.1377"
-       fill="#000000"
+       id="n975"
+       x="367.24059420000003"
+       y="416.40297"
+       fill="black"
        class="diagram-class-title">CodeSystem</text>
     <text
-       id="n942"
-       x="220.9315"
-       y="397.1377"
-       fill="#000000"
+       id="n976"
+       x="269.8405942"
+       y="438.40297"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n943"
+   id="n977"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.uri"><title
-   id="title8748">Canonical identifier for the code system, represented as a URI</title>uri</a> : <a
-   id="n944"
+   id="title15696">Canonical identifier for the code system, represented as a URI. This cannot have a version in the canonical URL</title>uri</a> : <a
+   id="n978"
    xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
-   id="n945"
+   id="n979"
    xlink:href="codesystem.html#CodeSystem">CodeSystem</a> » « <a
-   id="n946"
-   style="color:#301212;font-weight:bold"
+   id="n980"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n947">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n981">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n954"
-       x="220.9315"
-       y="411.1377"
-       fill="#000000"
+       id="n988"
+       x="269.8405942"
+       y="452.40297"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n955"
+   id="n989"
+   xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.supplement"><title
+   id="title15704">Canonical identifier for a supported supplement to this code system. Supplements listed here supplement all versions of the code system. This reference SHOULD be version specific</title>supplement</a> : <a
+   id="n990"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n991"
+   xlink:href="codesystem.html#CodeSystem">CodeSystem</a> »</text>
+    <text
+       id="n996"
+       x="269.8405942"
+       y="466.40297"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n997"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.content"><title
-   id="title8756">The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance</title>content</a> : <a
-   id="n956"
+   id="title15710">The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance</title>content</a> : <a
+   id="n998"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n957"
+   id="n999"
    xlink:href="valueset-codesystem-content-mode.html"><title
-   id="n958">null (Strength=Required)</title>CodeSystemContentMode</a>! »</text>
+   id="n1000">null (Strength=Required)</title>CodeSystemContentMode</a>! »</text>
     <text
-       id="n964"
-       x="220.9315"
-       y="425.1377"
-       fill="#000000"
+       id="n1006"
+       x="269.8405942"
+       y="480.40297"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n965"
+   id="n1007"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.subsumption"><title
-   id="title8763">True if subsumption is supported for this version of the code system</title>subsumption</a> : <a
-   id="n966"
+   id="title15717">True if subsumption is supported for this version of the code system</title>subsumption</a> : <a
+   id="n1008"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
   </g>
   <g
-     id="n970"
-     transform="translate(156.21852,54.037854)">
+     id="n1012">
     <rect
        id="TerminologyCapabilities.codeSystem.version"
-       x="487.922"
-       y="336.2659"
+       x="640.9767742"
+       y="390.30375399999997"
        rx="4"
        ry="4"
-       width="184.8"
-       height="106"
+       width="193.60000000000002"
+       height="120.0"
        filter="url(#shadow1)"
-       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n971"
-       x1="487.922"
-       y1="364.2659"
-       x2="672.72198"
-       y2="364.2659"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1013"
+       x1="640.9767742"
+       y1="418.30375399999997"
+       x2="834.5767742"
+       y2="418.30375399999997"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n972"
-       x="580.32202"
-       y="356.2659"
-       fill="#000000"
+       id="n1014"
+       x="737.7767742000001"
+       y="410.30375399999997"
+       fill="black"
        class="diagram-class-title">Version</text>
     <text
-       id="n973"
-       x="493.922"
-       y="378.2659"
-       fill="#000000"
+       id="n1015"
+       x="646.9767742"
+       y="432.30375399999997"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n974"
+   id="n1016"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.code"><title
-   id="title8772">For version-less code systems, there should be a single version with no identifier</title>code</a> : <a
-   id="n975"
+   id="title15726">For version-less code systems, there should be a single version with no identifier</title>code</a> : <a
+   id="n1017"
    xlink:href="datatypes.html#string">string</a> [0..1] « <a
-   id="n976"
-   style="color:#301212;font-weight:bold"
+   id="n1018"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n977">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n1019">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n983"
-       x="493.922"
-       y="392.2659"
-       fill="#000000"
+       id="n1025"
+       x="646.9767742"
+       y="446.30375399999997"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n984"
+   id="n1026"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.isDefault"><title
-   id="title8779">If this is the default version for this code system</title>isDefault</a> : <a
-   id="n985"
+   id="title15733">If this is the default version for this code system</title>isDefault</a> : <a
+   id="n1027"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1] « <a
-   id="n986"
-   style="color:#301212;font-weight:bold"
+   id="n1028"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n987">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n1029">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n993"
-       x="493.922"
-       y="406.2659"
-       fill="#000000"
+       id="n1035"
+       x="646.9767742"
+       y="460.30375399999997"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n994"
+   id="n1036"
+   xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.supplement"><title
+   id="title15740">Canonical identifier for a supported supplement to this code system. Supplements listed here supplement this specific version of the code system (and by implication, not all of the supported versions). This reference SHOULD be version specific</title>supplement</a> : <a
+   id="n1037"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1038"
+   xlink:href="codesystem.html#CodeSystem">CodeSystem</a> »</text>
+    <text
+       id="n1043"
+       x="646.9767742"
+       y="474.30375399999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1044"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.compositional"><title
-   id="title8786">If the compositional grammar defined by the code system is supported</title>compositional</a> : <a
-   id="n995"
+   id="title15746">If the compositional grammar defined by the code system is supported</title>compositional</a> : <a
+   id="n1045"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n999"
-       x="493.922"
-       y="420.2659"
-       fill="#000000"
+       id="n1049"
+       x="646.9767742"
+       y="488.30375399999997"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1000"
+   id="n1050"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.language"><title
-   id="title8791">Language Displays supported</title>language</a> : <a
-   id="n1001"
+   id="title15751">Language Displays supported</title>language</a> : <a
+   id="n1051"
    xlink:href="datatypes.html#code">code</a> [0..*] « <a
-   id="n1002"
-   xlink:href="valueset-languages.html"><title
-   id="n1003">null (Strength=Required)</title>CommonLanguages</a>! »</text>
+   id="n1052"
+   xlink:href="valueset-all-languages.html"><title
+   id="n1053">null (Strength=Required)</title>AllLanguages</a>! »</text>
     <text
-       id="n1009"
-       x="493.922"
-       y="434.2659"
-       fill="#000000"
+       id="n1059"
+       x="646.9767742"
+       y="502.30375399999997"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1010"
+   id="n1060"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.property"><title
-   id="title8798">Properties supported for $lookup</title>property</a> : <a
-   id="n1011"
+   id="title15758">Properties supported for $lookup</title>property</a> : <a
+   id="n1061"
    xlink:href="datatypes.html#code">code</a> [0..*]</text>
   </g>
   <g
-     id="n1015"
-     transform="translate(-42.247776,-62.880411)">
+     id="n1065"
+     transform="translate(-44.464843,4.7303025)">
     <rect
        id="TerminologyCapabilities.codeSystem.version.filter"
-       x="745.00293"
-       y="330.75778"
+       x="699.59143"
+       y="267.87738"
        rx="4"
        ry="4"
        width="79.199997"
@@ -636,537 +653,614 @@
        filter="url(#shadow1)"
        style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1016"
-       x1="745.00293"
-       y1="358.75778"
-       x2="824.20294"
-       y2="358.75778"
+       id="n1066"
+       x1="699.59143"
+       y1="295.87738"
+       x2="778.79138"
+       y2="295.87738"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1017"
-       x="784.60297"
-       y="350.75778"
+       id="n1067"
+       x="739.19141"
+       y="287.87738"
        fill="#000000"
        class="diagram-class-title">Filter</text>
     <text
-       id="n1018"
-       x="751.00293"
-       y="372.75778"
+       id="n1068"
+       x="705.59143"
+       y="309.87738"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n1019"
+   id="n1069"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.filter.code"><title
-   id="title8807">Code of the property supported</title>code</a> : <a
-   id="n1020"
+   id="title15767">Code of the property supported</title>code</a> : <a
+   id="n1070"
    xlink:href="datatypes.html#code">code</a> [1..1]</text>
     <text
-       id="n1024"
-       x="751.00293"
-       y="386.75778"
+       id="n1074"
+       x="705.59143"
+       y="323.87738"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n1025"
+   id="n1075"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.filter.op"><title
-   id="title8812">Operations supported for the property</title>op</a> : <a
-   id="n1026"
+   id="title15772">Operations supported for the property</title>op</a> : <a
+   id="n1076"
    xlink:href="datatypes.html#code">code</a> [1..*]</text>
   </g>
   <g
-     id="n1030">
+     id="n1080"
+     transform="translate(32.166057,14.190907)">
     <rect
-       id="TerminologyCapabilities.expansion"
-       x="696.5676138"
-       y="43.9243287"
+       id="TerminologyCapabilities.supplements"
+       x="640"
+       y="0"
        rx="4"
        ry="4"
-       width="127.60000000000001"
-       height="92.0"
+       width="215.60001"
+       height="50"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1031"
-       x1="696.5676138"
-       y1="71.92432869999999"
-       x2="824.1676138"
-       y2="71.92432869999999"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n1081"
+       x1="640"
+       y1="28"
+       x2="855.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1032"
-       x="760.3676138"
-       y="63.9243287"
-       fill="black"
+       id="n1082"
+       x="747.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Supplements</text>
+    <text
+       id="n1083"
+       x="646"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1084"
+   xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.supplements.globals"><title
+   id="title15781">Codes that describes how the server implements global language packs - that is, supplements that contain only designations for a single language that are marked as intended by the extension http://hl7.org/fhir/StructureDefinition/codesystem-globalLangPack for use with all value sets and codesystem without explicit reference</title>globals</a> : <a
+   id="n1085"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1086"
+   xlink:href="valueset-global-langpack-support.html"><title
+   id="n1087">null (Strength=Required)</title>GlobalLangPackSupportVS</a>! »</text>
+  </g>
+  <g
+     id="n1093"
+     transform="translate(6.6224235,75.68484)">
+    <rect
+       id="TerminologyCapabilities.expansion"
+       x="693.40387"
+       y="43.924328"
+       rx="4"
+       ry="4"
+       width="127.6"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1094"
+       x1="693.40387"
+       y1="71.924332"
+       x2="821.00385"
+       y2="71.924332"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1095"
+       x="757.20386"
+       y="63.924328"
+       fill="#000000"
        class="diagram-class-title">Expansion</text>
     <text
-       id="n1033"
-       x="702.5676138"
-       y="85.92432869999999"
-       fill="black"
+       id="n1096"
+       x="699.40387"
+       y="85.924332"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1034"
+   id="n1097"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.expansion.hierarchical"><title
-   id="title8821">Whether the server can return nested value sets</title>hierarchical</a> : <a
-   id="n1035"
+   id="title15792">Whether the server can return nested value sets</title>hierarchical</a> : <a
+   id="n1098"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n1039"
-       x="702.5676138"
-       y="99.92432869999999"
-       fill="black"
+       id="n1102"
+       x="699.40387"
+       y="99.924332"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1040"
+   id="n1103"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.expansion.paging"><title
-   id="title8826">Whether the server supports paging on expansion</title>paging</a> : <a
-   id="n1041"
+   id="title15797">Whether the server supports paging on expansion</title>paging</a> : <a
+   id="n1104"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n1045"
-       x="702.5676138"
-       y="113.92432869999999"
-       fill="black"
+       id="n1108"
+       x="699.40387"
+       y="113.92433"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1046"
+   id="n1109"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.expansion.incomplete"><title
-   id="title8831">True if requests for incomplete expansions are allowed</title>incomplete</a> : <a
-   id="n1047"
+   id="title15802">True if requests for incomplete expansions are allowed</title>incomplete</a> : <a
+   id="n1110"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n1051"
-       x="702.5676138"
-       y="127.92432869999999"
-       fill="black"
+       id="n1114"
+       x="699.40387"
+       y="127.92433"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1052"
+   id="n1115"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.expansion.textFilter"><title
-   id="title8836">Documentation about text searching works</title>textFilter</a> : <a
-   id="n1053"
+   id="title15807">Documentation about text searching works</title>textFilter</a> : <a
+   id="n1116"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
   </g>
   <g
-     id="n1057">
+     id="n1120"
+     transform="translate(130.55635,92.713929)">
     <rect
        id="TerminologyCapabilities.expansion.parameter"
-       x="687.3678438"
-       y="183.92807449999998"
+       x="684.2041"
+       y="183.92807"
        rx="4"
        ry="4"
-       width="127.60000000000001"
-       height="64.0"
+       width="136.39999"
+       height="64"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1058"
-       x1="687.3678438"
-       y1="211.92807449999998"
-       x2="814.9678438"
-       y2="211.92807449999998"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n1121"
+       x1="684.2041"
+       y1="211.92807"
+       x2="820.60413"
+       y2="211.92807"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1059"
-       x="751.1678437999999"
-       y="203.92807449999998"
-       fill="black"
+       id="n1122"
+       x="752.40411"
+       y="203.92807"
+       fill="#000000"
        class="diagram-class-title">Parameter</text>
     <text
-       id="n1060"
-       x="693.3678438"
-       y="225.92807449999998"
-       fill="black"
+       id="n1123"
+       x="690.2041"
+       y="225.92807"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1061"
+   id="n1124"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.expansion.parameter.name"><title
-   id="title8845">Name of the supported expansion parameter</title>name</a> : <a
-   id="n1062"
+   id="title15816">Name of the supported expansion parameter</title>name</a> : <a
+   id="n1125"
    xlink:href="datatypes.html#code">code</a> [1..1]</text>
     <text
-       id="n1066"
-       x="693.3678438"
-       y="239.92807449999998"
-       fill="black"
+       id="n1129"
+       x="690.2041"
+       y="239.92807"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n1067"
+   id="n1130"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.expansion.parameter.documentation"><title
-   id="title8850">Description of support for parameter</title>documentation</a> : <a
-   id="n1068"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+   id="title15821">Description of support for parameter</title>documentation</a> : <a
+   id="n1131"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
   </g>
   <g
-     id="n1072">
+     id="n1135">
     <rect
        id="TerminologyCapabilities.validateCode"
-       x="23.0084816"
+       x="19.8447358"
        y="331.20662200000004"
        rx="4"
        ry="4"
        width="127.60000000000001"
        height="50.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1073"
-       x1="23.0084816"
+       id="n1136"
+       x1="19.8447358"
        y1="359.20662200000004"
-       x2="150.6084816"
+       x2="147.44473580000002"
        y2="359.20662200000004"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1074"
-       x="86.80848160000001"
+       id="n1137"
+       x="83.6447358"
        y="351.20662200000004"
        fill="black"
        class="diagram-class-title">ValidateCode</text>
     <text
-       id="n1075"
-       x="29.0084816"
+       id="n1138"
+       x="25.8447358"
        y="373.20662200000004"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1076"
+   id="n1139"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.validateCode.translations"><title
-   id="title8859">Whether translations are validated</title>translations</a> : <a
-   id="n1077"
+   id="title15830">Whether translations are validated</title>translations</a> : <a
+   id="n1140"
    xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
   </g>
   <g
-     id="n1081">
+     id="n1144">
     <rect
        id="TerminologyCapabilities.translation"
-       x="5.244787100000003"
+       x="2.0810413000000016"
        y="162.7974"
        rx="4"
        ry="4"
        width="110.00000000000001"
        height="50.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n1082"
-       x1="5.244787100000003"
+       id="n1145"
+       x1="2.0810413000000016"
        y1="190.7974"
-       x2="115.24478710000001"
+       x2="112.08104130000001"
        y2="190.7974"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1083"
-       x="60.24478710000001"
+       id="n1146"
+       x="57.08104130000001"
        y="182.7974"
        fill="black"
        class="diagram-class-title">Translation</text>
     <text
-       id="n1084"
-       x="11.244787100000003"
+       id="n1147"
+       x="8.081041300000003"
        y="204.7974"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1085"
+   id="n1148"
    xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.translation.needsMap"><title
-   id="title8868">Whether the client must identify the map</title>needsMap</a> : <a
-   id="n1086"
+   id="title15839">Whether the client must identify the map</title>needsMap</a> : <a
+   id="n1149"
    xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
   </g>
   <line
-     id="n1099"
-     x1="249.7630598"
+     id="n1153"
+     x1="246.599314"
      y1="142.25905970380342"
-     x2="104.3637458"
-     y2="119.17754945881808"
+     x2="101.2"
+     y2="119.17754945881809"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1100"
-     points="249.7630598,142.25905970380342 255.7630598,146.25905970380342 261.7630598,142.25905970380342 255.7630598,138.25905970380342 249.7630598,142.25905970380342"
+     id="n1154"
+     points="246.599314,142.25905970380342 252.599314,146.25905970380342 258.599314,142.25905970380342 252.599314,138.25905970380342 246.599314,142.25905970380342"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-170.97981117138704 249.7630598 142.25905970380342)" />
+     transform="rotate(-170.97981117138704 246.599314 142.25905970380342)" />
   <rect
-     id="n1101"
-     x="159.5"
+     id="n1155"
+     x="155.5"
      y="123.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1102"
-     x="177.0"
+     id="n1156"
+     x="173.0"
      y="133.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1103"
+       id="n1157"
        xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.software"><title
-   id="title8886">Software that is covered by this terminology capability statement.  It is used when the statement describes the capabilities of a particular software version, independent of an installation</title>software</a></text>
+   id="title15848">Software that is covered by this terminology capability statement.  It is used when the statement describes the capabilities of a particular software version, independent of an installation</title>software</a></text>
   <text
-     id="n1104"
-     x="119.3637458"
-     y="115.17754945881808"
+     id="n1158"
+     x="116.2"
+     y="115.17754945881809"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n1105"
-     x1="249.7630598"
-     y1="103.76286450752448"
-     x2="122.67955250000001"
-     y2="54.85839757877052"
+     id="n1159"
+     x1="246.599314"
+     y1="102.94461692469116"
+     x2="128.3158067"
+     y2="56.85819076594257"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1106"
-     points="249.7630598,103.76286450752448 255.7630598,107.76286450752448 261.7630598,103.76286450752448 255.7630598,99.76286450752448 249.7630598,103.76286450752448"
+     id="n1160"
+     points="246.599314,102.94461692469116 252.599314,106.94461692469116 258.599314,102.94461692469116 252.599314,98.94461692469116 246.599314,102.94461692469116"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-158.95220158937445 249.7630598 103.76286450752448)" />
+     transform="rotate(-158.71277783872762 246.599314 102.94461692469116)" />
   <rect
-     id="n1107"
-     x="155.5"
+     id="n1161"
+     x="156.5"
      y="72.0"
      width="61.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1108"
-     x="186.0"
+     id="n1162"
+     x="187.0"
      y="82.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1109"
+       id="n1163"
        xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.implementation"><title
-   id="title8894">Identifies a specific implementation instance that is described by the terminology capability statement - i.e. a particular installation, rather than the capabilities of a software program</title>implementation</a></text>
+   id="title15856">Identifies a specific implementation instance that is described by the terminology capability statement - i.e. a particular installation, rather than the capabilities of a software program</title>implementation</a></text>
   <text
-     id="n1110"
-     x="137.6795525"
-     y="50.85839757877052"
+     id="n1164"
+     x="143.3158067"
+     y="52.85819076594257"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n1111"
-     x1="672.7219938000001"
-     y1="377.27579699768273"
-     x2="745.0029458"
-     y2="367.89640522956455"
+     id="n1165"
+     x1="738.3410238826606"
+     y1="390.3037539999932"
+     x2="738.8904750359146"
+     y2="331.87736899999436"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1112"
-     points="672.7219938000001,377.27579699768273 678.7219938000001,381.27579699768273 684.7219938000001,377.27579699768273 678.7219938000001,373.27579699768273 672.7219938000001,377.27579699768273"
+     id="n1166"
+     points="738.3410238826606,390.3037539999932 744.3410238826606,394.3037539999932 750.3410238826606,390.3037539999932 744.3410238826606,386.3037539999932 738.3410238826606,390.3037539999932"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-7.393557201056517 672.7219938000001 377.27579699768273)" />
+     transform="rotate(-89.46119712641946 738.3410238826606 390.3037539999932)" />
   <rect
-     id="n1113"
-     x="695.0"
-     y="365.0"
+     id="n1167"
+     x="725.0"
+     y="354.0"
      width="26.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1114"
-     x="708.0"
-     y="375.0"
+     id="n1168"
+     x="738.0"
+     y="364.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1115"
+       id="n1169"
        xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version.filter"><title
-   id="title8902">Filter Properties supported</title>filter</a></text>
+   id="title15864">Filter Properties supported</title>filter</a></text>
   <text
-     id="n1116"
-     x="725.0029458"
-     y="363.89640522956455"
+     id="n1170"
+     x="738.8904750359146"
+     y="345.87736899999436"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1117"
-     x1="421.7315106"
-     y1="392.21493096608185"
-     x2="487.9219938"
-     y2="390.9841003452035"
+     id="n1171"
+     x1="470.6405942"
+     y1="444.6077238396925"
+     x2="640.9767742"
+     y2="448.23972912879844"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1118"
-     points="421.7315106,392.21493096608185 427.7315106,396.21493096608185 433.7315106,392.21493096608185 427.7315106,388.21493096608185 421.7315106,392.21493096608185"
+     id="n1172"
+     points="470.6405942,444.6077238396925 476.6405942,448.6077238396925 482.6405942,444.6077238396925 476.6405942,440.6077238396925 470.6405942,444.6077238396925"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-1.0653083305518418 421.7315106 392.21493096608185)" />
+     transform="rotate(1.2215082277608196 470.6405942 444.6077238396925)" />
   <rect
-     id="n1119"
-     x="439.0"
-     y="384.0"
+     id="n1173"
+     x="540.0"
+     y="439.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1120"
-     x="454.0"
-     y="394.0"
+     id="n1174"
+     x="555.0"
+     y="449.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1121"
+       id="n1175"
        xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem.version"><title
-   id="title8910">For the code system, a list of versions that are supported by the server</title>version</a></text>
+   id="title15872">For the code system, a list of versions that are supported by the server</title>version</a></text>
   <text
-     id="n1122"
-     x="467.9219938"
-     y="386.9841003452035"
+     id="n1176"
+     x="620.9767742"
+     y="444.23972912879844"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1123"
-     x1="345.40397251294644"
+     id="n1177"
+     x1="386.8902699387384"
      y1="334.2902709"
-     x2="335.97347668603084"
-     y2="355.1376829999999"
+     x2="375.60117618071547"
+     y2="396.4029700000001"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1124"
-     points="345.40397251294644,334.2902709 351.40397251294644,338.2902709 357.40397251294644,334.2902709 351.40397251294644,330.2902709 345.40397251294644,334.2902709"
+     id="n1178"
+     points="386.8902699387384,334.2902709 392.8902699387384,338.2902709 398.8902699387384,334.2902709 392.8902699387384,330.2902709 386.8902699387384,334.2902709"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(114.34000324386751 345.40397251294644 334.2902709)" />
+     transform="rotate(100.30116374863843 386.8902699387384 334.2902709)" />
   <rect
-     id="n1125"
-     x="318.0"
-     y="337.0"
+     id="n1179"
+     x="359.0"
+     y="358.0"
      width="44.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1126"
-     x="340.0"
-     y="347.0"
+     id="n1180"
+     x="381.0"
+     y="368.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1127"
+       id="n1181"
        xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.codeSystem"><title
-   id="title8918">Identifies a code system that is supported by the server. If there is a no code system URL, then this declares the general assumptions a client can make about support for any CodeSystem resource</title>codeSystem</a></text>
+   id="title15880">Identifies a code system that is supported by the server. If there is a no code system URL, then this declares the general assumptions a client can make about support for any CodeSystem resource</title>codeSystem</a></text>
   <text
-     id="n1128"
-     x="335.97347668603084"
-     y="351.1376829999999"
+     id="n1182"
+     x="375.60117618071547"
+     y="392.4029700000001"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1129"
-     x1="757.0090674543086"
-     y1="135.92432870000084"
-     x2="753.5042238665677"
+     id="n1183"
+     x1="587.159314"
+     y1="95.04363607689919"
+     x2="690.464068073352"
+     y2="50.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1184"
+     points="587.159314,95.04363607689919 593.159314,99.04363607689919 599.159314,95.04363607689919 593.159314,91.04363607689919 587.159314,95.04363607689919"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-23.558489474791607 587.159314 95.04363607689919)" />
+  <rect
+     id="n1185"
+     x="614.0"
+     y="65.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1186"
+     x="638.0"
+     y="75.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1187"
+       xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.supplements"><title
+   id="title15888">Information about how the system supports CodeSystem supplements</title>supplements</a></text>
+  <text
+     id="n1188"
+     x="690.464068073352"
+     y="64.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1189"
+     x1="755.4516231076105"
+     y1="135.92432869999902"
+     x2="753.6230509686189"
      y2="183.92807449999964"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1130"
-     points="757.0090674543086,135.92432870000084 763.0090674543086,139.92432870000084 769.0090674543086,135.92432870000084 763.0090674543086,131.92432870000084 757.0090674543086,135.92432870000084"
+     id="n1190"
+     points="755.4516231076105,135.92432869999902 761.4516231076105,139.92432869999902 767.4516231076105,135.92432869999902 761.4516231076105,131.92432869999902 755.4516231076105,135.92432869999902"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(94.1758627914254 757.0090674543086 135.92432870000084)" />
+     transform="rotate(92.18147217817955 755.4516231076105 135.92432869999902)" />
   <rect
-     id="n1131"
-     x="735.5"
+     id="n1191"
+     x="734.5"
      y="152.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1132"
-     x="755.0"
+     id="n1192"
+     x="754.0"
      y="162.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1133"
+       id="n1193"
        xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.expansion.parameter"><title
-   id="title8926">Supported expansion parameter</title>parameter</a></text>
+   id="title15896">Supported expansion parameter</title>parameter</a></text>
   <text
-     id="n1134"
-     x="753.5042238665677"
+     id="n1194"
+     x="753.6230509686189"
      y="179.92807449999964"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1135"
-     x1="590.3230598"
+     id="n1195"
+     x1="587.159314"
      y1="129.57984601594654"
-     x2="696.5676138"
+     x2="693.403868"
      y2="104.80291166689344"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1136"
-     points="590.3230598,129.57984601594654 596.3230598,133.57984601594654 602.3230598,129.57984601594654 596.3230598,125.57984601594654 590.3230598,129.57984601594654"
+     id="n1196"
+     points="587.159314,129.57984601594654 593.159314,133.57984601594654 599.159314,129.57984601594654 593.159314,125.57984601594654 587.159314,129.57984601594654"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-13.127137359403894 590.3230598 129.57984601594654)" />
+     transform="rotate(-13.127137359403894 587.159314 129.57984601594654)" />
   <rect
-     id="n1137"
-     x="623.5"
+     id="n1197"
+     x="620.5"
      y="110.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1138"
-     x="643.0"
+     id="n1198"
+     x="640.0"
      y="120.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1139"
+       id="n1199"
        xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.expansion"><title
-   id="title8934">Information about the [ValueSet/$expand](valueset-operation-expand.html) operation</title>expansion</a></text>
+   id="title15904">Information about the [ValueSet/$expand](valueset-operation-expand.html) operation</title>expansion</a></text>
   <text
-     id="n1140"
-     x="676.5676138"
+     id="n1200"
+     x="673.403868"
      y="100.80291166689344"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n1141"
-     x1="249.7630598"
-     y1="264.80291678816315"
-     x2="131.37849597259503"
+     id="n1201"
+     x1="246.599314"
+     y1="264.8029167881632"
+     x2="128.21475017259516"
      y2="331.206622"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1142"
-     points="249.7630598,264.80291678816315 255.7630598,268.80291678816315 261.7630598,264.80291678816315 255.7630598,260.80291678816315 249.7630598,264.80291678816315"
+     id="n1202"
+     points="246.599314,264.8029167881632 252.599314,268.8029167881632 258.599314,264.8029167881632 252.599314,260.8029167881632 246.599314,264.8029167881632"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(150.71126917824134 249.7630598 264.80291678816315)" />
+     transform="rotate(150.71126917824134 246.599314 264.8029167881632)" />
   <rect
-     id="n1143"
-     x="164.0"
+     id="n1203"
+     x="161.0"
      y="291.0"
      width="52.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1144"
-     x="190.0"
+     id="n1204"
+     x="187.0"
      y="301.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1145"
+       id="n1205"
        xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.validateCode"><title
-   id="title8942">Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation</title>validateCode</a></text>
+   id="title15912">Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation</title>validateCode</a></text>
   <text
-     id="n1146"
-     x="131.37849597259503"
+     id="n1206"
+     x="128.21475017259516"
      y="327.206622"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n1147"
-     x1="249.7630598"
-     y1="178.0490509783458"
-     x2="115.24478710000001"
-     y2="184.96833666720096"
+     id="n1207"
+     x1="246.599314"
+     y1="178.0490509783459"
+     x2="112.08104130000001"
+     y2="184.96833666720102"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1148"
-     points="249.7630598,178.0490509783458 255.7630598,182.0490509783458 261.7630598,178.0490509783458 255.7630598,174.0490509783458 249.7630598,178.0490509783458"
+     id="n1208"
+     points="246.599314,178.0490509783459 252.599314,182.0490509783459 258.599314,178.0490509783459 252.599314,174.0490509783459 246.599314,178.0490509783459"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(177.055442564994 249.7630598 178.0490509783458)" />
+     transform="rotate(177.055442564994 246.599314 178.0490509783459)" />
   <rect
-     id="n1149"
-     x="158.0"
+     id="n1209"
+     x="155.0"
      y="174.0"
      width="48.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1150"
-     x="182.0"
+     id="n1210"
+     x="179.0"
      y="184.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1151"
+       id="n1211"
        xlink:href="terminologycapabilities-definitions.html#TerminologyCapabilities.translation"><title
-   id="title8950">Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation</title>translation</a></text>
+   id="title15920">Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation</title>translation</a></text>
   <text
-     id="n1152"
-     x="130.2447871"
-     y="180.96833666720096"
+     id="n1212"
+     x="127.08104130000001"
+     y="180.96833666720102"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
 </svg>

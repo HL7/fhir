@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n525"
+   version="1.1"
+   width="1643.6"
+   height="476.0"
+   sodipodi:docname="permission.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview9898"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.758092"
+     inkscape:cx="809.26853"
+     inkscape:cy="148.39887"
+     inkscape:window-width="1390"
+     inkscape:window-height="1187"
+     inkscape:window-x="0"
+     inkscape:window-y="40"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n525" />
+  <defs
+     id="defs9636">
+    <filter
+       id="shadow1"
+       x="-0.027376032"
+       y="-0.0828125"
+       width="1.0702479"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9627" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix9629" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur9631" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend9633" />
+    </filter>
+  </defs>
+  <g
+     id="n526">
+    <rect
+       id="Permission"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n527"
+       x1="0.0"
+       y1="28.0"
+       x2="303.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n528"
+       x="151.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Permission<tspan
+   class="diagram-class-title-link"
+   id="tspan9641"> (<a
+   id="n529"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n530"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n531"
+   xlink:href="permission-definitions.html#Permission.identifier"><title
+   id="title9644">A unique identifier assigned to this permission</title>identifier</a> : <a
+   id="n532"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n536"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n537"
+   xlink:href="permission-definitions.html#Permission.status"><title
+   id="title9649">Status</title>status</a> : <a
+   id="n538"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n539"
+   xlink:href="valueset-permission-status.html"><title
+   id="n540">null (Strength=Required)</title>PermissionStatus</a>! »</text>
+    <text
+       id="n546"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n547"
+   xlink:href="permission-definitions.html#Permission.asserter"><title
+   id="title9656">The person or entity that asserts the permission</title>asserter</a> : <a
+   id="n548"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n549"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n550"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n551"
+       x="26.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n552"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n553"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n554"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n555"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n556"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a> »</text>
+    <text
+       id="n568"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n569"
+   xlink:href="permission-definitions.html#Permission.date"><title
+   id="title9669">The date that permission was asserted</title>date</a> : <a
+   id="n570"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..*]</text>
+    <text
+       id="n574"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n575"
+   xlink:href="permission-definitions.html#Permission.validity"><title
+   id="title9674">The period in which the permission is active</title>validity</a> : <a
+   id="n576"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n580"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n581"
+   xlink:href="permission-definitions.html#Permission.combining"><title
+   id="title9679">Defines a procedure for arriving at an access decision given the set of rules (this element modifies the meaning of other elements)</title>combining</a> : <a
+   id="n582"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n583"
+   xlink:href="valueset-permission-rule-combining.html"><title
+   id="n584">null (Strength=Required)</title>PermissionRuleCombining</a>! »</text>
+  </g>
+  <g
+     id="n590">
+    <rect
+       id="Permission.justification"
+       x="423.6"
+       y="35.0"
+       rx="4"
+       ry="4"
+       width="250.8"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n591"
+       x1="423.6"
+       y1="63.0"
+       x2="674.4000000000001"
+       y2="63.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n592"
+       x="549.0"
+       y="55.0"
+       fill="black"
+       class="diagram-class-title">Justification</text>
+    <text
+       id="n593"
+       x="429.6"
+       y="77.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n594"
+   xlink:href="permission-definitions.html#Permission.justification.basis"><title
+   id="title9690">This would be a codeableconcept, or a coding, which can be constrained to , for example, the 6 grounds for processing in GDPR</title>basis</a> : <a
+   id="n595"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n596"
+   xlink:href="valueset-consent-policy.html"><title
+   id="n597">null (Strength=Example)</title>ConsentPolicyRuleCodes</a>?? »</text>
+    <text
+       id="n603"
+       x="429.6"
+       y="91.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n604"
+   xlink:href="permission-definitions.html#Permission.justification.evidence"><title
+   id="title9697">Justifing rational</title>evidence</a> : <a
+   id="n605"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n606"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+  </g>
+  <g
+     id="n611">
+    <rect
+       id="Permission.rule"
+       x="44.0"
+       y="214.0"
+       rx="4"
+       ry="4"
+       width="215.60000000000002"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n612"
+       x1="44.0"
+       y1="242.0"
+       x2="259.6"
+       y2="242.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n613"
+       x="151.8"
+       y="234.0"
+       fill="black"
+       class="diagram-class-title">Rule</text>
+    <text
+       id="n614"
+       x="50.0"
+       y="256.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n615"
+   xlink:href="permission-definitions.html#Permission.rule.import"><title
+   id="title9707">This rule is expressed in another Permission resource</title>import</a> : <a
+   id="n616"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n617"
+   xlink:href="permission.html#Permission">Permission</a> » « <a
+   id="n618"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n619">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n626"
+       x="50.0"
+       y="270.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n627"
+   xlink:href="permission-definitions.html#Permission.rule.type"><title
+   id="title9715">deny | permit (this element modifies the meaning of other elements)</title>type</a> : <a
+   id="n628"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n629"
+   xlink:href="valueset-consent-provision-type.html"><title
+   id="n630">null (Strength=Required)</title>ConsentProvisionType</a>! » « <a
+   id="n631"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n632">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n640"
+     transform="translate(18.467415,64.635954)">
+    <rect
+       id="Permission.rule.data"
+       x="379.60001"
+       y="200"
+       rx="4"
+       ry="4"
+       width="198"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n641"
+       x1="379.60001"
+       y1="228"
+       x2="577.59998"
+       y2="228"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n642"
+       x="478.60001"
+       y="220"
+       fill="#000000"
+       class="diagram-class-title">Data</text>
+    <text
+       id="n643"
+       x="385.60001"
+       y="242"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n644"
+   xlink:href="permission-definitions.html#Permission.rule.data.resourceType"><title
+   id="title9728">The resourceType(s) covered by this rule. The type can be a FHIR resource type or a profile on a type that indicates what information the rule applies to</title>resourceType</a> : <a
+   id="n645"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n646"
+   xlink:href="valueset-resource-types.html"><title
+   id="n647">null (Strength=Extensible)</title>ResourceType</a>+ »</text>
+    <text
+       id="n653"
+       x="385.60001"
+       y="256"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n654"
+   xlink:href="permission-definitions.html#Permission.rule.data.security"><title
+   id="title9735">The data in scope are those with the given codes present in that data .meta.security element</title>security</a> : <a
+   id="n655"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*]</text>
+    <text
+       id="n659"
+       x="385.60001"
+       y="270"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n660"
+   xlink:href="permission-definitions.html#Permission.rule.data.period"><title
+   id="title9740">Clinical or Operational Relevant period of time that bounds the data controlled by this rule</title>period</a> : <a
+   id="n661"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n665"
+       x="385.60001"
+       y="284"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n666"
+   xlink:href="permission-definitions.html#Permission.rule.data.expression"><title
+   id="title9745">Used when other data selection elements are insufficient</title>expression</a> : <a
+   id="n667"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [0..1]</text>
+  </g>
+  <g
+     id="n671"
+     transform="translate(77.826965,92.337077)">
+    <rect
+       id="Permission.rule.data.resource"
+       x="381.79999"
+       y="372"
+       rx="4"
+       ry="4"
+       width="193.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n672"
+       x1="381.79999"
+       y1="400"
+       x2="575.40002"
+       y2="400"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n673"
+       x="478.60001"
+       y="392"
+       fill="#000000"
+       class="diagram-class-title">Resource</text>
+    <text
+       id="n674"
+       x="387.79999"
+       y="414"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n675"
+   xlink:href="permission-definitions.html#Permission.rule.data.resource.meaning"><title
+   id="title9754">How the resource reference is interpreted when testing consent restrictions</title>meaning</a> : <a
+   id="n676"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n677"
+   xlink:href="valueset-consent-data-meaning.html"><title
+   id="n678">null (Strength=Required)</title>ConsentDataMeaning</a>! »</text>
+    <text
+       id="n684"
+       x="387.79999"
+       y="428"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n685"
+   xlink:href="permission-definitions.html#Permission.rule.data.resource.reference"><title
+   id="title9761">A reference to a specific resource that defines which resources are covered by this consent</title>reference</a> : <a
+   id="n686"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n687"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+  </g>
+  <g
+     id="n692">
+    <rect
+       id="Permission.rule.activity"
+       x="24.200000000000003"
+       y="358.0"
+       rx="4"
+       ry="4"
+       width="255.20000000000002"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n693"
+       x1="24.200000000000003"
+       y1="386.0"
+       x2="279.40000000000003"
+       y2="386.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n694"
+       x="151.8"
+       y="378.0"
+       fill="black"
+       class="diagram-class-title">Activity</text>
+    <text
+       id="n695"
+       x="30.200000000000003"
+       y="400.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n696"
+   xlink:href="permission-definitions.html#Permission.rule.activity.action"><title
+   id="title9771">Actions controlled by this Rule</title>action</a> : <a
+   id="n697"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n698"
+   xlink:href="valueset-type-restful-interaction.html"><title
+   id="title9775">null (Strength=Preferred)</title>TypeRestfulInteraction</a>? »</text>
+    <text
+       id="n703"
+       x="30.200000000000003"
+       y="414.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n704"
+   xlink:href="permission-definitions.html#Permission.rule.activity.purpose"><title
+   id="title9779">The purpose for which the permission is given</title>purpose</a> : <a
+   id="n705"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n706"
+   xlink:href="http://terminology.hl7.org/6.5.0/ValueSet-v3-PurposeOfUse.html"><title
+   id="title9783">null (Strength=Preferred)</title>PurposeOfUse</a>? »</text>
+  </g>
+  <g
+     id="n711"
+     transform="translate(-689.88988,488.06741)">
+    <rect
+       id="Permission.rule.activity.actor"
+       x="720"
+       y="0"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n712"
+       x1="720"
+       y1="28"
+       x2="1010.4"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n713"
+       x="865.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Actor</text>
+    <text
+       id="n714"
+       x="726"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n715"
+   xlink:href="permission-definitions.html#Permission.rule.activity.actor.role"><title
+   id="title9791">How the individual is involved in the activity that is described in the rule</title>role</a> : <a
+   id="n716"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n717"
+   xlink:href="valueset-participation-role-type.html"><title
+   id="n718">null (Strength=Extensible)</title>ParticipationRoleType</a>+ »</text>
+    <text
+       id="n724"
+       x="726"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n725"
+   xlink:href="permission-definitions.html#Permission.rule.activity.actor.reference"><title
+   id="title9798">The actor(s) authorized for the defined activity</title>reference</a> : <a
+   id="n726"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n727"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n728"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n729"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n730"
+   xlink:href="organization.html#Organization">Organization</a>|</text>
+    <text
+       id="n731"
+       x="746"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n732"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n733"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n734"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n735"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n736"
+       x="746"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n737"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|<a
+   id="n738"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a> »</text>
+  </g>
+  <g
+     id="n754"
+     transform="translate(-631.84943,134.54831)">
+    <rect
+       id="Permission.rule.limit"
+       x="1040"
+       y="0"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n755"
+       x1="1040"
+       y1="28"
+       x2="1343.6"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n756"
+       x="1191.8"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Limit</text>
+    <text
+       id="n757"
+       x="1046"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n758"
+   xlink:href="permission-definitions.html#Permission.rule.limit.control"><title
+   id="title9819">One or more coded restriction such as a refrain or obligation</title>control</a> : <a
+   id="n759"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n760"
+   xlink:href="http://terminology.hl7.org/6.5.0/ValueSet-v3-SecurityControlObservationValue.html"><title
+   id="title9823">null (Strength=Preferred)</title>SecurityControlObservationVal...</a>? »</text>
+    <text
+       id="n765"
+       x="1046"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n766"
+   xlink:href="permission-definitions.html#Permission.rule.limit.tag"><title
+   id="title9827">When this rule authorized data use, any data that is tagged with the code here must be redacted from the data provided for that authorized use</title>tag</a> : <a
+   id="n767"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n768"
+   xlink:href="http://terminology.hl7.org/6.5.0/ValueSet-v3-InformationSensitivityPolicy.html"><title
+   id="title9831">null (Strength=Preferred)</title>InformationSensitivityPolicy</a>? »</text>
+    <text
+       id="n773"
+       x="1046"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n774"
+   xlink:href="permission-definitions.html#Permission.rule.limit.element"><title
+   id="title9835">When this rule authorized data use, the data at the path indicated here, must be redacted from the authorized data provided for that authorized use</title>element</a> : <a
+   id="n775"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+  </g>
+  <line
+     id="n779"
+     x1="303.6"
+     y1="67.0"
+     x2="423.6"
+     y2="67.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n780"
+     points="303.6,67.0 309.6,71.0 315.6,67.0 309.6,63.0 303.6,67.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 303.6 67.0)" />
+  <rect
+     id="n781"
+     x="334.5"
+     y="60.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n782"
+     x="363.0"
+     y="70.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n783"
+       xlink:href="permission-definitions.html#Permission.justification"><title
+   id="title9844">The asserted justification for using the data</title>justification</a></text>
+  <text
+     id="n784"
+     x="403.6"
+     y="63.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n785"
+     x1="478.6"
+     y1="292.0"
+     x2="478.6"
+     y2="372.00000000000006"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n786"
+     points="478.6,292.0 484.6,296.0 490.6,292.0 484.6,288.0 478.6,292.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.0 478.6 292.0)" />
+  <rect
+     id="n787"
+     x="460.5"
+     y="325.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n788"
+     x="478.0"
+     y="335.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n789"
+       xlink:href="permission-definitions.html#Permission.rule.data.resource"><title
+   id="title9852">Explicit FHIR Resource references</title>resource</a></text>
+  <text
+     id="n790"
+     x="478.6"
+     y="368.00000000000006"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n791"
+     x1="259.6"
+     y1="246.0"
+     x2="379.6"
+     y2="246.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n792"
+     points="259.6,246.0 265.6,250.0 271.6,246.0 265.6,242.0 259.6,246.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 259.6 246.0)" />
+  <rect
+     id="n793"
+     x="310.5"
+     y="239.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n794"
+     x="319.0"
+     y="249.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n795"
+       xlink:href="permission-definitions.html#Permission.rule.data"><title
+   id="title9860">A description or definition of which activities are allowed to be done on the data</title>data</a></text>
+  <text
+     id="n796"
+     x="359.6"
+     y="242.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n797"
+     x1="218.16279069767444"
+     y1="357.99999999999994"
+     x2="769.8034883720929"
+     y2="92.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n798"
+     points="218.16279069767444,357.99999999999994 224.16279069767444,361.99999999999994 230.16279069767444,357.99999999999994 224.16279069767444,353.99999999999994 218.16279069767444,357.99999999999994"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-25.743268364576828 218.16279069767444 357.99999999999994)" />
+  <rect
+     id="n799"
+     x="482.0"
+     y="217.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n800"
+     x="493.0"
+     y="227.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n801"
+       xlink:href="permission-definitions.html#Permission.rule.activity.actor"><title
+   id="title9868">Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')</title>actor</a></text>
+  <text
+     id="n802"
+     x="769.8034883720929"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n803"
+     x1="151.8"
+     y1="278.0"
+     x2="151.8"
+     y2="357.99999999999994"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n804"
+     points="151.8,278.0 157.8,282.0 163.8,278.0 157.8,274.0 151.8,278.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.0 151.8 278.0)" />
+  <rect
+     id="n805"
+     x="133.5"
+     y="311.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n806"
+     x="151.0"
+     y="321.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n807"
+       xlink:href="permission-definitions.html#Permission.rule.activity"><title
+   id="title9876">A description or definition of which activities are allowed to be done on the data</title>activity</a></text>
+  <text
+     id="n808"
+     x="151.8"
+     y="353.99999999999994"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n809"
+     x1="259.6"
+     y1="224.54365384615383"
+     x2="1040.0"
+     y2="69.21403846153845"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n810"
+     points="259.6,224.54365384615383 265.6,228.54365384615383 271.6,224.54365384615383 265.6,220.54365384615383 259.6,224.54365384615383"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-11.256949523047867 259.6 224.54365384615383)" />
+  <rect
+     id="n811"
+     x="638.0"
+     y="139.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n812"
+     x="649.0"
+     y="149.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n813"
+       xlink:href="permission-definitions.html#Permission.rule.limit"><title
+   id="title9884">What restrictions must be applied to the use of the data by the actor</title>limit</a></text>
+  <text
+     id="n814"
+     x="1020.0"
+     y="65.21403846153845"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n815"
+     x1="151.8"
+     y1="134.0"
+     x2="151.8"
+     y2="213.99999999999997"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n816"
+     points="151.8,134.0 157.8,138.0 163.8,134.0 157.8,130.0 151.8,134.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.0 151.8 134.0)" />
+  <rect
+     id="n817"
+     x="142.5"
+     y="167.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n818"
+     x="151.0"
+     y="177.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n819"
+       xlink:href="permission-definitions.html#Permission.rule"><title
+   id="title9892">A set of rules</title>rule</a></text>
+  <text
+     id="n820"
+     x="151.8"
+     y="209.99999999999997"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

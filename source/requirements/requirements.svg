@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   id="n452"
+   id="n616"
    version="1.1"
-   width="819.2"
-   height="312.0"
+   width="1538.0"
+   height="340.0"
    sodipodi:docname="requirements.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview95252"
+     id="namedview14589"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,49 +21,49 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.5209961"
-     inkscape:cx="409.60001"
-     inkscape:cy="156.14767"
+     inkscape:zoom="0.81014304"
+     inkscape:cx="769.61718"
+     inkscape:cy="172.19181"
      inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-height="1187"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="40"
      inkscape:window-maximized="0"
-     inkscape:current-layer="n452" />
+     inkscape:current-layer="n616" />
   <defs
-     id="defs95062">
+     id="defs14303">
     <filter
        id="shadow1"
-       x="-0.019428153"
-       y="-0.025980392"
-       width="1.0498534"
-       height="1.0666667">
+       x="-0.026767677"
+       y="-0.0828125"
+       width="1.0686869"
+       height="1.2125">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset95053" />
+         id="feOffset14294" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix95055" />
+         id="feColorMatrix14296" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur95057" />
+         id="feGaussianBlur14298" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend95059" />
+         id="feBlend14300" />
     </filter>
   </defs>
   <g
-     id="n453">
+     id="n617">
     <rect
        id="Requirements"
        x="0.0"
@@ -71,465 +71,810 @@
        rx="4"
        ry="4"
        width="272.8"
-       height="302.0"
+       height="330.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n454"
+       id="n618"
        x1="0.0"
        y1="28.0"
        x2="272.8"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n455"
+       id="n619"
        x="136.4"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">Requirements<tspan
    class="diagram-class-title-link"
-   id="tspan95068"> (<a
-   id="n456"
+   id="tspan14309"> (<a
+   id="n620"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
    style="font-style: italic">DomainResource</a>) +<a
-   id="n457"
+   id="n621"
    xlink:href="canonicalresource.html#CanonicalResource"
    class="diagram-class-reference"
    style="font-style: italic">CanonicalResource</a></tspan></text>
     <text
-       id="n458"
+       id="n622"
        x="6.0"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n459"
+   id="n623"
    xlink:href="requirements-definitions.html#Requirements.url"><title
-   id="title95071">An absolute URI that is used to identify this Requirements when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Requirements is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Requirements is stored on different servers</title>url</a> : <a
-   id="n460"
+   id="title14312">An absolute URI that is used to identify this Requirements when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Requirements is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Requirements is stored on different servers</title>url</a> : <a
+   id="n624"
    xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
-       id="n464"
+       id="n628"
        x="6.0"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n465"
+   id="n629"
    xlink:href="requirements-definitions.html#Requirements.identifier"><title
-   id="title95076">A formal identifier that is used to identify this Requirements when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
-   id="n466"
+   id="title14317">A formal identifier that is used to identify this Requirements when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n630"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n470"
+       id="n634"
        x="6.0"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n471"
+   id="n635"
    xlink:href="requirements-definitions.html#Requirements.version"><title
-   id="title95081">The identifier that is used to identify this version of the Requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
-   id="n472"
+   id="title14322">The identifier that is used to identify this version of the Requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n636"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n476"
+       id="n640"
        x="6.0"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n477"
-   xlink:href="requirements-definitions.html#Requirements.name"><title
-   id="title95086">A natural language name identifying the Requirements. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
-   id="n478"
-   xlink:href="datatypes.html#string">string</a> [0..1] « <a
-   id="n479"
-   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
-   xlink:href="conformance-rules.html#constraints"><title
-   id="n480">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n641"
+   xlink:href="requirements-definitions.html#Requirements.versionAlgorithm_x_"><title
+   id="title14327">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n642"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n643"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n644"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n645"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n646">null (Strength=Extensible)</title></a></text>
     <text
-       id="n486"
-       x="6.0"
+       id="n647"
+       x="26.0"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n487"
-   xlink:href="requirements-definitions.html#Requirements.title"><title
-   id="title95093">A short, descriptive, user-friendly title for the Requirements</title>title</a> : <a
-   id="n488"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+   id="n648"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
     <text
-       id="n492"
+       id="n658"
        x="6.0"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n493"
-   xlink:href="requirements-definitions.html#Requirements.status"><title
-   id="title95098">The status of this Requirements. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
-   id="n494"
-   xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n495"
-   xlink:href="valueset-publication-status.html"><title
-   id="n496">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+   id="n659"
+   xlink:href="requirements-definitions.html#Requirements.name"><title
+   id="title14338">A natural language name identifying the Requirements. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n660"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n661"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n662">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n502"
+       id="n668"
        x="6.0"
        y="126.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n503"
-   xlink:href="requirements-definitions.html#Requirements.experimental"><title
-   id="title95105">A Boolean value to indicate that this Requirements is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
-   id="n504"
-   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+   id="n669"
+   xlink:href="requirements-definitions.html#Requirements.title"><title
+   id="title14345">A short, descriptive, user-friendly title for the Requirements</title>title</a> : <a
+   id="n670"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n508"
+       id="n674"
        x="6.0"
        y="140.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n509"
-   xlink:href="requirements-definitions.html#Requirements.date"><title
-   id="title95110">The date  (and optionally time) when the Requirements was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Requirements changes</title>date</a> : <a
-   id="n510"
-   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+   id="n675"
+   xlink:href="requirements-definitions.html#Requirements.status"><title
+   id="title14350">The status of this Requirements. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n676"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n677"
+   xlink:href="valueset-publication-status.html"><title
+   id="n678">null (Strength=Required)</title>PublicationStatus</a>! »</text>
     <text
-       id="n514"
+       id="n684"
        x="6.0"
        y="154.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n515"
-   xlink:href="requirements-definitions.html#Requirements.publisher"><title
-   id="title95115">The name of the organization or individual responsible for the release and ongoing maintenance of the Requirements</title>publisher</a> : <a
-   id="n516"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+   id="n685"
+   xlink:href="requirements-definitions.html#Requirements.category"><title
+   id="title14357">Categorization might be done automatically (inferred by code) or manually by user assertion. The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled. As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'</title>category</a> : <a
+   id="n686"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*]</text>
     <text
-       id="n520"
+       id="n690"
        x="6.0"
        y="168.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n521"
-   xlink:href="requirements-definitions.html#Requirements.contact"><title
-   id="title95120">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
-   id="n522"
-   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+   id="n691"
+   xlink:href="requirements-definitions.html#Requirements.experimental"><title
+   id="title14362">A Boolean value to indicate that this Requirements is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage</title>experimental</a> : <a
+   id="n692"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n526"
+       id="n696"
        x="6.0"
        y="182.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n527"
-   xlink:href="requirements-definitions.html#Requirements.description"><title
-   id="title95125">A free text natural language description of the requirements</title>description</a> : <a
-   id="n528"
-   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
-    <rect
-       id="n532"
-       x="1.0"
-       y="186.0"
-       width="270.8"
-       height="14.0"
-       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+   id="n697"
+   xlink:href="requirements-definitions.html#Requirements.date"><title
+   id="title14367">The date  (and optionally time) when the Requirements was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Requirements changes</title>date</a> : <a
+   id="n698"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
-       id="n533"
+       id="n702"
        x="6.0"
        y="196.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n534"
-   xlink:href="requirements-definitions.html#Requirements.useContext"><title
-   id="title95131">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Requirements instances</title>useContext</a> : <a
-   id="n535"
-   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+   id="n703"
+   xlink:href="requirements-definitions.html#Requirements.publisher"><title
+   id="title14372">The name of the organization or individual responsible for the release and ongoing maintenance of the Requirements</title>publisher</a> : <a
+   id="n704"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n540"
+       id="n708"
        x="6.0"
        y="210.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n541"
-   xlink:href="requirements-definitions.html#Requirements.jurisdiction"><title
-   id="title95136">A legal or geographic region in which the Requirements is intended to be used</title>jurisdiction</a> : <a
-   id="n542"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n543"
-   xlink:href="valueset-jurisdiction.html"><title
-   id="n544">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+   id="n709"
+   xlink:href="requirements-definitions.html#Requirements.contact"><title
+   id="title14377">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n710"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text
-       id="n550"
+       id="n714"
        x="6.0"
        y="224.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n551"
-   xlink:href="requirements-definitions.html#Requirements.purpose"><title
-   id="title95143">Explanation of why this Requirements is needed and why it has been designed as it has</title>purpose</a> : <a
-   id="n552"
+   id="n715"
+   xlink:href="requirements-definitions.html#Requirements.description"><title
+   id="title14382">A free text natural language description of the requirements</title>description</a> : <a
+   id="n716"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n556"
+       id="n720"
        x="6.0"
        y="238.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n557"
-   xlink:href="requirements-definitions.html#Requirements.copyright"><title
-   id="title95148">A copyright statement relating to the Requirements and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the Requirements</title>copyright</a> : <a
-   id="n558"
-   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+   id="n721"
+   xlink:href="requirements-definitions.html#Requirements.useContext"><title
+   id="title14387">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Requirements instances</title>useContext</a> : <a
+   id="n722"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
     <text
-       id="n562"
+       id="n726"
        x="6.0"
        y="252.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n563"
-   xlink:href="requirements-definitions.html#Requirements.copyrightLabel"><title
-   id="title95153">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
-   id="n564"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+   id="n727"
+   xlink:href="requirements-definitions.html#Requirements.jurisdiction"><title
+   id="title14392">A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use</title>jurisdiction</a> : <a
+   id="n728"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n729"
+   xlink:href="http://terminology.hl7.org/6.5.0/ValueSet-jurisdiction.html"><title
+   id="n730">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
     <text
-       id="n568"
+       id="n736"
        x="6.0"
        y="266.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n569"
-   xlink:href="requirements-definitions.html#Requirements.derivedFrom"><title
-   id="title95158">Another set of Requirements that this set of Requirements builds on and updates</title>derivedFrom</a> : <a
-   id="n570"
-   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
-   id="n571"
-   xlink:href="requirements.html#Requirements">Requirements</a> »</text>
+   id="n737"
+   xlink:href="requirements-definitions.html#Requirements.purpose"><title
+   id="title14399">Explanation of why this Requirements is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n738"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n576"
+       id="n742"
        x="6.0"
        y="280.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n577"
-   xlink:href="requirements-definitions.html#Requirements.reference"><title
-   id="title95164">A reference to another artifact that created this set of requirements. This could be a Profile, etc., or external regulation, or business requirements expressed elsewhere</title>reference</a> : <a
-   id="n578"
-   xlink:href="datatypes.html#url">url</a> [0..*]</text>
+   id="n743"
+   xlink:href="requirements-definitions.html#Requirements.copyright"><title
+   id="title14404">A copyright statement relating to the Requirements and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the Requirements</title>copyright</a> : <a
+   id="n744"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n582"
+       id="n748"
        x="6.0"
        y="294.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n583"
-   xlink:href="requirements-definitions.html#Requirements.actor"><title
-   id="title95169">An actor these requirements are in regard to</title>actor</a> : <a
-   id="n584"
+   id="n749"
+   xlink:href="requirements-definitions.html#Requirements.copyrightLabel"><title
+   id="title14409">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n750"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n754"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n755"
+   xlink:href="requirements-definitions.html#Requirements.derivedFrom"><title
+   id="title14414">Another set of Requirements that this set of Requirements builds on and updates</title>derivedFrom</a> : <a
+   id="n756"
    xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
-   id="n585"
-   xlink:href="actordefinition.html#ActorDefinition">ActorDefinition</a> »</text>
+   id="n757"
+   xlink:href="requirements.html#Requirements">Requirements</a> »</text>
+    <text
+       id="n762"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n763"
+   xlink:href="requirements-definitions.html#Requirements.reference"><title
+   id="title14420">A reference to another artifact that created this set of requirements. This could be a profile, etc., or external regulation, or business requirements expressed elsewhere. This URI is intended to point to a specific web page for an artifact, not a canonical URL.  If pointing to HL7 specifications, it is best to point to the version-specific URL</title>reference</a> : <a
+   id="n764"
+   xlink:href="datatypes.html#url">url</a> [0..*]</text>
   </g>
   <g
-     id="n590"
-     transform="translate(116.37111,57.856823)">
+     id="n768">
     <rect
-       id="Requirements.statement"
-       x="320"
+       id="Requirements.imports"
+       x="320.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="198.00000000000003"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
+    <line
+       id="n769"
+       x1="320.0"
+       y1="28.0"
+       x2="518.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n770"
+       x="419.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">Imports</text>
+    <text
+       id="n771"
+       x="326.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n772"
+   xlink:href="requirements-definitions.html#Requirements.imports.reference"><title
+   id="title14429">The canonical for the Requirements resource to import statements from</title>reference</a> : <a
+   id="n773"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n774"
+   xlink:href="requirements.html#Requirements">Requirements</a> »</text>
+    <text
+       id="n779"
+       x="326.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n780"
+   xlink:href="requirements-definitions.html#Requirements.imports.key"><title
+   id="title14435">The key of a statement to treat as part of the set of requirements defined in this instance</title>key</a> : <a
+   id="n781"
+   xlink:href="datatypes.html#id">id</a> [0..*]</text>
+  </g>
+  <g
+     id="n785"
+     transform="translate(-253.04173,307.35313)">
+    <rect
+       id="Requirements.actor"
+       x="560"
        y="0"
        rx="4"
        ry="4"
-       width="299.20001"
-       height="204"
+       width="211.2"
+       height="64"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n591"
-       x1="320"
+       id="n786"
+       x1="560"
        y1="28"
-       x2="619.20001"
+       x2="771.20001"
        y2="28"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n592"
-       x="469.60001"
+       id="n787"
+       x="665.59998"
        y="20"
        fill="#000000"
-       class="diagram-class-title">Statement</text>
+       class="diagram-class-title">Actor</text>
     <text
-       id="n593"
-       x="326"
+       id="n788"
+       x="566"
        y="42"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n594"
-   xlink:href="requirements-definitions.html#Requirements.statement.key"><title
-   id="title95179">Key that identifies this statement (unique within this resource)</title>key</a> : <a
-   id="n595"
-   xlink:href="datatypes.html#id">id</a> [1..1]</text>
+   id="n789"
+   xlink:href="requirements-definitions.html#Requirements.actor.reference"><title
+   id="title14444">The canonical for an actor relevant to some of the requirements</title>reference</a> : <a
+   id="n790"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n791"
+   xlink:href="actordefinition.html#ActorDefinition">ActorDefinition</a> »</text>
     <text
-       id="n599"
-       x="326"
+       id="n796"
+       x="566"
        y="56"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n600"
+   id="n797"
+   xlink:href="requirements-definitions.html#Requirements.actor.key"><title
+   id="title14450">A unique string used to reference the actor from specific requirements</title>key</a> : <a
+   id="n798"
+   xlink:href="datatypes.html#id">id</a> [0..1]</text>
+  </g>
+  <g
+     id="n802"
+     transform="translate(-70.357943,34.561797)">
+    <rect
+       id="Requirements.statement"
+       x="436.37112"
+       y="57.856823"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="190"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n803"
+       x1="436.37112"
+       y1="85.856827"
+       x2="735.57111"
+       y2="85.856827"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n804"
+       x="585.97113"
+       y="77.856827"
+       fill="#000000"
+       class="diagram-class-title">Statement</text>
+    <text
+       id="n805"
+       x="442.37112"
+       y="99.856827"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n806"
+   xlink:href="requirements-definitions.html#Requirements.statement.key"><title
+   id="title14459">Key that identifies this statement (unique within this resource)</title>key</a> : <a
+   id="n807"
+   xlink:href="datatypes.html#id">id</a> [1..1]</text>
+    <text
+       id="n811"
+       x="442.37112"
+       y="113.85683"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n812"
    xlink:href="requirements-definitions.html#Requirements.statement.label"><title
-   id="title95184">A short human usable label for this statement</title>label</a> : <a
-   id="n601"
+   id="title14464">A short human usable label for this statement</title>label</a> : <a
+   id="n813"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n605"
-       x="326"
-       y="70"
+       id="n817"
+       x="442.37112"
+       y="127.85683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n606"
+   id="n818"
    xlink:href="requirements-definitions.html#Requirements.statement.conformance"><title
-   id="title95189">A short human usable label for this statement</title>conformance</a> : <a
-   id="n607"
+   id="title14469">A short human usable label for this statement</title>conformance</a> : <a
+   id="n819"
    xlink:href="datatypes.html#code">code</a> [0..*] « <a
-   id="n608"
+   id="n820"
    xlink:href="valueset-conformance-expectation.html"><title
-   id="n609">null (Strength=Required)</title>ConformanceExpectation</a>! »</text>
+   id="n821">null (Strength=Required)</title>ConformanceExpectation</a>! »</text>
     <text
-       id="n615"
-       x="326"
-       y="84"
+       id="n827"
+       x="442.37112"
+       y="141.85683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n616"
+   id="n828"
    xlink:href="requirements-definitions.html#Requirements.statement.conditionality"><title
-   id="title95196">This boolean flag is set to true of the text of the requirement is conditional on something e.g. it includes lanauage like 'if x then y'. This conditionality flag is introduced for purposes of filtering and colour highlighting etc</title>conditionality</a> : <a
-   id="n617"
+   id="title14476">This boolean flag is set to true of the text of the requirement is conditional on something e.g. it includes language like 'if x then y'. This conditionality flag is introduced for purposes of filtering and colour highlighting etc</title>conditionality</a> : <a
+   id="n829"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n621"
-       x="326"
-       y="98"
+       id="n833"
+       x="442.37112"
+       y="155.85683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n622"
+   id="n834"
    xlink:href="requirements-definitions.html#Requirements.statement.requirement"><title
-   id="title95201">The actual requirement for human consumption</title>requirement</a> : <a
-   id="n623"
+   id="title14481">The actual requirement for human consumption</title>requirement</a> : <a
+   id="n835"
    xlink:href="datatypes.html#markdown">markdown</a> [1..1]</text>
     <text
-       id="n627"
-       x="326"
-       y="112"
+       id="n839"
+       x="442.37112"
+       y="169.85683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n628"
-   xlink:href="requirements-definitions.html#Requirements.statement.derivedFrom"><title
-   id="title95206">Another statement on one of the requirements that this requirement clarifies or restricts</title>derivedFrom</a> : <a
-   id="n629"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
-    <text
-       id="n633"
-       x="326"
-       y="126"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n634"
-   xlink:href="requirements-definitions.html#Requirements.statement.parent"><title
-   id="title95211">A larger requirement that this requirement helps to refine and enable</title>parent</a> : <a
-   id="n635"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
-    <text
-       id="n639"
-       x="326"
-       y="140"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n640"
+   id="n840"
    xlink:href="requirements-definitions.html#Requirements.statement.satisfiedBy"><title
-   id="title95216">A reference to another artifact that satisfies this requirement. This could be a Profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Libary etc</title>satisfiedBy</a> : <a
-   id="n641"
+   id="title14486">A reference to another artifact that satisfies this requirement. This could be a profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Library etc</title>satisfiedBy</a> : <a
+   id="n841"
    xlink:href="datatypes.html#url">url</a> [0..*]</text>
     <text
-       id="n645"
-       x="326"
-       y="154"
+       id="n845"
+       x="442.37112"
+       y="183.85683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n646"
+   id="n846"
    xlink:href="requirements-definitions.html#Requirements.statement.reference"><title
-   id="title95221">A reference to another artifact that created this requirement. This could be a Profile, etc., or external regulation, or business requirements expressed elsewhere</title>reference</a> : <a
-   id="n647"
+   id="title14491">A reference to another artifact that created this requirement. This could be a profile, etc., or external regulation, or business requirements expressed elsewhere. This URI is intended to point to a specific web page for an artifact, not a canonical URL.  If pointing to HL7 specifications, it is best to point to the version-specific URL</title>reference</a> : <a
+   id="n847"
    xlink:href="datatypes.html#url">url</a> [0..*]</text>
     <text
-       id="n651"
-       x="326"
-       y="168"
+       id="n851"
+       x="442.37112"
+       y="197.85683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n652"
+   id="n852"
    xlink:href="requirements-definitions.html#Requirements.statement.source"><title
-   id="title95226">Who asked for this statement to be a requirement. By default, it's assumed that the publisher knows who it is if it matters</title>source</a> : <a
-   id="n653"
+   id="title14496">Who asked for this statement to be a requirement. By default, it's assumed that the publisher knows who it is if it matters</title>source</a> : <a
+   id="n853"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n654"
+   id="n854"
    xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
-   id="n655"
+   id="n855"
    xlink:href="device.html#Device">Device</a>|<a
-   id="n656"
+   id="n856"
    xlink:href="group.html#Group">Group</a>|<a
-   id="n657"
+   id="n857"
    xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|</text>
     <text
-       id="n658"
-       x="346"
-       y="182"
+       id="n858"
+       x="462.37112"
+       y="211.85683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n659"
+   id="n859"
    xlink:href="organization.html#Organization">Organization</a>|<a
-   id="n660"
+   id="n860"
    xlink:href="patient.html#Patient">Patient</a>|<a
-   id="n661"
+   id="n861"
    xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
-   id="n662"
+   id="n862"
    xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
     <text
-       id="n663"
-       x="346"
-       y="196"
+       id="n863"
+       x="462.37112"
+       y="225.85683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n664"
+   id="n864"
    xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n879"
+       x="442.37112"
+       y="239.85683"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n880"
+   xlink:href="requirements-definitions.html#Requirements.statement.actor"><title
+   id="title14512">A reference to the key of an actor listed in Requirements.actor that is relevant to this requirement statement</title>actor</a> : <a
+   id="n881"
+   xlink:href="datatypes.html#id">id</a> [0..*]</text>
+  </g>
+  <g
+     id="n885"
+     transform="translate(-39.499198,16.046543)">
+    <rect
+       id="Requirements.statement.derivedFrom"
+       x="800"
+       y="0"
+       rx="4"
+       ry="4"
+       width="198"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n886"
+       x1="800"
+       y1="28"
+       x2="998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n887"
+       x="899"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">DerivedFrom</text>
+    <text
+       id="n888"
+       x="806"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n889"
+   xlink:href="requirements-definitions.html#Requirements.statement.derivedFrom.reference"><title
+   id="title14521">The canonical of the Requirements instance this statement is derivedFrom</title>reference</a> : <a
+   id="n890"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n891"
+   xlink:href="requirements.html#Requirements">Requirements</a> »</text>
+    <text
+       id="n896"
+       x="806"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n897"
+   xlink:href="requirements-definitions.html#Requirements.statement.derivedFrom.key"><title
+   id="title14527">The key, either within this resource or the specified Requirements resource this statement is derivedFrom</title>key</a> : <a
+   id="n898"
+   xlink:href="datatypes.html#id">id</a> [1..1]</text>
+  </g>
+  <g
+     id="n902"
+     transform="translate(-278.96308,306.11878)">
+    <rect
+       id="Requirements.statement.partOf"
+       x="1040"
+       y="0"
+       rx="4"
+       ry="4"
+       width="198"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n903"
+       x1="1040"
+       y1="28"
+       x2="1238"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n904"
+       x="1139"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">PartOf</text>
+    <text
+       id="n905"
+       x="1046"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n906"
+   xlink:href="requirements-definitions.html#Requirements.statement.partOf.reference"><title
+   id="title14536">The canonical of the Requirements instance this statement is a part of</title>reference</a> : <a
+   id="n907"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n908"
+   xlink:href="requirements.html#Requirements">Requirements</a> »</text>
+    <text
+       id="n913"
+       x="1046"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n914"
+   xlink:href="requirements-definitions.html#Requirements.statement.partOf.key"><title
+   id="title14542">The key, either within this resource or the specified Requirements resource this statement is a part of</title>key</a> : <a
+   id="n915"
+   xlink:href="datatypes.html#id">id</a> [1..1]</text>
   </g>
   <line
-     id="n679"
+     id="n919"
      x1="272.8"
-     y1="130.94117647058823"
-     x2="320.0"
-     y2="123.99999999999999"
+     y1="100.80608634111815"
+     x2="351.0060150375939"
+     y2="64.0"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n680"
-     points="272.8,130.94117647058823 278.8,134.94117647058823 284.8,130.94117647058823 278.8,126.94117647058823 272.8,130.94117647058823"
+     id="n920"
+     points="272.8,100.80608634111815 278.8,104.80608634111815 284.8,100.80608634111815 278.8,96.80608634111815 272.8,100.80608634111815"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-8.365886124032604 272.8 130.94117647058823)" />
+     transform="rotate(-25.20307640030589 272.8 100.80608634111815)" />
   <rect
-     id="n681"
-     x="276.5"
-     y="120.0"
+     id="n921"
+     x="296.0"
+     y="75.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n922"
+     x="311.0"
+     y="85.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n923"
+       xlink:href="requirements-definitions.html#Requirements.imports"><title
+   id="title14551">Points to requirements defined elsewhere that have the same force as if they were defined in this instance</title>imports</a></text>
+  <text
+     id="n924"
+     x="351.0060150375939"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n925"
+     x1="272.8"
+     y1="130.7195767195767"
+     x2="560.0"
+     y2="58.53968253968256"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n926"
+     points="272.8,130.7195767195767 278.8,134.7195767195767 284.8,130.7195767195767 278.8,126.71957671957671 272.8,130.7195767195767"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-14.107551184082004 272.8 130.7195767195767)" />
+  <rect
+     id="n927"
+     x="405.0"
+     y="87.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n928"
+     x="416.0"
+     y="97.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n929"
+       xlink:href="requirements-definitions.html#Requirements.actor"><title
+   id="title14559">An actor these requirements are in regard to</title>actor</a></text>
+  <text
+     id="n930"
+     x="540.0"
+     y="54.53968253968256"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n931"
+     x1="735.5711100000001"
+     y1="95.09799850044658"
+     x2="816.1174267918659"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n932"
+     points="735.5711100000001,95.09799850044658 741.5711100000001,99.09799850044658 747.5711100000001,95.09799850044658 741.5711100000001,91.09799850044658 735.5711100000001,95.09799850044658"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-21.11099626052251 735.5711100000001 95.09799850044658)" />
+  <rect
+     id="n933"
+     x="751.0"
+     y="72.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n934"
+     x="775.0"
+     y="82.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n935"
+       xlink:href="requirements-definitions.html#Requirements.statement.derivedFrom"><title
+   id="title14567">Indicates that this statement is refining, tightening, or establishing more context for the referenced requirement/statement</title>derivedFrom</a></text>
+  <text
+     id="n936"
+     x="816.1174267918659"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n937"
+     x1="735.5711100000001"
+     y1="120.16380994456995"
+     x2="1040.0"
+     y2="53.63508216903466"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n938"
+     points="735.5711100000001,120.16380994456995 741.5711100000001,124.16380994456995 747.5711100000001,120.16380994456995 741.5711100000001,116.16380994456995 735.5711100000001,120.16380994456995"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-12.32739542358518 735.5711100000001 120.16380994456995)" />
+  <rect
+     id="n939"
+     x="874.0"
+     y="79.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n940"
+     x="887.0"
+     y="89.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n941"
+       xlink:href="requirements-definitions.html#Requirements.statement.partOf"><title
+   id="title14575">Identifies a higher-level requirement or statement which this referencing statement is a logical sub-requirement of.  I.e. This statement is a necessary step to achieving the referenced requirement/statement</title>partOf</a></text>
+  <text
+     id="n942"
+     x="1020.0"
+     y="49.63508216903466"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n943"
+     x1="272.8"
+     y1="161.31575671577292"
+     x2="436.37111"
+     y2="156.89760595689415"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n944"
+     points="272.8,161.31575671577292 278.8,165.31575671577292 284.8,161.31575671577292 278.8,157.31575671577292 272.8,161.31575671577292"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-1.5472161134612692 272.8 161.31575671577292)" />
+  <rect
+     id="n945"
+     x="334.5"
+     y="152.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n682"
-     x="296.0"
-     y="130.0"
+     id="n946"
+     x="354.0"
+     y="162.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n683"
+       id="n947"
        xlink:href="requirements-definitions.html#Requirements.statement"><title
-   id="title95246">The actual statement of requirement, in markdown format</title>statement</a></text>
+   id="title14583">The actual statement of conformance requirement</title>statement</a></text>
   <text
-     id="n684"
-     x="300.0"
-     y="119.99999999999999"
+     id="n948"
+     x="416.37111"
+     y="152.89760595689415"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

@@ -1,520 +1,822 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="n288"
+   id="n781"
    version="1.1"
-   width="781.6"
-   height="292.0"
+   width="921.6690100000001"
+   height="453.089436"
    sodipodi:docname="group.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata143">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview60036"
      pagecolor="#ffffff"
      bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
-     id="namedview141"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.4534289"
-     inkscape:cx="390.79999"
-     inkscape:cy="146"
-     inkscape:window-x="-8"
-     inkscape:window-y="358"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="n288" />
+     inkscape:zoom="1.3518953"
+     inkscape:cx="461.20435"
+     inkscape:cy="226.71874"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n781" />
   <defs
-     id="defs11">
+     id="defs59734">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.018250689"
+       y="-0.035810811"
+       width="1.046832"
+       height="1.0918919">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset2" />
+         id="feOffset59725" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix4" />
+         id="feColorMatrix59727" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6" />
+         id="feGaussianBlur59729" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8" />
+         id="feBlend59731" />
     </filter>
   </defs>
   <g
-     id="n289">
+     id="n782">
     <rect
        id="Group"
        x="0.0"
        y="0.0"
        rx="4"
        ry="4"
-       width="277.20000000000005"
-       height="162.0"
+       width="290.40000000000003"
+       height="386.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n290"
+       id="n783"
        x1="0.0"
        y1="28.0"
-       x2="277.20000000000005"
+       x2="290.40000000000003"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n291"
-       x="138.60000000000002"
+       id="n784"
+       x="145.20000000000002"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">Group<tspan
    class="diagram-class-title-link"
-   id="tspan16"> (<a
-   xlink:href="domainresource.html"
+   id="tspan59740"> (<a
+   id="n785"
+   xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
-   id="n292">DomainResource</a>
-)</tspan>
-</text>
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n786"
+   xlink:href="canonicalresource.html#CanonicalResource"
+   class="diagram-class-reference"
+   style="font-style: italic">CanonicalResource</a></tspan></text>
     <text
-       id="n293"
+       id="n787"
        x="6.0"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="group-definitions.html#Group.identifier"
-   id="n294"><title
-   id="title19">A unique business identifier for this group</title>
-identifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n295">Identifier</a>
- [0..*]</text>
+   id="n788"
+   xlink:href="group-definitions.html#Group.url"><title
+   id="title59743">An absolute URI that is used to identify this Group when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Group is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Group is stored on different servers</title>url</a> : <a
+   id="n789"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
-       id="n299"
+       id="n793"
        x="6.0"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="group-definitions.html#Group.active"
-   id="n300"><title
-   id="title24">Indicates whether the record for the group is available for use or is merely being retained for historical purposes</title>
-active</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n301">boolean</a>
- [0..1]</text>
+   id="n794"
+   xlink:href="group-definitions.html#Group.identifier"><title
+   id="title59748">Business identifiers assigned to this participant by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n795"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n305"
+       id="n799"
        x="6.0"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="group-definitions.html#Group.type"
-   id="n306"><title
-   id="title29">Identifies the broad classification of the kind of resources the group includes</title>
-type</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n307">code</a>
- [1..1] « <a
-   xlink:href="valueset-group-type.html"
-   id="n308"><title
-   id="n309">Types of resources that are part of group. (Strength=Required)</title>
-GroupType</a>
-! »</text>
+   id="n800"
+   xlink:href="group-definitions.html#Group.version"><title
+   id="title59753">The identifier that is used to identify this version of the Group when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Group author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence without additional knowledge</title>version</a> : <a
+   id="n801"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n315"
+       id="n805"
        x="6.0"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="group-definitions.html#Group.actual"
-   id="n316"><title
-   id="title36">If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals</title>
-actual</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n317">boolean</a>
- [1..1]</text>
+   id="n806"
+   xlink:href="group-definitions.html#Group.versionAlgorithm_x_"><title
+   id="title59758">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n807"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n808"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n809"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n810"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n811">null (Strength=Extensible)</title></a></text>
     <text
-       id="n321"
-       x="6.0"
+       id="n812"
+       x="26.0"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="group-definitions.html#Group.code"
-   id="n322"><title
-   id="title41">Provides a specific type of resource the group includes; e.g. &quot;cow&quot;, &quot;syringe&quot;, etc.</title>
-code</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n323">CodeableConcept</a>
- [0..1]</text>
+   id="n813"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
     <text
-       id="n327"
+       id="n823"
        x="6.0"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="group-definitions.html#Group.name"
-   id="n328"><title
-   id="title46">A label assigned to the group for human identification and communication</title>
-name</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n329">string</a>
- [0..1]</text>
+   id="n824"
+   xlink:href="group-definitions.html#Group.name"><title
+   id="title59769">A label assigned to the group for human identification and communication</title>name</a> : <a
+   id="n825"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n333"
+       id="n829"
        x="6.0"
        y="126.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="group-definitions.html#Group.quantity"
-   id="n334"><title
-   id="title51">A count of the number of resource instances that are part of the group</title>
-quantity</a>
- : <a
-   xlink:href="datatypes.html#unsignedInt"
-   id="n335">unsignedInt</a>
- [0..1]</text>
+   id="n830"
+   xlink:href="group-definitions.html#Group.title"><title
+   id="title59774">A short, descriptive, user-friendly title for the Group</title>title</a> : <a
+   id="n831"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n339"
+       id="n835"
        x="6.0"
        y="140.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="group-definitions.html#Group.managingEntity"
-   id="n340"><title
-   id="title56">Entity responsible for defining and maintaining Group characteristics and/or registered members</title>
-managingEntity</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n341">Reference</a>
- [0..1] « <a
-   xlink:href="organization.html#Organization"
-   id="n342">Organization</a>
-|<a
-   xlink:href="relatedperson.html#RelatedPerson"
-   id="n343">RelatedPerson</a>
-|</text>
+   id="n836"
+   xlink:href="group-definitions.html#Group.status"><title
+   id="title59779">The current state of this Group (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n837"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n838"
+   xlink:href="valueset-publication-status.html"><title
+   id="n839">null (Strength=Required)</title>PublicationStatus</a>! »</text>
     <text
-       id="n344"
-       x="26.0"
+       id="n845"
+       x="6.0"
        y="154.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="practitioner.html#Practitioner"
-   id="n345">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n346">PractitionerRole</a>
- »</text>
+   id="n846"
+   xlink:href="group-definitions.html#Group.experimental"><title
+   id="title59786">A Boolean value to indicate that this Group is authored for testing purposes (or education/evaluation/marketing) and no version of this resource will ever be intended for genuine usage</title>experimental</a> : <a
+   id="n847"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n851"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n852"
+   xlink:href="group-definitions.html#Group.date"><title
+   id="title59791">The date (and optionally time) when the Group was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Group changes</title>date</a> : <a
+   id="n853"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n857"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n858"
+   xlink:href="group-definitions.html#Group.publisher"><title
+   id="title59796">The name of the organization or individual responsible for the release and ongoing maintenance of the Group</title>publisher</a> : <a
+   id="n859"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n863"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n864"
+   xlink:href="group-definitions.html#Group.contact"><title
+   id="title59801">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n865"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n869"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n870"
+   xlink:href="group-definitions.html#Group.description"><title
+   id="title59806">Explanation of what the group represents and how it is intended to be used</title>description</a> : <a
+   id="n871"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n875"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n876"
+   xlink:href="group-definitions.html#Group.useContext"><title
+   id="title59811">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Groups</title>useContext</a> : <a
+   id="n877"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n881"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n882"
+   xlink:href="group-definitions.html#Group.purpose"><title
+   id="title59816">Explanation of why this Group is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n883"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n887"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n888"
+   xlink:href="group-definitions.html#Group.copyright"><title
+   id="title59821">A copyright statement relating to the Group and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the Group</title>copyright</a> : <a
+   id="n889"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n893"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n894"
+   xlink:href="group-definitions.html#Group.copyrightLabel"><title
+   id="title59826">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are restricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n895"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n899"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n900"
+   xlink:href="group-definitions.html#Group.type"><title
+   id="title59831">Identifies the broad classification of the kind of resources the group includes</title>type</a> : <a
+   id="n901"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n902"
+   xlink:href="valueset-group-type.html"><title
+   id="n903">null (Strength=Required)</title>GroupType</a>! » « <a
+   id="n904"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n905">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n913"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n914"
+   xlink:href="group-definitions.html#Group.membership"><title
+   id="title59840">Basis for membership in the Group:
+
+* 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.
+* 'conceptual': The Group.characteristics specified are both necessary and sufficient to determine membership. The 'conceptual' Group is a 'definitional' Group in which the Group.type is not bound to FHIR types.
+* 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member</title>membership</a> : <a
+   id="n915"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n916"
+   xlink:href="valueset-group-membership-basis.html"><title
+   id="n917">null (Strength=Required)</title>GroupMembershipBasis</a>! » « <a
+   id="n918"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n919">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n927"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n928"
+   xlink:href="group-definitions.html#Group.code"><title
+   id="title59849">A code that describes the use of the group. The use of the group usually dictates what kind of entities can be members of the group</title>code</a> : <a
+   id="n929"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n930"
+   xlink:href="valueset-group-code.html"><title
+   id="n931">null (Strength=Extensible)</title>GroupCode</a>+ »</text>
+    <text
+       id="n937"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n938"
+   xlink:href="group-definitions.html#Group.quantity"><title
+   id="title59856">A count of the number of resource instances that are part of the group</title>quantity</a> : <a
+   id="n939"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
+    <text
+       id="n943"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n944"
+   xlink:href="group-definitions.html#Group.managingEntity"><title
+   id="title59861">Entity responsible for defining and maintaining Group characteristics and/or registered members</title>managingEntity</a> : <a
+   id="n945"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n946"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n947"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|</text>
+    <text
+       id="n948"
+       x="26.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n949"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n950"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n959"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n960"
+   xlink:href="group-definitions.html#Group.combinationMethod"><title
+   id="title59871">Used to specify how two or more characteristics are combined (this element modifies the meaning of other elements)</title>combinationMethod</a> : <a
+   id="n961"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n962"
+   xlink:href="valueset-group-characteristic-combination.html"><title
+   id="n963">null (Strength=Required)</title>GroupCharacteristicCombination</a>! »</text>
+    <text
+       id="n969"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n970"
+   xlink:href="group-definitions.html#Group.combinationThreshold"><title
+   id="title59878">Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used for combinationMethod</title>combinationThreshold</a> : <a
+   id="n971"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
   </g>
   <g
-     id="n355"
-     transform="translate(122.46901,4.8161971)">
+     id="n975"
+     transform="translate(42.902731,-0.73970225)">
     <rect
        id="Group.characteristic"
-       x="300"
-       y="0"
+       x="422.46902"
+       y="4.8161969"
        rx="4"
        ry="4"
-       width="281.60001"
-       height="106"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="299.20001"
+       height="232"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n356"
-       x1="300"
-       y1="28"
-       x2="581.59998"
-       y2="28"
+       id="n976"
+       x1="422.46902"
+       y1="32.816196"
+       x2="721.66901"
+       y2="32.816196"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n357"
-       x="440.79999"
-       y="20"
-       class="diagram-class-title"
-       style="fill:#000000">Characteristic</text>
+       id="n977"
+       x="572.06903"
+       y="24.816196"
+       fill="#000000"
+       class="diagram-class-title">Characteristic</text>
     <text
-       id="n358"
-       x="306"
-       y="42"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="group-definitions.html#Group.characteristic.code"
-   id="n359"><title
-   id="title70">A code that identifies the kind of trait being asserted</title>
-code</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n360">CodeableConcept</a>
- [1..1]</text>
+       id="n978"
+       x="428.46902"
+       y="46.816196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n979"
+   xlink:href="group-definitions.html#Group.characteristic.code"><title
+   id="title59887">A code that identifies the kind of trait being asserted</title>code</a> : <a
+   id="n980"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n981"
+   xlink:href="valueset-example-characteristic-codes.html"><title
+   id="n982">null (Strength=Example)</title>ExampleCharacteristicCodes</a>?? »</text>
     <text
-       id="n364"
-       x="306"
-       y="56"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="group-definitions.html#Group.characteristic.value_x_"
-   id="n365"><title
-   id="title75">The value of the trait that holds (or does not hold - see 'exclude') for members of the group</title>
-value[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n366">Type</a>
- [1..1] « <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n367">CodeableConcept</a>
-|<a
-   xlink:href="datatypes.html#boolean"
-   id="n368">boolean</a>
-|<a
-   xlink:href="datatypes.html#Quantity"
-   id="n369">Quantity</a>
-|<a
-   xlink:href="datatypes.html#Range"
-   id="n370">Range</a>
-|</text>
+       id="n988"
+       x="428.46902"
+       y="60.816196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n989"
+   xlink:href="group-definitions.html#Group.characteristic.value_x_"><title
+   id="title59894">The value of the trait that holds (or does not hold - see 'exclude') for members of the group</title>value[x]</a> : <a
+   id="n990"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n991"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n992"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n993"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n994"
+   xlink:href="datatypes.html#Range">Range</a>|</text>
     <text
-       id="n371"
-       x="326"
-       y="70"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="references.html#Reference"
-   id="n372">Reference</a>
- »</text>
+       id="n995"
+       x="448.46902"
+       y="74.8162"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n996"
+   xlink:href="references.html#Reference">Reference</a>|<a
+   id="n997"
+   xlink:href="datatypes.html#uri">uri</a>|<a
+   id="n998"
+   xlink:href="metadatatypes.html#Expression">Expression</a> »</text>
     <text
-       id="n382"
-       x="306"
-       y="84"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="group-definitions.html#Group.characteristic.exclude"
-   id="n383"><title
-   id="title86">If true, indicates the characteristic is one that is NOT held by members of the group</title>
-exclude</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n384">boolean</a>
- [1..1]</text>
+       id="n1010"
+       x="428.46902"
+       y="88.8162"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1011"
+   xlink:href="group-definitions.html#Group.characteristic.exclude"><title
+   id="title59907">If true, indicates the characteristic is one that is NOT held by members of the group</title>exclude</a> : <a
+   id="n1012"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
     <text
-       id="n388"
-       x="306"
-       y="98"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="group-definitions.html#Group.characteristic.period"
-   id="n389"><title
-   id="title91">The period over which the characteristic is tested; e.g. the patient had an operation during the month of June</title>
-period</a>
- : <a
-   xlink:href="datatypes.html#Period"
-   id="n390">Period</a>
- [0..1]</text>
+       id="n1016"
+       x="428.46902"
+       y="102.8162"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1017"
+   xlink:href="group-definitions.html#Group.characteristic.description"><title
+   id="title59912">A short, natural language description of the characteristic that could be used to communicate the criteria to an end-user</title>description</a> : <a
+   id="n1018"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1022"
+       x="428.46902"
+       y="116.8162"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1023"
+   xlink:href="group-definitions.html#Group.characteristic.method"><title
+   id="title59917">Method for how the characteristic value was determined</title>method</a> : <a
+   id="n1024"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1025"
+   xlink:href="valueset-definition-method.html"><title
+   id="n1026">null (Strength=Example)</title>DefinitionMethod</a>?? »</text>
+    <text
+       id="n1032"
+       x="428.46902"
+       y="130.81619"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1033"
+   xlink:href="group-definitions.html#Group.characteristic.formula"><title
+   id="title59924">A CQL, FHIRPath, or other expression that is used to generate the value for this characteristic</title>formula</a> : <a
+   id="n1034"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [0..1]</text>
+    <text
+       id="n1038"
+       x="428.46902"
+       y="144.81619"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1039"
+   xlink:href="group-definitions.html#Group.characteristic.determiner"><title
+   id="title59929">The entity who is expected to evaluate the characteristic value for candidate group members</title>determiner</a> : <a
+   id="n1040"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1041"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1042"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n1043"
+       x="448.46902"
+       y="158.81619"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1044"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1045"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1046"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a> »</text>
+    <text
+       id="n1056"
+       x="428.46902"
+       y="172.81619"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1057"
+   xlink:href="group-definitions.html#Group.characteristic.offset"><title
+   id="title59940">Defines the reference point for comparison when other than 0 (this element modifies the meaning of other elements)</title>offset</a> : <a
+   id="n1058"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1059"
+   xlink:href="valueset-characteristic-offset.html"><title
+   id="n1060">null (Strength=Example)</title>CharacteristicOffset</a>?? »</text>
+    <text
+       id="n1066"
+       x="428.46902"
+       y="186.81619"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1067"
+   xlink:href="group-definitions.html#Group.characteristic.instances_x_"><title
+   id="title59947">Number of occurrences meeting the characteristic</title>instances[x]</a> : <a
+   id="n1068"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1069"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a>|<a
+   id="n1070"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+    <text
+       id="n1076"
+       x="428.46902"
+       y="200.81619"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1077"
+   xlink:href="group-definitions.html#Group.characteristic.duration_x_"><title
+   id="title59954">Length of time in which the characteristic is met</title>duration[x]</a> : <a
+   id="n1078"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1079"
+   xlink:href="datatypes.html#Duration">Duration</a>|<a
+   id="n1080"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+    <text
+       id="n1086"
+       x="428.46902"
+       y="214.81619"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1087"
+   xlink:href="group-definitions.html#Group.characteristic.period"><title
+   id="title59961">The period over which the characteristic is tested; e.g. the patient had an operation during the month of June</title>period</a> : <a
+   id="n1088"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1092"
+       x="428.46902"
+       y="228.81619"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1093"
+   xlink:href="group-definitions.html#Group.characteristic.timing"><title
+   id="title59966">Timing in which the characteristic is determined</title>timing</a> : <a
+   id="n1094"
+   xlink:href="datatypes.html#RelativeTime">RelativeTime</a> [0..*]</text>
   </g>
   <g
-     id="n394"
-     transform="translate(0.68802815,35.089436)">
+     id="n1098"
+     transform="translate(109.47593,2.2191068)">
     <rect
        id="Group.member"
-       x="330"
-       y="250"
+       x="330.68802"
+       y="285.08945"
        rx="4"
        ry="4"
-       width="290.39999"
-       height="92"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="299.20001"
+       height="148"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n395"
-       x1="330"
-       y1="278"
-       x2="490.39999"
-       y2="208"
+       id="n1099"
+       x1="330.68802"
+       y1="313.08945"
+       x2="629.888"
+       y2="313.08945"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n396"
-       x="475.20001"
-       y="270"
-       class="diagram-class-title"
-       style="fill:#000000">Member</text>
+       id="n1100"
+       x="480.28802"
+       y="305.08945"
+       fill="#000000"
+       class="diagram-class-title">Member</text>
     <text
-       id="n397"
-       x="336"
-       y="292"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="group-definitions.html#Group.member.entity"
-   id="n398"><title
-   id="title100">A reference to the entity that is a member of the group. Must be consistent with Group.type. If the entity is another group, then the type must be the same</title>
-entity</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n399">Reference</a>
- [1..1] « <a
-   xlink:href="patient.html#Patient"
-   id="n400">Patient</a>
-|<a
-   xlink:href="practitioner.html#Practitioner"
-   id="n401">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n402">PractitionerRole</a>
-|</text>
+       id="n1101"
+       x="336.68802"
+       y="327.08945"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1102"
+   xlink:href="group-definitions.html#Group.member.entity"><title
+   id="title59975">A reference to the entity that is a member of the group. Must be consistent with Group.type. If the entity is another group, then the type must be the same</title>entity</a> : <a
+   id="n1103"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1104"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n1105"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1106"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1107"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|</text>
     <text
-       id="n403"
-       x="356"
-       y="306"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="device.html#Device"
-   id="n404">Device</a>
-|<a
-   xlink:href="medication.html#Medication"
-   id="n405">Medication</a>
-|<a
-   xlink:href="substance.html#Substance"
-   id="n406">Substance</a>
-|<a
-   xlink:href="group.html#Group"
-   id="n407">Group</a>
- »</text>
+       id="n1108"
+       x="356.68802"
+       y="341.08945"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1109"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n1110"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1111"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1112"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1113"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
     <text
-       id="n419"
-       x="336"
-       y="320"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="group-definitions.html#Group.member.period"
-   id="n420"><title
-   id="title113">The period that the member was in the group, if known</title>
-period</a>
- : <a
-   xlink:href="datatypes.html#Period"
-   id="n421">Period</a>
- [0..1]</text>
+       id="n1114"
+       x="356.68802"
+       y="355.08945"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1115"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1116"
+   xlink:href="specimen.html#Specimen">Specimen</a>|<a
+   id="n1117"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n1118"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a>|</text>
     <text
-       id="n425"
-       x="336"
-       y="334"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="group-definitions.html#Group.member.inactive"
-   id="n426"><title
-   id="title118">A flag to indicate that the member is no longer in the group, but previously may have been a member</title>
-inactive</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n427">boolean</a>
- [0..1]</text>
+       id="n1119"
+       x="356.68802"
+       y="369.08945"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1120"
+   xlink:href="substance.html#Substance">Substance</a>|<a
+   id="n1121"
+   xlink:href="substancedefinition.html#SubstanceDefinition">SubstanceDefinition</a>|<a
+   id="n1122"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|</text>
+    <text
+       id="n1123"
+       x="356.68802"
+       y="383.08945"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1124"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a> »</text>
+    <text
+       id="n1149"
+       x="336.68802"
+       y="397.08945"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1150"
+   xlink:href="group-definitions.html#Group.member.involvement"><title
+   id="title60001">A code that describes how a user is involved in the group. Some groups (e.g. exposure-group) typically don't have variance between members, or it is not tracked, while for other groups (e.g. family, household) this may be meaningful</title>involvement</a> : <a
+   id="n1151"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1152"
+   xlink:href="valueset-group-involvement-set.html"><title
+   id="n1153">null (Strength=Example)</title>GroupInvolvement</a>?? »</text>
+    <text
+       id="n1159"
+       x="336.68802"
+       y="411.08945"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1160"
+   xlink:href="group-definitions.html#Group.member.period"><title
+   id="title60008">The period that the member was in the group, if known</title>period</a> : <a
+   id="n1161"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1165"
+       x="336.68802"
+       y="425.08945"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1166"
+   xlink:href="group-definitions.html#Group.member.inactive"><title
+   id="title60013">A flag to indicate that the member is no longer in the group, but previously may have been a member</title>inactive</a> : <a
+   id="n1167"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
   </g>
   <line
-     id="n431"
-     x1="277.20000000000005"
-     y1="68.15817339510258"
-     x2="300.0"
-     y2="66.04566512243548"
+     id="n1171"
+     x1="290.40000000000003"
+     y1="168.44659383664325"
+     x2="422.46901"
+     y2="146.1136458743676"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n432"
-     points="277.20000000000005,68.15817339510258 283.20000000000005,72.15817339510258 289.20000000000005,68.15817339510258 283.20000000000005,64.15817339510258 277.20000000000005,68.15817339510258"
+     id="n1172"
+     points="290.40000000000003,168.44659383664325 296.40000000000003,172.44659383664325 302.40000000000003,168.44659383664325 296.40000000000003,164.44659383664325 290.40000000000003,168.44659383664325"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-5.293562369213252 277.20000000000005 68.15817339510258)" />
+     transform="rotate(-9.59795313269286 290.40000000000003 168.44659383664325)" />
   <rect
-     id="n433"
-     x="257.5"
-     y="60.0"
+     id="n1173"
+     x="325.5"
+     y="150.0"
      width="61.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n434"
-     x="288.0"
-     y="70.0"
+     id="n1174"
+     x="356.0"
+     y="160.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="group-definitions.html#Group.characteristic"
-       id="n435"><title
-   id="title127">Identifies traits whose presence r absence is shared by members of the group</title>
-characteristic</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1175"
+       xlink:href="group-definitions.html#Group.characteristic"><title
+   id="title60022">Identifies traits whose presence r absence is shared by members of the group</title>characteristic</a></text>
   <text
-     id="n436"
-     x="280.0"
-     y="62.04566512243548"
+     id="n1176"
+     x="402.46901"
+     y="142.1136458743676"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n437"
-     x1="254.01103448275867"
-     y1="162.0"
-     x2="279.6579310344828"
-     y2="179.99999999999997"
+     id="n1177"
+     x1="290.40000000000003"
+     y1="264.96970372335875"
+     x2="330.99187373895137"
+     y2="285.08943600000003"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n438"
-     points="254.01103448275867,162.0 260.01103448275865,166.0 266.01103448275865,162.0 260.01103448275865,158.0 254.01103448275867,162.0"
+     id="n1178"
+     points="290.40000000000003,264.96970372335875 296.40000000000003,268.96970372335875 302.40000000000003,264.96970372335875 296.40000000000003,260.96970372335875 290.40000000000003,264.96970372335875"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(35.0626868171078 254.01103448275867 162.0)" />
+     transform="rotate(26.36573445469715 290.40000000000003 264.96970372335875)" />
   <rect
-     id="n439"
-     x="253.0"
-     y="164.0"
+     id="n1179"
+     x="297.0"
+     y="268.0"
      width="26.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n440"
-     x="266.0"
-     y="174.0"
+     id="n1180"
+     x="310.0"
+     y="278.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="group-definitions.html#Group.member"
-       id="n441"><title
-   id="title135">Identifies the resource instances that are members of the group</title>
-member</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1181"
+       xlink:href="group-definitions.html#Group.member"><title
+   id="title60030">Identifies the resource instances that are members of the group</title>member</a></text>
   <text
-     id="n442"
-     x="279.6579310344828"
-     y="175.99999999999997"
+     id="n1182"
+     x="330.99187373895137"
+     y="281.08943600000003"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

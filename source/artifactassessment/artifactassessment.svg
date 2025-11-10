@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   id="n343"
+   id="n378"
    version="1.1"
-   width="810.4000000000001"
-   height="196.0"
+   width="924.22023"
+   height="186.0"
    sodipodi:docname="artifactassessment.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview168"
+     id="namedview3896"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,49 +21,49 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.5375123"
-     inkscape:cx="405.20001"
-     inkscape:cy="98.535798"
+     inkscape:zoom="1.3481635"
+     inkscape:cx="462.48098"
+     inkscape:cy="93.089596"
      inkscape:window-width="1390"
      inkscape:window-height="1205"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="31"
      inkscape:window-maximized="0"
-     inkscape:current-layer="n343" />
+     inkscape:current-layer="n378" />
   <defs
-     id="defs18">
+     id="defs3721">
     <filter
        id="shadow1"
-       x="-0.018531469"
-       y="-0.030113636"
-       width="1.0475524"
-       height="1.0772727">
+       x="-0.020075758"
+       y="-0.067948718"
+       width="1.0515152"
+       height="1.174359">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset9" />
+         id="feOffset3712" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix11" />
+         id="feColorMatrix3714" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur13" />
+         id="feGaussianBlur3716" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend15" />
+         id="feBlend3718" />
     </filter>
   </defs>
   <g
-     id="n344">
+     id="n379">
     <rect
        id="ArtifactAssessment"
        x="0.0"
@@ -75,386 +75,494 @@
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n345"
+       id="n380"
        x1="0.0"
        y1="28.0"
        x2="286.0"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n346"
+       id="n381"
        x="143.0"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">ArtifactAssessment<tspan
    class="diagram-class-title-link"
-   id="tspan23"> (<a
-   id="n347"
+   id="tspan3726"> (<a
+   id="n382"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
    style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
-       id="n348"
+       id="n383"
        x="6.0"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n349"
+   id="n384"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.identifier"><title
-   id="title26">A formal identifier that is used to identify this artifact assessment when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
-   id="n350"
+   id="title3729">A formal identifier that is used to identify this artifact assessment when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n385"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n354"
+       id="n389"
        x="6.0"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n355"
+   id="n390"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.title"><title
-   id="title31">A short title for the assessment for use in displaying and selecting</title>title</a> : <a
-   id="n356"
+   id="title3734">A label for use in displaying and selecting the artifact assessment</title>title</a> : <a
+   id="n391"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n360"
+       id="n395"
        x="6.0"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n361"
-   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.citeAs_x_"><title
-   id="title36">Display of or reference to the bibliographic citation of the comment, classifier, or rating</title>citeAs[x]</a> : <a
-   id="n362"
-   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
-   id="n363"
-   xlink:href="references.html#Reference">Reference</a>(<a
-   id="n364"
-   xlink:href="citation.html#Citation">Citation</a>)|<a
-   id="n365"
-   xlink:href="datatypes.html#markdown">markdown</a> »</text>
+   id="n396"
+   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.citeAs"><title
+   id="title3739">Display of the bibliographic citation of the comment, classifier, or rating</title>citeAs</a> : <a
+   id="n397"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n372"
+       id="n401"
        x="6.0"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n373"
-   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.date"><title
-   id="title44">The date  (and optionally time) when the artifact assessment was published. The date must change when the disposition changes and it must change if the workflow status code changes. In addition, it should change when the substantive content of the artifact assessment changes</title>date</a> : <a
-   id="n374"
-   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+   id="n402"
+   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.artifact_x_"><title
+   id="title3744">A reference to a resource, canonical resource, or non-FHIR resource which the comment or assessment is about</title>artifact[x]</a> : <a
+   id="n403"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n404"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n405"
+   xlink:href="resourcelist.html#Any">Any</a>)|<a
+   id="n406"
+   xlink:href="datatypes.html#canonical">canonical</a>|<a
+   id="n407"
+   xlink:href="datatypes.html#uri">uri</a> »</text>
     <text
-       id="n378"
+       id="n415"
        x="6.0"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n379"
-   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.copyright"><title
-   id="title49">A copyright statement relating to the artifact assessment and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the artifact assessment</title>copyright</a> : <a
-   id="n380"
-   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+   id="n416"
+   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.date"><title
+   id="title3753">The date  (and optionally time) when the artifact assessment was published. The date must change when the disposition changes and it must change if the workflow status code changes. In addition, it should change when the substantive content of the artifact assessment changes</title>date</a> : <a
+   id="n417"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
-       id="n384"
+       id="n421"
        x="6.0"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n385"
-   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.approvalDate"><title
-   id="title54">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
-   id="n386"
-   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+   id="n422"
+   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.copyright"><title
+   id="title3758">A copyright statement relating to the artifact assessment and/or its contents. Copyright statements are notices of intellectual property ownership and can include restrictions on the use and publishing of the artifact assessment</title>copyright</a> : <a
+   id="n423"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n390"
+       id="n427"
        x="6.0"
        y="126.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n391"
-   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.lastReviewDate"><title
-   id="title59">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
-   id="n392"
+   id="n428"
+   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.approvalDate"><title
+   id="title3763">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n429"
    xlink:href="datatypes.html#date">date</a> [0..1]</text>
     <text
-       id="n396"
+       id="n433"
        x="6.0"
        y="140.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n397"
-   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.artifact_x_"><title
-   id="title64">A reference to a resource, canonical resource, or non-FHIR resource which the comment or assessment is about</title>artifact[x]</a> : <a
-   id="n398"
-   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
-   id="n399"
-   xlink:href="references.html#Reference">Reference</a>(<a
-   id="n400"
-   xlink:href="resourcelist.html#Any">Any</a>)|<a
-   id="n401"
-   xlink:href="datatypes.html#canonical">canonical</a>|<a
-   id="n402"
-   xlink:href="datatypes.html#uri">uri</a> »</text>
+   id="n434"
+   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.lastReviewDate"><title
+   id="title3768">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
+   id="n435"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
     <text
-       id="n410"
+       id="n439"
        x="6.0"
        y="154.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n411"
+   id="n440"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.workflowStatus"><title
-   id="title73">Indicates the workflow status of the comment or change request</title>workflowStatus</a> : <a
-   id="n412"
+   id="title3773">Indicates the workflow status of the comment or change request</title>workflowStatus</a> : <a
+   id="n441"
    xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n413"
+   id="n442"
    xlink:href="valueset-artifactassessment-workflow-status.html"><title
-   id="n414">null (Strength=Required)</title>ArtifactAssessmentWorkflowSta...</a>! »</text>
+   id="n443">null (Strength=Required)</title>ArtifactAssessmentWorkflowSta...</a>! »</text>
     <text
-       id="n420"
+       id="n449"
        x="6.0"
        y="168.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n421"
+   id="n450"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.disposition"><title
-   id="title80">Indicates the disposition of the responsible party to the comment or change request</title>disposition</a> : <a
-   id="n422"
+   id="title3780">Indicates the disposition of the responsible party to the comment or change request</title>disposition</a> : <a
+   id="n451"
    xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n423"
+   id="n452"
    xlink:href="valueset-artifactassessment-disposition.html"><title
-   id="n424">null (Strength=Required)</title>ArtifactAssessmentDisposition</a>! »</text>
+   id="n453">null (Strength=Required)</title>ArtifactAssessmentDisposition</a>! »</text>
   </g>
   <g
-     id="n430"
-     transform="translate(113.82023,1.3008026)">
+     id="n459">
+    <rect
+       id="ArtifactAssessment.relatesTo"
+       x="400.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="264.0"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n460"
+       x1="400.0"
+       y1="28.0"
+       x2="664.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n461"
+       x="532.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">RelatesTo</text>
+    <text
+       id="n462"
+       x="406.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n463"
+   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.relatesTo.type"><title
+   id="title3791">The type of relationship to the related artifact</title>type</a> : <a
+   id="n464"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n465"
+   xlink:href="http://terminology.hl7.org/6.5.0/ValueSet-artifact-relationship-type.html"><title
+   id="n466">null (Strength=Extensible)</title>ArtifactRelationshipType</a>+ »</text>
+    <text
+       id="n472"
+       x="406.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n473"
+   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.relatesTo.target_x_"><title
+   id="title3798">The artifact that is related to this ArtifactAssessment Resource</title>target[x]</a> : <a
+   id="n474"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n475"
+   xlink:href="datatypes.html#uri">uri</a>|<a
+   id="n476"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n477"
+   xlink:href="datatypes.html#canonical">canonical</a>(<a
+   id="n478"
+   xlink:href="resourcelist.html#Any">Any</a>)|</text>
+    <text
+       id="n479"
+       x="426.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n480"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n481"
+   xlink:href="resourcelist.html#Any">Any</a>)|<a
+   id="n482"
+   xlink:href="datatypes.html#markdown">markdown</a> »</text>
+  </g>
+  <g
+     id="n494"
+     transform="translate(-52.664234,126.09746)">
     <rect
        id="ArtifactAssessment.content"
-       x="320"
-       y="0"
+       x="433.82022"
+       y="1.3008026"
        rx="4"
        ry="4"
        width="290.39999"
-       height="176"
+       height="148"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n431"
-       x1="320"
-       y1="28"
-       x2="610.40002"
-       y2="28"
+       id="n495"
+       x1="433.82022"
+       y1="29.300802"
+       x2="724.22021"
+       y2="29.300802"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n432"
-       x="465.20001"
-       y="20"
+       id="n496"
+       x="579.0202"
+       y="21.300802"
        fill="#000000"
        class="diagram-class-title">Content</text>
     <text
-       id="n433"
-       x="326"
-       y="42"
+       id="n497"
+       x="439.82022"
+       y="43.300804"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n434"
-   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.informationType"><title
-   id="title91">The type of information this component of the content represents</title>informationType</a> : <a
-   id="n435"
-   xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n436"
-   xlink:href="valueset-artifactassessment-information-type.html"><title
-   id="n437">null (Strength=Required)</title>ArtifactAssessmentInformation...</a>! »</text>
-    <text
-       id="n443"
-       x="326"
-       y="56"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n444"
+   id="n498"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.summary"><title
-   id="title98">A brief summary of the content of this component</title>summary</a> : <a
-   id="n445"
+   id="title3815">A brief summary of the content of this component</title>summary</a> : <a
+   id="n499"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n449"
-       x="326"
-       y="70"
+       id="n503"
+       x="439.82022"
+       y="57.300804"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n450"
+   id="n504"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.type"><title
-   id="title103">Indicates what type of content this component represents</title>type</a> : <a
-   id="n451"
+   id="title3820">Indicates what type of content this component represents</title>type</a> : <a
+   id="n505"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n452"
-   xlink:href="valueset-certainty-type.html"><title
-   id="n453">null (Strength=Example)</title>EvidenceCertaintyType</a>?? »</text>
+   id="n506"
+   xlink:href="http://terminology.hl7.org/6.5.0/ValueSet-certainty-type.html"><title
+   id="n507">null (Strength=Example)</title>EvidenceCertaintyType</a>?? »</text>
     <text
-       id="n459"
-       x="326"
-       y="84"
+       id="n513"
+       x="439.82022"
+       y="71.300804"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n460"
+   id="n514"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.classifier"><title
-   id="title110">Represents a rating, classifier, or assessment of the artifact</title>classifier</a> : <a
-   id="n461"
+   id="title3827">Represents a rating, classifier, or assessment of the artifact</title>classifier</a> : <a
+   id="n515"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n462"
-   xlink:href="valueset-certainty-rating.html"><title
-   id="n463">null (Strength=Example)</title>EvidenceCertaintyRating</a>?? »</text>
+   id="n516"
+   xlink:href="http://terminology.hl7.org/6.5.0/ValueSet-certainty-rating.html"><title
+   id="n517">null (Strength=Example)</title>StatisticCertaintyRating</a>?? »</text>
     <text
-       id="n469"
-       x="326"
-       y="98"
+       id="n523"
+       x="439.82022"
+       y="85.300804"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n470"
+   id="n524"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.quantity"><title
-   id="title117">A quantitative rating of the artifact</title>quantity</a> : <a
-   id="n471"
+   id="title3834">A quantitative rating of the artifact</title>quantity</a> : <a
+   id="n525"
    xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
     <text
-       id="n475"
-       x="326"
-       y="112"
+       id="n529"
+       x="439.82022"
+       y="99.300804"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n476"
+   id="n530"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.author"><title
-   id="title122">Indicates who or what authored the content</title>author</a> : <a
-   id="n477"
-   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n478"
+   id="title3839">Indicates who or what authored the content</title>author</a> : <a
+   id="n531"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n532"
    xlink:href="patient.html#Patient">Patient</a>|<a
-   id="n479"
+   id="n533"
    xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
-   id="n480"
+   id="n534"
    xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
     <text
-       id="n481"
-       x="346"
-       y="126"
+       id="n535"
+       x="459.82022"
+       y="113.3008"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n482"
+   id="n536"
    xlink:href="organization.html#Organization">Organization</a>|<a
-   id="n483"
+   id="n537"
    xlink:href="device.html#Device">Device</a> »</text>
     <text
-       id="n493"
-       x="326"
-       y="140"
+       id="n547"
+       x="439.82022"
+       y="127.3008"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n494"
+   id="n548"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.path"><title
-   id="title133">A URI that points to what the comment is about, such as a line of text in the CQL, or a specific element in a resource</title>path</a> : <a
-   id="n495"
+   id="title3850">A URI that points to what the comment is about, such as a line of text in the CQL, or a specific element in a resource</title>path</a> : <a
+   id="n549"
    xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
     <text
-       id="n499"
-       x="326"
-       y="154"
+       id="n553"
+       x="439.82022"
+       y="141.3008"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n500"
-   xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.relatedArtifact"><title
-   id="title138">Additional related artifacts that provide supporting documentation, additional evidence, or further information related to the content</title>relatedArtifact</a> : <a
-   id="n501"
-   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
-    <text
-       id="n505"
-       x="326"
-       y="168"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n506"
+   id="n554"
    xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.freeToShare"><title
-   id="title143">Acceptable to publicly share the comment, classifier or rating</title>freeToShare</a> : <a
-   id="n507"
+   id="title3855">Acceptable to publicly share the comment, classifier or rating</title>freeToShare</a> : <a
+   id="n555"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
   </g>
   <line
-     id="n511"
-     x1="610.4000000000001"
-     y1="63.0"
-     x2="670.4000000000001"
-     y2="63.0"
-     style="stroke:navy;stroke-width:1" />
-  <line
-     id="n512"
-     x1="670.4000000000001"
-     y1="63.0"
-     x2="670.4000000000001"
-     y2="113.0"
-     style="stroke:navy;stroke-width:1" />
-  <line
-     id="n513"
-     x1="670.4000000000001"
-     y1="113.0"
-     x2="610.4000000000001"
-     y2="113.0"
+     id="n559"
+     x1="286.0"
+     y1="69.98714652956298"
+     x2="400.0"
+     y2="55.627249357326484"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n514"
-     points="610.4000000000001,63.0 616.4000000000001,67.0 622.4000000000001,63.0 616.4000000000001,59.0 610.4000000000001,63.0"
+     id="n560"
+     points="286.0,69.98714652956298 292.0,73.98714652956298 298.0,69.98714652956298 292.0,65.98714652956298 286.0,69.98714652956298"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 610.4000000000001 63.0)" />
+     transform="rotate(-7.179393851885462 286.0 69.98714652956298)" />
   <rect
-     id="n515"
-     x="650.5"
-     y="81.0"
+     id="n561"
+     x="323.5"
+     y="55.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n516"
-     x="670.0"
-     y="91.0"
+     id="n562"
+     x="343.0"
+     y="65.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n517"
-       xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.component"><title
-   id="title154">If the informationType is container, the components of the content</title>component</a></text>
+       id="n563"
+       xlink:href="artifactassessment-definitions.html#ArtifactAssessment.relatesTo"><title
+   id="title3864">Relationship that this ArtifactAssessment has with other FHIR or non-FHIR resources that already exist</title>relatesTo</a></text>
   <text
-     id="n518"
-     x="625.4000000000001"
-     y="109.0"
+     id="n564"
+     x="380.0"
+     y="51.627249357326484"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n519"
-     x1="286.0"
-     y1="88.0"
-     x2="320.0"
-     y2="88.0"
+     id="n565"
+     x1="579.02023"
+     y1="75.3008026"
+     x2="579.02023"
+     y2="75.3008026"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n520"
-     points="286.0,88.0 292.0,92.0 298.0,88.0 292.0,84.0 286.0,88.0"
+     id="n566"
+     points="579.02023,75.3008026 585.02023,79.3008026 591.02023,75.3008026 585.02023,71.3008026 579.02023,75.3008026"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 286.0 88.0)" />
+     transform="rotate(0.0 579.02023 75.3008026)" />
   <rect
-     id="n521"
-     x="288.0"
-     y="81.0"
+     id="n567"
+     x="559.5"
+     y="68.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n568"
+     x="579.0"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n569"
+       xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.relatesTo"><title
+   id="title3872">Relationship that this content component has with other FHIR or non-FHIR resources that already exist</title>relatesTo</a></text>
+  <text
+     id="n570"
+     x="579.02023"
+     y="75.3008026"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n571"
+     x1="724.22023"
+     y1="50.3008026"
+     x2="784.22023"
+     y2="50.3008026"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n572"
+     x1="784.22023"
+     y1="50.3008026"
+     x2="784.22023"
+     y2="100.3008026"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n573"
+     x1="784.22023"
+     y1="100.3008026"
+     x2="724.22023"
+     y2="100.3008026"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n574"
+     points="724.22023,50.3008026 730.22023,54.3008026 736.22023,50.3008026 730.22023,46.3008026 724.22023,50.3008026"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 724.22023 50.3008026)" />
+  <rect
+     id="n575"
+     x="764.5"
+     y="68.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n576"
+     x="784.0"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n577"
+       xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content.component"><title
+   id="title3882">A component comment, classifier, or rating of the artifact</title>component</a></text>
+  <text
+     id="n578"
+     x="739.22023"
+     y="96.3008026"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n579"
+     x1="286.0"
+     y1="83.83508951362188"
+     x2="433.82023"
+     y2="79.5297886323224"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n580"
+     points="286.0,83.83508951362188 292.0,87.83508951362188 298.0,83.83508951362188 292.0,79.83508951362188 286.0,83.83508951362188"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-1.6682821797845944 286.0 83.83508951362188)" />
+  <rect
+     id="n581"
+     x="344.0"
+     y="74.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n522"
-     x="303.0"
-     y="91.0"
+     id="n582"
+     x="359.0"
+     y="84.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n523"
+       id="n583"
        xlink:href="artifactassessment-definitions.html#ArtifactAssessment.content"><title
-   id="title162">A component comment, classifier, or rating of the artifact</title>content</a></text>
+   id="title3890">A component comment, classifier, or rating of the artifact</title>content</a></text>
   <text
-     id="n524"
-     x="300.0"
-     y="84.0"
+     id="n584"
+     x="413.82023"
+     y="75.5297886323224"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

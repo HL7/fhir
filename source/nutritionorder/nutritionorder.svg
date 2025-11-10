@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   id="n1016"
+   id="n996"
    version="1.1"
-   width="1371.6000000000001"
-   height="732.0"
+   width="1392.1861999999999"
+   height="798.0"
    sodipodi:docname="nutritionorder.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview86515"
+     id="namedview7893"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,17 +21,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.90842813"
-     inkscape:cx="685.79999"
-     inkscape:cy="366.01685"
+     inkscape:zoom="0.89499525"
+     inkscape:cx="432.96319"
+     inkscape:cy="391.62219"
      inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-height="1187"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="40"
      inkscape:window-maximized="0"
-     inkscape:current-layer="n1016" />
+     inkscape:current-layer="n996" />
   <defs
-     id="defs86037">
+     id="defs7418">
     <filter
        id="shadow1"
        x="-0.030113636"
@@ -43,1418 +43,1410 @@
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset86028" />
+         id="feOffset7409" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix86030" />
+         id="feColorMatrix7411" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur86032" />
+         id="feGaussianBlur7413" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend86034" />
+         id="feBlend7415" />
     </filter>
   </defs>
   <g
-     id="n1017">
+     id="n997">
     <rect
        id="NutritionOrder"
-       x="0.0"
+       x="13.21284"
        y="0.0"
        rx="4"
        ry="4"
-       width="303.6"
-       height="344.0"
+       width="299.20000000000005"
+       height="330.0"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n1018"
-       x1="0.0"
+       id="n998"
+       x1="13.21284"
        y1="28.0"
-       x2="303.6"
+       x2="312.4128400000001"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1019"
-       x="151.8"
+       id="n999"
+       x="162.81284000000002"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">NutritionOrder<tspan
    class="diagram-class-title-link"
-   id="tspan86042"> (<a
-   id="n1020"
+   id="tspan7423"> (<a
+   id="n1000"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
    style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
-       id="n1021"
-       x="6.0"
+       id="n1001"
+       x="19.21284"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1022"
+   id="n1002"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.identifier"><title
-   id="title86045">Identifiers assigned to this order by the order sender or by the order receiver</title>identifier</a> : <a
-   id="n1023"
+   id="title7426">Identifiers assigned to this order by the order sender or by the order receiver</title>identifier</a> : <a
+   id="n1003"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n1027"
-       x="6.0"
+       id="n1007"
+       x="19.21284"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1028"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.instantiatesCanonical"><title
-   id="title86050">The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder</title>instantiatesCanonical</a> : <a
-   id="n1029"
-   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
-   id="n1030"
-   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>|</text>
+   id="n1008"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.basedOn"><title
+   id="title7431">A plan or request that is fulfilled in whole or in part by this nutrition order</title>basedOn</a> : <a
+   id="n1009"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1010"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n1011"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|<a
+   id="n1012"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|</text>
     <text
-       id="n1031"
-       x="26.0"
+       id="n1013"
+       x="39.21284"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1032"
-   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a> »</text>
+   id="n1014"
+   xlink:href="requestorchestration.html#RequestOrchestration">RequestOrchestration</a> »</text>
     <text
-       id="n1039"
-       x="6.0"
+       id="n1023"
+       x="19.21284"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1040"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.instantiatesUri"><title
-   id="title86058">The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder</title>instantiatesUri</a> : <a
-   id="n1041"
-   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+   id="n1024"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.groupIdentifier"><title
+   id="title7441">A shared identifier common to all nutrition orders that were authorized more or less simultaneously by a single author, representing the composite or group identifier</title>groupIdentifier</a> : <a
+   id="n1025"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
     <text
-       id="n1045"
-       x="6.0"
+       id="n1029"
+       x="19.21284"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1046"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.instantiates"><title
-   id="title86063">The URL pointing to a protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder</title>instantiates</a> : <a
-   id="n1047"
-   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+   id="n1030"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.status"><title
+   id="title7446">The workflow status of the nutrition order/request (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1031"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1032"
+   xlink:href="valueset-request-status.html"><title
+   id="n1033">null (Strength=Required)</title>RequestStatus</a>! »</text>
     <text
-       id="n1051"
-       x="6.0"
+       id="n1039"
+       x="19.21284"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1052"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.basedOn"><title
-   id="title86068">A plan or request that is fulfilled in whole or in part by this nutrition order</title>basedOn</a> : <a
-   id="n1053"
-   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n1054"
-   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
-   id="n1055"
-   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|<a
-   id="n1056"
-   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+   id="n1040"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.intent"><title
+   id="title7453">Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain (this element modifies the meaning of other elements)</title>intent</a> : <a
+   id="n1041"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1042"
+   xlink:href="valueset-request-intent.html"><title
+   id="n1043">null (Strength=Required)</title>RequestIntent</a>! »</text>
     <text
-       id="n1063"
-       x="6.0"
+       id="n1049"
+       x="19.21284"
        y="126.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1064"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.groupIdentifier"><title
-   id="title86076">A shared identifier common to all nutrition orders that were authorized more or less simultaneously by a single author, representing the composite or group identifier</title>groupIdentifier</a> : <a
-   id="n1065"
-   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+   id="n1050"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.priority"><title
+   id="title7460">Indicates how quickly the Nutrition Order should be addressed with respect to other        requests</title>priority</a> : <a
+   id="n1051"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1052"
+   xlink:href="valueset-request-priority.html"><title
+   id="n1053">null (Strength=Required)</title>RequestPriority</a>! »</text>
     <text
-       id="n1069"
-       x="6.0"
+       id="n1059"
+       x="19.21284"
        y="140.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1070"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.status"><title
-   id="title86081">The workflow status of the nutrition order/request (this element modifies the meaning of other elements)</title>status</a> : <a
-   id="n1071"
-   xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1072"
-   xlink:href="valueset-request-status.html"><title
-   id="n1073">null (Strength=Required)</title>RequestStatus</a>! »</text>
+   id="n1060"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.subject"><title
+   id="title7467">The person or set of individuals who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding</title>subject</a> : <a
+   id="n1061"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1062"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1063"
+   xlink:href="group.html#Group">Group</a> »</text>
     <text
-       id="n1079"
-       x="6.0"
+       id="n1069"
+       x="19.21284"
        y="154.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1080"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.intent"><title
-   id="title86088">Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain (this element modifies the meaning of other elements)</title>intent</a> : <a
-   id="n1081"
-   xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n1082"
-   xlink:href="valueset-request-intent.html"><title
-   id="n1083">null (Strength=Required)</title>RequestIntent</a>! »</text>
+   id="n1070"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.encounter"><title
+   id="title7474">An encounter that provides additional information about the healthcare context in which this request is made</title>encounter</a> : <a
+   id="n1071"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1072"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
     <text
-       id="n1089"
-       x="6.0"
+       id="n1077"
+       x="19.21284"
        y="168.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1090"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.priority"><title
-   id="title86095">Indicates how quickly the Nutrition Order should be addressed with respect to other        requests</title>priority</a> : <a
-   id="n1091"
-   xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n1092"
-   xlink:href="valueset-request-priority.html"><title
-   id="n1093">null (Strength=Required)</title>RequestPriority</a>! »</text>
+   id="n1078"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.supportingInformation"><title
+   id="title7480">Information to support fulfilling (i.e. dispensing or administering) of the nutrition,        for example, patient height and weight)</title>supportingInformation</a> : <a
+   id="n1079"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1080"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
     <text
-       id="n1099"
-       x="6.0"
+       id="n1085"
+       x="19.21284"
        y="182.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1100"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.subject"><title
-   id="title86102">The person or set of individuals who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding</title>subject</a> : <a
-   id="n1101"
-   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
-   id="n1102"
-   xlink:href="patient.html#Patient">Patient</a>|<a
-   id="n1103"
-   xlink:href="group.html#Group">Group</a> »</text>
+   id="n1086"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.dateTime"><title
+   id="title7486">The date and time that this nutrition order was requested</title>dateTime</a> : <a
+   id="n1087"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
     <text
-       id="n1109"
-       x="6.0"
+       id="n1091"
+       x="19.21284"
        y="196.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1110"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.encounter"><title
-   id="title86109">An encounter that provides additional information about the healthcare context in which this request is made</title>encounter</a> : <a
-   id="n1111"
+   id="n1092"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.requester"><title
+   id="title7491">The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings</title>requester</a> : <a
+   id="n1093"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n1112"
-   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+   id="n1094"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1095"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
     <text
-       id="n1117"
-       x="6.0"
+       id="n1101"
+       x="19.21284"
        y="210.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1118"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.supportingInformation"><title
-   id="title86115">Information to support fulfilling (i.e. dispensing or administering) of the nutrition,        for example, patient height and weight)</title>supportingInformation</a> : <a
-   id="n1119"
-   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n1120"
-   xlink:href="resourcelist.html#Any">Any</a> »</text>
+   id="n1102"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.performer"><title
+   id="title7498">The specified desired performer of the nutrition order</title>performer</a> : <a
+   id="n1103"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1104"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n1105"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
     <text
-       id="n1125"
-       x="6.0"
+       id="n1106"
+       x="39.21284"
        y="224.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1126"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.dateTime"><title
-   id="title86121">The date and time that this nutrition order was requested</title>dateTime</a> : <a
-   id="n1127"
-   xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
+   id="n1107"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n1108"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1109"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1110"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1111"
+   xlink:href="group.html#Group">Group</a> »</text>
     <text
-       id="n1131"
-       x="6.0"
+       id="n1123"
+       x="19.21284"
        y="238.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1132"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.orderer"><title
-   id="title86126">The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings</title>orderer</a> : <a
-   id="n1133"
-   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n1134"
-   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
-   id="n1135"
-   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+   id="n1124"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.allergyIntolerance"><title
+   id="title7511">A link to a record of allergies or intolerances  which should be included in the nutrition order</title>allergyIntolerance</a> : <a
+   id="n1125"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1126"
+   xlink:href="allergyintolerance.html#AllergyIntolerance">AllergyIntolerance</a> »</text>
     <text
-       id="n1141"
-       x="6.0"
+       id="n1131"
+       x="19.21284"
        y="252.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1142"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.performer"><title
-   id="title86133">The specified desired performer of the nutrition order</title>performer</a> : <a
-   id="n1143"
-   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
-   id="n1144"
-   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
-   id="n1145"
-   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+   id="n1132"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.foodPreferenceModifier"><title
+   id="title7517">This modifier is used to convey order-specific modifiers about the type of food (i.e. solid and/or liquid) that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings</title>foodPreferenceModifier</a> : <a
+   id="n1133"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1134"
+   xlink:href="valueset-edible-substance-type.html"><title
+     id="title7521">null (Strength=Preferred)</title></a></text>
     <text
-       id="n1146"
-       x="26.0"
+       id="n1135"
+       x="39.21284"
        y="266.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1147"
-   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
-   id="n1148"
-   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
-   id="n1149"
-   xlink:href="patient.html#Patient">Patient</a>|<a
-   id="n1150"
-   xlink:href="organization.html#Organization">Organization</a> »</text>
+   id="n1136"
+   xlink:href="valueset-edible-substance-type.html">TypesOfEdibleSubstances</a>? »</text>
     <text
-       id="n1161"
-       x="6.0"
+       id="n1143"
+       x="19.21284"
        y="280.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1162"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.allergyIntolerance"><title
-   id="title86145">A link to a record of allergies or intolerances  which should be included in the nutrition order</title>allergyIntolerance</a> : <a
-   id="n1163"
-   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n1164"
-   xlink:href="allergyintolerance.html#AllergyIntolerance">AllergyIntolerance</a> »</text>
+   id="n1144"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.excludeFoodModifier"><title
+   id="title7527">This modifier is used to convey Order-specific modifiers that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or Gluten-Free. While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to what should be eliminated from the patient’s diet for any reason. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings</title>excludeFoodModifier</a> : <a
+   id="n1145"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1146"
+   xlink:href="valueset-edible-substance-type.html"><title
+     id="title7531">null (Strength=Preferred)</title></a></text>
     <text
-       id="n1169"
-       x="6.0"
+       id="n1147"
+       x="39.21284"
        y="294.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1170"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.foodPreferenceModifier"><title
-   id="title86151">This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings</title>foodPreferenceModifier</a> : <a
-   id="n1171"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n1172"
-   xlink:href="valueset-encounter-diet.html"><title
-   id="n1173">null (Strength=Example)</title>Diet</a>?? »</text>
+   id="n1148"
+   xlink:href="valueset-edible-substance-type.html">TypesOfEdibleSubstances</a>? »</text>
     <text
-       id="n1179"
-       x="6.0"
+       id="n1155"
+       x="19.21284"
        y="308.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1180"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.excludeFoodModifier"><title
-   id="title86158">This modifier is used to convey Order-specific modifier about the type of oral food or oral fluids that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings</title>excludeFoodModifier</a> : <a
-   id="n1181"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n1182"
-   xlink:href="valueset-food-type.html"><title
-   id="n1183">null (Strength=Example)</title>FoodTypeCodes</a>?? »</text>
+   id="n1156"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.outsideFoodAllowed"><title
+   id="title7537">This modifier is used to convey whether a food item, brought in by the patient, family, and/or caregiver, can be consumed by the patient.  If set to true, indicates that the receiving system does not need to supply the food item</title>outsideFoodAllowed</a> : <a
+   id="n1157"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n1189"
-       x="6.0"
+       id="n1161"
+       x="19.21284"
        y="322.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1190"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.outsideFoodAllowed"><title
-   id="title86165">This modifier is used to convey whether a food item is allowed to be brought in by the patient and/or family.  If set to true, indicates that the receiving system does not need to supply the food item</title>outsideFoodAllowed</a> : <a
-   id="n1191"
-   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <text
-       id="n1195"
-       x="6.0"
-       y="336.0"
-       fill="black"
-       class="diagram-class-detail"><a
-   id="n1196"
+   id="n1162"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.note"><title
-   id="title86170">Comments made about the {{title}} by the requester, performer, subject or other participants</title>note</a> : <a
-   id="n1197"
+   id="title7542">Comments made about the nutrition order by the requester, performer, subject or other participants</title>note</a> : <a
+   id="n1163"
    xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
   </g>
   <g
-     id="n1201"
-     transform="translate(-17.612841,-16.512038)">
+     id="n1167">
     <rect
        id="NutritionOrder.oralDiet"
-       x="46.200001"
-       y="424"
+       x="41.8"
+       y="407.487962"
        rx="4"
        ry="4"
-       width="211.2"
-       height="92"
+       width="189.20000000000002"
+       height="78.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n1202"
-       x1="46.200001"
-       y1="452"
-       x2="257.39999"
-       y2="452"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1168"
+       x1="41.8"
+       y1="435.487962"
+       x2="231.0"
+       y2="435.487962"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1203"
-       x="151.8"
-       y="444"
-       fill="#000000"
+       id="n1169"
+       x="136.4"
+       y="427.487962"
+       fill="black"
        class="diagram-class-title">OralDiet</text>
     <text
-       id="n1204"
-       x="52.200001"
-       y="466"
-       fill="#000000"
+       id="n1170"
+       x="47.8"
+       y="449.487962"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1205"
+   id="n1171"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.type"><title
-   id="title86179">The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet</title>type</a> : <a
-   id="n1206"
+   id="title7551">The kind of diet or dietary restriction such as fiber restricted diet or diet for diabetes</title>type</a> : <a
+   id="n1172"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n1207"
+   id="n1173"
    xlink:href="valueset-diet-type.html"><title
-   id="n1208">null (Strength=Example)</title>DietCodes</a>?? »</text>
+   id="title7555">null (Strength=Preferred)</title>DietCodes</a>? »</text>
     <text
-       id="n1214"
-       x="52.200001"
-       y="480"
-       fill="#000000"
+       id="n1178"
+       x="47.8"
+       y="463.487962"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1215"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.fluidConsistencyType"><title
-   id="title86186">The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient</title>fluidConsistencyType</a> : <a
-   id="n1216"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n1217"
-   xlink:href="valueset-consistency-type.html"><title
-     id="n1218">null (Strength=Example)</title></a></text>
-    <text
-       id="n1219"
-       x="72.199997"
-       y="494"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1220"
-   xlink:href="valueset-consistency-type.html">FluidConsistencyTypeCodes</a>?? »</text>
-    <text
-       id="n1228"
-       x="52.200001"
-       y="508"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1229"
+   id="n1179"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.instruction"><title
-   id="title86195">Free text or additional instructions or information pertaining to the oral diet</title>instruction</a> : <a
-   id="n1230"
+   id="title7559">Free text or additional instructions or information pertaining to the oral diet</title>instruction</a> : <a
+   id="n1180"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1184"
+       x="47.8"
+       y="477.487962"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1185"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.caloricDensity"><title
+   id="title7564">The amount of energy (calories or kilojoules) that the oral diet should provide.  For example, an infant formula feeding of 30 ounces of 20 kcal/ounce (67 kcal/100 mL) formula per day</title>caloricDensity</a> : <a
+   id="n1186"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
   </g>
   <g
-     id="n1234"
-     transform="translate(-20.915248,-30.822471)">
+     id="n1190">
     <rect
        id="NutritionOrder.oralDiet.schedule"
-       x="63.799999"
-       y="596"
+       x="56.097591"
+       y="565.177529"
        rx="4"
        ry="4"
-       width="176"
-       height="92"
+       width="176.0"
+       height="92.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n1235"
-       x1="63.799999"
-       y1="624"
-       x2="239.8"
-       y2="624"
-       style="stroke:#696969;stroke-width:1" />
+       id="n1191"
+       x1="56.097591"
+       y1="593.177529"
+       x2="232.097591"
+       y2="593.177529"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1236"
-       x="151.8"
-       y="616"
-       fill="#000000"
+       id="n1192"
+       x="144.097591"
+       y="585.177529"
+       fill="black"
        class="diagram-class-title">OralDietSchedule</text>
     <text
-       id="n1237"
-       x="69.800003"
-       y="638"
-       fill="#000000"
+       id="n1193"
+       x="62.097591"
+       y="607.177529"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1238"
+   id="n1194"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.schedule.timing"><title
-   id="title86204">The time period and frequency at which the diet should be given.  The diet should be given for the combination of all schedules if more than one schedule is present</title>timing</a> : <a
-   id="n1239"
+   id="title7573">The time period and frequency at which the diet should be given.  The diet should be given for the combination of all schedules if more than one schedule is present</title>timing</a> : <a
+   id="n1195"
    xlink:href="datatypes.html#Timing">Timing</a> [0..*]</text>
     <text
-       id="n1243"
-       x="69.800003"
-       y="652"
-       fill="#000000"
+       id="n1199"
+       x="62.097591"
+       y="621.177529"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1244"
+   id="n1200"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.schedule.asNeeded"><title
-   id="title86209">Indicates whether the product is only taken when needed within a specific dosing schedule</title>asNeeded</a> : <a
-   id="n1245"
+   id="title7578">Indicates whether the diet is only taken when needed within a specific administration schedule</title>asNeeded</a> : <a
+   id="n1201"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n1249"
-       x="69.800003"
-       y="666"
-       fill="#000000"
+       id="n1205"
+       x="62.097591"
+       y="635.177529"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1250"
+   id="n1206"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.schedule.asNeededFor"><title
-   id="title86214">Indicates whether the product is only taken based on a precondition for taking the product</title>asNeededFor</a> : <a
-   id="n1251"
+   id="title7583">Indicates whether the diet is only taken based on a precondition for taking the diet</title>asNeededFor</a> : <a
+   id="n1207"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n1252"
+   id="n1208"
    xlink:href="valueset-medication-as-needed-reason.html"><title
-     id="n1253">A coded concept identifying the precondition that should be met or evaluated prior to       consuming a nutrition product. (Strength=Example)</title></a></text>
+     id="n1209">A coded concept identifying the precondition that should be met or evaluated prior to       consuming a nutrition product. (Strength=Example)</title></a></text>
     <text
-       id="n1254"
-       x="89.800003"
-       y="680"
-       fill="#000000"
+       id="n1210"
+       x="82.097591"
+       y="649.177529"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n1255"
+   id="n1211"
    xlink:href="valueset-medication-as-needed-reason.html">SNOMEDCTMedicationAsNeededRea...</a>?? »</text>
   </g>
   <g
-     id="n1263"
-     transform="translate(137.60032,-12.108828)">
+     id="n1219"
+     transform="translate(-155.30808,100.55919)">
     <rect
        id="NutritionOrder.oralDiet.nutrient"
-       x="262"
-       y="596"
+       x="412.81317"
+       y="583.89117"
        rx="4"
        ry="4"
-       width="259.60001"
+       width="224.39999"
        height="64"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1264"
-       x1="262"
-       y1="624"
-       x2="521.59998"
-       y2="624"
+       id="n1220"
+       x1="412.81317"
+       y1="611.89117"
+       x2="637.21313"
+       y2="611.89117"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1265"
-       x="391.79999"
-       y="616"
+       id="n1221"
+       x="525.01318"
+       y="603.89117"
        fill="#000000"
        class="diagram-class-title">Nutrient</text>
     <text
-       id="n1266"
-       x="268"
-       y="638"
+       id="n1222"
+       x="418.81317"
+       y="625.89117"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n1267"
+   id="n1223"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.nutrient.modifier"><title
-   id="title86227">The nutrient that is being modified such as carbohydrate or sodium</title>modifier</a> : <a
-   id="n1268"
+   id="title7596">The nutrient that is being modified such as carbohydrate or sodium</title>modifier</a> : <a
+   id="n1224"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n1269"
+   id="n1225"
    xlink:href="valueset-nutrient-code.html"><title
-   id="n1270">null (Strength=Example)</title>NutrientModifierCodes</a>?? »</text>
+   id="title7600">null (Strength=Preferred)</title>NutrientCodes</a>? »</text>
     <text
-       id="n1276"
-       x="268"
-       y="652"
+       id="n1230"
+       x="418.81317"
+       y="639.89117"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n1277"
+   id="n1231"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.nutrient.amount"><title
-   id="title86234">The quantity of the specified nutrient to include in diet</title>amount</a> : <a
-   id="n1278"
-   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
-   xlink:href="datatypes.html#SimpleQuantity"
-   id="a86238">SimpleQuantity</a>) [0..1]</text>
+   id="title7604">The quantity of the specified nutrient to include in diet</title>amount</a> : <a
+   id="n1232"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
   </g>
   <g
-     id="n1282"
-     transform="translate(-157.41476,-137.60032)">
+     id="n1236"
+     transform="translate(-70.391435,105.02849)">
     <rect
        id="NutritionOrder.oralDiet.texture"
-       x="566.59998"
-       y="596"
+       x="422.39807"
+       y="458.39969"
        rx="4"
        ry="4"
-       width="290.39999"
+       width="272.79999"
        height="64"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1283"
-       x1="566.59998"
-       y1="624"
-       x2="857"
-       y2="624"
+       id="n1237"
+       x1="422.39807"
+       y1="486.39969"
+       x2="695.19806"
+       y2="486.39969"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1284"
-       x="711.79999"
-       y="616"
+       id="n1238"
+       x="558.79803"
+       y="478.39969"
        fill="#000000"
        class="diagram-class-title">Texture</text>
     <text
-       id="n1285"
-       x="572.59998"
-       y="638"
+       id="n1239"
+       x="428.39807"
+       y="500.39969"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n1286"
+   id="n1240"
    xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.texture.modifier"><title
-   id="title86245">Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed</title>modifier</a> : <a
-   id="n1287"
+   id="title7613">Texture modifications in the addition to the oral diet type that should be made, e.g. easy to chew, chopped, ground, and pureed</title>modifier</a> : <a
+   id="n1241"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n1288"
+   id="n1242"
    xlink:href="valueset-texture-code.html"><title
-   id="n1289">null (Strength=Example)</title>TextureModifierCodes</a>?? »</text>
+   id="title7617">null (Strength=Preferred)</title>TextureModifierCodes</a>? »</text>
     <text
-       id="n1295"
-       x="572.59998"
-       y="652"
+       id="n1247"
+       x="428.39807"
+       y="514.39966"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n1296"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.texture.foodType"><title
-   id="title86252">The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types</title>foodType</a> : <a
-   id="n1297"
+   id="n1248"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.texture.type"><title
+   id="title7621">The food (i.e. solid and/or liquid) type(s) (e.g. meats, all foods)  that the texture modification applies to</title>type</a> : <a
+   id="n1249"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n1298"
+   id="n1250"
    xlink:href="valueset-modified-foodtype.html"><title
-   id="n1299">null (Strength=Example)</title>TextureModifiedFoodTypeCodes</a>?? »</text>
+   id="title7625">null (Strength=Preferred)</title>TextureModifiedFoodTypeCodes</a>? »</text>
   </g>
   <g
-     id="n1305"
-     transform="translate(150.80995,-106.77785)">
+     id="n1255"
+     transform="translate(4.4692975,-22.346487)">
     <rect
        id="NutritionOrder.supplement"
-       x="277.39999"
-       y="424"
+       x="441.42279"
+       y="317.22214"
        rx="4"
        ry="4"
        width="228.8"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1256"
+       x1="441.42279"
+       y1="345.22214"
+       x2="670.22278"
+       y2="345.22214"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1257"
+       x="555.82275"
+       y="337.22214"
+       fill="#000000"
+       class="diagram-class-title">Supplement</text>
+    <text
+       id="n1258"
+       x="447.42279"
+       y="359.22214"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1259"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.type"><title
+   id="title7633">The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement</title>type</a> : <a
+   id="n1260"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n1261"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>; <a
+   id="n1262"
+   xlink:href="valueset-supplement-type.html"><title
+     id="title7638">null (Strength=Preferred)</title></a></text>
+    <text
+       id="n1263"
+       x="467.42279"
+       y="373.22214"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1264"
+   xlink:href="valueset-supplement-type.html">SupplementTypeCodes</a>? »</text>
+    <text
+       id="n1272"
+       x="447.42279"
+       y="387.22214"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1273"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.productName"><title
+   id="title7644">The product or brand name of the nutritional supplement such as &quot;Acme Protein Shake&quot;</title>productName</a> : <a
+   id="n1274"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1278"
+       x="447.42279"
+       y="401.22214"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1279"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.quantity"><title
+   id="title7649">The amount of the nutritional supplement to be given</title>quantity</a> : <a
+   id="n1280"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n1284"
+       x="447.42279"
+       y="415.22214"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1285"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.instruction"><title
+   id="title7654">Free text or additional instructions or information pertaining to the oral supplement</title>instruction</a> : <a
+   id="n1286"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1290"
+       x="447.42279"
+       y="429.22214"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1291"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.caloricDensity"><title
+   id="title7659">The amount of energy (calories or kilojoules) that the supplement should provide per specified volume, typically per ml or fluid oz.  For example, a patient may required a supplement that provides 24 calories per fluid ounce</title>caloricDensity</a> : <a
+   id="n1292"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+  </g>
+  <g
+     id="n1296">
+    <rect
+       id="NutritionOrder.supplement.schedule"
+       x="821.972703"
+       y="332.59776"
+       rx="4"
+       ry="4"
+       width="176.0"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1297"
+       x1="821.972703"
+       y1="360.59776"
+       x2="997.972703"
+       y2="360.59776"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1298"
+       x="909.972703"
+       y="352.59776"
+       fill="black"
+       class="diagram-class-title">SupplementSchedule</text>
+    <text
+       id="n1299"
+       x="827.972703"
+       y="374.59776"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1300"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.schedule.timing"><title
+   id="title7668">The time period and frequency at which the supplement should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present</title>timing</a> : <a
+   id="n1301"
+   xlink:href="datatypes.html#Timing">Timing</a> [0..*]</text>
+    <text
+       id="n1305"
+       x="827.972703"
+       y="388.59776"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1306"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.schedule.asNeeded"><title
+   id="title7673">Indicates whether the supplement is only taken when needed within a specific dosing schedule</title>asNeeded</a> : <a
+   id="n1307"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1311"
+       x="827.972703"
+       y="402.59776"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1312"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.schedule.asNeededFor"><title
+   id="title7678">Indicates whether the supplement is only taken based on a precondition for taking the supplement</title>asNeededFor</a> : <a
+   id="n1313"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1314"
+   xlink:href="valueset-medication-as-needed-reason.html"><title
+     id="n1315">A coded concept identifying the precondition that should be met or evaluated prior to       consuming a supplement. (Strength=Example)</title></a></text>
+    <text
+       id="n1316"
+       x="847.972703"
+       y="416.59776"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1317"
+   xlink:href="valueset-medication-as-needed-reason.html">SNOMEDCTMedicationAsNeededRea...</a>?? »</text>
+  </g>
+  <g
+     id="n1325"
+     transform="translate(0,-21.229163)">
+    <rect
+       id="NutritionOrder.enteralFormula"
+       x="424.70401"
+       y="24.246229"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="162"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1326"
+       x1="424.70401"
+       y1="52.246227"
+       x2="723.90399"
+       y2="52.246227"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1327"
+       x="574.30402"
+       y="44.246227"
+       fill="#000000"
+       class="diagram-class-title">EnteralFormula</text>
+    <text
+       id="n1328"
+       x="430.70401"
+       y="66.246231"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1329"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.type"><title
+   id="title7691">The type of adult or pediatric enteral feeding such as an adult standard formula with fiber or a soy-based infant feeding</title>type</a> : <a
+   id="n1330"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n1331"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>; <a
+   id="n1332"
+   xlink:href="valueset-entformula-type.html"><title
+     id="title7696">null (Strength=Preferred)</title></a></text>
+    <text
+       id="n1333"
+       x="450.70401"
+       y="80.246231"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1334"
+   xlink:href="valueset-entformula-type.html">EnteralFormulaTypeCodes</a>? »</text>
+    <text
+       id="n1342"
+       x="430.70401"
+       y="94.246231"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1343"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.productName"><title
+   id="title7702">The product or brand name of the enteral feeding product such as &quot;ACME Adult Standard Formula&quot;</title>productName</a> : <a
+   id="n1344"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1348"
+       x="430.70401"
+       y="108.24623"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1349"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.deliveryDevice_x_"><title
+   id="title7707">The intended type of device that is to be used for the administration of the enteral formula</title>deliveryDevice[x]</a> : <a
+   id="n1350"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1351"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1352"
+   xlink:href="datatypes.html#canonical">canonical</a>(</text>
+    <text
+       id="n1353"
+       x="450.70401"
+       y="122.24623"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1354"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>); <a
+   id="n1355"
+   xlink:href="valueset-deliverydevice-code.html"><title
+   id="n1356">null (Strength=Example)</title>DeliveryDeviceCode</a>?? »</text>
+    <text
+       id="n1366"
+       x="430.70401"
+       y="136.24623"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1367"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.caloricDensity"><title
+   id="title7718">The amount of energy (calories or kilojoules) that the feeding should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL</title>caloricDensity</a> : <a
+   id="n1368"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n1372"
+       x="430.70401"
+       y="150.24623"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1373"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.routeOfAdministration"><title
+   id="title7723">The administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube, oral</title>routeOfAdministration</a> : <a
+   id="n1374"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1375"
+   xlink:href="valueset-enteral-route.html"><title
+   id="n1376">null (Strength=Extensible)</title>EnteralRouteCodes</a>+ »</text>
+    <text
+       id="n1382"
+       x="430.70401"
+       y="164.24623"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1383"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.maxVolumeToAdminister"><title
+   id="title7730">The maximum total quantity of formula feeding that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours</title>maxVolumeToAdminister</a> : <a
+   id="n1384"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n1388"
+       x="430.70401"
+       y="178.24623"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1389"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administrationInstruction"><title
+   id="title7735">Free text formula administration, feeding instructions or additional instructions or information</title>administrationInstruction</a> : <a
+   id="n1390"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n1394"
+     transform="translate(26.815785,3.3519731)">
+    <rect
+       id="NutritionOrder.enteralFormula.administration"
+       x="433.49759"
+       y="209.31493"
+       rx="4"
+       ry="4"
+       width="193.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1395"
+       x1="433.49759"
+       y1="237.31493"
+       x2="627.0976"
+       y2="237.31493"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1396"
+       x="530.29761"
+       y="229.31493"
+       fill="#000000"
+       class="diagram-class-title">Administration</text>
+    <text
+       id="n1397"
+       x="439.49759"
+       y="251.31493"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1398"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.quantity"><title
+   id="title7744">The volume of formula feeding to provide to the patient per the specified administration schedule</title>quantity</a> : <a
+   id="n1399"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n1403"
+       x="439.49759"
+       y="265.31494"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1404"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.rate_x_"><title
+   id="title7749">The rate of administration of formula feeding via a feeding pump, e.g. 60 mL per hour, according to the specified schedule</title>rate[x]</a> : <a
+   id="n1405"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1406"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1407"
+   xlink:href="datatypes.html#Ratio">Ratio</a> »</text>
+  </g>
+  <g
+     id="n1413">
+    <rect
+       id="NutritionOrder.enteralFormula.administration.schedule"
+       x="816.1862"
+       y="194.79935999999998"
+       rx="4"
+       ry="4"
+       width="176.0"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1414"
+       x1="816.1862"
+       y1="222.79935999999998"
+       x2="992.1862"
+       y2="222.79935999999998"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1415"
+       x="904.1862"
+       y="214.79935999999998"
+       fill="black"
+       class="diagram-class-title">EnteralFormulaSchedule</text>
+    <text
+       id="n1416"
+       x="822.1862"
+       y="236.79935999999998"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1417"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule.timing"><title
+   id="title7760">The time period and frequency at which the enteral feeding should be given.  The enteral feeding should be given for the combination of all schedules if more than one schedule is present</title>timing</a> : <a
+   id="n1418"
+   xlink:href="datatypes.html#Timing">Timing</a> [0..*]</text>
+    <text
+       id="n1422"
+       x="822.1862"
+       y="250.79935999999998"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1423"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule.asNeeded"><title
+   id="title7765">Indicates whether the enteral feeding is only taken when needed within a specific dosing schedule</title>asNeeded</a> : <a
+   id="n1424"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1428"
+       x="822.1862"
+       y="264.79936"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1429"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule.asNeededFor"><title
+   id="title7770">Indicates whether the enteral feeding is only taken based on a precondition for taking the enteral feeding</title>asNeededFor</a> : <a
+   id="n1430"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1431"
+   xlink:href="valueset-medication-as-needed-reason.html"><title
+     id="n1432">A coded concept identifying the precondition that should be met or evaluated prior to       consuming an enteral formula. (Strength=Example)</title></a></text>
+    <text
+       id="n1433"
+       x="842.1862"
+       y="278.79936"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1434"
+   xlink:href="valueset-medication-as-needed-reason.html">SNOMEDCTMedicationAsNeededRea...</a>?? »</text>
+  </g>
+  <g
+     id="n1442"
+     transform="translate(-13.407893,-240.22474)">
+    <rect
+       id="NutritionOrder.additive"
+       x="432.41284"
+       y="672"
+       rx="4"
+       ry="4"
+       width="299.20001"
        height="106"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1306"
-       x1="277.39999"
-       y1="452"
-       x2="506.20001"
-       y2="452"
+       id="n1443"
+       x1="432.41284"
+       y1="700"
+       x2="731.61285"
+       y2="700"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1307"
-       x="391.79999"
-       y="444"
-       fill="#000000"
-       class="diagram-class-title">Supplement</text>
-    <text
-       id="n1308"
-       x="283.39999"
-       y="466"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1309"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.type"><title
-   id="title86263">The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement</title>type</a> : <a
-   id="n1310"
-   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
-   id="n1311"
-   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>; <a
-   id="n1312"
-   xlink:href="valueset-supplement-type.html"><title
-     id="n1313">null (Strength=Example)</title></a></text>
-    <text
-       id="n1314"
-       x="303.39999"
-       y="480"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1315"
-   xlink:href="valueset-supplement-type.html">SupplementTypeCodes</a>?? »</text>
-    <text
-       id="n1324"
-       x="283.39999"
-       y="494"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1325"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.productName"><title
-   id="title86273">The product or brand name of the nutritional supplement such as &quot;Acme Protein Shake&quot;</title>productName</a> : <a
-   id="n1326"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
-    <text
-       id="n1330"
-       x="283.39999"
-       y="508"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1331"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.quantity"><title
-   id="title86278">The amount of the nutritional supplement to be given</title>quantity</a> : <a
-   id="n1332"
-   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
-   xlink:href="datatypes.html#SimpleQuantity"
-   id="a86282">SimpleQuantity</a>) [0..1]</text>
-    <text
-       id="n1336"
-       x="283.39999"
-       y="522"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1337"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.instruction"><title
-   id="title86285">Free text or additional instructions or information pertaining to the oral supplement</title>instruction</a> : <a
-   id="n1338"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
-  </g>
-  <g
-     id="n1342"
-     transform="translate(-55.040127,-277.40224)">
-    <rect
-       id="NutritionOrder.supplement.schedule"
-       x="863.79999"
-       y="610"
-       rx="4"
-       ry="4"
-       width="176"
-       height="92"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1343"
-       x1="863.79999"
-       y1="638"
-       x2="1039.8"
-       y2="638"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1344"
-       x="951.79999"
-       y="630"
-       fill="#000000"
-       class="diagram-class-title">SupplementSchedule</text>
-    <text
-       id="n1345"
-       x="869.79999"
-       y="652"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1346"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.schedule.timing"><title
-   id="title86294">The time period and frequency at which the supplement should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present</title>timing</a> : <a
-   id="n1347"
-   xlink:href="datatypes.html#Timing">Timing</a> [0..*]</text>
-    <text
-       id="n1351"
-       x="869.79999"
-       y="666"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1352"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.schedule.asNeeded"><title
-   id="title86299">Indicates whether the supplement is only taken when needed within a specific dosing schedule</title>asNeeded</a> : <a
-   id="n1353"
-   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <text
-       id="n1357"
-       x="869.79999"
-       y="680"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1358"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.schedule.asNeededFor"><title
-   id="title86304">Indicates whether the supplement is only taken based on a precondition for taking the supplement</title>asNeededFor</a> : <a
-   id="n1359"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n1360"
-   xlink:href="valueset-medication-as-needed-reason.html"><title
-     id="n1361">A coded concept identifying the precondition that should be met or evaluated prior to       consuming a supplement. (Strength=Example)</title></a></text>
-    <text
-       id="n1362"
-       x="889.79999"
-       y="694"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1363"
-   xlink:href="valueset-medication-as-needed-reason.html">SNOMEDCTMedicationAsNeededRea...</a>?? »</text>
-  </g>
-  <g
-     id="n1371"
-     transform="translate(-12.108828,-73.753771)">
-    <rect
-       id="NutritionOrder.enteralFormula"
-       x="423.60001"
-       y="98"
-       rx="4"
-       ry="4"
-       width="299.20001"
-       height="148"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1372"
-       x1="423.60001"
-       y1="126"
-       x2="722.79999"
-       y2="126"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1373"
-       x="573.20001"
-       y="118"
-       fill="#000000"
-       class="diagram-class-title">EnteralFormula</text>
-    <text
-       id="n1374"
-       x="429.60001"
-       y="140"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1375"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.baseFormulaType"><title
-   id="title86317">The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula</title>baseFormulaType</a> : <a
-   id="n1376"
-   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
-   id="n1377"
-   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>; <a
-   id="n1378"
-   xlink:href="valueset-entformula-type.html"><title
-     id="n1379">null (Strength=Example)</title></a></text>
-    <text
-       id="n1380"
-       x="449.60001"
-       y="154"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1381"
-   xlink:href="valueset-entformula-type.html">EnteralFormulaTypeCodes</a>?? »</text>
-    <text
-       id="n1390"
-       x="429.60001"
-       y="168"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1391"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.baseFormulaProductName"><title
-   id="title86327">The product or brand name of the enteral or infant formula product such as &quot;ACME Adult Standard Formula&quot;</title>baseFormulaProductName</a> : <a
-   id="n1392"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
-    <text
-       id="n1396"
-       x="429.60001"
-       y="182"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1397"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.deliveryDevice"><title
-   id="title86332">The intended type of device that is to be used for the administration of the enteral formula</title>deliveryDevice</a> : <a
-   id="n1398"
-   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
-   id="n1399"
-   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a> »</text>
-    <text
-       id="n1404"
-       x="429.60001"
-       y="196"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1405"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.caloricDensity"><title
-   id="title86338">The amount of energy (calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 calories per fluid ounce or an adult may require an enteral formula that provides 1.5 calorie/mL</title>caloricDensity</a> : <a
-   id="n1406"
-   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
-   xlink:href="datatypes.html#SimpleQuantity"
-   id="a86342">SimpleQuantity</a>) [0..1]</text>
-    <text
-       id="n1410"
-       x="429.60001"
-       y="210"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1411"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.routeOfAdministration"><title
-   id="title86345">The route or physiological path of administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube</title>routeOfAdministration</a> : <a
-   id="n1412"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n1413"
-   xlink:href="valueset-enteral-route.html"><title
-   id="n1414">null (Strength=Extensible)</title>EnteralRouteCodes</a>+ »</text>
-    <text
-       id="n1420"
-       x="429.60001"
-       y="224"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1421"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.maxVolumeToDeliver"><title
-   id="title86352">The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours</title>maxVolumeToDeliver</a> : <a
-   id="n1422"
-   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
-   xlink:href="datatypes.html#SimpleQuantity"
-   id="a86356">SimpleQuantity</a>) [0..1]</text>
-    <text
-       id="n1426"
-       x="429.60001"
-       y="238"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1427"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administrationInstruction"><title
-   id="title86359">Free text formula administration, feeding instructions or additional instructions or information</title>administrationInstruction</a> : <a
-   id="n1428"
-   xlink:href="datatypes.html#string">string</a> [0..1]</text>
-  </g>
-  <g
-     id="n1432"
-     transform="translate(-42.931299,-90.265807)">
-    <rect
-       id="NutritionOrder.enteralFormula.additive"
-       x="842.79999"
-       y="126"
-       rx="4"
-       ry="4"
-       width="228.8"
-       height="92"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1433"
-       x1="842.79999"
-       y1="154"
-       x2="1071.6"
-       y2="154"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1434"
-       x="957.20001"
-       y="146"
+       id="n1444"
+       x="582.01282"
+       y="692"
        fill="#000000"
        class="diagram-class-title">Additive</text>
     <text
-       id="n1435"
-       x="848.79999"
-       y="168"
+       id="n1445"
+       x="438.41284"
+       y="714"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n1436"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.additive.type"><title
-   id="title86368">Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula</title>type</a> : <a
-   id="n1437"
+   id="n1446"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.additive.modularType"><title
+   id="title7783">Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the oral diet, supplement, and/or enteral feeding</title>modularType</a> : <a
+   id="n1447"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
-   id="n1438"
+   id="n1448"
    xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>; <a
-   id="n1439"
+   id="n1449"
    xlink:href="valueset-entformula-additive.html"><title
-     id="n1440">null (Strength=Example)</title></a></text>
+     id="title7788">null (Strength=Preferred)</title></a></text>
     <text
-       id="n1441"
-       x="868.79999"
-       y="182"
+       id="n1450"
+       x="458.41284"
+       y="728"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n1442"
-   xlink:href="valueset-entformula-additive.html">EnteralFormulaAdditiveTypeCode</a>?? »</text>
+   id="n1451"
+   xlink:href="valueset-entformula-additive.html">EnteralFormulaAdditiveTypeCode</a>? »</text>
     <text
-       id="n1451"
-       x="848.79999"
-       y="196"
+       id="n1459"
+       x="438.41284"
+       y="742"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n1452"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.additive.productName"><title
-   id="title86378">The product or brand name of the type of modular component to be added to the formula</title>productName</a> : <a
-   id="n1453"
+   id="n1460"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.additive.productName"><title
+   id="title7794">The product or brand name of the type of modular additive to be added to the oral diet, supplement, and/or enteral feeding</title>productName</a> : <a
+   id="n1461"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n1457"
-       x="848.79999"
-       y="210"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1458"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.additive.quantity"><title
-   id="title86383">The amount of additive to be given in addition or to be mixed in with the base formula</title>quantity</a> : <a
-   id="n1459"
-   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
-   xlink:href="datatypes.html#SimpleQuantity"
-   id="a86387">SimpleQuantity</a>) [0..1]</text>
-  </g>
-  <g
-     id="n1463"
-     transform="translate(-20.915248,-116.68507)">
-    <rect
-       id="NutritionOrder.enteralFormula.administration"
-       x="441.20001"
-       y="326"
-       rx="4"
-       ry="4"
-       width="264"
-       height="64"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1464"
-       x1="441.20001"
-       y1="354"
-       x2="705.20001"
-       y2="354"
-       style="stroke:#696969;stroke-width:1" />
-    <text
        id="n1465"
-       x="573.20001"
-       y="346"
-       fill="#000000"
-       class="diagram-class-title">Administration</text>
-    <text
-       id="n1466"
-       x="447.20001"
-       y="368"
+       x="438.41284"
+       y="756"
        fill="#000000"
        class="diagram-class-detail"><a
+   id="n1466"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.additive.quantity"><title
+   id="title7799">The amount of additive to be given in addition or to be mixed in with the oral diet, supplement, and/or enteral feeding</title>quantity</a> : <a
    id="n1467"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.quantity"><title
-   id="title86394">The volume of formula to provide to the patient per the specified administration schedule</title>quantity</a> : <a
-   id="n1468"
-   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
-   xlink:href="datatypes.html#SimpleQuantity"
-   id="a86398">SimpleQuantity</a>) [0..1]</text>
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
     <text
-       id="n1472"
-       x="447.20001"
-       y="382"
+       id="n1471"
+       x="438.41284"
+       y="770"
        fill="#000000"
        class="diagram-class-detail"><a
+   id="n1472"
+   xlink:href="nutritionorder-definitions.html#NutritionOrder.additive.routeOfAdministration"><title
+   id="title7804">The administration into the patient's gastrointestinal  tract for purposes of providing the additive, e.g. nasogastric tube, oral</title>routeOfAdministration</a> : <a
    id="n1473"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.rate_x_"><title
-   id="title86401">The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule</title>rate[x]</a> : <a
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n1474"
-   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
-   id="n1475"
-   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
-   xlink:href="datatypes.html#SimpleQuantity"
-   id="a86406">SimpleQuantity</a>)|<a
-   id="n1476"
-   xlink:href="datatypes.html#Ratio">Ratio</a> »</text>
-  </g>
-  <g
-     id="n1482"
-     transform="translate(237.77335,-275.20064)">
-    <rect
-       id="NutritionOrder.enteralFormula.administration.schedule"
-       x="565.20001"
-       y="470"
-       rx="4"
-       ry="4"
-       width="176"
-       height="92"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n1483"
-       x1="565.20001"
-       y1="498"
-       x2="741.20001"
-       y2="498"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1484"
-       x="653.20001"
-       y="490"
-       fill="#000000"
-       class="diagram-class-title">EnteralFormulaSchedule</text>
-    <text
-       id="n1485"
-       x="571.20001"
-       y="512"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1486"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule.timing"><title
-   id="title86414">The time period and frequency at which the enteral formula should be given.  The enteral formula should be given for the combination of all schedules if more than one schedule is present</title>timing</a> : <a
-   id="n1487"
-   xlink:href="datatypes.html#Timing">Timing</a> [0..*]</text>
-    <text
-       id="n1491"
-       x="571.20001"
-       y="526"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1492"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule.asNeeded"><title
-   id="title86419">Indicates whether the enteral formula is only taken when needed within a specific dosing schedule</title>asNeeded</a> : <a
-   id="n1493"
-   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <text
-       id="n1497"
-       x="571.20001"
-       y="540"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1498"
-   xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule.asNeededFor"><title
-   id="title86424">Indicates whether the enteral formula is only taken based on a precondition for taking the enteral formula</title>asNeededFor</a> : <a
-   id="n1499"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n1500"
-   xlink:href="valueset-medication-as-needed-reason.html"><title
-     id="n1501">A coded concept identifying the precondition that should be met or evaluated prior to       consuming an enteral formula. (Strength=Example)</title></a></text>
-    <text
-       id="n1502"
-       x="591.20001"
-       y="554"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n1503"
-   xlink:href="valueset-medication-as-needed-reason.html">SNOMEDCTMedicationAsNeededRea...</a>?? »</text>
+   xlink:href="valueset-enteral-route.html"><title
+   id="n1475">null (Strength=Extensible)</title>EnteralRouteCodes</a>+ »</text>
   </g>
   <line
-     id="n1511"
-     x1="151.8"
-     y1="516.0"
-     x2="151.8"
-     y2="596.0"
+     id="n1481"
+     x1="138.22286015118377"
+     y1="485.48796200000015"
+     x2="141.9475508216808"
+     y2="565.1775290000005"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1512"
-     points="151.8,516.0 157.8,520.0 163.8,516.0 157.8,512.0 151.8,516.0"
+     id="n1482"
+     points="138.22286015118377,485.48796200000015 144.22286015118377,489.48796200000015 150.22286015118377,485.48796200000015 144.22286015118377,481.48796200000015 138.22286015118377,485.48796200000015"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(90.0 151.8 516.0)" />
+     transform="rotate(87.32394263939476 138.22286015118377 485.48796200000015)" />
   <rect
-     id="n1513"
-     x="133.5"
-     y="549.0"
+     id="n1483"
+     x="122.5"
+     y="518.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1514"
-     x="151.0"
-     y="559.0"
+     id="n1484"
+     x="140.0"
+     y="528.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1515"
+       id="n1485"
        xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.schedule"><title
-   id="title86437">Schedule information for an oral diet</title>schedule</a></text>
+   id="title7815">Schedule information for an oral diet</title>schedule</a></text>
   <text
-     id="n1516"
-     x="151.8"
-     y="592.0"
+     id="n1486"
+     x="141.9475508216808"
+     y="561.1775290000005"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
+     id="n1487"
+     x1="225.8665056228866"
+     y1="485.48796200000004"
+     x2="451.60474512993954"
+     y2="583.891172"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1488"
+     points="225.8665056228866,485.48796200000004 231.8665056228866,489.48796200000004 237.8665056228866,485.48796200000004 231.8665056228866,481.48796200000004 225.8665056228866,485.48796200000004"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(23.553221378650793 225.8665056228866 485.48796200000004)" />
+  <rect
+     id="n1489"
+     x="320.5"
+     y="527.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1490"
+     x="338.0"
+     y="537.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1491"
+       xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.nutrient"><title
+   id="title7823">Defines the quantity and the nutrient modified (for example carbohydrate, fiber or sodium) in the oral diet</title>nutrient</a></text>
+  <text
+     id="n1492"
+     x="451.60474512993954"
+     y="579.891172"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1493"
+     x1="231.0"
+     y1="456.3224023447307"
+     x2="422.39806"
+     y2="476.21978927038816"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1494"
+     points="231.0,456.3224023447307 237.0,460.3224023447307 243.0,456.3224023447307 237.0,452.3224023447307 231.0,456.3224023447307"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(5.935043531659668 231.0 456.3224023447307)" />
+  <rect
+     id="n1495"
+     x="311.0"
+     y="459.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1496"
+     x="326.0"
+     y="469.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1497"
+       xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.texture"><title
+   id="title7831">Class that describes any texture modifications in addition to the oral diet type required for the patient to safely consume various types of foods (i.e. solid and/or liquid)</title>texture</a></text>
+  <text
+     id="n1498"
+     x="402.39806"
+     y="472.21978927038816"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1499"
+     x1="147.33040668727458"
+     y1="329.9999999999998"
+     x2="140.05948423755333"
+     y2="407.4879619999997"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1500"
+     points="147.33040668727458,329.9999999999998 153.33040668727458,333.9999999999998 159.33040668727458,329.9999999999998 153.33040668727458,325.9999999999998 147.33040668727458,329.9999999999998"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(95.36053510056092 147.33040668727458 329.9999999999998)" />
+  <rect
+     id="n1501"
+     x="125.5"
+     y="361.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1502"
+     x="143.0"
+     y="371.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1503"
+       xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet"><title
+   id="title7839">Diet given orally that may include texture modification, such as International Dysphagia Diet Standardisation Initiative Framework - Slightly Thick Level 1 drinks and Minced and International Dysphagia Diet Standardisation Initiative Framework - Minced and Moist Level 5 food as well as, for example, Decreased potassium diet (ie, nutrient modification), Halal diet (ie, cultural modification), and/or Low microbial diet (eg, other modification)</title>oralDiet</a></text>
+  <text
+     id="n1504"
+     x="140.05948423755333"
+     y="403.4879619999997"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1505"
+     x1="670.2227800000001"
+     y1="377.66650922127815"
+     x2="821.972703"
+     y2="378.25594521440144"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1506"
+     points="670.2227800000001,377.66650922127815 676.2227800000001,381.66650922127815 682.2227800000001,377.66650922127815 676.2227800000001,373.66650922127815 670.2227800000001,377.66650922127815"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.22255052383107402 670.2227800000001 377.66650922127815)" />
+  <rect
+     id="n1507"
+     x="728.5"
+     y="370.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1508"
+     x="746.0"
+     y="380.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1509"
+       xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.schedule"><title
+   id="title7847">Schedule information for a supplement</title>schedule</a></text>
+  <text
+     id="n1510"
+     x="801.972703"
+     y="374.25594521440144"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1511"
+     x1="312.4128400000001"
+     y1="245.78277521428598"
+     x2="444.7099842809857"
+     y2="317.22215"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1512"
+     points="312.4128400000001,245.78277521428598 318.4128400000001,249.78277521428598 324.4128400000001,245.78277521428598 318.4128400000001,241.78277521428598 312.4128400000001,245.78277521428598"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(28.368683111040035 312.4128400000001 245.78277521428598)" />
+  <rect
+     id="n1513"
+     x="356.0"
+     y="274.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1514"
+     x="378.0"
+     y="284.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1515"
+       xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement"><title
+   id="title7855">Oral nutritional products given in order to add further nutritional value to the patient's diet</title>supplement</a></text>
+  <text
+     id="n1516"
+     x="444.7099842809857"
+     y="313.22215"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
      id="n1517"
-     x1="221.6734177215191"
-     y1="516.0"
-     x2="343.1924050632914"
-     y2="596.0000000000001"
+     x1="627.097602"
+     y1="241.1814485933271"
+     x2="816.1862"
+     y2="240.92070673333902"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n1518"
-     points="221.6734177215191,516.0 227.6734177215191,520.0 233.6734177215191,516.0 227.6734177215191,512.0 221.6734177215191,516.0"
+     points="627.097602,241.1814485933271 633.097602,245.1814485933271 639.097602,241.1814485933271 633.097602,237.1814485933271 627.097602,241.1814485933271"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(33.35824239704295 221.6734177215191 516.0)" />
+     transform="rotate(-0.07900740080977384 627.097602 241.1814485933271)" />
   <rect
      id="n1519"
-     x="264.5"
-     y="549.0"
+     x="703.5"
+     y="234.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n1520"
-     x="282.0"
-     y="559.0"
+     x="721.0"
+     y="244.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n1521"
-       xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.nutrient"><title
-   id="title86445">Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet</title>nutrient</a></text>
+       xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule"><title
+   id="title7863">Schedule information for an enteral feeding</title>schedule</a></text>
   <text
      id="n1522"
-     x="343.1924050632914"
-     y="592.0000000000001"
+     x="796.1862"
+     y="236.92070673333902"
      fill="black"
-     class="diagram-class-linkage">[0..*]</text>
+     class="diagram-class-linkage">[0..1]</text>
   <line
      id="n1523"
-     x1="257.40000000000003"
-     y1="499.79428571428576"
-     x2="598.3822784810121"
-     y2="595.9999999999999"
+     x1="548.1075492343786"
+     y1="186.24622899999986"
+     x2="540.6468258086406"
+     y2="209.31493000000023"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n1524"
-     points="257.40000000000003,499.79428571428576 263.40000000000003,503.79428571428576 269.40000000000003,499.79428571428576 263.40000000000003,495.79428571428576 257.40000000000003,499.79428571428576"
+     points="548.1075492343786,186.24622899999986 554.1075492343786,190.24622899999986 560.1075492343786,186.24622899999986 554.1075492343786,182.24622899999986 548.1075492343786,186.24622899999986"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(15.756033768582865 257.40000000000003 499.79428571428576)" />
+     transform="rotate(107.92189430625457 548.1075492343786 186.24622899999986)" />
   <rect
      id="n1525"
-     x="412.0"
-     y="540.0"
-     width="30.0"
+     x="513.5"
+     y="190.0"
+     width="61.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n1526"
-     x="427.0"
-     y="550.0"
+     x="544.0"
+     y="200.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n1527"
-       xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet.texture"><title
-   id="title86453">Class that describes any texture modifications required for the patient to safely consume various types of solid foods</title>texture</a></text>
+       xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration"><title
+   id="title7871">Formula feeding administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours</title>administration</a></text>
   <text
      id="n1528"
-     x="598.3822784810121"
-     y="591.9999999999999"
+     x="540.6468258086406"
+     y="205.31493000000023"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
      id="n1529"
-     x1="151.8"
-     y1="344.0"
-     x2="151.8"
-     y2="424.0"
+     x1="312.4128400000001"
+     y1="143.27617083274458"
+     x2="424.704022"
+     y2="126.97005816725539"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n1530"
-     points="151.8,344.0 157.8,348.0 163.8,344.0 157.8,340.0 151.8,344.0"
+     points="312.4128400000001,143.27617083274458 318.4128400000001,147.27617083274458 324.4128400000001,143.27617083274458 318.4128400000001,139.27617083274458 312.4128400000001,143.27617083274458"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(90.0 151.8 344.0)" />
+     transform="rotate(-8.262326197529216 312.4128400000001 143.27617083274458)" />
   <rect
      id="n1531"
-     x="133.5"
-     y="377.0"
-     width="35.0"
+     x="337.5"
+     y="128.0"
+     width="61.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n1532"
-     x="151.0"
-     y="387.0"
+     x="368.0"
+     y="138.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n1533"
-       xlink:href="nutritionorder-definitions.html#NutritionOrder.oralDiet"><title
-   id="title86461">Diet given orally in contrast to enteral (tube) feeding</title>oralDiet</a></text>
+       xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula"><title
+   id="title7879">Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity</title>enteralFormula</a></text>
   <text
      id="n1534"
-     x="151.8"
-     y="420.0"
+     x="404.704022"
+     y="122.97005816725539"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
      id="n1535"
-     x1="506.2"
-     y1="513.5671428571429"
-     x2="863.8"
-     y2="627.8714285714286"
+     x1="286.3271257142857"
+     y1="330.0"
+     x2="542.3385542857143"
+     y2="671.9999999999999"
      style="stroke:navy;stroke-width:1" />
   <polygon
      id="n1536"
-     points="506.2,513.5671428571429 512.2,517.5671428571429 518.2,513.5671428571429 512.2,509.5671428571429 506.2,513.5671428571429"
+     points="286.3271257142857,330.0 292.3271257142857,334.0 298.3271257142857,330.0 292.3271257142857,326.0 286.3271257142857,330.0"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(17.726107674335005 506.2 513.5671428571429)" />
+     transform="rotate(53.1825229978214 286.3271257142857 330.0)" />
   <rect
      id="n1537"
-     x="667.5"
-     y="563.0"
+     x="396.5"
+     y="493.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
      id="n1538"
-     x="685.0"
-     y="573.0"
+     x="414.0"
+     y="503.0"
      fill="black"
      class="diagram-class-linkage"><a
        id="n1539"
-       xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement.schedule"><title
-   id="title86469">Schedule information for a supplement</title>schedule</a></text>
+       xlink:href="nutritionorder-definitions.html#NutritionOrder.additive"><title
+   id="title7887">Indicates modular components to be provided in addition or mixed with the oral diet, supplement, and/or enteral feeding</title>additive</a></text>
   <text
      id="n1540"
-     x="843.8"
-     y="623.8714285714286"
-     fill="black"
-     class="diagram-class-linkage">[0..1]</text>
-  <line
-     id="n1541"
-     x1="287.14426229508194"
-     y1="344.0"
-     x2="350.09508196721305"
-     y2="423.99999999999994"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1542"
-     points="287.14426229508194,344.0 293.14426229508194,348.0 299.14426229508194,344.0 293.14426229508194,340.0 287.14426229508194,344.0"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(51.80131482398158 287.14426229508194 344.0)" />
-  <rect
-     id="n1543"
-     x="296.0"
-     y="377.0"
-     width="44.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1544"
-     x="318.0"
-     y="387.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n1545"
-       xlink:href="nutritionorder-definitions.html#NutritionOrder.supplement"><title
-   id="title86477">Oral nutritional products given in order to add further nutritional value to the patient's diet</title>supplement</a></text>
-  <text
-     id="n1546"
-     x="350.09508196721305"
-     y="419.99999999999994"
+     x="542.3385542857143"
+     y="667.9999999999999"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1547"
-     x1="722.8000000000001"
-     y1="171.99999999999997"
-     x2="842.8000000000001"
-     y2="171.99999999999997"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1548"
-     points="722.8000000000001,171.99999999999997 728.8000000000001,175.99999999999997 734.8000000000001,171.99999999999997 728.8000000000001,167.99999999999997 722.8000000000001,171.99999999999997"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 722.8000000000001 171.99999999999997)" />
-  <rect
-     id="n1549"
-     x="764.5"
-     y="164.0"
-     width="35.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1550"
-     x="782.0"
-     y="174.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n1551"
-       xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.additive"><title
-   id="title86485">Indicates modular components to be provided in addition or mixed with the base formula</title>additive</a></text>
-  <text
-     id="n1552"
-     x="822.8000000000001"
-     y="167.99999999999997"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1553"
-     x1="589.4025316455695"
-     y1="389.9999999999999"
-     x2="629.9088607594937"
-     y2="470.0000000000001"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1554"
-     points="589.4025316455695,389.9999999999999 595.4025316455695,393.9999999999999 601.4025316455695,389.9999999999999 595.4025316455695,385.9999999999999 589.4025316455695,389.9999999999999"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(63.14557865948142 589.4025316455695 389.9999999999999)" />
-  <rect
-     id="n1555"
-     x="591.5"
-     y="423.0"
-     width="35.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1556"
-     x="609.0"
-     y="433.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n1557"
-       xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule"><title
-   id="title86493">Schedule information for an enteral formula</title>schedule</a></text>
-  <text
-     id="n1558"
-     x="629.9088607594937"
-     y="466.0000000000001"
-     fill="black"
-     class="diagram-class-linkage">[0..1]</text>
-  <line
-     id="n1559"
-     x1="573.2"
-     y1="246.0"
-     x2="573.2"
-     y2="326.0"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1560"
-     points="573.2,246.0 579.2,250.0 585.2,246.0 579.2,242.0 573.2,246.0"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(90.0 573.2 246.0)" />
-  <rect
-     id="n1561"
-     x="542.5"
-     y="279.0"
-     width="61.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1562"
-     x="573.0"
-     y="289.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n1563"
-       xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration"><title
-   id="title86501">Formula administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours</title>administration</a></text>
-  <text
-     id="n1564"
-     x="573.2"
-     y="322.0"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1565"
-     x1="303.6"
-     y1="172.0"
-     x2="423.6"
-     y2="172.0"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1566"
-     points="303.6,172.0 309.6,176.0 315.6,172.0 309.6,168.0 303.6,172.0"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 303.6 172.0)" />
-  <rect
-     id="n1567"
-     x="332.5"
-     y="165.0"
-     width="61.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n1568"
-     x="363.0"
-     y="175.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n1569"
-       xlink:href="nutritionorder-definitions.html#NutritionOrder.enteralFormula"><title
-   id="title86509">Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity</title>enteralFormula</a></text>
-  <text
-     id="n1570"
-     x="403.6"
-     y="168.0"
-     fill="black"
-     class="diagram-class-linkage">[0..1]</text>
 </svg>
