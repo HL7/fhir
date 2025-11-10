@@ -58,7 +58,7 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry><!--
   <entry>
     <resource>
       <SearchParameter>
@@ -77,7 +77,7 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry>-->
   <entry>
     <resource>
       <SearchParameter>

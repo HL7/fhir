@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <id value="dose-limit-scope"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/dose-limit-scope"/>
+  <name value="DoseLimitScopeCodes"/>
+  <title value="Dose Limit Scope Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>  
+  <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>  
+  <concept>
+    <code value="dosage"/>
+    <display value="Dosage"/>
+    <definition value="Maximum quantity for the dosage (depends on scope whether it's the course, a step, or a choice)"/>
+  </concept>
+  <concept>
+    <code value="period"/>
+    <display value="Period"/>
+    <definition value="Maximum dosage per specified period"/>
+  </concept>
+  <concept>
+    <code value="administration"/>
+    <display value="Administration"/>
+    <definition value="Maximum Dosage for a single dose"/>
+  </concept>
+  <concept>
+    <code value="lifetime"/>
+    <display value="Lifetime"/>
+    <definition value="Maximum amount of lifetime exposure across all dosages ever"/>
+  </concept>
+</CodeSystem>

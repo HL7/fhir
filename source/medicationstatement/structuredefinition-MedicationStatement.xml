@@ -467,21 +467,6 @@
         <map value="TBD"/>
       </mapping>
     </element>
-    <element id="MedicationStatement.renderedDosageInstruction">
-      <path value="MedicationStatement.renderedDosageInstruction"/>
-      <short value="Full representation of the dosage instructions"/>
-      <definition value="The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses."/>
-      <requirements value="The content of the renderedDosageInstructions must not be different than the dose represented in the dosageInstruction content."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="SubstanceAdministration.text"/>
-      </mapping>
-    </element>
     <element id="MedicationStatement.dosage">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
@@ -491,14 +476,10 @@
       <definition value="Indicates how the medication is/was or should be taken by the patient."/>
       <comment value="The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, &quot;from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.&quot;  It is expected that this specificity may only be populated where the patient brings in their labeled container or where the Medication Statement is derived from a MedicationRequest."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
-        <code value="Dosage"/>
+        <code value="DosageDetails"/>
       </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="refer dosageInstruction mapping"/>
-      </mapping>
     </element>
     <element id="MedicationStatement.adherence">
       <path value="MedicationStatement.adherence"/>
