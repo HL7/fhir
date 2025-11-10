@@ -93,6 +93,7 @@
         <severity value="error"/>
         <human value="whenHandedOver cannot be before whenPrepared"/>
         <expression value="(whenHandedOver.hasValue() and whenPrepared.hasValue()) implies whenHandedOver >= whenPrepared"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>
