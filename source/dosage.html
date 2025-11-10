@@ -89,6 +89,8 @@ DosageSafety
    currentTabIndex = '0';
 
 $( '#tabs-Dosage' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-DosageDetails' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-DosageSafety' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
      
      
 function store(currentTab) {
@@ -98,6 +100,8 @@ function store(currentTab) {
   } catch(exception){ 
   }
   $( '#tabs-Dosage' ).tabs('option', 'active', currentTab);
+  $( '#tabs-DosageDetails' ).tabs('option', 'active', currentTab);
+  $( '#tabs-DosageSafety' ).tabs('option', 'active', currentTab);
 }     
 </script>
   
