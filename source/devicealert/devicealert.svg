@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n532"
+   version="1.1"
+   width="1032.8"
+   height="312.0"
+   sodipodi:docname="devicealert.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview32841"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.2064291"
+     inkscape:cx="517.64336"
+     inkscape:cy="159.56181"
+     inkscape:window-width="1948"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n532" />
+  <defs
+     id="defs32628">
+    <filter
+       id="shadow1"
+       x="-0.026185772"
+       y="-0.067948718"
+       width="1.0671937"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset32619" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix32621" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur32623" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend32625" />
+    </filter>
+  </defs>
+  <g
+     id="n533">
+    <rect
+       id="DeviceAlert"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="281.6"
+       height="302.0"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:black;stroke-width:1" />
+    <line
+       id="n534"
+       x1="0.0"
+       y1="28.0"
+       x2="281.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n535"
+       x="140.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">DeviceAlert<tspan
+   class="diagram-class-title-link"
+   id="tspan32633"> (<a
+   id="n536"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n537"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n538"
+   xlink:href="devicealert-definitions.html#DeviceAlert.identifier"><title
+   id="title32636">Business identifiers assigned to this alert, by the source device, gateway software, manufacturers, or other systems or organizations. These identifiers remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n539"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n543"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n544"
+   xlink:href="devicealert-definitions.html#DeviceAlert.procedure"><title
+   id="title32641">The procedure (or procedures) during which the alert condition was raised</title>procedure</a> : <a
+   id="n545"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n546"
+   xlink:href="procedure.html#Procedure">Procedure</a> »</text>
+    <text
+       id="n551"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n552"
+   xlink:href="devicealert-definitions.html#DeviceAlert.status"><title
+   id="title32647">The current state of the device alert (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n553"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n554"
+   xlink:href="valueset-devicealert-status.html"><title
+   id="n555">null (Strength=Required)</title>DeviceAlertStatusCodes</a>! »</text>
+    <text
+       id="n561"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n562"
+   xlink:href="devicealert-definitions.html#DeviceAlert.category"><title
+   id="title32654">Partitions the device alert into one or more categories that can be used to filter searching, to govern access control and/or to guide system behavior</title>category</a> : <a
+   id="n563"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n564"
+   xlink:href="valueset-devicealert-category.html"><title
+   id="n565">null (Strength=Example)</title>DeviceAlertCategoryCodes</a>?? »</text>
+    <text
+       id="n571"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n572"
+   xlink:href="devicealert-definitions.html#DeviceAlert.type"><title
+   id="title32661">physiological | technical</title>type</a> : <a
+   id="n573"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n574"
+   xlink:href="valueset-devicealert-type.html"><title
+   id="n575">null (Strength=Extensible)</title>DeviceAlertTypeCodes</a>+ »</text>
+    <text
+       id="n581"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n582"
+   xlink:href="devicealert-definitions.html#DeviceAlert.priority"><title
+   id="title32668">The alert priority is usually reported by the source device. A priority of `info` may indicate that the alert is “for information only” and not urgent action is required. The element may be omitted if the priority is unknown</title>priority</a> : <a
+   id="n583"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n584"
+   xlink:href="valueset-devicealert-priority.html"><title
+   id="n585">null (Strength=Extensible)</title>DeviceAlertPriorityCodes</a>+ »</text>
+    <text
+       id="n591"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n592"
+   xlink:href="devicealert-definitions.html#DeviceAlert.code"><title
+   id="title32675">A code that indicates the specific condition that triggered the alert</title>code</a> : <a
+   id="n593"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n594"
+   xlink:href="valueset-devicealert-condition.html"><title
+   id="title32679">null (Strength=Preferred)</title>DeviceAlertConditionCodes</a>? »</text>
+    <text
+       id="n599"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n600"
+   xlink:href="devicealert-definitions.html#DeviceAlert.subject"><title
+   id="title32683">Who or what the alert is about</title>subject</a> : <a
+   id="n601"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n602"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n603"
+   xlink:href="device.html#Device">Device</a>|</text>
+    <text
+       id="n604"
+       x="26.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n605"
+   xlink:href="biologicallyderivedproduct.html#BiologicallyDerivedProduct">BiologicallyDerivedProduct</a>|<a
+   id="n606"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n607"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n608"
+   xlink:href="medication.html#Medication">Medication</a>|</text>
+    <text
+       id="n609"
+       x="26.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n610"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>|<a
+   id="n611"
+   xlink:href="specimen.html#Specimen">Specimen</a> »</text>
+    <text
+       id="n625"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n626"
+   xlink:href="devicealert-definitions.html#DeviceAlert.encounter"><title
+   id="title32698">The Encounter during which the alert condition was raised</title>encounter</a> : <a
+   id="n627"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n628"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n633"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n634"
+   xlink:href="devicealert-definitions.html#DeviceAlert.presence"><title
+   id="title32704">Whether the alert condition is currently active</title>presence</a> : <a
+   id="n635"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n639"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n640"
+   xlink:href="devicealert-definitions.html#DeviceAlert.occurrence_x_"><title
+   id="title32709">This element is used to record the date or time period when the alert condition did occur or is occurring</title>occurrence[x]</a> : <a
+   id="n641"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n642"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n643"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n649"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n650"
+   xlink:href="devicealert-definitions.html#DeviceAlert.device"><title
+   id="title32716">Indicates the device that detected the alert condition. The device may be a top-level Device or component Device (such as an MDS, VMD, or Channel); or may identify the specific DeviceMetric of a Device (e.g., a heart rate reading) that was in an alert condition</title>device</a> : <a
+   id="n651"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n652"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n653"
+   xlink:href="devicemetric.html#DeviceMetric">DeviceMetric</a> »</text>
+    <text
+       id="n659"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n660"
+   xlink:href="devicealert-definitions.html#DeviceAlert.acknowledged"><title
+   id="title32723">An indication of whether (true) or not (false) the alert condition has been acknowledged</title>acknowledged</a> : <a
+   id="n661"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n665"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n666"
+   xlink:href="devicealert-definitions.html#DeviceAlert.acknowledgedBy"><title
+   id="title32728">An indication of who or what acknowledged the alert condition</title>acknowledgedBy</a> : <a
+   id="n667"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n668"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n669"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n670"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n671"
+       x="26.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n672"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n673"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n683"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n684"
+   xlink:href="devicealert-definitions.html#DeviceAlert.location"><title
+   id="title32739">The principal physical location of the subject at the time the alert condition occurred. This may be different from the location of the alerting device at that time, and from the current location of either the subject or the alert condition detecting device</title>location</a> : <a
+   id="n685"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n686"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n691"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n692"
+   xlink:href="devicealert-definitions.html#DeviceAlert.label"><title
+   id="title32745">The label may combine information from the alert  code, priority, the measurement type, measurement value, body sites and other sources, e.g., “HR &gt; 180”</title>label</a> : <a
+   id="n693"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n697"
+     transform="translate(110.2427,6.63114)">
+    <rect
+       id="DeviceAlert.derivedFrom"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="202.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:#000000;stroke-width:1" />
+    <line
+       id="n698"
+       x1="320"
+       y1="28"
+       x2="522.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n699"
+       x="421.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">DerivedFrom</text>
+    <text
+       id="n700"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n701"
+   xlink:href="devicealert-definitions.html#DeviceAlert.derivedFrom.observation"><title
+   id="title32754">Indicates the Observation whose value is causing the alert condition; or, if `component` is present, the Observation with a component causing the alert condition</title>observation</a> : <a
+   id="n702"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n703"
+   xlink:href="observation.html#Observation">Observation</a> »</text>
+    <text
+       id="n708"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n709"
+   xlink:href="devicealert-definitions.html#DeviceAlert.derivedFrom.component"><title
+   id="title32760">If applicable, the code of the component (of the Observation identified in `derivedFrom.observation`) having a value causing the alert condition. This may be used when the alert is associated with a specific component of an Observation, rather than the overall Observation; for example, a low diastolic blood pressure. Since the component is identified by matching `Observation.component.code`, if more than one component have the same code, the specific component is ambiguous. Repetitions of this element indicate additional components contributing to the alert condition</title>component</a> : <a
+   id="n710"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..1] « <a
+   id="n711"
+   xlink:href="valueset-observation-codes.html"><title
+   id="n712">null (Strength=Example)</title>LOINCCodes</a>?? »</text>
+    <text
+       id="n718"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n719"
+   xlink:href="devicealert-definitions.html#DeviceAlert.derivedFrom.limit"><title
+   id="title32767">The limits beyond which a value was detected to cause the alert condition. The actual value is the `Observation.value[x]` referenced by `derivedFrom.observation` or, if specified, the `Observation.component.value[x]` of the component (with `Observation.component.code` matching `derivedFrom.component`) of the reference Observation</title>limit</a> : <a
+   id="n720"
+   xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
+  </g>
+  <g
+     id="n724"
+     transform="translate(-137.59616,128.47834)">
+    <rect
+       id="DeviceAlert.signal"
+       x="560"
+       y="0"
+       rx="4"
+       ry="4"
+       width="272.79999"
+       height="162"
+       filter="url(#shadow1)"
+       style="fill:#f6f6f6;stroke:#000000;stroke-width:1" />
+    <line
+       id="n725"
+       x1="560"
+       y1="28"
+       x2="832.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n726"
+       x="696.40002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Signal</text>
+    <text
+       id="n727"
+       x="566"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n728"
+   xlink:href="devicealert-definitions.html#DeviceAlert.signal.activationState"><title
+   id="title32776">Paused indicates that annunciation has temporarily been disabled (&quot;snooze&quot;)</title>activationState</a> : <a
+   id="n729"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n730"
+   xlink:href="valueset-devicealert-activationState.html"><title
+     id="n731">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n732"
+       x="586"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n733"
+   xlink:href="valueset-devicealert-activationState.html">DeviceAlertActivationStateCod...</a>+ »</text>
+    <text
+       id="n741"
+       x="566"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n742"
+   xlink:href="devicealert-definitions.html#DeviceAlert.signal.presence"><title
+   id="title32785">Indicates whether the signal is currently being annunciated. An on signal is currently being annunciated; a latched signal is currently being being annunciated although the alert condition has ended; an off signal is not currently being annunciated; and an acknowledged signal is not currently being annunciated because the user has acknowledged the signal</title>presence</a> : <a
+   id="n743"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n744"
+   xlink:href="valueset-devicealert-presence.html"><title
+   id="n745">null (Strength=Extensible)</title>DeviceAlertPresenceCodes</a>+ »</text>
+    <text
+       id="n751"
+       x="566"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n752"
+   xlink:href="devicealert-definitions.html#DeviceAlert.signal.annunciator"><title
+   id="title32792">Signalling by the source device is local; signalling elsewhere is considered remote. A reference to the &quot;top level&quot; signalling device may also be present</title>annunciator</a> : <a
+   id="n753"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n754"
+   xlink:href="device.html#Device">Device</a>; <a
+   id="n755"
+   xlink:href="valueset-devicealert-annunciation.html"><title
+     id="n756">null (Strength=Required)</title></a></text>
+    <text
+       id="n757"
+       x="586"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n758"
+   xlink:href="valueset-devicealert-annunciation.html">DeviceAlertAnnunciationCodes</a>! »</text>
+    <text
+       id="n767"
+       x="566"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n768"
+   xlink:href="devicealert-definitions.html#DeviceAlert.signal.manifestation"><title
+   id="title32802">How the signal is being annunciated</title>manifestation</a> : <a
+   id="n769"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n770"
+   xlink:href="valueset-devicealert-manifestation.html"><title
+     id="n771">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n772"
+       x="586"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n773"
+   xlink:href="valueset-devicealert-manifestation.html">DeviceAlertManifestationCodes</a>+ »</text>
+    <text
+       id="n781"
+       x="566"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n782"
+   xlink:href="devicealert-definitions.html#DeviceAlert.signal.type"><title
+   id="title32811">Details of the signal manifestation, such as a 1 meter visual indicator or a 4 meter visual indicator</title>type</a> : <a
+   id="n783"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n784"
+   xlink:href="valueset-devicealert-signalType.html"><title
+   id="n785">null (Strength=Example)</title>DeviceAlertSignalTypeCodes</a>?? »</text>
+    <text
+       id="n791"
+       x="566"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n792"
+   xlink:href="devicealert-definitions.html#DeviceAlert.signal.indication"><title
+   id="title32818">The period during which the signal was being annunciated. If there is no indicated period end, the annunciation is on-going</title>indication</a> : <a
+   id="n793"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <line
+     id="n797"
+     x1="281.6"
+     y1="94.76034236804566"
+     x2="323.5607142857143"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n798"
+     points="281.6,94.76034236804566 287.6,98.76034236804566 293.6,94.76034236804566 287.6,90.76034236804566 281.6,94.76034236804566"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-21.773219683207955 281.6 94.76034236804566)" />
+  <rect
+     id="n799"
+     x="278.0"
+     y="79.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n800"
+     x="302.0"
+     y="89.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n801"
+       xlink:href="devicealert-definitions.html#DeviceAlert.derivedFrom"><title
+   id="title32827">The value causing the alert condition</title>derivedFrom</a></text>
+  <text
+     id="n802"
+     x="323.5607142857143"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n803"
+     x1="281.6"
+     y1="133.26061915046796"
+     x2="560.0"
+     y2="98.18502519798416"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n804"
+     points="281.6,133.26061915046796 287.6,137.26061915046796 293.6,133.26061915046796 287.6,129.26061915046796 281.6,133.26061915046796"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-7.180855223280066 281.6 133.26061915046796)" />
+  <rect
+     id="n805"
+     x="407.0"
+     y="108.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n806"
+     x="420.0"
+     y="118.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n807"
+       xlink:href="devicealert-definitions.html#DeviceAlert.signal"><title
+   id="title32835">Annunciation or notification of the alert condition</title>signal</a></text>
+  <text
+     id="n808"
+     x="540.0"
+     y="94.18502519798416"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n482"
+   version="1.1"
+   width="1439.0"
+   height="424.0"
+   sodipodi:docname="ingredient.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview62708"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.86587908"
+     inkscape:cx="357.44021"
+     inkscape:cy="213.07825"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n482" />
+  <defs
+     id="defs62496">
+    <filter
+       id="shadow1"
+       x="-0.02458256"
+       y="-0.0828125"
+       width="1.0630798"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset62487" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix62489" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur62491" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend62493" />
+    </filter>
+  </defs>
+  <g
+     id="n483">
+    <rect
+       id="Ingredient"
+       x="0.0"
+       y="121.0"
+       rx="4"
+       ry="4"
+       width="286.0"
+       height="162.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n484"
+       x1="0.0"
+       y1="149.0"
+       x2="286.0"
+       y2="149.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n485"
+       x="143.0"
+       y="141.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Ingredient<tspan
+   class="diagram-class-title-link"
+   id="tspan62501"> (<a
+   id="n486"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n487"
+       x="6.0"
+       y="163.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n488"
+   xlink:href="ingredient-definitions.html#Ingredient.identifier"><title
+   id="title62504">The identifier(s) of this Ingredient that are assigned by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate</title>identifier</a> : <a
+   id="n489"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n493"
+       x="6.0"
+       y="177.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n494"
+   xlink:href="ingredient-definitions.html#Ingredient.status"><title
+   id="title62509">The status of this ingredient. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n495"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n496"
+   xlink:href="valueset-publication-status.html"><title
+   id="n497">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n503"
+       x="6.0"
+       y="191.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n504"
+   xlink:href="ingredient-definitions.html#Ingredient.for"><title
+   id="title62516">The product which this ingredient is a constituent part of</title>for</a> : <a
+   id="n505"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n506"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a>|</text>
+    <text
+       id="n507"
+       x="26.0"
+       y="205.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n508"
+   xlink:href="administrableproductdefinition.html#AdministrableProductDefinition">AdministrableProductDefinition</a>|<a
+   id="n509"
+   xlink:href="manufactureditemdefinition.html#ManufacturedItemDefinition">ManufacturedItemDefinition</a> »</text>
+    <text
+       id="n517"
+       x="6.0"
+       y="219.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n518"
+   xlink:href="ingredient-definitions.html#Ingredient.role"><title
+   id="title62525">A classification of the ingredient identifying its purpose within the product, e.g. active, inactive</title>role</a> : <a
+   id="n519"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n520"
+   xlink:href="valueset-ingredient-role.html"><title
+   id="n521">null (Strength=Example)</title>IngredientRole</a>?? »</text>
+    <text
+       id="n527"
+       x="6.0"
+       y="233.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n528"
+   xlink:href="ingredient-definitions.html#Ingredient.function"><title
+   id="title62532">A classification of the ingredient identifying its precise purpose(s) in the drug product. This extends the Ingredient.role to add more detail. Example: antioxidant, alkalizing agent</title>function</a> : <a
+   id="n529"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n530"
+   xlink:href="valueset-ingredient-function.html"><title
+   id="n531">null (Strength=Example)</title>IngredientFunction</a>?? »</text>
+    <text
+       id="n537"
+       x="6.0"
+       y="247.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n538"
+   xlink:href="ingredient-definitions.html#Ingredient.group"><title
+   id="title62539">A classification of the ingredient according to where in the physical item it tends to be used, such the outer shell of a tablet, inner body or ink</title>group</a> : <a
+   id="n539"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n543"
+       x="6.0"
+       y="261.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n544"
+   xlink:href="ingredient-definitions.html#Ingredient.allergenicIndicator"><title
+   id="title62544">If the ingredient is a known or suspected allergen. Note that this is a property of the substance, so if a reference to a SubstanceDefinition is used to describe that (rather than just a code), the allergen information should go there, not here</title>allergenicIndicator</a> : <a
+   id="n545"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1] « <a
+   id="n546"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n547">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n553"
+       x="6.0"
+       y="275.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n554"
+   xlink:href="ingredient-definitions.html#Ingredient.comment"><title
+   id="title62551">A place for providing any notes that are relevant to the component, e.g. removed during process, adjusted for loss on drying</title>comment</a> : <a
+   id="n555"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n559"
+     transform="translate(-133.9679,8.0842697)">
+    <rect
+       id="Ingredient.manufacturer"
+       x="160"
+       y="340"
+       rx="4"
+       ry="4"
+       width="215.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n560"
+       x1="160"
+       y1="368"
+       x2="375.60001"
+       y2="368"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n561"
+       x="267.79999"
+       y="360"
+       fill="#000000"
+       class="diagram-class-title">Manufacturer</text>
+    <text
+       id="n562"
+       x="166"
+       y="382"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n563"
+   xlink:href="ingredient-definitions.html#Ingredient.manufacturer.role"><title
+   id="title62560">The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role</title>role</a> : <a
+   id="n564"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n565"
+   xlink:href="valueset-ingredient-manufacturer-role.html"><title
+   id="n566">null (Strength=Required)</title>IngredientManufacturerRole</a>! »</text>
+    <text
+       id="n572"
+       x="166"
+       y="396"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n573"
+   xlink:href="ingredient-definitions.html#Ingredient.manufacturer.manufacturer"><title
+   id="title62567">An organization that manufactures this ingredient</title>manufacturer</a> : <a
+   id="n574"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n575"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+  </g>
+  <g
+     id="n580">
+    <rect
+       id="Ingredient.substance"
+       x="160.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="242.00000000000003"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n581"
+       x1="160.0"
+       y1="28.0"
+       x2="402.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n582"
+       x="281.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">Substance</text>
+    <text
+       id="n583"
+       x="166.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n584"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.code"><title
+   id="title62577">A code or full resource that represents the ingredient's substance</title>code</a> : <a
+   id="n585"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n586"
+   xlink:href="substancedefinition.html#SubstanceDefinition">SubstanceDefinition</a>; <a
+   id="n587"
+   xlink:href="valueset-substance-codes.html"><title
+     id="n588">null (Strength=Example)</title></a></text>
+    <text
+       id="n589"
+       x="186.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n590"
+   xlink:href="valueset-substance-codes.html">SNOMEDCTSubstanceCodes</a>?? » « <a
+   id="n591"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n592">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n603">
+    <rect
+       id="Ingredient.substance.strength"
+       x="350.0"
+       y="121.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="162.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n604"
+       x1="350.0"
+       y1="149.0"
+       x2="653.6"
+       y2="149.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n605"
+       x="501.8"
+       y="141.0"
+       fill="black"
+       class="diagram-class-title">Strength</text>
+    <text
+       id="n606"
+       x="356.0"
+       y="163.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n607"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.presentation_x_"><title
+   id="title62593">The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. Unit of presentation refers to the quantity that the item occurs in e.g. a strength per tablet size, perhaps 'per 20mg' (the size of the tablet). It is not generally normalized as a unitary unit, which would be 'per mg')</title>presentation[x]</a> : <a
+   id="n608"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n609"
+   xlink:href="datatypes.html#Ratio">Ratio</a>|<a
+   id="n610"
+   xlink:href="datatypes.html#RatioRange">RatioRange</a>|<a
+   id="n611"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|</text>
+    <text
+       id="n612"
+       x="376.0"
+       y="177.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n613"
+   xlink:href="datatypes.html#Quantity">Quantity</a> »</text>
+    <text
+       id="n622"
+       x="356.0"
+       y="191.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n623"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.textPresentation"><title
+   id="title62603">A textual representation of either the whole of the presentation strength or a part of it - with the rest being in Strength.presentation as a ratio</title>textPresentation</a> : <a
+   id="n624"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n628"
+       x="356.0"
+       y="205.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n629"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.concentration_x_"><title
+   id="title62608">The strength per unitary volume (or mass)</title>concentration[x]</a> : <a
+   id="n630"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n631"
+   xlink:href="datatypes.html#Ratio">Ratio</a>|<a
+   id="n632"
+   xlink:href="datatypes.html#RatioRange">RatioRange</a>|</text>
+    <text
+       id="n633"
+       x="376.0"
+       y="219.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n634"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n635"
+   xlink:href="datatypes.html#Quantity">Quantity</a> »</text>
+    <text
+       id="n644"
+       x="356.0"
+       y="233.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n645"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.textConcentration"><title
+   id="title62618">A textual representation of either the whole of the concentration strength or a part of it - with the rest being in Strength.concentration as a ratio</title>textConcentration</a> : <a
+   id="n646"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n650"
+       x="356.0"
+       y="247.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n651"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.basis"><title
+   id="title62623">A code that indicates if the strength is, for example, based on the ingredient substance as stated or on the substance base (when the ingredient is a salt)</title>basis</a> : <a
+   id="n652"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n656"
+       x="356.0"
+       y="261.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n657"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.measurementPoint"><title
+   id="title62628">For when strength is measured at a particular point or distance. There are products where strength is measured at a particular point. For example, the strength of the ingredient in some inhalers is measured at a particular position relative to the point of aerosolization</title>measurementPoint</a> : <a
+   id="n658"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n662"
+       x="356.0"
+       y="275.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n663"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.country"><title
+   id="title62633">The country or countries for which the strength range applies</title>country</a> : <a
+   id="n664"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n665"
+   xlink:href="valueset-country.html"><title
+   id="n666">null (Strength=Example)</title>CountryValueSet</a>?? »</text>
+  </g>
+  <g
+     id="n672"
+     transform="translate(-403.05859,227.51444)">
+    <rect
+       id="Ingredient.substance.strength.referenceStrength"
+       x="775"
+       y="121"
+       rx="4"
+       ry="4"
+       width="264"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n673"
+       x1="775"
+       y1="149"
+       x2="1039"
+       y2="149"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n674"
+       x="907"
+       y="141"
+       fill="#000000"
+       class="diagram-class-title">ReferenceStrength</text>
+    <text
+       id="n675"
+       x="781"
+       y="163"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n676"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.referenceStrength.substance"><title
+   id="title62644">Relevant reference substance</title>substance</a> : <a
+   id="n677"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n678"
+   xlink:href="substancedefinition.html#SubstanceDefinition">SubstanceDefinition</a>; <a
+   id="n679"
+   xlink:href="valueset-substance-codes.html"><title
+     id="n680">null (Strength=Example)</title></a></text>
+    <text
+       id="n681"
+       x="801"
+       y="177"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n682"
+   xlink:href="valueset-substance-codes.html">SNOMEDCTSubstanceCodes</a>?? »</text>
+    <text
+       id="n691"
+       x="781"
+       y="191"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n692"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.referenceStrength.strength_x_"><title
+   id="title62654">Strength expressed in terms of a reference substance</title>strength[x]</a> : <a
+   id="n693"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n694"
+   xlink:href="datatypes.html#Ratio">Ratio</a>|<a
+   id="n695"
+   xlink:href="datatypes.html#RatioRange">RatioRange</a>|<a
+   id="n696"
+   xlink:href="datatypes.html#Quantity">Quantity</a> »</text>
+    <text
+       id="n703"
+       x="781"
+       y="205"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n704"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.referenceStrength.measurementPoint"><title
+   id="title62662">For when strength is measured at a particular point or distance</title>measurementPoint</a> : <a
+   id="n705"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n709"
+       x="781"
+       y="219"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n710"
+   xlink:href="ingredient-definitions.html#Ingredient.substance.strength.referenceStrength.country"><title
+   id="title62667">The country or countries for which the strength range applies</title>country</a> : <a
+   id="n711"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n712"
+   xlink:href="valueset-country.html"><title
+   id="n713">null (Strength=Example)</title>CountryValueSet</a>?? »</text>
+  </g>
+  <line
+     id="n719"
+     x1="202.4635294117647"
+     y1="283.0"
+     x2="244.30823529411768"
+     y2="340.00000000000006"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n720"
+     points="202.4635294117647,283.0 208.4635294117647,287.0 214.4635294117647,283.0 208.4635294117647,279.0 202.4635294117647,283.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(53.716950590000586 202.4635294117647 283.0)" />
+  <rect
+     id="n721"
+     x="197.0"
+     y="304.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n722"
+     x="223.0"
+     y="314.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n723"
+       xlink:href="ingredient-definitions.html#Ingredient.manufacturer"><title
+   id="title62678">The organization(s) that manufacture this ingredient. Can be used to indicate:         1) Organizations we are aware of that manufacture this ingredient         2) Specific Manufacturer(s) currently being used         3) Set of organisations allowed to manufacture this ingredient for this product         Users must be clear on the application of context relevant to their use case</title>manufacturer</a></text>
+  <text
+     id="n724"
+     x="244.30823529411768"
+     y="336.00000000000006"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n725"
+     x1="653.6"
+     y1="191.51036525172753"
+     x2="775.0"
+     y2="183.12142152023694"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n726"
+     points="653.6,191.51036525172753 659.6,195.51036525172753 665.6,191.51036525172753 659.6,187.51036525172753 653.6,191.51036525172753"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-3.9529506738202005 653.6 191.51036525172753)" />
+  <rect
+     id="n727"
+     x="677.0"
+     y="180.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n728"
+     x="714.0"
+     y="190.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n729"
+       xlink:href="ingredient-definitions.html#Ingredient.substance.strength.referenceStrength"><title
+   id="title62686">Strength expressed in terms of a reference substance. For when the ingredient strength is additionally expressed as equivalent to the strength of some other closely related substance (e.g. salt vs. base). Reference strength represents the strength (quantitative composition) of the active moiety of the active substance. There are situations when the active substance and active moiety are different, therefore both a strength and a reference strength are needed</title>referenceStrength</a></text>
+  <text
+     id="n730"
+     x="755.0"
+     y="179.12142152023694"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n731"
+     x1="322.56235294117647"
+     y1="64.0"
+     x2="396.5952941176471"
+     y2="121.00000000000003"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n732"
+     points="322.56235294117647,64.0 328.56235294117647,68.0 334.56235294117647,64.0 328.56235294117647,60.0 322.56235294117647,64.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(37.59366457208666 322.56235294117647 64.0)" />
+  <rect
+     id="n733"
+     x="341.5"
+     y="85.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n734"
+     x="359.0"
+     y="95.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n735"
+       xlink:href="ingredient-definitions.html#Ingredient.substance.strength"><title
+   id="title62694">The quantity of substance in the unit of presentation, or in the volume (or mass) of the single pharmaceutical product or manufactured item. The allowed repetitions do not represent different strengths, but are different representations - mathematically equivalent - of a single strength</title>strength</a></text>
+  <text
+     id="n736"
+     x="396.5952941176471"
+     y="117.00000000000003"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n737"
+     x1="208.75294117647059"
+     y1="121.0"
+     x2="255.0235294117647"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n738"
+     points="208.75294117647059,121.0 214.75294117647059,125.0 220.75294117647059,121.0 214.75294117647059,117.0 208.75294117647059,121.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-50.93152692491976 208.75294117647059 121.0)" />
+  <rect
+     id="n739"
+     x="211.5"
+     y="85.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n740"
+     x="231.0"
+     y="95.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n741"
+       xlink:href="ingredient-definitions.html#Ingredient.substance"><title
+   id="title62702">The substance that comprises this ingredient</title>substance</a></text>
+  <text
+     id="n742"
+     x="255.0235294117647"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[1..1]</text>
+</svg>

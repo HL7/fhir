@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   id="n652"
+   id="n695"
    version="1.1"
-   width="923.3011080000001"
-   height="636.93754"
+   width="881.6337843"
+   height="581.786832"
    sodipodi:docname="account.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview45894"
+     id="namedview458"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,17 +21,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.2544401"
-     inkscape:cx="461.56051"
-     inkscape:cy="318.46878"
+     inkscape:zoom="1.4132852"
+     inkscape:cx="262.15515"
+     inkscape:cy="291.16557"
      inkscape:window-width="1390"
      inkscape:window-height="1205"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="31"
      inkscape:window-maximized="0"
-     inkscape:current-layer="n652" />
+     inkscape:current-layer="n695" />
   <defs
-     id="defs45588">
+     id="defs141">
     <filter
        id="shadow1"
        x="-0.030113636"
@@ -43,220 +43,247 @@
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset45579" />
+         id="feOffset132" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix45581" />
+         id="feColorMatrix134" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur45583" />
+         id="feGaussianBlur136" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend45585" />
+         id="feBlend138" />
     </filter>
   </defs>
   <g
-     id="n653"
-     transform="translate(32.683905,34.278242)">
+     id="n696">
     <rect
        id="Account"
-       x="23.822468"
-       y="179.75134"
+       x="22.9102253"
+       y="189.968452"
        rx="4"
        ry="4"
-       width="281.60001"
-       height="204"
+       width="281.6"
+       height="232.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n654"
-       x1="23.822468"
-       y1="207.75134"
-       x2="305.42245"
-       y2="207.75134"
-       style="stroke:#696969;stroke-width:1" />
+       id="n697"
+       x1="22.9102253"
+       y1="217.968452"
+       x2="304.5102253"
+       y2="217.968452"
+       style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n655"
-       x="164.62247"
-       y="199.75134"
-       fill="#000000"
+       id="n698"
+       x="163.71022530000002"
+       y="209.968452"
+       fill="black"
        class="diagram-class-title  diagram-class-resource">Account<tspan
    class="diagram-class-title-link"
-   id="tspan45593">(<a
-   id="n656"
+   id="tspan146"> (<a
+   id="n699"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
    style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
-       id="n657"
-       x="29.822468"
-       y="221.75134"
-       fill="#000000"
+       id="n700"
+       x="28.9102253"
+       y="231.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n658"
+   id="n701"
    xlink:href="account-definitions.html#Account.identifier"><title
-   id="title45596">Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number)</title>identifier</a> : <a
-   id="n659"
+   id="title149">Unique identifier used to reference the account.  Might or might not be intended for human use (e.g. credit card number)</title>identifier</a> : <a
+   id="n702"
    xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n663"
-       x="29.822468"
-       y="235.75134"
-       fill="#000000"
+       id="n706"
+       x="28.9102253"
+       y="245.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n664"
+   id="n707"
    xlink:href="account-definitions.html#Account.status"><title
-   id="title45601">Indicates whether the account is presently used/usable or not (this element modifies the meaning of other elements)</title>status</a> : <a
-   id="n665"
+   id="title154">Indicates whether the account is presently used/usable or not (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n708"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n666"
+   id="n709"
    xlink:href="valueset-account-status.html"><title
-   id="n667">null (Strength=Required)</title>AccountStatus</a>! »</text>
+   id="n710">null (Strength=Required)</title>AccountStatus</a>! »</text>
     <text
-       id="n673"
-       x="29.822468"
-       y="249.75134"
-       fill="#000000"
+       id="n716"
+       x="28.9102253"
+       y="259.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n674"
+   id="n717"
    xlink:href="account-definitions.html#Account.billingStatus"><title
-   id="title45608">The BillingStatus tracks the lifecycle of the account through the billing process. It indicates how transactions are treated when they are allocated to the account</title>billingStatus</a> : <a
-   id="n675"
+   id="title161">The BillingStatus tracks the lifecycle of the account through the billing process. It indicates how transactions are treated when they are allocated to the account</title>billingStatus</a> : <a
+   id="n718"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n676"
+   id="n719"
    xlink:href="valueset-account-billing-status.html"><title
-   id="n677">null (Strength=Example)</title>AccountBillingStatus</a>?? »</text>
+   id="n720">null (Strength=Example)</title>AccountBillingStatus</a>?? »</text>
     <text
-       id="n683"
-       x="29.822468"
-       y="263.75134"
-       fill="#000000"
+       id="n726"
+       x="28.9102253"
+       y="273.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n684"
+   id="n727"
    xlink:href="account-definitions.html#Account.type"><title
-   id="title45615">Categorizes the account for reporting and searching purposes</title>type</a> : <a
-   id="n685"
+   id="title168">Categorizes the account for reporting and searching purposes</title>type</a> : <a
+   id="n728"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n686"
+   id="n729"
    xlink:href="valueset-account-type.html"><title
-   id="n687">null (Strength=Example)</title>AccountTypes</a>?? »</text>
+   id="n730">null (Strength=Example)</title>AccountTypes</a>?? »</text>
     <text
-       id="n693"
-       x="29.822468"
-       y="277.75134"
-       fill="#000000"
+       id="n736"
+       x="28.9102253"
+       y="287.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n694"
+   id="n737"
    xlink:href="account-definitions.html#Account.name"><title
-   id="title45622">Name used for the account when displaying it to humans in reports, etc</title>name</a> : <a
-   id="n695"
+   id="title175">Name used for the account when displaying it to humans in reports, etc</title>name</a> : <a
+   id="n738"
    xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n699"
-       x="29.822468"
-       y="291.75134"
-       fill="#000000"
+       id="n742"
+       x="28.9102253"
+       y="301.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n700"
+   id="n743"
    xlink:href="account-definitions.html#Account.subject"><title
-   id="title45627">Identifies the entity which incurs the expenses. While the immediate recipients of services or goods might be entities related to the subject, the expenses were ultimately incurred by the subject of the Account</title>subject</a> : <a
-   id="n701"
+   id="title180">Identifies the entity which incurs the expenses. While the immediate recipients of services or goods might be entities related to the subject, the expenses were ultimately incurred by the subject of the Account</title>subject</a> : <a
+   id="n744"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n702"
+   id="n745"
    xlink:href="patient.html#Patient">Patient</a>|<a
-   id="n703"
+   id="n746"
    xlink:href="device.html#Device">Device</a>|<a
-   id="n704"
+   id="n747"
    xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
     <text
-       id="n705"
-       x="49.822468"
-       y="305.75134"
-       fill="#000000"
+       id="n748"
+       x="48.9102253"
+       y="315.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n706"
+   id="n749"
    xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
-   id="n707"
+   id="n750"
    xlink:href="location.html#Location">Location</a>|<a
-   id="n708"
+   id="n751"
    xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
-   id="n709"
+   id="n752"
    xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n721"
-       x="29.822468"
-       y="319.75134"
-       fill="#000000"
+       id="n764"
+       x="28.9102253"
+       y="329.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n722"
+   id="n765"
    xlink:href="account-definitions.html#Account.servicePeriod"><title
-   id="title45640">The date range of services associated with this account</title>servicePeriod</a> : <a
-   id="n723"
+   id="title193">The date range of services associated with this account</title>servicePeriod</a> : <a
+   id="n766"
    xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
     <text
-       id="n727"
-       x="29.822468"
-       y="333.75134"
-       fill="#000000"
+       id="n770"
+       x="28.9102253"
+       y="343.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n728"
+   id="n771"
+   xlink:href="account-definitions.html#Account.covers"><title
+   id="title198">An account that collects the charges for a specific set of services offered over a limited time period.  For example, a hospital account might contain all charges related to a given admission, including any inpatient appointments, and possibly re-admissions, of the billing for those re-admissions should be grouped with the initial admission for the purpose of claim submission</title>covers</a> : <a
+   id="n772"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n773"
+   xlink:href="encounter.html#Encounter">Encounter</a>|<a
+   id="n774"
+   xlink:href="episodeofcare.html#EpisodeOfCare">EpisodeOfCare</a> »</text>
+    <text
+       id="n780"
+       x="28.9102253"
+       y="357.968452"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n781"
    xlink:href="account-definitions.html#Account.owner"><title
-   id="title45645">Indicates the service area, hospital, department, etc. with responsibility for managing the Account</title>owner</a> : <a
-   id="n729"
+   id="title205">Indicates the service area, hospital, department, etc. with responsibility for managing the Account</title>owner</a> : <a
+   id="n782"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n730"
+   id="n783"
    xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n735"
-       x="29.822468"
-       y="347.75134"
-       fill="#000000"
+       id="n788"
+       x="28.9102253"
+       y="371.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n736"
+   id="n789"
    xlink:href="account-definitions.html#Account.description"><title
-   id="title45651">Provides additional information about what the account tracks and how it is used</title>description</a> : <a
-   id="n737"
+   id="title211">Provides additional information about what the account tracks and how it is used</title>description</a> : <a
+   id="n790"
    xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
     <text
-       id="n741"
-       x="29.822468"
-       y="361.75134"
-       fill="#000000"
+       id="n794"
+       x="28.9102253"
+       y="385.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n742"
-   xlink:href="account-definitions.html#Account.currency"><title
-   id="title45656">The default currency for the account</title>currency</a> : <a
-   id="n743"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n744"
-   xlink:href="valueset-currencies.html"><title
-   id="n745">null (Strength=Required)</title>Currencies</a>! »</text>
+   id="n795"
+   xlink:href="account-definitions.html#Account.parent"><title
+   id="title216">Reference to an associated parent Account which has this account as a sub-account</title>parent</a> : <a
+   id="n796"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n797"
+   xlink:href="account.html#Account">Account</a> »</text>
     <text
-       id="n751"
-       x="29.822468"
-       y="375.75134"
-       fill="#000000"
+       id="n802"
+       x="28.9102253"
+       y="399.968452"
+       fill="black"
        class="diagram-class-detail"><a
-   id="n752"
+   id="n803"
+   xlink:href="account-definitions.html#Account.currency"><title
+   id="title222">The default currency for the account</title>currency</a> : <a
+   id="n804"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n805"
+   xlink:href="valueset-currencies.html"><title
+   id="n806">null (Strength=Required)</title>Currencies</a>! »</text>
+    <text
+       id="n812"
+       x="28.9102253"
+       y="413.968452"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n813"
    xlink:href="account-definitions.html#Account.calculatedAt"><title
-   id="title45663">Time the balance amount was calculated</title>calculatedAt</a> : <a
-   id="n753"
+   id="title229">Time the balance amount was calculated</title>calculatedAt</a> : <a
+   id="n814"
    xlink:href="datatypes.html#instant">instant</a> [0..1]</text>
   </g>
   <g
-     id="n757"
-     transform="translate(0,-168.20253)">
+     id="n818"
+     transform="translate(-339.63421,423.83518)">
     <rect
        id="Account.coverage"
-       x="437.96445"
-       y="225.23061"
+       x="404.36832"
+       y="32.966949"
        rx="4"
        ry="4"
        width="176"
@@ -264,118 +291,52 @@
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n758"
-       x1="437.96445"
-       y1="253.23061"
-       x2="613.96442"
-       y2="253.23061"
+       id="n819"
+       x1="404.36832"
+       y1="60.966949"
+       x2="580.36829"
+       y2="60.966949"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n759"
-       x="525.96442"
-       y="245.23061"
+       id="n820"
+       x="492.36832"
+       y="52.966949"
        fill="#000000"
        class="diagram-class-title">Coverage</text>
     <text
-       id="n760"
-       x="443.96445"
-       y="267.23062"
+       id="n821"
+       x="410.36832"
+       y="74.966949"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n761"
+   id="n822"
    xlink:href="account-definitions.html#Account.coverage.coverage"><title
-   id="title45672">The party(s) that contribute to payment (or part of) of the charges applied to this account (including self-pay).
+   id="title238">The party(s) that contribute to payment (or part of) of the charges applied to this account (including self-pay).
 
 A coverage may only be responsible for specific types of charges, and the sequence of the coverages in the account could be important when processing billing</title>coverage</a> : <a
-   id="n762"
+   id="n823"
    xlink:href="references.html#Reference">Reference</a> [1..1] « <a
-   id="n763"
+   id="n824"
    xlink:href="coverage.html#Coverage">Coverage</a> »</text>
     <text
-       id="n768"
-       x="443.96445"
-       y="281.23062"
+       id="n829"
+       x="410.36832"
+       y="88.966949"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n769"
+   id="n830"
    xlink:href="account-definitions.html#Account.coverage.priority"><title
-   id="title45678">The priority of the coverage in the context of this account</title>priority</a> : <a
-   id="n770"
+   id="title244">The priority of the coverage in the context of this account</title>priority</a> : <a
+   id="n831"
    xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
   </g>
   <g
-     id="n774"
-     transform="translate(54.207452)">
+     id="n835"
+     transform="translate(-12.028712,-82.785837)">
     <rect
        id="Account.guarantor"
-       x="383.82248"
-       y="329.75134"
-       rx="4"
-       ry="4"
-       width="277.20001"
-       height="78"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
-    <line
-       id="n775"
-       x1="383.82248"
-       y1="357.75134"
-       x2="661.02246"
-       y2="357.75134"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n776"
-       x="522.42249"
-       y="349.75134"
-       fill="#000000"
-       class="diagram-class-title">Guarantor</text>
-    <text
-       id="n777"
-       x="389.82248"
-       y="371.75134"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n778"
-   xlink:href="account-definitions.html#Account.guarantor.party"><title
-   id="title45687">The entity who is responsible</title>party</a> : <a
-   id="n779"
-   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
-   id="n780"
-   xlink:href="patient.html#Patient">Patient</a>|<a
-   id="n781"
-   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
-   id="n782"
-   xlink:href="organization.html#Organization">Organization</a> »</text>
-    <text
-       id="n789"
-       x="389.82248"
-       y="385.75134"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n790"
-   xlink:href="account-definitions.html#Account.guarantor.onHold"><title
-   id="title45695">A guarantor may be placed on credit hold or otherwise have their role temporarily suspended</title>onHold</a> : <a
-   id="n791"
-   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
-    <text
-       id="n795"
-       x="389.82248"
-       y="399.75134"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n796"
-   xlink:href="account-definitions.html#Account.guarantor.period"><title
-   id="title45700">The timeframe during which the guarantor accepts responsibility for the account</title>period</a> : <a
-   id="n797"
-   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
-  </g>
-  <g
-     id="n801"
-     transform="translate(17.537705,-31.089568)">
-    <rect
-       id="Account.diagnosis"
-       x="387.16113"
-       y="482.93753"
+       x="404.43378"
+       y="305.69022"
        rx="4"
        ry="4"
        width="277.20001"
@@ -383,116 +344,230 @@ A coverage may only be responsible for specific types of charges, and the sequen
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n802"
-       x1="387.16113"
-       y1="510.93753"
-       x2="664.36115"
-       y2="510.93753"
+       id="n836"
+       x1="404.43378"
+       y1="333.69022"
+       x2="681.63379"
+       y2="333.69022"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n803"
-       x="525.76117"
-       y="502.93753"
+       id="n837"
+       x="543.03381"
+       y="325.69022"
+       fill="#000000"
+       class="diagram-class-title">Guarantor</text>
+    <text
+       id="n838"
+       x="410.43378"
+       y="347.69022"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n839"
+   xlink:href="account-definitions.html#Account.guarantor.party"><title
+   id="title253">The entity who is responsible</title>party</a> : <a
+   id="n840"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n841"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n842"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n843"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n850"
+       x="410.43378"
+       y="361.69022"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n851"
+   xlink:href="account-definitions.html#Account.guarantor.onHold"><title
+   id="title261">A guarantor may be placed on credit hold or otherwise have their role temporarily suspended</title>onHold</a> : <a
+   id="n852"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n856"
+       x="410.43378"
+       y="375.69022"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n857"
+   xlink:href="account-definitions.html#Account.guarantor.period"><title
+   id="title266">The timeframe during which the guarantor accepts responsibility for the account</title>period</a> : <a
+   id="n858"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n862"
+       x="410.43378"
+       y="389.69022"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n863"
+   xlink:href="account-definitions.html#Account.guarantor.account"><title
+   id="title271">Reference to a specific Account belonging to the guarantor to use</title>account</a> : <a
+   id="n864"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n865"
+   xlink:href="account.html#Account">Account</a> »</text>
+    <text
+       id="n870"
+       x="410.43378"
+       y="403.69022"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n871"
+   xlink:href="account-definitions.html#Account.guarantor.responsibility"><title
+   id="title277">The amount (as a percentage) of the charges the guarantor is responsible</title>responsibility</a> : <a
+   id="n872"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a281">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n876"
+       x="410.43378"
+       y="417.69022"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n877"
+   xlink:href="account-definitions.html#Account.guarantor.limit"><title
+   id="title284">The maximum amount the guarantee will pay</title>limit</a> : <a
+   id="n878"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n882"
+       x="410.43378"
+       y="431.69022"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n883"
+   xlink:href="account-definitions.html#Account.guarantor.rank"><title
+   id="title289">The order in which guarantors will be held responsible</title>rank</a> : <a
+   id="n884"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+  </g>
+  <g
+     id="n888"
+     transform="translate(41.039133,-401.90047)">
+    <rect
+       id="Account.diagnosis"
+       x="371.10269"
+       y="427.78683"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n889"
+       x1="371.10269"
+       y1="455.78683"
+       x2="648.30267"
+       y2="455.78683"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n890"
+       x="509.7027"
+       y="447.78683"
        fill="#000000"
        class="diagram-class-title">Diagnosis</text>
     <text
-       id="n804"
-       x="393.16113"
-       y="524.93756"
+       id="n891"
+       x="377.10269"
+       y="469.78683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n805"
+   id="n892"
    xlink:href="account-definitions.html#Account.diagnosis.sequence"><title
-   id="title45709">Ranking of the diagnosis (for each type)</title>sequence</a> : <a
-   id="n806"
+   id="title298">Ranking of the diagnosis (for each type)</title>sequence</a> : <a
+   id="n893"
    xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
     <text
-       id="n810"
-       x="393.16113"
-       y="538.93756"
+       id="n897"
+       x="377.10269"
+       y="483.78683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n811"
+   id="n898"
    xlink:href="account-definitions.html#Account.diagnosis.condition"><title
-   id="title45714">The diagnosis relevant to the account</title>condition</a> : <a
-   id="n812"
+   id="title303">The diagnosis relevant to the account</title>condition</a> : <a
+   id="n899"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
-   id="n813"
+   id="n900"
    xlink:href="condition.html#Condition">Condition</a>; <a
-   id="n814"
+   id="n901"
    xlink:href="valueset-condition-code.html"><title
-     id="n815">null (Strength=Example)</title></a></text>
+     id="n902">null (Strength=Example)</title></a></text>
     <text
-       id="n816"
-       x="413.16113"
-       y="552.93756"
+       id="n903"
+       x="397.10269"
+       y="497.78683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n817"
+   id="n904"
    xlink:href="valueset-condition-code.html">ConditionProblemDiagnosisCodes</a>?? » « <a
-   id="n818"
+   id="n905"
    style="color:#301212;font-weight:bold"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n819">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n906">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n830"
-       x="393.16113"
-       y="566.93756"
+       id="n917"
+       x="377.10269"
+       y="511.78683"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n831"
+   id="n918"
    xlink:href="account-definitions.html#Account.diagnosis.dateOfDiagnosis"><title
-   id="title45726">Ranking of the diagnosis (for each type)</title>dateOfDiagnosis</a> : <a
-   id="n832"
+   id="title315">Ranking of the diagnosis (for each type)</title>dateOfDiagnosis</a> : <a
+   id="n919"
    xlink:href="datatypes.html#dateTime">dateTime</a> [0..1] « <a
-   id="n833"
+   id="n920"
    style="color:#301212;font-weight:bold"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n834">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n921">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n840"
-       x="393.16113"
-       y="580.93756"
+       id="n927"
+       x="377.10269"
+       y="525.7868"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n841"
+   id="n928"
    xlink:href="account-definitions.html#Account.diagnosis.type"><title
-   id="title45733">Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)</title>type</a> : <a
-   id="n842"
+   id="title322">Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)</title>type</a> : <a
+   id="n929"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n843"
+   id="n930"
    xlink:href="valueset-encounter-diagnosis-use.html"><title
-   id="title45737">null (Strength=Preferred)</title>EncounterDiagnosisUse</a>? »</text>
+   id="title326">null (Strength=Preferred)</title>EncounterDiagnosisUse</a>? »</text>
     <text
-       id="n848"
-       x="393.16113"
-       y="594.93756"
+       id="n935"
+       x="377.10269"
+       y="539.7868"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n849"
+   id="n936"
    xlink:href="account-definitions.html#Account.diagnosis.onAdmission"><title
-   id="title45741">Was the Diagnosis present on Admission in the related Encounter</title>onAdmission</a> : <a
-   id="n850"
+   id="title330">Was the Diagnosis present on Admission in the related Encounter</title>onAdmission</a> : <a
+   id="n937"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n854"
-       x="393.16113"
-       y="608.93756"
+       id="n941"
+       x="377.10269"
+       y="553.7868"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n855"
+   id="n942"
    xlink:href="account-definitions.html#Account.diagnosis.packageCode"><title
-   id="title45746">The package code can be used to group diagnoses that may be priced or delivered as a single product. Such as DRGs</title>packageCode</a> : <a
-   id="n856"
+   id="title335">The package code can be used to group diagnoses that may be priced or delivered as a single product. Such as DRGs</title>packageCode</a> : <a
+   id="n943"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <title
-   id="title45750">null (Strength=Example)</title>diagnosis-package-code?? »</text>
+   id="title339">null (Strength=Example)</title>diagnosis-package-code?? »</text>
   </g>
   <g
-     id="n860">
+     id="n947">
     <rect
        id="Account.procedure"
-       x="33.5961477"
-       y="24.06112999999999"
+       x="0.0"
+       y="0.0"
        rx="4"
        ry="4"
        width="330.0"
@@ -500,436 +575,349 @@ A coverage may only be responsible for specific types of charges, and the sequen
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n861"
-       x1="33.5961477"
-       y1="52.06112999999999"
-       x2="363.5961477"
-       y2="52.06112999999999"
+       id="n948"
+       x1="0.0"
+       y1="28.0"
+       x2="330.0"
+       y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n862"
-       x="198.59614770000002"
-       y="44.06112999999999"
+       id="n949"
+       x="165.0"
+       y="20.0"
        fill="black"
        class="diagram-class-title">Procedure</text>
     <text
-       id="n863"
-       x="39.5961477"
-       y="66.06112999999999"
+       id="n950"
+       x="6.0"
+       y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n864"
+   id="n951"
    xlink:href="account-definitions.html#Account.procedure.sequence"><title
-   id="title45757">Ranking of the procedure (for each type)</title>sequence</a> : <a
-   id="n865"
+   id="title346">Ranking of the procedure (for each type)</title>sequence</a> : <a
+   id="n952"
    xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
     <text
-       id="n869"
-       x="39.5961477"
-       y="80.06112999999999"
+       id="n956"
+       x="6.0"
+       y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n870"
+   id="n957"
    xlink:href="account-definitions.html#Account.procedure.code"><title
-   id="title45762">The procedure relevant to the account</title>code</a> : <a
-   id="n871"
+   id="title351">The procedure relevant to the account</title>code</a> : <a
+   id="n958"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
-   id="n872"
+   id="n959"
    xlink:href="procedure.html#Procedure">Procedure</a>; <a
-   id="n873"
+   id="n960"
    xlink:href="valueset-procedure-code.html"><title
-   id="n874">null (Strength=Example)</title>ProcedureCodesSNOMEDCT</a>?? » « <a
-   id="n875"
+   id="n961">null (Strength=Example)</title>ProcedureCodesSNOMEDCT</a>?? » « <a
+   id="n962"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n876">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n963">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n885"
-       x="39.5961477"
-       y="94.06112999999999"
+       id="n972"
+       x="6.0"
+       y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n886"
+   id="n973"
    xlink:href="account-definitions.html#Account.procedure.dateOfService"><title
-   id="title45772">Date of the procedure when using a coded procedure. If using a reference to a procedure, then the date on the procedure should be used</title>dateOfService</a> : <a
-   id="n887"
+   id="title361">Date of the procedure when using a coded procedure. If using a reference to a procedure, then the date on the procedure should be used</title>dateOfService</a> : <a
+   id="n974"
    xlink:href="datatypes.html#dateTime">dateTime</a> [0..1] « <a
-   id="n888"
+   id="n975"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n889">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n976">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n895"
-       x="39.5961477"
-       y="108.06112999999999"
+       id="n982"
+       x="6.0"
+       y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n896"
+   id="n983"
    xlink:href="account-definitions.html#Account.procedure.type"><title
-   id="title45779">How this procedure value should be used in charging the account</title>type</a> : <a
-   id="n897"
+   id="title368">How this procedure value should be used in charging the account</title>type</a> : <a
+   id="n984"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <title
-   id="title45783">null (Strength=Example)</title>procedure-type?? »</text>
+   id="title372">null (Strength=Example)</title>procedure-type?? »</text>
     <text
-       id="n901"
-       x="39.5961477"
-       y="122.06112999999999"
+       id="n988"
+       x="6.0"
+       y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n902"
+   id="n989"
    xlink:href="account-definitions.html#Account.procedure.packageCode"><title
-   id="title45786">The package code can be used to group procedures that may be priced or delivered as a single product. Such as DRGs</title>packageCode</a> : <a
-   id="n903"
+   id="title375">The package code can be used to group procedures that may be priced or delivered as a single product. Such as DRGs</title>packageCode</a> : <a
+   id="n990"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <title
-   id="title45790">null (Strength=Example)</title>procedure-package-code?? »</text>
+   id="title379">null (Strength=Example)</title>procedure-package-code?? »</text>
     <text
-       id="n907"
-       x="39.5961477"
-       y="136.06113"
+       id="n994"
+       x="6.0"
+       y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n908"
+   id="n995"
    xlink:href="account-definitions.html#Account.procedure.device"><title
-   id="title45793">Any devices that were associated with the procedure relevant to the account</title>device</a> : <a
-   id="n909"
+   id="title382">Any devices that were associated with the procedure relevant to the account</title>device</a> : <a
+   id="n996"
    xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n910"
+   id="n997"
    xlink:href="device.html#Device">Device</a> »</text>
   </g>
   <g
-     id="n915"
-     transform="translate(-9.5660204,114.79225)">
+     id="n1002"
+     transform="translate(381.38091,-34.670992)">
     <rect
-       id="Account.relatedAccount"
-       x="454.90112"
-       y="76.504158"
+       id="Account.balance"
+       x="9.8134937"
+       y="464.24139"
        rx="4"
        ry="4"
-       width="268.39999"
-       height="64"
+       width="242"
+       height="92"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n916"
-       x1="454.90112"
-       y1="104.50416"
-       x2="723.30109"
-       y2="104.50416"
+       id="n1003"
+       x1="9.8134937"
+       y1="492.24139"
+       x2="251.81349"
+       y2="492.24139"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n917"
-       x="589.10114"
-       y="96.504158"
+       id="n1004"
+       x="130.81349"
+       y="484.24139"
        fill="#000000"
-       class="diagram-class-title">RelatedAccount</text>
-    <text
-       id="n918"
-       x="460.90112"
-       y="118.50416"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n919"
-   xlink:href="account-definitions.html#Account.relatedAccount.relationship"><title
-   id="title45803">Relationship of the associated Account</title>relationship</a> : <a
-   id="n920"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n921"
-   xlink:href="valueset-account-relationship.html"><title
-   id="n922">null (Strength=Example)</title>AccountRelationship</a>?? »</text>
-    <text
-       id="n928"
-       x="460.90112"
-       y="132.50417"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n929"
-   xlink:href="account-definitions.html#Account.relatedAccount.account"><title
-   id="title45810">Reference to an associated Account</title>account</a> : <a
-   id="n930"
-   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
-   id="n931"
-   xlink:href="account.html#Account">Account</a> »</text>
-  </g>
-  <g
-     id="n936">
-    <rect
-       id="Account.balance"
-       x="43.40964099999999"
-       y="488.30253"
-       rx="4"
-       ry="4"
-       width="242.00000000000003"
-       height="92.0"
-       filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
-    <line
-       id="n937"
-       x1="43.40964099999999"
-       y1="516.3025299999999"
-       x2="285.409641"
-       y2="516.3025299999999"
-       style="stroke:dimgrey;stroke-width:1" />
-    <text
-       id="n938"
-       x="164.40964100000002"
-       y="508.30253"
-       fill="black"
        class="diagram-class-title">Balance</text>
     <text
-       id="n939"
-       x="49.40964099999999"
-       y="530.3025299999999"
-       fill="black"
+       id="n1005"
+       x="15.813494"
+       y="506.24139"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n940"
+   id="n1006"
    xlink:href="account-definitions.html#Account.balance.aggregate"><title
-   id="title45820">Who is expected to pay this part of the balance</title>aggregate</a> : <a
-   id="n941"
+   id="title392">Who is expected to pay this part of the balance</title>aggregate</a> : <a
+   id="n1007"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n942"
+   id="n1008"
    xlink:href="valueset-account-aggregate.html"><title
-   id="n943">null (Strength=Extensible)</title>AccountAggregate</a>+ »</text>
+   id="n1009">null (Strength=Extensible)</title>AccountAggregate</a>+ »</text>
     <text
-       id="n949"
-       x="49.40964099999999"
-       y="544.3025299999999"
-       fill="black"
+       id="n1015"
+       x="15.813494"
+       y="520.24139"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n950"
+   id="n1016"
    xlink:href="account-definitions.html#Account.balance.term"><title
-   id="title45827">The term of the account balances - The balance value is the amount that was outstanding for this age</title>term</a> : <a
-   id="n951"
+   id="title399">The term of the account balances - The balance value is the amount that was outstanding for this age</title>term</a> : <a
+   id="n1017"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
-   id="n952"
+   id="n1018"
    xlink:href="valueset-account-balance-term.html"><title
-   id="n953">null (Strength=Extensible)</title>AccountBalanceTerm</a>+ »</text>
+   id="n1019">null (Strength=Extensible)</title>AccountBalanceTerm</a>+ »</text>
     <text
-       id="n959"
-       x="49.40964099999999"
-       y="558.3025299999999"
-       fill="black"
+       id="n1025"
+       x="15.813494"
+       y="534.24139"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n960"
+   id="n1026"
    xlink:href="account-definitions.html#Account.balance.estimate"><title
-   id="title45834">The amount is only an estimated value - this is likely common for `current` term balances, but not with known terms (that were generated by a backend process)</title>estimate</a> : <a
-   id="n961"
+   id="title406">The amount is only an estimated value - this is likely common for `current` term balances, but not with known terms (that were generated by a backend process)</title>estimate</a> : <a
+   id="n1027"
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n965"
-       x="49.40964099999999"
-       y="572.3025299999999"
-       fill="black"
+       id="n1031"
+       x="15.813494"
+       y="548.24139"
+       fill="#000000"
        class="diagram-class-detail"><a
-   id="n966"
+   id="n1032"
    xlink:href="account-definitions.html#Account.balance.amount"><title
-   id="title45839">The actual balance value calculated for the age defined in the term property</title>amount</a> : <a
-   id="n967"
+   id="title411">The actual balance value calculated for the age defined in the term property</title>amount</a> : <a
+   id="n1033"
    xlink:href="datatypes.html#Money">Money</a> [1..1]</text>
   </g>
   <line
-     id="n971"
-     x1="305.42246800000004"
-     y1="272.1966332774011"
-     x2="437.96444099999997"
-     y2="263.2023079516244"
+     id="n1037"
+     x1="304.5102253"
+     y1="202.72129680654947"
+     x2="448.72932753543597"
+     y2="96.96695000000005"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n972"
-     points="305.42246800000004,272.1966332774011 311.42246800000004,276.1966332774011 317.42246800000004,272.1966332774011 311.42246800000004,268.1966332774011 305.42246800000004,272.1966332774011"
+     id="n1038"
+     points="304.5102253,202.72129680654947 310.5102253,206.72129680654947 316.5102253,202.72129680654947 310.5102253,198.72129680654947 304.5102253,202.72129680654947"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-3.8821514741125145 305.42246800000004 272.1966332774011)" />
+     transform="rotate(-36.25220282981106 304.5102253 202.72129680654947)" />
   <rect
-     id="n973"
-     x="353.5"
-     y="260.0"
+     id="n1039"
+     x="358.5"
+     y="142.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n974"
-     x="371.0"
-     y="270.0"
+     id="n1040"
+     x="376.0"
+     y="152.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n975"
+       id="n1041"
        xlink:href="account-definitions.html#Account.coverage"><title
-   id="title45848">The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account</title>coverage</a></text>
+   id="title420">The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account</title>coverage</a></text>
   <text
-     id="n976"
-     x="417.96444099999997"
-     y="259.2023079516244"
+     id="n1042"
+     x="448.72932753543597"
+     y="110.96695000000005"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n977"
-     x1="305.42246800000004"
-     y1="315.9872359698155"
-     x2="383.822468"
-     y2="335.05039974846284"
+     id="n1043"
+     x1="304.5102253"
+     y1="330.73470577861127"
+     x2="404.43378429999996"
+     y2="348.31092893667966"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n978"
-     points="305.42246800000004,315.9872359698155 311.42246800000004,319.9872359698155 317.42246800000004,315.9872359698155 311.42246800000004,311.9872359698155 305.42246800000004,315.9872359698155"
+     id="n1044"
+     points="304.5102253,330.73470577861127 310.5102253,334.73470577861127 316.5102253,330.73470577861127 310.5102253,326.73470577861127 304.5102253,330.73470577861127"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(13.666403630794605 305.42246800000004 315.9872359698155)" />
+     transform="rotate(9.976087736119764 304.5102253 330.73470577861127)" />
   <rect
-     id="n979"
-     x="324.5"
-     y="318.0"
+     id="n1045"
+     x="334.5"
+     y="332.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n980"
-     x="344.0"
-     y="328.0"
+     id="n1046"
+     x="354.0"
+     y="342.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n981"
+       id="n1047"
        xlink:href="account-definitions.html#Account.guarantor"><title
-   id="title45856">The parties responsible for balancing the account if other payment options fall short</title>guarantor</a></text>
+   id="title428">The parties responsible for balancing the account if other payment options fall short</title>guarantor</a></text>
   <text
-     id="n982"
-     x="363.822468"
-     y="331.05039974846284"
+     id="n1048"
+     x="384.43378429999996"
+     y="344.31092893667966"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n983"
-     x1="301.9753472067929"
-     y1="383.75135"
-     x2="435.5391587171069"
-     y2="482.9375400000001"
+     id="n1049"
+     x1="304.5102253"
+     y1="382.80720088580665"
+     x2="386.9312973855224"
+     y2="427.78683199999995"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n984"
-     points="301.9753472067929,383.75135 307.9753472067929,387.75135 313.9753472067929,383.75135 307.9753472067929,379.75135 301.9753472067929,383.75135"
+     id="n1050"
+     points="304.5102253,382.80720088580665 310.5102253,386.80720088580665 316.5102253,382.80720088580665 310.5102253,378.80720088580665 304.5102253,382.80720088580665"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(36.598050638078085 301.9753472067929 383.75135)" />
+     transform="rotate(28.622610740001566 304.5102253 382.80720088580665)" />
   <rect
-     id="n985"
-     x="348.5"
-     y="426.0"
+     id="n1051"
+     x="325.5"
+     y="398.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n986"
-     x="368.0"
-     y="436.0"
+     id="n1052"
+     x="345.0"
+     y="408.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n987"
+       id="n1053"
        xlink:href="account-definitions.html#Account.diagnosis"><title
-   id="title45864">When using an account for billing a specific Encounter the set of diagnoses that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s)</title>diagnosis</a></text>
+   id="title436">When using an account for billing a specific Encounter the set of diagnoses that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s)</title>diagnosis</a></text>
   <text
-     id="n988"
-     x="435.5391587171069"
-     y="478.9375400000001"
+     id="n1054"
+     x="386.9312973855224"
+     y="423.78683199999995"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n989"
-     x1="182.15148551740677"
-     y1="179.75135"
-     x2="188.2849609250548"
-     y2="144.06113000000005"
+     id="n1055"
+     x1="164.31848975010925"
+     y1="189.96845200000098"
+     x2="164.68538045684005"
+     y2="120.0"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n990"
-     points="182.15148551740677,179.75135 188.15148551740677,183.75135 194.15148551740677,179.75135 188.15148551740677,175.75135 182.15148551740677,179.75135"
+     id="n1056"
+     points="164.31848975010925,189.96845200000098 170.31848975010925,193.96845200000098 176.31848975010925,189.96845200000098 170.31848975010925,185.96845200000098 164.31848975010925,189.96845200000098"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-80.24879311776897 182.15148551740677 179.75135)" />
+     transform="rotate(-89.69956322065576 164.31848975010925 189.96845200000098)" />
   <rect
-     id="n991"
-     x="165.5"
-     y="154.0"
+     id="n1057"
+     x="144.5"
+     y="147.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n992"
-     x="185.0"
-     y="164.0"
+     id="n1058"
+     x="164.0"
+     y="157.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n993"
+       id="n1059"
        xlink:href="account-definitions.html#Account.procedure"><title
-   id="title45872">When using an account for billing a specific Encounter the set of procedures that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s)</title>procedure</a></text>
+   id="title444">When using an account for billing a specific Encounter the set of procedures that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s)</title>procedure</a></text>
   <text
-     id="n994"
-     x="188.2849609250548"
-     y="158.06113000000005"
+     id="n1060"
+     x="164.68538045684005"
+     y="134.0"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n995"
-     x1="305.42246800000004"
-     y1="224.28507948989846"
-     x2="510.6968552095218"
-     y2="140.50416"
+     id="n1061"
+     x1="145.0292352356671"
+     y1="421.96845199999996"
+     x2="138.2214721186148"
+     y2="464.2414000000001"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n996"
-     points="305.42246800000004,224.28507948989846 311.42246800000004,228.28507948989846 317.42246800000004,224.28507948989846 311.42246800000004,220.28507948989846 305.42246800000004,224.28507948989846"
+     id="n1062"
+     points="145.0292352356671,421.96845199999996 151.0292352356671,425.96845199999996 157.0292352356671,421.96845199999996 151.0292352356671,417.96845199999996 145.0292352356671,421.96845199999996"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-22.202391172114726 305.42246800000004 224.28507948989846)" />
+     transform="rotate(99.14853625641781 145.0292352356671 421.96845199999996)" />
   <rect
-     id="n997"
-     x="377.5"
-     y="175.0"
-     width="61.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n998"
-     x="408.0"
-     y="185.0"
-     fill="black"
-     class="diagram-class-linkage"><a
-       id="n999"
-       xlink:href="account-definitions.html#Account.relatedAccount"><title
-   id="title45880">Other associated accounts related to this account</title>relatedAccount</a></text>
-  <text
-     id="n1000"
-     x="510.6968552095218"
-     y="154.50416"
-     fill="black"
-     class="diagram-class-linkage">[0..*]</text>
-  <line
-     id="n1001"
-     x1="164.53651174352956"
-     y1="383.7513500000059"
-     x2="164.44840558625145"
-     y2="488.3025299999572"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n1002"
-     points="164.53651174352956,383.7513500000059 170.53651174352956,387.7513500000059 176.53651174352956,383.7513500000059 170.53651174352956,379.7513500000059 164.53651174352956,383.7513500000059"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(90.04828362306547 164.53651174352956 383.7513500000059)" />
-  <rect
-     id="n1003"
-     x="149.0"
-     y="429.0"
+     id="n1063"
+     x="126.0"
+     y="436.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1004"
-     x="164.0"
-     y="439.0"
+     id="n1064"
+     x="141.0"
+     y="446.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n1005"
+       id="n1065"
        xlink:href="account-definitions.html#Account.balance"><title
-   id="title45888">The calculated account balances - these are calculated and processed by the finance system.
+   id="title452">The calculated account balances - these are calculated and processed by the finance system.
 
 The balances with a `term` that is not current are usually generated/updated by an invoicing or similar process</title>balance</a></text>
   <text
-     id="n1006"
-     x="164.44840558625145"
-     y="484.3025299999572"
+     id="n1066"
+     x="138.2214721186148"
+     y="460.2414000000001"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

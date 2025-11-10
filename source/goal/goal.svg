@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n552"
+   version="1.1"
+   width="899.2"
+   height="312.0"
+   sodipodi:docname="goal.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview57393"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.3856761"
+     inkscape:cx="449.96084"
+     inkscape:cy="156.24141"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="31"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n552" />
+  <defs
+     id="defs57181">
+    <filter
+       id="shadow1"
+       x="-0.017713903"
+       y="-0.057608696"
+       width="1.0454545"
+       height="1.1478261">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset57172" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix57174" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur57176" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend57178" />
+    </filter>
+  </defs>
+  <g
+     id="n553">
+    <rect
+       id="Goal"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="299.20000000000005"
+       height="302.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n554"
+       x1="0.0"
+       y1="28.0"
+       x2="299.20000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n555"
+       x="149.60000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Goal<tspan
+   class="diagram-class-title-link"
+   id="tspan57186"> (<a
+   id="n556"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n557"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n558"
+   xlink:href="goal-definitions.html#Goal.identifier"><title
+   id="title57189">Business identifiers assigned to this goal by the performer or other systems which remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n559"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n563"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n564"
+   xlink:href="goal-definitions.html#Goal.lifecycleStatus"><title
+   id="title57194">The state of the goal throughout its lifecycle (this element modifies the meaning of other elements)</title>lifecycleStatus</a> : <a
+   id="n565"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n566"
+   xlink:href="valueset-goal-status.html"><title
+   id="n567">null (Strength=Required)</title>GoalLifecycleStatus</a>! »</text>
+    <text
+       id="n573"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n574"
+   xlink:href="goal-definitions.html#Goal.achievementStatus"><title
+   id="title57201">Describes the progression, or lack thereof, towards the goal against the target</title>achievementStatus</a> : <a
+   id="n575"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n576"
+   xlink:href="valueset-goal-achievement.html"><title
+   id="title57205">null (Strength=Preferred)</title>GoalAchievementStatus</a>? »</text>
+    <text
+       id="n581"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n582"
+   xlink:href="goal-definitions.html#Goal.category"><title
+   id="title57209">Indicates a category the goal falls within</title>category</a> : <a
+   id="n583"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n584"
+   xlink:href="valueset-goal-category.html"><title
+   id="n585">null (Strength=Example)</title>GoalCategory</a>?? »</text>
+    <text
+       id="n591"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n592"
+   xlink:href="goal-definitions.html#Goal.continuous"><title
+   id="title57216">After meeting the goal, ongoing activity is needed to sustain the goal objective</title>continuous</a> : <a
+   id="n593"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n597"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n598"
+   xlink:href="goal-definitions.html#Goal.priority"><title
+   id="title57221">Identifies the mutually agreed level of importance associated with reaching/sustaining the goal</title>priority</a> : <a
+   id="n599"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n600"
+   xlink:href="valueset-goal-priority.html"><title
+   id="title57225">null (Strength=Preferred)</title>GoalPriority</a>? »</text>
+    <text
+       id="n605"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n606"
+   xlink:href="goal-definitions.html#Goal.description"><title
+   id="title57229">Human-readable and/or coded description of a specific desired objective of care, such as &quot;control blood pressure&quot; or &quot;negotiate an obstacle course&quot; or &quot;dance with child at wedding&quot;</title>description</a> : <a
+   id="n607"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n608"
+   xlink:href="valueset-goal-description.html"><title
+   id="n609">null (Strength=Example)</title>GoalDescription</a>?? »</text>
+    <text
+       id="n615"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n616"
+   xlink:href="goal-definitions.html#Goal.subject"><title
+   id="title57236">Identifies the patient, group or organization for whom the goal is being established</title>subject</a> : <a
+   id="n617"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n618"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n619"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n620"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n627"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n628"
+   xlink:href="goal-definitions.html#Goal.start_x_"><title
+   id="title57244">The date or event after which the goal should begin being pursued</title>start[x]</a> : <a
+   id="n629"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n630"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n631"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>; <a
+   id="n632"
+   xlink:href="valueset-goal-start-event.html"><title
+   id="n633">null (Strength=Example)</title>GoalStartEvent</a>?? »</text>
+    <text
+       id="n641"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n642"
+   xlink:href="goal-definitions.html#Goal.statusDate"><title
+   id="title57253">Identifies when the current achievement status took effect.  I.e. When achieved, when improving, etc</title>statusDate</a> : <a
+   id="n643"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n647"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n648"
+   xlink:href="goal-definitions.html#Goal.statusReason"><title
+   id="title57258">Captures the reason for the current lifecycle status</title>statusReason</a> : <a
+   id="n649"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n650"
+   xlink:href="valueset-goal-status-reason.html"><title
+   id="n651">null (Strength=Example)</title>GoalStatusReason</a>?? »</text>
+    <text
+       id="n657"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n658"
+   xlink:href="goal-definitions.html#Goal.recorder"><title
+   id="title57265">Individual who recorded the record and takes responsibility for its content</title>recorder</a> : <a
+   id="n659"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n660"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n661"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n662"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n663"
+       x="26.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n664"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n665"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n675"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n676"
+   xlink:href="goal-definitions.html#Goal.source"><title
+   id="title57276">Indicates whose goal this is - patient goal, practitioner goal, etc</title>source</a> : <a
+   id="n677"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n678"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n679"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n680"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n681"
+       x="26.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n682"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n683"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n684"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n695"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n696"
+   xlink:href="goal-definitions.html#Goal.addresses"><title
+   id="title57288">The identified conditions and other resources that provide the context for why the goal exists</title>addresses</a> : <a
+   id="n697"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n698"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n699"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n700"
+       x="26.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n701"
+   xlink:href="medicationstatement.html#MedicationStatement">MedicationStatement</a>|<a
+   id="n702"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|<a
+   id="n703"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|</text>
+    <text
+       id="n704"
+       x="26.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n705"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
+   id="n706"
+   xlink:href="riskassessment.html#RiskAssessment">RiskAssessment</a>|<a
+   id="n707"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n708"
+   xlink:href="nutritionintake.html#NutritionIntake">NutritionIntake</a> »</text>
+    <text
+       id="n723"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n724"
+   xlink:href="goal-definitions.html#Goal.note"><title
+   id="title57304">Any comments related to the goal</title>note</a> : <a
+   id="n725"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n729"
+     transform="translate(173.20065,33.19679)">
+    <rect
+       id="Goal.acceptance"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n730"
+       x1="320"
+       y1="28"
+       x2="619.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n731"
+       x="469.60001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Acceptance</text>
+    <text
+       id="n732"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n733"
+   xlink:href="goal-definitions.html#Goal.acceptance.participant"><title
+   id="title57313">The person ororganization whose acceptance/priority is being reflected</title>participant</a> : <a
+   id="n734"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n735"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n736"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n737"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|</text>
+    <text
+       id="n738"
+       x="346"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n739"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n740"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n741"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n742"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n754"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n755"
+   xlink:href="goal-definitions.html#Goal.acceptance.status"><title
+   id="title57326">Indicates whether the specified individual has accepted the goal or not</title>status</a> : <a
+   id="n756"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n757"
+   xlink:href="valueset-goal-accept-status.html"><title
+   id="n758">null (Strength=Required)</title>GoalAcceptStatus</a>! »</text>
+    <text
+       id="n764"
+       x="326"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n765"
+   xlink:href="goal-definitions.html#Goal.acceptance.priority"><title
+   id="title57333">Indicates the relative priority assigned to the goal by the stakeholder</title>priority</a> : <a
+   id="n766"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n767"
+   xlink:href="valueset-goal-priority.html"><title
+   id="n768">null (Strength=Example)</title>GoalPriority</a>?? »</text>
+  </g>
+  <g
+     id="n774"
+     transform="translate(90.208668,188.3557)">
+    <rect
+       id="Goal.target"
+       x="400"
+       y="0"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n775"
+       x1="400"
+       y1="28"
+       x2="699.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n776"
+       x="549.59998"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Target</text>
+    <text
+       id="n777"
+       x="406"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n778"
+   xlink:href="goal-definitions.html#Goal.target.measure"><title
+   id="title57344">The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level</title>measure</a> : <a
+   id="n779"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n780"
+   xlink:href="valueset-observation-codes.html"><title
+   id="n781">null (Strength=Example)</title>LOINCCodes</a>?? » « <a
+   id="n782"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n783">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n791"
+       x="406"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n792"
+   xlink:href="goal-definitions.html#Goal.target.detail_x_"><title
+   id="title57353">The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value. A CodeableConcept target value could be Positive, Negative, Abnormal, Normal, Present, Absent, Yes, No</title>detail[x]</a> : <a
+   id="n793"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n794"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n795"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n796"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n797"
+   xlink:href="datatypes.html#string">string</a>|</text>
+    <text
+       id="n798"
+       x="426"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n799"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n800"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n801"
+   xlink:href="datatypes.html#Ratio">Ratio</a> » « <a
+   id="n802"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n803">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n817"
+       x="406"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n818"
+   xlink:href="goal-definitions.html#Goal.target.due_x_"><title
+   id="title57368">Indicates either the date or the duration after start by which the goal should be met</title>due[x]</a> : <a
+   id="n819"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n820"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n821"
+   xlink:href="datatypes.html#Duration">Duration</a> »</text>
+  </g>
+  <line
+     id="n827"
+     x1="299.20000000000005"
+     y1="101.91250000000002"
+     x2="329.40952380952393"
+     y2="92.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n828"
+     points="299.20000000000005,101.91250000000002 305.20000000000005,105.91250000000002 311.20000000000005,101.91250000000002 305.20000000000005,97.91250000000002 299.20000000000005,101.91250000000002"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-18.165956529225525 299.20000000000005 101.91250000000002)" />
+  <rect
+     id="n829"
+     x="292.0"
+     y="89.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n830"
+     x="314.0"
+     y="99.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n831"
+       xlink:href="goal-definitions.html#Goal.acceptance"><title
+   id="title57379">Information about the acceptance and relative priority assigned to the goal by the patient, practitioners and other stakeholders</title>acceptance</a></text>
+  <text
+     id="n832"
+     x="329.40952380952393"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n833"
+     x1="299.20000000000005"
+     y1="111.72999999999999"
+     x2="400.0"
+     y2="85.27000000000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n834"
+     points="299.20000000000005,111.72999999999999 305.20000000000005,115.72999999999999 311.20000000000005,111.72999999999999 305.20000000000005,107.72999999999999 299.20000000000005,111.72999999999999"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-14.708303899682742 299.20000000000005 111.72999999999999)" />
+  <rect
+     id="n835"
+     x="336.0"
+     y="91.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n836"
+     x="349.0"
+     y="101.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n837"
+       xlink:href="goal-definitions.html#Goal.target"><title
+   id="title57387">Indicates what should be done by when</title>target</a></text>
+  <text
+     id="n838"
+     x="380.0"
+     y="81.27000000000001"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>
