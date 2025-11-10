@@ -81,20 +81,6 @@
       <alias value="MedicationStatement"/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="mst-1"/>
-        <severity value="warning"/>
-        <human value="If more than one dosage entry is present, then all entries must have a sequence"/>
-        <expression value="dosage.count() &lt; 2 or dosageInstruction.all(sequence.exists())"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>
-      </constraint>      
-      <constraint>
-        <key value="mst-2"/>
-        <severity value="warning"/>
-        <human value="If more than one dosage entry is present, then all entries must have a sequence"/>
-        <expression value="dosage.count() &gt; 1 or doseLimits.exists().not()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>
-      </constraint>      
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -487,7 +473,7 @@
       <definition value="The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses."/>
       <requirements value="The content of the renderedDosageInstructions must not be different than the dose represented in the dosageInstruction content."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <type>
         <code value="markdown"/>
       </type>
@@ -513,16 +499,6 @@
         <identity value="rim"/>
         <map value="refer dosageInstruction mapping"/>
       </mapping>
-    </element>
-    <element id="MedicationStatement.doseLimits">
-      <path value="MedicationStatement.doseLimits"/>
-      <short value="Limits to the overall dose across all dosageInstructions"/>
-      <definition value="This element is used when there are limits that apply to all the dosageInstructions."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Dosage"/>
-      </type>
     </element>
     <element id="MedicationStatement.adherence">
       <path value="MedicationStatement.adherence"/>

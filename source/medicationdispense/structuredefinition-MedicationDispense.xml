@@ -93,22 +93,7 @@
         <severity value="error"/>
         <human value="whenHandedOver cannot be before whenPrepared"/>
         <expression value="(whenHandedOver.hasValue() and whenPrepared.hasValue()) implies whenHandedOver >= whenPrepared"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </constraint>
-      <constraint>
-        <key value="mdd-2"/>
-        <severity value="warning"/>
-        <human value="If more than one dosageInstruction entry is present, then all entries must have a sequence"/>
-        <expression value="dosageInstruction.count() &lt; 2 or dosageInstruction.all(sequence.exists())"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
-      </constraint>   
-      <constraint>
-        <key value="mdd-3"/>
-        <severity value="warning"/>
-        <human value="If more than one dosageInstruction entry is present, then all entries must have a sequence"/>
-        <expression value="dosageInstruction.count() &gt; 1 or doseLimits.exists().not()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
-      </constraint>  
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -746,7 +731,7 @@
       <definition value="The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses."/>
       <comment value="The content of the renderedDosageInstructions must not be different than the dose represented in the dosageInstruction content."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="0"/>
       <type>
         <code value="markdown"/>
       </type>
@@ -775,16 +760,6 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]"/>
       </mapping>
-    </element>
-    <element id="MedicationDispense.doseLimits">
-      <path value="MedicationDispense.doseLimits"/>
-      <short value="Limits to the overall dose across all dosageInstructions"/>
-      <definition value="This element is used when there are limits that apply to all the dosageInstructions."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Dosage"/>
-      </type>
     </element>
     <element id="MedicationDispense.doseAdministrationAid">
       <path value="MedicationDispense.doseAdministrationAid"/>
