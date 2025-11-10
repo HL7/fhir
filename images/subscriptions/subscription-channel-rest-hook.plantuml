@@ -14,7 +14,7 @@ group Subscription Negotiation
   C ->> S: Create Subscription\n""channelType: rest-hook""
   return Success\n""Subscription.status: requested""
 
-  S ->> E: HTTP POST - Handshake\n""Bundle:""\n""            Bundle.type: history""\n""SubscriptionStatus.type: handshake""
+  S ->> E: HTTP POST - Handshake\n""Bundle:""\n""            Bundle.type: subscription-notification""\n""SubscriptionStatus.type: handshake""
   return HTTP Success, e.g.:\n""200: OK""
 
   note right of S
@@ -25,11 +25,11 @@ end
 
 group REST Subscription Processing
 else Server sends heartbeat
-  S ->> E: HTTP POST - Heartbeat\n""Bundle:""\n""            Bundle.type: history""\n""SubscriptionStatus.type: heartbeat""
+  S ->> E: HTTP POST - Heartbeat\n""Bundle:""\n""            Bundle.type: subscription-notification""\n""SubscriptionStatus.type: heartbeat""
   return HTTP Success, e.g.:\n""200: OK""
   ...
 else Server sends event-notification
-  S ->> E: HTTP POST - Notification\n""Bundle:""\n""            Bundle.type: history""\n""SubscriptionStatus.type: event-notification""
+  S ->> E: HTTP POST - Notification\n""Bundle:""\n""            Bundle.type: subscription-notification""\n""SubscriptionStatus.type: event-notification""
   return HTTP Success, e.g.:\n""200: OK""
   ...
 end

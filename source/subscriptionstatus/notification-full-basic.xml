@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
+  <id value="fdd386f3-b4b5-426e-bd96-495eebda96d9"/>
+  <type value="subscription-notification"/>
+  <timestamp value="2020-04-17T10:24:13.1882432-05:00" />
+  <entry>
+    <fullUrl value="urn:uuid:ce762452-8aed-43eb-bc03-2a024c49248f"/>
+    <resource>
+      <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
+        <id value="ce762452-8aed-43eb-bc03-2a024c49248f"/>
+        <status value="active"/>
+        <type value="event-notification"/>
+        <eventsSinceSubscriptionStart value="20"/>
+        <notificationEvent>
+          <eventNumber value="20"/>
+          <focus>
+            <reference value="http://example.org/FHIR/Basic/AD-11220"/>
+          </focus>
+        </notificationEvent>
+        <subscription>
+          <reference value="http://example.org/FHIR/Subscription/BASIC-123"/>
+        </subscription>
+        <topic value="http://example.org/FHIR/SubscriptionTopic/admission-basic"/>
+      </SubscriptionStatus>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://example.org/FHIR/Basic/AD-11220" />
+    <resource>
+      <Basic xmlns="http://hl7.org/fhir">
+        <id value="AD-11220" />
+        <meta>
+          <versionId value="1" />
+          <lastUpdated value="2019-08-07T10:49:22Z" />
+        </meta>
+        <extension url="http://example.org/fhir/StructureDefinition/admission-content">
+          <extension url="status">
+            <valueCode value="in-progress"/>
+          </extension>
+          <extension url="patient">
+            <valueReference>
+              <reference value="Patient/ABC"/>
+            </valueReference>
+          </extension>
+          <extension url="patient-group">
+            <valueReference>
+              <reference value="Group/XYZ"/>
+            </valueReference>
+          </extension>
+        </extension>
+        <code>
+          <coding>
+            <system value="http://example.org/fhir/CodeSystem/basic-resource-codes"/>
+            <code value="admission"/>
+            <display value="Admission Notification"/>
+          </coding>
+        </code>
+        <status value="in-progress" />
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode" />
+          <code value="VR"/>
+          <display value="virtual" />
+        </coding>
+        <subject>
+          <reference value="Patient/ABC" />
+        </subject>
+      </Basic>
+    </resource>
+  </entry>
+</Bundle>

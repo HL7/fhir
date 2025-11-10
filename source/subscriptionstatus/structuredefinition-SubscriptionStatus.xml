@@ -148,6 +148,7 @@
       <path value="SubscriptionStatus.eventsSinceSubscriptionStart"/>
       <short value="Events since the Subscription was created"/>
       <definition value="The total number of actual events which have been generated since the Subscription was created (inclusive of this notification) - regardless of how many have been successfully communicated.  This number is NOT incremented for handshake and heartbeat notifications."/>
+      <comment value="This element is intended to help subscribers determine if any notifications have been missed in Subscriptions where delivery of notifications IS NOT guaranteed. For more information see [Event Numbering](subscriptionstatus.html#event-numbering)." />
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -170,7 +171,7 @@
       <path value="SubscriptionStatus.notificationEvent.eventNumber"/>
       <short value="Sequencing index of this event"/>
       <definition value="Either the sequential number of this event in this subscription context or a relative event number for this notification."/>
-      <comment value="In subscriptions where delivery of notifications IS NOT guaranteed (e.g., REST-Hook), this number is a unique and monotonically-increasing event number for a subscription. In channels where delivery of notifications IS guaranteed, this number is a relative index for the events present in the notification (e.g., 1, 2, etc.)."/>
+      <comment value="In subscriptions where delivery of notifications IS NOT guaranteed (e.g., REST-Hook), this number is a unique and monotonically-increasing event number for a subscription. In channels where delivery of notifications IS guaranteed, this number is a relative index for the events present in the notification (e.g., 1, 2, etc.). For more information see [Event Numbering](subscriptionstatus.html#event-numbering)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -213,7 +214,8 @@
     <element id="SubscriptionStatus.notificationEvent.additionalContext">
       <path value="SubscriptionStatus.notificationEvent.additionalContext"/>
       <short value="References related to the focus resource and/or context of this event"/>
-      <definition value="Additional context information for this event. Generally, this will contain references to additional resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects."/>
+      <definition value="Additional context information for this event. Generally, this will contain references to related resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects."/>
+      <comment value="Note that servers have discretion on related resources to include. SubscriptionTopic resources can include descriptions of likely or expected shapes in order to set implementer expectations. For details see [Notification Shapes](subscriptiontopic.html#notification-shape)." />
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -261,6 +263,51 @@
         <code value="string"/>
       </type>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="SubscriptionStatus.notificationEvent.authorizationHint">
+			<path value="SubscriptionStatus.notificationEvent.authorizationHint"/>
+			<short value="Authorization information relevant to a notification"/>
+			<definition value="Authorization context information and value (e.g., token)."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="false"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="SubscriptionStatus.notificationEvent.authorizationHint.authorizationType">
+			<path value="SubscriptionStatus.notificationEvent.authorizationHint.authorizationType"/>
+			<short value="Classification of the authorization hint, e.g., 'oAuthChallengeToken'"/>
+			<definition value="Used by clients to determine what kind of authorization hint is being suggested by the sender."/>
+			<min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+			<isSummary value="false"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A (to add?)"/>
+			</mapping>
+		</element>
+		<element id="SubscriptionStatus.notificationEvent.authorizationHint.value">
+			<path value="SubscriptionStatus.notificationEvent.authorizationHint.value"/>
+			<short value="Authorization value, as defined by the 'authorizationType'"/>
+			<definition value="A value related to the authorization (e.g., a token)."/>
+			<min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+			<isSummary value="false"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A (to add?)"/>

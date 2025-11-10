@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
+	<id value="admission-parameters"/>
+	<url value="http://example.org/FHIR/SubscriptionTopic/admission-parameters"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:6651a462-e65e-4ef1-9bab-b3ae997e5be9"/>
+  </identifier>
+  <title value="admission-parameters"/>
+	<status value="active"/>
+  <description value="Example admission topic using a Parameters representation"/>
+	<trigger>
+		<description value="Patient admission or visit begins."/>
+		<resource value="Parameters"/>
+    <supportedInteraction value="create"/>
+    <supportedInteraction value="update"/>
+    <event>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0003"/>
+        <code value="A01"/>
+        <display value="ADT/ACK - Admit/visit notification"/>
+      </coding>
+    </event>
+    <canFilterBy>
+      <description value="Matching based on the Patient MRN, expected to be in a `part` named `mrn` and contain a `string` value, matched using `token` search rules."/>
+      <resource value="Parameters"/>
+      <filterParameter value="MRN"/>
+    </canFilterBy>
+    <notificationShape>
+      <resource value="Parameters"/>
+    </notificationShape>
+	</trigger>
+</SubscriptionTopic>

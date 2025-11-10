@@ -433,7 +433,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationCode"/>
+          <valueString value="ObservationComponentCode"/>
         </extension>
         <strength value="example"/>
         <description value="Codes identifying names of simple observations."/>

@@ -43,7 +43,7 @@
   <content value="complete"/>
   <concept>
     <code value="base"/>
-    <display value="base price"/>
+    <display value="Base price"/>
     <definition value="The amount is the base price used for calculating the total price before applying surcharges, discount or taxes."/>
   </concept>
   <concept>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
+	<id value="admission-binary"/>
+	<url value="http://example.org/FHIR/SubscriptionTopic/admission-binary"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:174f26f9-c66f-4165-9407-2c90e3fc3123"/>
+  </identifier>
+  <title value="admission-binary"/>
+	<status value="active"/>
+  <description value="Example admission topic using a Binary resource"/>
+	<trigger>
+		<description value="Admission being created or updated into an `in-progress` state"/>
+		<resource value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+    <supportedInteraction value="create"/>
+    <supportedInteraction value="update"/>
+    <event>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0003"/>
+        <code value="A01"/>
+        <display value="ADT/ACK - Admit/visit notification"/>
+      </coding>
+    </event>
+    <canFilterBy>
+      <description value="Matching based on the Patient. Input is expected to be a search `reference` and match against a reference to the patient."/>
+      <resource value="Binary"/>
+      <filterParameter value="admission-patient"/>
+      <filterDefinition value="http://example.org/SearchParameters/Binary/admission-patient"/>
+    </canFilterBy>
+    <canFilterBy>
+      <description value="Matching based on the Patient Group. Input is expected to be a search `reference` and match against a reference to a group the patient has membership in."/>
+      <resource value="Basic"/>
+      <filterParameter value="admission-patient-group"/>
+      <filterDefinition value="http://example.org/SearchParameters/Binary/admission-patient-group"/>
+    </canFilterBy>
+    <notificationShape>
+      <resource value="Binary"/>
+      <include value="Binary:admission-patient"/>
+      <include value="Binary:admission-patient-group"/>
+    </notificationShape>
+	</trigger>
+</SubscriptionTopic>
