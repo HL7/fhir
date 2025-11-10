@@ -1,11 +1,32 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<a name="naming-conventions"></a>
+<h2>Naming Conventions for Search Parameters</h2>
+<p>
+HL7-defined search parameters follow these naming conventions:
+</p>
+<ul>
+  <li>Use lowercase letters with hyphens for multi-word parameters (kebab-case)</li>
+  <li>Prefer shorter, more common terms when possible</li>
+  <li>Be consistent across resources when the same concept is searched (e.g., <code>authored</code> for authoring dates)</li>
+  <li>Avoid abbreviations unless widely understood</li>
+  <li>Use singular forms unless the concept is inherently plural</li>
+  <li>Use of a prefix underscore character (<code>_</code>) compliant with the rules of the <a href="http.html#styleguide">Style Guide</a></li>
+</ul>
+
+
+
 <a name="notes"></a>
 <h2>Notes</h2>
 <ul>
   <li>
     If the extension's context specifies multiple resources, they are represented with multiple 
     elements in the <code>SearchParameter.base</code> array
+  </li>
+  <li>
+    An expression like <code>Resource.descendents.extension('extension-url').value</code> is possible, but this 
+    is a low performance option for a server to evaluate, and search parameter expressions are performance 
+    sensitive
   </li>
 </ul>
 
@@ -76,5 +97,58 @@ Patient.extension('http://example.org/fhir/StructureDefinition/extension-thumb-l
  | Patient.contact.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value
  | Practitioner.extension('http://example.org/fhir/StructureDefinition/extension-thumb-length').value
 </pre>
+
+<a name="alias"></a>
+<h4>Search Parameter Aliases</h4>
+
+<p>
+To support evolution toward consistent naming conventions while maintaining backward compatibility, <code>SearchParameter</code> resources 
+MAY define one or more <code>aliasCode</code> values. These aliases represent suggested alternative codes that can be used to reference the search 
+parameter in addition to the primary <code>code</code> value.
+</p>
+
+<p>
+<b>Usage Guidelines:</b>
+</p>
+<ul>
+  <li>Aliases should be used primarily for backward compatibility when standardizing parameter names</li>
+  <li>Servers that declare support for a SearchParameter SHOULD accept all defined aliases in addition to the primary code</li>
+  <li>New implementations SHOULD use the primary code rather than aliases</li>
+  <li>Aliases are displayed in the SearchParameter registry and resource search parameter tables</li>
+</ul>
+
+<p>
+<b>Example:</b> A search parameter previously named <code>authoredon</code> might be updated to use <code>authored</code> as the primary code (for consistency with other resources) while retaining <code>authoredon</code> as an alias for backward compatibility.
+</p>
+
+<a name="deriving"></a>
+<h2>Deriving Search Parameters</h2>
+
+<p>
+When one SearchParameter has a <code>derivedFrom</code> referencing another SearchParameter, the following rules SHOULD be followed. 
+Note that these rules are asserted as SHOULD rather than SHALL only because they were introduced after the resource became normative. 
+Systems that fail to follow these rules are likely to result in unsafe interoperability.
+</p>
+<p>
+A derived SearchParameter:
+</p>
+<ul>
+  <li>SHOULD have the same <code>experimental</code> as the original SearchParameter</li>
+  <li>SHOULD have the same <code>type</code> as the original SearchParameter</li>
+  <li>SHOULD have the same <code>processingMode</code> as the original SearchParameter</li>
+  <li>
+    SHOULD NOT have values for <code>multipleOr</code> or <code>multipleAnd</code> that contradict a value stated in the original SearchParameter. 
+    I.e. If the base does not declare these, the derived SearchParameter can. However, if the base does declare them, the derived SearchParameter SHOULD have the same values.
+  </li>
+  <li>SHOULD have a <code>target</code> that is equivalent to or a subset of the original SearchParameter <code>target</code></li>
+  <li>SHOULD have <code>comparator</code> and <code>modifier</code> values that are the same as or a superset of those defined in the base.</li>
+  <li>SHOULD have the same number of components listed in the same order, where the <code>definition</code> must be the same or a derived SearchParameter, and the <code>expression</code> must be the same.</li>
+  <li>MAY add values for <code>chain</code> but SHOULD NOT remove or re-order values already listed in the base.</li>
+</ul>
+
+<blockquote class="ballot-note">
+Request for ballot feedback: We would like the 'SHOULD' assertions above to become 'SHALL' assertions.
+We are invoking our usual implementer outreach process to find out whether anyone else objects, but please file tickets for any rules you do not believe can be enforced that way.
+</blockquote>
 
 </div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Bundle.xsd">
+  <id value="9afb3cb3-6c64-474d-9412-d4d74ea7ecbe"/>
+  <type value="subscription-notification"/>
+  <timestamp value="2020-04-17T10:24:13.1882432-05:00" />
+  <entry>
+    <fullUrl value="urn:uuid:d93f7f20-ea65-4607-9681-01996e1b2b6a"/>
+    <resource>
+      <SubscriptionStatus xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionStatus.xsd">
+        <id value="d93f7f20-ea65-4607-9681-01996e1b2b6a"/>
+        <status value="active"/>
+        <type value="event-notification"/>
+        <eventsSinceSubscriptionStart value="20"/>
+        <notificationEvent>
+          <eventNumber value="20"/>
+          <focus>
+            <reference value="http://example.org/LogicalModels/Admission/925b19a3-1f1f-49ce-ac59-dae9ae3e5637"/>
+          </focus>
+        </notificationEvent>
+        <subscription>
+          <reference value="http://example.org/FHIR/Subscription/LM-123"/>
+        </subscription>
+        <topic value="http://example.org/FHIR/SubscriptionTopic/admission-lm"/>
+      </SubscriptionStatus>
+    </resource>
+  </entry>
+</Bundle>

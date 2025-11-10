@@ -6,13 +6,61 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of eventdefinition"/>
+      <valueString value="Example of an EventDefinition for monitoring emergency department admissions."/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="eventdefinition-example"/>
     </extension>
     <item>
       <reference value="EventDefinition/example"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an EventDefinition using the named event approach."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="eventdefinition-example-named"/>
+    </extension>
+    <item>
+      <reference value="EventDefinition/example-named"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an EventDefinition using the data event approach."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="eventdefinition-example-data"/>
+    </extension>
+    <item>
+      <reference value="EventDefinition/example-data"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an EventDefinition using the data event approach with a profile in the data requirement."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="eventdefinition-example-data-with-profile"/>
+    </extension>
+    <item>
+      <reference value="EventDefinition/example-data-with-profile"/>
+      <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an EventDefinition using the periodic approach."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="eventdefinition-example-periodic"/>
+    </extension>
+    <item>
+      <reference value="EventDefinition/example-periodic"/>
       <display value="General"/>
     </item>
   </entry>

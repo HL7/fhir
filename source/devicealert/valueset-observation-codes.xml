@@ -13,11 +13,21 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.396"/>
   </identifier>
-  <version value="6.0.0-ballot3"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.383"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.216"/>
+  </identifier>
+  <version value="6.0.0"/>
   <name value="LOINCCodes"/>
   <title value="LOINC Codes"/>
-  <status value="draft"/>
-  <experimental value="false"/>
+  <status value="active"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

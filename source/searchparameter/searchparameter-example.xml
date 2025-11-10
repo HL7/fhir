@@ -40,6 +40,7 @@
   </jurisdiction>
   <purpose value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
   <code value="_id"/>
+  <aliasCode value="logical-id"/>
   <base value="Resource"/>
   <type value="token"/>
   <expression value="id"/>

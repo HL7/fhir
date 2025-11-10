@@ -44,21 +44,26 @@
   <concept>
     <code value="CC"/>
     <display value="Chief Complaint"/>
+    <definition value="Patient's stated reason for seeking care."/>
   </concept>
   <concept>
     <code value="HC"/>
     <display value="Health Concern"/>
+    <definition value="An identified issue, risk, or concern requiring monitoring or management."/>
   </concept>
   <concept>
     <code value="AD"/>
     <display value="Admitting Diagnosis"/>
+    <definition value="Diagnosis (often provisional) documented as the reason for admission to the facility."/>
   </concept>
   <concept>
     <code value="RV"/>
     <display value="Reason for Visit"/>
+    <definition value="Provider-recognized reason for the encounter (may differ from chief complaint)."/>
   </concept>
   <concept>
     <code value="HM"/>
     <display value="Health Maintenance (including screening)"/>
+    <definition value="Preventive or routine services (e.g., screening, immunization) performed to maintain health."/>
   </concept>
 </CodeSystem>

@@ -140,9 +140,9 @@
 		</element>
 		<element id="CanonicalResource.version">
 			<path value="CanonicalResource.version"/>
-			<short value="Business version of the {{title}}"/>
-			<definition value="The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence without additional knowledge.  (See the versionAlgorithm element.)"/>
-			<comment value="There may be different {{title}}s that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the {{title}} with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<short value="Canonical version of the {{title}}"/>
+			<definition value="The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a SemVer version, timestamp (e.g. yyyymmdd), or incrementing number. There is no expectation that versions can be placed in a lexicographical sequence without additional knowledge.  (See the versionAlgorithm element.)"/>
+			<comment value="There may be different {{title}}s that have the same canonical url but different versions. The version can be appended to the url in a reference to allow a reference to a particular canonical version of the {{title}} with the format [url]|[version]. Note that the canonical version of a resource is not related to a server resource instance version (`Resource.meta.version`). For more information, see [Version Matching for Canonical Resources](references.html#matching). The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -157,8 +157,8 @@
 		<element id="CanonicalResource.versionAlgorithm[x]">
 			<path value="CanonicalResource.versionAlgorithm[x]"/>
 			<short value="How to compare versions"/>
-			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
-			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+			<definition value="Indicates the mechanism used to compare canonical versions to determine which is more current."/>
+			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined. For more information, see [Choosing the right Canonical Reference](references.html#canonical-matching)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
