@@ -432,6 +432,7 @@
             <type>
                 <code value="boolean" />
             </type>
+            <meaningWhenMissing value="If absent, no inference SHOULD be made about whether the alert condition has been acknowledged." />
         </element>
         <element id="DeviceAlert.acknowledgedBy">
             <path value="DeviceAlert.acknowledgedBy" />
