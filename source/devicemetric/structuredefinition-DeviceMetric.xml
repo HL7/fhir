@@ -246,8 +246,8 @@
     <element id="DeviceMetric.device">
       <path value="DeviceMetric.device"/>
       <short value="The device to which this DeviceMetric applies"/>
-      <definition value="The device to which this DeviceMetric applies. The referenced device may be a top-level device or a component of a device."/>
-      <comment value="If the reference is not to a top-level device, the top-level device may be reached through the device's `parent` element (possibly recursively)."/>
+      <definition value="The device to which this DeviceMetric applies. The referenced device could be a top-level device or a component of a device."/>
+      <comment value="If the reference is not to a top-level device, the top-level device is reached through the device's `parent` element (possibly recursively)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -319,7 +319,7 @@
     <element id="DeviceMetric.measurementFrequency">
       <path value="DeviceMetric.measurementFrequency"/>
       <short value="Indicates how often the metric is taken or recorded"/>
-      <definition value="The frequency at which the metric is taken or recorded. Devices measure metrics at a wide range of frequencies; for example, an ECG might sample measurements in the millisecond range, while an NIBP might trigger only once an hour. Less often, the measurementFrequency may be based on a unit other than time, such as distance (e.g., for a measuring wheel). The update period may be different than the measurement frequency, if the device does not update the published observed value with the same frequency as it was measured."/>
+      <definition value="The frequency at which the metric is taken or recorded. Devices measure metrics at a wide range of frequencies; for example, an ECG might sample measurements in the millisecond range, while an NIBP might trigger only once an hour. Less often, the measurementFrequency is based on a unit other than time, such as distance (e.g., for a measuring wheel). The update period could be different than the measurement frequency, if the device does not update the published observed value with the same frequency as it was measured."/>
       <min value="0"/>
       <max value="1"/>
       <type>
