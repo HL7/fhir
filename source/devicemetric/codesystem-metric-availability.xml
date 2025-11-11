@@ -46,4 +46,9 @@
     <display value="Continuous"/>
     <definition value="Without break, cessation, or interruption; without intervening time."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The availability of the means of derivation of the metric is unknown."/>
+  </concept>
 </CodeSystem>
