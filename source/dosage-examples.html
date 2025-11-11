@@ -95,6 +95,13 @@ Take Perindopril, 1 tablet per day, for 3 months.
  <div id="tabs-Example1-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
 
+<ul> 
+  <li><code>MedicationRequest.medicationCodeableConcept</code> = “Perindopril Arginine 2.5 mg tablet”</li> 
+  <li><code>MedicationRequest.dosageInstruction[0].timing.repeat.boundsDuration</code> = 3&nbsp;mo</li> 
+  <li><code>…timing.repeat.frequency/period/periodUnit</code> = 1 / 1 / d</li> 
+  <li><code>…doseAndRate[0].doseQuantity</code> = 1 tablet (or explicit mg if desired)</li> 
+</ul> 
+
 <pre class="yaml">
 MedicationRequest
   medication 
@@ -160,7 +167,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-1-perindopril&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text&gt; value=&quot;Perindopril Arginine, 2.5mg tablets&quot;/&gt;
@@ -198,10 +204,13 @@ MedicationRequest
  
 </div>
 
-<p>Notes:</p>
+<p><b>Notes:</b></p>
 <ul>
+  <li>If tablet strength is encoded in the product, keep dose as “1 tablet”</li>
   <li>What is missing from this structure is ‘and holidays’; this might be found in an extension, or in the renderedInstruction</li>
 </ul>
+
+
 <!-------------------------------------------->
 
 <a name=""> </a>
@@ -219,6 +228,12 @@ Methylphenidate 10 mg tablets — 10 mg at 07:30 and 12:00, 5 mg at 16:00 Mon–
  </ul>
  <div id="tabs-Example2-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
+  <ul> 
+    <li>Model as multiple <code>dosageInstruction</code> entries (by dayOfWeek/timeOfDay) + one PRN entry.</li> 
+    <li><code>Dosage.timing.repeat.dayOfWeek</code> and <code>…timeOfDay</code> for fixed administrations.</li> 
+    <li><code>Dosage.asNeededBoolean</code> for PRN (evening); optionally <code>…when = EVE</code>.</li> 
+    <li><code>Dosage.maxDosePerPeriod</code> (Ratio) for 150&nbsp;mg per week.</li> 
+  </ul> 
 
 <pre class="yaml">
 MedicationRequest
@@ -376,7 +391,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-2-methylphenidate&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Methylphenidate 10 mg tablets&quot;/&gt;
@@ -483,6 +497,9 @@ MedicationRequest
  
 </div>
 
+ <p><b>Not supported / Caveats:</b> “and holidays” is ambiguous; capture in narrative <code>Dosage.text</code>.</p> 
+ 
+
 <!-------------------------------------------->
 
 <a name=""> </a>
@@ -508,6 +525,12 @@ Prednisone 10 mg tablets (oral)
  </ul>
  <div id="tabs-Example3-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
+
+ <ul> 
+    <li>Represent each step as a separate <code>dosageInstruction</code> with its own <code>timing.repeat</code> and dose.</li> 
+    <li>“Every other day” → <code>period=2</code>, <code>periodUnit=d</code>.</li> 
+    <li>Optional PRN course as a separate PRN <code>dosageInstruction</code> (narrative driven).</li> 
+  </ul> 
 
 <pre class="yaml">
 MedicationRequest
@@ -837,7 +860,6 @@ MedicationRequest
 <pre class="xml" fragment="MedicationRequest">
 
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-3-prednisone&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Prednisone 10 mg tablets&quot;/&gt;
@@ -1042,12 +1064,13 @@ MedicationRequest
  
 </div>
 
-<p>Notes:</p>
+<p><b>Notes:</b></p>
 <ul>
-  <li>The instructions are ambiguous with regard to flare-ups - is this just straight PRN? or is the intent to repeat the whole course? Experts 
-    differ in their understanding here, and the ambiguity has been preserved as a good example of the real world challenges involved here. 
-    For the purpose of this example, it has been interpreted as an instruction to repeat the whole course.</li>
+  <li>The instructions are ambiguous with regard to flare-ups - is this just straight PRN? or is the intent to repeat the whole course? Humans 
+    differ in their understanding of this, and the ambiguity has been preserved as a good example of the real world challenges involved here</li>
+  <li>For the purpose of this example, it has been interpreted as an instruction to repeat the whole course.</li>
 </ul>
+
 <!-------------------------------------------->
 
 <a name=""> </a>
@@ -1065,7 +1088,12 @@ Epirubicin 45 mg/m² IV on Days 1 &amp; 8 every 28 days × 6 cycles; infuse over
  </ul>
  <div id="tabs-Example4-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
-
+<ul> 
+    <li>Two <code>dosageInstruction</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li> 
+    <li>Infusion duration → <code>Dosage.timing.repeat.duration</code>=20, <code>durationUnit</code>=min; or encode under <code>doseAndRate.rate[x]</code> if modeled as rate.</li> 
+    <li>Maxima: <code>Dosage.maxDosePerPeriod</code> for “per cycle” and <code>Dosage.maxDosePerLifetime</code> for lifetime.</li> 
+    <li>Day-8 offset is expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=8 d</code>).</li> 
+  </ul> 
 <pre class="yaml">
 MedicationRequest
   medication 
@@ -1204,7 +1232,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-4-epirubicin&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Epirubicin&quot;/&gt;
@@ -1287,10 +1314,12 @@ MedicationRequest
  
 </div>
 
-<p>Notes:</p>
+<p><b>Notes:</b></p>
 <ul>
   <li>The structure does not say what /m2 is of - that does not appear to be computable (it’s skin surface area for the patient)</li>
+  <li>Even when understood, mg/m² requires external patient BSA </li>
 </ul>
+
 <!-------------------------------------------->
 
 <a name=""> </a>
@@ -1308,7 +1337,11 @@ Microgynon tab (contraceptives): 1 tablet daily for 21 days, then 7 days off. Th
  </ul>
  <div id="tabs-Example5-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
-
+  <ul> 
+    <li>Express repeating 28-day cycles with <code>Timing.repeat.endOffset = 7 d</code> for the off-interval.</li> 
+    <li>Alternative: two steps—21 daily doses followed by a “break” step with 0 dose; then repeat via new order or plan definition.</li> 
+    <li>Narrative should clarify if placebos are present (daily intake without true off days).</li> 
+  </ul> 
 <pre class="yaml">
 MedicationRequest
   medication 
@@ -1373,7 +1406,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-5-microgynon&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Microgynon tab&quot;/&gt;
@@ -1411,7 +1443,7 @@ MedicationRequest
  
 </div>
 
-<p>Notes:</p>
+<p><b>Notes:</b></p>
 <ul>
   <li>Retail tri-phase contraceptives don’t work like this - they have placebos so that you take a pill every day, and the pills are all day-numbered. 
     There's no way to represent 'take the right numbered pill for the day of your cycle' in the DosageDetails structure</li>
@@ -1433,7 +1465,9 @@ Iron sucrose: “Mon/Wed/Fri 09:00 × 5 doses total.
  </ul>
  <div id="tabs-Example6-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
-
+ <ul> 
+    <li><code>timing.repeat.dayOfWeek</code> = Mon|Wed|Fri; <code>timeOfDay</code> = 09:00; <code>count</code> = 5.</li> 
+  </ul> 
 <pre class="yaml">
 MedicationRequest
   medication 
@@ -1483,7 +1517,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-6-iron-sucrose&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Iron sucrose&quot;/&gt;
@@ -1541,7 +1574,11 @@ Symbicort (budesonide/formoterol):
  </ul>
  <div id="tabs-Example7-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
-
+<ul> 
+    <li>Model planned daily dosing and PRN as separate <code>dosageInstruction</code> entries.</li> 
+    <li>Use <code>Dosage.maxDosePerAdministration</code> = 6 puffs; <code>Dosage.maxDosePerPeriod</code> = 12 puffs per 1 day.</li> 
+  </ul> 
+  
 <pre class="yaml">
 MedicationRequest
   medication 
@@ -1641,7 +1678,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-7-symbicort&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Symbicort&quot;/&gt;
@@ -1720,6 +1756,10 @@ Vitamin D 1 vial the first day of each month.
  </ul>
  <div id="tabs-Example8-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
+<ul> 
+    <li>Use extension <a href="StructureDefinition-timing-dayOfMonth.html"><code>timing-dayOfMonth</code></a> with value 1.</li> 
+    <li><code>frequency=1</code>, <code>period=1</code>, <code>periodUnit=mo</code>.</li> 
+  </ul> 
 
 <pre class="yaml">
 MedicationRequest
@@ -1781,7 +1821,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-8-vitamin-d-monthly&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Vitamin D&quot;/&gt;
@@ -1815,7 +1854,7 @@ MedicationRequest
  
 </div>
 
-<p>Notes:</p>
+<p><b>Notes:</b></p>
 <ul>
   <li>This uses the extension http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth to pin the recurrent event to a day of the month (like day of week).
     This extension is defined in the <a href="http://hl7.org/fhir/extensions">Extensions Pack</a> (or will be)
@@ -1838,7 +1877,9 @@ MedicationRequest
  </ul>
  <div id="tabs-Example9-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
-
+<ul> 
+    <li>Model as three steps (7 doses → break → 3 doses). A “break” can be expressed as a component with dose=0.</li> 
+  </ul> 
 <pre class="yaml">
 MedicationRequest
   medication 
@@ -1964,7 +2005,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-9-vitamin-d-loading&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Vitamin D&quot;/&gt;
@@ -2038,11 +2078,13 @@ MedicationRequest
  
 </div>
 
-<p>Notes:</p>
+<p><b>Notes:</b></p>
 
 <ul>
-  <li>You can also use the endOffset element in Timing to give a regular break; this technique is for irregular breaks</li>
+  <li>You can also use the endOffset element in Timing to give a regular break; this technique here is for irregular breaks</li>
 </ul>
+
+
 <!-------------------------------------------->
 
 <a name=""> </a>
@@ -2060,6 +2102,10 @@ Malaria prophylaxis:  start 1 day before start of (event), stop 7 days after end
  </ul>
  <div id="tabs-Example10-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
+<ul> 
+    <li>event-relative offsets as extensions on the regimen step (e.g., <code>start.offset = -1 d</code>).</li> 
+    <li>Duration/count of daily administrations by <code>timing.repeat</code>.</li> 
+</ul> 
 
 <pre class="yaml">
 MedicationRequest
@@ -2160,7 +2206,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-10-malaria&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Malaria XXX&quot;/&gt;
@@ -2221,6 +2266,7 @@ MedicationRequest
  </div>
  
 </div>
+  <p><b>Caveat:</b> Event semantics are primarily for rendering/coordination, not general computation.</p> 
 
 <!-------------------------------------------->
 
@@ -2240,6 +2286,10 @@ then 20 mg morning for 1 week, then 10 mg morning for 2 weeks, then see doctor f
  </ul>
  <div id="tabs-Example11-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
+<ul> 
+    <li>Use separate <code>dosageInstruction</code> entries per step (weekly bounds).</li> 
+    <li>reference an <code>EventDefinition</code> to describe the “3 negative strips” event</li> 
+  </ul> 
 
 <pre class="yaml">
 MedicationRequest
@@ -2397,7 +2447,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-11-prednisolone&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;PREDNISOLONE 20 mg&quot;/&gt;
@@ -2491,11 +2540,13 @@ MedicationRequest
  
 </div>
 
-<p>Notes:</p>
+<p><b>Notes:</b></p>
 <ul>
-  <li>Note that the computational space of events is absolutely massive, so implementations that try to use this extension shouldn’t expect the event to actually be understood,
+  <li>Note that the computational space of events is absolutely massive, so 
+    implementations that try to use this extension shouldn’t expect the event to actually be understood,
     just rendered - so marginal utility over just putting it in text</li>
 </ul>
+
 <!-------------------------------------------->
 
 <a name=""> </a>
@@ -2513,6 +2564,10 @@ Dovobet ointment: When needed a treatment period of 4 weeks starts. Applied once
  </ul>
  <div id="tabs-Example12-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
+ <ul> 
+    <li>Two steps: an initial 4-week course and a repeatable “if needed” 4-week course.</li> 
+    <li>Limits: <code>Dosage.maxDosePerPeriod</code> = 15 g per 1 day; “≤30% surface area” modeled as a narrative or as a quantity with a percent unit on <code>maxDosePerAdministration</code> if locally profiled.</li> 
+  </ul> 
 
 <pre class="yaml">
 MedicationRequest
@@ -2666,7 +2721,6 @@ MedicationRequest
 <p><b>XML</b></p>
 <pre class="xml" fragment="MedicationRequest">
 &lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;example-12-dovobet&quot;/&gt;
   &lt;medication&gt;
     &lt;concept&gt;
       &lt;text value=&quot;Dovobet ointment&quot;/&gt;
@@ -2765,17 +2819,19 @@ MedicationRequest
  
 </div>
 
-<p>Notes:</p>
+<p><b>Notes:</b></p>
 <ul>
   <li>The conditionCode = if needed is different to dosage.asNeeded because the latter is ‘take a dose if needed’, where as the former is ‘do this entire dosage if needed’</li>
   <li>There’s no hint as to what the 30% is about - 30% of *what*? This will be found in the renderedInstruction</li>
-</ul>
+  <li>Event when understood, 30% of body surface area requires external context</li>
+</ul> 
+
+
 [%file newfooter%]
 
 <!-- jQuery already loaded by site; load jQuery-UI JS only -->
 <script src="./assets/js/jquery-ui.min.js"> </script>
 <script>
-(function() {
   // Try to restore last selected tab index (shared across examples)
   var idx = 0;
   try {
