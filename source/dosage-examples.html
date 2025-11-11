@@ -21,30 +21,941 @@ This page presents a series of examples of how to use <a href="dosage.html">Dosa
 various complex dosing regimes.
 </p>
 
-<a name=""> </a>
-<h2>Example N : Description</h2>
+<!-- =========================
+     Example 1
+========================== -->
+<a name="example-1"> </a>
+<h2>Example 1 : Single dosage</h2>
 
 <p>
-(Description).
+Perindopril — 1 tablet per day for 3 months.
 </p>
 <div id="tabs-Example1" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
  <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
-  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active" aria-controls="tabs-DosageSafety-struc" aria-labelledby="ui-id-15" aria-selected="true" aria-expanded="true"><a href="#tabs-Example1-struc" tabindex="-1" class="ui-tabs-anchor" id="ui-id-15">Structure</a></li>
-  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default" aria-controls="tabs-DosageSafety-uml" aria-labelledby="ui-id-16" aria-selected="false" aria-expanded="false"><a href="#tabs-Example1-json" tabindex="-1" class="ui-tabs-anchor" id="ui-id-16">JSON</a></li>
-  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default" aria-controls="tabs-DosageSafety-xml" aria-labelledby="ui-id-17" aria-selected="false" aria-expanded="false"><a href="#tabs-Example1-xml" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">XML</a></li>
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active" aria-controls="tabs-Example1-struc" aria-selected="true" aria-expanded="true"><a href="#tabs-Example1-struc" tabindex="-1" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default" aria-controls="tabs-Example1-json" aria-selected="false" aria-expanded="false"><a href="#tabs-Example1-json" tabindex="-1" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default" aria-controls="tabs-Example1-xml" aria-selected="false" aria-expanded="false"><a href="#tabs-Example1-xml" tabindex="-1" class="ui-tabs-anchor">XML</a></li>
  </ul>
- <div id="tabs-Example1-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
-<p><b>Structure</b></p>
+
+ <div id="tabs-Example1-struc" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li><code>MedicationRequest.medicationCodeableConcept</code> = “Perindopril Arginine 2.5 mg tablet”</li>
+    <li><code>MedicationRequest.dosageInstruction[0].timing.repeat.boundsDuration</code> = 3&nbsp;mo</li>
+    <li><code>…timing.repeat.frequency/period/periodUnit</code> = 1 / 1 / d</li>
+    <li><code>…doseAndRate[0].doseQuantity</code> = 1 tablet (or explicit mg if desired)</li>
+  </ul>
+  <p><b>Notes:</b> If tablet strength is encoded in the product, keep dose as “1 tablet”.</p>
  </div>
 
- <div id="tabs-Example1-json" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
-<p><b>JSON</b></p>
+ <div id="tabs-Example1-json" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "text": "Perindopril Arginine 2.5 mg tablet"
+  },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [{
+    "text": "Take 1 tablet daily for 3 months",
+    "timing": {
+      "repeat": {
+        "boundsDuration": { "value": 3, "unit": "month", "system": "http://unitsofmeasure.org", "code": "mo" },
+        "frequency": 1,
+        "period": 1,
+        "periodUnit": "d"
+      }
+    },
+    "doseAndRate": [{
+      "doseQuantity": { "value": 1, "unit": "tablet" }
+    }]
+  }]
+}
+  </pre>
  </div>
 
- <div id="tabs-Example1-xml" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
-<p><b>XML</b></p>
+ <div id="tabs-Example1-xml" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>
+  &lt;intent value="order"/>
+  &lt;medicationCodeableConcept>
+    &lt;text value="Perindopril Arginine 2.5 mg tablet"/>
+  &lt;/medicationCodeableConcept>
+  &lt;subject>
+    &lt;reference value="Patient/example"/>
+  &lt;/subject>
+  &lt;dosageInstruction>
+    &lt;text value="Take 1 tablet daily for 3 months"/>
+    &lt;timing>
+      &lt;repeat>
+        &lt;boundsDuration>
+          &lt;value value="3"/>
+          &lt;unit value="month"/>
+          &lt;system value="http://unitsofmeasure.org"/>
+          &lt;code value="mo"/>
+        &lt;/boundsDuration>
+        &lt;frequency value="1"/>
+        &lt;period value="1"/>
+        &lt;periodUnit value="d"/>
+      &lt;/repeat>
+    &lt;/timing>
+    &lt;doseAndRate>
+      &lt;doseQuantity>
+        &lt;value value="1"/>
+        &lt;unit value="tablet"/>
+      &lt;/doseQuantity>
+    &lt;/doseAndRate>
+  &lt;/dosageInstruction>
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 2
+========================== -->
+<a name="example-2"> </a>
+<h2>Example 2 : Variant dosages by time-of-day; weekly max</h2>
+
+<p>
+Methylphenidate 10&nbsp;mg tablets — 10&nbsp;mg at 07:30 and 12:00, 5&nbsp;mg at 16:00 Mon–Fri; 10&nbsp;mg at 08:00 Sat–Sun; 5&nbsp;mg PRN after 17:00 (max 2×/week); do not exceed 150&nbsp;mg/week.
+</p>
+<div id="tabs-Example2" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example2-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example2-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example2-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example2-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li>Model as multiple <code>dosageInstruction</code> entries (by dayOfWeek/timeOfDay) + one PRN entry.</li>
+    <li><code>Dosage.timing.repeat.dayOfWeek</code> and <code>…timeOfDay</code> for fixed administrations.</li>
+    <li><code>Dosage.asNeededBoolean</code> for PRN (evening); optionally <code>…when = EVE</code>.</li>
+    <li><code>Dosage.maxDosePerPeriod</code> (Ratio) for 150&nbsp;mg per week.</li>
+  </ul>
+  <p><b>Not supported / Caveats:</b> “and holidays” is ambiguous; capture in narrative <code>Dosage.text</code>.</p>
  </div>
 
+ <div id="tabs-Example2-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Methylphenidate 10 mg tablet" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [
+    {
+      "text": "10 mg at 07:30 and 12:00 Mon–Fri",
+      "timing": { "repeat": { "dayOfWeek": ["mon","tue","wed","thu","fri"], "timeOfDay": ["07:30","12:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 10, "unit": "mg" } }]
+    },
+    {
+      "text": "5 mg at 16:00 Mon–Fri",
+      "timing": { "repeat": { "dayOfWeek": ["mon","tue","wed","thu","fri"], "timeOfDay": ["16:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 5, "unit": "mg" } }]
+    },
+    {
+      "text": "10 mg at 08:00 Sat–Sun",
+      "timing": { "repeat": { "dayOfWeek": ["sat","sun"], "timeOfDay": ["08:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 10, "unit": "mg" } }]
+    },
+    {
+      "text": "5 mg PRN after 17:00 (max 2×/week — narrative)",
+      "asNeededBoolean": true,
+      "timing": { "repeat": { "when": ["EVE"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 5, "unit": "mg" } }]
+    }
+  ],
+  "note": [{ "text": "Holiday handling not computable; see text." }],
+  "extension": [{
+    "url": "http://hl7.org/fhir/StructureDefinition/dosage-maxDosePerPeriod",
+    "valueRatio": {
+      "numerator": { "value": 150, "unit": "mg" },
+      "denominator": { "value": 1, "unit": "week" }
+    }
+  }]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example2-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>
+  &lt;intent value="order"/>
+  &lt;medicationCodeableConcept>
+    &lt;text value="Methylphenidate 10 mg tablet"/>
+  &lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;dosageInstruction>
+    &lt;text value="10 mg at 07:30 and 12:00 Mon–Fri"/>
+    &lt;timing>&lt;repeat>
+      &lt;dayOfWeek value="mon"/>&lt;dayOfWeek value="tue"/>&lt;dayOfWeek value="wed"/>&lt;dayOfWeek value="thu"/>&lt;dayOfWeek value="fri"/>
+      &lt;timeOfDay value="07:30"/>&lt;timeOfDay value="12:00"/>
+    &lt;/repeat>&lt;/timing>
+    &lt;doseAndRate>&lt;doseQuantity>&lt;value value="10"/>&lt;unit value="mg"/>&lt;/doseQuantity>&lt;/doseAndRate>
+  &lt;/dosageInstruction>
+  &lt;dosageInstruction>
+    &lt;text value="5 mg at 16:00 Mon–Fri"/>
+    &lt;timing>&lt;repeat>
+      &lt;dayOfWeek value="mon"/>&lt;dayOfWeek value="tue"/>&lt;dayOfWeek value="wed"/>&lt;dayOfWeek value="thu"/>&lt;dayOfWeek value="fri"/>
+      &lt;timeOfDay value="16:00"/>
+    &lt;/repeat>&lt;/timing>
+    &lt;doseAndRate>&lt;doseQuantity>&lt;value value="5"/>&lt;unit value="mg"/>&lt;/doseQuantity>&lt;/doseAndRate>
+  &lt;/dosageInstruction>
+  &lt;dosageInstruction>
+    &lt;text value="10 mg at 08:00 Sat–Sun"/>
+    &lt;timing>&lt;repeat>
+      &lt;dayOfWeek value="sat"/>&lt;dayOfWeek value="sun"/>
+      &lt;timeOfDay value="08:00"/>
+    &lt;/repeat>&lt;/timing>
+    &lt;doseAndRate>&lt;doseQuantity>&lt;value value="10"/>&lt;unit value="mg"/>&lt;/doseQuantity>&lt;/doseAndRate>
+  &lt;/dosageInstruction>
+  &lt;dosageInstruction>
+    &lt;text value="5 mg PRN after 17:00 (max 2×/week — narrative)"/>
+    &lt;asNeededBoolean value="true"/>
+    &lt;timing>&lt;repeat>&lt;when value="EVE"/>&lt;/repeat>&lt;/timing>
+    &lt;doseAndRate>&lt;doseQuantity>&lt;value value="5"/>&lt;unit value="mg"/>&lt;/doseQuantity>&lt;/doseAndRate>
+  &lt;/dosageInstruction>
+  &lt;extension url="http://hl7.org/fhir/StructureDefinition/dosage-maxDosePerPeriod">
+    &lt;valueRatio>
+      &lt;numerator>&lt;value value="150"/>&lt;unit value="mg"/>&lt;/numerator>
+      &lt;denominator>&lt;value value="1"/>&lt;unit value="week"/>&lt;/denominator>
+    &lt;/valueRatio>
+  &lt;/extension>
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 3
+========================== -->
+<a name="example-3"> </a>
+<h2>Example 3 : Taper with interlaced dosages</h2>
+
+<p>
+Prednisone 10&nbsp;mg tablets — multi-step taper: see narrative; includes “every other day” maintenance and optional PRN courses.
+</p>
+<div id="tabs-Example3" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example3-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example3-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example3-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example3-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li>Represent each step as a separate <code>dosageInstruction</code> with its own <code>timing.repeat</code> and dose.</li>
+    <li>“Every other day” → <code>period=2</code>, <code>periodUnit=d</code>.</li>
+    <li>Optional PRN course as a separate PRN <code>dosageInstruction</code> (narrative driven).</li>
+  </ul>
+  <p><b>Caveat:</b> “max two courses per 6 months” lacks computable “course” semantics; include in narrative or use a management rule outside the order.</p>
+ </div>
+
+ <div id="tabs-Example3-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Prednisone 10 mg tablet" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [
+    { "text": "40 mg at 08:00 and 20:00 for 5 days",
+      "timing": { "repeat": { "boundsDuration": { "value": 5, "unit": "day", "code":"d","system":"http://unitsofmeasure.org" },
+                              "frequency": 2, "period": 1, "periodUnit": "d",
+                              "timeOfDay": ["08:00","20:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 40, "unit": "mg" } }]
+    },
+    { "text": "30 mg at 08:00 for 5 days",
+      "timing": { "repeat": { "count": 5, "period": 1, "periodUnit": "d", "timeOfDay": ["08:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 30, "unit": "mg" } }]
+    },
+    { "text": "20 mg at 20:00 for 5 days",
+      "timing": { "repeat": { "count": 5, "period": 1, "periodUnit": "d", "timeOfDay": ["20:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 20, "unit": "mg" } }]
+    },
+    { "text": "20 mg at 08:00 for 10 days",
+      "timing": { "repeat": { "count": 10, "period": 1, "periodUnit": "d", "timeOfDay": ["08:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 20, "unit": "mg" } }]
+    },
+    { "text": "10 mg at 08:00 for 5 days",
+      "timing": { "repeat": { "count": 5, "period": 1, "periodUnit": "d", "timeOfDay": ["08:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 10, "unit": "mg" } }]
+    },
+    { "text": "5 mg at 08:00 for 5 days",
+      "timing": { "repeat": { "count": 5, "period": 1, "periodUnit": "d", "timeOfDay": ["08:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 5, "unit": "mg" } }]
+    },
+    { "text": "Then 5 mg at 08:00 every other day for 3 months",
+      "timing": { "repeat": { "boundsDuration": { "value": 3, "unit":"month","code":"mo","system":"http://unitsofmeasure.org" },
+                              "period": 2, "periodUnit": "d", "timeOfDay": ["08:00"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 5, "unit": "mg" } }]
+    },
+    { "text": "PRN 5 mg for flare-ups (max two courses per 6 months — narrative)",
+      "asNeededBoolean": true
+    }
+  ],
+  "note": [{ "text": "Max two courses per 6 months is not computably enforced in dosage." }]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example3-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>
+  &lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Prednisone 10 mg tablet"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;!-- Multiple dosageInstruction entries as per JSON; omitted for brevity -->
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 4
+========================== -->
+<a name="example-4"> </a>
+<h2>Example 4 : Different days in repeating pattern; course & lifetime maxima</h2>
+
+<p>
+Epirubicin 45&nbsp;mg/m² IV on Days 1 &amp; 8 every 28&nbsp;days × 6 cycles; infuse over 20&nbsp;min at 09:00; max 90&nbsp;mg/m² per cycle and 900&nbsp;mg/m² lifetime.
+</p>
+<div id="tabs-Example4" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example4-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example4-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example4-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example4-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li>Two <code>dosageInstruction</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li>
+    <li>Infusion duration → <code>Dosage.timing.repeat.duration</code>=20, <code>durationUnit</code>=min; or encode under <code>doseAndRate.rate[x]</code> if modeled as rate.</li>
+    <li>Maxima: <code>Dosage.maxDosePerPeriod</code> for “per cycle” and <code>Dosage.maxDosePerLifetime</code> for lifetime.</li>
+    <li><b>Proposed:</b> Day-8 offset can be expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=8 d</code>).</li>
+  </ul>
+  <p><b>Caveat:</b> mg/m² requires external patient BSA.</p>
+ </div>
+
+ <div id="tabs-Example4-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Epirubicin" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [
+    {
+      "text": "Day 1 of each 28-day cycle ×6; infuse 20 min @09:00",
+      "timing": { "repeat": { "count": 6, "period": 28, "periodUnit": "d", "timeOfDay": ["09:00"], "duration": 20, "durationUnit": "min" } },
+      "doseAndRate": [{ "rateQuantity": { "value": 45, "unit": "mg/m2" } }],
+      "maxDosePerPeriod": {
+        "numerator": { "value": 90, "unit": "mg/m2" },
+        "denominator": { "value": 1, "unit": "cycle" }
+      },
+      "maxDosePerLifetime": { "value": 900, "unit": "mg/m2" }
+    },
+    {
+      "text": "Day 8 of each 28-day cycle ×6; infuse 20 min @09:00",
+      "timing": {
+        "repeat": {
+          "count": 6, "period": 28, "periodUnit": "d", "timeOfDay": ["09:00"], "duration": 20, "durationUnit": "min"
+        },
+        "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/timing-startOffset",  /* proposed */
+          "valueDuration": { "value": 8, "unit": "day", "code": "d", "system": "http://unitsofmeasure.org" }
+        }]
+      },
+      "doseAndRate": [{ "rateQuantity": { "value": 45, "unit": "mg/m2" } }]
+    }
+  ]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example4-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>
+  &lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Epirubicin"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;!-- Day 1 dosageInstruction with count=6, period=28d, duration=20min, timeOfDay=09:00 -->
+  &lt;!-- Day 8 dosageInstruction as above with proposed startOffset extension -->
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 5
+========================== -->
+<a name="example-5"> </a>
+<h2>Example 5 : Triphasic contraceptive (21 on / 7 off)</h2>
+
+<p>
+Microgynon: 1 tablet daily for 21 days, then 7 days off; repeat.
+</p>
+<div id="tabs-Example5" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example5-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example5-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example5-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example5-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li>Express repeating 28-day cycles with <b>proposed</b> <code>Timing.repeat.endOffset = 7 d</code> for the off-interval.</li>
+    <li>Alternative: two steps—21 daily doses followed by a “break” step with 0 dose; then repeat via new order or plan definition.</li>
+    <li>Narrative should clarify if placebos are present (daily intake without true off days).</li>
+  </ul>
+ </div>
+
+ <div id="tabs-Example5-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Microgynon tablet" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [{
+    "text": "1 tablet daily for 21 days, then 7 days off; repeat",
+    "timing": {
+      "repeat": { "period": 28, "periodUnit": "d", "frequency": 1, "frequencyMax": 1 },
+      "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/timing-endOffset",  /* proposed */
+        "valueDuration": { "value": 7, "unit": "day", "code": "d", "system": "http://unitsofmeasure.org" }
+      }]
+    },
+    "doseAndRate": [{ "doseQuantity": { "value": 1, "unit": "tablet" } }]
+  }]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example5-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>&lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Microgynon tablet"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;dosageInstruction>
+    &lt;text value="1 tablet daily for 21 days, then 7 days off; repeat"/>
+    &lt;timing>
+      &lt;repeat>
+        &lt;period value="28"/>&lt;periodUnit value="d"/>&lt;frequency value="1"/>
+      &lt;/repeat>
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/timing-endOffset">
+        &lt;valueDuration>
+          &lt;value value="7"/>&lt;unit value="day"/>&lt;system value="http://unitsofmeasure.org"/>&lt;code value="d"/>
+        &lt;/valueDuration>
+      &lt;/extension>
+    &lt;/timing>
+    &lt;doseAndRate>&lt;doseQuantity>&lt;value value="1"/>&lt;unit value="tablet"/>&lt;/doseQuantity>&lt;/doseAndRate>
+  &lt;/dosageInstruction>
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 6
+========================== -->
+<a name="example-6"> </a>
+<h2>Example 6 : Limited doses on specific weekdays</h2>
+
+<p>
+Iron sucrose — Mon/Wed/Fri 09:00 × 5 doses total.
+</p>
+<div id="tabs-Example6" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example6-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example6-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example6-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example6-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li><code>timing.repeat.dayOfWeek</code> = Mon|Wed|Fri; <code>timeOfDay</code> = 09:00; <code>count</code> = 5.</li>
+  </ul>
+ </div>
+
+ <div id="tabs-Example6-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Iron sucrose" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [{
+    "text": "Mon/Wed/Fri 09:00 × 5 doses total",
+    "timing": {
+      "repeat": {
+        "count": 5,
+        "dayOfWeek": ["mon","wed","fri"],
+        "timeOfDay": ["09:00"],
+        "period": 1,
+        "periodUnit": "d"
+      }
+    }
+  }]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example6-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>&lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Iron sucrose"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;dosageInstruction>
+    &lt;text value="Mon/Wed/Fri 09:00 × 5 doses total"/>
+    &lt;timing>&lt;repeat>
+      &lt;count value="5"/>
+      &lt;dayOfWeek value="mon"/>&lt;dayOfWeek value="wed"/>&lt;dayOfWeek value="fri"/>
+      &lt;timeOfDay value="09:00"/>
+      &lt;period value="1"/>&lt;periodUnit value="d"/>
+    &lt;/repeat>&lt;/timing>
+  &lt;/dosageInstruction>
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 7
+========================== -->
+<a name="example-7"> </a>
+<h2>Example 7 : Dual maximums (per administration and per day)</h2>
+
+<p>
+Symbicort — 2 inhalations/day (as 1+1 or 2 once); 1 additional PRN; max 6 per administration; max 12 per day.
+</p>
+<div id="tabs-Example7" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example7-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example7-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example7-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example7-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li>Model planned daily dosing and PRN as separate <code>dosageInstruction</code> entries.</li>
+    <li>Use <code>Dosage.maxDosePerAdministration</code> = 6 puffs; <code>Dosage.maxDosePerPeriod</code> = 12 puffs per 1 day.</li>
+  </ul>
+ </div>
+
+ <div id="tabs-Example7-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Symbicort" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [{
+      "text": "2 inhalations/day (1+1 or 2 once)",
+      "timing": { "repeat": { "frequency": 1, "period": 1, "periodUnit": "d" } },
+      "maxDosePerAdministration": { "value": 6, "unit": "puff" },
+      "maxDosePerPeriod": {
+        "numerator": { "value": 12, "unit": "puff" },
+        "denominator": { "value": 1, "unit": "day" }
+      }
+    },
+    {
+      "text": "1 inhalation PRN",
+      "asNeededBoolean": true
+    }
+  ]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example7-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>&lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Symbicort"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;dosageInstruction>
+    &lt;text value="2 inhalations/day (1+1 or 2 once)"/>
+    &lt;timing>&lt;repeat>&lt;frequency value="1"/>&lt;period value="1"/>&lt;periodUnit value="d"/>&lt;/repeat>&lt;/timing>
+    &lt;maxDosePerAdministration>
+      &lt;value value="6"/>&lt;unit value="puff"/>
+    &lt;/maxDosePerAdministration>
+    &lt;maxDosePerPeriod>
+      &lt;numerator>&lt;value value="12"/>&lt;unit value="puff"/>&lt;/numerator>
+      &lt;denominator>&lt;value value="1"/>&lt;unit value="day"/>&lt;/denominator>
+    &lt;/maxDosePerPeriod>
+  &lt;/dosageInstruction>
+  &lt;dosageInstruction>
+    &lt;text value="1 inhalation PRN"/>&lt;asNeededBoolean value="true"/>
+  &lt;/dosageInstruction>
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 8
+========================== -->
+<a name="example-8"> </a>
+<h2>Example 8 : Pin to day of month</h2>
+
+<p>
+Vitamin D — 1 vial on the first day of each month.
+</p>
+<div id="tabs-Example8" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example8-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example8-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example8-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example8-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li>Use extension <a href="StructureDefinition-timing-dayOfMonth.html"><code>timing-dayOfMonth</code></a> with value 1.</li>
+    <li><code>frequency=1</code>, <code>period=1</code>, <code>periodUnit=mo</code>.</li>
+  </ul>
+ </div>
+
+ <div id="tabs-Example8-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Vitamin D" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [{
+    "text": "1 vial on the first day of each month",
+    "timing": {
+      "extension": [{
+        "url": "http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth",
+        "valueInteger": 1
+      }],
+      "repeat": { "frequency": 1, "period": 1, "periodUnit": "mo" }
+    }
+  }]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example8-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>&lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Vitamin D"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;dosageInstruction>
+    &lt;text value="1 vial on the first day of each month"/>
+    &lt;timing>
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth">
+        &lt;valueInteger value="1"/>
+      &lt;/extension>
+      &lt;repeat>&lt;frequency value="1"/>&lt;period value="1"/>&lt;periodUnit value="mo"/>&lt;/repeat>
+    &lt;/timing>
+  &lt;/dosageInstruction>
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 9
+========================== -->
+<a name="example-9"> </a>
+<h2>Example 9 : A break in the course</h2>
+
+<p>
+1 tablet a day for 7 days, then 3 days break, then 1 tablet a day for 3 days.
+</p>
+<div id="tabs-Example9" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example9-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example9-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example9-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example9-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li>Model as three steps (7 doses → break → 3 doses). A “break” can be expressed as a component with dose=0.</li>
+    <li>Alternatively, a <b>proposed</b> <code>Timing.repeat.endOffset</code> could express regular off-intervals inside a cycle.</li>
+  </ul>
+ </div>
+
+ <div id="tabs-Example9-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Vitamin D" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [
+    { "text": "1 tablet daily ×7",
+      "timing": { "repeat": { "count": 7, "period": 1, "periodUnit": "d" } },
+      "doseAndRate": [{ "doseQuantity": { "value": 1, "unit": "tablet" } }]
+    },
+    { "text": "Break ×3 days",
+      "timing": { "repeat": { "count": 3, "period": 1, "periodUnit": "d" } },
+      "doseAndRate": [{ "doseQuantity": { "value": 0, "unit": "tablet" } }]
+    },
+    { "text": "1 tablet daily ×3",
+      "timing": { "repeat": { "count": 3, "period": 1, "periodUnit": "d" } },
+      "doseAndRate": [{ "doseQuantity": { "value": 1, "unit": "tablet" } }]
+    }
+  ]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example9-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>&lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Vitamin D"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;!-- Three dosageInstruction entries as per JSON -->
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 10
+========================== -->
+<a name="example-10"> </a>
+<h2>Example 10 : Event dependency (start/stop relative to event)</h2>
+
+<p>
+Malaria prophylaxis — start 1 day before event; stop 7 days after event ends.
+</p>
+<div id="tabs-Example10" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example10-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example10-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example10-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example10-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li><b>Proposed:</b> event-relative offsets as extensions on the regimen step (e.g., <code>start.offset = -1 d</code>).</li>
+    <li>Duration/count of daily administrations by <code>timing.repeat</code>.</li>
+  </ul>
+  <p><b>Caveat:</b> Event semantics are primarily for rendering/coordination, not general computation.</p>
+ </div>
+
+ <div id="tabs-Example10-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Malaria prophylaxis" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [{
+    "text": "Start 1 day before event; continue daily; stop 7 days after event",
+    "timing": {
+      "repeat": { "count": 8, "period": 1, "periodUnit": "d" }
+    },
+    "extension": [{
+      "url": "http://hl7.org/fhir/StructureDefinition/event-relative-offset",  /* proposed */
+      "valueString": "start:-1d; end:+7d"
+    }]
+  }]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example10-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>&lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Malaria prophylaxis"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;dosageInstruction>
+    &lt;text value="Start 1 day before event; continue daily; stop 7 days after event"/>
+    &lt;timing>&lt;repeat>&lt;count value="8"/>&lt;period value="1"/>&lt;periodUnit value="d"/>&lt;/repeat>&lt;/timing>
+    &lt;extension url="http://hl7.org/fhir/StructureDefinition/event-relative-offset">
+      &lt;valueString value="start:-1d; end:+7d"/>
+    &lt;/extension>
+  &lt;/dosageInstruction>
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 11
+========================== -->
+<a name="example-11"> </a>
+<h2>Example 11 : Event dependency in steps (lab-driven stop, weekly stepdown)</h2>
+
+<p>
+Prednisolone 20&nbsp;mg — 60&nbsp;mg morning until 3 negative urine strips; then weekly stepdown (50→40→30→20→10).
+</p>
+<div id="tabs-Example11" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example11-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example11-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example11-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example11-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li>Use separate <code>dosageInstruction</code> entries per step (weekly bounds).</li>
+    <li><b>Proposed:</b> reference an <code>EventDefinition</code> to describe the “3 negative strips” event; treat as narrative for interoperability.</li>
+  </ul>
+ </div>
+
+ <div id="tabs-Example11-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Prednisolone 20 mg" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [
+    {
+      "text": "60 mg every morning until 3 negative urine strips (event-driven)",
+      "timing": { "repeat": { "period": 1, "periodUnit": "d", "when": ["MORN"] } },
+      "doseAndRate": [{ "doseQuantity": { "value": 60, "unit": "mg" } }],
+      "extension": [{ "url": "http://hl7.org/fhir/StructureDefinition/event-definition", "valueCanonical": "EventDefinition/example" }]
+    },
+    { "text": "50 mg qAM ×1 week", "timing": { "repeat": { "boundsDuration": { "value": 1, "unit": "week" }, "period": 1, "periodUnit": "d", "when": ["MORN"] } }, "doseAndRate": [{ "doseQuantity": { "value": 50, "unit": "mg" } }] },
+    { "text": "40 mg qAM ×1 week", "timing": { "repeat": { "boundsDuration": { "value": 1, "unit": "week" }, "period": 1, "periodUnit": "d", "when": ["MORN"] } }, "doseAndRate": [{ "doseQuantity": { "value": 40, "unit": "mg" } }] },
+    { "text": "30 mg qAM ×1 week", "timing": { "repeat": { "boundsDuration": { "value": 1, "unit": "week" }, "period": 1, "periodUnit": "d", "when": ["MORN"] } }, "doseAndRate": [{ "doseQuantity": { "value": 30, "unit": "mg" } }] },
+    { "text": "20 mg qAM ×1 week", "timing": { "repeat": { "boundsDuration": { "value": 1, "unit": "week" }, "period": 1, "periodUnit": "d", "when": ["MORN"] } }, "doseAndRate": [{ "doseQuantity": { "value": 20, "unit": "mg" } }] },
+    { "text": "10 mg qAM ×2 weeks", "timing": { "repeat": { "boundsDuration": { "value": 2, "unit": "week" }, "period": 1, "periodUnit": "d", "when": ["MORN"] } }, "doseAndRate": [{ "doseQuantity": { "value": 10, "unit": "mg" } }] }
+  ]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example11-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>&lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Prednisolone 20 mg"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;!-- Steps as per JSON; event reference via extension (proposed) -->
+&lt;/MedicationRequest>
+  </pre>
+ </div>
+</div>
+
+<!-- =========================
+     Example 12
+========================== -->
+<a name="example-12"> </a>
+<h2>Example 12 : “If needed” courses with limits</h2>
+
+<p>
+Dovobet ointment — when needed a 4-week treatment period starts, once daily; may repeat if needed. Max 15&nbsp;g/day; area ≤ 30%.
+</p>
+<div id="tabs-Example12" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active"><a href="#tabs-Example12-struc" class="ui-tabs-anchor">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example12-json" class="ui-tabs-anchor">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default"><a href="#tabs-Example12-xml" class="ui-tabs-anchor">XML</a></li>
+ </ul>
+
+ <div id="tabs-Example12-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
+  <p><b>Structure</b></p>
+  <ul>
+    <li>Two steps: an initial 4-week course and a repeatable “if needed” 4-week course.</li>
+    <li>Limits: <code>Dosage.maxDosePerPeriod</code> = 15 g per 1 day; “≤30% surface area” modeled as a narrative or as a quantity with a percent unit on <code>maxDosePerAdministration</code> if locally profiled.</li>
+  </ul>
+  <p><b>Caveat:</b> 30% of body surface area requires external context; treat as narrative constraint.</p>
+ </div>
+
+ <div id="tabs-Example12-json" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>JSON</b></p>
+  <pre class="json">
+{
+  "resourceType": "MedicationRequest",
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": { "text": "Dovobet ointment" },
+  "subject": { "reference": "Patient/example" },
+  "dosageInstruction": [
+    {
+      "text": "Apply once daily for 4 weeks",
+      "timing": { "repeat": { "boundsDuration": { "value": 4, "unit": "week" }, "period": 1, "periodUnit": "d" } },
+      "maxDosePerPeriod": {
+        "numerator": { "value": 15, "unit": "g" },
+        "denominator": { "value": 1, "unit": "day" }
+      }
+    },
+    {
+      "text": "If needed, repeat once daily for 4 weeks",
+      "asNeededBoolean": true,
+      "timing": { "repeat": { "boundsDuration": { "value": 4, "unit": "week" }, "period": 1, "periodUnit": "d" } },
+      "note": [{ "text": "Do not exceed 30% body surface area per administration (narrative constraint)." }]
+    }
+  ]
+}
+  </pre>
+ </div>
+
+ <div id="tabs-Example12-xml" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
+  <p><b>XML</b></p>
+  <pre class="xml">
+&lt;MedicationRequest xmlns="http://hl7.org/fhir">
+  &lt;status value="active"/>&lt;intent value="order"/>
+  &lt;medicationCodeableConcept>&lt;text value="Dovobet ointment"/>&lt;/medicationCodeableConcept>
+  &lt;subject>&lt;reference value="Patient/example"/>&lt;/subject>
+  &lt;!-- Two dosageInstruction entries as per JSON; maxDosePerPeriod=15 g/day; 30% area as narrative -->
+&lt;/MedicationRequest>
+  </pre>
+ </div>
 </div>
 
 
