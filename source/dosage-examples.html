@@ -1,7 +1,5 @@
 ﻿<!DOCTYPE HTML>
 
-
-      
 [%settitle Dosage  Examples%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -10,7 +8,31 @@
 <body>
 [%file newnavbar%]
 
-
+<style>
+  /* Your special dosage list */
+  ul.ex-struct {
+    margin: 0.5em 0 1em 1.25em;
+    padding: 0;
+  }
+  
+  /* Ensure each item starts on a new line */
+  ul.ex-struct > li {
+    display: block !important;        /* break onto new line */
+    float: none !important;           /* undo flex or float */
+    clear: both !important;           /* enforce line break */
+    margin: 0.25em 0;                 /* spacing between lines */
+    line-height: 1.5;                 /* vertical rhythm */
+    color: #111 !important;
+  }
+  
+  /* Inline code inside those items */
+  ul.ex-struct > li > code {
+    color: #006400 !important;        /* dark green like FHIR's code blocks */
+    background: none !important;      /* remove grey bg */
+    font-weight: 600;
+    white-space: pre;                 /* preserve spacing */
+  }
+  </style>
 
 <%dtxheader examples Dosage%>
 <h2>Dosage Regime Examples</h2>
@@ -39,13 +61,13 @@ Perindopril — 1 tablet per day for 3 months.
 
  <div id="tabs-Example1-struc" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
-    <li><code>MedicationRequest.medicationCodeableConcept</code> = “Perindopril Arginine 2.5 mg tablet”</li>
+  <ul class="ex-struct">
+    <li><code>MedicationRequest.medicationCodeableConcept</code> = "Perindopril Arginine 2.5 mg tablet"</li>
     <li><code>MedicationRequest.dosageInstruction[0].timing.repeat.boundsDuration</code> = 3&nbsp;mo</li>
     <li><code>…timing.repeat.frequency/period/periodUnit</code> = 1 / 1 / d</li>
     <li><code>…doseAndRate[0].doseQuantity</code> = 1 tablet (or explicit mg if desired)</li>
   </ul>
-  <p><b>Notes:</b> If tablet strength is encoded in the product, keep dose as “1 tablet”.</p>
+  <p><b>Notes:</b> If tablet strength is encoded in the product, keep dose as "1 tablet".</p>
  </div>
 
  <div id="tabs-Example1-json" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" style="display:none;">
@@ -256,7 +278,7 @@ Prednisone 10&nbsp;mg tablets — multi-step taper: see narrative; includes “e
 
  <div id="tabs-Example3-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
+  <ul class="ex-struct">
     <li>Represent each step as a separate <code>dosageInstruction</code> with its own <code>timing.repeat</code> and dose.</li>
     <li>“Every other day” → <code>period=2</code>, <code>periodUnit=d</code>.</li>
     <li>Optional PRN course as a separate PRN <code>dosageInstruction</code> (narrative driven).</li>
@@ -332,7 +354,7 @@ Prednisone 10&nbsp;mg tablets — multi-step taper: see narrative; includes “e
      Example 4
 ========================== -->
 <a name="example-4"> </a>
-<h2>Example 4 : Different days in repeating pattern; course & lifetime maxima</h2>
+<h2>Example 4 : Different days in repeating pattern; course &amp; lifetime maxima</h2>
 
 <p>
 Epirubicin 45&nbsp;mg/m² IV on Days 1 &amp; 8 every 28&nbsp;days × 6 cycles; infuse over 20&nbsp;min at 09:00; max 90&nbsp;mg/m² per cycle and 900&nbsp;mg/m² lifetime.
@@ -346,11 +368,11 @@ Epirubicin 45&nbsp;mg/m² IV on Days 1 &amp; 8 every 28&nbsp;days × 6 cycles; i
 
  <div id="tabs-Example4-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
+  <ul class="ex-struct">
     <li>Two <code>dosageInstruction</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li>
     <li>Infusion duration → <code>Dosage.timing.repeat.duration</code>=20, <code>durationUnit</code>=min; or encode under <code>doseAndRate.rate[x]</code> if modeled as rate.</li>
     <li>Maxima: <code>Dosage.maxDosePerPeriod</code> for “per cycle” and <code>Dosage.maxDosePerLifetime</code> for lifetime.</li>
-    <li><b>Proposed:</b> Day-8 offset can be expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=8 d</code>).</li>
+    <li><b>Proposed:</b> Day-8 offset can be expressed via a <code>Timing.repeat</code> extension with a start offset.</li>
   </ul>
   <p><b>Caveat:</b> mg/m² requires external patient BSA.</p>
  </div>
@@ -382,7 +404,7 @@ Epirubicin 45&nbsp;mg/m² IV on Days 1 &amp; 8 every 28&nbsp;days × 6 cycles; i
           "count": 6, "period": 28, "periodUnit": "d", "timeOfDay": ["09:00"], "duration": 20, "durationUnit": "min"
         },
         "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/timing-startOffset",  /* proposed */
+          "url": "http://hl7.org/fhir/StructureDefinition/timing-startOffset",
           "valueDuration": { "value": 8, "unit": "day", "code": "d", "system": "http://unitsofmeasure.org" }
         }]
       },
@@ -426,7 +448,7 @@ Microgynon: 1 tablet daily for 21 days, then 7 days off; repeat.
 
  <div id="tabs-Example5-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
+  <ul class="ex-struct">
     <li>Express repeating 28-day cycles with <b>proposed</b> <code>Timing.repeat.endOffset = 7 d</code> for the off-interval.</li>
     <li>Alternative: two steps—21 daily doses followed by a “break” step with 0 dose; then repeat via new order or plan definition.</li>
     <li>Narrative should clarify if placebos are present (daily intake without true off days).</li>
@@ -445,9 +467,9 @@ Microgynon: 1 tablet daily for 21 days, then 7 days off; repeat.
   "dosageInstruction": [{
     "text": "1 tablet daily for 21 days, then 7 days off; repeat",
     "timing": {
-      "repeat": { "period": 28, "periodUnit": "d", "frequency": 1, "frequencyMax": 1 },
+      "repeat": { "period": 28, "periodUnit": "d", "frequency": 1 },
       "extension": [{
-        "url": "http://hl7.org/fhir/StructureDefinition/timing-endOffset",  /* proposed */
+        "url": "http://hl7.org/fhir/StructureDefinition/timing-endOffset",
         "valueDuration": { "value": 7, "unit": "day", "code": "d", "system": "http://unitsofmeasure.org" }
       }]
     },
@@ -501,7 +523,7 @@ Iron sucrose — Mon/Wed/Fri 09:00 × 5 doses total.
 
  <div id="tabs-Example6-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
+  <ul class="ex-struct">
     <li><code>timing.repeat.dayOfWeek</code> = Mon|Wed|Fri; <code>timeOfDay</code> = 09:00; <code>count</code> = 5.</li>
   </ul>
  </div>
@@ -570,7 +592,7 @@ Symbicort — 2 inhalations/day (as 1+1 or 2 once); 1 additional PRN; max 6 per 
 
  <div id="tabs-Example7-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
+  <ul class="ex-struct">
     <li>Model planned daily dosing and PRN as separate <code>dosageInstruction</code> entries.</li>
     <li>Use <code>Dosage.maxDosePerAdministration</code> = 6 puffs; <code>Dosage.maxDosePerPeriod</code> = 12 puffs per 1 day.</li>
   </ul>
@@ -585,7 +607,8 @@ Symbicort — 2 inhalations/day (as 1+1 or 2 once); 1 additional PRN; max 6 per 
   "intent": "order",
   "medicationCodeableConcept": { "text": "Symbicort" },
   "subject": { "reference": "Patient/example" },
-  "dosageInstruction": [{
+  "dosageInstruction": [
+    {
       "text": "2 inhalations/day (1+1 or 2 once)",
       "timing": { "repeat": { "frequency": 1, "period": 1, "periodUnit": "d" } },
       "maxDosePerAdministration": { "value": 6, "unit": "puff" },
@@ -647,7 +670,7 @@ Vitamin D — 1 vial on the first day of each month.
 
  <div id="tabs-Example8-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
+  <ul class="ex-struct">
     <li>Use extension <a href="StructureDefinition-timing-dayOfMonth.html"><code>timing-dayOfMonth</code></a> with value 1.</li>
     <li><code>frequency=1</code>, <code>period=1</code>, <code>periodUnit=mo</code>.</li>
   </ul>
@@ -715,7 +738,7 @@ Vitamin D — 1 vial on the first day of each month.
 
  <div id="tabs-Example9-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
+  <ul class="ex-struct">
     <li>Model as three steps (7 doses → break → 3 doses). A “break” can be expressed as a component with dose=0.</li>
     <li>Alternatively, a <b>proposed</b> <code>Timing.repeat.endOffset</code> could express regular off-intervals inside a cycle.</li>
   </ul>
@@ -779,8 +802,8 @@ Malaria prophylaxis — start 1 day before event; stop 7 days after event ends.
 
  <div id="tabs-Example10-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
-    <li><b>Proposed:</b> event-relative offsets as extensions on the regimen step (e.g., <code>start.offset = -1 d</code>).</li>
+  <ul class="ex-struct">
+    <li><b>Proposed:</b> event-relative offsets as extensions on the regimen step (e.g., start offset −1&nbsp;day; end offset +7&nbsp;days).</li>
     <li>Duration/count of daily administrations by <code>timing.repeat</code>.</li>
   </ul>
   <p><b>Caveat:</b> Event semantics are primarily for rendering/coordination, not general computation.</p>
@@ -801,7 +824,7 @@ Malaria prophylaxis — start 1 day before event; stop 7 days after event ends.
       "repeat": { "count": 8, "period": 1, "periodUnit": "d" }
     },
     "extension": [{
-      "url": "http://hl7.org/fhir/StructureDefinition/event-relative-offset",  /* proposed */
+      "url": "http://hl7.org/fhir/StructureDefinition/event-relative-offset",
       "valueString": "start:-1d; end:+7d"
     }]
   }]
@@ -846,7 +869,7 @@ Prednisolone 20&nbsp;mg — 60&nbsp;mg morning until 3 negative urine strips; th
 
  <div id="tabs-Example11-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
+  <ul class="ex-struct">
     <li>Use separate <code>dosageInstruction</code> entries per step (weekly bounds).</li>
     <li><b>Proposed:</b> reference an <code>EventDefinition</code> to describe the “3 negative strips” event; treat as narrative for interoperability.</li>
   </ul>
@@ -895,7 +918,7 @@ Prednisolone 20&nbsp;mg — 60&nbsp;mg morning until 3 negative urine strips; th
      Example 12
 ========================== -->
 <a name="example-12"> </a>
-<h2>Example 12 : “If needed” courses with limits</h2>
+<h2>Example 12 : "If needed" courses with limits</h2>
 
 <p>
 Dovobet ointment — when needed a 4-week treatment period starts, once daily; may repeat if needed. Max 15&nbsp;g/day; area ≤ 30%.
@@ -909,7 +932,7 @@ Dovobet ointment — when needed a 4-week treatment period starts, once daily; m
 
  <div id="tabs-Example12-struc" class="ui-tabs-panel ui-corner-bottom ui-widget-content">
   <p><b>Structure</b></p>
-  <ul>
+  <ul class="ex-struct">
     <li>Two steps: an initial 4-week course and a repeatable “if needed” 4-week course.</li>
     <li>Limits: <code>Dosage.maxDosePerPeriod</code> = 15 g per 1 day; “≤30% surface area” modeled as a narrative or as a quantity with a percent unit on <code>maxDosePerAdministration</code> if locally profiled.</li>
   </ul>
@@ -958,33 +981,46 @@ Dovobet ointment — when needed a 4-week treatment period starts, once daily; m
  </div>
 </div>
 
-
 [%file newfooter%]
 
-
-<script src="assets/js/jquery.js"> </script>
-<script src="assets/js/jquery-ui.min.js"> </script>
+<!-- jQuery already loaded by site; load jQuery-UI JS only -->
+<script src="./assets/js/jquery-ui.min.js"> </script>
 <script>
- try {
-   var currentTabIndex = sessionStorage.getItem('fhir-example-tab-index');
- } catch(exception){ 
- }
- if (!currentTabIndex)
-   currentTabIndex = '0';
-
-$( '#tabs-Example1' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-     
-     
-function store(currentTab) {
-  document.activeElement.blur();
+(function() {
+  // Try to restore last selected tab index (shared across examples)
+  var idx = 0;
   try {
-    sessionStorage.setItem('fhir-example-tab-index', currentTab);
-  } catch(exception){ 
+    var stored = sessionStorage.getItem('fhir-example-tab-index');
+    if (stored !== null) idx = parseInt(stored, 10) || 0;
+  } catch (e) {}
+
+  function store(currentTab) {
+    try {
+      sessionStorage.setItem('fhir-example-tab-index', String(currentTab));
+    } catch (e) {}
+    // Synchronize active tab across all example tabsets
+    $("[id^='tabs-Example']").each(function() {
+      try { $(this).tabs('option', 'active', currentTab); } catch (e) {}
+    });
   }
-  $( '#tabs-Example1' ).tabs('option', 'active', currentTab);
-}     
+
+  // Initialize all example tabsets
+  $(function() {
+    $("[id^='tabs-Example']").each(function() {
+      try {
+        $(this).tabs({
+          active: idx,
+          activate: function(event, ui) {
+            if (ui && ui.newTab) {
+              store(ui.newTab.index());
+            }
+          }
+        });
+      } catch (e) {}
+    });
+  });
+})();
 </script>
-  
 
 </body>
 </html>
