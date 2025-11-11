@@ -229,7 +229,7 @@
             <short value="high | medium | low | info" />
             <!-- <short value="The severity of the potential or actual hazard associated with the
       condition" /> -->
-            <definition value="The alert priority is usually reported by the source device. A priority of `info` may indicate that the alert is &#8220;for information only&#8221; and not urgent action is required. The element may be omitted if the priority is unknown." />
+            <definition value="The alert priority is usually reported by the source device. A priority of `info` SHOULD indicate that the alert is &#8220;for information only&#8221; and urgent action is not required. The element MAY be omitted if the priority is unknown." />
             <min value="0" />
             <max value="1" />
             <isSummary value="true" />
@@ -354,7 +354,7 @@
             <path value="DeviceAlert.occurrence[x]" />
             <short value="When the alert condition occurred/is occurring" />
             <definition value="This element is used to record the date or time period when the alert condition did occur or is occurring."/>
-            <comment value ="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. A date/time value should be used for instantaneous conditions; without additional guidance, partial date/time values are ambiguous about whether they represent the condition occurring at some point in the partially specified period, or for all of the period. Ongoing events should not include a Period upper bound." />
+            <comment value ="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. A date/time value SHOULD be used for instantaneous conditions. Partial date/time values are ambiguous about whether they represent the condition occurring at some point in the partially specified period, or for all of the period, and (absent additional guidance) SHOULD be avoided. Ongoing events SHOULD not include a Period upper bound." />
             <min value="0" />
             <max value="1" />
             <isSummary value="true" />
@@ -384,7 +384,7 @@
         <element id="DeviceAlert.device">
             <path value="DeviceAlert.device" />
             <short value="The Device (or DeviceMetric) that detected the alert condition" />
-            <definition value="Indicates the device that detected the alert condition. The device may be a top-level Device or component Device (such as an MDS, VMD, or Channel); or may identify the specific DeviceMetric of a Device (e.g., a heart rate reading) that was in an alert condition." />
+            <definition value="Indicates the device that detected the alert condition. The device could be a top-level Device or component Device (such as an MDS, VMD, or Channel); or might identify the specific DeviceMetric of a Device (e.g., a heart rate reading) that was in an alert condition." />
             <min value="0" />
             <max value="1" />
             <isSummary value="true" />
@@ -461,7 +461,7 @@
         <element id="DeviceAlert.location">
             <path value="DeviceAlert.location" />
             <short value="Location of the subject when the alert was raised" />
-            <definition value="The principal physical location of the subject at the time the alert condition occurred. This may be different from the location of the alerting device at that time, and from the current location of either the subject or the alert condition detecting device." />
+            <definition value="The principal physical location of the subject at the time the alert condition occurred. This could be different from the location of the alerting device at that time, and from the current location of either the subject or the alert condition detecting device." />
             <requirements value="Provides context around the alert occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)." />
             <min value="0" />
             <max value="1" />
@@ -517,7 +517,7 @@
         <element id="DeviceAlert.derivedFrom.component">
             <path value="DeviceAlert.derivedFrom.component" />
             <short value="The Observation.component having a value causing the alert condition" />
-            <definition value="If applicable, the code of the component (of the Observation identified in `derivedFrom.observation`) having a value causing the alert condition. This may be used when the alert is associated with a specific component of an Observation, rather than the overall Observation; for example, a low diastolic blood pressure. Since the component is identified by matching `Observation.component.code`, if more than one component have the same code, the specific component is ambiguous. Repetitions of this element indicate additional components contributing to the alert condition." />
+            <definition value="If applicable, the code of the component (of the Observation identified in `derivedFrom.observation`) having a value causing the alert condition. This might be used when the alert is associated with a specific component of an Observation, rather than the overall Observation; for example, a low diastolic blood pressure. Since the component is identified by matching `Observation.component.code`, if more than one component have the same code, the specific component is ambiguous. Repetitions of this element indicate additional components contributing to the alert condition." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
@@ -570,7 +570,7 @@
         <element id="DeviceAlert.label">
             <path value="DeviceAlert.label" />
             <short value="Text to be displayed for the alert condition" />
-            <definition value="The label may combine information from the alert  code, priority, the measurement type, measurement value, body sites and other sources, e.g., &#8220;HR > 180&#8221;." />
+            <definition value="The label might combine information from the alert code, priority, the measurement type, measurement value, body sites and other sources, e.g., &#8220;HR > 180&#8221;." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
@@ -654,7 +654,7 @@
         <element id="DeviceAlert.signal.annunciator">
             <path value="DeviceAlert.signal.annunciator" />
             <short value="Where the signal is being annunciated" />
-            <definition value="Signalling by the source device is local; signalling elsewhere is considered remote. A reference to the &quot;top level&quot; signalling device may also be present." />
+            <definition value="Signalling by the source device is local; signalling elsewhere is considered remote. A reference to the &quot;top level&quot; signalling device could also be present." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
