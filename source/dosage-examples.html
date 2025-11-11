@@ -13,14 +13,67 @@
 
 
 <%dtxheader examples Dosage%>
-<h2>Dosage Examples</h2>
+<h2>Dosage Regime Examples</h2>
 <table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
-<p>See MedicationRequest examples for examples using Dosage.</p>
 <p>
+This page presents a series of examples of how to use <a href="dosage.html">DosageDetails</a> and related types to represent
+various complex dosing regimes.
 </p>
+
+<a name=""> </a>
+<h2>Example N : Description</h2>
+
+<p>
+(Description).
+</p>
+<div id="tabs-Example1" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+ <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+  <li role="tab" tabindex="0" class="ui-tabs-tab ui-corner-top ui-state-default ui-tabs-active ui-state-active" aria-controls="tabs-DosageSafety-struc" aria-labelledby="ui-id-15" aria-selected="true" aria-expanded="true"><a href="#tabs-Example1-struc" tabindex="-1" class="ui-tabs-anchor" id="ui-id-15">Structure</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default" aria-controls="tabs-DosageSafety-uml" aria-labelledby="ui-id-16" aria-selected="false" aria-expanded="false"><a href="#tabs-Example1-json" tabindex="-1" class="ui-tabs-anchor" id="ui-id-16">JSON</a></li>
+  <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default" aria-controls="tabs-DosageSafety-xml" aria-labelledby="ui-id-17" aria-selected="false" aria-expanded="false"><a href="#tabs-Example1-xml" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">XML</a></li>
+ </ul>
+ <div id="tabs-Example1-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
+<p><b>Structure</b></p>
+ </div>
+
+ <div id="tabs-Example1-json" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
+<p><b>JSON</b></p>
+ </div>
+
+ <div id="tabs-Example1-xml" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
+<p><b>XML</b></p>
+ </div>
+
+</div>
 
 
 [%file newfooter%]
+
+
+<script src="assets/js/jquery.js"> </script>
+<script src="assets/js/jquery-ui.min.js"> </script>
+<script>
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-example-tab-index');
+ } catch(exception){ 
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+$( '#tabs-Example1' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+     
+     
+function store(currentTab) {
+  document.activeElement.blur();
+  try {
+    sessionStorage.setItem('fhir-example-tab-index', currentTab);
+  } catch(exception){ 
+  }
+  $( '#tabs-Example1' ).tabs('option', 'active', currentTab);
+}     
+</script>
+  
+
 </body>
 </html>

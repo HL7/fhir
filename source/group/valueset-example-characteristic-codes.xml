@@ -4,7 +4,7 @@
   <url value="http://hl7.org/fhir/ValueSet/example-characteristic-codes"/>
   <version value="1.0.0"/>
   <name value="ExampleCharacteristicCodes"/>
-  <title value="Example Characterist ic Codes"/>
+  <title value="Example Characteristic Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2025-03-03"/>

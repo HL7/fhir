@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <id value="comparison-operation"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/comparison-operation"/>
+  <name value="DoseLimitScopeCodes"/>
+  <title value="Dose Limit Scope Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>  
+  <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>  
+  <concept>
+    <code value="eq"/>
+    <display value="Equals"/>
+    <definition value="the value for the parameter in the resource is equal to the provided value."/>
+  </concept>
+  <concept>
+    <code value="ne"/>
+    <display value="Not Equals"/>
+    <definition value="the value for the parameter in the resource is not equal to the provided value."/>
+  </concept>
+  <concept>
+    <code value="gt"/>
+    <display value="Greater Than"/>
+    <definition value="the value for the parameter in the resource is greater than the provided value."/>
+  </concept>
+  <concept>
+    <code value="lt"/>
+    <display value="Less Than"/>
+    <definition value="the value for the parameter in the resource is less than the provided value."/>
+  </concept>
+  <concept>
+    <code value="ge"/>
+    <display value="Greater or Equals"/>
+    <definition value="the value for the parameter in the resource is greater or equal to the provided value."/>
+  </concept>
+  <concept>
+    <code value="le"/>
+    <display value="Less of Equal"/>
+    <definition value="the value for the parameter in the resource is less or equal to the provided value."/>
+  </concept>
+  <concept>
+    <code value="sa"/>
+    <display value="Starts After"/>
+    <definition value="the value for the parameter in the resource starts after the provided value."/>
+  </concept>
+  <concept>
+    <code value="eb"/>
+    <display value="Ends Before"/>
+    <definition value="the value for the parameter in the resource ends before the provided value."/>
+  </concept>
+  <concept>
+    <code value="ap"/>
+    <display value="Approximately"/>
+    <definition value="the value for the parameter in the resource is approximately the same to the provided value."/>
+  </concept>
+</CodeSystem>

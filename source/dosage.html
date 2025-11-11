@@ -11,7 +11,7 @@
 
 
 <%dtxheader base Dosage%>
-<h1>Dosage</h1>
+<h1>Dosage Regimes</h1>
 <table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 
@@ -25,17 +25,93 @@
   <a href="patterns.html">Patterns</a> 
 </p>
 
-<p>The Dosage structure defines general dosage instruction information typically represented in medication requests, medication dispenses and medication statements.</p>
+<p>The Dosage related structures define general dosage instruction information typically represented in medication requests, medication dispenses and medication statements.</p>
+<p>
+There are four different types involved in the representation of Dosage Information:
+</p>
+<ul>
+  <li><a href="#DosageDetails"><b>DosageDetails</b></a>: Summary of the dosage details, and orchestration of complex dosage regimes</li>
+  <li><a href="#Dosage"><b>Dosage</b></a>: The core information about the dosage regime for a medication</li>
+  <li><a href="#DosageSafety"><b>DosageSafety</b></a>: Information about dosage safety: dose limits for medications that have safety issues</li>
+  <li><a href="#DosageCondition"><b>DosageCondition</b></a>: Expresses conditional rules for dosage regimes, such as 'take this medication if tolerated'</li>
+</ul>
+<p>
+The <a href="dosage-examples.html">examples</a> page shows how many different complex dosage regimes are represented using these structures.
+</p>
 
-<p>Note: the Dosage structure allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
+<a name="limitations"> </a>
+<h2>Limitations of Use</h2>
+
+<p>
+The dosage model presented on this page does not address the following aspects of medication 
+management:
+</p>
+<ul>
+  <li>Complex Titration based dosage regimes</li>
+  <li>Cross-medication dosage orchestration and safety management</li>
+  <li>Medication regimes that are intimately linked to wider care planning regimes</li>
+</ul>
+<p>
+For all of these challenges, the management and orchestration of the care process starts with
+<a href="plandefinition.html">PlanDefinition</a> and/or <a href="requestorchestration.html">RequestOrchestration</a>.
+</p>
+
+<a name="details"></a>
+<a name="DosageDetails"></a>
+<h2 style="margin-bottom: 1px">
+DosageDetails
+</h2>
+<p>The DosageDetails type is the container type for dosing information, and contains:</p>
+<ul>
+  <li><code>renderedInstruction</code>: a single summary of the details in the dosage details</li>
+  <li>Either a <code>simple</code> dosage, or a complex dosage course with one or more <code>step</code> items, able to represent multiple dose regimes with tapering doses, and event relationships</li>
+  <li><code>safety</code> information that represents dose limits for relevant medications</li>
+</ul>
+
+[%dt DosageDetails 2%]
+
+<p></p>
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints DosageDetails%]
+[%tx DosageDetails%]
+</div>
+<p>Note: the DosageDetails structure allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
+
+<p>
+When a DosageDetails contains multiple steps, the steps are sequential - the dosage course follows
+through the steps one at a time. Each step has to specify an end condition - either by explicitly 
+linking the step to some external event, or by specifying a limit on the timing of the event using
+either <code>Timing.repeat.bounds[x]</code> or <code>Timing.repeat.count</code> on the 
+<a href="datatypes.html#Timing">Timing</a> data type.   
+</p>
+<p>
+When there more than one <code>component</code> dosages in a step, they occur simultaneously. 
+Typically, there are multiple components for the following reasons:
+</p>
+<ul>
+  <li>Different dosages on different days, or different times of the day</li>
+  <li>An instruction to take a medication, with an additional instruction for PRN, usually with restrictions around the PRN usage</li>
+  <li>Different dosages for different clinical conditions</li>
+</ul>
+<p>
+If there are multiple components, and they specify different bounds for their repeating events, 
+the step lasts as long as the longest component.
+</p>
 
 <a name="definition"></a>
 <h2 style="margin-bottom: 1px">
 Content
 </h2>
+<p>
+The Dosage data type describes a single course of medication application. The course is 
+a consistent application of a medication one or more times, as specified by the dosage
+details.  
+</p>
 
 [%dt Dosage 1%]
 
+<p>Note: the Dosage structure allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
 
 <div class="use">
 <p><b>Constraints</b></p>
@@ -48,32 +124,51 @@ Dosage is used in the following places: [%dtusage Dosage%]
 </p>
 
 
-<a name="details"></a>
-<h2 style="margin-bottom: 1px">
-DosageDetails
-</h2>
-
-[%dt DosageDetails 2%]
-
-
-<div class="use">
-<p><b>Constraints</b></p>
-[%dt.constraints DosageDetails%]
-[%tx DosageDetails%]
-</div>
-
 <a name="safety"></a>
+<a name="DosageSafety"></a>
 <h2 style="margin-bottom: 1px">
 DosageSafety
 </h2>
 
-[%dt DosageSafety 3%]
+<p>
+The DosageSafety type represents safety information about the medicine - that is, dosage limitations 
+associated with medications for which safety issues exists.
+</p>
 
+[%dt DosageSafety 3%]
 
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints DosageSafety%]
 [%tx DosageSafety%]
+</div>
+
+<a name="safety"></a>
+<a name="DosageCondition"></a>
+<h2 style="margin-bottom: 1px">
+DosageCondition
+</h2>
+
+<p>
+DosageCondition describes when the dosage regime is dependent on external events or conditions. 
+Some examples of it's use:
+</p>
+<ul>
+  <li>When needed a treatment period of 4 weeks starts</li>
+  <li>Perform a dosage course as needed for flare-ups</li>
+  <li>Malaria prophylaxis:  start 1 day before start of (event), stop 7 days after end of (event)</li>
+  <li>see doctor for stopping treatment depending on evolution</li>
+  <li>Treatment period could be repeated if needed.</li> 
+  <li>perform course until 2 days after symptom-free</li> 
+  <li>start 12 hours before surgery. carry on for 10 days after surgery</li> 
+</ul>
+
+[%dt DosageCondition 3%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints DosageCondition%]
+[%tx DosageCondition%]
 </div>
 
 [%file newfooter%]
@@ -91,6 +186,7 @@ DosageSafety
 $( '#tabs-Dosage' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-DosageDetails' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-DosageSafety' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-DosageCondition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
      
      
 function store(currentTab) {
@@ -102,6 +198,7 @@ function store(currentTab) {
   $( '#tabs-Dosage' ).tabs('option', 'active', currentTab);
   $( '#tabs-DosageDetails' ).tabs('option', 'active', currentTab);
   $( '#tabs-DosageSafety' ).tabs('option', 'active', currentTab);
+  $( '#tabs-DosageCondition' ).tabs('option', 'active', currentTab);
 }     
 </script>
   
