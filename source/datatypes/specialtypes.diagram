@@ -1,5 +1,5 @@
 [diagram]
-classes=DataType,BackboneType,Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,xhtml,CodeableReference
+classes=DataType,BackboneType,Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,xhtml,CodeableReference,DosageDetails,DosageCondition,DosageSafety
 attributes=false
 
 [size]
