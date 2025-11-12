@@ -72,6 +72,11 @@ the storyboards there drove the design of the resource, and will be the basis fo
 is expected to be adjusted to align with the <a href="event.html">Event</a> workflow pattern which will involve adding a number of additional data elements and potentially
 renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
 </p>
+
+<p> A known issue exists with circular references between Condition and ClinicalAssessment, which is due to the low maturity level of ClinicalAssessment. The Patient Care work group intends to address this issue when ClinicalAssessment is considered substantially complete and ready for implementation.
+</p>
+
+
 </div>
 
 </div>

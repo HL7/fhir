@@ -90,7 +90,7 @@ For image studies, the details and actual image instances can be referenced in t
 </p>
 
 <p>
-When a report includes genomic testing, the complex metadata about the analysis performed can be captured referenced through the "study" element to reference  <a href="genomicstudy.html">GenomicStudy</a> resources. 
+When a report includes genomic testing, the complex metadata about the analysis performed can be captured referenced through the "study" element to reference  <a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a> resources. 
 </p>
 
 <p>

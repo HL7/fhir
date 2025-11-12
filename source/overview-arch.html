@@ -426,7 +426,7 @@ also references Resource Type C (e.g., patient). In this scenario, is a referenc
 from Resource B to Resource C? If so, is this duplication of information problematic? Note that this is not unique to FHIR - it is an innate property of information systems.
 If an actual instance of A, and the B that it references, reference different instances of Resource C (e.g., the procedure references patient X and an encounter for patient Y),
 how does the system know that the references are intentionally different versus an error or data anomaly? The problem is that there is limited ability to describe the
-intent of the reference which leads to the possibility of ambiguity and error. The <a href="linkage.html">Linkage resource</a> can be used to help with this problem,
+intent of the reference which leads to the possibility of ambiguity and error. The <a href="https://build.fhir.org/ig/HL7/pc-incubator/StructureDefinition-Linkage.html">Linkage resource</a> can be used to help with this problem,
 but additional capabilities may be considered in the future to allow systems to address referential integrity.
 </li>
 <li>

@@ -29,7 +29,7 @@ implement this interface:
 <li><a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html">Citation</a></li>
 <li><a href="codesystem.html">CodeSystem</a></li>
 <li><a href="conceptmap.html">ConceptMap</a></li>
-<li><a href="conditiondefinition.html">ConditionDefinition</a></li>
+<li><a href="https://build.fhir.org/ig/HL7/pc-incubator/StructureDefinition-ConditionDefinition.html">ConditionDefinition</a></li>
 <li><a href="eventdefinition.html">EventDefinition</a></li>
 <li><a href="evidence.html">Evidence</a></li>
 <li><a href="evidencevariable.html">EvidenceVariable</a></li>

@@ -32,7 +32,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.partOf" resourcePath="Observation.partOf">
         <missingTypes _pattern="Reference(Event)" reason="Unknown"/>
-        <extraTypes _resource="Reference(MedicationAdministration,MedicationDispense,MedicationStatement,Procedure,Immunization,ImagingStudy,GenomicStudy)" reason="Unknown"/>
+        <extraTypes _resource="Reference(MedicationAdministration,MedicationDispense,MedicationStatement,Procedure,Immunization,ImagingStudy)" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A larger event of which this particular observation is a component or step."/>
             <resource value="A larger event of which this particular Observation is a component or step.  For example,  an observation as part of a procedure."/>

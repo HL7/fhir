@@ -65,19 +65,25 @@ Note that there thousands of changes between this version and the last version, 
 </p>
 <ul>
   <li>Immature resources and other artifacts have been moved out of this specification into other IGs, often labelled as 'incubator IGs'. Here's the list:
-   <ul>
+   <ul style="column-count: 2">
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-BiologicallyDerivedProductDispense.html">BiologicallyDerivedProductDispense</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItem.html">ChargeItem</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItemDefinition.html">ChargeItemDefinition</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html">Citation Resource</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/pc-incubator/StructureDefinition-ClinicalAssessment.html">ClinicalAssessment</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/pc-incubator/StructureDefinition-ConditionDefinition.html">ConditionDefinition</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-EncounterHistory.html">EncounterHistory</a></li>
+      <li><a href="https://build.fhir.org/HL7/phx-incubator/StructureDefinition-FormularyItem">FormularyItem</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a></li>
       <li><a href="https://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationEvaluation.html">ImmunizationEvaluation</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationRecommendation.html">ImmunizationRecommendation</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryItem.html">InventoryItem</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryReport.html">InventoryReport</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/pc-incubator/StructureDefinition-Linkage.html">Linkage</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-MolecularDefinition.html">MolecularDefinition</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyDelivery.html">SupplyDelivery</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a></li>
@@ -86,6 +92,8 @@ Note that there thousands of changes between this version and the last version, 
       <li><a href="https://build.fhir.org/ig/HL7/fhir-testing-ig/en/StructureDefinition-TestScript.html">TestScript</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-Transport.html">Transport</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-VerificationResult.html">VerificationResult</a></li>
+    </ul>
+    <ul>
       <li><a href="https://build.fhir.org/ig/HL7/capstmt/OperationDefinition-CapabilityStatement-subset.html">CapabilityStatement.$subset</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/capstmt/OperationDefinition-CapabilityStatement-conforms.html">DocumentReCapabilityStatementference.$conforms</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/capstmt/OperationDefinition-CapabilityStatement-implements.html">CapabilityStatement.$implements</a></li>
@@ -100,6 +108,14 @@ Note that there thousands of changes between this version and the last version, 
       <li><a href="https://build.fhir.org/ig/HL7/api-incubator/async-bundle.html">Asynchronous Bundle Request</a></li>      
    </ul>
   </li>
+</ul>
+<p>
+An addition, balloter's attention is drawn to the following significant changes that deserve close attention in ballot:
+</p>
+<ul>
+  <li>The way Medication dosage regimes are represented has undergone extensive reorganization. There have been changes to the <a href="medicationrequest.html#bnr">Boundaries for MedicationRequest</a>,
+    and dosages in MedicationRequest, MedicationDispense, and MedicationStatement. Balloters should pay careful attention to the <a href="dosage.html">Dosage</a> and the <a href="dosage-examples.html">Dosage Examples</a> pages</li>
+  <li>There are related changes in <a href="datatypes.html#Timing">Timing</a></li>  
 </ul>
 
 <a name="process"></a>

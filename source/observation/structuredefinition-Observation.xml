@@ -313,7 +313,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -738,7 +737,7 @@
       </type>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+        <!-- <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/> -->
       </type>
       <condition value="obs-7"/>
       <condition value="obs-6"/>
@@ -1301,7 +1300,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1330,8 +1328,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1460,7 +1456,7 @@
       </type>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/>
+        <!-- <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularDefinition"/> -->
       </type>
       <condition value="obs-10"/>
       <isSummary value="true"/>

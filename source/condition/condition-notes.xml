@@ -93,8 +93,5 @@ To represent the numeric ranking of the diagnosis within an encounter, such as p
 
 <h3>Known Issue</h3>
 
-<p> A known issue exists with circular references between Condition and ClinicalAssessment, which is due to the low maturity level of ClinicalAssessment. The Patient Care work group intends to address this issue when ClinicalAssessment is considered substantially complete and ready for implementation.
-</p>
-
 </div>
 </div>

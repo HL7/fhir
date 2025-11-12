@@ -738,7 +738,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalAssessment"/>
       </type>
       <isSummary value="true"/>
       <binding>

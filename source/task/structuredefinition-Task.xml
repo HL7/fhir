@@ -1157,6 +1157,9 @@
         <code value="Dosage"/>
       </type>
       <type>
+        <code value="CodeableReference"/>
+      </type>
+      <type>
         <code value="Meta"/>
       </type>
       <mapping>
@@ -1363,6 +1366,9 @@
       </type>
       <type>
         <code value="Dosage"/>
+      </type>
+      <type>
+        <code value="CodeableReference"/>
       </type>
       <type>
         <code value="Meta"/>

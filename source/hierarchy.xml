@@ -275,7 +275,6 @@ signatures.html
       <page type="resource" resource="DeviceMetric"/>
       <page type="resource" resource="Substance"/>
       <page type="resource" resource="Person"/>
-      <page type="resource" resource="Linkage"/>
       <page type="resource" resource="Communication"/>
       <page type="resource" resource="CommunicationRequest"/>
       <page type="resource" resource="ResearchStudy"/>
@@ -302,7 +301,6 @@ signatures.html
       <page type="resource" resource="CarePlan"/>
       <page type="resource" resource="Goal"/>
       <page type="resource" resource="CareTeam"/>
-      <page type="resource" resource="ClinicalAssessment"/>
 
       <page type="resource" resource="AdverseEvent"/>
       <page type="resource" resource="DetectedIssue"/>
@@ -313,10 +311,8 @@ signatures.html
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DocumentReference"/>
       <page type="resource" resource="DiagnosticReport"/>
-       <page type="resource" resource="GenomicStudy"/>
       <page type="resource" resource="ImagingStudy"/>
       <page type="resource" resource="ImagingSelection"/>
-      <page type="resource" resource="MolecularDefinition"/>
       <page type="resource" resource="Specimen"/>
       <page type="resource" resource="BodyStructure"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>
@@ -399,7 +395,6 @@ signatures.html
       <page title="Quality Reporting" filename="clinicalreasoning-quality-reporting.html"/>
       <page title="Evidence and Statistics" filename="clinicalreasoning-evidence-and-statistics.html"/>
       <page type="resource" resource="ArtifactAssessment"/>
-      <page type="resource" resource="ConditionDefinition"/>
       <page type="resource" resource="EventDefinition"/>
       <page type="resource" resource="Evidence"/>
       <page type="resource" resource="EvidenceVariable"/>
