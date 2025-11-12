@@ -39,6 +39,19 @@ There are four different types involved in the representation of Dosage Informat
 The <a href="dosage-examples.html">examples</a> page shows how many different complex dosage regimes are represented using these structures.
 </p>
 
+<blockquote class="ballot-note">
+  <p><b>Note to Balloters:</b>
+    The way Medication dosage regimes are represented and used has undergone extensive reorganization with breaking changes in R6:
+  </p>
+  <ul>
+    <li>The <code>dosageInstruction</code> element in MedicationRequest, MedicationDispense, and MedicationStatement has changed from multiple <code>Dosage</code> elements (0..*) to a single <code>DosageDetails</code> element (0..1)</li>
+    <li>Complex dosing regimes are now represented within DosageDetails using steps and components rather than multiple Dosage instances</li>
+    <li>There are changes to the <a href="medicationrequest.html#bnr">Boundaries for MedicationRequest</a></li>
+    <li>The <a href="datatypes.html#Timing">Timing</a> datatype has related changes</li>
+  </ul>
+  <p>Balloters should pay careful attention to these structures and the <a href="dosage-examples.html">examples</a>.</p>
+</blockquote>  
+
 <a name="text"> </a>
 <h3>Dosage text and structured Data</h3>
 <p>
