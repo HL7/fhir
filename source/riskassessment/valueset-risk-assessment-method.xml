@@ -2,17 +2,17 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="risk-assessment-method"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/risk-assessment-method"/>
   <version value="6.0.0"/>
   <name value="RiskAssessmentMethod"/>
   <title value="Risk Assessment Method"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>

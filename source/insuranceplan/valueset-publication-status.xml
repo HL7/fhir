@@ -11,9 +11,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
-  </extension>
   <url value="http://hl7.org/fhir/ValueSet/publication-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>

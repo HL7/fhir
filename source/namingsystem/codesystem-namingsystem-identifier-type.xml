@@ -2,9 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="namingsystem-identifier-type"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
@@ -32,7 +29,7 @@
   <version value="6.0.0"/>
   <name value="NamingSystemIdentifierType"/>
   <title value="Naming System Identifier Type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2023-01-26T15:53:48Z"/>
   <publisher value="HL7 (FHIR Project)"/>

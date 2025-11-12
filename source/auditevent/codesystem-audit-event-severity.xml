@@ -4,7 +4,6 @@
   <id value="audit-event-severity"/>
   <meta>
     <lastUpdated value="2022-06-06T10:01:24.148+11:00"/>
-    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>

@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-vitalsign-systolicbp"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-systolicbp"/>
   <name value="VitalSignsSystolicBP"/>
@@ -27,32 +27,27 @@
       <filter>
         <property value="COMPONENT"/>
         <op value="in"/>
-        <!-- LP72836-7 Intravascular systolic -->
-        <!-- LP304522-8 Intravascular systolic^sitting -->
-        <!-- LP304524-4 Intravascular systolic^supine -->
-        <!-- LP304523-6 Intravascular systolic^standing -->
-        <!-- LP304513-7 Intravascular systolic^lying in L-lateral position -->
         <value value="LP72836-7,LP304522-8,LP304524-4,LP304523-6,LP304513-7"/>
       </filter>
       <filter>
         <property value="PROPERTY"/>
         <op value="="/>
-        <value value="LP6847-0"/> <!-- Pres -->
+        <value value="LP6847-0"/>
       </filter>
       <filter>
         <property value="TIME_ASPCT"/>
         <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
+        <value value="LP6960-1"/>
       </filter>
       <filter>
         <property value="SYSTEM"/>
         <op value="="/>
-        <value value="LP7034-4"/> <!-- Arterial system -->
+        <value value="LP7034-4"/>
       </filter>
       <filter>
         <property value="SCALE_TYP"/>
         <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
+        <value value="LP7753-9"/>
       </filter>
     </include>
   </compose>

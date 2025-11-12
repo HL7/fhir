@@ -4,7 +4,6 @@
   <id value="filter-operator"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    
   </meta>
   <text>
     <status value="extensions"/>
@@ -12,7 +11,9 @@
       
       
       
+      
       <p>This code system http://hl7.org/fhir/filter-operator defines the following codes:</p>
+      
       
       
       
@@ -20,7 +21,9 @@
         
         
         
+        
         <tr>
+          
           
           
           
@@ -28,7 +31,9 @@
             
             
             
+            
             <b>Code</b>
+          
           
           
           
@@ -36,7 +41,9 @@
           
           
           
+          
           <td>
+            
             
             
             
@@ -44,11 +51,14 @@
           
           
           
+          
           </td>
           
           
           
+          
           <td>
+            
             
             
             
@@ -56,7 +66,9 @@
           
           
           
+          
           </td>
+          
           
           
           
@@ -64,7 +76,9 @@
             
             
             
+            
             <b>Comments</b>
+          
           
           
           
@@ -72,11 +86,14 @@
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -84,11 +101,14 @@
             
             
             
+            
             <a name="filter-operator-.61"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -96,7 +116,9 @@
           
           
           
+          
           <td>The specified property of the code equals the provided value.</td>
+          
           
           
           
@@ -104,11 +126,14 @@
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -116,11 +141,14 @@
             
             
             
+            
             <a name="filter-operator-is-a"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -128,7 +156,9 @@
           
           
           
+          
           <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (include descendant codes and self).</td>
+          
           
           
           
@@ -136,7 +166,9 @@
         
         
         
+        
         </tr>
+        
         
         
         
@@ -144,7 +176,9 @@
           
           
           
+          
           <td style="white-space:nowrap">descendent-of
+            
             
             
             
@@ -152,7 +186,9 @@
           
           
           
+          
           </td>
+          
           
           
           
@@ -160,7 +196,9 @@
           
           
           
+          
           <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only).</td>
+          
           
           
           
@@ -170,11 +208,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -182,11 +223,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
             
             
             
+            
             <a name="filter-operator-is-not-a"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -194,7 +238,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
+          
           <td>The specified property of the code does not have an is-a relationship with the provided value.</td>
+          
           
           
           
@@ -202,11 +248,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -214,11 +263,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
             
             
             
+            
             <a name="filter-operator-regex"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -226,7 +278,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
+          
           <td>The specified property of the code  matches the regex specified in the provided value.</td>
+          
           
           
           
@@ -234,11 +288,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -246,11 +303,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
             
             
             
+            
             <a name="filter-operator-in"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -258,7 +318,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
+          
           <td>The specified property of the code is in the set of codes or concepts specified in the provided value (comma-separated list).</td>
+          
           
           
           
@@ -266,11 +328,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -278,11 +343,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
             
             
             
+            
             <a name="filter-operator-not-in"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -290,7 +358,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
+          
           <td>The specified property of the code is not in the set of codes or concepts specified in the provided value (comma-separated list).</td>
+          
           
           
           
@@ -298,11 +368,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -310,11 +383,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
             
             
             
+            
             <a name="filter-operator-generalizes"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -322,7 +398,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
+          
           <td>Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e. include ancestor codes and self).</td>
+          
           
           
           
@@ -330,11 +408,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -342,11 +423,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
             
             
             
+            
             <a name="filter-operator-exists"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -354,7 +438,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
+          
           <td>The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values).</td>
+          
           
           
           
@@ -362,11 +448,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
         
         
         
+        
         </tr>
 		
 		
         
+        
         <tr>
+          
           
           
           
@@ -374,11 +463,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
             
             
             
+            
             <a name="filter-operator-child-of"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -386,7 +478,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
+          
           <td>Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output.</td>
+          
           
           
           
@@ -394,11 +488,14 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
         
         
         
+        
         </tr>
 		
 		
         
+        
         <tr>
+          
           
           
           
@@ -406,7 +503,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
             
             
             
+            
             <a name="filter-operator-descendent-leaf"> </a>
+          
           
           
           
@@ -414,7 +513,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
+          
           <td>Descendent Leaf</td>
+          
           
           
           
@@ -422,7 +523,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
+          
           <td/>
+        
         
         
         
@@ -430,7 +533,9 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
       
       
       
+      
       </table>
+    
     
     
     
@@ -441,9 +546,6 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>

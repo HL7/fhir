@@ -6,7 +6,7 @@
     <valueCode value="sec"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="6"/>
@@ -28,7 +28,7 @@
   <name value="ProvenanceActivityType"/>
   <title value="ValueSet of representative activity type codes."/>
   <status value="active"/>
-  <experimental value="false"/> 
+  <experimental value="false"/>
   <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
   <contact>

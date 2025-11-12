@@ -1,54 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="devicealert-category" />
-  <meta>
-    
-  </meta>
+  <id value="devicealert-category"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="dev" />
+    <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft" />
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1" />
+    <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/devicealert-category" />
-  <version value="6.0.0" />
-  <name value="DeviceAlertCategory" />
-  <title value="Device Alert Category" />
-  <status value="active" />
-  <experimental value="false" />
-  <date value="2023-12-10T10:01:24+11:00" />
-  <publisher value="HL7 International / Health Care Devices" />
+  <url value="http://hl7.org/fhir/devicealert-category"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAlertCategory"/>
+  <title value="Device Alert Category"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-12-10T10:01:24+11:00"/>
+  <publisher value="HL7 International / Health Care Devices"/>
   <contact>
     <telecom>
-      <system value="url" />
-      <value value="http://www.hl7.org/Special/committees/healthcaredevices" />
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices"/>
     </telecom>
     <telecom>
-      <system value="email" />
-      <value value="fhir@lists.hl7.org" />
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Describes the category of a DeviceAlert." />
-  <caseSensitive value="true" />
-  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-category" />
-  <content value="complete" />
+  <description value="Describes the category of a DeviceAlert."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-category"/>
+  <content value="complete"/>
   <concept>
-    <code value="environment" />
-    <display value="Environment" />
-    <definition value="Related to environmental conditions" />
+    <code value="environment"/>
+    <display value="Environment"/>
+    <definition value="Related to environmental conditions"/>
   </concept>
   <concept>
-    <code value="respiratory" />
-    <display value="Respiratory" />
-    <definition value="Related to subject's respiratory function" />
+    <code value="respiratory"/>
+    <display value="Respiratory"/>
+    <definition value="Related to subject's respiratory function"/>
   </concept>
   <concept>
-    <code value="maintenance" />
-    <display value="Maintenance" />
-    <definition value="Related to maintenance of the subject (e.g., a device)" />
+    <code value="maintenance"/>
+    <display value="Maintenance"/>
+    <definition value="Related to maintenance of the subject (e.g., a device)"/>
   </concept>
 </CodeSystem>

@@ -2,17 +2,17 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicationrequest-dispenser-instructions"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="phx"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/CodeSystem/medicationrequest-dispenser-instructions"/>
   <version value="6.0.0"/>
   <name value="MedicationRequestDispenserInstructions"/>
   <title value="MedicationRequest dispenser instructions"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <description value="MedicationRequest dispenser instructions"/>
   <caseSensitive value="true"/>

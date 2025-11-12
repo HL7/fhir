@@ -2,9 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="appointment-recurrrence-type"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -22,7 +19,7 @@
   <version value="6.0.0"/>
   <name value="AppointmentRecurrenceType"/>
   <title value="Appointment Recurrence Type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2022-03-01"/>
   <publisher value="HL7 (FHIR Project)"/>

@@ -2,9 +2,9 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="eligibilityrequest-purpose"/>
-  <meta>
-    
-  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -13,6 +13,7 @@
   <version value="6.0.0"/>
   <name value="EligibilityRequestPurpose"/>
   <title value="Eligibility Request Purpose"/>
+  <status value="active"/>
   <experimental value="true"/>
   <description value="EligibilityRequestPurpose"/>
   <compose>

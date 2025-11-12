@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="care-plan-activity-performed"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/care-plan-activity-performed"/>
   <identifier>
@@ -16,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="CarePlanActivityPerformed"/>
   <title value="Care Plan Activity Performed"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>
@@ -30,27 +30,27 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-      <concept> 
-        <code value="238165008"/> 
-      </concept> 
-	  <concept> 
-        <code value="11816003"/> 
-      </concept> 
-	  <concept> 
-        <code value="967006"/> 
-      </concept> 
-	  <concept> 
-        <code value="6397004"/> 
-      </concept> 
-	  <concept> 
-        <code value="367336001"/> 
-      </concept> 
-	  <concept> 
-        <code value="1148817001"/> 
-      </concept> 
-	  <concept> 
-        <code value="185468001"/> 
-      </concept> 
+      <concept>
+        <code value="238165008"/>
+      </concept>
+      <concept>
+        <code value="11816003"/>
+      </concept>
+      <concept>
+        <code value="967006"/>
+      </concept>
+      <concept>
+        <code value="6397004"/>
+      </concept>
+      <concept>
+        <code value="367336001"/>
+      </concept>
+      <concept>
+        <code value="1148817001"/>
+      </concept>
+      <concept>
+        <code value="185468001"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

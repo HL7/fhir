@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-vitalsign-bodytemp"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodytemp"/>
   <name value="VitalSignsBodyTemp"/>
@@ -27,30 +27,28 @@
       <filter>
         <property value="COMPONENT"/>
         <op value="in"/>
-        <!-- LP65487-8 Body temperature -->
-        <!-- LP433719-4 Body temperature^at admission -->
         <value value="LP65487-8,LP433719-4"/>
       </filter>
       <filter>
         <property value="PROPERTY"/>
         <op value="="/>
-        <value value="LP6872-8"/> <!-- Temp -->
+        <value value="LP6872-8"/>
       </filter>
       <filter>
         <property value="TIME_ASPCT"/>
         <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
+        <value value="LP6960-1"/>
       </filter>
       <filter>
         <property value="SYSTEM"/>
         <op value="="/>
-        <value value="LP310005-6"/> <!-- ^Patient -->
+        <value value="LP310005-6"/>
       </filter>
       <filter>
         <property value="SCALE_TYP"/>
         <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
+        <value value="LP7753-9"/>
       </filter>
     </include>
-    </compose>
+  </compose>
 </ValueSet>

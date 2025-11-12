@@ -2,11 +2,11 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="eligibility"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/eligibility"/>
   <version value="6.0.0-ballot3"/>

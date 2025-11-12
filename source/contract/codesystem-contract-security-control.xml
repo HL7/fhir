@@ -2,9 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="contract-security-control"/>
-  <meta>
-    
-  </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Each definition includes usage notes explaining
@@ -12,11 +9,16 @@
             the order in which they may occur is deterministic; and a map to comparable FHIR and v.3
             status codes. It follows guidance about use of status codes in FHIR in
             
+      
       <a href="sc.html">the Status Codes Grid</a>.
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/contract-security-control"/>
   <identifier>
@@ -26,7 +28,7 @@
   <version value="6.0.0"/>
   <name value="ContractSecurityControl"/>
   <title value="Contract Security Control"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <date value="2017-02-13"/>
   <publisher value="HL7 International"/>

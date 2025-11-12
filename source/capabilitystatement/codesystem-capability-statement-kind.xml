@@ -4,7 +4,6 @@
   <id value="capability-statement-kind"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    
   </meta>
   <text>
     <status value="extensions"/>
@@ -12,7 +11,9 @@
       
       
       
+      
       <p>This code system http://hl7.org/fhir/capability-statement-kind defines the following codes:</p>
+      
       
       
       
@@ -20,7 +21,9 @@
         
         
         
+        
         <tr>
+          
           
           
           
@@ -28,7 +31,9 @@
             
             
             
+            
             <b>Code</b>
+          
           
           
           
@@ -36,7 +41,9 @@
           
           
           
+          
           <td>
+            
             
             
             
@@ -44,11 +51,14 @@
           
           
           
+          
           </td>
           
           
           
+          
           <td>
+            
             
             
             
@@ -56,7 +66,9 @@
           
           
           
+          
           </td>
+          
           
           
           
@@ -64,7 +76,9 @@
             
             
             
+            
             <b>Comments</b>
+          
           
           
           
@@ -72,11 +86,14 @@
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -84,11 +101,14 @@
             
             
             
+            
             <a name="capability-statement-kind-instance"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -96,7 +116,9 @@
           
           
           
+          
           <td>The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by /metadata for a FHIR server end-point.</td>
+          
           
           
           
@@ -104,11 +126,14 @@
         
         
         
+        
         </tr>
         
         
         
+        
         <tr>
+          
           
           
           
@@ -116,11 +141,14 @@
             
             
             
+            
             <a name="capability-statement-kind-capability"> </a>
           
           
           
+          
           </td>
+          
           
           
           
@@ -128,7 +156,9 @@
           
           
           
+          
           <td>The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.</td>
+          
           
           
           
@@ -136,7 +166,9 @@
         
         
         
+        
         </tr>
+        
         
         
         
@@ -144,7 +176,9 @@
           
           
           
+          
           <td style="white-space:nowrap">requirements
+            
             
             
             
@@ -152,7 +186,9 @@
           
           
           
+          
           </td>
+          
           
           
           
@@ -160,7 +196,9 @@
           
           
           
+          
           <td>The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.</td>
+          
           
           
           
@@ -168,11 +206,14 @@
         
         
         
+        
         </tr>
       
       
       
+      
       </table>
+    
     
     
     
@@ -183,9 +224,6 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>

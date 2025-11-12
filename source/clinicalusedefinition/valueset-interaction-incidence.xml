@@ -4,25 +4,32 @@
   <id value="interaction-incidence"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
-    
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <ul>
+        
         
         <li>Include all codes defined in 
           
+          
           <a href="codesystem-interaction-incidence.html">
+            
             
             <code>http://hl7.org/fhir/interaction-incidence</code>
           
+          
           </a>
+        
         
         </li>
       
+      
       </ul>interaction-incidence
+    
     
     </div>
   </text>
@@ -30,7 +37,7 @@
     <valueCode value="brr"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
@@ -43,7 +50,7 @@
   <version value="6.0.0"/>
   <name value="InteractionIncidence"/>
   <title value="Interaction Incidence"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>

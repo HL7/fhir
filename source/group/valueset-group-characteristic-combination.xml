@@ -2,9 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="group-characteristic-combination"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -22,7 +19,7 @@
   <version value="6.0.0"/>
   <name value="GroupCharacteristicCombination"/>
   <title value="Group Characteristic Combination"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2023-10-02T17:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>

@@ -1,50 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="devicealert-type" />
-  <meta>
-    
-  </meta>
+  <id value="devicealert-type"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="dev" />
+    <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft" />
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2" />
+    <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/devicealert-type" />
-  <version value="6.0.0" />
-  <name value="DeviceAlertType" />
-  <title value="Device Alert Type" />
-  <status value="active" />
-  <experimental value="false" />
-  <date value="2023-12-10T10:01:24+11:00" />
-  <publisher value="HL7 International / Health Care Devices" />
-
+  <url value="http://hl7.org/fhir/devicealert-type"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAlertType"/>
+  <title value="Device Alert Type"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-12-10T10:01:24+11:00"/>
+  <publisher value="HL7 International / Health Care Devices"/>
   <contact>
     <telecom>
-      <system value="url" />
-      <value value="http://www.hl7.org/Special/committees/healthcaredevices" />
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices"/>
     </telecom>
     <telecom>
-      <system value="email" />
-      <value value="fhir@lists.hl7.org" />
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Describes the type of a DeviceAlert." />
-  <caseSensitive value="true" />
-  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type" />
-  <content value="complete" />
+  <description value="Describes the type of a DeviceAlert."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type"/>
+  <content value="complete"/>
   <concept>
-    <code value="physiological" />
-    <display value="Physiological" />
-    <definition value="The alert condition is related to the patient state" />
+    <code value="physiological"/>
+    <display value="Physiological"/>
+    <definition value="The alert condition is related to the patient state"/>
   </concept>
   <concept>
-    <code value="technical" />
-    <display value="Technical" />
-    <definition value="The alert condition is related to the device state" />
+    <code value="technical"/>
+    <display value="Technical"/>
+    <definition value="The alert condition is related to the device state"/>
   </concept>
 </CodeSystem>
