@@ -77,8 +77,8 @@ Take Perindopril, 1 tablet per day, for 3 months.
 
 <ul> 
   <li><code>MedicationRequest.medication.concept</code> = “Perindopril Arginine 2.5 mg tablet”</li> 
-  <li><code>MedicationRequest.dosageDetails.renderedDosageInstruction</code> = “1 tablet per day for 3 months”</li> 
-  <li><code>MedicationRequest.dosageDetails.simple.timing.repeat.boundsDuration</code> = 3&nbsp;mo</li> 
+  <li><code>MedicationRequest.dosageInstruction.renderedDosageInstruction</code> = “1 tablet per day for 3 months”</li> 
+  <li><code>MedicationRequest.dosageInstruction.simple.timing.repeat.boundsDuration</code> = 3&nbsp;mo</li> 
   <li><code>…timing.repeat.frequency/period/periodUnit</code> = 1 / 1 / d</li> 
   <li><code>…doseAndRate[0].doseQuantity</code> = 1 tablet (or explicit mg if desired)</li> 
 </ul> 
@@ -88,7 +88,7 @@ MedicationRequest
   medication 
     concept
       coding: Perindopril Arginine, 2.5mg tablets
-  dosage
+  dosageInstruction
     renderedInstruction: 1 tablet per day for 3 months
     simple
       timing
@@ -214,7 +214,7 @@ Methylphenidate 10 mg tablets — 10 mg at 07:30 and 12:00, 5 mg at 16:00 Mon–
     <li><code>Dosage.timing.repeat.dayOfWeek</code> and <code>…timeOfDay</code> for fixed administrations.</li> 
     <li><code>Dosage.asNeededBoolean</code> for PRN (evening); optionally <code>…when = EVE</code>.</li> 
     <li><code>Dosage.maxDosePerPeriod</code> (Ratio) for 150&nbsp;mg per week.</li> 
-    <li><code>MedicationRequest.dosageDetails.safety.limit</code> (scope=<code>period</code>) for 150&nbsp;mg per week.</li> 
+    <li><code>MedicationRequest.dosageInstruction.safety.limit</code> (scope=<code>period</code>) for 150&nbsp;mg per week.</li> 
   </ul> 
 
 <pre class="yaml">
@@ -222,7 +222,7 @@ MedicationRequest
   medication 
     concept
       coding: Methylphenidate 10 mg tablets
-  dosage
+  dosageInstruction
     step
       component
         timing
@@ -1063,7 +1063,7 @@ Epirubicin 45 mg/m² IV on Days 1 &amp; 8 every 28 days × 6 cycles; infuse over
 <ul> 
     <li>Two <code>dosageDetails.step.component</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li> 
     <li>Infusion duration → <code>Dosage.timing.repeat.duration</code>=20, <code>durationUnit</code>=min; or encode under <code>doseAndRate.rate[x]</code> if modeled as rate.</li> 
-    <li>Maxima via <code>MedicationRequest.dosageDetails.safety.limit</code> with scopes <code>period</code> (per cycle) and <code>lifetime</code>.</li> 
+    <li>Maxima via <code>MedicationRequest.dosageInstruction.safety.limit</code> with scopes <code>period</code> (per cycle) and <code>lifetime</code>.</li> 
     <li>Day-8 offset is expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=8 d</code>).</li> 
   </ul> 
 <pre class="yaml">
@@ -1548,7 +1548,7 @@ Symbicort (budesonide/formoterol):
 <p><b>Structure</b></p>
 <ul> 
     <li>Model planned daily dosing and PRN as separate <code>dosageDetails.step.component</code> entries.</li> 
-    <li>Use <code>MedicationRequest.dosageDetails.safety.limit</code> with <code>scope=administration</code> (6 puffs) and <code>scope=period</code> (12 puffs / 1 day).</li> 
+    <li>Use <code>MedicationRequest.dosageInstruction.safety.limit</code> with <code>scope=administration</code> (6 puffs) and <code>scope=period</code> (12 puffs / 1 day).</li> 
   </ul> 
   
 <pre class="yaml">
@@ -2524,7 +2524,7 @@ Dovobet ointment: When needed a treatment period of 4 weeks starts. Applied once
 <p><b>Structure</b></p>
  <ul> 
     <li>Two steps: an initial 4-week course and a repeatable “if needed” 4-week course.</li> 
-    <li>Limits via <code>MedicationRequest.dosageDetails.safety.limit</code>: 15&nbsp;g per 1 day (<code>scope=period</code>); “≤30% surface area” captured as narrative or profiled percent on <code>scope=administration</code>.</li> 
+    <li>Limits via <code>MedicationRequest.dosageInstruction.safety.limit</code>: 15&nbsp;g per 1 day (<code>scope=period</code>); “≤30% surface area” captured as narrative or profiled percent on <code>scope=administration</code>.</li> 
   </ul> 
 
 <pre class="yaml">
