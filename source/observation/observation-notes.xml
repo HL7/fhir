@@ -396,7 +396,7 @@
 		<a name="observation-operations">
 		</a>
 		<a name="genetics"></a>
-	  <h3>Genomic Reporting - Trial Use</h3>
+	  <h3>Genomic Reporting</h3>
 		<p>Genomic reporting makes heavy use of the DiagnosticReport and Observation resources to represent structured, computable genomic data.  An implementation guide describing how to represent genetic results can be found <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">here</a>.
 		</p>
 		<p>

@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2025-03-03T01:45:25Z</LastSaved>
+  <LastSaved>2025-11-12T12:19:37Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -968,7 +968,6 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ElementDefinition.label</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2273,7 +2272,6 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ElementDefinition.constraint.human</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2361,7 +2359,6 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ElementDefinition.constraint.source</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2420,7 +2417,6 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ElementDefinition.valueAlternatives</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2450,7 +2446,6 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="225">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ElementDefinition.mustSupport</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2711,7 +2706,6 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">700;540</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="34">
     <Cell ss:StyleID="s87"><Data ss:Type="String">ElementDefinition.binding.additional.key</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4585,9 +4579,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>59</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -7326,7 +7320,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Pattern</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">The slices have different values in the nominated element, as determined by the applicable fixed value, pattern, or required ValueSet binding. This has the same meaning as 'value' and is deprecated </Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s153"><Data ss:Type="DateTime">2022-08-19</Data></Cell>
+    <Cell ss:Index="10" ss:StyleID="s153"><Data ss:Type="DateTime">2022-08-19T00:00:00.000</Data></Cell>
     <Cell><Data ss:Type="String">Pattern' is deprecated - it works exactly the same as 'value'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s139">
