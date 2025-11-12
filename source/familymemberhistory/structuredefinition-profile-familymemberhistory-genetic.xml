@@ -13,7 +13,7 @@
     <valueCode value="cg"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/familymemberhistory-genetic"/>
   <identifier>

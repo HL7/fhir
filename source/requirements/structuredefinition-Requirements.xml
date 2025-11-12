@@ -378,7 +378,7 @@
     </element>
     <element id="Requirements.useContext">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="normative"/>
       </extension>
       <path value="Requirements.useContext"/>
       <short value="The context that the content is intended to support"/>

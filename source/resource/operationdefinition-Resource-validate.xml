@@ -98,9 +98,6 @@
     <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="graph"/>
     <use value="in"/>
     <min value="0"/>
@@ -110,9 +107,6 @@
     <targetProfile value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="usageContext"/>
     <use value="in"/>
     <min value="0"/>
@@ -120,10 +114,7 @@
     <documentation value="Indicates an implementation context that applies to this validation.  Influences which [additionalBindings](terminologies.html#binding) are relevant.  NOTE: Expectations around subsumption testing, etc. are not yet defined and may be server-specific."/>
     <type value="UsageContext"/>
   </parameter>
-  <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
+  <parameter> 
     <name value="language"/>
     <use value="in"/>
     <min value="0"/>
@@ -132,9 +123,6 @@
     <type value="string"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="jurisdiction"/>
     <use value="in"/>
     <min value="0"/>
@@ -147,9 +135,6 @@
     </binding> 
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="hintAboutNonMustSupport"/>
     <use value="in"/>
     <min value="0"/>
@@ -158,9 +143,6 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="extension"/>
     <use value="in"/>
     <min value="0"/>
@@ -169,9 +151,6 @@
     <type value="string"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="questionnaire"/>
     <use value="in"/>
     <min value="0"/>
@@ -180,9 +159,6 @@
     <type value="code"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="extensible-binding-warnings"/>
     <use value="in"/>
     <min value="0"/>
@@ -191,9 +167,6 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="display-issues-are-warnings"/>
     <use value="in"/>
     <min value="0"/>
@@ -202,9 +175,6 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="unknown-codesystems-cause-errors"/>
     <use value="in"/>
     <min value="0"/>
@@ -213,9 +183,6 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="level"/>
     <use value="in"/>
     <min value="0"/>
@@ -228,9 +195,6 @@
     </binding> 
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="best-practice"/>
     <use value="in"/>
     <min value="0"/>
@@ -243,9 +207,6 @@
     </binding> 
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="current"/>
     <use value="in"/>
     <min value="0"/>
@@ -253,10 +214,7 @@
     <documentation value="If this is true, additional bindings marked as 'current' will also be enforced"/>
     <type value="boolean"/>
   </parameter>
-  <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
+  <parameter> 
     <name value="forPublication"/>
     <use value="in"/>
     <min value="0"/>
@@ -264,10 +222,7 @@
     <documentation value="If this is true, additional validation regarding suitability for 'publishing' are also enforced. Note that HL7 defines a set of rules, but the meaning and use of 'publishing' is at the discretion of the server."/>
     <type value="boolean"/>
   </parameter>
-  <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
+  <parameter> 
     <name value="html-in-markdown"/>
     <use value="in"/>
     <min value="0"/>
@@ -276,9 +231,6 @@
     <type value="code"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="no_unicode_bidi_control_chars"/>
     <use value="in"/>
     <min value="0"/>
@@ -287,9 +239,6 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
     <name value="verbose-mode"/>
     <use value="in"/>
     <min value="0"/>
@@ -297,10 +246,7 @@
     <documentation value="Turns on verbose output, which servers may use to provide explanation of the validation process (e.g. slicing decisions)."/>
     <type value="boolean"/>
   </parameter>
-  <parameter>
-    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-      <valueCode value="trial-use"/>
-    </extension>  
+  <parameter> 
     <name value="allow-example-urls"/>
     <use value="in"/>
     <min value="0"/>

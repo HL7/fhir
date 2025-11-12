@@ -9,7 +9,7 @@
     <valueString value="Clinical.Medications"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
@@ -1219,9 +1219,6 @@ For example:  &#xA;&#xA;
       </mapping>
     </element>
     <element id="MedicationRequest.eventHistory">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="MedicationRequest.eventHistory"/>
       <short value="A list of events of interest in the lifecycle"/>
       <definition value="Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource."/>

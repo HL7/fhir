@@ -221,9 +221,6 @@
       </mapping>
     </element>
     <element id="Observation.triggeredBy">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Observation.triggeredBy"/>
       <short value="Triggering observation(s)"/>
       <definition value="Identifies the observation(s) that triggered the performance of this observation."/>
@@ -503,9 +500,6 @@
       </mapping>
     </element>
     <element id="Observation.focus">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#14443]."/>
       </extension>
@@ -536,9 +530,6 @@
       </mapping>
     </element>
     <element id="Observation.organizer">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Observation.organizer"/>
       <short value="This observation organizes/groups a set of sub-observations"/>
       <definition value="This observation serves as an organizer or grouper for a set of (one or more) sub-observations."/>
@@ -1148,9 +1139,6 @@
       </mapping>
     </element>
     <element id="Observation.referenceRange.normalValue">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <path value="Observation.referenceRange.normalValue"/>
       <short value="Normal value, if relevant"/>
       <definition value="The value of the normal value of the reference range."/>
@@ -1177,9 +1165,6 @@
       </mapping>
     </element>
     <element id="Observation.referenceRange.type">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
-      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[$8941][1115]."/>
       </extension>
