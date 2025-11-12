@@ -3,7 +3,7 @@
 <div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
-<p>Device Association records the relationship between a device and a subject and/or operator. The relationsip may be as the owner, patient, operator or cusodian of the device. The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
+<p>Device Association records the relationship between a device and a subject and/or operator. The relationship may be as the owner, patient, operator or custodian of the device. The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
 <p>The subjects may include:</p>
 <ul>
 <li><strong>Patient</strong> - the following are often associated with a specific patient: implantables, prosthetics, activity trackers, mobility assistance, care monitoring, etc.</li>

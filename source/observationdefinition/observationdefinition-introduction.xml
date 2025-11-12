@@ -32,7 +32,7 @@ When an Observation instantiates an ObservationDefinition, the elements of the O
 <li>Category, code, datatype of the value, bodyStructure, method.</li>
 <li>Each referenceRange element present in Observation should come from a qualifiedValue element of ObservationDefinition.</li>
 <li>If ObservationDefinition has declared a ValueSet of valid coded values, and if Observation has a valueCodeableConcept, the value is expected to be part of that ValueSet.</li>
-<li>The subject of the Observation should be conformant with one of the subjectCodeableConcept listed in ObservationDefinition.</li>
+<li>The subject of the Observation should be conformant with one of the codeable concepts in subject listed in ObservationDefinition.</li>
 <li>If the Observation has a device element, the referenced Device resource should conform to a DeviceDefinition or Device referenced by ObservationDefinition.device (if present).</li>
 <li>If the Observation has a specimen element, the referenced Specimen resource should conform to a SpecimenDefinition referenced by ObservationDefinition.specimen (if present).</li>
 </ul>
