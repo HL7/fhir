@@ -39,6 +39,37 @@ There are four different types involved in the representation of Dosage Informat
 The <a href="dosage-examples.html">examples</a> page shows how many different complex dosage regimes are represented using these structures.
 </p>
 
+<a name="text"> </a>
+<h3>Dosage text and structured Data</h3>
+<p>
+Dosages may contain <code>renderedInstruction</code> and/or structured data 
+(as a <code>simple</code> dosage or a complex sequence of <code>step</code> elements).
+</p>
+<p>
+The rendered instructions are typical prescription instructions, with a relatively concise expression
+that is mostly understood by human. If the Medication related resources (request, 
+dispense, or statement) are only serving the purpose of human mediated medication 
+functionality, it's sufficient to populate <code>renderedInstruction</code>, 
+and leave the rest of the structure empty. 
+</p>
+<p>
+However in many contexts, it is good to augment the human readable instructions with 
+precisely formulated dosage regimes so that medication management systems can assist 
+with correct and safe administration. As of the publication of this specification, 
+GenAI services are mostly able to decode correct renderedInstructions correctly, but 
+this can't be assumed correct (and not just because of AI limitations), so in any
+context where there is interest in providing medication management support, the dosage 
+structure should be fully populated.
+</p>
+<p>
+However, even after it's fully populated, it's not unusual for the renderedInstruction
+to contain additional details not found in the structure, or found in the structure
+in extensions that not all systems can understand, so the renderedInstruction is 
+always important to show to huamns. Even in the presence of fully populated structures, it's
+a challenge to produce good concise and readable renderedInstruction, so applications
+SHOULD always consider populating renderedInstruction.
+</p>
+
 <a name="limitations"> </a>
 <h2>Limitations of Use</h2>
 
@@ -54,6 +85,7 @@ management:
 <p>
 For all of these challenges, the management and orchestration of the care process starts with
 <a href="plandefinition.html">PlanDefinition</a> and/or <a href="requestorchestration.html">RequestOrchestration</a>.
+See also the <a href="medicationrequest.html#bnr">MedicationRequest Boundaries</a>.
 </p>
 
 <a name="details"></a>
@@ -137,6 +169,23 @@ associated with medications for which safety issues exists.
 
 [%dt DosageSafety 3%]
 
+<p>
+A period can only be specified if the scope is 'period', in which case it must be present.
+</p>
+<p>
+The DosageSafety type allows for representing multiple limits. Limits can defined for four different scopes of interest:
+</p>
+<table class="grid">
+  <tr><td>administration</td><td>A dose limit that applies for a single administration</td></tr>
+  <tr><td>dosage</td><td>A dose limit that applies to the dosage structure where it is applied - either the entire dosage course, a specific step in the sequence, or a specific component</td></tr>
+  <tr><td>period</td><td>A dose limit that applies over the specified time period, irrespective of the details of the dosage course (and, in principle, other medications that include the same active agent)</td></tr>
+  <tr><td>lifetime</td><td>A dose limit that is a lifetime dose limit for the medication across all medication applications</td></tr>
+</table>
+<p>
+There is no rule that there can only be one limit per scope, because there might be both absolute and context dependent limits,
+such as 'no more than 1g', and also 'no more than 5 ug/kg of body weight'. 
+</p>
+
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints DosageSafety%]
@@ -154,13 +203,10 @@ DosageCondition describes when the dosage regime is dependent on external events
 Some examples of it's use:
 </p>
 <ul>
-  <li>When needed a treatment period of 4 weeks starts</li>
-  <li>Perform a dosage course as needed for flare-ups</li>
-  <li>Malaria prophylaxis:  start 1 day before start of (event), stop 7 days after end of (event)</li>
-  <li>see doctor for stopping treatment depending on evolution</li>
-  <li>Treatment period could be repeated if needed.</li> 
-  <li>perform course until 2 days after symptom-free</li> 
-  <li>start 12 hours before surgery. carry on for 10 days after surgery</li> 
+  <li>Do this lesser dosage if the patient can't tolerate a higher dose</li> 
+  <li>Use this medication if the patient can't tolerate some other medication</li> 
+  <li>Use this dosage until symptoms resolve</li>
+  <li>Use this dosage if the medication is available in sufficient supply</li>
 </ul>
 
 [%dt DosageCondition 3%]

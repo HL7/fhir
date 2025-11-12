@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <id value="dosage-condition-code"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/dosage-condition-code"/>
+  <name value="DosageConditionCodes"/>
+  <title value="Dosage Condition Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>  
+  <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>  
+  <property>
+    <code value="type"/>
+    <description value="The type that goes in ConditionDetails.value for this code"/>
+    <type value="code"/>
+  </property>   
+  <property>
+    <code value="details"/>
+    <description value="Documentation about what might go in the details for this code"/>
+    <type value="string"/>
+  </property>   
+  <concept>
+    <code value="if-needed"/>
+    <display value="If Needed"/>
+    <definition value="Whether this is needed. Note that this is different to PRN, because the entire course is if required, not on a per dose basis"/>
+    <property>
+      <code value="type"/>
+      <valueCode value="boolean"/>
+    </property>
+    <property>
+      <code value="details"/>
+      <valueString value="N/A"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="tolerates"/>
+    <display value="Patient tolerates Medication"/>
+    <definition value="Whether the patient tolerates a medication (e.g. SCT 1303423003)"/>
+    <property>
+      <code value="type"/>
+      <valueCode value="boolean"/>
+    </property>
+    <property>
+      <code value="details"/>
+      <valueString value="Can nominate another medication that this depends on; if none is nominated, it's the medicine this dose is for"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="problem-abates"/>
+    <display value="Problem Abates"/>
+    <definition value="Whether a symptom, problem of finding abates. It's not really important what type it is. This is considered equivalent to 'patient responds to medication'. The degree of abatement is not defined"/>
+    <property>
+      <code value="type"/>
+      <valueCode value="boolean"/>
+    </property>
+    <property>
+      <code value="details"/>
+      <valueString value="Detail would be a problem, symptom or finding, if it's not just implied"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="problem-presents"/>
+    <display value="Problem Presents"/>
+    <definition value="Whether a symptom, problem of finding presents. It's not really important what type it is."/>
+    <property>
+      <code value="type"/>
+      <valueCode value="boolean"/>
+    </property>
+    <property>
+      <code value="details"/>
+      <valueString value="Detail would be a problem, symptom or finding, if it's not just implied"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="medication-tolerated"/>
+    <display value="Medication Tolerated"/>
+    <definition value="Medication Is Tolerated"/>
+    <property>
+      <code value="type"/>
+      <valueCode value="boolean"/>
+    </property>
+    <property>
+      <code value="details"/>
+      <valueString value="Can nominate another medication that this depends on; if none is nominated, it's the medicine this dose is for"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="medication-funded"/>
+    <display value="Medication Funded"/>
+    <definition value="Medication Is Funded / Approved"/>
+    <property>
+      <code value="type"/>
+      <valueCode value="boolean"/>
+    </property>
+    <property>
+      <code value="details"/>
+      <valueString value="Can nominate another medication that this depends on; if none is nominated, it's the medicine this dose is for"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="medication-available"/>
+    <display value="Medication Available"/>
+    <definition value="(Sufficient) medication Is Available (e.g. Supply issues)"/>
+    <property>
+      <code value="type"/>
+      <valueCode value="boolean"/>
+    </property>
+    <property>
+      <code value="details"/>
+      <valueString value="Can nominate another medication that this depends on; if none is nominated, it's the medicine this dose is for"/>
+    </property>
+  </concept>
+</CodeSystem>

@@ -96,6 +96,8 @@
         <display value="Prednisone 5mg tablet"/>
       </medicationReference>
       <dosageInstruction>
+      <step>
+        <component>
         <text value="Take 6 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -104,8 +106,10 @@
             <periodUnit value="d"/>
           </repeat>
         </timing>
-      </dosageInstruction>
-      <dosageInstruction>
+        </component>
+      </step>
+      <step>
+        <component>
         <text value="Take 5 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -117,8 +121,10 @@
         <doseQuantity>
           <value value="5"/>
         </doseQuantity>
-      </dosageInstruction>
-      <dosageInstruction>
+        </component>
+      </step>
+      <step>
+        <component>
         <text value="Take 4 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -130,8 +136,10 @@
         <doseQuantity>
           <value value="4"/>
         </doseQuantity>
-      </dosageInstruction>
-      <dosageInstruction>
+        </component>
+      </step>
+      <step>
+        <component>
         <text value="Take 3 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -143,8 +151,10 @@
         <doseQuantity>
           <value value="3"/>
         </doseQuantity>
-      </dosageInstruction>
-      <dosageInstruction>
+        </component>
+      </step>
+      <step>
+        <component>
         <text value="Take 2 tablets once a day for 2 days"/>
         <timing>
           <repeat>
@@ -156,8 +166,10 @@
         <doseQuantity>
           <value value="2"/>
         </doseQuantity>
-      </dosageInstruction>
-      <dosageInstruction>
+        </component>
+      </step>
+      <step>
+        <component>
         <text value="Take 1 tablet once a day for 2 days"/>
         <timing>
           <repeat>
@@ -169,6 +181,8 @@
         <doseQuantity>
           <value value="1"/>
         </doseQuantity>
+        </component>
+      </step>
       </dosageInstruction>
     </MedicationRequest>
   </contained>

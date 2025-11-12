@@ -67,7 +67,7 @@
     <whenPrepared value="2015-06-25T07:13:00+05:00"/>
     <whenHandedOver value="2015-06-26T07:13:00+05:00"/>
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="1.8 mg/kg IV infusion over 30 minutes every 3 weeks for 16 cycles" />
         <timing>
             <repeat>
@@ -99,6 +99,6 @@
                 <code value="mg/kg"/> 
             </doseQuantity>
         </doseAndRate>
-
+			</simple>
     </dosageInstruction>
 </MedicationDispense>

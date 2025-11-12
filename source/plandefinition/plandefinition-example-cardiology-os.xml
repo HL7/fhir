@@ -378,10 +378,15 @@
             <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
-        <maxDosePerAdministration>
-          <value value="3"/>
-          <unit value="{tbl}"/>
-        </maxDosePerAdministration>
+        <safety> 
+          <doseLimit>
+            <valueQuantity>
+              <value value="3"/>
+              <unit value="{tbl}"/>
+            </valueQuantity>
+            <scope value="administration"/>
+          </doseLimit>
+        </safety>
       </dosage>
       <dynamicValue>
         <path value="medicationRequest.priority"/>

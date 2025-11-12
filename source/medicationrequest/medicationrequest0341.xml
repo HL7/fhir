@@ -46,7 +46,7 @@
         </requester>
 
     <dosageInstruction>
-        <sequence value="1"/>
+      <simple>
         <text
             value="8mg orally twice a day as needed for nausea"/>
         <timing>
@@ -78,7 +78,7 @@
                 <code value="mg"/>
             </doseQuantity>
         </doseAndRate>
-
+      </simple>
     </dosageInstruction>
 
 </MedicationRequest>

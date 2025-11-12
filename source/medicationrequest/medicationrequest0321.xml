@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd" xmlns="http://hl7.org/fhir">
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+  xmlns="http://hl7.org/fhir">
   <id value="medrx0321"/>
   <contained>
     <Medication>
@@ -22,11 +23,11 @@
       <ingredient>
         <item>
           <concept>
-          <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="325072002"/>
-            <display value="Insulin Aspart (substance)"/>
-          </coding>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="325072002"/>
+              <display value="Insulin Aspart (substance)"/>
+            </coding>
           </concept>
         </item>
         <strengthRatio>
@@ -56,9 +57,9 @@
   <status value="active"/>
   <intent value="order"/>
   <medication>
-  <reference>
-    <reference value="#med0307"/>
-    <display value="NOVOLOG, 1 VIAL, GLASS in 1 CARTON (0169-7501-11) > 10 mL in 1 VIAL, GLASS (package)"/>
+    <reference>
+      <reference value="#med0307"/>
+      <display value="NOVOLOG, 1 VIAL, GLASS in 1 CARTON (0169-7501-11) > 10 mL in 1 VIAL, GLASS (package)"/>
     </reference>
   </medication>
   <subject>
@@ -83,96 +84,95 @@
   <note>
     <text value="Check blood sugar levels before taking insulin"/>
   </note>
-  
+
   <dosageInstruction>
-    <sequence value="2"/>
-    <text value="inject 10 units subcut 10 minutes before breakfast"/>
-    <timing>
-      <repeat>
-        <frequency value="1"/>
-        <period value="1"/>
-        <periodUnit value="d"/>
-        <when value="ACM"/>
-        <offset value="10"/>
-      </repeat>
-    </timing>
-    <doseAndRate>
-      <type>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-          <code value="ordered"/>
-          <display value="Ordered"/>
-        </coding>
-      </type>
-      <doseQuantity>
-        <value value="10"/>
-        <unit value="U"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="U"/>
-      </doseQuantity>
-    </doseAndRate>
-    
+    <step>
+      <component>
+        <text value="inject 10 units subcut 10 minutes before breakfast"/>
+        <timing>
+          <repeat>
+            <frequency value="1"/>
+            <period value="1"/>
+            <periodUnit value="d"/>
+            <when value="ACM"/>
+            <offset value="10"/>
+          </repeat>
+        </timing>
+        <doseAndRate>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+              <code value="ordered"/>
+              <display value="Ordered"/>
+            </coding>
+          </type>
+          <doseQuantity>
+            <value value="10"/>
+            <unit value="U"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="U"/>
+          </doseQuantity>
+        </doseAndRate>
+      </component>
+      <component>
+        <text value="15 units before lunch"/>
+        <additionalInstruction>
+          <text value="Before Lunch"/>
+        </additionalInstruction>
+        <timing>
+          <repeat>
+            <frequency value="1"/>
+            <period value="1"/>
+            <periodUnit value="d"/>
+          </repeat>
+        </timing>
+        <doseAndRate>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+              <code value="ordered"/>
+              <display value="Ordered"/>
+            </coding>
+          </type>
+          <doseQuantity>
+            <value value="15"/>
+            <unit value="U"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="U"/>
+          </doseQuantity>
+        </doseAndRate>
+      </component>
+      <component>
+        <text value="20 units before dinner"/>
+        <additionalInstruction>
+          <text value="Before Dinner"/>
+        </additionalInstruction>
+        <timing>
+          <repeat>
+            <frequency value="1"/>
+            <period value="1"/>
+            <periodUnit value="d"/>
+          </repeat>
+        </timing>
+        <doseAndRate>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+              <code value="ordered"/>
+              <display value="Ordered"/>
+            </coding>
+          </type>
+          <doseQuantity>
+            <value value="20"/>
+            <unit value="U"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="U"/>
+          </doseQuantity>
+        </doseAndRate>
+      </component>
+    </step>
   </dosageInstruction>
-  <dosageInstruction>
-    <sequence value="2"/>
-    <text value="15 units before lunch"/>
-    <additionalInstruction>
-      <text value="Before Lunch"/>
-    </additionalInstruction>
-    <timing>
-      <repeat>
-        <frequency value="1"/>
-        <period value="1"/>
-        <periodUnit value="d"/>
-      </repeat>
-    </timing>
-    <doseAndRate>
-      <type>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-          <code value="ordered"/>
-          <display value="Ordered"/>
-        </coding>
-      </type>
-      <doseQuantity>
-        <value value="15"/>
-        <unit value="U"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="U"/>
-      </doseQuantity>
-    </doseAndRate>
-    
-  </dosageInstruction>
-  <dosageInstruction>
-    <sequence value="1"/>
-    <text value="20 units before dinner"/>
-    <additionalInstruction>
-      <text value="Before Dinner"/>
-    </additionalInstruction>
-    <timing>
-      <repeat>
-        <frequency value="1"/>
-        <period value="1"/>
-        <periodUnit value="d"/>
-      </repeat>
-    </timing>
-    <doseAndRate>
-      <type>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-          <code value="ordered"/>
-          <display value="Ordered"/>
-        </coding>
-      </type><doseQuantity>
-        <value value="20"/>
-        <unit value="U"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="U"/>
-      </doseQuantity>
-    </doseAndRate>
-    
-  </dosageInstruction>
-  
+
   <dispenseRequest>
     <validityPeriod>
       <start value="2015-01-15"/>

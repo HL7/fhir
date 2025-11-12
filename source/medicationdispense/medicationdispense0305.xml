@@ -57,7 +57,8 @@
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <whenHandedOver value="2015-01-15T16:20:00Z"/>
     <dosageInstruction>
-        <sequence value="1"/>
+      <step>
+        <component>
         <text value="Take 4 tablets daily for 7 days starting January 16, 2015" />
         <additionalInstruction>
             <coding>
@@ -106,9 +107,10 @@
             <code value="TAB"/> 
         </doseQuantity>
         </doseAndRate>
-    </dosageInstruction>
-    <dosageInstruction>
-        <sequence value="2"/>
+        </component>
+      </step>
+      <step>
+        <component>
         <text value="Take 2 tablets daily for 7 days starting January 23, 2015" />
         <additionalInstruction>
             <coding>
@@ -158,9 +160,10 @@
             </doseQuantity>
         </doseAndRate>
 
-    </dosageInstruction>
-    <dosageInstruction>
-        <sequence value="3"/>
+        </component>
+      </step>
+      <step>
+        <component>
         <text value="Take 1 tablets daily for 7 days starting January 31, 2015" />
         <additionalInstruction>
             <coding>
@@ -209,6 +212,8 @@
                 <code value="TAB"/> 
             </doseQuantity>
         </doseAndRate>
+        </component>
+      </step>
 
     </dosageInstruction>
 </MedicationDispense>

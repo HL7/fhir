@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="meddisp0332"/>
     <contained>
         <Medication>
             <id value="med0318"/>
-                <doseForm>
-                    <coding>
-                        <system value="http://snomed.info/sct"/>
-                        <code value="385221006"/>
-                        <display value="Conventional release emulsion for injection (dose form)"/>
-                    </coding>
-                </doseForm>
-                <ingredient>
-                    <item>
-                        <concept>
+            <doseForm>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="385221006"/>
+                    <display value="Conventional release emulsion for injection (dose form)"/>
+                </coding>
+            </doseForm>
+            <ingredient>
+                <item>
+                    <concept>
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0338-1134-03"/>
-                            <display value="CLINIMIX, 1000 mL in 1 BAG (0338-1134-03) (package)"/> <!--Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"-->
+                            <display value="CLINIMIX, 1000 mL in 1 BAG (0338-1134-03) (package)"/>
+                            <!--Clinimix 4.25/10 sulfite-free (4.25% Amino Acid in 10% Dextrose) Injection, 1000ml"-->
                         </coding>
-                        </concept>
-                    </item>
-                </ingredient>
-                <ingredient>
-                    <item>
-                        <concept>
+                    </concept>
+                </item>
+            </ingredient>
+            <ingredient>
+                <item>
+                    <concept>
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0409-5779-01"/>
                             <display value="TPN Electrolytes, 25 VIAL, SINGLE-DOSE in 1 CARTON (0409-5779-01) > 20 mL in 1 VIAL, SINGLE-DOSE (0409-5779-11) (package)"/>
                         </coding>
-                        </concept>
-                    </item>
-                </ingredient>
-                <ingredient>
-                    <item>
-                        <concept>
+                    </concept>
+                </item>
+            </ingredient>
+            <ingredient>
+                <item>
+                    <concept>
                         <coding>
                             <system value="http://hl7.org/fhir/sid/ndc"/>
                             <code value="0338-0519-02"/>
                             <display value="Intralipid, 250 mL in 1 BAG (0338-0519-02) (package)"/>
                         </coding>
-                        </concept>
-                    </item>
-                </ingredient>
+                    </concept>
+                </item>
+            </ingredient>
         </Medication>
     </contained>
     <status value="in-progress"/>
     <medication>
         <reference>
-        <reference value="#med0318"></reference>
-        <display value="TPN Solution"/>
+            <reference value="#med0318"></reference>
+            <display value="TPN Solution"/>
         </reference>
     </medication>
     <subject>
@@ -79,56 +79,57 @@
         <code value="d"/>
     </daysSupply>
     <dosageInstruction>
-        <sequence value="1"/>
-        <text value="1000mL infused at 50ml/hour for 4 hours - hang at 2200 hours" />
-        <timing>
-            <event value="2020-01-15T22:00:00+11:00"/>
-            <repeat>
-                <boundsPeriod>
-                    <start value="2020-01-15"></start>
-                    <end value="2020-01-20"></end>
-                </boundsPeriod>
-                <frequency value="1"/>
-                <period value="24"/>
-                <periodUnit value="h"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="255560000"/>
-                <display value="Intravenous"/>
-            </coding>
-        </route>
-        <doseAndRate>
-            <type>
+        <simple>
+            <text value="1000mL infused at 50ml/hour for 4 hours - hang at 2200 hours" />
+            <timing>
+                <event value="2020-01-15T22:00:00+11:00"/>
+                <repeat>
+                    <boundsPeriod>
+                        <start value="2020-01-15"></start>
+                        <end value="2020-01-20"></end>
+                    </boundsPeriod>
+                    <frequency value="1"/>
+                    <period value="24"/>
+                    <periodUnit value="h"/>
+                </repeat>
+            </timing>
+            <route>
                 <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="255560000"/>
+                    <display value="Intravenous"/>
                 </coding>
-            </type>
-            <doseQuantity>
-                <value value="1000"/>
-                <unit value="mL"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="mL"/> 
-            </doseQuantity>
-            <rateRatio>
-                <numerator>
-                    <value value="50"/>
+            </route>
+            <doseAndRate>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                        <code value="ordered"/>
+                        <display value="Ordered"/>
+                    </coding>
+                </type>
+                <doseQuantity>
+                    <value value="1000"/>
                     <unit value="mL"/>
                     <system value="http://unitsofmeasure.org"/>
-                    <code value="mL"/> 
-                </numerator>
-                <denominator>
-                    <value value="1"/>
-                    <unit value="h"/>
-                    <system value="http://unitsofmeasure.org"/>
-                    <code value="h"/> 
-                </denominator>
-            </rateRatio>
-        </doseAndRate>
+                    <code value="mL"/>
+                </doseQuantity>
+                <rateRatio>
+                    <numerator>
+                        <value value="50"/>
+                        <unit value="mL"/>
+                        <system value="http://unitsofmeasure.org"/>
+                        <code value="mL"/>
+                    </numerator>
+                    <denominator>
+                        <value value="1"/>
+                        <unit value="h"/>
+                        <system value="http://unitsofmeasure.org"/>
+                        <code value="h"/>
+                    </denominator>
+                </rateRatio>
+            </doseAndRate>
+        </simple>
 
     </dosageInstruction>
 </MedicationDispense>

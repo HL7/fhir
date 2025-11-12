@@ -154,6 +154,7 @@
     	  </definition-->
     	  <instantiates value="http://example.org/fhir/ActivityDefinition/citalopramPrescription"/>
     	  <dosageInstruction>
+			<simple>
     		<text value="1 tablet oral 1 time daily"/>
     		<timing>
     			<repeat>
@@ -176,6 +177,7 @@
     				<unit value="{tbl}"/>
     			</doseQuantity>
     		</doseAndRate>
+			</simple>
     	  </dosageInstruction>
     	  <dispenseRequest>
     		  <numberOfRepeatsAllowed value="3"/>

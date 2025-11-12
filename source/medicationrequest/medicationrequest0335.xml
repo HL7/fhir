@@ -31,7 +31,7 @@
     </requester>
     
     <dosageInstruction>
-        <sequence value="1"/>
+      <simple>
         <text value="Apply to affected areas at 9am daily"/>
         <timing>
             <repeat>
@@ -53,7 +53,7 @@
                 <code value="OINT"/>
             </doseQuantity>
         </doseAndRate>
-        
+        </simple>        
     </dosageInstruction>
     
     <dispenseRequest>

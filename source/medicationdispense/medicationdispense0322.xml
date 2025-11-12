@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
+<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="meddisp0322"/>
     <status value="completed"/>
-   <medication>
-       <concept>
-       <coding>
-           <system value="http://hl7.org/fhir/sid/ndc"/>
-           <code value="0071-2214-20"/>
-           <display value="Dilantin-125, 237 mL in 1 BOTTLE, GLASS (0071-2214-20) (package)"/>
-       </coding>
-       </concept>
-   </medication>
+    <medication>
+        <concept>
+            <coding>
+                <system value="http://hl7.org/fhir/sid/ndc"/>
+                <code value="0071-2214-20"/>
+                <display value="Dilantin-125, 237 mL in 1 BOTTLE, GLASS (0071-2214-20) (package)"/>
+            </coding>
+        </concept>
+    </medication>
     <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>
@@ -46,37 +45,38 @@
     <whenPrepared value="2015-01-16T07:13:00+05:00"/>
     <whenHandedOver value="2015-01-18T07:13:00+05:00"/>
     <dosageInstruction>
-        <sequence value="1"/>
-        <text value="100mg (4ml) three times daily" />
-        <timing>
-            <repeat>
-                <frequency value="3"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="26643006"/>
-                <display value="Oral Route (qualifier value)"/>
-            </coding>
-        </route>
-        <doseAndRate>
-            <type>
+        <simple>
+            <text value="100mg (4ml) three times daily" />
+            <timing>
+                <repeat>
+                    <frequency value="3"/>
+                    <period value="1"/>
+                    <periodUnit value="d"/>
+                </repeat>
+            </timing>
+            <route>
                 <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="26643006"/>
+                    <display value="Oral Route (qualifier value)"/>
                 </coding>
-            </type>
-            <doseQuantity>
-                <value value="4"/>
-                <unit value="ml"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="ml"/>
-            </doseQuantity>
-        </doseAndRate>
+            </route>
+            <doseAndRate>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                        <code value="ordered"/>
+                        <display value="Ordered"/>
+                    </coding>
+                </type>
+                <doseQuantity>
+                    <value value="4"/>
+                    <unit value="ml"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="ml"/>
+                </doseQuantity>
+            </doseAndRate>
+        </simple>
 
-    </dosageInstruction> 
+    </dosageInstruction>
 </MedicationDispense>

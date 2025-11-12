@@ -51,7 +51,7 @@
 
 
     <dosageInstruction>
-        <sequence value="1"/>
+      <simple>
         <text value="Administer 500mg IM as a single dose" />
         <timing>
                 <repeat>
@@ -80,7 +80,7 @@
                 <code value="mg"/> 
             </doseQuantity>
         </doseAndRate>
-        
+       </simple>  
     </dosageInstruction>
 
 </MedicationRequest>

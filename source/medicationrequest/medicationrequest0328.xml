@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
- xmlns="http://hl7.org/fhir">
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="medrx0328"/>
     <contained>
         <Medication>
@@ -13,14 +12,14 @@
                     <display value="mometasone furoate 0.05 MG/ACTUAT Metered Dose Nasal Spray"/>
                 </coding>
             </code>
-                <doseForm>
-                    <coding>
-                        <system value="http://snomed.info/sct"/>
-                        <code value="385157007"/>
-                        <display value="Nasal Spray"/>
-                    </coding>
-                </doseForm>
-            
+            <doseForm>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="385157007"/>
+                    <display value="Nasal Spray"/>
+                </coding>
+            </doseForm>
+
         </Medication>
     </contained>
     <identifier>
@@ -32,7 +31,7 @@
     <intent value="order"/>
     <medication>
         <reference>
-        <reference value="#med0315"></reference>
+            <reference value="#med0315"></reference>
         </reference>
     </medication>
     <subject>
@@ -45,37 +44,37 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    
+
 
     <dosageInstruction>
-        <sequence value="1"/>
-        <text value="Use 1 spray twice daily"/>
-        <timing>
-            <repeat>
-                <frequency value="2"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-<doseAndRate>
-    <type>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-            <code value="ordered"/>
-            <display value="Ordered"/>
-        </coding>
-    </type>
-    <doseQuantity>
-        <value value="1"/>
-        <unit value="ea"/>
-		<system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-		<code value="NASINHL"/>
-    </doseQuantity>
-</doseAndRate>
-        
+        <simple>
+            <text value="Use 1 spray twice daily"/>
+            <timing>
+                <repeat>
+                    <frequency value="2"/>
+                    <period value="1"/>
+                    <periodUnit value="d"/>
+                </repeat>
+            </timing>
+            <doseAndRate>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                        <code value="ordered"/>
+                        <display value="Ordered"/>
+                    </coding>
+                </type>
+                <doseQuantity>
+                    <value value="1"/>
+                    <unit value="ea"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                    <code value="NASINHL"/>
+                </doseQuantity>
+            </doseAndRate>
+        </simple>
     </dosageInstruction>
-        
-    
+
+
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
@@ -86,22 +85,22 @@
             <value value="30"/>
             <unit value="ml"/>
             <system value="http://unitsofmeasure.org"/>
-            <code value="ml"/> 
+            <code value="ml"/>
         </quantity>
         <expectedSupplyDuration>
             <value value="30"></value>
             <unit value="days"/>
             <system value="http://unitsofmeasure.org"/>
-            <code value="d"/> 
+            <code value="d"/>
         </expectedSupplyDuration>
-    </dispenseRequest>   
+    </dispenseRequest>
     <substitution>
         <allowedBoolean value="true"></allowedBoolean>
         <reason>
             <coding>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
                 <code value="FP"/>
-                <display value="formulary policy"/>             
+                <display value="formulary policy"/>
             </coding>
         </reason>
     </substitution>

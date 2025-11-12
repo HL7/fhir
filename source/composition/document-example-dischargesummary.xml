@@ -400,41 +400,42 @@
       <!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
         <dosageInstruction>
-          <additionalInstruction>
-            <text value="Take with Food"/>
-          </additionalInstruction>
-        <!--   twice a day   -->
-          <timing>
-            <repeat>
-              <frequency value="2"/>
-              <period value="1"/>
-              <periodUnit value="d"/>
-            </repeat>
-          </timing>
-        <!--   Orally   -->
-          <route>
-            <coding>
-              <system value="http://snomed.info/sct"/>
-              <code value="394899003"/>
-              <display value="oral administration of treatment"/>
-            </coding>
-          </route>
-               <doseAndRate>
-                 <type>
-                   <coding>
-                     <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                     <code value="ordered"/>
-                     <display value="Ordered"/>
-                   </coding>
-                 </type>
-                 <doseQuantity>
-                   <value value="1"/>
-                   <unit value="tablet"/>
-                   <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                   <code value="TAB"/>
-                 </doseQuantity>
-               </doseAndRate>
-
+          <simple>
+            <additionalInstruction>
+              <text value="Take with Food"/>
+            </additionalInstruction>
+          <!--   twice a day   -->
+            <timing>
+              <repeat>
+                <frequency value="2"/>
+                <period value="1"/>
+                <periodUnit value="d"/>
+              </repeat>
+            </timing>
+          <!--   Orally   -->
+            <route>
+              <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="394899003"/>
+                <display value="oral administration of treatment"/>
+              </coding>
+            </route>
+                <doseAndRate>
+                  <type>
+                    <coding>
+                      <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                      <code value="ordered"/>
+                      <display value="Ordered"/>
+                    </coding>
+                  </type>
+                  <doseQuantity>
+                    <value value="1"/>
+                    <unit value="tablet"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                    <code value="TAB"/>
+                  </doseQuantity>
+                </doseAndRate>
+           </simple>
         </dosageInstruction>
       </MedicationRequest>
     </resource>

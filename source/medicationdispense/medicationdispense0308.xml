@@ -58,7 +58,7 @@
     <whenPrepared value="2015-06-25T07:13:00+05:00"/>
     <whenHandedOver value="2015-06-26T07:13:00+05:00"/>
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="Instil one drop in each eye twice daily" />
         <timing>
             <repeat>
@@ -96,6 +96,7 @@
                 <code value="OPDROP"/> 
             </doseQuantity>
         </doseAndRate>
+			</simple>
 
     </dosageInstruction>
 </MedicationDispense>

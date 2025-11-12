@@ -54,11 +54,16 @@
         <code value="mg/kg"/>
       </doseQuantity>
     </doseAndRate>
-    <maxDosePerAdministration>
-      <value value="90"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="mg"/>
-    </maxDosePerAdministration>
+    <safety> 
+      <doseLimit>
+        <valueQuantity>
+          <value value="90"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mg"/>
+        </valueQuantity>
+        <scope value="administration"/>
+      </doseLimit>
+    </safety>
   </dosage>
   <dosage>
     <sequence value="2"/>
@@ -84,10 +89,15 @@
         <code value="mg/kg"/>
       </doseQuantity>
     </doseAndRate>
-    <maxDosePerAdministration>
-      <value value="90"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="mg"/>
-    </maxDosePerAdministration>
+    <safety> 
+      <doseLimit>
+        <valueQuantity>
+          <value value="90"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mg"/>
+        </valueQuantity>
+        <scope value="administration"/>
+          </doseLimit>
+    </safety>
   </dosage>
 </ActivityDefinition>

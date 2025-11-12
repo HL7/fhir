@@ -72,7 +72,7 @@
     </daysSupply>
     <whenPrepared value="2016-04-15T07:14:00+05:00"/>
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="one to two tablets every 4-6 hours as needed for rib pain" />
         <additionalInstruction>
             <coding>
@@ -110,6 +110,7 @@
                 <display value="Swallow - dosing instruction imperative (qualifier value)"/>
             </coding>
         </method>
+			</simple>
     </dosageInstruction>
     
 

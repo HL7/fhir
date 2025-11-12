@@ -48,19 +48,22 @@
         <display value="Oral"/>
       </coding>
     </route>
-    <maxDosePerPeriod>
-      <numerator>
-        <value value="3"/>
-        <unit value="capsules" />
-        <system value="http://snomed.info/sct" />
-        <code value="385055001"/>
-      </numerator>
-      <denominator>
-        <value value="1"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="d"/>
-      </denominator>
-    </maxDosePerPeriod>
+    <safety> 
+        <doseLimit>
+            <valueQuantity>
+              <value value="3"/>
+              <unit value="capsules" />
+              <system value="http://snomed.info/sct" />
+              <code value="385055001"/>
+            </valueQuantity>
+            <scope value="period"/>
+            <period>
+              <value value="1"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="d"/>
+            </period>
+        </doseLimit>
+    </safety>
   </dosage>
 <adherence>
   <code>

@@ -110,7 +110,7 @@
     </requester>
     
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="Apply twice daily to affected area on left arm"/>
         <additionalInstruction>
             <text value="Apply sparingly"></text>
@@ -151,7 +151,7 @@
                 <code value="OINT"/>
             </doseQuantity>
         </doseAndRate>
-        
+        </simple>
     </dosageInstruction>
     
     <dispenseRequest>

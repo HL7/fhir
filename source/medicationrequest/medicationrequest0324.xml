@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
- xmlns="http://hl7.org/fhir">
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="medrx0324"/>
     <identifier>
         <use value="official"/>
@@ -11,18 +10,18 @@
     <status value="completed"/>
     <intent value="order"/>
     <medication>
-    <concept>
-        <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="322254008"/>
-        <display value="Acetaminophen 240 mg rectal suppository"/>
-        </coding>
-    </concept>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="322254008"/>
+                <display value="Acetaminophen 240 mg rectal suppository"/>
+            </coding>
+        </concept>
     </medication>
     <subject>
         <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/> 
+        <display value="Donald Duck"/>
     </subject>
     <authoredOn value="2015-01-15"/>
     <requester>
@@ -30,69 +29,72 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
-      <concept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="30242009"/>
-            <display value="Scarlet Fever (disorder)"/>
-        </coding>
-      </concept>
-    </reason>
-    
-    <dosageInstruction>
-        <sequence value="1"/>
-        <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
-        <additionalInstruction>
+        <concept>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="418637003"/>
-                <display value="Do not take with any other paracetamol products (qualifier value)"/>
+                <code value="30242009"/>
+                <display value="Scarlet Fever (disorder)"/>
             </coding>
-        </additionalInstruction>
-        <timing>
-            <repeat>
-                <frequency value="2"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-    <asNeededFor>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="386661006"/>
-            <display value="Fever (finding)"/>
-        </coding>
-    </asNeededFor>
-        <doseAndRate>
-            <type>
+        </concept>
+    </reason>
+
+    <dosageInstruction>
+        <simple>
+            <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
+            <additionalInstruction>
                 <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="418637003"/>
+                    <display value="Do not take with any other paracetamol products (qualifier value)"/>
                 </coding>
-            </type>
-            <doseQuantity>
-                <value value="240"/>
-                <unit value="mg"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="mg"/>
-            </doseQuantity>
-        </doseAndRate>
-        
-        <maxDosePerPeriod>
-            <numerator>
-                <value value="720"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="mg"/>
-            </numerator>
-            <denominator>
-                <value value="1"/>
-                <system value="http://unitsofmeasure.org"></system>
-                <code value="d"></code>
-            </denominator>
-        </maxDosePerPeriod>
+            </additionalInstruction>
+            <timing>
+                <repeat>
+                    <frequency value="2"/>
+                    <period value="1"/>
+                    <periodUnit value="d"/>
+                </repeat>
+            </timing>
+            <asNeededFor>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="386661006"/>
+                    <display value="Fever (finding)"/>
+                </coding>
+            </asNeededFor>
+            <doseAndRate>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                        <code value="ordered"/>
+                        <display value="Ordered"/>
+                    </coding>
+                </type>
+                <doseQuantity>
+                    <value value="240"/>
+                    <unit value="mg"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="mg"/>
+                </doseQuantity>
+            </doseAndRate>
+            <safety> 
+                <doseLimit>
+                    <valueQuantity>
+                        <value value="720"/>
+                        <system value="http://unitsofmeasure.org"/>
+                        <code value="mg"/>
+                    </valueQuantity>
+                    <scope value="period"/>
+                    <period>
+                        <value value="1"/>
+                        <system value="http://unitsofmeasure.org"></system>
+                        <code value="d"></code>
+                    </period>
+                </doseLimit>
+            </safety>
+        </simple>
     </dosageInstruction>
-    
+
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
@@ -103,22 +105,22 @@
             <value value="30"/>
             <unit value="RECSUPP"/>
             <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-            <code value="RECSUPP"/> 
+            <code value="RECSUPP"/>
         </quantity>
         <expectedSupplyDuration>
             <value value="10"></value>
             <unit value="days"/>
             <system value="http://unitsofmeasure.org"/>
-            <code value="d"/> 
+            <code value="d"/>
         </expectedSupplyDuration>
-    </dispenseRequest>   
+    </dispenseRequest>
     <substitution>
         <allowedBoolean value="true"></allowedBoolean>
         <reason>
             <coding>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
                 <code value="FP"/>
-                <display value="formulary policy"/>             
+                <display value="formulary policy"/>
             </coding>
         </reason>
     </substitution>

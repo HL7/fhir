@@ -53,37 +53,38 @@
     </daysSupply>
     <whenPrepared value="2015-03-16T17:13:00+05:00"/>
     <dosageInstruction>
-        <sequence value="1"/>
-        <text value="75mcg daily daily" />
-        <timing>
-            <repeat>
-                <frequency value="1"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="26643006"/>
-                <display value="Oral Route (qualifier value)"/>
-            </coding>
-        </route>
-        <doseAndRate>
-            <type>
+        <simple>
+            <text value="75mcg daily daily" />
+            <timing>
+                <repeat>
+                    <frequency value="1"/>
+                    <period value="1"/>
+                    <periodUnit value="d"/>
+                </repeat>
+            </timing>
+            <route>
                 <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="26643006"/>
+                    <display value="Oral Route (qualifier value)"/>
                 </coding>
-            </type>
-            <doseQuantity>
-                <value value="75"/>
-                <unit value="mcg"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="ug"/>
-            </doseQuantity>
-        </doseAndRate>
+            </route>
+            <doseAndRate>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                        <code value="ordered"/>
+                        <display value="Ordered"/>
+                    </coding>
+                </type>
+                <doseQuantity>
+                    <value value="75"/>
+                    <unit value="mcg"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="ug"/>
+                </doseQuantity>
+            </doseAndRate>
+        </simple>
 
     </dosageInstruction>
     <substitution>

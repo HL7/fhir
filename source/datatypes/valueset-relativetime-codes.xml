@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="relativetime-codes"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/price-component-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3093"/>
+  </identifier>
+  <version value="6.0.0"/>
+  <name value="RelativeTimeCodes"/>
+  <title value="RelativeTime Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg"/>
+    </telecom>
+  </contact>
+  <description value="Example Codes to illustrate the use of RelativeTime.contextCode"/>
+  <immutable value="true"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/evidence-variable-event"/>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="129018004"/>
+        <display value="Traveling"/>
+      </concept>
+      <concept>
+        <code value="261041009"/>
+        <display value="Working"/>
+      </concept>
+      <concept>
+        <code value="712823008"/>
+        <display value="Acute depression"/>
+      </concept>
+      <concept>
+        <code value="871840004"/>
+        <display value="Depressive episode"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
+

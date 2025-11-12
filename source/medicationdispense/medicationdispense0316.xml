@@ -45,7 +45,7 @@
     </daysSupply>
     <whenPrepared value="2015-06-25T07:13:00+05:00"/>
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="20 Units SC three times daily" />
         <timing>
             <repeat>
@@ -77,6 +77,7 @@
                 <code value="U"/>
             </doseQuantity>
         </doseAndRate>
+			</simple>
 
     </dosageInstruction> 
 </MedicationDispense>

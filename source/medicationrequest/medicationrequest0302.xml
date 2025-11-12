@@ -1,19 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
- xmlns="http://hl7.org/fhir">
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="medrx0302"/>
     <contained>
-      <Medication>
-          <id value="med0320"/>
-          <code>
-                  <coding>
-                      <system value="http://snomed.info/sct"/>
-                      <code value="324252006"/>
-                      <display value="Azithromycin (as azithromycin dihydrate) 250 mg oral capsule"/>
-                  </coding>
-          </code>
-      </Medication>
+        <Medication>
+            <id value="med0320"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="324252006"/>
+                    <display value="Azithromycin (as azithromycin dihydrate) 250 mg oral capsule"/>
+                </coding>
+            </code>
+        </Medication>
     </contained>
     <identifier>
         <use value="official"/>
@@ -22,16 +21,16 @@
     </identifier>
     <status value="active"/>
     <intent value="order"/>
-    <medication> <!-- Linked to a RESOURCE Medication -->
+    <medication>        <!-- Linked to a RESOURCE Medication -->
         <reference>
-           <reference value="#med0320"/>
+            <reference value="#med0320"/>
         </reference>
-    </medication> 
-    <subject> <!-- Linked to the resource patient who needs the medication -->
+    </medication>
+    <subject>        <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/>         
+        <display value="Donald Duck"/>
     </subject>
-    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+    <encounter>        <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
     </encounter>
@@ -44,114 +43,119 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
-      <concept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="11840006"/>
-            <display value="Traveler's diarrhea (disorder)"/>
-        </coding>
-      </concept>
+        <concept>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="11840006"/>
+                <display value="Traveler's diarrhea (disorder)"/>
+            </coding>
+        </concept>
     </reason>
     <note>
         <text value="Patient told to take with food"/>
     </note>
-    
+
     <dosageInstruction>
-        <sequence value="1"/>
-        <text value="Two tablets at once" />
-        <additionalInstruction>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="311504000"/>
-                <display value="With or after food"/>
-            </coding>
-        </additionalInstruction>
-        <timing>
-            <repeat>
-                <frequency value="1"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="26643006"/>
-                <display value="Oral Route"/>
-            </coding>
-        </route>
-        <method>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="421521009"/>
-                <display value="Swallow - dosing instruction imperative (qualifier value)"/>
-            </coding>
-        </method>
-        <doseAndRate>
-            <type>
-                <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
-                </coding>
-            </type>
-            <doseQuantity>
-                <value value="2"/>
-                <unit value="TAB"/>
-                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                <code value="TAB"/>
-            </doseQuantity>
-        </doseAndRate>
+
+        <step>
+            <component>
+                <text value="Two tablets at once" />
+                <additionalInstruction>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="311504000"/>
+                        <display value="With or after food"/>
+                    </coding>
+                </additionalInstruction>
+                <timing>
+                    <repeat>
+                        <frequency value="1"/>
+                        <period value="1"/>
+                        <periodUnit value="d"/>
+                    </repeat>
+                </timing>
+                <route>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="26643006"/>
+                        <display value="Oral Route"/>
+                    </coding>
+                </route>
+                <method>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="421521009"/>
+                        <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+                    </coding>
+                </method>
+                <doseAndRate>
+                    <type>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                            <code value="ordered"/>
+                            <display value="Ordered"/>
+                        </coding>
+                    </type>
+                    <doseQuantity>
+                        <value value="2"/>
+                        <unit value="TAB"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                        <code value="TAB"/>
+                    </doseQuantity>
+                </doseAndRate>
+            </component>
+        </step>
+        <step>
+            <component>
+
+                <text value="One tablet daily for 4 days" />
+                <additionalInstruction>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="311504000"/>
+                        <display value="With or after food"/>
+                    </coding>
+                </additionalInstruction>
+                <timing>
+                    <repeat>
+                        <boundsDuration>
+                            <value value="4"></value>
+                            <unit value="days"/>
+                            <system value="http://unitsofmeasure.org"></system>
+                            <code value="d"></code>
+                        </boundsDuration>
+                        <frequency value="1"/>
+                        <period value="1"/>
+                        <periodUnit value="d"/>
+                    </repeat>
+                </timing>
+                <route>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="26643006"/>
+                        <display value="Oral Route"/>
+                    </coding>
+                </route>
+                <doseAndRate>
+                    <type>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                            <code value="ordered"/>
+                            <display value="Ordered"/>
+                        </coding>
+                    </type>
+                    <doseQuantity>
+                        <value value="1"/>
+                        <unit value="TAB"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                        <code value="TAB"/>
+                    </doseQuantity>
+                </doseAndRate>
+            </component>
+        </step>
 
     </dosageInstruction>
-    <dosageInstruction>
-        <sequence value="2"/>
-        <text value="One tablet daily for 4 days" />
-        <additionalInstruction>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="311504000"/>
-                <display value="With or after food"/>
-            </coding>
-        </additionalInstruction>
-        <timing>
-            <repeat>
-                <boundsDuration>
-                    <value value="4"></value>
-                    <unit value="days"/>
-                    <system value="http://unitsofmeasure.org"></system>
-                    <code value="d"></code>
-                </boundsDuration>
-                <frequency value="1"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="26643006"/>
-                <display value="Oral Route"/>
-            </coding>
-        </route>
-        <doseAndRate>
-            <type>
-                <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
-                </coding>
-            </type>
-            <doseQuantity>
-                <value value="1"/>
-                <unit value="TAB"/>
-                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                <code value="TAB"/>
-            </doseQuantity>
-        </doseAndRate>
 
-    </dosageInstruction> 
-    
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
@@ -162,22 +166,22 @@
             <value value="6"/>
             <unit value="TAB"/>
             <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-            <code value="TAB"/> 
+            <code value="TAB"/>
         </quantity>
         <expectedSupplyDuration>
             <value value="5"></value>
             <unit value="days"/>
             <system value="http://unitsofmeasure.org"/>
-            <code value="d"/> 
+            <code value="d"/>
         </expectedSupplyDuration>
-    </dispenseRequest>   
+    </dispenseRequest>
     <substitution>
         <allowedBoolean value="true"></allowedBoolean>
         <reason>
             <coding>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
                 <code value="FP"/>
-                <display value="formulary policy"/>             
+                <display value="formulary policy"/>
             </coding>
         </reason>
     </substitution>

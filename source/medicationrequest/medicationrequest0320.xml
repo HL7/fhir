@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
- xmlns="http://hl7.org/fhir">
-  <id value="medrx0320"/>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0320"/>
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/portal/prescriptions"/>
@@ -11,17 +10,17 @@
     <status value="completed"/>
     <intent value="order"/>
     <medication>
-    <concept>
-        <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-            <code value="285018"/>
-            <display value="insulin glargine 100 UNT/ML Injectable Solution [Lantus]"/>
-        </coding>
+        <concept>
+            <coding>
+                <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+                <code value="285018"/>
+                <display value="insulin glargine 100 UNT/ML Injectable Solution [Lantus]"/>
+            </coding>
         </concept>
     </medication>
-    <subject> <!-- Linked to the resource patient who needs the medication -->
+    <subject>        <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/>         
+        <display value="Donald Duck"/>
     </subject>
     <authoredOn value="2015-01-15"/>
     <requester>
@@ -29,61 +28,62 @@
         <display value="Patrick Pump"/>
     </requester>
     <reason>
-      <concept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="473189005"/>
-            <display value="On subcutaneous insulin for diabetes mellitus (finding)"/>
-        </coding>
-      </concept>
-    </reason>
-    
-    <dosageInstruction>
-        <sequence value="1"/>
-        <text value="20 Units SC three times daily" />
-        <timing>
-            <repeat>
-                <frequency value="3"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
+        <concept>
             <coding>
                 <system value="http://snomed.info/sct"/>
-                <code value="263887005"/>
-                <display value="Subcutaneous (qualifier value)"/>
+                <code value="473189005"/>
+                <display value="On subcutaneous insulin for diabetes mellitus (finding)"/>
             </coding>
-        </route>
-        <doseAndRate>
-            <type>
-                <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
-                </coding>
-            </type>
-            <doseQuantity>
-                <value value="20"/>
-                <unit value="U"/>
-                <system value="http://unitsofmeasure.org"/>
-                <code value="U"/>
-            </doseQuantity>
-        </doseAndRate>
+        </concept>
+    </reason>
 
-    </dosageInstruction> 
-    
+    <dosageInstruction>
+        <simple>
+            <text value="20 Units SC three times daily" />
+            <timing>
+                <repeat>
+                    <frequency value="3"/>
+                    <period value="1"/>
+                    <periodUnit value="d"/>
+                </repeat>
+            </timing>
+            <route>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="263887005"/>
+                    <display value="Subcutaneous (qualifier value)"/>
+                </coding>
+            </route>
+            <doseAndRate>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                        <code value="ordered"/>
+                        <display value="Ordered"/>
+                    </coding>
+                </type>
+                <doseQuantity>
+                    <value value="20"/>
+                    <unit value="U"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="U"/>
+                </doseQuantity>
+            </doseAndRate>
+        </simple>
+
+    </dosageInstruction>
+
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
-            <end value="2016-01-15"/> 
+            <end value="2016-01-15"/>
         </validityPeriod>
         <numberOfRepeatsAllowed value="6"/>
         <quantity>
             <value value="10"/>
             <unit value="mL"/>
             <system value="http://unitsofmeasure.org"/>
-            <code value="mL"/> 
+            <code value="mL"/>
         </quantity>
         <expectedSupplyDuration>
             <value value="30"/>

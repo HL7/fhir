@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Khalid Shahin</Author>
-  <LastAuthor>Khalid Shahin</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2023-09-29T11:12:07Z</Created>
-  <LastSaved>2023-09-30T05:46:44Z</LastSaved>
+  <LastSaved>2025-11-12T05:06:53Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -949,7 +949,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">EvidenceVariableEvent</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">RelativeTimeCodes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5966,11 +5966,11 @@
     <Cell ss:StyleID="s103"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unpublished notes</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s145"><Data ss:Type="String">EvidenceVariableEvent</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">RelativeTimeCodes</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">The event used as a base point (reference point) in time</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/evidence-variable-event" ss:StyleID="s146"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/evidence-variable-event</Data></Cell>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">valueset-relativetime-codes</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"/>

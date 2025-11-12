@@ -27,6 +27,16 @@
     <code value="ne"/>
     <display value="Not Equals"/>
     <definition value="the value for the parameter in the resource is not equal to the provided value."/>
+  </concept> 
+  <concept>
+    <code value="in"/>
+    <display value="In"/>
+    <definition value="The value for the parameter in the resource is in the list of codes in the value (comma-separated, and subject to code system logic; the code may be a value set)."/>
+  </concept>
+  <concept>
+    <code value="nin"/>
+    <display value="Not In"/>
+    <definition value="The value for the parameter in the resource is not in the list of codes in the value (comma-separated, and subject to code system logic; the code may be a value set)."/>
   </concept>
   <concept>
     <code value="gt"/>

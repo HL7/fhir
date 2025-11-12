@@ -41,7 +41,7 @@
     </requester>
     
     <dosageInstruction>
-        <sequence value="1"/>
+      <simple>
         <text value="Administer in 100cc NS as follows: First treatment infuse over 90 minutes, if no reaction then second treatment infuse over 60 minutes, if no reaction then on third and following treatments give over 30 minutes."/>
         <timing>
 			<event value="2023-01-18T00:00:00.000Z"></event>
@@ -78,7 +78,7 @@
                 <unit value="mg"/>
             </doseQuantity>
         </doseAndRate>
-        
+      </simple>
     </dosageInstruction>
  
 </MedicationRequest>

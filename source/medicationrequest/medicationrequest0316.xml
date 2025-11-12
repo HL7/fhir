@@ -54,7 +54,7 @@
     </requester>
 
     <dosageInstruction>
-        <sequence value="1"/>
+      <simple>
         <text value="1.8 mg/kg IV infusion over 20 minutes every 3 weeks for 16 cycles" />
         <timing>
             <repeat>
@@ -98,14 +98,19 @@
                 </denominator>
             </rateRatio>
         </doseAndRate>
+        <safety> 
+            <doseLimit>
+                <valueQuantity>
+                    <value value="400"/>
+                    <unit value="mg"/>
+                    <system value="http://unitsofmeasure.org"/>
+                    <code value="mg"/>
+                </valueQuantity>
+                <scope value="administration"/>
+          </doseLimit>
+        </safety>
 
-        <maxDosePerLifetime>
-            <value value="400"/>
-            <unit value="mg"/>
-            <system value="http://unitsofmeasure.org"/>
-            <code value="mg"/>
-        </maxDosePerLifetime>
-
+      </simple>
     </dosageInstruction>
 
 </MedicationRequest>

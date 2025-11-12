@@ -122,69 +122,69 @@
     </note>
     
     <dosageInstruction>
-        <sequence value="1"/>
-        <text value="one to two tablets every 4-6 hours as needed for rib pain" />
-        <additionalInstruction>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="418914006"/>
-                <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"/>
-            </coding>
-        </additionalInstruction>
-        <patientInstruction value="Take one to two tablets every four to six hours as needed for rib pain"></patientInstruction>
-        <timing>
-            <repeat>
-                <frequency value="1"/>
-                <period value="4"/>
-                <periodMax value ="6"/>
-                <periodUnit value="h"/>
-            </repeat>
-        </timing>
-        <asNeededFor>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="297217002"/>
-                <display value="Rib Pain (finding)"/>
-            </coding>
-        </asNeededFor>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="26643006"/>
-                <display value="Oral Route"/>
-            </coding>
-        </route>
-        <method>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="421521009"/>
-                <display value="Swallow - dosing instruction imperative (qualifier value)"/>
-            </coding>
-        </method>
-        <doseAndRate>
-            <type>
+        <simple>
+            <text value="one to two tablets every 4-6 hours as needed for rib pain" />
+            <additionalInstruction>
                 <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="418914006"/>
+                    <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"/>
                 </coding>
-            </type>
-            <doseRange>
-                <low>
-                    <value value="1"/>
-                    <unit value="TAB"/>
-                    <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                    <code value="TAB"/> 
-                </low>
-                <high>
-                    <value value="2"/>
-                    <unit value="TAB"/>
-                    <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                    <code value="TAB"/> 
-                </high>
-            </doseRange>
-        </doseAndRate>
-        
+            </additionalInstruction>
+            <patientInstruction value="Take one to two tablets every four to six hours as needed for rib pain"></patientInstruction>
+            <timing>
+                <repeat>
+                    <frequency value="1"/>
+                    <period value="4"/>
+                    <periodMax value ="6"/>
+                    <periodUnit value="h"/>
+                </repeat>
+            </timing>
+            <asNeededFor>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="297217002"/>
+                    <display value="Rib Pain (finding)"/>
+                </coding>
+            </asNeededFor>
+            <route>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="26643006"/>
+                    <display value="Oral Route"/>
+                </coding>
+            </route>
+            <method>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="421521009"/>
+                    <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+                </coding>
+            </method>
+            <doseAndRate>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                        <code value="ordered"/>
+                        <display value="Ordered"/>
+                    </coding>
+                </type>
+                <doseRange>
+                    <low>
+                        <value value="1"/>
+                        <unit value="TAB"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                        <code value="TAB"/> 
+                    </low>
+                    <high>
+                        <value value="2"/>
+                        <unit value="TAB"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                        <code value="TAB"/> 
+                    </high>
+                </doseRange>
+            </doseAndRate>
+        </simple>
     </dosageInstruction>
     
     <dispenseRequest>

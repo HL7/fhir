@@ -67,7 +67,7 @@
     
         
    <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="one tablet one time daily in the morning for rib pain" />
         <additionalInstruction>
             <coding>
@@ -121,7 +121,7 @@
                 </high>
             </doseRange>
         </doseAndRate>
-        
+       </simple> 
     </dosageInstruction>
     
     <dispenseRequest>

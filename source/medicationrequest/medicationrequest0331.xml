@@ -47,7 +47,7 @@
     </requester>
     
     <dosageInstruction>
-        <sequence value="1"/>
+      <simple>
         <text value="7mg once daily"/>
         <timing>
             <repeat>
@@ -71,7 +71,7 @@
                 <code value="mg"/>
             </doseQuantity>
         </doseAndRate>
-        
+      </simple>
     </dosageInstruction>
     
     <dispenseRequest>

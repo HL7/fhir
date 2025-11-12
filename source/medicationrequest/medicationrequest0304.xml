@@ -40,7 +40,7 @@
     </requester>
     
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="10 drops four times daily - apply in mouth using cotton swab or finger"/>
         <timing>
             <repeat>
@@ -64,6 +64,7 @@
                 <code value="DROP"/>
             </doseQuantity>
         </doseAndRate>
+      </simple>
         
     </dosageInstruction>
     

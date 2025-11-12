@@ -1,28 +1,27 @@
-﻿<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
- xmlns="http://hl7.org/fhir">
+﻿<MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+	xmlns="http://hl7.org/fhir">
 	<id value="meddisp008"/>
 	<contained>
 		<Medication>
 			<id value="medexample015"></id>
-		<code>
-			<coding>
-				<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-				<code value="213293"/>
-				<display value="capecitabine 500 MG Oral Tablet [Xeloda]"/>
-			</coding>
-		</code>
+			<code>
+				<coding>
+					<system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+					<code value="213293"/>
+					<display value="capecitabine 500 MG Oral Tablet [Xeloda]"/>
+				</coding>
+			</code>
 		</Medication>
 	</contained>
 	<status value="completed"/>
 	<medication>
 		<reference>
-		<reference value="#medexample015"/>
+			<reference value="#medexample015"/>
 		</reference>
 	</medication>
 	<subject>
 		<reference value="Patient/pat1"/>
-		<display value="Donald Duck"/> 
+		<display value="Donald Duck"/>
 	</subject>
 	<performer>
 		<actor>
@@ -32,22 +31,22 @@
 	<authorizingPrescription>
 		<reference value="MedicationRequest/medrx0309"/>
 	</authorizingPrescription>
-		<dosageInstruction>
-			<sequence value="1"/>
-		<timing>
-			<repeat>
-				<frequency value="2"/>
-				<period value="21"/>
-				<periodUnit value="d"/>
-			</repeat>
-		</timing>
-		<route>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="394899003"/>
-				<display value="oral administration of treatment"/>
-			</coding>
-		</route>
+	<dosageInstruction>
+		<simple>
+			<timing>
+				<repeat>
+					<frequency value="2"/>
+					<period value="21"/>
+					<periodUnit value="d"/>
+				</repeat>
+			</timing>
+			<route>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="394899003"/>
+					<display value="oral administration of treatment"/>
+				</coding>
+			</route>
 			<doseAndRate>
 				<type>
 					<coding>
@@ -63,6 +62,7 @@
 					<code value="mg"/>
 				</doseQuantity>
 			</doseAndRate>
+		</simple>
 
 	</dosageInstruction>
 </MedicationDispense>
