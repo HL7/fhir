@@ -26,7 +26,7 @@ The DeviceRequest resource represents an authorization for a device to be provid
 <a href="visionprescription.html">VisionPrescription</a> may appear to overlap with DeviceRequest, but not completely as there are specific vision lens specification details that are present in VisionPrescription. To illustrate this, the <a href="devicerequest-left-lens.html">devicerequest-left-lens</a> and <a href="devicerequest-right-lens.html">devicerequest-right-lens</a> examples are based on the <a href="visionprescription-example.html">general glasses example</a>.
 </p>
 <p>
-To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.
+To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done, as the context of the use case actually determines which date of either resource is considered the purchase date.
 </p>	
 	</div>
 	<!-- (optional):
