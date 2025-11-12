@@ -76,8 +76,9 @@ Take Perindopril, 1 tablet per day, for 3 months.
 <p><b>Structure</b></p>
 
 <ul> 
-  <li><code>MedicationRequest.medicationCodeableConcept</code> = “Perindopril Arginine 2.5 mg tablet”</li> 
-  <li><code>MedicationRequest.dosageInstruction[0].timing.repeat.boundsDuration</code> = 3&nbsp;mo</li> 
+  <li><code>MedicationRequest.medication.concept</code> = “Perindopril Arginine 2.5 mg tablet”</li> 
+  <li><code>MedicationRequest.dosageDetails.renderedDosageInstruction</code> = “1 tablet per day for 3 months”</li> 
+  <li><code>MedicationRequest.dosageDetails.simple.timing.repeat.boundsDuration</code> = 3&nbsp;mo</li> 
   <li><code>…timing.repeat.frequency/period/periodUnit</code> = 1 / 1 / d</li> 
   <li><code>…doseAndRate[0].doseQuantity</code> = 1 tablet (or explicit mg if desired)</li> 
 </ul> 
@@ -213,6 +214,7 @@ Methylphenidate 10 mg tablets — 10 mg at 07:30 and 12:00, 5 mg at 16:00 Mon–
     <li><code>Dosage.timing.repeat.dayOfWeek</code> and <code>…timeOfDay</code> for fixed administrations.</li> 
     <li><code>Dosage.asNeededBoolean</code> for PRN (evening); optionally <code>…when = EVE</code>.</li> 
     <li><code>Dosage.maxDosePerPeriod</code> (Ratio) for 150&nbsp;mg per week.</li> 
+    <li><code>MedicationRequest.dosageDetails.safety.limit</code> (scope=<code>period</code>) for 150&nbsp;mg per week.</li> 
   </ul> 
 
 <pre class="yaml">
@@ -286,59 +288,59 @@ MedicationRequest
                 "system": "http://unitsofmeasure.org",
                 "code": "mg"
               }
-            }
-          ]
-        },
-        {
-          "timing": {
-            "repeat": {
-              "dayOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-              "timeOfDay": ["16:00"]
-            }
-          },
-          "doseAndRate": [
-            {
-              "doseQuantity": {
-                "value": 5,
-                "unit": "mg",
-                "system": "http://unitsofmeasure.org",
-                "code": "mg"
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 10,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
               }
-            }
-          ]
-        },
-        {
-          "timing": {
-            "repeat": {
-              "dayOfWeek": ["sat", "sun"],
-              "timeOfDay": ["08:00"]
-            }
+            ]
           },
-          "doseAndRate": [
-            {
-              "doseQuantity": {
-                "value": 10,
-                "unit": "mg",
-                "system": "http://unitsofmeasure.org",
-                "code": "mg"
+          {
+            "timing": {
+              "repeat": {
+                "dayOfWeek": ["mon", "tue", "wed", "thu", "fri"],
+                "timeOfDay": ["16:00"]
               }
-            }
-          ]
-        },
-        {
-          "asNeeded": true,
-          "timing": {
-            "repeat": {
-              "when": ["EVE"]
-            }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 5,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
           },
-          "doseAndRate": [
-            {
-              "doseQuantity": {
-                "value": 5,
-                "unit": "mg",
-                "system": "http://unitsofmeasure.org",
-                "code": "mg"
+          {
+            "timing": {
+              "repeat": {
+                "dayOfWeek": ["sat", "sun"],
+                "timeOfDay": ["08:00"]
+              }
+            },
+            "doseAndRate": [
+              {
+                "doseQuantity": {
+                  "value": 10,
+                  "unit": "mg",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mg"
+                }
+              }
+            ]
+          },
+          {
+            "asNeeded": true,
+            "timing": {
+              "repeat": {
+                "when": ["EVE"]
               }
             }
           ]
@@ -507,9 +509,9 @@ Prednisone 10 mg tablets (oral)
 <p><b>Structure</b></p>
 
  <ul> 
-    <li>Represent each step as a separate <code>dosageInstruction</code> with its own <code>timing.repeat</code> and dose.</li> 
+    <li>Represent each step as a separate <code>dosageDetails.step</code> with its own <code>timing.repeat</code> and dose.</li> 
     <li>“Every other day” → <code>period=2</code>, <code>periodUnit=d</code>.</li> 
-    <li>Optional PRN course as a separate PRN <code>dosageInstruction</code> (narrative driven).</li> 
+    <li>Optional PRN course as a separate PRN <code>dosageDetails.step</code> (narrative driven).</li> 
   </ul> 
 
 <pre class="yaml">
@@ -541,8 +543,8 @@ MedicationRequest
         doseAndRate
           doseQuantity: 30 mg
       component
-         timing
-         repeat
+        timing
+          repeat
             count: 5
             period: 1
             periodUnit: d
@@ -578,7 +580,7 @@ MedicationRequest
             periodUnit: d
             timeOfDay: 08:00
         doseAndRate
-          doseQuantity: 10 mg
+          doseQuantity: 5 mg
     step 
       component
         timing
@@ -595,12 +597,12 @@ MedicationRequest
         timing
           repeat
             boundsDuration: 3 m
-            doseAndRate
-            doseQuantity: 5 mg
+        doseAndRate
+          doseQuantity: 5 mg
     safety
       doseLimit
         valueInteger: 2
-        Period: 2 months
+        Period: 6 months
 </pre>
  </div>
 
@@ -752,7 +754,7 @@ MedicationRequest
             "doseAndRate": [
               {
                 "doseQuantity": {
-                  "value": 10,
+                  "value": 5,
                   "unit": "mg",
                   "system": "http://unitsofmeasure.org",
                   "code": "mg"
@@ -955,7 +957,7 @@ MedicationRequest
         &lt;/doseAndRate&gt;
       &lt;/component&gt;
     &lt;/step&gt;
-    &lt;!-- Step 5: 10mg daily for 5 days --&gt;
+    &lt;!-- Step 5: 5mg daily for 5 days --&gt;
     &lt;step&gt;
       &lt;component&gt;
         &lt;timing&gt;
@@ -968,7 +970,7 @@ MedicationRequest
         &lt;/timing&gt;
         &lt;doseAndRate&gt;
           &lt;doseQuantity&gt;
-            &lt;value value=&quot;10&quot;/&gt;
+            &lt;value value=&quot;5&quot;/&gt;
             &lt;unit value=&quot;mg&quot;/&gt;
             &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
             &lt;code value=&quot;mg&quot;/&gt;
@@ -1069,9 +1071,9 @@ Epirubicin 45 mg/m² IV on Days 1 &amp; 8 every 28 days × 6 cycles; infuse over
  <div id="tabs-Example4-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
 <ul> 
-    <li>Two <code>dosageInstruction</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li> 
+    <li>Two <code>dosageDetails.step.component</code> entries for Day&nbsp;1 and Day&nbsp;8 of each 28-day period (×6 cycles).</li> 
     <li>Infusion duration → <code>Dosage.timing.repeat.duration</code>=20, <code>durationUnit</code>=min; or encode under <code>doseAndRate.rate[x]</code> if modeled as rate.</li> 
-    <li>Maxima: <code>Dosage.maxDosePerPeriod</code> for “per cycle” and <code>Dosage.maxDosePerLifetime</code> for lifetime.</li> 
+    <li>Maxima via <code>MedicationRequest.dosageDetails.safety.limit</code> with scopes <code>period</code> (per cycle) and <code>lifetime</code>.</li> 
     <li>Day-8 offset is expressed via a <code>Timing.repeat</code> extension (e.g., <code>startOffset=8 d</code>).</li> 
   </ul> 
 <pre class="yaml">
@@ -1336,7 +1338,7 @@ MedicationRequest
           period: 28
           periodUnit: d
        doseAndRate
-         doesQuantity: 1 tablet
+         doseQuantity: 1 tablet
 
 </pre>
  </div>
@@ -1462,7 +1464,7 @@ MedicationRequest
           period: 1
           periodUnit: d
           dayOfWeek = Mon|Wed|Fri
-        timeOfDay: 09:00
+          timeOfDay: 09:00
 </pre>
  </div>
 
@@ -1555,8 +1557,8 @@ Symbicort (budesonide/formoterol):
  <div id="tabs-Example7-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
 <ul> 
-    <li>Model planned daily dosing and PRN as separate <code>dosageInstruction</code> entries.</li> 
-    <li>Use <code>Dosage.maxDosePerAdministration</code> = 6 puffs; <code>Dosage.maxDosePerPeriod</code> = 12 puffs per 1 day.</li> 
+    <li>Model planned daily dosing and PRN as separate <code>dosageDetails.step.component</code> entries.</li> 
+    <li>Use <code>MedicationRequest.dosageDetails.safety.limit</code> with <code>scope=administration</code> (6 puffs) and <code>scope=period</code> (12 puffs / 1 day).</li> 
   </ul> 
   
 <pre class="yaml">
@@ -1749,10 +1751,11 @@ MedicationRequest
   dosage
     simple
       timing
-        extension['%timing-dayOfMonth'].valueInteger: 1
-        frequency: 1
-        period: 1
-        periodUnit: mo
+        repeat
+          extension['%timing-dayOfMonth'].valueInteger: 1
+          frequency: 1
+          period: 1
+          periodUnit: mo
 </pre>
  </div>
 
@@ -1869,26 +1872,29 @@ MedicationRequest
     step
       component
         timing
-          count : 7
-          period: 1
-          periodUnit: d
-       doseAndDate
+          repeat
+            count : 7
+            period: 1
+            periodUnit: d
+       doseAndRate
          doseQuantity: 1 tablet
     step
       component
         timing
-          count : 3
-          period: 1
-          periodUnit: d
-       doseAndDate
+          repeat
+            count : 3
+            period: 1
+            periodUnit: d
+       doseAndRate
          doseQuantity: 0 tablet
     step
       component
         timing
-          count : 3
-          period: 1
-          periodUnit: d
-       doseAndDate
+          repeat
+            count : 3
+            period: 1
+            periodUnit: d
+       doseAndRate
          doseQuantity: 1 tablet
 
 </pre>
@@ -2262,7 +2268,7 @@ then 20 mg morning for 1 week, then 10 mg morning for 2 weeks, then see doctor f
  <div id="tabs-Example11-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
 <ul> 
-    <li>Use separate <code>dosageInstruction</code> entries per step (weekly bounds).</li> 
+    <li>Use separate <code>dosageDetails.step</code> entries per step (weekly bounds).</li> 
     <li>reference an <code>EventDefinition</code> to describe the “3 negative strips” event</li> 
   </ul> 
 
@@ -2528,7 +2534,7 @@ Dovobet ointment: When needed a treatment period of 4 weeks starts. Applied once
 <p><b>Structure</b></p>
  <ul> 
     <li>Two steps: an initial 4-week course and a repeatable “if needed” 4-week course.</li> 
-    <li>Limits: <code>Dosage.maxDosePerPeriod</code> = 15 g per 1 day; “≤30% surface area” modeled as a narrative or as a quantity with a percent unit on <code>maxDosePerAdministration</code> if locally profiled.</li> 
+    <li>Limits via <code>MedicationRequest.dosageDetails.safety.limit</code>: 15&nbsp;g per 1 day (<code>scope=period</code>); “≤30% surface area” captured as narrative or profiled percent on <code>scope=administration</code>.</li> 
   </ul> 
 
 <pre class="yaml">
@@ -2801,6 +2807,7 @@ MedicationRequest
     var stored = sessionStorage.getItem('fhir-example-tab-index');
     if (stored !== null) idx = parseInt(stored, 10) || 0;
   } catch (e) {}
+  var currentTabIndex = idx;
 
 $( '#tabs-Example1' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
 $( '#tabs-Example2' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
