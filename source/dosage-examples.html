@@ -263,7 +263,7 @@ MedicationRequest
  <div id="tabs-Example2-json" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="true" style="display: none;">
 <p><b>JSON</b></p>
 <pre class="json" fragment="MedicationRequest" id="j2">
- {
+{
   "resourceType": "MedicationRequest",
   "medication": {
     "concept": {
@@ -287,63 +287,63 @@ MedicationRequest
                 "unit": "mg",
                 "system": "http://unitsofmeasure.org",
                 "code": "mg"
-              }
-            },
-            "doseAndRate": [
-              {
-                "doseQuantity": {
-                  "value": 10,
-                  "unit": "mg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mg"
+              },
+              "doseAndRate": [
+                {
+                  "doseQuantity": {
+                    "value": 10,
+                    "unit": "mg",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mg"
+                  }
                 }
-              }
-            ]
+              ]
+            }
+          ]
+        },
+        {
+          "timing": {
+            "repeat": {
+              "dayOfWeek": ["mon", "tue", "wed", "thu", "fri"],
+              "timeOfDay": ["16:00"]
+            }
           },
-          {
-            "timing": {
-              "repeat": {
-                "dayOfWeek": ["mon", "tue", "wed", "thu", "fri"],
-                "timeOfDay": ["16:00"]
-              }
-            },
-            "doseAndRate": [
-              {
-                "doseQuantity": {
-                  "value": 5,
-                  "unit": "mg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mg"
-                }
-              }
-            ]
-          },
-          {
-            "timing": {
-              "repeat": {
-                "dayOfWeek": ["sat", "sun"],
-                "timeOfDay": ["08:00"]
-              }
-            },
-            "doseAndRate": [
-              {
-                "doseQuantity": {
-                  "value": 10,
-                  "unit": "mg",
-                  "system": "http://unitsofmeasure.org",
-                  "code": "mg"
-                }
-              }
-            ]
-          },
-          {
-            "asNeeded": true,
-            "timing": {
-              "repeat": {
-                "when": ["EVE"]
+          "doseAndRate": [
+            {
+              "doseQuantity": {
+                "value": 5,
+                "unit": "mg",
+                "system": "http://unitsofmeasure.org",
+                "code": "mg"
               }
             }
           ]
+        },
+        {
+          "timing": {
+            "repeat": {
+              "dayOfWeek": ["sat", "sun"],
+              "timeOfDay": ["08:00"]
+            }
+          },
+          "doseAndRate": [
+            {
+              "doseQuantity": {
+                "value": 10,
+                "unit": "mg",
+                "system": "http://unitsofmeasure.org",
+                "code": "mg"
+              }
+            }
+          ]
+        },
+        {
+          "asNeeded": true,
+          "timing": {
+            "repeat": {
+              "when": ["EVE"]
+            }
+          }
         }
       ]
     }],
