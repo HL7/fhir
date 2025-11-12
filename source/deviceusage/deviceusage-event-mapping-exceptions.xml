@@ -51,6 +51,10 @@
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
             <resource value="preparation | active | completed | not-done | entered-in-error +"/>
         </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The current state of the device usage."/>
+            <resource value="A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed."/>
+        </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
             <resource value="DeviceUsage is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).&#13;&#13;This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid. When the status is 'not-done', the [event-statusReason](http://hl7.org/fhir/StructureDefinition/event-statusReason) extension should be used to indicate why the DeviceUsage was not done."/>
