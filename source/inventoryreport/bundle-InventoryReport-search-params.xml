@@ -8,7 +8,7 @@
       <SearchParameter>
         <id value="InventoryReport-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InventoryReport.identifier"/>
@@ -27,7 +27,7 @@
       <SearchParameter>
         <id value="InventoryReport-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InventoryReport.status"/>
@@ -46,7 +46,7 @@
       <SearchParameter>
         <id value="InventoryReport-item"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InventoryReport.inventoryListing.item.item.concept"/>
@@ -65,7 +65,7 @@
       <SearchParameter>
         <id value="InventoryReport-item-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InventoryReport.inventoryListing.item.item.reference"/>

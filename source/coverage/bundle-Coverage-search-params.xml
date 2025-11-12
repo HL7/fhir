@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Coverage-beneficiary"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.beneficiary"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="Coverage-class-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.class.type"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Coverage-class-value"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.class.value"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Coverage-dependent"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.dependent"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="Coverage-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.identifier"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="Coverage-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.beneficiary"/>
@@ -123,7 +123,7 @@
           <valueString value="Coverage.paymentBy.party"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Parties who will pay for services"/>
         <code value="paymentby-party"/>
@@ -140,7 +140,7 @@
           <valueString value="Coverage.period"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Dates that the Coverage is active"/>
         <code value="period"/>
@@ -157,7 +157,7 @@
           <valueString value="Coverage.insurer"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="The identity of the insurer"/>
         <code value="insurer"/>
@@ -172,7 +172,7 @@
       <SearchParameter>
         <id value="Coverage-policy-holder"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.policyHolder"/>
@@ -191,7 +191,7 @@
       <SearchParameter>
         <id value="Coverage-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.status"/>
@@ -210,7 +210,7 @@
       <SearchParameter>
         <id value="Coverage-subscriber"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.subscriber"/>
@@ -231,7 +231,7 @@
           <valueString value="Coverage.subscriberId"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Identifier of the subscriber"/>
         <code value="subscriberid"/>
@@ -246,7 +246,7 @@
       <SearchParameter>
         <id value="Coverage-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.type"/>

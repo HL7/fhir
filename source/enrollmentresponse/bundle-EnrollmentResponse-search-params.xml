@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="EnrollmentResponse-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EnrollmentResponse.identifier"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="EnrollmentResponse-request"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EnrollmentResponse.request"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="EnrollmentResponse-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EnrollmentResponse.status"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="EnrollmentResponse-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EnrollmentResponse.candidate"/>
@@ -84,7 +84,7 @@
       <SearchParameter>
         <id value="EnrollmentResponse-group"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EnrollmentResponse.candidate"/>

@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="RegulatedAuthorization-case"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RegulatedAuthorization.case.identifier"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="RegulatedAuthorization-case-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RegulatedAuthorization.case.type"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="RegulatedAuthorization-holder"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RegulatedAuthorization.holder"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="RegulatedAuthorization-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RegulatedAuthorization.identifier"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="RegulatedAuthorization-region"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RegulatedAuthorization.region"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="RegulatedAuthorization-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RegulatedAuthorization.status"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="RegulatedAuthorization-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RegulatedAuthorization.subject"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="RegulatedAuthorization-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RegulatedAuthorization.type"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="RegulatedAuthorization-validity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RegulatedAuthorization.validityPeriod"/>

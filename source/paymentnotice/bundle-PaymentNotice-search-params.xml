@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="PaymentNotice-created"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentNotice.created"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="PaymentNotice-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentNotice.identifier"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="PaymentNotice-payment-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentNotice.paymentStatus"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="PaymentNotice-reporter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentNotice.reporter"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="PaymentNotice-request"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentNotice.request"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="PaymentNotice-response"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentNotice.response"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="PaymentNotice-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentNotice.status"/>

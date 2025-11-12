@@ -9,7 +9,7 @@
     <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/qualification-status"/>
   <identifier>

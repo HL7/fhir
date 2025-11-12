@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="AdverseEvent-actuality"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.actuality"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="AdverseEvent-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.category"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="AdverseEvent-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.code"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="AdverseEvent-occurrence"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.suspectEntity.occurrence[x]"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="AdverseEvent-effect"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.effect[x]"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="AdverseEvent-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.identifier"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="AdverseEvent-location"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.location"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="AdverseEvent-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.subject"/>
@@ -160,7 +160,7 @@
       <SearchParameter>
         <id value="AdverseEvent-recorder"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.recorder"/>
@@ -179,7 +179,7 @@
       <SearchParameter>
         <id value="AdverseEvent-resultingeffect-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.resultingEffect.reference"/>
@@ -199,7 +199,7 @@
       <SearchParameter>
         <id value="AdverseEvent-resultingeffect-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.resultingEffect.concept"/>
@@ -219,7 +219,7 @@
       <SearchParameter>
         <id value="AdverseEvent-seriousness"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.seriousness"/>
@@ -238,7 +238,7 @@
       <SearchParameter>
         <id value="AdverseEvent-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.status"/>
@@ -257,7 +257,7 @@
       <SearchParameter>
         <id value="AdverseEvent-study"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.study"/>
@@ -276,7 +276,7 @@
       <SearchParameter>
         <id value="AdverseEvent-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.subject"/>
@@ -295,7 +295,7 @@
       <SearchParameter>
         <id value="AdverseEvent-substance"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdverseEvent.suspectEntity.instance.reference"/>

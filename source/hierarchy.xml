@@ -337,7 +337,6 @@ signatures.html
         <page title="Dosage Mappings" filename="dosage-mappings.html"/>
         <page title="Dosage Profiles" filename="dosage-profiles.html"/>
       </page>
-      <page type="resource" resource="FormularyItem"/>
     </page>
 
 

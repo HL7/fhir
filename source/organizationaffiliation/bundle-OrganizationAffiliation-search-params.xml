@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-active"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.active"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.period"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-email"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.contact.telecom(system=email)"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-endpoint"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.endpoint"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.identifier"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-location"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.location"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-network"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.network"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-participating-organization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.participatingOrganization"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-phone"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.contact.telecom(system=phone)"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-primary-organization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.organization"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-role"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.code"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-service"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.healthcareService"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-specialty"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.specialty"/>
@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="OrganizationAffiliation-telecom"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="OrganizationAffiliation.contact.telecom"/>

@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="CoverageEligibilityResponse-created"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CoverageEligibilityResponse.created"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="CoverageEligibilityResponse-disposition"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CoverageEligibilityResponse.disposition"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="CoverageEligibilityResponse-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CoverageEligibilityResponse.identifier"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="CoverageEligibilityResponse-insurer"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CoverageEligibilityResponse.insurer"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="CoverageEligibilityResponse-outcome"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CoverageEligibilityResponse.outcome"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="CoverageEligibilityResponse-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CoverageEligibilityResponse.patient"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="CoverageEligibilityResponse-request"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CoverageEligibilityResponse.request"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="CoverageEligibilityResponse-requestor"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CoverageEligibilityResponse.requestor"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="CoverageEligibilityResponse-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CoverageEligibilityResponse.status"/>

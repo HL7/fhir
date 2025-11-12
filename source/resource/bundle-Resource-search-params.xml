@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Resource-_content"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_content"/>
         <description value="Search on the entire content of the resource"/>
@@ -41,7 +41,7 @@
       <SearchParameter>
         <id value="Resource-_in"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Resource.id"/>
@@ -60,7 +60,7 @@
       <SearchParameter>
         <id value="Resource-_language"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Resource.language"/>
@@ -98,7 +98,7 @@
       <SearchParameter>
         <id value="Resource-_list"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_list"/>
         <description value="Allows for the retrieval of resources that are referenced by a List resource or by one of the pre-defined functional lists"/>
@@ -132,7 +132,7 @@
       <SearchParameter>
         <id value="Resource-_query"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_query"/>
         <description value="A custom search profile that describes a specific defined query operation"/>
@@ -147,7 +147,7 @@
       <SearchParameter>
         <id value="Resource-_security"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Resource.meta.security"/>
@@ -185,7 +185,7 @@
       <SearchParameter>
         <id value="Resource-_tag"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Resource.meta.tag"/>
@@ -204,7 +204,7 @@
       <SearchParameter>
         <id value="Resource-_has"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_has"/>
         <description value="Provides limited support for reverse chaining - that is, selecting resources based on the properties of resources that refer to them (instead of chaining where resources can be selected based on the properties of resources that they refer to). See the FHIR search page for further documentation"/>
@@ -219,7 +219,7 @@
       <SearchParameter>
         <id value="Resource-_type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_type"/>
         <description value="A resource type filter"/>
@@ -234,7 +234,7 @@
       <SearchParameter>
         <id value="Resource-_filter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Resource-_filter"/>
         <description value="Filter search parameter which supports a more sophisticated grammar for searching. See [documentation](search_filter.html) for further details"/>

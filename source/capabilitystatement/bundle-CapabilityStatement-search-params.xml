@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="CapabilityStatement-context-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.code"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="CapabilityStatement-context-type-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-context-type-quantity"/>
         <description value="A use context type and quantity- or range-based value assigned to the capability statement"/>
@@ -107,7 +107,7 @@
       <SearchParameter>
         <id value="CapabilityStatement-context-type-value"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CapabilityStatement-context-type-value"/>
         <description value="A use context type and value assigned to the capability statement"/>
@@ -416,7 +416,7 @@
       <SearchParameter>
         <id value="CapabilityStatement-supported-profile"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CapabilityStatement.rest.resource.supportedProfile"/>

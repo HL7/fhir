@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="PractitionerRole-active"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.active"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="PractitionerRole-characteristic"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.characteristic"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="PractitionerRole-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.period"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="PractitionerRole-email"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.contact.telecom(system=email)"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="PractitionerRole-endpoint"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.endpoint"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="PractitionerRole-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.identifier"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="PractitionerRole-location"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.location"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="PractitionerRole-organization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.organization"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="PractitionerRole-phone"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.contact.telecom(system=phone)"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="PractitionerRole-practitioner"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.practitioner"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="PractitionerRole-role"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.code"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="PractitionerRole-service"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.healthcareService"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="PractitionerRole-specialty"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.specialty"/>
@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="PractitionerRole-telecom"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.contact.telecom"/>
@@ -273,7 +273,7 @@
       <SearchParameter>
         <id value="PractitionerRole-communication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.communication"/>
@@ -292,7 +292,7 @@
       <SearchParameter>
         <id value="PractitionerRole-network"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PractitionerRole.network"/>

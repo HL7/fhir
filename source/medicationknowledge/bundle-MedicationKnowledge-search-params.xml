@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-classification"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.medicineClassification.classification"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-classification-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.medicineClassification.type"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.code"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-doseform"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.definitional.doseForm"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.identifier"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-ingredient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.definitional.ingredient.item.reference"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-ingredient-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.definitional.ingredient.item.concept"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-monitoring-program-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.monitoringProgram.name"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-monitoring-program-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.monitoringProgram.type"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-monograph"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.monograph.source"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-monograph-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.monograph.type"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-packaging-cost"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.packaging.cost.cost as Quantity"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-packaging-cost-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.packaging.cost.cost as CodeableConcept"/>
@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-product-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.productType"/>
@@ -273,7 +273,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-source-cost"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.cost.source"/>
@@ -292,7 +292,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.status"/>

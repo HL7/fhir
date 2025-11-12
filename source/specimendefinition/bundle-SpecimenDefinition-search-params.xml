@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="SpecimenDefinition-container"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SpecimenDefinition.typeTested.container.type"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="SpecimenDefinition-experimental"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SpecimenDefinition.experimental"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="SpecimenDefinition-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SpecimenDefinition.identifier"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="SpecimenDefinition-is-derived"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SpecimenDefinition.typeTested.isDerived"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="SpecimenDefinition-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SpecimenDefinition.status"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="SpecimenDefinition-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SpecimenDefinition.title"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="SpecimenDefinition-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SpecimenDefinition.typeCollected"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="SpecimenDefinition-type-tested"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SpecimenDefinition.typeTested.type"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="SpecimenDefinition-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SpecimenDefinition.url"/>

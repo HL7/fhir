@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-characteristic"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.characteristic.value"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-characteristic-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.characteristic.type"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-contact"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.contact.contact"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-domain"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.domain"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.identifier"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-ingredient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.ingredient"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-master-file"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.masterFile"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.name.productName"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-name-language"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.name.usage.language"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-product-classification"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.classification"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.status"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.type"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-operation-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.operation.type.reference"/>
@@ -256,7 +256,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-operation-type-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.operation.type.concept"/>
@@ -275,7 +275,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-operation-organization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.operation.organization"/>
@@ -296,7 +296,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-operation-organization-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-operation-organization-type"/>
         <description value="Operaton organization and type, as a reference"/>
@@ -322,7 +322,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-operation-organization-type-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicinalProductDefinition-operation-organization-type-code"/>
         <description value="Operaton organization and type, as a code"/>
@@ -347,7 +347,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-name-country"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.name.usage.country"/>

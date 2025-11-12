@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="NutritionProduct-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionProduct.instance.identifier"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="NutritionProduct-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionProduct.status"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="NutritionProduct-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionProduct.category"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="NutritionProduct-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionProduct.code"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="NutritionProduct-ingredient-item"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionProduct.ingredient.item.concept"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="NutritionProduct-serial-number"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionProduct.instance.identifier"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="NutritionProduct-lot-number"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionProduct.instance.lotNumber"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="NutritionProduct-expiration-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionProduct.instance.expiry"/>

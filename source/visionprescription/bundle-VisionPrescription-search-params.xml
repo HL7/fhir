@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="VisionPrescription-datewritten"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="VisionPrescription.dateWritten"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="VisionPrescription-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="VisionPrescription.encounter"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="VisionPrescription-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="VisionPrescription.identifier"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="VisionPrescription-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="VisionPrescription.patient"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="VisionPrescription-prescriber"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="VisionPrescription.prescriber"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="VisionPrescription-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="VisionPrescription.status"/>
@@ -121,7 +121,7 @@
     <SearchParameter>
       <id value="VisionPrescription-product"/>
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="trial-use"/>
+        <valueCode value="normative"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
         <valueString value="VisionPrescription.lensSpecification.product"/>

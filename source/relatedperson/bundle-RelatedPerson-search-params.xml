@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="RelatedPerson-active"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.active"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="RelatedPerson-address"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.address"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="RelatedPerson-address-city"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.address.city"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="RelatedPerson-address-country"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.address.country"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="RelatedPerson-address-postalcode"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.address.postalCode"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="RelatedPerson-address-state"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.address.state"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="RelatedPerson-address-use"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.address.use"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="RelatedPerson-birthdate"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.birthDate"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="RelatedPerson-email"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.telecom(system=email)"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="RelatedPerson-gender"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.gender"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="RelatedPerson-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.identifier"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="RelatedPerson-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.name"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="RelatedPerson-family"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.name.family"/>
@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="RelatedPerson-given"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.name.given"/>
@@ -273,7 +273,7 @@
       <SearchParameter>
         <id value="RelatedPerson-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.patient"/>
@@ -292,7 +292,7 @@
       <SearchParameter>
         <id value="RelatedPerson-phone"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.telecom(system=phone)"/>
@@ -311,7 +311,7 @@
       <SearchParameter>
         <id value="RelatedPerson-phonetic"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.name"/>
@@ -330,7 +330,7 @@
       <SearchParameter>
         <id value="RelatedPerson-relationship"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.relationship"/>
@@ -349,7 +349,7 @@
       <SearchParameter>
         <id value="RelatedPerson-role"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.role"/>
@@ -368,7 +368,7 @@
       <SearchParameter>
         <id value="RelatedPerson-telecom"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RelatedPerson.telecom"/>

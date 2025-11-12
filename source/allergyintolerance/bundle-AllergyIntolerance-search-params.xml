@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-asserter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.asserter"/>
@@ -27,7 +27,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.category"/>
@@ -46,7 +46,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-clinical-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.clinicalStatus"/>
@@ -65,7 +65,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.code,AllergyIntolerance.reaction.substance"/>
@@ -84,7 +84,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-criticality"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.criticality"/>
@@ -103,7 +103,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.recordedDate"/>
@@ -122,7 +122,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.identifier"/>
@@ -141,7 +141,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-last-reaction-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.lastReactionOccurrence"/>
@@ -162,7 +162,7 @@
           <valueString value="AllergyIntolerance.reaction.manifestation.concept"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Clinical symptoms/signs associated with the Event"/>
         <code value="manifestation-code"/>
@@ -179,7 +179,7 @@
           <valueString value="AllergyIntolerance.reaction.manifestation.reference"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Clinical symptoms/signs associated with the Event"/>
         <code value="manifestation-reference"/>
@@ -194,7 +194,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.patient"/>
@@ -213,7 +213,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-route"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.reaction.exposureRoute"/>
@@ -232,7 +232,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-severity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.reaction.severity"/>
@@ -251,7 +251,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.type"/>
@@ -270,7 +270,7 @@
       <SearchParameter>
         <id value="AllergyIntolerance-verification-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.verificationStatus"/>

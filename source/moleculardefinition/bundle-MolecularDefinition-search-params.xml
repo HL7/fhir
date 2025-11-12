@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="MolecularDefinition-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MolecularDefinition.identifier"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="MolecularDefinition-moleculeType"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MolecularDefinition.moleculeType"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="MolecularDefinition-topology"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MolecularDefinition.topology"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="MolecularDefinition-member"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MolecularDefinition.member"/>
@@ -84,7 +84,7 @@
       <SearchParameter>
         <id value="MolecularDefinition-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MolecularDefinition.type"/>

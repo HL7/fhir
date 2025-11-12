@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="PaymentReconciliation-created"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.created"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="PaymentReconciliation-disposition"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.disposition"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="PaymentReconciliation-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.identifier"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="PaymentReconciliation-outcome"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.outcome"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="PaymentReconciliation-payment-issuer"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.paymentIssuer"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="PaymentReconciliation-request"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.request"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="PaymentReconciliation-requestor"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.requestor"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="PaymentReconciliation-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.status"/>
@@ -158,7 +158,7 @@
     <resource>
       <SearchParameter>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.allocation.encounter"/>
@@ -175,7 +175,7 @@
     <resource>
       <SearchParameter>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.allocation.account"/>

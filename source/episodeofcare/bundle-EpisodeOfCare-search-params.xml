@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-care-manager"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.careManager"/>
@@ -27,7 +27,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-diagnosis-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.diagnosis.condition.concept"/>
@@ -46,7 +46,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-diagnosis-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.diagnosis.condition.reference"/>
@@ -65,7 +65,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-reason-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.reason.value.concept"/>
@@ -84,7 +84,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-reason-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.reason.value.reference"/>
@@ -103,7 +103,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.period"/>
@@ -122,7 +122,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.identifier"/>
@@ -141,7 +141,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-incoming-referral"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.referralRequest"/>
@@ -160,7 +160,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-organization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.managingOrganization"/>
@@ -179,7 +179,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.subject"/>
@@ -198,7 +198,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.subject"/>
@@ -217,7 +217,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.status"/>
@@ -236,7 +236,7 @@
       <SearchParameter>
         <id value="EpisodeOfCare-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.type"/>

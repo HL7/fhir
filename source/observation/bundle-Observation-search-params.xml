@@ -503,7 +503,7 @@
       <SearchParameter>
         <id value="Observation-focus"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.focus"/>
@@ -922,7 +922,7 @@
       <SearchParameter>
         <id value="Observation-body-structure-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.bodyStructure.reference"/>
@@ -942,7 +942,7 @@
       <SearchParameter>
         <id value="Observation-body-structure-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.bodyStructure.concept"/>

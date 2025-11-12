@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-contraindication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure.concept"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-contraindication-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure.reference"/>
@@ -44,7 +44,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-effect"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect.concept"/>
@@ -63,7 +63,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-effect-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect.reference"/>
@@ -82,7 +82,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.identifier"/>
@@ -101,7 +101,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-indication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.indication.diseaseSymptomProcedure.concept"/>
@@ -120,7 +120,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-indication-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.indication.diseaseSymptomProcedure.reference"/>
@@ -139,7 +139,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-interaction"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.interaction.type"/>
@@ -158,7 +158,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-product"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.subject.reference"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.subject.reference"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-subject-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.subject.concept"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.type"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="ClinicalUseDefinition-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalUseDefinition.status"/>

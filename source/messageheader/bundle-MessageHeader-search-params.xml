@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="MessageHeader-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MessageHeader.response.code"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="MessageHeader-destination"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MessageHeader.destination.name"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="MessageHeader-event"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MessageHeader.event[x]"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="MessageHeader-focus"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MessageHeader.focus"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="MessageHeader-receiver"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MessageHeader.destination.receiver"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="MessageHeader-response-id"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MessageHeader.response.identifier"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="MessageHeader-sender"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MessageHeader.source.sender"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="MessageHeader-source"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MessageHeader.source.name"/>

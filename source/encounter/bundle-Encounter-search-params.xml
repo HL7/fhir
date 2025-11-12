@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Encounter-account"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.account"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="Encounter-appointment"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.appointment"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Encounter-based-on"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.basedOn"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Encounter-class"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.class"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="Encounter-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.actualPeriod"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="Encounter-date-start"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.actualPeriod.start"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="Encounter-date-end"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.actualPeriod.end"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="Encounter-diagnosis-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.diagnosis.condition.concept"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="Encounter-diagnosis-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.diagnosis.condition.reference"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="Encounter-episode-of-care"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.episodeOfCare"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="Encounter-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.identifier"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="Encounter-length"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.length"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="Encounter-location"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.location.location"/>
@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="Encounter-location-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-location-period"/>
         <description value="Time period during which the patient was present at a location (generally used via composite location-period)"/>
@@ -270,7 +270,7 @@
       <SearchParameter>
         <id value="Encounter-location-value-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-location-value-period"/>
         <description value="Time period during which the patient was present at the location"/>
@@ -294,7 +294,7 @@
       <SearchParameter>
         <id value="Encounter-part-of"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.partOf"/>
@@ -313,7 +313,7 @@
       <SearchParameter>
         <id value="Encounter-participant"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.participant.actor"/>
@@ -332,7 +332,7 @@
       <SearchParameter>
         <id value="Encounter-participant-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.participant.type"/>
@@ -351,7 +351,7 @@
       <SearchParameter>
         <id value="Encounter-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.subject"/>
@@ -371,7 +371,7 @@
       <SearchParameter>
         <id value="Encounter-practitioner"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.participant.actor"/>
@@ -391,7 +391,7 @@
       <SearchParameter>
         <id value="Encounter-reason-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.reason.value.concept"/>
@@ -410,7 +410,7 @@
       <SearchParameter>
         <id value="Encounter-reason-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.reason.value.reference"/>
@@ -429,7 +429,7 @@
       <SearchParameter>
         <id value="Encounter-service-provider"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.serviceProvider"/>
@@ -448,7 +448,7 @@
       <SearchParameter>
         <id value="Encounter-special-arrangement"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.specialArrangement"/>
@@ -467,7 +467,7 @@
       <SearchParameter>
         <id value="Encounter-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.status"/>
@@ -486,7 +486,7 @@
       <SearchParameter>
         <id value="Encounter-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.subject"/>
@@ -505,7 +505,7 @@
       <SearchParameter>
         <id value="Encounter-subject-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.subjectStatus"/>
@@ -524,7 +524,7 @@
       <SearchParameter>
         <id value="Encounter-business-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.businessStatus.code"/>
@@ -543,7 +543,7 @@
       <SearchParameter>
         <id value="Encounter-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.type"/>
@@ -562,7 +562,7 @@
       <SearchParameter>
         <id value="Encounter-careteam"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Encounter.careTeam"/>
