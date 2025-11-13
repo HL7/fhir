@@ -59,10 +59,7 @@
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.product" resourcePath="DeviceAlert.device">
-        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown">
-            <!--Old pattern: CodeableReference(BiologicallyDerivedProduct,Device,DeviceDefinition,Medication,NutritionProduct,Substance)-->
-            <!--Old reason: Missing resource types are not relevant to resource use.-->
-        </missingTypes>
+        <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Missing resource types are not relevant to resource use."/>
         <extraTypes _resource="Reference(Device,DeviceMetric)" reason="Use of Reference rather than CodeableReference appropriate to use case; inclusion of DeviceMetric allows improved specificity."/>
         <shortUnmatched reason="More precise, resource-specific wording.">
             <_pattern value="Product used/provided"/>
@@ -70,7 +67,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="More precise, resource-specific wording.">
             <_pattern value="Indicates the product supplied or manipulated by this device alert."/>
-            <resource value="Indicates the device that detected the alert condition. The device may be a top-level Device or component Device (such as an MDS, VMD, or Channel); or may identify the specific DeviceMetric of a Device (e.g., a heart rate reading) that was in an alert condition."/>
+            <resource value="Indicates the device that detected the alert condition. The device could be a top-level Device or component Device (such as an MDS, VMD, or Channel); or might identify the specific DeviceMetric of a Device (e.g., a heart rate reading) that was in an alert condition."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.subject" resourcePath="DeviceAlert.subject">
@@ -114,7 +111,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. A date/time value should be used for instantaneous conditions; without additional guidance, partial date/time values are ambiguous about whether they represent the condition occurring at some point in the partially specified period, or for all of the period. Ongoing events should not include a Period upper bound."/>
+            <resource value="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. A date/time value SHOULD be used for instantaneous conditions. Partial date/time values are ambiguous about whether they represent the condition occurring at some point in the partially specified period, or for all of the period, and (absent additional guidance) SHOULD be avoided. Ongoing events SHOULD not include a Period upper bound."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.location" resourcePath="DeviceAlert.location">
@@ -124,7 +121,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="More precise, resource-specific wording.">
             <_pattern value="The principal physical location where the device alert was performed."/>
-            <resource value="The principal physical location of the subject at the time the alert condition occurred. This may be different from the location of the alerting device at that time, and from the current location of either the subject or the alert condition detecting device."/>
+            <resource value="The principal physical location of the subject at the time the alert condition occurred. This could be different from the location of the alerting device at that time, and from the current location of either the subject or the alert condition detecting device."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Pattern text regarding record keeping not applicable to use case; more precise, resource-specific wording.">
             <_pattern value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
@@ -134,10 +131,7 @@
     <divergentElement patternPath="Event.reason" resourcePath="DeviceAlert.derivedFrom.observation">
         <lowerCardinality _pattern="0" _resource="1" reason="Cardinality is determined by the containing backbone element."/>
         <upperCardinality _pattern="*" _resource="1" reason="Cardinality is determined by the containing backbone element."/>
-        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Unknown">
-            <!--Old pattern: CodeableReference(Condition,Observation,DiagnosticReport,DocumentReference)-->
-            <!--Old reason: Missing types are not relevant to resource use cases.-->
-        </missingTypes>
+        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Missing types are not relevant to resource use cases."/>
         <extraTypes _resource="Reference(Observation)" reason="Use of Reference rather than CodeableReference appropriate to use case."/>
         <bindingExistence _pattern="true" _resource="false" reason="Resource datatype doesn't support binding."/>
         <shortUnmatched reason="More precise, resource-specific wording.">
