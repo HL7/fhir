@@ -2330,6 +2330,16 @@ MedicationRequest
               periodUnit: d
               when: MORN
           doseAndRate
+            doseQuantity: 50mg
+    step
+      component
+          timing
+            repeat
+              boundsDuration: 1 wk
+              period: 1
+              periodUnit: d
+              when: MORN
+          doseAndRate
             doseQuantity: 40mg
     step
       component
