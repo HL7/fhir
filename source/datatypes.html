@@ -1746,7 +1746,7 @@ For example, "within 30 days of hospital discharge" is an interval of time (from
 Methods to express the "event" or "context" that is reference point for time relative to that point include any of:
   <ol>
     <li>Describing the event fully with a CodeableConcept, in which case contextCode element is used.</li>
-    <li>Describing the event with a reference to an applicable FHIR Resource for which the Resource defines or implies a moment in time, in which case contextReference element is used, or contextDefinition element may be used instead if the Resource is ActivityDefinition, PlanDefinition, or ObservationDefinition.</li>
+    <li>Describing the event with a reference to an applicable FHIR Resource for which the Resource defines or implies a moment in time, in which case contextReference element is used, or contextDefinition element may be used instead if the Resource is ActivityDefinition, EventDefinition, PlanDefinition, or ObservationDefinition.</li>
     <li>Describing the event with a reference to an applicable FHIR Resource (using contextReference or contextDefinition) and additional data to express which element in the Resource defines or implies the moment in time, using either or both of contextPath (for the literal path to the element) or contextCode (for the CodeableConcept describing the property that is expected to be found in the Resource).</li>
   </ol>
 </p>
