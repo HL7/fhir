@@ -203,9 +203,9 @@
     </element>
     <element id="MedicationStatement.medication">
       <path value="MedicationStatement.medication"/>
-      <short value="What medication was taken"/>
-      <definition value="Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
-      <comment value="If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource."/>
+      <short value="The medication that is/was taken"/>
+      <definition value="Identifies the medication taken (or not taken). This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
+      <comment value="If only a code is specified, then it should be a code for a product. If more information is required, then the use of the medication resource is recommended.  For example, if dose form or lot number are required, this is done using a reference to a Medication resource. In cases where the statement is for 'no known medications', this element can contain a code indicating that situation."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -218,8 +218,8 @@
           <valueString value="MedicationCode"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying the substance or product being taken."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+        <description value="A coded concept identifying the substance or product being taken (or that there are no known medications)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-statement-medication-codes"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

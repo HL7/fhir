@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example where a patient reports is not taking now but will be taking in future  -->
+<MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationstatement.xsd"
+  xmlns="http://hl7.org/fhir">
+  <id value="example010"/>
+  <status value="recorded"/>
+  <medication> <!-- Linked to a RESOURCE Medication -->
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="787481004"/>
+        <display value="No known medications"/>
+      </coding>
+    </concept>
+  </medication> 
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </subject>
+   <effectiveDateTime value="2015-01-23"></effectiveDateTime>
+  <dateAsserted value="2015-02-22"/>
+  <informationSource>
+    <reference value="Practitioner/example"/>
+  </informationSource>
+ 
+ <note>
+    <text value="No known medications for the patient."/>
+  </note>  
+
+</MedicationStatement>

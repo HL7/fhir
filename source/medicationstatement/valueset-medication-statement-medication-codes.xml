@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/medication-statement-medication-codes"/>
+  <name value="MedicationStatementMedicationCodes"/>
+  <title value="MedicationStatement Medication Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="MedicationStatement Codes for Medications taken (or not taken)"/>
+  <compose> 
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/medication-statement-category"/>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="787481004"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

@@ -72,6 +72,19 @@
 
 <blockquote class="ballot-note">
 <p><b>Note to Balloters:</b>
+The <code>MedicationStatement.medication</code> element now explicitly supports representing statements such as 'no medications are known / taken.'
+</p>
+<p>
+However, this approach does not easily support more specific negation statements, such as 'the patient is not taking medication X' or 'the patient is not taking blood thinners.'
+</p>
+<p>
+Balloters are invited to comment on this approach and impact.
+</p>
+</blockquote>
+
+
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b>
 The elements around Dosage have been subject to breaking changes in R6:
 </p>
 <ul>
