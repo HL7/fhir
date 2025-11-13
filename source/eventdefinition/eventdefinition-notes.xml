@@ -123,4 +123,24 @@ define fluent function consecutivelyFrom(observations List&lt;Observation&gt;, o
 &lt;/trigger&gt;
 </code></pre>
 
+<h3>Use With RelativeTime</h3>
+
+<p>Once an event has been defined, it can be referenced as the context of a <a href="datatypes.html#RelativeTime">RelativeTime</a>:</p>
+
+<pre><code>&lt;Procedure&gt;
+  &lt;occurrenceDateTime&gt;
+    &lt;extension url=&quot;relativeTime&quot;&gt;
+      &lt;valueRelativeTime&gt;
+        &lt;contextDefinition value=&quot;http://example.org/EventDefinition/three-consecutive-negative-stick-tests&quot;/&gt;
+        &lt;offsetDuration&gt;
+          &lt;value value=&quot;1&quot;/&gt;
+          &lt;code value=&quot;h&quot;/&gt;
+          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+        &lt;/offsetDuration&gt;
+      &lt;/valueRelativeTime&gt;
+    &lt;/extension&gt;
+  &lt;/occurrenceDateTime&gt;
+&lt;/Procedure&gt;
+</code></pre>
+
 </div>
