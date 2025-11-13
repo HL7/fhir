@@ -46,8 +46,9 @@ The <a href="dosage-examples.html">examples</a> page shows how many different co
   <ul>
     <li>The <code>dosageInstruction</code> element in MedicationRequest, MedicationDispense, and MedicationStatement has changed from multiple <code>Dosage</code> elements (0..*) to a single <code>DosageDetails</code> element (0..1)</li>
     <li>Complex dosing regimes are now represented within DosageDetails using steps and components rather than multiple Dosage instances</li>
+    <li>The <code>DosageDetails</code> data type allows combining multiple dosages and replaces the use of <code>.sequence</code>.</li>
     <li>There are changes to the <a href="medicationrequest.html#bnr">Boundaries for MedicationRequest</a></li>
-    <li>The <a href="datatypes.html#Timing">Timing</a> datatype has related changes</li>
+    <li>The <a href="datatypes.html#Timing">Timing</a> datatype has related changes - namely the addition of <code>startOffset</code> and <code>endOffset</code>.</li>
   </ul>
   <p>Balloters should pay careful attention to these structures and the <a href="dosage-examples.html">examples</a>.</p>
 </blockquote>  
@@ -131,7 +132,10 @@ either <code>Timing.repeat.bounds[x]</code> or <code>Timing.repeat.count</code> 
 <a href="datatypes.html#Timing">Timing</a> data type.   
 </p>
 <p>
-When there more than one <code>component</code> dosages in a step, they occur simultaneously. 
+Each step may include one or more <code>component</code> entries. 
+</p>
+<p>
+When there more than one <code>component</code> dosages in a step, all components within the same step are considered concurrent. 
 Typically, there are multiple components for the following reasons:
 </p>
 <ul>
