@@ -2,14 +2,11 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="metric-availability"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="dev"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
@@ -18,7 +15,7 @@
   <version value="6.0.0"/>
   <name value="DeviceMetricAvailability"/>
   <title value="Device Metric Availability"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2025-07-02T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>

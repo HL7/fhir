@@ -672,9 +672,6 @@
 			<isSummary value="true"/>
 		</element>
 		<element id="Bundle.issues">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="Bundle.issues"/>
 			<short value="OperationOutcome with issues about the Bundle"/>
 			<definition value="An OperationOutcome that captures issues and warnings that relate to the construction of the Bundle and the content within it."/>

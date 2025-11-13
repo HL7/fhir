@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<MedicationRequest xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <!-- This example demonstrates the result of an $apply operation for the citalopramPrescription activity definition. -->
   <id value="apply-operation-response"/>
   <text>
-	<status value="generated"/>
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
     Generated...
     </div>
@@ -18,39 +19,39 @@
         </coding>
         <text value="citalopram"/>
       </code>
-        <form>
-          <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="385055001"/>
-            <display value="Tablet (basic dose form)"/>
-          </coding>
-          <text value="Tablet dose form"/>
-        </form>
-        <ingredient>
-          <itemReference>
-            <reference value="#citalopramSubstance"/>
-          </itemReference>
-          <amount>
-            <numerator>
-              <value value="20"/>
-              <unit value="mg"/>
-            </numerator>
-            <denominator>
-              <value value="1"/>
-              <unit value="{tbl}"/>
-            </denominator>
-          </amount>
-        </ingredient>
+      <form>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="385055001"/>
+          <display value="Tablet (basic dose form)"/>
+        </coding>
+        <text value="Tablet dose form"/>
+      </form>
+      <ingredient>
+        <itemReference>
+          <reference value="#citalopramSubstance"/>
+        </itemReference>
+        <amount>
+          <numerator>
+            <value value="20"/>
+            <unit value="mg"/>
+          </numerator>
+          <denominator>
+            <value value="1"/>
+            <unit value="{tbl}"/>
+          </denominator>
+        </amount>
+      </ingredient>
     </Medication>
   </contained>
   <contained>
     <Substance>
       <id value="citalopramSubstance"/>
       <code>
-          <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-            <code value="2556"/>
-          </coding>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="2556"/>
+        </coding>
         <text value="citalopram"/>
       </code>
     </Substance>
@@ -58,46 +59,49 @@
   <status value="draft"/>
   <intent value="proposal"/>
   <medicationReference>
-	  <reference value="#citalopramMedication"/>
+    <reference value="#citalopramMedication"/>
   </medicationReference>
   <subject>
-	  <reference value="Patient/124"/>
+    <reference value="Patient/124"/>
   </subject>
   <!--definition>
     <reference value="http://example.org/fhir/ActivityDefinition/citalopramPrescription"/>
   </definition-->
   <instantiates value="http://example.org/fhir/ActivityDefinition/citalopramPrescription"/>
   <dosageInstruction>
-	<text value="1 tablet oral 1 time daily"/>
-	<timing>
-		<repeat>
-			<frequency value="1"/>
-			<period value="1"/>
-			<periodUnit value="d"/>
-		</repeat>
-	</timing>
-	<route>
-		<coding>
-			<code value="26643006"/>
-			<display value="Oral route (qualifier value)"/>
-		</coding>
-		<text value="Oral route (qualifier value)"/>
-	</route>
-	<doseAndRate>
-	    <type>
-	      <text value="ordered"/>
-	    </type>
-	    <doseQuantity>
-			<value value="1"/>
-			<unit value="{tbl}"/>
-	    </doseQuantity>
-	</doseAndRate>
+    <simple>
+      <text value="1 tablet oral 1 time daily"/>
+      <timing>
+        <repeat>
+          <frequency value="1"/>
+          <period value="1"/>
+          <periodUnit value="d"/>
+        </repeat>
+      </timing>
+      <route>
+        <coding>
+          <code value="26643006"/>
+          <display value="Oral route (qualifier value)"/>
+        </coding>
+        <text value="Oral route (qualifier value)"/>
+      </route>
+      <doseAndRate>
+        <type>
+          <text value="ordered"/>
+        </type>
+        <doseQuantity>
+          <value value="1"/>
+          <unit value="{tbl}"/>
+        </doseQuantity>
+      </doseAndRate>
+    </simple>
+
   </dosageInstruction>
   <dispenseRequest>
-	  <numberOfRepeatsAllowed value="3"/>
-	  <quantity>
-		  <value value="30"/>
-		  <unit value="{tbl}"/>
-	  </quantity>
+    <numberOfRepeatsAllowed value="3"/>
+    <quantity>
+      <value value="30"/>
+      <unit value="{tbl}"/>
+    </quantity>
   </dispenseRequest>
 </MedicationRequest>

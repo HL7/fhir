@@ -1,5 +1,5 @@
 [diagram]
-classes=DataType,BackboneType,Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,xhtml,CodeableReference
+classes=DataType,BackboneType,Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,xhtml,CodeableReference,DosageDetails,DosageCondition,DosageSafety
 attributes=false
 
 [size]
@@ -14,6 +14,9 @@ Extension=10;50
 Meta=70;-50
 CodeableReference=-80;-50
 ElementDefinition=88;50
-Dosage=210;-50
-BackboneType=180;0
+BackboneType=110;0
 xhtml=-70;0
+Dosage=210;-50
+DosageDetails=230;+50
+DosageCondition=240;0
+DosageSafety=265;-50

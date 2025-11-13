@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="ResearchStudy-condition"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.condition"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="ResearchStudy-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.period"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="ResearchStudy-focus-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.focus.concept"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="ResearchStudy-focus-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.focus.reference"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="ResearchStudy-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.identifier"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="ResearchStudy-keyword"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.keyword"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="ResearchStudy-region"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.region"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="ResearchStudy-part-of"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.partOf"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="ResearchStudy-protocol"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.protocol"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="ResearchStudy-recruitment-actual"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.recruitment-actual"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="ResearchStudy-recruitment-target"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.recruitment-target"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="ResearchStudy-site"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.site"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="ResearchStudy-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.status"/>
@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="ResearchStudy-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.title"/>
@@ -274,7 +274,7 @@
       <SearchParameter>
         <id value="ResearchStudy-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.name"/>
@@ -293,7 +293,7 @@
       <SearchParameter>
         <id value="ResearchStudy-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.description"/>
@@ -312,7 +312,7 @@
       <SearchParameter>
         <id value="ResearchStudy-phase"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.phase"/>
@@ -331,7 +331,7 @@
       <SearchParameter>
         <id value="ResearchStudy-classifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.classifier"/>
@@ -350,7 +350,7 @@
       <SearchParameter>
         <id value="ResearchStudy-study-design"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.studyDesign"/>
@@ -369,7 +369,7 @@
       <SearchParameter>
         <id value="ResearchStudy-objective-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.objective.description"/>
@@ -388,7 +388,7 @@
       <SearchParameter>
         <id value="ResearchStudy-objective-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.objective.type"/>
@@ -407,7 +407,7 @@
       <SearchParameter>
         <id value="ResearchStudy-eligibility"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.recruitment.eligibility"/>
@@ -426,7 +426,7 @@
       <SearchParameter>
         <id value="ResearchStudy-progress-state"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.progressStatus.state"/>
@@ -445,7 +445,7 @@
       <SearchParameter>
         <id value="ResearchStudy-progress-actual"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.progressStatus.actual"/>
@@ -464,7 +464,7 @@
       <SearchParameter>
         <id value="ResearchStudy-progress-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.progressStatus.period"/>
@@ -483,7 +483,7 @@
       <SearchParameter>
         <id value="ResearchStudy-progress-status-state-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-status-state-period"/>
         <description value="Status of study by state and period"/>
@@ -507,7 +507,7 @@
       <SearchParameter>
         <id value="ResearchStudy-progress-status-state-actual"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-status-state-actual"/>
         <description value="Status of study by state and actual"/>
@@ -531,7 +531,7 @@
       <SearchParameter>
         <id value="ResearchStudy-progress-status-state-period-actual"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-status-state-period-actual"/>
         <description value="Status of study by state, period and actual"/>

@@ -2,9 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="biologicallyderived-product-status"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -36,6 +33,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
+  <description value="Biologically Derived Product Status."/>
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
@@ -43,7 +41,6 @@
       <display value="World"/>
     </coding>
   </jurisdiction>
-  <description value="Biologically Derived Product Status."/>
   <immutable value="false"/>
   <compose>
     <include>

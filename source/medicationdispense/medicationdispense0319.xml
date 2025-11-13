@@ -59,7 +59,8 @@
         <text value="Patient told to take with food"/>
     </note>
     <dosageInstruction>
-        <sequence value="1"/>
+      <step>
+        <component>
         <text value="Two tablets at once" />
         <additionalInstruction>
             <coding>
@@ -105,9 +106,10 @@
             </doseQuantity>
         </doseAndRate>
 
-    </dosageInstruction>
-    <dosageInstruction>
-        <sequence value="2"/>
+        </component>
+      </step>
+      <step>
+        <component>
         <text value="One tablet daily for 4 days" />
         <additionalInstruction>
             <coding>
@@ -151,6 +153,8 @@
                 <code value="TAB"/>
             </doseQuantity>
         </doseAndRate>
+        </component>
+      </step>
 
     </dosageInstruction>   
 </MedicationDispense>

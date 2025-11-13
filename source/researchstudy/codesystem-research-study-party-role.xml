@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-study-party-role"/>
   <meta>
     <lastUpdated value="2022-05-12T12:40:00+00:00"/>
-    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -21,7 +22,7 @@
   <version value="6.0.0"/>
   <name value="ResearchStudyPartyRole"/>
   <title value="Research Study Party Role"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2022-05-12T12:40:00+00:00"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -39,7 +40,7 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
   <content value="complete"/>
-<concept>
+  <concept>
     <code value="sponsor"/>
     <display value="Sponsor"/>
     <definition value="Person, company, agency or institution that initiates a clinical investigation and takes responsibility for that investigation but does not conduct the investigation."/>

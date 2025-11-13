@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Library-composed-of"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Library.relatedArtifact.resource"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="Library-content-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Library.content.contentType"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Library-context"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.valueCodeableConcept"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Library-context-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="Library-context-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.code"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="Library-context-type-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-context-type-quantity"/>
         <description value="A use context type and quantity- or range-based value assigned to the library"/>
@@ -126,7 +126,7 @@
       <SearchParameter>
         <id value="Library-context-type-value"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Library-context-type-value"/>
         <description value="A use context type and value assigned to the library"/>
@@ -150,7 +150,7 @@
       <SearchParameter>
         <id value="Library-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.date"/>
@@ -169,7 +169,7 @@
       <SearchParameter>
         <id value="Library-depends-on"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Library.relatedArtifact.resource"/>
@@ -188,7 +188,7 @@
       <SearchParameter>
         <id value="Library-derived-from"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Library.relatedArtifact.resource"/>
@@ -207,7 +207,7 @@
       <SearchParameter>
         <id value="Library-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.description"/>
@@ -226,7 +226,7 @@
       <SearchParameter>
         <id value="Library-effective"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.effectivePeriod"/>
@@ -245,7 +245,7 @@
       <SearchParameter>
         <id value="Library-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.identifier"/>
@@ -264,7 +264,7 @@
       <SearchParameter>
         <id value="Library-jurisdiction"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.jurisdiction"/>
@@ -283,7 +283,7 @@
       <SearchParameter>
         <id value="Library-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.name"/>
@@ -302,7 +302,7 @@
       <SearchParameter>
         <id value="Library-predecessor"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Library.relatedArtifact.resource"/>
@@ -321,7 +321,7 @@
       <SearchParameter>
         <id value="Library-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.publisher"/>
@@ -340,7 +340,7 @@
       <SearchParameter>
         <id value="Library-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.status"/>
@@ -359,7 +359,7 @@
       <SearchParameter>
         <id value="Library-subject-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.subject[x]"/>
@@ -378,7 +378,7 @@
       <SearchParameter>
         <id value="Library-subject-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.subject[x]"/>
@@ -397,7 +397,7 @@
       <SearchParameter>
         <id value="Library-subject-canonical"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.subject[x]"/>
@@ -416,7 +416,7 @@
       <SearchParameter>
         <id value="Library-successor"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Library.relatedArtifact.resource"/>
@@ -435,7 +435,7 @@
       <SearchParameter>
         <id value="Library-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.title"/>
@@ -454,7 +454,7 @@
       <SearchParameter>
         <id value="Library-topic"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Library.topic"/>
@@ -473,7 +473,7 @@
       <SearchParameter>
         <id value="Library-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Library.type"/>
@@ -492,7 +492,7 @@
       <SearchParameter>
         <id value="Library-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.url"/>
@@ -511,7 +511,7 @@
       <SearchParameter>
         <id value="Library-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.version"/>

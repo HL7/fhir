@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<RequestOrchestration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/requestorchestration.xsd">
+<RequestOrchestration xmlns="http://hl7.org/fhir"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/requestorchestration.xsd">
   <id value="kdn5-example"/>
   <text>
     <status value="generated" />
@@ -11,43 +12,45 @@
       <status value="unknown"/>
       <intent value="proposal"/>
       <medication>
-      <concept>
-        <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-          <code value="12574" />
-          <display value="gemcitabine" />
-        </coding>
-        <text value="gemcitabine" />
-      </concept>
+        <concept>
+          <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="12574" />
+            <display value="gemcitabine" />
+          </coding>
+          <text value="gemcitabine" />
+        </concept>
       </medication>
       <subject>
         <reference value="Patient/example"/>
       </subject>
-      <dosageInstruction>
-        <text value="1250 mg/m² IV over 30 minutes" />
-        <timing>
-          <repeat>
-            <duration value="30" />
-            <durationUnit value="min" />
-          </repeat>
-        </timing>
-        <route>
-          <text value="IV" />
-        </route>
-        <doseAndRate>
-          <type>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-              <code value="ordered"/>
-              <display value="Ordered"/>
-            </coding>
-          </type>
-          <doseQuantity>
-          <value value="1250" />
-          <unit value="mg/m²" />
-          </doseQuantity>
-        </doseAndRate>
-      </dosageInstruction>
+      <dosage>
+        <simple>
+          <text value="1250 mg/m² IV over 30 minutes" />
+          <timing>
+            <repeat>
+              <duration value="30" />
+              <durationUnit value="min" />
+            </repeat>
+          </timing>
+          <route>
+            <text value="IV" />
+          </route>
+          <doseAndRate>
+            <type>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                <code value="ordered"/>
+                <display value="Ordered"/>
+              </coding>
+            </type>
+            <doseQuantity>
+              <value value="1250" />
+              <unit value="mg/m²" />
+            </doseQuantity>
+          </doseAndRate>
+        </simple>
+      </dosage>
     </MedicationRequest>
   </contained>
   <contained>
@@ -56,50 +59,52 @@
       <status value="unknown"/>
       <intent value="proposal"/>
       <medication>
-      <concept>
-        <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-          <code value="40048" />
-          <display value="Carboplatin" />
-        </coding>
-        <text value="CARBOplatin" />
-      </concept>
+        <concept>
+          <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
+            <code value="40048" />
+            <display value="Carboplatin" />
+          </coding>
+          <text value="CARBOplatin" />
+        </concept>
       </medication>
       <subject>
         <reference value="Patient/example"/>
       </subject>
-      <dosageInstruction>
-        <text value="AUC 5 IV over 30 minutes" />
-        <timing>
-          <repeat>
-            <duration value="30" />
-            <durationUnit value="min" />
-          </repeat>
-        </timing>
-        <route>
-          <text value="IV" />
-        </route>
-        <doseAndRate>
-          <type>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-              <code value="ordered"/>
-              <display value="Ordered"/>
-            </coding>
-          </type>
-          <doseQuantity>
-            <!-- AUC as dose unit or as an extension? -->
-            <extension url="http://example.org/fhir/AUC-dose" >
-              <valueInteger value="5" />
-            </extension>
-            <!-- <value value="5" />
+      <dosage>
+        <simple>
+          <text value="AUC 5 IV over 30 minutes" />
+          <timing>
+            <repeat>
+              <duration value="30" />
+              <durationUnit value="min" />
+            </repeat>
+          </timing>
+          <route>
+            <text value="IV" />
+          </route>
+          <doseAndRate>
+            <type>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                <code value="ordered"/>
+                <display value="Ordered"/>
+              </coding>
+            </type>
+            <doseQuantity>
+              <!-- AUC as dose unit or as an extension? -->
+              <extension url="http://example.org/fhir/AUC-dose">
+                <valueInteger value="5" />
+              </extension>
+              <!-- <value value="5" />
           <unit value="AUC" />
           <system value="http://snomed.info/sct" />
           <code value="413573002" /> -->
-          </doseQuantity>
-        </doseAndRate>
+            </doseQuantity>
+          </doseAndRate>
+        </simple>
 
-      </dosageInstruction>
+      </dosage>
     </MedicationRequest>
   </contained>
   <identifier>
@@ -168,13 +173,13 @@
             <relatedAction>
               <targetId value="action-1"/>
               <relationship value="concurrent-with-start"/>
-			</relatedAction>
+            </relatedAction>
             <resource>
               <reference value="#2222"/>
             </resource>
-          </action> <!-- end of regimen entries -->
-        </action> <!-- end of cycle definitions -->
-      </action> <!-- end of regimen parts -->
-    </action> <!-- end of regimen options -->
+          </action>          <!-- end of regimen entries -->
+        </action>        <!-- end of cycle definitions -->
+      </action>      <!-- end of regimen parts -->
+    </action>    <!-- end of regimen options -->
   </action>
 </RequestOrchestration>

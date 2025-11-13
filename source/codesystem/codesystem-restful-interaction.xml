@@ -2,6 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="restful-interaction"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
   <url value="http://hl7.org/fhir/restful-interaction"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -9,7 +12,7 @@
   </identifier>
   <name value="FHIRRestfulInteractions"/>
   <title value="FHIR Restful Interactions"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="FHIR Project"/>
   <description value="The set of interactions defined by the RESTful part of the FHIR specification."/>
@@ -83,7 +86,7 @@
     <definition value="Retrieve the change history for a particular resource, type of resource, or the entire system."/>
     <property>
       <code value="abstract"/>
-      <valueBoolean value="true"/>  
+      <valueBoolean value="true"/>
     </property>
     <concept>
       <code value="history-instance"/>
@@ -117,7 +120,7 @@
     <definition value="Search a resource type or all resources based on some filter criteria."/>
     <property>
       <code value="abstract"/>
-      <valueBoolean value="true"/>  
+      <valueBoolean value="true"/>
     </property>
     <concept>
       <code value="search-type"/>

@@ -45,7 +45,7 @@
     </daysSupply>
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="apply one patch three times per week"/>
         <timing>
             <repeat>
@@ -69,6 +69,7 @@
                 <code value="PATCH"/>
             </doseQuantity>
         </doseAndRate>
+			</simple>
 
     </dosageInstruction>
 </MedicationDispense>

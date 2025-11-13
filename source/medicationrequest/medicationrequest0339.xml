@@ -52,86 +52,88 @@
 
 
     <dosageInstruction>
-        <sequence value="1"/>
-        <text value="Insert one suppository into the vagina daily at bedtime" />
-        <timing>
-            <repeat>
-                <boundsPeriod>
-                    <start value="2015-01-16"/>
-                    <end value="2015-01-18"/>
-                </boundsPeriod>
-                <frequency value="1"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="16857009"/>
-                <display value="Vaginal Route"/>
-            </coding>
-        </route>
-        <method>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="421257003"/>
-                <display value="Insert"/>
-            </coding>
-        </method>
-        <doseAndRate>
-            <type>
+      <step>
+        <component>
+            <text value="Insert one suppository into the vagina daily at bedtime" />
+            <timing>
+                <repeat>
+                    <boundsPeriod>
+                        <start value="2015-01-16"/>
+                        <end value="2015-01-18"/>
+                    </boundsPeriod>
+                    <frequency value="1"/>
+                    <period value="1"/>
+                    <periodUnit value="d"/>
+                </repeat>
+            </timing>
+            <route>
                 <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="16857009"/>
+                    <display value="Vaginal Route"/>
                 </coding>
-            </type>
-            <doseQuantity>
-                <value value="1"/>
-                <unit value="VAGTAB"/>
-                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                <code value="VAGTAB"/> 
-            </doseQuantity>
-        </doseAndRate>
-    </dosageInstruction>
-    <dosageInstruction>
-        <sequence value="1"/>
-        <text value="Apply to vaginal area topically once daily" />
-        <timing>
-            <repeat>
-                <boundsPeriod>
-                    <start value="2015-01-16"/>
-                    <end value="2015-01-18"/>
-                </boundsPeriod>
-                <frequency value="1"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="6064005"/>
-                <display value="Topical Route"/>
-            </coding>
-        </route>
-        <method>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="417924000"/>
-                <display value="Apply - dosing instruction imperative (qualifier value)"/>
-            </coding>
-        </method>
-        <doseAndRate>
-            <type>
+            </route>
+            <method>
                 <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="421257003"/>
+                    <display value="Insert"/>
                 </coding>
-            </type>
-        </doseAndRate>
+            </method>
+            <doseAndRate>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                        <code value="ordered"/>
+                        <display value="Ordered"/>
+                    </coding>
+                </type>
+                <doseQuantity>
+                    <value value="1"/>
+                    <unit value="VAGTAB"/>
+                    <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                    <code value="VAGTAB"/> 
+                </doseQuantity>
+            </doseAndRate>
+        </component>
+        <component>
+            <text value="Apply to vaginal area topically once daily" />
+            <timing>
+                <repeat>
+                    <boundsPeriod>
+                        <start value="2015-01-16"/>
+                        <end value="2015-01-18"/>
+                    </boundsPeriod>
+                    <frequency value="1"/>
+                    <period value="1"/>
+                    <periodUnit value="d"/>
+                </repeat>
+            </timing>
+            <route>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="6064005"/>
+                    <display value="Topical Route"/>
+                </coding>
+            </route>
+            <method>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="417924000"/>
+                    <display value="Apply - dosing instruction imperative (qualifier value)"/>
+                </coding>
+            </method>
+            <doseAndRate>
+                <type>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                        <code value="ordered"/>
+                        <display value="Ordered"/>
+                    </coding>
+                </type>
+            </doseAndRate>
+        </component>
+      </step>
     </dosageInstruction>
 
     <dispenseRequest>

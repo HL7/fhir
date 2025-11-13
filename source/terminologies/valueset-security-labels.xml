@@ -28,7 +28,7 @@
   </identifier>
   <name value="AllSecurityLabels"/>
   <title value="All Security Labels"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>

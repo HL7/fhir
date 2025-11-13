@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.medication.concept"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.occurrence[x]"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-device"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.device.reference"/>
@@ -65,7 +65,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.encounter"/>
@@ -84,7 +84,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.identifier"/>
@@ -103,7 +103,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-medication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.medication.reference"/>
@@ -122,7 +122,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.subject"/>
@@ -142,7 +142,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-performer"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.performer.actor.reference"/>
@@ -162,7 +162,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-performer-device-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.performer.actor.concept"/>
@@ -182,7 +182,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-reason-given"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.reason.reference"/>
@@ -201,7 +201,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-reason-given-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.reason.concept"/>
@@ -220,7 +220,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-reason-not-given"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.statusReason"/>
@@ -239,7 +239,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-request"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.request"/>
@@ -258,7 +258,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.status"/>
@@ -277,7 +277,7 @@
       <SearchParameter>
         <id value="MedicationAdministration-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationAdministration.subject"/>

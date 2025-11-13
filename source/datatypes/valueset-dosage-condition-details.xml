@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <id value="dosage-condition-details"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/tools/ValueSet/dosage-condition-code"/>
+  <name value="DosageConditionDetailsVS"/>
+  <title value="Dosage Condition Details VS"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International / FHIR Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg"/>
+    </telecom>
+  </contact>
+  <description value="Dosage Condition Details Example ValueSet"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction> 
+   <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="22253000"/>
+        <display value="Pain"/>
+      </concept>
+      <concept>
+        <code value="76948002"/>
+        <display value="Severe pain"/>
+      </concept>
+      <concept>
+        <code value="37796009"/>
+        <display value="Migraine"/>
+      </concept>
+      <concept>
+        <code value="725119006"/>
+        <display value="Generalized rash"/>
+      </concept>
+      <concept>
+        <code value="257551009"/>
+        <display value="Infection"/>
+      </concept>
+      <concept>
+        <code value="225581002"/>
+        <display value="Sight deteriorating"/>
+      </concept>
+      <concept>
+        <code value="719232003"/>
+        <display value="Difficulty walking"/>
+      </concept>
+      <concept>
+        <code value="302758002"/>
+        <display value="Tiredness"/>
+      </concept>
+      <concept>
+        <code value="80449002"/>
+        <display value="Muscle fatigue"/>
+      </concept>
+      <concept>
+        <code value="267036007"/>
+        <display value="Dyspnea"/>
+      </concept>
+      <concept>
+        <code value="309253009"/>
+        <display value="Difficulty reading"/>
+      </concept>
+      <concept>
+        <code value="278040002"/>
+        <display value="Loss of hair"/>
+      </concept>
+      <concept>
+        <code value="14140009"/>
+        <display value="Hyperkalemia"/>
+      </concept>
+      <concept>
+        <code value="65971000052100"/>
+        <display value="Acute psychosis"/>
+      </concept>
+      <concept>
+        <code value="14760008"/>
+        <display value="Constipation"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

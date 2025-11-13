@@ -166,7 +166,7 @@ Each entry element contains a resource.
 
 <a name="subscription-notification"></a>
 <h4>Subscription Notification</h4>
-[%StandardsStatus trial-use BundleType n/a%]
+
 <p>
 A subscription notification (type = "subscription-notification") consists of a series of 
 1 or more entries, the first of which is a <a href="subscriptionstatus.html">SubscriptionStatus</a>. There 

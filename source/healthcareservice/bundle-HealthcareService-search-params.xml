@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="HealthcareService-active"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.active"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="HealthcareService-characteristic"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.characteristic"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="HealthcareService-eligibility"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.eligibility.code"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="HealthcareService-coverage-area"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.coverageArea"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="HealthcareService-endpoint"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.endpoint"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="HealthcareService-offeredIn"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.offeredIn"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="HealthcareService-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.identifier"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="HealthcareService-location"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.location"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="HealthcareService-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.name"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="HealthcareService-organization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.providedBy"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="HealthcareService-program"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.program"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="HealthcareService-service-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.category"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="HealthcareService-service-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.type"/>
@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="HealthcareService-specialty"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.specialty"/>
@@ -273,7 +273,7 @@
       <SearchParameter>
         <id value="HealthcareService-communication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="HealthcareService.communication"/>

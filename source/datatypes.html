@@ -1627,12 +1627,17 @@ can be expressed in a structured form and/or as a code. When both event and a re
 specification are provided, the list of events should be understood as an interpretation
 of the information in the repeat structure.
 </p>
-<p>Note: The Timing datatype allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
+<p>Note: The Timing datatype allows <a href="extensibility.html#modifier">modifier extensions</a> (though Timing.repeat does not).</p>
 [%dt Timing 13%]
 <p>
 If the timing schedule has repeating criteria, the repeat can occur a given number of times per
-the specified duration or in relation to some repeating real-world event. If no end condition is specified,
-the schedule will terminate on some criteria that are expressed elsewhere.
+the specified duration or in relation to some repeating real-world event. 
+</p>
+<p>
+Unless the Timing.repeat specifies a <code>boundsPeriod</code>, the bounds of the repeating cycle are 
+at a time specified in the context where the Timing is used, or the cycle starts immediately. If the repeat 
+is not limited by providing <code>bounds[x]</code> or <cod>count</cod> the bounds of the repeating cycle
+are expressed in some criteria elsewhere, either explicitly or implicitly.
 </p>
 <p>
 Many systems avoid the complexity of the Timing structure by using a text field for timing instructions.
@@ -1647,9 +1652,7 @@ the morning on weekends and days off work' would be represented as:
   }
 </pre>
 <p>
-Note, though, that some systems include timing details in
-something like 'Dosage instructions' which is wider than just Timing; those systems do not use the
-Timing datatype. Other systems use a set of 'common' codes - including, but usually not limited to,
+Other systems use a set of 'common' codes - including, but usually not limited to,
 widely understood acronyms such as "BID". If a <code>Timing.code</code> is
 provided, the code is understood to be a complete statement of whatever is specified in the structured timing
 data (except for <code>Timing.repeat.bounds</code>, which applies to the code), and either the code or the
@@ -1660,27 +1663,33 @@ possible, unless the code is BID, TID, QID, AM or PM, which have a ubiquitous me
 This table summarizes some common uses of the Timing Datatype criteria.
 </p>
 <table class="grid">
- <tr><td><b>description</b></td> <td><b>duration</b></td> <td><b>durationUnit</b></td> <td><b>frequency</b></td> <td><b>frequencyMax</b></td> <td><b>period</b></td> <td><b>periodUnit</b></td> <td><b>periodMax</b></td> <td><b>Day of Week</b></td> <td><b>Time Of Day</b></td> <td><b>when</b></td> <td><b>offset</b></td>  <td><b>bounds[x]</b></td>  <td><b>count</b></td></tr>
- <tr><td>Every 8 hours</td>      <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>8</td>             <td>h</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every 7 days</td>       <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>7</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td></tr>
- <tr><td>3 times a day</td>      <td></td>                <td></td>                     <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td></tr>
- <tr><td>3-4 times a day</td>    <td></td>                <td></td>                     <td>3</td>                <td>4</td>                   <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every 4-6 hours</td>    <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>4</td>             <td>h</td>                  <td>6</td>              <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every 21 days for 1 hour</td> <td>1</td>         <td>hr</td>                   <td>1</td>                <td></td>                    <td>21</td>            <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td></tr>
- <tr><td>Three times a week for ½ hour</td> <td>0.5</td>  <td>hr</td>                   <td>3</td>                <td></td>                    <td>1</td>             <td>wk</td>                 <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td></tr>
- <tr><td>With breakfast</td>     <td></td>                <td></td>                     <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td>CM</td>        <td></td>               <td></td>               <td></td></tr>
- <tr><td>For 5 minutes, 10 minutes before meals</td> <td>5</td>     <td>min</td>        <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>10</td>             <td></td>               <td></td></tr>
- <tr><td>1 tablet 3 times daily, 30 minutes before meals</td> <td></td>  <td></td>      <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td></td>               <td></td></tr>
- <tr><td>BID, 30 mins before meal, for next 10 days</td> <td></td>  <td></td>            <td>2</td>               <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td>Duration = 10 days</td>               <td></td></tr>
- <tr><td>TID, for 14 days</td>   <td></td>                <td></td>                     <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td>Duration = 14 days</td>               <td></td></tr>
- <tr><td>BID, start on 7/1/2015 at 1:00 PM</td> <td></td> <td></td>                     <td>2</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td>Period.start = 2015-07-01T13:00:00</td>               <td></td></tr>
- <tr><td>Mon, Wed, Fri Morning</td> <td></td>             <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td>mon | wed | fri</td>    <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td></td></tr>
- <tr><td>Every day at 10am</td>  <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td>10:00</td>              <td></td>          <td></td>               <td></td>               <td></td></tr>
- <tr><td>Take once, at any time</td>  <td></td>           <td></td>                     <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td>1</td></tr>
- <tr><td>Take every second day, in the morning, until 20 have been taken</td><td></td>  <td></td>  <td>1</td>     <td></td>                    <td>2</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td>20</td></tr>
+ <tr><td><b>description</b></td> <td><b>duration</b></td> <td><b>durationUnit</b></td> <td><b>frequency</b></td> <td><b>frequencyMax</b></td> <td><b>period</b></td> <td><b>periodUnit</b></td> <td><b>periodMax</b></td> <td><b>Day of Week</b></td> <td><b>Time Of Day</b></td> <td><b>when</b></td> <td><b>offset</b></td> <td><b>startOffset</b></td>  <td><b>bounds[x]</b></td>  <td><b>count</b></td></tr>
+ <tr><td>Every 8 hours</td>      <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>8</td>             <td>h</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>Every 7 days</td>       <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>7</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>3 times a day</td>      <td></td>                <td></td>                     <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>3-4 times a day</td>    <td></td>                <td></td>                     <td>3</td>                <td>4</td>                   <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>Every 4-6 hours</td>    <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>4</td>             <td>h</td>                  <td>6</td>              <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>Every 21 days for 1 hour</td> <td>1</td>         <td>hr</td>                   <td>1</td>                <td></td>                    <td>21</td>            <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>Every second day</td>    <td></td>         <td></td>                    <td>1</td>                <td></td>                    <td>1</td>            <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>Every second day starting on Day 2</td> <td></td>         <td></td>                   <td>1</td>                <td></td>                    <td>1</td>            <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td>1 d</td>               <td></td>               <td></td></tr>
+ <tr><td>Three times a week for ½ hour</td> <td>0.5</td>  <td>hr</td>                   <td>3</td>                <td></td>                    <td>1</td>             <td>wk</td>                 <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>With breakfast</td>     <td></td>                <td></td>                     <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td>CM</td>        <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>For 5 minutes, 10 minutes before meals</td> <td>5</td>     <td>min</td>        <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>10</td>             <td></td>               <td></td>               <td></td></tr>
+ <tr><td>1 tablet 3 times daily, 30 minutes before meals</td> <td></td>  <td></td>      <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td></td>               <td></td>               <td></td></tr>
+ <tr><td>BID, 30 mins before meal, for next 10 days</td> <td></td>  <td></td>            <td>2</td>               <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td></td>               <td>Duration = 10 days</td>               <td></td></tr>
+ <tr><td>TID, for 14 days</td>   <td></td>                <td></td>                     <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td>Duration = 14 days</td>               <td></td></tr>
+ <tr><td>BID, start on 7/1/2015 at 1:00 PM</td> <td></td> <td></td>                     <td>2</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td>Period.start = 2015-07-01T13:00:00</td>               <td></td></tr>
+ <tr><td>Mon, Wed, Fri Morning</td> <td></td>             <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td>mon | wed | fri</td>    <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>Every day at 10am</td>  <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td>10:00</td>              <td></td>          <td></td>               <td></td>               <td></td>               <td></td></tr>
+ <tr><td>Take once, at any time</td>  <td></td>           <td></td>                     <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td></td>               <td>1</td></tr>
+ <tr><td>Take every second day, in the morning, until 20 have been taken</td><td></td>  <td></td>  <td>1</td>     <td></td>                    <td>2</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td></td>               <td>20</td></tr>
 </table>
-
-
+<p>
+Note that there are two offsets here: <code>offset</code> which specifies the offset from <code>event</code>, where the event 
+property relates to a regular event, such as before meals. The other kind of offset is <code>startOffset</code> and <code>endOffset</code>
+which relate to the regular events within the repeat window: if they occur with frequency > 1, the start and end offsets impose a 
+gap in the schedule - see <a href="dosage.html#examples">Dosage Examples</a> for usage.
+</p>
 <p>
 This table shows the relationship between the <a href="valueset-timing-abbreviation.html">codes provided as
 part of the base specification</a>, and the structured data portions of the Timing type:
@@ -1720,17 +1729,18 @@ Timing is used in the following places: [%dtusage Timing%]
 </p>
 
 <a name="RelativeTime"></a>
-<a name="RelativeTime"></a>
+<a name="relativetime"></a>
 <h2 style="margin-bottom: 1px">RelativeTime</h2>
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
-<!--xlp:Money-->See also <a data-no-external="true" href="datatypes-examples.html#RelativeTime">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a>
+<!--xlp:RelativeTime-->See also <a data-no-external="true" href="datatypes-examples.html#RelativeTime">Examples</a>, <a data-no-external="true" href="datatypes-definitions.html#RelativeTime">Detailed Descriptions</a>, <a data-no-external="true" href="datatypes-mappings.html#RelativeTime">Mappings</a>, <a data-no-external="true" href="datatypes-profiles.html#RelativeTime">Profiles</a> and <a data-no-external="true" href="[%extensions-location%]extensions-datatypes.html#RelativeTime">Extensions</a>
 </p>
 
 <p>
-RelativeTime expresses a time or time period as relative to the time of an event defined in data types other than dateTime. For example, "within 30 days of hospital discharge" is an interval of time (from 0 days to 30 days) and it is described as occurring after an event (hospital discharge).
+RelativeTime expresses a time or time period as relative to the time of an event defined in data types other than dateTime. 
+For example, "within 30 days of hospital discharge" is an interval of time (from 0 days to 30 days) and it is described as occurring after an event (hospital discharge).
 </p>
 
-[%dt RelativeTime 13%]
+[%dt RelativeTime 14%]
 
 <p>
 Methods to express the "event" or "context" that is reference point for time relative to that point include any of:
@@ -1750,6 +1760,10 @@ Methods to express the "event" or "context" that is reference point for time rel
 </p>
 <p>The method to express a natural language description of the RelativeTime value is to use the text element.</p>
 
+<p>
+RelativeTime is used in the following places: [%dtusage RelativeTime%]
+</p>
+
 <a name="Signature"></a>
 <a name="signature"></a>
 <h2 style="margin-bottom: 1px">Signature</h2>
@@ -1762,7 +1776,7 @@ A <a href="signatures.html">Signature</a> holds an electronic representation of 
 The signature may either be a cryptographic type (e.g., XML DigSig or a JWS), which is able to provide non-repudiation proof, or
 it may be a graphical image that represents a signature or a digital-signature process.
 </p>
-[%dt Signature 14%]
+[%dt Signature 15%]
 <div class="use">
 <p><b>Constraints</b></p>
 [%dt.constraints Signature%]
@@ -1791,7 +1805,7 @@ extension: [[[http://hl7.org/fhir/StructureDefinition/questionnaireresponse-sign
 <p>
 A  text note which also  contains information about who made the statement and when.
 </p>
-[%dt Annotation 15%]
+[%dt Annotation 16%]
 
 <p>
   Notes:

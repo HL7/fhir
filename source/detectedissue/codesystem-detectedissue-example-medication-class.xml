@@ -2,9 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="detectedissue-example-medication-class"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -18,7 +15,7 @@
   <version value="6.0.0"/>
   <name value="DetectedIssueExampleMedicationClass"/>
   <title value="Detected Issue Example Medication Class"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>

@@ -2,17 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="filter-operator"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
@@ -38,19 +32,19 @@
   <status value="active"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
-	<publisher value="HL7 International / Terminology Infrastructure"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
-		</telecom>
-	</contact>
+  <publisher value="HL7 International / Terminology Infrastructure"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+    </telecom>
+  </contact>
   <description value="The kind of operation to perform as a part of a property based filter."/>
   <immutable value="true"/>
   <compose>

@@ -2,9 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="operation-parameter-use"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -13,9 +10,6 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
   </extension>
   <url value="http://hl7.org/fhir/operation-parameter-use"/>
   <identifier>

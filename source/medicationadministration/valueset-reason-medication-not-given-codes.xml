@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="reason-medication-not-given-codes"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="phx"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes"/>
   <identifier>
@@ -26,7 +26,7 @@
   <version value="6.0.0"/>
   <name value="SNOMEDCTReasonMedicationNotGivenCodes"/>
   <title value="SNOMED CT Reason Medication Not Given Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>

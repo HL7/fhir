@@ -46,7 +46,7 @@
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <whenHandedOver value="2015-01-15T16:20:00Z"/>
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="Use two sprays twice daily"/>
         <additionalInstruction>
             <text value="Shake Well"/>
@@ -73,6 +73,6 @@
                 <code value="ORINHL"/>
             </doseQuantity>
         </doseAndRate>
-
+			</simple>
     </dosageInstruction>
 </MedicationDispense>

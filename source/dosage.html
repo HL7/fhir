@@ -11,8 +11,8 @@
 
 
 <%dtxheader base Dosage%>
-<h1>Dosage</h1>
-<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
+<h1>Dosage Regimes</h1>
+<table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg phx%]">[%wgt phx%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 
 <p>Types Framework Cross Reference: 
@@ -25,17 +25,148 @@
   <a href="patterns.html">Patterns</a> 
 </p>
 
-<p>The Dosage structure defines general dosage instruction information typically represented in medication requests, medication dispenses and medication statements.</p>
+<p>The Dosage related structures define general dosage instruction information typically represented in medication requests, medication dispenses and medication statements.</p>
+<p>
+There are four different types involved in the representation of Dosage Information:
+</p>
+<ul>
+  <li><a href="#DosageDetails"><b>DosageDetails</b></a>: Summary of the dosage details, and orchestration of complex dosage regimes</li>
+  <li><a href="#Dosage"><b>Dosage</b></a>: The core information about the dosage regime for a medication</li>
+  <li><a href="#DosageSafety"><b>DosageSafety</b></a>: Information about dosage safety: dose limits for medications that have safety issues</li>
+  <li><a href="#DosageCondition"><b>DosageCondition</b></a>: Expresses conditional rules for dosage regimes, such as 'take this medication if tolerated'</li>
+</ul>
+<p>
+The <a href="dosage-examples.html">examples</a> page shows how many different complex dosage regimes are represented using these structures.
+</p>
 
-<p>Note: the Dosage structure allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
+<blockquote class="ballot-note">
+  <p><b>Note to Balloters:</b>
+    The way Medication dosage regimes are represented and used has undergone extensive reorganization with breaking changes in R6:
+  </p>
+  <ul>
+    <li>The <code>dosageInstruction</code> element in MedicationRequest, MedicationDispense, and MedicationStatement has changed from multiple <code>Dosage</code> elements (0..*) to a single <code>DosageDetails</code> element (0..1)</li>
+    <li>Complex dosing regimes are now represented within DosageDetails using steps and components rather than multiple Dosage instances</li>
+    <li>The <code>DosageDetails</code> data type allows combining multiple dosages and replaces the use of <code>.sequence</code>.</li>
+    <li>There are changes to the <a href="medicationrequest.html#bnr">Boundaries for MedicationRequest</a></li>
+    <li>The <a href="datatypes.html#Timing">Timing</a> datatype has related changes - namely the addition of <code>startOffset</code> and <code>endOffset</code>.</li>
+  </ul>
+  <p>Balloters should pay careful attention to these structures and the <a href="dosage-examples.html">examples</a>.</p>
+</blockquote>  
+
+<a name="text"> </a>
+<h3>Dosage text and structured Data</h3>
+<p>
+Dosages may contain <code>renderedInstruction</code> and/or structured data 
+(as a <code>simple</code> dosage or a complex sequence of <code>step</code> elements).
+</p>
+<p>
+The rendered instructions are typical prescription instructions, with a relatively concise expression
+that is mostly understood by human. If the Medication related resources (request, 
+dispense, or statement) are only serving the purpose of human mediated medication 
+functionality, it's sufficient to populate <code>renderedInstruction</code>, 
+and leave the rest of the structure empty. 
+</p>
+<p>
+However in many contexts, it is good to augment the human readable instructions with 
+precisely formulated dosage regimes so that medication management systems can assist 
+with correct and safe administration. As of the publication of this specification, 
+GenAI services are mostly able to decode correct renderedInstructions correctly, but 
+this can't be assumed correct (and not just because of AI limitations), so in any
+context where there is interest in providing medication management support, the dosage 
+structure should be fully populated.
+</p>
+<p>
+However, even after it's fully populated, it's not unusual for the renderedInstruction
+to contain additional details not found in the structure, or found in the structure
+in extensions that not all systems can understand, so the renderedInstruction is 
+always important to show to huamns. Even in the presence of fully populated structures, it's
+a challenge to produce good concise and readable renderedInstruction, so applications
+SHOULD always consider populating renderedInstruction.
+</p>
+
+<a name="limitations"> </a>
+<h2>Limitations of Use</h2>
+
+<p>
+The dosage model presented on this page does not address the following aspects of medication 
+management:
+</p>
+<ul>
+  <li>Complex Titration based dosage regimes</li>
+  <li>Cross-medication dosage orchestration and safety management</li>
+  <li>Medication regimes that are intimately linked to wider care planning regimes</li>
+</ul>
+<p>
+For all of these challenges, the management and orchestration of the care process starts with
+<a href="plandefinition.html">PlanDefinition</a> and/or <a href="requestorchestration.html">RequestOrchestration</a>.
+See also the <a href="medicationrequest.html#bnr">MedicationRequest Boundaries</a>.
+</p>
+
+<a name="details"></a>
+<a name="DosageDetails"></a>
+<h2 style="margin-bottom: 1px">
+DosageDetails
+</h2>
+<p>The DosageDetails type is the container type for dosing information, and contains:</p>
+<ul>
+  <li><code>renderedInstruction</code>: a single summary of the details in the dosage details</li>
+  <li>Either a <code>simple</code> dosage, or a complex dosage course with one or more <code>step</code> items, able to represent multiple dose regimes with tapering doses, and event relationships</li>
+  <li><code>safety</code> information that represents dose limits for relevant medications</li>
+</ul>
+
+[%dt DosageDetails 2%]
+
+<p></p>
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints DosageDetails%]
+[%tx DosageDetails%]
+</div>
+<p>Note: the DosageDetails structure allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
+
+<p>
+When a DosageDetails contains multiple steps, the steps are sequential - the dosage course follows
+through the steps one at a time. Each step has to specify an end condition - either by explicitly 
+linking the step to some external event, or by specifying a limit on the timing of the event using
+either <code>Timing.repeat.bounds[x]</code> or <code>Timing.repeat.count</code> on the 
+<a href="datatypes.html#Timing">Timing</a> data type.   
+</p>
+<p>
+Each step may include one or more <code>component</code> entries. 
+</p>
+<p>
+When there more than one <code>component</code> dosages in a step, all components within the same step are considered concurrent. 
+Typically, there are multiple components for the following reasons:
+</p>
+<ul>
+  <li>Different dosages on different days, or different times of the day</li>
+  <li>An instruction to take a medication, with an additional instruction for PRN, usually with restrictions around the PRN usage</li>
+  <li>Different dosages for different clinical conditions</li>
+</ul>
+<p>
+If there are multiple components, and they specify different bounds for their repeating events, 
+the step lasts as long as the longest component.
+</p>
+
+<p>
+DosageDetails is used in the following places: [%dtusage DosageDetails%]
+</p>
 
 <a name="definition"></a>
+<a name="Dosage"></a>
+<a name="dosage"></a>
 <h2 style="margin-bottom: 1px">
-Content
+Dosage
 </h2>
+<p>
+The Dosage data type describes a single course of medication application. The course is 
+a consistent application of a medication one or more times, as specified by the dosage
+details.  
+</p>
 
 [%dt Dosage 1%]
 
+<p>Note: the Dosage structure allows <a href="extensibility.html#modifier">modifier extensions</a>.</p>
 
 <div class="use">
 <p><b>Constraints</b></p>
@@ -45,6 +176,77 @@ Content
 
 <p>
 Dosage is used in the following places: [%dtusage Dosage%]
+</p>
+
+
+<a name="safety"></a>
+<a name="DosageSafety"></a>
+<h2 style="margin-bottom: 1px">
+DosageSafety
+</h2>
+
+<p>
+The DosageSafety type represents safety information about the medicine - that is, dosage limitations 
+associated with medications for which safety issues exists.
+</p>
+
+[%dt DosageSafety 3%]
+
+<p>
+A period can only be specified if the scope is 'period', in which case it must be present.
+</p>
+<p>
+The DosageSafety type allows for representing multiple limits. Limits can defined for four different scopes of interest:
+</p>
+<table class="grid">
+  <tr><td>administration</td><td>A dose limit that applies for a single administration</td></tr>
+  <tr><td>dosage</td><td>A dose limit that applies to the dosage structure where it is applied - either the entire dosage course, a specific step in the sequence, or a specific component</td></tr>
+  <tr><td>period</td><td>A dose limit that applies over the specified time period, irrespective of the details of the dosage course (and, in principle, other medications that include the same active agent)</td></tr>
+  <tr><td>lifetime</td><td>A dose limit that is a lifetime dose limit for the medication across all medication applications</td></tr>
+</table>
+<p>
+There is no rule that there can only be one limit per scope, because there might be both absolute and context dependent limits,
+such as 'no more than 1g', and also 'no more than 5 ug/kg of body weight'. 
+</p>
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints DosageSafety%]
+[%tx DosageSafety%]
+</div>
+
+<p>
+DosageSafety is used in the following places: [%dtusage DosageSafety%]
+</p>
+
+
+<a name="condition"></a>
+<a name="DosageCondition"></a>
+<h2 style="margin-bottom: 1px">
+DosageCondition
+</h2>
+
+<p>
+DosageCondition describes when the dosage regime is dependent on external events or conditions. 
+Some examples of it's use:
+</p>
+<ul>
+  <li>Do this lesser dosage if the patient can't tolerate a higher dose</li> 
+  <li>Use this medication if the patient can't tolerate some other medication</li> 
+  <li>Use this dosage until symptoms resolve</li>
+  <li>Use this dosage if the medication is available in sufficient supply</li>
+</ul>
+
+[%dt DosageCondition 3%]
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints DosageCondition%]
+[%tx DosageCondition%]
+</div>
+
+<p>
+DosageCondition is used in the following places: [%dtusage DosageCondition%]
 </p>
 
 
@@ -61,6 +263,9 @@ Dosage is used in the following places: [%dtusage Dosage%]
    currentTabIndex = '0';
 
 $( '#tabs-Dosage' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-DosageDetails' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-DosageSafety' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+$( '#tabs-DosageCondition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
      
      
 function store(currentTab) {
@@ -70,6 +275,9 @@ function store(currentTab) {
   } catch(exception){ 
   }
   $( '#tabs-Dosage' ).tabs('option', 'active', currentTab);
+  $( '#tabs-DosageDetails' ).tabs('option', 'active', currentTab);
+  $( '#tabs-DosageSafety' ).tabs('option', 'active', currentTab);
+  $( '#tabs-DosageCondition' ).tabs('option', 'active', currentTab);
 }     
 </script>
   

@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-author"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.author"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-authored"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.authoredOn"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-basedOn"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.basedOn"/>
@@ -63,7 +63,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.code"/>
@@ -82,7 +82,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.encounter"/>
@@ -101,7 +101,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-group-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.groupIdentifier"/>
@@ -120,7 +120,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.identifier"/>
@@ -139,7 +139,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-instantiates-canonical"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.instantiatesCanonical"/>
@@ -158,7 +158,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-instantiates-uri"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.instantiatesUri"/>
@@ -177,7 +177,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-intent"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.intent"/>
@@ -196,7 +196,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-participant"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.action.participant.actor[x]"/>
@@ -215,7 +215,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.subject"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-priority"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.priority"/>
@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.status"/>
@@ -273,7 +273,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.subject"/>
@@ -292,7 +292,7 @@
       <SearchParameter>
         <id value="RequestOrchestration-action-resource"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RequestOrchestration.action.resource"/>

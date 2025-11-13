@@ -143,7 +143,6 @@
         <base value="AuditEvent"/>
         <base value="CarePlan"/>
         <base value="CareTeam"/>
-        <base value="ClinicalAssessment"/>
         <base value="Composition"/>
         <base value="Consent"/>
         <base value="DetectedIssue"/>
@@ -206,7 +205,6 @@
         <base value="AuditEvent"/>
         <base value="CarePlan"/>
         <base value="Claim"/>
-        <base value="ClinicalAssessment"/>
         <base value="Communication"/>
         <base value="CommunicationRequest"/>
         <base value="Composition"/>
@@ -252,7 +250,6 @@
         <base value="CareTeam"/>
         <base value="Claim"/>
         <base value="ClaimResponse"/>
-        <base value="ClinicalAssessment"/>
         <base value="Communication"/>
         <base value="CommunicationRequest"/>
         <base value="Composition"/>
@@ -323,7 +320,6 @@
         <base value="CareTeam"/>
         <base value="Claim"/>
         <base value="ClaimResponse"/>
-        <base value="ClinicalAssessment"/>
         <base value="Communication"/>
         <base value="CommunicationRequest"/>
         <base value="Composition"/>

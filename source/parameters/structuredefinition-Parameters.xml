@@ -275,6 +275,9 @@
         <code value="Dosage"/>
       </type>
       <type>
+        <code value="CodeableReference"/>
+      </type>
+      <type>
         <code value="Meta"/>
       </type>
       <condition value="inv-1"/>

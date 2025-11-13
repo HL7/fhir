@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="payment-issuertype"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
-    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fm"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
@@ -21,7 +22,7 @@
   <version value="6.0.0"/>
   <name value="PaymentIssuerTypeCodes"/>
   <title value="Payment Issuer Type Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>

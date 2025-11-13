@@ -2,9 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="knowledge-representation-level"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability">
     <valueCode value="shareable"/>
   </extension>
@@ -16,6 +13,9 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel">
     <valueCode value="structured"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/knowledge-representation-level"/>
   <identifier>

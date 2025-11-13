@@ -4,143 +4,275 @@
   <id value="type-restful-interaction"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
-    
   </meta>
   <text>
     <status value="extensions"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include these codes as defined in 
+          
           <a href="codesystem-restful-interaction.html">
+            
             <code>http://hl7.org/fhir/restful-interaction</code>
+          
           </a>
+          
           <table class="none">
+            
             <tr>
+              
               <td style="white-space:nowrap">
+                
                 <b>Code</b>
+              
               </td>
+              
               <td>
+                
                 <b>Display</b>
+              
               </td>
+              
               <td>
+                
                 <b>Definition</b>
+              
               </td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-read">read</a>
+              
               </td>
+              
               <td>read</td>
+              
               <td>Read the current state of the resource.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-vread">vread</a>
+              
               </td>
+              
               <td>vread</td>
+              
               <td>Read the state of a specific version of the resource.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-update">update</a>
+              
               </td>
+              
               <td>update</td>
+              
               <td>Update an existing resource by its id (or create it if it is new).</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-update-conditional">update-conditional</a>
+              
               </td>
+              
               <td>update-conditional</td>
+              
               <td>Update an existing resource based on some identification criteria (or create it if it is new).</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-patch">patch</a>
+              
               </td>
+              
               <td>patch</td>
+              
               <td>Update an existing resource by posting a set of changes to it.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-patch">patch-conditional</a>
+              
               </td>
+              
               <td>patch-conditional</td>
+              
               <td>Update an existing resource, based on some identification criteria, by posting a set of changes to it.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-delete">delete</a>
+              
               </td>
+              
               <td>delete</td>
+              
               <td>Delete a resource.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-delete-conditional-single">delete-conditional-single</a>
+              
               </td>
+              
               <td>delete-conditional-single</td>
+              
               <td>Delete a single resource based on some identification criteria.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-delete-conditional-multiple">delete-conditional-multiple</a>
+              
               </td>
+              
               <td>delete-conditional-multiple</td>
+              
               <td>Delete one or more resources based on some identification criteria.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-delete-history">delete-history</a>
+              
               </td>
+              
               <td>delete-history</td>
+              
               <td>Delete all historical versions of a resource.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-delete-history-version">delete-history-version</a>
+              
               </td>
+              
               <td>delete-history-version</td>
+              
               <td>Delete a specific version of a resource.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-history-instance">history-instance</a>
+              
               </td>
+              
               <td>history-instance</td>
+              
               <td>Retrieve the change history for a particular resource.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-history-type">history-type</a>
+              
               </td>
+              
               <td>history-type</td>
+              
               <td>Retrieve the change history for all resources of a particular type.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-create">create</a>
+              
               </td>
+              
               <td>create</td>
+              
               <td>Create a new resource with a server assigned id.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-create-conditional">create-conditional</a>
+              
               </td>
+              
               <td>create-conditional</td>
+              
               <td>Create a new resource with a server assigned id if an equivalent resource does not already exist.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-search-type">search-type</a>
+              
               </td>
+              
               <td>search-type</td>
+              
               <td>Search all resources of the specified type based on some filter criteria.</td>
+            
             </tr>
+          
           </table>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -148,9 +280,6 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>

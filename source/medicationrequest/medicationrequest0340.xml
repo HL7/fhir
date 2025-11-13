@@ -37,8 +37,9 @@
     <isRecordOfRequest value="true"></reported>
     
     <dosageInstruction>
-        <sequence value="1"/>
+      <simple>
         <text value="Apply to affected areas four times daily"/>
+      </simple>
     </dosageInstruction>
     
 </MedicationRequest>

@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Condition-abatement-age"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.abatement[x]"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="Condition-abatement-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.abatement[x]"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Condition-abatement-string"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.abatement[x]"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Condition-asserter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.asserter"/>
@@ -87,7 +87,7 @@
           <valueString value="Condition.participant.actor"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Who or what participated in the activities related to the condition"/>
         <code value="participant-actor"/>
@@ -104,7 +104,7 @@
           <valueString value="Condition.participant.function"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Type of involvement of the actor in the activities related to the condition"/>
         <code value="participant-function"/>
@@ -120,7 +120,7 @@
       <SearchParameter>
         <id value="Condition-body-site"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.bodySite"/>
@@ -139,7 +139,7 @@
       <SearchParameter>
         <id value="Condition-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.category"/>
@@ -158,7 +158,7 @@
       <SearchParameter>
         <id value="Condition-clinical-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.clinicalStatus"/>
@@ -177,7 +177,7 @@
       <SearchParameter>
         <id value="Condition-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.code"/>
@@ -196,7 +196,7 @@
       <SearchParameter>
         <id value="Condition-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.encounter"/>
@@ -215,7 +215,7 @@
       <SearchParameter>
         <id value="Condition-evidence"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.evidence.concept"/>
@@ -234,7 +234,7 @@
       <SearchParameter>
         <id value="Condition-evidence-detail"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.evidence.reference"/>
@@ -253,7 +253,7 @@
       <SearchParameter>
         <id value="Condition-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.identifier"/>
@@ -272,7 +272,7 @@
       <SearchParameter>
         <id value="Condition-onset-age"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.onset[x]"/>
@@ -291,7 +291,7 @@
       <SearchParameter>
         <id value="Condition-onset-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.onset[x]"/>
@@ -310,7 +310,7 @@
       <SearchParameter>
         <id value="Condition-onset-info"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.onset[x]"/>
@@ -329,7 +329,7 @@
       <SearchParameter>
         <id value="Condition-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.subject"/>
@@ -349,7 +349,7 @@
       <SearchParameter>
         <id value="Condition-recorded-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.recordedDate"/>
@@ -368,7 +368,7 @@
       <SearchParameter>
         <id value="Condition-severity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.severity"/>
@@ -387,7 +387,7 @@
       <SearchParameter>
         <id value="Condition-stage"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.stage.summary"/>
@@ -406,7 +406,7 @@
       <SearchParameter>
         <id value="Condition-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.subject"/>
@@ -425,7 +425,7 @@
       <SearchParameter>
         <id value="Condition-verification-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Condition.verificationStatus"/>

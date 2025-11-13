@@ -5,6 +5,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/endpoint-payload-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -18,7 +21,7 @@
   <version value="6.0.0"/>
   <name value="EndpointPayloadType"/>
   <title value="Endpoint Payload Type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="HL7 Patient Administration"/>
   <contact>

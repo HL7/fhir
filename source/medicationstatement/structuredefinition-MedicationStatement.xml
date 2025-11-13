@@ -9,7 +9,7 @@
     <valueString value="Clinical.Medications"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
@@ -203,9 +203,9 @@
     </element>
     <element id="MedicationStatement.medication">
       <path value="MedicationStatement.medication"/>
-      <short value="What medication was taken"/>
-      <definition value="Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
-      <comment value="If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example, if you require form or lot number, then you must reference the Medication resource."/>
+      <short value="The medication that is/was taken (or not taken)"/>
+      <definition value="Identifies the medication taken (or not taken). This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
+      <comment value="If only a code is specified, then it should be a code for a product. If more information is required, then the use of the medication resource is recommended.  For example, if dose form or lot number are required, this is done using a reference to a Medication resource. In cases where the statement is for 'no known medications', this element can contain a code indicating that situation."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -218,8 +218,8 @@
           <valueString value="MedicationCode"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying the substance or product being taken."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+        <description value="A coded concept identifying the substance or product being taken (or that there are no known medications)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-statement-medication-codes"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -467,21 +467,6 @@
         <map value="TBD"/>
       </mapping>
     </element>
-    <element id="MedicationStatement.renderedDosageInstruction">
-      <path value="MedicationStatement.renderedDosageInstruction"/>
-      <short value="Full representation of the dosage instructions"/>
-      <definition value="The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses."/>
-      <requirements value="The content of the renderedDosageInstructions must not be different than the dose represented in the dosageInstruction content."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="SubstanceAdministration.text"/>
-      </mapping>
-    </element>
     <element id="MedicationStatement.dosage">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
@@ -491,14 +476,10 @@
       <definition value="Indicates how the medication is/was or should be taken by the patient."/>
       <comment value="The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, &quot;from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.&quot;  It is expected that this specificity may only be populated where the patient brings in their labeled container or where the Medication Statement is derived from a MedicationRequest."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
-        <code value="Dosage"/>
+        <code value="DosageDetails"/>
       </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="refer dosageInstruction mapping"/>
-      </mapping>
     </element>
     <element id="MedicationStatement.adherence">
       <path value="MedicationStatement.adherence"/>

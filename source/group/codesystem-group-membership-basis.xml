@@ -4,13 +4,15 @@
   <id value="group-membership-basis"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/group-membership-basis"/>
   <identifier>
@@ -20,7 +22,7 @@
   <version value="6.0.0"/>
   <name value="GroupMembershipBasis"/>
   <title value="Group Membership Basis"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2022-08-09T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>

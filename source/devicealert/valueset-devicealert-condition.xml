@@ -1,36 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="devicealert-condition" />
-  <meta>
-    
-  </meta>
-  <extension
-    url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="dev" />
+  <id value="devicealert-condition"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="dev"/>
   </extension>
-  <extension
-    url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft" />
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
-  <extension
-    url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2" />
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/devicealert-condition" />
-  <version value="6.0.0" />
-  <name value="DeviceAlertConditionCodes" />
-  <title value="DeviceAlert Condition Codes" />
-  <status value="active" />
-  <experimental value="false" />
-  <publisher value="FHIR Project team" />
+  <url value="http://hl7.org/fhir/ValueSet/devicealert-condition"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAlertConditionCodes"/>
+  <title value="DeviceAlert Condition Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
-      <system value="url" />
-      <value value="http://www.hl7.org/Special/committees/healthcaredevices" />
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices"/>
     </telecom>
   </contact>
-  <description value="DeviceAlert Condition Codes" />
+  <description value="DeviceAlert Condition Codes"/>
   <compose>
     <include>
       <system value="urn:iso:std:iso:11073:10101"/>

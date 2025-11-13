@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="edible-substance-type"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
   <identifier>
@@ -16,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="TypesOfEdibleSubstances"/>
   <title value="Types of Edible Substances"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -43,7 +43,7 @@
         <op value="is-a"/>
         <value value="412413001"/>
       </filter>
-		</include>
+    </include>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -51,7 +51,7 @@
         <op value="is-a"/>
         <value value="346415002"/>
       </filter>
-		</include>
+    </include>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -59,15 +59,15 @@
         <op value="is-a"/>
         <value value="890302005"/>
       </filter>
-		</include>
+    </include>
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-				<code value="11713004"/>
-			</concept>
+        <code value="11713004"/>
+      </concept>
       <concept>
-				<code value="444923006"/>
-			</concept>
-		</include>
+        <code value="444923006"/>
+      </concept>
+    </include>
   </compose>
 </ValueSet>

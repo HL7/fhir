@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-context"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.valueCodeableConcept"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-context-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-context-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.code"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-context-type-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-context-type-quantity"/>
         <description value="A use context type and quantity- or range-based value assigned to the terminology capabilities"/>
@@ -88,7 +88,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-context-type-value"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/TerminologyCapabilities-context-type-value"/>
         <description value="A use context type and value assigned to the terminology capabilities"/>
@@ -112,7 +112,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.date"/>
@@ -131,7 +131,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.description"/>
@@ -150,7 +150,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.identifier"/>
@@ -169,7 +169,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-jurisdiction"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.jurisdiction"/>
@@ -188,7 +188,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.name"/>
@@ -207,7 +207,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.publisher"/>
@@ -226,7 +226,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.status"/>
@@ -245,7 +245,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.title"/>
@@ -264,7 +264,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.url"/>
@@ -283,7 +283,7 @@
       <SearchParameter>
         <id value="TerminologyCapabilities-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.version"/>

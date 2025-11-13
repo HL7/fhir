@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-address"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.contact.address"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-address-city"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.contact.address.city"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-address-country"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.contact.address.country"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-address-postalcode"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.contact.address.postalCode"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-address-state"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.contact.address.state"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-address-use"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.contact.address.use"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-administered-by"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.administeredBy"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-endpoint"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.endpoint"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.identifier"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.name,InsuranceProduct.alias"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-owned-by"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.ownedBy"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-phonetic"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.name"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.status"/>
@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.type"/>
@@ -273,7 +273,7 @@
       <SearchParameter>
         <id value="InsuranceProduct-endpoint"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsuranceProduct.endpoint"/>

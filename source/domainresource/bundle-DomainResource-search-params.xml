@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="DomainResource-_text"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DomainResource-_text"/>
         <description value="Search on the narrative of the resource"/>

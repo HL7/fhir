@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="CareTeam-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CareTeam.category"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="CareTeam-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-date"/>
         <description value="A date within the coverage time period."/>
@@ -41,7 +41,7 @@
       <SearchParameter>
         <id value="CareTeam-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CareTeam.identifier"/>
@@ -60,7 +60,7 @@
       <SearchParameter>
         <id value="CareTeam-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
           <valueString value="J#20012"/>
@@ -82,7 +82,7 @@
       <SearchParameter>
         <id value="CareTeam-participant"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CareTeam.participant.member"/>
@@ -101,7 +101,7 @@
       <SearchParameter>
         <id value="CareTeam-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CareTeam.subject"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="CareTeam-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CareTeam.status"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="CareTeam-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CareTeam.subject"/>

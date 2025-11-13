@@ -80,7 +80,7 @@
     </requester>
     
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="1000mL infused at 50ml/hour for 4 hours - hung at 2200 hours" />
         <timing>
             <event value="2015-01-15T22:00:00+11:00"/>
@@ -136,7 +136,7 @@
                 </denominator>
             </rateRatio>
         </doseAndRate>
-        
+      </simple>  
         
     </dosageInstruction>
     

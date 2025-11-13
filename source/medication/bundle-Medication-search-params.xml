@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Medication-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.code"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="Medication-expiration-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.instance.expirationDate"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Medication-form"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.doseForm"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Medication-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.identifier"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="Medication-ingredient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.ingredient.item.reference"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="Medication-ingredient-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.ingredient.item.concept"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="Medication-lot-number"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.batch.lotNumber"/>
@@ -142,7 +142,7 @@
           <valueString value="Medication.marketingAuthorizationHolder"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="Returns medications made or sold for this marketing authorization holder"/>
         <code value="marketingauthorizationholder"/>
@@ -157,7 +157,7 @@
       <SearchParameter>
         <id value="Medication-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.status"/>
@@ -176,7 +176,7 @@
       <SearchParameter>
         <id value="Medication-serial-number"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.instance.lotNumber"/>

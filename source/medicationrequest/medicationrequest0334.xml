@@ -31,7 +31,7 @@
     </requester>
     
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="Apply to affected areas four times daily on Monday of each week"/>
         <timing>
             <repeat>
@@ -56,6 +56,7 @@
                 <code value="OINT"/>
             </doseQuantity>
         </doseAndRate>
+        </simple>
         
     </dosageInstruction>
     

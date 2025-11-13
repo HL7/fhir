@@ -104,27 +104,6 @@ statements, one for each version it supports. For further information, see <a hr
 Multiple Versions</a>, and the <a href="capabilitystatement-operation-versions.html">$versions</a> operation.
 </p>
 
-
-<a name="mixed"></a>
-<h3>Mixed Normative Content</h3>
-<p>
-While the core of the <code>CapabilityStatement</code> resource is <a href="versions.html#std-process">Normative</a>, 
-many of the flags that indicate exactly how the system operates are marked as <code>trial-use</code>. Roughly,
-the portions of the resource that correspond to <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI document</a> elements
-are normative. 
-</p>
-<p>
-Applications looking for normative stability should only use the normative parts of the 
-resource, and not populate or ignore the portions labelled trial-use. To assist with this, clients 
-can ask for the server to return a 'Normative content only' CapabilityStatement using the <a href="http.html#capabilities">mode parameter
-on <code>/metadata</code></a>.
-</p>
-<p>
-Community discussion regarding more capable, efficient and computable representations of 
-an applications capabilities may lead to change to the trial-use parts of this resource or the creation of new 
-resources and/or functionality in future versions of this specification.
-</p>
-
 </div>
 
 

@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="DetectedIssue-author"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DetectedIssue.author"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="DetectedIssue-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DetectedIssue.category"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="DetectedIssue-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DetectedIssue.code"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="DetectedIssue-identified"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DetectedIssue.identified[x]"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="DetectedIssue-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DetectedIssue.identifier"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="DetectedIssue-implicated"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DetectedIssue.implicated"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="DetectedIssue-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DetectedIssue.subject"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="DetectedIssue-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DetectedIssue.subject"/>
@@ -162,7 +162,7 @@
           <valueString value="DetectedIssue.status"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <description value="The status of the issue"/>
         <code value="status"/>

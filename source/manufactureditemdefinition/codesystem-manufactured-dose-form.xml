@@ -4,13 +4,12 @@
   <id value="manufactured-dose-form"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
@@ -23,7 +22,7 @@
   <version value="6.0.0"/>
   <name value="ManufacturedDoseForm"/>
   <title value="Manufactured Dose Form"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>

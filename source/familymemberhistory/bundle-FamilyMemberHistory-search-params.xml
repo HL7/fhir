@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="FamilyMemberHistory-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="FamilyMemberHistory.condition.code"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="FamilyMemberHistory-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="FamilyMemberHistory.date"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="FamilyMemberHistory-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="FamilyMemberHistory.identifier"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="FamilyMemberHistory-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="FamilyMemberHistory.patient"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="FamilyMemberHistory-relationship"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="FamilyMemberHistory.relationship"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="FamilyMemberHistory-sex"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="FamilyMemberHistory.sex"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="FamilyMemberHistory-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="FamilyMemberHistory.status"/>

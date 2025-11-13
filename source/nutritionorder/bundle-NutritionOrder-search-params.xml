@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="NutritionOrder-additive"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.additive.modularType.concept"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="NutritionOrder-datetime"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.dateTime"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="NutritionOrder-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.encounter"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="NutritionOrder-formula"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.enteralFormula.type.concept"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="NutritionOrder-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.identifier"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="NutritionOrder-oraldiet"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.oralDiet.type"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="NutritionOrder-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.subject"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="NutritionOrder-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.subject"/>
@@ -160,7 +160,7 @@
       <SearchParameter>
         <id value="NutritionOrder-requester"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.requester"/>
@@ -179,7 +179,7 @@
       <SearchParameter>
         <id value="NutritionOrder-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.status"/>
@@ -198,7 +198,7 @@
       <SearchParameter>
         <id value="NutritionOrder-supplement"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.supplement.type.concept"/>
@@ -217,7 +217,7 @@
       <SearchParameter>
         <id value="NutritionOrder-group-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NutritionOrder.groupIdentifier"/>

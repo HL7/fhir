@@ -2,9 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-status"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -13,9 +10,6 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/observation-status"/>
   <identifier>

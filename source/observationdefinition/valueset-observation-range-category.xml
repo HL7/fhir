@@ -2,14 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-range-category"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
@@ -22,7 +19,7 @@
   <version value="6.0.0"/>
   <name value="ObservationRangeCategory"/>
   <title value="Observation Range Category"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>

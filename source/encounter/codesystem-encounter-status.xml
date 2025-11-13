@@ -4,13 +4,12 @@
   <id value="encounter-status"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
@@ -28,7 +27,7 @@
   <version value="6.0.0"/>
   <name value="EncounterStatus"/>
   <title value="Encounter Status"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>

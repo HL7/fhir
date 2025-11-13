@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="example-characteristic-codes"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/example-characteristic-codes"/>
   <version value="1.0.0"/>
   <name value="ExampleCharacteristicCodes"/>
-  <title value="Example Characterist ic Codes"/>
-  <status value="draft"/>
+  <title value="Example Characteristic Codes"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2025-03-03"/>
   <publisher value="HL7 FHIR Project"/>
   <description value="This value set contains an example set of LOINC codes that might be used to define common characteristics for grouping individuals in FHIR Group resources."/>
- <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/> 
+  <copyright value="This content from LOINCÂ® is copyright Â© 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>
       <system value="http://loinc.org"/>

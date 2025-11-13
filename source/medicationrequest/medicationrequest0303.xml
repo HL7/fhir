@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
- xmlns="http://hl7.org/fhir">
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
     <id value="medrx0303"/>
     <contained>
-      <Medication>
-          <id value="med0311"/>
-          <code>
-              <coding>
-                  <system value="http://snomed.info/sct"/>
-                  <code value="373994007"/>
-                  <display value="Prednisone 5 mg oral tablet"/>
-              </coding>
-          </code>
-      </Medication>
-  </contained>
+        <Medication>
+            <id value="med0311"/>
+            <code>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="373994007"/>
+                    <display value="Prednisone 5 mg oral tablet"/>
+                </coding>
+            </code>
+        </Medication>
+    </contained>
     <identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/portal/prescriptions"/>
@@ -30,16 +29,16 @@
     </groupIdentifier>
     <status value="active"/>
     <intent value="order"/>
-    <medication> <!-- Linked to a RESOURCE Medication -->
-    <reference>
-           <reference value="#med0311"/>
-           </reference>
-    </medication> 
-    <subject> <!-- Linked to the resource patient who needs the medication -->
+    <medication>        <!-- Linked to a RESOURCE Medication -->
+        <reference>
+            <reference value="#med0311"/>
+        </reference>
+    </medication>
+    <subject>        <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/pat1"/>
-        <display value="Donald Duck"/>        
+        <display value="Donald Duck"/>
     </subject>
-    <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
+    <encounter>        <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this prescription"/>
     </encounter>
@@ -53,145 +52,149 @@
     <note>
         <text value="Patient told to take with food"/>
     </note>
-    
+
 
     <dosageInstruction>
-        <sequence value="1"/>
-        <text value="Take 4 tablets daily for 7 days starting January 16, 2015" />
-        <timing>
-            <repeat>
-                <boundsPeriod>
-                    <start value="2015-01-16"/>
-                    <end value="2015-01-22"/>
-                </boundsPeriod>
-                <frequency value="1"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="26643006"/>
-                <display value="Oral Route"/>
-            </coding>
-        </route>
-        <method>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="421521009"/>
-                <display value="Swallow - dosing instruction imperative (qualifier value)"/>
-            </coding>
-        </method>
-        <doseAndRate>
-            <type>
-                <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
-                </coding>
-            </type>
-            <doseQuantity>
-                <value value="4"/>
-                <unit value="TAB"/>
-                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                <code value="TAB"/> 
-            </doseQuantity>
-        </doseAndRate>
+        <step>
+            <component>
+                <text value="Take 4 tablets daily for 7 days starting January 16, 2015" />
+                <timing>
+                    <repeat>
+                        <boundsPeriod>
+                            <start value="2015-01-16"/>
+                            <end value="2015-01-22"/>
+                        </boundsPeriod>
+                        <frequency value="1"/>
+                        <period value="1"/>
+                        <periodUnit value="d"/>
+                    </repeat>
+                </timing>
+                <route>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="26643006"/>
+                        <display value="Oral Route"/>
+                    </coding>
+                </route>
+                <method>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="421521009"/>
+                        <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+                    </coding>
+                </method>
+                <doseAndRate>
+                    <type>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                            <code value="ordered"/>
+                            <display value="Ordered"/>
+                        </coding>
+                    </type>
+                    <doseQuantity>
+                        <value value="4"/>
+                        <unit value="TAB"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                        <code value="TAB"/>
+                    </doseQuantity>
+                </doseAndRate>
+            </component>
+        </step>
+        <step>
+            <component>
+                <text value="Take 2 tablets daily for 7 days starting January 23, 2015" />
+                <timing>
+                    <repeat>
+                        <boundsPeriod>
+                            <start value="2015-01-23"/>
+                            <end value="2015-01-29"/>
+                        </boundsPeriod>
+                        <frequency value="1"/>
+                        <period value="1"/>
+                        <periodUnit value="d"/>
+                    </repeat>
+                </timing>
+                <route>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="26643006"/>
+                        <display value="Oral Route"/>
+                    </coding>
+                </route>
+                <method>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="421521009"/>
+                        <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+                    </coding>
+                </method>
+                <doseAndRate>
+                    <type>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                            <code value="ordered"/>
+                            <display value="Ordered"/>
+                        </coding>
+                    </type>
+                    <doseQuantity>
+                        <value value="2"/>
+                        <unit value="TAB"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                        <code value="TAB"/>
+                    </doseQuantity>
+                </doseAndRate>
 
-    </dosageInstruction>
-    <dosageInstruction>
-        <sequence value="2"/>
-        <text value="Take 2 tablets daily for 7 days starting January 23, 2015" />
-        <timing>
-            <repeat>
-                <boundsPeriod>
-                    <start value="2015-01-23"/>
-                    <end value="2015-01-29"/>
-                </boundsPeriod>
-                <frequency value="1"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="26643006"/>
-                <display value="Oral Route"/>
-            </coding>
-        </route>
-        <method>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="421521009"/>
-                <display value="Swallow - dosing instruction imperative (qualifier value)"/>
-            </coding>
-        </method>
-        <doseAndRate>
-            <type>
-                <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
-                </coding>
-            </type>
-            <doseQuantity>
-                <value value="2"/>
-                <unit value="TAB"/>
-                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                <code value="TAB"/> 
-            </doseQuantity>
-        </doseAndRate>
+            </component>
+        </step>
+        <step>
+            <component>
+                <text value="Take 1 tablets daily for 7 days starting January 30, 2015" />
+                <timing>
+                    <repeat>
+                        <boundsPeriod>
+                            <start value="2015-01-30"/>
+                            <end value="2015-02-05"/>
+                        </boundsPeriod>
+                        <frequency value="1"/>
+                        <period value="1"/>
+                        <periodUnit value="d"/>
+                    </repeat>
+                </timing>
+                <route>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="26643006"/>
+                        <display value="Oral Route"/>
+                    </coding>
+                </route>
+                <method>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="421521009"/>
+                        <display value="Swallow - dosing instruction imperative (qualifier value)"/>
+                    </coding>
+                </method>
+                <doseAndRate>
+                    <type>
+                        <coding>
+                            <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                            <code value="ordered"/>
+                            <display value="Ordered"/>
+                        </coding>
+                    </type>
+                    <doseQuantity>
+                        <value value="1"/>
+                        <unit value="TAB"/>
+                        <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
+                        <code value="TAB"/>
+                    </doseQuantity>
+                </doseAndRate>
 
+            </component>
+        </step>
     </dosageInstruction>
-    <dosageInstruction>
-        <sequence value="3"/>
-        <text value="Take 1 tablets daily for 7 days starting January 30, 2015" />
-        <timing>
-            <repeat>
-                <boundsPeriod>
-                    <start value="2015-01-30"/>
-                    <end value="2015-02-05"/>
-                </boundsPeriod>
-                <frequency value="1"/>
-                <period value="1"/>
-                <periodUnit value="d"/>
-            </repeat>
-        </timing>
-        <route>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="26643006"/>
-                <display value="Oral Route"/>
-            </coding>
-        </route>
-        <method>
-            <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="421521009"/>
-                <display value="Swallow - dosing instruction imperative (qualifier value)"/>
-            </coding>
-        </method>
-        <doseAndRate>
-            <type>
-                <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-                    <code value="ordered"/>
-                    <display value="Ordered"/>
-                </coding>
-            </type>
-            <doseQuantity>
-                <value value="1"/>
-                <unit value="TAB"/>
-                <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-                <code value="TAB"/> 
-            </doseQuantity>
-        </doseAndRate>
-        
-    </dosageInstruction>
-        
-    
+
+
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
@@ -202,18 +205,18 @@
             <value value="51"/>
             <unit value="TAB"/>
             <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-            <code value="TAB"/> 
+            <code value="TAB"/>
         </quantity>
         <expectedSupplyDuration>
             <value value="21"></value>
             <unit value="days"/>
             <system value="http://unitsofmeasure.org"/>
-            <code value="d"/> 
+            <code value="d"/>
         </expectedSupplyDuration>
         <dispenser>
             <reference value="Organization/f001"></reference>
         </dispenser>
-    </dispenseRequest>   
+    </dispenseRequest>
     <substitution>
         <allowedCodeableConcept>
             <coding>
@@ -226,7 +229,7 @@
             <coding>
                 <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
                 <code value="FP"/>
-                <display value="formulary policy"/>             
+                <display value="formulary policy"/>
             </coding>
         </reason>
     </substitution>

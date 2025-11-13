@@ -32,12 +32,9 @@ implement this interface:
 <li><a href="activitydefinition.html">ActivityDefinition</a></li>
 <li><a href="actordefinition.html">ActorDefinition</a></li>
 <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
-<li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItemDefinition.html">ChargeItemDefinition</a></li>
-<li><a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html">Citation</a></li>
 <li><a href="codesystem.html">CodeSystem</a></li>
 <li><a href="compartmentdefinition.html">CompartmentDefinition</a></li>
 <li><a href="conceptmap.html">ConceptMap</a></li>
-<li><a href="conditiondefinition.html">ConditionDefinition</a></li>
 <li><a href="devicedefinition.html">DeviceDefinition</a></li>
 <li><a href="eventdefinition.html">EventDefinition</a></li>
 <li><a href="evidence.html">Evidence</a></li>
@@ -63,6 +60,7 @@ implement this interface:
 </ul>
 <p>
 Other <a href="resource.html#additional">Additional Resources</a> may implement CanonicalResource.
+See the list <a href="resource.html#additional">here</a>
 </p>
 
 </div>

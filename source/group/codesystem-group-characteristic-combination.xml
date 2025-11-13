@@ -2,14 +2,11 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="group-characteristic-combination"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
@@ -22,7 +19,7 @@
   <version value="6.0.0"/>
   <name value="GroupCharacteristicCombination"/>
   <title value="Group Characteristic Combination"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -38,9 +35,6 @@
   </contact>
   <description value="Logical grouping of characteristics."/>
   <caseSensitive value="true"/>
-  <!-- todo: why?
-  <valueSet value="http://hl7.org/fhir/ValueSet/group-characteristic-combination"/>
-  -->
   <content value="complete"/>
   <concept>
     <code value="all-of"/>

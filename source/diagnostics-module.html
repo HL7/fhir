@@ -51,8 +51,8 @@ in order to support consistent definitions for schema and UML derived code.
 
                     <li><a href="imagingselection.html">ImagingSelection</a></li>
                     <li><a href="imagingstudy.html">ImagingStudy</a></li>
-                    <li><a href="moleculardefinition.html">MolecularDefinition</a></li>
-                    <li><a href="genomicstudy.html">GenomicStudy</a></li>
+                    <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-MolecularDefinition.html">MolecularDefinition</a></li>
+                    <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a></li>
                 </ul>
             </td>
             <td style="width:33%">
@@ -99,15 +99,13 @@ in order to support consistent definitions for schema and UML derived code.
             [%res-item DocumentReference%]
             [%res-item ImagingSelection%]
             [%res-item ImagingStudy%]
-            [%res-item MolecularDefinition%]
-            [%res-item GenomicStudy%]
             [%res-item Specimen%]
             [%res-item BodyStructure%]
         </table>
         <figure>Table 1: Indicates the FHIR Resources that are involved in Diagnostics.</figure>
 
         [%impl-note%]
-        MolecularSequence resource has been replaced by the <a href="moleculardefinition.html">Molecular Definition</a> resource.
+        MolecularSequence resource has been replaced by the <a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-MolecularDefinition.html">Molecular Definition</a> resource.
         [%end-note%]
     </div>
 
@@ -387,13 +385,13 @@ in order to support consistent definitions for schema and UML derived code.
     <a name="roadmap"></a>
     <h3>Developmental Roadmap</h3>
     <ul>
-        <li>The <em>Observation</em> resource has been tested and used in production tooling and is Normative with some Trial Use elements.  Any further development will follow the rules for Normative resources. Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
+        <li>The <em>Observation</em> resource has been tested and used in production tooling and is Normative.  Any further development will follow the rules for Normative resources. Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
         <li>The <em>DocumentReference</em> resource has been tested and used in production tooling and has reached maturity level FMM=4.</li>
         <li>The <em>DiagnosticReport</em> resource has been tested and used in production tooling and has reached maturity level FMM=3. Future work will focus on further refinements to the resource, as well as developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
         <li>The <em>Specimen</em> resource is expected to undergo further development as a focus of ongoing work group efforts. We expect to see more widespread use of this resource which will help to increase its maturity(currently at FMM=2).</li>
         <li>The <em>ImagingStudy</em> resource has been tested and used in production tooling and has reached maturity level FMM=4.</li>
         <li>The <em>ImagingSelection</em> resource is relatively immature at FMM=1 (added in R5). We are looking for implementer feedback to advance its maturity.</li>
-        <li>The <em>MolecularDefinition</em> resource is replacing MolecularSequence. It includes definitional content for a molecular entity, such as a nucleotide or protein sequence. This resource is in trial-use and is relatively immature at FMM=0.</li>
+        <li>The <em>MolecularDefinition</em> resource is replacing MolecularSequence. It includes definitional content for a molecular entity, such as a nucleotide or protein sequence. This resource is an <a href="resource.html#additional">Additional Resource</a>.</li>
         <li>The <em>GenomicStudy</em> resource was introduced in R5. It represents a set of analyses performed to analyze and generate genomic data and is at FMM=1. Further use of this resource in production tooling is needed for it to reach a more stable FMM level.</li>
         <li>The <em>BodyStructure</em> resource is relatively immature at FMM=1. Changes have been made to support greater precision of body location identification based on feedback that has been received, and we expect to receive additional implementation feedback which will help increase the resource maturity level.</li>
     </ul>

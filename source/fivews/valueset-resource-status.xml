@@ -2,6 +2,9 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="resource-status"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/resource-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -9,7 +12,7 @@
   </identifier>
   <name value="CanonicalStatusCodesForFHIRResources"/>
   <title value="Canonical Status Codes for FHIR Resources"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR Project"/>
   <description value="The master set of status codes used throughout FHIR. All status codes are mapped to one of these codes."/>

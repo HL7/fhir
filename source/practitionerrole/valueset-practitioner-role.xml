@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="practitioner-role"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/practitioner-role"/>
   <identifier>
@@ -26,7 +26,7 @@
   <version value="6.0.0"/>
   <name value="PractitionerRole"/>
   <title value="Practitioner Role"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>

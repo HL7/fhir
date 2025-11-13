@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Practitioner-active"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.active"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="Practitioner-address"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.address"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Practitioner-address-city"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.address.city"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Practitioner-address-country"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.address.country"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="Practitioner-address-postalcode"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.address.postalCode"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="Practitioner-address-state"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.address.state"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="Practitioner-address-use"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.address.use"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="Practitioner-communication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.communication.language"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="Practitioner-email"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.telecom(system=email)"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="Practitioner-family"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.name.family"/>
@@ -197,7 +197,7 @@
       <SearchParameter>
         <id value="Practitioner-gender"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.gender"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="Practitioner-given"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.name.given"/>
@@ -235,7 +235,7 @@
       <SearchParameter>
         <id value="Practitioner-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.identifier | Practitioner.qualification.identifier"/>
@@ -255,7 +255,7 @@
       <SearchParameter>
         <id value="Practitioner-qualification-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.qualification.code"/>
@@ -274,7 +274,7 @@
       <SearchParameter>
         <id value="Practitioner-qualification-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.qualification.period"/>
@@ -293,7 +293,7 @@
       <SearchParameter>
         <id value="Practitioner-qual-code-period"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Practitioner-qual-code-period"/>
         <description value="The practitioner has a qualification during a specific period"/>
@@ -318,7 +318,7 @@
       <SearchParameter>
         <id value="Practitioner-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.name"/>
@@ -337,7 +337,7 @@
       <SearchParameter>
         <id value="Practitioner-phone"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.telecom(system=phone)"/>
@@ -356,7 +356,7 @@
       <SearchParameter>
         <id value="Practitioner-phonetic"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.name"/>
@@ -375,7 +375,7 @@
       <SearchParameter>
         <id value="Practitioner-telecom"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.telecom"/>
@@ -394,7 +394,7 @@
       <SearchParameter>
         <id value="Practitioner-death-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.deceasedDateTime"/>
@@ -413,7 +413,7 @@
       <SearchParameter>
         <id value="Practitioner-deceased"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Practitioner.deceased[x]"/>

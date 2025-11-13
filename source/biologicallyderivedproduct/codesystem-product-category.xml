@@ -2,9 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="product-category"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -36,6 +33,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
+  <description value="Biologically Derived Product Category."/>
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
@@ -43,7 +41,6 @@
       <display value="World"/>
     </coding>
   </jurisdiction>
-  <description value="Biologically Derived Product Category."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/product-category"/>
   <content value="complete"/>
@@ -76,5 +73,5 @@
     <code value="mpho"/>
     <display value="Medical Product of Human Origin (MPHO)"/>
     <definition value="A product derived from a human donor intended for clinical application in a human recipient."/>
-  </concept>  
+  </concept>
 </CodeSystem>

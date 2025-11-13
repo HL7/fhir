@@ -329,9 +329,6 @@
 			</mapping>
 		</element>
 		<element id="StructureDefinition.versionAlgorithm[x]">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="StructureDefinition.versionAlgorithm[x]"/>
 			<short value="How to compare versions"/>
 			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
@@ -505,9 +502,6 @@
 			</type>
 		</element>
 		<element id="StructureDefinition.useContext">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<path value="StructureDefinition.useContext"/>
 			<short value="The context that the content is intended to support"/>
 			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate structure definition instances."/>
@@ -587,9 +581,6 @@
 			</mapping>
 		</element>
 		<element id="StructureDefinition.copyrightLabel">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
 				<valueBoolean value="true"/>
 			</extension>

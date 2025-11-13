@@ -2,9 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="provenance-entity-role"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
   </extension>

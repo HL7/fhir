@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-care-team"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.careTeam.provider"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-claim"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.claim"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-coverage"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.insurance.coverage"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-created"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.created"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-detail-udi"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.item.detail.udi"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-disposition"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.disposition"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.item.encounter"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-enterer"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.enterer"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-facility"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.facility"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-group"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.subject"/>
@@ -199,7 +199,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.identifier"/>
@@ -218,7 +218,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-item-udi"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.item.udi"/>
@@ -237,7 +237,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.subject"/>
@@ -258,7 +258,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-payee"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.payee.party"/>
@@ -277,7 +277,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.subject"/>
@@ -298,7 +298,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-procedure-udi"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.procedure.udi"/>
@@ -317,7 +317,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-provider"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.provider"/>
@@ -336,7 +336,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.status"/>
@@ -355,7 +355,7 @@
       <SearchParameter>
         <id value="ExplanationOfBenefit-subdetail-udi"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ExplanationOfBenefit.item.detail.subDetail.udi"/>

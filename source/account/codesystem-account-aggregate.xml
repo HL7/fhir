@@ -1,14 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="account-aggregate"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -21,7 +22,7 @@
   <version value="6.0.0"/>
   <name value="AccountAggregate"/>
   <title value="Account Aggregate"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>

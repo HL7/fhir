@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="RiskAssessment-condition"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.condition"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="RiskAssessment-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.occurrenceDateTime"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="RiskAssessment-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.encounter"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="RiskAssessment-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.identifier"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="RiskAssessment-method"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.method"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="RiskAssessment-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.subject"/>
@@ -122,7 +122,7 @@
       <SearchParameter>
         <id value="RiskAssessment-performer"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.performer"/>
@@ -141,7 +141,7 @@
       <SearchParameter>
         <id value="RiskAssessment-probability"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.prediction.probability[x]"/>
@@ -160,7 +160,7 @@
       <SearchParameter>
         <id value="RiskAssessment-probability-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.prediction.probability[x]"/>
@@ -179,7 +179,7 @@
       <SearchParameter>
         <id value="RiskAssessment-risk"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.prediction.qualitativeRisk"/>
@@ -198,7 +198,7 @@
       <SearchParameter>
         <id value="RiskAssessment-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="RiskAssessment.subject"/>

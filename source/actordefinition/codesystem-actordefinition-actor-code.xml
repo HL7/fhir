@@ -2,14 +2,11 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="actordefinition-actor-code"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -18,12 +15,12 @@
   <version value="6.0.0"/>
   <name value="ActorDefinitionActorCode"/>
   <title value="ActorDefinition Actor Code"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
-    <telecom> 
+    <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
@@ -74,7 +71,7 @@
       <definition value="A group of people or animals"/>
       <property>
         <code value="abstract"/>
-        <valueBoolean value="true"/>  
+        <valueBoolean value="true"/>
       </property>
       <concept>
         <code value="care-team"/>

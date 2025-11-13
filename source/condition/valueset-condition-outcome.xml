@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="condition-outcome"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/condition-outcome"/>
   <identifier>
@@ -25,7 +25,7 @@
   </identifier>
   <name value="ConditionOutcomeCodes"/>
   <title value="Condition Outcome Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -48,7 +48,7 @@
       <concept>
         <code value="765205004"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="21134002"/>
       </concept>
     </include>

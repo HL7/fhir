@@ -86,7 +86,7 @@ the person record if they want their details updated, or if they no longer need 
 as they've moved from the area.
 </p>
 <p>
-The <a href="linkage.html">Linkage</a> resource and the Patient.link property conceptually perform similar functions in FHIR, 
+The <a href="https://build.fhir.org/ig/HL7/pc-incubator/StructureDefinition-Linkage.html">Linkage</a> resource and the Patient.link property conceptually perform similar functions in FHIR, 
 both provide an assertion of linkages between multiple resource instances that are referring to the same underlying individual.<br/>
 When a Patient resource is linked/merged then it needs to have an internal indication that there is another
 patient resource that should be considered when referencing other records, which is achieved using the patient.link property.<br/>

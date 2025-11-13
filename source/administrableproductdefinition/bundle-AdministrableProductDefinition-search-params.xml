@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="AdministrableProductDefinition-device"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdministrableProductDefinition.device"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="AdministrableProductDefinition-dose-form"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdministrableProductDefinition.administrableDoseForm"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="AdministrableProductDefinition-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdministrableProductDefinition.identifier"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="AdministrableProductDefinition-ingredient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdministrableProductDefinition.ingredient"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="AdministrableProductDefinition-manufactured-item"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdministrableProductDefinition.producedFrom"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="AdministrableProductDefinition-route"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdministrableProductDefinition.routeOfAdministration.code"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="AdministrableProductDefinition-form-of"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdministrableProductDefinition.formOf"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="AdministrableProductDefinition-target-species"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.code"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="AdministrableProductDefinition-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AdministrableProductDefinition.status"/>

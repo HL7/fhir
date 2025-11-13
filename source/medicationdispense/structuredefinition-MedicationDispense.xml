@@ -9,7 +9,7 @@
     <valueString value="Clinical.Medications"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
@@ -726,21 +726,6 @@
         <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=ACT,moodCode=EVN]"/>
       </mapping>
     </element>
-    <element id="MedicationDispense.renderedDosageInstruction">
-      <path value="MedicationDispense.renderedDosageInstruction"/>
-      <short value="Full representation of the dosage instructions"/>
-      <definition value="The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses."/>
-      <comment value="The content of the renderedDosageInstructions must not be different than the dose represented in the dosageInstruction content."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="SubstanceAdministration.text"/>
-      </mapping>
-    </element>
     <element id="MedicationDispense.dosageInstruction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="The RMIM has priority code on the act relationship.  How do we handle this?"/>
@@ -753,9 +738,9 @@
       <definition value="Indicates how the medication is to be used by the patient."/>
       <comment value="When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.&#xD;The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
-        <code value="Dosage"/>
+        <code value="DosageDetails"/>
       </type>
       <mapping>
         <identity value="rim"/>

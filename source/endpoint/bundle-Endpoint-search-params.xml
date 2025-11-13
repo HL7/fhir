@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Endpoint-connection-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Endpoint.connectionType"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="Endpoint-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Endpoint.identifier"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Endpoint-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Endpoint.name"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Endpoint-organization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Endpoint.managingOrganization"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="Endpoint-payload-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Endpoint.payload.type"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="Endpoint-payload-profile"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Endpoint.payload.profileCanonical,Endpoint.payload.profileUri"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="Endpoint-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Endpoint.status"/>

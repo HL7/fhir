@@ -2,14 +2,11 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="group-involvement"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -18,18 +15,16 @@
   <version value="6.0.0"/>
   <name value="GroupInvolvement"/>
   <title value="Group Involvement"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <valueCode value="http://hl7.org/fhir"/>
     </telecom>
     <telecom>
       <system value="email"/>
-      <valueCode value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
   <description value="A code that describes how a member of the group participates in the group."/>
@@ -42,7 +37,6 @@
     <description value="Which group code this relationship is considered appropriate to use with"/>
     <type value="code"/>
   </property>
-
   <concept>
     <code value="index-case"/>
     <display value="Index Case"/>
@@ -52,7 +46,6 @@
       <valueCode value="patient-list"/>
     </property>
   </concept>
-
   <concept>
     <code value="primary-exposure"/>
     <display value="Primary Exposure"/>
@@ -62,7 +55,6 @@
       <valueCode value="patient-list"/>
     </property>
   </concept>
-
   <concept>
     <code value="secondary-exposure"/>
     <display value="Secondary Exposure"/>
@@ -72,7 +64,6 @@
       <valueCode value="patient-list"/>
     </property>
   </concept>
-
   <concept>
     <code value="primary-contact"/>
     <display value="Primary Contact"/>
@@ -90,7 +81,6 @@
       <valueCode value="workplace"/>
     </property>
   </concept>
-
   <concept>
     <code value="family-member"/>
     <display value="Family Member"/>
@@ -100,7 +90,6 @@
       <valueCode value="household"/>
     </property>
   </concept>
-
   <concept>
     <code value="owner"/>
     <display value="Owner"/>
@@ -110,7 +99,6 @@
       <valueCode value="household"/>
     </property>
   </concept>
-
   <concept>
     <code value="resident"/>
     <display value="Resident"/>
@@ -120,7 +108,6 @@
       <valueCode value="household"/>
     </property>
   </concept>
-
   <concept>
     <code value="visitor"/>
     <display value="Visitor"/>
@@ -134,7 +121,6 @@
       <valueCode value="workplace"/>
     </property>
   </concept>
-
   <concept>
     <code value="staff"/>
     <display value="Staff"/>
@@ -144,7 +130,6 @@
       <valueCode value="household"/>
     </property>
   </concept>
-
   <concept>
     <code value="pet"/>
     <display value="Pet"/>
@@ -158,7 +143,6 @@
       <valueCode value="household"/>
     </property>
   </concept>
-
   <concept>
     <code value="full-time"/>
     <display value="Full-Time Employee"/>
@@ -168,7 +152,6 @@
       <valueCode value="workplace"/>
     </property>
   </concept>
-
   <concept>
     <code value="part-time"/>
     <display value="Part Time"/>
@@ -178,7 +161,6 @@
       <valueCode value="workplace"/>
     </property>
   </concept>
-
   <concept>
     <code value="casual"/>
     <display value="Casual"/>
@@ -188,5 +170,4 @@
       <valueCode value="workplace"/>
     </property>
   </concept>
-
 </CodeSystem>

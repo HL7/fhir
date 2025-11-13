@@ -2,9 +2,9 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="product-status"/>
-  <meta>
-    
-  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
   <url value="http://hl7.org/fhir/product-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -13,6 +13,7 @@
   <version value="6.0.0"/>
   <name value="ProductStatus"/>
   <title value="Product Status"/>
+  <status value="active"/>
   <experimental value="true"/>
   <description value="ProductStatus"/>
   <concept>

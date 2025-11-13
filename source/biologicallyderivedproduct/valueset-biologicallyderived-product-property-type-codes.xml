@@ -2,9 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="biologicallyderived-product-property-type-codes"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -36,6 +33,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
+  <description value="This value set can enumerate ISBT 128 Codes published by ICCBBA as a part of the ISBT 128 standard. These example codes represent data elements defined in ST-027 ISBT 128 Dictionary of Standard Data Elements and are used to define data structure and format expectations for electronic exchange with the ISBT 128 standard."/>
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
@@ -43,7 +41,6 @@
       <display value="World"/>
     </coding>
   </jurisdiction>
-  <description value="This value set can enumerate ISBT 128 Codes published by ICCBBA as a part of the ISBT 128 standard. These example codes represent data elements defined in ST-027 ISBT 128 Dictionary of Standard Data Elements and are used to define data structure and format expectations for electronic exchange with the ISBT 128 standard."/>
   <copyright value="This content from ICCBBA® is copyright © 2021 ICCBBA."/>
   <compose>
     <include>

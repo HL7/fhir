@@ -43,7 +43,7 @@
     </requester>
     
     <dosageInstruction>
-        <sequence value="1"/>
+      <simple>
         <text value="Take 1-2 tablets once daily at bedtime as needed for restless legs" />
         <additionalInstruction>
             <text value="Take at bedtime"/>
@@ -92,6 +92,7 @@
                 </high>
             </doseRange>
         </doseAndRate>
+      </simple>
 
     </dosageInstruction>
     

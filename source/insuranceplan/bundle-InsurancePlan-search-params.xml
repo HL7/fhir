@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="InsurancePlan-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsurancePlan.identifier"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="InsurancePlan-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsurancePlan.type"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="InsurancePlan-product"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsurancePlan.product"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="InsurancePlan-coverage-area"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsurancePlan.coverageArea"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="InsurancePlan-network"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="InsurancePlan.network"/>

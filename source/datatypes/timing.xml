@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2023-02-17T21:12:46Z</LastSaved>
+  <LastSaved>2025-11-11T00:28:32Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,7 @@
   
   
   
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -752,7 +752,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R48C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R47C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="3" x:FullColumns="1" x:FullRows="1">
@@ -779,9 +779,9 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R109C23"/>
+   <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R111C23"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="109" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="111" ss:StyleID="s68" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s69" ss:Width="227.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s68" ss:Width="77.0"/>
    <Column ss:StyleID="s68" ss:Width="29.0"/>
@@ -807,7 +807,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Aliases</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Other names - semi-colon separated</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Card.</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Min and max repetitions n..m</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Inv.</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Comma-delimited list of Ids from Invariant tab that controls appearance of this element</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">Type</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Is Modifier</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">If Y, indicates this element modifies the meaning of sibling or descendant elements.  Defaults to N</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Summary</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">If Y, element is included in the summary view (query with _summary=true).  Default is N</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Binding</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Binding for coded data - either from local Bindings tab or declared elsewhere</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1171,6 +1171,56 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">PIVL.phase.unit</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Timing.repeat.startOffset</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">SimpleQuantity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Events within the repeat period do not start until startOffset has elapsed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates that the events within the period of the repeat do not start until startOffset has elapsed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">This element is defined to support interlaced schedules, e.g. for different actions that happen on different days, but that have repeat cycles that are tied together by the context. This is a usually encountered in Dosages</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Timing.repeat.endOffset</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">SimpleQuantity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Events within the repeat period step once endOffset before the end of the period</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates that the events within the period of the repeat step endOffset before the period ends</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">This element is defined for medication schedules that cycle like 'do something for X days, and then stop for Y days'. This can only apply where the window for repeats has a defined or known end time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3539,11 +3589,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3551,14 +3600,14 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R109C23">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R111C23">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Invariants">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C8"/>
   </Names>
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="49" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="48" ss:StyleID="s97" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s97" ss:Width="116.0"/>
    <Column ss:StyleID="s97" ss:Width="56.0"/>
    <Column ss:StyleID="s97" ss:Width="165.0"/>
@@ -3572,7 +3621,7 @@
     <Cell ss:StyleID="s99"><Data ss:Type="String">Severity</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Indicates impact of violating the invariant.  (Defaults to 'error')</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Context</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Element path at which check should occur; e.g. ResourceName.element1.element2</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><Data ss:Type="String">English</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">English description of constraint</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">        </Font><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Optional - OCL expression of the rule</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">Expression</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">XPath 2 expression.  see Confluence or make Lloyd do it :&gt;</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -3667,33 +3716,23 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">not(exists(f:timeOfDay)) or not(exists(f:when))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="Number">11</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">startOffset</Data></Cell>
     <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Timing.repeat</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Only use startOffset when frequency is present and &gt; 1</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">startOffset.exists() implies (frequency &gt; 1)</Data></Cell>
     <Cell ss:StyleID="s105"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="Number">12</Data><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">endOffset1</Data></Cell>
     <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Timing.repeat</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Only use endOffset when frequency is present and &gt; 1</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s105"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">endOffset.exists() implies (frequency &gt; 1)</Data></Cell>
     <Cell ss:StyleID="s105"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4059,6 +4098,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4070,7 +4110,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R2C8">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R10C8">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Search">
@@ -6313,7 +6353,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C13">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R5C13">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="event-timing">
@@ -7007,7 +7047,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R28C9">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="units-of-time">
@@ -7641,7 +7681,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C10">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R8C10">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="timing-abbreviation">
@@ -8231,7 +8271,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R18C9">
   </AutoFilter>
  </Worksheet>
 <!--canonicalized--></Workbook>

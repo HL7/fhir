@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="diet-type"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/diet-type"/>
   <identifier>
@@ -26,7 +26,7 @@
   <version value="6.0.0"/>
   <name value="DietCodes"/>
   <title value="Diet Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR NutritionOrder team"/>
   <contact>
@@ -57,14 +57,14 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-				<code value="35011000087100"/>
-			</concept>
+        <code value="35011000087100"/>
+      </concept>
       <concept>
-				<code value="1297276008"/>
-			</concept>
+        <code value="1297276008"/>
+      </concept>
       <concept>
-				<code value="40043006"/>
-			</concept>
+        <code value="40043006"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

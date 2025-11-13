@@ -253,14 +253,6 @@
     <Cell><Data ss:Type="String">created</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ClinicalAssessment</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">subject</Data></Cell>
-    <Cell><Data ss:Type="String">date</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClinicalUseDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -308,10 +300,6 @@
     <Cell><Data ss:Type="String">asserter</Data></Cell>
     <Cell><Data ss:Type="String">asserter</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Consent</Data></Cell>
@@ -474,14 +462,6 @@
     <Cell><Data ss:Type="String">date</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">FormularyItem</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">GenomicStudy</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String">subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Goal</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">subject</Data></Cell>
@@ -545,10 +525,6 @@
     <Cell><Data ss:Type="String">Library</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Linkage</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">List</Data></Cell>
     <Cell><Data ss:Type="String">subject | source</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">source</Data></Cell>
@@ -589,9 +565,6 @@
     <Cell><Data ss:Type="String">whenhandedover</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicationKnowledge</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationRequest</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
@@ -618,9 +591,6 @@
     <Cell><Data ss:Type="String">MessageHeader</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">receiver</Data></Cell>
     <Cell><Data ss:Type="String">receiver</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MolecularDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NamingSystem</Data></Cell>

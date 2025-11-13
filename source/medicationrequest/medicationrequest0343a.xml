@@ -46,7 +46,7 @@
         </requester>
 
     <dosageInstruction>
-        <sequence value="1"/>
+      <simple>
         <text
             value="One tablet (4mg) orally twice daily as needed for nausea"/>
         <timing>
@@ -80,7 +80,7 @@
             
         </doseAndRate>
            
-
+      </simple>
     </dosageInstruction>
 
 </MedicationRequest>

@@ -57,7 +57,7 @@
     <whenPrepared value="2015-06-25T07:13:00+05:00"/>
     <whenHandedOver value="2015-06-26T07:13:00+05:00"/>
     <dosageInstruction>
-        <sequence value="1"/>
+        <simple>
         <text value="4.5 grams in D5W 250 ml. IV every 6 hours. Infuse over 30 min at 8L/min"/>
         <timing>
             <repeat>
@@ -107,6 +107,7 @@
             </rateRatio>
         </doseAndRate>
 
+			</simple>
 
     </dosageInstruction>
 </MedicationDispense>

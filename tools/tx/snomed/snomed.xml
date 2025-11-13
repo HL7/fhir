@@ -80,6 +80,9 @@
   <concept id="122869004" display="Measurement">
     <display value="Measurement"/>
   </concept>
+  <concept id="129018004" display="Traveling">
+    <display value="Traveling"/>
+  </concept>
   <concept id="129264002" display="Action">
     <display value="Action"/>
   </concept>
@@ -113,6 +116,9 @@
   <concept id="1354492001" display="Nutritional protein and/or protein derivative">
     <display value="Nutritional protein and/or protein derivative"/>
   </concept>
+  <concept id="14140009" display="Hyperkalemia">
+    <display value="Hyperkalemia"/>
+  </concept>
   <concept id="14168008" display="Rabies">
     <display value="Rabies"/>
   </concept>
@@ -121,6 +127,9 @@
   </concept>
   <concept id="14747002" display="Elective immunization for international travel">
     <display value="Elective immunization for international travel"/>
+  </concept>
+  <concept id="14760008" display="Constipation">
+    <display value="Constipation"/>
   </concept>
   <concept id="14866005" display="Hospital-based outpatient mental health clinic">
     <display value="Hospital-based outpatient mental health clinic"/>
@@ -221,6 +230,9 @@
   <concept id="21134002" display="Disability">
     <display value="Disability"/>
   </concept>
+  <concept id="22253000" display="Pain">
+    <display value="Pain"/>
+  </concept>
   <concept id="22298006" display="Myocardial infarction">
     <display value="Myocardial infarction"/>
   </concept>
@@ -244,6 +256,9 @@
   </concept>
   <concept id="22549003" display="Hospital-based outpatient gynecology clinic">
     <display value="Hospital-based outpatient gynecology clinic"/>
+  </concept>
+  <concept id="225581002" display="Sight deteriorating">
+    <display value="Sight deteriorating"/>
   </concept>
   <concept id="225732001" display="Community hospital">
     <display value="Community hospital"/>
@@ -383,6 +398,9 @@
   <concept id="25681007" display="Sexually transmitted disease clinic">
     <display value="Sexually transmitted disease clinic"/>
   </concept>
+  <concept id="257551009" display="Infection">
+    <display value="Infection"/>
+  </concept>
   <concept id="258813002" display="mM">
     <display value="mM"/>
   </concept>
@@ -440,6 +458,9 @@
   <concept id="261023001" display="Pathological staging">
     <display value="Pathological staging"/>
   </concept>
+  <concept id="261041009" display="Working">
+    <display value="Working"/>
+  </concept>
   <concept id="261089000" display="Inferior">
     <display value="Inferior"/>
   </concept>
@@ -473,6 +494,9 @@
   <concept id="266710000" display="Drugs not taken/completed">
     <display value="Drugs not taken/completed"/>
   </concept>
+  <concept id="267036007" display="Dyspnea">
+    <display value="Dyspnea"/>
+  </concept>
   <concept id="267425008" display="Lactose intolerance">
     <display value="Lactose intolerance"/>
   </concept>
@@ -502,6 +526,9 @@
   </concept>
   <concept id="277132007" display="Therapeutic procedure">
     <display value="Therapeutic procedure"/>
+  </concept>
+  <concept id="278040002" display="Loss of hair">
+    <display value="Loss of hair"/>
   </concept>
   <concept id="278312000" display="Reattachment - action">
     <display value="Reattachment - action"/>
@@ -569,6 +596,9 @@
   <concept id="302188001" display="Bad taste in mouth">
     <display value="Bad taste in mouth"/>
   </concept>
+  <concept id="302758002" display="Tiredness">
+    <display value="Tiredness"/>
+  </concept>
   <concept id="303105007" display="Disease phases">
     <display value="Disease phases"/>
   </concept>
@@ -583,6 +613,9 @@
   </concept>
   <concept id="308283009" display="Discharge from hospital">
     <display value="Discharge from hospital"/>
+  </concept>
+  <concept id="309253009" display="Difficulty reading">
+    <display value="Difficulty reading"/>
   </concept>
   <concept id="30980004" display="Base of fifth metatarsal bone">
     <display value="Base of fifth metatarsal bone"/>
@@ -745,6 +778,9 @@
   </concept>
   <concept id="37550003" display="Hospital-based outpatient dermatology clinic">
     <display value="Hospital-based outpatient dermatology clinic"/>
+  </concept>
+  <concept id="37796009" display="Migraine">
+    <display value="Migraine"/>
   </concept>
   <concept id="38238005" display="Hospital-based outpatient neurology clinic">
     <display value="Hospital-based outpatient neurology clinic"/>
@@ -1523,6 +1559,9 @@
   <concept id="65258003" display="Distal phalanx of third toe">
     <display value="Distal phalanx of third toe"/>
   </concept>
+  <concept id="65971000052100" display="Acute psychosis (disorder)">
+    <display value="Acute psychosis (disorder)"/>
+  </concept>
   <concept id="66071002" display="Type B viral hepatitis">
     <display value="Type B viral hepatitis"/>
   </concept>
@@ -1622,6 +1661,9 @@
   <concept id="7111000119109" display="Hepatitis E virus infection">
     <display value="Hepatitis E virus infection"/>
   </concept>
+  <concept id="712823008" display="Acute depression (disorder)">
+    <display value="Acute depression (disorder)"/>
+  </concept>
   <concept id="712986001" display="Tickborne encephalitis">
     <display value="Tickborne encephalitis"/>
   </concept>
@@ -1649,6 +1691,9 @@
   <concept id="71822005" display="Head of fifth metatarsal bone">
     <display value="Head of fifth metatarsal bone"/>
   </concept>
+  <concept id="719232003" display="Difficulty walking (finding)">
+    <display value="Difficulty walking (finding)"/>
+  </concept>
   <concept id="719500002" display="Left care setting having refused treatment (finding)">
     <display value="Left care setting having refused treatment (finding)"/>
   </concept>
@@ -1669,6 +1714,9 @@
   </concept>
   <concept id="72511004" display="Fruit">
     <display value="Fruit"/>
+  </concept>
+  <concept id="725119006" display="Generalized rash (disorder)">
+    <display value="Generalized rash (disorder)"/>
   </concept>
   <concept id="73196006" display="Manganese compound">
     <display value="Manganese compound"/>
@@ -1715,6 +1763,9 @@
   <concept id="76902006" display="Tetanus">
     <display value="Tetanus"/>
   </concept>
+  <concept id="76948002" display="Severe pain">
+    <display value="Severe pain"/>
+  </concept>
   <concept id="76986006" display="Distal phalanx of second toe">
     <display value="Distal phalanx of second toe"/>
   </concept>
@@ -1736,6 +1787,9 @@
   <concept id="78088001" display="Hospital-based outpatient ophthalmology clinic">
     <display value="Hospital-based outpatient ophthalmology clinic"/>
   </concept>
+  <concept id="787481004" display="No known medications">
+    <display value="No known medications"/>
+  </concept>
   <concept id="788800008" display="Delayed onset (qualifier value)">
     <display value="Delayed onset (qualifier value)"/>
   </concept>
@@ -1747,6 +1801,9 @@
   </concept>
   <concept id="80144004" display="Calcaneus">
     <display value="Calcaneus"/>
+  </concept>
+  <concept id="80449002" display="Muscle fatigue">
+    <display value="Muscle fatigue"/>
   </concept>
   <concept id="80522000" display="Rehabilitation hospital">
     <display value="Rehabilitation hospital"/>
@@ -1768,6 +1825,9 @@
   </concept>
   <concept id="85904008" display="Paratyphoid fever">
     <display value="Paratyphoid fever"/>
+  </concept>
+  <concept id="871840004" display="Depressive episode">
+    <display value="Depressive episode"/>
   </concept>
   <concept id="890302005" display="Potable water (substance)">
     <display value="Potable water (substance)"/>

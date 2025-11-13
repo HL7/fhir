@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.date"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.encounter"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-finding-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.finding.item.concept"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-finding-ref"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.finding.item.reference"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.identifier"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.subject"/>
@@ -122,7 +122,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-performer"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.performer"/>
@@ -141,7 +141,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-previous"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.previous"/>
@@ -160,7 +160,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-problem"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.problem"/>
@@ -179,7 +179,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.status"/>
@@ -198,7 +198,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.subject"/>
@@ -217,7 +217,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-supporting-info"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.supportingInfo"/>

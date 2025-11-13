@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-vitalsign-bodyheight"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyheight"/>
   <name value="VitalSignsBodyHeight"/>
@@ -27,46 +27,44 @@
       <filter>
         <property value="CLASS"/>
         <op value="in"/>
-        <!-- LP7768-7 BDYHGT.ATOM -->
-        <!-- LP7769-5 BDYHGT.MOLEC -->
         <value value="LP7768-7,LP7769-5"/>
       </filter>
       <filter>
         <property value="PROPERTY"/>
         <op value="="/>
-        <value value="LP6822-3"/> <!-- Len -->
+        <value value="LP6822-3"/>
       </filter>
       <filter>
         <property value="TIME_ASPCT"/>
         <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
+        <value value="LP6960-1"/>
       </filter>
       <filter>
         <property value="SYSTEM"/>
         <op value="="/>
-        <value value="LP310005-6"/> <!-- ^Patient -->
+        <value value="LP310005-6"/>
       </filter>
       <filter>
         <property value="SCALE_TYP"/>
         <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
+        <value value="LP7753-9"/>
       </filter>
     </include>
     <exclude>
-        <system value="http://loinc.org"/>
-        <filter>
-            <property value="COMPONENT"/>
-            <op value="="/>
-            <value value="LP343922-3"/> <!-- Upper segment -->
-        </filter>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="COMPONENT"/>
+        <op value="="/>
+        <value value="LP343922-3"/>
+      </filter>
     </exclude>
     <exclude>
-        <system value="http://loinc.org"/>
-        <filter>
-            <property value="COMPONENT"/>
-            <op value="="/>
-            <value value="LP343921-5"/> <!-- Lower segment -->
-        </filter>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="COMPONENT"/>
+        <op value="="/>
+        <value value="LP343921-5"/>
+      </filter>
     </exclude>
   </compose>
 </ValueSet>
