@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n649"
+   version="1.1"
+   width="1315.6051200000002"
+   height="602.6818480000001"
+   sodipodi:docname="formularyitem.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview75435"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.94709271"
+     inkscape:cx="662.55393"
+     inkscape:cy="307.78402"
+     inkscape:window-width="2056"
+     inkscape:window-height="1187"
+     inkscape:window-x="0"
+     inkscape:window-y="40"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n649" />
+  <defs
+     id="defs75085">
+    <filter
+       id="shadow1"
+       x="-0.041536051"
+       y="-0.106"
+       width="1.1065831"
+       height="1.272">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset75076" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix75078" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur75080" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend75082" />
+    </filter>
+  </defs>
+  <g
+     id="n650">
+    <rect
+       id="FormularyItem"
+       x="440.21440000000007"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="286.0"
+       height="232.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n651"
+       x1="440.21440000000007"
+       y1="28.0"
+       x2="726.2144000000001"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n652"
+       x="583.2144000000001"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">FormularyItem<tspan
+   class="diagram-class-title-link"
+   id="tspan75090"> (<a
+   id="n653"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n654"
+       x="446.21440000000007"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n655"
+   xlink:href="formularyitem-definitions.html#FormularyItem.identifier"><title
+   id="title75093">Business identifier for this formulary item</title>identifier</a> : <a
+   id="n656"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n660"
+       x="446.21440000000007"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n661"
+   xlink:href="formularyitem-definitions.html#FormularyItem.status"><title
+   id="title75098">The validity about the information of the formulary item and not of the underlying product or service itself (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n662"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n663"
+   xlink:href="valueset-formularyitem-status.html"><title
+   id="n664">null (Strength=Required)</title>FormularyItemStatusCodes</a>! »</text>
+    <text
+       id="n670"
+       x="446.21440000000007"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n671"
+   xlink:href="formularyitem-definitions.html#FormularyItem.category"><title
+   id="title75105">Categorization for this formulary item</title>category</a> : <a
+   id="n672"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n676"
+       x="446.21440000000007"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n677"
+   xlink:href="formularyitem-definitions.html#FormularyItem.context"><title
+   id="title75110">The owner of the formulary that this item was created for</title>context</a> : <a
+   id="n678"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n679"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n680"
+   xlink:href="insuranceplan.html#InsurancePlan">InsurancePlan</a> »</text>
+    <text
+       id="n686"
+       x="446.21440000000007"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n687"
+   xlink:href="formularyitem-definitions.html#FormularyItem.subject"><title
+   id="title75117">The information that this item is about</title>subject</a> : <a
+   id="n688"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n689"
+   xlink:href="packagedproductdefinition.html#PackagedProductDefinition">PackagedProductDefinition</a>|</text>
+    <text
+       id="n690"
+       x="466.21440000000007"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n691"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a>|<a
+   id="n692"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n693"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>|</text>
+    <text
+       id="n694"
+       x="466.21440000000007"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n695"
+   xlink:href="medicinalproductdefinition.html#MedicinalProductDefinition">MedicinalProductDefinition</a>|<a
+   id="n696"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|</text>
+    <text
+       id="n697"
+       x="466.21440000000007"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n698"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>|<a
+   id="n699"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a> »</text>
+    <text
+       id="n714"
+       x="446.21440000000007"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n715"
+   xlink:href="formularyitem-definitions.html#FormularyItem.author"><title
+   id="title75133">The creator or owner of the information about the item</title>author</a> : <a
+   id="n716"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..1]</text>
+    <text
+       id="n720"
+       x="446.21440000000007"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n721"
+   xlink:href="formularyitem-definitions.html#FormularyItem.specialPrecaution"><title
+   id="title75138">Any precautions that affect the item</title>specialPrecaution</a> : <a
+   id="n722"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n726"
+       x="446.21440000000007"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n727"
+   xlink:href="formularyitem-definitions.html#FormularyItem.associatedDocuments"><title
+   id="title75143">Documents that provide more information about the item</title>associatedDocuments</a> : <a
+   id="n728"
+   xlink:href="references.html#Reference">Reference</a> [0..*] «  »</text>
+    <text
+       id="n732"
+       x="446.21440000000007"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n733"
+   xlink:href="formularyitem-definitions.html#FormularyItem.availabilityStatus"><title
+   id="title75148">Status of the availability of the item</title>availabilityStatus</a> : <a
+   id="n734"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n735"
+   xlink:href="valueset-formularyitem-status.html"><title
+   id="n736">null (Strength=Required)</title>FormularyItemStatusCodes</a>! »</text>
+    <text
+       id="n742"
+       x="446.21440000000007"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n743"
+   xlink:href="formularyitem-definitions.html#FormularyItem.availabilityPeriod"><title
+   id="title75155">Time period of the availability of the item</title>availabilityPeriod</a> : <a
+   id="n744"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n748"
+       x="446.21440000000007"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n749"
+   xlink:href="formularyitem-definitions.html#FormularyItem.schedule"><title
+   id="title75160">Specifies the schedule of a medication in jurisdiction</title>schedule</a> : <a
+   id="n750"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+  </g>
+  <g
+     id="n754"
+     transform="translate(53.849005,4.2234514)">
+    <rect
+       id="FormularyItem.cost"
+       x="760.21442"
+       y="0"
+       rx="4"
+       ry="4"
+       width="224.39999"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n755"
+       x1="760.21442"
+       y1="28"
+       x2="984.61438"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n756"
+       x="872.41443"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Cost</text>
+    <text
+       id="n757"
+       x="766.21442"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n758"
+   xlink:href="formularyitem-definitions.html#FormularyItem.cost.effectiveDate"><title
+   id="title75169">The date range for which the cost information of the medication is effective</title>effectiveDate</a> : <a
+   id="n759"
+   xlink:href="datatypes.html#Period">Period</a> [0..*]</text>
+    <text
+       id="n763"
+       x="766.21442"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n764"
+   xlink:href="formularyitem-definitions.html#FormularyItem.cost.type"><title
+   id="title75174">The category of the cost information.  For example, manufacturers' cost, patient cost, claim reimbursement cost, actual acquisition cost</title>type</a> : <a
+   id="n765"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+    <text
+       id="n769"
+       x="766.21442"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n770"
+   xlink:href="formularyitem-definitions.html#FormularyItem.cost.source"><title
+   id="title75179">The source or owner that assigns the price to the medication</title>source</a> : <a
+   id="n771"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n775"
+       x="766.21442"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n776"
+   xlink:href="formularyitem-definitions.html#FormularyItem.cost.cost_x_"><title
+   id="title75184">The price or representation of the cost (for example, Band A, Band B or $, $$) of the item</title>cost[x]</a> : <a
+   id="n777"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n778"
+   xlink:href="datatypes.html#Money">Money</a>|<a
+   id="n779"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>; <a
+   id="n780"
+   xlink:href="valueset-medication-cost-category.html"><title
+     id="n781">null (Strength=Example)</title></a></text>
+    <text
+       id="n782"
+       x="786.21442"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n783"
+   xlink:href="valueset-medication-cost-category.html">MedicationCostCategoryCodes</a>?? »</text>
+  </g>
+  <g
+     id="n793"
+     transform="translate(61.240044,9.5027655)">
+    <rect
+       id="FormularyItem.monitoringProgram"
+       x="824.79871"
+       y="130.30882"
+       rx="4"
+       ry="4"
+       width="134.64"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n794"
+       x1="824.79871"
+       y1="158.30882"
+       x2="959.43866"
+       y2="158.30882"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n795"
+       x="892.11865"
+       y="150.30882"
+       fill="#000000"
+       class="diagram-class-title">MonitoringProgram</text>
+    <text
+       id="n796"
+       x="830.79871"
+       y="172.30882"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n797"
+   xlink:href="formularyitem-definitions.html#FormularyItem.monitoringProgram.type"><title
+   id="title75199">Type of program under which the item is monitored</title>type</a> : <a
+   id="n798"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n802"
+       x="830.79871"
+       y="186.30882"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n803"
+   xlink:href="formularyitem-definitions.html#FormularyItem.monitoringProgram.name"><title
+   id="title75204">Name of the reviewing program</title>name</a> : <a
+   id="n804"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n808"
+     transform="translate(53.849005,-25.340709)">
+    <rect
+       id="FormularyItem.indicationGuideline"
+       x="756.75824"
+       y="268.13547"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n809"
+       x1="756.75824"
+       y1="296.13547"
+       x2="1033.9583"
+       y2="296.13547"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n810"
+       x="895.35822"
+       y="288.13547"
+       fill="#000000"
+       class="diagram-class-title">IndicationGuideline</text>
+    <text
+       id="n811"
+       x="762.75824"
+       y="310.13547"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n812"
+   xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.indication"><title
+   id="title75213">Indication or reason for use of the medication that applies to the specific administration guideline</title>indication</a> : <a
+   id="n813"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n814"
+   xlink:href="clinicalusedefinition.html#ClinicalUseDefinition">ClinicalUseDefinition</a> »</text>
+  </g>
+  <g
+     id="n819"
+     transform="translate(-99.251107,-29.564159)">
+    <rect
+       id="FormularyItem.indicationGuideline.dosingGuideline"
+       x="771.03369"
+       y="363.36115"
+       rx="4"
+       ry="4"
+       width="211.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n820"
+       x1="771.03369"
+       y1="391.36115"
+       x2="982.2337"
+       y2="391.36115"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n821"
+       x="876.63367"
+       y="383.36115"
+       fill="#000000"
+       class="diagram-class-title">DosingGuideline</text>
+    <text
+       id="n822"
+       x="777.03369"
+       y="405.36115"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n823"
+   xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.dosingGuideline.treatmentIntent"><title
+   id="title75223">The overall intention of the treatment, for example, prophylactic, supporative, curative, etc</title>treatmentIntent</a> : <a
+   id="n824"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n828"
+       x="777.03369"
+       y="419.36115"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n829"
+   xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.dosingGuideline.administrationTreatment"><title
+   id="title75228">The type of the treatment that the guideline applies to, for example, long term therapy, first line treatment, etc</title>administrationTreatment</a> : <a
+   id="n830"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n834"
+     transform="translate(159.43529,-73.910399)">
+    <rect
+       id="FormularyItem.indicationGuideline.dosingGuideline.dosage"
+       x="788.00513"
+       y="498.68185"
+       rx="4"
+       ry="4"
+       width="127.6"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n835"
+       x1="788.00513"
+       y1="526.68182"
+       x2="915.6051"
+       y2="526.68182"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n836"
+       x="851.80511"
+       y="518.68182"
+       fill="#000000"
+       class="diagram-class-title">Dosage</text>
+    <text
+       id="n837"
+       x="794.00513"
+       y="540.68182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n838"
+   xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.dosingGuideline.dosage.type"><title
+   id="title75237">The type or category of dosage for a given medication (for example, prophylaxis, maintenance, therapeutic, etc.)</title>type</a> : <a
+   id="n839"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+    <text
+       id="n843"
+       x="794.00513"
+       y="554.68182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n844"
+   xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.dosingGuideline.dosage.dosage"><title
+   id="title75242">Dosage for the medication for the specific guidelines</title>dosage</a> : <a
+   id="n845"
+   xlink:href="dosage.html#Dosage">Dosage</a> [1..*]</text>
+  </g>
+  <g
+     id="n849"
+     transform="translate(254.46295,405.45134)">
+    <rect
+       id="FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic"
+       x="93.479897"
+       y="22.55345"
+       rx="4"
+       ry="4"
+       width="268.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n850"
+       x1="93.479897"
+       y1="50.553452"
+       x2="361.87991"
+       y2="50.553452"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n851"
+       x="227.6799"
+       y="42.553452"
+       fill="#000000"
+       class="diagram-class-title">PatientCharacteristic</text>
+    <text
+       id="n852"
+       x="99.479897"
+       y="64.553452"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n853"
+   xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic.type"><title
+   id="title75251">The categorization of the specific characteristic that is relevant to the administration guideline (e.g. height, weight, gender)</title>type</a> : <a
+   id="n854"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+    <text
+       id="n858"
+       x="99.479897"
+       y="78.553452"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n859"
+   xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic.value_x_"><title
+   id="title75256">The specific characteristic (e.g. height, weight, gender, etc.)</title>value[x]</a> : <a
+   id="n860"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n861"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n862"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n863"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+  </g>
+  <g
+     id="n870"
+     transform="translate(12.670354,-128.81527)">
+    <rect
+       id="FormularyItem.characteristic"
+       x="0"
+       y="140.33258"
+       rx="4"
+       ry="4"
+       width="338.79999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n871"
+       x1="0"
+       y1="168.33258"
+       x2="338.79999"
+       y2="168.33258"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n872"
+       x="169.39999"
+       y="160.33258"
+       fill="#000000"
+       class="diagram-class-title">Characteristic</text>
+    <text
+       id="n873"
+       x="6"
+       y="182.33258"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n874"
+   xlink:href="formularyitem-definitions.html#FormularyItem.characteristic.type"><title
+   id="title75268">A code specifying which characteristic of the item is being described (for example, colour, shape, imprint)</title>type</a> : <a
+   id="n875"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+    <text
+       id="n879"
+       x="6"
+       y="196.33258"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n880"
+   xlink:href="formularyitem-definitions.html#FormularyItem.characteristic.value_x_"><title
+   id="title75273">Description of the characteristic</title>value[x]</a> : <a
+   id="n881"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n882"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n883"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n884"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a75280">SimpleQuantity</a>)|</text>
+    <text
+       id="n885"
+       x="26"
+       y="210.33258"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n886"
+   xlink:href="datatypes.html#base64Binary">base64Binary</a>|<a
+   id="n887"
+   xlink:href="datatypes.html#Attachment">Attachment</a> »</text>
+  </g>
+  <g
+     id="n897"
+     transform="translate(-89.748342,-111.92146)">
+    <rect
+       id="FormularyItem.coverageInformation"
+       x="146.90021"
+       y="338.30176"
+       rx="4"
+       ry="4"
+       width="150.48"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n898"
+       x1="146.90021"
+       y1="366.30176"
+       x2="297.38019"
+       y2="366.30176"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n899"
+       x="222.1402"
+       y="358.30176"
+       fill="#000000"
+       class="diagram-class-title">CoverageInformation</text>
+    <text
+       id="n900"
+       x="152.90021"
+       y="380.30176"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n901"
+   xlink:href="formularyitem-definitions.html#FormularyItem.coverageInformation.type"><title
+   id="title75290">A code specifying the type of coverage information</title>type</a> : <a
+   id="n902"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+    <text
+       id="n906"
+       x="152.90021"
+       y="394.30176"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n907"
+   xlink:href="formularyitem-definitions.html#FormularyItem.coverageInformation.coverage"><title
+   id="title75295">Description of the coverage</title>coverage</a> : <a
+   id="n908"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « »</text>
+  </g>
+  <g
+     id="n912"
+     transform="translate(-195.33463,-139.3739)">
+    <rect
+       id="FormularyItem.substitution"
+       x="279.3349"
+       y="471.11652"
+       rx="4"
+       ry="4"
+       width="127.6"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n913"
+       x1="279.3349"
+       y1="499.11652"
+       x2="406.93491"
+       y2="499.11652"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n914"
+       x="343.13489"
+       y="491.11652"
+       fill="#000000"
+       class="diagram-class-title">Substitution</text>
+    <text
+       id="n915"
+       x="285.3349"
+       y="513.11652"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n916"
+   xlink:href="formularyitem-definitions.html#FormularyItem.substitution.type"><title
+   id="title75304">Specifies the type of substitution allowed</title>type</a> : <a
+   id="n917"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+    <text
+       id="n921"
+       x="285.3349"
+       y="527.11652"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n922"
+   xlink:href="formularyitem-definitions.html#FormularyItem.substitution.allowed"><title
+   id="title75309">Specifies if regulation allows for changes in the medication when dispensing</title>allowed</a> : <a
+   id="n923"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+  </g>
+  <g
+     id="n927"
+     transform="translate(-188.99945,13.726217)">
+    <rect
+       id="FormularyItem.maxDispense"
+       x="484.4418"
+       y="328.27798"
+       rx="4"
+       ry="4"
+       width="184.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n928"
+       x1="484.4418"
+       y1="356.27798"
+       x2="669.24182"
+       y2="356.27798"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n929"
+       x="576.8418"
+       y="348.27798"
+       fill="#000000"
+       class="diagram-class-title">MaxDispense</text>
+    <text
+       id="n930"
+       x="490.4418"
+       y="370.27798"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n931"
+   xlink:href="formularyitem-definitions.html#FormularyItem.maxDispense.quantity"><title
+   id="title75318">The maximum number of units of the medication that can be dispensed</title>quantity</a> : <a
+   id="n932"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a75322">SimpleQuantity</a>) [1..1]</text>
+    <text
+       id="n936"
+       x="490.4418"
+       y="384.27798"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n937"
+   xlink:href="formularyitem-definitions.html#FormularyItem.maxDispense.period"><title
+   id="title75325">The period that applies to the maximum number of units</title>period</a> : <a
+   id="n938"
+   xlink:href="datatypes.html#Duration">Duration</a> [0..1]</text>
+  </g>
+  <g
+     id="n942"
+     transform="translate(-468.80311,-355.82578)">
+    <rect
+       id="FormularyItem.associatedItems"
+       x="511.43701"
+       y="468.61057"
+       rx="4"
+       ry="4"
+       width="202.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n943"
+       x1="511.43701"
+       y1="496.61057"
+       x2="713.83698"
+       y2="496.61057"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n944"
+       x="612.63702"
+       y="488.61057"
+       fill="#000000"
+       class="diagram-class-title">AssociatedItems</text>
+    <text
+       id="n945"
+       x="517.43701"
+       y="510.61057"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n946"
+   xlink:href="formularyitem-definitions.html#FormularyItem.associatedItems.type"><title
+   id="title75334">The category of the associated formulary item reference</title>type</a> : <a
+   id="n947"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+    <text
+       id="n951"
+       x="517.43701"
+       y="524.6106"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n952"
+   xlink:href="formularyitem-definitions.html#FormularyItem.associatedItems.reference"><title
+   id="title75339">Associated items about the formulary item</title>reference</a> : <a
+   id="n953"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n954"
+   xlink:href="formularyitem.html#FormularyItem">FormularyItem</a> »</text>
+  </g>
+  <line
+     id="n959"
+     x1="726.2144000000001"
+     y1="84.84854771784231"
+     x2="760.2144000000001"
+     y2="77.44190871369292"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n960"
+     points="726.2144000000001,84.84854771784231 732.2144000000001,88.84854771784231 738.2144000000001,84.84854771784231 732.2144000000001,80.84854771784231 726.2144000000001,84.84854771784231"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-12.2894467861869 726.2144000000001 84.84854771784231)" />
+  <rect
+     id="n961"
+     x="734.5"
+     y="74.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n962"
+     x="743.0"
+     y="84.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n963"
+       xlink:href="formularyitem-definitions.html#FormularyItem.cost"><title
+   id="title75349">The price of the underlying item</title>cost</a></text>
+  <text
+     id="n964"
+     x="740.2144000000001"
+     y="73.44190871369292"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n965"
+     x1="726.2144000000001"
+     y1="137.437582457582"
+     x2="824.79868"
+     y2="152.21666379689213"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n966"
+     points="726.2144000000001,137.437582457582 732.2144000000001,141.437582457582 738.2144000000001,137.437582457582 732.2144000000001,133.437582457582 726.2144000000001,137.437582457582"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(8.525899695579662 726.2144000000001 137.437582457582)" />
+  <rect
+     id="n967"
+     x="738.0"
+     y="137.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n968"
+     x="784.50281"
+     y="154.39104"
+     fill="#000000"
+     class="diagram-class-linkage"><a
+       id="n969"
+       xlink:href="formularyitem-definitions.html#FormularyItem.monitoringProgram"><title
+   id="title75357">The program under which the item is reviewed</title>monitoringProgram</a></text>
+  <text
+     id="n970"
+     x="804.79868"
+     y="148.21666379689213"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n971"
+     x1="870.7623398333689"
+     y1="427.3611380000002"
+     x2="857.6764601666305"
+     y2="498.6818480000002"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n972"
+     points="870.7623398333689,427.3611380000002 876.7623398333689,431.3611380000002 882.7623398333689,427.3611380000002 876.7623398333689,423.3611380000002 870.7623398333689,427.3611380000002"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(100.3969533676345 870.7623398333689 427.3611380000002)" />
+  <rect
+     id="n973"
+     x="851.0"
+     y="456.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n974"
+     x="864.0"
+     y="466.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n975"
+       xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.dosingGuideline.dosage"><title
+   id="title75365">Dosage for the medication for the specific guidelines</title>dosage</a></text>
+  <text
+     id="n976"
+     x="857.6764601666305"
+     y="494.6818480000002"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n977"
+     x1="815.7004273440325"
+     y1="363.36113799999987"
+     x2="288.6131526559671"
+     y2="86.55345"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n978"
+     points="815.7004273440325,363.36113799999987 821.7004273440325,367.36113799999987 827.7004273440325,363.36113799999987 821.7004273440325,359.36113799999987 815.7004273440325,363.36113799999987"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-152.29312515265835 815.7004273440325 363.36113799999987)" />
+  <rect
+     id="n979"
+     x="506.0"
+     y="217.0"
+     width="92.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n980"
+     x="552.0"
+     y="227.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n981"
+       xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.dosingGuideline.patientCharacteristic"><title
+   id="title75373">Characteristics of the patient that are relevant to the administration guidelines (for example, height, weight, gender, etc.)</title>patientCharacteristic</a></text>
+  <text
+     id="n982"
+     x="288.6131526559671"
+     y="100.55345"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n983"
+     x1="890.7790108077953"
+     y1="318.1354679999995"
+     x2="882.4950805660224"
+     y2="363.3611380000002"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n984"
+     points="890.7790108077953,318.1354679999995 896.7790108077953,322.1354679999995 902.7790108077953,318.1354679999995 896.7790108077953,314.1354679999995 890.7790108077953,318.1354679999995"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(100.37973524318903 890.7790108077953 318.1354679999995)" />
+  <rect
+     id="n985"
+     x="853.0"
+     y="333.0"
+     width="66.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n986"
+     x="886.0"
+     y="343.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n987"
+       xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline.dosingGuideline"><title
+   id="title75381">The guidelines for the dosage of the medication for the indication</title>dosingGuideline</a></text>
+  <text
+     id="n988"
+     x="882.4950805660224"
+     y="359.3611380000002"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n989"
+     x1="726.2144000000001"
+     y1="197.14968001770205"
+     x2="851.3038357100888"
+     y2="268.1354680000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n990"
+     points="726.2144000000001,197.14968001770205 732.2144000000001,201.14968001770205 738.2144000000001,197.14968001770205 732.2144000000001,193.14968001770205 726.2144000000001,197.14968001770205"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(29.57405585020501 726.2144000000001 197.14968001770205)" />
+  <rect
+     id="n991"
+     x="746.5"
+     y="225.0"
+     width="83.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n992"
+     x="788.0"
+     y="235.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n993"
+       xlink:href="formularyitem-definitions.html#FormularyItem.indicationGuideline"><title
+   id="title75389">Guidelines or protocols that are applicable for the administration of the medication based on indication</title>indicationGuideline</a></text>
+  <text
+     id="n994"
+     x="851.3038357100888"
+     y="264.1354680000001"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n995"
+     x1="440.21440000000007"
+     y1="137.88555703716452"
+     x2="338.8"
+     y2="153.40661043289748"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n996"
+     points="440.21440000000007,137.88555703716452 446.21440000000007,141.88555703716452 452.21440000000007,137.88555703716452 446.21440000000007,133.88555703716452 440.21440000000007,137.88555703716452"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(171.29863674976386 440.21440000000007 137.88555703716452)" />
+  <rect
+     id="n997"
+     x="358.5"
+     y="138.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n998"
+     x="389.0"
+     y="148.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n999"
+       xlink:href="formularyitem-definitions.html#FormularyItem.characteristic"><title
+   id="title75397">Specifies descriptive properties of the item, such as color, shape, imprints, etc</title>characteristic</a></text>
+  <text
+     id="n1000"
+     x="353.8"
+     y="149.40661043289748"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1001"
+     x1="440.21440000000007"
+     y1="216.7137906668491"
+     x2="267.57588432586306"
+     y2="338.301758"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1002"
+     points="440.21440000000007,216.7137906668491 446.21440000000007,220.7137906668491 452.21440000000007,216.7137906668491 446.21440000000007,212.7137906668491 440.21440000000007,216.7137906668491"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(144.84326048102616 440.21440000000007 216.7137906668491)" />
+  <rect
+     id="n1003"
+     x="311.5"
+     y="270.0"
+     width="83.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1004"
+     x="353.0"
+     y="280.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1005"
+       xlink:href="formularyitem-definitions.html#FormularyItem.coverageInformation"><title
+   id="title75405">Specific coverage information about the item</title>coverageInformation</a></text>
+  <text
+     id="n1006"
+     x="267.57588432586306"
+     y="334.301758"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1007"
+     x1="511.27424579557527"
+     y1="232.0"
+     x2="362.9804597805311"
+     y2="471.11651800000004"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1008"
+     points="511.27424579557527,232.0 517.2742457955753,236.0 523.2742457955753,232.0 517.2742457955753,228.0 511.27424579557527,232.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(121.80610292409033 511.27424579557527 232.0)" />
+  <rect
+     id="n1009"
+     x="411.0"
+     y="344.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1010"
+     x="437.0"
+     y="354.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1011"
+       xlink:href="formularyitem-definitions.html#FormularyItem.substitution"><title
+   id="title75413">Specifies if changes are allowed when dispensing a medication from a regulatory perspective</title>substitution</a></text>
+  <text
+     id="n1012"
+     x="362.9804597805311"
+     y="467.11651800000004"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1013"
+     x1="580.1882510792937"
+     y1="232.0"
+     x2="577.6765997022637"
+     y2="328.2779980000014"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1014"
+     points="580.1882510792937,232.0 586.1882510792937,236.0 592.1882510792937,232.0 586.1882510792937,228.0 580.1882510792937,232.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(91.49436417636808 580.1882510792937 232.0)" />
+  <rect
+     id="n1015"
+     x="554.0"
+     y="273.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1016"
+     x="578.0"
+     y="283.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1017"
+       xlink:href="formularyitem-definitions.html#FormularyItem.maxDispense"><title
+   id="title75421">The maximum number of units of the medication that can be dispensed in a period</title>maxDispense</a></text>
+  <text
+     id="n1018"
+     x="577.6765997022637"
+     y="324.2779980000014"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1019"
+     x1="592.0883670597412"
+     y1="232.0"
+     x2="610.189009086968"
+     y2="468.6105779999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1020"
+     points="592.0883670597412,232.0 598.0883670597412,236.0 604.0883670597412,232.0 598.0883670597412,228.0 592.0883670597412,232.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(85.62540952953364 592.0883670597412 232.0)" />
+  <rect
+     id="n1021"
+     x="568.0"
+     y="343.0"
+     width="66.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1022"
+     x="601.0"
+     y="353.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1023"
+       xlink:href="formularyitem-definitions.html#FormularyItem.associatedItems"><title
+   id="title75429">Associated or related items. For example, if the item is about a branded product (e.g. Crestor), this could link to the generic medication (e.g. Rosuvastatin)</title>associatedItems</a></text>
+  <text
+     id="n1024"
+     x="610.189009086968"
+     y="464.6105779999998"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

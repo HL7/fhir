@@ -1,0 +1,2132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n965"
+   version="1.1"
+   width="2356.7443999999996"
+   height="969.68262"
+   sodipodi:docname="moleculardefinition.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview721"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.57805126"
+     inkscape:cx="941.95799"
+     inkscape:cy="37.193934"
+     inkscape:window-width="1390"
+     inkscape:window-height="1187"
+     inkscape:window-x="0"
+     inkscape:window-y="40"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n965" />
+  <defs
+     id="defs141">
+    <filter
+       id="shadow1"
+       x="-0.083648989"
+       y="-0.14722222"
+       width="1.2146465"
+       height="1.3777778">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset132" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix134" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur136" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend138" />
+    </filter>
+  </defs>
+  <g
+     id="n966"
+     transform="translate(4.9923692,17.82989)">
+    <rect
+       id="MolecularDefinition"
+       x="308.4545"
+       y="0"
+       rx="4"
+       ry="4"
+       width="285.12"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n967"
+       x1="308.4545"
+       y1="28"
+       x2="593.57446"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n968"
+       x="451.0145"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">MolecularDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan146">(<a
+   id="n969"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n970"
+       x="314.4545"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n971"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.identifier"><title
+   id="title149">A unique identifier for a particular instance of this resource</title>identifier</a> : <a
+   id="n972"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n976"
+       x="314.4545"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n977"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.description"><title
+   id="title154">A description of the molecular entity in a human friendly format</title>description</a> : <a
+   id="n978"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n982"
+       x="314.4545"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n983"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.moleculeType"><title
+   id="title159">The type of molecule (e.g., DNA, RNA, amino acid). This is a broad concept that refers to the general physical composition of the molecule, intended to facilitate searching and to provide domain context for profiles and instances. The terminology binding may be expanded to support additional types of molecules in the future (e.g., peptide nucleic acids, oligosaccharides)</title>moleculeType</a> : <a
+   id="n984"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n988"
+       x="314.4545"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n989"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.type"><title
+   id="title164">Classifications of an instance of the resource into arbitrary types, based on domain semantics. For example, this element could indicate that an instance of moleculeType 'RNA' could have a type of 'mRNA' or 'siRNA'</title>type</a> : <a
+   id="n990"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n994"
+       x="314.4545"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n995"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.topology"><title
+   id="title169">The structural topology of the molecular entity. For sequences (e.g., DNA), this could specify 'linear' and 'circular'. More complex entities might be branched or have a quaternary structure</title>topology</a> : <a
+   id="n996"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n1000"
+       x="314.4545"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1001"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.member"><title
+   id="title174">Constituents of an aggregate molecular concept (e.g., haplotype, genotype)</title>member</a> : <a
+   id="n1002"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1003"
+   xlink:href="moleculardefinition.html#MolecularDefinition">MolecularDefinition</a> »</text>
+  </g>
+  <g
+     id="n1008"
+     transform="translate(-79.577718,89.957421)">
+    <rect
+       id="MolecularDefinition.location"
+       x="759.57837"
+       y="235.54771"
+       rx="4"
+       ry="4"
+       width="63.360001"
+       height="36"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1009"
+       x1="759.57837"
+       y1="263.54773"
+       x2="822.93835"
+       y2="263.54773"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1010"
+       x="791.25836"
+       y="255.54771"
+       fill="#000000"
+       class="diagram-class-title">Location</text>
+  </g>
+  <g
+     id="n1011"
+     transform="translate(-121.09653,411.72819)">
+    <rect
+       id="MolecularDefinition.location.sequenceLocation"
+       x="764.43451"
+       y="19.768045"
+       rx="4"
+       ry="4"
+       width="255.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1012"
+       x1="764.43451"
+       y1="47.768044"
+       x2="1019.6345"
+       y2="47.768044"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1013"
+       x="892.03448"
+       y="39.768044"
+       fill="#000000"
+       class="diagram-class-title">SequenceLocation</text>
+    <text
+       id="n1014"
+       x="770.43451"
+       y="61.768044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1015"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation.sequenceContext"><title
+   id="title188">A reference to a sequence on which the location is defined</title>sequenceContext</a> : <a
+   id="n1016"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1017"
+   xlink:href="moleculardefinition.html#MolecularDefinition">MolecularDefinition</a> »</text>
+    <text
+       id="n1022"
+       x="770.43451"
+       y="75.768044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1023"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation.strand"><title
+   id="title194">The specific strand at the coordinateInterval, when the interval alone is not sufficient to define a location (e.g., double stranded DNA). Example values include 'forward' and 'reverse'</title>strand</a> : <a
+   id="n1024"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n1028"
+     transform="translate(-231.81335,416.91804)">
+    <rect
+       id="MolecularDefinition.location.sequenceLocation.coordinateInterval"
+       x="875.37891"
+       y="123.52205"
+       rx="4"
+       ry="4"
+       width="198"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1029"
+       x1="875.37891"
+       y1="151.52205"
+       x2="1073.3789"
+       y2="151.52205"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1030"
+       x="974.37891"
+       y="143.52205"
+       fill="#000000"
+       class="diagram-class-title">CoordinateInterval</text>
+    <text
+       id="n1031"
+       x="881.37891"
+       y="165.52205"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1032"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation.coordinateInterval.start_x_"><title
+   id="title203">The start location of the interval expressed as a precise coordinate (Quantity) or expressed as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported</title>start[x]</a> : <a
+   id="n1033"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1034"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1035"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+    <text
+       id="n1041"
+       x="881.37891"
+       y="179.52205"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1042"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation.coordinateInterval.end_x_"><title
+   id="title210">The end location of the interval expressed as a precise coordinate (Quantity) or as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported.</title>end[x]</a> : <a
+   id="n1043"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1044"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1045"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+  </g>
+  <g
+     id="n1051"
+     transform="translate(-273.33216,415.1881)">
+    <rect
+       id="MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem"
+       x="915.138"
+       y="245.02773"
+       rx="4"
+       ry="4"
+       width="193.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1052"
+       x1="915.138"
+       y1="273.02774"
+       x2="1108.738"
+       y2="273.02774"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1053"
+       x="1011.938"
+       y="265.02774"
+       fill="#000000"
+       class="diagram-class-title">CoordinateSystem</text>
+    <text
+       id="n1054"
+       x="921.138"
+       y="287.02774"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1055"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.system"><title
+   id="title221">A definition of the coordinate system. Examples include 1-based character counting, and 0-based interval counting</title>system</a> : <a
+   id="n1056"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1057"
+   xlink:href="http://loinc.org/vs/LL5323-2"><title
+   id="n1058">null (Strength=Extensible)</title>LL5323-2</a>+ »</text>
+    <text
+       id="n1064"
+       x="921.138"
+       y="301.02774"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1065"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.origin"><title
+   id="title228">The location of the origin (0 or 1, depending on the coordinate system). For example, this could specify the origin is at the start of the sequence (e.g., 5’ end or N-terminus), the beginning of a designated feature (e.g., A in the ATG translation initiation codon), or the end of a designated feature (e.g., 3’ end of an exon, from which an offset is calculated into the following intron)</title>origin</a> : <a
+   id="n1066"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1070"
+       x="921.138"
+       y="315.02774"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1071"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem.normalizationMethod"><title
+   id="title233">The normalization method used for determining a location within the coordinate system. Examples include left shift (e.g., VCF), right shift (e.g., HGVS), or fully justified (e.g., VOCA)</title>normalizationMethod</a> : <a
+   id="n1072"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n1076"
+     transform="translate(-193.75444,-129.74628)">
+    <rect
+       id="MolecularDefinition.location.cytobandLocation"
+       x="866.49103"
+       y="365.17456"
+       rx="4"
+       ry="4"
+       width="126.72"
+       height="36"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1077"
+       x1="866.49103"
+       y1="393.17456"
+       x2="993.211"
+       y2="393.17456"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1078"
+       x="929.85101"
+       y="385.17456"
+       fill="#000000"
+       class="diagram-class-title">CytobandLocation</text>
+  </g>
+  <g
+     id="g4841"
+     transform="translate(19.029454,-10.379702)">
+    <g
+       id="n1079"
+       transform="translate(-166.07524,-128.01633)">
+      <rect
+         id="MolecularDefinition.location.cytobandLocation.genomeAssembly"
+         x="990.86084"
+         y="432.50974"
+         rx="4"
+         ry="4"
+         width="250.8"
+         height="92"
+         filter="url(#shadow1)"
+         style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+      <line
+         id="n1080"
+         x1="990.86084"
+         y1="460.50974"
+         x2="1241.6609"
+         y2="460.50974"
+         style="stroke:#696969;stroke-width:1" />
+      <text
+         id="n1081"
+         x="1116.2609"
+         y="452.50974"
+         fill="#000000"
+         class="diagram-class-title">GenomeAssembly</text>
+      <text
+         id="n1082"
+         x="996.86084"
+         y="474.50974"
+         fill="#000000"
+         class="diagram-class-detail"><a
+   id="n1083"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.genomeAssembly.organism"><title
+   id="title246">Species of the organism</title>organism</a> : <a
+   id="n1084"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+      <text
+         id="n1088"
+         x="996.86084"
+         y="488.50974"
+         fill="#000000"
+         class="diagram-class-detail"><a
+   id="n1089"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.genomeAssembly.build"><title
+   id="title251">The build number of this genome assemble</title>build</a> : <a
+   id="n1090"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+      <text
+         id="n1094"
+         x="996.86084"
+         y="502.50974"
+         fill="#000000"
+         class="diagram-class-detail"><a
+   id="n1095"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.genomeAssembly.accession"><title
+   id="title256">The accession of this genome assemble</title>accession</a> : <a
+   id="n1096"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+      <text
+         id="n1100"
+         x="996.86084"
+         y="516.5097"
+         fill="#000000"
+         class="diagram-class-detail"><a
+   id="n1101"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.genomeAssembly.description_x_"><title
+   id="title261">The description of this genome assembly</title>description[x]</a> : <a
+   id="n1102"
+   xlink:href="types.html#PrimitiveType">PrimitiveType</a> [0..1] « <a
+   id="n1103"
+   xlink:href="datatypes.html#markdown">markdown</a>|<a
+   id="n1104"
+   xlink:href="datatypes.html#string">string</a> »</text>
+    </g>
+  </g>
+  <g
+     id="n1110"
+     transform="translate(-103.79702,-477.46632)">
+    <rect
+       id="MolecularDefinition.location.cytobandLocation.cytobandInterval"
+       x="787.16376"
+       y="598.39105"
+       rx="4"
+       ry="4"
+       width="154"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1111"
+       x1="787.16376"
+       y1="626.39105"
+       x2="941.16376"
+       y2="626.39105"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1112"
+       x="864.16376"
+       y="618.39105"
+       fill="#000000"
+       class="diagram-class-title">CytobandInterval</text>
+    <text
+       id="n1113"
+       x="793.16376"
+       y="640.39105"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1114"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.chromosome"><title
+   id="title272">The chromosome where this cytoband interval occurs</title>chromosome</a> : <a
+   id="n1115"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1]</text>
+  </g>
+  <g
+     id="n1119"
+     transform="translate(-245.65295,-733.49896)">
+    <rect
+       id="MolecularDefinition.location.cytobandLocation.cytobandInterval.simpleCytoband"
+       x="956.71936"
+       y="739.33667"
+       rx="4"
+       ry="4"
+       width="132"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1120"
+       x1="956.71936"
+       y1="767.33667"
+       x2="1088.7194"
+       y2="767.33667"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1121"
+       x="1022.7194"
+       y="759.33667"
+       fill="#000000"
+       class="diagram-class-title">SimpleCytoband</text>
+    <text
+       id="n1122"
+       x="962.71936"
+       y="781.33667"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1123"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.simpleCytoband.start"><title
+   id="title281">The start of this cytoband Interval expressed as a single code</title>start</a> : <a
+   id="n1124"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1128"
+       x="962.71936"
+       y="795.33667"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1129"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.simpleCytoband.end"><title
+   id="title286">The end of this cytoband Interval expressed as a single code</title>end</a> : <a
+   id="n1130"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n1134"
+     transform="translate(-181.64479,-584.72324)">
+    <rect
+       id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband"
+       x="1152.553"
+       y="621.08569"
+       rx="4"
+       ry="4"
+       width="142.56"
+       height="36"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1135"
+       x1="1152.553"
+       y1="649.08569"
+       x2="1295.113"
+       y2="649.08569"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1136"
+       x="1223.833"
+       y="641.08569"
+       fill="#000000"
+       class="diagram-class-title">StructuredCytoband</text>
+  </g>
+  <g
+     id="n1137"
+     transform="translate(-728.30912,-506.87547)">
+    <rect
+       id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.start"
+       x="1615.9445"
+       y="650.94708"
+       rx="4"
+       ry="4"
+       width="140.8"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1138"
+       x1="1615.9445"
+       y1="678.94708"
+       x2="1756.7444"
+       y2="678.94708"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1139"
+       x="1686.3444"
+       y="670.94708"
+       fill="#000000"
+       class="diagram-class-title">Start</text>
+    <text
+       id="n1140"
+       x="1621.9445"
+       y="692.94708"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1141"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.start.arm"><title
+   id="title299">The arm of this start interval</title>arm</a> : <a
+   id="n1142"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1146"
+       x="1621.9445"
+       y="706.94708"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1147"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.start.region"><title
+   id="title304">The region of this start interval</title>region</a> : <a
+   id="n1148"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1152"
+       x="1621.9445"
+       y="720.94708"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1153"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.start.band"><title
+   id="title309">The band of this start interval</title>band</a> : <a
+   id="n1154"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1158"
+       x="1621.9445"
+       y="734.94708"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1159"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.start.subBand"><title
+   id="title314">The sub-band of this start interval</title>subBand</a> : <a
+   id="n1160"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n1164"
+     transform="translate(-422.10789,-586.45318)">
+    <rect
+       id="MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.end"
+       x="1524.0076"
+       y="726.31274"
+       rx="4"
+       ry="4"
+       width="140.8"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1165"
+       x1="1524.0076"
+       y1="754.31274"
+       x2="1664.8076"
+       y2="754.31274"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1166"
+       x="1594.4076"
+       y="746.31274"
+       fill="#000000"
+       class="diagram-class-title">End</text>
+    <text
+       id="n1167"
+       x="1530.0076"
+       y="768.31274"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1168"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.end.arm"><title
+   id="title323">The arm of this end interval</title>arm</a> : <a
+   id="n1169"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1173"
+       x="1530.0076"
+       y="782.31274"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1174"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.end.region"><title
+   id="title328">The region of this end interval</title>region</a> : <a
+   id="n1175"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1179"
+       x="1530.0076"
+       y="796.31274"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1180"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.end.band"><title
+   id="title333">The band of this end interval</title>band</a> : <a
+   id="n1181"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1185"
+       x="1530.0076"
+       y="810.31274"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1186"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.end.subBand"><title
+   id="title338">The sub-band of this end interval</title>subBand</a> : <a
+   id="n1187"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n1191">
+    <rect
+       id="MolecularDefinition.representation"
+       x="337.83724"
+       y="190.38301"
+       rx="4"
+       ry="4"
+       width="224.4"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1192"
+       x1="337.83724"
+       y1="218.38301"
+       x2="562.23724"
+       y2="218.38301"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1193"
+       x="450.03724"
+       y="210.38301"
+       fill="black"
+       class="diagram-class-title">Representation</text>
+    <text
+       id="n1194"
+       x="343.83724"
+       y="232.38301"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1195"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.focus"><title
+   id="title347">The domain concept that is the focus of the representation. This element is used to disambiguate the representations of the “reference” and the “alternate” alleles at a given location, for example</title>focus</a> : <a
+   id="n1196"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1200"
+       x="343.83724"
+       y="246.38301"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1201"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.code"><title
+   id="title352">A code (e.g., sequence accession number) used to represent a molecular entity</title>code</a> : <a
+   id="n1202"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n1206"
+       x="343.83724"
+       y="260.38301"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1207"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.resolvable"><title
+   id="title357">A resolvable representation of a molecular entity, which may be specified as a URI and/or attached document (in a defined format)</title>resolvable</a> : <a
+   id="n1208"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1209"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a> »</text>
+  </g>
+  <g
+     id="n1214">
+    <rect
+       id="MolecularDefinition.representation.literal"
+       x="58.05176"
+       y="21.034175899999997"
+       rx="4"
+       ry="4"
+       width="145.20000000000002"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1215"
+       x1="58.05176"
+       y1="49.034175899999994"
+       x2="203.25176000000002"
+       y2="49.034175899999994"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1216"
+       x="130.65176000000002"
+       y="41.034175899999994"
+       fill="black"
+       class="diagram-class-title">Literal</text>
+    <text
+       id="n1217"
+       x="64.05176"
+       y="63.034175899999994"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1218"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.literal.encoding"><title
+   id="title367">The encoding used for the expression of the entity. For a primary sequence, this element represents the alphabet used (e.g., 1 character DNA without ambiguity codes, 3 character amino acid codes)</title>encoding</a> : <a
+   id="n1219"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1223"
+       x="64.05176"
+       y="77.0341759"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1224"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.literal.value"><title
+   id="title372">A string literal representation of the molecular entity, using a specific encoding. For example, this may be the primary sequence of a strand of DNA</title>value</a> : <a
+   id="n1225"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+  </g>
+  <g
+     id="n1229"
+     transform="translate(6.4187603,47.784105)">
+    <rect
+       id="MolecularDefinition.representation.extracted"
+       x="1.8788199"
+       y="344.23657"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1230"
+       x1="1.8788199"
+       y1="372.23657"
+       x2="261.47882"
+       y2="372.23657"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1231"
+       x="131.67882"
+       y="364.23657"
+       fill="#000000"
+       class="diagram-class-title">Extracted</text>
+    <text
+       id="n1232"
+       x="7.8788199"
+       y="386.23657"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1233"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted.startingMolecule"><title
+   id="title381">A reference to the molecular entity that serves as the conceptual 'parent' from which the intended entity is derived. For example, this could be a chromosome sequence on which a coordinateInterval is defined</title>startingMolecule</a> : <a
+   id="n1234"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1235"
+   xlink:href="moleculardefinition.html#MolecularDefinition">MolecularDefinition</a> »</text>
+    <text
+       id="n1240"
+       x="7.8788199"
+       y="400.23657"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1241"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted.reverseComplement"><title
+   id="title387">A flag that indicates whether the extracted sequence should be reverse complemented in order to produce the intended entity. This element is only relevant to molecular entities that support the concept of reverse complement (e.g., double stranded DNA)</title>reverseComplement</a> : <a
+   id="n1242"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+  </g>
+  <g
+     id="n1246"
+     transform="translate(13.550716,-123.38284)">
+    <rect
+       id="MolecularDefinition.representation.extracted.coordinateInterval"
+       x="11.70304"
+       y="629.55981"
+       rx="4"
+       ry="4"
+       width="198"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1247"
+       x1="11.70304"
+       y1="657.55981"
+       x2="209.70303"
+       y2="657.55981"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1248"
+       x="110.70304"
+       y="649.55981"
+       fill="#000000"
+       class="diagram-class-title">CoordinateInterval</text>
+    <text
+       id="n1249"
+       x="17.703039"
+       y="671.55981"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1250"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted.coordinateInterval.start_x_"><title
+   id="title396">The start location of the interval expressed as a precise coordinate (Quantity) or expressed as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported</title>start[x]</a> : <a
+   id="n1251"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1252"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1253"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+    <text
+       id="n1259"
+       x="17.703039"
+       y="685.55981"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1260"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted.coordinateInterval.end_x_"><title
+   id="title403">The end location of the interval expressed as a precise coordinate (Quantity) or as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported.</title>end[x]</a> : <a
+   id="n1261"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1262"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1263"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+  </g>
+  <g
+     id="n1269"
+     transform="translate(4.2791736,-167.60096)">
+    <rect
+       id="MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem"
+       x="13.320468"
+       y="793.27985"
+       rx="4"
+       ry="4"
+       width="193.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1270"
+       x1="13.320468"
+       y1="821.27985"
+       x2="206.92047"
+       y2="821.27985"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1271"
+       x="110.12047"
+       y="813.27985"
+       fill="#000000"
+       class="diagram-class-title">CoordinateSystem</text>
+    <text
+       id="n1272"
+       x="19.320469"
+       y="835.27985"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1273"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.system"><title
+   id="title414">A definition of the coordinate system. Examples include 1-based character counting, and 0-based interval counting</title>system</a> : <a
+   id="n1274"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1275"
+   xlink:href="http://loinc.org/vs/LL5323-2"><title
+   id="n1276">null (Strength=Extensible)</title>LL5323-2</a>+ »</text>
+    <text
+       id="n1282"
+       x="19.320469"
+       y="849.27985"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1283"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.origin"><title
+   id="title421">The location of the origin (0 or 1, depending on the coordinate system). For example, this could specify the origin is at the start of the sequence (e.g., 5’ end or N-terminus), the beginning of a designated feature (e.g., A in the ATG translation initiation codon), or the end of a designated feature (e.g., 3’ end of an exon, from which an offset is calculated into the following intron)</title>origin</a> : <a
+   id="n1284"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1288"
+       x="19.320469"
+       y="863.27985"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1289"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem.normalizationMethod"><title
+   id="title426">The normalization method used for determining a location within the coordinate system. Examples include left shift (e.g., VCF), right shift (e.g., HGVS), or fully justified (e.g., VOCA)</title>normalizationMethod</a> : <a
+   id="n1290"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <g
+     id="n1294"
+     transform="translate(16.403499,-191.84962)">
+    <rect
+       id="MolecularDefinition.representation.repeated"
+       x="0"
+       y="474.24567"
+       rx="4"
+       ry="4"
+       width="246.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1295"
+       x1="0"
+       y1="502.24567"
+       x2="246.39999"
+       y2="502.24567"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1296"
+       x="123.2"
+       y="494.24567"
+       fill="#000000"
+       class="diagram-class-title">Repeated</text>
+    <text
+       id="n1297"
+       x="6"
+       y="516.24567"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1298"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.repeated.sequenceMotif"><title
+   id="title435">The motif that is repeated in tandem, which ultimately defines the intended molecular entity</title>sequenceMotif</a> : <a
+   id="n1299"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1300"
+   xlink:href="moleculardefinition.html#MolecularDefinition">MolecularDefinition</a> »</text>
+    <text
+       id="n1305"
+       x="6"
+       y="530.24567"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1306"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.repeated.copyCount"><title
+   id="title441">The number of times the motif is repeated to create the intended molecular entity</title>copyCount</a> : <a
+   id="n1307"
+   xlink:href="datatypes.html#integer">integer</a> [1..1]</text>
+  </g>
+  <g
+     id="n1311">
+    <rect
+       id="MolecularDefinition.representation.concatenated"
+       x="96.08381000000003"
+       y="248.07951"
+       rx="4"
+       ry="4"
+       width="95.04"
+       height="36.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1312"
+       x1="96.08381000000003"
+       y1="276.07951"
+       x2="191.12381000000005"
+       y2="276.07951"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1313"
+       x="143.60381000000004"
+       y="268.07951"
+       fill="black"
+       class="diagram-class-title">Concatenated</text>
+  </g>
+  <g
+     id="n1314">
+    <rect
+       id="MolecularDefinition.representation.concatenated.sequenceElement"
+       x="24.59029000000004"
+       y="134.530076"
+       rx="4"
+       ry="4"
+       width="224.4"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1315"
+       x1="24.59029000000004"
+       y1="162.530076"
+       x2="248.99029000000004"
+       y2="162.530076"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1316"
+       x="136.79029000000003"
+       y="154.530076"
+       fill="black"
+       class="diagram-class-title">SequenceElement</text>
+    <text
+       id="n1317"
+       x="30.59029000000004"
+       y="176.530076"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1318"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.concatenated.sequenceElement.sequence"><title
+   id="title454">A reference to the sequence that defines this specific concatenated element</title>sequence</a> : <a
+   id="n1319"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1320"
+   xlink:href="moleculardefinition.html#MolecularDefinition">MolecularDefinition</a> »</text>
+    <text
+       id="n1325"
+       x="30.59029000000004"
+       y="190.530076"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1326"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.concatenated.sequenceElement.ordinalIndex"><title
+   id="title460">The ordinal index of the element within the concatenated representation</title>ordinalIndex</a> : <a
+   id="n1327"
+   xlink:href="datatypes.html#integer">integer</a> [1..1]</text>
+  </g>
+  <g
+     id="n1331"
+     transform="translate(0,-12.124325)">
+    <rect
+       id="MolecularDefinition.representation.relative"
+       x="322.47"
+       y="326.71661"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1332"
+       x1="322.47"
+       y1="354.71661"
+       x2="582.07001"
+       y2="354.71661"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1333"
+       x="452.26999"
+       y="346.71661"
+       fill="#000000"
+       class="diagram-class-title">Relative</text>
+    <text
+       id="n1334"
+       x="328.47"
+       y="368.71661"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1335"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.startingMolecule"><title
+   id="title469">The molecular entity that serves as the starting point, on which edits will be applied</title>startingMolecule</a> : <a
+   id="n1336"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1337"
+   xlink:href="moleculardefinition.html#MolecularDefinition">MolecularDefinition</a> »</text>
+  </g>
+  <g
+     id="n1342"
+     transform="translate(0,-59.90843)">
+    <rect
+       id="MolecularDefinition.representation.relative.edit"
+       x="311.30997"
+       y="467.93393"
+       rx="4"
+       ry="4"
+       width="272.79999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1343"
+       x1="311.30997"
+       y1="495.93393"
+       x2="584.10999"
+       y2="495.93393"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1344"
+       x="447.70999"
+       y="487.93393"
+       fill="#000000"
+       class="diagram-class-title">Edit</text>
+    <text
+       id="n1345"
+       x="317.30997"
+       y="509.93393"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1346"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.editOrder"><title
+   id="title479">Defines the order of edits when multiple edits are to be applied to the startingMolecule. This is important when edits may overlap (intervals) or when edits change the length of the entity</title>editOrder</a> : <a
+   id="n1347"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n1351"
+       x="317.30997"
+       y="523.93396"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1352"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.replacementMolecule"><title
+   id="title484">The molecular entity that serves as the replacement in the edit operation. After the edit has been applied, the state of the entity at the specified coordinateInterval is defined by the state of the replacementMolecule</title>replacementMolecule</a> : <a
+   id="n1353"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1354"
+   xlink:href="moleculardefinition.html#MolecularDefinition">MolecularDefinition</a> »</text>
+    <text
+       id="n1359"
+       x="317.30997"
+       y="537.93396"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1360"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.replacedMolecule"><title
+   id="title490">The portion of the molecular entity that is replaced by the replacementMolecule as a result of the edit. The value of this element can be derived as the state of the entity at the specified coordinateInterval, prior to the edit being applied. It is provided for convenience</title>replacedMolecule</a> : <a
+   id="n1361"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1362"
+   xlink:href="moleculardefinition.html#MolecularDefinition">MolecularDefinition</a> »</text>
+  </g>
+  <g
+     id="n1367"
+     transform="translate(-1.4263912,-121.95645)">
+    <rect
+       id="MolecularDefinition.representation.relative.edit.coordinateInterval"
+       x="333.98196"
+       y="650.83142"
+       rx="4"
+       ry="4"
+       width="198"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1368"
+       x1="333.98196"
+       y1="678.83142"
+       x2="531.98193"
+       y2="678.83142"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1369"
+       x="432.98196"
+       y="670.83142"
+       fill="#000000"
+       class="diagram-class-title">CoordinateInterval</text>
+    <text
+       id="n1370"
+       x="339.98196"
+       y="692.83142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1371"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.coordinateInterval.start_x_"><title
+   id="title500">The start location of the interval expressed as a precise coordinate (Quantity) or expressed as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported</title>start[x]</a> : <a
+   id="n1372"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1373"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1374"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+    <text
+       id="n1380"
+       x="339.98196"
+       y="706.83142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1381"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.coordinateInterval.end_x_"><title
+   id="title507">The end location of the interval expressed as a precise coordinate (Quantity) or as a range (Range) that is defined by low (range start) and high (range end). Open-ended ranges, where one end is unbounded, may be supported.</title>end[x]</a> : <a
+   id="n1382"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1383"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n1384"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+  </g>
+  <g
+     id="n1390"
+     transform="translate(-10.697934,-175.44612)">
+    <rect
+       id="MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem"
+       x="349.96091"
+       y="831.68262"
+       rx="4"
+       ry="4"
+       width="193.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1391"
+       x1="349.96091"
+       y1="859.68262"
+       x2="543.56091"
+       y2="859.68262"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1392"
+       x="446.76089"
+       y="851.68262"
+       fill="#000000"
+       class="diagram-class-title">CoordinateSystem</text>
+    <text
+       id="n1393"
+       x="355.96091"
+       y="873.68262"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1394"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.system"><title
+   id="title518">A definition of the coordinate system. Examples include 1-based character counting, and 0-based interval counting</title>system</a> : <a
+   id="n1395"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1396"
+   xlink:href="http://loinc.org/vs/LL5323-2"><title
+   id="n1397">null (Strength=Extensible)</title>LL5323-2</a>+ »</text>
+    <text
+       id="n1403"
+       x="355.96091"
+       y="887.68262"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1404"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.origin"><title
+   id="title525">The location of the origin (0 or 1, depending on the coordinate system). For example, this could specify the origin is at the start of the sequence (e.g., 5’ end or N-terminus), the beginning of a designated feature (e.g., A in the ATG translation initiation codon), or the end of a designated feature (e.g., 3’ end of an exon, from which an offset is calculated into the following intron)</title>origin</a> : <a
+   id="n1405"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n1409"
+       x="355.96091"
+       y="901.68262"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1410"
+   xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem.normalizationMethod"><title
+   id="title530">The normalization method used for determining a location within the coordinate system. Examples include left shift (e.g., VCF), right shift (e.g., HGVS), or fully justified (e.g., VOCA)</title>normalizationMethod</a> : <a
+   id="n1411"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+  </g>
+  <line
+     id="n1415"
+     x1="983.7317303285452"
+     y1="187.5220489999997"
+     x2="1000.5392580370855"
+     y2="245.02773100000013"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1416"
+     points="983.7317303285452,187.5220489999997 989.7317303285452,191.5220489999997 995.7317303285452,187.5220489999997 989.7317303285452,183.5220489999997 983.7317303285452,187.5220489999997"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(73.70762821170553 983.7317303285452 187.5220489999997)" />
+  <rect
+     id="n1417"
+     x="957.0"
+     y="209.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1418"
+     x="992.0"
+     y="219.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1419"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation.coordinateInterval.coordinateSystem"><title
+   id="title539">A definition of the coordinate system. Examples include 1-based character counting, and 0-based interval counting</title>coordinateSystem</a></text>
+  <text
+     id="n1420"
+     x="1000.5392580370855"
+     y="241.02773100000013"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1421"
+     x1="917.4313176503308"
+     y1="83.76804509999988"
+     x2="948.9820923496687"
+     y2="123.52204899999992"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1422"
+     points="917.4313176503308,83.76804509999988 923.4313176503308,87.76804509999988 929.4313176503308,83.76804509999988 923.4313176503308,79.76804509999988 917.4313176503308,83.76804509999988"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(51.5627180042092 917.4313176503308 83.76804509999988)" />
+  <rect
+     id="n1423"
+     x="893.5"
+     y="96.0"
+     width="79.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1424"
+     x="933.0"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1425"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation.coordinateInterval"><title
+   id="title547">An interval on a sequence, defined by coordinate-based start and end coordinates</title>coordinateInterval</a></text>
+  <text
+     id="n1426"
+     x="948.9820923496687"
+     y="119.52204899999992"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1427"
+     x1="800.2482274591518"
+     y1="235.54772050000042"
+     x2="876.0525411837292"
+     y2="83.76804510000011"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1428"
+     points="800.2482274591518,235.54772050000042 806.2482274591518,239.54772050000042 812.2482274591518,235.54772050000042 806.2482274591518,231.54772050000042 800.2482274591518,235.54772050000042"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-63.46078241198221 800.2482274591518 235.54772050000042)" />
+  <rect
+     id="n1429"
+     x="803.0"
+     y="152.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1430"
+     x="838.0"
+     y="162.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1431"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.sequenceLocation"><title
+   id="title555">A location on a sequence, defined using a nucleotide coordinate system</title>sequenceLocation</a></text>
+  <text
+     id="n1432"
+     x="876.0525411837292"
+     y="97.76804510000011"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1433"
+     x1="965.0466109231797"
+     y1="401.1745709999999"
+     x2="1026.316562085207"
+     y2="432.509721"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1434"
+     points="965.0466109231797,401.1745709999999 971.0466109231797,405.1745709999999 977.0466109231797,401.1745709999999 971.0466109231797,397.1745709999999 965.0466109231797,401.1745709999999"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(27.08646034744422 965.0466109231797 401.1745709999999)" />
+  <rect
+     id="n1435"
+     x="964.5"
+     y="409.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1436"
+     x="995.0"
+     y="419.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1437"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.genomeAssembly"><title
+   id="title563">The reference genome assemble</title>genomeAssembly</a></text>
+  <text
+     id="n1438"
+     x="1026.316562085207"
+     y="428.509721"
+     fill="black"
+     class="diagram-class-linkage">[1..1]</text>
+  <line
+     id="n1439"
+     x1="890.9566285754179"
+     y1="648.391071"
+     x2="988.4244598234661"
+     y2="739.3366539999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1440"
+     points="890.9566285754179,648.391071 896.9566285754179,652.391071 902.9566285754179,648.391071 896.9566285754179,644.391071 890.9566285754179,648.391071"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(43.01740158873089 890.9566285754179 648.391071)" />
+  <rect
+     id="n1441"
+     x="908.5"
+     y="686.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1442"
+     x="939.0"
+     y="696.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1443"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.simpleCytoband"><title
+   id="title571">The cytoband Interval expressed as start and end code</title>simpleCytoband</a></text>
+  <text
+     id="n1444"
+     x="988.4244598234661"
+     y="735.3366539999998"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1445"
+     x1="1295.1129899999996"
+     y1="648.0030091038093"
+     x2="1615.9443999999999"
+     y2="688.1398381443863"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1446"
+     points="1295.1129899999996,648.0030091038093 1301.1129899999996,652.0030091038093 1307.1129899999996,648.0030091038093 1301.1129899999996,644.0030091038093 1295.1129899999996,648.0030091038093"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(7.1308018318762505 1295.1129899999996 648.0030091038093)" />
+  <rect
+     id="n1447"
+     x="1444.0"
+     y="661.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1448"
+     x="1455.0"
+     y="671.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1449"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.start"><title
+   id="title579">The start of this cytoband Interval</title>start</a></text>
+  <text
+     id="n1450"
+     x="1595.9443999999999"
+     y="684.1398381443863"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1451"
+     x1="1273.9004661973488"
+     y1="657.085699"
+     x2="1524.007607"
+     y2="747.0029242402476"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1452"
+     points="1273.9004661973488,657.085699 1279.9004661973488,661.085699 1285.9004661973488,657.085699 1279.9004661973488,653.085699 1273.9004661973488,657.085699"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(19.774263471948725 1273.9004661973488 657.085699)" />
+  <rect
+     id="n1453"
+     x="1391.5"
+     y="695.0"
+     width="13.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1454"
+     x="1398.0"
+     y="705.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1455"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband.end"><title
+   id="title587">The end of this cytoband Interval</title>end</a></text>
+  <text
+     id="n1456"
+     x="1504.007607"
+     y="743.0029242402476"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1457"
+     x1="941.1637299999999"
+     y1="626.751064445089"
+     x2="1152.5529899999997"
+     y2="635.9753050679748"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1458"
+     points="941.1637299999999,626.751064445089 947.1637299999999,630.751064445089 953.1637299999999,626.751064445089 947.1637299999999,622.751064445089 941.1637299999999,626.751064445089"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(2.4985895211723617 941.1637299999999 626.751064445089)" />
+  <rect
+     id="n1459"
+     x="1006.5"
+     y="624.0"
+     width="79.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1460"
+     x="1046.0"
+     y="634.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1461"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval.structuredCytoband"><title
+   id="title595">The cytoband Interval expressed as a set of discrete codes</title>structuredCytoband</a></text>
+  <text
+     id="n1462"
+     x="1132.5529899999997"
+     y="631.9753050679748"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1463"
+     x1="924.9289134003282"
+     y1="401.174571"
+     x2="870.9999891662102"
+     y2="598.391071"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1464"
+     points="924.9289134003282,401.174571 930.9289134003282,405.174571 936.9289134003282,401.174571 930.9289134003282,397.174571 924.9289134003282,401.174571"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(105.29367360349738 924.9289134003282 401.174571)" />
+  <rect
+     id="n1465"
+     x="862.0"
+     y="492.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1466"
+     x="897.0"
+     y="502.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1467"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation.cytobandInterval"><title
+   id="title603">The Cytoband Interval</title>cytobandInterval</a></text>
+  <text
+     id="n1468"
+     x="870.9999891662102"
+     y="594.391071"
+     fill="black"
+     class="diagram-class-linkage">[1..1]</text>
+  <polygon
+     id="n1470"
+     points="810.5033619933829,271.54772049999985 816.5033619933829,275.54772049999985 822.5033619933829,271.54772049999985 816.5033619933829,267.54772049999985 810.5033619933829,271.54772049999985"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(43.08548123285378 810.5033619933829 271.54772049999985)" />
+  <rect
+     id="n1471"
+     x="816.35022"
+     y="304.0802"
+     width="70"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n1472"
+     x="860.0"
+     y="321.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1473"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location.cytobandLocation"><title
+   id="title611">A location on a sequence, defined using cytobands</title>cytobandLocation</a></text>
+  <text
+     id="n1474"
+     x="910.6060280066165"
+     y="361.1745710000001"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1475"
+     x1="1167.163"
+     y1="-283.07843"
+     x2="1370.2881"
+     y2="-167.53073"
+     style="stroke:#000080;stroke-width:1" />
+  <polygon
+     id="n1476"
+     points="556.4904560680169,120.0 562.4904560680169,124.0 568.4904560680169,120.0 562.4904560680169,116.0 556.4904560680169,120.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(29.633382055030214 556.4904560680169 120.0)" />
+  <rect
+     id="n1477"
+     x="640.5"
+     y="170.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1478"
+     x="658.0"
+     y="180.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1479"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.location"><title
+   id="title619">A defined location on a molecular entity. Location definitions may vary with respect to coordinate space and precision or level of granularity</title>location</a></text>
+  <text
+     id="n1480"
+     x="759.6155801795958"
+     y="231.54772050000042"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1481"
+     x1="379.40431643365133"
+     y1="190.38301"
+     x2="188.60697933649124"
+     y2="85.03417590000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1482"
+     points="379.40431643365133,190.38301 385.40431643365133,194.38301 391.40431643365133,190.38301 385.40431643365133,186.38301 379.40431643365133,190.38301"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-151.0946961728766 379.40431643365133 190.38301)" />
+  <rect
+     id="n1483"
+     x="269.0"
+     y="130.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1484"
+     x="284.0"
+     y="140.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1485"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.literal"><title
+   id="title627">A molecular entity defined as a string literal</title>literal</a></text>
+  <text
+     id="n1486"
+     x="188.60697933649124"
+     y="99.03417590000001"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1487"
+     x1="110.5938419127922"
+     y1="693.5598009999994"
+     x2="110.2535531687845"
+     y2="793.2798609999991"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1488"
+     points="110.5938419127922,693.5598009999994 116.5938419127922,697.5598009999994 122.5938419127922,693.5598009999994 116.5938419127922,689.5598009999994 110.5938419127922,693.5598009999994"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.1955176638315 110.5938419127922 693.5598009999994)" />
+  <rect
+     id="n1489"
+     x="75.0"
+     y="736.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1490"
+     x="110.0"
+     y="746.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1491"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted.coordinateInterval.coordinateSystem"><title
+   id="title635">The coordinate system used to define the location, which may vary depending on application or context of use</title>coordinateSystem</a></text>
+  <text
+     id="n1492"
+     x="110.2535531687845"
+     y="789.2798609999991"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1493"
+     x1="129.32631276687883"
+     y1="408.2365719999998"
+     x2="113.0555472331212"
+     y2="629.5598010000003"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1494"
+     points="129.32631276687883,408.2365719999998 135.32631276687883,412.2365719999998 141.32631276687883,408.2365719999998 135.32631276687883,404.2365719999998 129.32631276687883,408.2365719999998"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(94.20458420653559 129.32631276687883 408.2365719999998)" />
+  <rect
+     id="n1495"
+     x="81.5"
+     y="511.0"
+     width="79.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1496"
+     x="121.0"
+     y="521.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1497"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted.coordinateInterval"><title
+   id="title643">The interval on startingMolecule that defines the portion to be extracted in order to create the intended entity</title>coordinateInterval</a></text>
+  <text
+     id="n1498"
+     x="113.0555472331212"
+     y="625.5598010000003"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1499"
+     x1="365.49057861224276"
+     y1="268.38300999999996"
+     x2="201.05043960021084"
+     y2="344.23657199999997"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1500"
+     points="365.49057861224276,268.38300999999996 371.49057861224276,272.38300999999996 377.49057861224276,268.38300999999996 371.49057861224276,264.38300999999996 365.49057861224276,268.38300999999996"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(155.2368922298175 365.49057861224276 268.38300999999996)" />
+  <rect
+     id="n1501"
+     x="263.5"
+     y="299.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1502"
+     x="283.0"
+     y="309.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1503"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.extracted"><title
+   id="title651">A molecular entity that is represented as a portion of a different entity. For example, this element can represent a subsequence (e.g., genetic region) that is part of and conceptually extracted from a longer sequence (e.g., chromosome sequence). The “parent” entity is specified in startingMolecule and the location of the intended molecular entity on the parent entity is defined by coordinateInterval</title>extracted</a></text>
+  <text
+     id="n1504"
+     x="201.05043960021084"
+     y="340.23657199999997"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1505"
+     x1="403.99761713399414"
+     y1="268.38300999999996"
+     x2="160.97610081313323"
+     y2="474.245668"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1506"
+     points="403.99761713399414,268.38300999999996 409.99761713399414,272.38300999999996 415.99761713399414,268.38300999999996 409.99761713399414,264.38300999999996 403.99761713399414,268.38300999999996"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(139.7321839307249 403.99761713399414 268.38300999999996)" />
+  <rect
+     id="n1507"
+     x="264.5"
+     y="364.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1508"
+     x="282.0"
+     y="374.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1509"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.repeated"><title
+   id="title659">A representation of a molecular entity that is expressed as a number of copies of a repeated motif</title>repeated</a></text>
+  <text
+     id="n1510"
+     x="160.97610081313323"
+     y="470.245668"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1511"
+     x1="142.37182549670294"
+     y1="248.07951000000003"
+     x2="138.98048467252826"
+     y2="198.53007599999978"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1512"
+     points="142.37182549670294,248.07951000000003 148.37182549670294,252.07951000000003 154.37182549670294,248.07951000000003 148.37182549670294,244.07951000000003 142.37182549670294,248.07951000000003"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-93.91542212602896 142.37182549670294 248.07951000000003)" />
+  <rect
+     id="n1513"
+     x="107.0"
+     y="216.0"
+     width="66.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1514"
+     x="140.0"
+     y="226.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1515"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.concatenated.sequenceElement"><title
+   id="title667">One of the concatenated entities within the concatenated representation</title>sequenceElement</a></text>
+  <text
+     id="n1516"
+     x="138.98048467252826"
+     y="212.53007599999978"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n1517"
+     x1="337.83724"
+     y1="242.81936157560983"
+     x2="191.12381000000005"
+     y2="260.3888199209183"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1518"
+     points="337.83724,242.81936157560983 343.83724,246.81936157560983 349.83724,242.81936157560983 343.83724,238.81936157560983 337.83724,242.81936157560983"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(173.17114544439053 337.83724 242.81936157560983)" />
+  <rect
+     id="n1519"
+     x="238.0"
+     y="244.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1520"
+     x="264.0"
+     y="254.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1521"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.concatenated"><title
+   id="title675">A representation comprised of an ordered concatenation of two or more molecular entities</title>concatenated</a></text>
+  <text
+     id="n1522"
+     x="206.12381000000005"
+     y="256.3888199209183"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1523"
+     x1="435.32916928053703"
+     y1="714.8314200000004"
+     x2="443.9002386893456"
+     y2="831.6826199999996"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1524"
+     points="435.32916928053703,714.8314200000004 441.32916928053703,718.8314200000004 447.32916928053703,714.8314200000004 441.32916928053703,710.8314200000004 435.32916928053703,714.8314200000004"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(85.8048508632218 435.32916928053703 714.8314200000004)" />
+  <rect
+     id="n1525"
+     x="404.0"
+     y="766.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1526"
+     x="439.0"
+     y="776.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1527"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.coordinateInterval.coordinateSystem"><title
+   id="title683">The coordinate system used to define the location, which may vary depending on application or context of use</title>coordinateSystem</a></text>
+  <text
+     id="n1528"
+     x="443.9002386893456"
+     y="827.6826199999996"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1529"
+     x1="444.444482432542"
+     y1="545.9339440000003"
+     x2="435.66134261945274"
+     y2="650.8314200000004"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1530"
+     points="444.444482432542,545.9339440000003 450.444482432542,549.9339440000003 456.444482432542,545.9339440000003 450.444482432542,541.9339440000003 444.444482432542,545.9339440000003"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(94.78625175235518 444.444482432542 545.9339440000003)" />
+  <rect
+     id="n1531"
+     x="400.5"
+     y="591.0"
+     width="79.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1532"
+     x="440.0"
+     y="601.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1533"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit.coordinateInterval"><title
+   id="title691">The interval on startingMolecule that defines the portion to be extracted in order to create the intended entity</title>coordinateInterval</a></text>
+  <text
+     id="n1534"
+     x="435.66134261945274"
+     y="646.8314200000004"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1535"
+     x1="451.53554272604623"
+     y1="376.7166099999995"
+     x2="448.8557333473677"
+     y2="467.93394400000034"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1536"
+     points="451.53554272604623,376.7166099999995 457.53554272604623,380.7166099999995 463.53554272604623,376.7166099999995 457.53554272604623,372.7166099999995 451.53554272604623,376.7166099999995"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(91.68276806919532 451.53554272604623 376.7166099999995)" />
+  <rect
+     id="n1537"
+     x="441.5"
+     y="415.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1538"
+     x="450.0"
+     y="425.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1539"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative.edit"><title
+   id="title699">A defined edit (change) to be applied to the molecular entity</title>edit</a></text>
+  <text
+     id="n1540"
+     x="448.8557333473677"
+     y="463.93394400000034"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1541"
+     x1="450.7490447699079"
+     y1="268.3830100000014"
+     x2="451.8137148910847"
+     y2="326.7166099999995"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1542"
+     points="450.7490447699079,268.3830100000014 456.7490447699079,272.3830100000014 462.7490447699079,268.3830100000014 456.7490447699079,264.3830100000014 450.7490447699079,268.3830100000014"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(88.95438765248839 450.7490447699079 268.3830100000014)" />
+  <rect
+     id="n1543"
+     x="433.5"
+     y="290.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1544"
+     x="451.0"
+     y="300.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1545"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation.relative"><title
+   id="title707">A molecular entity represented as an ordered series of edits on a specified starting entity. This representation can be used to define one entity relative to another</title>relative</a></text>
+  <text
+     id="n1546"
+     x="451.8137148910847"
+     y="322.7166099999995"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1547"
+     x1="450.6683218689696"
+     y1="120.0"
+     x2="450.2622492851697"
+     y2="190.38301000000502"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1548"
+     points="450.6683218689696,120.0 456.6683218689696,124.0 462.6683218689696,120.0 456.6683218689696,116.0 450.6683218689696,120.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.3305625474122 450.6683218689696 120.0)" />
+  <rect
+     id="n1549"
+     x="419.5"
+     y="148.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1550"
+     x="450.0"
+     y="158.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1551"
+       xlink:href="moleculardefinition-definitions.html#MolecularDefinition.representation"><title
+   id="title715">A representation of a molecular entity, specifically including sequence. Note this element is intended to define the entity primarily through computable, discrete elements that express domain semantics rather than replicating a particular file format or relational schema</title>representation</a></text>
+  <text
+     id="n1552"
+     x="450.2622492851697"
+     y="186.38301000000502"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

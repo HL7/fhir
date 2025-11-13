@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   id="n191"
+   id="n236"
    version="1.1"
-   width="713.6"
-   height="130.0"
+   width="875.10497"
+   height="143.181379"
    sodipodi:docname="subscriptionstatus.svg"
    inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,7 +12,7 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview106226"
+     id="namedview28719"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
@@ -21,49 +21,49 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.7460763"
-     inkscape:cx="356.79999"
-     inkscape:cy="65.575599"
+     inkscape:zoom="1.4238292"
+     inkscape:cx="437.90366"
+     inkscape:cy="71.988973"
      inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:window-height="1187"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="40"
      inkscape:window-maximized="0"
-     inkscape:current-layer="n191" />
+     inkscape:current-layer="n236" />
   <defs
-     id="defs106140">
+     id="defs28606">
     <filter
        id="shadow1"
-       x="-0.027376032"
-       y="-0.057608696"
-       width="1.0702479"
-       height="1.1478261">
+       x="-0.048181818"
+       y="-0.0828125"
+       width="1.1236364"
+       height="1.2125">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset106131" />
+         id="feOffset28597" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix106133" />
+         id="feColorMatrix28599" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur106135" />
+         id="feGaussianBlur28601" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend106137" />
+         id="feBlend28603" />
     </filter>
   </defs>
   <g
-     id="n192">
+     id="n237">
     <rect
        id="SubscriptionStatus"
        x="0.0"
@@ -73,221 +73,314 @@
        width="277.2"
        height="120.0"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
     <line
-       id="n193"
+       id="n238"
        x1="0.0"
        y1="28.0"
        x2="277.2"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n194"
+       id="n239"
        x="138.6"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">SubscriptionStatus<tspan
    class="diagram-class-title-link"
-   id="tspan106145"> (<a
-   id="n195"
+   id="tspan28611"> (<a
+   id="n240"
    xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
    style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
-       id="n196"
+       id="n241"
        x="6.0"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n197"
+   id="n242"
    xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.status"><title
-   id="title106148">The status of the subscription, which marks the server state for managing the subscription</title>status</a> : <a
-   id="n198"
+   id="title28614">The status of the subscription, which marks the server state for managing the subscription</title>status</a> : <a
+   id="n243"
    xlink:href="datatypes.html#code">code</a> [0..1] « <a
-   id="n199"
+   id="n244"
    xlink:href="valueset-subscription-status.html"><title
-   id="n200">null (Strength=Required)</title>SubscriptionStatusCodes</a>! » « <a
-   id="n201"
+   id="n245">null (Strength=Required)</title>SubscriptionStatusCodes</a>! » « <a
+   id="n246"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n202">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n247">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n210"
+       id="n255"
        x="6.0"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n211"
+   id="n256"
    xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.type"><title
-   id="title106157">The type of event being conveyed with this notification (this element modifies the meaning of other elements)</title>type</a> : <a
-   id="n212"
+   id="title28623">The type of event being conveyed with this notification (this element modifies the meaning of other elements)</title>type</a> : <a
+   id="n257"
    xlink:href="datatypes.html#code">code</a> [1..1] « <a
-   id="n213"
+   id="n258"
    xlink:href="valueset-subscription-notification-type.html"><title
-   id="n214">null (Strength=Required)</title>SubscriptionNotificationType</a>! » « <a
-   id="n215"
+   id="n259">null (Strength=Required)</title>SubscriptionNotificationType</a>! » « <a
+   id="n260"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
-   id="n216">This element has or is affected by some invariants</title>C</a> »</text>
+   id="n261">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n224"
+       id="n269"
        x="6.0"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n225"
+   id="n270"
    xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.eventsSinceSubscriptionStart"><title
-   id="title106166">The total number of actual events which have been generated since the Subscription was created (inclusive of this notification) - regardless of how many have been successfully communicated.  This number is NOT incremented for handshake and heartbeat notifications</title>eventsSinceSubscriptionStart</a> : <a
-   id="n226"
+   id="title28632">The total number of actual events which have been generated since the Subscription was created (inclusive of this notification) - regardless of how many have been successfully communicated.  This number is NOT incremented for handshake and heartbeat notifications</title>eventsSinceSubscriptionStart</a> : <a
+   id="n271"
    xlink:href="datatypes.html#integer64">integer64</a> [0..1]</text>
     <text
-       id="n230"
+       id="n275"
        x="6.0"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n231"
+   id="n276"
    xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.subscription"><title
-   id="title106171">The reference to the Subscription which generated this notification</title>subscription</a> : <a
-   id="n232"
+   id="title28637">The reference to the Subscription which generated this notification</title>subscription</a> : <a
+   id="n277"
    xlink:href="references.html#Reference">Reference</a> [1..1] « <a
-   id="n233"
+   id="n278"
    xlink:href="subscription.html#Subscription">Subscription</a> »</text>
     <text
-       id="n238"
+       id="n283"
        x="6.0"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n239"
+   id="n284"
    xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.topic"><title
-   id="title106177">The reference to the SubscriptionTopic for the Subscription which generated this notification</title>topic</a> : <a
-   id="n240"
+   id="title28643">The reference to the SubscriptionTopic for the Subscription which generated this notification</title>topic</a> : <a
+   id="n285"
    xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
-   id="n241"
+   id="n286"
    xlink:href="subscriptiontopic.html#SubscriptionTopic">SubscriptionTopic</a> »</text>
     <text
-       id="n246"
+       id="n291"
        x="6.0"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n247"
+   id="n292"
    xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.error"><title
-   id="title106183">A record of errors that occurred when the server processed a notification</title>error</a> : <a
-   id="n248"
+   id="title28649">A record of errors that occurred when the server processed a notification</title>error</a> : <a
+   id="n293"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n249"
+   id="n294"
    xlink:href="valueset-subscription-error.html"><title
-   id="n250">null (Strength=Example)</title>SubscriptionErrorCodes</a>?? »</text>
+   id="n295">null (Strength=Example)</title>SubscriptionErrorCodes</a>?? »</text>
   </g>
   <g
-     id="n256"
-     transform="translate(161.50497,17.181379)">
+     id="n301">
     <rect
        id="SubscriptionStatus.notificationEvent"
+       x="481.50496999999996"
+       y="17.181379"
+       rx="4"
+       ry="4"
+       width="193.60000000000002"
+       height="106.0"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
+    <line
+       id="n302"
+       x1="481.50496999999996"
+       y1="45.181379"
+       x2="675.10497"
+       y2="45.181379"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n303"
+       x="578.3049699999999"
+       y="37.181379"
+       fill="black"
+       class="diagram-class-title">NotificationEvent</text>
+    <text
+       id="n304"
+       x="487.50496999999996"
+       y="59.181379"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n305"
+   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.eventNumber"><title
+   id="title28660">Either the sequential number of this event in this subscription context or a relative event number for this notification</title>eventNumber</a> : <a
+   id="n306"
+   xlink:href="datatypes.html#integer64">integer64</a> [1..1]</text>
+    <text
+       id="n310"
+       x="487.50496999999996"
+       y="73.18137899999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n311"
+   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.triggerEvent"><title
+   id="title28665">If present, one or more event codes specifying the events which triggered this notification</title>triggerEvent</a> : <a
+   id="n312"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n316"
+       x="487.50496999999996"
+       y="87.18137899999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n317"
+   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.timestamp"><title
+   id="title28670">The actual time this event occurred on the server</title>timestamp</a> : <a
+   id="n318"
+   xlink:href="datatypes.html#instant">instant</a> [0..1]</text>
+    <text
+       id="n322"
+       x="487.50496999999996"
+       y="101.18137899999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n323"
+   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.focus"><title
+   id="title28675">The focus of this event. While this will usually be a reference to the focus resource of the event, it MAY contain a reference to a non-FHIR object</title>focus</a> : <a
+   id="n324"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n325"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n330"
+       x="487.50496999999996"
+       y="115.18137899999999"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n331"
+   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.additionalContext"><title
+   id="title28681">Additional context information for this event. Generally, this will contain references to additional resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects</title>additionalContext</a> : <a
+   id="n332"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n333"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+  </g>
+  <g
+     id="n338"
+     transform="translate(2.1069943,165.04789)">
+    <rect
+       id="SubscriptionStatus.notificationEvent.relatedQuery"
        x="320"
        y="0"
        rx="4"
        ry="4"
-       width="193.60001"
-       height="92"
+       width="110"
+       height="64"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
-       id="n257"
+       id="n339"
        x1="320"
        y1="28"
-       x2="513.59998"
+       x2="430"
        y2="28"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n258"
-       x="416.79999"
+       id="n340"
+       x="375"
        y="20"
        fill="#000000"
-       class="diagram-class-title">NotificationEvent</text>
+       class="diagram-class-title">RelatedQuery</text>
     <text
-       id="n259"
+       id="n341"
        x="326"
        y="42"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n260"
-   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.eventNumber"><title
-   id="title106194">Either the sequential number of this event in this subscription context or a relative event number for this notification</title>eventNumber</a> : <a
-   id="n261"
-   xlink:href="datatypes.html#integer64">integer64</a> [1..1]</text>
+   id="n342"
+   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.relatedQuery.queryType"><title
+   id="title28691">Coded value(s) used to describe the type of information that evaluating this query will provide. Subscribers can use the values to ensure the data they request are relevant and necessary for their use</title>queryType</a> : <a
+   id="n343"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..1]</text>
     <text
-       id="n265"
+       id="n347"
        x="326"
        y="56"
        fill="#000000"
        class="diagram-class-detail"><a
-   id="n266"
-   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.timestamp"><title
-   id="title106199">The actual time this event occurred on the server</title>timestamp</a> : <a
-   id="n267"
-   xlink:href="datatypes.html#instant">instant</a> [0..1]</text>
-    <text
-       id="n271"
-       x="326"
-       y="70"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n272"
-   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.focus"><title
-   id="title106204">The focus of this event. While this will usually be a reference to the focus resource of the event, it MAY contain a reference to a non-FHIR object</title>focus</a> : <a
-   id="n273"
-   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
-   id="n274"
-   xlink:href="resourcelist.html#Any">Any</a> »</text>
-    <text
-       id="n279"
-       x="326"
-       y="84"
-       fill="#000000"
-       class="diagram-class-detail"><a
-   id="n280"
-   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.additionalContext"><title
-   id="title106210">Additional context information for this event. Generally, this will contain references to additional resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects</title>additionalContext</a> : <a
-   id="n281"
-   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
-   id="n282"
-   xlink:href="resourcelist.html#Any">Any</a> »</text>
+   id="n348"
+   xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.relatedQuery.query"><title
+   id="title28696">Query a subscriber can use to retrieve additional information. The exact contents of the query MAY depend on the value of the `queryType`, however this SHOULD be a query suitable for use as an HTTP GET request (either fully-qualified or partial)</title>query</a> : <a
+   id="n349"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
   </g>
   <line
-     id="n287"
-     x1="277.2"
-     y1="53.02516175413372"
-     x2="320.0"
-     y2="50.87131560028756"
+     id="n353"
+     x1="481.50496999999996"
+     y1="52.002003025079155"
+     x2="430.0"
+     y2="42.32919089484137"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n288"
-     points="277.2,53.02516175413372 283.2,57.02516175413372 289.2,53.02516175413372 283.2,49.02516175413372 277.2,53.02516175413372"
+     id="n354"
+     points="481.50496999999996,52.002003025079155 487.50496999999996,56.002003025079155 493.50496999999996,52.002003025079155 487.50496999999996,48.002003025079155 481.50496999999996,52.002003025079155"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-2.8808943619209564 277.2 53.02516175413372)" />
+     transform="rotate(-169.3635485728195 481.50496999999996 52.002003025079155)" />
   <rect
-     id="n289"
-     x="261.0"
-     y="44.0"
+     id="n355"
+     x="429.0"
+     y="40.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n356"
+     x="455.0"
+     y="50.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n357"
+       xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent.relatedQuery"><title
+   id="title28705">Queries and codes that could be included with notifications of this shape. Servers MAY include these queries if supported and desired in the workflow</title>relatedQuery</a></text>
+  <text
+     id="n358"
+     x="445.0"
+     y="38.32919089484137"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n359"
+     x1="277.2"
+     y1="63.209286284392014"
+     x2="481.50496999999996"
+     y2="67.93997270613892"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n360"
+     points="277.2,63.209286284392014 283.2,67.20928628439202 289.2,63.209286284392014 283.2,59.209286284392014 277.2,63.209286284392014"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(1.326448105593822 277.2 63.209286284392014)" />
+  <rect
+     id="n361"
+     x="342.0"
+     y="58.0"
      width="74.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n290"
-     x="298.0"
-     y="54.0"
+     id="n362"
+     x="379.0"
+     y="68.0"
      fill="black"
      class="diagram-class-linkage"><a
-       id="n291"
+       id="n363"
        xlink:href="subscriptionstatus-definitions.html#SubscriptionStatus.notificationEvent"><title
-   id="title106220">Detailed information about events relevant to this subscription notification</title>notificationEvent</a></text>
+   id="title28713">Detailed information about events relevant to this subscription notification</title>notificationEvent</a></text>
   <text
-     id="n292"
-     x="300.0"
-     y="46.87131560028756"
+     id="n364"
+     x="461.50496999999996"
+     y="63.93997270613892"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>
