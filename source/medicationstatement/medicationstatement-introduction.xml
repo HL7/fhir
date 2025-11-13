@@ -69,16 +69,22 @@
             test, etc. </p>
         <p> To indicate the link between a MedicationStatement instance and the Medication Request, Dispense, or Administration that was used to derive the MedicationStatement, the reference should be placed in the MedicationStatement.derivedFrom element.</p>  </div>
 
+<p>
+The MedicationStatement resource can be used to convey that the patient is not on any medications - no known medications.
+There is an <a href="medicationstatementexample10.html">example</a> showing this use of MedicationStatement.
+</p>
+<p>
+In general, this is not a recommended approach; it is better to have a list or document section that makes this statement within a context, and can provide an explanation for why there are no known medications. 
+However, some established RESTful ecosystems around the world offer no other context for conveying this information, so the statement may need to be expressed using a MedicationStatement.
+Using MedicationStatement resources to convey statements such as 'no known medications' requires all recipient systems to be aware that such declarations may appear in these resources, in order to ensure clinical safety.</p>
+</p>
 
 <blockquote class="ballot-note">
 <p><b>Note to Balloters:</b>
 The <code>MedicationStatement.medication</code> element now explicitly supports representing statements such as 'no medications are known / taken.'
 </p>
 <p>
-However, this approach does not easily support more specific negation statements, such as 'the patient is not taking medication X' or 'the patient is not taking blood thinners.'
-</p>
-<p>
-Balloters are invited to comment on this approach and impact.
+Balloters are invited to comment on this approach, impact and possible limitations.
 </p>
 </blockquote>
 

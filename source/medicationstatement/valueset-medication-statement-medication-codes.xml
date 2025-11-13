@@ -17,6 +17,7 @@
     </telecom>
   </contact>
   <description value="MedicationStatement Codes for Medications taken (or not taken)"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose> 
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/medication-statement-category"/>
