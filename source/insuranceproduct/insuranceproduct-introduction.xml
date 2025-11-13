@@ -9,6 +9,13 @@
 <p>
     An <a href="insuranceplan.html">InsurancePlan</a> pairs the health insurance coverage benefits under an InsuranceProduct with the particular cost sharing structure offered to a consumer. A given InsuranceProduct may comprise multiple InsurancePlans.
 </p>
+
+<blockquote class="ballot-note">
+  <p><b>Note to Balloters:</b></p>
+  <p>This resource is likely to be removed from the specification and moved to being an <a href="resource.html#additional">Additional Resource</a>
+	after this ballot due to concerns around it's readiness, and the thin implementation experience. Ballot comments on this subject are welcome.</p>
+
+</blockquote>  
 </div>
 
 <div>
