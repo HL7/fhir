@@ -203,7 +203,7 @@
     </element>
     <element id="MedicationStatement.medication">
       <path value="MedicationStatement.medication"/>
-      <short value="The medication that is/was taken"/>
+      <short value="The medication that is/was taken (or not taken)"/>
       <definition value="Identifies the medication taken (or not taken). This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications."/>
       <comment value="If only a code is specified, then it should be a code for a product. If more information is required, then the use of the medication resource is recommended.  For example, if dose form or lot number are required, this is done using a reference to a Medication resource. In cases where the statement is for 'no known medications', this element can contain a code indicating that situation."/>
       <min value="1"/>
