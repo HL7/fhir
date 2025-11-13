@@ -188,7 +188,6 @@ MedicationRequest
 <p><b>Notes:</b></p>
 <ul>
   <li>If tablet strength is encoded in the product, keep dose as “1 tablet”</li>
-  <li>What is missing from this structure is ‘and holidays’; this might be found in an extension, or in the renderedInstruction</li>
 </ul>
 
 
@@ -210,8 +209,8 @@ Methylphenidate 10 mg tablets — 10 mg at 07:30 and 12:00, 5 mg at 16:00 Mon–
  <div id="tabs-Example2-struc" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom ui-widget-content" aria-hidden="false">
 <p><b>Structure</b></p>
   <ul> 
-    <li>Model as multiple <code>dosageInstruction</code> entries (by dayOfWeek/timeOfDay) + one PRN entry.</li> 
-    <li><code>Dosage.timing.repeat.dayOfWeek</code> and <code>…timeOfDay</code> for fixed administrations.</li> 
+    <li>Model as one step with multiple <code>component</code> entries (by dayOfWeek/timeOfDay) + one PRN <code>component</code>entry in that <code>step</code>.</li> 
+    <li><code>Dosage.timing.repeat.dayOfWeek</code> and <code>...timeOfDay</code> for fixed administrations.</li> 
     <li><code>Dosage.asNeededBoolean</code> for PRN (evening); optionally <code>…when = EVE</code>.</li> 
     <li><code>Dosage.maxDosePerPeriod</code> (Ratio) for 150&nbsp;mg per week.</li> 
     <li><code>MedicationRequest.dosageInstruction.safety.doseLimit</code> (scope=<code>period</code>) for 150&nbsp;mg per week.</li> 
@@ -252,6 +251,10 @@ MedicationRequest
             when: EVE
         doseAndRate
           doseQuantity: 5 mg
+        safety
+          doseLimit
+            valueQuantity: 2 tablets
+            scope: administration
     safety
       doseLimit
         valueQuantity: 150 mg
@@ -333,6 +336,17 @@ MedicationRequest
             "repeat": {
               "when": ["EVE"]
             }
+          },
+          "safety": {
+            "doseLimit": [{
+              "valueQuantity": {
+                "value": 2,
+                "unit": "s",
+                "system": "http://unitsofmeasure.org",
+                "code": "tbl"
+              },
+              "scope": "administration",
+            }]
           }
         }
       ]
@@ -443,6 +457,37 @@ MedicationRequest
             &lt;code value=&quot;mg&quot;/&gt;
           &lt;/doseQuantity&gt;
         &lt;/doseAndRate&gt;
+        &lt;safety&gt;
+          &lt;doseLimit&gt;
+            &lt;valueQuantity&gt;
+              &lt;value value=&quot;2&quot;/&gt;
+              &lt;unit value=&quot;tablet&quot;/&gt;
+              &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+              &lt;code value=&quot;tbl&quot;/&gt;
+            &lt;/valueQuantity&gt;
+            &lt;scope value=&quot;administration&quot;/&gt;
+          &lt;/doseLimit&gt;
+        &lt;/safety&gt;
+
+    &lt;/step&gt;
+    &lt;safety&gt;
+      &lt;doseLimit&gt;
+        &lt;valueQuantity&gt;
+          &lt;value value=&quot;150&quot;/&gt;
+          &lt;unit value=&quot;mg&quot;/&gt;
+          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+          &lt;code value=&quot;mg&quot;/&gt;
+        &lt;/valueQuantity&gt;
+        &lt;scope value=&quot;period&quot;/&gt;
+        &lt;period&gt;
+          &lt;value value=&quot;1&quot;/&gt;
+          &lt;unit value=&quot;week&quot;/&gt;
+          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+          &lt;code value=&quot;wk&quot;/&gt;
+        &lt;/period&gt;
+      &lt;/doseLimit&gt;
+    &lt;/safety&gt;
+
       &lt;/component&gt;
     &lt;/step&gt;
     &lt;safety&gt;
@@ -469,8 +514,9 @@ MedicationRequest
  
 </div>
 
- <p><b>Not supported / Caveats:</b> “and holidays” is ambiguous; capture in narrative <code>Dosage.text</code>.</p> 
- 
+ <p><b>Not supported / Caveats:</b> “and holidays” is ambiguous;this might be found in an extension, or in narrative.</p> 
+ <li>What is missing from this structure is ‘and holidays’; </li>
+
 
 <!-------------------------------------------->
 
