@@ -5,7 +5,7 @@
     <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="phx"/>
   </extension>
   <url value="http://hl7.org/fhir/tools/ValueSet/dosage-condition-code"/>
   <name value="DoseLimitScopeVS"/>

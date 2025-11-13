@@ -5,10 +5,10 @@
     <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="phx"/>
   </extension>
   <url value="http://hl7.org/fhir/tools/ValueSet/comparison-operation"/>
-  <name value="DoseLimitScopeVS"/>
+  <name value="ComparisonOperationVS"/>
   <title value="Dose Limit Scope ValueSet"/>
   <status value="active"/>
   <experimental value="false"/>
