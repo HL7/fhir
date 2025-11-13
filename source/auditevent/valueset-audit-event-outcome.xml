@@ -2,9 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="audit-event-outcome"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
   </extension>
@@ -49,7 +46,6 @@
   <description value="Example codes to indicate whether the event succeeded or failed."/>
   <immutable value="true"/>
   <compose>
-
     <include>
       <system value="http://hl7.org/fhir/issue-severity"/>
     </include>

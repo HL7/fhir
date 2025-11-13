@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-vitalsign-bodyweight"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodyweight"/>
   <name value="VitalSignsBodyWeight"/>
@@ -27,30 +27,27 @@
       <filter>
         <property value="COMPONENT"/>
         <op value="in"/>
-        <!-- LP65139-5 Body weight -->
-        <!-- LP304481-7 Body weight^with clothes -->
-        <!-- LP304482-5 Body weight^without clothes -->
         <value value="LP65139-5,LP304481-7,LP304482-5"/>
       </filter>
       <filter>
         <property value="PROPERTY"/>
         <op value="="/>
-        <value value="LP6826-4"/> <!-- Mass -->
+        <value value="LP6826-4"/>
       </filter>
       <filter>
         <property value="TIME_ASPCT"/>
         <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
+        <value value="LP6960-1"/>
       </filter>
       <filter>
         <property value="SYSTEM"/>
         <op value="="/>
-        <value value="LP310005-6"/> <!-- ^Patient -->
+        <value value="LP310005-6"/>
       </filter>
       <filter>
         <property value="SCALE_TYP"/>
         <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
+        <value value="LP7753-9"/>
       </filter>
     </include>
   </compose>

@@ -2,18 +2,17 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-interpretation-context"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/observation-interpretation-context"/>
-  
   <version value="6.0.0"/>
   <name value="ObservationInterpretationContextCodes"/>
   <title value="Observation Interpretation Context Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="HL7 International / Orders and Observations"/>
   <contact>

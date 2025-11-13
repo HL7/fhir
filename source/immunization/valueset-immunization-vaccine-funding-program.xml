@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="immunization-vaccine-funding-program"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pher"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/immunization-vaccine-funding-program"/>
   <identifier>
@@ -14,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="CodesForVaccineFundingPrograms"/>
   <title value="Vaccine Funding Programs"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>

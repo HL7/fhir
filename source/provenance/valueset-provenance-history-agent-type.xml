@@ -5,6 +5,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/provenance-history-agent-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>

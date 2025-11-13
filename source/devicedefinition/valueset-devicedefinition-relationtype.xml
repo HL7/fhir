@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="devicedefinition-relationtype"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
   <identifier>
@@ -16,6 +16,7 @@
   <version value="6.0.0"/>
   <name value="DeviceDefinitionRelationType"/>
   <title value="Device Definition Relation Type"/>
+  <status value="active"/>
   <experimental value="false"/>
   <description value="Description Needed Here"/>
   <compose>

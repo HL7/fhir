@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-codes-observationorboth"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
   <version value="6.0.0-ballot3"/>
@@ -22,7 +22,7 @@
     </telecom>
   </contact>
   <description value="LOINC concepts whose ORDER_OBS property is 'Observation' (Obs only) or 'Both'."/>
-   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>
       <system value="http://loinc.org"/>

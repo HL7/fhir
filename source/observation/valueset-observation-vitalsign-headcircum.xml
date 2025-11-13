@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-vitalsign-headcircum"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/observation-vitalsign-headcircum"/>
   <name value="VitalSignsHeadCircum"/>
@@ -27,29 +27,27 @@
       <filter>
         <property value="COMPONENT"/>
         <op value="in"/>
-        <!-- LP72254-3 Circumference.occipital-frontal -->
-        <!-- LP304462-7 Circumference.occipital-frontal^at birth -->
         <value value="LP72254-3,LP304462-7"/>
       </filter>
       <filter>
         <property value="PROPERTY"/>
         <op value="="/>
-        <value value="LP6822-3"/> <!-- Len -->
+        <value value="LP6822-3"/>
       </filter>
       <filter>
         <property value="TIME_ASPCT"/>
         <op value="="/>
-        <value value="LP6960-1"/> <!-- Pt -->
+        <value value="LP6960-1"/>
       </filter>
       <filter>
         <property value="SYSTEM"/>
         <op value="="/>
-        <value value="LP7281-1"/> <!-- Head -->
+        <value value="LP7281-1"/>
       </filter>
       <filter>
         <property value="SCALE_TYP"/>
         <op value="="/>
-        <value value="LP7753-9"/> <!-- Qn -->
+        <value value="LP7753-9"/>
       </filter>
     </include>
   </compose>

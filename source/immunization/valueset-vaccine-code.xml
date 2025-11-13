@@ -2,12 +2,10 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="vaccine-code"/>
-  <meta>
-    
-  </meta>
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       
       
       
@@ -15,7 +13,9 @@
       
       
       
+      
       <ul> 
+        
         
         
         
@@ -23,11 +23,14 @@
           
           
           
+          
           <a href="http://hl7.org/fhir/sid/cvx">http://hl7.org/fhir/sid/cvx</a>)
         
         
         
+        
         </li>
+        
         
         
         
@@ -35,7 +38,9 @@
           
           
           
+          
           <a href="http://www.medicareaustralia.gov.au/provider/vendors/files/9560-1301-acir-idi-vaccine-codes.pdf">urn:oid:1.2.36.1.2001.1005.17</a>)
+        
         
         
         
@@ -43,7 +48,9 @@
       
       
       
+      
       </ul>
+    
     
     
     
@@ -51,6 +58,9 @@
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pher"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/vaccine-code"/>
   <identifier>

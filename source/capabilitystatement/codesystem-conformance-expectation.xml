@@ -2,11 +2,11 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="conformance-expectation"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/conformance-expectation"/>
   <identifier>

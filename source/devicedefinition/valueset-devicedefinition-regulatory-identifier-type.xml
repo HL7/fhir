@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="devicedefinition-regulatory-identifier-type"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/devicedefinition-regulatory-identifier-type"/>
   <identifier>
@@ -16,6 +16,7 @@
   <version value="6.0.0"/>
   <name value="DeviceDefinitionRegulatoryIdentifierType"/>
   <title value="Device Definition Regulatory Identifier Type"/>
+  <status value="active"/>
   <experimental value="false"/>
   <description value="Regulatory Identifier type"/>
   <compose>

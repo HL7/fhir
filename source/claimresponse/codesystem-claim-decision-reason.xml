@@ -2,11 +2,11 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="claim-decision-reason"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/claim-decision-reason"/>
   <identifier>
@@ -16,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="ClaimAdjudicationDecisionReasonCodes"/>
   <title value="Claim Adjudication Decision Reason Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <description value="This value set provides example Claim Adjudication Decision Reason codes."/>
   <copyright value="HL7 Inc."/>

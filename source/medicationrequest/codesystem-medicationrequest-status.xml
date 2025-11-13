@@ -2,11 +2,11 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicationrequest-status"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="phx"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/CodeSystem/medicationrequest-status"/>
   <identifier>
@@ -15,7 +15,7 @@
   </identifier>
   <name value="MedicationRequestStatusCodes"/>
   <title value="MedicationRequest Status Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <description value="MedicationRequest Status Codes"/>
   <caseSensitive value="true"/>

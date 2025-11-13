@@ -2,16 +2,16 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="medicationrequest-dispenser-instructions"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="phx"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/medicationrequest-dispenser-instructions"/>
   <name value="Medicationrequestdispenser-instructions"/>
   <title value="medicationrequest dispenser-instructions"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>

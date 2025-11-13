@@ -9,24 +9,43 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p class="res-header-id">
+        
         <b>Generated Narrative: ValueSet message-events</b>
+      
       </p>
+      
       <a name="message-events"> </a>
+      
       <a name="hcmessage-events"> </a>
+      
       <div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%">
+        
         <p style="margin-bottom: 0px"/>
+        
         <p style="margin-bottom: 0px">Profile: 
+          
           <a href="shareablevalueset.html">Shareable ValueSet</a>
+        
         </p>
+      
       </div>
+      
       <ul>
+        
         <li>Include all codes defined in 
+          
           <a href="codesystem-message-events.html">
+            
             <code>http://hl7.org/fhir/message-events</code>
+          
           </a>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -34,6 +53,9 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-special-status">
     <valueString value="This Value Set is normative - it is generated based on the information defined in this specification. The definition will remain fixed  across versions, but the actual contents will change from version to version"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/message-events"/>
   <identifier>

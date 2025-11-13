@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/medication-codes"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -18,7 +21,7 @@
   </identifier>
   <name value="SNOMEDCTMedicationCodes"/>
   <title value="SNOMED CT Medication Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>

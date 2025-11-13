@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="procedure-outcome"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/procedure-outcome"/>
   <identifier>
@@ -26,7 +26,7 @@
   <version value="6.0.0"/>
   <name value="ProcedureOutcomeCodesSNOMEDCT"/>
   <title value="Procedure Outcome Codes (SNOMED CT)"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -49,22 +49,22 @@
       <concept>
         <code value="385670004"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="704302001"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="247758009"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="284778005"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="307085007"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="298429006"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="298434005"/>
       </concept>
     </include>

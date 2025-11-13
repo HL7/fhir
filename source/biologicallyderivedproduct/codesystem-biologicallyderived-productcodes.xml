@@ -2,9 +2,6 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="biologicallyderived-productcodes"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -36,6 +33,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
+  <description value="This code system is a subset of ISBT 128 Product Description Codes© published by ICCBBA as a part of the ISBT 128 standard. These codes support characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions."/>
   <jurisdiction>
     <coding>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
@@ -43,7 +41,6 @@
       <display value="World"/>
     </coding>
   </jurisdiction>
-  <description value="This code system is a subset of ISBT 128 Product Description Codes© published by ICCBBA as a part of the ISBT 128 standard. These codes support characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes"/>
   <content value="complete"/>

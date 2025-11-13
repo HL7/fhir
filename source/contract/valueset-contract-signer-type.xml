@@ -2,9 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="contract-signer-type"/>
-  <meta>
-    
-  </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -17,6 +14,9 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fm"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/contract-signer-type"/>
   <identifier>
@@ -36,7 +36,7 @@
   <version value="6.0.0"/>
   <name value="ContractSignerTypeCodes"/>
   <title value="Contract Signer Type Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="Financial Management"/>
   <description value="This value set includes sample Contract Signer Type codes."/>

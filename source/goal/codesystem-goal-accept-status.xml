@@ -4,7 +4,6 @@
   <id value="goal-accept-status"/>
   <meta>
     <lastUpdated value="2023-01-31T07:07:38.434+11:00"/>
-    
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
@@ -19,7 +18,7 @@
   <version value="5.0.0"/>
   <name value="GoalAcceptStatus"/>
   <title value="Goal acceptance status code system"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="HL7 International / Patient Care"/>
   <contact>

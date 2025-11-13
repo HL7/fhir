@@ -2,11 +2,11 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="color-names"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/color-names"/>
   <identifier>
@@ -15,7 +15,7 @@
   </identifier>
   <name value="ColorCodes"/>
   <title value="Codes for Colors"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="FHIR Infrastructure"/>
   <contact>

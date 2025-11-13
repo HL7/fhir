@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="device-specification-type"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/device-specification-type"/>
   <identifier>
@@ -14,7 +16,7 @@
   <version value="6.0.0"/>
   <name value="DeviceSpecificationType"/>
   <title value="Device Specification Type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <description value="The type or specification of a standard that devices can adhere to"/>
   <compose>

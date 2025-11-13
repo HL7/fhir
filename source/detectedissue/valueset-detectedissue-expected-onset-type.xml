@@ -2,14 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="detectedissue-expected-onset-type"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
@@ -18,7 +15,7 @@
   <version value="6.0.0"/>
   <name value="DetectedIssueExpectedOnsetType"/>
   <title value="Detected Issue Expected Onset Type"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -34,7 +31,7 @@
   </contact>
   <description value="Example value set illustrating the expected onset type."/>
   <immutable value="true"/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
@@ -46,7 +43,6 @@
         <code value="788800008"/>
         <display value="Delayed onset (qualifier value)"/>
       </concept>
-      <!-- Note that there is an active request to establish a "Rapid onset" code for SNOMED that would be used here. -->
     </include>
   </compose>
 </ValueSet>

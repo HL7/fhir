@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="entformula-type"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/entformula-type"/>
   <identifier>
@@ -26,7 +26,7 @@
   <version value="6.0.0"/>
   <name value="EnteralFormulaTypeCodes"/>
   <title value="Enteral Formula Type Codes"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR NutritionOrder team"/>
   <contact>
@@ -41,9 +41,9 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-				<code value="346415002"/>
-			</concept>
-		</include>
+        <code value="346415002"/>
+      </concept>
+    </include>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>

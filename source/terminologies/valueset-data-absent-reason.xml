@@ -4,25 +4,32 @@
   <id value="data-absent-reason"/>
   <meta>
     <lastUpdated value="2022-12-13T10:04:31.106+11:00"/>
-    
   </meta>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <ul> 
+        
         
         <li> Include all codes defined in 
           
+          
           <a href="codesystem-data-absent-reason.html">
+            
             
             <code> http://terminology.hl7.org/CodeSystem/data-absent-reason</code> 
           
+          
           </a> 
+        
         
         </li> 
       
+      
       </ul> 
+    
     
     </div>
   </text>
@@ -31,9 +38,6 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
-    <valueCode value="4.0.0"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>

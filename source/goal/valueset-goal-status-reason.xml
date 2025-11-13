@@ -2,11 +2,11 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="goal-status-reason"/>
-  <meta>
-    
-  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/goal-status-reason"/>
   <identifier>
@@ -25,7 +25,7 @@
   </identifier>
   <name value="GoalStatusReason"/>
   <title value="Goal Status Reason"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="false"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>
@@ -48,13 +48,13 @@
       <concept>
         <code value="713566001"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="300936002"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="704489009"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="11403006"/>
       </concept>
     </include>

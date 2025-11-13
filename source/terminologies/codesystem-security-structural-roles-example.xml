@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="security-structural-roles-example"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
@@ -16,7 +18,7 @@
   </identifier>
   <name value="SecurityStructuralRolesExamples"/>
   <title value="Example Codes for Security Structural Role"/>
-  <status value="draft"/>
+  <status value="active"/>
   <experimental value="true"/>
   <date value="2025-11-01"/>
   <publisher value="HL7 International / Security"/>
@@ -39,66 +41,65 @@
     <code value="regulated-health-professionals"/>
     <display value="Regulated Health Professionals"/>
     <definition value="A person who is authorized by a national recognized body to be qualified to perform health services"/>
-	  <concept>
-		<code value="general-medicine"/>
-		<display value="General Medicine"/>
-		<definition value="The branch of medicine involving the study and treatment of general diseases or those affecting the internal parts of the body, especially those not usually requiring surgical intervention"/>
-	  </concept>
-	  <concept>
-		<code value="general-nursing"/>
-		<display value="General Nursing"/>
-		<definition value="The branch of healthcare concerned with caring for the sick or injured in any environment."/>
-	  </concept>
-	  <concept>
-		<code value="dentist"/>
-		<display value="Dentist"/>
-		<definition value="The specialty relating to the function and diseases of the teeth, mouth, and gums."/>
-	  </concept>
-	  <concept>
-		<code value="veterinarian"/>
-		<display value="Veterinarian"/>
-		<definition value="The specialty relating to non-human subjects."/>
-	  </concept>
-	  <concept>
-		<code value="pharmacy"/>
-		<display value="Pharmacy"/>
-		<definition value="The branch of medical science that deals with drugs and their uses."/>
-	  </concept>
-	  <concept>
-		<code value="dietician"/>
-		<display value="Dietician"/>
-		<definition value="The health profession concerned with the practical application of diet in the prophylaxis and treatment of disease."/>
-	  </concept>
-	  <concept>
-		<code value="pediatrics"/>
-		<display value="Pediatrics"/>
-		<definition value="The medical specialty concerned with the study of treatment of children in health and disease during development from birth through adolescence."/>
-	  </concept>
-  </concept>	  
-  <concept>
-	<code value="non-regulated-health-professionals"/>
-	<display value="Non-Regulated health Professionals"/>
-	<definition value="person employed by a healthcare organization who is not a health professional"/>
-	  <concept>
-		<code value="receptionist"/>
-		<display value="Receptionist"/>
-		<definition value="Medical receptionists are professionals who are responsible for coordinating the daily administration of doctors, staff, visitors, and patinets at a healthcare facility."/>
-	  </concept>
-	  <concept>
-		<code value="business-manager"/>
-		<display value="Business Manager"/>
-		<definition value="Medical and health services managers plan, direct, and coordinate the business activities of healthcare providers."/>
-	  </concept>
-	  <concept>
-		<code value="transcriptionist"/>
-		<display value="Transcriptionist"/>
-		<definition value="A medical transcriptionist listens to medical notes from health care professionals and accurately transcribes those audio recordings into written medical documents used for a variety of purposes."/>
-	  </concept>
-	  <concept>
-		<code value="claims-adjudicator"/>
-		<display value="Claims Adjudicator"/>
-		<definition value="A medical Claims Adjudicator executes the process by which insurance companies review healthcare claims and decide whether they will pay the claim in full, pay a partial amount, or deny the claim altogether."/>
-	  </concept>
+    <concept>
+      <code value="general-medicine"/>
+      <display value="General Medicine"/>
+      <definition value="The branch of medicine involving the study and treatment of general diseases or those affecting the internal parts of the body, especially those not usually requiring surgical intervention"/>
+    </concept>
+    <concept>
+      <code value="general-nursing"/>
+      <display value="General Nursing"/>
+      <definition value="The branch of healthcare concerned with caring for the sick or injured in any environment."/>
+    </concept>
+    <concept>
+      <code value="dentist"/>
+      <display value="Dentist"/>
+      <definition value="The specialty relating to the function and diseases of the teeth, mouth, and gums."/>
+    </concept>
+    <concept>
+      <code value="veterinarian"/>
+      <display value="Veterinarian"/>
+      <definition value="The specialty relating to non-human subjects."/>
+    </concept>
+    <concept>
+      <code value="pharmacy"/>
+      <display value="Pharmacy"/>
+      <definition value="The branch of medical science that deals with drugs and their uses."/>
+    </concept>
+    <concept>
+      <code value="dietician"/>
+      <display value="Dietician"/>
+      <definition value="The health profession concerned with the practical application of diet in the prophylaxis and treatment of disease."/>
+    </concept>
+    <concept>
+      <code value="pediatrics"/>
+      <display value="Pediatrics"/>
+      <definition value="The medical specialty concerned with the study of treatment of children in health and disease during development from birth through adolescence."/>
+    </concept>
   </concept>
-
+  <concept>
+    <code value="non-regulated-health-professionals"/>
+    <display value="Non-Regulated health Professionals"/>
+    <definition value="person employed by a healthcare organization who is not a health professional"/>
+    <concept>
+      <code value="receptionist"/>
+      <display value="Receptionist"/>
+      <definition value="Medical receptionists are professionals who are responsible for coordinating the daily administration of doctors, staff, visitors, and patinets at a healthcare facility."/>
+    </concept>
+    <concept>
+      <code value="business-manager"/>
+      <display value="Business Manager"/>
+      <definition value="Medical and health services managers plan, direct, and coordinate the business activities of healthcare providers."/>
+    </concept>
+    <concept>
+      <code value="transcriptionist"/>
+      <display value="Transcriptionist"/>
+      <definition value="A medical transcriptionist listens to medical notes from health care professionals and accurately transcribes those audio recordings into written medical documents used for a variety of purposes."/>
+    </concept>
+    <concept>
+      <code value="claims-adjudicator"/>
+      <display value="Claims Adjudicator"/>
+      <definition value="A medical Claims Adjudicator executes the process by which insurance companies review healthcare claims and decide whether they will pay the claim in full, pay a partial amount, or deny the claim altogether."/>
+    </concept>
+  </concept>
 </CodeSystem>
