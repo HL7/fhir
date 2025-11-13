@@ -325,7 +325,6 @@ signatures.html
       <page type="resource" resource="MedicationDispense"/>
       <page type="resource" resource="MedicationStatement"/>
       <page type="resource" resource="Medication"/>
-      <page type="resource" resource="MedicationKnowledge"/>
       <page type="resource" resource="Immunization"/>
       <page title="Dosage" filename="dosage.html">
         <page title="Examples" filename="dosage-examples.html"/>
