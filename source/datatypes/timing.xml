@@ -1190,7 +1190,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Rvents within the repeat period do not start until startOffset has elapsed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Events within the repeat period do not start until startOffset has elapsed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates that the events within the period of the repeat do not start until startOffset has elapsed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">This element is defined to support interlaced schedules, e.g. for different actions that happen on different days, but that have repeat cycles that are tied together by the context. This is a usually encountered in Dosages</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
