@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <meta>
-    
-  </meta>
+  <id value="medication-statement-medication-codes"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/medication-statement-medication-codes"/>
+  <version value="6.0.0-ballot3"/>
   <name value="MedicationStatementMedicationCodes"/>
   <title value="MedicationStatement Medication Codes"/>
   <status value="draft"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -18,9 +20,9 @@
   </contact>
   <description value="MedicationStatement Codes for Medications taken (or not taken)"/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
-  <compose> 
+  <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medication-statement-category"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
     </include>
     <include>
       <system value="http://snomed.info/sct"/>

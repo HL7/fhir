@@ -1787,6 +1787,9 @@
   <concept id="78088001" display="Hospital-based outpatient ophthalmology clinic">
     <display value="Hospital-based outpatient ophthalmology clinic"/>
   </concept>
+  <concept id="787481004" display="No known medications">
+    <display value="No known medications"/>
+  </concept>
   <concept id="788800008" display="Delayed onset (qualifier value)">
     <display value="Delayed onset (qualifier value)"/>
   </concept>
