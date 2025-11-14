@@ -291,14 +291,14 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ImagingSelectionCode"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Key Object Selection Document Title."/>
-        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_7010.html"/>
-      </binding>
+        <binding>
+            <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                <valueString value="ImagingSelectionCode"/>
+            </extension>
+            <strength value="preferred"/>
+            <description value="Image Reference Type."/>
+            <valueSet value="http://terminology.hl7.org/ValueSet/image-reference-type"/>
+        </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.code"/>
