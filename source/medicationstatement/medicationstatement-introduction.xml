@@ -81,7 +81,7 @@ However, some established RESTful ecosystems around the world offer no other con
 Using MedicationStatement resources to convey statements such as 'no known medications' requires all recipient systems to be aware that such declarations may appear in these resources, in order to ensure clinical safety.
 </p>
 
-<blockquote class="ballot-note">
+<blockquote class="ballot-note" id="bn1">
 <p><b>Note to Balloters:</b>
 The <code>MedicationStatement.medication</code> element now explicitly supports representing statements such as 'no medications are known / taken.'
 </p>
@@ -91,7 +91,7 @@ Balloters are invited to comment on this approach, impact and possible limitatio
 </blockquote>
 
 
-<blockquote class="ballot-note">
+<blockquote class="ballot-note" id="bn2">
 <p><b>Note to Balloters:</b>
 The elements around Dosage have been subject to breaking changes in R6:
 </p>
@@ -104,7 +104,7 @@ The elements around Dosage have been subject to breaking changes in R6:
 
 </blockquote>
 
-<blockquote class="ballot-note">
+<blockquote class="ballot-note" id="bn3">
 <p><b>Note to Balloters:</b>
 The code system used in medication statement category is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.hl7.org</a>.
 </p>

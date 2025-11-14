@@ -51,11 +51,6 @@ In XML, this looks like:
 &lt;/Bundle&gt; 
 </pre>
 
-<blockquote class="ballot-note">
-  <p>See <a href="resource.html#additional">general note to balloters</a> about Additional resources</p>
-</blockquote>
-
-
 <a name="search"></a>
 <h2>Searching Extensions</h2>
 

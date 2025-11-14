@@ -396,7 +396,7 @@ The correct way to use the alternateCode property for an instance of CodeSystem.
  <li>All relationships shall be explicit - relationships (including transitivity and parent/child) must not be assumed.</li>
 </ul>
 
-<blockquote class="ballot-note">
+<blockquote class="ballot-note" id="bn1">
 <p><b>Note to Balloters:</b>
 This section is newly introduced in R6 after extensive consideration in committee, and comments are sought. 
 </p></blockquote>
@@ -507,12 +507,6 @@ The following filters are defined for all code systems:
    <td>Designations considered include the concept.display, which counts as a designation</td>
  </tr> 
 </table>
-
-<!--
-[%ballot-note filters%]
-Ballot feedback is sought in relation to the additional concept filters for code systems supporting is-a relationships included in the table below, which has been added for R5.
-[%end-note%]
--->
 
 <p>
 The following filters are defined for all code systems that support "is-a" relationships between concepts. (The filters can be used regardless of whether the "is-a" relationships are conveyed as concept properties or as concept nesting):
@@ -784,7 +778,7 @@ The above resource instances continue to use their <code>url</code> value as the
 <li><code>url</code> input parameter to <code><a href="codesystem-operation-validate-code.html">$validate-code on CodeSystem</a></code> operation.</li> 
 </ul>
 
-<blockquote class="ballot-note">
+<blockquote class="ballot-note" id="bn1">
 <p><b>Note to Balloters:</b></p>
 <ul>
 <li>The list may be expanded in future, but these are cases already in use by the implementer community.</li>
