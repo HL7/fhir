@@ -5,7 +5,7 @@
    width="1439.0"
    height="424.0"
    sodipodi:docname="ingredient.svg"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -21,13 +21,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.86587908"
-     inkscape:cx="357.44021"
-     inkscape:cy="213.07825"
-     inkscape:window-width="1390"
-     inkscape:window-height="1205"
-     inkscape:window-x="0"
-     inkscape:window-y="31"
+     inkscape:zoom="0.71911991"
+     inkscape:cx="129.32475"
+     inkscape:cy="213.45536"
+     inkscape:window-width="1280"
+     inkscape:window-height="991"
+     inkscape:window-x="1280"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="n482" />
   <defs
@@ -451,7 +451,7 @@
   </g>
   <g
      id="n672"
-     transform="translate(-403.05859,227.51444)">
+     transform="translate(26.633307,38.394382)">
     <rect
        id="Ingredient.substance.strength.referenceStrength"
        x="775"
