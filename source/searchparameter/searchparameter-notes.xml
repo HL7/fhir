@@ -146,7 +146,7 @@ A derived SearchParameter:
   <li>MAY add values for <code>chain</code> but SHOULD NOT remove or re-order values already listed in the base.</li>
 </ul>
 
-<blockquote class="ballot-note">
+<blockquote class="ballot-note" id="bn">
 Request for ballot feedback: We would like the 'SHOULD' assertions above to become 'SHALL' assertions.
 We are invoking our usual implementer outreach process to find out whether anyone else objects, but please file tickets for any rules you do not believe can be enforced that way.
 </blockquote>

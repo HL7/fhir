@@ -52,10 +52,6 @@ In XML, this looks like:
 &lt;/Bundle&gt; 
 </pre>
 
-<blockquote class="ballot-note">
-  <p>See <a href="resource.html#additional">general note to balloters</a> about Additional resources</p>
-</blockquote>
-
 <a name="using"></a>
 
 <h3>Using Bundles</h3>

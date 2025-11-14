@@ -9,7 +9,6 @@
 [%file newnavbar%]
 
 
-
 <h2>R6 Ballot Roadmap</h2>
 <table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
@@ -33,6 +32,7 @@ Balloters should keep the following in mind about ballot scope:
   <li>Some of the content in this ballot is earmarked to move to <a href="http://terminology.hl7.org">terminology.hl7.org</a> (THO). FMG's position is that moving valuesets from the specification to THO is not <i>itself</i> a substantive change</li>
   <li>Moving CodeSystems from core to THO is also only a substantive changes if (a) the CodeSystem is bound to a Coding, CodeableConcept, or CodeableReference, and (b) the URL changes</li>
   <li>Implicit in that is that forcing minor changes in URLs etc on Implementation Guides is not itself substantive</li>
+  <li>The standards status and status of all the content in this ballot to set to Normative or Informative, and active, but the FMM status of the underlying artifacts has not been consistently updated, pending revisions to the overall FMM framework</li>
   <li>The cross version comparisons, difference analysis, structure maps and transforms have not been updated for this ballot. This will be done for the next ballot</li>
 </ul>
 <p>
@@ -52,7 +52,7 @@ And these notes about breaking changes:
 <p>
 Balloter's attention is drawn to three useful links at the bottom of every page:
 </p>
-<p><img src="compare-links-r5-ballot.png"/></p>
+<img src="compare-links-r5-ballot.png"/>
 <p>
 These are very useful when preparing ballot comments.
 </p>
@@ -60,12 +60,12 @@ These are very useful when preparing ballot comments.
 <a name="details"></a>
 <h3>Details of Changes in this version</h3>
 <p>
-This section lists the major changes between this version and the last version (draft ballot 3).
+This section lists the important changes between this version and the last version (draft ballot 3).
 Note that there thousands of changes between this version and the last version, so there's no list of <i>all</i> changes.
 </p>
 <ul>
-  <li>Immature resources and other artifacts have been moved out of this specification into other IGs, often labelled as 'incubator IGs'. Here's the list:
-   <ul style="column-count: 2">
+  <li>Immature resources have been moved out of this specification into other IGs, often labelled as 'incubator IGs'. Here's the list:
+   <ul style="column-count: 3">
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-BiologicallyDerivedProductDispense.html">BiologicallyDerivedProductDispense</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItem.html">ChargeItem</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-ChargeItemDefinition.html">ChargeItemDefinition</a></li>
@@ -92,7 +92,9 @@ Note that there thousands of changes between this version and the last version, 
       <li><a href="https://build.fhir.org/ig/HL7/fhir-testing-ig/en/StructureDefinition-TestScript.html">TestScript</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-Transport.html">Transport</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-VerificationResult.html">VerificationResult</a></li>
-    </ul>
+    </ul>4
+   </li>
+   <li>Other artifacts have been moved out of this specification as well:
     <ul>
       <li><a href="https://build.fhir.org/ig/HL7/capstmt/OperationDefinition-CapabilityStatement-subset.html">CapabilityStatement.$subset</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/capstmt/OperationDefinition-CapabilityStatement-conforms.html">DocumentReCapabilityStatementference.$conforms</a></li>
@@ -110,13 +112,26 @@ Note that there thousands of changes between this version and the last version, 
   </li>
 </ul>
 <p>
-An addition, balloter's attention is drawn to the following significant changes that deserve close attention in ballot:
+An addition, balloter's attention is drawn to the following requests for balloters attention:
 </p>
 <ul>
+  <li>The resources <a href="invoice.html#bn"></a>, <a href="insuranceproduct.html#bn"></a> and <a href="insuranceplan.html#bn"></a> are likely
+    to be removed from the specification and moved to being an <a href="resource.html#additional">Additional Resource</a>	after this ballot
+    due to concerns around their readiness, and the thin implementation experience. Ballot comments on this subject are welcome, and on their content.</li>
+
   <li>The way Medication dosage regimes are represented has undergone extensive reorganization. There have been changes to the <a href="medicationrequest.html#bnr">Boundaries for MedicationRequest</a>,
-    and dosages in MedicationRequest, MedicationDispense, and MedicationStatement. Balloters should pay careful attention to the <a href="dosage.html">Dosage</a> and the <a href="dosage-examples.html">Dosage Examples</a> pages</li>
-  <li>There are related changes in <a href="datatypes.html#Timing">Timing</a></li>  
+    and dosages in <a href="medicationrequest.html">MedicationRequest</a>, <a href="medicationdispense.html">MedicationDispense</a>, and <a href="medicationstatement.html">MedicationStatement</a>. Balloters should pay careful attention to the <a href="dosage.html">Dosage</a> and the <a href="dosage-examples.html">Dosage Examples</a> pages.
+    In addition, there are related changes in <a href="datatypes.html#Timing">Timing</a></li>  
+
+  <li>The <a href="medicationstatement.html#bn1">MedicationStatement.medication</a> element now explicitly supports representing statements such as 'no medications are known / taken. Balloters are invited to comment on this approach, impact and possible limitations</li>
+  <li>The <a href="medicationstatement.html#bn3">code system used in medication statement category</a> is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.hl7.org</a></li>
+  <li>The <a href="nutritionintake.html#bn">nutritionintake-status-reason</a> code system used in NutritionIntake.statusReason is currently defined in the FHIR specification, but is expected to be moved to <a href="http://terminology.hl7.org">HL7 Terminology</a> (THO).</li>
+
+  <li>A new <code>organizer</code> element is added to the normative Observation resource in this ballot. The OO Work Group is <a href="observation.html#bn">seeking reviewers and implementer feedback</a> on this new element, which is intended to help clarify and make explicit when an instance of the Observation resource is used for organizing/grouping sets of sub-observations (e.g., for laboratory panel/battery result reporting).  This capability is particularly applicable for use in laboratory result reporting, but it can also be used as appropriate with other types of observations.</li>
+  <li>Both <a href="searchparameter.html#bn"></a> and <a href="operationdefinition.html#bn"></a> have comments seeking input about the strength of useability assertions</li>
+  <li>There is a request for  <a href="codesystem.html#bn">comments about implicit code systems</a></li>
 </ul>
+
 
 <a name="process"></a>
 <h3>The FHIR R6 Ballot Process</h3>

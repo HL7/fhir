@@ -16,6 +16,15 @@ An invoice is a financial document issued by a healthcare provider to a patient 
 </ul>
  </p>
 
+
+<blockquote class="ballot-note" id="bn">
+  <p><b>Note to Balloters:</b></p>
+  <p>This resource is likely to be removed from the specification and moved to being an <a href="resource.html#additional">Additional Resource</a>
+	after this ballot due to concerns around it's readiness, and the thin implementation experience. Ballot comments on this subject are welcome.</p>
+
+</blockquote>  
+
+
 	</div>
 
 

@@ -98,17 +98,6 @@ Generally, the process for moving an Additional Resource to core is:
     If it is present, the version SHALL be correct with regards to the published core FHIR version</li>
 </ul>
 
-<blockquote class="ballot-note">
-<p><b>Note to Balloters:</b>
-Additional resources are a new and major feature introduced as part of FHIR R6.
-The primary driver is to support distributed development of new resources on 
-faster life cycles than the main specification, which we expect to slow considerably 
-once R6 is published
-</p><p>
-We expect considerable debate about this idea and how it's implemented, and
-we welcome comment in the ballot, or directly on <a href="http://chat.fhir.org">chat.fhir.org</a>
-</p></blockquote>
-
 </div>
 
 

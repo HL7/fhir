@@ -75,7 +75,7 @@ of time precedence:
 
 </div>
 
-<blockquote class="ballot-note">
+<blockquote class="ballot-note" id="bn1">
 <p><b>Note to Balloters:</b>
 The elements around Dosage have been subject to breaking changes in R6:
 </p>
@@ -89,7 +89,7 @@ The elements around Dosage have been subject to breaking changes in R6:
 </blockquote>
 
 
-<blockquote class="ballot-note">
+<blockquote class="ballot-note" id="bn2">
 <p><b>Note to Balloters:</b>
 The code system used in medication request category is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.hl7.org</a>.
 </p>
