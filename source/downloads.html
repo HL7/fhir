@@ -112,11 +112,11 @@
     <td>
       There are several packages that support the FHIR specification:
       <ul>
-        <li><b><code><a href="hl7.fhir.r5.core.tgz">hl7.fhir.r5.core</a></code></b>: Contains all the resources needed to test conformance to the FHIR specification, and/or generate code</li>
-        <li><b><code><a href="hl7.fhir.r5.expansions.tgz">hl7.fhir.r5.expansions</a></code></b>: Contains the expansions of the subset of the value sets the have a required binding (other than those that can't be expanded at all)</li>
-        <li><b><code><a href="hl7.fhir.r5.examples.tgz">hl7.fhir.r5.examples</a></code></b>: All the resources that are defined as part of the FHIR specification</li>
-        <li><b><code><a href="hl7.fhir.r5.search.tgz">hl7.fhir.r5.search</a></code></b>: Just the search parameters. In this package, the combined search parameters are uncombined so that there is a set of search parameters for each resource (performance considerations)</li>
-        <li><b><code><a href="hl7.fhir.r5.corexml.tgz">hl7.fhir.r5.corexml</a></code></b>: The same content as hl7.fhir.r5.core, but with the resources in XML, not JSON</li>
+        <li><b><code><a href="hl7.fhir.r6.core.tgz">hl7.fhir.r6.core</a></code></b>: Contains all the resources needed to test conformance to the FHIR specification, and/or generate code</li>
+        <li><b><code><a href="hl7.fhir.r6.expansions.tgz">hl7.fhir.r6.expansions</a></code></b>: Contains the expansions of the subset of the value sets the have a required binding (other than those that can't be expanded at all)</li>
+        <li><b><code><a href="hl7.fhir.r6.examples.tgz">hl7.fhir.r6.examples</a></code></b>: All the resources that are defined as part of the FHIR specification</li>
+        <li><b><code><a href="hl7.fhir.r6.search.tgz">hl7.fhir.r6.search</a></code></b>: Just the search parameters. In this package, the combined search parameters are uncombined so that there is a set of search parameters for each resource (performance considerations)</li>
+        <li><b><code><a href="hl7.fhir.r6.corexml.tgz">hl7.fhir.r6.corexml</a></code></b>: The same content as hl7.fhir.r6.core, but with the resources in XML, not JSON</li>
       </ul>    
     These packages are used by many of the FHIR tools (e.g., the IG publisher and the validator). Note that the tools usually find this package directly through the NPM-based distribution framework, and there's no need to download them</td>
   </tr>
@@ -147,35 +147,7 @@
     Note that names relevant for code generation, including resource names, element &amp; slice names, codes, etc. may collide with reserved words in the relevant target language, and code generators will need to handle this</td>
   </tr>
 
-  <tr>
-    <td colspan="2" style="background: #eeeeee"><b>Reference Implementations</b><a name="refimpl"></a></td>
-  </tr>
-
-  <tr>
-    <td colspan="2">
-    There are many open source reference implementations available to help implementers.
-    A current list can be found on HL7's Confluence site <a href="http://confluence.hl7.org/display/FHIR/Open+Source+Implementations">here</a>.
-    </td>
-  </tr>  
- </table>
-
-[%impl-note%]
-The reference implementations and servers are provided for implementer interest and assistance.
-While they may be used (and are) in production systems, HL7 and their various contributors accept no
-liability for their use. <span style="color: Maroon">Note that these reference implementations are
-provided to assist to implementers to adopt the specification, and some are maintained by the FHIR
-project team, but are not part of the specification, and implementations are not required to
-conform to the reference implementations, nor are they subject to the formal standards process.</span>
-[%end-note%]
-<hr/>
-<p>
-Full blown open source implementations for FHIR, some of which use these reference implementations, are
-listed on <a href="https://confluence.hl7.org/display/FHIR/Open+Source+Implementations">HL7 Confluence</a>.
-</p>
-<p>
-It is not necessary to use these particular implementations in order to be conformant. Any other approach
-may be used, including code generated from the schemas.
-</p>
+</table>
 
 [%file newfooter%]
 </body>
