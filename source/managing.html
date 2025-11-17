@@ -192,7 +192,7 @@ Where synchronization is required, this can be done by polling, by having the "m
 <p>
 FHIR defines several mechanisms for retrieving resources that are referenced by other resources: <a href="search.html#include">_include</a> and 
 <a href="search.html#revinclude">_revinclude</a>, <a href="compartmentdefinition.html">compartments</a> and special operations such as
-<a href="patient-operation-everything.html">Patient/$everything</a>.  Query behavior becomes more complex when references span servers.  Servers 
+<a href="https://build.fhir.org/ig/HL7/admin-incubator/branches/main/en/OperationDefinition-Patient-everything.html">Patient/$everything</a>.  Query behavior becomes more complex when references span servers.  Servers 
 returning _include and _revinclude capabilities <b>can</b> but need not return data stored from other servers.  Similarly, the definition of 
 compartments doesn't strictly limit data to that found on a single server, but servers are certainly not expected to include data found elsewhere 
 when performing compartment-based queries or operations.  As a result, query behavior may be different if data is stored on the same server as the

@@ -11,7 +11,7 @@ examples of the <code>Parameters</code> resource in the operation examples:
  <li><a href="composition-operation-document.html#examples">Composition/$document</a></li>
  <li><a href="measure-operation-evaluate-measure.html#examples">Measure/$evaluate-measure</a></li>
  <li><a href="observation-operation-stats.html#examples">Observation/$stats</a></li>
- <li><a href="patient-operation-merge.html#examples">Patient/$merge</a></li>
+ <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/branches/main/en/OperationDefinition-Patient-merge.html#examples">Patient/$merge</a></li>
  <li><a href="plandefinition-operation-apply.html#examples">PlanDefinition/$apply</a></li>
 </ul>
 

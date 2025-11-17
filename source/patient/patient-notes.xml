@@ -31,7 +31,7 @@ Where there is a need to implement an automated MRN Identifier created for a pat
 <a name="merge"></a>
 <h2>Merging records</h2>
 <p>
-There are two common approaches for resolving duplicate patient records: merging and linking.  Linking duplicate patients is described in the <a href="#links">Linking Patients</a> section, or merging duplicate patients as described in the <a href="patient-operation-merge.html">$merge</a> operation page. 
+There are two common approaches for resolving duplicate patient records: merging and linking.  Linking duplicate patients is described in the <a href="#links">Linking Patients</a> section, or merging duplicate patients as described in the <a href="https://build.fhir.org/ig/HL7/admin-incubator/branches/main/en/OperationDefinition-Patient-merge.html">$merge</a> operation page. 
 </p>
 
 
@@ -45,7 +45,7 @@ to support the following scenarios where multiple patient records exist:</p>
 <p>Managing Patient registration is a well-known difficult problem. Around 2% of registrations are in error, 
 mostly duplicate records. Sometimes the duplicate record is caught fairly quickly and retired before much 
 data is accumulated. In other cases, substantial amounts of data may accumulate.<br/> 
-There are two common approaches for resolving duplicate patient records: merging and linking. Merging duplicate patients is described in the <a href="patient-operation-merge.html">$merge</a> operation page.<br/>
+There are two common approaches for resolving duplicate patient records: merging and linking. Merging duplicate patients is described in the <a href="https://build.fhir.org/ig/HL7/admin-incubator/branches/main/en/OperationDefinition-Patient-merge.html">$merge</a> operation page.<br/>
 Linking duplicate records can be accomplished by using a link of type 'replaced-by' where the record containing such a link is marked as a duplicate and the link points forward to a record that should
 be used instead. Note that the record pointed to may in its turn have been identified as created in error and forward
 to yet another Patient resource. Records that replace another record <i>may</i> use a link type of 'replaces' pointing to the old record.

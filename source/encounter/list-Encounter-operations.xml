@@ -4,9 +4,4 @@
   <id value="Encounter-operations"/>
   <status value="current"/>
   <mode value="working"/>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/Encounter-everything"/>
-    </item>
-  </entry>
 </List>
