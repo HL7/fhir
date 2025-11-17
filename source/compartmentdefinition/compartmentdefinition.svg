@@ -358,7 +358,7 @@
        class="diagram-class-detail"><a
    id="n458"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.resource.startParam"><title
-   id="title693">Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](patient-operation-everything.html))</title>startParam</a> : <a
+   id="title693">Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](https://build.fhir.org/ig/HL7/admin-incubator/branches/main/en/OperationDefinition-Patient-everything.html))</title>startParam</a> : <a
    id="n459"
    xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
@@ -369,7 +369,7 @@
        class="diagram-class-detail"><a
    id="n464"
    xlink:href="compartmentdefinition-definitions.html#CompartmentDefinition.resource.endParam"><title
-   id="title698">Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](patient-operation-everything.html))</title>endParam</a> : <a
+   id="title698">Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](https://build.fhir.org/ig/HL7/admin-incubator/branches/main/en/OperationDefinition-Patient-everything.html))</title>endParam</a> : <a
    id="n465"
    xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
   </g>

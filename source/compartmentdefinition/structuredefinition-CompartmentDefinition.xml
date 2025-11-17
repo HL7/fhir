@@ -430,7 +430,7 @@
 		<element id="CompartmentDefinition.resource.startParam">
 			<path value="CompartmentDefinition.resource.startParam"/>
 			<short value="Search Param for interpreting $everything.start"/>
-			<definition value="Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+			<definition value="Search Parameter for mapping requests made with $everything.start (e.g. on [Patient.$everything](https://build.fhir.org/ig/HL7/admin-incubator/branches/main/en/OperationDefinition-Patient-everything.html))."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -440,7 +440,7 @@
 		<element id="CompartmentDefinition.resource.endParam">
 			<path value="CompartmentDefinition.resource.endParam"/>
 			<short value="Search Param for interpreting $everything.end"/>
-			<definition value="Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](patient-operation-everything.html))."/>
+			<definition value="Search Parameter for mapping requests made with $everything.end (e.g. on [Patient.$everything](https://build.fhir.org/ig/HL7/admin-incubator/branches/main/en/OperationDefinition-Patient-everything.html))."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

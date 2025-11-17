@@ -11,16 +11,6 @@
   </entry>
   <entry>
     <item>
-      <reference value="OperationDefinition/Patient-everything"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
-      <reference value="OperationDefinition/Patient-merge"/>
-    </item>
-  </entry>
-  <entry>
-    <item>
       <reference value="OperationDefinition/Patient-purge"/>
     </item>
   </entry>
