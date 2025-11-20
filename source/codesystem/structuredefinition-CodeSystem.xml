@@ -651,7 +651,7 @@
 			<path value="CodeSystem.compositional"/>
 			<short value="If code system defines a compositional grammar"/>
 			<definition value="The code system defines a compositional (post-coordination) grammar."/>
-			<comment value="Note that the code system resource does not define what the compositional grammar is, only whether or not there is one. Note that the code system resource does not define what the compositional grammar is, only whether or not there is one. Review the Using Code System X with HL7 Standards (where Code System X is a specific code system) pages at [terminology.hl7.org](https://terminology.hl7.org/external_terminologies.html) to learn about a code system's post coordination support. [Coding.code](datatypes-definitions.html#Coding.code) has some more information about how a post coordinated expression may be exchanged in a code element."/>
+			<comment value="Note that the code system resource does not define what the compositional grammar is, only whether or not there is one. Note that the code system resource does not define what the compositional grammar is, only whether or not there is one. Review the Using Code System X with HL7 Standards (where Code System X is a specific code system) pages at [terminology.hl7.org](https://terminology.hl7.org/external_code_systems.html) to learn about a code system's post coordination support. [Coding.code](datatypes-definitions.html#Coding.code) has some more information about how a post coordinated expression may be exchanged in a code element."/>
 			<alias value="grammar"/>
 			<min value="0"/>
 			<max value="1"/>
