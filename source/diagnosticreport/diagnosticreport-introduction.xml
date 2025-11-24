@@ -3,6 +3,7 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+<blockquote class="ballot-note" id="bn1">
 <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
 <p>Addition of the following elements:</p>
 <ul>
@@ -16,6 +17,7 @@
 <ul>
  <li>DiagnosticReport.conclusionCode datatype</li>
 </ul>
+</blockquote>
 <p>
 A diagnostic report is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,
