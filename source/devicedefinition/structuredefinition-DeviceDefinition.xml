@@ -83,7 +83,7 @@
       </mapping>
       <mapping>
         <identity value="workflow"/>
-        <map value="Definition"/>
+        <map value="Definition"/> 
       </mapping>
     </element>
     <element id="DeviceDefinition.url">
