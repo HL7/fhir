@@ -81,6 +81,10 @@
         <identity value="w5"/>
         <map value="administrative.device"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition"/>
+      </mapping>
     </element>
     <element id="DeviceDefinition.url">
       <path value="DeviceDefinition.url"/> 
@@ -108,6 +112,10 @@
         <identity value="w5"/> 
         <map value="FiveWs.identifier"/> 
       </mapping> 
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition"/>
+      </mapping>
     </element> 
     <element id="DeviceDefinition.identifier">
       <path value="DeviceDefinition.identifier"/> 
