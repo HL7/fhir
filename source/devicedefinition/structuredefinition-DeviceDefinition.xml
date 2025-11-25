@@ -82,10 +82,6 @@
         <map value="administrative.device"/>
       </mapping>
     </element>
-
-
-
-
     <element id="DeviceDefinition.url">
       <path value="DeviceDefinition.url"/> 
       <short value="Canonical identifier for this DeviceDefinition, represented as an absolute URI (globally unique)"/> 
