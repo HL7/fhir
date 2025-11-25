@@ -6,7 +6,6 @@
         
 	<blockquote class="ballot-note" id="bn1">
 	<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
-	<p>Addition of the following elements:</p>
 	<ul>
 		<li>Removed the instantiates workflow elements NutritionIntake.instantiatesCanonical and NutritionIntake.instantiatesUri and advise implementers to use the <a href="workflow-extensions.html">workflow instantiates extensions</a></li>
 		<li>Consolidated NutritionIntake.consumedItem and NutritionIntake.ingredientLabel into a NutritionIntake.nutritionItem backbone</li>
