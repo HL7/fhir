@@ -7,7 +7,7 @@
     <blockquote class="ballot-note" id="bn1">
     <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
     <ul>
-        <li>Removed the instantiates workflow elements NutritionOrder.instantiatesCanonical, NutritionOrder.instantiatesUri and NutritionOrder.instantiates; and advise implementers to use the <a link="workflow-extensions.html">workflow instantiates extensions</a></li>
+        <li>Removed the instantiates workflow elements NutritionOrder.instantiatesCanonical, NutritionOrder.instantiatesUri and NutritionOrder.instantiates; and advise implementers to use the <a href="workflow-extensions.html">workflow instantiates extensions</a></li>
         <li>Renamed NutritionOrder.orderer to NutritionOrder.requester to align with the workflow pattern</li>
         <li>Renamed NutritionOrder.oralDiet.texture.foodType to NutritionOrder.oralDiet.texture.type</li>
         <li>Removed NutritionOrder.oralDiet.fluidConsistencyType</li>
