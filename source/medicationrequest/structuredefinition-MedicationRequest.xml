@@ -1148,7 +1148,7 @@ For example:  &#xA;&#xA;
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="subjectOf.substitutionPersmission"/>
+        <map value="subjectOf.substitutionPermission"/>
       </mapping>
     </element>
     <element id="MedicationRequest.substitution.allowed[x]">
