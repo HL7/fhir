@@ -4,12 +4,25 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+    <ul>
+        <li>Removed the instantiates workflow elements NutritionOrder.instantiatesCanonical, NutritionOrder.instantiatesUri and NutritionOrder.instantiates; and advise implementers to use the <a link="workflow-extensions.html">workflow instantiates extensions</a></li>
+        <li>Renamed NutritionOrder.orderer to NutritionOrder.requester to align with the workflow pattern</li>
+        <li>Renamed NutritionOrder.oralDiet.texture.foodType to NutritionOrder.oralDiet.texture.type</li>
+        <li>Removed NutritionOrder.oralDiet.fluidConsistencyType</li>
+        <li>Added NutritionOrder.oralDiet.caloricDensity and NutritionOrder.supplement.caloricDensity</li>
+        <li>Updated NutritionOrder.enteralFormula backbone</li>
+        <li>Pulled NutritionOrder.additive into its own backbone (previously part of NutritionOrder.enteralFormula)</li>
+    </ul>
+    </blockquote>
+
+
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Nutrition domain, also see the <a href="nutrition-module.html">module page</a>.
 </p>
 </blockquote>
 
-<p><strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html"><em>request</em> resources</a>.</strong></p>
 <p>
 The NutritionOrder resource describes a request for oral diets (including general diets such as General Healthy diet, or therapeutic diets such as Consistent Carbohydrate, 2-gram Sodium, or Fluid Restricted), oral nutrition supplements (such as nutritionally complete pre-packed drinks), enteral nutrition (tube feedings) and infant formula which govern the distribution of food and nutritional products used to feed patients within a patient setting. It does not cover orders for parenteral (IV) nutrition which are typically filled by pharmacy. These nutrition orders are combined with information on a patient's food allergies and intolerances, and ethnic or cultural food preferences (e.g. Kosher or Vegetarian) to inform healthcare personnel about the type, texture, and/or quantity of foods that the patient should receive or consume.
 </p>
