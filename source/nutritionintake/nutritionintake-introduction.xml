@@ -3,13 +3,22 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+        
+	<blockquote class="ballot-note" id="bn1">
+	<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+	<p>Addition of the following elements:</p>
+	<ul>
+		<li>Removed the instantiates workflow elements NutritionIntake.instantiatesCanonical and NutritionIntake.instantiatesUri and advise implementers to use the <a href="workflow-extensions.html">workflow instantiates extensions</a></li>
+		<li>Consolidated NutritionIntake.consumedItem and NutritionIntake.ingredientLabel into a NutritionIntake.nutritionItem backbone</li>
+		<li>The <a href="valueset-nutritionintake-status-reason.html">nutritionintake-status-reason</a> code system used in NutritionIntake.statusReason is currently defined in the FHIR specification, but is expected to be moved to <a href="https://terminology.hl7.org/">HL7 Terminology</a> (THO).</li>
+	</ul>
+	</blockquote>
 
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Nutrition domain, also see the <a href="nutrition-module.html">module page</a>.
 </p>
 </blockquote>
 
-<p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html"><em>event</em> resources</a>.</strong></p>
 <p>
 The NutritionIntake resource, in conjunction with the <a href="nutritionproduct.html">NutritionProduct</a> resource, is utilized to capture details about the consumption of foods (i.e., solid and/or liquid), supplements, enteral nutrition, and infant formula. Dietitians and other practitioners use the data to calculate how much nutrition a patient has taken in. NutritionIntake represents the event of consuming food (i.e. solid and/or liquid), etc. and NutritionProduct represents the actual food and formula items.
 </p>
@@ -23,7 +32,6 @@ Parenteral nutrition is out of scope as this ordering is handled through Medicat
 </p>
 </div>
 
-
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
@@ -33,7 +41,6 @@ Parenteral nutrition is out of scope as this ordering is handled through Medicat
 	<li>Parenteral nutrition should be recorded using the medication resources</li>
 </ul>
 </div>
-
 
 <div>
 <h2>Background and Context</h2>
