@@ -219,7 +219,6 @@ signatures.html
       <page type="resource" resource="Consent"/>
       <page type="resource" resource="Provenance"/>
       <page type="resource" resource="AuditEvent"/>
-      <page type="resource" resource="Permission"/>
     </page>
 
     <page title="Implementation Support" filename="implsupport-module.html" icon="implsupport.png">
