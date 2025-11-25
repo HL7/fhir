@@ -3,6 +3,20 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+    <ul>
+        <li>Addition of the following elements:</li>
+            <ul>
+                <li>DocumentReference.related</li>
+            </ul>
+        <li>Updates to the following elements:</li>
+            <ul>
+                <li>DocumentReference.bodySite has been changed to DocumentReference.bodyStructure</li>
+            </ul>
+    </ul>
+    </blockquote>
+
 <p>
 A <code>DocumentReference</code> resource is used to index a document, clinical note, and other binary objects such as a photo, video, or audio recording, including those resulting from diagnostic or care provision procedures, to make them available to a healthcare system. A document is some sequence of bytes that is identifiable, establishes its own context (e.g., what subject, author, etc. can be presented to the user), and has defined update management. The <code>DocumentReference</code> resource can be used with any document format that has a recognized mime type and that conforms to this definition.
 </p>
