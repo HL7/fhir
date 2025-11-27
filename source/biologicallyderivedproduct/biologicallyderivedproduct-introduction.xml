@@ -12,7 +12,8 @@
 			<li>The following artifacts have been moved to the [OO Incubator IG|<a href="https://build.fhir.org/ig/HL7/oo-incubator">https://build.fhir.org/ig/HL7/oo-incubator</a>]</li>
 			<ul>
 				<li>The Medical Product of Human Origin (MPHO) Profile is still under development.</li>
-				<li>The BiologicallyDerivedProductDispense resource.  Additional work need to be done on dispensing and administering biologically derived products.</li>
+				<li>The BiologicallyDerivedProductDispense resource.  Additional work needs to be done on dispensing and administering biologically derived products.</li>
+
 			</ul>
         </ul>
         </blockquote>
