@@ -20,7 +20,58 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
   </text>
 
   <contained>
-    <!-- Cholesterol observation with profile reference -->
+  <!-- Lipid panel (Group) with panel member Observation resources -->
+    <Group xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
+      <id value="lipidpanel-group"/>
+      <status value="active"/>
+      <!--
+      <category>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+          <code value="laboratory"/>
+          <display value="Laboratory"/>
+        </coding>
+        <text value="Laboratory"/>
+      </category>
+      -->
+      <type value="observation"/>
+      <membership value="enumerated"/>
+      <code>
+        <text value="Lipid Panel"/>
+      </code>
+      <!--
+      <subject>
+        <reference value="Patient/pat2"/>
+        <display value="Wile E. Coyote"/>
+      </subject>
+      <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
+      <issued value="2013-01-27T11:45:33+11:00"/>
+      -->
+      <member>
+        <entity>
+          <reference value="#cholesterol"/>
+        </entity>
+      </member>
+      <member>
+        <entity>
+          <reference value="#triglyceride"/>
+        </entity>
+      </member>
+      <member>
+        <entity>
+          <reference value="#hdlcholesterol"/>
+        </entity>
+      </member>
+      <member>
+        <entity>
+          <reference value="#ldlcholesterol"/>
+        </entity>
+      </member>
+    </Group>
+  </contained>
+
+  <contained>
+  <!-- Cholesterol observation with profile reference -->
     <Observation>
       <id value="cholesterol"/>
       <status value="final"/>
@@ -262,19 +313,10 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
     <display value="Acme Laboratory, Inc"/>
   </performer>
   
-  
-  <!-- References to contained observations -->
+
+  <!-- References to contained resources for panel (Group) and tests (Observation) -->
   <result>
-    <reference value="#cholesterol"/>
-  </result>
-  <result>
-    <reference value="#triglyceride"/>
-  </result>
-  <result>
-    <reference value="#hdlcholesterol"/>
-  </result>
-  <result>
-    <reference value="#ldlcholesterol"/>
+    <reference value="#lipidpanel-group"/>
   </result>
   
  

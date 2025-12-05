@@ -50,7 +50,7 @@ The DiagnosticReport.code always contains the name of the report itself. The rep
 <li>
  Examples of nesting groups/panels within an observation include reporting a "profile" consisting of several  panels as is shown in <a href="diagnosticreport-example-ghp.html">this example</a>, a group of antibiotic isolate/sensitivities for a bacterial culture, or a set of perinatal measurements on a single fetus.
  </li>
- <li>There is rarely a need for more than two levels of nesting in the Observation tree. One known use is for organism sensitivities - an example of a <a href="diagnosticreport-micro1.html">complex Micro Isolate and Sensitivities</a> is provided.
+ <li>There is rarely a need for more than two levels of nesting in the Observation tree. One known use is for organism sensitivities.
 </li>
 </ul>
 </li>

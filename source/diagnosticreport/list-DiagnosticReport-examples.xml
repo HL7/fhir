@@ -18,18 +18,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Various reports gathered from v2 messages"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="diagnosticreport-examples-general"/>
-    </extension>
-    <item>
-      <reference value="DiagnosticReport/72ac8493-52ac-41bd-8d5d-7258c289b5ea"/>
-      <display value="Assorted Collection"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Real-world patient example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -54,18 +42,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Real-world patient example"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="diagnosticreport-example-f202-bloodculture"/>
-    </extension>
-    <item>
-      <reference value="DiagnosticReport/f202"/>
-      <display value="Blood culture"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Imaging Example (Bone Density DXA)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
@@ -74,18 +50,6 @@
     <item>
       <reference value="DiagnosticReport/102"/>
       <display value="Bone Density"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="An example of a complex Micro Isolate and Sensitivities."/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="diagnosticreport-micro1"/>
-    </extension>
-    <item>
-      <reference value="DiagnosticReport/micro"/>
-      <display value="Micro Isolate and Sensitivities-1"/>
     </item>
   </entry>
   <entry>

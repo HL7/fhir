@@ -1,0 +1,44 @@
+<mappingExceptions pattern="Definition" resource="DiagnosticReport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
+    <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Definition.version" resourcePath="DiagnosticReport.version">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Business version of the diagnostic report"/>
+            <resource value="An explicitly assigned identifier of a variation of the content in the DiagnosticReport"/>
+        </shortUnmatched>
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="The identifier that is used to identify this version of the diagnostic report when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the diagnostic report author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+            <resource value="An explicitly assigned identifier of a variation of the content in the DiagnosticReport."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="There may be different diagnostic reports that have the same url but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the diagnostic report with the format. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+            <resource value="While each resource, including the DiagnosticReport itself, has its own version identifier, this is a formal identifier for the logical version of the DiagnosticReport as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <unmappedElement patternPath="Definition.contact" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.derivedFromCanonical" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.approvalDate" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.name" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.description" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.jurisdiction" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.copyrightLabel" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.effectivePeriod" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.product" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.code" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.title" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.date" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.status" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.url" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.copyright" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.lastReviewDate" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.subject" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.identifier" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.purpose" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.derivedFromUri" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.versionAlgorithm" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.publisher" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.performerType" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.partOf" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.topic" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.useContext" reason="Unknown"/>
+    <unmappedElement patternPath="Definition.experimental" reason="Unknown"/>
+</mappingExceptions>

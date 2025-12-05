@@ -714,14 +714,14 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="An example of a lipid panel using an organizer Observation."/>
+      <valueString value="An example of a lipid panel using a Group resource to organize the panel Observation resources."/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="observation-example-lipidpanel-organizer"/>
+      <valueString value="observation-example-lipidpanel"/>
     </extension>
     <item>
-      <reference value="Observation/lipidpanel-organizer"/>
-      <display value="Lipid panel with organizer"/>
+      <reference value="Observation/lipidpanel"/>
+      <display value="Lipid panel with Group resource as the panel organizer."/>
     </item>
   </entry>
 </List>

@@ -1,0 +1,29 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<h2>Scope and Usage</h2>
+<p>
+This is <b>NOT</b> a resource.  It is not part of the FHIR schema and cannot appear directly in FHIR instances.  It is a logical model that defines a pattern adhered to by
+other resources.  This pattern is defined to provide a standard "view" that might be useful for implementers in processing and manipulating all resources that adhere 
+to this pattern. Typically, this appears in object frameworks as an interface that the various resources that adhere to the pattern implement.
+</p>
+<p>
+A "document" is a structure with the capability to represent both data content and structure. 
+</p>
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This pattern is intended to apply to all documents.</p>
+</div>
+
+<div>
+<h2>Background and Context</h2>
+<p>
+Though this pattern may be instantiated by multiple resources (currently Composition and DiagnosticReport), there is some variation in the value 
+domains of the underlying resources, and any use of the pattern will need to account for this.
+</p>
+</div>
+
+</div>

@@ -50,6 +50,11 @@
   <purpose value="To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
+    <identity value="interface"/>
+    <uri value="http://hl7.org/fhir/interface"/>
+    <name value="Interface Pattern"/>
+  </mapping>
+  <mapping>
     <identity value="workflow"/>
     <uri value="http://hl7.org/fhir/workflow"/>
     <name value="Workflow Pattern"/>
@@ -92,6 +97,10 @@
         <map value="Event"/>
       </mapping>
       <mapping>
+        <identity value="interface"/>
+        <map value="Document"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value="Document[classCode=&quot;DOC&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]"/>
       </mapping>
@@ -120,6 +129,10 @@
         <code value="uri"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.url"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
@@ -168,6 +181,10 @@
       </type>
       <isSummary value="true"/>
       <mapping>
+        <identity value="interface"/>
+        <map value="Document.version"/>
+      </mapping>
+      <mapping>
         <identity value="cda"/>
         <map value=".versionNumber"/>
       </mapping>
@@ -190,6 +207,10 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Consent"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.consent"/>
+      </mapping>
       <mapping>
         <identity value="cda"/>
         <map value=".authorization.consent"/>
@@ -468,6 +489,10 @@
         <code value="UsageContext"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.useContext"/>
+      </mapping>
     </element>
     <element id="Composition.author">
       <path value="Composition.author"/>
@@ -488,6 +513,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.author"/>
+      </mapping>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.performer"/>
@@ -518,6 +547,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.participant"/>
+      </mapping>
     </element>
     <element id="Composition.participant.type">
       <path value="Composition.participant.type"/>
@@ -536,6 +569,10 @@
         <description value="FHIR Clinical Document Participant Types. Author, Authenticator, Custodian, Legal Authenticator, Record Target and Subject are found in distinct, named fields in FHIR. Thus, these types are excluded."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/fhir-clinical-doc-participant"/>
       </binding>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.participant.type"/>
+      </mapping>
     </element>
     <element id="Composition.participant.function">
       <path value="Composition.participant.function"/>
@@ -553,6 +590,10 @@
         <description value="To specify the exact function an actor had in a service in all necessary detail."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ParticipationFunction"/>
       </binding>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.participant.function"/>
+      </mapping>
     </element>
     <element id="Composition.participant.time">
       <path value="Composition.participant.time"/>
@@ -562,6 +603,10 @@
       <type>
         <code value="Period"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.participant.time"/>
+      </mapping>
     </element>
     <element id="Composition.participant.party">
       <path value="Composition.participant.party"/>
@@ -577,6 +622,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.participant.party"/>
+      </mapping>
     </element>
     <element id="Composition.name">
       <path value="Composition.name"/>
@@ -590,6 +639,10 @@
         <code value="string"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.name"/>
+      </mapping>
     </element>
     <element id="Composition.title">
       <path value="Composition.title"/>
@@ -602,6 +655,10 @@
         <code value="string"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.title"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="./title"/>
@@ -624,6 +681,10 @@
       <type>
         <code value="Annotation"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.note"/>
+      </mapping>
     </element>
     <element id="Composition.attester">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
@@ -640,6 +701,10 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="cmp-3"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.attester"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
@@ -672,6 +737,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
       </binding>
       <mapping>
+        <identity value="interface"/>
+        <map value="Document.attester.mode"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value="unique(./modeCode)"/>
       </mapping>
@@ -694,6 +763,10 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.attester.time"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="./time[type=&quot;TS&quot; and isNormalDatatype()]"/>
@@ -723,6 +796,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.attester.party"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
@@ -756,6 +833,10 @@
       </type>
       <isSummary value="true"/>
       <mapping>
+        <identity value="interface"/>
+        <map value="Document.custodian"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]"/>
       </mapping>
@@ -781,6 +862,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.relatesTo"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship"/>
@@ -811,6 +896,10 @@
         <description value="The type of relationship to the related artifact."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/artifact-relationship-type"/>
       </binding>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.relatesTo.type"/>
+      </mapping>
     </element>
     <element id="Composition.relatesTo.target[x]">
       <path value="Composition.relatesTo.target[x]"/>
@@ -835,6 +924,10 @@
       <type>
         <code value="markdown"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.relatesTo.target[x]"/>
+      </mapping>
     </element>
     <element id="Composition.event">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -851,6 +944,10 @@
         <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.event"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=&quot;SUBJ&quot;].target[classCode&lt;'ACT']"/>
@@ -870,6 +967,10 @@
         <code value="Period"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.event.period"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".effectiveTime"/>
@@ -903,6 +1004,10 @@
         <description value="This list of codes represents the main clinical acts being documented."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActCode"/>
       </binding>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.event.detail"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].target"/>
@@ -954,6 +1059,10 @@
         <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
       </constraint>
       <mapping>
+        <identity value="interface"/>
+        <map value="Document.section"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>
       </mapping>
@@ -976,6 +1085,10 @@
       <type>
         <code value="string"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.title"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="./title"/>
@@ -1005,6 +1118,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/doc-section-codes"/>
       </binding>
       <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.code"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value="./code"/>
       </mapping>
@@ -1031,6 +1148,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.author"/>
+      </mapping>
+      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.author"/>
       </mapping>
@@ -1055,6 +1176,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.focus"/>
+      </mapping>
+      <mapping>
         <identity value="cda"/>
         <map value=".subject? (CDA did not differentiate between subject and focus)"/>
       </mapping>
@@ -1070,6 +1195,10 @@
         <code value="Narrative"/>
       </type>
       <condition value="cmp-1"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.text"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".text"/>
@@ -1088,6 +1217,10 @@
       <type>
         <code value="Annotation"/>
       </type>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.note"/>
+      </mapping>
     </element>
     <element id="Composition.section.orderedBy">
       <path value="Composition.section.orderedBy"/>
@@ -1108,6 +1241,10 @@
         <description value="What order applies to the items in the entry."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/list-order"/>
       </binding>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.orderedBy"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP].sequenceNumber &gt; 1"/>
@@ -1133,6 +1270,10 @@
       </type>
       <condition value="cmp-1"/>
       <condition value="cmp-2"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.entry"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]"/>
@@ -1163,6 +1304,10 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/list-empty-reason"/>
       </binding>
       <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.emptyReason"/>
+      </mapping>
+      <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ,code&lt;ListEmptyReason].value[type=CD]"/>
       </mapping>
@@ -1182,6 +1327,10 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Composition.section"/>
+      <mapping>
+        <identity value="interface"/>
+        <map value="Document.section.section"/>
+      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>

@@ -122,13 +122,6 @@
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
       <constraint>
-        <key value="obs-11"/>
-        <severity value="error"/>
-        <human value="if organizer exists and organizer = true, then value[x], dataAbsentReason and component SHALL NOT be present"/>
-        <expression value="(organizer.exists() and organizer.allTrue()) implies (value.empty() and dataAbsentReason.empty() and component.empty())"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-      </constraint>
-      <constraint>
         <key value="obs-12"/>
         <severity value="warning"/>
         <human value="All observations SHOULD have a performer"/>
@@ -529,19 +522,6 @@
         <map value="participation[typeCode=SBJ]"/>
       </mapping>
     </element>
-    <element id="Observation.organizer">
-      <path value="Observation.organizer"/>
-      <short value="This observation organizes/groups a set of sub-observations"/>
-      <definition value="This observation serves as an organizer or grouper for a set of (one or more) sub-observations."/>
-      <comment value="An observation that is an organizer/grouper does not have a value (or dataAbsentReason) of its own - all values are included in the sub-observations.  The sub-observations are linked using hasMember element references (in some instances there may be no hasMember references, as it is possible that the organizer/grouper observation may be created first, and the sub-observations are not created until a later time).  An organizer/grouper observation also does not contain any components."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <condition value="obs-11"/>
-      <isSummary value="true"/>
-    </element>
     <element id="Observation.encounter">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3379]."/>
@@ -732,7 +712,6 @@
       </type>
       <condition value="obs-7"/>
       <condition value="obs-6"/>
-      <condition value="obs-11"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="sct-concept"/>
@@ -766,7 +745,6 @@
         <code value="CodeableConcept"/>
       </type>
       <condition value="obs-6"/>
-      <condition value="obs-11"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationValueAbsentReason"/>
@@ -1342,7 +1320,6 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="obs-7"/>
-      <condition value="obs-11"/>
       <condition value="obs-10"/>
       <isSummary value="true"/>
       <mapping>

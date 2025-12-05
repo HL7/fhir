@@ -149,8 +149,8 @@
 			<constraint>
 				<key value="bdl-11"/>
 				<severity value="error"/>
-				<human value="A document must have a Composition as the first resource"/>
-				<expression value="type = 'document' implies entry.first().resource.is(Composition)"/>
+				<human value="A document must have a Composition or a DiagnosticReport as the first resource"/>
+				<expression value="type = 'document' implies (entry.first().resource.is(Composition) or entry.first().resource.is(DiagnosticReport))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
 			</constraint>
 			<constraint>

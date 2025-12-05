@@ -2,7 +2,6 @@
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
     <unmappedElement patternPath="FiveWs.author" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.where" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.init" reason="Unknown"/>

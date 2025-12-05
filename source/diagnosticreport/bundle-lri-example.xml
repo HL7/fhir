@@ -80,36 +80,80 @@
 					<reference value="Specimen/101"/>
 				</specimen>
 				<result>
-					<reference value="Observation/lri-organism1"/>
-					<display value="Normal Flora"/>
-				</result>
-				<result>
-					<reference value="Observation/lri-organism2"/>
-					<display value="Klebsiella pneumoniaee"/>
-				</result>
-				<result>
-					<reference value="Observation/lri-organism3"/>
-					<display value="Staphylococcus aureus"/>
-				</result>
-				<result>
-					<reference value="Observation/lri-gramstain1"/>
-					<display value="Many WBCs"/>
-				</result>
-				<result>
-					<reference value="Observation/lri-gramstain2"/>
-					<display value="Moderate Gram Positive Rods"/>
-				</result>
-				<result>
-					<reference value="Observation/lri-gramstain3"/>
-					<display value="Moderate Gram Positive Cocci in Chains"/>
-				</result>
-				<result>
-					<reference value="Observation/lri-gramstain4"/>
-					<display value="Many Gram Negative Rods"/>
+					<reference value="Group/lri-group"/>
 				</result>
 			</DiagnosticReport>
 		</resource>
 	</entry>
+
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="624-7"/>
+						<display value="Bacteria Spt Resp Cult"/>
+					</coding>
+					<text value="Aerobic Respiratory Culture, Sputum"/>
+				</code>
+
+
+	<entry>
+		<fullUrl value="http://test.fhir.org/r5/Group/lri-group"/>
+		<resource>
+			<!-- Aerobic Respiratory Culture, Sputum (Group) with panel member Observation resources -->
+			<Group xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
+			<id value="lri-group"/>
+			<status value="active"/>
+			<type value="observation"/>
+			<membership value="enumerated"/>
+			<code>
+				<text value="Aerobic Respiratory Culture, Sputum"/>
+			</code>
+				<member>
+				<entity>
+					<reference value="Observation/lri-organism1"/>
+					<display value="Normal Flora"/>
+				</entity>
+			</member>
+				<member>
+				<entity>
+					<reference value="Observation/lri-organism2"/>
+					<display value="Klebsiella pneumoniaee"/>
+				</entity>
+			</member>
+				<member>
+				<entity>
+					<reference value="Observation/lri-organism3"/>
+					<display value="Staphylococcus aureus"/>
+				</entity>
+			</member>
+				<member>
+				<entity>
+					<reference value="Observation/lri-gramstain1"/>
+					<display value="Many WBCs"/>
+				</entity>
+			</member>
+				<member>
+				<entity>
+					<reference value="Observation/lri-gramstain2"/>
+					<display value="Moderate Gram Positive Rods"/>
+				</entity>
+			</member>
+				<member>
+				<entity>
+					<reference value="Observation/lri-gramstain3"/>
+					<display value="Moderate Gram Positive Cocci in Chains"/>
+				</entity>
+			</member>
+				<member>
+				<entity>
+					<reference value="Observation/lri-gramstain4"/>
+					<display value="Many Gram Negative Rods"/>
+				</entity>
+			</member>
+			</Group>
+		</resource>
+	</entry>
+
 	<entry>
 		<fullUrl value="http://test.fhir.org/r5/Observation/lri-gramstain1"/>
 		<resource>

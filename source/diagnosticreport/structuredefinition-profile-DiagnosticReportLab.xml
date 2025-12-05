@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+  <id value="DiagnosticReportLab"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Diagnostics"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/DiagnosticReportLab"/>
+  <version value="6.0.0"/>
+  <name value="DiagnosticReportLab"/>
+  <title value="DiagnosticReport Laboratory Results Profile"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="HL7 International / Orders and Observations"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The results and interpretation of diagnostic laboratory tests performed on patients, groups of patients, products, substances, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports."/>
+  <purpose value="To support reporting for any diagnostic laboratory resultsreport into a clinical data repository."/>
+  <fhirVersion value="6.0.0"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="DiagnosticReport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="DiagnosticReport">
+      <path value="DiagnosticReport"/>
+    </element>
+    <element id="DiagnosticReport.result">
+      <path value="DiagnosticReport.result"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticResultsGroup"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/List"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

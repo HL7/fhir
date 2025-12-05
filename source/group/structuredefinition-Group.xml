@@ -396,7 +396,7 @@
     </element>
     <element id="Group.type">
       <path value="Group.type"/>
-      <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen | medication | medicinalproductdefinition | substance | substancedefinition | biologicallyDerivedProduct | nutritionProduct"/>
+      <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen | medication | medicinalproductdefinition | substance | substancedefinition | biologicallyDerivedProduct | nutritionProduct | observation | observationdefinition"/>
       <definition value="Identifies the broad classification of the kind of resources the group includes."/>
       <comment value="Group members SHALL be of the appropriate resource type (Patient for person or animal; or Practitioner, PractitionerRole, Device, CareTeam, HealthcareService, Location, Organization, RelatedPerson, Specimen, Medication, Substance, BiologicallyDerivedProduct, or NutritionProduct for the other types.), or a Group of the resources of the appropriate type."/>
       <requirements value="Identifies what type of resources the group is made up of."/>
@@ -813,6 +813,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
     </element>
     <element id="Group.member.involvement">

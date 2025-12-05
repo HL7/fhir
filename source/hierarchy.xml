@@ -342,6 +342,7 @@ signatures.html
       <page title="Definition Pattern" filename="definition.html"/>
       <page title="Request Pattern" filename="request.html"/>
       <page title="Event Pattern" filename="event.html"/>
+      <page title="Document Pattern" filename="document.html"/>
       <page title="Participant Pattern" filename="participant.html"/>
       <page title="Participant - Contactable Pattern" filename="participantcontactable.html"/>
       <page title="Participant - Living Pattern" filename="participantliving.html"/>

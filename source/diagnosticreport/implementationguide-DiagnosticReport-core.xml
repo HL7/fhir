@@ -1,21 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <ImplementationGuide xmlns="http://hl7.org/fhir">
-  <id value="Group-core"/>
+  <id value="DiagnosticReport-core"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.30.3"/>
   </identifier>
-  <name value="StandardGroupExtensions"/>
-  <title value="Standard Group Extensions"/>
+  <name value="StandardDiagnosticReportExtensions"/>
+  <title value="Standard DiagnosticReport Extensions"/>
   <status value="draft"/>
   <date value="2014-01-31T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
-  <description value="This guide describes common extensions and profiles that are used with Group"/>
+  <description value="This guide describes common extensions and profiles that are used with DiagnosticReport"/>
   <definition>
     <resource>
       <reference>
-        <reference value="StructureDefinition/DiagnosticResultsGroup"/>
+        <reference value="StructureDefinition/DiagnosticReportLab"/>
       </reference>
     </resource>
   </definition>

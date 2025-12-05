@@ -127,4 +127,14 @@
     <display value="NutritionProduct"/>
     <definition value="Group contains NutritionProduct resources."/>
   </concept>
+  <concept>
+    <code value="observation"/>
+    <display value="Observation"/>
+    <definition value="Group contains Observation resources."/>
+  </concept>
+  <concept>
+    <code value="observationdefinition"/>
+    <display value="ObservationDefinition"/>
+    <definition value="Group contains ObservationDefinition resources."/>
+  </concept>
 </CodeSystem>

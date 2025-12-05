@@ -66,7 +66,7 @@ Note that all bundle types use resource identity resolution as described below.
 
 <p>
 A document Bundle (type = "document") consists of a series of 
-entries, the first of which is a <a href="composition.html">Composition</a>. 
+entries, the first of which is a resource which implements the <a href="document.html">Document</a> pattern (<a href="composition.html">Composition</a> or <a href="composition.html">DiagnosticReport</a>). 
 Each entry element contains a resource. See <a href="documents.html">Documents</a> for further information.
 </p>
 

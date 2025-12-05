@@ -48,10 +48,10 @@
 			</ul>
 		</li>
 		<li>
-			<p>Lipid panel with organizer Observation:</p>
+			<p>Lipid panel with Group resource as the panel organizer:</p>
 			<ul>
 				<li>
-					<a href="observation-example-lipidpanel-organizer.html">An example of a lipid panel with an organizer Observation.</a>
+					<a href="observation-example-lipidpanel.html">An example of a lipid panel with a Group resource to organize the panel Observation resources.</a>
 				</li>
 				<li>
 					<a href="observation-example-cholesterol.html"> An example of a total cholesterol measurement.</a>

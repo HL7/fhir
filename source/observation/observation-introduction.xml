@@ -75,11 +75,4 @@ The Observation resource is used extensively for observations about people, grou
 <p>The Observation resource contains several elements related to the origin and quality of the observation. To record more detailed information about the source of an Observation, the <a href="provenance.html">Provenance</a> resource may be used. More in-depth commentary about or evaluation of the Observation record itself may be recorded in <a href="artifactassessment.html">ArtifactAssessment</a>.
 </p>
 </div>
-
-<blockquote class="ballot-note" id="bn">
-<p><b>Note to Balloters:</b>
-A new <code>organizer</code> element is added to the normative Observation resource in this ballot. The OO Work Group is seeking reviewers and implementer feedback on this new element, which is intended to help clarify and make explicit when an instance of the Observation resource is used for organizing/grouping sets of sub-observations (e.g., for laboratory panel/battery result reporting).  This capability is particularly applicable for use in laboratory result reporting, but it can also be used as appropriate with other types of observations.
-</p>
-</blockquote>
-
 </div>

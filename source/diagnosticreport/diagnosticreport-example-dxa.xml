@@ -123,6 +123,62 @@ GE LUNAR PRODIGY DENSITOMETER
 </pre>
 		</div>
 	</text>
+
+	<contained>
+		<Group xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
+			<id value="bmdpanel-group"/>
+			<status value="active"/>
+			<type value="observation"/>
+			<membership value="enumerated"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="38269-7"/>
+				</coding>
+				<text value="DXA BONE DENSITOMETRY"/>
+			</code>
+			<member>
+				<entity>
+					<reference value="Observation/bmd"/> <!--	 but just one for now,  but for this example there should be more as listed here -->
+				</entity>
+			</member>
+			<!--
+			<member>
+				<entity>
+					<reference value="Observation/bmd1"/>
+				</entity>
+			</member>
+			<member>
+				<entity>
+					<reference value="Observation/bmd2"/>
+				</entity>
+			</member>
+			<member>
+				<entity>
+					<reference value="Observation/bmd3"/>
+				</entity>
+			</member>
+			<member>
+				<entity>
+					<reference value="Observation/bmd4"/>
+				</entity>
+			</member>
+			<member>
+				<entity>
+					<reference value="Observation/bmd5"/>
+				</entity>
+			</member>
+			<member>
+				<entity>
+					<reference value="Observation/bmd6"/>
+				</entity>
+			</member>
+			-->
+		</Group>
+	</contained>
+
 	<status value="final"/><!--      femur, laterality = left      --><!--      first, various administrative/context stuff      --><code>
 		<coding>
 			<system value="http://loinc.org"/>
@@ -138,16 +194,8 @@ GE LUNAR PRODIGY DENSITOMETER
 		<display value="Dr Henry Seven"/>
 	</performer>
 	<result>
-		<reference value="Observation/bmd"/><!--	 but just one for now,  but for this example there should be more as listed here 
-<reference value="Observation/bmd1"/>      (LEFT  24701-5  DXA Femur [Mass/Area] Bone densityO g/cm2) 
-<reference value="Observation/bmd2>      (LEFT 8263-0  Femur DXA [T-score] Bone densityO {T-score})
-
-<reference value="Observation/bmd3"/>      (RIGHT 24701-5  DXA Femur [Mass/Area] Bone densityO g/cm2)
-<reference value="Observation/bmd4"/>      (RIGHT 38263-0  Femur DXA [T-score] Bone densityO {T-score})
-
-<reference value="Observation/bmd5"/>      (24966-4  Lumbar spine DXA Bone densityO g/cm2)
-<reference value="Observation/bmd6"/>     (38267-1  Lumbar spine DXA [T-score] Bone densityO {T-score})
---></result><!--      the imaging service marks this to help find categories of patient      --><conclusionCode>
+		<reference value="#bmdpanel-group"/>
+	</result><!--      the imaging service marks this to help find categories of patient      --><conclusionCode>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="391040000"/>

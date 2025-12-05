@@ -78,7 +78,7 @@
 			<code>Observation.hasMember</code> and <code>Observation.derivedFrom</code> and the core extensions: <a href="http://hl7.org/fhir/StructureDefinition/observation-sequelTo">Observation-sequelTo</a> and <a href="http://hl7.org/fhir/StructureDefinition/observation-replaces">Observation-replaces</a> are used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. Two common use cases for using this structure are:
 			</p>
 		<ol>
-			<li>For grouping related observations such as for a "panel" or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>)
+			<li>For grouping related observations such as for a "panel" or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>.  This structure permits <em>nested grouping</em> when used with DiagnosticReport
 			as described in the <a href="diagnostics-module.html#org-dr-obs">Diagnostics
 			Module</a> 
 			</li>

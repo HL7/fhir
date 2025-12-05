@@ -43,24 +43,68 @@
 					<display value="Burgers University Medical Centre"/>
 				</performer>
 				<result>
-					<reference value="Observation/f001"/>
+					<reference value="Group/cbcpanel-group"/>
 				</result>
-			 	<result>
-					<reference value="Observation/f002"/>
-				</result>
-				<result>
-					<reference value="Observation/f003"/>
-				</result>
-				<result>
-					<reference value="Observation/f004"/>
-				</result>
-				<result>
-					<reference value="Observation/f005"/>
-				</result> 
 				<conclusion value="Core lab"/>
 			</DiagnosticReport>
 		</resource>
 	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Group/cbcpanel-group"/>
+		<resource>
+			<Group xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
+				<id value="cbcpanel-group"/>
+				<status value="active"/>
+				<type value="observation"/>
+				<membership value="enumerated"/>
+				<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="58410-2"/>
+						<display value="CBC panel - Blood by Automated count"/>
+					</coding>
+				</code>
+				<member>
+					<entity>
+						<reference value="Observation/bmd"/> <!--	 but just one for now,  but for this example there should be more as listed here -->
+					</entity>
+				</member>
+				<member>
+					<entity>
+						<reference value="Observation/bmd1"/>
+					</entity>
+				</member>
+				<member>
+					<entity>
+						<reference value="Observation/bmd2"/>
+					</entity>
+				</member>
+				<member>
+					<entity>
+						<reference value="Observation/bmd3"/>
+					</entity>
+				</member>
+				<member>
+					<entity>
+						<reference value="Observation/bmd4"/>
+					</entity>
+				</member>
+				<member>
+					<entity>
+						<reference value="Observation/bmd5"/>
+					</entity>
+				</member>
+				<member>
+					<entity>
+						<reference value="Observation/bmd6"/>
+					</entity>
+				</member>
+			</Group>
+		</resource>
+	</entry>
+
 	<entry>
 		<fullUrl value="https://example.com/base/ServiceRequest/req"/>
 		<resource>

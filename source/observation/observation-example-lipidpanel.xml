@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
-	<id value="bgpanel"/>
+	<id value="lipidpanel"/>
 	<status value="final"/>
 	<category>
 		<coding>
@@ -11,23 +11,29 @@
 		<text value="Laboratory"/>
 	</category>
 	<code>
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="34532-2"/>
-			<display value="Blood type and Indirect antibody screen panel - Blood"/>
-		</coding>
-		<text value="Blood Group Panel"/>
+		<text value="Lipid Panel"/>
 	</code>
 	<subject>
-		<reference value="Patient/infant"/>
+		<reference value="Patient/pat2"/>
 	</subject>
-	<organizer value="true"/>
-	<effectiveDateTime value="2018-03-11T16:07:54+00:00"/>
-	<valueString value="A pos"/>
+	<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+	<issued value="2015-08-16T08:40:17Z"/>
 	<hasMember>
-		<reference value="Observation/bloodgroup"/>
+		<reference value="Observation/cholesterol"/>
 	</hasMember>
 	<hasMember>
-		<reference value="Observation/rhstatus"/>
+		<reference value="Observation/hdl"/>
+	</hasMember>
+	<hasMember>
+		<reference value="Observation/ldl"/>
+	</hasMember>
+	<hasMember>
+		<reference value="Observation/non-hdl"/>
+	</hasMember>
+	<hasMember>
+		<reference value="Observation/triglycerides"/>
+	</hasMember>
+	<hasMember>
+		<reference value="Observation/vldl"/>
 	</hasMember>
 </Observation>

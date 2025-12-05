@@ -73,57 +73,11 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 				<performer>
 					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 					<display value="Acme Laboratory, Inc"/>
-				</performer><!--    now the atomic results    --><result>
-					<reference value="Observation/r1"/>
-				</result>
+				</performer><!--    now the atomic results    -->
 				<result>
-					<reference value="Observation/r2"/>
+					<reference value="Group/cbc-group"/>
 				</result>
-				<result>
-					<reference value="Observation/r3"/>
-				</result>
-				<result>
-					<reference value="Observation/r4"/>
-				</result>
-				<result>
-					<reference value="Observation/r5"/>
-				</result>
-				<result>
-					<reference value="Observation/r6"/>
-				</result>
-				<result>
-					<reference value="Observation/r7"/>
-				</result>
-				<result>
-					<reference value="Observation/r8"/>
-				</result>
-				<result>
-					<reference value="Observation/r9"/>
-				</result>
-				<result>
-					<reference value="Observation/r10"/>
-				</result>
-				<result>
-					<reference value="Observation/r11"/>
-				</result>
-				<result>
-					<reference value="Observation/r12"/>
-				</result>
-				<result>
-					<reference value="Observation/r13"/>
-				</result>
-				<result>
-					<reference value="Observation/r14"/>
-				</result>
-				<result>
-					<reference value="Observation/r15"/>
-				</result>
-				<result>
-					<reference value="Observation/r16"/>
-				</result>
-				<result>
-					<reference value="Observation/r17"/>
-				</result><!--    finally, here's a pdf representation of the same report.
+				<!--    finally, here's a pdf representation of the same report.
     A consuming application could choose to display either the
 	html version above, or the pdf version - they both need to convey the
 	same information    --><presentedForm>
@@ -133,6 +87,81 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 					<title value="HTML Report"/>
 				</presentedForm>
 			</DiagnosticReport>
+		</resource>
+	</entry>
+	<entry>
+		<fullUrl value="https://example.com/base/Group/cbc-group"/>
+		<resource>
+			<!-- Complete Blood Count (Group) with panel member Observation resources -->
+			<Group xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
+			<id value="cbc-group"/>
+			<status value="active"/>
+			<type value="observation"/>
+			<membership value="enumerated"/>
+			<code>
+					<coding>
+						<system value="http://loinc.org"/>
+						<code value="58410-2"/>
+						<display value="CBC panel - Blood by Automated count"/>
+					</coding>
+					<coding>
+						<code value="CBC"/>
+						<display value="MASTER FULL BLOOD COUNT"/>
+					</coding>
+					<text value="Complete Blood Count"/>
+			</code>
+				<member><entity>
+					<reference value="Observation/r1"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r2"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r3"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r4"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r5"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r6"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r7"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r8"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r9"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r10"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r11"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r12"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r13"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r14"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r15"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r16"/>
+				</entity></member>
+				<member><entity>
+					<reference value="Observation/r17"/>
+				</entity></member>			
+			</Group>
 		</resource>
 	</entry>
 	<entry>

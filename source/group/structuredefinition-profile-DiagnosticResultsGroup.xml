@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="DiagnosticResultsGroup"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/DiagnosticResultsGroup"/>
+  <version value="6.0.0"/>
+  <name value="DiagnosticResultsGroup"/>
+  <title value="Diagnostic Results Group Profile"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2016-03-25"/>
+  <publisher value="HL7 International / Orders and Observations"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm Orders and Observations"/>
+    </telecom>
+  </contact>
+  <description value="Diagnostic Results Group Profile"/>
+  <fhirVersion value="6.0.0"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Group"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Group"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Group">
+      <path value="Group"/>
+    </element>
+    <element id="Group.type">
+      <path value="Group.type"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosticResultsGroupType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Types of resources that are part of the group."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-results-group-type"/>
+      </binding>
+    </element>
+    <element id="Group.member">
+      <path value="Group.member"/>
+    </element>
+    <element id="Group.member.entity">
+      <path value="Group.member.entity"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticResultsGroup"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>
