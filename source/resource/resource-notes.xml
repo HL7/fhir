@@ -399,7 +399,7 @@ in particular implementations or contexts of use.
   <li><a href="#tabs-Meta-xml">XML</a></li>
   <li><a href="#tabs-Meta-json">JSON</a></li>
   <li><a href="#tabs-Meta-ttl">Turtle</a></li>
-  <li><a href="#tabs-Meta-diff">R4 Diff</a></li>
+  <li><a href="#tabs-Meta-diff">Version Diff</a></li>
   <li><a href="#tabs-Meta-all">All</a></li>
  </ul>
  <div id="tabs-Meta-struc">
