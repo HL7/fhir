@@ -116,9 +116,9 @@ rather than merely saying "family member".  There are a few options to support c
 <p>This is a modifier element because it modifies the meaning of the characteristic.value[x].</p>
 <h4>Describing when the characteristic value is present</h4>
 <p>The Group.characteristic.period describes when the characteristic value is present in calendar time; e.g. the patient had an operation during the month of June.</p>
-<p>The Group.characteristic.timing describes when the characteristic value is present with respect to an event; e.g. within a month following patient discharge.</p>
+<p>The Group.characteristic.relativeTime describes when the characteristic value is present with respect to an event; e.g. within a month following patient discharge.</p>
 <p>Note: RelativeTime is a recent addition to the Group Resource. RelativeTime is used to express a point in time or an interval of time relative to an event defined in data types other than dateTime.</p>
 <p>Example: <a href="group-example-outcomedefinition-hba1c-at-12-months.html">Example of Group for HbA1c at 12 months</a></p>
-<p>Example includes timing and offset "At 12 months form inclusion in a clinical trial. Inclusion is defined as enrollment via the SNOMED code.</p>
-<p>"timing": [ { "contextCode": { "coding": [ { "system": "http://snomed.info/sct", "code": "709491003", "display": "Enrollment in clinical trial" } ] }, "offsetDuration": { "value": 12, "unit": "months", "system": "http://unitsofmeasure.org", "code": "mo" }, "text": "at 12 months" }</p>
+<p>Example includes relativeTime and offset "At 12 months form inclusion in a clinical trial. Inclusion is defined as enrollment via the SNOMED code.</p>
+<p>"relativeTime": [ { "contextCode": { "coding": [ { "system": "http://snomed.info/sct", "code": "709491003", "display": "Enrollment in clinical trial" } ] }, "offsetDuration": { "value": 12, "unit": "months", "system": "http://unitsofmeasure.org", "code": "mo" }, "text": "at 12 months" }</p>
 </div>

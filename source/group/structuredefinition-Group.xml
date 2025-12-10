@@ -754,8 +754,8 @@
         <code value="Period"/>
       </type>
     </element>
-    <element id="Group.characteristic.timing">
-      <path value="Group.characteristic.timing"/>
+    <element id="Group.characteristic.relativeTime">
+      <path value="Group.characteristic.relativeTime"/>
       <short value="When (with respect to an event)"/>
       <definition value="The relative time in which the characteristic is determined."/>
       <min value="0"/>
