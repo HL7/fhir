@@ -211,12 +211,15 @@ When profiles are used, they SHALL be profiles on the Parameter resource (even i
 <li>All targetProfiles listed on the OperationDefinition for the parameter SHALL match targetProfiles for at least one of
     the types for the value element in the corresponding parameter slice and there SHALL NOT be any targetProfiles listed
     that are not matched in the OperationDefinition parameter.</li>
-<li>The binding in the profile SHALL either be the same. The profile may also have additionalBindings.</li>
+<li>The binding in the profile SHALL either be the same, or provide more constraints. The profile may also have additionalBindings.</li>
+<li>Best practice is that the parameter definition only captures <code>required</code> bindings; other binding strengths SHOULD be captured in the profile</li>
 <li>The .documentation SHOULD be the same as the .definition for the parameter slice</li>
 <li>If there are child parameters, then there SHALL be aligned 'part' slices within the parameter
    following the same rules as above</li>
 </ul>
 
+<p>
+In general, the parameter definitions are to support code generation etc, while 
 <a name="exec"></a>
 <h3>Executing Operations</h3>
 <p>
