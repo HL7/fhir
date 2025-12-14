@@ -218,8 +218,6 @@ When profiles are used, they SHALL be profiles on the Parameter resource (even i
    following the same rules as above</li>
 </ul>
 
-<p>
-In general, the parameter definitions are to support code generation etc, while 
 <a name="exec"></a>
 <h3>Executing Operations</h3>
 <p>
