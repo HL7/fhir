@@ -462,46 +462,6 @@ xhtml elements.
 </p>
 
 <hr/>
-<a name="fn-lowBoundary"> </a>
-<h5><b>lowBoundary : T</b></h5>
-
-<p>
-This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
-e.g., the lowBoundary of <code>1.0</code> is <code>0.95000000000</code>, and the lowBoundary of <code>2010-10-10</code> is 
-<code>2010-10-10T00:00:00.000+14:00</code>. This function can be invoked in any singleton primitive type that has a 
-value domain with a natural sort order: 
-<code>decimal</code>, <code>integer</code>, <code>dateTime</code>, <code>instant</code>, <code>date</code>, <code>time</code> and <code>Quantity</code>.
-This function is defined for use with continuously distributed value domains to help deal with precision issues. The 
-return value is considered to have arbitrarily high precision (as precise as the underlying implementation can be).
-The function is not very useful on integer, since it is not a continuously distributed value domain, and the lowBoundary of an integer
-is always the same value, but it is defined on integer for language consistency.
-</p>
-<p>
-This function is intended to be added to the core FHIRPath specification in a future version.
-</p>
-
-
-<hr/>
-<a name="fn-highBoundary"> </a>
-<h5><b>highBoundary : T</b></h5>
-
-<p>
-This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
-e.g., the highBoundary of <code>1.0</code> is <code>1.05000000000</code>, and the highBoundary of <code>2010-10-10</code> is 
-<code>2010-10-10T23:59:59.999-12:00</code>. This function can be invoked in any singleton primitive type that has a 
-value domain with a natural sort order: 
-<code>decimal</code>, <code>integer</code>, <code>dateTime</code>, <code>instant</code>, <code>date</code>, <code>time</code> and <code>Quantity</code>.
-This function is defined for use with continuously distributed value domains to help deal with precision issues. The 
-return value is considered to have arbitrarily high precision (as precise as the underlying implementation can be).
-The function is not very useful on integer, since it is not a continuously distributed value domain, and the highBoundary of an integer
-is always the same value, but it is defined on integer for language consistency.
-</p>
-<p>
-This function is intended to be added to the core FHIRPath specification in a future version.
-</p>
-
-
-<hr/>
 <a name="fn-comparable"> </a>
 <h5><b>comparable(quantity) : boolean</b></h5>
 
