@@ -3,7 +3,21 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-<p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>. This resource is an <a href="workflow.html#event"><em>event</em> resource</a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong></p>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+<p>Addition of the following elements:</p>
+<ul>
+ <li>DiagnosticReport.relatesTo</li>
+ <li>DiagnosticReport.procedure</li>
+ <li>DiagnosticReport.recommendation</li>
+ <li>DiagnosticReport.communication</li>
+ <li>DiagnosticReport.comparison</li>
+</ul>
+<p>Changes to the following elements:</p>
+<ul>
+ <li>DiagnosticReport.conclusionCode datatype</li>
+</ul>
+</blockquote>
 <p>
 A diagnostic report is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,

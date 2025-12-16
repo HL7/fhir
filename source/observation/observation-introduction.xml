@@ -1,6 +1,37 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
     <h2>Scope and Usage</h2>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure that the Observation resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p>
+    <ul>
+    <li>Multiple updates to the <a href="observation-vitalsigns.html">Vital Signs</a> profiles (including the <a href="vitalsigns.html">Vital Signs Base</a> profile and the set of specific Vital Signs profiles).  The primary changes include:</li>
+      <ul>
+      <li>Removed references to the LOINC "magic value" code, and instead refer to it as the "interoperability category".</li>
+      <li>Created value sets of the specific LOINC codes that should apply for each vital sign profile, and create a 'preferred' binding from Observation.code to the value set for that profile.  </li>
+      <li>Renamed the main vital signs page to "Observation Vital Signs Profiles", and adjust other names and text accordingly.</li>
+      <li>Renamed the title of the "base" vital signs profile (which the other specific vital sign profiles are based on) to "Vital Signs Base Profile", to help make this clear.</li>
+      <li>Move the reference and link to the "Vital Signs Base Profile" to a more prominently visible location on the Observation Vital Signs Profiles page (as the "header" for the requirements list).</li>
+      <li>Made additional text changes needed for overall clarity and consistency.</li>
+      <li>Updated the vital signs examples where needed to be consistent with the updated profiles.</li>
+      </ul>
+    <li>The Observation.bodySite element has been deprecated, corresponding with the change to make Observation.bodyStructure a CodeableReference.</li>
+    <li>The 'instantiates[x]' element (with the 'instantiatesCanonical' and 'instantiatesReference' choices) has been removed and is replaced with the workflow instantiation extensions: https://build.fhir.org/workflow-extensions.html.</li>
+    <li>These elements previously marked as 'Trial Use' (TU) are now Normative candidates:</li>
+      <ul>
+      <li>Observation.triggeredBy</li>
+      <li>Observation.focus</li>
+      <li>Observation.bodyStructure</li>
+      <li>Observation.referenceRange.normalValue</li>
+      <li>Observation.referenceRange.type</li>
+      <li>Observation.organizer</li>
+        <ul>
+        <li>
+        The 'organizer' element was newly added to the Observation resource in the previous R6 3rd Draft ballot cycle (2025-04-03), so there has been less time available for it to be reviewed, but it is now also a Normative candidate. The 'organizer' element is intended to help clarify and make explicit when an instance of the Observation resource is used for organizing/grouping sets of sub-observations (e.g., for laboratory panel/battery result reporting).  This capability is particularly applicable for use in laboratory result reporting, but it can also be used as appropriate with other types of observations.
+        </li>
+        </ul>
+      </ul>
+    </ul>
+    </blockquote>
     <p>This resource is an <a href="workflow.html#event">
         <em>event resource</em>
       </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
@@ -41,7 +72,7 @@
       <tbody>
         <tr>
           <td style="width:15%;text-align:center;">
-            <a href="observation-vitalsigns.html">Vital signs</a>
+            <a href="observation-vitalsigns.html">Vital Signs</a>
           </td>
           <td>The FHIR Vital Signs profiles set the minimum expectations for the Observation resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc.) associated with a patient </td>
         </tr>
@@ -75,11 +106,4 @@ The Observation resource is used extensively for observations about people, grou
 <p>The Observation resource contains several elements related to the origin and quality of the observation. To record more detailed information about the source of an Observation, the <a href="provenance.html">Provenance</a> resource may be used. More in-depth commentary about or evaluation of the Observation record itself may be recorded in <a href="artifactassessment.html">ArtifactAssessment</a>.
 </p>
 </div>
-
-<blockquote class="ballot-note" id="bn">
-<p><b>Note to Balloters:</b>
-A new <code>organizer</code> element is added to the normative Observation resource in this ballot. The OO Work Group is seeking reviewers and implementer feedback on this new element, which is intended to help clarify and make explicit when an instance of the Observation resource is used for organizing/grouping sets of sub-observations (e.g., for laboratory panel/battery result reporting).  This capability is particularly applicable for use in laboratory result reporting, but it can also be used as appropriate with other types of observations.
-</p>
-</blockquote>
-
 </div>
