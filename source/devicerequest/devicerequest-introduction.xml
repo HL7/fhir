@@ -1,11 +1,18 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> To ensure the DeviceRequest resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p> 
+<ul>
+<li>DeviceRequest.instantiatesCanonical and DeviceRequest.instantiatesUri have been removed and are replaced with the workflow instantiation <a href="workflow-extensions.html">extensions</a>.</li>
+<li>DeviceRequest.code was renamed DeviceRequest.product to follow the request workflow pattern.</li>
+<li>Added DeviceRequest.location.</li>
+<li>Updates to search parameters to address the changes.</li>
+</ul>
+</blockquote>
+</div>  
 	<div style="color:#01538B;">
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-
-		<p>
-			<strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong>
-		</p>
 		<p>
 This resource describes the request for the use of a device by a patient. The device may be any pertinent device specified in the Device resource. Examples of devices that may be requested include wheelchair, hearing aids, or an insulin pump. The request may lead to the delivery of the device to the patient directly, or to, e.g., a surgery suite for an implantation procedure.
         </p>
