@@ -3,6 +3,13 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+<ul>
+ <li>BodyStructure.morphology has been moved to BodyStructure.includedStructure.morphology</li>
+ <li>Added BodyStructure.includedStructure.image to provide an image of the includedStructure or excludedStructure.</li>
+</ul>
+</blockquote>
 <p>
 The BodyStructure resource contains details about the anatomical location of a specimen or body part, including patient information, identifiers, as well as text descriptions and images. Note that some body structures are discontiguous.
 </p>

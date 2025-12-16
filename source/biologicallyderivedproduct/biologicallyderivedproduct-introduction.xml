@@ -2,6 +2,22 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
+
+        <blockquote class="ballot-note" id="bn1">
+        <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+        <ul>
+			<li>Change to the .collection backbone with respect to the collection source.  This includes updates to the corresponding search parameters.</li>
+			<li>Addition of a Notes section: <a href="biologicallyderivedproduct.html#8.25.5">biologicallyderivedproduct.html#8.25.5</a> to include information on how to handle information about the intended recipient.</li>
+			
+			<li>The following artifacts have been moved to the [OO Incubator IG|<a href="https://build.fhir.org/ig/HL7/oo-incubator">https://build.fhir.org/ig/HL7/oo-incubator</a>]</li>
+			<ul>
+				<li>The Medical Product of Human Origin (MPHO) Profile is still under development.</li>
+				<li>The BiologicallyDerivedProductDispense resource.  Additional work needs to be done on dispensing and administering biologically derived products.</li>
+
+			</ul>
+        </ul>
+        </blockquote>
+
 		<blockquote class="stu-note">
 		<p><b>Note to Implementers:</b> For an overview of this resource and others in the Biologically Derived Product domain, also see the <a href="biologically-derived-product-module.html">module page</a>.
 		</p>

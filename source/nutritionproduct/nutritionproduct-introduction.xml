@@ -3,6 +3,16 @@
 <div>
 	<a name="scope"></a>
 	<h2>Scope and Usage</h2>
+		<blockquote class="ballot-note" id="bn1">
+		<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+		<ul>
+			<li>Updated Boundaries and Relationships</li>
+			<li>Added NutritionProduct.ingredientSummary</li>
+			<li>Updated the NutritionProduct.ingredient backbone</li>
+			<li>Update search parameters</li>
+		</ul>
+		</blockquote>
+
 	<blockquote class="stu-note">
 	<p><b>Note to Implementers:</b> For an overview of this resource and others in the Nutrition domain, also see the <a href="nutrition-module.html">module page</a>.
 	</p>

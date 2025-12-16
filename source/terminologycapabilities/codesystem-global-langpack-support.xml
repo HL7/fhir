@@ -45,7 +45,7 @@
   <concept>
     <code value="explicit"/>
     <display value="Language Packs Supported by request"/>
-    <definition value="The server supports language packs, but only when the value set asks for them, or they are requested explicity by parameter."/>
+    <definition value="The server supports language packs, but only when the value set asks for them, or they are requested explicitly by parameter."/>
   </concept>
   <concept>
     <code value="implicit"/>

@@ -2,6 +2,20 @@
 
 	<div>
 		<h2>Scope and Usage</h2>
+
+		<blockquote class="ballot-note" id="bn1">
+		<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+		<ul>
+			<li>Added the following elements to align with the Request workflow pattern</li>
+				<ul>
+					<li>VisionPrescription.basedOn</li>
+					<li>VisionPrescription.groupIdentifier</li>
+					<li>VisionPrescription.priority</li>
+				</ul>
+			<li>Added a product search parameter</li>
+		</ul>
+		</blockquote>
+
 		<p>
 The VisionPrescription resource represents an authorization for corrective optical lenses to be provided to a patient. Eye glasses and contact lenses usually require a prescription for patient-specific lenses. Details about the fulfillment of the authorization are handled by the <a href="task.html">Task</a> resource. For further information about this separation of responsibilities, refer to the link <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
 		</p>
@@ -11,9 +25,8 @@ and optometrists. The prescription is a time-limited, typically two years, autho
 glasses or contacts, which conform to the authorized specification by providers which have lens provision within their scope of practice, typically ophthalmologists  
 , optometrists and opticians. 
 		</p>
-		<p>Health insurers typically require a copy of the prescription to ensure that a vision professional has examined the patient and that the
- power of the lenses exceeds some minimum, such as +- 0.75 diopters, to qualify for reimbursement under the insurance coverage.</p>
-		<p>The VisionPrescription resource is an "request" resource from a FHIR workflow perspective - see <a href="workflow.html#request">Workflow Request.</a></p>
+		<p>Health insurers typically require a copy of the prescription to ensure that a vision professional has examined the patient and that the power of the lenses exceeds some minimum, such as +- 0.75 diopters, to qualify for reimbursement under the insurance coverage.</p>
+		
 		<h3>Additional Information</h3>
 		<p>
 Additional information regarding resources conveying electronic claims content and usage may be found at:
