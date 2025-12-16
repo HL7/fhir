@@ -267,21 +267,50 @@ The following additional canonicalization URIs are also defined for all three fo
 <table class="grid">
  <tr>
   <td>http://hl7.org/fhir/canonicalization/{fmt}#data</td>
-  <td><code>Resource.text</code> is omitted prior to signing (note the deletion is at <code>Resource.text</code>, not <code>Resource.text.div</code>)</td>
+  <td>
+    Recursively omits all elements of type <a href="narrative.html#Narrative">Narrative</a>
+    (e.g. <code>Resource.text</code>, <code>Composition.section.text</code>, etc.) prior to signing
+    (note this removes the whole narrative element, not just the <code>div</code> element
+  </td>
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/{fmt}#static</td>
-  <td><code>Resource.text</code> and <code>Resource.meta</code> are omitted prior to signing. This makes the signature robust as the content is moved from server to server, or workflow and access tags are added or removed.  Note that workflow and security tags may contain information important to the handling of the resource, so meta elements should be protected from tampering by other means if the resource is signed with this canonicalization.</td>
+  <td>
+    Recursively omits all elements of type <a href="narrative.html#Narrative">Narrative</a>
+    (e.g. <code>Resource.text</code>, <code>Composition.section.text</code>, etc.) as per 
+    <code>data</code> above,and also all occurrances of <code>Resource.meta</code>. This
+    makes the signature robust as the content is moved from server to server, or workflow
+    and access tags are added or removed.  Note that workflow and security tags may contain
+    information important to the handling of the resource, so meta elements should be protected
+    from tampering by other means if the resource is signed with this canonicalization.
+  </td>
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/{fmt}#narrative</td>
-  <td>Only <code>Resource.id</code> and Narrative (<code>Resource.text</code> are signed</td>
+  <td>
+    Recursively omits all elements other than <code>Resource.id</code> and elements with type
+    <a href="narrative.html#Narrative">Narrative</a>.  I.e. the only content retained is
+    resource identity and narrative.  NOTE: any bundle entries are removed, so narrative 
+    links are likely to be broken.
+  </td>
  </tr>
  <tr>
   <td>http://hl7.org/fhir/canonicalization/{fmt}#document</td>
-  <td>The Document <code>Bundle.id</code> and <code>Bundle.metadata</code> on the root Bundle are omitted prioer to signing. This allows for a document to be copied from server to server</td>
+  <td>The Document <code>Bundle.id</code> and <code>Bundle.metadata</code> on the root Bundle are omitted prior to signing. This allows for a document to be copied from server to server</td>
  </tr>
 </table>
+<p>
+When excluding elements from signature, the elements on the path to reach the element must be
+included.  For example, if performing a 'narrative' canonicalization of a Bundle with a
+composition, if the Narrative elements <code>Composition.text</code> or <code>Composition.section.text exist</code>,
+then the <code>Bundle.entry</code>, <code>.resource</code> and <code>Composition.text</code> nodes
+needed to reach those elements would be retained.  The signed content might not be sufficient to
+constitute a 'valid' instance, but this is ok because the signature is focused only on what is attested to.
+</p>
+<p>
+Recursion means that the process applies to all nested resources such as contained resources,
+Bundle entries, nested content in Parameters, etc.  
+</p>
 <p>
 These canonicalization methods allow systems the flexibility to sign the various portions of 
 the resource that matter for the workflow the signature serves, per the discussion above. 
@@ -289,6 +318,15 @@ This specification may define additional canonicalizations in the future, and ot
 might also define  additional canonicalization methods.
 </p>
 
+
+<blockquote class="ballot-note">
+<p>
+These canonicalization algorithms have been changed in a way that may be breaking
+for some implementations.  If real-world implementations would be negatively impacted
+by these changes, let us know and we will deprecate the old canonicalization algorithms
+and define new ones.
+</p>
+</blockquote>
 
 <a name="methods"></a>
 <h3>Digital Signature Methods</h3>

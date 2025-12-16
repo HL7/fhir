@@ -19,6 +19,15 @@ For operations to assist in adding to, removing from, or filtering contents of l
 </p>
 
 
+<a name="group-usage"> </a>
+<h3>Groups as Families and Households</h3>
+
+<p>
+As discussed in the introduction, when a Group has a code of 'family' or 'household' it is permitted to take on responsibility - it can be a performer, author, witness, etc.
+</p>
+<p>
+For example, it is possible for a Group with a code of 'family' to be a performer of an Observation or owner of a Task. However, this is not permitted for a Group made up of Practitioners, PractitionerRoles or Organizations.  Groups with a code other than 'family' or 'household' SHALL NOT be targets of references for elements that take on responsibility, though they might still be targets of other element types (subject, focus, target, etc.)  If a collective that is not a family or household needs to take collective action, use Organization or CareTeam would need to be used instead. A Group of Practitioners could, however, be a subject of an Observation.
+</p>
 <a name="membership"> </a>
 <h3>Membership</h3>
 <p>
