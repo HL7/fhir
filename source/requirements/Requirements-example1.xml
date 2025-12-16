@@ -35,6 +35,10 @@
     <label value="requirement-2"/>
     <conformance value="SHALL"/>
     <requirement value="Operations based on the codeSystem resource SHALL have the same result whether or not the relationships are represented explicitly as properties or implicitly using the CodeSystem resource hierarchy"/>
+    <category>
+      <system value="http://example.org/requirement-categories"/>
+      <code value="processing"/>
+    </category>
     <source>
       <display value="Jose Costa Teixeira"/>
     </source>
