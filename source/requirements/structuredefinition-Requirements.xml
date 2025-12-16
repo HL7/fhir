@@ -258,25 +258,6 @@
 				<map value="Definition.status"/>
 			</mapping>
     </element>
-    <element id="Requirements.category">
-      <path value="Requirements.category"/>
-      <short value="High level categorization of Requirements"/>
-      <definition value="Categorization might be done automatically (inferred by code) or manually by user assertion. The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled. As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <isSummary value="true"/>
-      <!-- <binding>
-        <strength value="descriptive"/>
-        <description value="e.g., functional, safety, performance, accessibility"/>
-      </binding> -->
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-    </element>
     <element id="Requirements.experimental">
       <path value="Requirements.experimental"/>
       <short value="For testing only - never for real usage"/>
@@ -517,11 +498,11 @@
       <definition value="The canonical for the Requirements resource to import statements from."/>
       <min value="1"/>
       <max value="1"/>
-      <isSummary value="true"/>
       <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="Requirements.imports.key">
       <path value="Requirements.imports.key"/>
@@ -654,6 +635,28 @@
       <type>
         <code value="markdown"/>
       </type>
+    </element>
+    <element id="Requirements.statement.category">
+      <path value="Requirements.statement.category"/>
+      <short value="High level categorization of a statement"/>
+      <definition value="Categorization might be done automatically (inferred by code) or manually by user assertion. The absence of a category may limit the ability to determine when the element should be handled, so strong consideration should be given to how systems will be able to determine category values for legacy data and how data that cannot be categorized will be handled. As well, some categories might not be mutually exclusive, so systems should prepare for multiple declared categories - even within a single category 'axis'."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Category"/>
+        </extension>
+        <strength value="example"/>
+        <description value="e.g., functional, safety, performance, accessibility"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
     </element>
     <element id="Requirements.statement.derivedFrom">
       <path value="Requirements.statement.derivedFrom"/>
