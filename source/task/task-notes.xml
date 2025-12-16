@@ -54,13 +54,8 @@
   </p>
   <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource"/>
   <p/>
-  [%stu-note dstu%]
-      Currently, task pre-requisites can be represented using Task's `description` element or the <a href="requestorchestration.html">RequestOrchestration</a> resource. We are seeking input from the implementer community in evaluating whether there is need for adding another mechanism to this resource for this purpose.
-      </p>
-      <p>
-      Feedback <a href="https://chat.fhir.org/#narrow/stream/103-Orders-and.20Observation.20WG">here</a>.
-      [%end-note%]
-  <p/>
+  
+  
   <a name="cancelled"> </a>
   <h2>The Cancelled state</h2>
   <p>
