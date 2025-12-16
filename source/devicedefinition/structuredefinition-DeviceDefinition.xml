@@ -81,11 +81,11 @@
         <identity value="w5"/>
         <map value="administrative.device"/>
       </mapping>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition"/> 
+      </mapping>
     </element>
-
-
-
-
     <element id="DeviceDefinition.url">
       <path value="DeviceDefinition.url"/> 
       <short value="Canonical identifier for this DeviceDefinition, represented as an absolute URI (globally unique)"/> 
@@ -112,6 +112,10 @@
         <identity value="w5"/> 
         <map value="FiveWs.identifier"/> 
       </mapping> 
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition"/>
+      </mapping>
     </element> 
     <element id="DeviceDefinition.identifier">
       <path value="DeviceDefinition.identifier"/> 
@@ -253,70 +257,7 @@
         <map value="FiveWs.class"/> 
       </mapping> 
     </element> 
-    <element id="DeviceDefinition.partNumber">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="W5 note what = what.productidentification."/>
-      </extension>
-      <path value="DeviceDefinition.partNumber"/>
-      <short value="The part number or catalog number of the device"/>
-      <definition value="The part number or catalog number of the device."/>
-      <comment value="Alphanumeric Maximum 20."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".playedRole[typeCode=MANU].id"/>
-      </mapping>
-    </element>
-    <element id="DeviceDefinition.manufacturer">
-      <path value="DeviceDefinition.manufacturer"/>
-      <short value="Name of device manufacturer"/>
-      <definition value="A name of the manufacturer  or legal representative e.g. labeler. Whether this is the actual manufacturer or the labeler or responsible depends on implementation and jurisdiction."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".playedRole[typeCode=MANU].scoper.name"/>
-      </mapping>
-    </element>
-    <element id="DeviceDefinition.modelNumber">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="W5 note what = what.productidentification."/>
-      </extension>
-      <path value="DeviceDefinition.modelNumber"/>
-      <short value="The catalog or model number for the device for example as defined by the manufacturer"/>
-      <definition value="The model number for the device for example as defined by the manufacturer or labeler, or other agency."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".softwareName (included as part)"/>
-      </mapping>
-    </element>
+
     <element id="DeviceDefinition.date">
       <path value="DeviceDefinition.date"/> 
       <short value="Date last changed"/> 
@@ -336,21 +277,7 @@
         <map value="FiveWs.recorded"/> 
       </mapping> 
     </element> 
-    <!-- <element id="DeviceDefinition.contact">
-      <path value="DeviceDefinition.contact"/> 
-      <short value="Contact details for the publisher"/> 
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/> 
-      <comment value="May be a web site, an email address, a telephone number, etc.  See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/> 
-      <min value="0"/> 
-      <max value="*"/> 
-      <type> 
-        <code value="ContactDetail"/> 
-      </type> 
-      <mustSupport value="false"/> 
-      <isModifier value="false"/> 
-      <isSummary value="true"/> 
-    </element>  -->
-    <!-- <element id="DeviceDefinition.publisher">
+    <element id="DeviceDefinition.publisher">
       <path value="DeviceDefinition.publisher"/> 
       <short value="Name of the publisher/steward (organization or individual)"/> 
       <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the DeviceDefinition."/> 
@@ -369,8 +296,22 @@
         <identity value="w5"/> 
         <map value="FiveWs.witness"/> 
       </mapping> 
-    </element>  -->
-    <!-- <element id="DeviceDefinition.description">
+    </element>
+    <element id="DeviceDefinition.contact">
+      <path value="DeviceDefinition.contact"/> 
+      <short value="Contact details for the publisher"/> 
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/> 
+      <comment value="May be a web site, an email address, a telephone number, etc.  See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/> 
+      <min value="0"/> 
+      <max value="*"/> 
+      <type> 
+        <code value="ContactDetail"/> 
+      </type> 
+      <mustSupport value="false"/> 
+      <isModifier value="false"/> 
+      <isSummary value="true"/> 
+    </element>
+    <element id="DeviceDefinition.description">
       <path value="DeviceDefinition.description"/> 
       <short value="Natural language description of the DeviceDefinition"/> 
       <definition value="A free text natural language description of the DeviceDefinition from a consumer's perspective."/> 
@@ -383,34 +324,7 @@
       <mustSupport value="false"/> 
       <isModifier value="false"/> 
       <isSummary value="false"/> 
-    </element>  -->
-    <element id="DeviceDefinition.contact">
-      <path value="DeviceDefinition.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
-      <comment value="used for troubleshooting etc."/>
-      <min value="0"/>
-      <max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.source"/>
-      </mapping>
     </element>
-		<element id="DeviceDefinition.publisher">
-			<path value="DeviceDefinition.publisher"/>
-			<short value="The name of the organization responsible for publishing the definition"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the device definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
     <element id="DeviceDefinition.useContext">
       <path value="DeviceDefinition.useContext"/> 
       <short value="The context that the content is intended to support"/> 
@@ -506,6 +420,116 @@
       <mustSupport value="false"/> 
       <isModifier value="false"/> 
       <isSummary value="false"/> 
+    </element> 
+    <element id="DeviceDefinition.approvalDate">
+      <path value="DeviceDefinition.approvalDate"/>
+      <short value="When DeviceDefinition was approved by publisher"/>
+      <definition value="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The date may be more recent than the approval date because of minor changes / editorial corrections.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="DeviceDefinition.lastReviewDate">
+      <path value="DeviceDefinition.lastReviewDate"/>
+      <short value="Date on which the asset content was last reviewed by the publisher"/>
+      <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
+      <comment value="If specified, this is usually after the approval date.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="DeviceDefinition.effectivePeriod">
+      <path value="DeviceDefinition.effectivePeriod"/>
+      <short value="The effective date range for the DeviceDefinition"/>
+      <definition value="The period during which the DeviceDefinition content was or is planned to be effective."/>
+      <comment value="The effective period for a DeviceDefinition determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2021 might be published in 2020.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+    </element>
+    <element id="DeviceDefinition.partNumber">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="W5 note what = what.productidentification."/>
+      </extension>
+      <path value="DeviceDefinition.partNumber"/>
+      <short value="The part number or catalog number of the device"/>
+      <definition value="The part number or catalog number of the device."/>
+      <comment value="Alphanumeric Maximum 20."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[typeCode=MANU].id"/>
+      </mapping>
+    </element>
+    <element id="DeviceDefinition.manufacturer">
+      <path value="DeviceDefinition.manufacturer"/>
+      <short value="Name of device manufacturer"/>
+      <definition value="A name of the manufacturer  or legal representative e.g. labeler. Whether this is the actual manufacturer or the labeler or responsible depends on implementation and jurisdiction."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[typeCode=MANU].scoper.name"/>
+      </mapping>
+    </element>
+    <element id="DeviceDefinition.modelNumber">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="W5 note what = what.productidentification."/>
+      </extension>
+      <path value="DeviceDefinition.modelNumber"/>
+      <short value="The catalog or model number for the device for example as defined by the manufacturer"/>
+      <definition value="The model number for the device for example as defined by the manufacturer or labeler, or other agency."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".softwareName (included as part)"/>
+      </mapping>
     </element> 
 
 
