@@ -52,7 +52,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-      <display value="United States of America"/>
+      <display value="United States of America (the)"/>
     </coding>
   </jurisdiction>
   <purpose value="This library defines the Opioid Management Terminology Knowledge Base model"/>
