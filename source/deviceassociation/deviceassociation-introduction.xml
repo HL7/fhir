@@ -1,6 +1,17 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> To ensure the DeviceAssociation resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p> 
+<ul>
+<li>Collapsed the DeviceAssociation.operation backbone into the other elements (e.g., DeviceAssociation.relationship now includes the operator role).</li>
+<li>DeviceAssociation.category was renamed DeviceAssociation.relationship and given an extensible value set.</li>
+<li>Added DeviceAssociation.associationStatus.</li>
+<li>Updated search parameters to address the changes.</li>
+</ul>
+</blockquote>
+</div>  
+<div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>Device Association records the relationship between a device and a subject and/or operator. The relationship may be as the owner, patient, operator or custodian of the device. The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
