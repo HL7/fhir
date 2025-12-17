@@ -53,7 +53,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-      <display value="United States of America (the)"/>
+      <display value="United States of America"/>
     </coding>
   </jurisdiction>
   <purpose value="This library normalizes units to UCUM units, identifies the conversion factor for the given ingredient, identifies the non-surgical opioid ingredients and their strengths that make up a drug identified by the given rxNormCode, calculates daily dose for a specific ingredient based on the ingredient strength, dose form, dose quantity, and daily frequency, calculates daily frequency given frequency within a period, and calculates the Morphine Milligram Equivalency (MME) for a given prescription."/>

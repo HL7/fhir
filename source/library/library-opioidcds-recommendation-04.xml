@@ -53,7 +53,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-      <display value="United States of America (the)"/>
+      <display value="United States of America"/>
     </coding>
   </jurisdiction>
   <purpose value="The purpose of this library is to determine the appropriateness of extended-release opioids with ambulatory abuse potential for the patient."/>
