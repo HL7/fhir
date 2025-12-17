@@ -1,6 +1,5 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
-    <h2>Scope and Usage</h2>
     <blockquote class="ballot-note" id="bn1">
     <p><b>Note to Balloters:</b> To ensure that the Observation resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p>
     <ul>
@@ -32,6 +31,7 @@
       </ul>
     </ul>
     </blockquote>
+    <h2>Scope and Usage</h2>
     <p>This resource is an <a href="workflow.html#event">
         <em>event resource</em>
       </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
