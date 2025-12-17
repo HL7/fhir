@@ -547,6 +547,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="Requirements.actor.key">
       <path value="Requirements.actor.key"/>
@@ -557,6 +558,7 @@
       <type>
         <code value="id"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="Requirements.statement">
       <path value="Requirements.statement"/>
@@ -578,6 +580,7 @@
       <type>
         <code value="id"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="Requirements.statement.label">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -635,6 +638,7 @@
       <type>
         <code value="markdown"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="Requirements.statement.category">
       <path value="Requirements.statement.category"/>

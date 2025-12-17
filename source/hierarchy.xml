@@ -270,22 +270,15 @@ signatures.html
       <page type="resource" resource="Account"/>
       <page type="resource" resource="Flag"/>
 
-      <page type="resource" resource="Device"/>
-      <page type="resource" resource="DeviceAlert"/>
-      <page type="resource" resource="DeviceAssociation"/>
-      <page type="resource" resource="DeviceDefinition"/>
-      <page type="resource" resource="DeviceMetric"/>
       <page type="resource" resource="Substance"/>
       <page type="resource" resource="Person"/>
       <page type="resource" resource="Communication"/>
       <page type="resource" resource="CommunicationRequest"/>
       <page type="resource" resource="ResearchStudy"/>
       <page type="resource" resource="ResearchSubject"/>
-      <page type="resource" resource="BiologicallyDerivedProduct"/>
   	  <page type="resource" resource="ObservationDefinition"/>
   	  <page type="resource" resource="SpecimenDefinition"/>
       <page title="Product Pattern" filename="product.html"/>
-      <page type="resource" resource="NutritionProduct"/>
       <!-- Think these 3 need to be left off as are REALLy drafty -->
 	    <page type="resource" resource="Invoice"/>
 	    <page type="resource" resource="InsurancePlan"/>
@@ -318,6 +311,24 @@ signatures.html
       <page type="resource" resource="Specimen"/>
       <page type="resource" resource="BodyStructure"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>
+    </page>
+
+    <page title="Devices" filename="device-module.html" icon="devices.png">
+      <page type="resource" resource="Device"/>
+      <page type="resource" resource="DeviceAlert"/>
+      <page type="resource" resource="DeviceAssociation"/>
+      <page type="resource" resource="DeviceDefinition"/>
+      <page type="resource" resource="DeviceMetric"/>
+    </page>
+
+    <page title="Nutrition" filename="nutrition-module.html" icon="nutrition.png">
+      <page type="resource" resource="NutritionProduct"/>
+      <page type="resource" resource="NutritionOrder"/>
+      <page type="resource" resource="NutritionIntake"/>
+    </page>
+
+    <page title="Biological Products" filename="biologically-derived-product-module.html" icon="blood-bag.png">
+      <page type="resource" resource="BiologicallyDerivedProduct"/>
     </page>
 
 
@@ -358,8 +369,6 @@ signatures.html
       <page type="resource" resource="Schedule"/>
       <page type="resource" resource="Slot"/>
       <page type="resource" resource="ServiceRequest"/>
-      <page type="resource" resource="NutritionOrder"/>
-      <page type="resource" resource="NutritionIntake"/>
       <page type="resource" resource="VisionPrescription"/>
       <page type="resource" resource="ActivityDefinition"/>
       <page type="resource" resource="PlanDefinition"/>
@@ -435,19 +444,6 @@ signatures.html
         <page title="Profiles" filename="productshelflife-profiles.html"/>
       </page>
     </page>
-	
-      <page title="Biologically Derived Product" filename="biologically-derived-product-module.html">
-		<!--<page type="resource" resource="BiologicallyDerivedProduct"/>-->
-      </page>
-
-      <page title="Nutrition" filename="nutrition-module.html">
-		<!--<page type="resource" resource="Nutrition"/>-->
-      </page>
-
-      <page title="Device" filename="device-module.html">
-		<!--<page type="resource" resource="Device"/>-->
-      </page>
-
 
   </page>
 

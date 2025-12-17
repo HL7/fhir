@@ -16,24 +16,25 @@
 Welcome to the first full ballot of FHIR Release 6 (R6). 
 </p>
 <p>
-This ballot is a Normative ballot - all of the specification is being balloted as a 
+This ballot is a Normative ballot - ALL of the specification is being balloted as a 
 full Normative ANSI Standard. As such, balloters should note the following about the 
 ballot process:
 </p>
 <ul>
-  <li>As a normative standard, any substantive changes - that is, changes that impact on implementations - must be approved by the ballot - in other words, reballot is required</li>
-  <li>You must sign up for the first ballot to participate in later ballots; if you do not have time to participate for a round of balloting, please abstain so that quorum levels are met</li> 
-  <li>There is certain to be another ballot after this, but we are hoping that we won't require additional full ballots. Please raise significant issues in the first ballot</li> 
+  <li>As a normative standard, any substantive changes - that is, changes that impact on implementations - must be approved by the ballot - in other words, reballot is required.</li>
+  <li>You must sign up for the first ballot to participate in later ballots; if you do not have time to participate for a round of balloting, please abstain so that quorum levels are met.</li> 
+  <li>Note that submitting a comment in Jira is not the same as voting.  After comments have been submitted, you must actually vote affirmative or negative on the comment for it to count as a voted comment.  Non-voted comments might still be considered as part of reconciliation, but it is not guaranteed and such consideration will become less likely in additional ballots on this same specification.</li>
+  <li>There is certain to be another ballot after this, but we are hoping that we won't require additional full ballots. Please raise significant issues in the first ballot.</li> 
 </ul>
 <p>
 Balloters should keep the following in mind about ballot scope:
 </p>
 <ul>
-  <li>Some of the content in this ballot is earmarked to move to <a href="http://terminology.hl7.org">terminology.hl7.org</a> (THO). FMG's position is that moving valuesets from the specification to THO is not <i>itself</i> a substantive change</li>
-  <li>Moving CodeSystems from core to THO is also only a substantive changes if (a) the CodeSystem is bound to a Coding, CodeableConcept, or CodeableReference, and (b) the URL changes</li>
-  <li>Implicit in that is that forcing minor changes in URLs etc on Implementation Guides is not itself substantive</li>
-  <li>The standards status and status of all the content in this ballot to set to Normative or Informative, and active, but the FMM status of the underlying artifacts has not been consistently updated, pending revisions to the overall FMM framework</li>
-  <li>The cross version comparisons, difference analysis, structure maps and transforms have not been updated for this ballot. This will be done for the next ballot. These weill also not count as substantative changes</li>
+  <li>Some of the content in this ballot is earmarked to move to <a href="http://terminology.hl7.org">terminology.hl7.org</a> (THO). FMG's position is that moving valuesets from the specification to THO is not <i>itself</i> a substantive change.</li>
+  <li>Moving CodeSystems from core to THO is only a substantive changes if (a) the CodeSystem is bound to a Coding, CodeableConcept, or CodeableReference, and (b) the URL changes.</li>
+  <li>Implicit in that is that changes to this specification that force minor changes in URLs etc in Implementation Guides are not considered substantive changes.</li>
+  <li>The standards status and status of all the content in this ballot has been set to Normative or Informative, and active, but the FMM status of the underlying artifacts has not been consistently updated, pending revisions to the overall FMM framework</li>
+  <li>The cross version comparisons, difference analysis, structure maps and transforms have not been consistently updated for this ballot. This will be done for the next ballot. These weill also not count as substantative changes</li>
 </ul>
 <p>
 And these notes about breaking changes:
@@ -61,7 +62,8 @@ These are very useful when preparing ballot comments.
 <h3>Details of Changes in this version</h3>
 <p>
 This section lists the important changes between this version and the last version (draft ballot 3).
-Note that there thousands of changes between this version and the last version, so there's no list of <i>all</i> changes.
+Note that there thousands of changes between this version and the last version, so there's no list of <i>all</i> changes
+(though see all <a href="https://jira.hl7.org/issues/?filter=23825">the R6 tasks in Jira</a>)
 </p>
 <ul>
   <li>Immature resources have been moved out of this specification into other IGs, often labelled as 'incubator IGs'. Here's the list:
@@ -115,7 +117,7 @@ Note that there thousands of changes between this version and the last version, 
 An addition, balloter's attention is drawn to the following requests for balloters attention:
 </p>
 <ul>
-  <li>The resources <a href="invoice.html#bn"></a>, <a href="insuranceproduct.html#bn"></a> and <a href="insuranceplan.html#bn"></a> are likely
+  <li>The resources <a href="invoice.html#bn">Invoice</a>, <a href="insuranceproduct.html#bn">InsuranceProduct</a> and <a href="insuranceplan.html#bn">InsurancePlan</a> are likely
     to be removed from the specification and moved to being an <a href="resource.html#additional">Additional Resource</a>	after this ballot
     due to concerns around their readiness, and the thin implementation experience. Ballot comments on this subject are welcome, and on their content.</li>
 
@@ -128,7 +130,7 @@ An addition, balloter's attention is drawn to the following requests for ballote
   <li>The <a href="nutritionintake.html#bn">nutritionintake-status-reason</a> code system used in NutritionIntake.statusReason is currently defined in the FHIR specification, but is expected to be moved to <a href="http://terminology.hl7.org">HL7 Terminology</a> (THO).</li>
 
   <li>A new <code>organizer</code> element is added to the normative Observation resource in this ballot. The OO Work Group is <a href="observation.html#bn">seeking reviewers and implementer feedback</a> on this new element, which is intended to help clarify and make explicit when an instance of the Observation resource is used for organizing/grouping sets of sub-observations (e.g., for laboratory panel/battery result reporting).  This capability is particularly applicable for use in laboratory result reporting, but it can also be used as appropriate with other types of observations.</li>
-  <li>Both <a href="searchparameter.html#bn"></a> and <a href="operationdefinition.html#bn"></a> have comments seeking input about the strength of useability assertions</li>
+  <li>Both <a href="searchparameter.html#bn">SearchParameter</a> and <a href="operationdefinition.html#bn">OperationDefinition</a> have comments seeking input about the strength of useability assertions</li>
   <li>There is a request for  <a href="codesystem.html#bn">comments about implicit code systems</a></li>
 </ul>
 
