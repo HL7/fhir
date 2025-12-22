@@ -513,7 +513,7 @@
     <element id="Group.combinationMethod">
       <path value="Group.combinationMethod"/>
       <short value="all-of | any-of | at-least | at-most | except-subset"/>
-      <definition value="Used to specify how two or more characteristics are combined."/>
+      <definition value="Used to specify how two or more characteristics are combined.&#xA;&#xA;* 'all-of': Each of the characteristics must be met. This is functionally equivalent to combining all characteristics with an AND operator.&#xA;* 'any-of': At least one of the characteristics must be met. This is functionally equivalent to combining all characteristics with an OR operator.&#xA;* 'at-least': At least n of the characteristics must be met. Use Group.combinationThreshold to specify the value of n.&#xA;* 'at-most': At most n of the characteristics must be met. Use Group.combinationThreshold to specify the value of n.&#xA;*  'except-subset': The characteristics expressed as exclusion criteria are used as exceptions to meeting the characteristics expressed as inclusion criteria."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -651,7 +651,7 @@
     <element id="Group.characteristic.method">
       <path value="Group.characteristic.method"/>
       <short value="Method for how the characteristic value was determined"/>
-      <definition value="Method for how the characteristic value was determined."/>
+      <definition value="The method modifies the Group.characteristic.code and indicates how the value is to be determined."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -695,6 +695,7 @@
       <path value="Group.characteristic.offset"/>
       <short value="Reference point for comparison"/>
       <definition value="Defines the reference point for comparison when other than 0."/>
+	  <comment value="As an example, to express a characteristic of a calcium level greater than the normal limit or a hemoglobin level less than 1 g/dL below the reference range, the offset concept would represent &quot;normal limit&quot; [upper limit] or &quot;reference range&quot; [lower limit]."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -713,7 +714,7 @@
     </element>
     <element id="Group.characteristic.instances[x]">
       <path value="Group.characteristic.instances[x]"/>
-      <short value="Number of occurrences meeting the characteristic"/>
+      <short value="Number of occurrences"/>
       <definition value="Number of occurrences meeting the characteristic."/>
       <min value="0"/>
       <max value="1"/>
@@ -732,7 +733,7 @@
     </element>
     <element id="Group.characteristic.duration[x]">
       <path value="Group.characteristic.duration[x]"/>
-      <short value="Length of time in which the characteristic is met"/>
+      <short value="How long"/>
       <definition value="Length of time in which the characteristic is met."/>
       <min value="0"/>
       <max value="1"/>
@@ -745,7 +746,7 @@
     </element>
     <element id="Group.characteristic.period">
       <path value="Group.characteristic.period"/>
-      <short value="Period over which characteristic is tested"/>
+      <short value="When (in calendar time)"/>
       <definition value="The period over which the characteristic is tested; e.g. the patient had an operation during the month of June."/>
       <min value="0"/>
       <max value="1"/>
@@ -753,10 +754,10 @@
         <code value="Period"/>
       </type>
     </element>
-    <element id="Group.characteristic.timing">
-      <path value="Group.characteristic.timing"/>
-      <short value="Timing in which the characteristic is determined"/>
-      <definition value="Timing in which the characteristic is determined."/>
+    <element id="Group.characteristic.relativeTime">
+      <path value="Group.characteristic.relativeTime"/>
+      <short value="When (with respect to an event)"/>
+      <definition value="The relative time in which the characteristic is determined."/>
       <min value="0"/>
       <max value="*"/>
       <type>
