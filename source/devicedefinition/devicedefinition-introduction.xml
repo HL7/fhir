@@ -1,6 +1,16 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> To ensure the DeviceDefinition resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p> 
+<ul>
+<li>Updated DeviceDefinition to a CanonicalResource and the necessary element and search parameter changes.</li>
+<li>Removed DeviceDefinition.owner.</li>
+</ul>
+<p>All OO Resources were updated to use the canonical, however other Resources (not owned by the OO Work Group) might not have the canonical reference to DeviceDefinition.</p>
+</blockquote>
+</div>  
+<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>

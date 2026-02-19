@@ -1362,7 +1362,15 @@ not expected that every server will implement them. Servers that don't support t
 update SHOULD return an HTTP <code>400</code> error and MAY include an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 
-
+[%dragons-start%]
+<h4>Transactional Integrity</h4>
+<p>
+In most database technologies, searching for existing records does not create a 'lock' that would prevent new records from being created.  It is possible for a race condition to exist where the search indicates that no matches exist, but before the create is executed, a record comes to exist.  Servers may pursue different strategies to minimize this risk (e.g. querying that "only one exists" after creation but before committing), but it usually can't be fully eliminated. 
+</p>
+<p>
+Servers MAY check for multiple if-non-exist creates within a single transaction and check for possible collision prior to executing.
+</p>
+[%dragons-end%]
 <a name="search"></a>
 <h3>search</h3>
 <p>

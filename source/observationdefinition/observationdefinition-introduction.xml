@@ -1,6 +1,17 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> To ensure the ObservationDefinition resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p>
+<ul>
+<li>Updated ObservationDefinition.bodySite (CodeableConcept) to ObservationDefinition.bodyStructure (CodeableReference).</li>
+<li>Updated ObservationDefinition.device for the canonical DeviceDefinition.</li>
+<li>Added ObservationDefinition.qualifiedValue.interpretation.</li>
+<li>Jurisdiction has been reinstated (it was marked "Deprecated" in R5).</li>
+</ul>
+</blockquote>
+</div>
+<div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>

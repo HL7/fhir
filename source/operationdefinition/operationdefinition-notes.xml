@@ -163,7 +163,8 @@ an operation:
 </ul>
 <p>
 The parameters is a simple list of possible parameters, along with cardinalities and types.
-The profiles allow a rich set of validation rules etc. to be provided. OperationDefinitions SHALL
+The profiles allow a more complete set of validation rules to be provided, such as constraints, 
+additional bindings etc., and to provide a richer set of documentation (examples, mappings, etc.). OperationDefinitions SHALL
 always define the parameters using <code>OperationDefinition.parameter</code> in the resource,
 and MAY also provide profiles for the parameters. If present, the profiles SHALL NOT disagree
 with the parameters defined for the operation.
@@ -191,6 +192,31 @@ This profile would describe a parameters resource with 2 parameters (using slici
 The operation definition would still list the parameters directly to save applications consuming the definition (e.g. to produce
 an <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI document</a>) from parsing and interpreting the profile.
 </p>
+
+<p>
+When profiles are used, they SHALL be profiles on the Parameter resource (even if the expectation is that parameters will often be sent as part of the URL).  The elements must be aligned as follows:
+</p>
+<ul>
+<li>Parameters SHOULD be listed in the same order</li>
+<li>The number of input and output parameters must be the same</li>
+<li>The parameter names must be the same (parameter.name SHALL be the fixed value for the `parameter.name` in
+    the profile and SHOULD be the same as the parameter slice name)</li>
+<li>The parameter.min and max SHALL be the same as the min and max for the corresponding parameter slice.</li>
+<li>If the parameter has a type and no list of allowed types, then the profile on parameter slice value SHALL either
+    have the same type, or be one or more types that are derived from that type.</li>
+<li>If the parameter has a list of allowed types, then then the types of the corresponding parameter slice value SHALL
+    correspond such that every allowed type is either listed explicitly as an allowed type or there are one or more types
+    listed that derive from the operation parameter type.  There SHALL NOT be any types listed in the profile for 'value'
+    that do not correspond to a type in the parameter</li>
+<li>All targetProfiles listed on the OperationDefinition for the parameter SHALL match targetProfiles for at least one of
+    the types for the value element in the corresponding parameter slice and there SHALL NOT be any targetProfiles listed
+    that are not matched in the OperationDefinition parameter.</li>
+<li>The binding in the profile SHALL either be the same, or provide more constraints. The profile may also have additionalBindings.</li>
+<li>Best practice is that the parameter definition only captures <code>required</code> bindings; other binding strengths SHOULD be captured in the profile</li>
+<li>The .documentation SHOULD be the same as the .definition for the parameter slice</li>
+<li>If there are child parameters, then there SHALL be aligned 'part' slices within the parameter
+   following the same rules as above</li>
+</ul>
 
 <a name="exec"></a>
 <h3>Executing Operations</h3>

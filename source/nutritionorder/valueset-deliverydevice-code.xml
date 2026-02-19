@@ -9,7 +9,7 @@
     <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/deliverydevice-code"/>
-  <version value="6.0.0-ballot3"/>
+  <version value="6.0.0-ballot4"/>
   <name value="DeliveryDeviceCode"/>
   <title value="Delivery Device Code"/>
   <status value="active"/>

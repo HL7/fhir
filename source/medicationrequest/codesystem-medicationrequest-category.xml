@@ -9,7 +9,7 @@
     <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/CodeSystem/medicationrequest-category"/>
-  <version value="6.0.0-ballot3"/>
+  <version value="6.0.0-ballot4"/>
   <name value="MedicationRequestCategoryCodes"/>
   <title value="Medication Request Category Codes"/>
   <status value="active"/>
