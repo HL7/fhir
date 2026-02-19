@@ -12,7 +12,7 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/example-comparison-group"/>
-  <version value="6.0.0-ballot3"/>
+  <version value="6.0.0-ballot4"/>
   <name value="ExampleComparisonGroup"/>
   <title value="Example Comparison Group"/>
   <status value="active"/>

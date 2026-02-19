@@ -535,6 +535,10 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <code value="CodeableConcept"/>
       </type>
       <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
@@ -722,6 +726,10 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <code value="CodeableConcept"/>
       </type>
       <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <type>
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
@@ -803,6 +811,10 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <type>
         <code value="canonical"/>

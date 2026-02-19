@@ -47,7 +47,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-      <display value="United States of America"/>
+      <display value="United States of America (the)"/>
     </coding>
   </jurisdiction>
   <purpose value="Notifies recipient systems that two patients have been 'linked' - meaning they represent the same individual"/>

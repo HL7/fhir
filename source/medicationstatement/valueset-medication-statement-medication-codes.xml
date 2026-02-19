@@ -6,7 +6,7 @@
     <valueCode value="phx"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/medication-statement-medication-codes"/>
-  <version value="6.0.0-ballot3"/>
+  <version value="6.0.0-ballot4"/>
   <name value="MedicationStatementMedicationCodes"/>
   <title value="MedicationStatement Medication Codes"/>
   <status value="draft"/>

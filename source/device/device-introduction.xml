@@ -1,27 +1,34 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-
-<a name="scope"></a>
-<blockquote class="stu-note">
-	<p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> To ensure the Device resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p>
+<p>For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">Device Module</a> page.</p>
+<p>The Device scope and usage has been revised.  A majority of content has been moved DeviceDefinition to describe the types of devices in scope.</p>
+<p>The following element was added:</p>
+<ul>
+<li>Device.additive as a backbone.</li>
+</ul>
+<p>The following elements have been revised:</p>
+<ul>
+<li>Updated Device.definition datatype to canonical(DeviceDefinition).</li>
+<li>Updated Device.version to Device.deviceVersion.</li>
+</ul> 
+<p>The following elements have been removed from Device:</p>
+<ul>
+<li>Device.displayName as it was duplicated in Device.name backbone.</li>
+<li>Device.owner has been removed and was moved to DeviceAssociation.relationship of the subject. Please comment on the revision if there are issues with removing the identification of individuals in the Device resource.</li>
+<li>Device.mode, Device.cycle, Device.duration, Device.gateway, Device.endpoint have been removed and the following extensions were added: device-mode, device-cycle, device-duration, device-gateway, and device-endpoint.</li>
+</ul>
+<p>The following extensions were added:</p>
+<ul>
+<li>device-alertDetection to describe the alert detection activation states for the overall device.</li>
+<li>device-conformsTo-source – represents the source of the device specification.</li>
+</ul>
 </blockquote>
-<blockquote class="stu-note">
-	<p><b>Note to Implementers:</b> The owner has been removed from Device and is now included in DeviceAssociation as .relationship of the subject.  Please comment on the revision if there are issues with removing the identification of individuals in the Device resource.</p>
-</blockquote>
-<blockquote class="stu-note">
- <p><strong>Note to Implementers:</strong> Extensions have been created and are now available to represent previously removed <code>Device</code> elements and new concepts. These include:</p>
-
-  <ul>
-    <li><code>device-mode</code>, <code>device-cycle</code>, <code>device-duration</code>, <code>device-gateway</code>, and <code>device-endpoint</code></li>
-    <li><code>device-alertDetection</code> – describes the alert detection activation states for the overall device</li>
-    <li><code>device-conformsTo-source</code> – represents the source of the device specification</li>
-  </ul>
-
- <p>Links to these extensions can be found in the <a href="https://build.fhir.org/ig/HL7/fhir-extensions/extensions-Device.html">FHIR Extension Pack</a>. Feedback from implementers is welcomed to inform further refinement and usage guidance.</p>
-	</blockquote>
 </div>  
 <div>  
+<a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>This is a base resource that tracks individual instances of a device and their location. It is referenced by other resources for recording which device performed an action such as a procedure or an observation, which device was implanted in or explanted from a patient, dispensing a device to a patient for their use, managing inventory, or when requesting a specific device for a patient's use. Medical devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health. Medical devices may also include some types of software.</p>
 <p>Non-medical devices may include items such as a machine, cellphone, computer, software application or algorithm, etc. In short, a Device can range from a tongue depressor to an MRI. The fields in the Device resource must be flexible enough to cover this range.</p>

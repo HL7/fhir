@@ -53,7 +53,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-      <display value="United States of America"/>
+      <display value="United States of America (the)"/>
     </coding>
   </jurisdiction>
   <purpose value="The purpose of this library is to determine whether the patient has been evaluated for benefits and harms within 1 to 4 weeks of starting opioid therapy and every 3 months or more subsequently."/>

@@ -9,7 +9,7 @@
     <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/eligibility"/>
-  <version value="6.0.0-ballot3"/>
+  <version value="6.0.0-ballot4"/>
   <name value="Eligibility"/>
   <title value="Eligibility Characteristics"/>
   <status value="active"/>

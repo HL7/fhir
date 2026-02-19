@@ -9,7 +9,7 @@
     <valueCode value="informative"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/observation-codes-observationorboth"/>
-  <version value="6.0.0-ballot3"/>
+  <version value="6.0.0-ballot4"/>
   <name value="LOINCObsOrBoth"/>
   <title value="LOINC codes with Observation or Both"/>
   <status value="active"/>

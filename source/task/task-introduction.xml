@@ -2,6 +2,16 @@
   <div>
     <a name="scope"></a>
     <h2>Scope and Usage</h2>
+
+    <blockquote class="ballot-note" id="bn1">
+      <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+      <ul>
+        <li>Removed the Task.instantiatesCanonical and Task.instantiatesURI; and advise implementers to use the <a href="workflow-extensions.html">workflow instantiates extensions</a></li>
+        <li>Made the Task.focus element a new backbone</li>
+        <li>Consolidated the Task State Machine sections to the Notes section:<a href="task.html#statemachine">task.html#statemachine</a></li>
+      </ul>
+    </blockquote>
+
     <p>
       A Task resource describes an activity that can be performed and tracks the state of
       completion of that activity. It is a representation that an activity should be or has been
@@ -59,9 +69,6 @@
     
       [%stu-note dstu%]
       Currently, task pre-requisites can be represented using Task's `description` element or the <a href="requestorchestration.html">RequestOrchestration</a> resource. We are seeking input from the implementer community in evaluating whether there is need for adding another mechanism to this resource for this purpose.
-      </p>
-      <p>
-      Feedback <a href="https://chat.fhir.org/#narrow/stream/103-Orders-and.20Observation.20WG">here</a>.
       [%end-note%]
 
   </div>

@@ -173,7 +173,8 @@ For each parameter, the following information is needed:
  <li>Name - the name of the parameter. For implementer convenience, the name should be a valid token in common implementation languages</li>
  <li>Use - In | Out | Both</li>
  <li>Type - a datatype or a Resource type</li>
- <li>Search Type - for simple string parameters, if they are acting as search parameters, what kind of search parameter they are (and what kind of modifiers they have)</li>
+ <li>Search Type - for parameters with a data type can be expressed on the URL using the search parameter syntax, identifies the <a href="search.html#type-mapping">search type</a> to use when passing the parameter in the URL. 
+    NOTE: search type modifiers cannot be used when invoking an operation.  Explicit separate parameters are required.</li>
  <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a>  that describes additional restrictions about the parameter - only used if the parameter type is a resource or datatype</li>
  <li>Documentation - a description of the parameter's use</li>
 </ul>
