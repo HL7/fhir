@@ -268,7 +268,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TriggeredByType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The type of TriggeredBy Observation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-triggeredbytype"/>
       </binding>
