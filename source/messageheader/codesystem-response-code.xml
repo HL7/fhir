@@ -65,6 +65,6 @@
   <concept>
     <code value="non-fatal-error"/>
     <display value="Non-Fatal Error"/>
-    <definition value="The message was accepted and processed but with one or more errors. The narrative in MessageHeader.response.detail SHALL describe the issue."/>
+    <definition value="The message was accepted and processed but with one or more errors. The narrative in MessageHeader.response.details SHALL describe the issue."/>
   </concept>
 </CodeSystem>
