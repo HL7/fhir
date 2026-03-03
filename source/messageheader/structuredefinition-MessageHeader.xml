@@ -524,6 +524,13 @@
         <identity value="rim"/>
         <map value="AcknowledgementDetail or Observation[classCode=&quot;ALRT&quot; and moodCode=&quot;EVN&quot;]"/>
       </mapping>
+      <constraint>
+        <key value="msg-1"/>
+        <severity value="error"/>
+        <human value="If the response code is an error, details SHALL be populated"/>
+        <expression value="(code = 'fatal-error' or code = 'non-fatal-error') implies details.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/MessageHeader"/>
+      </constraint>
     </element>
     <element id="MessageHeader.focus">
       <path value="MessageHeader.focus"/>
