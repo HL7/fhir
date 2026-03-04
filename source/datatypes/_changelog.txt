@@ -8,7 +8,8 @@
 * Clarify MedicationStatement.reason vs .relatedClinicalInformation (FHIR-54451, https://jira.hl7.org/browse/FHIR-54451)
   Updated .reason definition to clarify it covers what leads to taking (or not taking) a medication. Added clarification to .relatedClinicalInformation that it is not the actual indication - that belongs in .reason.
 
-* Change Dosage.site from CodeableConcept to CodeableReference(BodyStructure)
-  (FHIR-54848, https://jira.hl7.org/browse/FHIR-54848)
-  Allows referencing BodyStructure for richer site descriptions (laterality,
-  location qualifiers) while keeping the same coded binding.
+* Change Dosage.site from CodeableConcept to CodeableReference(BodyStructure) (FHIR-54848, https://jira.hl7.org/browse/FHIR-54848)
+  Allows referencing BodyStructure for richer site descriptions (laterality, location qualifiers) while keeping the same coded binding.
+
+* Make DosageDetails.renderedInstruction required (1..1) (FHIR-54014, https://jira.hl7.org/browse/FHIR-54014)
+  Ensures dosage intent is always communicated. Updated definition and comment.
