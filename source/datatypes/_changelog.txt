@@ -2,3 +2,8 @@
   Dosage.simple was redundant since a simple dosage can be expressed as a single step.
   Removed dosdet-1 invariant; added invariant that step.safety shall not be populated
   when only one step is present. Updated documentation and examples.
+
+* Fix entered-in-error definitions for MedicationStatement and MedicationRequest
+  (FHIR-54903, https://jira.hl7.org/browse/FHIR-54903)
+  Corrected the misleading entered-in-error status definitions to simply state
+  the resource was entered in error and is not valid.
