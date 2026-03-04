@@ -1,0 +1,4 @@
+* Dosage.simple has been removed (FHIR-54651, https://jira.hl7.org/browse/FHIR-54651)
+  Dosage.simple was redundant since a simple dosage can be expressed as a single step.
+  Removed dosdet-1 invariant; added invariant that step.safety shall not be populated
+  when only one step is present. Updated documentation and examples.

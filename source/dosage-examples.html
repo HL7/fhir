@@ -78,7 +78,7 @@ Take Perindopril, 1 tablet per day, for 3 months.
 <ul> 
   <li><code>MedicationRequest.medication.concept</code> = “Perindopril Arginine 2.5 mg tablet”</li> 
   <li><code>MedicationRequest.dosageInstruction.renderedDosageInstruction</code> = “1 tablet per day for 3 months”</li> 
-  <li><code>MedicationRequest.dosageInstruction.simple.timing.repeat.boundsDuration</code> = 3&nbsp;mo</li> 
+  <li><code>MedicationRequest.dosageInstruction.step.timing.repeat.boundsDuration</code> = 3&nbsp;mo</li> 
   <li><code>…timing.repeat.frequency/period/periodUnit</code> = 1 / 1 / d</li> 
   <li><code>…doseAndRate[0].doseQuantity</code> = 1 tablet (or explicit mg if desired)</li> 
 </ul> 
@@ -90,7 +90,7 @@ MedicationRequest
       coding: Perindopril Arginine, 2.5mg tablets
   dosageInstruction
     renderedInstruction: 1 tablet per day for 3 months
-    simple
+    step
       timing
         repeat 
           boundsDuration: 3 mo
@@ -114,7 +114,7 @@ MedicationRequest
   },
   "dosageInstruction": {
     "renderedInstruction": "1 tablet per day for 3 months",
-    "simple": {
+    "step": [{
       "timing": {
         "repeat": {
           "boundsDuration": {
@@ -138,7 +138,7 @@ MedicationRequest
           }
         }
       ]
-    }
+    }]
   }
 }
 </pre>
@@ -155,7 +155,7 @@ MedicationRequest
   &lt;/medication&gt;
   &lt;dosageInstruction&gt;
     &lt;renderedInstruction value=&quot;1 tablet per day for 3 months&quot;/&gt;
-    &lt;simple&gt;
+    &lt;step&gt;
       &lt;timing&gt;
         &lt;repeat&gt;
           &lt;boundsDuration&gt;
@@ -177,7 +177,7 @@ MedicationRequest
           &lt;code value=&quot;mg&quot;/&gt;
         &lt;/doseQuantity&gt;
       &lt;/doseAndRate&gt;
-    &lt;/simple&gt;
+    &lt;/step&gt;
   &lt;/dosageInstruction&gt;
 &lt;/MedicationRequest&gt;
   </pre>
@@ -1360,7 +1360,7 @@ MedicationRequest
     concept
       coding: Microgynon tab
   dosageInstruction 
-    simple
+    step
       timing
         repeat
           endOffset = 7 d
@@ -1384,7 +1384,7 @@ MedicationRequest
     }
   },
   "dosageInstruction": {
-    "simple": {
+    "step": [{
       "timing": {
         "repeat": {
           "endOffset": {
@@ -1408,7 +1408,7 @@ MedicationRequest
           }
         }
       ]
-    }
+    }]
   }
 }
 </pre>
@@ -1424,7 +1424,7 @@ MedicationRequest
     &lt;/concept&gt;
   &lt;/medication&gt;
   &lt;dosageInstruction&gt;
-    &lt;simple&gt;
+    &lt;step&gt;
       &lt;timing&gt;
         &lt;repeat&gt;
           &lt;endOffset&gt;
@@ -1446,7 +1446,7 @@ MedicationRequest
           &lt;code value=&quot;{tablet}&quot;/&gt;
         &lt;/doseQuantity&gt;
       &lt;/doseAndRate&gt;
-    &lt;/simple&gt;
+    &lt;/step&gt;
   &lt;/dosageInstruction&gt;
 &lt;/MedicationRequest&gt;
 
@@ -1486,7 +1486,7 @@ MedicationRequest
     concept
       coding: Iron sucrose
   dosageInstruction 
-    simple
+    step
       timing
         repeat
           count: 5
@@ -1508,7 +1508,7 @@ MedicationRequest
     }
   },
   "dosageInstruction": {
-    "simple": {
+    "step": [{
       "timing": {
         "repeat": {
           "count": 5,
@@ -1518,7 +1518,7 @@ MedicationRequest
           "timeOfDay": ["09:00"]
         }
       }
-    }
+    }]
   }
 }
 </pre>
@@ -1534,7 +1534,7 @@ MedicationRequest
     &lt;/concept&gt;
   &lt;/medication&gt;
   &lt;dosageInstruction&gt;
-    &lt;simple&gt;
+    &lt;step&gt;
       &lt;timing&gt;
         &lt;repeat&gt;
           &lt;count value=&quot;5&quot;/&gt;
@@ -1554,7 +1554,7 @@ MedicationRequest
           &lt;code value=&quot;{dose}&quot;/&gt;
         &lt;/doseQuantity&gt;
       &lt;/doseAndRate&gt;
-    &lt;/simple&gt;
+    &lt;/step&gt;
   &lt;/dosageInstruction&gt;
 &lt;/MedicationRequest&gt;
   </pre>
@@ -1778,7 +1778,7 @@ MedicationRequest
     concept
       coding: Vitamin D
   dosageInstruction 
-    simple
+    step
       timing
         repeat
           extension['%timing-dayOfMonth'].valueInteger: 1
@@ -1799,7 +1799,7 @@ MedicationRequest
     }
   },
   "dosageInstruction": {
-    "simple": {
+    "step": [{
       "timing": {
         "repeat": {
           "extension": [
@@ -1823,7 +1823,7 @@ MedicationRequest
           }
         }
       ]
-    }
+    }]
   }
 }
 </pre>
@@ -1839,7 +1839,7 @@ MedicationRequest
     &lt;/concept&gt;
   &lt;/medication&gt;
   &lt;dosageInstruction&gt;
-    &lt;simple&gt;
+    &lt;step&gt;
       &lt;timing&gt;
         &lt;repeat&gt;
           &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth&quot;&gt;
@@ -1858,7 +1858,7 @@ MedicationRequest
           &lt;code value=&quot;{dose}&quot;/&gt;
         &lt;/doseQuantity&gt;
       &lt;/doseAndRate&gt;
-    &lt;/simple&gt;
+    &lt;/step&gt;
   &lt;/dosageInstruction&gt;
 &lt;/MedicationRequest&gt;
   </pre>

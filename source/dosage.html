@@ -56,8 +56,7 @@ The <a href="dosage-examples.html">examples</a> page shows how many different co
 <a name="text"> </a>
 <h3>Dosage text and structured Data</h3>
 <p>
-Dosages may contain <code>renderedInstruction</code> and/or structured data 
-(as a <code>simple</code> dosage or a complex sequence of <code>step</code> elements).
+Dosages may contain <code>renderedInstruction</code> and/or structured data.
 </p>
 <p>
 The rendered instructions are typical prescription instructions, with a relatively concise expression
@@ -110,7 +109,7 @@ DosageDetails
 <p>The DosageDetails type is the container type for dosing information, and contains:</p>
 <ul>
   <li><code>renderedInstruction</code>: a single summary of the details in the dosage details</li>
-  <li>Either a <code>simple</code> dosage, or a complex dosage course with one or more <code>step</code> items, able to represent multiple dose regimes with tapering doses, and event relationships</li>
+  <li>Either a simple dosage expressed as a single <code>step</code> or a complex dosage course expressed with one or more <code>step</code>s, able to represent multiple dose regimes with tapering doses, and event relationships</li>
   <li><code>safety</code> information that represents dose limits for relevant medications</li>
 </ul>
 
