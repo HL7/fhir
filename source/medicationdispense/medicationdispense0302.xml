@@ -97,6 +97,7 @@
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <whenHandedOver value="2015-01-15T16:20:00Z"/>
     <dosageInstruction>
+        <renderedInstruction value="Inject 10 units subcut 10 minutes before breakfast, 15 units before lunch, 20 units before dinner. Check sugar level before taking Novolog."/>
         <step>
             <component>
                 <text value="Before Breakfast"/>

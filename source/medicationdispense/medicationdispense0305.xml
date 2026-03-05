@@ -57,6 +57,7 @@
     <whenPrepared value="2015-01-15T10:20:00Z"/>
     <whenHandedOver value="2015-01-15T16:20:00Z"/>
     <dosageInstruction>
+      <renderedInstruction value="Take 4 tablets daily for 7 days, then 2 tablets daily for 7 days, then 1 tablet daily for 7 days. Take with or after food."/>
       <step>
         <component>
         <text value="Take 4 tablets daily for 7 days starting January 16, 2015" />

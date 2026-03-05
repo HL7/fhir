@@ -52,6 +52,7 @@
 
 
     <dosageInstruction>
+      <renderedInstruction value="Insert one suppository into the vagina daily at bedtime and apply cream to vaginal area topically once daily for 3 days."/>
       <step>
         <component>
             <text value="Insert one suppository into the vagina daily at bedtime" />
