@@ -133,7 +133,7 @@ MedicationRequest
         "doseAndRate": [
           {
             "doseQuantity": {
-              "value": 10,
+              "value": 2.5,
               "unit": "mg",
               "system": "http://unitsofmeasure.org",
               "code": "mg"
@@ -175,7 +175,7 @@ MedicationRequest
         &lt;/timing&gt;
         &lt;doseAndRate&gt;
           &lt;doseQuantity&gt;
-            &lt;value value=&quot;10&quot;/&gt;
+            &lt;value value=&quot;2.5&quot;/&gt;
             &lt;unit value=&quot;mg&quot;/&gt;
             &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
             &lt;code value=&quot;mg&quot;/&gt;
@@ -342,11 +342,21 @@ MedicationRequest
               "when": ["EVE"]
             }
           },
+          "doseAndRate": [
+            {
+              "doseQuantity": {
+                "value": 5,
+                "unit": "mg",
+                "system": "http://unitsofmeasure.org",
+                "code": "mg"
+              }
+            }
+          ],
           "safety": {
             "doseLimit": [{
               "valueQuantity": {
                 "value": 2,
-                "unit": "s",
+                "unit": "tablet",
                 "system": "http://unitsofmeasure.org",
                 "code": "tbl"
               },
@@ -475,23 +485,6 @@ MedicationRequest
         &lt;/safety&gt;
       &lt;/component&gt;  
     &lt;/step&gt;
-    &lt;safety&gt;
-      &lt;doseLimit&gt;
-        &lt;valueQuantity&gt;
-          &lt;value value=&quot;150&quot;/&gt;
-          &lt;unit value=&quot;mg&quot;/&gt;
-          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
-          &lt;code value=&quot;mg&quot;/&gt;
-        &lt;/valueQuantity&gt;
-        &lt;scope value=&quot;period&quot;/&gt;
-        &lt;period&gt;
-          &lt;value value=&quot;1&quot;/&gt;
-          &lt;unit value=&quot;week&quot;/&gt;
-          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
-          &lt;code value=&quot;wk&quot;/&gt;
-        &lt;/period&gt;
-      &lt;/doseLimit&gt;
-    &lt;/safety&gt;
     &lt;safety&gt;
       &lt;doseLimit&gt;
         &lt;valueQuantity&gt;
@@ -860,7 +853,7 @@ MedicationRequest
       "doseLimit": [{
         "valueInteger": 2,
         "period": {
-          "value": 2,
+          "value": 6,
           "unit": "months",
           "system": "http://unitsofmeasure.org",
           "code": "mo"
@@ -1067,7 +1060,7 @@ MedicationRequest
       &lt;doseLimit&gt;
         &lt;valueInteger value=&quot;2&quot;/&gt;
         &lt;period&gt;
-          &lt;value value=&quot;2&quot;/&gt;
+          &lt;value value=&quot;6&quot;/&gt;
           &lt;unit value=&quot;months&quot;/&gt;
           &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
           &lt;code value=&quot;mo&quot;/&gt;
@@ -2275,23 +2268,23 @@ MedicationRequest
           &lt;code value=&quot;d&quot;/&gt;
         &lt;/offsetDuration&gt;
       &lt;/end&gt;
+      &lt;component&gt;
+        &lt;timing&gt;
+          &lt;repeat&gt;
+            &lt;period value=&quot;1&quot;/&gt;
+            &lt;periodUnit value=&quot;d&quot;/&gt;
+          &lt;/repeat&gt;
+        &lt;/timing&gt;
+        &lt;doseAndRate&gt;
+          &lt;doseQuantity&gt;
+            &lt;value value=&quot;1&quot;/&gt;
+            &lt;unit value=&quot;dose&quot;/&gt;
+            &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+            &lt;code value=&quot;{dose}&quot;/&gt;
+          &lt;/doseQuantity&gt;
+        &lt;/doseAndRate&gt;
+      &lt;/component&gt;
     &lt;/step&gt;
-    &lt;timing&gt;
-      &lt;repeat&gt;
-        &lt;period value=&quot;1&quot;/&gt;
-        &lt;periodUnit value=&quot;d&quot;/&gt;
-      &lt;/repeat&gt;
-    &lt;/timing&gt;
-    &lt;doseAndRate&gt;
-      &lt;doseQuantity&gt;
-        &lt;value value=&quot;1&quot;/&gt;
-        &lt;unit value=&quot;dose&quot;/&gt;
-        &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
-        &lt;code value=&quot;{dose}&quot;/&gt;
-      &lt;/doseQuantity&gt;
-    &lt;/doseAndRate&gt;
-  &lt;/dosageInstruction&gt;
-&lt;/MedicationRequest&gt;
   </pre>
  </div>
  
