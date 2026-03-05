@@ -1,0 +1,56 @@
+<h3>Pharmacy Work Group Changes</h3>
+
+<h4>Dosage / DosageDetails structure</h4>
+<ul>
+  <li>
+    <b>Dosage.simple removed</b> (<a href="https://jira.hl7.org/browse/FHIR-54651">FHIR-54651</a>)<br/>
+    A simple dosage is now expressed as a single <code>step</code>. The <code>simple</code> element
+    has been removed as it was redundant. The <code>dosdet-1</code> invariant has been replaced:
+    if only one step is present, <code>DosageDetails.step.safety</code> shall not be populated.
+    Documentation and examples updated accordingly.
+  </li>
+  <li>
+    <b>DosageDetails.renderedInstruction is now required (1..1)</b> (<a href="https://jira.hl7.org/browse/FHIR-54014">FHIR-54014</a>)<br/>
+    <code>renderedInstruction</code> must always be present to ensure the full dosage intent
+    is communicated in every case. Definition and comment updated.
+  </li>
+  <li>
+    <b>Dosage.site is now CodeableReference(BodyStructure)</b> (<a href="https://jira.hl7.org/browse/FHIR-54848">FHIR-54848</a>)<br/>
+    <code>Dosage.site</code> can now reference a <code>BodyStructure</code> for richer site descriptions
+    including laterality and location qualifiers. The same coded binding is retained.
+  </li>
+</ul>
+
+<h4>Dosage examples</h4>
+<ul>
+  <li>
+    <b>step.component structure corrected</b> (<a href="https://jira.hl7.org/browse/FHIR-56016">FHIR-56016</a>)<br/>
+    Examples now correctly place <code>timing</code> and <code>doseAndRate</code> under
+    <code>step.component</code> rather than directly under <code>step</code>.
+  </li>
+  <li>
+    <b>Structural representation corrected to match text</b> (<a href="https://jira.hl7.org/browse/FHIR-54523">FHIR-54523</a>)<br/>
+    Fixed mismatches between narrative and structure (e.g. Example 1 doseQuantity was 10mg
+    instead of 2.5mg) and cross-format inconsistencies across YAML, JSON, and XML
+    (missing doses, wrong units, wrong safety periods).
+  </li>
+</ul>
+
+<h4>MedicationStatement</h4>
+<ul>
+  <li>
+    <b>Reason vs relatedClinicalInformation clarified</b> (<a href="https://jira.hl7.org/browse/FHIR-54451">FHIR-54451</a>)<br/>
+    <code>.reason</code> covers what leads to the medication being taken (or not taken).
+    <code>.relatedClinicalInformation</code> is for information relevant to the statement
+    but not the actual indication &mdash; that belongs in <code>.reason</code>.
+  </li>
+</ul>
+
+<h4>MedicationStatement / MedicationRequest</h4>
+<ul>
+  <li>
+    <b>Entered-in-error status definitions corrected</b> (<a href="https://jira.hl7.org/browse/FHIR-54903">FHIR-54903</a>)<br/>
+    The entered-in-error status now simply indicates that the resource was entered in error
+    and is not valid.
+  </li>
+</ul>

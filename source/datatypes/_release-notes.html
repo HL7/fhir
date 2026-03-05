@@ -1,0 +1,40 @@
+<h3>Pharmacy Work Group Changes</h3>
+
+<ul>
+  <li>
+    <b>Dosage.simple removed</b> (<a href="https://jira.hl7.org/browse/FHIR-54651">FHIR-54651</a>)<br/>
+    A simple dosage is now expressed as a single <code>step</code>. The <code>simple</code> element has been removed
+    as it was redundant. If only one step is present, <code>DosageDetails.step.safety</code> shall not be populated.
+  </li>
+  <li>
+    <b>Entered-in-error status definitions corrected</b> (<a href="https://jira.hl7.org/browse/FHIR-54903">FHIR-54903</a>)<br/>
+    The entered-in-error status for MedicationStatement and MedicationRequest now simply indicates
+    that the resource was entered in error and is not valid.
+  </li>
+  <li>
+    <b>MedicationStatement.reason vs .relatedClinicalInformation clarified</b> (<a href="https://jira.hl7.org/browse/FHIR-54451">FHIR-54451</a>)<br/>
+    It is now clarified that <code>.reason</code> covers what leads to the medication being taken (or not taken),
+    and <code>.relatedClinicalInformation</code> is for information relevant to the statement but not the actual
+    indication for the medication &mdash; that belongs in <code>.reason</code>.
+  </li>
+  <li>
+    <b>Dosage.site is now CodeableReference(BodyStructure)</b> (<a href="https://jira.hl7.org/browse/FHIR-54848">FHIR-54848</a>)<br/>
+    <code>Dosage.site</code> can now reference a <code>BodyStructure</code> for richer site descriptions
+    including laterality and location qualifiers. The same coded binding is retained.
+  </li>
+  <li>
+    <b>DosageDetails.renderedInstruction is now required (1..1)</b> (<a href="https://jira.hl7.org/browse/FHIR-54014">FHIR-54014</a>)<br/>
+    <code>renderedInstruction</code> must always be present to ensure the full dosage intent
+    is communicated in every case.
+  </li>
+  <li>
+    <b>Dosage examples corrected: step.component</b> (<a href="https://jira.hl7.org/browse/FHIR-56016">FHIR-56016</a>)<br/>
+    Dosage examples now correctly place <code>timing</code> and <code>doseAndRate</code> under
+    <code>step.component</code> rather than directly under <code>step</code>.
+  </li>
+  <li>
+    <b>Dosage examples: structural representation corrected to match text</b> (<a href="https://jira.hl7.org/browse/FHIR-54523">FHIR-54523</a>)<br/>
+    Fixed mismatches between narrative and structure (e.g. Example 1 doseQuantity was 10mg instead of 2.5mg)
+    and cross-format inconsistencies in Examples 2 and 3 (missing dose, wrong units, wrong safety period).
+  </li>
+</ul>
