@@ -78,7 +78,7 @@ Take Perindopril, 1 tablet per day, for 3 months.
 <ul> 
   <li><code>MedicationRequest.medication.concept</code> = “Perindopril Arginine 2.5 mg tablet”</li> 
   <li><code>MedicationRequest.dosageInstruction.renderedDosageInstruction</code> = “1 tablet per day for 3 months”</li> 
-  <li><code>MedicationRequest.dosageInstruction.step.timing.repeat.boundsDuration</code> = 3&nbsp;mo</li> 
+  <li><code>MedicationRequest.dosageInstruction.step.component.timing.repeat.boundsDuration</code> = 3&nbsp;mo</li> 
   <li><code>…timing.repeat.frequency/period/periodUnit</code> = 1 / 1 / d</li> 
   <li><code>…doseAndRate[0].doseQuantity</code> = 1 tablet (or explicit mg if desired)</li> 
 </ul> 
@@ -91,14 +91,15 @@ MedicationRequest
   dosageInstruction
     renderedInstruction: 1 tablet per day for 3 months
     step
-      timing
-        repeat 
-          boundsDuration: 3 mo
-          frequency : 1
-          period: 1
-          periodUnit: d
-      doseAndRate
-        doseQuantity: 10 mg
+      component
+        timing
+          repeat
+            boundsDuration: 3 mo
+            frequency : 1
+            period: 1
+            periodUnit: d
+        doseAndRate
+          doseQuantity: 10 mg
 </pre>
  </div>
 
@@ -115,29 +116,31 @@ MedicationRequest
   "dosageInstruction": {
     "renderedInstruction": "1 tablet per day for 3 months",
     "step": [{
-      "timing": {
-        "repeat": {
-          "boundsDuration": {
-            "value": 3,
-            "unit": "mo",
-            "system": "http://unitsofmeasure.org",
-            "code": "mo"
-          },
-          "frequency": 1,
-          "period": 1,
-          "periodUnit": "d"
-        }
-      },
-      "doseAndRate": [
-        {
-          "doseQuantity": {
-            "value": 10,
-            "unit": "mg",
-            "system": "http://unitsofmeasure.org",
-            "code": "mg"
+      "component": [{
+        "timing": {
+          "repeat": {
+            "boundsDuration": {
+              "value": 3,
+              "unit": "mo",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            },
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "d"
           }
-        }
-      ]
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 10,
+              "unit": "mg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg"
+            }
+          }
+        ]
+      }]
     }]
   }
 }
@@ -156,27 +159,29 @@ MedicationRequest
   &lt;dosageInstruction&gt;
     &lt;renderedInstruction value=&quot;1 tablet per day for 3 months&quot;/&gt;
     &lt;step&gt;
-      &lt;timing&gt;
-        &lt;repeat&gt;
-          &lt;boundsDuration&gt;
-            &lt;value value=&quot;3&quot;/&gt;
-            &lt;unit value=&quot;mo&quot;/&gt;
+      &lt;component&gt;
+        &lt;timing&gt;
+          &lt;repeat&gt;
+            &lt;boundsDuration&gt;
+              &lt;value value=&quot;3&quot;/&gt;
+              &lt;unit value=&quot;mo&quot;/&gt;
+              &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+              &lt;code value=&quot;mo&quot;/&gt;
+            &lt;/boundsDuration&gt;
+            &lt;frequency value=&quot;1&quot;/&gt;
+            &lt;period value=&quot;1&quot;/&gt;
+            &lt;periodUnit value=&quot;d&quot;/&gt;
+          &lt;/repeat&gt;
+        &lt;/timing&gt;
+        &lt;doseAndRate&gt;
+          &lt;doseQuantity&gt;
+            &lt;value value=&quot;10&quot;/&gt;
+            &lt;unit value=&quot;mg&quot;/&gt;
             &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
-            &lt;code value=&quot;mo&quot;/&gt;
-          &lt;/boundsDuration&gt;
-          &lt;frequency value=&quot;1&quot;/&gt;
-          &lt;period value=&quot;1&quot;/&gt;
-          &lt;periodUnit value=&quot;d&quot;/&gt;
-        &lt;/repeat&gt;
-      &lt;/timing&gt;
-      &lt;doseAndRate&gt;
-        &lt;doseQuantity&gt;
-          &lt;value value=&quot;10&quot;/&gt;
-          &lt;unit value=&quot;mg&quot;/&gt;
-          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
-          &lt;code value=&quot;mg&quot;/&gt;
-        &lt;/doseQuantity&gt;
-      &lt;/doseAndRate&gt;
+            &lt;code value=&quot;mg&quot;/&gt;
+          &lt;/doseQuantity&gt;
+        &lt;/doseAndRate&gt;
+      &lt;/component&gt;
     &lt;/step&gt;
   &lt;/dosageInstruction&gt;
 &lt;/MedicationRequest&gt;
@@ -1361,14 +1366,15 @@ MedicationRequest
       coding: Microgynon tab
   dosageInstruction 
     step
-      timing
-        repeat
-          endOffset = 7 d
-          frequency: 21
-          period: 28
-          periodUnit: d
-       doseAndRate
-         doseQuantity: 1 tablet
+      component
+        timing
+          repeat
+            endOffset = 7 d
+            frequency: 21
+            period: 28
+            periodUnit: d
+        doseAndRate
+          doseQuantity: 1 tablet
 
 </pre>
  </div>
@@ -1385,29 +1391,31 @@ MedicationRequest
   },
   "dosageInstruction": {
     "step": [{
-      "timing": {
-        "repeat": {
-          "endOffset": {
-            "value": 7,
-            "unit": "days",
-            "system": "http://unitsofmeasure.org",
-            "code": "d"
-          },
-          "frequency": 21,
-          "period": 28,
-          "periodUnit": "d"
-        }
-      },
-      "doseAndRate": [
-        {
-          "doseQuantity": {
-            "value": 1,
-            "unit": "tablet",
-            "system": "http://unitsofmeasure.org",
-            "code": "{tablet}"
+      "component": [{
+        "timing": {
+          "repeat": {
+            "endOffset": {
+              "value": 7,
+              "unit": "days",
+              "system": "http://unitsofmeasure.org",
+              "code": "d"
+            },
+            "frequency": 21,
+            "period": 28,
+            "periodUnit": "d"
           }
-        }
-      ]
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 1,
+              "unit": "tablet",
+              "system": "http://unitsofmeasure.org",
+              "code": "{tablet}"
+            }
+          }
+        ]
+      }]
     }]
   }
 }
@@ -1425,27 +1433,29 @@ MedicationRequest
   &lt;/medication&gt;
   &lt;dosageInstruction&gt;
     &lt;step&gt;
-      &lt;timing&gt;
-        &lt;repeat&gt;
-          &lt;endOffset&gt;
-            &lt;value value=&quot;7&quot;/&gt;
-            &lt;unit value=&quot;days&quot;/&gt;
+      &lt;component&gt;
+        &lt;timing&gt;
+          &lt;repeat&gt;
+            &lt;endOffset&gt;
+              &lt;value value=&quot;7&quot;/&gt;
+              &lt;unit value=&quot;days&quot;/&gt;
+              &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+              &lt;code value=&quot;d&quot;/&gt;
+            &lt;/endOffset&gt;
+            &lt;frequency value=&quot;21&quot;/&gt;
+            &lt;period value=&quot;28&quot;/&gt;
+            &lt;periodUnit value=&quot;d&quot;/&gt;
+          &lt;/repeat&gt;
+        &lt;/timing&gt;
+        &lt;doseAndRate&gt;
+          &lt;doseQuantity&gt;
+            &lt;value value=&quot;1&quot;/&gt;
+            &lt;unit value=&quot;tablet&quot;/&gt;
             &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
-            &lt;code value=&quot;d&quot;/&gt;
-          &lt;/endOffset&gt;
-          &lt;frequency value=&quot;21&quot;/&gt;
-          &lt;period value=&quot;28&quot;/&gt;
-          &lt;periodUnit value=&quot;d&quot;/&gt;
-        &lt;/repeat&gt;
-      &lt;/timing&gt;
-      &lt;doseAndRate&gt;
-        &lt;doseQuantity&gt;
-          &lt;value value=&quot;1&quot;/&gt;
-          &lt;unit value=&quot;tablet&quot;/&gt;
-          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
-          &lt;code value=&quot;{tablet}&quot;/&gt;
-        &lt;/doseQuantity&gt;
-      &lt;/doseAndRate&gt;
+            &lt;code value=&quot;{tablet}&quot;/&gt;
+          &lt;/doseQuantity&gt;
+        &lt;/doseAndRate&gt;
+      &lt;/component&gt;
     &lt;/step&gt;
   &lt;/dosageInstruction&gt;
 &lt;/MedicationRequest&gt;
@@ -1487,13 +1497,14 @@ MedicationRequest
       coding: Iron sucrose
   dosageInstruction 
     step
-      timing
-        repeat
-          count: 5
-          period: 1
-          periodUnit: d
-          dayOfWeek = Mon|Wed|Fri
-          timeOfDay: 09:00
+      component
+        timing
+          repeat
+            count: 5
+            period: 1
+            periodUnit: d
+            dayOfWeek = Mon|Wed|Fri
+            timeOfDay: 09:00
 </pre>
  </div>
 
@@ -1509,15 +1520,17 @@ MedicationRequest
   },
   "dosageInstruction": {
     "step": [{
-      "timing": {
-        "repeat": {
-          "count": 5,
-          "period": 1,
-          "periodUnit": "d",
-          "dayOfWeek": ["mon", "wed", "fri"],
-          "timeOfDay": ["09:00"]
+      "component": [{
+        "timing": {
+          "repeat": {
+            "count": 5,
+            "period": 1,
+            "periodUnit": "d",
+            "dayOfWeek": ["mon", "wed", "fri"],
+            "timeOfDay": ["09:00"]
+          }
         }
-      }
+      }]
     }]
   }
 }
@@ -1535,25 +1548,27 @@ MedicationRequest
   &lt;/medication&gt;
   &lt;dosageInstruction&gt;
     &lt;step&gt;
-      &lt;timing&gt;
-        &lt;repeat&gt;
-          &lt;count value=&quot;5&quot;/&gt;
-          &lt;period value=&quot;1&quot;/&gt;
-          &lt;periodUnit value=&quot;d&quot;/&gt;
-          &lt;dayOfWeek value=&quot;mon&quot;/&gt;
-          &lt;dayOfWeek value=&quot;wed&quot;/&gt;
-          &lt;dayOfWeek value=&quot;fri&quot;/&gt;
-          &lt;timeOfDay value=&quot;09:00&quot;/&gt;
-        &lt;/repeat&gt;
-      &lt;/timing&gt;
-      &lt;doseAndRate&gt;
-        &lt;doseQuantity&gt;
-          &lt;value value=&quot;1&quot;/&gt;
-          &lt;unit value=&quot;dose&quot;/&gt;
-          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
-          &lt;code value=&quot;{dose}&quot;/&gt;
-        &lt;/doseQuantity&gt;
-      &lt;/doseAndRate&gt;
+      &lt;component&gt;
+        &lt;timing&gt;
+          &lt;repeat&gt;
+            &lt;count value=&quot;5&quot;/&gt;
+            &lt;period value=&quot;1&quot;/&gt;
+            &lt;periodUnit value=&quot;d&quot;/&gt;
+            &lt;dayOfWeek value=&quot;mon&quot;/&gt;
+            &lt;dayOfWeek value=&quot;wed&quot;/&gt;
+            &lt;dayOfWeek value=&quot;fri&quot;/&gt;
+            &lt;timeOfDay value=&quot;09:00&quot;/&gt;
+          &lt;/repeat&gt;
+        &lt;/timing&gt;
+        &lt;doseAndRate&gt;
+          &lt;doseQuantity&gt;
+            &lt;value value=&quot;1&quot;/&gt;
+            &lt;unit value=&quot;dose&quot;/&gt;
+            &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+            &lt;code value=&quot;{dose}&quot;/&gt;
+          &lt;/doseQuantity&gt;
+        &lt;/doseAndRate&gt;
+      &lt;/component&gt;
     &lt;/step&gt;
   &lt;/dosageInstruction&gt;
 &lt;/MedicationRequest&gt;
@@ -1779,12 +1794,13 @@ MedicationRequest
       coding: Vitamin D
   dosageInstruction 
     step
-      timing
-        repeat
-          extension['%timing-dayOfMonth'].valueInteger: 1
-          frequency: 1
-          period: 1
-          periodUnit: mo
+      component
+        timing
+          repeat
+            extension['%timing-dayOfMonth'].valueInteger: 1
+            frequency: 1
+            period: 1
+            periodUnit: mo
 </pre>
  </div>
 
@@ -1800,29 +1816,31 @@ MedicationRequest
   },
   "dosageInstruction": {
     "step": [{
-      "timing": {
-        "repeat": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth",
-              "valueInteger": 1
-            }
-          ],
-          "frequency": 1,
-          "period": 1,
-          "periodUnit": "mo"
-        }
-      },
-      "doseAndRate": [
-        {
-          "doseQuantity": {
-            "value": 1,
-            "unit": "dose",
-            "system": "http://unitsofmeasure.org",
-            "code": "{dose}"
+      "component": [{
+        "timing": {
+          "repeat": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth",
+                "valueInteger": 1
+              }
+            ],
+            "frequency": 1,
+            "period": 1,
+            "periodUnit": "mo"
           }
-        }
-      ]
+        },
+        "doseAndRate": [
+          {
+            "doseQuantity": {
+              "value": 1,
+              "unit": "dose",
+              "system": "http://unitsofmeasure.org",
+              "code": "{dose}"
+            }
+          }
+        ]
+      }]
     }]
   }
 }
@@ -1840,24 +1858,26 @@ MedicationRequest
   &lt;/medication&gt;
   &lt;dosageInstruction&gt;
     &lt;step&gt;
-      &lt;timing&gt;
-        &lt;repeat&gt;
-          &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth&quot;&gt;
-            &lt;valueInteger value=&quot;1&quot;/&gt;
-          &lt;/extension&gt;
-          &lt;frequency value=&quot;1&quot;/&gt;
-          &lt;period value=&quot;1&quot;/&gt;
-          &lt;periodUnit value=&quot;mo&quot;/&gt;
-        &lt;/repeat&gt;
-      &lt;/timing&gt;
-      &lt;doseAndRate&gt;
-        &lt;doseQuantity&gt;
-          &lt;value value=&quot;1&quot;/&gt;
-          &lt;unit value=&quot;dose&quot;/&gt;
-          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
-          &lt;code value=&quot;{dose}&quot;/&gt;
-        &lt;/doseQuantity&gt;
-      &lt;/doseAndRate&gt;
+      &lt;component&gt;
+        &lt;timing&gt;
+          &lt;repeat&gt;
+            &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/timing-dayOfMonth&quot;&gt;
+              &lt;valueInteger value=&quot;1&quot;/&gt;
+            &lt;/extension&gt;
+            &lt;frequency value=&quot;1&quot;/&gt;
+            &lt;period value=&quot;1&quot;/&gt;
+            &lt;periodUnit value=&quot;mo&quot;/&gt;
+          &lt;/repeat&gt;
+        &lt;/timing&gt;
+        &lt;doseAndRate&gt;
+          &lt;doseQuantity&gt;
+            &lt;value value=&quot;1&quot;/&gt;
+            &lt;unit value=&quot;dose&quot;/&gt;
+            &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+            &lt;code value=&quot;{dose}&quot;/&gt;
+          &lt;/doseQuantity&gt;
+        &lt;/doseAndRate&gt;
+      &lt;/component&gt;
     &lt;/step&gt;
   &lt;/dosageInstruction&gt;
 &lt;/MedicationRequest&gt;
