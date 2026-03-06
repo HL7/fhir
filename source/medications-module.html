@@ -71,7 +71,7 @@ This module is concerned with resources and functionality in 3 main domains:
 		<p>Represents an instruction for the administration of medication to a patient - both in the inpatient (hospital) and
 		community setting. It can also include instructions for the dispensing, the reasons why the administration should
 		occur and other data.</p>
-		<p>It is called an 'Request' to be consistent with other FHIR resources and the workflow pattern, but a common alias for this resource is a 'Prescription' or an 'Order'.
+		<p>It is called a 'Request' to be consistent with other FHIR resources and the workflow pattern, but a common alias for this resource is a 'Prescription' or an 'Order'.
 		The Order itself represents the content of the instruction and is not, by itself, actionable. The workflow process
 		around 'fulfilling' the order is part of the <a href="workflow-module.html">generic FHIR workflow</a> (see below),
 			with the MedicationRequest representing the contents.</p>
@@ -97,7 +97,7 @@ This module is concerned with resources and functionality in 3 main domains:
 			A medication statement is not a part of the prescribe->dispense->administer sequence,
 			but is a report that such a sequence (or at least a part of it) did take place,
 			resulting in a belief that the patient has received a particular medication.
-			It may be used to construct a patients 'Current Medications' list.
+			It may be used to construct a patient's 'Current Medications' list.
 
 
 		</td></tr>
@@ -120,15 +120,18 @@ This module is concerned with resources and functionality in 3 main domains:
 			to patients across all healthcare disciplines in all care settings and all regions.
 			This includes immunization of both humans and animals, but does not include the administration of non-vaccine agents,
 			even those that may have or claim to have immunological effects.</td></tr>
-	<tr>
-		<td><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationRecommendation.html">ImmunizationRecommendation</a></td>
-		<td>A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility
-			according to a published schedule) with optional supporting justification</td></tr>
-    	<tr>
-    		<td><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationEvaluation.html">ImmunizationEvaluation</a></td>
-    		<td>The ImmunizationEvaluation resource is intended to cover communicating the results of an evaluation of a vaccine administration event (documented using the Immunization resource) against a set of published recommendations (protocols).</td></tr>
 </table>
-
+    <a name="additional"></a>
+    <h4>Additional Resources</h4>
+    <table class="bare">
+        <tr><td><b>Name</b></td><td><b>Description</b></td></tr>
+	<tr bgcolor="#EFEFEF">
+		<td><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationRecommendation.html">ImmunizationRecommendation</a></td>
+		<td>The ImmunizationRecommendation resource is an Additional Resource designed to represent a patient's personalized point-in-time immunization recommendations (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.</td></tr>
+    <tr>
+    	<td><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationEvaluation.html">ImmunizationEvaluation</a></td>
+    	<td>The ImmunizationEvaluation resource is an Additional Resource intended to cover communicating the results of an evaluation of a vaccine administration event (documented using the Immunization resource) against a published schedule.</td></tr>
+</table>
 
 <a name="uses"></a>
 <h3>Common Use Cases</h3>
@@ -146,6 +149,9 @@ This module is concerned with resources and functionality in 3 main domains:
 		or changes that are made at a point in time (sometimes called medication reconciliation). Note that FHIR does not describe how the
 		list should be maintained by the individual system, as that will vary widely between implementations.
 	</li>
+	<li>Dispensing a medication based on a Medication Request (aka Prescription or Order).  The MedicationDispense resource represents the details of the dispensing event including the actual product provided to the patient and the dosage to be administered or consumed.</li>
+	<li>Retrieving the planned medication therapy for specific patient at a point in time.  The intended medication therapy may be represented by an individual <a href="careplan.html">Care Plan</a>. </li>
+	<li>Retrieving information about a medication either as a stand-alone request or as while reviewing a patients' medication list</li>
 	<li>Retrieving a list of Immunizations. This can be achieved using a <a href="http.html#search">simple query</a>
 		against the <a href="immunization.html">Immunization</a> resource type. Note that an Immunization resource can specifically state that it was not given,
 		as well as any reactions that occurred. Note that if the reaction is considered to be an indication of an allergy
@@ -156,9 +162,6 @@ This module is concerned with resources and functionality in 3 main domains:
 		part of <a href="clinicalreasoning-module.html">Decision Support</a>, with the actual immunization schedule being represented by a generic
 		<a href="plandefinition.html">Plan Definition</a>, individual <a href="careplan.html">Care Plan</a> or some other record.
 	</li>
-	<li>Dispensing a medication based on a Medication Request (aka Prescription or Order).  The MedicationDispense resource represents the details of the dispensing event including the actual product provided to the patient and the dosage to be administered or consumed.</li>
-	<li>Retrieving the planned medication therapy for specific patient at a point in time.  The intended medication therapy may be represented by an individual <a href="careplan.html">Care Plan</a>. </li>
-	<li>Retrieving information about a medication either as a stand alone request or as while reviewing a patients' medication list</li>
 </ul>
 
 <h4>Medication Reconciliation List</h4>
