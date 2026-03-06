@@ -13,9 +13,6 @@
 					<display value="Fasting status - Reported"/>
 				</coding>
 			</code>
-			<subject>
-				<reference value="Patient/example"/>
-			</subject>
 			<valueCodeableConcept>
 				<coding>
 					<system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
@@ -39,9 +36,6 @@
 					<display value="Serum sample"/>
 				</coding>
 			</type>
-			<subject>
-				<reference value="Patient/example"/>
-			</subject>
 			<collection>
 				<collectedDateTime value="2015-08-16T06:40:17Z"/>
 			</collection>
