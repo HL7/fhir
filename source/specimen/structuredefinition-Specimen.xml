@@ -213,6 +213,28 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <map value=".scoper  or  .scoper.playsRole"/>
       </mapping>
     </element>
+    <element id="Specimen.focus">
+      <path value="Specimen.focus"/>
+      <short value="The entity that is the focus of testing for this specimen"/>
+      <definition value="Identifies the entity (e.g., animal, person, group, or device) that is the focus of the testing performed on this specimen, when the focus differs from the subject. For example, in veterinary or genomic trio testing, the specimen may originate from one individual but the results are reported in the context of a different subject."/>
+      <comment value="This aligns with the Observation.subject / Observation.focus pattern. Use this element when the specimen originates from a different individual or entity than the clinical subject of the results."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=SBJ]"/>
+      </mapping>
+    </element>
     <element id="Specimen.receivedTime">
       <path value="Specimen.receivedTime"/>
       <short value="The time when specimen is received by the testing laboratory"/>
