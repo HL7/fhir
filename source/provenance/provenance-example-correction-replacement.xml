@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Provenance xmlns="http://hl7.org/fhir">
-  <id value="correction-replacement"/>
+  <id value="example-correction-replacement"/>
   <target>
     <reference value="Immunization/example"/>
   </target>
