@@ -80,7 +80,7 @@ the version that was removed is referenced in Provenance.target; if versioning i
 Provenance.target contains the non-version reference. 
 </p>
 <p>
-When replacing a Resource, and it is important to track which Resource replaces the removed Resource. One Provenance Resource SHOULD be used to indicate a replace. For a replace the Provenance.target points at both the removed resource and the new resource, and the Provenance.entity indicates the removed resource. For example, <a href="provenance-correction-replacement.html">example correction with replacement</a> shows the use of Provenance to record the replacement of an historic immunization with a new immunization resource.
+When replacing a Resource, and it is important to track which Resource replaces the removed Resource. One Provenance Resource SHOULD be used to indicate a replace. For a replace the Provenance.target points at both the removed resource and the new resource, and the Provenance.entity indicates the removed resource. For example, <a href="provenance-example-correction-replacement.html">example correction with replacement</a> shows the use of Provenance to record the replacement of an historic immunization with a new immunization resource.
 </p>
 <p>
 Where multiple removal or replacement actions need to be tracked, multiple Provenance resources SHOULD be used.
