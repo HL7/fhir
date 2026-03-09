@@ -25,28 +25,6 @@
 			</valueCodeableConcept>
 		</Observation>
 	</contained>
-	<!-- <contained> -->
-		<!-- <Specimen> -->
-			<!-- <id value="serum"/> -->
-			<!-- <identifier> -->
-				<!-- <system value="http://acme.org/specimens"/> -->
-				<!-- <value value="20150107-0012"/> -->
-			<!-- </identifier> -->
-			<!-- <type> -->
-				<!-- <coding> -->
-					<!-- <system value="http://snomed.info/sct"/> -->
-					<!-- <code value="119364003"/> -->
-					<!-- <display value="Serum sample"/> -->
-				<!-- </coding> -->
-			<!-- </type> -->
-			<!-- <subject> -->
-				<!-- <reference value="Patient/example"/> -->
-			<!-- </subject> -->
-			<!-- <collection> -->
-				<!-- <collectedDateTime value="2015-08-16T06:40:17Z"/> -->
-			<!-- </collection> -->
-		<!-- </Specimen> -->
-	<!-- </contained> -->
 	<identifier>
 		<type>
 			<coding>
@@ -97,10 +75,6 @@
 		   <display value="Fasting status"/> 
 		</reference>
 	</supportingInfo>
-	<!-- <specimen> -->
-		<!-- <reference value="#serum"/> -->
-		<!-- <display value="Serum specimen"/> -->
-	<!-- </specimen> -->
 	<note>
 		<text value="patient is afraid of needles"/>
 	</note>

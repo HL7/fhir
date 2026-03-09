@@ -3,6 +3,9 @@
     <divergentElement patternPath="FiveWs.status" resourcePath="Device.availabilityStatus">
         <modifier _pattern="true" _resource="false" reason="Unknown"/>
     </divergentElement>
+    <divergentElement patternPath="FiveWs.status" resourcePath="Device.name.display">
+        <modifier _pattern="true" _resource="false" reason="Unknown"/>
+    </divergentElement>
     <divergentElement patternPath="FiveWs.what[x]" resourcePath="Device.additive">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
     </divergentElement>
