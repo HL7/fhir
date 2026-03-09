@@ -396,7 +396,7 @@ When the signature is an XML Digital Signature, the following rules apply:
   <li>The Signature SHALL contain a <code>X509Certificate</code></li>
   <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> or <code>Reference.identifier</code>
     that matches an identifier found in the X509 certificate (e.g., the <code>Subject</code>, or one of the Subject Alternative Names</li> 
-  <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
+  <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature. If more than integrity is required, the XAdES specification provides a set of profiles, and implementers should consider the rules found in those profiles carefully.</li>
 </ul>
 
 
