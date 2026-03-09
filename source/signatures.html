@@ -436,8 +436,8 @@ Bundle, then the following rules SHALL be observed:
    the Provenance does not have a target of `Bundle/[id]` it does not represent an embedded signature, does not sign the Bundle, 
    and is not subject to the rules documented here</li>
  <li>The Provenance resource SHALL have a <code>Provenance.signature</code> element that contains the signature of the Bundle,
-   with all entries that contain embedded signing provenance resources removed (that is, all entries that have a resource where the Provenance.targets includes
-   a reference to <code>Bundle/{id}</code></li>   
+   with all entries that contain embedded signing provenance resources removed (that is, all entries that have a resource which is a Provenance, where the Provenance.target elements includes
+   a reference to <code>#/</code>. Note that counter-signing signatures will include additional targets, but one of the targets is always <code>#/</code>)</li>   
  <li>The Provenance resource is allowed to indicate that it signs additional resources, including the special target value <code>#</code>
   which indicates that it signs itself in addition to the Bundle (but not including any Provenance.signature containing a digital signature). 
  </li>
