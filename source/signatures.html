@@ -369,8 +369,8 @@ When the signature is a JWS Digital Signature, the following rules apply:
     The Purpose can be the action being attested to, or the role associated with the signature. The <code>Signature.type</code> shall come from ASTM E1762-95(2013). 
     The Signature.type SHALL contain the same values as the srCms element.</li>
  <li>The JWS protected header SHOULD have a <code>sigT</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL agree</li>
- <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
- <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
+ <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature. If more than integrity is required, the JAdES specification provides a set of profiles, and implementers should consider the rules found in those profiles carefully. </li>
+ <li>The Signature SHOULD conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-LTA</a> for support of long term signatures. The JAdES-B-LTA specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
 </ul>
 
 <a name="DigSig"></a>
