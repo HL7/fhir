@@ -283,4 +283,44 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-focus"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.focus.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-focus"/>
+        <status value="active"/>
+        <description value="The focus of testing for this specimen (by instance)"/>
+        <code value="focus"/>
+        <type value="reference"/>
+        <expression value="Specimen.focus.reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Specimen-focus-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Specimen.focus.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Specimen-focus-code"/>
+        <status value="active"/>
+        <description value="The focus of testing for this specimen (by code)"/>
+        <code value="focus-code"/>
+        <type value="token"/>
+        <expression value="Specimen.focus.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
