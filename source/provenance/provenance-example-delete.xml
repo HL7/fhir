@@ -32,7 +32,7 @@
 		</who>
 	</agent>
 	<entity>
-		<role value="source"/>
+		<role value="removal"/>
 		<what>
 			<reference value="http://terminology.hl7.org/CodeSystem/location-physical-type/_history/3"/>    
 		</what>
