@@ -704,7 +704,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX?"/>
@@ -740,7 +739,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
-      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".value.reference"/>
@@ -774,6 +772,7 @@
       <type>
         <code value="markdown"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX"/>
@@ -805,6 +804,7 @@
         <description value="SNOMED CT Clinical Findings"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
+      <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX"/>
