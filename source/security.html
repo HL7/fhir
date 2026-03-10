@@ -12,6 +12,16 @@
 
 
 
+  <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure that security page is ready for Normative status, we are seeking ballot comments on the substantive content.</p>
+    <ul>
+    <li>The key changes made since the January 2026 R6 ballot include:</li>
+      <ul>
+      <li>Relaxed statement that security labels are often used. - <a href="https://jira.hl7.org/browse/FHIR-53718">FHIR-53718</a></li>
+      </ul>
+    </ul>
+  </blockquote>
+
 <h1>FHIR Security</h1>
 <table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
@@ -98,7 +108,7 @@ particular FHIR operation or not.
 
 <!--
 These HTTP calls MAY be authenticated against a single user account (including 
-using <a href="http://www.oauth.org">OAuth</a>), but this arrangement doesn't cater for common transaction metadata such as multiple users, 
+using <a href="http://www.oauth.org">OAuth</a>), but this arrangement does not cater for common transaction metadata such as multiple users, 
 responsible party, reasons, consents, etc. that are commonly encountered in healthcare. Instead, 
 use of this RESTful implementation assumes that appropriate security and logs are managed by the client (perhaps 
 through using <a href="http://wiki.ihe.net/index.php?title=Audit_Trail_and_Node_Authentication">ATNA</a>), and 
@@ -163,7 +173,7 @@ some other kind of profiled REST interface.
       <p>
             These Resources make up the bulk of FHIR and therefore are the most commonly understood. 
             These Resources contain highly sensitive health information, or are closely linked to highly sensitive health information.
-            These Resources will often use the <a href="security-labels.html">security labels</a> to differentiate various confidentiality levels within this broad group of Patient Sensitive data.
+            These Resources SHOULD use the <a href="security-labels.html">security labels</a> to differentiate various confidentiality and sensitivity levels within this broad group of Patient Sensitive data.
             Access to these Resources often requires a declared Purpose Of Use.
             Access to these Resources is often controlled by a <a href="consent.html">Privacy Consent</a>.
             See the section below on <a href="#binding">Authorization and Access Control</a>.
@@ -231,7 +241,7 @@ Authorization/Access Control
 <p>
 Correctly identifying people, devices, locations and organizations is one of the foundations that any security system is built on. 
 Most applications of security protocols, whether authentication, access control, digital signatures, etc. rely on the correct mapping between
-the relevant resources and the underlying systems. Note that this isn't necessary. There is nothing in FHIR that requires or relies 
+the relevant resources and the underlying systems. Note that this is not necessary. There is nothing in FHIR that requires or relies 
 on any security being in place, or any particular security implementation. However, real-world usage will generally require this. 
 </p>
 <p>
@@ -346,10 +356,10 @@ Typical methods of handling Access Denied used are:
 <b>Return a Success with Bundle containing zero results</b> - This result is indistinguishable from the case where no data is known. When consistently returned on Access Denied, this will not expose which patients exist, or what data might be blinded. This method is also consistent with cases where some results are authorized while other results are blinded. This can only be used when returning a Bundle is a valid result.
 </p>
 <p>
-<b>Return a 404 "Not Found"</b> - This also protects from data leakage as it is indistinguishable from a query against a resource that doesn't exist. It does however leak that the user authentication is validated. 
+<b>Return a 404 "Not Found"</b> - This also protects from data leakage as it is indistinguishable from a query against a resource that does not exist. It does however leak that the user authentication is validated. 
 </p>
 <p>
-<b>Return a 403 "Forbidden"</b> - This communicates that the reason for the failure is an Authorization failure. It SHOULD only be used when the client and/or user is well enough known to be given this information. Thus this method is most used when the user can know that they are forbidden access. It doesn't explain how the user might change things to become authorized. 
+<b>Return a 403 "Forbidden"</b> - This communicates that the reason for the failure is an Authorization failure. It SHOULD only be used when the client and/or user is well enough known to be given this information. Thus this method is most used when the user can know that they are forbidden access. It does not explain how the user might change things to become authorized. 
 </p>
 <p>
 <b>Return a 401 "Unauthorized"</b> - This communicates that user authentication was attempted and failed to be authenticated. 
@@ -409,11 +419,11 @@ FHIR resources include an XHTML narrative, so that applications can display the 
 without having to fully and correctly process the data in the resource. However, displaying HTML is associated 
 with several known security issues that have been observed in production systems in other contexts (e.g., 
 <a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">with CDA</a>). For
-this reason, the <a href="narrative.html#security">FHIR narrative can't contain active content</a>.
+this reason, the <a href="narrative.html#security">FHIR narrative cannot contain active content</a>.
 However, care is still needed when displaying the narrative:
 </p>
 <ul>
- <li>Validate the narrative (the standard FHIR schemas do not allow active content, and the reference implementations won't handle it). Note, though, that external references could still be included in CSS, and removing/preventing these are outside the scope of schemas and reference implementations.</li>
+ <li>Validate the narrative (the standard FHIR schemas do not allow active content, and the reference implementations will not handle it). Note, though, that external references could still be included in CSS, and removing/preventing these are outside the scope of schemas and reference implementations.</li>
  <li>Ensure that any external references to images or anchors (e.g., outside the resource) do not cause the display software to <a href="http://smartplatforms.org/2014/04/security-vulnerabilities-in-ccda-display/">leak sensitive information in headers</a></li>
  <li>Do not allow external links to run in a privileged context such as the EHR unless you are sure they can be trusted</li>
  <li>Care SHOULD be taken to differentiate HTTP RESTful (API) from browser-based server content. Specifically, one SHOULD separate user session cookies, as an attacker could create content that serves up with content-type "text/html" and has content like "&lt;script&gt;send_to_attacker(document.cookie);&lt;/script&gt;".</li>

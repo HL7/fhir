@@ -17,6 +17,18 @@ Outstanding issues:
 [%file newnavbar%]
 
 
+  <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure that signature is ready for Normative status, we are seeking ballot comments on the substantive content.</p>
+    <ul>
+    <li>The key changes made since the January 2026 R6 ballot include:</li>
+      <ul>
+      <li>Added notes that XAdES has other signature profiles. - <a href="https://jira.hl7.org/browse/FHIR-52819">FHIR-52819</a></li>
+      <li>Added notes that JAdES has other signature profiles. - <a href="https://jira.hl7.org/browse/FHIR-52818">FHIR-52818</a></li>
+      <li>Clarified Bundle signature should not use id, use fragment identifier. - <a href="https://jira.hl7.org/browse/FHIR-52810">FHIR-52810</a></li>
+      <li>Clarified counter signing. - <a href="https://jira.hl7.org/browse/FHIR-52813">FHIR-52813</a></li>
+      </ul>
+    </ul>
+  </blockquote>
 
 <h1>Digital Signatures</h1>
 <table class="colsn"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
@@ -369,8 +381,8 @@ When the signature is a JWS Digital Signature, the following rules apply:
     The Purpose can be the action being attested to, or the role associated with the signature. The <code>Signature.type</code> shall come from ASTM E1762-95(2013). 
     The Signature.type SHALL contain the same values as the srCms element.</li>
  <li>The JWS protected header SHOULD have a <code>sigT</code> and the <code>Signature.when</code> SHOULD be populated, and if they are both populated, their values SHALL agree</li>
- <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature.</li>
- <li>The Signature SHOULD conform to JAdES-B-LT for support of long term signatures. The JAdES-B-LT specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
+ <li>The Signature MAY conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-T</a> or any other profiling of JOSE-Signature. If more than integrity is required, the JAdES specification provides a set of profiles, and implementers should consider the rules found in those profiles carefully. </li>
+ <li>The Signature SHOULD conform to <a href="https://www.etsi.org/deliver/etsi_ts/119100_119199/11918201/01.01.01_60/ts_11918201v010101p.pdf">JAdES-B-LTA</a> for support of long term signatures. The JAdES-B-LTA specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
 </ul>
 
 <a name="DigSig"></a>
@@ -396,7 +408,7 @@ When the signature is an XML Digital Signature, the following rules apply:
   <li>The Signature SHALL contain a <code>X509Certificate</code></li>
   <li>The <code>Signature.who</code> SHOULD be populated, and if it is, it SHALL contain a value in either <code>Reference.reference</code> or <code>Reference.identifier</code>
     that matches an identifier found in the X509 certificate (e.g., the <code>Subject</code>, or one of the Subject Alternative Names</li> 
-  <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature.</li>
+  <li>The Signature MAY conform to <a href="https://www.w3.org/TR/XAdES/#XML_Advanced_Electronic_Signature_Data_Structures_Contents_of_XAdES_T">XAdES-T</a> or any other profiling of XML-Signature. If more than integrity is required, the XAdES specification provides a set of profiles, and implementers should consider the rules found in those profiles carefully.</li>
 </ul>
 
 
@@ -436,8 +448,8 @@ Bundle, then the following rules SHALL be observed:
    the Provenance does not have a target of `Bundle/[id]` it does not represent an embedded signature, does not sign the Bundle, 
    and is not subject to the rules documented here</li>
  <li>The Provenance resource SHALL have a <code>Provenance.signature</code> element that contains the signature of the Bundle,
-   with all entries that contain embedded signing provenance resources removed (that is, all entries that have a resource where the Provenance.targets includes
-   a reference to <code>Bundle/{id}</code></li>   
+   with all entries that contain embedded signing provenance resources removed (that is, all entries that have a resource which is a Provenance, where the Provenance.target elements includes
+   a reference to <code>#/</code>. Note that counter-signing signatures will include additional targets, but one of the targets is always <code>#/</code>)</li>   
  <li>The Provenance resource is allowed to indicate that it signs additional resources, including the special target value <code>#</code>
   which indicates that it signs itself in addition to the Bundle (but not including any Provenance.signature containing a digital signature). 
  </li>

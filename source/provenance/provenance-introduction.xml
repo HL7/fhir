@@ -1,6 +1,17 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure that the Provenance resource is ready for Normative status, we are seeking ballot comments on the substantive content.</p>
+    <ul>
+    <li>The key changes made since the January 2026 R6 ballot include:</li>
+      <ul>
+      <li>More clear how to do Provenance of Replace and Removal. - <a href="https://jira.hl7.org/browse/FHIR-53917">FHIR-53917</a></li>
+      <li>Added and example of Provenance of correction (replace) - <a href="https://jira.hl7.org/browse/FHIR-53783">FHIR-53783</a></li>
+      </ul>
+    </ul>
+    </blockquote>
+
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
