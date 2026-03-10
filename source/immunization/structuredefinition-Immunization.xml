@@ -199,9 +199,9 @@
         <valueString value="#14377, #17811, #17763 (updates to the value set)."/>
       </extension>
       <path value="Immunization.statusReason"/>
-      <short value="Reason for current status"/>
-      <definition value="Indicates the reason the immunization event was not performed."/>
-      <comment value="This is generally only used for the status of &quot;not-done&quot;. The reason for performing the immunization event is captured in reasonCode, not here."/>
+      <short value="Reason not done"/>
+      <definition value="Indicates the reason the immunization event was **not performed** or was **entered in error**."/>
+      <comment value="This element is only used for the status of &quot;not-done&quot; or &quot;entered-in-error&quot;. The reason for performing the immunization event is captured in reasonCode, not here."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -727,7 +727,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="x"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/immunization-function"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/immunization-function"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
