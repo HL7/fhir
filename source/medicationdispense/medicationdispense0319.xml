@@ -59,6 +59,7 @@
         <text value="Patient told to take with food"/>
     </note>
     <dosageInstruction>
+      <renderedInstruction value="Two tablets at once, then one tablet daily for 4 days. Take with or after food."/>
       <step>
         <component>
         <text value="Two tablets at once" />
