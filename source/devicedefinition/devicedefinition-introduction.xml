@@ -9,6 +9,12 @@
 </ul>
 <p>All OO Resources were updated to use the canonical, however other Resources (not owned by the OO Work Group) might not have the canonical reference to DeviceDefinition.</p>
 </blockquote>
+<blockquote class="stu-note" style="background-color: lightblue">
+    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+    <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a></li>
+    </ul>
+</blockquote>
 </div>  
 <div>
 <a name="scope"></a>

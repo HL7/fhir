@@ -10,6 +10,12 @@
 <li>Jurisdiction has been reinstated (it was marked "Deprecated" in R5).</li>
 </ul>
 </blockquote>
+<blockquote class="stu-note" style="background-color: lightblue">
+    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+    <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a></li>
+    </ul>
+</blockquote>
 </div>
 <div>
 <a name="bnc"> </a>
