@@ -192,7 +192,7 @@
     <element id="BiologicallyDerivedProduct.therapyIdentifier">
       <path value="BiologicallyDerivedProduct.therapyIdentifier"/>
       <short value="Identifiers common to a given therapy"/>
-      <definition value="	A shared identifier common to multiple independent BiologicallyDerivedProduct instances that are intended to be administered in the course of the same given therapy. The presence of the same identifier on each BiologicallyDerivedProduct ties those products together."/>
+      <definition value="A shared identifier common to multiple independent BiologicallyDerivedProduct instances that are intended to be administered in the course of the same given therapy. The presence of the same identifier on each BiologicallyDerivedProduct ties those products together."/>
       <min value="0"/>
       <max value="*"/>
       <type>
