@@ -460,8 +460,8 @@
        fill="black"
        class="diagram-class-detail"><a
    id="n936"
-   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.recomendation"><title
-   id="title41022">Proposed follow-up actions based on the findings and interpretations of the diagnostic test for which this report is the subject</title>recomendation</a> : <a
+   xlink:href="diagnosticreport-definitions.html#DiagnosticReport.recommendation"><title
+   id="title41022">Proposed follow-up actions based on the findings and interpretations of the diagnostic test for which this report is the subject</title>recommendation</a> : <a
    id="n937"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
    id="n938"
