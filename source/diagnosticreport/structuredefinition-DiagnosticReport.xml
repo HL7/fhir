@@ -310,7 +310,7 @@
       <path value="DiagnosticReport.subject"/>
       <short value="The subject of the report - usually, but not always, the patient"/>
       <definition value="The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources."/>
-      <requirements value="SHALL know the subject context."/>
+      <requirements value="Should know the subject context."/>
       <alias value="Patient"/>
       <min value="0"/>
       <max value="1"/>
