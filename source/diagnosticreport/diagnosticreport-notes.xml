@@ -83,7 +83,7 @@ Typically, a report is either: all data, no narrative (e.g. Core lab) or a mix o
 	    <li>As a rich text representation of the report - typically a PDF (in .presentedForm)</li>
 	</ul>
 	<p>
-Note that the conclusion and the coded diagnoses are part of the atomic data and SHOULD be duplicated in the narrative and in the presented form if the latter is present.
+Note that the conclusion and the coded diagnoses are part of the atomic data and should be duplicated in the narrative and in the presented form if the latter is present.
 The narrative and the presented form serve the same function: a representation of the report for a human. The presented form is included since diagnostic service reports
 often contain presentation features that are not easy to reproduce in the HTML narrative. Whether or not the presented form is included, the narrative must be a
 clinically safe view of the diagnostic report; at a minimum, this could be fulfilled by a note indicating that the narrative is not proper representation of
