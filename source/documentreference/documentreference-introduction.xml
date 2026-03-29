@@ -16,6 +16,12 @@
             </ul>
     </ul>
     </blockquote>
+    <blockquote style="background-color: lightblue">
+    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+    <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-55265">FHIR-55265</a></li>
+    </ul>
+</blockquote>
 
 <p>
 A <code>DocumentReference</code> resource is used to index a document, clinical note, and other binary objects such as a photo, video, or audio recording, including those resulting from diagnostic or care provision procedures, to make them available to a healthcare system. A document is some sequence of bytes that is identifiable, establishes its own context (e.g., what subject, author, etc. can be presented to the user), and has defined update management. The <code>DocumentReference</code> resource can be used with any document format that has a recognized mime type and that conforms to this definition.
