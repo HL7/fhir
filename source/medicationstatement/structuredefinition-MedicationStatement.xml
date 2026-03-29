@@ -401,7 +401,7 @@
     <element id="MedicationStatement.reason">
       <path value="MedicationStatement.reason"/>
       <short value="Reason for why the medication is being/was taken"/>
-      <definition value="A concept, Condition or observation that supports why the medication is being/was taken."/>
+      <definition value="The concept(s), Condition(s) or observation(s) that lead to the medication being taken (or not taken)."/>
       <comment value="This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonForUseReference."/>
       <min value="0"/>
       <max value="*"/>
@@ -454,7 +454,7 @@
     <element id="MedicationStatement.relatedClinicalInformation">
       <path value="MedicationStatement.relatedClinicalInformation"/>
       <short value="Link to information relevant to the usage of a medication"/>
-      <definition value="Link to information that is relevant to a medication statement, for example, illicit drug use, gestational age, etc."/>
+      <definition value="Link to information that is relevant to a medication statement, for example, illicit drug use, gestational age, etc. This is normally not the actual indication for the medication being used - that indication would be represented with .reason."/>
       <min value="0"/>
       <max value="*"/>
       <type>

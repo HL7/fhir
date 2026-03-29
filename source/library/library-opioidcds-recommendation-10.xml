@@ -53,7 +53,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-      <display value="United States of America (the)"/>
+      <display value="United States of America"/>
     </coding>
   </jurisdiction>
   <purpose value="The purpose of this library is to determine whether the patient has had a urine screening in the past 12 months. Is so, then check the results for missing opioids that are prescribed, present opioids that aren't prescribed or present illicit drugs."/>

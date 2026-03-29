@@ -50,13 +50,17 @@
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.statusReason" resourcePath="Immunization.statusReason">
+        <shortUnmatched reason="Unknown">
+            <_pattern value="Reason for current status"/>
+            <resource value="Reason not done"/>
+        </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Captures the reason for the current state of the immunization."/>
-            <resource value="Indicates the reason the immunization event was not performed."/>
+            <resource value="Indicates the reason the immunization event was **not performed** or was **entered in error**."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>
-            <resource value="This is generally only used for the status of &quot;not-done&quot;. The reason for performing the immunization event is captured in reasonCode, not here."/>
+            <resource value="This element is only used for the status of &quot;not-done&quot; or &quot;entered-in-error&quot;. The reason for performing the immunization event is captured in reasonCode, not here."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.code" resourcePath="Immunization.vaccineCode">

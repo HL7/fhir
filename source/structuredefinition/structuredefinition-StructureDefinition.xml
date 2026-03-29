@@ -605,7 +605,7 @@
 			</extension>
 			<path value="StructureDefinition.keyword"/>
 			<short value="Assist with indexing and finding"/>
-			<definition value="(DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes."/>
+			<definition value="(DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates by describing the use of this structure definition, or the content it describes."/>
 			<comment value="Note that this element is deprecated. Use the [[[http://hl7.org/fhir/StructureDefinition/artifact-topic]]] extension instead."/>
 			<requirements value="Assist in searching for appropriate StructureDefinitions."/>
 			<min value="0"/>
