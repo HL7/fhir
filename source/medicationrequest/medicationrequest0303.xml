@@ -55,6 +55,7 @@
 
 
     <dosageInstruction>
+        <renderedInstruction value="Take 4 tablets daily for 7 days, then 2 tablets daily for 7 days, then 1 tablet daily for 7 days."/>
         <step>
             <component>
                 <text value="Take 4 tablets daily for 7 days starting January 16, 2015" />

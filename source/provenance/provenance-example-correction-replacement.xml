@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Provenance xmlns="http://hl7.org/fhir">
+  <id value="example-correction-replacement"/>
+  <target>
+    <reference value="Immunization/example"/>
+  </target>
+  <recorded value="2024-06-01T13:00:00Z"/>
+  <authorization>
+    <concept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+        <code value="PATSFTY"/>
+      </coding>
+    </concept>
+  </authorization>
+  <why value="Corrected immunization record to reflect accurate vaccine information."/>
+  <activity>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="FIXDATA"/>
+    </coding>
+  </activity>
+  <!--
+  <basedOn>
+    <reference value="DocumentReference/ex-documentation-immunization-correction"/>
+  </basedOn>
+  -->
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <agent>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+        <code value="author"/>
+      </coding>
+    </type>
+    <who>
+      <reference value="Practitioner/example"/>
+    </who>
+  </agent>
+  <entity>
+    <role value="removal"/>
+    <what>
+      <reference value="Immunization/historical"/>
+      <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"/>
+      </identifier>
+      <display value="Historic Immunization Record with Errors"/>
+    </what>
+  </entity>
+</Provenance>

@@ -189,6 +189,21 @@
         <map value="MPHO Unique Identifier. Required for ISBT 128 labeled products"/>
       </mapping>
     </element>
+    <element id="BiologicallyDerivedProduct.therapyIdentifier">
+      <path value="BiologicallyDerivedProduct.therapyIdentifier"/>
+      <short value="Identifiers common to a given therapy"/>
+      <definition value="A shared identifier common to multiple independent BiologicallyDerivedProduct instances that are intended to be administered in the course of the same given therapy. The presence of the same identifier on each BiologicallyDerivedProduct ties those products together."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="ISBT128Code"/>
+        <map value="Chain of Identity Identifier. Required for some ISBT 128 labeled products"/>
+      </mapping>
+    </element>
     <element id="BiologicallyDerivedProduct.biologicalSourceEvent">
       <path value="BiologicallyDerivedProduct.biologicalSourceEvent"/>
       <short value="An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled"/>

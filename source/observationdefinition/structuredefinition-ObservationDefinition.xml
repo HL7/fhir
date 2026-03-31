@@ -135,12 +135,12 @@
 		</element>
 		<element id="ObservationDefinition.identifier">
 			<path value="ObservationDefinition.identifier"/>
-			<short value="Business identifier of the ObservationDefinition"/>
-			<definition value="Business identifiers assigned to this ObservationDefinition. by the performer and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server."/>
+			<short value="Business identifiers of the ObservationDefinition"/>
+			<definition value="Business identifiers assigned to this ObservationDefinition by the performer and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server."/>
 			<comment value="This is a business identifier, not a resource identifier. It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types."/>
 			<requirements value="Allows identification of the ObservationDefinition as it is known by various participating systems and in a way that remains consistent across servers."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="Identifier"/>
 			</type>
