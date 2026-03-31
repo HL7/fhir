@@ -35,7 +35,7 @@
   </concept>
   <concept>
     <code value="placed"/>
-    <display value="placed"/>
+    <display value="Placed"/>
     <definition value="The device was placed in the patient."/>
   </concept>
   <concept>

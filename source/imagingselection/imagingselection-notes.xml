@@ -53,7 +53,7 @@
   The code and category element can be used to provide information relevant for applications that want to identify specific types of ImagingSelection resources.
   </p>
   <p>
-  For example, if an ImagingSelection is used to identify a set of images that make up a volume rendered view, the code could contain a code indicating Volume Rendering - such as RadLex RID35862 - and the category could contain values of the DICOM Image Type <code>(0008,0008)</code> attribute - such as DERVIED and SECONDARY.
+  For example, if an ImagingSelection is used to identify a set of images that make up a volume rendered view, the code could contain a code indicating Volume Rendering - such as RadLex RID35862 - and the category could contain values of the DICOM Image Type <code>(0008,0008)</code> attribute - such as DERIVED and SECONDARY.
   </p>
   <pre>
   {
@@ -193,16 +193,16 @@ See <a href="imagingselection-example-3d-image-region-selection.html">3D Image R
 <a name="endpoints"></a>
 <h3>ImagingSelection Endpoints</h3>
 <p>
-The ImagingSelection.endpoint elements indicate network 
+The <code>ImagingSelection.endpoint</code> elements indicate network
 services that can be used to access the imaging data referenced by the imaging selection; for example, a DICOM WADO-RS server.  
 Systems can determine if the relevant imaging data is available or offline by interacting with the endpoint.
 </p>
 <p>
-Different Endpoint connection types can have different capabilities, protocols or requirements.
+Different <a href="endpoint.html">Endpoint</a> connection types can have different capabilities, protocols or requirements.
 Furthermore, the specified 
-<code>Endpoint.address</code> 
+<code>Endpoint.address</code>
 identifies the DICOM Web Service Base URI (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.2.html">DICOM PS 3.18 Section 8.2</a> ). 
-The URL needed to retrieve image data might need to be constructed from this base URL. See below for the details on use of imaging-related Endpoint connection types.
+The URL to retrieve image data is from this base URL. See below for the details on the use of imaging-related <a href="endpoint.html">Endpoint</a> connection types.
 </p>
 <a name="wado-rs"></a>
 <h4>WADO-RS</h4>
@@ -213,9 +213,9 @@ identifies a DICOM WADO-RS service.
 <p>
 The DICOM WADO-RS (Web Access to DICOM Objects, RESTful mode) service uses a RESTful approach to instance retrieval.
 This service allows for retrieval of native DICOM SOP instances, or instances “rendered” into other formats, including
-JPEG and MPEG. The media type of a response is specified by the request Accept header (preferred); or, by the <code>accept</code>
+JPEG and MPEG. The preferred media type of a response is specified by the request Accept header; or, by the <code>accept</code>
 query parameters. Supported media types depend on the  capabilities of the WADO-RS server and the classification of the instance 
-as "single frame", "multi-frame", "video", "text", or "other". The WADO-RS service also allows retrieval of study
+as "single frame", "multiframe", "video", "text", or "other". The WADO-RS service also allows retrieval of study
 or series level information.
 </p>
 <p>
@@ -229,11 +229,12 @@ For example, using the following information in a fictional ImagingSelection res
 <li>the DICOM Series Instance UID of <code>1.2.250.1.59.40211.789001276.14556172.67789</code> found in <code>ImagingSelection.series.uid</code>, and</li>
 <li>the DICOM SOP Instance UID of <code>1.2.250.1.59.40211.2678810.87991027.899772.2</code> found in <code>ImagingSelection.series.instance.uid</code></li>
 </ul>
-we can construct the WADO-RS URL to issue an HTTP GET for a native DICOM PS3.10 instance file (if consistent with the Accept header):
+we can construct the WADO-RS URL to issue an HTTP GET for a native DICOM PS3.10 instance file:
 </p>
 <pre>
 
-https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2
+GET https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2 HTTP/1.1
+Accept: multipart/related; type="application/dicom"
 
 </pre>
 <a name="wado-uri"></a>
@@ -243,9 +244,9 @@ identifies a DICOM WADO-URI service.
 </p>
 <p>
 The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
-for retrieval of native DICOM instances, or instances “rendered” into other formats, including JPEG and MPEG. The media
-type of a response is specified by the request Accept header (preferred); or, by the contentType query parameter.
-Supported media types depend on the classification of the instance as "single frame", "multi-frame", "video", "text", or "other."
+for retrieval of native DICOM instances, or instances “rendered” into other formats, including JPEG and MPEG. The preferred media
+type of a response is specified by the request Accept header; or, by the contentType query parameter.
+Supported media types depend on the classification of the instance as "single frame", "multiframe", "video", "text", or "other."
 </p>
 <p>
 The query to retrieve a DICOM instance is constructed by appending the appropriate query parameters to the <code>Endpoint.address</code> value.
@@ -258,11 +259,12 @@ For example, using the following information in a fictional ImagingSelection res
 <li>the DICOM Series Instance UID of <code>1.2.250.1.59.40211.789001276.14556172.67789</code> found in <code>ImagingSelection.series.uid</code>, and</li>
 <li>the DICOM SOP Instance UID of <code>1.2.250.1.59.40211.2678810.87991027.899772.2</code> found in <code>ImagingSelection.series.instance.uid</code></li>
 </ul>
-we can construct the WADO-URI URL to issue an HTTP GET for a native DICOM PS3.10 instance file (if consistent with the Accept header):
+we can construct the WADO-URI URL to issue an HTTP GET for a native DICOM PS3.10 instance file:
 </p>
 <pre>
 
-https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2
+GET https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2 HTTP/1.1
+Accept: application/dicom
 
 </pre>
 
@@ -285,7 +287,7 @@ https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40
 }
       </pre>
     </li>
-    <li><code>bodySite</code> contains a reference to a <code>BodyStructure</code> resource whose <code>includedStructure.structure</code> element contains an anatomic code that includes laterality</li>
-    <li><code>bodySite</code> contains a reference to a <code>BodyStructure</code> resource whose <code>includedStructure</code> element includes a laterality value. See this <a href="bodystructure-example-dicom-includedStructure.html">example BodyStructure representation of the Left Wrist, with laterality and SNOMED coding for anatomical structure</a>.</li>
+    <li><code>bodySite</code> contains a reference to a <a href="bodystructure.html">BodyStructure</a> resource whose <code>includedStructure.structure</code> element contains an anatomic code that includes laterality</li>
+    <li><code>bodySite</code> contains a reference to a <a href="bodystructure.html">BodyStructure</a> resource whose <code>includedStructure</code> element includes a laterality value. See this <a href="bodystructure-example-dicom-includedStructure.html">example BodyStructure representation of the Left Wrist, with laterality and SNOMED coding for anatomical structure</a>.</li>
   </ul>
 </div>

@@ -1,0 +1,5 @@
+
+* Fix entered-in-error definitions for MedicationStatement and MedicationRequest (FHIR-54903, https://jira.hl7.org/browse/FHIR-54903)
+  Corrected the misleading entered-in-error status definitions to simply state the resource was entered in error and is not valid.
+  Files: source/medicationstatement/codesystem-medication-statement-status.xml, source/medicationrequest/codesystem-medicationrequest-status.xml
+
