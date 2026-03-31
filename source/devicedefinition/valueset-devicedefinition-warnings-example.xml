@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="devicedefinition-warnings-example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/devicedefinition-warnings-example"/>
+  <version value="6.0.0-ballot4"/>
+  <name value="DeviceWarningsExample"/>
+  <title value="Device Warnings"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International"/>
+  <description value="Hazards of using a device."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/devicedefinition-warnings-example"/>
+    </include>
+  </compose>
+</ValueSet>

@@ -1,5 +1,13 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
+	<div>
+		<blockquote class="ballot-note" id="bn1">
+			<p><b>Note to Balloters:</b> The key changes made since the January 2026 R6 ballot include:</p>
+			<ul>
+				<li>Clarified how to construct DICOMweb requests from Endpoint and other ImagingStudy element values.</li>
+				<li>Added consistent linking to other FHIR resources.</li>
+			</ul>
+		</blockquote>
+	</div>
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
@@ -28,7 +36,7 @@ query (e.g., a DICOMweb search transaction) in the simplest cases. The DICOM ins
 resource; use of a DICOM service is needed (e.g., a DICOMweb retrieve transaction).
 </p>
 <p> 
-One ImagingStudy SHALL reference one DICOM Study.
+One ImagingStudy resource SHALL reference one DICOM Study.
 </p>
 <p>This resource can change as additional information is added to the related DICOM Study.</p>
 <p>See notes for guidance on <a href="imagingstudy.html#source">how imaging study element values can be populated</a> and <a href="imagingstudy.html#workflow">when imaging studies are typically created and updated</a>.</p>

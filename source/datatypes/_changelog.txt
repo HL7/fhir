@@ -1,0 +1,23 @@
+* Dosage.simple has been removed (FHIR-54651, https://jira.hl7.org/browse/FHIR-54651)
+  Dosage.simple was redundant since a simple dosage can be expressed as a single step.
+  Removed dosdet-1 invariant; added invariant that step.safety shall not be populated when only one step is present. Updated documentation and examples.
+  Files: source/datatypes/dosagedetails.xml, source/dosage.html, source/dosage-examples.html
+
+* Change Dosage.site from CodeableConcept to CodeableReference(BodyStructure) (FHIR-54848, https://jira.hl7.org/browse/FHIR-54848)
+  Allows referencing BodyStructure for richer site descriptions (laterality, location qualifiers) while keeping the same coded binding.
+  Files: source/datatypes/dosage.xml
+
+* Make DosageDetails.renderedInstruction required (1..1) (FHIR-54014, https://jira.hl7.org/browse/FHIR-54014)
+  Ensures dosage intent is always communicated. Updated definition and comment.
+  Files: source/datatypes/dosagedetails.xml, source/medicationdispense/medicationdispense0302.xml, source/medicationdispense/medicationdispense0305.xml, source/medicationdispense/medicationdispense0306.xml, source/medicationdispense/medicationdispense0319.xml, source/medicationrequest/medicationrequest0302.xml, source/medicationrequest/medicationrequest0303.xml, source/medicationrequest/medicationrequest0317.xml, source/medicationrequest/medicationrequest0321.xml, source/medicationrequest/medicationrequest0339.xml, source/medicationstatement/medicationstatementexample4.xml
+
+* Fix dosage examples: step.timing corrected to step.component.timing (FHIR-56016, https://jira.hl7.org/browse/FHIR-56016)
+  Examples incorrectly placed timing/doseAndRate directly under step instead of step.component.
+  Files: source/dosage-examples.html
+
+* Fix dosage example mismatches between text/structure and across formats (FHIR-54523, https://jira.hl7.org/browse/FHIR-54523)
+  Example 1: doseQuantity 10mg corrected to 2.5mg to match medication and narrative.
+  Example 2: added missing 5mg doseAndRate on PRN component in JSON, fixed safety unit, removed duplicate safety block in XML.
+  Example 3: safety period corrected from 2 to 6 months in JSON and XML.
+  Files: source/dosage-examples.html
+
