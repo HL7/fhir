@@ -19,14 +19,13 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.identifier" resourcePath="ObservationDefinition.identifier">
-        <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Business identifier for observation definition"/>
-            <resource value="Business identifier of the ObservationDefinition"/>
+            <resource value="Business identifiers of the ObservationDefinition"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="A formal identifier that is used to identify this observation definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-            <resource value="Business identifiers assigned to this ObservationDefinition. by the performer and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server."/>
+            <resource value="Business identifiers assigned to this ObservationDefinition by the performer and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this observation definition outside of FHIR, where it is not possible to use the logical URI."/>

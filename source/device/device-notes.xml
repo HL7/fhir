@@ -38,10 +38,15 @@ The DI of the UDI may be stored in a jurisdictional repository and used as the p
 </p>
 <p>Best practice guidelines for transmitting UDI data using the Device resource dictate transmitting both the UDI Carrier and all components found within the UDI as described in Device <a href="device-mappings.html#udi)">UDI Mapping</a>.   Several  <a href="device-examples.html">examples</a> are provided for further guidance.</p>
 
-
 <a name="status"></a>
 <h3>Status Elements</h3>
 <p>
 <code>Device.status</code> is about the record, while <code>.availabilityStatus</code> is about the device itself.
+</p>
+
+<a name="conformsTo"></a>
+<h3>Device.ConformsTo Source</h3>
+<p>
+If a need arises for the <code>.source</code> subelement, the <code>Device.conformsTo</code> element can be used as the element context for the <code>artifact-relatedArtifact</code> extension in FHIR R5 and later.
 </p>
 </div>
