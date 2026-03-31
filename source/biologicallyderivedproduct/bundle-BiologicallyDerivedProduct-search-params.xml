@@ -25,6 +25,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="BiologicallyDerivedProduct-therapy-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.therapyIdentifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-therapy-identifier"/>
+        <description value="Identifiers common to a given therapy"/>
+        <code value="therapy-identifier"/>
+        <type value="token"/>
+        <status value="active" />  
+        <expression value="BiologicallyDerivedProduct.therapyIdentifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>   
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="BiologicallyDerivedProduct-biological-source-event"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>

@@ -1,5 +1,14 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
+    <blockquote class="ballot-note" id="bn1">
+      <p><b>Note to Balloters:</b> The key changes made since the January 2026 R6 ballot include:</p>
+      <ul>
+        <li>Clarified how to construct DICOMweb requests from Endpoint and other ImagingSelection element values.</li>
+        <li>Added consistent linking to other FHIR resources.</li>
+      </ul>
+    </blockquote>
+  </div>
+  <div>
     <a name="scope"></a>
     <h2>Scope and Usage</h2>
     <p>This resource is an <a href="workflow.html#event">
