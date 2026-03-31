@@ -99,7 +99,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Describes why the medication statement occurred in coded or textual form or Indicates another resource whose existence justifies this medication statement."/>
-            <resource value="A concept, Condition or observation that supports why the medication is being/was taken."/>
+            <resource value="The concept(s), Condition(s) or observation(s) that lead to the medication being taken (or not taken)."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="Textual reasons can be captured using reasonCode.text."/>
