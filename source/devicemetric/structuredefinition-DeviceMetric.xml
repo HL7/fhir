@@ -32,7 +32,7 @@
   <title value="Device Metric"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="HL7 International / Health Care Devices"/>
+  <publisher value="HL7 International / Devices"/>
   <contact>
     <telecom>
       <system value="url"/>

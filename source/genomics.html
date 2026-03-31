@@ -48,6 +48,17 @@
         </td>
       </tr>
     </table>
+
+    <blockquote class="ballot-note" id="bn1">
+      <p><b>Note to Balloters:</b> To ensure this genomics page is ready for Normative status, we are seeking ballot comments on the content.</p>
+      <ul>
+      <li>The changes made since R5:</li>
+        <ul>
+        <li>Correct misspellings and spell out abbreviated words: <a href="https://jira.hl7.org/browse/FHIR-55078">FHIR-55078</a></li>
+        </ul>
+      </ul>
+    </blockquote>
+
     <p>
       The era of precision medicine-- an emerging approach for disease treatment
       and prevention that takes into account individual variability in genes,
@@ -58,8 +69,7 @@
       genomics, making it possible (and feasible) to undertake broad genetic
       testing on an individual in a clinically useful timeframe. Whereas not so
       long ago genomics was primarily of concern to bioinformaticists
-      interacting with such artifacts as alignment (e.g., BAM, CRAM) and variant
-      calling (e.g., VCF) data files, we are now seeing tremendous interest
+      interacting with domain-specific data files, we are seeing tremendous interest
       across the clinical community for integrating genomics findings and
       recommendations into the EHR and into the care process. To that end, the
       HL7 Clinical Genomics Work Group is developing a set of standards for
@@ -98,6 +108,13 @@
       </li>
       <li>
         <p>
+          <a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a> Resource: A resource that aims at delineating relevant information of a genomic study. 
+          A genomic study might comprise one or more analyses, each serving a specific purpose. 
+          These analyses may vary in method (e.g., karyotyping, detection of sequence variants), performer, software, devices used, or regions targeted.
+        </p>
+      </li>
+      <li>
+        <p>
           <a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-MolecularDefinition.html">MolecularDefinition</a> Resource: The MolecularDefinition
           resource represents molecular entities (e.g., nucleotide or protein sequences) for both
           clinical and non-clinical use cases, including translational research. The resource is
@@ -110,14 +127,14 @@
       </li>
       <li>
         <p>
-          <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/">Molecular Definition Implementation Guide for Molecular Data Types</a> is an emerging product that includes profiles for structured representation of the fundamental concepts such as <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-sequence.html">Sequence</a>, <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-allele.html">Allele</a>, and <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-variation.html">Variation</a>, <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-haplotype.html">Haplotype</a>, and <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-genotype.html">Genotype</a>. This guide is work in progress and will evolve to represent additional concepts.
-        </p>
-      </li>
-      <li>
-        <p>
-          <a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a> Resource: A resource that aims at delineating relevant information of a genomic study. 
-          A genomic study might comprise one or more analyses, each serving a specific purpose. 
-          These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
+          <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/">Molecular Definition Implementation Guide for Molecular Data Types</a> is an emerging 
+          product that includes profiles for structured representation of the fundamental concepts such as 
+          <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-sequence.html">Sequence</a>, 
+          <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-allele.html">Allele</a>, 
+          <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-variation.html">Variation</a>,
+          <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-haplotype.html">Haplotype</a>, 
+          and <a href="https://build.fhir.org/ig/HL7/molecular-definition-data-types/StructureDefinition-genotype.html">Genotype</a>. 
+          This guide is work in progress and will evolve to represent additional concepts.
         </p>
       </li>
     </ul>

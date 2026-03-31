@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A selection of DICOM SOP instances within a single Study and Series. This might include additional specifics such as a set of frames or an image region, allowing linkage to an Observation Resource."/>
+  <description value="A selection of DICOM SOP instances within a single DICOM Study and Series. This might include additional specifics such as a set of frames or an image region, allowing linkage to an Observation Resource."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -676,7 +676,7 @@
     <element id="ImagingSelection.instance.number">
       <path value="ImagingSelection.instance.number"/>
       <short value="The number of this instance in the series"/>
-      <definition value="TThe number of the instance assigned by the creator of the series. MAY or MAY NOT correspond to intended display order."/>
+      <definition value="The number of the instance assigned by the creator of the series. MAY or MAY NOT correspond to intended display order."/>
       <comment value="See [DICOM PS3.3 C.7.6.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.6.html#sect_C.7.6.1).&#xA;       Note: A multiframe instance has a single instance number with each frame identified by a frame number."/>
       <requirements value="DICOM Instance Number.&#xA;Must correspond to the SOP Instance identified by the `uid` element."/>
       <alias value="InstanceNumber"/>
