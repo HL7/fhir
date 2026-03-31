@@ -29,7 +29,7 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="Some of the actions that are implied by the medication usage may have occurred.  For example, the patient may have taken some of the medication.  Clinical decision support systems should take this status into account."/>
+    <definition value="The statement was entered in error and is not valid."/>
   </concept>
   <concept>
     <code value="draft"/>

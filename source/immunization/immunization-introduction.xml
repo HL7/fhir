@@ -1,8 +1,17 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="dstu"></a>
-
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure that the Immunization resource is ready for Normative status, we are seeking ballot comments on the substantive content.</p>
+    <ul>
+    <li>The key changes made since the January 2026 R6 ballot include:</li>
+      <ul>
+      <li>Updated Immunization.performer.function value set to use a value set defined in THO rather than in the FHIR base standard. - <a href="https://jira.hl7.org/browse/FHIR-53465">FHIR-53465</a></li>
+      <li>Updated Immunization.statusReason to clarify usage. - <a href="https://jira.hl7.org/browse/FHIR-54325">FHIR-54325</a></li>
+      <li>Updated narrative text to reference changed names of data elements in the Medication resource. - <a href="https://jira.hl7.org/browse/FHIR-55486">FHIR-55486</a></li>  
+      </ul>
+    </ul>
+    </blockquote>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
@@ -23,7 +32,7 @@ Administration of vaccines is intended to be handled using the <b>Immunization</
 While the <b>Immunization</b> and <b>MedicationAdministration</b> resources are distinct, they are both able to capture specific details of the administered product. The Immunization resource uses Immunization.vaccineCode to indicate the nature  of the vaccine administered to the patient. The Immunization.administeredProduct may additionally be used to identify the specific product used (either as a coded value or as a reference to a Medication resource). The Immunization resource also contains data about the administered vaccine including the manufacturer, lot number and expiration date. However, the data elements contained within Immunization are expected to only be used when Immunization.administeredProduct does not reference a Medication resource which contains the same information about the product.
 </p>
 <p>
-Similarly, MedicationAdministration.medication references a <a href="medication.html">Medication</a> resource which is used to identify the administered product. Medication.marketingAuthorizationHolder, Medication.batch.lotNumber and Medication.batch.expirationDate are all analogous to the Immunization resource elements and are similarly used to capture details of the administered product.
+Similarly, MedicationAdministration.medication references a <a href="medication.html">Medication</a> resource which is used to identify the administered product. Medication.marketingAuthorizationHolder, Medication.instance.lotNumber and Medication.instance.expirationDate are all analogous to the Immunization resource elements and are similarly used to capture details of the administered product.
 </p>
 <p>
 Immunization.reaction may be an indication of an allergy or intolerance. If this is deemed to be the case, a separate AllergyIntolerance resource instance should be created to indicate it, as most systems will not query against past Immunization.reaction.
