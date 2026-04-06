@@ -540,6 +540,14 @@
 				<code value="CodeableConcept"/>
 			</type>
 			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ObservationDefinitionParticipantRole"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
+			</binding>
 			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.performerType"/>

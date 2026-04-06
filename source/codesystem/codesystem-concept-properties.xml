@@ -221,6 +221,15 @@
     </property>
   </concept>
   <concept>
+    <code value="invalidInVersion"/>
+    <display value="InvalidInVersion"/>
+    <definition value="The value of the property is the version of the code system in which the concept is invalid (i.e. not present). This property is used in value set expansions to indicate concepts that are explicitly referenced in value set definitions but are no longer present in the code system version being used for the expansion. See the includeLastVersionValid parameter in the Canonical Resource Management Infrastructure specialization of the ValueSet/$expand operation for more information on how this property is used."/>
+    <property>
+      <code value="dataType"/>
+      <valueCode value="string"/>
+    </property>
+  </concept>
+  <concept>
     <code value="replacedByCode"/>
     <display value="ReplacedByCode"/>
     <definition value="This property identifies a concept in this code system that is considered to replace the use of this concept.  This property is generally only used on deprecated, withdrawn or inactive concepts."/>

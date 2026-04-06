@@ -335,7 +335,7 @@ Search for all heart rate, respiratory rate and blood pressure observations for 
 		</h3>
 		<p>
 			<strong>Example:</strong>
-Find all the blood pressures after 2015-01-14</p>
+Find all the blood pressures for a patient after 2015-01-14</p>
 		<p>
 			<a href="#.hml">GET [base]/Observation?patient=555580&amp;code=85354-9&amp;date=ge2015-01-14</a>
 		</p>

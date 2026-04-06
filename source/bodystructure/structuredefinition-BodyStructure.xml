@@ -515,7 +515,7 @@
       <path value="BodyStructure.patient"/>
       <short value="Who this is about"/>
       <definition value="The person to which the body site belongs."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>

@@ -11,7 +11,12 @@
         <li>Consolidated the Task State Machine sections to the Notes section:<a href="task.html#statemachine">task.html#statemachine</a></li>
       </ul>
     </blockquote>
-
+    <blockquote style="background-color: lightblue">
+    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+    <ul>
+    	<li><a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
+    </ul>
+    </blockquote>
     <p>
       A Task resource describes an activity that can be performed and tracks the state of
       completion of that activity. It is a representation that an activity should be or has been

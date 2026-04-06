@@ -1,6 +1,21 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure that the DocumentReference resource is ready for Normative status, we are seeking ballot comments on the substantive content.</p>
+    <ul>
+    <li>The key changes made since the January 2026 R6 ballot include:</li>
+      <ul>
+      <li>DocumentReference.docStatus -> modifier should be false. - <a href="https://jira.hl7.org/browse/FHIR-54537">FHIR-54537</a></li>
+      <li>DocumentReference.basedOn points to requests not events - <a href="https://jira.hl7.org/browse/FHIR-54536">FHIR-54536</a></li>
+      <li>DocumentReference.related changed to backbone with target and code, relatesTo clarified, with search adjustments - <a href="https://jira.hl7.org/browse/FHIR-53824">FHIR-53824</a>, <a href="https://jira.hl7.org/browse/FHIR-53550">FHIR-53550</a></li>
+      <li>DocumentReference.context definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54170">FHIR-54170</a></li>
+      <li>DocumentReference.basedOn definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54167">FHIR-54167</a></li>
+      <li>DocumentReference.custodian definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54169">FHIR-54169</a></li>
+      </ul>
+    </ul>
+    </blockquote>
+
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
     <blockquote class="ballot-note" id="bn1">

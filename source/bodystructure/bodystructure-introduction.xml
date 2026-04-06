@@ -10,6 +10,12 @@
  <li>Added BodyStructure.includedStructure.image to provide an image of the includedStructure or excludedStructure.</li>
 </ul>
 </blockquote>
+<blockquote class="stu-note" style="background-color: lightblue">
+    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+    <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54450">FHIR-54450</a></li>
+    </ul>
+</blockquote>
 <p>
 The BodyStructure resource contains details about the anatomical location of a specimen or body part, including patient information, identifiers, as well as text descriptions and images. Note that some body structures are discontiguous.
 </p>

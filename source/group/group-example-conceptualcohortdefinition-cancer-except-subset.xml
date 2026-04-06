@@ -108,7 +108,7 @@
 		</valueCodeableConcept>
 		<exclude value="true"/>
 		<description value="unless documented to be disease-free for five years"/>
-		<timing>
+		<relativeTime>
 			<contextCode>
 				<coding>
 					<system value="http://snomed.info/sct"/>
@@ -131,6 +131,6 @@
 				</high>
 			</offsetRange>
 			<text value="for five years up until study enrollment"/>
-		</timing>
+		</relativeTime>
 	</characteristic>
 </Group>

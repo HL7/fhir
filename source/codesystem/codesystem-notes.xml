@@ -286,6 +286,11 @@ table.fixedfirst td:first-child {
   <td>If the code is not active (properties inActive or based on status), then this property conveys in what code system version it was last an active code</td>
  </tr>
  <tr>
+  <td>...invalidInVersion<span onclick="navigator.clipboard.writeText('http://hl7.org/fhir/concept-properties#invalidInVersion');" style="cursor: pointer" title="Copy property URL to clipboard"><img src="icon_clipboard.png" alt="btn" width="24px" height="16px"/></span></td>
+  <td>string</td>
+  <td>The value of the property is the version of the code system in which the concept is invalid (i.e. not present). This property is used in value set expansions to indicate concepts that are explicitly referenced in value set definitions but are no longer present in the code system version being used for the expansion. See the includeLastVersionValid parameter in the Canonical Resource Management Infrastructure specialization of the ValueSet/$expand operation for more information on how this property is used.</td>
+ </tr>
+ <tr>
   <td>...replacedBy[X]</td>
   <td>string</td>
   <td>
