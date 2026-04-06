@@ -814,8 +814,8 @@
         <map value="inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)"/>
       </mapping>
     </element>
-    <element id="DiagnosticReport.recomendation">
-      <path value="DiagnosticReport.recomendation"/>
+    <element id="DiagnosticReport.recommendation">
+      <path value="DiagnosticReport.recommendation"/>
       <short value="Recommendations based on findings and interpretations"/>
       <definition value="Proposed follow-up actions based on the findings and interpretations of the diagnostic test for which this report is the subject."/>
       <comment value="The resources that should be referenced include CarePlan, ServiceRequest, CommunicationRequest, etc. that allow for proposed actions and next steps."/>

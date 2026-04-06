@@ -39,6 +39,12 @@
         </ul>
     </blockquote>
     <h2>Scope and Usage</h2>
+    <blockquote style="background-color: lightblue">
+    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+    <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54036">FHIR-54036</a></li>
+          </ul>
+</blockquote>
     <p>This resource is an <a href="workflow.html#event">
         <em>event resource</em>
       </a> from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</p>
