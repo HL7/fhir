@@ -197,8 +197,8 @@
     </element>
     <element id="DocumentReference.basedOn">
       <path value="DocumentReference.basedOn"/>
-      <short value="Procedure that caused this media to be created"/>
-      <definition value="A procedure that is fulfilled in whole or in part by the creation of this media."/>
+      <short value="Activity that caused this document to be created"/>
+      <definition value="An activity that is fulfilled in whole or in part by the creation of this document."/>
       <requirements value="Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon."/>
       <alias value="fulfills"/>
       <min value="0"/>
@@ -291,8 +291,6 @@
       <type>
         <code value="code"/>
       </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -482,7 +480,7 @@
     <element id="DocumentReference.context">
       <path value="DocumentReference.context"/>
       <short value="Encounter the document reference is part of"/>
-      <definition value="The Encounter during which this document reference was created or to which the creation of this record is tightly associated."/>
+      <definition value="The encounter or other triggering event during which this DocumentReference was created or to which the creation of this record is tightly associated."/>
       <comment value="This will typically be the encounter the document reference was created during, but some document references may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
       <requirements value="Links the document reference to the Encounter context.  May also affect access control."/>
       <min value="0"/>
@@ -546,16 +544,19 @@
       </mapping>
     </element>
     <element id="DocumentReference.related">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>   
       <path value="DocumentReference.related"/>
-      <short value="Related identifiers or resources associated with the document reference"/>
-      <definition value="Any other resource this document reference was created or to which the creation of this record is tightly associated."/>
-      <comment value="Use only for references not covered by other elements."/>
+      <short value="Related resources with this document reference not represented elsewhere"/>
+      <definition value="Any resource to which the creation of this record is tightly associated not involving document reference lifecycle."/>
+      <comment value="Use only for references not covered by other document reference lifecycle elements, for example references at the data or workflow level."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <code value="BackboneElement"/>
       </type>
+      <isSummary value="false"/>
       <mapping>
         <identity value="fhircomposition"/>
         <map value="Composition.event.detail"/>
@@ -568,6 +569,37 @@
         <identity value="xds"/>
         <map value="DocumentEntry.referenceIdList"/>
       </mapping>
+    </element>
+    <element id="DocumentReference.related.code">
+      <path value="DocumentReference.related.code"/>
+      <short value="Type of relationship to target resource"/>
+      <definition value="Type of the relationship between the document reference and the related resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AssociatedReferenceType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of relationship between the documents."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/document-related-artifact-type"/>
+      </binding>
+    </element>
+    <element id="DocumentReference.related.target">
+      <path value="DocumentReference.related.target"/>
+      <short value="Target of the reference"/>
+      <definition value="The target document of the related resource."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <isSummary value="false"/>
     </element>
     <element id="DocumentReference.bodyStructure">
       <path value="DocumentReference.bodyStructure"/>
@@ -918,7 +950,7 @@
     <element id="DocumentReference.custodian">
       <path value="DocumentReference.custodian"/>
       <short value="Organization which maintains the document"/>
-      <definition value="Identifies the organization or group who is responsible for ongoing maintenance of and access to the document."/>
+      <definition value="Identifies the organization who is responsible for ongoing maintenance of and access to the document."/>
       <comment value="Identifies the logical organization (software system, vendor, or department) to go to find the current version, where to report issues, etc. This is different from the physical location (URL, disk drive, or server) of the document, which is the technical location of the document, which host may be delegated to the management of some other organization."/>
       <min value="0"/>
       <max value="1"/>
@@ -940,9 +972,8 @@
         <valueCode value="right"/>
       </extension>
       <path value="DocumentReference.relatesTo"/>
-      <short value="Relationships to other documents"/>
-      <definition value="Relationships that this document has with other document references that already exist."/>
-      <comment value="This element is labeled as a modifier because documents that append to other documents are incomplete on their own."/>
+      <short value="Relationships to other document references and their lifecycle changes"/>
+      <definition value="Relationships that this document reference has with other document references that already exist."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -307,7 +307,6 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.performerType" resourcePath="ObservationDefinition.performerType">
-        <bindingExistence _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Desired kind of service performer"/>
             <resource value="Desired kind of performer for such kind of observation"/>

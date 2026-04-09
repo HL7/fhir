@@ -704,7 +704,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX?"/>
@@ -740,7 +739,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
-      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value=".value.reference"/>
@@ -774,6 +772,7 @@
       <type>
         <code value="markdown"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX"/>
@@ -794,6 +793,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdjunctDiagnosis"/>
@@ -805,6 +805,7 @@
         <description value="SNOMED CT Clinical Findings"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
+      <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX"/>
@@ -814,8 +815,8 @@
         <map value="inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)"/>
       </mapping>
     </element>
-    <element id="DiagnosticReport.recomendation">
-      <path value="DiagnosticReport.recomendation"/>
+    <element id="DiagnosticReport.recommendation">
+      <path value="DiagnosticReport.recommendation"/>
       <short value="Recommendations based on findings and interpretations"/>
       <definition value="Proposed follow-up actions based on the findings and interpretations of the diagnostic test for which this report is the subject."/>
       <comment value="The resources that should be referenced include CarePlan, ServiceRequest, CommunicationRequest, etc. that allow for proposed actions and next steps."/>

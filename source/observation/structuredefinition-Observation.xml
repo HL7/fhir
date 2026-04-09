@@ -884,17 +884,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueMarkdown value="Codes describing anatomical locations. May include laterality."/>
-        </extension>
-        <strength value="example"/>
-        <description value="SNOMED CT Body site concepts"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
-      </binding>
       <mapping>
         <identity value="sct-concept"/>
         <map value="&lt; 123037004 |Body structure|"/>
