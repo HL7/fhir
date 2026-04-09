@@ -100,4 +100,8 @@
     <code value="IUIS"/>
     <display value="IUIS"/>
   </concept>
+  <concept>
+    <code value="UT"/>
+    <display value="UMC Terminologies"/>
+  </concept>
 </CodeSystem>

@@ -26,12 +26,15 @@
 			<li>
 			The device element is used to record the Device (or within a device, the DeviceMetric) that provides the measurement, analysis, or setting configuration recorded in the Observation. For example, the radiology software generating the hip prosthetic wear measurement would be recorded in device. In the calibration record above, one would expect the device element to be populated with the calibration device providing the measurements about the subject device.
 			</li>
-			<li>
-			In some cases, the source of the observation is not the entity recording it. This may be, for example, a radiologist-dictated observation entered by a transcriptionist, or a reading off a thermometer entered into the chart by a nurse. If it is important to record that the person or device that made the observation is not the person or device that entered it into the record, then the observation-recording extension may be used.
-			</li>
 		</ul>
 		<p>
-		Note that a device could appear in any of these elements depending on the role it is playing in a particular Observation; there is no fixed element where a device would be recorded. Similarly, patients, related persons, practitioners and other entities may appear in various elements. As a result, finding all Observations involving a particular device, etc. may require multiple searches. 
+		Note that a device could appear in any of these elements depending on the role it is playing in a particular Observation; there is no fixed element where a device would be recorded. Similarly, patients, related persons, practitioners and other entities may appear in various elements. As a result, finding all Observations involving a particular device, etc. may require multiple searches.
+		</p>
+		<a name="obsperformer">
+		</a>
+		<h3>Performer of an Observation</h3>
+		<p>
+		In some cases, the source of the observation is not the entity recording it. This may be, for example, a radiologist-dictated observation entered by a transcriptionist, or a reading off a thermometer entered into the chart by a nurse. If it is important to record that the person or device that made the observation is not the person or device that entered it into the record, then the observation-recording extension may be used.
 		</p>
 		<a name="obsgrouping">
 		</a>

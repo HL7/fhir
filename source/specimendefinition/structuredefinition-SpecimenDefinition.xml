@@ -105,10 +105,10 @@
 		</element>
 		<element id="SpecimenDefinition.identifier">
 			<path value="SpecimenDefinition.identifier"/>
-			<short value="Business identifier"/>
-			<definition value="A business identifier assigned to this SpecimenDefinition."/>
+			<short value="Business identifiers of the SpecimenDefinition"/>
+			<definition value="Business identifiers assigned to this SpecimenDefinition."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="Identifier"/>
 			</type>
