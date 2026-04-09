@@ -222,4 +222,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProduct-collection-sourceOrganization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProduct.collection.sourceOrganization"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProduct-collection-sourceOrganization"/>
+        <description value="The organization that facilitated the collection of the product"/>
+        <code value="organization"/>
+        <type value="reference"/>
+        <status value="active" />    
+        <expression value="BiologicallyDerivedProduct.collection.sourceOrganization"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
