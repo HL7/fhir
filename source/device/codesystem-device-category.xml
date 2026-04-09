@@ -44,7 +44,7 @@
   </concept>
   <concept>
     <code value="communicating"/>
-    <display value="communicating"/>
+    <display value="Communicating"/>
     <definition value="Device communicates electronically to peer information systems or possibly another device."/>
   </concept>
   <concept>
@@ -64,7 +64,7 @@
   </concept>
   <concept>
     <code value="in-vitro"/>
-    <display value="In vitro"/>
+    <display value="In Vitro"/>
     <definition value="Tests done on samples such as blood or tissue that have been taken from the human body."/>
   </concept>
   <concept>
