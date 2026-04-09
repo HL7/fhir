@@ -18,6 +18,14 @@
  <li>DiagnosticReport.conclusionCode datatype</li>
 </ul>
 </blockquote>
+<blockquote style="background-color: lightblue">
+    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+    <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54554">FHIR-54554</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54163">FHIR-54163</a></li>
+    </ul>
+</blockquote>
 <p>
 A diagnostic report is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,

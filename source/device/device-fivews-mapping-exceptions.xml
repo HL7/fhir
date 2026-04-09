@@ -10,8 +10,8 @@
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
     </divergentElement>
     <unmappedElement patternPath="FiveWs.recorded" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.author" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.actor" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.author" reason="There are no elements that meet the purpose or intent of author"/>
+    <unmappedElement patternPath="FiveWs.actor" reason="There are no elements that meet the purpose or intent of actor"/>
     <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>
@@ -19,7 +19,7 @@
     <unmappedElement patternPath="FiveWs.context" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.init" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.why" reason="Unknown"/>
-    <unmappedElement patternPath="FiveWs.source" reason="Unknown"/>
+    <unmappedElement patternPath="FiveWs.source" reason="There are no elements that meet the purpose or intent of source"/>
     <unmappedElement patternPath="FiveWs.who" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.grade" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.planned" reason="Unknown"/>
