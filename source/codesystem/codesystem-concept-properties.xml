@@ -221,9 +221,9 @@
     </property>
   </concept>
   <concept>
-    <code value="invalidInVersion"/>
-    <display value="InvalidInVersion"/>
-    <definition value="The value of the property is the version of the code system in which the concept is invalid (i.e. not present). This property is used in value set expansions to indicate concepts that are explicitly referenced in value set definitions but are no longer present in the code system version being used for the expansion. See the includeLastVersionValid parameter in the Canonical Resource Management Infrastructure specialization of the ValueSet/$expand operation for more information on how this property is used."/>
+    <code value="lastVersionPresent"/>
+    <display value="LastVersionPresent"/>
+    <definition value="The value of the property is the version of the code system where the concept was last known to be present. This property is used in value set expansions to indicate concepts that are explicitly referenced in value set definitions but are no longer present in the code system version being used for the expansion. See the includeLastVersionPresent parameter in the Canonical Resource Management Infrastructure specialization of the ValueSet/$expand operation for a description of when this parameter is used. This property will only appear in expansions because it describes concepts that are not in the code system version used in the $expand."/>
     <property>
       <code value="dataType"/>
       <valueCode value="string"/>

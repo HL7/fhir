@@ -395,6 +395,6 @@ CLAUDE.MD
 ai-scratch/
 .clinerules/
 .claude/
-.mcp.json
-.skills/
 *.skill
+.skills/
+.mcp.json

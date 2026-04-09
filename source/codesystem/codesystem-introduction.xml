@@ -11,7 +11,7 @@
   </li>
   <li>Compatible, Substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-56201">FHIR-56201</a>: Added invalidInVersion concept property</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-56201">FHIR-56201</a>: Added lastVersionPresent concept property</li>
     </ul>
   </li>
   <li>Non-substantive Changes
@@ -25,7 +25,7 @@
 <blockquote style="background-color: lightblue">
   <p><b>All Changes (including Technical Corrections not listed above):</b></p>
   <ul>
-    <li><a href="https://jira.hl7.org/browse/FHIR-56201">FHIR-56201</a>: Added invalidInVersion concept property</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-56201">FHIR-56201</a>: Added lastVersionPresent concept property</li>
   </ul>
 </blockquote>
 <a name="scope"></a>

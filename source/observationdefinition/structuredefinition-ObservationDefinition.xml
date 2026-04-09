@@ -525,6 +525,14 @@
 				<code value="CodeableConcept"/>
 			</type>
 			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ObservationSubjectType"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Codes identifying the type of subject for an observation definition, such as organisms or physical objects."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/observation-subject-type"/>
+			</binding>
 			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.subject"/>

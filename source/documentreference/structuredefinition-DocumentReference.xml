@@ -550,7 +550,7 @@
       <path value="DocumentReference.related"/>
       <short value="Related resources with this document reference not represented elsewhere"/>
       <definition value="Any resource to which the creation of this record is tightly associated not involving document reference lifecycle."/>
-      <comment value="Use only for references not covered by other document reference lifecycle elements, for example references at the data or workflow level. "/>
+      <comment value="Use only for references not covered by other document reference lifecycle elements, for example references at the data or workflow level."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -582,11 +582,11 @@
       <isSummary value="false"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DocumentRelatedType"/>
+          <valueString value="AssociatedReferenceType"/>
         </extension>
         <strength value="example"/>
         <description value="The type of relationship between the documents."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type|5.0.0"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/document-related-artifact-type"/>
       </binding>
     </element>
     <element id="DocumentReference.related.target">
@@ -974,7 +974,6 @@
       <path value="DocumentReference.relatesTo"/>
       <short value="Relationships to other document references and their lifecycle changes"/>
       <definition value="Relationships that this document reference has with other document references that already exist."/>
-      <comment value="This element is labeled as a modifier because documents that append to other documents are incomplete on their own."/>
       <min value="0"/>
       <max value="*"/>
       <type>

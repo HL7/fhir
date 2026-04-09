@@ -2,6 +2,12 @@
 	<div>
 	<a name="scope"></a>
 	<h2>Scope and Usage</h2>
+	<blockquote style="background-color: lightblue">
+    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+    <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-53384">FHIR-53384</a></li>
+    </ul>
+</blockquote>
 		<p>Any material sample:</p>
 		<ul>
 			<li>taken from a biological entity, living or dead</li>
