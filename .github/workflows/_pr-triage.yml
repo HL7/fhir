@@ -59,6 +59,11 @@ on:
         description: 'Comma-separated email recipient list'
         required: true
         type: string
+      wait_for_check_run:
+        description: 'Name of a check run to wait for before triaging (empty = no waiting). When set, triage will poll until the named check run completes successfully on the PR head SHA.'
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -70,12 +75,14 @@ jobs:
   eligibility:
     runs-on: ubuntu-latest
     outputs:
-      should_triage: ${{ steps.check.outputs.should_triage }}
+      should_triage: ${{ steps.wait.outputs.should_triage || steps.check.outputs.should_triage }}
       pr_number: ${{ steps.check.outputs.pr_number }}
       head_sha: ${{ steps.check.outputs.head_sha }}
       base_sha: ${{ steps.check.outputs.base_sha }}
       html_url: ${{ steps.check.outputs.html_url }}
       trigger_kind: ${{ steps.check.outputs.trigger_kind }}
+      build_timeout: ${{ steps.wait.outputs.build_timeout }}
+      pr_title: ${{ steps.check.outputs.pr_title }}
 
     steps:
       - name: Evaluate trigger eligibility
@@ -179,6 +186,132 @@ jobs:
             core.setOutput('base_sha', pr.base.sha);
             core.setOutput('html_url', pr.html_url);
             core.setOutput('trigger_kind', triggerKind);
+            core.setOutput('pr_title', pr.title || '');
+
+      - name: Wait for required check run
+        id: wait
+        if: steps.check.outputs.should_triage == 'true' && inputs.wait_for_check_run != ''
+        uses: actions/github-script@v7
+        env:
+          CHECK_NAME: ${{ inputs.wait_for_check_run }}
+          HEAD_SHA: ${{ steps.check.outputs.head_sha }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const checkName = process.env.CHECK_NAME;
+            const headSha = process.env.HEAD_SHA;
+
+            // 120s × 120 attempts = 4 hours
+            const POLL_INTERVAL_MS = 120 * 1000;
+            const MAX_ATTEMPTS = 120;
+
+            const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+            for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+              const { data } = await github.rest.checks.listForRef({
+                owner, repo, ref: headSha, per_page: 100,
+              });
+
+              const match = data.check_runs.find(cr =>
+                cr.name === checkName &&
+                cr.app && cr.app.slug === 'azure-pipelines'
+              );
+
+              if (!match) {
+                core.notice(`Attempt ${attempt}/${MAX_ATTEMPTS}: no "${checkName}" check run found yet for ${headSha}. Waiting ${POLL_INTERVAL_MS / 1000}s.`);
+              } else if (match.status === 'completed') {
+                if (match.conclusion === 'success') {
+                  core.notice(`"${checkName}" succeeded. Proceeding with triage.`);
+                  core.setOutput('should_triage', 'true');
+                  core.setOutput('build_timeout', 'false');
+                  return;
+                } else {
+                  core.notice(`"${checkName}" completed with conclusion="${match.conclusion}". Skipping triage silently.`);
+                  core.setOutput('should_triage', 'false');
+                  core.setOutput('build_timeout', 'false');
+                  return;
+                }
+              } else {
+                core.notice(`Attempt ${attempt}/${MAX_ATTEMPTS}: "${checkName}" status="${match.status}". Waiting ${POLL_INTERVAL_MS / 1000}s.`);
+              }
+
+              if (attempt < MAX_ATTEMPTS) {
+                await sleep(POLL_INTERVAL_MS);
+              }
+            }
+
+            core.warning(`"${checkName}" did not complete within 4 hours. Triggering timeout alert.`);
+            core.setOutput('should_triage', 'false');
+            core.setOutput('build_timeout', 'true');
+
+  build_timeout_alert:
+    needs: eligibility
+    if: needs.eligibility.outputs.build_timeout == 'true'
+    runs-on: ubuntu-latest
+    environment: claude-triage
+
+    steps:
+      - name: Send build timeout alert email
+        env:
+          PR_NUMBER: ${{ needs.eligibility.outputs.pr_number }}
+          PR_TITLE: ${{ needs.eligibility.outputs.pr_title }}
+          PR_URL: ${{ needs.eligibility.outputs.html_url }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          CHECK_NAME: ${{ inputs.wait_for_check_run }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          LABEL: ${{ inputs.label }}
+          TO_LIST: ${{ inputs.to }}
+        run: |
+          BODY=$(python3 <<'PY'
+          import os
+          pr_number = os.environ.get("PR_NUMBER", "?")
+          pr_title = os.environ.get("PR_TITLE", "")
+          pr_url = os.environ.get("PR_URL", "")
+          run_url = os.environ.get("RUN_URL", "")
+          check_name = os.environ.get("CHECK_NAME", "")
+
+          print(f"ALERT: Azure build still pending after 4 hours")
+          print()
+          if pr_title:
+              print(f"Triggered while triaging PR #{pr_number}: {pr_title}")
+          else:
+              print(f"Triggered while triaging PR #{pr_number}")
+          if pr_url:
+              print(f"PR: {pr_url}")
+          if run_url:
+              print(f"Workflow run: {run_url}")
+          print()
+          print(f'The Azure pipeline ("{check_name}") was still running when this')
+          print("triage workflow gave up after 4 hours of polling. Triage was")
+          print("skipped.")
+          print()
+          print("Once the pipeline completes:")
+          print("  - If it succeeded, re-run this workflow from the Actions tab")
+          print("    and triage will proceed.")
+          print("  - If it failed, the PR author needs to address the build")
+          print("    failure first.")
+          PY
+          )
+
+          SUBJECT="[$LABEL] ALERT: Build pending too long for PR #$PR_NUMBER"
+
+          TO_JSON=$(echo "$TO_LIST" | python3 -c '
+          import sys, json
+          addrs = [a.strip() for a in sys.stdin.read().split(",") if a.strip()]
+          print(json.dumps(addrs))
+          ')
+
+          PAYLOAD=$(jq -n \
+            --arg from "Claude Triage <claude-triage@lmckenzie.com>" \
+            --argjson to "$TO_JSON" \
+            --arg subject "$SUBJECT" \
+            --arg text "$BODY" \
+            '{from: $from, to: $to, subject: $subject, text: $text}')
+
+          curl -X POST https://api.resend.com/emails \
+            -H "Authorization: Bearer $RESEND_API_KEY" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
 
   triage:
     needs: eligibility
@@ -559,7 +692,7 @@ jobs:
               result = subprocess.run(
                   ["curl", "-s",
                    "-w", "\n%{http_code}",
-                   "-H", "User-Agent: Mozilla/5.0 (compatible; Lloyd-HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
+                   "-H", "User-Agent: Mozilla/5.0 (compatible; HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
                    "-H", f"Authorization: Bearer {token}",
                    url],
                   capture_output=True, text=True,

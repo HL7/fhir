@@ -32,4 +32,5 @@ jobs:
     with:
       label: "FHIR core"
       to: "lloyd@lmckenzie.com"
+      wait_for_check_run: "Pull Request Pipeline"
     secrets: inherit
