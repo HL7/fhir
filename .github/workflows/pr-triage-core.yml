@@ -28,7 +28,7 @@ on:
 
 jobs:
   triage:
-    uses: HL7/fhir/.github/workflows/_pr-triage.yml@main
+    uses: HL7/fhir/.github/workflows/_pr-triage.yml@master
     with:
       label: "FHIR core"
       to: "lloyd@lmckenzie.com"
