@@ -1,17 +1,19 @@
+
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
     <blockquote class="ballot-note" id="bn1">
-    <p><b>Note to Balloters:</b> Changes made since the previous ballot:</p>
-    <ul>
-      <li><b>Non-substantive</b>
-        <ul>
-          <li><a href="https://jira.hl7.org/browse/FHIR-55973">FHIR-55973</a> - Clarified that repeating answers are expected to be unique and improved readability of 'repeats' comment.</li>
-        </ul>
-      </li>
-    </ul>
+      <p><b>Note to Balloters:</b> Changes made since the previous ballot:</p>
+      <ul>
+        <li><b>Non-substantive</b>
+          <ul>
+            <li><a href="https://jira.hl7.org/browse/FHIR-55973">FHIR-55973</a> - Clarified that repeating answers are expected to be unique and improved readability of 'repeats' comment.</li>
+          </ul>
+        </li>
+      </ul>
     </blockquote>
-  <div>
-<a name="scope"></a>
+  </div>
+  
+  <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
 A <b>Questionnaire</b> is an organized collection of questions intended to solicit information from patients, providers or other individuals involved
@@ -55,7 +57,6 @@ sophisticated behavior.  This includes:
 Additional implementation guides, in particular the <a href="#sdc">Structured Data Capture Questionnaire IG</a> provide guidance, extensions and operations
 that support additional capabilities and allow the definition of more sophisticated questionnaires and their corresponding responses.
 </p>
-</div>
 
 <div>
 <a name="bnr"></a>
@@ -127,6 +128,5 @@ It can also support other sorts of post-processing of the data contained in a qu
 and Questionnaires may be quite loosely defined. The section <a href="#qversusr">Questionnaire versus Resources</a> below discusses the issues of collecting data in such
 loosely defined Questionnaires versus collecting data as well-defined separate Resources.
 </p>
-</div>
 
 </div>
