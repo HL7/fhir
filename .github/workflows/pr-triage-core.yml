@@ -1,0 +1,36 @@
+# =============================================================================
+# Claude PR Triage — FHIR core wrapper
+#
+# Defines triggers and calls the shared reusable workflow. All triage logic
+# lives in HL7/fhir/.github/workflows/_pr-triage.yml.
+#
+# Setup requirements (one-time, in this repo):
+#   - claude-triage environment with secrets:
+#       ANTHROPIC_API_KEY, RESEND_API_KEY, JIRA_API_TOKEN
+#   - REVIEW_PROFILE.md at the repo root
+# =============================================================================
+
+name: Claude PR Triage
+run-name: >-
+  FHIR core triage for ${{
+    (github.event_name == 'pull_request' || github.event_name == 'pull_request_target') &&
+      format('PR #{0}: {1}', github.event.pull_request.number, github.event.pull_request.title) ||
+    github.event_name == 'issue_comment' &&
+      format('PR #{0} (comment by {1})', github.event.issue.number, github.event.comment.user.login) ||
+    'unknown'
+  }}
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, ready_for_review]
+  issue_comment:
+    types: [created]
+
+jobs:
+  triage:
+    uses: HL7/fhir/.github/workflows/_pr-triage.yml@master
+    with:
+      label: "FHIR core"
+      to: "lloyd@lmckenzie.com"
+      wait_for_check_run: "Pull Request Pipeline"
+    secrets: inherit
