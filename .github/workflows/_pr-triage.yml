@@ -552,9 +552,14 @@ jobs:
 
           for key in keys:
               url = f"https://jira.hl7.org/rest/api/2/issue/{key}?fields={fields_param}"
+              # User-Agent: HL7's Jira sits behind an AWS ELB that filters
+              # requests whose User-Agent doesn't look browser-like. The
+              # combination of "Mozilla/5.0", "AppleWebKit", and "Gecko" is
+              # what gets us past the filter while still identifying ourselves.
               result = subprocess.run(
                   ["curl", "-s",
                    "-w", "\n%{http_code}",
+                   "-H", "User-Agent: Mozilla/5.0 (compatible; Lloyd-HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
                    "-H", f"Authorization: Bearer {token}",
                    url],
                   capture_output=True, text=True,
