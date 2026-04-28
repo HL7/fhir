@@ -19,7 +19,7 @@
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-53828">FHIR-53828</a>: Added a note for awareness of the resource-pertainsToGoal extension</li>
 	  <li><a href="https://jira.hl7.org/browse/FHIR-53104">FHIR-53104</a>: Changed Goal.priority binding to THO value set that contains the same codes from same code system</li>
-    </ul>
+    </ul> 
   </li>
 </ul>
 <p></p>
