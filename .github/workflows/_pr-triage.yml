@@ -692,7 +692,7 @@ jobs:
               result = subprocess.run(
                   ["curl", "-s",
                    "-w", "\n%{http_code}",
-                   "-H", "User-Agent: Mozilla/5.0 (compatible; HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
+                   "-H", "User-Agent: Mozilla/5.0 (compatible; Lloyd-HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
                    "-H", f"Authorization: Bearer {token}",
                    url],
                   capture_output=True, text=True,
