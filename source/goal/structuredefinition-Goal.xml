@@ -273,7 +273,7 @@
           <valueString value="GoalPriority"/>
         </extension>
         <strength value="preferred"/>
-        <description value="The level of importance associated with a goal."/> 
+        <description value="The level of importance associated with a goal."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/goal-priority"/>
       </binding>
       <mapping>
