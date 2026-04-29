@@ -5,6 +5,7 @@
             <ul>
                 <li>Breaking changes:
                     <ul>
+                        <li>Changed the <a href="devicemetric-definitions.html#DeviceMetric.color"><code>color</code></a> element from <a href="datatypes.html#code"><code>code</code></a> to a <a href="datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> to allow for more flexibility in how the color of the metric is recorded, including allowing additional code systems. (<a href="https://jira.hl7.org/browse/FHIR-54464">FHIR-54464</a>)</li>
                         <li>Changed the <a href="devicemetric-definitions.html#DeviceMetric.calibration.state"><code>calibration.state</code></a> element from <a href="datatypes.html#code"><code>code</code></a> to a <a href="datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> to allow for more flexibility; also changed the associated terminology to use "unknown" rather than "unspecified" concept. (<a href="https://jira.hl7.org/browse/FHIR-53423">FHIR-53423</a>)</li>
                     </ul>
                 </li>
@@ -16,8 +17,8 @@
     The DeviceMetric resource describes dynamic properties that characterize a direct or derived, quantitative or qualitative setting, or calculation produced by a medical device, i.e., readings and settings of, or from, the device.
  The DeviceMetric resource can also be used to describe the properties relevant to the metric such as status, last calibration time and type, measurement mode, color, and to link to the parent Device.
         </p>
-        </div>
-        <div>
+    </div>
+    <div>
         <a name="bnr"/>
         <h2>Boundaries and Relationships</h2>
         <p>
@@ -25,11 +26,18 @@
         </p>
         <ul>
             <li>
-                <a href="device.html"><b>Device:</b></a> The physical, virtual, or software device that this <b>DeviceMetric</b> is for. Note that the <code>Device.property</code> element is used to record static characteristics or properties of the <b>Device</b>.</li>
+                <a href="device.html">
+                    <b>Device:</b>
+                </a> The physical, virtual, or software device that this <b>DeviceMetric</b> is for. Note that the <code>Device.property</code> element is used to record static characteristics or properties of the <b>Device</b>.
+            </li>
             <li>
-                <a href="observation.html"><b>Observation:</b></a> Used to record the particular value of the <b>DeviceMetric</b> at a point in time.</li>
+                <a href="observation.html">
+                    <b>Observation:</b>
+                </a> Used to record the particular value of the <b>DeviceMetric</b> at a point in time.</li>
             <li>
-                <a href="devicealert.html"><b>DeviceAlert:</b></a> Can refer to a DeviceMetric to identify the detector of the alert condition via the <code>device</code> data element.</li>
+                <a href="devicealert.html">
+                    <b>DeviceAlert:</b>
+                </a> Can refer to a DeviceMetric to identify the detector of the alert condition via the <code>device</code> data element.</li>
         </ul>
     </div>
 </div>

@@ -24,7 +24,13 @@
 	</device>
 	<status value="active"/>
 	<operationalStatus value="on"/>
-	<color value="blue"/>
+	<color>
+		<coding>
+			<system value="http://hl7.org/fhir/color-names"/>
+			<code value="blue"/>
+			<display value="Blue"/>
+		</coding>
+	</color>
 	<category>
 		<coding>
 			<system value="http://hl7.org/fhir/metric-category"/>
