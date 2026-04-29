@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="merge-subsumed"/>
+  <identifier>
+    <system value="http://example.org/mrn"/>
+    <value value="MRN-002"/>
+  </identifier>
+  <identifier>
+    <system value="http://example.org/ssn"/>
+    <value value="666-99-9999"/>
+  </identifier>
+  <active value="false"/>
+  <name>
+    <use value="usual"/>
+    <family value="Smith"/>
+    <given value="Janie"/>
+  </name>
+  <address>
+    <line value="123 Main St"/>
+    <city value="Anytown"/>
+    <state value="NY"/>
+    <postalCode value="12345"/>
+  </address>
+</Patient>

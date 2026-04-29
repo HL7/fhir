@@ -253,7 +253,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -673,7 +673,7 @@
         <valueString value="No uses cases have been identified for extensibility for this role."/>
       </extension>
       <path value="Provenance.entity.role"/>
-      <short value="revision | quotation | source | instantiates | removal"/>
+      <short value="revision | quotation | source | instantiates | removal | other"/>
       <definition value="How the entity was used during the activity."/>
       <min value="1"/>
       <max value="1"/>

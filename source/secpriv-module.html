@@ -15,6 +15,18 @@ in order to support consistent definitions for schema and UML derived code.
 
 <table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
+  <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure that secpriv-module page is ready for Normative status, we are seeking ballot comments on the substantive content.</p>
+    <ul>
+    <li>The key changes made since the January 2026 R6 ballot include:</li>
+      <ul>
+      <li>Refined the use-case introduction by moving "Security" and "Privacy" from the bullet list into explanatory lead-in text. - <a href="https://jira.hl7.org/browse/FHIR-53855">FHIR-53855</a></li>
+      <li>Removed the "Digital and Electronic Signatures" item from the common use-cases list. - <a href="https://jira.hl7.org/browse/FHIR-53855">FHIR-53855</a></li>
+      <li>Expanded "User Identity and Access Context" with explicit guidance that formal user identity mapping is carried in <code>.identifier</code>, with a cross-reference to Administrative guidance. - <a href="https://jira.hl7.org/browse/FHIR-50838">FHIR-50838</a></li>
+      </ul>
+    </ul>
+  </blockquote>
+
 <a name="root"></a>
 <h2>Security and Privacy Module</h2>
 
@@ -81,9 +93,10 @@ The Security and Privacy module includes the following materials:
   </tr>
 </table>
 <p>
+<a href="#security">Security</a> and <a href="#privacy">Privacy</a>
+are concepts covered in use-cases.
 The following common use-cases are elaborated below:
 <ul>
-<li><a href="#security">Security</a> and <a href="#privacy">Privacy</a></li>
 <li><a href="#authorization">Authorization and Access Control</a></li>
 <li><a href="#query-parameters">Authorization considerations with Query Parameters</a></li>
 <li><a href="#user">User Identity and Access Context</a></li>
@@ -92,7 +105,6 @@ The following common use-cases are elaborated below:
 <li><a href="#privacy-consent">Privacy Consent</a></li>
 <li><a href="#provenance">Provenance</a></li>
 <li><a href="#consent-used">Consent Used</a></li>
-<li><a href="signatures.html">Digital and Electronic Signatures</a></li>
 <li><a href="#deId">De-Identification, Anonymization, and Pseudonymization</a></li>
 <li><a href="#testData">Security Considerations on Test Data</a></li>
 <li><a href="#privacy-of-ids">Risks to Privacy by Exposing Links</a></li>
@@ -205,7 +217,11 @@ approaches to enforcement.
 <h4>
 User Identity and Access Context
 </h4>
-
+<p>
+<em>Use case:</em> "How to represent User identity in FHIR Resources"
+</p><p>
+The user identity shall be communicated in the business <code>.identifier</code> element. Where the user identifier has other uses, such as an email address, it may also be recorded in <code>.telecom</code>, these replications of the user identity are expected, but the formal user identity mapping shall be found in <code>.identifier</code>. For encoding guidance see <a href="administration-module.html#8.0.3.1">Administrative Page - Privacy and Security section</a>
+</p>
 <p>
 
 <em>Use case:</em> "Access to protected Resources are enabled though user Role-Based, 
