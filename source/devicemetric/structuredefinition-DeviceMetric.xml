@@ -42,7 +42,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/healthcaredevices/index.cfm"/>
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices"/>
     </telecom>
   </contact>
   <description value="Describes a measurement, calculation or setting capability of a device. The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable."/>

@@ -188,9 +188,9 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
     </element>
     <element id="Specimen.subject">
       <path value="Specimen.subject"/>
-      <short value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance, a biologically-derived product, or a device"/>
-      <definition value="Where the specimen came from. This may be from patient(s), from a location (e.g., the source of an environmental sample), or a sampling of a substance, a biologically-derived product, or a device."/>
-      <comment value="When the specimen is not from the record subject, the RelatedPerson can be used for specimens from other entities, either from humans or animals."/>
+      <short value="Who or what this specimen is from (subject of record)"/>
+      <definition value="The subject of record that the specimen is associated with.  This subject may be a patient, group, location, device, or another entity. If the specimen is collected from an entity different from the subject of record (Specimen.subject), that entity should be recorded using Specimen.focus. For example, a specimen may be collected from an animal for the purpose of providing care to a person rather than the animal itself."/>
+      <comment value="If a specimen is from a BiologicallyDerivedProduct, it must be conveyed as the 'focus' (with patient as the subject) if the referenced record identifies a source patient.&#xD;&#xD;Group must only appear as a subject if it is an appropriate 'record target' for the system. This will be true for animal herds and for families in certain types of systems. If the record is for a specific patient, then the group must be conveyed as the 'focus' with the patient as the subject."/>
       <requirements value="Must know the subject context."/>
       <min value="0"/>
       <max value="1"/>
@@ -203,7 +203,6 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -214,6 +213,26 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <identity value="rim"/>
         <map value=".scoper  or  .scoper.playsRole"/>
       </mapping>
+    </element>
+    <element id="Specimen.focus">
+      <path value="Specimen.focus"/>
+      <short value="The entity from which the specimen was collected, when it is not from the subject of record (Specimen.subject)"/>
+      <definition value="The entity from which the specimen is collected when it is not the subject of record, representing something or someone associated with the subject, such as an animal, donor, fetus, implanted device, or environmental source. For example, a fetus specimen in a mother's record."/>
+      <comment value="Typically, a specimen is collected from the subject of record. The focus element is used when the specimen is collected from an entity that is associated with, but not identical to, the subject of record.&#xD;&#xD;This element is not intended to represent anatomical sites or body structures; use the appropriate specimen collection elements for that purpose."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="false"/>
     </element>
     <element id="Specimen.receivedTime">
       <path value="Specimen.receivedTime"/>

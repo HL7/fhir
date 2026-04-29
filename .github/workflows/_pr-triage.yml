@@ -604,7 +604,7 @@ jobs:
           set +e
           python3 <<'PY' > jira-tickets.json
           import json, os, re, subprocess, sys
-          from datetime import datetime
+          from datetime import datetime, timezone
 
           AUTHORIZING_RESOLUTIONS = {
               "Persuasive",
@@ -654,9 +654,16 @@ jobs:
               try:
                   if s.endswith("Z"):
                       s = s[:-1] + "+00:00"
-                  return datetime.fromisoformat(s)
+                  dt = datetime.fromisoformat(s)
               except ValueError:
                   return None
+              # Ensure timezone-aware. Date-only strings ("2024-03-15") parse
+              # as midnight naive; treat them as end-of-day UTC so a comment
+              # made later that same calendar day counts as "on or before"
+              # the vote date.
+              if dt.tzinfo is None:
+                  dt = dt.replace(hour=23, minute=59, second=59, tzinfo=timezone.utc)
+              return dt
 
           def select_comments(all_comments, vote_date):
               if not all_comments:
@@ -692,7 +699,7 @@ jobs:
               result = subprocess.run(
                   ["curl", "-s",
                    "-w", "\n%{http_code}",
-                   "-H", "User-Agent: Mozilla/5.0 (compatible; HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
+                   "-H", "User-Agent: Mozilla/5.0 (compatible; Lloyd-HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
                    "-H", f"Authorization: Bearer {token}",
                    url],
                   capture_output=True, text=True,
