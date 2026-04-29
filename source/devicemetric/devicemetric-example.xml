@@ -33,14 +33,20 @@
 		</coding>
 	</category>
  	<measurementFrequency>
-		<value value="1"/> 
-		<unit value="Hertz"/> 
-		<system value="http://unitsofmeasure.org"/> 
-		<code value="Hz"/> 
+		<value value="1"/>
+		<unit value="Hertz"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="Hz"/>
 	</measurementFrequency>
 	<calibration>
 		<type value="two-point"/>
-		<state value="calibrated"/>
+		<state>
+			<coding>
+				<system value="http://hl7.org/fhir/metric-calibration-state"/>
+				<code value="calibrated"/>
+				<display value="Calibrated"/>
+			</coding>
+		</state>
 		<time value="2016-12-28T09:03:04-05:00"/>
 	</calibration>
 </DeviceMetric>

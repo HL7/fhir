@@ -398,12 +398,12 @@
     </element>
     <element id="DeviceMetric.calibration.state">
       <path value="DeviceMetric.calibration.state"/>
-      <short value="not-calibrated | calibration-required | calibrated | unspecified"/>
+      <short value="The state of the metric's calibration"/>
       <definition value="Describes the state of the calibration."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false" />
       <meaningWhenMissing value="If absent, the calibration state is unknown."/>
@@ -411,7 +411,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCalibrationState"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="Describes the state of a metric calibration."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-state"/>
       </binding>
