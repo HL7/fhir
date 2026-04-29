@@ -125,9 +125,9 @@
     <element id="BodyStructure.active">
       <path value="BodyStructure.active"/>
       <short value="Whether this record is in active use"/>
-      <definition value="Whether this body site is in active use."/>
+      <definition value="Whether this body structure is in active use."/>
       <comment value="This element is labeled as a modifier because it may be used to mark that the resource was created in error."/>
-      <requirements value="Need to be able to mark a body site entry as not to be used because it was created in error."/>
+      <requirements value="A body structure entry must be able to be marked as invalid if it was created in error."/>
       <min value="0"/>
       <max value="1"/>
       <type>

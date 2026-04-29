@@ -109,7 +109,7 @@
             <_pattern value="The date, period or timing when the device alert did occur or is occurring."/>
             <resource value="This element is used to record the date or time period when the alert condition did occur or is occurring."/>
         </definitionUnmatched>
-        <commentsUnmatched reason="Unknown">
+        <commentsUnmatched reason="More precise, resource-specific wording.">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
             <resource value="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. A date/time value SHOULD be used for instantaneous conditions. Partial date/time values are ambiguous about whether they represent the condition occurring at some point in the partially specified period, or for all of the period, and (absent additional guidance) SHOULD be avoided. Ongoing events SHOULD not include a Period upper bound."/>
         </commentsUnmatched>
