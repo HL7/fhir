@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="servicerequest-parameter-focus"/>
+  <meta>
+
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/servicerequest-parameter-focus"/>
+  <version value="6.0.0"/>
+  <name value="ServiceRequestParameterFocusCodes"/>
+  <title value="Service Request Parameter Focus Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="Orders and Observations Workgroup"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="An example value set of coded concepts for identifying the type of item that order detail parameters apply to, such as a device type, medication, or substance. This value set includes SNOMED CT concepts for substances and physical objects."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="105590001"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="260787004"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
