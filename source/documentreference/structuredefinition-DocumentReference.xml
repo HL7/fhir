@@ -235,7 +235,7 @@
     </element>
     <element id="DocumentReference.status">
       <path value="DocumentReference.status"/>
-      <short value="current | superseded | entered-in-error"/>
+      <short value="current | superseded | entered-in-error | unknown"/>
       <definition value="The current state of the document reference."/>
       <comment value="This is the status of the DocumentReference object, which might be independent from the docStatus element.&#xA;&#xA;This element is labeled as a modifier because the status contains the codes that mark the document or reference as not currently valid."/>
       <min value="1"/>

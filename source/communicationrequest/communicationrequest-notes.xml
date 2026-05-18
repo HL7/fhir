@@ -7,7 +7,7 @@
     <p>
         <i>At this time, the code bindings are placeholders to be fleshed out upon further review by the community.</i>
     </p>
-    <h3>CommunicationRequest.sender and CommunicationRequest.recepient</h3>
+    <h3>CommunicationRequest.sender and CommunicationRequest.recipient</h3>
     <p>CommunicationRequest.sender allows Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | HealthcareService and CommunicationRequest.recipient allows Device | Organization | Patient | Practitioner | PractitionerRole | RelatedPerson | Group | CareTeam | HealthcareService - but it is not unusual to have a communication target - even a defined one - where it is unknown what kind of role the person is playing.
     </p>
     <p>

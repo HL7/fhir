@@ -30,7 +30,10 @@ When needed, it allows the representation of complex body structures and/or loca
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-If a resource's code value implies a body structure, then the bodyStructure resource should be used consistent with the code and to provide any additional detail. The bodySite element in any resource can be used when the resource's code is not implicit about the body structure and does not require extensive detail. 
+BodyStructure is used to explicitly identify and describe an anatomical structure when more detail or persistence is required than can be conveyed by a code alone.
+</p>
+<p>
+Where a resource needs to represent an anatomical structure and supports both coded and referenced representation, the preferred approach is to allow reference to BodyStructure (e.g., via CodeableReference). This enables reuse of the same anatomical structure across resources and supports additional detail such as laterality, qualifiers, morphology, or spatial description.
 </p>
 </div>
 </div>

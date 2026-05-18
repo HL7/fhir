@@ -37,10 +37,9 @@ The <a href="datatypes.html#Identifier">identifier</a> datatype has a <code>type
 
 <h3>Clinically Relevant Time</h3>
 	<p>
-If the diagnostic procedure was performed on the patient directly, the <a href="diagnosticreport-definitions.html#DiagnosticReport.effective_x_">effective[x]</a> element is a dateTime, the time it was performed.
-If specimens were taken, the clinically relevant time of the report can be derived from the specimen collection times, but
-since detailed specimen information is not always available, and nor is the clinically relevant time always exactly the specimen collection time (e.g. complex timed tests), the
-reports SHALL always include an effective[x] element. Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> messages often carry a diagnostically relevant time without carrying any specimen information.
+The best practice is to always include an <a href="diagnosticreport-definitions.html#DiagnosticReport.effective_x_">effective[x]</a> element.
+If specimens were taken, often the clinically relevant time of the report can be derived from the specimen collection times.
+However, detailed specimen information is not always available nor is the clinically relevant time always exactly the specimen collection time (e.g. complex timed tests). Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> messages often carry a diagnostically relevant time without carrying any specimen information.
 </p>
 <h3>Associated Observations</h3>
 <ul>
@@ -83,7 +82,6 @@ Typically, a report is either: all data, no narrative (e.g. Core lab) or a mix o
 	    <li>As a rich text representation of the report - typically a PDF (in .presentedForm)</li>
 	</ul>
 	<p>
-Note that the conclusion and the coded diagnoses are part of the atomic data and SHOULD be duplicated in the narrative and in the presented form if the latter is present.
 The narrative and the presented form serve the same function: a representation of the report for a human. The presented form is included since diagnostic service reports
 often contain presentation features that are not easy to reproduce in the HTML narrative. Whether or not the presented form is included, the narrative must be a
 clinically safe view of the diagnostic report; at a minimum, this could be fulfilled by a note indicating that the narrative is not proper representation of

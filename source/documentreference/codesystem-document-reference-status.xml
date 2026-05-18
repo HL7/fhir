@@ -51,4 +51,9 @@
     <display value="Entered in Error"/>
     <definition value="This reference was created in error."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="Authoring system does not know the status."/>
+  </concept>
 </CodeSystem>

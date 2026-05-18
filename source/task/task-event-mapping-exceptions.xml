@@ -68,7 +68,7 @@
     <divergentElement patternPath="Event.statusReason" resourcePath="Task.statusReason">
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
         <missingTypes _pattern="CodeableConcept" reason="Unknown"/>
-        <extraTypes _resource="CodeableReference" reason="Unknown"/>
+        <extraTypes _resource="CodeableReference(Resource)" reason="Unknown"/>
         <summary _pattern="false" _resource="true" reason="Unknown"/>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Captures the reason for the current state of the task."/>
