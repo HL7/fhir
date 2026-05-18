@@ -33,9 +33,9 @@ the provider will settle the claim and potentially recover costs against specifi
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-CoverageEligibilityResponse should be used to respond to a  request on whether the patient's coverage is inforce, whether it is valid at this or a specified date, or to report the benefit details or preauthorization requirements associated with a coverage.
+CoverageEligibilityResponse should be used to respond to a  request on whether the patient's coverage is in-force, whether it is valid at this or a specified date, or to report the benefit details or preauthorization requirements associated with a coverage.
 </p>
-		<p>When requesting whether the patient's coverage is inforce, whether it is valid at this or a specified date, or requesting the benefit details or preauthorization requirements 
+		<p>When requesting whether the patient's coverage is in-force, whether it is valid at this or a specified date, or requesting the benefit details or preauthorization requirements 
 	associated with a coverage <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a> should be used instead.</p>
 <p>
 The <a href="claimresponse.html">ClaimResponse</a> resource is an insurer's adjudication and/or authorization of a set of healthcare-related goods and services for a patient against the patient's insurance coverages.

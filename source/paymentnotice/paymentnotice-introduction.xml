@@ -19,7 +19,7 @@ issued and settled.
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
 
-		<p>The PaymentNotice resource is a "event" resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event.</a></p>
+		<p>The PaymentNotice resource is an "event" resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event.</a></p>
 
 <h3>Additional Information</h3>
 <p>
@@ -35,11 +35,11 @@ Additional information regarding electronic payment notice content and usage may
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-	The PaymentNotice resource is used to indicate that a payment has been initiated. The resource is used commonly when tracking of payment occurences is required for regulatory or business purposes, such as ensuring that payment of claim adjudications occurs within a specific timeframe. The PaymentNotice is not used to report adjudicated amounts (see <a href="claimresponse.html">ClaimResponse</a>) or to reconcile adjudicated amounts against actual payment (see <a href="paymentreconciliation.html">PaymentReconciliation</a>) 
+	The PaymentNotice resource is used to indicate that a payment has been initiated. The resource is used commonly when tracking of payment occurrences is required for regulatory or business purposes, such as ensuring that payment of claim adjudications occurs within a specific timeframe. The PaymentNotice is not used to report adjudicated amounts (see <a href="claimresponse.html">ClaimResponse</a>) or to reconcile adjudicated amounts against actual payment (see <a href="paymentreconciliation.html">PaymentReconciliation</a>) 
 </p>
 
 <p>
-The <a href="claimresponse.html">ClaimResponse</a> resource is an insurer's adjudication and/or authorization of a set of healthcare-related goods and services for a patient against the patient's insurance coverages and does not indicate that payment has occured.
+The <a href="claimresponse.html">ClaimResponse</a> resource is an insurer's adjudication and/or authorization of a set of healthcare-related goods and services for a patient against the patient's insurance coverages and does not indicate that payment has occurred.
 </p>
 
 <p>
