@@ -9,6 +9,7 @@
 <p>Added DocumentReference as a possible Resource type to ResearchStudy.result.</p>
 <p>Added ResearchStudy.comparisonGroup.name string element.</p>
 <p>Changed ResearchStudy.primaryPurposeType 0..1 to ResearchStudy.purposeType 0..* and example binding strength..</p>
+<p>Updated the definition of ResearchStudy.progressStatus.</p>
 </blockquote>
 <blockquote style="background-color: lightblue">
 	<p><b>Release Notes:</b></p>
@@ -19,6 +20,7 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-53694">FHIR-53694</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-53693">FHIR-53693</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-53692">FHIR-53692</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-57268">FHIR-57268</a></li>
 	</ul>
 </blockquote>
 <a name="scope"></a>
