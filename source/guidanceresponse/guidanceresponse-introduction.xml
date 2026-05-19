@@ -1,6 +1,29 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+<ul>
+  <li>Non-Compatible Changes
+    <ul>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55225">FHIR-55225</a>: Removed EnrollmentRequest from result element as the EnrollmentRequest resource was removed from R6</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a>: Removed Contract from result element as the Contract resource was removed from R6</li>
+    </ul>
+  </li>
+  <li>Compatible, Substantive Changes
+    <ul>
+	  <li>None</li>
+    </ul>
+  </li>
+  <li>Non-Substantive Changes
+    <ul>
+      <li>None</li>
+    </ul>
+  </li>
+</ul>
+<p></p>
+</blockquote>
+
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>The GuidanceResponse resource is used to represent the result of invoking a decision support service. It provides a container for the status of the response, any warnings or messages returned by the service, as well as any output data from the service and any suggested actions to be performed.</p>

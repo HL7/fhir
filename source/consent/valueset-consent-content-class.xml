@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <meta>
-    
-  </meta>
+  <id value="consent-content-class"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cbcc"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.747"/>
+  </identifier>
+  <version value="6.0.0-ballot4"/>
   <name value="ConsentContentClass"/>
   <title value="Consent Content Class"/>
   <status value="active"/>
@@ -16,7 +23,8 @@
     </telecom>
   </contact>
   <description value="This value set LOINC document types and IHE content class codes"/>
-  <compose>
+   <copyright value="This is an *************."/>
+ <compose>
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-HL7FormatCodes"/>
     </include>
