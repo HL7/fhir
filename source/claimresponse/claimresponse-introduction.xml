@@ -63,7 +63,7 @@ the provider will settle the claim and potentially recover costs against specifi
 			<a href="explanationofbenefit.html">ExplanationOfBenefit</a> should be used instead.
 		</p>
 
-		<p>When responding whether the patient's coverage is inforce, whether it is valid at this or a specified date, or returning
+		<p>When responding whether the patient's coverage is in-force, whether it is valid at this or a specified date, or returning
 		the benefit details or preauthorization requirements associated with a coverage
 		<a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a> should be used instead and be the response to a
 		<a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a>.
