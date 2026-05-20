@@ -45,7 +45,7 @@
   <concept>
     <code value="exposure"/>
     <display value="Exposure"/>
-    <definition value="An independant variable of primary interest."/>
+    <definition value="An independent variable of primary interest."/>
   </concept>
   <concept>
     <code value="outcome"/>
