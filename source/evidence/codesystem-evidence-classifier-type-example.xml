@@ -36,22 +36,22 @@
   <concept>
     <code value="population"/>
     <display value="Population"/>
-    <definition value="The group from which the observations were obtained."/>
+    <definition value="The Population this evidence or evidence-related report is about."/>
   </concept>
   <concept>
     <code value="intervention"/>
     <display value="Intervention"/>
-    <definition value="An independent variable of primary interest."/>
+    <definition value="The Intervention this evidence or evidence-related report is about."/>
   </concept>
   <concept>
     <code value="comparator"/>
     <display value="Comparator"/>
-    <definition value="An independent variable to compare to the primary interest."/>
+    <definition value="The Comparator this evidence or evidence-related report is about."/>
   </concept>
   <concept>
     <code value="outcome-measure"/>
     <display value="Outcome Measure"/>
-    <definition value="A dependent variable."/>
+    <definition value="The Outcome this evidence or evidence-related report is about."/>
   </concept>
   <concept>
     <code value="pico-specification"/>

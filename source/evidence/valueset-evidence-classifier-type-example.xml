@@ -30,7 +30,6 @@
     </telecom>
   </contact>
   <description value="The kind of classifier."/>
-  <immutable value="true"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/evidence-classifier-type-example"/>
