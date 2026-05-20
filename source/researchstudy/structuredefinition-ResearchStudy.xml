@@ -791,8 +791,8 @@
     </element>
     <element id="ResearchStudy.progressStatus">
       <path value="ResearchStudy.progressStatus"/>
-      <short value="Status of study with time for that status"/>
-      <definition value="Status of study with time for that status."/>
+      <short value="Dates for status changes for the conduct of the study, or study registry and administrative actions"/>
+      <definition value="Dates for status changes for the conduct of the study, or study registry and administrative actions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
