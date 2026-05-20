@@ -625,6 +625,51 @@
         <code value="Annotation"/>
       </type>
     </element>
+    <element id="Composition.classification">
+        <path value="Composition.classification"/>
+        <short value="The assignment to an organizing scheme"/>
+        <definition value="The assignment to an organizing scheme, including the type of classification and one ore more classifier values."/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+        <code value="BackboneElement"/>
+        </type>
+        <isSummary value="true"/>
+    </element>
+    <element id="Composition.classification.type">
+        <path value="Composition.classification.type"/>
+        <short value="The kind of classifier (e.g. population, intervention)"/>
+        <definition value="The kind of classifier (e.g. population, intervention, comparator, outcome)."/>
+        <min value="0"/>
+        <max value="1"/>
+        <type>
+        <code value="CodeableConcept"/>
+        </type>
+        <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+            <valueString value="EvidenceClassifierTypeExample"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/evidence-classifier-type-example"/>
+        </binding>
+    </element>
+    <element id="Composition.classification.classifier">
+        <path value="Composition.classification.classifier"/>
+        <short value="The specific classification value"/>
+        <min value="0"/>
+        <max value="*"/>
+        <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        </type>
+        <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+            <valueString value="ConditionProblemDiagnosisCodes"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+        </binding>
+    </element>
     <element id="Composition.attester">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>
