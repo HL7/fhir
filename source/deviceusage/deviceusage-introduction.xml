@@ -3,6 +3,12 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+<blockquote style="background-color: lightblue">
+    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+    <ul>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
+    </ul>
+</blockquote>
 <div>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
     <p>
