@@ -620,7 +620,6 @@
 		<element id="Evidence.variableDefinition.description">
 			<path value="Evidence.variableDefinition.description"/>
 			<short value="A text description or summary of the variable"/>
-			<definition value="A text description or summary of the variable."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
