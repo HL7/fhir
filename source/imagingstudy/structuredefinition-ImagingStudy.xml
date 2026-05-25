@@ -293,7 +293,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Patient ID (0010,0020) and Issuer of Patient ID (0010,0021) and / or Issuer of Patient ID Qualifiers Sequence (0010,0024) and / or Patient Name (0010,0010) (see [Patient DICOM Tag Mapping](patient-mappings.html#dicom))"/>
+        <map value="Patient ID (0010,0020) and Issuer of Patient ID (0010,0021) and / or Issuer of Patient ID Qualifiers Sequence (0010,0024) and / or Patient Name (0010,0010). See DICOM Tag Mapping under the Patient resource."/>
       </mapping>
     </element>
     <element id="ImagingStudy.encounter">
@@ -589,7 +589,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Number of Study Related Series (0020,1206). Note: this attribute is not included in DICOM instance metadata but is returned as a result of a query."/>
+        <map value="Number of Study Related Series (0020,1206). See DICOM PS3.4 Additional Query/Retrieve Attributes."/>
       </mapping>
     </element>
     <element id="ImagingStudy.numberOfInstances">
@@ -611,7 +611,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Number of Study Related Instances (0020,1208). Note: this attribute is not included in DICOM instance metadata but is returned as a result of a query."/>
+        <map value="Number of Study Related Instances (0020,1208). See DICOM PS3.4 Additional Query/Retrieve Attributes."/>
       </mapping>
     </element>
     <element id="ImagingStudy.series">
@@ -763,7 +763,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Number of Series Related Instances (0020,1209). Note: this attribute is not included in DICOM instance metadata but is returned as a result of a query."/>
+        <map value="Number of Series Related Instances (0020,1209). See DICOM PS3.4 Additional Query/Retrieve Attributes."/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.endpoint">
