@@ -18,7 +18,7 @@
   <title value="Consent Scope Codes"/>
   <status value="active"/>
   <experimental value="false"/>
-  <publisher value="security"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
