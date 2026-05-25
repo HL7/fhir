@@ -656,6 +656,7 @@
     <element id="Composition.classification.classifier">
         <path value="Composition.classification.classifier"/>
         <short value="The specific classification value"/>
+        <definition value="The specific classification value."/>
         <min value="0"/>
         <max value="*"/>
         <type>
