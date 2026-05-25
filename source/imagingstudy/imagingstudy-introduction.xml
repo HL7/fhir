@@ -38,7 +38,7 @@ in <a href="http://medical.nema.org/medical/dicom/current/output/html/part04.htm
 <p>
 ImagingStudy provides access to significant DICOM information but will only eliminate the need for DICOM 
 query (e.g., a DICOMweb search transaction) in the simplest cases. The DICOM instances are not stored in the ImagingStudy 
-resource; use of a DICOM service is needed (e.g., a DICOMweb retrieve transaction).
+resource; use of a DICOM service is needed (e.g., the retrieve transaction of DICOMweb studies service).
 </p>
 <p> 
 One ImagingStudy resource SHALL reference one DICOM Study.
