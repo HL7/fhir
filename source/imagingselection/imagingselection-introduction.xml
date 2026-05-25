@@ -12,6 +12,7 @@
         <li>Update ImagingSelection <code>#wado-rs</code> and <code>#wado-uri</code> sections to be consistent with ImagingStudy.</li>
         <li>Update examples to be consistent with current bindings for code and category.</li>
         <li>Add details of use cases associated with examples in notes.</li>
+        <li>Add notes section on <code>ImagingSelection.status</code>.</li>
       </ul>
     </blockquote>
   </div>
