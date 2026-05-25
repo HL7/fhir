@@ -589,6 +589,7 @@
 		<element id="Evidence.classification.classifier">
 			<path value="Evidence.classification.classifier"/>
 			<short value="The specific classification value"/>
+			<definition value="The specific classification value."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
