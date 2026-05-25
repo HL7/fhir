@@ -561,7 +561,7 @@
 		<element id="Evidence.classification">
 			<path value="Evidence.classification"/>
 			<short value="The assignment to an organizing scheme"/>
-			<definition value="The assignment to an organizing scheme, including the type of classification and one ore more classifier values."/>
+			<definition value="The assignment to an organizing scheme, including the type of classification and one or more classifier values."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
