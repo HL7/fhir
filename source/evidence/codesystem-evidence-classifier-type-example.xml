@@ -6,15 +6,15 @@
     <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
+    <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/evidence-classifier-type-example"/>
   <version value="6.0.0"/>
-  <name value="Evidence Classifier Type Example"/>
-  <title value="EvidenceClassifierTypeExample"/>
+  <name value="EvidenceClassifierTypeExample"/>
+  <title value="Evidence Classifier Type Example"/>
   <status value="active"/>
   <experimental value="true"/>
   <date value="2026-05-19T14:55:11+11:00"/>
