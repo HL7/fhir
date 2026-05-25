@@ -10,6 +10,8 @@
         <li>Added guidance on the use of DICOM UIDs as <code>ImagingSelection.identifier</code> values.</li>
         <li>Added <code>unknown</code> value to <code>imageRegion2D.regionType</code> and <code>imageRegion3D.regionType</code> code systems.</li>
         <li>Update ImagingSelection <code>#wado-rs</code> and <code>#wado-uri</code> sections to be consistent with ImagingStudy.</li>
+        <li>Update examples to be consistent with current bindings for code and category.</li>
+        <li>Add details of use cases associated with examples in notes.</li>
       </ul>
     </blockquote>
   </div>
@@ -48,7 +50,7 @@
       The <a href="imagingstudy.html">ImagingStudy</a> resource is used to store details of an entire DICOM Study and its relationships to other resources, such as <a href="patient.html">Patient</a>, <a href="servicerequest.html">ServiceRequest</a>, and <a href="encounter.html">Encounter</a>.
         </p>
         <p>
-        The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference a subset of a study. Instances of this resource are created for specific clinical purposes and are unlikely to change once created. <a href="imagingstudy.html">ImagingSelection.derivedFrom</a> references an <a href="imagingstudy.html">ImagingStudy</a> when the images were selected from it.
+        The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference a subset of a DICOM Study. Instances of this resource are created for specific clinical purposes and are unlikely to change once created. <a href="imagingstudy.html">ImagingSelection.derivedFrom</a> references an <a href="imagingstudy.html">ImagingStudy</a> when the images were selected from it.
         </p>
         <p>
         An <a href="observation.html">Observation</a> typically relates to a set of images in the following ways.
