@@ -391,10 +391,10 @@ or there may be no direct relationship between the provider and the insurer, for
 property or accident insurance, the patient's primary health insurer may pay for services then recover a portion of their costs from that other insurer.
 </p>
 <p>To support the downstream recovery of costs from the appropriate insurer it is necessary to supply the insurance coverage information for all logically 
-potentially applicable coverages and to flag those which are provided for subrogation so that both the provider and payor systems know whether to expect to
+potentially applicable coverages and to flag those which are provided for subrogation so that both the provider and payer systems know whether to expect to
 submit eClaims requests to or expect eClaims responses from these insurers. In the specific case of the Claim resource (claim, predetermination, 
 preauthorization) the provider would list all insurance coverages, including only work or accident related if appropriate, but send Claims only 
-to non-subrogation coverages (Coverage.subrogation=false) and not include ClaimResponses, nor would payors expect ClaimResponses to be provided, for 
+to non-subrogation coverages (Coverage.subrogation=false) and not include ClaimResponses, nor would payers expect ClaimResponses to be provided, for 
 subrogated coverages.
 </p>
 
@@ -429,8 +429,8 @@ While it is most common, it is not always the case that all claims originate wit
 <a name="batch"></a>
 <h3>Batches - Handling multiple eClaim requests or responses within a single exchange</h3>
 <p>
-eClaims request and response resources may be exchanged between providers and payors individually or via batches. eClaim requests, individual and batches, 
- may be created on a payor system via FHIR REST or sent to the payor, either synchronously via FHIR operations or another request-response protocol such as:
+eClaims request and response resources may be exchanged between providers and payers individually or via batches. eClaim requests, individual and batches, 
+ may be created on a payer system via FHIR REST or sent to the payer, either synchronously via FHIR operations or another request-response protocol such as:
  WSI Web Services, a SOA exchange, MLLP, etc. 
 </p>
 <h4>Individual eClaim Requests and Responses</h4>

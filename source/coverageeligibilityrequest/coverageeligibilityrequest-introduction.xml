@@ -23,8 +23,8 @@ the provider will settle the claim and potentially recover costs against specifi
 <li><a href="financial-module.html#cob">Coordination of Benefit</a>: how eClaims may handle multiple patient insurance coverages.</li>
 <li><a href="financial-module.html#batch">Batches</a>: how eClaims may handle batches of eligibility, claims and responses.</li>
 <li><a href="financial-module.html#attachments">Attachments and Supporting Information</a>: how eClaims may handle the provision of supporting
- information, whether provided by content or reference, within the eClaim resource when submitted to the payor or later in a resource which refers
- to the subject eClaim resource. This includes how payors how request additional supporting information from providers.</li>
+ information, whether provided by content or reference, within the eClaim resource when submitted to the payer or later in a resource which refers
+ to the subject eClaim resource. This includes how payers how request additional supporting information from providers.</li>
 </ul>
 
 </div>
