@@ -29,7 +29,7 @@
   <copyright value="HL7 Inc."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/claim-outcome"/>
+      <system value="http://hl7.org/fhir/processing-outcome"/>
     </include>
   </compose>
 </ValueSet>

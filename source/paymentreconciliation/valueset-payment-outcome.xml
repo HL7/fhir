@@ -37,7 +37,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/payment-outcome"/>
+      <system value="http://hl7.org/fhir/processing-outcome"/>
     </include>
   </compose>
 </ValueSet>
