@@ -3,13 +3,24 @@
   <a name="policies"></a>
   <h2>Policies</h2>
   <p>
-The Consent resource has a reference to a single <code>PolicyBasis</code>. Many organizations will work in a context where multiple different consent regulations and policies apply. 
-In these cases, the single rule reference refers to a policy document that resolves and reconciles the various policies and presents a single policy for patient
-consent. If it is still necessary to track which of the underlying regulations an exception is make in regard to, the <code>RegulatoryBasis</code> may be used.
-  </p>
-  <p>Policies attached to PolicyBasis should be written using positive language. For an example, a patient wanting to opt-out will be recorded with an opt-in policy where the Consent.provision[0].type indicates "deny".</p>
+Consent is usually applicable in the context of on a broad regulatory framework that requires it. The <code>regulatoryBasis</code> element 
+records this broad regulatory context in which the consent is collected and enforced; this enables indexing and searching for applicable consents
+ base on the use case in which data access takes place.
+</p>
+
+<p>
+The <code>policyBasis</code> element provides a computable version of the base policy that lays out the general rules within 
+which the patient can make more granular choices. 
+The <code>provision</code> structure (including nested provisions) enable recording such fine-grained choices in the form of 
+computable rules that make further constraints and exceptions to the general rules set by the <code>policyBasis</code>.
+For an example, the <code>policyBasis</code> can state general permission to access data for treatment purposes while a patient 
+may constrain that by making an exception to the general rules and denying access to sensitive data (e.g., substance use treatment)
+ through a <code>Consent.provision</code> that stipulates access should be denied if security labels indicate sensitive data.</p>
+</p>
+
+  
   <a name="model"></a>
-  <h2>Privacy Consent General Model</h2>
+<h2>Privacy Consent General Model</h2>
   <p>
 The following is the general model of Privacy Consent Directives.
   </p>
@@ -52,17 +63,17 @@ consent has been rejected, and consent approved.
   within the resource --an alternative to using an external policy language.</p>
 
 <p>The default decision of the consent is stated by the <code>decision</code> attribute 
-  (<code>permit</code> or <code>deny</code>) and provisions state the exceptions to the base decision. 
-  Each provision may have its own sub-provisions that, in turn, state the exceptions to the rules stated 
+  (<code>permit</code> or <code>deny</code>) and provisions state further constraints or exceptions to the base decision. 
+  Each provision may have its own sub-provisions that, in turn, state constraints and exceptions to the rules stated 
   in the parent provision. The following figure depicts this structure:</p>
-<img src="consent-provisions.png" alt="consent provisions"  width="75%"/> 
+<img src="consent-provisions.png" alt="consent provisions"  width="55%"/> 
 
 <p>
 For example, if the base <code>decision</code> for a consent is <code>permit</code>, 
 the first level of provisions express exceptions to this decision, therefore,
 the decision when matching these provisions will be a <code>deny</code>. The immediate child provisions to any of 
-these provisions would express exceptions to their <code>deny</code> decision, therefore, their effect, 
-when matched, will be <code>permit</code>. 
+these provisions would express exceptions to the parent's <code>deny</code> decision, therefore, their effect, 
+when matched, will be <code>permit</code>, and so on. 
 </p>
 
 <p>The provision structure provides a rich mechanism to construct complex rules using 
@@ -110,7 +121,7 @@ in the interpretation of the provision:</p>
   </ul>
 
   <p>The following figure visualizes this in the course of an example.</p>
-  <img src="consent-provisions-example.png" alt="consent provisions example" width="75%"/>
+  <img src="consent-provisions-example.png" alt="consent provisions example" width="55%"/>
 
 <p>The base decision is a <code>deny</code> to which the first exception, 
   expressed in the first provision, states that during the time period 
