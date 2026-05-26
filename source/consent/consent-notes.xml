@@ -61,10 +61,16 @@ consent has been rejected, and consent approved.
 <h2>Provisions</h2>
 <p>The provision structure provides a mechanism for modeling consent rules in a machine-readable and 
   computable way. This is the FHIR Consent's native mechanism for expressing and encoding policy rules 
-  within the resource --an alternative to using an external policy language.</p>
+  within the resource; an alternative to using an external policy language.</p>
 
-<p>The default decision of the consent is stated by the <code>decision</code> attribute 
-  (<code>permit</code> or <code>deny</code>) and provisions state further constraints or exceptions to the base decision. 
+<p>The default decision of the consent is stated by the <code>decision</code> element: 
+  <code>permit</code> or <code>deny</code>. Note that if the <code>provision</code> element is present, 
+  the <code>decision</code> element must be provided; a valid consent resource may only 
+  miss the <code>decision</code> element if no computable policy is provided through the provision structure. 
+</p>
+<p> 
+  The provision structure states further constraints or exceptions to the base decision stated by 
+  the <code>decision</code> element. 
   Each provision may have its own sub-provisions that, in turn, state constraints and exceptions to the rules stated 
   in the parent provision. The following figure depicts this structure:
 </p>
