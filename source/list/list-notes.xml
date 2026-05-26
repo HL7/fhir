@@ -222,7 +222,7 @@ to the latter after a particular period of time has passed).
 The choice of flagging vs. outright removal is determined by the list author.
 </p>
 <p>
-Applications processsing list SHOULD always check the deleted flag.
+Applications processing list SHOULD always check the deleted flag.
 </p>
 
 
