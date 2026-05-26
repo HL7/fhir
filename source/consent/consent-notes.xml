@@ -245,10 +245,11 @@ necessary consent content derived from a Consent Directive for use in workflow m
   <h2>Optimal Searching</h2>
   <p>The following steps represent the optimal path for searching for a Consent resource.</p>
   <ol>
-    <li>Request one or more Consent where status=active by Consent.scope (with patient(s), if none specified, get all).  Policy will decide how to deal with multiple per patient and how to iterate through (e.g., select most recent).</li>
-    <li>Locally inspect Consent.provision for base policy acceptance/denial with Consent.policyRule</li>
-    <li>If policyRule not understandable, refer to Privacy Office</li>
-    <li>Locally inspect Consent.provision for contexts (e.g., provision.purpose, provision.actor, etc.) as above</li>
-    <li>Inspect Consent.provision.provision (et.al) for exceptions</li>
+    <li>Request one or more Consent where <code>status=active</code> by <code>Consent.category</code> (with patient(s), if none specified, get all). 
+      Policy will decide how to deal with multiple per patient and how to iterate through (e.g., select most recent).</li>
+    <li>Locally inspect Consent.provision for base policy acceptance/denial with <code>Consent.policyBasis</code></li>
+    <li>If <code>Consent.policyBasis</code> not understandable, refer to Privacy Office</li>
+    <li>Locally inspect <code>Consent.provision</code> for contexts (e.g., <code>provision.purpose</code>, <code>provision.actor</code>, etc.) as above</li>
+    <li>Inspect nested provisions for exceptions.</li>
   </ol>
 </div>

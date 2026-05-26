@@ -556,7 +556,7 @@
         <valueCode value="down"/>
       </extension>
       <path value="Consent.provision"/>
-      <short value="Constraints to the base Consent.policyRule/Consent.policy"/>
+      <short value="Constraints to the base Consent.policyBasis/Consent.policyText"/>
       <definition value="An exception to the base policy of this consent. An exception can be an addition or removal of access permissions."/>
       <min value="0"/>
       <max value="*"/>
