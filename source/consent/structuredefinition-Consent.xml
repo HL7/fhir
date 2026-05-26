@@ -102,6 +102,12 @@
         <xpath value="exists(f:provisionReference) or exists(f:provision)"/> 
       </constraint> 
       -->
+      <constraint>
+        <key value="consent-1"/>
+        <severity value="error"/>
+        <human value="If provision exists, decision must also be provided"/>
+        <expression value="provision.exists() implies decision.exists()"/>
+      </constraint>
     </element>
     
     <element id="Consent.identifier">
