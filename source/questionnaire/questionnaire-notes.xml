@@ -6,7 +6,7 @@ Notes:
 </h2>
 <ul>
 <li>Questionnaires may be used to represent predefined forms or panels, referenced using items of type "group"</li>
-<li>Questions may be nested.  The Questionnaire resource supports nested items beneath both items of type "group" (which doesn't capture an answer of its own) as well as beneath questions</li>
+<li>Questions may be nested.  The Questionnaire resource supports nested items beneath both items of type "group" (which does not capture an answer of its own) as well as beneath questions</li>
 <li>Groups and Questions may have linkIds allowing groups and question answers captured in a <a href="questionnaireresponse.html">QuestionnaireResponse</a>
 to be associated with their corresponding group or question.</li>
 <li>Questionnaire allows for flexible naming and structuring of its contents to reflect the flexible and varying nature of forms and questionnaires.
@@ -23,7 +23,7 @@ Observations to model Questionnaires. Such use cases should now use the Question
 <h3>Structured Data Capture</h3>
 <p>
 The base questionnaire resource is aimed at the capabilities of "most" healthcare systems that deal with forms and questionnaires.  While the resource structure
-supports a reasonable degree of complexity, it doesn't provide the degree of control over rendering, question flow and data management needed by some portions 
+supports a reasonable degree of complexity, it does not provide the degree of control over rendering, question flow and data management needed by some portions 
 of the healthcare space.  Many of these more sophisticated requirements are addressed by a supplemental implementation guide called 
 <a href="http://hl7.org/fhir/uv/sdc/">Structured Data Capture (SDC)</a>.  This implementation guide covers the following capabilities, plus several others:
 </p>
@@ -88,8 +88,8 @@ A Questionnaire is built out of two components, Questionnaire and item:</p>
         instructions or other background information.</li>
       <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child
         'question' items which do.  </li>
-      <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single
-        <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', 
+      <li><b>question</b> items ask a specific question to which an answer may be given.  There is not a single
+        <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item is not a 'display' or a 'group', 
         then it is a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or
         other questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
         depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
@@ -119,7 +119,7 @@ item explicitly declares readOnly=false.  This wouldn't be because the behavior 
 not be realized due to the setting of the ancestor group.
 </p>
 <p>
-Behavior of parent 'question' items (i.e. questions with child groups or questions) can also influence descendant elements, but not as strongly.  If a question is readOnly, that doesn't mean that
+Behavior of parent 'question' items (i.e. questions with child groups or questions) can also influence descendant elements, but not as strongly.  If a question is readOnly, that does not mean that
 child items are also readOnly.  However, if a question is disabled, all descendant items are also disabled.  Similarly, a 'hidden' question, would hide child elements as well.
 </p>
 
