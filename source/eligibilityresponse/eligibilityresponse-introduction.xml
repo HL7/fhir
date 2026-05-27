@@ -5,11 +5,11 @@
 <h2>Scope and Usage</h2>
 <p>
 The EligibilityResponse resource provides eligibility and plan details from the processing of an 
-EligibilityRequest resource. It combines key information from a payor as to whether a Coverage is 
+EligibilityRequest resource. It combines key information from a payer as to whether a Coverage is 
 in-force, and optionally the nature of the Policy details.
 </p>
 <p>
-<b>For Balloters:</b> The optional Authorization subclass has been addded for comment ballot review. The EligibilityResponse would return a boolean indicating whether pre-authorization is required and an optional text element woud convey and 
+<b>For Balloters:</b> The optional Authorization subclass has been added for comment ballot review. The EligibilityResponse would return a boolean indicating whether pre-authorization is required and an optional text element would convey and 
 special instructions for each of the billable services provided in the EligibilityRequest.
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>

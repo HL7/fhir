@@ -84,7 +84,7 @@ in the case where there is zero parameters, the resource may be omitted, and the
 <p>
 Upon completion, the operation returns an HTTP status code indicating what the outcome of 
 performing the operation, and optionally another <code>Parameters</code> resource, containing 
-ne or more output parameters. If there is a single output parameter named 'return' with 
+one or more output parameters. If there is a single output parameter named 'return' with 
 a maximum cardinality of 1, with a type corresponding to a resource, then the response 
 SHALL be the resource that is the return value, with no wrapping Parameters resource. If there is 
 zero output parameters (possibly because the operation failed), then the resource can be omitted,
@@ -114,7 +114,7 @@ be '<a href="codesystem-bundle-type.html#bundle-type-search-set">search-set</a>'
 <a name="executing"></a>
 <h4>Operations with no parameters</h4>
 <p>
-Executing operations without any parameters is a special case. For an operation that doesn't cause 
+Executing operations without any parameters is a special case. For an operation that does not cause 
 any state change, the operation is invoked in a straight forward fashion:
 </p>
 <pre class="http">

@@ -260,7 +260,7 @@ In addition, the following rules apply:
   <li>Use default namespaces for the FHIR and XHTML namespaces</li>
   <li>Omit all comments</li>
   <li>Include the XML processing instruction <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></li>
-  <li>When sets of resources are signed, each seperate resource is an additional <code>Reference</code> entry in the <code>SignedInfo</code> </li>
+  <li>When sets of resources are signed, each separate resource is an additional <code>Reference</code> entry in the <code>SignedInfo</code> </li>
 </ul>
 <p>
 This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/xml</code>.
@@ -290,7 +290,7 @@ The following additional canonicalization URIs are also defined for all three fo
   <td>
     Recursively omits all elements of type <a href="narrative.html#Narrative">Narrative</a>
     (e.g. <code>Resource.text</code>, <code>Composition.section.text</code>, etc.) as per 
-    <code>data</code> above,and also all occurrances of <code>Resource.meta</code>. This
+    <code>data</code> above,and also all occurrences of <code>Resource.meta</code>. This
     makes the signature robust as the content is moved from server to server, or workflow
     and access tags are added or removed.  Note that workflow and security tags may contain
     information important to the handling of the resource, so meta elements should be protected
@@ -437,7 +437,7 @@ The most common use of signatures in FHIR is to sign a Document Bundle, and embe
 In this approach, Documents are signed by Provenance resources contained within the document Bundle. Note that it 
 is not necessary to sign Bundles with embedded signatures like this - systems and/or ecosystems may choose to 
 use enveloping signatures (<a href="https://w3c.github.io/wot-ejs/">JSON</a>, <a href="https://www.w3.org/Signature/Drafts/WD-xmldsig-core-200005plc/Overview.html#sec-o-SignatureProperty">XML</a>), where the the signed data is included within the signature itself, 
-or make the Provenance resources avilable separately. However, if the signature is being embedded in the 
+or make the Provenance resources available separately. However, if the signature is being embedded in the 
 Bundle, then the following rules SHALL be observed:
 </p>
 <ol>
