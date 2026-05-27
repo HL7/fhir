@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This is a silly exmple showing how Basic could be used to convey a UML diagram.  It is extremely
-unlikely anyone would ever use FHIR to do this.  (XMI isn't *that* unpleasant :>).  However, it shows
+unlikely anyone would ever use FHIR to do this.  (XMI is not *that* unpleasant :>).  However, it shows
 how somewhat esoteric requirements that won't ever be supported by the core FHIR specification can still
 be managed in a conformant manner.-->
 <Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/basic.xsd">
