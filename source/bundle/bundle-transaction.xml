@@ -184,7 +184,7 @@
     <resource>
       <Provenance>
         <target>
-          <!-- the client doesn't and can't know what versions will be assigned, nor can 
+          <!-- the client does not and can't know what versions will be assigned, nor can 
              it know what id will be assigned to the first two of these resources, so it 
              cannot provide version specific references. What it can do is ask for these
              references to be made version specific by the server 
