@@ -42,7 +42,7 @@ groups and questions are answered and that answers fit constraints in terms of c
 <h2>Boundaries and Relationships</h2>
 <p>
 The <b>QuestionnaireResponse</b> resource captures the responses to a questionnaire, while <a href="questionnaire.html">Questionnaire</a> represents
-the definition of the questionnaire form, including what questions are asked, how they're organized and the constraints on the allowed answers.
+the definition of the questionnaire form, including what questions are asked, how they are organized and the constraints on the allowed answers.
 </p>
 <p>
 While <a href="observation.html">Observation</a>, with its nested <code>component</code> structure, can create complex hierarchies of 
