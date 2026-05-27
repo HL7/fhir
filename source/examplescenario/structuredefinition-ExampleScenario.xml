@@ -636,7 +636,7 @@
       <path value="ExampleScenario.instance.structureType"/>
       <short value="Data structure for example"/>
       <definition value="A code indicating the kind of data structure (FHIR resource or some other standard) this is an instance of."/>
-      <comment value="This element may be omitted if describing a step that doesn't involve the sharing of a data structure - e.g. a human action"/>
+      <comment value="This element may be omitted if describing a step that does not involve the sharing of a data structure - e.g. a human action"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -720,7 +720,7 @@
       <path value="ExampleScenario.instance.version"/>
       <short value="Snapshot of instance that changes"/>
       <definition value="Represents the instance as it was at a specific time-point."/>
-      <comment value="Not used if an instance doesn't change"/>
+      <comment value="Not used if an instance does not change"/>
       <requirements value="Allows representing the 'same' instance as it evolves throughout the scenario."/>
       <min value="0"/>
       <max value="*"/>
