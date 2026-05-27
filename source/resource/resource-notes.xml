@@ -680,7 +680,7 @@ These 2 versions elements have quite different lifecycles. To illustrate, take t
   Then a typo is found in the definition, so this is fixed, but it's still v1 of the value set. This is PUT to [base]/ValueSet/x1. 
   Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 1 and ValueSet.meta.versionId = 2.
   <br/>
-  Later, another user creates a revised version of the value set, and this is called version 2. It is commited to the server 
+  Later, another user creates a revised version of the value set, and this is called version 2. It is committed to the server 
   as an update (PUT [base]/ValueSet/x1). Now, ValueSet.url = http://acme.com/valuesets/example, ValueSet.id = x1, ValueSet.version = 2 and ValueSet.meta.versionId = 3
  </li> 
  <li>
@@ -688,7 +688,7 @@ These 2 versions elements have quite different lifecycles. To illustrate, take t
   When the server gets it, it assigns an identity e.g. ValueSet.id = x1, and ValueSet.meta.versionId = 1.  
   Later, another user creates a revised version of the value set, and this is called version 2.
 This time, as well as supporting this new version 2, there are production systems still using version 1, and both need to be valid on the value set server. 
-So a new value set is created on the server (POST [base]/ValueSet) and is assigned the identiity 'x2'. 
+ So a new value set is created on the server (POST [base]/ValueSet) and is assigned the identity 'x2'. 
 <br/>
 Now, there are two different value sets, both with URL "http://acme.com/valuesets/example". One has ValueSet.id = x1, ValueSet.version = 1 and 
 ValueSet.meta.versionId = 1 and the other has ValueSet.id = x2, ValueSet.version = 2 and ValueSet.meta.versionId = 1.
@@ -755,7 +755,7 @@ scope of this specification.
 
 <a name="bv-format"></a>
 <p>
-For business versions in canonical resources, the busines version SHOULD NOT contain a <code>#</code>
+For business versions in canonical resources, the business version SHOULD NOT contain a <code>#</code>
 character, since the version appears in the URL, and the <code>#</code> has special meaning in a URL.
 If the version does contain a <code>#</code>, then it SHALL be escaped properly when used in a URL 
 as specified by <a href="references.html#canonical">Canonical References</a>.
