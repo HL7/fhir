@@ -62,7 +62,7 @@ where the smaller communities have more in common:
   </tr>
 </table>
 <p>
-Note that the implementation guides and profiles that are further down the cascade are generally less likely to be publically available,
+Note that the implementation guides and profiles that are further down the cascade are generally less likely to be publicly available,
 and more concerned with presence or absence of data and local extensions, while those higher in the cascade are more concerned with 
 meaning, consistent functionality and exchange of data defined in regulation, and are much more likely to be freely publicly available.
 </p>
@@ -271,7 +271,7 @@ When a profile is constraining another profile where there are more cardinality 
 principles still apply: the constraining profile can only allow what the base profile allows.
 </p>
 <p>
-Note that though a profile can constrain an element from x..* to x..1, this doesn't make any difference to the 
+Note that though a profile can constrain an element from x..* to x..1, this does not make any difference to the 
 representation in the JSON format - the element will still be represented in an array. As an example, take 
 Patient.name which has a cardinality of 0..*. In an unprofiled Patient, this will be represented as:
 </p>
@@ -648,7 +648,7 @@ Further notes about the use of the different discriminator types:
    The slices are differentiated by the presence or absence of the nominated element. 
    There SHALL be no more than two slices. The slices are differentiated by the fact 
    that one must have a max of 0 and the other must have a min of 1 (or more).  The 
-   order in which the slices are declared doesn't matter. 
+   order in which the slices are declared does not matter. 
 
    Typical example: slice on the pattern of Observation.code and the presence of Observation.component.   
  </td></tr>
@@ -1121,7 +1121,7 @@ the new IG or profile to simply reference the mustSupport artifacts defined in a
 behavior desired.
 </p>
 <p>
-When a child element is defined as Must Support and the parent element isn't, a system must support the child if
+When a child element is defined as Must Support and the parent element is not, a system must support the child if
 it supports the parent, but there's no expectation that the system must support the parent.  
 </p>
 <p>
@@ -1130,7 +1130,7 @@ the important elements to make use of the resource), nor is it automatically mus
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
 <p>
-When a child element is defined as Must Support and the parent element isn't, a system must support the child if it support the parent, 
+When a child element is defined as Must Support and the parent element is not, a system must support the child if it support the parent, 
 but there's no expectation that the system must support the parent.
 </p>
 <p>
@@ -1165,7 +1165,7 @@ Search criteria fall into one of four categories:
   <li>Enabling search on core elements that don't have standard search criteria defined (e.g., searching Observation by normal range)</li>
   <li>Enabling search on elements that already have standard search criteria defined, but with custom matching rules; e.g., a sounds-like search on Practitioner name</li>
   <li>Enabling search on an extension</li>
-  <li>Enabling search that doesn't correspond to a single element but rather a combination of elements or computation on an element; e.g., searching for patients by age</li>
+  <li>Enabling search that does not correspond to a single element but rather a combination of elements or computation on an element; e.g., searching for patients by age</li>
 </ol>
 <p>
 Additional Search Parameters can be defined using the <a href="searchparameter.html">SearchParameter</a> resource.
