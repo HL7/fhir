@@ -816,7 +816,7 @@ That is, the union of the meanings of the codes (ISO 704 extensions) SHALL not i
 definition of the element in which the code is found. Note that this also is not suitable for computable testing.
 It would also not be appropriate to send a code like SNOMED CT 118227000 (Vital Sign Finding) with a Quantity value
 because the purpose of Observation.code is to explain the meaning of the Observation.value, and merely knowing that the
-Quantity is a vital sign isn't enough to have any useful understanding of the meaning of the value.
+Quantity is a vital sign is not enough to have any useful understanding of the meaning of the value.
 </p>
 <p>
 On the other hand, having one coding that says Body Weight (SCT 27113001) and another that says Post-dialysis
@@ -1391,7 +1391,7 @@ others would appear on <a href="servicerequest.html">ServiceRequest</a>.
 <p>
   The <code>value</code> SHALL be unique within the defined <code>system</code>
   and have a consistent meaning wherever it appears. Identifier.system is always case sensitive. <code>Identifier.value</code> is
-  to be treated as case sensitive unless knowledge of the <code>Identifier.system</code> allows the processer to be confident
+  to be treated as case sensitive unless knowledge of the <code>Identifier.system</code> allows the processor to be confident
   that non-case-sensitive processing is safe.
 </p>
 <p>
@@ -1489,7 +1489,7 @@ these are different instances of <code>HumanName</code>.
 The text element specifies the entire name as it should be displayed e.g., in an application UI.
 This may be provided instead of or as well as the specific parts. Applications updating a
 name SHALL ensure that when both text and parts are present, no content is included in the
-text that isn't found in a part. The correct order of assembly of the parts is culture
+text that is not found in a part. The correct order of assembly of the parts is culture
 dependent: the order of the parts within a given part type has significance and SHALL be
 observed. The appropriate order between family name and given names depends on culture and context of use.
 Note that there is an <a href="[%extensions-location%]StructureDefinition-humanname-assembly-order.html">extension</a> for the few times name
@@ -1562,7 +1562,7 @@ on the address line, as that is not found in the Patient.name.
 The text element Specifies the entire address as it should be displayed e.g., on a postal label, 
 using a newline delimiter for each line (e.g., \n). This may be provided instead of or as well 
 as the specific parts. Applications updating an address SHALL ensure that when both text and 
-parts are present, no content is included in the text that isn't found in a part.
+parts are present, no content is included in the text that is not found in a part.
 </p>
 
 <div class="use">
