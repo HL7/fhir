@@ -255,7 +255,7 @@ part of a broader transaction is how this is typically realized.
 </p>
 <p>
 Should one part of the update 'fail', one would expect all the other updates to be "rolled back" to a prior, stable state.
-Rollback is not expressly specified as part of the FHIR.  Data update and integrity becomes the responsibility of each
+Rollback is not expressly specified as part of FHIR.  Data update and integrity becomes the responsibility of each
 service.  The FHIR specification does not inherently provide for concurrency management (e.g., managing of "deadlock"
 conditions where two resources each await update permission from the other). As a result, within the FHIR server itself it
 is assumed that fault tolerance and server availability is being managed (beyond the scope of the specification).
