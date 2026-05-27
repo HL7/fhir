@@ -157,7 +157,7 @@ the narrative of the list is part of the attested content of the document.
 <p>
 In a dynamic environment, the narrative content of a list will be limited to the
 version of the linked resources at the time the list was last updated. It may be
-even earlier if the narrative isn't updated to reflect the most recent version
+even earlier if the narrative is not updated to reflect the most recent version
 of all referenced resources at each update.  Best practice for 'working' lists is to update 
 the narrative to reflect the most recent content of all list elements each time the list
 is revised.  Lists should therefore not be
@@ -184,8 +184,8 @@ If a list is empty, there could be several different reasons why this is so. For
 <ul>
  <li>There are no appropriate entries for the list (i.e. the patient has no known medications/allergies/history)</li>
  <li>The sender (human or system) deemed that these were not related to this context of patient care (usually for privacy related reasons)</li>
- <li>The source system doesn't support these types of entries</li>
- <li>The information to populate the list wasn't gathered - i.e. "Not asked"</li>
+ <li>The source system does not support these types of entries</li>
+ <li>The information to populate the list was not gathered - i.e. "Not asked"</li>
 </ul>
 <p>
 Given these possibilities - especially the common and significant first case - for many kinds of lists, source systems SHOULD 
