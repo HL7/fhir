@@ -35,7 +35,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Preferred value set for Condition Categories."/>
+  <description value="Value set for Condition Categories."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/condition-category"/>
