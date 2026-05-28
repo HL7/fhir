@@ -110,7 +110,7 @@
         <key value="ist-4"/>
         <severity value="error"/>
         <human value="If numberOfInstances and series.instance are both present, the numberOfInstances value SHALL match the total number of series.instance elements"/>
-        <expression value="numberOfInstances.exists() and series.exists() implies numberOfInstances = series.instance.count()"/>
+        <expression value="numberOfInstances.exists() and series.instance.exists() implies numberOfInstances = series.instance.count()"/>
       </constraint>
       <constraint>
         <key value="ist-5"/>

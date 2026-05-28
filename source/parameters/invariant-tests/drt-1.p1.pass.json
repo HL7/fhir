@@ -1,0 +1,12 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "x",
+      "valueDuration": {
+        "value": 30,
+        "code": "min"
+      }
+    }
+  ]
+}

@@ -4699,7 +4699,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition.binding</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">ValueSet SHALL start with http:// or https:// or urn: or #</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">valueSet.exists() implies (valueSet.startsWith('http:') or valueSet.startsWith('https') or valueSet.startsWith('urn:') or valueSet.startsWith('#'))</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">valueSet.exists() implies (valueSet.startsWith('http:') or valueSet.startsWith('https:') or valueSet.startsWith('urn:') or valueSet.startsWith('#'))</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">(starts-with(string(f:valueSet/@value), 'http:') or starts-with(string(f:valueSet/@value), 'https:') or starts-with(string(f:valueSet/@value), 'urn:') or starts-with(string(f:valueSet/@value), 'x'))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4789,7 +4789,7 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition.constraint</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Constraints should have an expression or else validators will not be able to enforce them</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">expression.exists()</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">expression.hasValue()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">exists(f:expression/@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">

@@ -662,7 +662,7 @@
         <key value="mrp-3"/>
         <severity value="error"/>
         <human value="The count and countQuantity elements SHALL be mutually exclusive"/>
-        <expression value="count.exists() xor countQuantity.exists()"/>
+        <expression value="(count.exists() and countQuantity.exists()).not()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>         
       <type>
@@ -1104,7 +1104,7 @@
         <key value="mrp-4"/>
         <severity value="error"/>
         <human value="The count and countQuantity elements for a statum population SHALL be mutually exclusive"/>
-        <expression value="count.exists() xor countQuantity.exists()"/>
+        <expression value="(count.exists() and countQuantity.exists()).not()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>         
       <mapping>

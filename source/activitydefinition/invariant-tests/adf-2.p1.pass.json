@@ -1,0 +1,13 @@
+{
+  "resourceType": "ActivityDefinition",
+  "status": "active",
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": "http://x/Library/a",
+      "resourceReference": {
+        "reference": "Library/a"
+      }
+    }
+  ]
+}

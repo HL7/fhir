@@ -1,0 +1,30 @@
+{
+  "resourceType": "Bundle",
+  "type": "history",
+  "entry": [
+    {
+      "fullUrl": "http://x/Patient/1",
+      "request": {
+        "method": "GET",
+        "url": "Patient/1"
+      },
+      "response": {
+        "status": "200"
+      }
+    },
+    {
+      "fullUrl": "http://x/Patient/2",
+      "request": {
+        "method": "PATCH",
+        "url": "Patient/2"
+      },
+      "resource": {
+        "resourceType": "Patient",
+        "id": "2"
+      },
+      "response": {
+        "status": "200"
+      }
+    }
+  ]
+}

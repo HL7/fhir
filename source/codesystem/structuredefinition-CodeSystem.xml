@@ -92,7 +92,7 @@
 				<key value="csd-1"/>
 				<severity value="error"/>
 				<human value="Within a code system definition, all the codes SHALL be unique"/>
-				<expression value="concept.exists() implies concept.code.combine(%resource.concept.descendants().concept.code).isDistinct()"/>
+				<expression value="concept.exists() implies concept.code.combine(concept.combine(concept.descendants()).concept.code).isDistinct()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
 			</constraint>
 			<constraint>
@@ -106,7 +106,7 @@
 				<key value="csd-3"/>
 				<severity value="warning"/>
 				<human value="If there is an implicit hierarchy, a hierarchyMeaning should be provided"/>
-				<expression value="concept.where(property.code = 'parent' or property.code = 'child').exists() implies hierarchyMeaning.exists()"/>
+				<expression value="concept.where(property.where(code = 'parent' or code = 'child').exists()).exists() implies hierarchyMeaning.exists()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
 			</constraint>
 			<constraint>
@@ -881,7 +881,7 @@
 				<key value="csd-6"/>
 				<severity value="error"/>
 				<human value="If a concept identifies an alternate, there must be a reciprocal relationship"/>
-				<expression value="defineVariable('sc', code).property.all((code = 'alternateCode') implies defineVariable('ac', value).%resource.repeat(concept).where(code = %ac).exists(property.where(code = 'alternateCode').value = %sc))"/>
+				<expression value="defineVariable('sc', code).property.all((code = 'alternateCode') implies defineVariable('ac', value).%resource.repeat(concept).where(code = %ac).exists(property.where(code = 'alternateCode' and value = %sc).exists()))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
 			</constraint>
 		</element>

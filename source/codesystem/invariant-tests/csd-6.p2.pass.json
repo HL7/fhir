@@ -1,0 +1,9 @@
+{
+  "resourceType": "CodeSystem", "url": "http://example.org/cs/csd6-multi", "status": "draft",
+  "caseSensitive": true, "content": "complete",
+  "concept": [
+    { "code": "A", "property": [ { "code": "alternateCode", "valueCode": "B" } ] },
+    { "code": "B", "property": [ { "code": "alternateCode", "valueCode": "A" }, { "code": "alternateCode", "valueCode": "C" } ] },
+    { "code": "C", "property": [ { "code": "alternateCode", "valueCode": "B" } ] }
+  ]
+}

@@ -1762,7 +1762,7 @@
     <Cell ss:StyleID="s94"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Event</Data></Cell>
     <Cell ss:StyleID="s94"><Data ss:Type="String">reason elements can only be specified if status is NOT 'not-done'</Data></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">status!='not-done' or (reasonCode.exists().not() and reasonReference.exists().not())</Data></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">status!='not-done' or reason.exists().not()</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">not(f:status/@value='not-done') or not(exists(f:reasonCode) or exists(f:reasonReference))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="62">

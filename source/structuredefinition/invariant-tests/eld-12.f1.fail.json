@@ -1,0 +1,23 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://example.org/sd/eld12",
+  "name": "Eld12",
+  "status": "draft",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "binding": {
+          "strength": "required",
+          "valueSet": "httpsfoo"
+        }
+      }
+    ]
+  }
+}
