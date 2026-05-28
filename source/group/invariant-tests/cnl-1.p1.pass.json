@@ -1,7 +1,7 @@
 {
   "resourceType": "Group",
   "id": "cnl-1.p1.pass.json",
-  "url": "http://someveterinarianclinic.org/fhir/NamingSystem/herds/1234"
+  "url": "http://someveterinarianclinic.org/fhir/NamingSystem/herds/1234",
   "identifier" : [{
     "system" : "http://someveterinarianclinic.org/fhir/NamingSystem/herds",
     "value" : "1234"
@@ -33,6 +33,7 @@
     "instancesRange" : {
       "low" : {
         "value" : 5,
+        "system": "http://unitsofmeasure.org",
         "code": "1"
       }
     }

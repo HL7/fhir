@@ -2,7 +2,10 @@
 
 <ActorDefinition xmlns="http://hl7.org/fhir">
   <id value="server"/>
-  <url value="http://hl7.org/fhir/ActorDefinition/server"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+<url value="http://hl7.org/fhir/ActorDefinition/server"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.27.1"/>

@@ -2,6 +2,9 @@
 
 <Questionnaire xmlns="http://hl7.org/fhir">
   <id value="3141"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/Questionnaire/3141"/>
   <title value="Cancer Quality Forum Questionnaire 2012"/>
   <status value="active"/>

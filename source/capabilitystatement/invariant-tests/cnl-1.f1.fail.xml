@@ -2,7 +2,7 @@
 
 <CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="example"/>
-  <url value="urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311|34"/>
+  <url value="http://example.org/fhir/CapabilityStatement/example|34"/>
   <version value="20130510"/>
   <name value="ACMEEHR"/>
   <title value="ACME EHR capability statement"/>

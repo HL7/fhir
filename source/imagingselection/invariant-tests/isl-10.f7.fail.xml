@@ -15,6 +15,7 @@
             <value value="RNKZPSBNZLNADAZV"/>
         </identifier>
     </subject>
+    <issued value="2011-01-01T11:01:20+03:00"/>
     <basedOn>
         <type value="ServiceRequest"/>
         <identifier>
@@ -33,7 +34,6 @@
     <basedOn>
         <reference value="ServiceRequest/example"/>
     </basedOn>
-    <issued value="2011-01-01T11:01:20+03:00"/>
     <derivedFrom>
         <type value="ImagingStudy"/>
         <identifier>

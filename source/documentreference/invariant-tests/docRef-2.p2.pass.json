@@ -23,7 +23,7 @@
         {
             "resourceType": "Appointment",
             "id": "appt",
-            "status": "booked",
+            "status": "proposed",
             "participant": [
                 {
                     "actor": {

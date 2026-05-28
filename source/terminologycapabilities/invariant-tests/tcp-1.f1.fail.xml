@@ -5,18 +5,18 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-			
-      <p>The EHR Server supports the following transactions for the resource Person: read, vread, 
+
+      <p>The EHR Server supports the following transactions for the resource Person: read, vread,
         update, history, search(name,gender), create and updates.</p>
-			
+
       <p>The EHR System supports the following message: admin-notify::Person.</p>
-			
-      <p>The EHR Application has a 
-        
+
+      <p>The EHR Application has a
+
         <a href="http://fhir.hl7.org/base/Profilebc054d23-75e1-4dc6-aca5-838b6b1ac81d/_history/b5fdd9fc-b021-4ea1-911a-721a60663796">general document profile</a>.
-      
+
       </p>
-		
+
     </div>
   </text>
   <url value="urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311"/>
@@ -48,9 +48,8 @@
     <description value="Acme Terminology Server"/>
     <url value="http://example.org/tx"/>
   </implementation>
-  <codeSearch value="in-compose-or-expansion"/>
   <codeSystem>
-    <uri value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
+    <uri value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
    <!-- ======= Fail tcp-1 invariant ======== -->
     <version>
     <code value="FOO"/>
@@ -90,9 +89,10 @@
     </version>
    <!-- ======================================== -->
 
-     
+
     <content value="complete"/>
 
 
   </codeSystem>
+  <codeSearch value="in-compose-or-expansion"/>
 </TerminologyCapabilities>

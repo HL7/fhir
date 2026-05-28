@@ -2,6 +2,24 @@
 <ClinicalUseDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <type value="contraindication"/>
+  <subject>
+    <concept>
+      <text value="Example clinical-use subject"/>
+    </concept>
+  </subject>
+<!-- ======= Fail cud-1 invariant ======== -->
+  <indication>
+    <diseaseSymptomProcedure>
+      <concept>
+        <coding>
+          <system value="http://ema.europa.eu/example/indicationsasdisease-symptom-procedure"/>
+          <code value="Hepaticdisease"/>
+        </coding>
+      </concept>
+    </diseaseSymptomProcedure>
+  </indication>
+<!-- ======================================== -->
+
   <contraindication>
     <diseaseSymptomProcedure>
       <concept>
@@ -21,16 +39,5 @@
       </concept>
     </comorbidity>
   </contraindication>
-<!-- ======= Fail cud-1 invariant ======== -->
-  <indication>
-    <diseaseSymptomProcedure>
-      <concept>
-        <coding>
-          <system value="http://ema.europa.eu/example/indicationsasdisease-symptom-procedure"/>
-          <code value="Hepaticdisease"/>
-        </coding>
-      </concept>
-    </diseaseSymptomProcedure>
-  </indication>
-<!-- ======================================== -->
+
 </ClinicalUseDefinition>

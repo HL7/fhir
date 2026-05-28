@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
 	<id value="example"/>
 	<text>
@@ -29,15 +29,15 @@
 		</coding>
 	</subjectStatus>
     <participant>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+				<code value="ATND"/>
+				<display value="attender"/>
+			</coding>
+		</type>
         <actor>
             <reference value="#example"/>
         </actor>
-		<type>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/v2-0912"/>
-				<code value="PPRF"/>
-				<display value="primary responsible provider"/>
-			</coding>
-		</type>
     </participant>
 </Encounter>

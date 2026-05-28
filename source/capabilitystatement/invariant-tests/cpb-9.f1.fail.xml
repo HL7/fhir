@@ -11,6 +11,9 @@
   <date value="2012-01-04"/>
   <kind value="instance"/>
   <instantiates value="http://ihe.org/fhir/CapabilityStatement/pixm-client"/>
+  <implementation>
+    <description value="main EHR at ACME"/>
+  </implementation>
   <fhirVersion value="6.0.0"/>
   <format value="xml"/>
   <format value="json"/>

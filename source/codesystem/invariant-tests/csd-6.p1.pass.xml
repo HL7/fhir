@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="csd-6-pass"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <status value="draft"/>
-  
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+
   <concept>
     <code value="A"/>
     <display value="A"/>

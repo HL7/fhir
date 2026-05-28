@@ -6,12 +6,6 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>
 	</text>
 	<status value="booked" />
-	<cancellationReason>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-			<code value="PATOBJ"/>
-		</coding>
-	</cancellationReason>
 	<class>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>

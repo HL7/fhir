@@ -6,7 +6,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
   <status value="complete"/>
-  <type value="data-exchange"/>
+  <type value="individual"/>
   <measure value="http://example.org/fhir/Measure/measure-cms146-example"/>
 <period>
   <start value="2013-01-01"/>
@@ -16,15 +16,12 @@
   <group>
     <stratifier>
       <stratum>
+        <valueBoolean value="true"/>
         <population>
-          <count>
-            <valueInteger value="1"/>
-          </count>
-          <countQuanity>
-            <valueQuantity>
-              <value value="0.12"/>
-            </valueQuantity>
-          </countQuanity>          
+          <count value="1"/>
+          <countQuantity>
+            <value value="0.12"/>
+          </countQuantity>
         </population>
       </stratum>
     </stratifier>

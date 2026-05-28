@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../publish/account.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Account xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/account.xsd">
 	<id value="example"/>
 	<text>
@@ -45,10 +44,9 @@
 	</guarantor>
 	<procedure>
 		<code>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="123456"/>
-			</coding>
+			<concept>
+				<text value="LabelOnly"/>
+			</concept>
 		</code>
 	</procedure>
 </Account>

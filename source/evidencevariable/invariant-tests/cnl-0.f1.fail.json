@@ -4,6 +4,8 @@
   "name": "Example-EvidenceVariable",
   "title": "Example",
   "status": "active",
-  "handling": "dichotomous",
+  "handling": {
+    "text": "dichotomous"
+  }
 }
 

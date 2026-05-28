@@ -10,6 +10,7 @@
   <experimental value="true"/>
   <date value="2012-01-04"/>
   <publisher value="ACME Corporation"/>
+  <description value="This capability statement intentionally omits implementation metadata."/>
   <purpose value="Main EHR capability statement, published for contracting and operational support"/>
   <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>
   <kind value="instance"/>

@@ -24,7 +24,8 @@
             "display": "A. Langeveld"
         }
     ],
-    "component": {
+    "component": [
+        {
         "code": {
             "coding": [
                 {
@@ -44,5 +45,6 @@
             ],
             "text": "Not Asked"
         }
-    }
+        }
+    ]
 }

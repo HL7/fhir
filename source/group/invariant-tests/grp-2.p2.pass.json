@@ -6,6 +6,7 @@
     "value" : "12345678"
   }],
   "name" : "John's herd",
+  "membership" : "conceptual",
   "type" : "animal",
   "code" : {
     "coding": [{
@@ -31,6 +32,7 @@
     "instancesRange" : {
       "low" : {
         "value" : 5,
+        "system": "http://unitsofmeasure.org",
         "code": "1"
       }
     }

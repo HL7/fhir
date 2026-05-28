@@ -2,6 +2,9 @@
 
 <NamingSystem xmlns="http://hl7.org/fhir">
   <id value="example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/NamingSystem/example"/>
 
   <identifier>

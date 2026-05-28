@@ -5,7 +5,7 @@
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>
 	</text>
-	<status value="booked" />
+	<status value="cancelled" />
 	<class>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -50,8 +50,9 @@
 	</reason>
 	<!-- <priority value="5" /> -->
 	<description value="Discussion on the results of your recent MRI" />
-	<start value="2013-12-10T09:00:00Z" />
+	<end value="2013-12-10T11:00:00Z" />
 	<created value="2013-10-10" />
+	<cancellationDate value="2013-10-11"/>
 	<note>
 		<text value="Further expand on the results of the MRI and determine the next actions that may be appropriate." />
 	</note>

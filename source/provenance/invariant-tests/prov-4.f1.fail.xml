@@ -12,7 +12,8 @@
 		<type>
 			<coding>
 				<system value="http://terminology.hl7.org/CodeSystem/service-type"/>
-				<code value="Acupuncture"/>
+				<code value="8"/>
+				<display value="Home Care/Housekeeping Assistance"/>
 			</coding>
 		</type>
 	</HealthcareService>
@@ -24,7 +25,7 @@
 		<name value="ACME Healthcare"/>
 	</Organization>
 </contained>
-	
+
 
 	<target>
 		<reference value="Procedure/example/_history/1"/>
@@ -68,14 +69,14 @@
 	</agent>
 	<entity>
 		<role value="source"/>
-		<!-- 
-      the document is in an XDS repository. 
-      as a source, we're going to give an MHD 
+		<!--
+      the document is in an XDS repository.
+      as a source, we're going to give an MHD
       reference. (easier than XDS.b call with parameters!)
 	  Given the reference is to a FHIR DocumentReference, that resource describes the kind of content
     -->
 		<what>
-			<reference value="DocumentReference/example"/>    
+			<reference value="DocumentReference/example"/>
 			<display value="CDA Document in XDS repository"/>
 		</what>
 	</entity>

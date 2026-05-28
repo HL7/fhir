@@ -1,11 +1,6 @@
 {
 	"resourceType": "Observation",
 	"id": "blood-pressure",
-	"meta": {
-		"profile": [
-			"http://hl7.org/fhir/StructureDefinition/vitalsigns"
-		]
-	},
 	"identifier": [
 		{
 			"system": "urn:ietf:rfc:3986",
@@ -17,10 +12,7 @@
 			"identifier": {
 				"system": "https://acme.org/identifiers",
 				"value": "1234"
-			},
-			"fhir_comments": [
-				"demonstrating the use of the baseOn element with a fictive identifier"
-			]
+			}
 		}
 	],
 	"status": "final",
@@ -29,8 +21,8 @@
 			"coding": [
 				{
 					"system": "http://terminology.hl7.org/CodeSystem/observation-category",
-					"code": "vital-signs",
-					"display": "Vital Signs"
+					"code": "laboratory",
+					"display": "Laboratory"
 				}
 			]
 		}
@@ -38,8 +30,9 @@
 	"code": {
 		"coding": [
 			{
-				"system": "http://loinc.org",
-				"code": "85354-9"
+				"system": "http://example.org/CodeSystem/observation-codes",
+				"code": "panel",
+				"display": "Example panel"
 			}
 		]
 	},
@@ -58,8 +51,9 @@
 			"code": {
 				"coding": [
 					{
-						"system": "http://loinc.org",
-						"code": "85354-9"
+						"system": "http://example.org/CodeSystem/observation-codes",
+						"code": "panel",
+						"display": "Example panel"
 					}
 				]
 			},

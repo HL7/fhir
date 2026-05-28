@@ -36,6 +36,9 @@
           <display value="US Retroperitoneum"/>
         </coding>
       </code>
+      <valueQuantity>
+        <value value="1"/>
+      </valueQuantity>
     </parameter>
   </orderDetail>
   <subject>

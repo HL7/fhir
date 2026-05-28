@@ -21,7 +21,7 @@
 			</author>
 			<title value="Diagnostic Report"/>
 			<section>
-			<title>Diagnostic Report</title>
+			<title value="Diagnostic Report"/>
 			<entry>
 				<reference value="#obs1"/>
 			</entry>
@@ -29,7 +29,7 @@
 
 		</Composition>
 	</contained>
-		<contained>		
+		<contained>
 		<Observation xmlns="http://hl7.org/fhir">
 			<id value="obs1"/>
 			<status value="final"/>

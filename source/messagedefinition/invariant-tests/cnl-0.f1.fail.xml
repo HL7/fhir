@@ -2,10 +2,13 @@
 
 <MessageDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
-  <text>
+<text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Message definition base example</div>
   </text>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/MessageDefinition/example"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>

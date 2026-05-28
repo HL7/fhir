@@ -50,11 +50,11 @@
     <text value="Left Ear"/>
   </bodySite> -->
 
-  <abatementString value="true"/>
-
-
   <subject>
     <reference value="Patient/example"/>
   </subject>
   <onsetDateTime value="2012-05-24"/>
+  <abatementString value="true"/>
+
+
 </Condition>

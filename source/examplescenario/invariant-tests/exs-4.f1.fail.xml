@@ -2,51 +2,35 @@
 
 <ExampleScenario xmlns="http://hl7.org/fhir">
   <id value="example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/ExampleScenario/example"/>
   <name value="Example Scenario"/>
 <!-- ======= Fail exs-4 invariant ======== -->
   <status value="active"/>
 <!-- ======================================== -->
-  <purpose value="Purpose:"/>
 
   <actor>
     <key value="Nurse"/>
     <type value="person"/>
     <title value="Nurse"/>
-    <description value="The Nurse"/>
   </actor>
 
+  <actor>
+    <key value="MAP"/>
+    <type value="system"/>
+    <title value="Medication Administration Program"/>
+  </actor>
+  <actor>
+    <key value="OP"/>
+    <type value="system"/>
+    <title value="Order Placer"/>
+  </actor>
+
+
  <!-- ======= Fail exs-4 invariant ======== -->
-  <!-- <process>
-    <title value="Mobile Medication Administration"/>
-    <description value="This scenario demonstrates"/>
-    <preConditions value="Medication administration"/>
-    <postConditions value="Medication administration"/>
-    <step>
-      <number value="1"/>
-      <operation>
-        <title value="Get today's schedule"/>
-        <initiator value="Nurse"/>
-        <receiver value="MAP"/>
-      </operation>
-    </step>
-    <step>
-      <number value="2"/>
-      <operation>
-        <title value="Query administration orders"/>
-        <initiator value="MAP"/>
-        <receiver value="OP"/>
-        <description value="Query for medication administration"/>
-        <request>
-          <instanceReference value="iherxqry"/>
-        </request>
-        <response>
-          <instanceReference value="iherx001bundle"/>
-        </response>
-      </operation>
-      <pause value="true"/>
-    </step>
-</process> -->
+
  <!-- ======================================== -->
- 
+
 </ExampleScenario>

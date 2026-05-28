@@ -1,6 +1,10 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "MedicinalProductDefinition",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "brr"
+  }],
   "meta" : {
     "lastUpdated" : "2022-09-01T13:47:12.078+10:00"
   },

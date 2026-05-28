@@ -2,21 +2,33 @@
 
 <ExampleScenario xmlns="http://hl7.org/fhir">
   <id value="example"/>
-
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/ExampleScenario/example#123"/>
 
   <name value="Example Scenario"/>
   <status value="draft"/>
-  <purpose value="Purpose:"/>
-  
+
   <actor>
   <!-- ======= Fail exs-23 invariant ======== -->
     <key value="OTHER"/>
 <!-- ======================================== -->
     <type value="person"/>
     <title value="Nurse"/>
-    <description value="The Nurse"/>
   </actor>
+
+  <actor>
+    <key value="MAP"/>
+    <type value="system"/>
+    <title value="Medication Administration Program"/>
+  </actor>
+  <actor>
+    <key value="OP"/>
+    <type value="system"/>
+    <title value="Order Placer"/>
+  </actor>
+
 
 
   <instance>
@@ -26,8 +38,25 @@
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Initial Prescription"/>
-    <description value="The initial prescription"/>
   </instance>
 
- 
+  <instance>
+    <key value="iherxqry"/>
+    <structureType>
+      <system value="http://hl7.org/fhir/fhir-types"/>
+      <code value="Parameters"/>
+    </structureType>
+    <title value="Administration query"/>
+  </instance>
+  <instance>
+    <key value="iherx001bundle"/>
+    <structureType>
+      <system value="http://hl7.org/fhir/fhir-types"/>
+      <code value="Bundle"/>
+    </structureType>
+    <title value="Administration query response"/>
+  </instance>
+
+
+
 </ExampleScenario>

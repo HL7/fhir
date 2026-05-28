@@ -24,7 +24,8 @@
             "display": "A. Langeveld"
         }
     ],
-    "component": {
+    "component": [
+        {
         "code": {
             "coding": [
                 {
@@ -40,5 +41,6 @@
             "system": "http://unitsofmeasure.org",
             "code": "mmol/L"
         }
-    }
+        }
+    ]
 }

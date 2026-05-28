@@ -15,7 +15,7 @@
   </contact>
 	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
 	<filterBy>
-		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+		<resource value="Encounter"/>
 		<filterParameter value="patient"/>
 		<comparator value="eq"/>
 		<modifier value="identifier"/>

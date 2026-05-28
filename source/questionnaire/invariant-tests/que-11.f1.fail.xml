@@ -2,6 +2,9 @@
 
 <Questionnaire xmlns="http://hl7.org/fhir">
   <id value="3141"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/Questionnaire/3141"/>
   <title value="Cancer Quality Forum Questionnaire 2012"/>
   <status value="draft"/>
@@ -10,7 +13,7 @@
   <description value="Cancer Quality Forum Questionnaire 2012"/>
   <item>
     <linkId value="1"/>
-    <type value="choice"/>
+    <type value="coding"/>
     <answerOption>
       <valueCoding>
         <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
@@ -18,7 +21,10 @@
       </valueCoding>
     </answerOption>
     <initial>
-      <valueString value="be boop"/>
+      <valueCoding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0136"/>
+        <code value="Y"/>
+      </valueCoding>
     </initial>
   </item>
 </Questionnaire>

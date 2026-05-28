@@ -6,7 +6,10 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Message definition base example</div>
   </text>
-  <url value="http://hl7.org/fhir/MessageDefinition/example"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+<url value="http://hl7.org/fhir/MessageDefinition/example"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.15.3"/>

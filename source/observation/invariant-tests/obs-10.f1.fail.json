@@ -24,31 +24,33 @@
             "display": "A. Langeveld"
         }
     ],
-    "component": {
-        "code": {
-            "coding": [
-                {
-                    "system": "http://loinc.org",
-                    "code": "15074-8",
-                    "display": "Glucose [Moles/volume] in Blood"
-                }
-            ]
-        },
-        "valueQuantity": {
-            "value": 6.3,
-            "unit": "mmol/l",
-            "system": "http://unitsofmeasure.org",
-            "code": "mmol/L"
-        },
-        "dataAbsentReason": {
-            "coding": [
-                {
-                    "system": "http://hl7.org/fhir/v3/NullFlavor",
-                    "code": "NA",
-                    "display": "Not Asked"
-                }
-            ],
-            "text": "Not Asked"
+    "component": [
+        {
+            "code": {
+                "coding": [
+                    {
+                        "system": "http://loinc.org",
+                        "code": "15074-8",
+                        "display": "Glucose [Moles/volume] in Blood"
+                    }
+                ]
+            },
+            "valueQuantity": {
+                "value": 6.3,
+                "unit": "mmol/l",
+                "system": "http://unitsofmeasure.org",
+                "code": "mmol/L"
+            },
+            "dataAbsentReason": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/v3/NullFlavor",
+                        "code": "NA",
+                        "display": "Not Asked"
+                    }
+                ],
+                "text": "Not Asked"
+            }
         }
-    }
+    ]
 }

@@ -1,15 +1,16 @@
 {
   "resourceType" : "Questionnaire",
+  "id" : "que-18a-pass",
   "status" : "draft",
   "item" : [{
     "linkId" : "test",
-    "type" : "url",
+    "type" : "string",
     "answerOption": [
       {
-        "valueUri": "http://foo.org"
+        "valueString": "http://foo.org"
       },
       {
-        "valueUri": "http://foo.org"
+        "valueString": "http://foo.org"
       }
     ]
  }]

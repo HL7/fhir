@@ -13,7 +13,9 @@
 
   </code>
   <focus>
-    <reference value="MedicationRequest/medrx002"/>
+    <valueReference>
+      <reference value="MedicationRequest/medrx002"/>
+    </valueReference>
   </focus>
   <for>
     <reference value="Patient/f001"/>

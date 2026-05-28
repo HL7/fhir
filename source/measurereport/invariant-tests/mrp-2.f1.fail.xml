@@ -22,8 +22,8 @@
             <coding>
               <system value="http://loinc.org"/>
               <code value="3141-9"/>
-              <display value="Body Weight"/>
-            </coding> 
+              <display value="Body weight Measured"/>
+            </coding>
           </code>
           <valueQuantity>
             <value value="1"/>
@@ -38,5 +38,5 @@
 
 
 
-  
+
 </MeasureReport>

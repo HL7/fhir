@@ -96,13 +96,6 @@
     <compartment value="http://hl7.org/fhir/CompartmentDefinition/patient"/>
   </rest>
   <messaging>
-    <endpoint>
-      <protocol>
-        <system value="http://hl7.org/fhir/message-transport"/>
-        <code value="mllp"/>
-      </protocol>
-      <address value="mllp:10.1.1.10:9234"/>
-    </endpoint>
     <reliableCache value="30"/>
     <documentation value="ADT A08 equivalent for external system notifications"/>
     <supportedMessage>

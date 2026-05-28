@@ -1,9 +1,10 @@
 {
   "resourceType" : "Questionnaire",
+  "id" : "que-18a-pass",
   "status" : "draft",
   "item" : [{
     "linkId" : "test",
-    "type" : "text",
+    "type" : "string",
     "answerOption": [
       {
         "valueString": "foo"

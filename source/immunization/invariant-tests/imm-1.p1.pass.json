@@ -1,27 +1,18 @@
 {
   "resourceType": "Bundle",
   "id": "imm-1-valid-test-cases",
-  "meta": {
-    "profile": ["http://hl7.org/fhir/StructureDefinition/Bundle"]
-  },
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "urn:uuid:valid-001",
       "resource": {
         "resourceType": "Immunization",
         "id": "valid-001",
-        "meta": {
-          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
-          "tag": [{"display":  "VALID: status='completed', no statusReason. Standard completed immunization — most common case." }]
-        },
         "status": "completed",
         "vaccineCode": {
           "coding": [
             {
               "system": "http://hl7.org/fhir/sid/cvx",
-              "code": "140",
-              "display": "Influenza, seasonal, injectable, preservative free"
+              "code": "140"
             }
           ],
           "text": "Influenza vaccine"
@@ -30,43 +21,20 @@
           "reference": "Patient/example-001",
           "display": "John Doe"
         },
-        "occurrenceDateTime": "2024-09-15",
-        "recorded": "2024-09-15T10:30:00Z",
-        "primarySource": true,
-        "performer": [
-          {
-            "function": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
-                  "code": "AP",
-                  "display": "Administering Provider"
-                }
-              ]
-            },
-            "actor": {
-              "reference": "Practitioner/example-001"
-            }
-          }
-        ]
-      }
+        "occurrenceDateTime": "2024-09-15"
+      },
+      "fullUrl": "urn:uuid:11111111-1111-4111-8111-111111111111"
     },
     {
-      "fullUrl": "urn:uuid:valid-002",
       "resource": {
         "resourceType": "Immunization",
         "id": "valid-002",
-        "meta": {
-          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
-          "tag": [{"display":  "VALID: status='not-done', statusReason present. Primary intended use case of statusReason." }]
-        },
         "status": "not-done",
         "statusReason": {
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-              "code": "PATOBJ",
-              "display": "Patient Objection"
+              "code": "PATOBJ"
             }
           ],
           "text": "Patient refused vaccination"
@@ -75,8 +43,7 @@
           "coding": [
             {
               "system": "http://hl7.org/fhir/sid/cvx",
-              "code": "140",
-              "display": "Influenza, seasonal, injectable, preservative free"
+              "code": "140"
             }
           ],
           "text": "Influenza vaccine"
@@ -85,27 +52,20 @@
           "reference": "Patient/example-002",
           "display": "Jane Smith"
         },
-        "occurrenceDateTime": "2024-10-01",
-        "recorded": "2024-10-01T09:00:00Z",
-        "primarySource": true
-      }
+        "occurrenceDateTime": "2024-10-01"
+      },
+      "fullUrl": "urn:uuid:11111111-1111-4111-8111-111111111112"
     },
     {
-      "fullUrl": "urn:uuid:valid-003",
       "resource": {
         "resourceType": "Immunization",
         "id": "valid-003",
-        "meta": {
-          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
-          "tag": [{"display":  "VALID: status='not-done', no statusReason. statusReason is optional even when not-done." }]
-        },
         "status": "not-done",
         "vaccineCode": {
           "coding": [
             {
               "system": "http://hl7.org/fhir/sid/cvx",
-              "code": "33",
-              "display": "Pneumococcal polysaccharide vaccine, 23 valent"
+              "code": "33"
             }
           ],
           "text": "Pneumococcal vaccine"
@@ -114,27 +74,20 @@
           "reference": "Patient/example-003",
           "display": "Robert Brown"
         },
-        "occurrenceDateTime": "2024-11-05",
-        "recorded": "2024-11-05T14:00:00Z",
-        "primarySource": false
-      }
+        "occurrenceDateTime": "2024-11-05"
+      },
+      "fullUrl": "urn:uuid:11111111-1111-4111-8111-111111111113"
     },
     {
-      "fullUrl": "urn:uuid:valid-004",
       "resource": {
         "resourceType": "Immunization",
         "id": "valid-004",
-        "meta": {
-          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
-          "tag": [{"display":  "VALID: status='entered-in-error', no statusReason. Error-corrected record with no statusReason." }]
-        },
         "status": "entered-in-error",
         "vaccineCode": {
           "coding": [
             {
               "system": "http://hl7.org/fhir/sid/cvx",
-              "code": "08",
-              "display": "Hepatitis B vaccine, pediatric or pediatric/adolescent dosage"
+              "code": "08"
             }
           ],
           "text": "Hepatitis B vaccine"
@@ -143,42 +96,33 @@
           "reference": "Patient/example-004",
           "display": "Emily Clark"
         },
-        "occurrenceDateTime": "2024-03-20",
-        "recorded": "2024-03-20T08:00:00Z",
-        "primarySource": true
-      }
+        "occurrenceDateTime": "2024-03-20"
+      },
+      "fullUrl": "urn:uuid:11111111-1111-4111-8111-111111111114"
     },
     {
-      "fullUrl": "urn:uuid:valid-005",
       "resource": {
         "resourceType": "Immunization",
         "id": "valid-005",
-        "meta": {
-          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
-          "tag": [{"display":  "VALID: status='not-done', statusReason with multiple codings (SNOMED + v3-ActReason)." }]
-        },
         "status": "not-done",
         "statusReason": {
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "591000119102",
-              "display": "Vaccine refused by patient"
+              "code": "591000119102"
             },
             {
               "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
-              "code": "PATOBJ",
-              "display": "Patient Objection"
+              "code": "PATOBJ"
             }
           ],
-          "text": "Patient verbally refused — documented with dual coding"
+          "text": "Patient verbally refused \u2014 documented with dual coding"
         },
         "vaccineCode": {
           "coding": [
             {
               "system": "http://hl7.org/fhir/sid/cvx",
-              "code": "115",
-              "display": "Tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine, adsorbed"
+              "code": "115"
             }
           ],
           "text": "Tdap vaccine"
@@ -187,20 +131,14 @@
           "reference": "Patient/example-005",
           "display": "Michael Torres"
         },
-        "occurrenceDateTime": "2024-07-22",
-        "recorded": "2024-07-22T11:15:00Z",
-        "primarySource": true
-      }
+        "occurrenceDateTime": "2024-07-22"
+      },
+      "fullUrl": "urn:uuid:11111111-1111-4111-8111-111111111115"
     },
     {
-      "fullUrl": "urn:uuid:valid-006",
       "resource": {
         "resourceType": "Immunization",
         "id": "valid-006",
-        "meta": {
-          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
-          "tag": [{"display":  "VALID: status='not-done', statusReason with text only (no formal coding). Narrative-only reason." }]
-        },
         "status": "not-done",
         "statusReason": {
           "text": "Vaccine temporarily unavailable at this clinic location"
@@ -209,8 +147,7 @@
           "coding": [
             {
               "system": "http://hl7.org/fhir/sid/cvx",
-              "code": "207",
-              "display": "COVID-19 vaccine, mRNA, LNP-S, PF, 100 mcg/0.5mL dose"
+              "code": "207"
             }
           ],
           "text": "COVID-19 mRNA vaccine"
@@ -219,10 +156,9 @@
           "reference": "Patient/example-006",
           "display": "Sarah Lee"
         },
-        "occurrenceDateTime": "2024-01-10",
-        "recorded": "2024-01-10T13:45:00Z",
-        "primarySource": true
-      }
+        "occurrenceDateTime": "2024-01-10"
+      },
+      "fullUrl": "urn:uuid:11111111-1111-4111-8111-111111111116"
     }
   ]
 }

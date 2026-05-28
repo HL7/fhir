@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/example"/>
   <version value="2"/>
   <name value="LipidProfileExample"/>

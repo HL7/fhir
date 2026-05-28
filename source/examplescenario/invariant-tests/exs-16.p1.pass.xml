@@ -2,16 +2,17 @@
 
 <ExampleScenario xmlns="http://hl7.org/fhir">
   <id value="example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
   <url value="http://hl7.org/fhir/ExampleScenario/example"/>
   <name value="Example Scenario"/>
   <status value="draft"/>
-  <purpose value="Purpose:"/>
 
   <actor>
     <key value="Nurse"/>
     <type value="person"/>
     <title value="Nurse"/>
-    <description value="The Nurse"/>
   </actor>
 
 
@@ -22,7 +23,6 @@
       <code value="MedicationRequest"/>
     </structureType>
     <title value="Initial Prescription"/>
-    <description value="The initial prescription"/>
 <!-- =======  Pass exs-16 invariant ======== -->
     <containedInstance>
       <instanceReference value="iheadm002"/>
@@ -40,16 +40,13 @@
       <code value="MedicationAdministration"/>
     </structureType>
     <title value="Lunch meds - taken"/>
-    <description value="Administration report for day 1, lunch: Taken"/>
     <version>
       <key value="iheadm002v1"/>
       <title value="Administration - v1"/>
-      <description value="Medication just taken"/>
     </version>
     <version>
       <key value="iheadm002v2"/>
       <title value="Administration - v2"/>
-      <description value="Medication rejected"/>
     </version>
   </instance>
 

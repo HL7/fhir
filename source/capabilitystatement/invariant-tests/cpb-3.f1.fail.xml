@@ -22,15 +22,6 @@
   <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>
   <kind value="requirements"/>
   <instantiates value="http://ihe.org/fhir/CapabilityStatement/pixm-client"/>
-  <software>
-    <name value="EHR"/>
-    <version value="0.00.020.2134"/>
-    <releaseDate value="2012-01-04"/>
-  </software>
-  <implementation>
-    <description value="main EHR at ACME"/>
-    <url value="http://10.2.3.4/fhir"/>
-  </implementation>
   <fhirVersion value="6.0.0"/>
   <format value="xml"/>
   <format value="json"/>

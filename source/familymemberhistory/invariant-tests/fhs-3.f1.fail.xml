@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FamilyMemberHistory xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/familymemberhistory.xsd">
+  <id value="father"/>
   <!-- <id value="father"/>
   <text>
     <status value="generated" />
@@ -19,17 +20,17 @@
   </patient>
 
   <!-- <date value="2011-03-18"/>
-  <participant> 
-    <function> 
-      <coding> 
-        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/> 
-        <code value="verifier"/> 
-        <display value="Verifier"/> 
-      </coding> 
-    </function> 
-    <actor> 
-      <reference value="Practitioner/f201"/> 
-    </actor> 
+  <participant>
+    <function>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+        <code value="verifier"/>
+        <display value="Verifier"/>
+      </coding>
+    </function>
+    <actor>
+      <reference value="Practitioner/f201"/>
+    </actor>
   </participant> -->
 
 
@@ -41,7 +42,7 @@
     </coding>
   </relationship>
 
-<!-- 
+<!--
   <sex>
 	<coding>
       <system value="http://hl7.org/fhir/administrative-gender"/>
@@ -66,7 +67,7 @@
     </coding>
     <text value='Heart Attack'/>
     </code>
- 
+
 	<contributedToDeath value = "true"/>
     <onsetAge>
       <value value="74" />

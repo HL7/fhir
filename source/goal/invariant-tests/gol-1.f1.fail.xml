@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Goal xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/goal.xsd">
-	
+	<id value="example"/>
+
 	<!-- <id value="example"/>
 	<text>
 		<status value="additional"></status>
@@ -34,7 +35,7 @@
 
 
 	<description>
-    		<text value="Target weight is 160 to 180 lbs."/>
+    <text value="Target weight is 160 to 180 lbs."/>
 	</description>
 
 
@@ -67,7 +68,7 @@
 				<code value="[lb_av]"/>
 			</high>
 		</detailRange>
-	
+
 		<dueDate value="2016-04-05" />
 	</target>
 
@@ -83,8 +84,8 @@
 	</addresses>
 	<outcome>
     <reference>
-	  	<reference value="Observation/example"/>
-  		<display value="Body Weight Measured"/>
+        <reference value="Observation/example"/>
+    <display value="Body Weight Measured"/>
     </reference>
 	</outcome> -->
 </Goal>

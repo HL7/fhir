@@ -19,9 +19,9 @@
 	  </Specimen>
 	</contained>
 	<contained>
-	  <Specimen>
+	  <Group>
 	    <id value="group1" />
-	    <!-- <type value = "animal" />
+	    <type value = "specimen" />
 		<membership value = "enumerated" />
 		<member>
 		  <entity>
@@ -32,8 +32,8 @@
 		  <entity>
 		    <reference value="#bed2" />
 		  </entity>
-		</member> -->
-	  </Specimen>
+		</member>
+	  </Group>
 	</contained>
 	<identifier>
 		<use value="official"/>
@@ -41,7 +41,7 @@
 		<value value="20171014-1234"/>
 	</identifier>
 	<status value="preliminary"/>
-	<!-- 
+	<!--
     Observations are often coded in multiple code systems.
       - LOINC
 		- or SNOMED

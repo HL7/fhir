@@ -21,7 +21,7 @@
         {
             "resourceType": "Encounter",
             "id": "Enc",
-            "status": "finished"
+            "status": "completed"
         }
     ]
 }

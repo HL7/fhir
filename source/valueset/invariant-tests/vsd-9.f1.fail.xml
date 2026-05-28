@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example"/>
-
-	<url value="http://hl7.org/fhir/ValueSet/example"/>
-	<!--   an imaginary identifier. This is a non FHIR identifier - might be used in a 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/example"/>
+	<!--   an imaginary identifier. This is a non FHIR identifier - might be used in a
 	  v2 context (though you always need to translate namespaces for v2)   -->
 	<identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -12,8 +14,8 @@
 		<system value="http://acme.com/identifiers/valuesets"/>
 		<value value="loinc-cholesterol-int"/>
 	</identifier>
-	<!--   for version, we are going to simply use the day of publication. This is also 
-    arbitrary - whatever is here is what people use to refer to the version. 
+	<!--   for version, we are going to simply use the day of publication. This is also
+    arbitrary - whatever is here is what people use to refer to the version.
     Could also be a UUID too   -->
 	<version value="20150622"/>
 	<!--   set of loinc codes for cholesterol for LONC 2.36   -->
@@ -41,14 +43,14 @@
       <comparator value="&gt;"/>
       <unit value="yrs"/>
       <system value="http://unitsofmeasure.org"/>
-      <code value="a"/>      
+      <code value="a"/>
     </valueQuantity>
   </useContext>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="US"/>
-    </coding>  
+    </coding>
   </jurisdiction>
   <purpose value="This value set was published by ACME Inc in order to make clear which codes are used for Cholesterol by AcmeClinicals (Adult Ambulatory care support in USA)"/>
 	<copyright value="This content from LOINC ® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
@@ -89,7 +91,7 @@
 			<!-- <code value="14647-2"/> -->
 			<display value="Cholesterol [Moles/volume] in Serum or Plasma"/>
 <!-- ======================================== -->
- 
+
 		</contains>
 	</expansion>
 </ValueSet>
