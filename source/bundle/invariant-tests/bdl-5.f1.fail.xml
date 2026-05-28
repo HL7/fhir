@@ -3,7 +3,7 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd http://hl7.org/fhir ../../schema/bundle.xsd http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="bundle-example"/>
-  <type value="searchset"/>  
+  <type value="collection"/>
   <entry>
     <fullUrl value="https://example.com/base/MedicationRequest/3123"/>
   </entry>

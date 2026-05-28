@@ -25,7 +25,7 @@
       </MedicationRequest>
     </resource>
     <request>
-      <method value="delete"/>
+      <method value="DELETE"/>
       <url value="MedicationRequest/3123"/>
     </request>
   </entry>

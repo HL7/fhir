@@ -3,9 +3,32 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd http://hl7.org/fhir ../../schema/bundle.xsd http://hl7.org/fhir ../../schema/medicationrequest.xsd"
  xmlns="http://hl7.org/fhir">
   <id value="bundle-example"/>
+  <identifier>
+    <system value="http://example.org/documents"/>
+    <value value="bundle-example"/>
+  </identifier>
   <type value="document"/>
+  <timestamp value="2024-01-01T00:00:00Z"/>
+  <entry>
+    <fullUrl value="https://example.com/base/Composition/document"/>
+    <resource>
+      <Composition>
+        <id value="document"/>
+        <status value="final"/>
+        <type>
+          <text value="Example document"/>
+        </type>
+        <date value="2024-01-01T00:00:00Z"/>
+        <author>
+          <display value="Example author"/>
+        </author>
+        <title value="Example document"/>
+      </Composition>
+    </resource>
+  </entry>
   <issues>
     <OperationOutcome>
+      <id value="bundle-issues"/>
       <issue>
         <severity value="error"/>
         <code value="invariant"/>
