@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A scientific study intended to increase health-related knowledge. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
+  <description value="A research study is a scientific investigation designed to generate health-related knowledge. This can include clinical trials involving human participants (or animals in the case of veterinary clinical trials). These studies may be related to new ways to screen, prevent, diagnose, and treat disease. Research studies may also analyze data collected from individuals in the past (retrospective studies) or future (prospective studies) to understand specific outcomes or trends in particular populations."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="BRIDG5.1"/>

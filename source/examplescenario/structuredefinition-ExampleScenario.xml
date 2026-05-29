@@ -48,7 +48,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A walkthrough of a workflow showing the interaction between systems and the instances shared, possibly including the evolution of instances over time."/>
+  <description value="A computable description of the actors, interactions between those actors that would occur, and concrete examples of the data that would be exchanged in a specific hypothetical exchange, typically used to help demonstrate the interoperability expectations of a specification.  This resource is used to illustrate a specific time-based exchange, not to define in general terms how exchanges can/should occur."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>

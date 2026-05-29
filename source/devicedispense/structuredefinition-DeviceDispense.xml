@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/medication/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Indicates that a device is to be or has been dispensed for a named person/patient.  This includes a description of the product (supply) provided and the instructions for using the device."/>
+  <description value="A record of dispensation of a device - i.e., assigning a device to a patient, or to a professional for their use."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>

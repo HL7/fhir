@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A record of a non-patient specific request for a medication, substance, device, certain types of biologically derived product, and nutrition product used in the healthcare setting."/>
+  <description value="A record of a request to deliver a medication, substance or device used in the healthcare setting to a particular destination for a particular person or organization."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>

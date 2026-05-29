@@ -49,7 +49,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="This is a specialized resource that defines the characteristics and capabilities of a device."/>
+  <description value="The definition of a kind of device or device component. Typically, this definition corresponds to a device model although it may be a broader category of device."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>

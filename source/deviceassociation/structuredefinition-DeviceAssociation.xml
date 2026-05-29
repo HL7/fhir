@@ -36,7 +36,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A record of association of a device."/>
+  <description value="A record of association or dissociation of a device with a subject (e.g. patient) and/or operator."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>

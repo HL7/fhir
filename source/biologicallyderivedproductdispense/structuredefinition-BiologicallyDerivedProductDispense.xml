@@ -36,7 +36,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A record of dispensation of a biologically derived product."/>
+  <description value="This resource reflects an instance of a biologically derived product dispense. The supply or dispense of a biologically derived product from the supply organization or department (e.g. hospital transfusion laboratory) to the clinical team responsible for clinical application."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>
