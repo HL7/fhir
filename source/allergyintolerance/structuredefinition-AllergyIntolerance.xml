@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance."/>
+  <description value="Risk of harmful or undesirable physiological response which is specific to an individual and associated with exposure to a substance."/>
   <purpose value="To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
