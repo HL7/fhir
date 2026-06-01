@@ -201,7 +201,7 @@ the section about <a href="extensibility.html#primitives">Extensions on Primitiv
 
 <tr>
   <td>id<a name="id"></a></td>
-  <td>Any combination of upper- or lower-case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.)</td>
+  <td>Any combination of upper- or lower-case ASCII letters ('A'..'Z', and 'a'..'z', numerals ('0'..'9'), '-' and '.', with a length limit of 64 characters.  (This might be an integer, an un-prefixed OID, UUID or any other identifier pattern that meets these constraints.) No whitespace characters are allowed.</td>
   <td>xs:string</td>
   <td>JSON string</td>
 </tr>
@@ -427,6 +427,7 @@ Notes:
  <li>About the id datatype:
    <ul>
      <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters.</li>
+     <li>Ids SHALL NOT contain whitespace characters (including spaces, tabs, carriage returns, line feeds, and non-breaking spaces).</li>
      <li>The ID type includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.</li>
      <li>In a typical FHIR URL, like <code>http://example.com/fhir/Patient/<span style="color: maroon">1234</span></code>, the last part "1234" (highlighted in red) is the part that is an id datatype.</li>
      <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b).</li>
