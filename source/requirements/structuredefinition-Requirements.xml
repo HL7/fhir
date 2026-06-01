@@ -48,7 +48,7 @@
       <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A set of requirements - a list of features or behaviors of designed systems that are necessary to achieve organizational or regulatory goals."/>
+  <description value="The Requirements resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>

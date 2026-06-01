@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Record of movement of supplies from one location to another."/>
+  <description value="Record of delivery of what is supplied."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>

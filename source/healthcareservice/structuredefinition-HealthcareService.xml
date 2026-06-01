@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The details of a healthcare service available at a location."/>
+  <description value="The details of a healthcare service available at a location or in a catalog.  In the case where there is a hierarchy of services (for example, Lab -&gt; Pathology -&gt; Wound Cultures), this can be represented using a set of linked HealthcareServices."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>

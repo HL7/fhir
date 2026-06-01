@@ -44,7 +44,7 @@
       <value value="http://www.hl7.org/Special/committees/imagemgt/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A GenomicStudy is a set of analyses performed to analyze and generate genomic data."/>
+  <description value="A set of analyses performed to analyze and generate genomic data."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>

@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A task to be performed as a part of a workflow and the related informations like inputs, outputs and execution progress. While very simple workflows can be implemented with [[[Request]]] alone, most workflows would require a Task (explicit or contained) as a means to track the execution progress (i.e. inputs, outputs, status). Please refer to [Fulfillment/Execution](request.html#fulfillment)."/>
+  <description value="A task to be performed as a part of a workflow and the related information like inputs, outputs and execution progress."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>

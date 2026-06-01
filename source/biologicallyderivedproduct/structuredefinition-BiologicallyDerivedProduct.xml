@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="This resource reflects an instance of a biologically derived product. A material substance originating from a biological entity intended to be transplanted or infused&#xA;into another (possibly the same) biological entity."/>
+  <description value="A biological material originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="rim"/>

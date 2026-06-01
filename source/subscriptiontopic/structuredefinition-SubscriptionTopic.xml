@@ -48,7 +48,7 @@
 			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
 		</telecom>
 	</contact>
-	<description value="Describes a stream of resource state changes or events and annotated with labels useful to filter projections from this topic."/>
+	<description value="Describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic."/>
 	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="workflow"/>

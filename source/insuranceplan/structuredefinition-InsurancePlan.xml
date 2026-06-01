@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="InsurancePlan describes the costs to the subscriber or beneficiary associated with benefits, as well as additional information about the offering, such as who administers the plan, a coverage area, contact information, etc.  The specific benefits covered by the plan are described in the `InsuranceProduct` referenced in `InsurancePlan.product`."/>
+  <description value="Details of a Health Insurance plan provided by an organization under an InsuranceProduct."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>

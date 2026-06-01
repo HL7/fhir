@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The Transport resource represents the movement or transportation of individuals and items (such materials and equipment) within a healthcare setting. It encompasses both planned and completed transport events."/>
+  <description value="Record of transport."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="workflow"/>
