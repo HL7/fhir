@@ -80,7 +80,7 @@
     <element id="MedicationKnowledge">
       <path value="MedicationKnowledge"/>
       <short value="Definition of Medication Knowledge"/>
-      <definition value="Information about a medication that is used to support knowledge."/>
+
       <min value="0"/>
       <max value="*"/>
       <mapping>

@@ -56,7 +56,7 @@
     <element id="Resource">
       <path value="Resource"/>
       <short value="Base Resource"/>
-      <definition value="This is the base resource type for everything."/>
+
       <min value="0"/>
       <max value="*"/>
       <mapping>

@@ -83,7 +83,7 @@
     <element id="TerminologyCapabilities">
       <path value="TerminologyCapabilities"/>
       <short value="A statement of system capabilities"/>
-      <definition value="A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

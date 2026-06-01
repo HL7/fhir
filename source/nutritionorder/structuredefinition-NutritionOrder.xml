@@ -78,7 +78,7 @@
     <element id="NutritionOrder">
       <path value="NutritionOrder"/>
       <short value="Diet, formula or nutritional supplement request"/>
-      <definition value="A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to an individual or group."/>
+
       <comment value="Referenced by an Order Request (workflow)."/>
       <alias value="Nutrition Order"/>
       <alias value="Diet Order"/>

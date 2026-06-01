@@ -87,7 +87,7 @@
     <element id="MedicationRequest">
       <path value="MedicationRequest"/>
       <short value="Ordering of medication for patient or group"/>
-      <definition value="An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called &quot;MedicationRequest&quot; rather than &quot;MedicationPrescription&quot; or &quot;MedicationOrder&quot; to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns."/>
+
       <alias value="Prescription"/>
       <alias value="Order"/>
       <min value="0"/>

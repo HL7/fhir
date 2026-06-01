@@ -77,7 +77,7 @@
     <element id="PaymentReconciliation">
       <path value="PaymentReconciliation"/>
       <short value="PaymentReconciliation resource"/>
-      <definition value="This resource provides the details including amount of a payment and allocates the payment items being paid."/>
+
       <min value="0"/>
       <max value="*"/>
       <mapping>

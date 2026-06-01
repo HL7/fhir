@@ -83,7 +83,7 @@
 		<element id="SubscriptionTopic">
 			<path value="SubscriptionTopic"/>
 			<short value="The definition of a specific topic for triggering events within the Subscriptions framework"/>
-			<definition value="Describes a stream of resource state changes or events and annotated with labels useful to filter projections from this topic."/>
+
 			<min value="0"/>
 			<max value="*"/>
 			<mapping>

@@ -82,7 +82,7 @@
     <element id="BiologicallyDerivedProduct">
       <path value="BiologicallyDerivedProduct"/>
       <short value="This resource reflects an instance of a biologically derived product"/>
-      <definition value="This resource reflects an instance of a biologically derived product. A material substance originating from a biological entity intended to be transplanted or infused&#xA;into another (possibly the same) biological entity."/>
+
       <comment value="Substances include, but are not limited to: whole blood, bone marrow, organs, and manipulated blood cells."/>
       <min value="0"/>
       <max value="*"/>

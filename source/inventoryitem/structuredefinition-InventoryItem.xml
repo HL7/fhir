@@ -67,7 +67,7 @@
     <element id="InventoryItem">
       <path value="InventoryItem"/>
       <short value="A functional description of an inventory item used in inventory and supply-related workflows"/>
-      <definition value="A functional description of an inventory item used in inventory and supply-related workflows."/>
+
       <min value="0"/>
       <max value="*"/>
       <mapping>

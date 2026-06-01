@@ -79,7 +79,7 @@
     <element id="ExampleScenario">
       <path value="ExampleScenario"/>
       <short value="A computable description of a set of actors and the interactions between those actors"/>
-      <definition value="A computable description of the actors, interactions between those actors that would occur, and concrete examples of the data that would be exchanged in a specific hypothetical exchange, typically used to help demonstrate the interoperability expectations of a specification.  This resource is used to illustrate a specific time-based exchange, not to define in general terms how exchanges can/should occur."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

@@ -85,7 +85,7 @@
     <element id="ImagingStudy">
       <path value="ImagingStudy"/>
       <short value="A set of images or image-related data produced in single study"/>
-      <definition value="Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study can have multiple series of different modality values."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

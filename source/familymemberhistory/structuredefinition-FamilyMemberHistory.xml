@@ -77,7 +77,7 @@
     <element id="FamilyMemberHistory">
       <path value="FamilyMemberHistory"/>
       <short value="Information about patient's relatives, relevant for patient"/>
-      <definition value="Significant health conditions for a person related to the patient relevant in the context of care for the patient."/>
+
       <min value="0"/>
       <max value="*"/>
 <!--  <constraint>
@@ -248,7 +248,7 @@
         <map value="participation[typeCode=AUT].time"/>
       </mapping>
     </element>
-	
+
 	<element id="FamilyMemberHistory.recorder">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="GF#14007, J#34394, J#39602, J#41403, J#52911"/>

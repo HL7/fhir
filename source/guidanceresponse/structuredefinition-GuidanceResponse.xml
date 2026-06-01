@@ -73,7 +73,7 @@
     <element id="GuidanceResponse">
       <path value="GuidanceResponse"/>
       <short value="The formal response to a guidance request"/>
-      <definition value="A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken."/>
+
       <min value="0"/>
       <max value="*"/>
       <mapping>

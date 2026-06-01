@@ -74,7 +74,7 @@
 		<element id="SpecimenDefinition">
 			<path value="SpecimenDefinition"/>
 			<short value="Kind of specimen"/>
-			<definition value="A kind of specimen with associated set of requirements."/>
+
 			<min value="0"/>
 			<max value="*"/>
 			<mapping>

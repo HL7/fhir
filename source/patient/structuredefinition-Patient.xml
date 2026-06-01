@@ -96,7 +96,7 @@
     <element id="Patient">
       <path value="Patient"/>
       <short value="Information about an individual or animal receiving health care services"/>
-      <definition value="Demographics and other administrative information about an individual or animal that is the subject of potential, past, current, or future health-related care, services, or processes."/>
+
       <alias value="SubjectOfCare Client Resident"/>
       <min value="0"/>
       <max value="*"/>

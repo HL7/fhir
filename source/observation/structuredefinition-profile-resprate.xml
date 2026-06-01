@@ -80,7 +80,7 @@
     <element id="Observation">
       <path value="Observation"/>
       <short value="FHIR Respiratory Rate Profile"/>
-      <definition value="This profile defines  how to represent Respiratory Rate observations in FHIR using a standard LOINC code and UCUM units of measure."/>
+
       <constraint>
         <key value="vs-4"/>
         <severity value="error"/>

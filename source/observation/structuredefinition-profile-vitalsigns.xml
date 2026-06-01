@@ -80,7 +80,7 @@
     <element id="Observation">
       <path value="Observation"/>
       <short value="FHIR Vital Signs Base Profile"/>
-      <definition value="The FHIR Vitals Signs base profile sets minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient."/>
+
       <alias value="Vital Signs"/>
       <alias value="Measurement"/>
       <alias value="Results"/>

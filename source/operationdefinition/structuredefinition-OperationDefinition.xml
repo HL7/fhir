@@ -82,7 +82,7 @@
     <element id="OperationDefinition">
       <path value="OperationDefinition"/>
       <short value="Definition of an operation or a named query"/>
-      <definition value="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

@@ -68,7 +68,7 @@
     <element id="Basic">
       <path value="Basic"/>
       <short value="Resource for non-supported content"/>
-      <definition value="Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification."/>
+
       <alias value="Z-resource"/>
       <alias value="Extension-resource"/>
       <alias value="Custom-resource"/>

@@ -82,7 +82,7 @@
     <element id="RiskAssessment">
       <path value="RiskAssessment"/>
       <short value="Potential outcomes for a subject with likelihood"/>
-      <definition value="An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome."/>
+
       <alias value="Prognosis"/>
       <min value="0"/>
       <max value="*"/>

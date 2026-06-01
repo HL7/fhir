@@ -77,7 +77,7 @@
     <element id="Consent">
       <path value="Consent"/>
       <short value="A healthcare consumer's  or third party's choices to permit or deny recipients or roles to perform actions for specific purposes and periods of time"/>
-      <definition value="A record of a healthcare consumer’s  choices  or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time."/>
+
       <comment value="Broadly, there are 3 key areas of consent for patients: Consent around sharing information (aka Privacy Consent Directive - Authorization to Collect, Use, or Disclose information), consent for specific treatment, or kinds of treatment and consent for research participation and data sharing."/>
       <min value="0"/>
       <max value="*"/>
@@ -109,7 +109,7 @@
         <expression value="provision.exists() implies decision.exists()"/>
       </constraint>
     </element>
-    
+
     <element id="Consent.identifier">
       <path value="Consent.identifier"/>
       <short value="Identifier for this record (external references)"/>
