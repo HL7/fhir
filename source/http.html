@@ -857,7 +857,7 @@ on how many matches are found:
 </p>
 <ul>
  <li><b>No matches, no id provided</b>: The server creates the resource.</li>
- <li><b>No matches, id provided and doesn't already exist</b>: The server treats the interaction as an <a href="#upsert">Update as Create</a> interaction (or rejects it, if it does not support Update as Create)</li>
+ <li><b>No matches, id provided and does not already exist</b>: The server treats the interaction as an <a href="#upsert">Update as Create</a> interaction (or rejects it, if it does not support Update as Create)</li>
  <li><b>No matches, id provided and already exist</b>: The server rejects the update with a <code>409 Conflict</code> error</li>
  <li><b>One Match, no resource id provided OR (resource id provided and it matches the found resource)</b>: The server performs the update against the matching resource as above where, if the resource was updated, the server SHALL return a <code>200 OK</code>; if the resource was created, the server SHALL return a <code>201 Created</code>; and, the server SHALL also return a <code>Location</code> header which contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of the created resource version</li>
  <li><b>One Match, resource id provided but does not match resource found</b>: The server returns a <code>400 Bad Request</code> error indicating the client id specification was a problem preferably with an OperationOutcome</li>
@@ -1788,7 +1788,7 @@ once (by identity).
 </p>
 <p>
 Because of the rules that a transaction is atomic where all actions pass or fail
-together and the order of the entries doesn't matter, there is a particular order in which to process the actions:
+together and the order of the entries does not matter, there is a particular order in which to process the actions:
 </p>
 <ol>
  <li>Process any <a href="#delete"><code>delete</code></a> (DELETE) interactions</li>
@@ -2200,7 +2200,7 @@ that they do not understand will be maintained through the update.
 Notes:
 </p>
 <ul>
- <li>A server MAY to choose to maintain the information that would be lost, but there is no defined way for a server to determine whether the client omitted the information because it wasn't supported (perhaps in this case) or whether it wishes to delete the information.</li>
+ <li>A server MAY to choose to maintain the information that would be lost, but there is no defined way for a server to determine whether the client omitted the information because it was not supported (perhaps in this case) or whether it wishes to delete the information.</li>
  <li>If a server has changed the content of the resource from what was submitted before the it was stored, the server SHOULD either return the stored resource (regardless of the <code>PREFER</code> response header) or omit the <code>ETag</code> from the response.</li>
  <li>If a client receives a copy of the resource in the response body of a create, update or patch, it SHOULD use the returned content as the basis for subsequent update or patch requests.</li>
  <li>This behavior might not be strictly necessary if out-of-band agreements are in place to ensure data consistency is maintained.</li>

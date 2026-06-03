@@ -441,7 +441,7 @@
       </type>
       <meaningWhenMissing value="List items are generally only treated as deleted when this element explicitly carries a value of true. Systems SHOULD always populate this value when mode is 'changes'"/>
       <isModifier value="true"/>
-      <isModifierReason value="If deleted is true, then the item included in the list isn't actually part of the list anymore"/>
+      <isModifierReason value="If deleted is true, then the item included in the list is not actually part of the list anymore"/>
       <mapping>
         <identity value="rim"/>
         <map value="added: .updateMode=(&quot;A&quot;,&quot;AR&quot;)  retained: .updateMode=&quot;NC&quot;  updated: .updateMode=&quot;R&quot;  deleted: .updateMode=&quot;D&quot;"/>

@@ -94,7 +94,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be relevant in delivering the requested service."/>
-            <resource value="Reference to the program or plan identification, underwriter or payor."/>
+            <resource value="Reference to the program or plan identification, underwriter or payer."/>
         </definitionUnmatched>
     </divergentElement>
     <unmappedElement patternPath="Request.intent" reason="Unknown"/>

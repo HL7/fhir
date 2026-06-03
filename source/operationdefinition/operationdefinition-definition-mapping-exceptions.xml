@@ -31,7 +31,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Definition.description" resourcePath="OperationDefinition.description">
-        <summary _pattern="true" _resource="false" reason="Resource wasn't in summary when it went normative"/>
+        <summary _pattern="true" _resource="false" reason="Resource was not in summary when it went normative"/>
         <commentsUnmatched reason="Added additional resource-specific context">
             <_pattern value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the operation definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
             <resource value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the operation definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the operation definition is presumed to be the predominant language in the place the operation definition was created)."/>

@@ -174,7 +174,7 @@ resources, meaning they are only identified relative to another resource and can
 otherwise manipulated on their own.  A HL7 V2 to FHIR conversion process will need to make the determination
 of what data elements are or must be present, for a resource to be fully identified.  In some cases, the
 determination will be done at the time of mapping.  In other cases, it may depend on the content of a
-particular instance. As an example, an XCN containing just a name (<code>|^Smith^John|</code>) doesn't
+particular instance. As an example, an XCN containing just a name (<code>|^Smith^John|</code>) does not
 contain enough information to discern the physician from any other John Smith, so will need to be
 a contained resource, whereas an XCN of <code>|12345^Smith^John|</code> generally does, though the conversion
 process will need to be aware of the scope and management processes around the identifier.

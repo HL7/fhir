@@ -18,6 +18,7 @@
 		  <li>Non-Substantive Changes
 			<ul>
 			  <li><a href="https://jira.hl7.org/browse/FHIR-47823">FHIR-47823</a>: Add ventilator setting example</li>
+			  <li><a href="https://jira.hl7.org/browse/FHIR-55015">FHIR-55015</a>: Clarified performer period definition</li>
 			</ul>
 		  </li>
 		</ul>
