@@ -1689,8 +1689,16 @@ This table summarizes some common uses of the Timing Datatype criteria.
 <p>
 Note that there are two offsets here: <code>offset</code> which specifies the offset from <code>event</code>, where the event 
 property relates to a regular event, such as before meals. The other kind of offset is <code>startOffset</code> and <code>endOffset</code>
-which relate to the regular events within the repeat window: if they occur with frequency > 1, the start and end offsets impose a 
-gap in the schedule - see <a href="dosage.html#examples">Dosage Examples</a> for usage.
+which relate to the regular events within the repeat window: where used, they require both <code>frequency > 1</code> and <code>period</code>,
+and impose a gap in the schedule - see <a href="dosage.html#examples">Dosage Examples</a> for usage.
+</p>
+<p>
+<b>Periods with start or end offsets</b>: If a <code>Timing.repeat</code> has a <code>startOffset</code> and/or an <code>endOffset</code>, it
+must have a <code>period</code> that indicates the duration the offset is with respect to. In cases without offsets, the frequency indicates
+the number of occurrences that happen across the entire period. If offsets are present, the frequency indicates the number of occurrences
+that happen across the period less the offsets. For example, if period is 28 days with no offsets, a frequency of 21 would equate to
+"3 repetitions every 4 days". However, if an <code>endOffset</code> of 7 days were present, that same frequency would now equate to
+"1 repetition per day" because the effective period would be 28 days - 7 end-offset days = 21 days.
 </p>
 <p>
 This table shows the relationship between the <a href="valueset-timing-abbreviation.html">codes provided as

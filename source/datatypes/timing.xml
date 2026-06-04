@@ -1191,7 +1191,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Events within the repeat period do not start until startOffset has elapsed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates that the events within the period of the repeat do not start until startOffset has elapsed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates that the events within the period of the repeat do not start until startOffset has elapsed. Requires both frequency and period to define the repeat cycle. See notes: Periods with start or end offsets.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">This element is defined to support interlaced schedules, e.g. for different actions that happen on different days, but that have repeat cycles that are tied together by the context. This is a usually encountered in Dosages</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1215,8 +1215,8 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Events within the repeat period step once endOffset before the end of the period</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates that the events within the period of the repeat step endOffset before the period ends</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Events within the repeat period stop once endOffset before the end of the period</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates that the events within the period of the repeat stop endOffset before the period ends. Requires both frequency and period to define the repeat cycle. See notes: Periods with start or end offsets.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">This element is defined for medication schedules that cycle like 'do something for X days, and then stop for Y days'. This can only apply where the window for repeats has a defined or known end time</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3720,9 +3720,9 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">startOffset</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Timing.repeat</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Only use startOffset when frequency is present and &gt; 1</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Only use startOffset when frequency is present and &gt; 1, and period is present</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">startOffset.exists() implies (frequency &gt; 1)</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">startOffset.exists() implies (frequency &gt; 1 and period.exists())</Data></Cell>
     <Cell ss:StyleID="s105"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3730,9 +3730,9 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">endOffset1</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Timing.repeat</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Only use endOffset when frequency is present and &gt; 1</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Only use endOffset when frequency is present and &gt; 1, and period is present</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">endOffset.exists() implies (frequency &gt; 1)</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">endOffset.exists() implies (frequency &gt; 1 and period.exists())</Data></Cell>
     <Cell ss:StyleID="s105"/>
    </Row>
    <Row ss:AutoFitHeight="0">
