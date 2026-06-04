@@ -234,14 +234,25 @@
     </element>
     <element id="DeviceAssociation.bodyStructure">
       <path value="DeviceAssociation.bodyStructure"/>
-      <short value="Current anatomical location of the device in/on subject"/>
-      <definition value="Current anatomical location of the device in/on subject."/>
+      <short value="Current anatomical location(s) of the device in/on subject"/>
+      <definition value="Current anatomical location(s) of the device in/on subject."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructure"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Codes describing anatomical body structures. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body Structures"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
     </element>
     <element id="DeviceAssociation.period">
       <path value="DeviceAssociation.period"/>
