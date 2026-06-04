@@ -6432,7 +6432,7 @@
      <Cell ss:StyleID="s118"/>
      <Cell ss:StyleID="s151"/>
      <Cell ss:StyleID="s151"><Data ss:Type="String">Approximately</Data></Cell>
-     <Cell ss:StyleID="s151"><Data ss:Type="String">The actual value is approximately equal to the given value.</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">The actual value is approximately equal to the given value. A recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate. Systems SHOULD use the Quantity Confidence Interval extension (http://hl7.org/fhir/StructureDefinition/quantity-confidenceInterval) to provide more detail when possible.</Data></Cell>
      <Cell ss:StyleID="s131"/>
      <Cell ss:StyleID="s131"/>
      <Cell ss:StyleID="s142"/>
