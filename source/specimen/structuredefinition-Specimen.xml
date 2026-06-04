@@ -592,23 +592,23 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
       </type>
       <condition value="spm-1"/>
     </element>
-    <element id="Specimen.collection.bodySite">
+    <element id="Specimen.collection.bodyStructure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#6253."/>
       </extension>
-      <path value="Specimen.collection.bodySite"/>
+      <path value="Specimen.collection.bodyStructure"/>
       <short value="Anatomical collection site"/>
       <definition value="Anatomical location from which the specimen was collected (if subject is a patient). This is the target site.  This element is not used for environmental specimens."/>
-      <comment value="Reasons for using BodyStructure reference include: 1.) Need to identify a specific site instance (e.g. a specific mole), 2.) a single pre-coordinated coded concept for the body site does not exist, 3.) a desire to represent bodySite using multiple attributes (e.g. modifiers)."/>
+      <comment value="Reasons for using a BodyStructure reference include: 1.) Need to identify a specific site instance (e.g. a specific mole), 2.) a single pre-coordinated coded concept for the body structure does not exist, 3.) a desire to represent the body structure using multiple attributes (e.g. modifiers)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodySite"/>
+          <valueString value="BodyStructure"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="Codes describing anatomical locations. May include laterality."/>
