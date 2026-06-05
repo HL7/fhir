@@ -1350,7 +1350,7 @@
 		</element>
 		<element id="CapabilityStatement.rest.interaction.code">
 			<path value="CapabilityStatement.rest.interaction.code"/>
-			<short value="transaction | batch | search-system | history-system"/>
+			<short value="transaction | batch | search-system | history-system | other"/>
 			<definition value="A coded identifier of the interaction, supported by the system."/>
 			<min value="1"/>
 			<max value="1"/>
