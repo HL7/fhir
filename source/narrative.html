@@ -246,16 +246,10 @@ When <code>fullUrl</code> references are used, the referenced resource has to be
 <a name="internal"></a>
 <h3>References to other resources</h3>
 <p>
-A narrative may include a link to another resource by using an <code>&lt;a/&gt;</code> tag with the <code>href</code>
-being a relative or absolute reference to the target resource. When navigating such a link, the system displaying
-the narrative SHOULD make available the target resource via its normal resource rendering mechanism.
+Guidance about references between narrative text and structured data is consolidated in
+<a href="#linking">Linking between Data and Narrative</a> below, including how links to other resources
+in a Bundle are represented.
 </p>
-<p>
-E.g.
-</p>
-<pre class="xml">
-&lt;p&gt;Patient: &lt;a href="Patient/example"&gt;(link)&lt;/a&gt;&lt;/p&gt;
-</pre>
 
 <a name="linking"></a>
 <h3>Linking between Data and Narrative</h3>
@@ -266,6 +260,23 @@ This specification defines the extensions <a href="[%extensions-location%]Struct
 to establish these links. Here's an example of using
 originalText:
 </p>
+<p>
+A narrative may include a link to another resource by using an <code>&lt;a/&gt;</code> tag with the <code>href</code>
+being a relative or absolute reference to the target resource (for example, <code>Patient/1</code>).
+These are resource references, not XML ID/IDREF references.
+When navigating such a link, the system displaying the narrative SHOULD make available
+the target resource via its normal resource rendering mechanism.
+</p>
+<p>
+IDs used in narrative fragments (for example, <code>&lt;span id="a1"/&gt;</code> referenced by <code>#a1</code>)
+are local to that narrative fragment and do not establish a shared ID scope across resources in a Bundle.
+</p>
+<p>
+E.g.
+</p>
+<pre class="xml">
+&lt;p&gt;Patient: &lt;a href="Patient/example"&gt;(link)&lt;/a&gt;&lt;/p&gt;
+</pre>
 <pre class="json">
 {
   "resourceType" : "Condition",
