@@ -987,7 +987,7 @@
 		</element>
 		<element id="CapabilityStatement.rest.resource.interaction.code">
 			<path value="CapabilityStatement.rest.resource.interaction.code"/>
-			<short value="read | vread | update | update-conditional | patch | patch-conditional | delete | delete-conditional-single | delete-conditional-multiple | delete-history | delete-history-version | history-instance | history-type | create | create-conditional | search-type"/>
+			<short value="read | vread | read-conditional-modified-since | read-conditional-not-match | update | update-conditional | patch | patch-conditional | delete | delete-conditional-single | delete-conditional-multiple | delete-history | delete-history-version | history-instance | history-type | create | create-conditional | search-type"/>
 			<definition value="Coded identifier of the interaction, supported by the system resource."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -1059,10 +1059,17 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalCreate">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = create-conditional` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalCreate"/>
-			<short value="If allows/uses conditional create"/>
-			<definition value="A flag that indicates that the server supports conditional create."/>
-			<comment value="Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: If allows/uses conditional create"/>
+			<definition value="DEPRECATED: A flag that indicates that the server supports conditional create. Use interaction.code = create-conditional instead."/>
+			<comment value="DEPRECATED: Use interaction.code = create-conditional instead. Conditional Create is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1070,10 +1077,17 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalRead">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = read-conditional-modified-since` and `interaction.code = read-conditional-not-match` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalRead"/>
-			<short value="not-supported | modified-since | not-match | full-support"/>
-			<definition value="A code that indicates how the server supports conditional read."/>
-			<comment value="Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: not-supported | modified-since | not-match | full-support"/>
+			<definition value="DEPRECATED: A code that indicates how the server supports conditional read. Use interaction codes read-conditional-modified-since and read-conditional-not-match instead."/>
+			<comment value="DEPRECATED: Use interaction codes read-conditional-modified-since and read-conditional-not-match instead. Conditional Read is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1089,10 +1103,17 @@
 			</binding>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalUpdate">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = update-conditional` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalUpdate"/>
-			<short value="If allows/uses conditional update"/>
-			<definition value="A flag that indicates that the server supports conditional update."/>
-			<comment value="Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: If allows/uses conditional update"/>
+			<definition value="DEPRECATED: A flag that indicates that the server supports conditional update. Use interaction.code = update-conditional instead."/>
+			<comment value="DEPRECATED: Use interaction.code = update-conditional instead. Conditional Update is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1100,10 +1121,17 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalPatch">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = patch-conditional` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalPatch"/>
-			<short value="If allows/uses conditional patch"/>
-			<definition value="A flag that indicates that the server supports conditional patch."/>
-			<comment value="Conditional Patch is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: If allows/uses conditional patch"/>
+			<definition value="DEPRECATED: A flag that indicates that the server supports conditional patch. Use interaction.code = patch-conditional instead."/>
+			<comment value="DEPRECATED: Use interaction.code = patch-conditional instead. Conditional Patch is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1111,10 +1139,17 @@
 			</type>
 		</element>
 		<element id="CapabilityStatement.rest.resource.conditionalDelete">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated">
+					<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+						<valueMarkdown value="Use `interaction.code = delete-conditional-single` and `interaction.code = delete-conditional-multiple` instead"/>
+					</extension>
+				</valueCode>
+			</extension>
 			<path value="CapabilityStatement.rest.resource.conditionalDelete"/>
-			<short value="not-supported | single | multiple - how conditional delete is supported"/>
-			<definition value="A code that indicates how the server supports conditional delete."/>
-			<comment value="Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
+			<short value="DEPRECATED: not-supported | single | multiple - how conditional delete is supported"/>
+			<definition value="DEPRECATED: A code that indicates how the server supports conditional delete. Use interaction codes delete-conditional-single and delete-conditional-multiple instead."/>
+			<comment value="DEPRECATED: Use interaction codes delete-conditional-single and delete-conditional-multiple instead. Conditional Delete is mainly appropriate for interface engine scripts converting from other formats, such as v2."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
