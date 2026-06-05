@@ -572,8 +572,8 @@
 					<valueBoolean value="true"/>
 				</extension>
 				<strength value="required"/>
-				<description value="One of the resource types defined as part of this version of FHIR."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+				<description value="One of the current or prior resource types defined as part of FHIR."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
 			</binding>
 		</element>
 		<element id="ImplementationGuide.global.profile">
