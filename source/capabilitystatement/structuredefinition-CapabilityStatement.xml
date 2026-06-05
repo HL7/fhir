@@ -643,7 +643,7 @@
 			<path value="CapabilityStatement.fhirVersion"/>
 			<short value="FHIR Version the system supports"/>
 			<definition value="The version of the FHIR specification that this CapabilityStatement describes (which SHALL be the same as the FHIR version of the CapabilityStatement itself). There is no default value."/>
-			<comment value="Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server's default version."/>
+			<comment value="Servers may implement multiple versions (see [Managing Multiple Versions](versioning.html), and the [$versions](capabilitystatement-operation-versions.html) operation). If they do, and the CapabilityStatement is requested from the server, then this fhirVersion will be either the version requested, or the server's default version. Tooling should treat this binding as version-independent, including for prior releases."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -656,6 +656,9 @@
 				</extension>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
 					<valueBoolean value="true"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+					<valueString value="This binding is version-independent. Use codes from the FHIR Version value set and interpret prior releases using the same version-independent binding semantics."/>
 				</extension>
 				<strength value="required"/>
 				<description value="All published FHIR Versions."/>
