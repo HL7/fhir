@@ -396,7 +396,43 @@ any logic associated with the actual event.</b> It is just for managing a set of
 It is possible to exchange messages using the RESTful
 end-point as a central point of exchange. This is not
 particularly efficient compared to other methods, but
-is useful for low-volume asynchronous exchange.
+is useful for low-volume asynchronous exchange (see <a href="#async">Asynchronous Application Responses</a>).
+</p>
+<a name="async"></a>
+<h4>Asynchronous Application Responses</h4>
+<p>
+Messaging intrinsically supports asynchronous processing at the payload level, rather than at the protocol level.
+In typical REST interactions, if a response is not ready right away, there is a need to use protocol-level
+<a href="async.html">asynchronous processing</a>. However, with messaging, responses can always be handled
+as another message payload from initial recipient to initial requester. As a result, there is no need to
+(and is rarely, if ever, appropriate to) use RESTful asynchronous processing in situations where an immediate
+business response cannot be provided.
+</p>
+<p>
+If the system responding to a message might not be able to fully process the event in the timeframe required by
+the transport technology (e.g. before an HTTP timeout), there are two possibilities:
+</p>
+<ul>
+  <li>In some cases the <a href="messagedefinition.html">MessageDefinition</a> for the original message might have an
+    <code>allowedResponse</code> that indicates the response is in progress, pended, or a similar business concept.
+    In that case, such a response can be included as the response body of the initial 200 OK.</li>
+  <li>In other cases, there will not be an appropriate message-level response available. In that situation,
+    the response to the initial <code>$submit-message</code> will simply be an HTTP 200 with no body.</li>
+</ul>
+<p>
+In either case, the eventual full response (if one is needed) is handled by transmitting a new message,
+this time from initial recipient to initial requester. In some cases, there could be a series of back-and-forth messages.
+</p>
+[%impl-note%]
+Previous releases used a combination of <code>Bundle.id</code> and <code>MessageHeader.id</code> in an attempt to
+establish message identity. This posed problems when crossing boundaries between messaging and RESTful exchange.
+This release uses <code>Bundle.identifier</code> exclusively to establish and maintain message identity.
+[%end-note%]
+<h4>Message Delivery without Operations</h4>
+<p>
+In a RESTful environment, rather than invoking a <code>$process-message</code> operation, it is possible to perform
+a create of message Bundles on a server and for recipients to poll or subscribe to receive messages and delete them
+once processed. Unlike request resources, messages always have an implicit "please process" for the recipient.
 </p>
 <p>
 To send a message, a sender posts the message bundle to the
