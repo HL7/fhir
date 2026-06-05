@@ -294,6 +294,20 @@
               <td>Search all resources of the specified type based on some filter criteria.</td>
             
             </tr>
+            
+            <tr>
+              
+              <td>
+                
+                <a href="codesystem-restful-interaction.html#restful-interaction-other">other</a>
+              
+              </td>
+              
+              <td>other</td>
+              
+              <td>An interaction type that is not one of the standard interaction types defined in this version of FHIR.</td>
+            
+            </tr>
           
           </table>
         
@@ -401,6 +415,9 @@
       </concept>
       <concept>
         <code value="search-type"/>
+      </concept>
+      <concept>
+        <code value="other"/>
       </concept>
     </include>
   </compose>

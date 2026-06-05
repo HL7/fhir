@@ -168,4 +168,9 @@
     <display value="operation"/>
     <definition value="Perform an operation as defined by an OperationDefinition."/>
   </concept>
+  <concept>
+    <code value="other"/>
+    <display value="other"/>
+    <definition value="An interaction type that is not one of the standard interaction types defined in this version of FHIR."/>
+  </concept>
 </CodeSystem>
