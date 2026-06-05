@@ -244,31 +244,88 @@ or intercepting the browser's events to provide the source of the image.
 When <code>fullUrl</code> references are used, the referenced resource has to be in the same bundle and implementations need to track referenced resources so the narrative can be rebuilt.
 [%end-note%]
 <a name="internal"></a>
-<h3>Internal Id References</h3>
+<h3>References to other resources</h3>
 <p>
-References between the narrative and the resource data (in either direction)
-are mediated by the XML <code>id</code>/<code>idref</code> attributes. in JSON, the property "id" is
-used which is equivalent to the XML attribute "id".
+A narrative may include a link to another resource by using an <code>&lt;a/&gt;</code> tag with the <code>href</code>
+being a relative or absolute reference to the target resource. When navigating such a link, the system displaying
+the narrative SHOULD make available the target resource via its normal resource rendering mechanism.
 </p>
 <p>
-The <code>id</code> attribute SHALL have a unique value <em>within the resource</em>
-with regard to any other id attributes: the uniqueness and resolution
-scope of these id references is within the resource that contains them.
-Contained resources are included in the id uniqueness scope of the
-resource that contains them.
+E.g.
 </p>
+<pre class="xml">
+&lt;p&gt;Patient: &lt;a href="Patient/example"&gt;(link)&lt;/a&gt;&lt;/p&gt;
+</pre>
+
+<a name="linking"></a>
+<h3>Linking between Data and Narrative</h3>
 <p>
-If multiple resources are combined into a single combined document,
-such as a <a href="bundle.html">Bundle</a>, duplicate
-values of the <code>id</code> attribute may occur between resources.
-This SHALL be managed by applications reading the resources.
+In some contexts, it is useful to link between the two representations of the same content: structured data, and human readable narrative.
+This can be used to assert that the text is a representation of the data, or specifically that the data is derived from some particular text.
+This specification defines the extensions <a href="[%extensions-location%]StructureDefinition-narrativeLink.html">narrativeLink</a> and <a href="[%extensions-location%]StructureDefinition-originalText.html">originalText</a>
+to establish these links. Here's an example of using
+originalText:
 </p>
+<pre class="json">
+{
+  "resourceType" : "Condition",
+  "text" : {
+    "status" : "generated",
+    "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;There is a history of &lt;span id=\"a1\"&gt;Asthma&lt;/span&gt;&lt;/div&gt;"
+  },
+  "code" : {
+    "coding" : {
+      "system" : "http://snomed.info/sct",
+      "code" : "195967001",
+      "display" : "Asthma (disorder)"
+    },
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/originalText",
+      "valueUrl" : "#a1"
+    }]
+  }
+}
+</pre>
 <p>
-Since images that are not contained in the resource cannot be guaranteed to be available 
-when the resource is presented to a user, the source for any images that are an essential 
-part of the narrative SHOULD always be embedded as a <a href="https://tools.ietf.org/html/rfc2397">data: url</a>, 
-in an attachment or a contained resource
+This indicates that the word "Asthma" in the narrative is the original text from which the SNOMED CT code "asthma"
+was derived by some text processing method. Typically, this method is associated with resources built from
+CDA documents. The same method can be used to reference across resource boundaries, e.g., between a resource
+and the composition that represents it:
 </p>
+<pre class="xml">
+&lt;Bundle xmlns="http://hl7.org/fhir"&gt;
+  &lt;entry&gt;
+    &lt;fullUrl value="http://example.org/fhir/Composition/abcdefghij"/&gt;
+    &lt;Composition&gt;
+      &lt;id value="c1"/&gt;
+      &lt;section&gt;
+        ...
+        &lt;text&gt;
+          &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
+            ...
+            &lt;p&gt;There is a history of &lt;span id="a1"&gt;Asthma&lt;/span&gt;&lt;/p&gt;
+            ...
+          &lt;/div&gt;
+        &lt;/text&gt;
+      &lt;/section&gt;
+    &lt;/Composition&gt;
+  &lt;/entry&gt;
+  &lt;entry&gt;
+    &lt;Condition&gt;
+      &lt;code&gt;
+        &lt;extension url="http://hl7.org/fhir/StructureDefinition/originalText"&gt;
+          &lt;valueUrl value="http://example.org/fhir/Composition/abcdefghij#a1"/&gt;
+        &lt;/extension&gt;
+        &lt;coding&gt;
+          &lt;system value="http://snomed.info/sct"/&gt;
+          &lt;code value="195967001"/&gt;
+          &lt;display value="Asthma (disorder)"/&gt;
+        &lt;/coding&gt;
+      &lt;/code&gt;
+    &lt;/Condition&gt;
+  &lt;/entry&gt;
+&lt;/Bundle&gt;
+</pre>
 
 <a name="css"></a>
 <h3>Styling the XHTML</h3>
@@ -362,78 +419,6 @@ It SHOULD be safe to view the narrative without these additional styling feature
 <p>
 Note that there are additional rules around styling for <a href="documents.html#css">documents</a> presentation.
 </p>
-
-<a name="linking"></a>
-<h3>Linking between Data and Narrative</h3>
-<p>
-In some contexts, it is useful to link between the two representations of the same content: structured data, and human readable narrative.
-This can be used to assert that the text is a representation of the data, or specifically that the data is derived from some particular text. 
-This specification defines the extensions <a href="[%extensions-location%]StructureDefinition-narrativeLink.html">narrativeLink</a> and <a href="[%extensions-location%]StructureDefinition-originalText.html">originalText</a> 
-to establish these links. Here's an example of using
-originalText:
-</p>
-<pre class="json">
-{
-  "resourceType" : "Condition",
-  "text" : {
-    "status" : "generated",
-    "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;There is a history of &lt;span id=\"a1\"&gt;Asthma&lt;/span&gt;&lt;/div&gt;" 
-  },
-  "code" : {
-    "coding" : {
-      "system" : "http://snomed.info/sct",
-      "code" : "195967001",
-      "display" : "Asthma (disorder)"
-    },
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/StructureDefinition/originalText",
-      "valueUrl" : "#a1"
-    }]
-  }
-}
-</pre>
-<p>
-This indicates that the word "Asthma" in the narrative is the original text from which the SNOMED CT code "asthma"
-was derived by some text processing method. Typically, this method is associated with resources built from 
-CDA documents. The same method can be used to reference across resource boundaries, e.g., between a resource
-and the composition that represents it:
-</p>
-<pre class="xml">
-&lt;Bundle xmlns="http://hl7.org/fhir"&gt;
-  &lt;entry&gt;
-    &lt;fullUrl value="http://example.org/fhir/Composition/abcdefghij"/&gt;
-    &lt;Composition&gt;
-      &lt;id value="c1"/&gt;
-      &lt;section&gt;
-        ...
-        &lt;text&gt;
-          &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
-            ...
-            &lt;p&gt;There is a history of &lt;span id="a1"&gt;Asthma&lt;/span&gt;&lt;/p&gt;
-            ...
-          &lt;/div&gt;
-        &lt;/text&gt;
-      &lt;/section&gt;
-    &lt;/Composition&gt;
-  &lt;/entry&gt;
-  &lt;entry&gt;
-    &lt;Condition&gt;
-      &lt;code&gt;
-        &lt;extension url="http://hl7.org/fhir/StructureDefinition/originalText"&gt;
-          &lt;valueUrl value="http://example.org/fhir/Composition/abcdefghij#a1"/&gt;
-        &lt;/extension&gt;
-        &lt;coding&gt;
-          &lt;system value="http://snomed.info/sct"/&gt;
-          &lt;code value="195967001"/&gt;
-          &lt;display value="Asthma (disorder)"/&gt;
-        &lt;/coding&gt;
-      &lt;/code&gt;
-    &lt;/Condition&gt;
-  &lt;/entry&gt;
-&lt;/Bundle&gt;
-</pre>
-
-
 
 <a name="safety"></a>
 <h3>Clinical Safety Concerns</h3>
