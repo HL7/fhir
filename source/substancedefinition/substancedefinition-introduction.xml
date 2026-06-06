@@ -20,8 +20,7 @@
 			or a particular variety of it, such as one manufacturer's version, 
 			or a certain presentation (e.g. "granulated"). 
 			However it is always a type and does not represent an actual physical instance of a substance. 
-			By contrast the <a href="substance.html">Substance</a> resource can act as either a concise definition 
-			(a subset of SubstanceDefinition) or as an instance (an actual batch).</p>
+			By contrast the <a href="substance.html">Substance</a> resource represents an instance (an actual batch).</p>
 		<p>SubstanceDefinition is not generally used directly to represent an ingredient, nor as a product that is given to a patient.
 			When acting as an ingredient, the <a href="ingredient.html">Ingredient</a> resource gives the context necessary (strength, role etc.) 
 			and, within it, uses this resource to describe the substance.

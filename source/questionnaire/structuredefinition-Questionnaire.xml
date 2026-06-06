@@ -1407,7 +1407,7 @@
 			<path value="Questionnaire.item.initial"/>
 			<short value="Initial value(s) when item is first rendered"/>
 			<definition value="One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input."/>
-			<comment value="The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial.answer[x] must agree with the item.type, and only repeating items can have more then one initial value."/>
+			<comment value="The user is allowed to change the value and override the default (unless marked as read-only). If the user does not change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial.answer[x] must agree with the item.type, and only repeating items can have more then one initial value."/>
 			<requirements value="In some workflows, having defaults saves time."/>
 			<min value="0"/>
 			<max value="*"/>

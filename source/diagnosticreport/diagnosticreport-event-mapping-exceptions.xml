@@ -88,7 +88,7 @@
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the diagnostic report to the Patient context.  May also affect access control."/>
-            <resource value="SHALL know the subject context."/>
+            <resource value=""/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.encounter" resourcePath="DiagnosticReport.encounter">
@@ -121,7 +121,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value="If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic."/>
+            <resource value="See the notes on Clinically Relevant Time in the DiagnosticReport resource notes."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="DiagnosticReport.performer">

@@ -310,7 +310,6 @@
       <path value="DiagnosticReport.subject"/>
       <short value="The subject of the report - usually, but not always, the patient"/>
       <definition value="The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources."/>
-      <requirements value="SHALL know the subject context."/>
       <alias value="Patient"/>
       <min value="0"/>
       <max value="1"/>
@@ -392,7 +391,7 @@
       <path value="DiagnosticReport.effective[x]"/>
       <short value="Clinically relevant time/time-period for the results that are included in the report"/>
       <definition value="The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself."/>
-      <comment value="If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic."/>
+      <comment value="See the notes on Clinically Relevant Time in the DiagnosticReport resource notes."/>
       <requirements value="Need to know where in the patient history to file/present this report."/>
       <alias value="Observation time"/>
       <alias value="Effective Time"/>
@@ -629,8 +628,8 @@
     <element id="DiagnosticReport.study">
       <path value="DiagnosticReport.study"/>
       <short value="Reference to full details of an analysis associated with the diagnostic report"/>
-      <definition value="One or more links to full details of any study performed during the diagnostic investigation. An ImagingStudy might comprise a set of radiologic images obtained via a procedure that are analyzed as a group. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images. A GenomicStudy might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted."/>
-      <comment value="For laboratory-type studies like GenomeStudy, type resources will be used for tracking additional metadata and workflow aspects of complex studies. ImagingStudy and the media element are somewhat overlapping - typically, the list of image references in the media element will also be found in one of the imaging study resources. However, each caters to different types of displays for different types of purposes. Neither, either, or both may be provided."/>
+      <definition value="One or more links to full details of any study performed during the diagnostic investigation. An ImagingStudy might comprise a set of radiologic images obtained via a procedure that are analyzed as a group. Typically, this is imaging performed by DICOM enabled modalities, but this is not required. A fully enabled PACS viewer can use this information to provide views of the source images."/>
+      <comment value="ImagingStudy and the media element are somewhat overlapping - typically, the list of image references in the media element will also be found in one of the imaging study resources. However, each caters to different types of displays for different types of purposes. Neither, either, or both may be provided."/>
       <min value="0"/>
       <max value="*"/>
       <type>

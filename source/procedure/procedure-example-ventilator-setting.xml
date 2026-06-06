@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
+  <id value="ventilator-setting"/>
+  <contained>
+	<Device>
+		<id value="vent-device-1"/>
+		<manufacturer value="Medtronic, Inc"/> 
+		<lotNumber value="1234-9876"/> 
+		<type> 
+			<coding> 
+			  <system value="http://snomed.info/sct"/> 
+			  <code value="40617009"/> 
+			</coding> 
+			<text value="Ventilator, device"/> 
+		</type> 
+	</Device>
+  </contained>
+  <contained>
+	<Observation>
+		<id value="tidal-volume-obs"/>
+		<status value="final"/>
+		<code> 
+			<coding> 
+			  <system value="http://loinc.org"/> 
+			  <code value="76222-9"/> 
+			</coding>
+			<text value="Tidal volume Ventilator"/> 
+		</code> 
+		<subject> 
+			<reference value="Patient/example"/> 
+		</subject> 
+		<valueQuantity> 
+			<value value="500"/> 
+			<unit value="mL"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="mL"/> 
+		 </valueQuantity> 
+	</Observation>
+  </contained>
+  <contained>
+	<Observation>
+		<id value="fio2-obs"/>
+		<status value="final"/>
+		<code> 
+			<coding> 
+			  <system value="http://loinc.org"/> 
+			  <code value="3150-0"/> 
+			</coding> 
+			<text value="Inhaled oxygen concentration"/> 
+		</code> 
+		<subject> 
+			<reference value="Patient/example"/> 
+		</subject> 
+		<valueQuantity> 
+			<value value="40"/> 
+			<unit value="%"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="%"/> 
+		 </valueQuantity> 
+	</Observation>
+  </contained>
+   <contained>
+	<Observation>
+		<id value="peep-obs"/>
+		<status value="final"/>
+		<code> 
+			<coding> 
+			  <system value="http://loinc.org"/> 
+			  <code value="76248-4"/> 
+			</coding> 
+			<text value="PEEP Ventilator"/> 
+		</code> 
+		<subject> 
+			<reference value="Patient/example"/> 
+		</subject> 
+		<valueQuantity> 
+			<value value="5"/> 
+			<unit value="cm[H2O]"/> 
+			<system value="http://unitsofmeasure.org"/> 
+			<code value="cm[H2O]"/> 
+		 </valueQuantity> 
+	</Observation>
+  </contained>
+  <status value="completed"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="1258985005"/>
+      <display value="Invasive mechanical ventilation (regime/therapy)"/>
+    </coding>
+    <text value="Mechanical Ventilation"/>
+  </code>
+  <subject> 
+    <reference value="Patient/example"/> 
+  </subject> 
+  <occurrenceDateTime value="2015-04-05"/>
+  <performer>
+    <actor>
+      <reference value="Practitioner/example"/>
+      <display value="Dr Cecil Surgeon"/>
+    </actor>
+  </performer>
+  <reason>
+       <concept>
+       <text value="Acute Respiratory Distress Syndrome (ARDS)"/>
+       </concept>
+  </reason>
+  <outcome> 
+    <concept> 
+      <text value="Respiratory rate 24 bpm"/>	  
+    </concept> 
+  </outcome> 
+  <outcome> 
+    <reference> 
+        <reference value="#tidal-volume-obs"/>
+		<display value="Tidal volume 500 mL"/>	  
+    </reference> 
+  </outcome> 
+  <outcome> 
+    <reference> 
+        <reference value="#fio2-obs"/>
+		<display value="FiO2 40%"/>	  
+    </reference> 
+  </outcome> 
+  <outcome> 
+    <reference> 
+        <reference value="#peep-obs"/>
+		<display value="PEEP 5 cmH2O"/>	  
+    </reference> 
+  </outcome> 
+  <followUp>
+		<concept>
+			<text value="Daily chest x-rays and ongoing ventilation monitoring"/>
+		</concept>
+   </followUp>
+  <note> <text value="ARDS due to sepsis"/>
+  </note>
+  <focalDevice>
+    <action>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="232679009"/>
+		<display value="Nasotracheal intubation (procedure)"/> 
+      </coding>
+    </action>
+    <manipulated>
+      <reference value="#vent-device-1"/>
+    </manipulated>
+  </focalDevice>
+</Procedure>

@@ -203,7 +203,7 @@ Patient.id is System.String
 </pre>
 <p>
 As shown, all FHIR primitives have the operation <code>getValue()</code> defined (see below)
-for the few edge cases where the automatic conversion isn't appropriate. Note
+for the few edge cases where the automatic conversion is not appropriate. Note
 that ofType() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
@@ -303,7 +303,7 @@ Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaiden
 <h5><b>hasValue() : Boolean</b></h5>
 <p>If the input collection contains a single value which is a FHIR primitive, then will
   return true if the single value is a primitive value (e.g., as opposed to not having a
-  value and just having extensions) and false if not. If the input collection isn't a
+  value and just having extensions) and false if not. If the input collection is not a
   single FHIR primitive, the return value is empty.
 </p>
 

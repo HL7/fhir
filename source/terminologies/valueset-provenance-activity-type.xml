@@ -41,7 +41,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="code systems are:&#xA;- [v3-DocumentCompletion](http://terminology.hl7.org/CodeSystem/v3-DocumentCompletion)&#xA;- [v3-DataOperation](http://terminology.hl7.org/CodeSystem/v3-DataOperation)&#xA;- [v3-ActCode](http://terminology.hl7.org/CodeSystem/v3-ActCode)&#xA;- [ISO Lifecycle](http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle)&#xA;- [FHIR RESTful interactions](codesystem-restful-interaction.html)&#xA;- [W3C PROV Activity Types](http://hl7.org/fhir/w3c-provenance-activity-type)"/>
+  <description value="This example FHIR value set is comprised of representative activity type codes from the ISO 21089 Lifecycle Code System. The codes are intended to express the activity that a Provenance is describing."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
@@ -56,6 +56,9 @@
       </concept>
       <concept>
         <code value="deidentify"/>
+      </concept>
+      <concept>
+        <code value="destroy"/>
       </concept>
       <concept>
         <code value="receive"/>

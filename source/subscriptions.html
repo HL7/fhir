@@ -733,7 +733,7 @@
   <p>
     When the server receives a request for a subscription, it SHOULD check that it is prepared to accept/process the
     subscription. If it is, it sets the subscription to <code>requested</code> and processes it like a normal <a
-      href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a
+      href="http.html#create">create</a>. If it is not, it SHOULD return an error with an <a
       href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
   </p>
   <p>

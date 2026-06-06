@@ -82,7 +82,7 @@ This simple statement says that:
 <ul>
  <li>for every source src (there'll only be one)</li>
  <li>for any element 'a' in the source</li>
- <li>if there isn't any element 'a', then don't do anything</li>
+ <li>if there is not any element 'a', then don't do anything</li>
  <li>if there is one, call it variable 'a'</li>
  <li>the value of property 'a' of the target will be a copy of variable a - that is, src.a</li>
 </ul>
@@ -224,7 +224,7 @@ This will create one a22 in TRight for each a22 in TLeft.
 <a name="step6"></a>
 <h3>Step #6: Managing lists, part 2</h3>
 <p>
-A more difficult case is where the source allows multiple repeats, but the target doesn't:
+A more difficult case is where the source allows multiple repeats, but the target does not:
 </p>
 <table>
   <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
@@ -545,7 +545,7 @@ src.f1 as s_f1 -&gt; create("TRight2") as rr, tgt.ptr = reference(rr) then {
 </pre>
 <p>
 This mapping statement makes use a special known value "null" for the target context to indicate that the created element/object of type "TRight2"
-doesn't get added to any existing target context. Instead, it will only be available as a context in which to perform further mappings - as rule f1a
+does not get added to any existing target context. Instead, it will only be available as a context in which to perform further mappings - as rule f1a
 does.
 </p>
 <p>

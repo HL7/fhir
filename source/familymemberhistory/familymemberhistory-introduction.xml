@@ -7,7 +7,7 @@
 <ul>
   <li>Non-Compatible Changes
     <ul>
-      <li>None</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54457">FHIR-54457</a>: Removed FamilyMemberHistory.estimatedAge</li>
     </ul>
   </li>
   <li>Compatible, Substantive Changes

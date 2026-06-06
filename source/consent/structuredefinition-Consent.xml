@@ -18,7 +18,7 @@
     <valueCode value="patient"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cbcc"/>
+    <valueCode value="security"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status = entered-in-error"/>
@@ -33,7 +33,7 @@
   <title value="Consent"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="HL7 International / Community Based Collaborative Care"/>
+  <publisher value="HL7 International / Security"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -102,6 +102,12 @@
         <xpath value="exists(f:provisionReference) or exists(f:provision)"/> 
       </constraint> 
       -->
+      <constraint>
+        <key value="consent-1"/>
+        <severity value="error"/>
+        <human value="If provision exists, decision must also be provided"/>
+        <expression value="provision.exists() implies decision.exists()"/>
+      </constraint>
     </element>
     
     <element id="Consent.identifier">
@@ -556,8 +562,8 @@
         <valueCode value="down"/>
       </extension>
       <path value="Consent.provision"/>
-      <short value="Constraints to the base Consent.policyRule/Consent.policy"/>
-      <definition value="An exception to the base policy of this consent. An exception can be an addition or removal of access permissions."/>
+      <short value="Constraints to the base Consent.policyBasis/Consent.policyText"/>
+      <definition value="Constraints and exceptions to the base policy that can add or remove some access permissions under specific conditions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -831,8 +837,8 @@
     </element>
     <element id="Consent.provision.provision">
       <path value="Consent.provision.provision"/>
-      <short value="Nested Exception Provisions"/>
-      <definition value="Provisions which provide exceptions to the base provision or subprovisions."/>
+      <short value="Nested provisions to further constraint the parent provision"/>
+      <definition value="Nested provisions adding further constraints and exceptions to the parent provision."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Consent.provision"/>

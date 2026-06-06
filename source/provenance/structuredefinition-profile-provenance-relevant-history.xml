@@ -91,9 +91,9 @@
       </type>
       <mustSupport value="true"/>
     </element>
-    <element id="Provenance.authorization">
-      <path value="Provenance.authorization"/>
-      <comment value="Plain text reasons can be sent in the &quot;text&quot; component with no codings.  Domains MAY wish to define a constrained terminology.  The authorization for the resource's existence of the resource itself will be maintained on the resource, not here."/>
+    <element id="Provenance.why">
+      <path value="Provenance.why"/>
+      <comment value="Plain/Markdown text reasons the action occurred."/>
       <mustSupport value="true"/>
     </element>
     <element id="Provenance.activity">

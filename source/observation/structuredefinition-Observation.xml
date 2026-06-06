@@ -907,7 +907,7 @@
       <definition value="Indicates the body structure on the subject's body where the observation was made (i.e. the target site)."/>
       <comment value="Only used if not implicit in code found in Observation.code. In many systems, this may be represented as a related observation instead of an inline component. Use this element instead of the deprecated bodySite element."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>

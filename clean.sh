@@ -1,5 +1,6 @@
+#!/bin/bash
 read -p "Remove all unnecessary files in $(pwd)? " -n 1 -r
-echo
+echo 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
    find -name *\.bak -delete

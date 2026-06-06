@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Provenance xmlns="http://hl7.org/fhir">
+  <id value="example-verify"/>
+
+
+  <target>
+    <reference value="Observation/body-height-merged"/>
+  </target>
+  <recorded value="2026-04-25T19:00:00Z"/>
+  <authorization>
+    <concept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+        <code value="RECORDMGT"/>
+      </coding>
+    </concept>
+  </authorization>
+  <why value="Data verification. The data was properly changed to be associated with the primary patient record."/>
+  <activity>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
+      <code value="verify"/>
+    </coding>
+  </activity>
+  <patient>
+    <reference value="Patient/example-merge-survivor"/>
+  </patient>
+  <agent>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+        <code value="verifier"/>
+      </coding>
+    </type>
+    <who>
+      <reference value="http://example.org/Practitioner/ex-practitioner"/>
+    </who>
+  </agent>
+
+  <entity>
+    <role value="source"/>
+    <what>
+      <reference value="Observation/body-height-merged"/>
+    </what>
+  </entity>
+</Provenance>

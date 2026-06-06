@@ -65,7 +65,9 @@
     <reference value="#example-patient"/>
   </subject>
   <bodyStructure>
-    <reference value="#heart-structure"/>
+    <reference>
+      <reference value="#heart-structure"/>
+    </reference>
   </bodyStructure>
   <period>
     <start value="2022-01-01"/>

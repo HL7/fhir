@@ -72,7 +72,7 @@ may act collectively or have a degree of legal or formal recognition.
 <li>
 The Organization resource is used for collections of people that have come together to achieve an objective. In generally,
 the Group resource is used to identify a collection of people (or animals, devices, etc.) that are gathered for the purpose
-of analysis or acting upon, but are not expected to act themselves. Families or households are sometimes an exceptiont to this,
+of analysis or acting upon, but are not expected to act themselves. Families or households are sometimes an exception to this,
 in that they are primarily recipients of care, particularly in a public health context, but sometimes act collectively
 </li>
 <li><a href="careteam.html">CareTeam</a>. Group is distinct from CareTeam. Group is patient-independent and identifies an 

@@ -30,7 +30,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This FHIR value set is comprised of Actor participation Type codes, which can be used to value FHIR agents, actors, and other role elements. The codes are intended to express how the agent participated in some activity. Sometimes refered to the agent functional-role relative to the activity."/>
+  <description value="This FHIR value set is comprised of Actor participation Type codes, which can be used to value FHIR agents, actors, and other role elements. The codes are intended to express how the agent participated in some activity. Sometimes referred to the agent functional-role relative to the activity."/>
   <copyright value="This is an example FHIR value set based on ASTM Standard, E1762-95 (2013)    Some codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
   <compose>
     <include>
@@ -39,9 +39,6 @@
     <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html"/>
-    </include>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
     </include>
   </compose>
 </ValueSet>

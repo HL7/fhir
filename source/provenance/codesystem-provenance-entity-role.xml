@@ -73,4 +73,9 @@
     <display value="Removal"/>
     <definition value="An entity that is removed from accessibility, usually through the DELETE operator."/>
   </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="The authoring/source system knows that none of the codes apply. An extension may elaboration on the way the data was used."/>
+  </concept>
 </CodeSystem>

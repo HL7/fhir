@@ -207,4 +207,28 @@
       <display value="Provenance for a correction replacement"/>
     </item>
   </entry>
-</List>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of using Provenance for a Patient Merge."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-ex-patient-merged"/>
+    </extension>
+    <item>
+      <reference value="Provenance/ex-patient-merged"/>
+      <display value="Provenance for a Patient Merge"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance of verification activity for data transitioned during a patient merge."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-verify"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-verify"/>
+      <display value="Provenance of verification activity for data transitioned during a patient merge"/>
+    </item>
+  </entry>
+  </List>

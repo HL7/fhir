@@ -324,4 +324,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="AuditEvent-when"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="AuditEvent.occurred[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AuditEvent-when"/>
+        <status value="active"/>
+        <description value="When the activity occurred"/>
+        <code value="when"/>
+        <type value="date"/>
+        <expression value="AuditEvent.occurred.ofType(dateTime) | AuditEvent.occurred.ofType(Period)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

@@ -84,6 +84,40 @@
         <map value="clinical.general"/>
       </mapping>
     </element>
+    <element id="NutritionProduct.status">
+      <path value="NutritionProduct.status"/>
+      <short value="active | inactive | entered-in-error"/>
+      <definition value="The current state of the product."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NutritionProductStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes identifying the lifecycle stage of a product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/nutritionproduct-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
     <element id="NutritionProduct.code">
       <path value="NutritionProduct.code"/>
       <short value="A code that can identify the product"/>
@@ -114,40 +148,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".code"/>
-      </mapping>
-    </element>
-    <element id="NutritionProduct.status">
-      <path value="NutritionProduct.status"/>
-      <short value="active | inactive | entered-in-error"/>
-      <definition value="The current state of the product."/>
-      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="NutritionProductStatus"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Codes identifying the lifecycle stage of a product."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/nutritionproduct-status"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="Varies by domain"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".status"/>
       </mapping>
     </element>
     <element id="NutritionProduct.category">

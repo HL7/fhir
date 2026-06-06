@@ -30,7 +30,7 @@ while others are requirements that must be fulfilled by some specification or de
 is created with or subsequent to the requirements. For this reason, requirements can
 directly identify features of specifications that satisfy the stated requirement, but in 
 most cases, it is expected that the specifications and designs that meet the requirements
-will provice traceability to the requirement.
+will provide traceability to the requirement.
 </p>
 <p>
 Each Requirements resource carries a set of statements about requirements. Each 

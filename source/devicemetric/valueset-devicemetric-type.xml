@@ -27,7 +27,7 @@
   <title value="Device Metric and Component Types"/>
   <status value="active"/>
   <experimental value="true"/>
-  <publisher value="HL7 Health Care Devices Workgroup"/>
+  <publisher value="HL7 International / Devices"/> 
   <contact>
     <telecom>
       <system value="url"/>

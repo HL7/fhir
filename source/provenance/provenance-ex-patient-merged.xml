@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Provenance xmlns="http://hl7.org/fhir">
+  <id value="ex-patient-merged"/>
+
+
+  <target>
+    <reference value="Patient/example-merge-survivor"/>
+  </target>
+  <target>
+    <reference value="Patient/example-merge-subsumed"/>
+  </target>
+  <target>
+    <reference value="Observation/body-height-merged"/>
+  </target>
+  <recorded value="2024-06-01T19:00:00Z"/>
+  <authorization>
+    <concept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+        <code value="HQUALIMP"/>
+      </coding>
+    </concept>
+  </authorization>
+  <why value="Merge Patient Records that were matched by SSN and confirmed by review, with the data linked to the non-surviving patient is also fixed up to point at the surviving patient."/>
+  <activity>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+      <code value="MDATA"/>
+    </coding>
+  </activity>
+  <patient>
+    <reference value="Patient/example-merge-survivor"/>
+  </patient>
+  <agent>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/provenance-participant-type"/>
+        <code value="author"/>
+      </coding>
+    </type>
+    <who>
+      <reference value="http://example.org/Practitioner/ex-practitioner"/>
+    </who>
+  </agent>
+  <entity>
+    <role value="removal"/>
+    <what>
+      <reference value="Patient/example-merge-subsumed"/>
+      <identifier>
+        <system value="http://example.org/mrn"/>
+        <value value="MRN-002"/>
+      </identifier>
+      <display value="Removed Duplicate Patient Record"/>
+    </what>
+  </entity>
+  <entity>
+    <role value="revision"/>
+    <what>
+      <reference value="Patient/example-merge-survivor"/>
+      <identifier>
+        <system value="http://example.org/mrn"/>
+        <value value="MRN-001"/>
+      </identifier>
+      <display value="Surviving Patient Record after Merge"/>
+    </what>
+  </entity>
+  <entity>
+    <role value="revision"/>
+    <what>
+      <reference value="Observation/body-height-merged"/>
+      <display value="Body Height Observation from previous Patient is fixed to point at the surviving Patient after Merge"/>
+    </what>
+  </entity>
+</Provenance>
