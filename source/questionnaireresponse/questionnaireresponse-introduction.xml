@@ -6,6 +6,7 @@
   <li>Non-substantive changes:
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-55184">FHIR-55184</a> - Added 'unknown' as a QuestionnaireResponse.status value.</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53945">FHIR-53945</a> - Moved definition of Questionnaire-specific FHIRPath functions from QuestionnaireResponse to Questionnaire</li>
     </ul>
   </li>
 </ul>
@@ -43,8 +44,11 @@ Examples of Questionnaires include:
 <li>Insurance claim form</li>
 </ul>
 <p>
-<b>QuestionnaireResponse</b> resources can be validated against their corresponding <a href="questionnaire.html">Questionnaire</a> to verify that required
-groups and questions are answered and that answers fit constraints in terms of cardinality, data type, etc.
+<a name="fhirpath"> </a>
+<b>QuestionnaireResponse</b> resources can be <a href="#validation">validated</a> against their corresponding <a href="questionnaire.html">Questionnaire</a> to verify that required
+groups and questions are answered and that answers fit constraints in terms of cardinality, data type, etc.  When working with QuestionnaireResponses, there may be 
+<a href="fhirpath.html">FHIRPath</a> <a href="metadatatypes.html#Expression">expressions</a> defined on the associated Questionnaire that will be evaluated in the 
+context of the QuestionnaireResponse.
 </p>
 </div>
 

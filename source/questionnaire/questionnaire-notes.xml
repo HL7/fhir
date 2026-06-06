@@ -75,6 +75,30 @@ can be used to identify the Questionnaire as the data source for the other resou
 <a href="profiling.html">Profiling</a> can be used to define the constraints of a set of Questionnaires - for example that a particular system only supports Questionnaires where answers have certain data types, only recognizes certain extensions, mandates the presence of certain metadata, etc.  However, profiling should NOT be used to define the content of a specific Questionnaire instance.  To define a Questionnaire instance, simply create an instance of Questionnaire as you would any other resource.
 </p>
 
+<a name="fhirpath"> </a>
+<h3>
+FHIRPath Additions
+</h3>
+<p>
+The following additional guidance applies to using <a href="fhirpath.html">FHIRPath</a> with Questionnaire and QuestionnaireResponses:
+</p>
+<ul>
+  <li>The <code>%resource</code> variable when it appears in expressions on elements in Questionnaire will be evaluated as the root of the QuestionnaireResponse.
+</li>
+<li>The <code>%context</code> variable will be set to the QuestionnaireResponse if the expression extension is defined on the Questionnaire root. Otherwise, it will be interpreted as the QuestionnaireResponse.item(s) whose linkId matches the linkId of the Questionnaire.item the expression extension was defined in. I.e. while the extensions and expressions are defined in the Questionnaire, they are evaluated in the context of the corresponding item(s) in the QuestionnaireResponse.
+</li>
+<li>
+All expressions that specify a 'name' can be accessed by other expressions appearing on the same item or any descendant item as though that name was part of context. The same is true for the 'name' element in the <a href="https://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaire-launchContext.html">launchContext extension</a>. For example, a variable with the name 'score' could be accessed in FHIRPath or CQL using %score.
+</li>
+</ul>
+<p>
+In addition, a couple of additional variables are defined for use with extensions evaluated in the context of a QuestionnaireResponse:
+</p>
+<ul>
+  <li><code>%questionnaire</code> corresponds to the Questionnaire resource resolved to by the QuestionnaireResponse.questionnaire element. It is in scope for all expressions defined in the Questionnaire.</li>
+  <li><code>%qitem</code> is defined as a shortcut to get to the Questionnaire.item that corresponds to the context QuestionnaireResponse.item (based on matching linkId). It is only valid for FHIRPath expressions defined within a Questionnaire item.</li>
+</ul>
+
 <a name="structure"> </a>
 <h3>Structure of the Questionnaire</h3>
 <p>
