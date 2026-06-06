@@ -979,7 +979,7 @@
 			<path value="Questionnaire.item.type"/>
 			<short value="group | display | boolean | decimal | integer | date | dateTime +"/>
 			<definition value="The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.)."/>
-			<comment value="Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition."/>
+			<comment value="Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition.&#xa;&#xa;For guidance on handling alternative item types, refer to [this section](Questionnaire.html#alternativetype)."/>
 			<requirements value="Defines the format in which the user is to be prompted for the answer."/>
 			<min value="1"/>
 			<max value="1"/>
