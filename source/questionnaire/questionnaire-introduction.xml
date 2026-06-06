@@ -6,6 +6,7 @@
   <li>Non-substantive changes:
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-55181">FHIR-55181</a> - Added guidance on how to support questionnaire items with types other than those permitted by the resource.</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55182">FHIR-55182</a> - Added guidance on alternatives to enableWhen</li>
     </ul>
   </li>
 </ul>
