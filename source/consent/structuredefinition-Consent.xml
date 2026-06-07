@@ -573,8 +573,8 @@
     </element>
     <element id="Consent.provision.period">
       <path value="Consent.provision.period"/>
-      <short value="Timeframe for this provision"/>
-      <definition value="Timeframe for this provision."/>
+      <short value="Time frame for this provision"/>
+      <definition value="Time frame for this provision."/>
       <comment value="This is the bound effective time of the consent and should be in the base provision in the Consent resource."/>
       <min value="0"/>
       <max value="1"/>
