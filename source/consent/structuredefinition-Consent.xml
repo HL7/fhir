@@ -444,8 +444,8 @@
         <valueCode value="right"/>
       </extension>
       <path value="Consent.verification"/>
-      <short value="Consent Verified by patient or family"/>
-      <definition value="Whether a treatment instruction (e.g. artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person."/>
+      <short value="Consent verified by patient (or another authorized person)"/>
+      <definition value="Whether the consent instructions/rules (e.g. artificial respiration: yes or no) have been verified with the patient, his/her family, or another authorized person."/>
       <min value="0"/>
       <max value="*"/>
       <type>
