@@ -510,7 +510,7 @@
 			<min value="1"/>
 			<max value="*"/>
 			<type>
-				<code value="code"/>
+				<code value="uri"/>
 			</type>
 			<isSummary value="true"/>
 			<binding>
@@ -518,8 +518,8 @@
 					<valueString value="FHIRTypes"/>
 				</extension>
 				<strength value="required"/>
-				<description value="A type of resource, or a Reference (from all versions)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
+				<description value="One of the resource types defined as part of this version of FHIR. Note that this includes additional resources, and is not a fixed list"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/extended-resource-types"/>
 				<additional>
 				  <key value="b-sp-1"/>
 					<purpose value="ui"/>
@@ -601,15 +601,15 @@
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="code"/>
+				<code value="uri"/>
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="FHIRTypes"/>
 				</extension>
 				<strength value="required"/>
-				<description value="A type of resource, or a Reference (from all versions)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
+				<description value="One of the resource types defined as part of this version of FHIR. Note that this includes additional resources, and is not a fixed list"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/extended-resource-types"/>
 				<additional>
 				  <key value="b-sp-2"/>
 					<purpose value="ui"/>
