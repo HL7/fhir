@@ -46,7 +46,7 @@ Note: there is documentation for the <a href="formats.html">Structure</a>, <a hr
 </p>
 
 <a name="additional"></a>
-<h3>Additional Resources defined Outside This Specification</h3>
+<h3>Additional Resources Defined Outside This Specification</h3>
 <p>
 This specification defines the base <%res-type-count%> resources that comprise 
 the "FHIR resources". Additional resources may be defined in other specifications,
@@ -78,6 +78,7 @@ encountered through this specification:
  <li><a href="domainresource.html#additional">DomainResource.contained</a></li>
  <li><a href="parameters.html#additional">Parameters.parameter.resource</a></li>
 </ul>
+<p>The introduction of 'custom' resource not defined through the process documented here is not conformant with the FHIR specification.  Instances communicating resources not defined in this core specification or via the additional resources registration process cannot be called FHIR conformant.</p>
 
 <a name="moving"></a>
 <h3>Moving Additional Resources to FHIR Core</h3>
