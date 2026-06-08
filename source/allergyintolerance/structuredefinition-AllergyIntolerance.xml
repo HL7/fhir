@@ -219,7 +219,7 @@
     </element>
     <element id="AllergyIntolerance.category">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11352 - to address examples like bee pollen that may fit into multiple categories;  GF#12136 - search usage note."/>
+        <valueString value="GF#11352 - to address examples like bee pollen that may fit into multiple categories;  GF#12136 - search usage note; J#55647 - binding strength"/>
       </extension>
       <path value="AllergyIntolerance.category"/>
       <short value="food | medication | environment | biologic"/>
@@ -232,14 +232,14 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AllergyIntoleranceCategory"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="Category of an identified substance associated with allergies or intolerances."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/allergy-intolerance-category"/>
       </binding>
