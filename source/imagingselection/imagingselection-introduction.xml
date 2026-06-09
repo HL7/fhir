@@ -13,6 +13,7 @@
         <li>Update examples to be consistent with current bindings for code and category.</li>
         <li>Add details of use cases associated with examples in notes.</li>
         <li>Add notes section on <code>ImagingSelection.status</code>.</li>
+        <li>Add example for mammography use case and relate it to notes section on laterality and body site.</li>
       </ul>
     </blockquote>
   </div>
