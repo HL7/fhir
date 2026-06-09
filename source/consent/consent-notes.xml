@@ -36,7 +36,7 @@ There are context setting parameters:
     <li>Where Required - The <b>location boundary</b> and <b>authority boundary</b> of this consent policy domain.</li>
     <li>Where Accountability Lies -  The organization or performer</li>
     <li>When - The date <b>issued</b> or captured</li>
-    <li>When - The timeframe for which the Consent <b>applies</b>
+    <li>When - The time frame for which the Consent <b>applies</b>
     </li>
     <li>How - The <b>actions</b> covered. (such as purposes of use that are covered)</li>
     <li>Whom - The <b>actor</b> are grantees by the consent. </li>
