@@ -721,7 +721,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="The document type a consent provision covers."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
       </binding>
     </element>
     <element id="Consent.provision.resourceType">
