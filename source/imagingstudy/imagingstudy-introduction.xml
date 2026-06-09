@@ -10,6 +10,7 @@
 				<li>Updated use cases to clarify attribute level (i.e. <code>ImagingStudy.endpoint</code> vs. <code>ImagingStudy.series.endpoint</code> and to make it clearer which workflow steps do not relate to FHIR.</li>
 				<li>Clarified relationship between ImagingStudy and ImagingSelection</li>
 				<li>Removed a reference to Accession Number under <code>ImagingStudy.identifier</code>.</li>
+				<li>Updated <code>Imagingstudy.series.bodySite</code> cardinality to <code>0..*</code>. This makes it consistent with other resources such as Observation.</li>
 			</ul>
 		</blockquote>
 	</div>
