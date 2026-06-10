@@ -92,12 +92,6 @@
       <path value="Observation.code"/>
       <short value="Body Temperature"/>
       <definition value="Body Temperature"/>
-      <patternCodeableConcept>
-        <coding>
-          <system value="http://loinc.org"/>
-          <code value="8310-5"/>
-        </coding>
-      </patternCodeableConcept>
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -107,6 +101,37 @@
         <description value="This identifies the set of LOINC codes that are appropriate for representing body temperature vital sign measurements in Observation.code."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-bodytemp"/>
       </binding>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="code"/>
+        </discriminator>
+        <discriminator>
+          <type value="value"/>
+          <path value="system"/>
+        </discriminator>
+        <ordered value="false"/>
+        <rules value="open"/>
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:BodyTempCode">
+      <path value="Observation.code.coding"/>
+      <sliceName value="BodyTempCode"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:BodyTempCode.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://loinc.org"/>
+    </element>
+    <element id="Observation.code.coding:BodyTempCode.code">
+      <path value="Observation.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="8310-5"/>
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>

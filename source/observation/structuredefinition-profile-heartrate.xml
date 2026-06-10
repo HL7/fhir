@@ -92,12 +92,6 @@
       <path value="Observation.code"/>
       <short value="Heart Rate"/>
       <definition value="Heart Rate"/>
-      <patternCodeableConcept>
-        <coding>
-          <system value="http://loinc.org"/>
-          <code value="8867-4"/>
-        </coding>
-      </patternCodeableConcept>
       <mustSupport value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -107,6 +101,37 @@
         <description value="This identifies the set of LOINC codes that are appropriate for representing heart rate vital sign measurements in Observation.code."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-vitalsign-heartrate"/>
       </binding>
+    </element>
+    <element id="Observation.code.coding">
+      <path value="Observation.code.coding"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="code"/>
+        </discriminator>
+        <discriminator>
+          <type value="value"/>
+          <path value="system"/>
+        </discriminator>
+        <ordered value="false"/>
+        <rules value="open"/>
+      </slicing>
+    </element>
+    <element id="Observation.code.coding:HeartRateCode">
+      <path value="Observation.code.coding"/>
+      <sliceName value="HeartRateCode"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Observation.code.coding:HeartRateCode.system">
+      <path value="Observation.code.coding.system"/>
+      <min value="1"/>
+      <fixedUri value="http://loinc.org"/>
+    </element>
+    <element id="Observation.code.coding:HeartRateCode.code">
+      <path value="Observation.code.coding.code"/>
+      <min value="1"/>
+      <fixedCode value="8867-4"/>
     </element>
     <element id="Observation.valueQuantity">
       <path value="Observation.valueQuantity"/>
