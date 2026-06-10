@@ -138,6 +138,18 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Compound Numeric Blood Pressure Measurement"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-compound-numeric-blood-pressure"/>
+    </extension>
+    <item>
+      <reference value="Observation/compound-numeric-blood-pressure"/>
+      <display value="Compound Numeric Blood Pressure"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Blood Pressure Measurement with an absent Diastolic measurement"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">

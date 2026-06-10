@@ -213,7 +213,7 @@
 						<p>This is a component observation.  It has no value in Observation.value[x] and  contains at least one component (systolic and/or diastolic).  To supplement this vital sign observation, 8478-0  - <em>Mean blood pressure</em>, 8357-6 - <em>Blood pressure method</em>, 41904-4 - <em>Blood pressure measurement site</em>, 8358-4 - <em>Blood pressure device cuff size</em>, 41901-0 - <em>Type of blood pressure device</em>  MAY be used as additional component observations.</p></td>
 					<td>-</td>
 					<td>
-						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>,  <a href="observation-example-bloodpressure-dar.html"> Blood Pressure Example with missing Diastolic measurement</a>
+						<a href="observation-example-bloodpressure.html">Blood Pressure Example</a>,  <a href="observation-example-compound-numeric-blood-pressure.html">Compound Numeric Blood Pressure Example</a>, <a href="observation-example-bloodpressure-dar.html"> Blood Pressure Example with missing Diastolic measurement</a>
 					</td>
 				</tr>
 				<tr>

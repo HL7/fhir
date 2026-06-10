@@ -233,6 +233,9 @@
 			<a href="observation-example-bloodpressure.html">Blood Pressure Measurement</a>
 		</li>
 		<li>
+			<a href="observation-example-compound-numeric-blood-pressure.html">Compound Numeric Blood Pressure Measurement</a>
+		</li>
+		<li>
 			<a href="observation-example-bloodpressure-dar.html">Blood Pressure Measurement with an absent Diastolic measurement</a>
 		</li>
 		<li>

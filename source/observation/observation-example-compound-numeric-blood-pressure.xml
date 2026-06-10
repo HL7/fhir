@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+	<id value="compound-numeric-blood-pressure"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/bp"/>
+	</meta>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+			<code value="vital-signs"/>
+		</coding>
+		<text value="Vital Signs"/>
+	</category>
+	<code>
+		<coding>
+			<system value="urn:iso:std:iso:11073:10101"/>
+			<code value="150020"/>
+			<display value="MDC_PRESS_BLD_NONINV"/>
+		</coding>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="85354-9"/>
+		</coding>
+		<text value="Blood pressure"/>
+	</code>
+	<subject>
+		<reference value="Patient/patientExample-1"/>
+	</subject>
+	<effectiveDateTime value="2018-11-11T11:38:15-05:00"/>
+	<performer>
+		<reference value="Patient/patientExample-1"/>
+	</performer>
+	<device>
+		<reference value="Device/phd-711000FEFF5F49B0.B0495F001071"/>
+	</device>
+	<component>
+		<code>
+			<coding>
+				<system value="urn:iso:std:iso:11073:10101"/>
+				<code value="150021"/>
+				<display value="MDC_PRESS_BLD_NONINV_SYS"/>
+			</coding>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="8480-6"/>
+			</coding>
+			<text value="Systolic blood pressure"/>
+		</code>
+		<valueQuantity>
+			<value value="116"/>
+			<unit value="mm[Hg]"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mm[Hg]"/>
+		</valueQuantity>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="urn:iso:std:iso:11073:10101"/>
+				<code value="150022"/>
+				<display value="MDC_PRESS_BLD_NONINV_DIA"/>
+			</coding>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="8462-4"/>
+			</coding>
+			<text value="Diastolic blood pressure"/>
+		</code>
+		<valueQuantity>
+			<value value="71"/>
+			<unit value="mm[Hg]"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mm[Hg]"/>
+		</valueQuantity>
+	</component>
+	<component>
+		<code>
+			<coding>
+				<system value="urn:iso:std:iso:11073:10101"/>
+				<code value="150023"/>
+				<display value="MDC_PRESS_BLD_NONINV_MEAN"/>
+			</coding>
+			<text value="Mean blood pressure"/>
+		</code>
+		<valueQuantity>
+			<value value="86"/>
+			<unit value="mm[Hg]"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="mm[Hg]"/>
+		</valueQuantity>
+	</component>
+</Observation>
