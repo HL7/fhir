@@ -43,9 +43,7 @@
 		relationships for interpretation of the observations. The methods to do so primarily are
 		through DiagnosticReport using <code>DiagnosticReport.result</code> and Observation using
 		<code>Observation.component</code>, <code>Observation.hasMember</code>, and
-		<code>Observation.derivedFrom</code>. See the <a href="diagnostics-module.html#org-dr-obs">Diagnostics Module</a> for guidance related to
-		Microbiology reporting and relevant relationships necessary to support reflex, follow-up,
-		and add-on orders.</p>
+		<code>Observation.derivedFrom</code>. See the <a href="diagnostics-module.html#org-dr-obs">Diagnostics Module</a> for specific guidance on the supported patterns; a brief summary is here for convenience only.</p>
 		<p>Note that Composition may also be used to organize observations and
 		diagnostic reports, but that is only for purpose of readability, not to record critical
 		relationships for interpretations. See DiagnosticReport.composition and Composition for
@@ -54,7 +52,7 @@
 	  <h4>DiagnosticReport.result
 		</h4>
 		<p>
-	            DiagnosticReport relates directly to an order (ServiceRequest). The <code>DiagnosticReport.code</code> names the panel and serves as the grouping element, which is traditionally referred to as a &quot;panel&quot; or &quot;battery&quot; by laboratories. The <code>DiagnosticReport.result</code> element references the individual observations.  Several <a href="diagnosticreport-examples.html">examples</a> demonstrate observation grouping using DiagnosticReport as the grouping structure.
+	            When using DiagnosticReport to group observations (pattern #2), the <code>DiagnosticReport.code</code> names the panel (e.g. &quot;CBC&quot;). The <code>DiagnosticReport.code</code> element acts as the organizer (grouper) for tests commonly performed together, often referred to as a &quot;panel&quot; or &quot;battery&quot;. The <code>DiagnosticReport.result</code> lists all Observation resources grouped by this DiagnosticReport. These may be a mixture of Observations that present values (e.g. 10 g/L), or organizer (grouper) Observations that further sub-organize lower-level Observation resources, as seen in complex multi-level reports. The <code>DiagnosticReport.result</code> element references the individual observations. Several <a href="diagnosticreport-examples.html">examples</a> demonstrate observation grouping using DiagnosticReport as the grouping structure.
 	            </p>
 		<a name="gr-comp"></a>
 	  <h4>Observation.component
@@ -78,12 +76,10 @@
 		<h4>Observation.hasMember and Observation.derivedFrom
 		</h4>
 		<p>
-			<code>Observation.hasMember</code> and <code>Observation.derivedFrom</code> are used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. Two common use cases for using this structure are:
+			<code>Observation.hasMember</code> and <code>Observation.derivedFrom</code> and the core extensions <a href="http://hl7.org/fhir/StructureDefinition/observation-sequelTo">Observation-sequelTo</a> and <a href="http://hl7.org/fhir/StructureDefinition/observation-replaces">Observation-replaces</a> are used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. Two common use cases for using this structure are:
 			</p>
 		<ol>
-			<li>For grouping related observations such as for a "panel" or "battery".  In this case the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>.  This structure permits <em>nested grouping</em> when used with DiagnosticReport (e.g. <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a>)
-			as described in the <a href="diagnostics-module.html#org-dr-obs">Diagnostics
-			Module</a> 
+			<li>When using <code>Observation.hasMember</code> for grouping related observations such as for a "panel" or "battery" (pattern #1), the <code>Observation.code</code> represents the "panel" code, typically <code>Observation.value[x]</code> is not present, and the set of member Observations are listed in <code>Observation.hasMember</code>. This structure permits <em>nested grouping</em> when used with DiagnosticReport.
 			</li>
 			<li>
 	          When linking to other Observations from which an Observation is derived.  In this case both <code>Observation.code</code> and <code>Observation.value[x]</code> are present,  and the linked observations are listed in <code>Observation.derivedFrom</code>.  An example of this would be a <a href="observation-example-bmi-using-related.html">Body Mass Index (BMI)</a> Observation where the height and weight measurements are referenced.
