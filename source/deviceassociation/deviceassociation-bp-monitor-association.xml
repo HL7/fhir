@@ -12,24 +12,6 @@
     </Patient>
   </contained>
   <contained>
-    <Practitioner>
-      <id value="nurse-1"/>
-      <name>
-        <family value="Smith"/>
-        <given value="Nora"/>
-      </name>
-    </Practitioner>
-  </contained>
-  <!--<contained>
-    <Practitioner>
-      <id value="nurse-2"/>
-      <name>
-        <family value="Lee"/>
-        <given value="Samuel"/>
-      </name>
-    </Practitioner>
-  </contained>-->
-  <contained>
     <Device>
       <id value="bp-monitor"/>
       <status value="active"/>
@@ -72,19 +54,23 @@
     <reference value="#bp-monitor"/>
   </device>
   <status value="active"/>
+  <relationship>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-relationship"/>
+      <code value="used-by"/>
+      <display value="Used By"/>
+    </coding>
+  </relationship>
   <associationStatus>
     <coding>
       <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
-      <code value="attached"/>
-      <display value="Attached"/>
+      <code value="active"/>
+      <display value="Active"/>
     </coding>
   </associationStatus>
   <subject>
-    <reference value="#nurse-1"/>
-  </subject>
-  <focus>
     <reference value="#example-patient"/>
-  </focus>
+  </subject>
   <bodyStructure>
     <reference>
       <reference value="#left-arm-structure"/>
@@ -94,15 +80,4 @@
     <start value="2025-06-01"/>
     <end value="2025-06-05"/>
   </period>
-  <operation>
-    <status>
-      <coding>
-        <code value="on"/>
-      </coding>
-    </status>
-    <period>
-      <start value="2025-06-01"/>
-      <end value="2025-06-05"/>
-    </period>
-  </operation>
 </DeviceAssociation>

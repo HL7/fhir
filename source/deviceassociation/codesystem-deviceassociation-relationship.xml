@@ -10,37 +10,141 @@
   </extension>
   <url value="http://hl7.org/fhir/deviceassociation-relationship"/>
   <version value="6.0.0"/>
-  <name value="DeviceAssociation"/>
+  <name value="DeviceAssociationRelationshipCodes"/>
   <title value="DeviceAssociation Relationship Codes"/>
   <status value="active"/>
-  <experimental value="false"/>
-  <description value="DeviceAssociation Relationship Codes"/>
+  <experimental value="true"/>
+  <description value="Example codes that describe the relationship between the device and the subject."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-relationship"/>
   <content value="complete"/>
   <concept>
-    <code value="owner"/>
-    <display value="Owner"/>
-    <definition value="Owner of the device."/>
+    <code value="patient-person"/>
+    <display value="Patient/person"/>
+    <definition value="Associations involving a patient, related person, practitioner, or other person-like subject."/>
+    <concept>
+      <code value="used-by"/>
+      <display value="Used By"/>
+      <definition value="The device is used by the subject."/>
+    </concept>
+    <concept>
+      <code value="assigned-to"/>
+      <display value="Assigned To"/>
+      <definition value="The device is assigned to the subject."/>
+    </concept>
+    <concept>
+      <code value="leased-by"/>
+      <display value="Leased By"/>
+      <definition value="The device is leased by the subject."/>
+    </concept>
+    <concept>
+      <code value="worn-by"/>
+      <display value="Worn By"/>
+      <definition value="The device is worn by the subject."/>
+    </concept>
+    <concept>
+      <code value="carried-by"/>
+      <display value="Carried By"/>
+      <definition value="The device is carried by the subject."/>
+    </concept>
+    <concept>
+      <code value="monitored-by"/>
+      <display value="Monitored By"/>
+      <definition value="The device is associated with the subject for monitoring."/>
+    </concept>
   </concept>
   <concept>
-    <code value="custodian"/>
-    <display value="Custodian"/>
-    <definition value="The individual or organization who has responsibility for taking care of the device."/>
+    <code value="implantation-attachment"/>
+    <display value="Implantation/attachment"/>
+    <definition value="Associations involving implantation in, or attachment to, the subject."/>
+    <concept>
+      <code value="implanted-in"/>
+      <display value="Implanted In"/>
+      <definition value="The device is implanted in the subject."/>
+    </concept>
+    <concept>
+      <code value="attached-to"/>
+      <display value="Attached To"/>
+      <definition value="The device is attached to the subject."/>
+    </concept>
   </concept>
   <concept>
-    <code value="maintainer"/>
-    <display value="Maintainer"/>
-    <definition value="The individual or organization that keeps the device in an appropriate condition."/>
+    <code value="location"/>
+    <display value="Location"/>
+    <definition value="Associations involving a location where the device is installed, located, or stored."/>
+    <concept>
+      <code value="installed-at"/>
+      <display value="Installed At"/>
+      <definition value="The device is installed at the subject location."/>
+    </concept>
+    <concept>
+      <code value="located-at"/>
+      <display value="Located At"/>
+      <definition value="The device is located at the subject location."/>
+    </concept>
+    <concept>
+      <code value="stored-at"/>
+      <display value="Stored At"/>
+      <definition value="The device is stored at the subject location."/>
+    </concept>
   </concept>
   <concept>
-    <code value="patient"/>
-    <display value="Patient"/>
-    <definition value="The patient in which the device is implanted, or to which the device is associated."/>
+    <code value="device-to-device"/>
+    <display value="Device-to-device"/>
+    <definition value="Associations between the device and another device."/>
+    <concept>
+      <code value="connected-to"/>
+      <display value="Connected To"/>
+      <definition value="The device is connected to the subject device."/>
+    </concept>
+    <concept>
+      <code value="controls"/>
+      <display value="Controls"/>
+      <definition value="The device controls the subject device."/>
+    </concept>
+    <concept>
+      <code value="programs"/>
+      <display value="Programs"/>
+      <definition value="The device programs the subject device."/>
+    </concept>
+    <concept>
+      <code value="calibrates"/>
+      <display value="Calibrates"/>
+      <definition value="The device calibrates the subject device."/>
+    </concept>
+    <concept>
+      <code value="maintains"/>
+      <display value="Maintains"/>
+      <definition value="The device maintains the subject device."/>
+    </concept>
+    <concept>
+      <code value="powers"/>
+      <display value="Powers"/>
+      <definition value="The device powers the subject device."/>
+    </concept>
+    <concept>
+      <code value="communicates-with"/>
+      <display value="Communicates With"/>
+      <definition value="The device communicates with the subject device."/>
+    </concept>
   </concept>
   <concept>
-    <code value="operator"/>
-    <display value="Operator"/>
-    <definition value="The person operating the device."/>
+    <code value="organizational"/>
+    <display value="Organizational"/>
+    <definition value="Associations involving organizational responsibility or custody."/>
+    <concept>
+      <code value="managed-by"/>
+      <display value="Managed By"/>
+      <definition value="The device is managed by the subject."/>
+    </concept>
+    <concept>
+      <code value="in-custody-of"/>
+      <display value="In Custody Of"/>
+      <definition value="The device is in the custody of the subject."/>
+    </concept>
+    <concept>
+      <code value="maintained-by"/>
+      <display value="Maintained By"/>
+      <definition value="The device is maintained by the subject."/>
+    </concept>
   </concept>
 </CodeSystem>

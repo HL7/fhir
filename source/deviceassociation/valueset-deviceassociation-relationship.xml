@@ -10,10 +10,10 @@
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/deviceassociation-relationship"/>
   <version value="6.0.0"/>
-  <name value="DeviceAssociationCodes"/>
+  <name value="DeviceAssociationRelationshipCodes"/>
   <title value="DeviceAssociation Relationship Codes"/>
   <status value="active"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -21,7 +21,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="DeviceAssociation Relationship Codes"/>
+  <description value="Example codes that describe the relationship between the device and the subject."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/deviceassociation-relationship"/>

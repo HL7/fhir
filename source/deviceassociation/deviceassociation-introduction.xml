@@ -4,7 +4,7 @@
 <blockquote class="ballot-note" id="bn1">
 <p><b>Note to Balloters:</b> To ensure the DeviceAssociation resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p> 
 <ul>
-<li>Collapsed the DeviceAssociation.operation backbone into the other elements (e.g., DeviceAssociation.relationship now includes the operator role).</li>
+<li>Collapsed the DeviceAssociation.operation backbone into the other elements (e.g., DeviceAssociation.relationship now describes the relationship between the device and subject).</li>
 <li>DeviceAssociation.category was renamed DeviceAssociation.relationship and given an extensible value set.</li>
 <li>Added DeviceAssociation.associationStatus.</li>
 <li>Updated search parameters to address the changes.</li>
@@ -21,15 +21,67 @@
 <div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
-<p>Device Association records the relationship between a device and a subject and/or operator. The relationship may be as the owner, patient, operator or custodian of the device. The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
-<p>The subjects may include:</p>
-<ul>
-<li><strong>Patient</strong> - the following are often associated with a specific patient: implantables, prosthetics, activity trackers, mobility assistance, care monitoring, etc.</li>
-<li><strong>Group</strong> - some devices may be associated with a family group or treatment group. For example a weight scale or blood pressure cuff.</li>
-<li><strong>Practitioner</strong> - a device that is associated with the practitioner: pager, alert monitor, cell phone, laptop/tablet</li>
-<li><strong>Device</strong> - a device may be associated with another device when it is independent of the focal device.  Note: this is different than the containment tree with parent element in the Device resource. For example a RFID tag used to track the location of a wheelchair.</li>
-<li><strong>RelatedPerson</strong> - a device that is associated with another person related to the patient. For example, an alerting device given to a spouse while their partner is in surgery.</li>
-</ul>
+<p>DeviceAssociation captures the statement "[device] is [relationship] [subject] in the context of [focus]", for example "Breast pump is leased-by Patient/mother in the context of Patient/twin-1 and Patient/twin-2".</p>
+<p>The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging, and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
+<p>DeviceAssociation represents a relationship between a device and the entity to which it is directly associated (subject) for a period of time. The resource is used when the association itself is important for traceability, assignment, location, responsibility, monitoring, control, or operational context.</p>
+<p>The subject identifies the direct target of the relationship and is not necessarily a patient. The nature of the association is described by the relationship element, which may represent concepts such as assignment, usage, custody, installation, maintenance, monitoring, control, or other forms of association.</p>
+<p>Optionally, a focus may identify a different entity, product, process, or context that is the reason for, beneficiary of, or target affected by the association. This is most useful when the direct association target differs from the entity that benefits from or is impacted by the association. Examples include a device assigned to a caregiver on behalf of a patient, a device associated with another device for the benefit of a patient, or a device associated with a location for monitoring purposes.</p>
+<p>The focus element is intended to provide care, organizational, or operational context for the association and is not intended to identify the primary patient, location, or device that is the direct target of the association. Those entities should be represented using subject.</p>
+<p>Actors performing installation, calibration, maintenance, or operation are not considered the focus solely because they performed those activities. Such actors are only represented in DeviceAssociation when they are themselves the direct subject of the association, for example a device assigned to a practitioner or organization.</p>
+<p>The associationStatus describes the state of the relationship, not the operational state or condition of the device.</p>
+<p>When multiple relationships exist between the same device and subject, they may be represented either as multiple codings within relationship or as separate DeviceAssociation instances. A single DeviceAssociation is generally appropriate when the relationships share the same subject, focus, status, associationStatus, and period. Separate DeviceAssociation instances are appropriate when these attributes differ, when the relationships have different periods or lifecycle states, or when separate traceability is required.</p>
+<p>Example scenarios describing the usage of relationship, subject, and focus:</p>
+<table class="grid">
+  <tr>
+    <th>Scenario</th>
+    <th>Device</th>
+    <th>Relationship</th>
+    <th>Subject</th>
+    <th>Focus</th>
+  </tr>
+  <tr>
+    <td>Blood pressure monitoring</td>
+    <td>Blood pressure cuff</td>
+    <td>used-by</td>
+    <td>Patient</td>
+    <td>none</td>
+  </tr>
+  <tr>
+    <td>Parent-held alert device</td>
+    <td>Alert receiver</td>
+    <td>assigned-to</td>
+    <td>RelatedPerson/parent</td>
+    <td>none</td>
+  </tr>
+  <tr>
+    <td>Implant controller</td>
+    <td>External controller</td>
+    <td>controls</td>
+    <td>Device/implant</td>
+    <td>none</td>
+  </tr>
+  <tr>
+    <td>Environmental monitoring</td>
+    <td>Temperature sensor</td>
+    <td>installed-at</td>
+    <td>Location/freezer</td>
+    <td>Organization/cellular-therapy-program</td>
+  </tr>
+  <tr>
+    <td>On-call alert assignment</td>
+    <td>Alert receiver</td>
+    <td>assigned-to</td>
+    <td>PractitionerRole/on-call-nurse</td>
+    <td>CareTeam/pediatric-care-team</td>
+  </tr>
+  <tr>
+    <td>Shared family scale</td>
+    <td>Weight scale</td>
+    <td>used-by</td>
+    <td>Group/family</td>
+    <td>none</td>
+  </tr>
+</table>
 
 </div>
 
@@ -38,11 +90,15 @@
 <ul>
     <li><strong>DeviceAssociation</strong> (this resource) - To clarify when tracking the lifecycle and traceability of a device, including assignment or dissociation with a patient, practitioner, location, or another device.</li>
 	<li><strong><a href="device.html">Device</a></strong> - The device that is, e.g., used, placed in or on, or owned by the subject referenced in the DeviceAssociation.</li>
-    <li><strong><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a></strong> when documenting a patient’s use of a device — typically clinical history or their ongoing reliance on the device.</li>
+    <li><strong><a href="deviceusage.html">DeviceUsage</a></strong> when documenting a patient's use of a device, typically clinical history or their ongoing reliance on the device.</li>
 	<li><strong><a href="procedure.html">Procedure</a></strong> when the device is involved in a clinical action, such as implantation, removal, or adjustment, where details of that intervention need to be recorded.</li>
 </ul>
-<p>These resources may be used together — for example, a procedure may establish or end an association, while DeviceUsage captures continued patient use.</p>
+<p>These resources may be used together, for example, a procedure may establish or end an association, while DeviceUsage captures continued patient use.</p>
 <p>To track changes in settings, the Observation resource can be used, where <code>Observation.subject</code> references the Device that the settings apply to. If, e.g., the patient that the Device is associated with needs to be identified, then the DeviceAssociation where <code>DeviceAssociation.period</code> includes the <code>Observation.effective[x]</code> would have that patient in <code>DeviceAssociation.subject</code>.</p>
+<p>DeviceAssociation represents the relationship established, modified, suspended, or ended by an activity, rather than the activity itself. For example, calibration may establish a relationship between a calibration device and the device being calibrated; however, the calibration activity, result, performer, and associated workflow are more appropriately represented using resources such as Procedure, Observation, Task, or other workflow and event resources.</p>
+<p>DeviceAssociation is intended to support longer-term tracking, traceability, assignment, responsibility, location, monitoring, control, and operational context for devices. It is not intended to replace event resources that record clinical or operational actions involving a device.</p>
+<p>DeviceAssociation is not intended to record all clinical use of a device. Use appropriate event or workflow resources to record the activity itself. For example, DeviceUsage should be used when documenting a patient's use of, or dependence on, a device. Procedure should be used when recording clinical actions involving a device, such as implantation, removal, adjustment, maintenance, or other interventions. Observation should be used when recording measurements, settings, calibration results, environmental readings, or other observations about the device or the entity being monitored.</p>
+<p>DeviceAssociation may be used in conjunction with these resources when the existence of the association provides context necessary to understand the event or activity being recorded.</p>
 </div>
 
 

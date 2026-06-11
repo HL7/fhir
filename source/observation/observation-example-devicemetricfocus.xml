@@ -50,8 +50,8 @@
 				<associationStatus>
 					<coding>
 					<system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
-					<code value="attached"/>
-					<display value="Attached"/>
+					<code value="active"/>
+					<display value="Active"/>
 					</coding>
 				</associationStatus>
 				<subject>

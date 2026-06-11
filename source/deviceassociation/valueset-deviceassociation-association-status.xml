@@ -14,7 +14,7 @@
   <title value="DeviceAssociation Association Status"/>
   <status value="active"/>
   <experimental value="false"/>
-  <description value="Codes that describe the state of a device’s association (e.g., implanted, attached, on, off, standby, defective)."/>
+  <description value="Codes that describe the state of the relationship between a device and the subject."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>

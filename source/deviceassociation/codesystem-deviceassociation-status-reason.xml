@@ -14,33 +14,53 @@
   <title value="DeviceAssociation Status Reason Codes"/>
   <status value="active"/>
   <experimental value="false"/>
-  <description value="DeviceAssociation Status Reason Codes"/>
+  <description value="Administrative and record-management reasons for the current DeviceAssociation record status."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-status-reason"/>
   <content value="complete"/>
   <concept>
-    <code value="attached"/>
-    <display value="Attached"/>
-    <definition value="The device is connected to the patient."/>
+    <code value="lost-to-follow-up"/>
+    <display value="Lost to Follow-up"/>
+    <definition value="The association record status changed because follow-up could not be completed."/>
   </concept>
   <concept>
-    <code value="disconnected"/>
-    <display value="Disconnected"/>
-    <definition value="The device is no longer connected."/>
+    <code value="record-archived"/>
+    <display value="Record Archived"/>
+    <definition value="The association record has been archived."/>
   </concept>
   <concept>
-    <code value="failed"/>
-    <display value="Failed"/>
-    <definition value="The device has failed to work, or continue to function."/>
+    <code value="superseded"/>
+    <display value="Superseded"/>
+    <definition value="The association record has been superseded by another record."/>
   </concept>
   <concept>
-    <code value="placed"/>
-    <display value="Placed"/>
-    <definition value="The device was placed in the patient."/>
+    <code value="duplicate"/>
+    <display value="Duplicate"/>
+    <definition value="The association record is a duplicate of another record."/>
   </concept>
   <concept>
-    <code value="replaced"/>
-    <display value="Replaced"/>
-    <definition value="The device was updated with a new device or device part."/>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The association record was entered in error."/>
+  </concept>
+  <concept>
+    <code value="patient-deceased"/>
+    <display value="Patient Deceased"/>
+    <definition value="The association record status changed because the patient is deceased."/>
+  </concept>
+  <concept>
+    <code value="device-retired"/>
+    <display value="Device Retired"/>
+    <definition value="The association record status changed because the device has been retired."/>
+  </concept>
+  <concept>
+    <code value="association-ended"/>
+    <display value="Association Ended"/>
+    <definition value="The association record status changed because the device association ended."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The reason for the association record status is unknown."/>
   </concept>
 </CodeSystem>

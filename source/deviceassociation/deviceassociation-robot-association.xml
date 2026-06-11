@@ -45,11 +45,18 @@
     <reference value="#surgical-robot"/>
   </device>
   <status value="active"/>
+  <relationship>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-relationship"/>
+      <code value="assigned-to"/>
+      <display value="Assigned To"/>
+    </coding>
+  </relationship>
   <associationStatus>
     <coding>
       <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
-      <code value="attached"/>
-      <display value="Attached"/>
+      <code value="active"/>
+      <display value="Active"/>
     </coding>
   </associationStatus>
   <subject>
@@ -62,15 +69,4 @@
     <start value="2025-07-01T08:00:00Z"/>
     <end value="2025-07-01T12:00:00Z"/>
   </period>
-  <operation>
-    <status>
-      <coding>
-        <code value="on"/>
-      </coding>
-    </status>
-    <period>
-      <start value="2025-07-01T08:00:00Z"/>
-      <end value="2025-07-01T12:00:00Z"/>
-    </period>
-  </operation>
 </DeviceAssociation>
