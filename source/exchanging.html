@@ -426,7 +426,7 @@ shared in FHIR</li>
     With so many possible approaches to exchanging data, implementers need guidance on how to choose the appropriate choice for a given use-case.  In practice, the choice will be influenced by existing infrastructure, architectural preference, and other considerations.  However, the following diagram and associated descriptions aim to provide "best practice" guidance about what approach to use in which circumstances.  Adhering to the recommendations here will help reduce long-term implementation effort and cost across the full data sharing community.  It will also help increase the likelihood that FHIR solutions that are designed independently will land on the same architectural approach.  In all cases, if you're uncertain of the best architectural approach for a given exchange, raise your questions on the <a href="https://chat.fhir.org/#narrow/stream/179166-implementers">chat.fhir.org implementer's forum</a>.  The community will often be able to provide additional considerations, guidance about what solutions already exist in the space, and nudge you toward the solution that is most likely to successfully meet your requirements and integrate with other solutions.
   </p>
   <p>
-    The following diagram provides a decision tree to help guide the selection of a data exchange approach.  Each decision branch includes a hyperlink to a section further below that provides a detailed description of the considerations in making the choice for the decision point.  Each "exchange option" will link to a web page that provides a detailed walkthrough of the interoperability pattern and further guidance on its use - as well as pointing to the relevant portions of the FHIR spec that describe how to implement the approach.  While it is possible to use the decision tree while only paying attention to the branches 'relevant' for your specific use-case, readers are encouraged to familiarize themselves with all the content so they can be sure they're not excluding options that may be relevant to their requirements.
+    The following diagram provides a decision tree to help guide the selection of a data exchange approach.  Each decision branch includes a hyperlink to a section further below that provides a detailed description of the considerations in making the choice for the decision point.  Each "exchange option" will link to a web page that provides a detailed walkthrough of the interoperability pattern and further guidance on its use - as well as pointing to the relevant portions of the FHIR spec that describe how to implement the approach.  While it is possible to use the decision tree while only paying attention to the branches 'relevant' for your specific use-case, readers are encouraged to familiarize themselves with all the content so they can be sure they are not excluding options that may be relevant to their requirements.
   </p>
   <a name="tree"> </a>
   <div style="margin: auto;">
@@ -552,7 +552,7 @@ shared in FHIR</li>
     Task is used to explicitly ask for an action to be performed.  Sometimes it is used together with a Request resource, however it can also be used on its own to ask for execution of a simple action - such as requesting someone fill out a form or return a specified piece of information.  Because Task can be used to ask for an action to be performed and can, itself, track acceptance or rejection of the request, progress status of the request and eventually be updated to point to the 'output' of the request, it saves on overhead compared with using CommunicationRequest which (for any of the afore-mentioned functions) would need to be paired with Task.  As such, Task is generally preferred when there is not a need for a formal authorization and when the capabilities of Task to describe the data requested are as sufficient as those available on CommunicationRequest.  Even when authorization is needed, Task may still be relevant as the authorization may span multiple exchanges covering a broad set of data, while Task allows initiation of a single transfer of very specific information.
   </p>
   <p>
-    Note that an authorization (e.g., CommunicationRequest) by itself is not sufficient for information to flow, and in some cases, a single authorization may be associated with numerous folows over an extended period of time.  The trigger for actual exchange will some form of <a href="workflow-communications.html">workflow initiation mechanism</a>.  Frequently, that will be Task, meaning that CommunicationRequest may end up being used in conjuction with Task.
+    Note that an authorization (e.g., CommunicationRequest) by itself is not sufficient for information to flow, and in some cases, a single authorization may be associated with numerous folows over an extended period of time.  The trigger for actual exchange will some form of <a href="workflow-communications.html">workflow initiation mechanism</a>.  Frequently, that will be Task, meaning that CommunicationRequest may end up being used in conjunction with Task.
   </p>
   <p>
     Details on using Task can be found <a href="exchanging-request.html#task">here</a>.  Details on using CommunicationRequest can be found <a href="exchanging-request.html#request">here</a>.  Note that, regardless of whether Task or CommunicationRequest are selected, the asynchronous response providing the requested data (or some of the requested data or an outright refusal to deliver the requested data) will be handled as a <a href="#configured">Data source-initiated (Push)</a> event and the architectural approach for that delivery will also need to be selected.  (Generally, the mechanism will be one of the <a href="#configured">Configured by consumer</a> options as the <i>data consumer</i> is the system that truly initiated the transfer and therefore should decide what happens to the data.  However, if an operation or message is used to transmit the Task or CommunicationRequest, then the response would come back as a <a href="exchanging-messaging.html">message</a> or an <a href="exchanging-operation.html">operation response</a>.
@@ -726,7 +726,7 @@ shared in FHIR</li>
   </p>
   <ul>
     <li>It uses less bandwidth and processing power because there is only an interaction between <i>data source</i> and <i>data consumer</i> when data is ready to flow, while polling requires regular interactions, even when there is nothing to send</li>
-    <li>Subscription scales better.  Pushing out an event to 100+ interested parties is much more managable than responding to regular polling queries from 100+ systems</li>
+    <li>Subscription scales better.  Pushing out an event to 100+ interested parties is much more manageable than responding to regular polling queries from 100+ systems</li>
     <li>Subscription offers the potential of more immediate notification when an event occurs.  With polling, the average time to receive a notification is half the polling interval and the maximum time to receive a notification is the full polling interval.  (With shorter polling intervals negatively affecting bandwidth and processing load.)</li>
   </ul>
   <p>
@@ -876,7 +876,7 @@ shared in FHIR</li>
     A collection is quite flexible.  It can store any arbitrary set of resources with no required organization and no semantic other than "this is a bunch of stuff someone decided to store together".  It might be used to store a collection of examples, test cases, implementation guide source or any other set of resources that needs to be persisted as a group.
   </p>
   <p>
-    FHIR documents are different.  The contents of the Bundle must adhere to a <a href="documents.html">specific set of rules</a>, both in terms of how they're constructed and how they should be handled when received.  One of the main differences is that a FHIR document provides specific information about how the information should be presented to a human, including in what order.  This is important when there is a need to "tell a story" - i.e., where a human reader needs to consume information in a specific way in order to have a consistent (and complete) understanding of what the collection of information represents.  This is commonly found in artifacts such as pathology reports and discharge summaries.  While it is possible to jump right to the 'recommendations' part of the document, those recommendations will not necessarily make much sense unless the reader had first gone through the content that comes before.
+    FHIR documents are different.  The contents of the Bundle must adhere to a <a href="documents.html">specific set of rules</a>, both in terms of how they are constructed and how they should be handled when received.  One of the main differences is that a FHIR document provides specific information about how the information should be presented to a human, including in what order.  This is important when there is a need to "tell a story" - i.e., where a human reader needs to consume information in a specific way in order to have a consistent (and complete) understanding of what the collection of information represents.  This is commonly found in artifacts such as pathology reports and discharge summaries.  While it is possible to jump right to the 'recommendations' part of the document, those recommendations will not necessarily make much sense unless the reader had first gone through the content that comes before.
   </p>
   <p>
     If there is a need to control presentation or provide storytelling, then the exchange will be using FHIR documents, the process for which is described <a href="exchanging-rest.html#document">here</a>.  Otherwise, the exchange will use 'collection' bundles and the process for that is described <a href="exchanging-rest.html#collection">here</a>.
@@ -971,7 +971,7 @@ must consider a range of scenarios, depending on the data that is available:
   </tr>
   <tr>
     <td><b>extends</b>: The system has more data</td>
-    <td>In this case, the system has additional data that doesn't have 
+    <td>In this case, the system has additional data that does not have 
       a place in the existing primitive data. For example, the system has
       a public id for an address.
       <br/><br/>
@@ -990,7 +990,7 @@ must consider a range of scenarios, depending on the data that is available:
   <tr>
     <td><b>more-details</b>: The system has finer grained data</td>
     <td>In this case, the system has additional data about the existing values 
-      that doesn't have a place in the existing primitive data. For example, the system has 
+      that does not have a place in the existing primitive data. For example, the system has 
       a name for a timezone on a dateTime with a timezone.
       <br/><br/>
       In this case, the authoring system can add extensions to the 
@@ -1040,7 +1040,7 @@ must consider a range of scenarios, depending on the data that is available:
       extensions.
       <br/><br/>
       If the applicable profiles prohibit missing data, the application must be 
-      redesigned. If this isn't possible, then that's an impasse whose solution is 
+      redesigned. If this is not possible, then that's an impasse whose solution is 
       outside the scope of the FHIR specification.
     </td>
   </tr>
@@ -1058,7 +1058,7 @@ must consider a range of scenarios, depending on the data that is available:
       where real-world systems have data that is invalid, but all designs are a 
       trade-off between different pros and cons, and systems do not always have 
       valid data. Again, one solution is to redesign the system or the clinical 
-      workflow to ensure that data is always valid, but this isn't always possible
+      workflow to ensure that data is always valid, but this is not always possible
       e.g., due to the existence of legacy data.
       <br/><br/>
       Applications are able to provide alternative invalid data using the <a href="[%extensions-location%]StructureDefinition-originalText.html">originalText</a>
@@ -1074,7 +1074,7 @@ must consider a range of scenarios, depending on the data that is available:
       extensions.
       <br/><br/>
       If the applicable profiles prohibit invalid data replacement like this, the 
-      application must be redesigned. If this isn't possible, then that's an impasse whose solution is 
+      application must be redesigned. If this is not possible, then that's an impasse whose solution is 
       outside the scope of the FHIR specification.
     </td>
   </tr>

@@ -112,7 +112,7 @@ copy. If the local resource has a life-cycle of its own (i.e., it is not just a 
 needs to have its own identity; i.e., the resource must get new ids. The simplest case is that the
 client is only keeping local copies of resources from a single server. In these cases, the client can
 simply replace the Base URL and keep the logical id of the resource the same. In fact, if the server
-is using relative references, then this change doesn't involve any actual changes to the resources, it only
+is using relative references, then this change does not involve any actual changes to the resources, it only
 means a re-interpretation of the references.
 </p>
 <p>
@@ -194,7 +194,7 @@ FHIR defines several mechanisms for retrieving resources that are referenced by 
 <a href="search.html#revinclude">_revinclude</a>, <a href="compartmentdefinition.html">compartments</a> and special operations such as
 <a href="https://build.fhir.org/ig/HL7/admin-incubator/branches/main/en/OperationDefinition-Patient-everything.html">Patient/$everything</a>.  Query behavior becomes more complex when references span servers.  Servers 
 returning _include and _revinclude capabilities <b>can</b> but need not return data stored from other servers.  Similarly, the definition of 
-compartments doesn't strictly limit data to that found on a single server, but servers are certainly not expected to include data found elsewhere 
+compartments does not strictly limit data to that found on a single server, but servers are certainly not expected to include data found elsewhere 
 when performing compartment-based queries or operations.  As a result, query behavior may be different if data is stored on the same server as the
 referencing resource vs. stored on a different server.
 </p>

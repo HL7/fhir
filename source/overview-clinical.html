@@ -60,10 +60,10 @@ demographics, health conditions and procedures) as well as administrative inform
 support the technical exchange of information by describing what systems are able to do, defining allowed sets
 of codes, etc.  FHIR repositories might be electronic health record (EHR) systems, pharmacy systems,
 hospital information systems (HIS), etc.  Some systems, such as clinical decision support engines, may
-expose FHIR interfaces even though they don't actually store any patient or administrative information themselves.
+expose FHIR interfaces even though they do not actually store any patient or administrative information themselves.
 </p>
 <p>
-Each Resource defines a small amount of highly-focused data. A single resource doesn't say very much, but a collection of Resources
+Each Resource defines a small amount of highly-focused data. A single resource does not say very much, but a collection of Resources
 taken together creates a useful clinical record. Information systems map the actions that a user takes (look up patient records, make a
 note in their history, etc.) to operations on the relevant resources.
 </p>
@@ -85,7 +85,7 @@ are used by the receiving system.
 <p>
 To keep the base forms that everyone uses from being overly complex, FHIR has a rule that, in most cases, a
 resource will only include data elements if there's an expectation that most implementations will use that particular
-data element.  That doesn't mean the data must always exist.  For example, most systems in the world are capable
+data element.  That does not mean the data must always exist.  For example, most systems in the world are capable
 of tracking "deceased date" for a patient, even though that element will be blank for many patient records.  On
 the other hand, not as many systems track hair color, so hair color would be omitted from the base form and those
 systems that need it (perhaps in a specialty clinical or research setting) can use a FHIR extension to
@@ -178,7 +178,7 @@ you can do the following:
 <li><i>operation</i>: Ask the clerk to perform an action or procedure on papers from one or more of the folders - for example, averaging numbers across patients, producing a summary record, or perform a complex search just by ticking a box on a requisition saying "do that one"</li>
 </ul>
 <p>
-EHRs and other systems may present a more sophisticated interface to their end users, but behind the scenes they're all
+EHRs and other systems may present a more sophisticated interface to their end users, but behind the scenes they are all
 making these same types of requests to the file clerk.
 </p>
 

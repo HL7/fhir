@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="consent-provision-type"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cbcc"/>
+    <valueCode value="security"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/>
@@ -40,11 +40,11 @@
   <concept>
     <code value="deny"/>
     <display value="Deny"/>
-    <definition value="Consent is denied for actions meeting these rules."/>
+    <definition value="The provision or rule, when matching the activity request, forbids the activity."/>
   </concept>
   <concept>
     <code value="permit"/>
     <display value="Permit"/>
-    <definition value="Consent is provided for actions meeting these rules."/>
+    <definition value="The provision or rule, when matching the activity request, allows the activity."/>
   </concept>
 </CodeSystem>

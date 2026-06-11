@@ -10,6 +10,7 @@
 				<li>Updated use cases to clarify attribute level (i.e. <code>ImagingStudy.endpoint</code> vs. <code>ImagingStudy.series.endpoint</code> and to make it clearer which workflow steps do not relate to FHIR.</li>
 				<li>Clarified relationship between ImagingStudy and ImagingSelection</li>
 				<li>Removed a reference to Accession Number under <code>ImagingStudy.identifier</code>.</li>
+				<li>Updated <code>Imagingstudy.series.bodySite</code> cardinality to <code>0..*</code>. This makes it consistent with other resources such as Observation.</li>
 			</ul>
 		</blockquote>
 	</div>
@@ -38,7 +39,7 @@ in <a href="http://medical.nema.org/medical/dicom/current/output/html/part04.htm
 <p>
 ImagingStudy provides access to significant DICOM information but will only eliminate the need for DICOM 
 query (e.g., a DICOMweb search transaction) in the simplest cases. The DICOM instances are not stored in the ImagingStudy 
-resource; use of a DICOM service is needed (e.g., a DICOMweb retrieve transaction).
+resource; use of a DICOM service is needed (e.g., the retrieve transaction of DICOMweb studies service).
 </p>
 <p> 
 One ImagingStudy resource SHALL reference one DICOM Study.
@@ -54,7 +55,7 @@ One ImagingStudy resource SHALL reference one DICOM Study.
     The <a href="imagingstudy.html">ImagingStudy</a> resource is used to store details of an entire DICOM Study and its relationships to other resources, such as <a href="patient.html">Patient</a>, <a href="servicerequest.html">ServiceRequest</a>, and <a href="encounter.html">Encounter</a>.
     </p>
 	<p>
-		The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference a subset of a study. Instances of this resource are created for specific clinical purposes and are unlikely to change once created. <a href="imagingstudy.html">ImagingSelection.derivedFrom</a> references an <a href="imagingstudy.html">ImagingStudy</a> when the images were selected from it.
+		The <a href="imagingselection.html">ImagingSelection</a> resource is used to reference a subset of a DICOM Study. Instances of this resource are created for specific clinical purposes and are unlikely to change once created. <a href="imagingstudy.html">ImagingSelection.derivedFrom</a> references an <a href="imagingstudy.html">ImagingStudy</a> when the images were selected from it.
 	</p>
 		<p>
 		An <a href="observation.html">Observation</a> typically relates to a set of images in the following ways.

@@ -1055,6 +1055,9 @@
   <concept id="405607001" display="Ambulatory surgery center (environment)">
     <display value="Ambulatory surgery center (environment)"/>
   </concept>
+  <concept id="40617009" display="Artificial respiration">
+    <display value="Artificial respiration"/>
+  </concept>
   <concept id="408440000" display="Public health medicine (qualifier value)">
     <display value="Public health medicine (qualifier value)"/>
   </concept>

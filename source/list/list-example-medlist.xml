@@ -30,7 +30,7 @@
     <!-- patient was prescribed hydroxocobalamin. the flag marks this 
        as a prescription. Note that healthcare workers will now get into
        a long debate the exact implication of "prescribed". That's why the
-       spec doesn't fix the flag values -->
+       spec does not fix the flag values -->
     <flag>
       <coding>
         <system value="http://nehta.gov.au/codes/medications/changetype"/>
