@@ -113,7 +113,7 @@
     </element>
     <element id="Communication.basedOn">
 	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#38783."/>
+        <valueString value="J#38783, J#53166"/>
       </extension>
       <path value="Communication.basedOn"/>
       <short value="Request fulfilled by this communication"/>
@@ -131,6 +131,7 @@
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -541,7 +542,7 @@
       <path value="Communication.payload.content[x]"/>
       <short value="Message part content"/>
       <definition value="A communicated content (or for multi-part communications, one portion of the communication)."/>
-      <comment value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn't appropriate.&#xA;&#xA;If the content isn't codified, contentCodeableConcept.text can be used.  &#xA;&#xA;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content."/>
+      <comment value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn't appropriate.&#xA;&#xA; When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content.&#xA;&#xA; If the payload content is narrative text, then contentString would be used.  If the payload content is typically able to be coded but a code is not currently available, then contentCodeableConcept.text may be used."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -553,6 +554,9 @@
       </type>
       <type>
         <code value="CodeableConcept"/>
+      </type>
+	  <type>
+        <code value="string"/>
       </type>
     </element>
     <element id="Communication.note">

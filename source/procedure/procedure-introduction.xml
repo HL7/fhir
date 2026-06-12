@@ -12,7 +12,7 @@
 		  </li>
 		  <li>Compatible, Substantive Changes
 			<ul>
-			  <li>None</li>
+			  <li><a href="https://jira.hl7.org/browse/FHIR-53166">FHIR-53166</a>: Add DocumentReference as target reference to basedOn</li>
 			</ul>
 		  </li>
 		  <li>Non-Substantive Changes
