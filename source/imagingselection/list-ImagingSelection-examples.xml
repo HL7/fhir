@@ -112,4 +112,16 @@
       <display value="General"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="MG Image Selection"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="imagingselection-example-mg-image-selection"/>
+    </extension>
+    <item>
+      <reference value="ImagingSelection/example-mg-image-selection"/>
+      <display value="General"/>
+    </item>
+  </entry>
 </List>
