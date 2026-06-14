@@ -25,7 +25,7 @@ The PractitionerRole resource can be used in multiple contexts including:
 </ul>
 
 <p>
-The role, specialty, Location telecom and HealthcareService properties can be repeated if required in other instances
+The code, specialty, location, contact and healthcareService properties can be repeated if required in other instances
 of the PractitionerRole. Some systems record a collection of service values for a single location, others record the 
 single service and the list of locations it is available. Both are acceptable options for representing this data.<br/>
 Where availability, telecom, or other details are not the same across all healthcareservices, or locations 

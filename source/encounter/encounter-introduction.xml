@@ -84,10 +84,10 @@ on whether the patient had received some care before leaving, or other local bus
 The "on-leave" subject status might or might not be a part of the admission, for example if the patient 
 was permitted to go home for a weekend or some other form of external event.<br/>
 During this time the encounter status itself might be marked as "on-hold". Local systems may have multiple different
-types of leave/hold and these can use appropriate combinations fo the status/subjectStatus fields to represent this.<br/>
+types of leave/hold and these can use appropriate combinations for the status/subjectStatus fields to represent this.<br/>
 The location is also likely to be filled in with a location status of "active".<br/>
 For other examples such as an outpatient visit (day procedure - colonoscopy), the patient could also be 
-considered to be admitted, hence the encounter doesn't have a fixed definition of admitted.
+considered to be admitted, hence the encounter does not have a fixed definition of admitted.
 At a minimum, we do believe that a patient IS admitted when the status is in-progress.
 </p>
 </div>
