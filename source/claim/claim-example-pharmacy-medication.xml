@@ -119,11 +119,13 @@
 
 	<diagnosis>
 		<sequence value="1"/>
-		<diagnosisCodeableConcept>
+		<diagnosis>
+		  <concept>
 			<coding>
 				<code value="654456"/>
 			</coding>
-		</diagnosisCodeableConcept>
+		  </concept>
+		</diagnosis>
 	</diagnosis>
 
 	<insurance>
