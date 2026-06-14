@@ -3,6 +3,7 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+
 <p>
 The CoverageEligibilityResponse resource provides eligibility and plan details from the processing of an 
 CoverageEligibilityRequest resource. It combines key information from a payor as to whether a Coverage is 
