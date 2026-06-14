@@ -105,7 +105,7 @@ signatures.html
           <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
           <page title="Mappings" filename="datatypes-mappings.html"/>
           <page title="Profiles" filename="datatypes-profiles.html"/>
-          <page title="MetaData Types" filename="metadatatypes.html">
+          <page title="Metadata Types" filename="metadatatypes.html">
             <page title="Examples" filename="metadatatypes-examples.html"/>
             <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
             <page title="Mappings" filename="metadatatypes-mappings.html"/>

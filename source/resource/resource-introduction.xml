@@ -39,7 +39,7 @@ The following optional elements and properties are defined for all resources:
  <li>A reference to "Implicit Rules"</li>
 </ul>
 <p>
-Resource is the ancestor of <a href="domainresource.html">DomainResource</a> from which most recources are derived. <a href="bundle.html">Bundle</a>, <a href="parameters.html">Parameters</a>, and <a href="binary.html">Binary</a> extend Resource directly.
+Resource is the ancestor of <a href="domainresource.html">DomainResource</a> from which most resources are derived. <a href="bundle.html">Bundle</a>, <a href="parameters.html">Parameters</a>, and <a href="binary.html">Binary</a> extend Resource directly.
 </p>
 <p>
 Note: there is documentation for the <a href="formats.html">Structure</a>, <a href="formats.html#uml">UML</a>, <a href="xml.html">XML</a>, and <a href="json.html">JSON</a> representations of the resource structure. 
@@ -90,7 +90,7 @@ Generally, the process for moving an Additional Resource to core is:
 </p>
 <ul>
  <li>The responsible WG/WGs need to request moving into core.</li>
- <li>FMG needs to approve moving into core (criteria TBD by FMG).</li>
+ <li>The FHIR Management Group (FMG) needs to approve moving into core (criteria TBD by FMG).</li>
  <li>The resource will be added to the next ballot of FHIR core.</li>
  <li>The resource will be officially available when the milestone release that includes it is published.</li>
  <li>Concurrently with that FHIR Core publication, the status of the 'additional' definition should be updated so that it is deprecated and then eventually removed</li>

@@ -147,7 +147,7 @@ definition URI and then execute with the name given in the capability statement.
 <p>
 Note to implementers: it would be more consistent if CapabilityStatement.rest.operation.name was 
 actually called "code", since it relates to OperationDefinition.code, but the confusion this 
-can cause wasn't appreciated until the resource was normative. 
+can cause was not appreciated until the resource was normative. 
 </p>
 
 <a name="desc"></a>
@@ -240,14 +240,14 @@ so that they can be represented directly in the URL without tricky encoding issu
 always have a single output parameter named "result" of type Bundle.
 </p>
 <p>
-The order of parameters doesn't matter; a <code>_query</code> parameter anywhere in the query means the entire query will be handled 
+The order of parameters does not matter; a <code>_query</code> parameter anywhere in the query means the entire query will be handled 
 according to the named query OperationDefinition. Parameters may repeat if permitted by the OperationDefinition 
 (or for unlisted common search parameters, as specified in this specification).
 </p>
 <p>
 For named queries, all the standard search parameters are automatically in scope. Specifically, all common search parameters 
 (e.g. _id, _text, _count, _sort, etc.) as well as search parameters that pertain to the resources 
-returned by the operation (e.g. name for Patient or Organization) are allowed. "In scope" doesn't 
+returned by the operation (e.g. name for Patient or Organization) are allowed. "In scope" does not 
 mean all servers will support them. If a server wishes to declare which search parameters it supports 
 for a given named query, it must explicitly list these in its OperationDefinition (which might be a 
 server-specific derived OperationDefinition).
