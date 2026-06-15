@@ -104,7 +104,7 @@ for more information).
 The document bundle SHALL include only:
 </p>
 <ol>
- <li>The composition set: the single Composition resource, and the resources it links to</li>
+ <li>The composition set: the root Composition resource, and the resources it links to</li>
  <li>
   The supporting information: Any resources that are part of the graph of resources that reference or are referenced 
   from the composition set, either directly or indirectly (e.g., recursively in a chain).  Such references SHALL use 
@@ -138,6 +138,23 @@ rules laid out in the <a href="signatures.html">digital signatures</a> page.
 Note that the document may be represented in either XML or JSON and interconverted between these 
 or have its character encoding changed, all the while remaining the same document.  Any additional documents 
 derived from the same Composition SHALL have a different Bundle.identifier.
+</p>
+
+<a name="other-docs"></a>
+<h3>Documents referencing other documents</h3>
+
+<p>
+In some cases a document may reference another document and include that as part of the
+packaged/attested content.  There are three options:
+</p>
+<ul>
+  <li>Refer to the Composition that defines the target document (and potentially include it in the Bundle),</li>
+  <li>Refer to a DocumentReference that itself points to the target document Bundle, or</li>
+  <li>Embed the target document Bundle in the current document</li>
+</ul>
+<p>
+The last option is not preferred.  The choice of the first two options is driven by whether there is a need to refer to the entire package, or merely the definitional
+concept of the target document (as well as which resource is available to reference/include).
 </p>
 
 <a name="presentation"></a>
