@@ -1,0 +1,12 @@
+@startuml
+
+hide empty description
+
+state Condition as "Condition Region\n(Derived from occurrencePeriod)" {
+  [*] --> NoCondition
+  NoCondition --> ConditionActive : conditionStart\n/ set occurrencePeriod.start
+  ConditionActive --> ConditionEnded : conditionEnd\n/ set occurrencePeriod.end
+  ConditionEnded --> [*] : completeRecord
+}
+
+@enduml

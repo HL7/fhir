@@ -1,0 +1,22 @@
+@startuml
+
+hide empty description
+
+state Signal as "Signal Region\n(DeviceAlert.signal states)" {
+  [*] --> SignalOff
+  SignalOff -down-> SignalOn : signalStart [ConditionActive]\n/ activationState=on;\npresence=on
+  SignalOn --> SignalOff : conditionEnd [notLatched]\n/ presence=off
+  SignalOn --> SignalPaused : pauseSignal [ConditionActive]\n/ activationState=paused
+  SignalOn --> SignalAck : acknowledge [ConditionActive]\n/ presence=ack
+  SignalOn --> SignalInop : inopDetected\n/ activationState=off
+  SignalOn --> SignalLatched : conditionEnd [latchedEnable]\n/ presence=latched
+  SignalPaused --> SignalOff : conditionEnd\n/ presence=off
+  SignalPaused --> SignalOn : resumeSignal [ConditionActive]\n/ activationState=on;\npresence=on
+  SignalPaused -down-> SignalAck : acknowledge [ConditionActive]\n/ presence=ack
+  SignalPaused --> SignalInop : inopDetected\n/ activationState=off
+  SignalAck --> SignalOff : conditionEnd\n/ presence=off
+  SignalInop --> SignalOff : inopCleared\n/ activationState=on;\npresence=off
+  SignalLatched --> SignalOff : resetLatch\n/ presence=off
+}
+
+@enduml
