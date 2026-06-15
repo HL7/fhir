@@ -17,6 +17,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics">
+    <valueCode value="can-be-target"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Resource"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>

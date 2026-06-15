@@ -241,7 +241,7 @@
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <upperCardinality _pattern="*" _resource="1" reason="Unknown"/>
         <missingTypes _pattern="Annotation" reason="Unknown"/>
-        <extraTypes _resource="Reference(Resource), Attachment, CodeableConcept" reason="Unknown"/>
+        <extraTypes _resource="string, Reference(Resource), Attachment, CodeableConcept" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Comments made about communication request"/>
             <resource value="Message part content"/>
@@ -252,7 +252,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="See guidance on [notes vs. supportingInfo](request.html#notes)."/>
-            <resource value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn't appropriate.&#10;&#10;If the content isn't codified, contentCodeableConcept.text can be used.  &#10;&#10;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content."/>
+            <resource value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn't appropriate.&#10;&#10;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content.&#10;&#10;If the payload content is narrative text, then string would be used. If the payload content is typically able to be coded but a code is not currently available, then CodeableConcept.text may be used."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.note" resourcePath="CommunicationRequest.note">
