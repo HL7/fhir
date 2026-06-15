@@ -934,6 +934,13 @@
       <requirements value="Provides health context for the evaluation of the products and/or services."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="clm-0"/>
+        <severity value="error"/>
+        <human value="Either a concept or a reference is provided but not both."/>
+        <expression value="concept.exists() xor reference.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+      </constraint>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
@@ -1052,6 +1059,13 @@
       <requirements value="This identifies the actual clinical procedure."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="clm-1"/>
+        <severity value="error"/>
+        <human value="Either a concept or a reference is provided but not both."/>
+        <expression value="concept.exists() xor reference.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+      </constraint>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
