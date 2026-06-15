@@ -429,9 +429,9 @@
     </element>
     <element id="FamilyMemberHistory.sex">
       <path value="FamilyMemberHistory.sex"/>
-      <short value="male | female | other | unknown"/>
-      <definition value="The birth sex of the family member."/>
-      <comment value="This element should ideally reflect whether the individual is genetically male or female.  However, as reported information based on the knowledge of the patient or reporting friend/relative, there may be situations where the reported sex might not be totally accurate.  E.g. 'Aunt Sue' might be XY rather than XX.  Questions soliciting this information should be phrased to encourage capture of genetic sex where known.  However, systems performing analysis should also allow for the possibility of imprecision with this element."/>
+      <short value="female-typical | male-typical | specified | unknown"/>
+      <definition value="A context-specific sex value for the family member which can inform clinical decision making in relation to treatment of the patient. This element SHALL NOT be used to reflect the family member's gender identity."/>
+      <comment value="This element should ideally reflect the family member's sex characteristics. However, as reported information based on the knowledge of the patient or reporting friend/relative, there may be situations where the reported sex might not be totally accurate. E.g. 'Aunt Sue' might be XY rather than XX. Questions soliciting this information should be phrased to encourage capture of genetic sex where known. However, systems performing analysis should also allow for the possibility of imprecision with this element."/>
       <requirements value="Not all relationship codes imply sex and the relative's sex can be relevant for risk assessments."/>
       <min value="0"/>
       <max value="1"/>
@@ -443,9 +443,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Sex"/>
         </extension>
-        <strength value="extensible"/>
-        <description value="Codes describing the sex assigned at birth as documented on the birth registration."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+        <strength value="preferred"/>
+        <description value="Codes describing the sex values appropriate in this context"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/sex-parameter-for-clinical-use"/>
       </binding>
     </element>
     <element id="FamilyMemberHistory.born[x]">

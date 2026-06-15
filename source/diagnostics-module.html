@@ -297,6 +297,14 @@ in order to support consistent definitions for schema and UML derived code.
     </p>
 
     <h4>Imaging</h4>
+    <h5>Representation of DICOM Information Entities using FHIR resources</h5>
+    <p>The DICOM® information model describes a set of Information Entities (IEs), each corresponding to a "Real-World Object" (e.g. Patient, Visit, etc.). See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/chapter_3.html">DICOM PS 3.3 Section 3.8</a>. While there is not always a one-to-one correspondence, many of these IEs can be described using FHIR resources.</p>
+    <p>The specific mapping may vary depending on use cases, but the following provides general guidance on how the most common DICOM IEs are typically mapped to FHIR resources:</p>
+
+    <div>
+        <img src="diagnostic-module-imaging-fig1.png" alt="Mapping DICOM IEs to FHIR Resources" width="944" />
+        <figure>Figure 1: Mapping DICOM IEs to FHIR Resources.</figure>
+    </div>
 
     <h5>Representation of DICOM SR measurements using FHIR resources</h5>
     <p>DICOM® Structured Report (DICOM® SR) is a standard for recording clinical imaging observations made regarding a diagnostic or interventional imaging procedure. Imaging Observations are made by humans, such as a sonographer making measurements on recently acquired ultrasound image, a Radiologist recording observations on suspected lesions, or by a machine, such as an automated AI Algorithm providing qualitative and quantitative observations.</p>
@@ -311,8 +319,8 @@ in order to support consistent definitions for schema and UML derived code.
 
     <p>
         <div>
-            <img src="diagnostic-module-imaging-fig1.png" alt="Extracting imaging results for use in reporting" width="1000" />
-            <figure>Figure 1: Extracting imaging results for use in reporting.</figure>
+            <img src="diagnostic-module-imaging-fig2.png" alt="Extracting imaging results for use in reporting" width="1000" />
+            <figure>Figure 2: Extracting imaging results for use in reporting.</figure>
         </div>
     </p>
 
@@ -320,8 +328,8 @@ in order to support consistent definitions for schema and UML derived code.
 
     <p>
         <div>
-            <img src="diagnostic-module-imaging-fig2.png" alt="DICOM SR measurements and finding site represented with FHIR resource profiles" width="750" />
-            <figure>Figure 2: DICOM SR measurements and finding site represented with FHIR resource profiles.</figure>
+            <img src="diagnostic-module-imaging-fig3.png" alt="DICOM SR measurements and finding site represented with FHIR resource profiles" width="750" />
+            <figure>Figure 3: DICOM SR measurements and finding site represented with FHIR resource profiles.</figure>
         </div>
     </p>
 
@@ -329,8 +337,8 @@ in order to support consistent definitions for schema and UML derived code.
 
     <p>
         <div>
-            <img src="diagnostic-module-imaging-fig3.png" alt="ObservationImagingSelection profiles" width="500" />
-            <figure>Figure 3: ObservationImagingSelection profiles.</figure>
+            <img src="diagnostic-module-imaging-fig4.png" alt="ObservationImagingSelection profiles" width="500" />
+            <figure>Figure 4: ObservationImagingSelection profiles.</figure>
         </div>
     </p>
 
@@ -389,8 +397,8 @@ in order to support consistent definitions for schema and UML derived code.
         <li>The <em>DocumentReference</em> resource has been tested and used in production tooling and has reached maturity level FMM=4.</li>
         <li>The <em>DiagnosticReport</em> resource has been tested and used in production tooling and has reached maturity level FMM=3. Future work will focus on further refinements to the resource, as well as developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
         <li>The <em>Specimen</em> resource is expected to undergo further development as a focus of ongoing work group efforts. We expect to see more widespread use of this resource which will help to increase its maturity(currently at FMM=2).</li>
-        <li>The <em>ImagingStudy</em> resource has been tested and used in production tooling and has reached maturity level FMM=4.</li>
-        <li>The <em>ImagingSelection</em> resource is relatively immature at FMM=1 (added in R5). We are looking for implementer feedback to advance its maturity.</li>
+        <li>The <em>ImagingStudy</em> resource has been tested, used in production tooling and is Normative. Any further development will follow the rules for Normative resources. Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
+        <li>The <em>ImagingSelection</em> resource has been tested, used in implementation guides, is supported by tooling and is Normative. Any further development will follow the rules for Normative resources. Future work will focus on developing core profiles and clarifying use cases and boundaries and providing more domain specific examples.</li>
         <li>The <em>MolecularDefinition</em> resource is replacing MolecularSequence. It includes definitional content for a molecular entity, such as a nucleotide or protein sequence. This resource is an <a href="resource.html#additional">Additional Resource</a>.</li>
         <li>The <em>GenomicStudy</em> resource was introduced in R5. It represents a set of analyses performed to analyze and generate genomic data and is at FMM=1. Further use of this resource in production tooling is needed for it to reach a more stable FMM level.</li>
         <li>The <em>BodyStructure</em> resource is relatively immature at FMM=1. Changes have been made to support greater precision of body location identification based on feedback that has been received, and we expect to receive additional implementation feedback which will help increase the resource maturity level.</li>

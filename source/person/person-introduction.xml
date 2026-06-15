@@ -38,7 +38,7 @@
   </ul>
 
   [%stu-note advanced%]
-    The Person resource is an advanced feature.  Many systems don’t have a way
+    The Person resource is an advanced feature.  Many systems do not have a way
     to relate information across resource types, or systems, especially from Patient to
     Practitioner, and therefore might not implement this functionality. Some do have ways
     of relating the Patient and RelatedPerson resource types. FHIR is also able to do this

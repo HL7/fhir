@@ -907,7 +907,7 @@
       <definition value="Indicates the body structure on the subject's body where the observation was made (i.e. the target site)."/>
       <comment value="Only used if not implicit in code found in Observation.code. In many systems, this may be represented as a related observation instead of an inline component. Use this element instead of the deprecated bodySite element."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
@@ -1030,6 +1030,25 @@
         <map value="424226004 |Using device|"/>
       </mapping>
     </element>
+    <element id="Observation.supportingDevice">
+      <path value="Observation.supportingDevice"/>
+      <short value="Device supporting generation of the measurement"/>
+      <definition value="A reference to additional devices, kits, or reagents (e.g., Test Kit, Calibration Kit, QC materials) used to support the generation of the measurement."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Type of device supporting the generation of the measurement."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
+      </binding>
+    </element>    
     <element id="Observation.referenceRange">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="The change from the SimpleQuantity to Quantity datatype for Observation.referenceRange 'low'          and 'high' elements enables the use of Quantity.comparator to fully express the different ranges in use.           It makes a clear distinction between &gt; vs. &gt;= and &lt; vs. &lt;=.  In FHIR R5 and earlier, absent the          ability to use the 'comparator' element in SimpleQuantity (SimpleQuantity is a datatype profile of Quantity that          disallows the use of 'comparator'), the interpretation of the range is &lt;=, which is different than how that          may have been expressed in other reporting, technically requiring different valuations across reporting methods,          e.g., if valued 5 in one method where it is interpreted as &lt;5 should then be represented in          Observation.referenceRange in FHIR R5 or earlier as 4.999999999 when interpreted as &lt;=4.999999999.          Observation.referenceRange in FHIR R6 fixes that by being able to align across any reporting methods."/>
