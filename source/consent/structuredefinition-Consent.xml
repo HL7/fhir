@@ -444,8 +444,8 @@
         <valueCode value="right"/>
       </extension>
       <path value="Consent.verification"/>
-      <short value="Consent Verified by patient or family"/>
-      <definition value="Whether a treatment instruction (e.g. artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person."/>
+      <short value="Consent verified by patient (or another authorized person)"/>
+      <definition value="Whether the consent instructions/rules (e.g. artificial respiration: yes or no) have been verified with the patient, his/her family, or another authorized person."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -573,8 +573,8 @@
     </element>
     <element id="Consent.provision.period">
       <path value="Consent.provision.period"/>
-      <short value="Timeframe for this provision"/>
-      <definition value="Timeframe for this provision."/>
+      <short value="Time frame for this provision"/>
+      <definition value="Time frame for this provision."/>
       <comment value="This is the bound effective time of the consent and should be in the base provision in the Consent resource."/>
       <min value="0"/>
       <max value="1"/>
@@ -721,7 +721,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="The document type a consent provision covers."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
       </binding>
     </element>
     <element id="Consent.provision.resourceType">
