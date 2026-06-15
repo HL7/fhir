@@ -473,7 +473,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRDeviceAvailabilityStatus"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="The availability status reason of the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-availability-status"/>
       </binding>

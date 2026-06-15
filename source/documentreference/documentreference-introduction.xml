@@ -26,6 +26,7 @@
           <li>DocumentReference.basedOn definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54167">FHIR-54167</a></li>
           <li>DocumentReference.custodian definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54169">FHIR-54169</a></li>
           <li><a href="https://jira.hl7.org/browse/FHIR-54618">FHIR-54618</a></li>
+		  <li><a href="https://jira.hl7.org/browse/FHIR-54538">FHIR-54538</a></li>
         </ul>
     </blockquote>
 
