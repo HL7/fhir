@@ -851,7 +851,7 @@
           <valueString value="DeviceSpecificationCategory"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/device-category"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/device-specification-category"/>
       </binding>
 
     </element>
