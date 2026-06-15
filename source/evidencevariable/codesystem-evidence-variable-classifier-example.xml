@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="evidence-variable-classifier"/>
+  <id value="evidence-variable-classifier-example"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -11,13 +11,13 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/evidence-variable-classifier"/>
+  <url value="http://hl7.org/fhir/evidence-variable-classifier-example"/>
   <version value="6.0.0"/>
-  <name value="EvidenceVariableClassifier"/>
-  <title value="Evidence Variable Classifier"/>
+  <name value="EvidenceVariableClassifierExample"/>
+  <title value="Evidence Variable Classifier Example"/>
   <status value="active"/>
-  <experimental value="false"/>
-  <date value="2024-11-14T10:01:24+11:00"/>
+  <experimental value="true"/>
+  <date value="2026-05-08T12:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -29,9 +29,9 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Classification of the variable."/>
+  <description value="An example set of codes used for classification of an EvidenceVariable."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier-example"/>
   <content value="complete"/>
   <concept>
     <code value="condition"/>

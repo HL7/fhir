@@ -17,6 +17,7 @@
                 <li>Non-substantive Changes
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55069">FHIR-55069</a>: Potentially re-useable THO-candidate value sets in resource PlanDefinition</li>
+						<li><a href="https://jira.hl7.org/browse/FHIR-56541">FHIR-56541</a>: Changed PlanDefinition.goal.priority binding to THO value set that contains the same codes from same code system</li>
                     </ul>
                 </li>
             </ul>

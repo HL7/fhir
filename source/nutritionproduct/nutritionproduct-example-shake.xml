@@ -1,5 +1,6 @@
 <NutritionProduct xmlns='http://hl7.org/fhir'>
   <id value="example-shake"/>
+  <status value='active'/>
   <code>
     <coding>
       <system value='https://fdc.nal.usda.gov/'/>
@@ -8,7 +9,6 @@
     </coding>
     <text value='FRENCH VANILLA MAX PROTEIN NUTRITION SHAKE, FRENCH VANILLA'/>
   </code>
-  <status value='active'/>
   <category>
     <text value='Energy, Protein &amp; Muscle Recovery Drinks'/>
   </category>

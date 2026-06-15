@@ -235,7 +235,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-period"/>
         <status value="active"/>
-        <description value="Timeframe for this rule"/>
+        <description value="Time frame for this rule"/>
         <code value="period"/>
         <type value="date"/>
         <expression value="Consent.repeat(provision).period"/>

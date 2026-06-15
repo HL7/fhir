@@ -125,9 +125,9 @@
     <element id="BodyStructure.active">
       <path value="BodyStructure.active"/>
       <short value="Whether this record is in active use"/>
-      <definition value="Whether this body site is in active use."/>
+      <definition value="Whether this body structure is in active use."/>
       <comment value="This element is labeled as a modifier because it may be used to mark that the resource was created in error."/>
-      <requirements value="Need to be able to mark a body site entry as not to be used because it was created in error."/>
+      <requirements value="A body structure entry must be able to be marked as invalid if it was created in error."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -448,6 +448,24 @@
         <identity value="v2"/>
         <map value="SPM-4/SPM-5"/>
       </mapping>
+    </element>
+    <element id="BodyStructure.includedStructure.origin">
+      <path value="BodyStructure.includedStructure.origin"/>
+      <short value="Origin of the body structure"/>
+      <definition value="The origin of the included body structure, such as autologous, allogeneic, synthetic, or other source."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructureOrigin"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes describing the origin of a body structure."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-origin"/>
+      </binding>
     </element>
     <element id="BodyStructure.excludedStructure">
       <path value="BodyStructure.excludedStructure"/>

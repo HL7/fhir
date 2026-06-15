@@ -63,8 +63,8 @@
     <definition value="The metric has been calibrated."/>
   </concept>
   <concept>
-    <code value="unspecified"/>
-    <display value="Unspecified"/>
-    <definition value="The state of calibration of this metric is unspecified."/>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The state of calibration of this metric is unknown."/>
   </concept>
 </CodeSystem>

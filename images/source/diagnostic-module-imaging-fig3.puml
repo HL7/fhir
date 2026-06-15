@@ -1,55 +1,37 @@
-@startuml ImagingSelectionProfiles
+@startuml DiagnosticModuleAbstracted
+!pragma layout smetana
+top to bottom direction
 
-left to right direction
+class DerivedImagingMeasurement ##Green {}
+class ImagingMeasurementGroup ##Green {}
+class ImagingQualitativeEvaluation ##Green {}
+class ImagingMeasurement ##Green{}
+abstract class ImagingObservation ##Green {}
+class Observation ##Green{}
 
-
-package ImagingSelectionOnePerObservation {
-    class ImageRegion3d ##BlueViolet{
-    }
-
-    class ImageRegion2d ##BlueViolet{
-    }
-
-    class IllustrationOfRoi ##BlueViolet{
-    }
-
-    class VolumeSurface ##BlueViolet{
-    }
-
-    class VisualExplanation ##BlueViolet{
-    }
-
-    class RegionInSpace ##BlueViolet{
-    }
-
-    class ReferencedSegmentationFrame ##BlueViolet{
-    }
-
-    class ReferencedSegment ##BlueViolet{
-    }
-
-    class RealWorldValueMap ##BlueViolet{
-    }
-}
-abstract class ImagingObservation ##Green{
-}
+DerivedImagingMeasurement --> ImagingMeasurementGroup : derivedFrom
+ImagingMeasurementGroup --> ImagingQualitativeEvaluation : hasMember
+ImagingMeasurementGroup --> ImagingMeasurement : hasMember
 
 
+ImagingObservation --> ObservationImaginigSelection : derivedFrom
+
+ImagingObservation --|> ImagingQualitativeEvaluation
+ImagingObservation --|> ImagingMeasurement
+ImagingObservation --|> ImagingMeasurementGroup
+
+Observation --|> ImagingObservation
+Observation --|> DerivedImagingMeasurement
+
+abstract class ObservationImaginigSelection ##BlueViolet {}
+class ImagingSelection ##BlueViolet{}
+
+ImagingSelection --|> ObservationImaginigSelection
 
 
-ImagingObservation --> ImageRegion3d : derivedFrom
-ImagingObservation --> ImageRegion2d : derivedFrom
-ImagingObservation --> IllustrationOfRoi : derivedFrom
-ImagingObservation --> VolumeSurface : derivedFrom
-ImagingObservation --> VisualExplanation : derivedFrom
-ImagingObservation --> RegionInSpace : derivedFrom
-ImagingObservation --> ReferencedSegmentationFrame : derivedFrom
-ImagingObservation --> ReferencedSegment : derivedFrom
-ImagingObservation --> RealWorldValueMap : derivedFrom
-
-abstract class ObservationImaginigSelection ##BlueViolet{}
-
-ObservationImaginigSelection --|> ImagingSelectionOnePerObservation
-
+class FindingSite ##Orange{}
+class BodyStructure ##Orange{}
+ObservationImaginigSelection --> FindingSite
+BodyStructure --|> FindingSite
 
 @enduml

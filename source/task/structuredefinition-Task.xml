@@ -238,6 +238,7 @@
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="true"/>
       <binding>

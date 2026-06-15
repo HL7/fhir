@@ -495,7 +495,7 @@
       </extension>
       <path value="CoverageEligibilityRequest.item"/>
       <short value="Item to be evaluated for eligibiity"/>
-      <definition value="Service categories or billable services for which benefit details and/or an authorization prior to service delivery may be required by the payor."/>
+      <definition value="Service categories or billable services for which benefit details and/or an authorization prior to service delivery may be required by the payer."/>
       <requirements value="The items to be processed for the request."/>
       <min value="0"/>
       <max value="*"/>

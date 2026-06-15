@@ -59,7 +59,7 @@ Hospital A Building C (instance)
             Nurses Station EM-ns1 (instance)
                 Medication Cupboard A (instance)
             Room 1 (instance)
-                Room 1a (instance) - space in room separatable via a curtain
+                Room 1a (instance) - space in room separable via a curtain
                     Bed 1a (instance) - always in this room
                 Room 1b (instance)
                     Trolley 43 (instance) - moves about

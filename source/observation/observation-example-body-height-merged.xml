@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+	<id value="body-height-merged"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+	</meta>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+			<code value="vital-signs"/>
+			<display value="Vital Signs"/>
+		</coding>
+		<text value="Vital Signs"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="8302-2"/>
+			<display value="Body height"/>
+		</coding>
+		<text value="Body height"/>
+	</code>
+	<subject>
+		<reference value="Patient/merge-survivor"/>
+	</subject>
+	<effectiveDateTime value="1999-07-02"/>
+	<valueQuantity>
+		<value value="66.899999999999991"/>
+		<unit value="in"/>
+		<system value="http://unitsofmeasure.org"/>
+		<code value="[in_i]"/>
+	</valueQuantity>
+</Observation>

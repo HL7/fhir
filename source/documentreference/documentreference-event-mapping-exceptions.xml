@@ -40,9 +40,11 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="DocumentReference.status">
-        <shortUnmatched reason="More specific to the use-case for this resource">
+        <shortUnmatched reason="Unknown">
+            <!--Old resource: current | superseded | entered-in-error-->
+            <!--Old reason: More specific to the use-case for this resource-->
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
-            <resource value="current | superseded | entered-in-error"/>
+            <resource value="current | superseded | entered-in-error | unknown"/>
         </shortUnmatched>
         <commentsUnmatched reason="More specific to the use-case for this resource">
             <_pattern value="A nominal state-transition diagram can be found in the (Event pattern documentation&#10;&#10;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>

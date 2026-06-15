@@ -18,7 +18,13 @@
     </coding>
   </verificationStatus>
 
-  <category value="medication"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/allergy-intolerance-category"/>
+      <code value="medication"/>
+      <display value="Medication"/>
+    </coding>
+  </category>  
      
   <criticality value="high"/> 
 

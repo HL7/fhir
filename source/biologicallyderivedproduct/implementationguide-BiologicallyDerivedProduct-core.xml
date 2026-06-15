@@ -9,11 +9,4 @@
   <date value="2024-10-11T00:00:00.000"/>
   <publisher value="HL7 International / Orders and Observations"/>
   <description value="Core profiles and extensions used with or related to the BiologicallyDerivedProduct resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/medicalproductofhumanorigin"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>

@@ -242,6 +242,7 @@
 			<type>
 				<code value="code"/>
 			</type>
+			<meaningWhenMissing value="Value is unknown."/>
 			<isModifier value="true"/>
 			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired EvidenceVariable without due consideration"/>
 			<isSummary value="true"/>
@@ -722,10 +723,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableClassifier"/>
+					<valueString value="EvidenceVariableClassifierExample"/>
 				</extension>
 				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier-example"/>
 			</binding>
 		</element>
 		<element id="EvidenceVariable.dataStorage">

@@ -69,7 +69,7 @@
     This approach uses Task to seek fulfillment of the CommunicationRequest.  It eliminates the need for Communication to link together the data returned.  It also allows explicit monitoring of the state (e.g., acceptance/rejection, progress) prior to completion.  Note that this flow is similar to the Task-only flow described <a href="#task">below</a>, with the primary difference being that it uses a formal CommunicationRequest 'order' to define the data requested rather than just using the Task itself.
   </p>
   <p>
-    This approach aligns with <a href="workflow-management.html#optiong">Option G</a> in the FHIR core workflow communication patterns, where the Task is posted directly to the filler's system (<i>data source</i>).  Alternate workflows using Task where the Task lives on the placer's system (<i>data consumer</i>) - <a href="workflow-management.html#optionf">Option F</a> or on an intermediary system <a href="workflow-management.html#optionH">Option H</a>, however those require either <a href="exchanging-polling.html">polling</a> or <a href="exchanging-subscription.html">subscription</a> by the <i>data source</i>.  In general these alternatives would only make sense if the request for information wasn't directed to a specific <i>data source</i> (which would be unusual) or if the <i>data consumer</i> did not have authority to post a Task directly to the <i>data source</i>'s system.
+    This approach aligns with <a href="workflow-management.html#optiong">Option G</a> in the FHIR core workflow communication patterns, where the Task is posted directly to the filler's system (<i>data source</i>).  Alternate workflows using Task where the Task lives on the placer's system (<i>data consumer</i>) - <a href="workflow-management.html#optionf">Option F</a> or on an intermediary system <a href="workflow-management.html#optionH">Option H</a>, however those require either <a href="exchanging-polling.html">polling</a> or <a href="exchanging-subscription.html">subscription</a> by the <i>data source</i>.  In general these alternatives would only make sense if the request for information was not directed to a specific <i>data source</i> (which would be unusual) or if the <i>data consumer</i> did not have authority to post a Task directly to the <i>data source</i>'s system.
   </p>
   <p>
     [%file communicationrequest-task.svg %]
@@ -88,7 +88,7 @@
   </p>
   <a name="cr-task4"> </a>
   <p>
-    <b>Step 4:</b> The <i>data source</i> may optionally update the Task to change the status (e.g., from <code>requested</code> to <code>accepted</code> or <code>rejected</code> and eventually to <code>in-progress</code> or <code>on-hold</code>.  The <i>data source</i> might also update the Task.businessStatus element to convey additional information around progress, such as reasons for delay or expected timeframe for delivery.
+    <b>Step 4:</b> The <i>data source</i> may optionally update the Task to change the status (e.g., from <code>requested</code> to <code>accepted</code> or <code>rejected</code> and eventually to <code>in-progress</code> or <code>on-hold</code>.  The <i>data source</i> might also update the Task.businessStatus element to convey additional information around progress, such as reasons for delay or expected time frame for delivery.
   </p>
   <a name="cr-task5"> </a>
   <p>
@@ -128,7 +128,7 @@
   </p>
   <a name="task2"> </a>
   <p>
-    <b>Step 2:</b> The <i>data source</i> may optionally update the Task to change the status (e.g., from <code>requested</code> to <code>accepted</code> or <code>rejected</code> and eventually to <code>in-progress</code> or <code>on-hold</code>.  The <i>data source</i> might also update the Task.businessStatus element to convey additional information around progress, such as reasons for delay or expected timeframe for delivery.
+    <b>Step 2:</b> The <i>data source</i> may optionally update the Task to change the status (e.g., from <code>requested</code> to <code>accepted</code> or <code>rejected</code> and eventually to <code>in-progress</code> or <code>on-hold</code>.  The <i>data source</i> might also update the Task.businessStatus element to convey additional information around progress, such as reasons for delay or expected time frame for delivery.
   </p>
   <a name="task3"> </a>
   <p>
