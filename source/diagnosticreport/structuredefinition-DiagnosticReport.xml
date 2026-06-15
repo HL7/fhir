@@ -140,7 +140,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-51/ for globally unique filler ID  - OBR-3 , For non-globally unique filler-id the flller/placer number must be combined with the universal service Id -  OBR-2(if present)+OBR-3+OBR-4"/>
+        <map value="The DiagnosticReport .identifier element is not to be used for the V2 order numbers, it is the instance identifier of the DiagnosticReport. HL7 Version 2 has no formal equivalent to these identifiers. The V2 order number should be located on the basedOn element instead."/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -169,7 +169,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC? OBR-2/3?"/>
+        <map value="ORC-2, ORC-3, ORC-4, OBR-2 and OBR-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
