@@ -132,7 +132,7 @@ in order to support consistent definitions for schema and UML derived code.
         For this pattern, depending on the type of report (e.g. if the report represents only one panel), you may need to search in two places: <code>DiagnosticReport.code</code> and <code>Observation.code</code>. If you always use a grouper organizer, then searching can be focused on <code>Observation.code</code>. When <code>Observation.organizer</code> is <code>true</code>, codes for <code>Observation.code</code> should only be drawn from LOINC codes that are "ORDER ONLY".
     </p>
     <p>
-        <b>Pattern #2:</b> The entire diagnostic report (as created by the fulfiller of the order(s)) is represented by a bundle containing <b>one or more</b> DiagnosticReport(s) resource. 
+        <b>Pattern #2:</b> The entire diagnostic report (as created by the fulfiller of the order(s)) is represented by a bundle containing <b>one or more</b> DiagnosticReport resource instance(s). The DiagnosticReport resource represents a group of tests (e.g. a panel) usually performed together. 
     </p>
     <p>
         The <code>DiagnosticReport.code</code> names the panel (e.g. "CBC"). The <code>DiagnosticReport.code</code> element acts as the organizer (grouper) for tests commonly performed together, often referred to as a "panel" or "battery". The <code>DiagnosticReport.result</code> lists all Observation resources grouped by this DiagnosticReport. These may be a mixture of Observations that present values (e.g. 10 g/L), or organizer (grouper) Observations that further sub-organize lower-level Observation resources, as seen in complex multi-level reports.
