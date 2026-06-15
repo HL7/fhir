@@ -18,6 +18,7 @@
         <li><a href="https://jira.hl7.org/browse/FHIR-54873">FHIR-54873</a></li> 
 		<li><a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54845">FHIR-54845</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-53864">FHIR-53864</a></li>
    </ul>
 </blockquote>
 <p>The BodyStructure resource contain details about an anatomical or pathological structure (e.g. a cyst) and may include patient information, identifiers, text descriptions, images, and spatially relevant characteristics.
