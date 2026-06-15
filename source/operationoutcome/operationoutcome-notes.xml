@@ -35,6 +35,34 @@ one of the issues should have a severity of "error", indicating the reason for t
 <p>
 Operation outcomes must include at least one issue. See the <a href="operationoutcome-example-allok.html">All OK </a> example for a template for an operation that returns no errors.
 </p>
+<a name="validation"></a>
+<h2>Interpretation of OperationOutcome severity for validation</h2>
+<p>
+The severity codes are generic codes intended for use across a range of contexts (operation
+results, restful interaction results, etc.).  When used for conveying validation results, the
+severity codes SHOULD be interpreted as follows:
+</p>
+<ul>
+<li><b>FATAL</b>: Some portion of the validation process was unable to execute successfully enough
+  to determine whether a portion of the instance met a particular validation rules.  It is therefore
+  not known whether an error exists or not.  It does not (necessarily) mean that validation itself
+  will not continue.  Systems may handle this result in different ways.  Runtime implementations who
+  wish to ensure they only process 'safe/valid' instances may choose to reject the instance.  Users
+  performing validation for testing or other purposes should evaluate this as "unknown if there is
+  an error, warning, or no problem here".</li>
+<li><b>ERROR</b>: As best as the validator can determine, the instance is not valid against the
+ specification.</li>
+<li><b>WARNING</b>: There is a potential the instance is not valid against the specification and full
+  confirmation is not possible for the validator.  Human review is required.  (Systems may choose to
+  treat these as grounds for rejection or not, depending on the type of data they handle and their comfort level.)</li>
+<li><b>INFORMATION</b>: The message is not conveying information making a specific assertion about
+  whether errors are or might be present, but is communicating other information about the validation
+  process, or the content of the resource.</li>
+</ul>
+<p>
+Even with best efforts, validators may sometimes not categorize results strictly according to these
+recommendations due to limitations of infrastructure, architecture, or other reasons.
+</p>
 <a name="loc"></a>
 <h2>Using the Expression</h2>
 <p>
