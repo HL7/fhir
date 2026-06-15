@@ -328,6 +328,14 @@ in order to support consistent definitions for schema and UML derived code.
     </p>
 
     <h4>Imaging</h4>
+    <h5>Representation of DICOM Information Entities using FHIR resources</h5>
+    <p>The DICOM® information model describes a set of Information Entities (IEs), each corresponding to a "Real-World Object" (e.g. Patient, Visit, etc.). See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/chapter_3.html">DICOM PS 3.3 Section 3.8</a>. While there is not always a one-to-one correspondence, many of these IEs can be described using FHIR resources.</p>
+    <p>The specific mapping may vary depending on use cases, but the following provides general guidance on how the most common DICOM IEs are typically mapped to FHIR resources:</p>
+
+    <div>
+        <img src="diagnostic-module-imaging-fig1.png" alt="Mapping DICOM IEs to FHIR Resources" width="944" />
+        <figure>Figure 1: Mapping DICOM IEs to FHIR Resources.</figure>
+    </div>
 
     <h5>Representation of DICOM SR measurements using FHIR resources</h5>
     <p>DICOM® Structured Report (DICOM® SR) is a standard for recording clinical imaging observations made regarding a diagnostic or interventional imaging procedure. Imaging Observations are made by humans, such as a sonographer making measurements on recently acquired ultrasound image, a Radiologist recording observations on suspected lesions, or by a machine, such as an automated AI Algorithm providing qualitative and quantitative observations.</p>
@@ -342,8 +350,8 @@ in order to support consistent definitions for schema and UML derived code.
 
     <p>
         <div>
-            <img src="diagnostic-module-imaging-fig1.png" alt="Extracting imaging results for use in reporting" width="1000" />
-            <figure>Figure 1: Extracting imaging results for use in reporting.</figure>
+            <img src="diagnostic-module-imaging-fig2.png" alt="Extracting imaging results for use in reporting" width="1000" />
+            <figure>Figure 2: Extracting imaging results for use in reporting.</figure>
         </div>
     </p>
 
@@ -351,8 +359,8 @@ in order to support consistent definitions for schema and UML derived code.
 
     <p>
         <div>
-            <img src="diagnostic-module-imaging-fig2.png" alt="DICOM SR measurements and finding site represented with FHIR resource profiles" width="750" />
-            <figure>Figure 2: DICOM SR measurements and finding site represented with FHIR resource profiles.</figure>
+            <img src="diagnostic-module-imaging-fig3.png" alt="DICOM SR measurements and finding site represented with FHIR resource profiles" width="750" />
+            <figure>Figure 3: DICOM SR measurements and finding site represented with FHIR resource profiles.</figure>
         </div>
     </p>
 
@@ -360,8 +368,8 @@ in order to support consistent definitions for schema and UML derived code.
 
     <p>
         <div>
-            <img src="diagnostic-module-imaging-fig3.png" alt="ObservationImagingSelection profiles" width="500" />
-            <figure>Figure 3: ObservationImagingSelection profiles.</figure>
+            <img src="diagnostic-module-imaging-fig4.png" alt="ObservationImagingSelection profiles" width="500" />
+            <figure>Figure 4: ObservationImagingSelection profiles.</figure>
         </div>
     </p>
 
