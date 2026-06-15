@@ -47,6 +47,6 @@ The DI of the UDI may be stored in a jurisdictional repository and used as the p
 <a name="conformsTo"></a>
 <h3>Device.ConformsTo Source</h3>
 <p>
-If a need arises for the <code>.source</code> subelement, the <code>Device.conformsTo</code> element can be used as the element context for the <code>artifact-relatedArtifact</code> extension in FHIR R5 and later.
+If a need arises for the <code>.source</code> subelement, the <code>Device.conformsTo</code> element can be used as the element context for the <code>device-conformsTo-source</code> extension in FHIR R5 and later.
 </p>
 </div>

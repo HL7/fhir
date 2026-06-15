@@ -183,8 +183,8 @@ identity. Where a resource is not assigned a persistent identity that can be use
 in the Bundle, a UUID SHALL be used in fullUrl (urn:uuid:...).
 </p>
 <p>
-For transactions and batches, entries MAY omit fullURLs when the entry.request.method = POST, 
-and the resource has no identity. Note that even in this case, there may still be a fullURL in a 
+For transactions and batches, entries MAY omit fullUrls when the entry.request.method = POST, 
+and the resource has no identity. Note that even in this case, there may still be a fullUrl in a 
 transaction when entry.request.method = POST so that relationships between resources can be represented (see <a href="http.html#transaction">Transactions</a>).
 </p>
 <p>
@@ -213,7 +213,7 @@ The <code>Bundle</code> resource is a packaging construct that has one of more e
 are other kinds of resources. Those resources themselves have references to other resources - e.g. 
 an Observation that refers to a Patient. The referenced resources may also be found
 in the Bundle. For example, the system that constructed the Bundle may have included both
-the Observation and the Patient. The content of the references between resources doesn't 
+the Observation and the Patient. The content of the references between resources does not 
 change because of the bundle.
 </p>
 <p>
@@ -321,7 +321,7 @@ Perform the [search] specified in the conditional reference on the server. <ul>
     resolving references in the resource that contains the contained resource. I.e. the fullUrl of
     the containing resource is used when determining the base for relative references, etc.</p>
   <p>Several portions of this algorithm are dependent on on the presence of Bundle.entry.fullUrl. In
-    instances where references might be resolved within a Bundle but entries do not have fullURLs,
+    instances where references might be resolved within a Bundle but entries do not have fullUrls,
     resolution expectations are undefined. For this reason, Bundles where cross-Bundle references
     are present SHOULD always populate Bundle.entry.fullUrl.</p>
   <p>If multiple matches are found (except where explicitly handled in the above algorithm), it is

@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <p>
 The CoverageEligibilityResponse resource provides eligibility and plan details from the processing of an 
-CoverageEligibilityRequest resource. It combines key information from a payor as to whether a Coverage is 
+CoverageEligibilityRequest resource. It combines key information from a payer as to whether a Coverage is 
 in-force, and optionally the nature of the Policy benefit details as well as the ability for the insurer to indicate whether 
 the insurance provides benefits for requested types of services or requires preauthorization and if so what supporting
 information may be required.
@@ -24,8 +24,8 @@ the provider will settle the claim and potentially recover costs against specifi
 <li><a href="financial-module.html#cob">Coordination of Benefit</a>: how eClaims may handle multiple patient insurance coverages.</li>
 <li><a href="financial-module.html#batch">Batches</a>: how eClaims may handle batches of eligibility, claims and responses.</li>
 <li><a href="financial-module.html#attachments">Attachments and Supporting Information</a>: how eClaims may handle the provision of supporting
- information, whether provided by content or reference, within the eClaim resource when submitted to the payor or later in a resource which refers
- to the subject eClaim resource. This includes how payors how request additional supporting information from providers.</li>
+ information, whether provided by content or reference, within the eClaim resource when submitted to the payer or later in a resource which refers
+ to the subject eClaim resource. This includes how payers how request additional supporting information from providers.</li>
 </ul>
 
 </div>
@@ -60,7 +60,7 @@ The <a href="coverage.html">Coverage</a> resource contains the information typic
 			</tr>
 			<tr>
 				<td><a href="claimresponse.html">ClaimResponse</a></td>
-				<td>A payor's adjudication and/or authorization response to the suite of services provided in a Claim. Typically the ClaimResponse references the Claim but does not duplicate
+				<td>A payer's adjudication and/or authorization response to the suite of services provided in a Claim. Typically the ClaimResponse references the Claim but does not duplicate
 		the clinical or financial information provided in the claim.</td>
 			</tr>
 			<tr>
@@ -73,7 +73,7 @@ The <a href="coverage.html">Coverage</a> resource contains the information typic
 			</tr>
 			<tr>
 				<td><a href="explanationofbenefit.html">ExplanationOfBenefit</a></td>
-				<td>This resource combines the information from the Claim and the ClaimResponse, stripping out any provider or payor proprietary information, into a unified information model 
+				<td>This resource combines the information from the Claim and the ClaimResponse, stripping out any provider or payer proprietary information, into a unified information model 
 		suitable for use for: patient reporting; transferring information to a Patient Health Record system; and, supporting complete claim and adjudication information exchange
  with regulatory and analytics organizations and other parts of the provider's organization.
 				</td>

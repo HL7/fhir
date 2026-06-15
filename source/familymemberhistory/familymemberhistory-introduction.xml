@@ -12,7 +12,7 @@
   </li>
   <li>Compatible, Substantive Changes
     <ul>
-	  <li>None</li>
+	  <li><a href="https://jira.hl7.org/browse/FHIR-55021">FHIR-55021</a>: Changed definition of FamilyMemberHistory.sex and its binding</li>
     </ul>
   </li>
   <li>Non-Substantive Changes

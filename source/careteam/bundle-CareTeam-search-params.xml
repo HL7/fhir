@@ -28,10 +28,14 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
+		<extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="CareTeam.period"/>
+        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CareTeam-date"/>
-        <description value="A date within the coverage time period."/>
+        <description value="Time period team covers"/>
         <code value="date"/>
         <type value="date"/>
+		<expression value="CareTeam.period"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

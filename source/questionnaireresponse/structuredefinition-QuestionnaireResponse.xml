@@ -400,6 +400,13 @@
         <expression value="repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
       </constraint>
+			<constraint>
+        <key value="qrs-4"/>
+        <severity value="error"/>
+        <human value="The same answer cannot be specified more than once for the same question"/>
+        <expression value="answer.value.isDistinct().allTrue()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"/>
@@ -422,6 +429,7 @@
         <severity value="error"/>
         <human value="LinkId cannot have leading or trailing spaces or intevening whitespace other than single space characters"/>
         <expression value="$this.matches('[^\\s]+( [^\\s]+)*')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
@@ -475,6 +483,7 @@
       </type>
       <condition value="qrs-1"/>
       <condition value="qrs-2"/>
+      <condition value="qrs-4"/>
       <mapping>
         <identity value="rim"/>
         <map value=".value[type=LIST_ANY]"/>

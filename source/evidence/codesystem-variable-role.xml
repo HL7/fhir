@@ -17,8 +17,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2136"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="Variable Role"/>
-  <title value="VariableRole"/>
+  <name value="VariableRole"/>
+  <title value="Variable Role"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2023-11-08T16:55:11+11:00"/>
@@ -45,7 +45,7 @@
   <concept>
     <code value="exposure"/>
     <display value="Exposure"/>
-    <definition value="An independant variable of primary interest."/>
+    <definition value="An independent variable of primary interest."/>
   </concept>
   <concept>
     <code value="outcome"/>

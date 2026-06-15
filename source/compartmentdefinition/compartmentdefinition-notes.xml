@@ -46,7 +46,7 @@ For example, both these searches return the same outcome if there is no patient 
   GET [base]/Condition?patient=333
 </pre>
 <p>
-Whether the patient doesn't exist, or the user has no access to the patient,
+Whether the patient does not exist, or the user has no access to the patient,
 both these searches return an empty bundle with no matches. Some systems 
 will include an operation outcome warning that there is no matching patient.
 </p>
