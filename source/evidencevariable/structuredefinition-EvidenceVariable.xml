@@ -657,10 +657,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableHandlingExample"/>
+					<valueString value="EvidenceVariableHandling"/>
 				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
+				<strength value="extensible"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-handling"/>
 			</binding>
 		</element>
 		<element id="EvidenceVariable.category">
@@ -909,7 +909,7 @@
 					<valueString value="EvidenceVariableConstraint"/>
 				</extension>
 				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-constraint"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-constraint"/>
 			</binding>
 		</element>
 		<element id="EvidenceVariable.constraint.expression">
@@ -986,7 +986,7 @@
 					<valueString value="EvidenceVariableUnacceptableDataHandling"/>
 				</extension>
 				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-unacceptable-data-handling"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-unacceptable-data-handling"/>
 			</binding>
 		</element>
 	</differential>
