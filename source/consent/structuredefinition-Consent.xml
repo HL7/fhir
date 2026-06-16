@@ -824,17 +824,6 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="Consent.provision.expression">
-      <path value="Consent.provision.expression"/>
-      <short value="A computable expression of the consent"/>
-      <definition value="A computable (FHIRPath or other) definition of what is controlled by this consent."/>
-      <comment value="Constraining the expression type for a specific implementation via profile is recommended"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-    </element>
     <element id="Consent.provision.provision">
       <path value="Consent.provision.provision"/>
       <short value="Nested provisions to further constraint the parent provision"/>
