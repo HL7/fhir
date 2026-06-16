@@ -16,6 +16,7 @@ Notes:
    responsible for the policy regarding persistence of the documents. Although they need not actually retain a copy of the document, they SHOULD do so.
  </li>
  <li>It is acceptable for a Composition to contain only narrative (<code>Composition.section.text</code>) and no entries (<code>Composition.section.entry</code>)</li>
+ <li>There are <a href="documents.html#presentation">special rules around the narrative content</a> for Composition resources</li>
 </ul>  
 
 <a name="mixed"></a>
