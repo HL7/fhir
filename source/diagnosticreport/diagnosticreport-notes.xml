@@ -42,16 +42,26 @@ If specimens were taken, often the clinically relevant time of the report can be
 However, detailed specimen information is not always available nor is the clinically relevant time always exactly the specimen collection time (e.g. complex timed tests). Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> messages often carry a diagnostically relevant time without carrying any specimen information.
 </p>
 <h3>Associated Observations</h3>
+<blockquote class="ballot-note">
+<p><b>Note to Balloters:</b> The following Associated Observations guidance has been revised for R6 to clarify how <code>DiagnosticReport.result</code> may include atomic observations and grouped or panel observations. Balloters are asked to review this text for consistency with the Diagnostics Module and Observation grouping guidance.</p>
+</blockquote>
 <ul>
 <li>
-The DiagnosticReport.code always contains the name of the report itself. The report can also contain a set of Observations in the DiagnosticReport.result element. These Observations can be simple observations (e.g. atomic results) or groups/panels of other observations. The Observation.code indicates the nature of the observation or panel (e.g. individual measure, organism isolate/sensitivity or antibody functional testing).   When relevant, the observation can specify a particular specimen from which the result comes.
+<code>DiagnosticReport.code</code> contains either:
 <ul>
-<li>
- Examples of nesting groups/panels within an observation include reporting a "profile" consisting of several  panels as is shown in <a href="diagnosticreport-example-ghp.html">this example</a>, a group of antibiotic isolate/sensitivities for a bacterial culture, or a set of perinatal measurements on a single fetus.
- </li>
- <li>One known use is for organism sensitivities - an example of a <a href="diagnosticreport-micro1.html">complex Micro Isolate and Sensitivities</a> is provided.
+<li>the name of the report itself (Pattern #1); or</li>
+<li>the code of the panel (Pattern #2).</li>
+</ul>
 </li>
 </ul>
+<p>
+The report can also contain a set of Observations in the DiagnosticReport.result element. These Observations can be simple observations (e.g. atomic results) or groups/panels of other observations. The Observation.code indicates the nature of the observation or panel (e.g. individual measure, organism isolate/sensitivity or antibody functional testing). When relevant, the observation can specify a particular specimen from which the result comes.
+</p>
+<ul>
+<li>
+Examples of nesting groups/panels within an observation include reporting a "profile" consisting of several panels as is shown in <a href="diagnosticreport-example-ghp.html">this example</a>, a group of antibiotic isolate/sensitivities for a bacterial culture, or a set of perinatal measurements on a single fetus.
+</li>
+<li>One known use is for organism sensitivities - an example of a <a href="diagnosticreport-micro1.html">complex Micro Isolate and Sensitivities</a> is provided.
 </li>
 </ul>
 <h3>Associated Images</h3>
