@@ -307,7 +307,7 @@
       <isSummary value="false" />
       <meaningWhenMissing value="If absent, there is no preferred color for rendering."/>
       <binding>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="Identifies the typical color of representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/color-codes"/>
       </binding>
