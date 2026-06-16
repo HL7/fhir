@@ -79,11 +79,13 @@
 
 	<diagnosis>
 		<sequence value="1"/>
-		<diagnosisCodeableConcept>
+		<diagnosis>
+		  <concept>
 			<coding>
 				<code value="654321"/>
 			</coding>
-		</diagnosisCodeableConcept>
+		  </concept>
+		</diagnosis>
 	</diagnosis>
 
 	<insurance> <!-- Patient's own coverage - primary -->
