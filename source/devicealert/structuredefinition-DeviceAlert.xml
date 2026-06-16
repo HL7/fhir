@@ -191,9 +191,8 @@
         </element>
         <element id="DeviceAlert.type">
             <path value="DeviceAlert.type" />
-            <short value="physiological | technical" />
-            <!-- <short value="Whether the alert is related to the patient or to the device" /> -->
-            <!--       <definition value="" /> -->
+            <short value="The kind of alert" />
+            <definition value="The type of alert, such as whether it is related to the patient condition; irregular device state; workflow or regular device state, such as timers." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
@@ -214,7 +213,6 @@
             </type>
             <binding>
                 <strength value="extensible" />
-                <!-- <description value="physiological | technical" /> -->
                 <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-type" />
             </binding>
         </element>
