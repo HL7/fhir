@@ -51,5 +51,12 @@
       <reference value="BodyStructure/dicom-includedStructure"/>
       <display value="DICOM-derived BodyStructure (Left Wrist)"/>
     </item>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+        <valueString value="bodystructure-example-breast-mass"/>
+      </extension>
+      <item>
+        <reference value="BodyStructure/breast-mass"/>
+        <display value="This example demonstrates using BodyStructure to describe a breast mass"/>
+      </item>
   </entry>
 </List>
