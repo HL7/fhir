@@ -13,11 +13,14 @@
                         <li>Updated the DeviceAlert resource's standards status to normative, along with the CodeSystem, ValueSet, and SearchParameters resources it uses. (<a href="https://jira.hl7.org/browse/FHIR-53906">FHIR-53906</a>)</li>
                         <li>Improved the short description and definition of several elements which were previously changed from <code>code</code> to <code>CodeableConcept</code> datatype. (<a href="https://jira.hl7.org/browse/FHIR-57089">FHIR-57089</a>)</li>
                     </ul>
+                    <ul>
+                        <li>Included advisories (e.g. timers, reminders) in the scope of the resource, and <code>DeviceAlert.type</code> element. (<a href="https://jira.hl7.org/browse/FHIR-55740">FHIR-55740</a>)</li>
+                    </ul>
                 </li>
             </ul>
         </blockquote>
         <h2>Scope and Usage</h2>
-                <p>DeviceAlert represents a single alert condition detected and signaled by a device to create clinician&apos;s awareness of a patient safety risk that needs to be addressed.</p>
+                <p>DeviceAlert represents a single alert condition detected and signaled by a device to create awareness of a risk or occurrence that needs to be addressed.</p>
                 <p>The device is often a communicating, physical, patient-connected health/medical device operating in an acute care setting (e.g., patient monitor, ventilator, infusion pump, etc.). However, Software as a Medical Device (SaMD), non-patient connected devices, and other Health Software &#x201C;apps,&#x201D; as well as lower acuity care settings (e.g., a fall detector app running on a patient&apos;s mobile device at home) are in scope as well.</p>
                 <p>Alerts can relate to physiological (e.g., Patient Lucy has a low SpO2), technical (e.g., Infusion Pump #2 has a fluid line occlusion), or other conditions. Alerts can also  have different priorities based on the hazard&apos;s severity and urgency of clinicians&apos; action, ranging from High (e.g., a life-threatening condition requiring immediate response) to Advisory (e.g., information to create contextual awareness without requiring timely response).</p>
                 <p> DeviceAlert is intended for capturing device alert information for documentation and display purposes (e.g., to enable analytics towards alarm noise reduction opportunities). DeviceAlert is not intended for controlling alarms (e.g., remote pausing the audio of an alarm signal). Additionally, any actions that follow from the alert are not part of the resource.</p>
@@ -52,7 +55,7 @@
                         <li>
                                 <a href="device.html">Device</a> or <a href="devicemetric.html">DeviceMetric</a> to identify the device or part thereof that originated the detection of the alert condition (e.g., the heart rate device metric that detected a tachycardia alert). These resources (or extensions on them) might contain additional data elements to describe the alert activation states (e.g., if detection of all or a subset of alerts is on, paused or off).</li>
                         <li>
-                                <a href="patient.html">Patient</a> to identify the patient the physiological alert is about, or <a href="device.html">Device</a> to identify the device the technical alert is about. Additional potential subjects of an alert could be <a href="location.html">Location</a>,                                <a href="medication.html">Medication</a>,                                <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>,                                <a href="specimen.html">Specimen</a>, or <a href="nutritionproduct.html">NutritionProduct</a>.
+                                <a href="patient.html">Patient</a> to identify the patient the physiological alert is about, or <a href="device.html">Device</a> to identify the device the technical alert is about. Additional potential subjects of an alert could be <a href="location.html">Location</a>, <a href="medication.html">Medication</a>, <a href="biologicallyderivedproduct.html">BiologicallyDerivedProduct</a>, <a href="specimen.html">Specimen</a>, or <a href="nutritionproduct.html">NutritionProduct</a>.
                         </li>
                         <li>
                                 <a href="observation.html">Observation</a> to identify any evidentiary data needed to interpret the alert condition or that is the reason why the alert condition is present.</li>
