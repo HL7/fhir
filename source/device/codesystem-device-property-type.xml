@@ -13,7 +13,7 @@
   <name value="DevicePropertyType"/>
   <title value="Device Property Type (Example only)"/>
   <status value="active"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <publisher value="HL7 Orders and Observations Workgroup"/>
   <description value="The fixed characteristics or conditions of the device. These codes are for example purposes only."/>
   <caseSensitive value="true"/>

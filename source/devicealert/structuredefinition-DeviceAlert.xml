@@ -186,7 +186,7 @@
             <binding>
                 <strength value="example" />
                 <!-- <description value="in-progress | completed | entered-in-error" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-category" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-category" />
             </binding>
         </element>
         <element id="DeviceAlert.type">
@@ -215,7 +215,7 @@
             <binding>
                 <strength value="extensible" />
                 <!-- <description value="physiological | technical" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-type" />
             </binding>
         </element>
         <element id="DeviceAlert.priority">
@@ -277,7 +277,7 @@
             <binding>
                 <strength value="preferred" />
                 <!--         <description value="" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-condition" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-condition" />
             </binding>
         </element>
         <element id="DeviceAlert.subject">
@@ -621,7 +621,7 @@
             <binding>
                 <strength value="extensible" />
                 <!-- <description value="on | off | paused" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-activationState" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-activationState" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.presence">
@@ -642,7 +642,7 @@
             <binding>
                 <strength value="extensible" />
                 <!-- <description value="on | off | latched | acknowledged" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-presence" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-presence" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.annunciator">
@@ -667,7 +667,7 @@
             <binding>
                 <strength value="required" />
                 <!-- <description value="local | remote" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-annunciation" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-annunciation" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.manifestation">
@@ -691,7 +691,7 @@
             <binding>
                 <strength value="extensible" />
                 <!-- <description value="visual | haptic | audible" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-manifestation" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-manifestation" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.type">

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="evidence-variable-unacceptable-data-handling"/>
+  <id value="document-reference-status"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
+    <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="informative"/>
+    <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="3"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/evidence-variable-unacceptable-data-handling"/>
+  <url value="http://hl7.org/fhir/ValueSet/document-reference-status"/>
   <version value="6.0.0"/>
-  <name value="EvidenceVariableUnacceptableDataHandling"/>
-  <title value="Evidence Variable Unacceptable Data Handling"/>
+  <name value="FHIRDocumentReferenceStatus"/>
+  <title value="FHIR Document Reference Status"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2024-11-16T12:55:11+11:00"/>
+  <date value="2026-06-15T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -29,10 +29,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="A method or transformation applied for data that does not match required patterns."/>
+  <description value="The status of the document reference."/>
+  <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/evidence-variable-unacceptable-data-handling"/>
+      <system value="http://hl7.org/fhir/document-reference-status"/>
     </include>
   </compose>
 </ValueSet>
