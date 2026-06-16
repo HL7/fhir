@@ -579,7 +579,7 @@
     </element>
     <element id="Coverage.class.name">
       <path value="Coverage.class.name"/>
-      <short value="Human readable description of the type and value"/>
+      <short value="Human readable description of the value"/>
       <definition value="A short description for the class."/>
       <requirements value="Used to provide a meaningful description in correspondence to the patient."/>
       <min value="0"/>

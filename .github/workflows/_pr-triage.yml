@@ -87,7 +87,7 @@ jobs:
     steps:
       - name: Evaluate trigger eligibility
         id: check
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const eventName = context.eventName;
@@ -191,7 +191,7 @@ jobs:
       - name: Wait for required check run
         id: wait
         if: steps.check.outputs.should_triage == 'true' && inputs.wait_for_check_run != ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         env:
           CHECK_NAME: ${{ inputs.wait_for_check_run }}
           HEAD_SHA: ${{ steps.check.outputs.head_sha }}
@@ -321,7 +321,7 @@ jobs:
 
     steps:
       - name: Checkout PR code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ needs.eligibility.outputs.head_sha }}
           fetch-depth: 0
@@ -619,7 +619,10 @@ jobs:
           def write_output(key, value):
               if gh_output:
                   with open(gh_output, "a") as f:
-                      f.write(f"{key}={value}\n")
+                      if "\n" in value:
+                          f.write(f"{key}<<JIRAOUT_42\n{value}\nJIRAOUT_42\n")
+                      else:
+                          f.write(f"{key}={value}\n")
 
           if not token:
               sys.stderr.write("ERROR: JIRA_API_TOKEN is empty\n")
@@ -696,8 +699,10 @@ jobs:
               # requests whose User-Agent doesn't look browser-like. The
               # combination of "Mozilla/5.0", "AppleWebKit", and "Gecko" is
               # what gets us past the filter while still identifying ourselves.
+              # -i: include response headers in output (for diagnostics)
+              # -w: append final status code so we can parse it reliably
               result = subprocess.run(
-                  ["curl", "-s",
+                  ["curl", "-s", "-i",
                    "-w", "\n%{http_code}",
                    "-H", "User-Agent: Mozilla/5.0 (compatible; Lloyd-HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
                    "-H", f"Authorization: Bearer {token}",
@@ -710,9 +715,36 @@ jobs:
                   continue
 
               output = result.stdout
+              # Trailing "\nSTATUS" appended by -w
               newline_idx = output.rfind("\n")
-              body = output[:newline_idx] if newline_idx >= 0 else ""
               status_str = output[newline_idx + 1:] if newline_idx >= 0 else output
+              content = output[:newline_idx] if newline_idx >= 0 else ""
+
+              # Split headers from body on the blank line. HTTP/1.1 uses CRLF
+              # but we tolerate LF-only as a fallback. Note: a -i response may
+              # include multiple header blocks if proxies issued intermediate
+              # responses (e.g. 100 Continue, redirects). Take the LAST one.
+              def split_headers_body(text):
+                  # Find the last "\r\n\r\n" or "\n\n" — that's the boundary
+                  # between final headers and body.
+                  idx_crlf = text.rfind("\r\n\r\n")
+                  idx_lf = text.rfind("\n\n")
+                  if idx_crlf > idx_lf:
+                      return text[:idx_crlf], text[idx_crlf + 4:]
+                  if idx_lf >= 0:
+                      return text[:idx_lf], text[idx_lf + 2:]
+                  return "", text
+
+              headers_text, body = split_headers_body(content)
+
+              # Pull the Server header out, useful for distinguishing ELB/WAF
+              # rejections from Jira itself.
+              server_header = ""
+              for line in headers_text.splitlines():
+                  if line.lower().startswith("server:"):
+                      server_header = line.split(":", 1)[1].strip()
+                      break
+
               try:
                   status = int(status_str.strip())
               except ValueError:
@@ -721,14 +753,21 @@ jobs:
                   continue
 
               if status in (401, 403):
-                  sys.stderr.write(f"{key}: AUTH FAILURE ({status}). Aborting Jira fetch.\n")
+                  sys.stderr.write(f"{key}: AUTH FAILURE ({status})\n")
+                  sys.stderr.write(f"  Server: {server_header or '(not set)'}\n")
+                  sys.stderr.write(f"  Response headers:\n{headers_text}\n")
+                  sys.stderr.write(f"  Response body (first 1000 chars):\n{body[:1000]}\n")
                   write_output("auth_failure", "true")
                   write_output("auth_failure_status", str(status))
                   write_output("auth_failure_url", url)
+                  write_output("auth_failure_server", server_header)
+                  write_output("auth_failure_body_excerpt", body[:1000])
                   sys.exit(2)
 
               if status >= 400:
                   sys.stderr.write(f"{key}: HTTP {status}\n")
+                  sys.stderr.write(f"  Server: {server_header or '(not set)'}\n")
+                  sys.stderr.write(f"  Response body (first 500 chars):\n{body[:500]}\n")
                   fetch_errors.append(key)
                   continue
 
@@ -789,6 +828,8 @@ jobs:
         env:
           AUTH_STATUS: ${{ steps.jira.outputs.auth_failure_status }}
           AUTH_URL: ${{ steps.jira.outputs.auth_failure_url }}
+          AUTH_SERVER: ${{ steps.jira.outputs.auth_failure_server }}
+          AUTH_BODY: ${{ steps.jira.outputs.auth_failure_body_excerpt }}
           PR_NUMBER: ${{ needs.eligibility.outputs.pr_number }}
           PR_URL: ${{ needs.eligibility.outputs.html_url }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -800,6 +841,8 @@ jobs:
           import os
           status = os.environ.get("AUTH_STATUS", "unknown")
           url = os.environ.get("AUTH_URL", "")
+          server = os.environ.get("AUTH_SERVER", "")
+          body_excerpt = os.environ.get("AUTH_BODY", "")
           pr_number = os.environ.get("PR_NUMBER", "?")
           pr_url = os.environ.get("PR_URL", "")
           run_url = os.environ.get("RUN_URL", "")
@@ -809,7 +852,7 @@ jobs:
           elif status == "401":
               cause = "Token rejected (401 Unauthorized) — likely expired or revoked"
           elif status == "403":
-              cause = "Token rejected (403 Forbidden) — token may be valid but lacks permission, or has expired"
+              cause = "Token rejected (403 Forbidden) — token may be valid but lacks permission, or rejected at gateway/WAF before reaching Jira"
           else:
               cause = f"Unexpected auth status: {status}"
 
@@ -824,11 +867,26 @@ jobs:
               print(f"Failing URL: {url}")
           if run_url:
               print(f"Workflow run: {run_url}")
+
+          if server or body_excerpt:
+              print()
+              print("--- Response diagnostics (forward to admins if needed) ---")
+              if server:
+                  print(f"Server header: {server}")
+                  if "awselb" in server.lower() or "cloudflare" in server.lower():
+                      print("  (Response came from a load balancer / WAF, not Jira itself —")
+                      print("  the request was likely rejected before reaching Jira.)")
+              if body_excerpt:
+                  print()
+                  print("Response body:")
+                  print(body_excerpt.strip())
+              print("--- end diagnostics ---")
+
           print()
           print("Triage was skipped for this PR. Subsequent PRs will continue")
-          print("to fail until the token is rotated.")
+          print("to fail until the underlying problem is resolved.")
           print()
-          print("Rotation procedure:")
+          print("Rotation procedure (if token genuinely expired):")
           print("  1. Log into https://jira.hl7.org as the service account.")
           print("  2. Profile -> Personal Access Tokens.")
           print("  3. Revoke the old token, create a new one (max 1 year).")
@@ -862,6 +920,12 @@ jobs:
       - name: Claude analyzes PR
         id: claude
         if: steps.scan.outputs.suspicious != 'true' && steps.jira.outputs.auth_failure != 'true'
+        # Note: anthropics/claude-code-action@v1 still bundles Node 20 via
+        # oven-sh/setup-bun. As of June 2026 GitHub runners default to Node 24
+        # and emit deprecation warnings; Node 20 is removed entirely in
+        # September 2026. We are waiting on Anthropic to ship a Node 24 build
+        # (tracked in anthropics/claude-code-action#1050). The @v1 tag will
+        # pick up the fix automatically once released — no change needed here.
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
