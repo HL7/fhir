@@ -49,6 +49,17 @@
             <resource value=""/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.statusReason" resourcePath="DiagnosticReport.statusReason">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the diagnostic report."/>
+            <resource value="Captures the reason for the current state of the DiagnosticReport."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>
+            <resource value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <doubleMappedElement patternPath="Event.statusReason" reason="Unknown"/>
     <divergentElement patternPath="Event.category" resourcePath="DiagnosticReport.category">
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
