@@ -52,6 +52,6 @@
   <concept>
     <code value="duplicate"/>
     <display value="Duplicate"/>
-    <definition value="The diagnostic report duplicates another diagnostic report."/>
+    <definition value="The observation duplicates another observation."/>
   </concept>
 </CodeSystem>
