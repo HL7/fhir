@@ -60,14 +60,14 @@
 	<signal>
 		<activationState>
 			<coding>
-				<system value="http://hl7.org/fhir/devicealert-activationState"/>
+				<system value="http://terminology.hl7.org/CodeSystem/devicealert-activationState"/>
 				<code value="on"/>
 				<display value="On"/>
 			</coding>
 		</activationState>
 		<presence>
 			<coding>
-				<system value="http://hl7.org/fhir/devicealert-presence"/>
+				<system value="http://terminology.hl7.org/CodeSystem/devicealert-presence"/>
 				<code value="on"/>
 				<display value="On"/>
 			</coding>
@@ -96,7 +96,7 @@
 		</annunciator>
 		<manifestation>
 			<coding>
-				<system value="http://hl7.org/fhir/devicealert-manifestation"/>
+				<system value="http://terminology.hl7.org/CodeSystem/devicealert-manifestation"/>
 				<code value="visual"/>
 				<display value="Visual"/>
 			</coding>
