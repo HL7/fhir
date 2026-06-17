@@ -140,7 +140,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-51/ for globally unique filler ID  - OBR-3 , For non-globally unique filler-id the flller/placer number must be combined with the universal service Id -  OBR-2(if present)+OBR-3+OBR-4"/>
+        <map value="The DiagnosticReport .identifier element is not to be used for the V2 order numbers, it is the instance identifier of the DiagnosticReport. HL7 Version 2 has no formal equivalent to these identifiers. The V2 order number should be located on the basedOn element instead."/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -169,7 +169,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC? OBR-2/3?"/>
+        <map value="ORC-2, ORC-3, ORC-4, OBR-2 and OBR-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -215,6 +215,29 @@
       <mapping>
         <identity value="rim"/>
         <map value="statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type &quot;revise&quot;"/>
+      </mapping>
+    </element>
+    <element id="DiagnosticReport.statusReason">
+      <path value="DiagnosticReport.statusReason"/>
+      <short value="Reason for current status"/>
+      <definition value="Captures the reason for the current state of the DiagnosticReport."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosticReportStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes identifying the reason for the current state of a diagnostic report."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-report-status-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.statusReason"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.category">

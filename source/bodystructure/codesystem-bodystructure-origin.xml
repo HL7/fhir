@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="bodystructure-origin"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/bodystructure-origin"/>
+  <version value="6.0.0"/>
+  <name value="BodyStructureOrigin"/>
+  <title value="Body Structure Origin Codes"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Codes describing the origin of an included body structure."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="autologous"/>
+    <display value="Autologous"/>
+    <definition value="Tissue, cells, or biological substances taken from the same individual."/>
+  </concept>
+  <concept>
+    <code value="non-autologous"/>
+    <display value="Non-autologous"/>
+    <definition value="Tissue, cells, or materials that are not taken from the same individual; they may come from a donor or be artificially created."/>
+  </concept>
+  <concept>
+    <code value="homologous"/>
+    <display value="Homologous"/>
+    <definition value="Tissue or cells taken from a donor of the same species."/>
+  </concept>
+  <concept>
+    <code value="allogeneic"/>
+    <display value="Allogeneic"/>
+    <definition value="Tissue or cells from another genetically different individual of the same species."/>
+  </concept>
+  <concept>
+    <code value="syngeneic"/>
+    <display value="Syngeneic"/>
+    <definition value="Tissue or cells taken from a genetically identical individual, such as an identical twin."/>
+  </concept>
+  <concept>
+    <code value="heterologous"/>
+    <display value="Heterologous"/>
+    <definition value="Tissue, cells, or materials from a genetically dissimilar source, commonly from a different species."/>
+  </concept>
+  <concept>
+    <code value="zooplastic"/>
+    <display value="Zooplastic"/>
+    <definition value="Tissue or graft material taken from a non-human animal species."/>
+  </concept>
+  <concept>
+    <code value="synthetic"/>
+    <display value="Synthetic"/>
+    <definition value="Materials created through chemical or other artificial processes rather than derived from living organisms."/>
+  </concept>
+  <concept>
+    <code value="mixed-source"/>
+    <display value="Mixed Source"/>
+    <definition value="A graft, transplant, or product that combines the patient's own biological materials with donor, animal, or synthetic sources."/>
+  </concept>
+</CodeSystem>

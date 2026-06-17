@@ -1861,14 +1861,14 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Unknown</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Authoring system does not know the status.</Data></Cell>
     <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">=NullFlavor.unknown</Data></Cell>
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0">

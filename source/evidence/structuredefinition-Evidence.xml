@@ -1114,10 +1114,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableHandlingExample"/>
+					<valueString value="EvidenceVariableHandling"/>
 				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
+				<strength value="extensible"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-handling"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.valueCategory">
