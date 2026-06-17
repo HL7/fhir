@@ -14,7 +14,7 @@ However, detailed specimen information is not always available nor is the clinic
 </p>
 <h3>Associated Observations</h3>
 <blockquote class="ballot-note">
-<p><b>Note to Balloters:</b> The following Associated Observations guidance has been revised for R6 to clarify how <code>DiagnosticReport.result</code> may include atomic observations and grouped or panel observations. Balloters are asked to review this text for consistency with the Diagnostics Module and Observation grouping guidance.</p>
+<p><b>Note to Balloters:</b> The following guidance on DiagnosticReport and Observation grouping patterns has been revised for R6. Balloters are asked to review whether the two patterns, related search guidance, and use of organizer Observations are clear and implementable across all domains. In particular, feedback is requested from laboratory implementers on whether terms such as "panel" and the laboratory result handling guidance are clear and do not hinder current or planned implementations, and from non-laboratory implementers on whether the guidance is too laboratory-centric or needs broader wording. Specific examples and additional content would be welcomed. Balloters are also asked to review this text for consistency with the Diagnostics Module and Observation grouping guidance.</p>
 </blockquote>
 <ul>
 <li>

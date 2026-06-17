@@ -40,16 +40,15 @@
 		</a>
 		<h3>Observation Grouping</h3>
 		<blockquote class="ballot-note">
-			<p><b>Note to Balloters:</b> The following Observation grouping guidance has been revised to align with the DiagnosticReport and Observation grouping patterns in the Diagnostics Module. Balloters are asked to review whether the summary and element-specific guidance are clear and consistent with the revised Diagnostics Module text.</p>
+			<p><b>Note to Balloters:</b> The following guidance on DiagnosticReport and Observation grouping patterns has been revised for R6. Balloters are asked to review whether the two patterns, related search guidance, and use of organizer Observations are clear and implementable across all domains. In particular, feedback is requested from laboratory implementers on whether terms such as "panel" and the laboratory result handling guidance are clear and do not hinder current or planned implementations, and from non-laboratory implementers on whether the guidance is too laboratory-centric or needs broader wording. Specific examples and additional content would be welcomed. Balloters are also asked to review this text for consistency with the Diagnostics Module and DiagnosticReport guidance.</p>
 		</blockquote>
 		<p>Many observations need to be grouped together in some fashion to document critical
 		relationships for interpretation of the observations. The methods to do so primarily are
 		through DiagnosticReport using <code>DiagnosticReport.result</code> and Observation using
-		<code>Observation.component</code>, <code>Observation.hasMember</code>, and
-		<code>Observation.derivedFrom</code>. See the <a href="diagnostics-module.html#org-dr-obs">Diagnostics Module</a> for specific guidance on the supported patterns; a brief summary is here for convenience only.</p>
+		<code>Observation.component</code> and <code>Observation.hasMember</code>. See the <a href="diagnostics-module.html#org-dr-obs">Diagnostics Module</a> for specific guidance on the supported patterns; a brief summary is here for convenience only.</p>
 		<p>Note that Composition may also be used to organize observations and
 		diagnostic reports, but that is only for purpose of readability, not to record critical
-		relationships for interpretations. See DiagnosticReport.composition and Composition for
+		relationships for interpretation. See <a href="diagnosticreport-definitions.html#DiagnosticReport.composition">DiagnosticReport.composition</a> and <a href="composition.html">Composition</a> for
 		further considerations for that separate purpose.</p>
 		<a name="gr-result"></a>
 	  <h4>DiagnosticReport.result
