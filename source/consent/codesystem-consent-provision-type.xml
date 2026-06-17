@@ -40,11 +40,11 @@
   <concept>
     <code value="deny"/>
     <display value="Deny"/>
-    <definition value="The provision or rule, when matching the activity request, forbids the activity."/>
+    <definition value="Consent is denied for actions meeting these rules."/>
   </concept>
   <concept>
     <code value="permit"/>
     <display value="Permit"/>
-    <definition value="The provision or rule, when matching the activity request, allows the activity."/>
+    <definition value="Consent is provided for actions meeting these rules."/>
   </concept>
 </CodeSystem>
