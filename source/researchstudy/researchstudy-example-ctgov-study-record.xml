@@ -390,7 +390,7 @@
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/research-study-purpose-type"/>
 			<code value="treatment"/>
-			<display value="Treatment"/>
+			<display value="Treatment Study"/>
 		</coding>
 	</purposeType>
 	<phase>
