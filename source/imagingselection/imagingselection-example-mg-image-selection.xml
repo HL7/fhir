@@ -17,7 +17,7 @@
     </code>
     <bodySite>
         <reference>
-            <reference value="BodyStructure/breast-mass" />
+            <reference value="BodyStructure/breast-mass-example" />
         </reference>
     </bodySite>
     <status value="available" />

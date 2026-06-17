@@ -42,7 +42,7 @@
   </regulatoryBasis>
   <decision value="deny"/>
     <provision>
-      <!-- bound by a timeframe between 1964 and 2019 - consent.applies -->
+      <!-- bound by a time frame between 1964 and 2019 - consent.applies -->
       <period>
         <start value="1964-01-01"/>
         <end value="2019-01-01"/>

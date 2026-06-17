@@ -1098,6 +1098,14 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="MedicinalProductManufacturingActivity"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of manufacturing or business operation for a medicinal product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-manufacturing-activity"/>
+      </binding>
       <mapping>
         <identity value="idmp"/>
         <map value="Manufacturing / Business Operation.Operation Type"/>
