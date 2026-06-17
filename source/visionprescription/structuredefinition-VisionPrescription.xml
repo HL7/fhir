@@ -325,16 +325,6 @@
         <map value="author.time"/>
       </mapping>
     </element>
-    <element id="VisionPrescription.effectiveEndDate">
-      <path value="VisionPrescription.effectiveEndDate"/>
-      <short value="Prescription validity end date time"/>
-      <definition value="The date/time after which the prescription is considered expired and can no longer be used to obtain lenses."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-    </element>
     <element id="VisionPrescription.prescriber">
       <path value="VisionPrescription.prescriber"/>
       <short value="Who authorized the vision prescription"/>

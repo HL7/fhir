@@ -674,7 +674,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-	  <isSummary value="true"/>
       <condition value="docRef-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

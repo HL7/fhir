@@ -418,7 +418,6 @@ see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/ch
     </li>
     <li><code>bodySite</code> contains a reference to a <a href="bodystructure.html">BodyStructure</a> resource whose <code>includedStructure.structure</code> element contains an anatomic code that includes laterality</li>
     <li><code>bodySite</code> contains a reference to a <a href="bodystructure.html">BodyStructure</a> resource whose <code>includedStructure</code> element includes a laterality value. See this <a href="bodystructure-example-dicom-includedStructure.html">example BodyStructure representation of the Left Wrist, with laterality and SNOMED coding for anatomical structure</a>.</li>
-    <li>The <code>bodySite</code> element can also reference a <a href="bodystructure.html">BodyStructure</a> resource when – in addition to laterality – a referenced body site requires specifying position relative to a specific body landmark. See this example BodyStructure of a breast mass with body landmark orientation specified (TODO -- Create Example BodyStructure).</li>
   </ul>
 
   <a name="dicom-uids"></a>

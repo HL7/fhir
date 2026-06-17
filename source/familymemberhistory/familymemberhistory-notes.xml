@@ -1,15 +1,4 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<a name="gender"></a>
-<h2>Family Member History Gender and Sex</h2>
-
-<p>
-The FHIR <a href="patient.html">Patient</a> resource type's <a href="patient.html#gender">Patient Gender and Sex</a> subsection describes considerations and attributes related to the capture and exchange of a patient's sex and gender information. These considerations and attributes are relevant to family members as well.
-</p>
-<p>
-Given that the FamilyMemberHistory resource type is primarily concerned with exchanging family member history information relevant to the care of a patient, the intent of the <a href="familymemberhistory-definitions.html#FamilyMemberHistory.sex">FamilyMemberHistory.sex</a> element is to exchange a sex category value corresponding to the relevant sex characteristics of the family member where this information is relevant to the care of the patient. Accordingly, while values like 'male' and 'female' may be used, this element should not be used to exchange information about the family member's gender identity. FamilyMemberHistory.sex is intended to provide guidance on the sex category associated with the family member's conditions and procedures.
-</p>
-
 <h3>Processing information about the Family Member History</h3>
     <p>The Family Member History <a href="list.html">List</a> may contain other than FamilyMemberHistory resources. For example,
         a full Family History could be a <a href="list.html">List</a> that might include a mixture of FamilyMemberHistory records 

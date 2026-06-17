@@ -1050,22 +1050,18 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.diagnosis.diagnosis">
-      <path value="ExplanationOfBenefit.diagnosis.diagnosis"/>
+    <element id="ExplanationOfBenefit.diagnosis.diagnosis[x]">
+      <path value="ExplanationOfBenefit.diagnosis.diagnosis[x]"/>
       <short value="Nature of illness or problem"/>
       <definition value="The nature of illness or problem in a coded form or as a reference to an external defined Condition."/>
       <requirements value="Provides health context for the evaluation of the products and/or services."/>
       <min value="1"/>
       <max value="1"/>
-      <constraint>
-        <key value="eob-0"/>
-        <severity value="error"/>
-        <human value="Either a concept or a reference is provided but not both."/>
-        <expression value="concept.exists() xor reference.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit"/>
-      </constraint>
       <type>
-        <code value="CodeableReference"/>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
       <binding>
@@ -1174,22 +1170,18 @@
         <code value="dateTime"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.procedure.procedure">
-      <path value="ExplanationOfBenefit.procedure.procedure"/>
+    <element id="ExplanationOfBenefit.procedure.procedure[x]">
+      <path value="ExplanationOfBenefit.procedure.procedure[x]"/>
       <short value="Specific clinical procedure"/>
       <definition value="The code or reference to a Procedure resource which identifies the clinical intervention performed."/>
       <requirements value="This identifies the actual clinical procedure."/>
       <min value="1"/>
       <max value="1"/>
-      <constraint>
-        <key value="eob-1"/>
-        <severity value="error"/>
-        <human value="Either a concept or a reference is provided but not both."/>
-        <expression value="concept.exists() xor reference.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ExplanationOfBenefit"/>
-      </constraint>
       <type>
-        <code value="CodeableReference"/>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <binding>
