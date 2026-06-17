@@ -300,8 +300,14 @@ in order to support consistent definitions for schema and UML derived code.
     <p>The specific mapping may vary depending on use cases, but the following provides general guidance on how the most common DICOM IEs are typically mapped to FHIR resources:</p>
 
     <div>
-        <img src="diagnostic-module-imaging-fig1.png" alt="Mapping DICOM IEs to FHIR Resources" width="944" />
-        <figure>Figure 1: Mapping DICOM IEs to FHIR Resources.</figure>
+        <figure>
+            <img src="diagnostic-module-imaging-fig1.png" alt="Mapping DICOM IEs to FHIR Resources" width="634" />
+            <figcaption>Figure 1: Mapping DICOM IEs to FHIR Resources.</figcaption>
+            <ol>
+                <li>DICOM Information entities without a corresponding FHIR resource are not shown in this diagram. e.g. Frame of Reference.</li>
+                <li>The DICOM information model includes a separate IE for all instance types. e.g. image, presentation state, radiotherapy object, etc. For simplicity, these are represented as a single "Instance" IE in this diagram.</li>
+            </ol>
+        </figure>
     </div>
 
     <h5>Representation of DICOM SR measurements using FHIR resources</h5>
