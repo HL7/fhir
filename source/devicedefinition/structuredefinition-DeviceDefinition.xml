@@ -767,7 +767,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of name the device is referred by."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/device-nametype"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-nametype"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -851,7 +851,7 @@
           <valueString value="DeviceSpecificationCategory"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/device-specification-category"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
       </binding>
 
     </element>
@@ -1059,14 +1059,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDeviceVersionType"/>
-        </extension>
-        <strength value="example"/>
-        <description value="The type of version indicated for the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
-      </binding>
     </element>
     <element id="DeviceDefinition.deviceVersion.component">
       <path value="DeviceDefinition.deviceVersion.component"/>
@@ -1233,7 +1225,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of relation between this and the linked device."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/devicedefinition-relationtype"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
       </binding>
     </element>
     <element id="DeviceDefinition.link.relatedDevice[x]">
@@ -1350,7 +1342,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The production identifier(s) that are expected to appear in the UDI carrier."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/device-productidentifierinudi"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-productidentifierinudi"/>
       </binding>
     </element>
     <element id="DeviceDefinition.guideline">
@@ -1407,14 +1399,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceDefinitionClinicalCondition"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Clinical conditions and findings relevant to device use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-clinical-condition"/>
-      </binding>
     </element>
     <element id="DeviceDefinition.guideline.contraindication">
       <path value="DeviceDefinition.guideline.contraindication"/>
@@ -1426,14 +1410,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceDefinitionClinicalCondition"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Clinical conditions and findings relevant to device use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-clinical-condition"/>
-      </binding>
     </element>
     <element id="DeviceDefinition.guideline.warning">
       <path value="DeviceDefinition.guideline.warning"/>

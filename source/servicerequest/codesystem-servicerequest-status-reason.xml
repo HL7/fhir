@@ -20,7 +20,7 @@
   <name value="ServiceRequestStatusReasonCodes"/>
   <title value="Service Request Status Reason Codes"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <publisher value="HL7 International - Orders and Observations"/>
   <contact>
     <telecom>

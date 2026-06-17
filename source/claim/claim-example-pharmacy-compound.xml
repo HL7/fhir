@@ -126,13 +126,11 @@
 
 	<diagnosis>
 		<sequence value="1"/>
-		<diagnosis>
-		  <concept>
+		<diagnosisCodeableConcept>
 			<coding>
 				<code value="654456"/>
 			</coding>
-		  </concept>
-		</diagnosis>
+		</diagnosisCodeableConcept>
 	</diagnosis>
 
 	<insurance>

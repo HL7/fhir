@@ -1,18 +1,37 @@
-@startuml dicom_sr_report_extraction
-title Use case 1: Extracting imaging results for use in reporting
+@startuml DiagnosticModuleAbstracted
+!pragma layout smetana
+top to bottom direction
 
-participant "Measurement Report Creator" as sr_creator
-participant "DICOM SR FHIR IG Implementor" as ig_implementor
-participant "FHIR Service" as fhir_service
-participant "Reporting Application" as report_creator
-actor "Report Creator" as reporter
+class DerivedImagingMeasurement ##Green {}
+class ImagingMeasurementGroup ##Green {}
+class ImagingQualitativeEvaluation ##Green {}
+class ImagingMeasurement ##Green{}
+abstract class ImagingObservation ##Green {}
+class Observation ##Green{}
 
-sr_creator -> sr_creator: Create DICOM SR Measurement Report
-ig_implementor -> sr_creator: Retrieve DICOM SR Measurement Report
-ig_implementor -> ig_implementor: Extract FHIR Observations and related resources
-ig_implementor -> fhir_service: Store FHIR Observations and related resources
-report_creator -> fhir_service: Retrieve FHIR Observations and related resources
-reporter -> report_creator: Review FHIR Observations and related resources
-reporter -> report_creator: Create report containing selected FHIR Observations and related resources
+DerivedImagingMeasurement --> ImagingMeasurementGroup : derivedFrom
+ImagingMeasurementGroup --> ImagingQualitativeEvaluation : hasMember
+ImagingMeasurementGroup --> ImagingMeasurement : hasMember
+
+
+ImagingObservation --> ObservationImaginigSelection : derivedFrom
+
+ImagingObservation --|> ImagingQualitativeEvaluation
+ImagingObservation --|> ImagingMeasurement
+ImagingObservation --|> ImagingMeasurementGroup
+
+Observation --|> ImagingObservation
+Observation --|> DerivedImagingMeasurement
+
+abstract class ObservationImaginigSelection ##BlueViolet {}
+class ImagingSelection ##BlueViolet{}
+
+ImagingSelection --|> ObservationImaginigSelection
+
+
+class FindingSite ##Orange{}
+class BodyStructure ##Orange{}
+ObservationImaginigSelection --> FindingSite
+BodyStructure --|> FindingSite
 
 @enduml

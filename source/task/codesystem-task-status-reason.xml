@@ -20,7 +20,7 @@
   <name value="TaskStatusReason"/>
   <title value="Task Status Reason"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

@@ -7,6 +7,8 @@
         <li><b>Non-substantive</b>
           <ul>
             <li><a href="https://jira.hl7.org/browse/FHIR-55973">FHIR-55973</a> - Clarified that repeating answers are expected to be unique and improved readability of 'repeats' comment.</li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-55182">FHIR-55182</a> - Added guidance on alternatives to enableWhen</li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-53945">FHIR-53945</a> - Moved definition of Questionnaire-specific FHIRPath functions from QuestionnaireResponse to Questionnaire</li>
           </ul>
         </li>
       </ul>
