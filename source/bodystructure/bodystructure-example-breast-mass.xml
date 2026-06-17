@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BodyStructure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/bodystructure.xsd">
+    <id value="breast-mass" />
+    <includedStructure>
+        <structure>
+            <coding>
+                <code value="76752008" />
+                <system value="http://snomed.info/sct" />
+                <display value="Breast" />
+            </coding>
+        </structure>
+        <laterality>
+            <coding>
+                <code value="7771000" />
+                <system value="http://snomed.info/sct" />
+                <display value="Left" />
+            </coding>
+        </laterality>
+        <bodyLandmarkOrientation>
+            <clockFacePosition>
+                <coding>
+                    <code value="260328008" />
+                    <system value="http://snomed.info/sct" />
+                    <display value="2 o'clock position" />
+                </coding>
+            </clockFacePosition>
+        </bodyLandmarkOrientation>
+        <bodyLandmarkOrientation>
+            <landmarkDescription>
+                <coding>
+                    <code value="24142002" />
+                    <system value="http://snomed.info/sct" />
+                    <display value="Nipple" />
+                </coding>
+            </landmarkDescription>
+            <distanceFromLandmark>
+                <value>
+                    <value value="3" />
+                    <code value="cm" />
+                    <unit value="cm" />
+                    <system value="http://unitsofmeasure.org" />
+                </value>
+            </distanceFromLandmark>
+        </bodyLandmarkOrientation>
+        <morphology>
+            <coding>
+                <code value="89164003" />
+                <system value="http://snomed.info/sct" />
+                <display value="Breast mass" />
+            </coding>
+        </morphology>
+    </includedStructure>
+    <patient>
+        <reference value="Patient/genetics-example1" />
+    </patient>
+</BodyStructure>
