@@ -358,7 +358,7 @@
         <description value="The functional relationship between the patient and the relatedperson"/>
         <code value="role"/>
         <type value="token"/>
-        <expression value="RelatedPerson.role"/>
+        <expression value="RelatedPerson.relationship"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -1,60 +1,18 @@
-@startuml dicom_information_entity_to_fhir_resource_mapping
-left to right direction
-package "DICOM Information Entity (IE) List<sup>1</sup>" {
-    object "Patient" as patientIE
-    object "Visit" as visitIE
-    object "Study" as studyIE
-    object "Series" as seriesIE
-    object "Equipment" as equipmentIE
-    object "Instance<sup>2</sup>" as instanceIE
-}
-object Patient {
-    identifier = Patient ID
-}
+@startuml dicom_sr_report_extraction
+title Use case 1: Extracting imaging results for use in reporting
 
-object Encounter {
-    identifier = Visit ID
-}
+participant "Measurement Report Creator" as sr_creator
+participant "DICOM SR FHIR IG Implementor" as ig_implementor
+participant "FHIR Service" as fhir_service
+participant "Reporting Application" as report_creator
+actor "Report Creator" as reporter
 
-object ImagingStudy {
-    identifier = Study Instance UID
-    series[*].uid = Series Instance UID
-    series[*].instance[*].uid = SOP Instance UID
-}
-object ServiceRequest {
-    identifier = Accession Number
-}
+sr_creator -> sr_creator: Create DICOM SR Measurement Report
+ig_implementor -> sr_creator: Retrieve DICOM SR Measurement Report
+ig_implementor -> ig_implementor: Extract FHIR Observations and related resources
+ig_implementor -> fhir_service: Store FHIR Observations and related resources
+report_creator -> fhir_service: Retrieve FHIR Observations and related resources
+reporter -> report_creator: Review FHIR Observations and related resources
+reporter -> report_creator: Create report containing selected FHIR Observations and related resources
 
-object Procedure {
-    code = Performed Procedure Sequence
-}
-
-object Device {
-    identifier = Device UID
-}
-
-patientIE -r[hidden]-> visitIE
-visitIE -r[hidden]-> studyIE
-studyIE -r[hidden]-> seriesIE
-seriesIE -r[hidden]-> equipmentIE
-equipmentIE -r[hidden]-> instanceIE
-
-patientIE --> Patient
-visitIE --> Encounter
-studyIE --> ImagingStudy
-studyIE --> ServiceRequest
-studyIE --> Procedure
-seriesIE --> ImagingStudy
-equipmentIE --> Device
-instanceIE --> ImagingStudy
-
-Patient -r[hidden]-> Encounter
-Encounter -r[hidden]-> ServiceRequest
-ServiceRequest -r[hidden]-> ImagingStudy
-ImagingStudy -r[hidden]-> Device
-
-footer
-# DICOM Information entities without a corresponding FHIR resource are not shown in this diagram. e.g. Frame of Reference.
-# The DICOM information model includes a separate IE for all instance types. e.g. image, presentation state, radiotherapy object, etc. For simplicity, these are represented as a single "Instance" IE in this diagram.
-endfooter
 @enduml
