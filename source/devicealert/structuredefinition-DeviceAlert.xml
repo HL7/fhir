@@ -191,7 +191,7 @@
         <element id="DeviceAlert.type">
             <path value="DeviceAlert.type" />
             <short value="The particular kind of alert" />
-            <definition value="The type of alert, such as whether it is related to the patient condition; to irregular device state; or to workflow or regular device state, such as timers." />
+            <definition value="The particular kind of alert, such as whether it is related to the patient condition; to irregular device state; or to workflow or regular device state, such as timers." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
@@ -218,7 +218,7 @@
         <element id="DeviceAlert.priority">
             <path value="DeviceAlert.priority" />
             <short value="The urgency by which the condition ought to be addressed" />
-            <definition value="The alert priority is usually reported by the source device. The element MAY be omitted if the priority is unknown." />
+            <definition value="The urgency by which the condition ought to be addressed. The alert priority is usually reported by the source device. The element MAY be omitted if the priority is unknown." />
             <min value="0" />
             <max value="1" />
             <isSummary value="true" />
@@ -619,7 +619,7 @@
         <element id="DeviceAlert.signal.presence">
             <path value="DeviceAlert.signal.presence" />
             <short value="Indicates whether signal annunciation is occurring, along with the underlying reason" />
-            <definition value="Indicates whether the signal is currently being annunciated. An on signal is currently being annunciated; a latched signal is currently being being annunciated although the alert condition has ended; an off signal is not currently being annunciated; and an acknowledged signal is not currently being annunciated because the user has acknowledged the signal." />
+            <definition value="Indicates whether signal annunciation is occurring, along with the underlying reason. An `on` signal is currently being annunciated; a `latched` signal is currently being annunciated although the alert condition has ended; an `off` signal is not currently being annunciated; and an `acknowledged` signal is not currently being annunciated because the user has acknowledged the signal." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
