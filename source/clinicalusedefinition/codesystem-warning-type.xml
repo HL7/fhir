@@ -20,10 +20,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1996"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="WarningType"/>
+  <name value="WarningTypeExample"/>
   <title value="Warning Type"/>
   <status value="active"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <date value="2021-08-15T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
