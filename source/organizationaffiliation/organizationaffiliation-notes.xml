@@ -23,8 +23,8 @@ Notes:
 <a name="jv"></a>
   <h2>Joint Ventures</h2>
   <p>
-  With a joint venture between multiple organizations, a separate Organization is created which represents the Venture.
-  Each Organization in the venture is created through a separate OrganizationAffiliation resource with
+  With a joint venture between multiple organizations, a seperate Organization is created which represents the Venture.
+  Each Organization in the venture is created through a seperate OrganizationAffiliation resource with
   the telecom details provided in each being the contact point to call for enquiries relating to their affiliation in the venture.
   </p>
 </div>

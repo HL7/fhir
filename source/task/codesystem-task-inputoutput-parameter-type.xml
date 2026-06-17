@@ -16,7 +16,7 @@
   <name value="TaskInputOutputParameterType"/>
   <title value="Task Input/Output Parameter Type"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2025-03-12T10:00:00+08:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

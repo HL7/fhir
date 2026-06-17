@@ -449,24 +449,6 @@
         <map value="SPM-4/SPM-5"/>
       </mapping>
     </element>
-    <element id="BodyStructure.includedStructure.origin">
-      <path value="BodyStructure.includedStructure.origin"/>
-      <short value="Origin of the body structure"/>
-      <definition value="The origin of the included body structure, such as autologous, allogeneic, synthetic, or other source."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodyStructureOrigin"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes describing the origin of a body structure."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-origin"/>
-      </binding>
-    </element>
     <element id="BodyStructure.excludedStructure">
       <path value="BodyStructure.excludedStructure"/>
       <short value="Excluded anatomic locations(s)"/>

@@ -3,9 +3,6 @@
     <divergentElement patternPath="FiveWs.class" resourcePath="ServiceRequest.intent">
         <modifier _pattern="false" _resource="true" reason="Unknown"/>
     </divergentElement>
-    <divergentElement patternPath="FiveWs.subject" resourcePath="ServiceRequest.focus">
-        <modifier _pattern="false" _resource="true" reason="Unknown"/>
-    </divergentElement>
     <unmappedElement patternPath="FiveWs.cause" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.version" reason="Unknown"/>
     <unmappedElement patternPath="FiveWs.witness" reason="Unknown"/>

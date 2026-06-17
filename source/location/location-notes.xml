@@ -31,7 +31,7 @@ to identify exactly which isolation room or ambulance is allocated, it is suffic
 E.g. when a patient arrived 'by ambulance', but it is not known by which ambulance, this should be represented using a Location in 'instance' mode with a
 missing identifier, not a Location of 'kind' ambulance.</p>
 <p>
-Some of Location's data elements are typically only relevant when mode is 'instance' and would not be used when mode is 'kind':<br/>
+Some of Location's data elements are only relevant when mode is 'instance' and should not be used when mode is 'kind':<br/>
 	<i>(however this information could still be included if was relevant, such as when it is a generic item, 
     but not globally generic, e.g. a Burgers Medical Centre ambulance)</i>
 </p>
@@ -42,9 +42,6 @@ Some of Location's data elements are typically only relevant when mode is 'insta
 <li>Location.position</li>
 <li>Location.status</li>
 <li>Location.managingOrganization</li>
-<li>Location.hoursOfOperation</li>
-<li>Location.virtualService</li>
-<li>Location.endpoint</li>
 </ul>
 
 <a name="example"></a>
@@ -62,7 +59,7 @@ Hospital A Building C (instance)
             Nurses Station EM-ns1 (instance)
                 Medication Cupboard A (instance)
             Room 1 (instance)
-                Room 1a (instance) - space in room separable via a curtain
+                Room 1a (instance) - space in room separatable via a curtain
                     Bed 1a (instance) - always in this room
                 Room 1b (instance)
                     Trolley 43 (instance) - moves about

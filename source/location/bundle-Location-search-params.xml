@@ -453,8 +453,8 @@
           <valueString value="Location.form"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Location-form"/>
-        <description value="Form of the location (e.g. bed/ward/site/virtual)"/>
-        <code value="form"/>
+        <description value="Physical form of the location (e.g. bed/ward/site/virtual)"/>
+        <code value="characteristic"/>
         <type value="token"/>
         <expression value="Location.form"/>
         <processingMode value="normal"/>

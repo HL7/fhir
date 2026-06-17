@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    
+  </meta>
+  <name value="ConsentContentClass"/>
+  <title value="Consent Content Class"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International / Security"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set LOINC document types and IHE content class codes"/>
+  <compose>
+    <include>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v3-HL7FormatCodes"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="SCALE_TYP"/>
+        <op value="="/>
+        <value value="LP32888-7"/>
+      </filter>
+    </include>
+  </compose>
+</ValueSet>
