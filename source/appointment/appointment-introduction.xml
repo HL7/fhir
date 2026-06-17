@@ -37,7 +37,7 @@
 				<p>
 					This optional step permits the checking of any existing available times 
 					(<a href="slot.html">Slot</a> resources associated with a selected <a href="schedule.html">Schedule</a>) that can be booked against.
-					Just because a time is indicated as available does not guarantee that an appointment can be made.
+					Just because a time is indicated as available doesn't guarantee that an appointment can be made.
 					The booking system that is going to process the request may make other qualifying decisions to
 					determine if the appointment can be made, such as permissions, assessments, availability of other
 					resources, etc.
@@ -163,16 +163,16 @@
 	
 	<h4>Series (simple chain)</h4>
 	<p>
-		A series appointment has no template information, and thus does not use the 
+		A series appointment has no template information, and thus don't use the 
 		<code>recurrenceTemplate</code> property. Often when first booked it is likely not known
 		that it will become a series of bookings, and only on conclusion of the encounter it is decided to follow-up
 		and then book a new appointment (or even book it later on) and relate the new booking to the previous in the series
 		through the <code>previousAppointment</code> property.
-		This style of recurring appointment likely will not use the <code>originatingAppointment</code> property either.
+		This style of recurring appointment likely won't use the <code>originatingAppointment</code> property either.
 	</p>
 	<p>
 		As each appointment in a series is a separate appointment and booked as needed, the acceptance of requests here is
-		just as it would be normally if they did not have a sequence.
+		just as it would be normally if they didn't have a sequence.
 	</p>
 	<p>
 		As each occurrence is booked independently there are no specific issues with timezones, as each instance exactly

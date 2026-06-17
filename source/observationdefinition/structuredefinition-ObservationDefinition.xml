@@ -755,17 +755,6 @@
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
 			</type>
 		</element>
-		<element id="ObservationDefinition.supportingDevice">
-  			<path value="ObservationDefinition.supportingDevice"/>
-  			<short value="Device supporting generation of the measurement"/>
-  			<definition value="A reference to additional devices, kits, or reagents (e.g., TestKit, Calibration Kit, QC materials) to support the generation of the measurement."/>
-  			<min value="0"/>
-  			<max value="*"/>
-  			<type>
-    			<code value="CodeableReference"/>
-    			<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-  			</type>
-		</element>
 		<element id="ObservationDefinition.preferredReportName">
 			<path value="ObservationDefinition.preferredReportName"/>
 			<short value="The preferred name to be used when reporting the observation results"/>

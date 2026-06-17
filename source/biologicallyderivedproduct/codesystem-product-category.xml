@@ -20,7 +20,7 @@
   <name value="BiologicallyDerivedProductCategory"/>
   <title value="Biologically Derived Product Category"/>
   <status value="active"/>
-  <experimental value="true"/>
+  <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

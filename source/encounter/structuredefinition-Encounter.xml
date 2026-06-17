@@ -1242,7 +1242,7 @@
     </element>
     <element id="Encounter.location.form">
       <path value="Encounter.location.form"/>
-      <short value="The form of the location (usually the level in the location hierarchy - bed, room, ward, virtual etc.)"/>
+      <short value="The physical type of the location (usually the level in the location hierarchy - bed, room, ward, virtual etc.)"/>
       <definition value="This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query."/>
       <comment value="This information is de-normalized from the Location resource to support the easier understanding of the encounter resource and processing in messaging or query.&#xA;&#xA;There may be many levels in the hierachy, and this may only pic specific levels that are required for a specific usage scenario."/>
       <min value="0"/>
@@ -1255,7 +1255,7 @@
           <valueString value="LocationForm"/>
         </extension>
         <strength value="example"/>
-        <description value="Form of the location."/>
+        <description value="Physical form of the location."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/location-form"/>
       </binding>
     </element>

@@ -13,7 +13,7 @@
           <valueString value="BodyStructure.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-identifier"/>
-        <description value="The unique id for the BodyStructure"/>
+        <description value="Bodystructure identifier"/>
         <code value="identifier"/>
         <type value="token"/>
         <expression value="BodyStructure.identifier"/>
@@ -32,8 +32,8 @@
           <valueString value="BodyStructure.includedStructure.structure"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-includedStructure-structure"/>
-        <description value="The included body structure(s)"/>
-        <code value="included-structure"/>
+        <description value="Body site includedStructure structure"/>
+        <code value="included_structure"/>
         <type value="token"/>
         <expression value="BodyStructure.includedStructure.structure"/>
         <processingMode value="normal"/>
@@ -51,8 +51,8 @@
           <valueString value="BodyStructure.excludedStructure.structure"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-excludedStructure-structure"/>
-        <description value="The excluded body structure(s)"/>
-        <code value="excluded-structure"/>
+        <description value="Body site excludedStructure structure"/>
+        <code value="excluded_structure"/>
         <type value="token"/>
         <expression value="BodyStructure.excludedStructure.structure"/>
         <processingMode value="normal"/>
@@ -70,7 +70,7 @@
           <valueString value="BodyStructure.includedStructure.morphology"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-morphology"/>
-        <description value="The kind of structure"/>
+        <description value="Kind of Structure"/>
         <code value="morphology"/>
         <type value="token"/>
         <expression value="BodyStructure.includedStructure.morphology"/>
@@ -89,7 +89,7 @@
           <valueString value="BodyStructure.patient"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-patient"/>
-        <description value="The patient referenced for the identified body structure"/>
+        <description value="Who this is about"/>
         <code value="patient"/>
         <type value="reference"/>
         <expression value="BodyStructure.patient"/>
