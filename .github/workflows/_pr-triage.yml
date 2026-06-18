@@ -79,6 +79,7 @@ jobs:
       pr_number: ${{ steps.check.outputs.pr_number }}
       head_sha: ${{ steps.check.outputs.head_sha }}
       base_sha: ${{ steps.check.outputs.base_sha }}
+      base_ref: ${{ steps.check.outputs.base_ref }}
       html_url: ${{ steps.check.outputs.html_url }}
       trigger_kind: ${{ steps.check.outputs.trigger_kind }}
       build_timeout: ${{ steps.wait.outputs.build_timeout }}
@@ -184,6 +185,7 @@ jobs:
             core.setOutput('pr_number', String(prNumber));
             core.setOutput('head_sha', pr.head.sha);
             core.setOutput('base_sha', pr.base.sha);
+            core.setOutput('base_ref', pr.base.ref);
             core.setOutput('html_url', pr.html_url);
             core.setOutput('trigger_kind', triggerKind);
             core.setOutput('pr_title', pr.title || '');
@@ -343,16 +345,32 @@ jobs:
       - name: Scan diff for suspicious content
         id: scan
         env:
-          BASE_SHA: ${{ needs.eligibility.outputs.base_sha }}
+          BASE_REF: ${{ needs.eligibility.outputs.base_ref }}
           HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
         run: |
           set -e
-          git fetch --no-tags --depth=1 origin "$BASE_SHA" 2>/dev/null || true
+
+          # Fetch the current tip of the base branch so we can compute the
+          # merge base accurately. The recorded pr.base.sha goes stale as
+          # the base branch advances, which makes a straight base..head
+          # diff include unrelated changes the PR has merged in from master.
+          # Diffing from the merge base instead matches what GitHub shows
+          # in the PR "Files changed" tab. The checkout step uses
+          # fetch-depth: 0 so the merge base is already in local history;
+          # we just need origin/BASE_REF as a current ref pointer.
+          git fetch --no-tags origin "$BASE_REF"
+
+          MERGE_BASE=$(git merge-base "origin/$BASE_REF" "$HEAD_SHA")
+          echo "Base branch tip:  $(git rev-parse origin/$BASE_REF)"
+          echo "Merge base:       $MERGE_BASE"
+          echo "Head SHA:         $HEAD_SHA"
+
+          export DIFF_BASE="$MERGE_BASE"
 
           python3 <<'PY'
           import os, re, subprocess, sys
 
-          base_sha = os.environ["BASE_SHA"]
+          base_sha = os.environ["DIFF_BASE"]
           head_sha = os.environ["HEAD_SHA"]
           gh_output = os.environ.get("GITHUB_OUTPUT", "")
 
@@ -367,7 +385,7 @@ jobs:
 
           ALLOWED_EXTS = {
               "json", "xml", "md", "txt", "xlsx", "datestamp", "fhirmap",
-              "svg", "pdf", "jpg", "diagram", "png", "html", "plantuml",
+              "svg", "pdf", "jpg", "diagram", "png", "html", "plantuml", "puml",
               "cql", "gif", "ini", "no-inkscape", "csv", "liquid", "pptx",
               "docx", "doc", "dic", "jstemp", "bak",
           }
@@ -379,9 +397,12 @@ jobs:
               ("Network fetch command",
                re.compile(r"\b(curl|wget) "),
                False),
-              ("Shell command substitution",
-               re.compile(r"\$\(|`[^`]+`"),
-               False),
+              # Shell command substitution rule was removed: PR content is
+              # never fed to a shell or eval'd in our pipeline. The patterns
+              # `$(...)` and backtick-pairs collide constantly with legitimate
+              # technical content (markdown inline code, jQuery, Make variables,
+              # template literals). Other rules + the Claude tool restriction
+              # (`Bash(gh:*)` only) cover the actual threat surface.
               ("Possible base64 payload",
                re.compile(r"[A-Za-z0-9+/=]{100,}"),
                False),
@@ -458,7 +479,7 @@ jobs:
                       })
 
           TEXT_EXTS = {"json", "xml", "md", "txt", "html", "csv", "liquid",
-                       "fhirmap", "plantuml", "cql", "diagram", "ini", "svg",
+                       "fhirmap", "plantuml", "puml", "cql", "diagram", "ini", "svg",
                        "datestamp", "no-inkscape", "dic", "jstemp", "bak"}
 
           for path in changed:
@@ -603,7 +624,7 @@ jobs:
 
           set +e
           python3 <<'PY' > jira-tickets.json
-          import json, os, re, subprocess, sys
+          import json, os, re, subprocess, sys, time
           from datetime import datetime, timezone
 
           AUTHORIZING_RESOLUTIONS = {
@@ -693,8 +714,36 @@ jobs:
           authorizing = []
           fetch_errors = []
 
-          for key in keys:
-              url = f"https://jira.hl7.org/rest/api/2/issue/{key}?fields={fields_param}"
+          # Whether we ever successfully talked to Jira (got a 200 with
+          # parseable JSON). Used at the end to decide whether to promote
+          # repeated ELB 403s into an auth_failure alert.
+          successful_jira_reaches = 0
+
+          # ELB 403 retry policy. Backoffs are per-ticket. Total wait across
+          # the whole batch is capped by MAX_RETRY_BUDGET_SECONDS.
+          MAX_RETRY_BUDGET_SECONDS = 3600
+          RETRY_BACKOFFS = [30, 60, 120]
+
+          # Tracks the most recent ELB 403 we saw. If we end the batch with
+          # zero successful fetches, this is promoted to an auth_failure so
+          # the alert email carries the diagnostic info.
+          last_elb_403 = None
+          retry_budget_used = 0
+
+          def split_headers_body(text):
+              # Find the last "\r\n\r\n" or "\n\n" — that's the boundary
+              # between final headers and body. The -i response may include
+              # intermediate header blocks (100 Continue, redirects); we
+              # want the last one.
+              idx_crlf = text.rfind("\r\n\r\n")
+              idx_lf = text.rfind("\n\n")
+              if idx_crlf > idx_lf:
+                  return text[:idx_crlf], text[idx_crlf + 4:]
+              if idx_lf >= 0:
+                  return text[:idx_lf], text[idx_lf + 2:]
+              return "", text
+
+          def fetch_ticket_once(url):
               # User-Agent: HL7's Jira sits behind an AWS ELB that filters
               # requests whose User-Agent doesn't look browser-like. The
               # combination of "Mozilla/5.0", "AppleWebKit", and "Gecko" is
@@ -710,35 +759,14 @@ jobs:
                   capture_output=True, text=True,
               )
               if result.returncode != 0:
-                  sys.stderr.write(f"{key}: curl exit {result.returncode}: {result.stderr.strip()}\n")
-                  fetch_errors.append(key)
-                  continue
+                  return {"curl_failed": True, "stderr": result.stderr.strip()}
 
               output = result.stdout
-              # Trailing "\nSTATUS" appended by -w
               newline_idx = output.rfind("\n")
               status_str = output[newline_idx + 1:] if newline_idx >= 0 else output
               content = output[:newline_idx] if newline_idx >= 0 else ""
-
-              # Split headers from body on the blank line. HTTP/1.1 uses CRLF
-              # but we tolerate LF-only as a fallback. Note: a -i response may
-              # include multiple header blocks if proxies issued intermediate
-              # responses (e.g. 100 Continue, redirects). Take the LAST one.
-              def split_headers_body(text):
-                  # Find the last "\r\n\r\n" or "\n\n" — that's the boundary
-                  # between final headers and body.
-                  idx_crlf = text.rfind("\r\n\r\n")
-                  idx_lf = text.rfind("\n\n")
-                  if idx_crlf > idx_lf:
-                      return text[:idx_crlf], text[idx_crlf + 4:]
-                  if idx_lf >= 0:
-                      return text[:idx_lf], text[idx_lf + 2:]
-                  return "", text
-
               headers_text, body = split_headers_body(content)
 
-              # Pull the Server header out, useful for distinguishing ELB/WAF
-              # rejections from Jira itself.
               server_header = ""
               for line in headers_text.splitlines():
                   if line.lower().startswith("server:"):
@@ -748,10 +776,92 @@ jobs:
               try:
                   status = int(status_str.strip())
               except ValueError:
-                  sys.stderr.write(f"{key}: couldn't parse status from curl output\n")
-                  fetch_errors.append(key)
+                  return {"parse_failed": True}
+
+              return {
+                  "status": status,
+                  "headers_text": headers_text,
+                  "server_header": server_header,
+                  "body": body,
+              }
+
+          for key in keys:
+              url = f"https://jira.hl7.org/rest/api/2/issue/{key}?fields={fields_param}"
+
+              # Retry loop for this ticket. Only ELB 403s are retried; all
+              # other outcomes break out immediately.
+              attempt = 0
+              res = None
+              while True:
+                  res = fetch_ticket_once(url)
+
+                  if res.get("curl_failed"):
+                      sys.stderr.write(f"{key}: curl failed: {res.get('stderr', '')}\n")
+                      fetch_errors.append(key)
+                      break
+
+                  if res.get("parse_failed"):
+                      sys.stderr.write(f"{key}: couldn't parse status from curl output\n")
+                      fetch_errors.append(key)
+                      break
+
+                  status = res["status"]
+                  server = res["server_header"]
+                  is_elb_403 = (status == 403 and "awselb" in server.lower())
+
+                  if not is_elb_403:
+                      break
+
+                  # ELB 403 path: remember it (in case we need to promote
+                  # to auth_failure later) and decide whether to retry.
+                  last_elb_403 = {
+                      "url": url,
+                      "status": status,
+                      "server": server,
+                      "headers_text": res["headers_text"],
+                      "body": res["body"],
+                  }
+
+                  if attempt >= len(RETRY_BACKOFFS):
+                      sys.stderr.write(f"{key}: ELB 403 after {len(RETRY_BACKOFFS)} retries; giving up\n")
+                      fetch_errors.append(key)
+                      break
+
+                  backoff = RETRY_BACKOFFS[attempt]
+                  if retry_budget_used + backoff > MAX_RETRY_BUDGET_SECONDS:
+                      sys.stderr.write(
+                          f"{key}: ELB 403; retry budget exhausted "
+                          f"({retry_budget_used}s used of {MAX_RETRY_BUDGET_SECONDS}s); giving up on this ticket\n"
+                      )
+                      fetch_errors.append(key)
+                      break
+
+                  sys.stderr.write(
+                      f"{key}: ELB 403 (attempt {attempt + 1}); "
+                      f"waiting {backoff}s before retry (budget used so far: {retry_budget_used}s)\n"
+                  )
+                  time.sleep(backoff)
+                  retry_budget_used += backoff
+                  attempt += 1
+                  # loop continues
+
+              # After the retry loop: handle whatever non-retry outcome
+              # the loop ended on.
+              if res is None or "status" not in res:
+                  # curl_failed or parse_failed; already recorded in fetch_errors
                   continue
 
+              status = res["status"]
+              server_header = res["server_header"]
+              headers_text = res["headers_text"]
+              body = res["body"]
+
+              # ELB 403 that exhausted retries / budget: already in fetch_errors
+              if status == 403 and "awselb" in server_header.lower():
+                  continue
+
+              # Any other 401/403: immediate auth failure (token issue, Jira
+              # permission issue, etc.). These won't get better with retries.
               if status in (401, 403):
                   sys.stderr.write(f"{key}: AUTH FAILURE ({status})\n")
                   sys.stderr.write(f"  Server: {server_header or '(not set)'}\n")
@@ -778,6 +888,10 @@ jobs:
                   fetch_errors.append(key)
                   continue
 
+              # If we got here, Jira itself responded — auth + WAF were OK
+              # for this request, regardless of what's in the response.
+              successful_jira_reaches += 1
+
               fields = raw.get("fields", {}) or {}
               resolution = fields.get("resolution") or {}
               resolution_name = resolution.get("name", "") or ""
@@ -800,6 +914,23 @@ jobs:
               # ticket["changeImpact"] = (fields.get("customfield_10511") or {}).get("value", "")
 
               authorizing.append(ticket)
+
+          # Decide whether to promote repeated ELB 403s into a full
+          # auth_failure alert. This fires only when we never successfully
+          # reached Jira (zero 200s) AND we did observe an ELB 403 along
+          # the way. Mixed results (some 200s, some ELB 403s) fall through
+          # to the normal output with the failures listed in fetchErrors.
+          if successful_jira_reaches == 0 and last_elb_403 is not None:
+              sys.stderr.write(
+                  "All fetch attempts ended without reaching Jira; "
+                  "promoting last ELB 403 to auth_failure.\n"
+              )
+              write_output("auth_failure", "true")
+              write_output("auth_failure_status", str(last_elb_403["status"]))
+              write_output("auth_failure_url", last_elb_403["url"])
+              write_output("auth_failure_server", last_elb_403["server"])
+              write_output("auth_failure_body_excerpt", last_elb_403["body"][:1000])
+              sys.exit(2)
 
           json.dump({
               "tickets": authorizing,
