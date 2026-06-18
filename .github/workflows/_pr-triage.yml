@@ -79,6 +79,7 @@ jobs:
       pr_number: ${{ steps.check.outputs.pr_number }}
       head_sha: ${{ steps.check.outputs.head_sha }}
       base_sha: ${{ steps.check.outputs.base_sha }}
+      base_ref: ${{ steps.check.outputs.base_ref }}
       html_url: ${{ steps.check.outputs.html_url }}
       trigger_kind: ${{ steps.check.outputs.trigger_kind }}
       build_timeout: ${{ steps.wait.outputs.build_timeout }}
@@ -184,6 +185,7 @@ jobs:
             core.setOutput('pr_number', String(prNumber));
             core.setOutput('head_sha', pr.head.sha);
             core.setOutput('base_sha', pr.base.sha);
+            core.setOutput('base_ref', pr.base.ref);
             core.setOutput('html_url', pr.html_url);
             core.setOutput('trigger_kind', triggerKind);
             core.setOutput('pr_title', pr.title || '');
@@ -343,16 +345,32 @@ jobs:
       - name: Scan diff for suspicious content
         id: scan
         env:
-          BASE_SHA: ${{ needs.eligibility.outputs.base_sha }}
+          BASE_REF: ${{ needs.eligibility.outputs.base_ref }}
           HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
         run: |
           set -e
-          git fetch --no-tags --depth=1 origin "$BASE_SHA" 2>/dev/null || true
+
+          # Fetch the current tip of the base branch so we can compute the
+          # merge base accurately. The recorded pr.base.sha goes stale as
+          # the base branch advances, which makes a straight base..head
+          # diff include unrelated changes the PR has merged in from master.
+          # Diffing from the merge base instead matches what GitHub shows
+          # in the PR "Files changed" tab. The checkout step uses
+          # fetch-depth: 0 so the merge base is already in local history;
+          # we just need origin/BASE_REF as a current ref pointer.
+          git fetch --no-tags origin "$BASE_REF"
+
+          MERGE_BASE=$(git merge-base "origin/$BASE_REF" "$HEAD_SHA")
+          echo "Base branch tip:  $(git rev-parse origin/$BASE_REF)"
+          echo "Merge base:       $MERGE_BASE"
+          echo "Head SHA:         $HEAD_SHA"
+
+          export DIFF_BASE="$MERGE_BASE"
 
           python3 <<'PY'
           import os, re, subprocess, sys
 
-          base_sha = os.environ["BASE_SHA"]
+          base_sha = os.environ["DIFF_BASE"]
           head_sha = os.environ["HEAD_SHA"]
           gh_output = os.environ.get("GITHUB_OUTPUT", "")
 
