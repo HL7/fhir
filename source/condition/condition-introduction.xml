@@ -19,6 +19,7 @@
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-54914">FHIR-54914</a>: Clarified Condition.verificationStatus comment</li>
 	  <li><a href="https://jira.hl7.org/browse/FHIR-54454">FHIR-54454</a>: Clarified Condition.category short display</li>
+	  <li><a href="https://jira.hl7.org/browse/FHIR-54157">FHIR-54157</a>: Clarified value set definitions for category and clinicalStatus</li>
     </ul>
   </li>
 </ul>

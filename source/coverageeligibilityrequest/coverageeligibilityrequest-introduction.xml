@@ -3,6 +3,15 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54492">FHIR-54492</a> - CoverageEligibilityRequest.item.diagnosis.diagnosis has been changed to a CodeableReference</li>
+            </ul>
+    </ul>
+    </blockquote>
 <p>
 The CoverageEligibilityRequest makes a request of an insurer asking them to provide, in the form of an CoverageEligibilityResponse, 
 information regarding: (validation) whether the specified coverage(s) is valid and in-force; (discovery) what coverages the insurer has for the specified patient; (benefits)
@@ -23,8 +32,8 @@ the provider will settle the claim and potentially recover costs against specifi
 <li><a href="financial-module.html#cob">Coordination of Benefit</a>: how eClaims may handle multiple patient insurance coverages.</li>
 <li><a href="financial-module.html#batch">Batches</a>: how eClaims may handle batches of eligibility, claims and responses.</li>
 <li><a href="financial-module.html#attachments">Attachments and Supporting Information</a>: how eClaims may handle the provision of supporting
- information, whether provided by content or reference, within the eClaim resource when submitted to the payor or later in a resource which refers
- to the subject eClaim resource. This includes how payors how request additional supporting information from providers.</li>
+ information, whether provided by content or reference, within the eClaim resource when submitted to the payer or later in a resource which refers
+ to the subject eClaim resource. This includes how payers how request additional supporting information from providers.</li>
 </ul>
 
 </div>

@@ -43,7 +43,7 @@
 
 	<processNote>
 		<type value="print"/>
-		<text value="Please check the submitted payor identification and local claim number."/>
+		<text value="Please check the submitted payer identification and local claim number."/>
 	</processNote>
 
 	<error>

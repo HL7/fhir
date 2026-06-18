@@ -157,7 +157,7 @@ This variability is due to the timing when it is recorded and the purpose for wh
 		administrative purposes: use the Patient/RelatedPerson structure.<br/>
 		This structure is consistent over time.</li>
 		<li>To relate the encounters of a mother and her baby in a maternity encounter,
-		for administrative and billing purposes: use the <a href="encounter-definitions.html#Encounter.partOf">encounter.partof</a> property</li>
+		for administrative and billing purposes: use the <a href="encounter-definitions.html#Encounter.partOf">Encounter.partOf</a> property</li>
 		<li>To collect information about the patient's relatives that might be relevant
 		to the patient's medical condition: use the <a href="familymemberhistory.html">FamilyMemberHistory</a> resource</li>
 	</ul>

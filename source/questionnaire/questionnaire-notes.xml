@@ -6,7 +6,7 @@ Notes:
 </h2>
 <ul>
 <li>Questionnaires may be used to represent predefined forms or panels, referenced using items of type "group"</li>
-<li>Questions may be nested.  The Questionnaire resource supports nested items beneath both items of type "group" (which doesn't capture an answer of its own) as well as beneath questions</li>
+<li>Questions may be nested.  The Questionnaire resource supports nested items beneath both items of type "group" (which does not capture an answer of its own) as well as beneath questions</li>
 <li>Groups and Questions may have linkIds allowing groups and question answers captured in a <a href="questionnaireresponse.html">QuestionnaireResponse</a>
 to be associated with their corresponding group or question.</li>
 <li>Questionnaire allows for flexible naming and structuring of its contents to reflect the flexible and varying nature of forms and questionnaires.
@@ -23,7 +23,7 @@ Observations to model Questionnaires. Such use cases should now use the Question
 <h3>Structured Data Capture</h3>
 <p>
 The base questionnaire resource is aimed at the capabilities of "most" healthcare systems that deal with forms and questionnaires.  While the resource structure
-supports a reasonable degree of complexity, it doesn't provide the degree of control over rendering, question flow and data management needed by some portions 
+supports a reasonable degree of complexity, it does not provide the degree of control over rendering, question flow and data management needed by some portions 
 of the healthcare space.  Many of these more sophisticated requirements are addressed by a supplemental implementation guide called 
 <a href="http://hl7.org/fhir/uv/sdc/">Structured Data Capture (SDC)</a>.  This implementation guide covers the following capabilities, plus several others:
 </p>
@@ -75,6 +75,30 @@ can be used to identify the Questionnaire as the data source for the other resou
 <a href="profiling.html">Profiling</a> can be used to define the constraints of a set of Questionnaires - for example that a particular system only supports Questionnaires where answers have certain data types, only recognizes certain extensions, mandates the presence of certain metadata, etc.  However, profiling should NOT be used to define the content of a specific Questionnaire instance.  To define a Questionnaire instance, simply create an instance of Questionnaire as you would any other resource.
 </p>
 
+<a name="fhirpath"> </a>
+<h3>
+FHIRPath Additions
+</h3>
+<p>
+The following additional guidance applies to using <a href="fhirpath.html">FHIRPath</a> with Questionnaire and QuestionnaireResponses:
+</p>
+<ul>
+  <li>The <code>%resource</code> variable when it appears in expressions on elements in Questionnaire will be evaluated as the root of the QuestionnaireResponse.
+</li>
+<li>The <code>%context</code> variable will be set to the QuestionnaireResponse if the expression extension is defined on the Questionnaire root. Otherwise, it will be interpreted as the QuestionnaireResponse.item(s) whose linkId matches the linkId of the Questionnaire.item the expression extension was defined in. I.e. while the extensions and expressions are defined in the Questionnaire, they are evaluated in the context of the corresponding item(s) in the QuestionnaireResponse.
+</li>
+<li>
+All expressions that specify a 'name' can be accessed by other expressions appearing on the same item or any descendant item as though that name was part of context. The same is true for the 'name' element in the <a href="https://hl7.org/fhir/uv/sdc/STU3/StructureDefinition-sdc-questionnaire-launchContext.html">launchContext extension</a>. For example, a variable with the name 'score' could be accessed in FHIRPath or CQL using %score.
+</li>
+</ul>
+<p>
+In addition, a couple of additional variables are defined for use with extensions evaluated in the context of a QuestionnaireResponse:
+</p>
+<ul>
+  <li><code>%questionnaire</code> corresponds to the Questionnaire resource resolved to by the QuestionnaireResponse.questionnaire element. It is in scope for all expressions defined in the Questionnaire.</li>
+  <li><code>%qitem</code> is defined as a shortcut to get to the Questionnaire.item that corresponds to the context QuestionnaireResponse.item (based on matching linkId). It is only valid for FHIRPath expressions defined within a Questionnaire item.</li>
+</ul>
+
 <a name="structure"> </a>
 <h3>Structure of the Questionnaire</h3>
 <p>
@@ -88,13 +112,13 @@ A Questionnaire is built out of two components, Questionnaire and item:</p>
         instructions or other background information.</li>
       <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child
         'question' items which do.  </li>
-      <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single
-        <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', 
+      <li><b>question</b> items ask a specific question to which an answer may be given.  There is not a single
+        <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item is not a 'display' or a 'group', 
         then it is a question which allows a particular type of answer to be gathered. Questions may also have nested content - groups and/or
         other questions. This way, one can model "panels" of questions which would only be relevant (and thus would only be displayed)
         depending on the answers of a parent question; e.g. a question "Did the patient receive treatment in the past six months?" would contain a nested
         group of questions asking for further details about the treatment. See an <a href="questionnaire-example-bluebook.xml.html">example</a> from
-        the <a href="http://www.health.nsw.gov.au/Kids/Publications/my-personal-health-record.pdf">Australian New South Wales blue book</a></li>
+        the <a href="https://www.health.nsw.gov.au/kidsfamilies/MCFhealth/Pages/child-blue-book.aspx">Australian New South Wales blue book</a></li>
     </ul>
   </li>
 </ul>
@@ -119,7 +143,7 @@ item explicitly declares readOnly=false.  This wouldn't be because the behavior 
 not be realized due to the setting of the ancestor group.
 </p>
 <p>
-Behavior of parent 'question' items (i.e. questions with child groups or questions) can also influence descendant elements, but not as strongly.  If a question is readOnly, that doesn't mean that
+Behavior of parent 'question' items (i.e. questions with child groups or questions) can also influence descendant elements, but not as strongly.  If a question is readOnly, that does not mean that
 child items are also readOnly.  However, if a question is disabled, all descendant items are also disabled.  Similarly, a 'hidden' question, would hide child elements as well.
 </p>
 
@@ -246,6 +270,16 @@ Where the names are the same (ignoring case), the "answer" must use the specifie
     </tr>
   </tbody>
 </table>
+
+<a name="alternativetype"> </a>
+<h3>Handling alternative question types</h3>
+<p>In most cases, if there is a need to capture an answer type not in the list of allowed types, the preferred solution is to use a group with child questions that define 
+the needed data.  However, if there is a genuine need to convey an unsupported type (e.g. SampledData), the recommended solution is as follows:</p>
+<ol>
+  <li>Set the item.type to 'string'</li>
+  <li>Place a modifier extension on the item that indicates that the type is not actually a string, but something else</li>
+  <li>Communicate the answer (and if necessary initial values, min values, max values, etc. with an extension with a value of the desired data type)</li>
+</ol>
 
 <a name="choices"></a>
 <h3>Permitted values for questions</h3>

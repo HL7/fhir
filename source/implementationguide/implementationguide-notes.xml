@@ -55,11 +55,32 @@ Note that any kinds of resources can be included; these are just the common uses
 In addition, in the human readable portions, implementation guides often:
 </p>
 <ul>
-<li>Describe security arrangements in place for the relevent data exchanges, along with consent and access control requirements</li>
+<li>Describe security arrangements in place for the relevant data exchanges, along with consent and access control requirements</li>
 <li>Detail additional rules about the user of the narrative in the resources</li>
 <li>Specify other conformance expectations that aren't testable directly</li>
 <li>Outline the business arrangements and expectations under which the data is exchanged</li>
 </ul>
+
+<a name="conformance"></a>
+<h3>Declaring conformance to guides</h3>
+<p>
+It is not uncommon for contractual or regulatory language to require implementation
+of certain implementation guides. However, not all guides are appropriate to be
+referenced in this manner. For example, some implementation guides may define
+libraries of artifacts or make general context-agnostic recommendations that
+require additional guidance or constraint to be usable.
+</p>
+<p>
+Other guides define one or more <a href="capabilitystatement.html">CapabilityStatement</a>
+and/or <a href="actordefinition.html">ActorDefinition</a> resources. In those cases,
+when setting implementation expectations, it is necessary to point to those child
+resources in order to meaningfully assert implementation expectations.
+</p>
+<p>
+Implementation guides <b>SHOULD</b> make clear what their intended purposes and uses are.
+The <a href="implementationguide-definitions.html#ImplementationGuide.useContext">ImplementationGuide.useContext</a>
+element may be helpful in surfacing these expectations in a more computable fashion.
+</p>
 
 <a name="versions"></a>
 <h3>Multi-Version Implementation Guides</h3>

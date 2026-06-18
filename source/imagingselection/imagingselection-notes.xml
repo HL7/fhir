@@ -39,20 +39,32 @@
         <li>Each value pair specifies a channel included in the selection</li>
       </ul>
     </li>
+    <li><code>instance.imageRegion2D</code> - A selected 2D image region
+      <ul>
+        <li>Defined by a region type and a set of 2D coordinates in pixel space</li>
+      </ul>
+    </li>
+    <li><code>instance.imageRegion3D</code> - A selected 3D image region
+      <ul>
+        <li>Defined by a region type and a set of 3D coordinates</li>
+      </ul>
+    </li>
   </ul>
   <p>The value of the <code>instance.sopClass</code> element determines which type of subset can be present.</p>
   <p>For example:</p>
   <ul>
     <li>If <code>instance.sopClass</code> has a value of <code>urn:oid:1.2.840.10008.5.1.4.1.1.2.1</code>, this indicates that the instance is Enhanced CT, which is a multiframe image instance and therefore <code>instance.frameNumber</code> can be included to specify a list of frames</li>
     <li>If <code>instance.sopClass</code> has a value of <code>urn:oid:1.2.840.10008.5.1.4.1.1.88.22</code>, this indicates that the instance is Enhanced SR and therefore <code>instance.referencedContentItemIdentifier</code> can be included to specify a list of content item identifiers</li>
+    <li>If <code>instance.sopClass</code> has a value of <code>urn:oid:1.2.840.10008.5.1.4.1.1.2</code>, this indicates that the instance is CT, which is an image instance and therefore <code>instance.imageRegion2D</code> can be included to specify an image region in pixel space</li>
   </ul>
 
+  <a name="code-and-category"></a>
   <h3>Use of ImagingSelection.code and ImagingSelection.category</h3>
   <p>
   The code and category element can be used to provide information relevant for applications that want to identify specific types of ImagingSelection resources.
   </p>
   <p>
-  For example, if an ImagingSelection is used to identify a set of images that make up a volume rendered view, the code could contain a code indicating Volume Rendering - such as RadLex RID35862 - and the category could contain values of the DICOM Image Type <code>(0008,0008)</code> attribute - such as DERIVED and SECONDARY.
+  For example, if an ImagingSelection is used to identify a set of images that make up a volume rendered view, the code could contain a code indicating Volume Rendering - such as DICOM 121347 - and the category could contain DICOM 128196, indicating that the selection was made for segmentation purposes.
   </p>
   <pre>
   {
@@ -65,32 +77,44 @@
       "code": {
         "coding": [
           {
-            "system": "http://radlex.org/",
-            "code": "RID12769",
-            "display": "volume rendering"
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "code": "121347",
+            "display": "Volume corresponding to spatially-related acquisition frames"
           }
         ]
       },
       "category": [
         {
-          "text": "DERIVED"
-        },
-        {
-          "text": "SECONDARY"
+          "coding": [
+            {
+              "system": "http://dicom.nema.org/resources/ontology/DCM",
+              "code": "128196",
+              "display": "For Segmentation"
+            }
+          ]
         }
       ]
     }
   }
 </pre>
 
-<a name="req-by-type"></a>
-<h3>Element Requirements by Selection Type</h3>
+<a name="use-cases"></a>
+<h3>Element Requirements by Use Case</h3>
 
 <p>
-This section outlines several imaging selection types, each listing a set of resource elements that are required and/or typically present in the selection. Some types require only a minimal set of elements, while others require a comprehensive list to ensure clarity.
+This section outlines several imaging selection use cases, and for each, lists a set of resource elements that are required and/or typically present in the selection. Some types require only a minimal set of elements, while others require a comprehensive list to ensure clarity.
 </p>
 
-<h4>Single-Frame Image Selection</h4>
+<a name="use-case-1"></a>
+<h4>Use Case 1 – Referencing a specific image from an Observation</h4>
+<p>
+  When an observation is made based on an image within an imaging study, an imaging selection can be used to reference the specific image that:
+</p>
+  <ul>
+    <li>Best displays the anatomic structure or pathology related to the observation</li>
+    <li>Represents a specific point in a temporal cycle (e.g. a cardiac phase)</li>
+    <li>etc.</li>
+  </ul>
 <p>
 An imaging selection that points to one single-frame image requires:
 </p>
@@ -111,10 +135,22 @@ While not required, this type of selection typically includes:
 <li><code>instance.sopClass</code> to specify the SOP Class UID of the selected image</li>
 </ul>
 <p>
+  The resulting imaging selection would be referenced by the derivedFrom element of the associated <a href="observation.html">Observation</a>.
+</p>
+<p>
 See <a href="imagingselection-example-single-frame-image-selection.html">Single-Frame Image Selection example</a>.
 </p>
 
-<h4>Multiframe Image Selection</h4>
+  <a name="use-case-2"></a>
+  <h4>Use Case 2 – Referencing a set of frames from an Observation</h4>
+  <p>
+    When an observation is made based on a set of frames within an imaging study, an imaging selection can be used to reference the specific set of frames that were:
+  </p>
+  <ul>
+    <li>Used to create a volume rendered view</li>
+    <li>Selected to represent a specific point in a temporal cycle (e.g. a cardiac phase)</li>
+    <li>etc.</li>
+  </ul>
 <p>
 An imaging selection that points to frames in a multiframe image requires:
 </p>
@@ -135,12 +171,24 @@ While not required, this type of selection typically includes:
 <li><code>frameOfReferenceUid</code> to identify the coordinate system of the image</li>
 <li><code>instance.sopClass</code> to specify the SOP Class UID of the selected image</li>
 </ul>
+  <p>
+    The resulting imaging selection would be referenced by the derivedFrom element of the associated <a href="observation.html">Observation</a>.
+  </p>
 <p>
 See <a href="imagingselection-example-multiframe-image-selection.html">Multiframe Image Selection example</a>.
 </p>
 
-<h4>2D Image Selection</h4>
-<p>
+  <a name="use-case-3"></a>
+  <h4>Use Case 3 – Referencing a set of 2D image coordinates that relate to an Observation</h4>
+  <p>
+    When an observation relates to a 2D region of a specific image, an imaging selection can be created to reference:
+  </p>
+  <ul>
+    <li>The specific image coordinates that correspond to a measurement</li>
+    <li>The image region relating to observed pathology</li>
+    <li>etc.</li>
+  </ul>
+  <p>
 An imaging selection that points to a 2D region on an image requires:
 </p>
 <ul>
@@ -165,6 +213,9 @@ While not required, this type of selection typically includes:
 <li><code>frameOfReferenceUid</code> to identify the coordinate system of the image</li>
 <li><code>instance.sopClass</code> to specify the SOP Class UID of the selected image</li>
 </ul>
+  <p>
+    The resulting imaging selection would be referenced by the derivedFrom element of the associated <a href="observation.html">Observation</a>.
+  </p>
 <p>
 See <a href="imagingselection-example-2d-image-region-selection.html">2D Image Region Selection example</a>.
 </p>
@@ -172,7 +223,16 @@ See <a href="imagingselection-example-2d-image-region-selection.html">2D Image R
 Note that the <code>imageRegion2D</code> and <code>imageRegion3D</code> elements are mutually exclusive; an imaging selection cannot include both types of image region.
 </p>
 
-<h4>3D Image Selection</h4>
+  <a name="use-case-4"></a>
+  <h4>Use Case 4 – Referencing a set of 3D coordinates that relate to an Observation</h4>
+  <p>
+    When an observation relates to a 3D region within a specific frame of reference, an imaging selection can be created to reference:
+  </p>
+  <ul>
+    <li>The specific 3D coordinates that correspond to a measurement</li>
+    <li>The 3D image region relating to observed pathology</li>
+    <li>etc.</li>
+  </ul>
 <p>
 An imaging selection that points to a 3D region requires:
 </p>
@@ -188,12 +248,27 @@ An imaging selection that points to a 3D region requires:
 <p>
 This type of selection can also specify a set of images but this is not required. The 3D region selection can be applied to any images that share the same Frame of Reference UID.
 </p>
-<p>
-See <a href="imagingselection-example-3d-image-region-selection.html">3D Image Region Selection example</a>.
-</p>
+  <p>
+    The resulting imaging selection would be referenced by the derivedFrom element of the associated <a href="observation.html">Observation</a>.
+  </p>
+  <p>
+    See <a href="imagingselection-example-3d-image-region-selection.html">3D Image Region Selection example</a>.
+  </p>
 <p>
 Note that the <code>imageRegion2D</code> and <code>imageRegion3D</code> elements are mutually exclusive; an imaging selection cannot include both types of image region.
 </p>
+
+  <a name="use-case-5"></a>
+  <h4>Use Case 5 – Referencing a key image from a diagnostic report</h4>
+  <p>
+    An imaging selection can be created to reference a key image that has been identified for inclusion within an observation included in a diagnostic report.
+  </p>
+  <p>
+    The encoding of this type of imaging selection is the same as <a href="imagingselection.html#use-case-1">Use Case 1</a>.
+  </p>
+  <p>
+    The resulting imaging selection would be referenced from the diagnostic report – e.g., via its relationship to a relevant observation – or from a composition that describes the presentation of the report.
+  </p>
 
   <a name="endpoints"></a>
 <h3>ImagingSelection Endpoints</h3>
@@ -343,13 +418,29 @@ see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/ch
     </li>
     <li><code>bodySite</code> contains a reference to a <a href="bodystructure.html">BodyStructure</a> resource whose <code>includedStructure.structure</code> element contains an anatomic code that includes laterality</li>
     <li><code>bodySite</code> contains a reference to a <a href="bodystructure.html">BodyStructure</a> resource whose <code>includedStructure</code> element includes a laterality value. See this <a href="bodystructure-example-dicom-includedStructure.html">example BodyStructure representation of the Left Wrist, with laterality and SNOMED coding for anatomical structure</a>.</li>
+    <li>The <code>bodySite</code> element can also reference a <a href="bodystructure.html">BodyStructure</a> resource when – in addition to laterality – a referenced body site requires specifying position relative to a specific body landmark. See this <a href="bodystructure-example-breast-mass.html">example BodyStructure of a breast mass with body landmark orientation specified</a>.</li>
   </ul>
 
   <a name="dicom-uids"></a>
   <h3>DICOM UIDs as Identifiers</h3>
   <p>
     In some cases, the <code>ImagingSelection.identifier</code> will be a DICOM UID, such as an Observation UID (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.4.html#table_C.17-6">DICOM PS 3.3 Table C.17-6</a>).
-
+  </p>
+  <p>
     When using a DICOM UID as the identifier, use the Identifier system of <code>"urn:dicom:uid"</code>, and prefix the UID value with <code>"urn:oid:"</code>.
+  </p>
+  <a name="status"></a>
+  <h3>ImagingSelection.status</h3>
+  <p>
+    Typically, an ImagingSelection is a FHIR representation of imaging data that has been selected for a specific clinical purpose. The value of the status element reflects the status of this representation and does not necessarily reflect the status of either the underlying imaging data or any <a href="servicerequest.html">ServiceRequest</a> or <a href="task.html">Task</a> resources that resulted in the ImagingSelection being created.
+  </p>
+  <p>
+    Typically, an ImagingSelection is created with an initial status of <code>available</code>. At this stage the ImagingSelection can be presented to viewing applications.
+  </p>
+  <p>
+    If the ImagingSelection is incorrect — e.g., due to the wrong images being selected — it might be corrected with an update operation or set to <code>entered-in-error</code> and replaced with a new ImagingSelection.
+  </p>
+  <p>
+    If the ImagingSelection is no longer valid – e.g., an automated selection was made by an application and deemed not to be relevant by a user – the status should be set to <code>inactive</code>.
   </p>
 </div>

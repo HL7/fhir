@@ -558,6 +558,52 @@
 				<code value="Annotation"/>
 			</type>
 		</element>
+		<element id="Evidence.classification">
+			<path value="Evidence.classification"/>
+			<short value="The assignment to an organizing scheme"/>
+			<definition value="The assignment to an organizing scheme, including the type of classification and one or more classifier values."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="Evidence.classification.type">
+			<path value="Evidence.classification.type"/>
+			<short value="The kind of classifier (e.g. population, intervention)"/>
+			<definition value="The kind of classifier (e.g. population, intervention, comparator, outcome)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceClassifierTypeExample"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-classifier-type-example"/>
+			</binding>
+		</element>
+		<element id="Evidence.classification.classifier">
+			<path value="Evidence.classification.classifier"/>
+			<short value="The specific classification value"/>
+			<definition value="The specific classification value."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ConditionProblemDiagnosisCodes"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+			</binding>
+		</element>
 		<element id="Evidence.variableDefinition">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="490,150"/>
@@ -1068,10 +1114,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableHandlingExample"/>
+					<valueString value="EvidenceVariableHandling"/>
 				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
+				<strength value="extensible"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-handling"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.valueCategory">

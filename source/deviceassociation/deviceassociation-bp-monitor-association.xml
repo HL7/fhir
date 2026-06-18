@@ -86,7 +86,9 @@
     <reference value="#example-patient"/>
   </focus>
   <bodyStructure>
-    <reference value="#left-arm-structure"/>
+    <reference>
+      <reference value="#left-arm-structure"/>
+    </reference>
   </bodyStructure>
   <period>
     <start value="2025-06-01"/>

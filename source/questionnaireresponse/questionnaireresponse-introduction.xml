@@ -1,5 +1,20 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+  <div>
+    <blockquote class="ballot-note" id="bn1">
+      <p><b>Note to Balloters:</b> Changes made since the previous ballot:</p>
+      <ul>
+        <li><b>Substantive</b>
+          <ul>
+            <li><a href="https://jira.hl7.org/browse/FHIR-55973">FHIR-55973</a> - Added a constraint that enforces that multiple answers within a single question must be unique.</li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-53945">FHIR-53945</a> - Moved definition of Questionnaire-specific FHIRPath functions from QuestionnaireResponse to Questionnaire</li>
+          </ul>
+        </li>
+      </ul>
+    </blockquote>
+  </div>
+
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
@@ -32,8 +47,11 @@ Examples of Questionnaires include:
 <li>Insurance claim form</li>
 </ul>
 <p>
-<b>QuestionnaireResponse</b> resources can be validated against their corresponding <a href="questionnaire.html">Questionnaire</a> to verify that required
-groups and questions are answered and that answers fit constraints in terms of cardinality, data type, etc.
+<a name="fhirpath"> </a>
+<b>QuestionnaireResponse</b> resources can be <a href="#validation">validated</a> against their corresponding <a href="questionnaire.html">Questionnaire</a> to verify that required
+groups and questions are answered and that answers fit constraints in terms of cardinality, data type, etc.  When working with QuestionnaireResponses, there may be 
+<a href="fhirpath.html">FHIRPath</a> <a href="metadatatypes.html#Expression">expressions</a> defined on the associated Questionnaire that will be evaluated in the 
+context of the QuestionnaireResponse.
 </p>
 </div>
 
@@ -42,7 +60,7 @@ groups and questions are answered and that answers fit constraints in terms of c
 <h2>Boundaries and Relationships</h2>
 <p>
 The <b>QuestionnaireResponse</b> resource captures the responses to a questionnaire, while <a href="questionnaire.html">Questionnaire</a> represents
-the definition of the questionnaire form, including what questions are asked, how they're organized and the constraints on the allowed answers.
+the definition of the questionnaire form, including what questions are asked, how they are organized and the constraints on the allowed answers.
 </p>
 <p>
 While <a href="observation.html">Observation</a>, with its nested <code>component</code> structure, can create complex hierarchies of 
