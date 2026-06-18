@@ -189,7 +189,7 @@
         <valueString value="GF#12315."/>
       </extension>
       <path value="QuestionnaireResponse.status"/>
-      <short value="in-progress | completed | amended | entered-in-error | stopped"/>
+      <short value="in-progress | completed | amended | entered-in-error | stopped | unknown"/>
       <definition value="The current state of the questionnaire response."/>
       <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <requirements value="The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished."/>
@@ -400,13 +400,6 @@
         <expression value="repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
       </constraint>
-			<constraint>
-        <key value="qrs-4"/>
-        <severity value="error"/>
-        <human value="The same answer cannot be specified more than once for the same question"/>
-        <expression value="answer.value.isDistinct().allTrue()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
-      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=EVN]"/>
@@ -429,7 +422,6 @@
         <severity value="error"/>
         <human value="LinkId cannot have leading or trailing spaces or intevening whitespace other than single space characters"/>
         <expression value="$this.matches('[^\\s]+( [^\\s]+)*')"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
@@ -483,7 +475,6 @@
       </type>
       <condition value="qrs-1"/>
       <condition value="qrs-2"/>
-      <condition value="qrs-4"/>
       <mapping>
         <identity value="rim"/>
         <map value=".value[type=LIST_ANY]"/>

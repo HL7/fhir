@@ -56,6 +56,17 @@
             <resource value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
         </commentsUnmatched>
     </divergentElement>
+    <divergentElement patternPath="Event.statusReason" resourcePath="Observation.statusReason">
+        <definitionUnmatched reason="Unknown">
+            <_pattern value="Captures the reason for the current state of the observation."/>
+            <resource value="Captures the reason for the current state of the Observation."/>
+        </definitionUnmatched>
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;.  The reason for performing the event at all is captured in reasonCode, not here.&#10;."/>
+            <resource value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;cancelled&quot;."/>
+        </commentsUnmatched>
+    </divergentElement>
+    <doubleMappedElement patternPath="Event.statusReason" reason="Unknown"/>
     <divergentElement patternPath="Event.category" resourcePath="Observation.category">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>

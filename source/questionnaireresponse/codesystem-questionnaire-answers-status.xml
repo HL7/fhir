@@ -72,4 +72,9 @@
     <display value="Stopped"/>
     <definition value="This QuestionnaireResponse has been partially filled out with answers but has been abandoned. No subsequent changes can be made."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The system exposing the QuestionnaireResponse cannot safely presume that the status is 'completed' (the usual default) and does not know what the workflow status is."/>
+  </concept>
 </CodeSystem>
