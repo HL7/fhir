@@ -135,12 +135,12 @@
 		</element>
 		<element id="ObservationDefinition.identifier">
 			<path value="ObservationDefinition.identifier"/>
-			<short value="Business identifier of the ObservationDefinition"/>
-			<definition value="Business identifiers assigned to this ObservationDefinition. by the performer and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server."/>
+			<short value="Business identifiers of the ObservationDefinition"/>
+			<definition value="Business identifiers assigned to this ObservationDefinition by the performer and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server."/>
 			<comment value="This is a business identifier, not a resource identifier. It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types."/>
 			<requirements value="Allows identification of the ObservationDefinition as it is known by various participating systems and in a way that remains consistent across servers."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="Identifier"/>
 			</type>
@@ -525,6 +525,14 @@
 				<code value="CodeableConcept"/>
 			</type>
 			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ObservationSubjectType"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Codes identifying the type of subject for an observation definition, such as organisms or physical objects."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/observation-subject-type"/>
+			</binding>
 			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.subject"/>
@@ -540,6 +548,14 @@
 				<code value="CodeableConcept"/>
 			</type>
 			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ObservationDefinitionParticipantRole"/>
+				</extension>
+				<strength value="example"/>
+				<description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
+			</binding>
 			<mapping>
 				<identity value="workflow"/>
 				<map value="Definition.performerType"/>
@@ -658,7 +674,7 @@
 			<definition value="The body structure on the subject's body where the observation is to be made."/>
 			<comment value="Only used if the defined observation is to be made directly on a body structure and if this body structure is not implied by code found in ObservationDefinition.code. Not used for in vitro diagnostic observations. &#xA;Example: 14975008 |Forearm structure|."/>
 			<min value="0"/>
-			<max value="1"/>
+			<max value="*"/>
 			<type>
 				<code value="CodeableReference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
@@ -738,6 +754,17 @@
 				<code value="canonical"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
 			</type>
+		</element>
+		<element id="ObservationDefinition.supportingDevice">
+  			<path value="ObservationDefinition.supportingDevice"/>
+  			<short value="Device supporting generation of the measurement"/>
+  			<definition value="A reference to additional devices, kits, or reagents (e.g., TestKit, Calibration Kit, QC materials) to support the generation of the measurement."/>
+  			<min value="0"/>
+  			<max value="*"/>
+  			<type>
+    			<code value="CodeableReference"/>
+    			<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+  			</type>
 		</element>
 		<element id="ObservationDefinition.preferredReportName">
 			<path value="ObservationDefinition.preferredReportName"/>

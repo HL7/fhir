@@ -113,21 +113,25 @@
     <searchType value="reference"/>
   </parameter>
   <parameter>
+    <extension
+      url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+      <valueUri value="Practitioner"/>
+    </extension>
+    <extension
+      url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+      <valueUri value="PractitionerRole"/>
+    </extension>
+    <extension
+      url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+      <valueUri value="Organization"/>
+    </extension>
     <name value="reporterResource"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The provider for which the data-of-interest will be collected, provided as an Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](clinicalreasoning-quality-reporting.html#ad-hoc-organizations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporter parameter."/>
-    <type value="string"/>
+    <documentation value="The provider for which the report will be run, provided as a Practitioner, PractitionerRole, or Organization resource. This is intended to support the use case in which the organization information is not on the server performing the evaluation, for example an [ad-hoc group of practitioners](clinicalreasoning-quality-reporting.html#ad-hoc-organizations) that are part of a provider group. This parameter is reflected in the reporter element of the resulting MeasureReport(s). This parameter cannot be used with the reporter parameter."/>
+    <type value="DomainResource"/>
     <searchType value="reference"/>
-  </parameter>
-  <parameter>
-    <name value="organizationResource"/>
-    <use value="in"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="Organization resource for which data-of-interest for the given measure will be collected."/>
-    <type value="Organization"/>
   </parameter>
   <parameter>
     <name value="location"/>

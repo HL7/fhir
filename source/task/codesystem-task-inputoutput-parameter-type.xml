@@ -16,7 +16,7 @@
   <name value="TaskInputOutputParameterType"/>
   <title value="Task Input/Output Parameter Type"/>
   <status value="active"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <date value="2025-03-12T10:00:00+08:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -60,17 +60,17 @@
   </concept>
   <concept>
     <code value="data-query"/>
-    <display value="data query input"/>
+    <display value="Data Query Input"/>
     <definition value="Indicates the parameters of a FHIR RESTful search to be executed whose results are requested by a data-request Task. The content will be the portion of the query URL following the 'base'. E.g.  `Observation?code=foo`."/>
   </concept>
   <concept>
     <code value="data-code"/>
-    <display value="data code input"/>
+    <display value="Data Code Input"/>
     <definition value="A code describing the information requested by a data-request Task - often a code for a type of document"/>
   </concept>
   <concept>
     <code value="data-value"/>
-    <display value="data values output"/>
+    <display value="Data Values Output"/>
     <definition value="A FHIR resource, typically a search-set Bundle, containing the requested information in response to a data-request Task"/>
   </concept>
 </CodeSystem>

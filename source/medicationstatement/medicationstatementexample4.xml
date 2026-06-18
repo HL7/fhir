@@ -32,6 +32,7 @@
     <text value="Patient indicates they miss the occasional dose" />
   </note>
   <dosage>
+    <renderedInstruction value="One capsule three times daily by mouth."/>
     <text value="one capsule three times daily" />
     <timing>
       <repeat>

@@ -1,3 +1,2 @@
-//The evaluation of the CMS130 measure (with measureId EXM130-7.3.000) over a gaps through period of the first 3 months of 2014, with open gaps, for patient 124.
-GET [base]/Measure/$care-gaps?measureId=EXM130-7.3.000&periodStart=2014-01&periodEnd=2014-03&status=open-gap&subject=Patient/124
-
+//A care gaps report with a subject of group 124.
+GET [base]/Measure/$care-gaps?measureUrl=http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130|7.3.000&periodStart=2014-01&periodEnd=2014-03&status=open-gap&organization=Organization/124&subject=Group/124

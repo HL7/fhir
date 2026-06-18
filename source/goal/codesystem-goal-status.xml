@@ -93,4 +93,9 @@
     <display value="Rejected"/>
     <definition value="A proposed goal was rejected."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The source system does not specify which of the values currently applies for this goal."/>
+  </concept>
 </CodeSystem>

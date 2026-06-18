@@ -150,12 +150,12 @@
     </element>
     <element id="AdverseEvent.actuality">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#32990"/>
+        <valueString value="J#32990, J#55315"/>
       </extension>
       <path value="AdverseEvent.actuality"/>
-      <short value="actual | potential"/>
+      <short value="actual | potential | unknown"/>
       <definition value="Whether the event actually happened or was a near miss. Note that this is independent of whether anyone was affected or harmed or how severely."/>
-      <comment value="AllergyIntolerance should be used for the initial capture or recording of the individual's propensity to an adverse reaction to a substance.  If an AllergyIntolerance does not exist, then an adverse reaction should be recorded as an AllergyIntolerance. If an AllergyIntolerance does exist and the substance was given, then an adverse reaction should be recorded as an AdverseEvent due to the aberrant workflow."/>
+      <comment value="It would be unusual for a recorder of an adverse event to not know this value; unknown code is included to support legacy data and is strongly discouraged. AllergyIntolerance should be used for the initial capture or recording of the individual's propensity to an adverse reaction to a substance.  If an AllergyIntolerance does not exist, then an adverse reaction should be recorded as an AllergyIntolerance. If an AllergyIntolerance does exist and the substance was given, then an adverse reaction should be recorded as an AdverseEvent due to the aberrant workflow."/>
       <min value="1"/>
       <max value="1"/>
       <type>

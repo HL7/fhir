@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="risk-assessment-method-example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/risk-assessment-method-example"/>
+  <version value="6.0.0"/>
+  <name value="RiskAssessmentMethodExample"/>
+  <title value="Risk Assessment Method Example"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Example value set illustrating possible codes for identifying the mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/risk-assessment-method-example"/>
+    </include>
+  </compose>
+</ValueSet>

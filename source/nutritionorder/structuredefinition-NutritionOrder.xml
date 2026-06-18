@@ -1184,7 +1184,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EnteralRouteOfAdministration"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Codes specifying the route of administration of enteral formula."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/enteral-route"/>
       </binding>
@@ -1471,7 +1471,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdditiveRouteOfAdministration"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Codes specifying the route of administration of additive."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/enteral-route"/>
       </binding>

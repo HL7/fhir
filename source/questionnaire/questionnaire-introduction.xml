@@ -1,5 +1,20 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+  <div>
+    <blockquote class="ballot-note" id="bn1">
+      <p><b>Note to Balloters:</b> Changes made since the previous ballot:</p>
+      <ul>
+        <li><b>Non-substantive</b>
+          <ul>
+            <li><a href="https://jira.hl7.org/browse/FHIR-55973">FHIR-55973</a> - Clarified that repeating answers are expected to be unique and improved readability of 'repeats' comment.</li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-55182">FHIR-55182</a> - Added guidance on alternatives to enableWhen</li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-53945">FHIR-53945</a> - Moved definition of Questionnaire-specific FHIRPath functions from QuestionnaireResponse to Questionnaire</li>
+          </ul>
+        </li>
+      </ul>
+    </blockquote>
+  </div>
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
@@ -54,7 +69,7 @@ that support additional capabilities and allow the definition of more sophistica
 <b>Questionnaires</b> are intrinsically bound to <a href="questionnaireresponse.html">QuestionnaireResponses</a> in that a Questionnaire defines the questions and rules
 for answering them that are used in completing the QuestionnaireResponse.  The main difference between them is that Questionnaires define 'permitted' answers and are
 subject and time-independent, while QuestionnaireResponses define a specific user's answers to a Questionnaire at a particular time-point and are focused on a specific
-subject.  As well, the QuestionnaireResponse doesn't convey any of the rules or 'potential' answers the way Questionnaire does.  It only conveys the answers selected by
+subject.  As well, the QuestionnaireResponse does not convey any of the rules or 'potential' answers the way Questionnaire does.  It only conveys the answers selected by
 the user.
 </p>
 <p>
@@ -77,7 +92,7 @@ be captured and when, as well as allowed answers.  While both support nesting, O
 resource, while Questionnaire can define nesting of arbitrary depth for any purpose.
 </p>
 <p>
-Questionnaires are similar to <a href="composition.html">Compositions</a> in that both organize collections of items and can have a hierarchical structure.  They're also
+Questionnaires are similar to <a href="composition.html">Compositions</a> in that both organize collections of items and can have a hierarchical structure.  They are also
 intended to help guide 'human' presentation of data.  However, Compositions organize resources, while Questionnaires organize specific elements.  Also, a Questionnaire represents
 data 'to be gathered' and is subject-independent, while Compositions represent collections of data that are complete and are about a particular subject.  It is possible for
 <a href="structuredefinition.html">StructureDefinitions</a> or <a href="http://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinitions</a> to act as 'templates' for FHIR documents that guide what data
@@ -86,7 +101,7 @@ be asked and answered and rules that guide which questions are enabled in which 
 </p>
 <p>
 Questionnaire supports data-collection workflow to a limited extent, in that - once triggered - a Questionnaire can guide a user through a data collection process that ensures
-appropriate information is collected based on answers to particular questions.  However, Questionnaire doesn't provide support for capturing sets of information at different
+appropriate information is collected based on answers to particular questions.  However, Questionnaire does not provide support for capturing sets of information at different
 times or highly interactive data capture.  Broader workflow is typically managed using PlanDefinition and Task or using other mechanisms such as CDSHooks.
 </p>
 <p>

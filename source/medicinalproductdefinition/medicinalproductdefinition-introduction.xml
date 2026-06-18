@@ -3,6 +3,15 @@
 		<a name="scope"> </a>
 		<h2>Scope and Usage</h2>
 		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since the last R6 ballot are:</p>
+    <ul>
+        <li>Updates to the following elements:</li>
+            <ul>
+            	<li>The definitions of the two values of MedicinalProductDefinition.type were improved</li>
+            </ul>
+    </ul>
+    </blockquote>
 		<p>
 			The MedicinalProductDefinition resource covers the detailed defining data of medicinal products, 
 			to a level beyond what is typically needed for day to day prescribing, but that is commonly required by manufacturers and regulators, 

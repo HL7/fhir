@@ -11,11 +11,11 @@
                     </coding>
                 </type>
                 <subject>
-                    <reference value="Patient/Patient-1153"/>
+                    <reference value="Patient/124"/>
                 </subject>
                 <date value="2018-07-22"/>
                 <author>
-					<reference value="Organization/123"/>
+                    <reference value="Organization/123"/>
                 </author>
                 <title value="Preventive Care and Screening Care Gap Report"/>
                 <section>
@@ -25,10 +25,10 @@
                     </entry>
                 </section>
                 <section>
-                  <title value="Cervical Cancer Screening Cohort Definition"/>
-                  <entry>
-                      <reference value="MeasureReport/86fa5aed-8193-4f55-835b-5bbafbd1e7d6"/>
-                  </entry>
+                    <title value="Cervical Cancer Screening Cohort Definition"/>
+                    <entry>
+                        <reference value="MeasureReport/86fa5aed-8193-4f55-835b-5bbafbd1e7d6"/>
+                    </entry>
                 </section>
             </Composition>
         </resource>
@@ -47,7 +47,7 @@
                 <type value="individual"/>
                 <measure value="http://example.org/fhir/Measure/measure-bcs"/>
                 <subject>
-                    <reference value="Patient/Patient-1153"/>
+                    <reference value="Patient/124"/>
                 </subject>
                 <period>
                     <start value="2017-01-01T00:00:00+00:00"/>
@@ -86,55 +86,55 @@
         </resource>
     </entry>
     <entry>
-      <resource>
-        <MeasureReport xmlns="http://hl7.org/fhir">
-            <id value="86fa5aed-8193-4f55-835b-5bbafbd1e7d6"/>
-            <contained>
-                <Bundle xmlns="http://hl7.org/fhir">
-                    <id value="8e6e9224-59b6-4edd-b17f-58981a754e57"/>
-                    <type value="collection"/>
-                </Bundle>
-            </contained>
-            <status value="complete"/>
-            <type value="individual"/>
-            <measure value="http://example.org/fhir/Measure/measure-ccs"/>
-            <subject>
-                <reference value="Patient/Patient-1153"/>
-            </subject>
-            <period>
-                <start value="2017-01-01T00:00:00+00:00"/>
-                <end value="2017-12-31T00:00:00+00:00"/>
-            </period>
-            <group>
-                <population>
-                    <code>
-                        <coding>
-                            <code value="initial-population"/>
-                        </coding>
-                    </code>
-                    <count value="1"/>
-                </population>
-                <population>
-                    <code>
-                        <coding>
-                            <code value="numerator"/>
-                        </coding>
-                    </code>
-                    <count value="1"/>
-                </population>
-                <population>
-                    <code>
-                        <coding>
-                            <code value="denominator"/>
-                        </coding>
-                    </code>
-                    <count value="1"/>
-                </population>
-            </group>
-            <evaluatedResource>
-                <reference value="#8e6e9224-59b6-4edd-b17f-58981a754e57"/>
-            </evaluatedResource>
-        </MeasureReport>
-      </resource>
+        <resource>
+            <MeasureReport xmlns="http://hl7.org/fhir">
+                <id value="86fa5aed-8193-4f55-835b-5bbafbd1e7d6"/>
+                <contained>
+                    <Bundle xmlns="http://hl7.org/fhir">
+                        <id value="8e6e9224-59b6-4edd-b17f-58981a754e57"/>
+                        <type value="collection"/>
+                    </Bundle>
+                </contained>
+                <status value="complete"/>
+                <type value="individual"/>
+                <measure value="http://example.org/fhir/Measure/measure-ccs"/>
+                <subject>
+                    <reference value="Patient/124"/>
+                </subject>
+                <period>
+                    <start value="2017-01-01T00:00:00+00:00"/>
+                    <end value="2017-12-31T00:00:00+00:00"/>
+                </period>
+                <group>
+                    <population>
+                        <code>
+                            <coding>
+                                <code value="initial-population"/>
+                            </coding>
+                        </code>
+                        <count value="1"/>
+                    </population>
+                    <population>
+                        <code>
+                            <coding>
+                                <code value="numerator"/>
+                            </coding>
+                        </code>
+                        <count value="1"/>
+                    </population>
+                    <population>
+                        <code>
+                            <coding>
+                                <code value="denominator"/>
+                            </coding>
+                        </code>
+                        <count value="1"/>
+                    </population>
+                </group>
+                <evaluatedResource>
+                    <reference value="#8e6e9224-59b6-4edd-b17f-58981a754e57"/>
+                </evaluatedResource>
+            </MeasureReport>
+        </resource>
     </entry>
 </Bundle>

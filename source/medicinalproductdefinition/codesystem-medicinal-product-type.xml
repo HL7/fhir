@@ -20,10 +20,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1916"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="MedicinalProductType"/>
+  <name value="MedicinalProductTypeExample"/>
   <title value="Medicinal Product Type"/>
   <status value="active"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -43,11 +43,11 @@
   <concept>
     <code value="MedicinalProduct"/>
     <display value="Medicinal Product"/>
-    <definition value="A standard medicinal product."/>
+    <definition value="Any substance or combination of substances that may be administered to human beings (or animals) for treating or preventing disease, or with the intent to make a medical diagnosis or to restore, correct or modify physiological functions. Its regulatory status is authorized/marketed for commercial use."/>
   </concept>
   <concept>
     <code value="InvestigationalProduct"/>
     <display value="Investigational Medicinal Product"/>
-    <definition value="An investigational medicinal product."/>
+    <definition value="A medicinal product which is being tested or used as a reference, including as a placebo, in a clinical trial. Its regulatory status is under evaluation in a clinical trial; might or might not have marketing authorization."/>
   </concept>
 </CodeSystem>

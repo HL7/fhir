@@ -270,13 +270,14 @@ This module is concerned with resources and functionality in areas such as:
 	<h3>Relationship to Prescribing</h3>
 	<p>
 		This diagram shows the principles of how these sets of resources relate:
-		<img src="medication-definition-and-prescribing-resources.png" alt="Image showing the medication definition resources and prescribing ones"/>
 	</p>
+	<img style="display: block" src="medication-definition-and-prescribing-resources.png" alt="Image showing the medication definition resources and prescribing ones"/>
+	<p/>
 	<p>
 		The <a href="medication.html">Medication</a> resource, and others in the <a href="medications-module.html">Medications Module</a> (shown at the top of the diagram), 
 		mainly cover the use of a medication "by reference" (using a code), 
 		with only some basic extra optional information: form, strength, perhaps batch number and even less commonly used - simple ingredients. 
-		Many of those are rarely populated because they are implicit in the code. So the Medication resource doesn�t define medicinal products to any extent, 
+		Many of those are rarely populated because they are implicit in the code. So the Medication resource does not define medicinal products to any extent, 
 		it is more of a selector.
 	</p>
 	<p>
@@ -313,7 +314,7 @@ This module is concerned with resources and functionality in areas such as:
 	<p>
 		The distinction between the two sets of resources is not "regulatory" versus "prescribing". It is important to realise that there is only one set of 
 		defining information in the real-world about the drug, no matter what context, or who needs it, or what subset is relevant to them. 
-		The drug info is the drug info and it exists whether it's a clinical trial, a drug licence approval, or a dispense. 
+		The drug info is the drug info and it exists whether it's a clinical trial, a drug license approval, or a dispense. 
 		It always has this set of properties - though some parts of the information set vary depending on the geography and over time. 
 	</p>
 	<p>
@@ -380,7 +381,7 @@ This module is concerned with resources and functionality in areas such as:
 	</p>
 	<p>
 		A related example is deciding on the split between a medicated device and a medication, or a device. 
-		The workgroup doesn't attempt to define clinical opinion and recognizes that different practice may 
+		The workgroup does not attempt to define clinical opinion and recognizes that different practice may 
 		occasionally lead to different implementations even with the same resources.
 	</p>
 	
@@ -391,10 +392,6 @@ This module is concerned with resources and functionality in areas such as:
 		Some of what can be represented by these resources can also be covered with structured code systems. The FHIR representation is intended to also cover 
 		transactional use (updates and submissions), rather than read-only, and recognizes that implementers may prefer a consistent FHIR representation 
 		interface for both modes.
-	</p>
-	
-	<p>
-		<i>BR&amp;R welcomes feedback with evidence to show if these design decisions have made a solution that works, and is implementable, for users across a range of domains.</i>
 	</p>
 
 [%file newfooter%]

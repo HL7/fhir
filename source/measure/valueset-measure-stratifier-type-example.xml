@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="measure-stratifier-type-example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/measure-stratifier-type-example"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3187"/>
+  </identifier>
+  <version value="6.0.0"/>
+  <name value="MeasureStratifierTypeExample"/>
+  <title value="Measure Stratifier Type Example"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="Clinical Quality Information Workgroup"/>
+  <description value="Example if identifier subgroups in a population for measuring purposes."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/measure-stratifier-type-example"/>
+    </include>
+  </compose>
+</ValueSet>

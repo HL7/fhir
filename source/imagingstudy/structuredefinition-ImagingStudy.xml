@@ -103,7 +103,7 @@
       <constraint>
         <key value="ist-3"/>
         <severity value="error"/>
-        <human value="If numberOfSeries  and series are both present, the numberOfSeries value SHALL match the number of series elements"/>
+        <human value="If numberOfSeries and series are both present, the numberOfSeries value SHALL match the number of series elements"/>
         <expression value="numberOfSeries.exists() and series.exists() implies numberOfSeries = series.count()"/>
       </constraint>
       <constraint>
@@ -130,6 +130,12 @@
         <human value="If modality is present, modality SHALL equal all of the distinct values of series.modality"/>
         <expression value="modality.exists() implies modality.coding.select(system&amp;'|'&amp;code).trace('r').exclude(series.modality.coding.select(system&amp;'|'&amp;code).trace('c')).empty() and modality.text.exclude(series.modality.text).empty() and series.modality.coding.select(system&amp;'|'&amp;code).trace('r').exclude(modality.coding.select(system&amp;'|'&amp;code).trace('c')).empty() and series.modality.text.exclude(modality.text).empty()"/>
       </constraint>
+      <constraint>
+        <key value="ist-8"/>
+        <severity value="error"/>
+        <human value="If started and series.started are both present, the started value SHALL be less than or equal to all of the series.started values"/>
+        <expression value="started.empty() or series.where(started.empty() or started >= %resource.started).count() = series.count()"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -151,7 +157,7 @@
       <path value="ImagingStudy.identifier"/>
       <short value="Business identifier for imaging study"/>
       <definition value="Business identifiers assigned to this imaging study by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server. Typically this will include the DICOM Study Instance UID."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number, or an accession number MAY be used to relate a Task, an ImagingStudy and a DiagnosticReport.  See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
+      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
       <requirements value="Allows identification of the imaging study as it is known by various participating systems and in a way that remains consistent across servers. ImagingStudy.identifier SHALL include exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html).)"/>
       <alias value="StudyInstanceUID"/>
       <min value="0"/>
@@ -287,7 +293,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Patient ID (0010,0020) and Issuer of Patient ID (0010,0021) and / or Issuer of Patient ID Qualifiers Sequence (0010,0024) and / or Patient Name (0010,0010)"/>
+        <map value="Patient ID (0010,0020) and Issuer of Patient ID (0010,0021) and / or Issuer of Patient ID Qualifiers Sequence (0010,0024) and / or Patient Name (0010,0010). See DICOM Tag Mapping under the Patient resource."/>
       </mapping>
     </element>
     <element id="ImagingStudy.encounter">
@@ -335,6 +341,7 @@
         <label value="General"/>
         <valueDateTime value="2011-01-01T11:01:20+03:00"/>
       </example>
+      <condition value="ist-8"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -582,7 +589,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Number of Study Related Series (0020,1206). Note: this attribute is not included in DICOM instance metadata but is returned as a result of a query."/>
+        <map value="Number of Study Related Series (0020,1206). See DICOM PS 3.4 Table C.3-1. Additional Query/Retrieve Attributes."/>
       </mapping>
     </element>
     <element id="ImagingStudy.numberOfInstances">
@@ -604,7 +611,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Number of Study Related Instances (0020,1208). Note: this attribute is not included in DICOM instance metadata but is returned as a result of a query."/>
+        <map value="Number of Study Related Instances (0020,1208). See DICOM PS 3.4 Table C.3-1. Additional Query/Retrieve Attributes."/>
       </mapping>
     </element>
     <element id="ImagingStudy.series">
@@ -756,7 +763,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Number of Series Related Instances (0020,1209). Note: this attribute is not included in DICOM instance metadata but is returned as a result of a query."/>
+        <map value="Number of Series Related Instances (0020,1209). See DICOM PS 3.4 Table C.3-1. Additional Query/Retrieve Attributes."/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.endpoint">
@@ -781,7 +788,7 @@
       <definition value="The anatomic structures examined. See [DICOM Part 16 Annex L](http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings. The bodySite MAY include the laterality of body part imaged."/>
       <alias value="BodyPartExamined"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
@@ -824,7 +831,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Specimen Identifier (0040,0551) or Specimen UID (0040,0554) and + Issuer of the Specimen Identifier Sequence (0040,0562)"/>
+        <map value="Specimen Identifier (0040,0551) or Specimen UID (0040,0554) and Issuer of the Specimen Identifier Sequence (0040,0562)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.started">
@@ -836,6 +843,7 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <condition value="ist-8"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -843,7 +851,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Series Date (0008,0021) + and Series Time (0008,0031)"/>
+        <map value="Series Date (0008,0021) and Series Time (0008,0031)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.performer">
@@ -1034,6 +1042,25 @@
       <mapping>
         <identity value="dicom"/>
         <map value="Instance Number (0020,0013)"/>
+      </mapping>
+    </element>
+    <element id="ImagingStudy.series.instance.numberOfFrames">
+      <path value="ImagingStudy.series.instance.numberOfFrames"/>
+      <short value="The number of this instance in the series"/>
+      <definition value="The number frames in a multiframe image."/>
+      <alias value="NumberOfFrames"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="unsignedInt"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueUnsignedInt value="1"/>
+      </example>
+      <mapping>
+        <identity value="dicom"/>
+        <map value="Number Of Frames (0028 ,0008)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.instance.title">

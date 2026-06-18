@@ -189,7 +189,7 @@
         <valueString value="GF#12315."/>
       </extension>
       <path value="QuestionnaireResponse.status"/>
-      <short value="in-progress | completed | amended | entered-in-error | stopped"/>
+      <short value="in-progress | completed | amended | entered-in-error | stopped | unknown"/>
       <definition value="The current state of the questionnaire response."/>
       <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <requirements value="The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished."/>

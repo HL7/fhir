@@ -105,13 +105,17 @@
             <_pattern value="Type of performance"/>
             <resource value="How agent participated"/>
         </shortUnmatched>
-        <definitionUnmatched reason="More specific description">
+        <definitionUnmatched reason="Unknown">
+            <!--Old resource: The Functional Role of the user when performing the event.-->
+            <!--Old reason: More specific description-->
             <_pattern value="Distinguishes the type of involvement of the performer in the audit event.."/>
-            <resource value="The Functional Role of the user when performing the event."/>
+            <resource value="The way the agent participated in the event."/>
         </definitionUnmatched>
-        <requirementsUnmatched reason="More specific description">
+        <requirementsUnmatched reason="Unknown">
+            <!--Old resource: Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.-->
+            <!--Old reason: More specific description-->
             <_pattern value="Allows disambiguation of the types of involvement of different performers."/>
-            <resource value="Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models."/>
+            <resource value="What was the function of the agent in the activity that is being recorded. Where an agent played multiple types of participation, they will be listed as multiple .agent elements representing each type of participation."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="AuditEvent.agent.who">

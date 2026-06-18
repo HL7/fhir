@@ -1,0 +1,308 @@
+{
+  "resourceType": "Bundle",
+  "id": "imm-2-valid-test-cases",
+  "meta": {
+    "tag": [
+      {
+        "system": "http://example.org/test-case-tags",
+        "code": "imm-2",
+        "display": "Test cases for invariant imm-2: subpotentReason only present if isSubpotent is true"
+      },
+      {
+        "system": "http://example.org/test-case-tags",
+        "code": "valid",
+        "display": "Valid test cases — invariant should PASS"
+      }
+    ]
+  },
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:imm2-valid-001",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-valid-001",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-valid-001",
+              "display": "VALID: isSubpotent=true, subpotentReason present. Primary intended use case."
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>VALID: isSubpotent=true with subpotentReason present. This is the primary intended use case — a subpotent dose with a documented reason.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "140",
+              "display": "Influenza, seasonal, injectable, preservative free"
+            }
+          ],
+          "text": "Influenza vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-001",
+          "display": "Alice Walker"
+        },
+        "occurrenceDateTime": "2024-09-15",
+        "recorded": "2024-09-15T10:30:00Z",
+        "primarySource": true,
+        "isSubpotent": true,
+        "subpotentReason": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "partial",
+                "display": "Partial Dose"
+              }
+            ],
+            "text": "Only partial dose administered due to patient movement"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm2-valid-002",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-valid-002",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-valid-002",
+              "display": "VALID: isSubpotent=false, subpotentReason absent. Standard full-potency dose."
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>VALID: isSubpotent=false with no subpotentReason. Standard full-potency completed dose — most common scenario.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "08",
+              "display": "Hepatitis B vaccine, pediatric or pediatric/adolescent dosage"
+            }
+          ],
+          "text": "Hepatitis B vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-002",
+          "display": "Brian Johnson"
+        },
+        "occurrenceDateTime": "2024-06-10",
+        "recorded": "2024-06-10T09:00:00Z",
+        "primarySource": true,
+        "isSubpotent": false
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm2-valid-003",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-valid-003",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-valid-003",
+              "display": "VALID: isSubpotent absent (empty), subpotentReason absent. isSubpotent defaults to false when omitted."
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>VALID: isSubpotent is absent and subpotentReason is absent. When isSubpotent is omitted it is treated as empty/false — no subpotentReason is permitted or needed.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "33",
+              "display": "Pneumococcal polysaccharide vaccine, 23 valent"
+            }
+          ],
+          "text": "Pneumococcal vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-003",
+          "display": "Carol Martinez"
+        },
+        "occurrenceDateTime": "2024-03-22",
+        "recorded": "2024-03-22T14:00:00Z",
+        "primarySource": true
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm2-valid-004",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-valid-004",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-valid-004",
+              "display": "VALID: isSubpotent=true, subpotentReason with multiple codings (SNOMED + canonical system)."
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>VALID: isSubpotent=true with subpotentReason carrying dual codings from SNOMED CT and the canonical immunization-subpotent-reason system.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "207",
+              "display": "COVID-19 vaccine, mRNA, LNP-S, PF, 100 mcg/0.5mL dose"
+            }
+          ],
+          "text": "COVID-19 mRNA vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-004",
+          "display": "David Kim"
+        },
+        "occurrenceDateTime": "2024-01-18",
+        "recorded": "2024-01-18T11:15:00Z",
+        "primarySource": true,
+        "isSubpotent": true,
+        "subpotentReason": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "coldchainbreak",
+                "display": "Cold Chain Break"
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "276686002",
+                "display": "Vaccine stored at incorrect temperature"
+              }
+            ],
+            "text": "Vaccine cold chain broken during transport — dual coded"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm2-valid-005",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-valid-005",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-valid-005",
+              "display": "VALID: isSubpotent=true, subpotentReason with text-only (no formal coding)."
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>VALID: isSubpotent=true with a text-only subpotentReason — no formal coding system used. Narrative-only reason is still a valid subpotentReason entry.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "115",
+              "display": "Tetanus toxoid, reduced diphtheria toxoid, and acellular pertussis vaccine, adsorbed"
+            }
+          ],
+          "text": "Tdap vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-005",
+          "display": "Emily Clark"
+        },
+        "occurrenceDateTime": "2024-08-05",
+        "recorded": "2024-08-05T13:00:00Z",
+        "primarySource": false,
+        "isSubpotent": true,
+        "subpotentReason": [
+          {
+            "text": "Syringe malfunction observed mid-administration — partial dose delivered"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm2-valid-006",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-valid-006",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-valid-006",
+              "display": "VALID: isSubpotent=true, multiple subpotentReason entries (array with 2 items)."
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>VALID: isSubpotent=true with two distinct subpotentReason entries in the array — both a partial dose and a cold chain break contributed to subpotency.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "83",
+              "display": "Hepatitis A vaccine, pediatric or pediatric/adolescent dosage"
+            }
+          ],
+          "text": "Hepatitis A vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-006",
+          "display": "Frank Patel"
+        },
+        "occurrenceDateTime": "2024-05-30",
+        "recorded": "2024-05-30T15:45:00Z",
+        "primarySource": true,
+        "isSubpotent": true,
+        "subpotentReason": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "partial",
+                "display": "Partial Dose"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "coldchainbreak",
+                "display": "Cold Chain Break"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

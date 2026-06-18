@@ -65,4 +65,9 @@
     <display value="ELLIPSE"/>
     <definition value="An ellipse defined by four (x,y) pairs, the first two pairs specifying the endpoints of the major axis and the second two pairs specifying the endpoints of the minor axis."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="UNKNOWN"/>
+    <definition value="used only when none of the other values apply."/>
+  </concept>
 </CodeSystem>

@@ -403,12 +403,12 @@
         <map value=".status"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.primaryPurposeType">
-      <path value="ResearchStudy.primaryPurposeType"/>
+    <element id="ResearchStudy.purposeType">
+      <path value="ResearchStudy.purposeType"/>
       <short value="treatment | prevention | diagnostic | supportive-care | screening | health-services-research | basic-science | device-feasibility"/>
       <definition value="The type of study based upon the intent of the study activities. A classification of the intent of the study."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -419,7 +419,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Codes for the main intent of the study."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-prim-purp-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-purpose-type"/>
       </binding>
       <mapping>
         <identity value="BRIDG5.1"/>
@@ -470,7 +470,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="This is a set of terms for study design characteristics."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/study-design"/>
       </binding>
       <mapping>
         <identity value="clinicaltrials-gov"/>
@@ -741,9 +741,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyPartyRole"/>
         </extension>
-        <strength value="example"/>
-        <description value="desc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
+        <strength value="preferred"/>
+        <description value="This is a ResearchStudy's party role."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-party-role"/>
       </binding>
     </element>
     <element id="ResearchStudy.associatedParty.period">
@@ -791,8 +791,8 @@
     </element>
     <element id="ResearchStudy.progressStatus">
       <path value="ResearchStudy.progressStatus"/>
-      <short value="Status of study with time for that status"/>
-      <definition value="Status of study with time for that status."/>
+      <short value="Dates for status changes for the conduct of the study, or study registry and administrative actions"/>
+      <definition value="Dates for status changes for the conduct of the study, or study registry and administrative actions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -812,9 +812,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyStudyStatus"/>
         </extension>
-        <strength value="example"/>
-        <description value="defn."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
+        <strength value="preferred"/>
+        <description value="Codes that convey the current status of the research study."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-status"/>
       </binding>
     </element>
     <element id="ResearchStudy.progressStatus.actual">
@@ -1024,6 +1024,15 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+    </element>
+    <element id="ResearchStudy.comparisonGroup.name">
+      <path value="ResearchStudy.comparisonGroup.name"/>
+      <short value="A simple label for the comparison Group"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
       </type>
     </element>
     <element id="ResearchStudy.comparisonGroup.description">
@@ -1278,6 +1287,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Evidence"/>
       </type>
       <isSummary value="true"/>

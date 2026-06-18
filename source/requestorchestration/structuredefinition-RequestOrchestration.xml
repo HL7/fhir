@@ -297,7 +297,7 @@
           <valueString value="RequestCode"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-code-example"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -412,7 +412,7 @@
           <valueString value="ActionReasonCode"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-reason-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-reason-code-example"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -568,7 +568,7 @@
           <valueString value="ActionCode"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-code-example"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -1045,7 +1045,7 @@
           <valueString value="ActionParticipantFunction"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function-example"/>
       </binding>
       <mapping>
         <identity value="rim"/>

@@ -19,7 +19,7 @@
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
-  <description value="Supplemental data in a population for measuring purposes."/>
+  <description value="Example codes of Supplemental data in a population for measuring purposes."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/measure-supplemental-data-example"/>

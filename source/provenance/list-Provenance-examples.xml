@@ -173,14 +173,14 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Example of using Provenance as De-Identifiation linkage with security tag protection, enabling Re-Identification with authorization."/>
+      <valueString value="Example of using Provenance as De-Identification linkage with security tag protection, enabling Re-Identification with authorization."/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="provenance-example-anon0"/>
     </extension>
     <item>
       <reference value="Provenance/example-anon0"/>
-      <display value="De-Identification / Re-Identificaiton using Provenance"/>
+      <display value="De-Identification / Re-Identification using Provenance"/>
     </item>
   </entry>
   <entry>
@@ -195,4 +195,40 @@
       <display value="Provenance in a SearchSet Bundle for AllergyIntolerance"/>
     </item>
   </entry>
-</List>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of using Provenance for a correction replace."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-correction-replacement"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-correction-replacement"/>
+      <display value="Provenance for a correction replacement"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of using Provenance for a Patient Merge."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-ex-patient-merged"/>
+    </extension>
+    <item>
+      <reference value="Provenance/ex-patient-merged"/>
+      <display value="Provenance for a Patient Merge"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance of verification activity for data transitioned during a patient merge."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-verify"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-verify"/>
+      <display value="Provenance of verification activity for data transitioned during a patient merge"/>
+    </item>
+  </entry>
+  </List>

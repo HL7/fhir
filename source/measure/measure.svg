@@ -412,20 +412,6 @@
        y="406.0"
        fill="black"
        class="diagram-class-detail"><a
-   id="n1587"
-   xlink:href="measure-definitions.html#Measure.topic"><title
-   id="title84996">Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching</title>topic</a> : <a
-   id="n1588"
-   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
-   id="n1589"
-   xlink:href="valueset-definition-topic.html"><title
-   id="n1590">null (Strength=Example)</title>DefinitionTopic</a>?? »</text>
-    <text
-       id="n1596"
-       x="6.0"
-       y="420.0"
-       fill="black"
-       class="diagram-class-detail"><a
    id="n1597"
    xlink:href="measure-definitions.html#Measure.author"><title
    id="title85003">An individiual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
@@ -548,12 +534,7 @@
        x="6.0"
        y="574.0"
        fill="black"
-       class="diagram-class-detail"><a
-   id="n1665"
-   xlink:href="measure-definitions.html#Measure.guidance"><title
-   id="title85059">Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure</title>guidance</a> : <a
-   id="n1666"
-   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+       class="diagram-class-detail"> [0..1]</text>
   </g>
   <g
      id="n1670">
@@ -1097,8 +1078,8 @@
    id="n1935"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1936"
-   xlink:href="valueset-measure-stratifier-example.html"><title
-   id="n1937">null (Strength=Example)</title>MeasureStratifierExample</a>?? » « <a
+   xlink:href="valueset-measure-stratifier-type-example.html"><title
+   id="n1937">null (Strength=Example)</title>MeasureStratifierTypeExample</a>?? » « <a
    id="n1938"
    style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
    xlink:href="conformance-rules.html#constraints"><title
@@ -1195,8 +1176,8 @@
    id="n1986"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1987"
-   xlink:href="valueset-measure-stratifier-example.html"><title
-   id="n1988">null (Strength=Example)</title>MeasureStratifierExample</a>?? »</text>
+   xlink:href="valueset-measure-stratifier-type-example.html"><title
+   id="n1988">null (Strength=Example)</title>MeasureStratifierTypeExample</a>?? »</text>
     <text
        id="n1994"
        x="781.06729"

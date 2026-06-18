@@ -8,6 +8,16 @@
 		<blockquote class="stu-note">
 			<p><b>Note to Balloters:</b>The new 'servicerequest-specimenSuggestion' extension is expected to be available soon in an upcoming release of the Extensions Pack.</p>
 		</blockquote>
+		<blockquote style="background-color: lightblue">
+			<p><b>Release Notes (pending alternative process review with FMG):</b></p>
+			<ul>
+				<li><a href="https://jira.hl7.org/browse/FHIR-55444">FHIR-55444</a></li>
+				<li><a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
+				<li><a href="https://jira.hl7.org/browse/FHIR-54620">FHIR-54620</a></li>
+				<li><a href="https://jira.hl7.org/browse/FHIR-54624">FHIR-54624</a></li>
+				<li><a href="https://jira.hl7.org/browse/FHIR-54619">FHIR-54619</a></li>
+			</ul>
+		</blockquote>
 		<ul>
 			<li>diagnostic tests/studies</li>
 			<li>endoscopic procedures</li>

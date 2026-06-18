@@ -5,6 +5,25 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="MeasureReport-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MeasureReport.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MeasureReport-category"/>
+        <description value="The category to return measure report results for"/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="MeasureReport.category"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="MeasureReport-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>

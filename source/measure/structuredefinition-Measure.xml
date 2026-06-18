@@ -755,33 +755,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/frequency-unit"/>
       </binding>
     </element>
-    <element id="Measure.topic">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
-      <path value="Measure.topic"/>
-      <short value="The category of the measure, such as Education, Treatment, Assessment, etc"/>
-      <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
-      <requirements value="Repositories must be able to determine how to categorize the measure so that it can be found by topical searches."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DefinitionTopic"/>
-        </extension>
-        <strength value="example"/>
-        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
     <element id="Measure.author">
       <path value="Measure.author"/>
       <short value="Who authored the content"/>
@@ -1015,26 +988,6 @@
       <type>
         <code value="markdown"/>
       </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
-    </element>
-    <element id="Measure.guidance">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
-      </extension>
-      <path value="Measure.guidance"/>
-      <short value="Additional guidance for implementers (deprecated)"/>
-      <definition value="Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure."/>
-      <comment value="NOTE: This element is deprecated in favor of the usage element"/>
-      <requirements value="Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the population criteria of the measure. This element provides detailed guidance, where the usage element provides a summary of the guidance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1662,11 +1615,11 @@
       <condition value="mea-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureStratifierExample"/>
+          <valueString value="MeasureStratifierTypeExample"/>
         </extension>
         <strength value="example"/>
         <description value="Meaning of the stratifier."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-type-example"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1777,11 +1730,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureStratifierExample"/>
+          <valueString value="MeasureStratifierTypeExample"/>
         </extension>
         <strength value="example"/>
         <description value="Meaning of the stratifier."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-type-example"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1805,7 +1758,7 @@
     <element id="Measure.group.stratifier.component.criteria">
       <path value="Measure.group.stratifier.component.criteria"/>
       <short value="Component of how the measure should be stratified"/>
-      <definition value="An expression that returns the value of this component of the stratifier for a member of the population. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element, evaluated from the perspective of the measure subject. If this is a non-subject-based measure, the expression may be a reference to a function that takes an argument of the type of the measure basis, allowing the stratifier value to be determined for each member of the population."/>
+      <definition value="An expression that returns the value of this component of the stratifier for a member of the population. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element, evaluated from the perspective of the measure subject. If this is a non-subject-based measure, the expression may be a reference to a function that takes an argument of the type of the measure basis, allowing the stratifier value to be determined for each member of the population. Criteria-based stratifiers allow for inclusion in multiple strata (i.e. strata are not mutually exclusive). When a value-based criterium returns multiple values, each value separately indicates inclusion in a stratrum and does NOT indicate a new stratum that is a combination of the values."/>
       <comment value="As with any expression-valued element, the cqf-alternativeExpression extension may be used to provide an expression in an alternate language."/>
       <min value="0"/>
       <max value="1"/>

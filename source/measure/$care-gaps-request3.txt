@@ -1,3 +1,2 @@
-//The first example with a topic of 57024-2.
-GET [base]/Measure/$care-gaps?measureId=EXM130-7.3.000&periodStart=2014-01&periodEnd=2014-03&status=open-gap&subject=Patient/124&topic=57024-2
-
+//Evaluation with a status of open, closed, or prospective gap.
+GET [base]/Measure/$care-gaps?measureUrl=http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130|7.3.000&periodStart=2014-01&periodEnd=2014-03&subject=Patient/124&status=open-gap&status=closed-gap&status=prospective-gap&organization=Organization/124

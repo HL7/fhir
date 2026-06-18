@@ -208,4 +208,16 @@
       <display value="Physical Therapy - Neck"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a ventilator settings procedure"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="procedure-example-ventilator-setting"/>
+    </extension>
+    <item>
+      <reference value="Procedure/ventilator-setting"/>
+      <display value="Ventilator Settings"/>
+    </item>
+  </entry>
 </List>

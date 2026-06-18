@@ -1,6 +1,28 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> The key changes made since FHIR 6.0.0-ballot4 include:</p>
+<p>Changed the ResearchStudy.studyDesign ValueSet binding to be HL7 Terminology.</p>
+<p>Changed the ResearchStudy.associatedParty.role ValueSet binding to be HL7 Terminology and &quot;preferred&quot; binding.</p>
+<p>Changed the ResearchStudy.progressStatus.state ValueSet binding to be HL7 Terminology and &quot;preferred&quot; binding.</p>
+<p>Added DocumentReference as a possible Resource type to ResearchStudy.result.</p>
+<p>Added ResearchStudy.comparisonGroup.name string element.</p>
+<p>Changed ResearchStudy.primaryPurposeType 0..1 to ResearchStudy.purposeType 0..* and example binding strength..</p>
+<p>Updated the definition of ResearchStudy.progressStatus.</p>
+</blockquote>
+<blockquote style="background-color: lightblue">
+	<p><b>Release Notes:</b></p>
+	<ul>
+		<li><a href="https://jira.hl7.org/browse/FHIR-53698">FHIR-53698</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-53697">FHIR-53697</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-53696">FHIR-53696</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-53694">FHIR-53694</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-53693">FHIR-53693</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-53692">FHIR-53692</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-57268">FHIR-57268</a></li>
+	</ul>
+</blockquote>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 

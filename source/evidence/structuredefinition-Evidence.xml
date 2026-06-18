@@ -223,11 +223,12 @@
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The status of this summary. Enables tracking the life-cycle of the content."/>
 			<comment value="Allows filtering of summaries that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
-			<min value="1"/>
+			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="code"/>
 			</type>
+			<meaningWhenMissing value="Value is unknown."/>
 			<isModifier value="true"/>
 			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired Evidence without due consideration"/>
 			<isSummary value="true"/>
@@ -557,6 +558,52 @@
 				<code value="Annotation"/>
 			</type>
 		</element>
+		<element id="Evidence.classification">
+			<path value="Evidence.classification"/>
+			<short value="The assignment to an organizing scheme"/>
+			<definition value="The assignment to an organizing scheme, including the type of classification and one or more classifier values."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="Evidence.classification.type">
+			<path value="Evidence.classification.type"/>
+			<short value="The kind of classifier (e.g. population, intervention)"/>
+			<definition value="The kind of classifier (e.g. population, intervention, comparator, outcome)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="EvidenceClassifierTypeExample"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-classifier-type-example"/>
+			</binding>
+		</element>
+		<element id="Evidence.classification.classifier">
+			<path value="Evidence.classification.classifier"/>
+			<short value="The specific classification value"/>
+			<definition value="The specific classification value."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableReference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ConditionProblemDiagnosisCodes"/>
+				</extension>
+				<strength value="example"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+			</binding>
+		</element>
 		<element id="Evidence.variableDefinition">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="490,150"/>
@@ -719,7 +766,7 @@
 				</extension>
 				<strength value="extensible"/>
 				<description value="This is a set of terms for study design characteristics."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/study-design"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/study-design"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic">
@@ -1067,10 +1114,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableHandlingExample"/>
+					<valueString value="EvidenceVariableHandling"/>
 				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
+				<strength value="extensible"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-handling"/>
 			</binding>
 		</element>
 		<element id="Evidence.statistic.modelCharacteristic.variable.valueCategory">

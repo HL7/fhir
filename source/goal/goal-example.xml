@@ -11,6 +11,10 @@
 		<value value="123"/>
 	</identifier>
 	<lifecycleStatus value="on-hold" />
+	<lifecycleStatusReason>
+		<text value="Patient wants to defer weight loss until after honeymoon."/>
+	</lifecycleStatusReason> 
+	<achievementStatusDate value="2016-02-14" />
 	<category>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/goal-category"/>
@@ -58,10 +62,6 @@
 		</detailRange>
 		<dueDate value="2016-04-05" />
 	</target>
-	<statusDate value="2016-02-14" />
-	<statusReason>
-		<text value="Patient wants to defer weight loss until after honeymoon."/>
-	</statusReason> 
 	<source>
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>

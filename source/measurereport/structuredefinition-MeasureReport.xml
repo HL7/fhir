@@ -155,7 +155,7 @@
     <element id="MeasureReport.status">
       <path value="MeasureReport.status"/>
       <short value="complete | pending | error"/>
-      <definition value="The MeasureReport status. No data will be available until the MeasureReport status is complete."/>
+      <definition value="The MeasureReport status. No data will be available until the MeasureReport status is complete. Pending means the report is in progress and in the future should lead to a complete report or an error report. Systems that do not know the status of the measure report should use a status of &quot;error&quot; and a message that explains that the status is unknown."/>
       <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
@@ -190,10 +190,10 @@
         <valueString value="individual is QRDA category I, summary is QRDA category III."/>
       </extension>
       <path value="MeasureReport.type"/>
-      <short value="individual | subject-list | summary | data-exchange"/>
-      <definition value="The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; a summary report, which returns a population count for each of the criteria in the measure; or a data-collection, which enables the MeasureReport to be used to exchange the data-of-interest for a quality measure."/>
+      <short value="individual | subject-list | summary | data-exchange | other"/>
+      <definition value="The type of measure report. This may be an individual report, which provides the score for the measure for an individual member of the population; a subject-listing, which returns the list of members that meet the various criteria in the measure; a summary report, which returns a population count for each of the criteria in the measure; or a data-collection, which enables the MeasureReport to be used to exchange the data-of-interest for a quality measure. The code &quot;other&quot; should be used if the report type is known, but it is not one of the enumerated report types. When &quot;other&quot;  is used, an extension SHOULD be added to provide information on the type of measure report. The code &quot;other&quot;  SHOULD NOT be used if the report type is unknown or undefined."/>
       <comment value="Data-exchange reports are used only to communicate data-of-interest for a measure. They do not necessarily include all the data for a particular subject or population, but they may."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -231,7 +231,7 @@
       <type>
         <code value="code"/>
       </type>
-      <isModifier value="true"/>
+      <isModifier value="false"/>
       <isModifierReason value="This element determines whether the data in a data-exchange measure report is a snapshot or incremental update and is required in order to correctly apply the data update to a receiving system"/>
       <isSummary value="true"/>
       <binding>
@@ -562,7 +562,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isModifier value="true"/>
+      <isModifier value="false"/>
       <isModifierReason value="Scoring determines what method was used to calculate the measure score and is required for correct interpretation of the score"/>
       <isSummary value="true"/>
       <binding>
@@ -575,6 +575,29 @@
       <mapping>
         <identity value="rim"/>
         <map value="methodCode"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.compositeScoring">
+      <path value="MeasureReport.group.compositeScoring"/>
+      <short value="opportunity | all-or-nothing | linear | weighted"/>
+      <definition value="If this is a composite measure, the scoring method used to combine the component measures to determine the composite score."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CompositeMeasureScoring"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The composite scoring method of the measure."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/composite-measure-scoring"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".methodCode { the aspect of how component measures are combined }"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.improvementNotation">
@@ -590,7 +613,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isModifier value="true"/>
+      <isModifier value="false"/>
       <isModifierReason value="Improvement notation determines how to interpret the measure score (i.e. whether an increase is an improvement)"/>
       <isSummary value="true"/>
       <binding>
@@ -883,11 +906,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="MeasureStratifierExample"/>
+          <valueString value="MeasureStratifierTypeExample"/>
         </extension>
         <strength value="example"/>
         <description value="Meaning of the stratifier."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-type-example"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1008,7 +1031,7 @@
         </extension>
         <strength value="example"/>
         <description value="Meaning of the stratifier."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-type-example"/>
       </binding>
       <mapping>
         <identity value="rim"/>

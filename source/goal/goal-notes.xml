@@ -1,5 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
+<a name="notes">
+</a>
+<h2>Notes</h2>
+	<a name="outcome"></a>
+	<h3>Goal Outcome</h3>
+		<p> The core extension <a href="http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal">resource-pertainsToGoal</a> is used to indicate a resource, such as Observation, is related to either the measurement, achievement, or progress towards the referenced goal.
+		</p>
 
 </div>

@@ -3,6 +3,15 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
+		<blockquote class="ballot-note" id="bn1">
+			<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since the last R6 ballot are:</p>
+			<ul>
+				<li>Updates to the following elements:</li>
+				<ul>
+					<li>Ingredient.identifier, which was made 0..* (previously 0..1)</li>
+				</ul>
+			</ul>
+		</blockquote>
 		<p>
 			A material used in the preparation of a medicinal/pharmaceutical product, within the context of a particular use or role. 
 		</p>

@@ -1,0 +1,305 @@
+{
+  "resourceType": "Bundle",
+  "id": "imm-2-invalid-test-cases",
+  "meta": {
+    "tag": [
+      {
+        "system": "http://example.org/test-case-tags",
+        "code": "imm-2",
+        "display": "Test cases for invariant imm-2: subpotentReason only present if isSubpotent is true"
+      },
+      {
+        "system": "http://example.org/test-case-tags",
+        "code": "invalid",
+        "display": "Invalid test cases — invariant should FAIL"
+      }
+    ]
+  },
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:imm2-invalid-001",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-invalid-001",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-invalid-001",
+              "display": "INVALID: isSubpotent=false, subpotentReason present. Core violation — subpotentReason must not appear when isSubpotent is false."
+            },
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "violation",
+              "display": "imm-2: subpotentReason.exists() is true but isSubpotent = false"
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>INVALID [imm-2]: isSubpotent=false but subpotentReason is present. This is the core invariant violation — subpotentReason is only meaningful and permitted when the dose is flagged as subpotent.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "140",
+              "display": "Influenza, seasonal, injectable, preservative free"
+            }
+          ],
+          "text": "Influenza vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-101",
+          "display": "Grace Turner"
+        },
+        "occurrenceDateTime": "2024-09-10",
+        "recorded": "2024-09-10T08:30:00Z",
+        "primarySource": true,
+        "isSubpotent": false,
+        "subpotentReason": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "partial",
+                "display": "Partial Dose"
+              }
+            ],
+            "text": "This reason should not be here — isSubpotent is false"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm2-invalid-002",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-invalid-002",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-invalid-002",
+              "display": "INVALID: isSubpotent absent (empty), subpotentReason present. When isSubpotent is omitted it is treated as false/empty — subpotentReason must not appear."
+            },
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "violation",
+              "display": "imm-2: subpotentReason.exists() is true but isSubpotent.empty() = true"
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>INVALID [imm-2]: isSubpotent is absent but subpotentReason is present. An omitted isSubpotent satisfies isSubpotent.empty() — subpotentReason must therefore be absent too.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "08",
+              "display": "Hepatitis B vaccine, pediatric or pediatric/adolescent dosage"
+            }
+          ],
+          "text": "Hepatitis B vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-102",
+          "display": "Henry Scott"
+        },
+        "occurrenceDateTime": "2024-04-14",
+        "recorded": "2024-04-14T10:00:00Z",
+        "primarySource": true,
+        "subpotentReason": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "coldchainbreak",
+                "display": "Cold Chain Break"
+              }
+            ],
+            "text": "Orphaned subpotentReason — isSubpotent is missing from this resource"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm2-invalid-003",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-invalid-003",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-invalid-003",
+              "display": "INVALID: isSubpotent=false, subpotentReason with text-only (no formal coding). Text-only reason still satisfies exists()."
+            },
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "violation",
+              "display": "imm-2: subpotentReason object exists (text-only) but isSubpotent = false"
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>INVALID [imm-2]: isSubpotent=false but a text-only subpotentReason is present. A CodeableConcept with only a text element still satisfies subpotentReason.exists() in FHIRPath.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "33",
+              "display": "Pneumococcal polysaccharide vaccine, 23 valent"
+            }
+          ],
+          "text": "Pneumococcal vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-103",
+          "display": "Isabella Moore"
+        },
+        "occurrenceDateTime": "2024-02-28",
+        "recorded": "2024-02-28T15:20:00Z",
+        "primarySource": false,
+        "isSubpotent": false,
+        "subpotentReason": [
+          {
+            "text": "This narrative-only subpotentReason still violates imm-2 because isSubpotent is false"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm2-invalid-005",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-invalid-005",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-invalid-005",
+              "display": "INVALID: isSubpotent=false, multiple subpotentReason entries. Multiple array entries do not exempt the invariant."
+            },
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "violation",
+              "display": "imm-2: subpotentReason array has 2 entries but isSubpotent = false"
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>INVALID [imm-2]: isSubpotent=false but subpotentReason contains two entries. Having multiple reasons does not change the invariant outcome — all entries must be absent when isSubpotent is not true.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "207",
+              "display": "COVID-19 vaccine, mRNA, LNP-S, PF, 100 mcg/0.5mL dose"
+            }
+          ],
+          "text": "COVID-19 mRNA vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-105",
+          "display": "Karen Adams"
+        },
+        "occurrenceDateTime": "2024-11-02",
+        "recorded": "2024-11-02T16:30:00Z",
+        "primarySource": true,
+        "isSubpotent": false,
+        "subpotentReason": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "partial",
+                "display": "Partial Dose"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "coldchainbreak",
+                "display": "Cold Chain Break"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:imm2-invalid-006",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "imm2-invalid-006",
+        "meta": {
+          "tag": [
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "imm2-invalid-006",
+              "display": "INVALID: isSubpotent absent, subpotentReason with multiple codings. Absence of isSubpotent is equivalent to false."
+            },
+            {
+              "system": "http://example.org/test-case-tags",
+              "code": "violation",
+              "display": "imm-2: subpotentReason exists with dual codings but isSubpotent.empty() = true"
+            }
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns='http://www.w3.org/1999/xhtml'>INVALID [imm-2]: isSubpotent is completely absent but subpotentReason with multiple codings is present. isSubpotent.empty() evaluates to true, so the invariant requires subpotentReason to be absent.</div>"
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "83",
+              "display": "Hepatitis A vaccine, pediatric or pediatric/adolescent dosage"
+            }
+          ],
+          "text": "Hepatitis A vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-106",
+          "display": "Liam Chen"
+        },
+        "occurrenceDateTime": "2024-12-01",
+        "recorded": "2024-12-01T10:00:00Z",
+        "primarySource": true,
+        "subpotentReason": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason",
+                "code": "coldchainbreak",
+                "display": "Cold Chain Break"
+              },
+              {
+                "system": "http://snomed.info/sct",
+                "code": "276686002",
+                "display": "Vaccine stored at incorrect temperature"
+              }
+            ],
+            "text": "Orphaned multi-coded subpotentReason — isSubpotent is missing entirely"
+          }
+        ]
+      }
+    }
+  ]
+}

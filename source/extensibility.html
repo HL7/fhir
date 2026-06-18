@@ -45,7 +45,7 @@ extensions.  The use of extensions is what allows the FHIR specification to reta
 simplicity for everyone.
 </p>
 <p>
-To make the use of extensions safe and managable, there is
+To make the use of extensions safe and manageable, there is
 strict governance applied to the definition and use of extensions. Although
 any implementer can define and use extensions, there is a set of requirements
 that must be met as part of their use and definition.
@@ -594,7 +594,7 @@ of these situations easier, but it cannot resolve them.
 modified element and its descendants, because it cannot know whether the modifications it has made
 might invalidate the value of the unknown extension</li>
  <li>Systems that drop existing elements are considered to be "<a href="#processing">processing the containing element</a>"</li>
- <li>A system SHALL NOT modify a resource or element if the resource as a whole or the element being modified within the resource has child "modifier" extensions it doesn't understand or is a descendant of an element that contains such modifier extensions</li>
+ <li>A system SHALL NOT modify a resource or element if the resource as a whole or the element being modified within the resource has child "modifier" extensions it does not understand or is a descendant of an element that contains such modifier extensions</li>
  <li>Applications SHOULD NOT reject instances containing extensions that are not "modifier" extensions if they do not recognize them. Instead, they SHOULD preserve unrecognized non-modifier extensions when processing the resource. If
 preservation is not possible, they SHOULD ignore them.</li>
 </ul>

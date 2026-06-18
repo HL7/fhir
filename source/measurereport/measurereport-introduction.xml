@@ -1,5 +1,50 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+    <div>
+        <blockquote class="ballot-note" id="bn1">
+            <p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+            <ul>
+                <li>Non-compatible Changes
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-51028">FHIR-51028</a>: Clarified examples are experimental content</li>
+                    </ul>
+                </li>
+                <li>Compatible, Substantive Changes
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55083">FHIR-55083</a>: Relaxed .type to 0..1 and added 'other' to .type allowable concepts.</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55405">FHIR-55405</a>: Add search parameter for MeasureReport.category</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55979">FHIR-55979</a>: MeasureReport should include .compositeScoring element on .group</li>
+                    </ul>
+                </li>
+                <li>Non-substantive Changes
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55081">FHIR-55081</a>: Potentially re-useable THO-candidate value sets in resource MeasureReport</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55082">FHIR-55082</a>: MeasureReport.status has no escape valve</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55366">FHIR-55366</a>: Removed isModifier from .scoring, .dataUpdateType, and .improvementNotation</li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55926">FHIR-55926</a>: clarify exclusive use of 'subject' and 'subjectGroup' in $evaluate</li>
+                    </ul>
+                </li>
+            </ul>
+            <p></p>
+        </blockquote>
+        <blockquote style="background-color: lightblue">
+            
+            <p><b>All Changes (including Technical Corrections not listed above):</b></p>
+            <ul>
+                <li>None</li>
+            </ul>
+        </blockquote>
+
 <div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
@@ -39,4 +84,5 @@ Provides additional detail on exactly how the resource is to be used
 </div>
 -->
 
+    </div>
 </div>

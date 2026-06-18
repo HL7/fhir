@@ -237,11 +237,12 @@
 			<short value="draft | active | retired | unknown"/>
 			<definition value="The status of this EvidenceVariable. Enables tracking the life-cycle of the content."/>
 			<comment value="Allows filtering of evidence variables that are appropriate for use versus not.&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
-			<min value="1"/>
+			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="code"/>
 			</type>
+			<meaningWhenMissing value="Value is unknown."/>
 			<isModifier value="true"/>
 			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired EvidenceVariable without due consideration"/>
 			<isSummary value="true"/>
@@ -656,10 +657,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableHandlingExample"/>
+					<valueString value="EvidenceVariableHandling"/>
 				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/variable-handling-example"/>
+				<strength value="extensible"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-handling"/>
 			</binding>
 		</element>
 		<element id="EvidenceVariable.category">
@@ -722,10 +723,10 @@
 			</type>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EvidenceVariableClassifier"/>
+					<valueString value="EvidenceVariableClassifierExample"/>
 				</extension>
 				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-classifier-example"/>
 			</binding>
 		</element>
 		<element id="EvidenceVariable.dataStorage">
@@ -908,7 +909,7 @@
 					<valueString value="EvidenceVariableConstraint"/>
 				</extension>
 				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-constraint"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-constraint"/>
 			</binding>
 		</element>
 		<element id="EvidenceVariable.constraint.expression">
@@ -985,7 +986,7 @@
 					<valueString value="EvidenceVariableUnacceptableDataHandling"/>
 				</extension>
 				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/evidence-variable-unacceptable-data-handling"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/evidence-variable-unacceptable-data-handling"/>
 			</binding>
 		</element>
 	</differential>

@@ -431,7 +431,7 @@
    id="n1355"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n1356"
-   xlink:href="valueset-study-design.html"><title
+   xlink:href="https://terminology.hl7.org/7.1.0/en/ValueSet-study-design.html"><title
    id="n1357">null (Strength=Extensible)</title>StudyDesign</a>+ »</text>
   </g>
   <g

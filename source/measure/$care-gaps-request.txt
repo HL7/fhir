@@ -1,2 +1,2 @@
-//A  care gaps report for a patient for all Preventive Care and Screening measures
-GET [base]/Measure/$care-gaps?periodStart=2014&periodEnd=2014&measureUrl=http://example.org/fhir/Measure/measure-bcs&patient=Patient/123
+//Evaluation of the CMS130 measure (with measureId EXM130-7.3.000) over a gaps through period of the first 3 months of 2014, with open gaps, for patient 124.
+GET [base]/Measure/$care-gaps?measureUrl=http://hl7.org/fhir/us/cqfmeasures/Measure/EXM130|7.3.000&periodStart=2014-01&periodEnd=2014-03&status=open-gap&organization=Organization/124&subject=Patient/124

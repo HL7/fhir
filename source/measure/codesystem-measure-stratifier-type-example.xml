@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="measure-stratifier-type-example"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cqi"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/measure-stratifier-type-example"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2047"/>
+  </identifier>
+  <version value="6.0.0"/>
+  <name value="MeasureStratifierTypeExample"/>
+  <title value="Measure Stratifier Type Example"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="Clinical Quality Information Workgroup"/>
+  <description value="This example code system defines codes for common types of measure stratification."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/measure-stratifier-type-example"/>
+  <content value="complete"/>
+  <concept>
+    <code value="age-range"/>
+    <display value="Age Range"/>
+    <definition value="Age Range Stratification."/>
+  </concept>
+  <concept>
+    <code value="gender"/>
+    <display value="Gender"/>
+    <definition value="Gender Stratification."/>
+  </concept>
+  <concept>
+    <code value="facility"/>
+    <display value="Facility"/>
+    <definition value="Facility Stratification."/>
+  </concept>
+</CodeSystem>

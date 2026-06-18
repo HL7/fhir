@@ -1,5 +1,36 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+  <div>
+    <blockquote class="ballot-note" id="bn1">
+      <p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+      <ul>
+        <li>Non-compatible Changes
+          <ul>
+            <li>None</li>
+          </ul>
+        </li>
+        <li>Compatible, Substantive Changes
+          <ul>
+            <li>None</li>
+          </ul>
+        </li>
+        <li>Non-substantive Changes
+          <ul>
+            <li><a href="https://jira.hl7.org/browse/FHIR-55077">FHIR-55077</a>: Potentially re-useable THO-candidate value sets in resource RiskAssessment</li>
+          </ul>
+        </li>
+      </ul>
+      <p></p>
+    </blockquote>
+    <blockquote style="background-color: lightblue">
+      
+      <p><b>All Changes (including Technical Corrections not listed above):</b></p>
+      <ul>
+        <li>None</li>
+      </ul>
+    </blockquote>
+  </div>
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>

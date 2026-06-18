@@ -10,6 +10,40 @@
 
 <table class="colsi"><tbody><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg cqi%]">[%wgt cqi%]</a></td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Normative</a></td></tr></tbody></table>
 
+  <div>
+        <blockquote class="ballot-note" id="bn1">
+            <p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+            <ul>
+                <li>Non-compatible Changes
+                    <ul>
+                        <li>None</li>
+                    </ul>
+                </li>
+                <li>Compatible, Substantive Changes
+                    <ul>
+                        <li>None</li>
+                    </ul>
+                </li>
+                <li>Non-substantive Changes
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55079">FHIR-55079</a>: Incomplete content indicated on: clinicalreasoning-quality-reporting</li>
+                    </ul>
+                  <ul>
+                    <li><a href="https://jira.hl7.org/browse/FHIR-53433">FHIR-53433</a>: Clarify the behavior of value-based stratifiers when the expression returns multiple values</li>
+                  </ul>
+                </li>
+            </ul>
+            <p></p>
+        </blockquote>
+        <blockquote style="background-color: lightblue">
+            
+            <p><b>All Changes (including Technical Corrections not listed above):</b></p>
+            <ul>
+                <li>None</li>
+            </ul>
+        </blockquote>
+	</div>
+
 <a name="quality-reporting"> </a>
 <h3>Quality Reporting</h3>
 
@@ -403,7 +437,7 @@ define "Stratifier Female":
   Patient.gender = 'female'
 </code></pre>
 
-<p>To do this using criteria-based stratifiers would require specifying a stratifier expression for each possible combination of age range group and gender. With even larger stratifications, this is untenable. Value-based stratifiers simplify this, so you could say:</p>
+<p>Doing this using criteria-based stratifiers is not recommended because it would require specifying a stratifier expression for each possible combination of age range group and gender. With even larger stratifications, this is untenable. Value-based stratifiers simplify this, so you could say:</p>
 
 <pre><code>
 define "Age Range Stratifier":
@@ -437,6 +471,8 @@ define "Age Range and Gender Stratifier":
   &lt;/component&gt;
 &lt;/stratifier&gt;
 </code></pre>
+
+<p>When using criteria-based stratifiers, inclusion in multiple strata is possible (i.e. strata are not mutually exclusive). With value-based stratifiers, this means that a given stratifier expression may return a list of values, with each value separately indicating inclusion in a stratum of that value, not that there is a new stratum for a combination of values in the list. For example, a value-based stratifier may return the list of values ['A','B','C']. This indicates inclusion in stratum 'A', stratum 'B', and stratum 'C', separately, not the creation and inclusion in strata 'ABC'.</p>
 
 <a name="valueset-stratifiers"> </a>
 <p>Using Value Sets for Stratification</p>
@@ -706,6 +742,7 @@ The organization provided in $evaluate, $care-gaps, or $collect-data, whether in
 		<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=35">HL7 CDA R2 Implementation Guide: Quality Reporting Document Architecture - Category I (QRDA I) DSTU Release 3 (US Realm)</a>
 	</li>
 </ol>
+
 [%file newfooter%]
 </body>
 </html>

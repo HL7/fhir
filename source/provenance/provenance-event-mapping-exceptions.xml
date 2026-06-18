@@ -129,6 +129,8 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.reason" resourcePath="Provenance.authorization">
+        <missingTypes _pattern="CodeableReference(Condition, Observation, DiagnosticReport, DocumentReference)" reason="Unknown"/>
+        <extraTypes _resource="CodeableConcept" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Not needed"/>
         <shortUnmatched reason="More specific description">
             <_pattern value="Why was provenance performed?"/>

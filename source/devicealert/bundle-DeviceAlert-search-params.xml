@@ -12,7 +12,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -41,7 +41,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -74,7 +74,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -111,7 +111,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -140,7 +140,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -169,11 +169,11 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="1" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.category" />
@@ -198,7 +198,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -227,11 +227,11 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="0" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.acknowledged" />
@@ -256,7 +256,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -285,7 +285,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -314,7 +314,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -343,7 +343,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -374,7 +374,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -404,7 +404,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -433,7 +433,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -463,7 +463,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -493,7 +493,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -522,7 +522,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft" />
+          <valueCode value="normative" />
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -555,7 +555,7 @@
         </extension>
         <extension
           url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-          <valueInteger value="1" />
+          <valueInteger value="2" />
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceAlert.procedure" />

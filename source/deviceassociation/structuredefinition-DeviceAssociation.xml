@@ -184,9 +184,9 @@
     </element>
     <element id="DeviceAssociation.subject">
       <path value="DeviceAssociation.subject"/>
-      <short value="The entity(ies) that the device is on or associated with"/>
+      <short value="The entity or group that the device is on or associated with"/>
       <definition value="The individual, group of individuals or device that the device is on or associated with."/>
-      <comment value="The operation reflects a shorter term indication when the device is actually being used for the subject and who the operator is.  The operator may be the same as the subject, in which case it is less likely to have to document the operation.  Where it is relevant to document periods of use, absence of the operator cannot imply that the subject is the operator, thus would need to be explicitly stated."/>
+      <comment value="The operation reflects a shorter term indication when the device is actually being used for the subject and who the operator is.  The operator may be the same as the subject, in which case it is less likely to have to document the operation.  Where it is relevant to document periods of use, absence of the operator cannot imply that the subject is the operator, thus would need to be explicitly stated.  If the device is associated with multiple individuals at the same time the Group or CareTeam resource should be utilized."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -234,14 +234,25 @@
     </element>
     <element id="DeviceAssociation.bodyStructure">
       <path value="DeviceAssociation.bodyStructure"/>
-      <short value="Current anatomical location of the device in/on subject"/>
-      <definition value="Current anatomical location of the device in/on subject."/>
+      <short value="Current anatomical location(s) of the device in/on subject"/>
+      <definition value="Current anatomical location(s) of the device in/on subject."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BodyStructure"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
+          <valueString value="Codes describing anatomical body structures. May include laterality."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SNOMED CT Body Structures"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/body-site"/>
+      </binding>
     </element>
     <element id="DeviceAssociation.period">
       <path value="DeviceAssociation.period"/>

@@ -1,6 +1,16 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> The key changes made since FHIR 6.0.0-ballot4 include:</p>
+<p>Changed the EvidenceVariable.status cardinality from 1..1 to 0..1.</p>
+</blockquote>
+<blockquote style="background-color: lightblue">
+	<p><b>Release Notes:</b></p>
+	<ul>
+		<li><a href="https://jira.hl7.org/browse/FHIR-56390">FHIR-56390</a></li>
+	</ul>
+</blockquote>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>

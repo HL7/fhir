@@ -986,7 +986,7 @@
 				</extension>
 				<strength value="preferred"/>
 				<description value="Indicates the level of importance associated with reaching or sustaining a goal."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
+				<valueSet value="http://terminology.hl7.org/ValueSet/goal-priority"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
@@ -1449,7 +1449,7 @@
 				</extension>
 				<strength value="example"/>
 				<description value="Provides examples of actions to be performed."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/action-code"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-code-example"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
@@ -1472,7 +1472,7 @@
 				</extension>
 				<strength value="example"/>
 				<description value="Provides examples of reasons for actions to be performed."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/action-reason-code"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-reason-code-example"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>
@@ -2057,7 +2057,7 @@
 					<valueString value="ActionParticipantFunction"/>
 				</extension>
 				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function-example"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>

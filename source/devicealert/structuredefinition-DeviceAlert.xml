@@ -8,7 +8,7 @@
         <valueString value="Base.Entities" />
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="draft" />
+        <valueCode value="normative" />
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
         <valueInteger value="2" />
@@ -32,13 +32,7 @@
     <contact>
         <telecom>
             <system value="url" />
-            <value value="http://www.hl7.org/Special/committees/healthcaredevices" />
-        </telecom>
-    </contact>
-    <contact>
-        <telecom>
-            <system value="url" />
-            <value value="http://www.hl7.org/Special/committees/healthcaredevices/index.cfm" />
+            <value value="http://www.hl7.org/Special/committees/healthcaredevices" /> 
         </telecom>
     </contact>
     <description value="Describes a physiological or technical alert condition report originated by a device.  The DeviceAlert resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable. " />
@@ -191,15 +185,13 @@
             </type>
             <binding>
                 <strength value="example" />
-                <!-- <description value="in-progress | completed | entered-in-error" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-category" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-category" />
             </binding>
         </element>
         <element id="DeviceAlert.type">
             <path value="DeviceAlert.type" />
-            <short value="physiological | technical" />
-            <!-- <short value="Whether the alert is related to the patient or to the device" /> -->
-            <!--       <definition value="" /> -->
+            <short value="The particular kind of alert" />
+            <definition value="The particular kind of alert, such as whether it is related to the patient condition; to irregular device state; or to workflow or regular device state, such as timers." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
@@ -220,16 +212,13 @@
             </type>
             <binding>
                 <strength value="extensible" />
-                <!-- <description value="physiological | technical" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-type" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-type" />
             </binding>
         </element>
         <element id="DeviceAlert.priority">
             <path value="DeviceAlert.priority" />
-            <short value="high | medium | low | info" />
-            <!-- <short value="The severity of the potential or actual hazard associated with the
-      condition" /> -->
-            <definition value="The alert priority is usually reported by the source device. A priority of `info` SHOULD indicate that the alert is &#8220;for information only&#8221; and urgent action is not required. The element MAY be omitted if the priority is unknown." />
+            <short value="The urgency by which the condition ought to be addressed" />
+            <definition value="The urgency by which the condition ought to be addressed. The alert priority is usually reported by the source device. The element MAY be omitted if the priority is unknown." />
             <min value="0" />
             <max value="1" />
             <isSummary value="true" />
@@ -250,7 +239,6 @@
             </type>
             <binding>
                 <strength value="extensible" />
-                <!-- <description value="high | medium | low | info" /> -->
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-priority" />
             </binding>
         </element>
@@ -283,7 +271,7 @@
             <binding>
                 <strength value="preferred" />
                 <!--         <description value="" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-condition" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-condition" />
             </binding>
         </element>
         <element id="DeviceAlert.subject">
@@ -607,9 +595,8 @@
         </element>
         <element id="DeviceAlert.signal.activationState">
             <path value="DeviceAlert.signal.activationState" />
-            <short value="on | off | paused" />
-            <!-- <short value="Whether the signal is configured to announce the alert configuration" /> -->
-            <definition value="Paused indicates that annunciation has temporarily been disabled (&quot;snooze&quot;)." />
+            <short value="Whether the signal is activated" />
+            <definition value="The activation state of the signal, e.g., whether it is activated, deactivated or temporarily deactivated (i.e., paused). An activated signal is not necessarily present; a present signal is always activated." />
             <min value="1" />
             <max value="1" />
             <isSummary value="true" />
@@ -626,15 +613,13 @@
             </type>
             <binding>
                 <strength value="extensible" />
-                <!-- <description value="on | off | paused" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-activationState" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-activationState" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.presence">
             <path value="DeviceAlert.signal.presence" />
-            <short value="on | latched | off | ack" />
-            <!-- <short value="Whether the signal is currently being annunciated" /> -->
-            <definition value="Indicates whether the signal is currently being annunciated. An on signal is currently being annunciated; a latched signal is currently being being annunciated although the alert condition has ended; an off signal is not currently being annunciated; and an acknowledged signal is not currently being annunciated because the user has acknowledged the signal." />
+            <short value="Indicates whether signal annunciation is occurring, along with the underlying reason" />
+            <definition value="Indicates whether signal annunciation is occurring, along with the underlying reason. An `on` signal is currently being annunciated; a `latched` signal is currently being annunciated although the alert condition has ended; an `off` signal is not currently being annunciated; and an `acknowledged` signal is not currently being annunciated because the user has acknowledged the signal." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />
@@ -647,8 +632,7 @@
             </type>
             <binding>
                 <strength value="extensible" />
-                <!-- <description value="on | off | latched | acknowledged" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-presence" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-presence" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.annunciator">
@@ -673,7 +657,7 @@
             <binding>
                 <strength value="required" />
                 <!-- <description value="local | remote" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-annunciation" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-annunciation" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.manifestation">
@@ -697,7 +681,7 @@
             <binding>
                 <strength value="extensible" />
                 <!-- <description value="visual | haptic | audible" /> -->
-                <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-manifestation" />
+                <valueSet value="http://terminology.hl7.org/ValueSet/devicealert-manifestation" />
             </binding>
         </element>
         <element id="DeviceAlert.signal.type">

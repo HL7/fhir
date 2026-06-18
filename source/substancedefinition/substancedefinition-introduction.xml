@@ -3,6 +3,16 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since the last R6 ballot are:</p>
+    <ul>
+        <li>Updates to the following elements:</li>
+            <ul>
+            	<li>SubstanceDefinition.moiety.identifier, which was made 0..* (previously 0..1)</li>
+            	<li>SubstanceDefinition.name.official.authority, value set (and code system) substance-name-authority has been extended with code: "UT", UMC Terminologies</li>
+            </ul>
+    </ul>
+    </blockquote>
 		<p>SubstanceDefinition is used for rich descriptions of substances, of any type, to support the detailed definition of medications, 
 		and in particular their ingredients (see <a href="ingredient.html">Ingredient</a>) and manufacturing.</p>
 		<p>This is a definitional resource describing types of substances, to a varying degree of specificity. 
@@ -10,8 +20,7 @@
 			or a particular variety of it, such as one manufacturer's version, 
 			or a certain presentation (e.g. "granulated"). 
 			However it is always a type and does not represent an actual physical instance of a substance. 
-			By contrast the <a href="substance.html">Substance</a> resource can act as either a concise definition 
-			(a subset of SubstanceDefinition) or as an instance (an actual batch).</p>
+			By contrast the <a href="substance.html">Substance</a> resource represents an instance (an actual batch).</p>
 		<p>SubstanceDefinition is not generally used directly to represent an ingredient, nor as a product that is given to a patient.
 			When acting as an ingredient, the <a href="ingredient.html">Ingredient</a> resource gives the context necessary (strength, role etc.) 
 			and, within it, uses this resource to describe the substance.

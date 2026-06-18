@@ -429,7 +429,7 @@
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s132">
+  <Style ss:ID="s133">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
@@ -437,21 +437,21 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s133">
+  <Style ss:ID="s134">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s134">
+  <Style ss:ID="s135">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s135" ss:Parent="s63">
+  <Style ss:ID="s136" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
@@ -461,7 +461,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s136">
+  <Style ss:ID="s137">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
@@ -469,7 +469,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s137">
+  <Style ss:ID="s138">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
@@ -481,7 +481,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="='\Users\grahamegrieve\work\r5\source\terminologies\Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="52" x:FullColumns="1" x:FullRows="1">
@@ -1191,13 +1191,12 @@
     <VerticalResolution>-3</VerticalResolution>
    </Print>
    <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FHIR-version">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="57" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="64" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s102" ss:Width="104.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s102" ss:Width="63.0"/>
    <Column ss:StyleID="s102" ss:Width="39.0"/>
@@ -1611,7 +1610,7 @@
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">58</Data></Cell>
-    <Cell><Data ss:Type="String">6.0.0-ballo1</Data></Cell>
+    <Cell><Data ss:Type="String">6.0.0-ballot1</Data></Cell>
     <Cell><Data ss:Type="String">6.0.0</Data></Cell>
     <Cell><Data ss:Type="String">6.0.0-ballot1</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">R6 1st Draft Ballot</Data></Cell>
@@ -1861,14 +1860,14 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s127"/>
-    <Cell ss:StyleID="s127"/>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Unknown</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Authoring system does not know the status.</Data></Cell>
     <Cell ss:StyleID="s126"/>
-    <Cell ss:StyleID="s126"/>
+    <Cell ss:StyleID="s126"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2356,15 +2355,15 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16"/>
   </Table>
@@ -2926,15 +2925,15 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16"/>
   </Table>
@@ -3499,15 +3498,15 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16"/>
   </Table>
@@ -3613,7 +3612,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See Confluence for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See Confluence for syntax</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">Comments</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">Comments</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4145,16 +4144,16 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16"/>
   </Table>
@@ -4181,7 +4180,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C10">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R6C10">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="age-units">
@@ -4736,15 +4735,15 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16"/>
   </Table>
@@ -4770,15 +4769,15 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R7C9">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="binding-strength">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
-   <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
+   <NamedRange ss:Name="Invariantids" ss:RefersTo="='\Users\grahamegrieve\work\r5\source\terminologies\Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s124" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" ss:StyleID="s124" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s124" ss:Width="80.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="35.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s124" ss:Width="155.0"/>
@@ -5337,15 +5336,15 @@
     <Cell ss:StyleID="s128"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s136"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0"/>
   </Table>
@@ -5371,7 +5370,7 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C9">
+  <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R6C9">
   </AutoFilter>
  </Worksheet>
 <!--canonicalized--></Workbook>

@@ -1,0 +1,55 @@
+@startuml ImagingSelectionProfiles
+
+left to right direction
+
+
+package ImagingSelectionOnePerObservation {
+    class ImageRegion3d ##BlueViolet{
+    }
+
+    class ImageRegion2d ##BlueViolet{
+    }
+
+    class IllustrationOfRoi ##BlueViolet{
+    }
+
+    class VolumeSurface ##BlueViolet{
+    }
+
+    class VisualExplanation ##BlueViolet{
+    }
+
+    class RegionInSpace ##BlueViolet{
+    }
+
+    class ReferencedSegmentationFrame ##BlueViolet{
+    }
+
+    class ReferencedSegment ##BlueViolet{
+    }
+
+    class RealWorldValueMap ##BlueViolet{
+    }
+}
+abstract class ImagingObservation ##Green{
+}
+
+
+
+
+ImagingObservation --> ImageRegion3d : derivedFrom
+ImagingObservation --> ImageRegion2d : derivedFrom
+ImagingObservation --> IllustrationOfRoi : derivedFrom
+ImagingObservation --> VolumeSurface : derivedFrom
+ImagingObservation --> VisualExplanation : derivedFrom
+ImagingObservation --> RegionInSpace : derivedFrom
+ImagingObservation --> ReferencedSegmentationFrame : derivedFrom
+ImagingObservation --> ReferencedSegment : derivedFrom
+ImagingObservation --> RealWorldValueMap : derivedFrom
+
+abstract class ObservationImaginigSelection ##BlueViolet{}
+
+ObservationImaginigSelection --|> ImagingSelectionOnePerObservation
+
+
+@enduml

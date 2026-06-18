@@ -1,0 +1,166 @@
+{
+  "resourceType": "Bundle",
+  "id": "imm-1-invalid-test-cases",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/StructureDefinition/Bundle"]
+  },
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:invalid-001",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "invalid-001",
+        "meta": {
+          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
+          "tag": [{"display":  "INVALID: status='completed' but statusReason is present. Core invariant violation — statusReason must not appear on a completed immunization." }]
+        },
+        "_invariant": "imm-1",
+        "_violation": "statusReason.exists() is true but status != 'not-done'",
+        "status": "completed",
+        "statusReason": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "IMMUNE",
+              "display": "Immunity"
+            }
+          ],
+          "text": "Patient already immune — this field should not be here"
+        },
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "140",
+              "display": "Influenza, seasonal, injectable, preservative free"
+            }
+          ],
+          "text": "Influenza vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-101",
+          "display": "Alice Walker"
+        },
+        "occurrenceDateTime": "2024-09-10",
+        "recorded": "2024-09-10T08:30:00Z",
+        "primarySource": true
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:invalid-002",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "invalid-002",
+        "meta": {
+          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
+          "tag": [{"display":  "INVALID: status='entered-in-error' but statusReason is present. statusReason is only permitted when status='not-done'." }]
+        },
+        "status": "entered-in-error",
+        "statusReason": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "PATOBJ",
+              "display": "Patient Objection"
+            }
+          ],
+          "text": "Incorrect: statusReason does not belong on an entered-in-error record"
+        },
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "08",
+              "display": "Hepatitis B vaccine, pediatric or pediatric/adolescent dosage"
+            }
+          ],
+          "text": "Hepatitis B vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-102",
+          "display": "Brian Johnson"
+        },
+        "occurrenceDateTime": "2024-05-14",
+        "recorded": "2024-05-14T10:00:00Z",
+        "primarySource": true
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:invalid-003",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "invalid-003",
+        "meta": {
+          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
+          "tag": [{"display":  "INVALID: status='completed' with text-only statusReason (no formal coding). Even a text-only statusReason object counts as present." }]
+        },
+        "status": "completed",
+        "statusReason": {
+          "text": "This free-text statusReason should not be present on a completed record"
+        },
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "33",
+              "display": "Pneumococcal polysaccharide vaccine, 23 valent"
+            }
+          ],
+          "text": "Pneumococcal vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-103",
+          "display": "Carol Martinez"
+        },
+        "occurrenceDateTime": "2024-02-28",
+        "recorded": "2024-02-28T15:20:00Z",
+        "primarySource": false
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:invalid-006",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "invalid-006",
+        "meta": {
+          "profile": ["http://hl7.org/fhir/StructureDefinition/Immunization"],
+          "tag": [{"display":  "INVALID: status='completed' with statusReason containing multiple codings. Multiplicity of codings does not exempt the invariant." }]
+        },
+        "status": "completed",
+        "statusReason": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "591000119102",
+              "display": "Vaccine refused by patient"
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "PATOBJ",
+              "display": "Patient Objection"
+            }
+          ],
+          "text": "Multi-coded statusReason is still a violation when status is completed"
+        },
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "83",
+              "display": "Hepatitis A vaccine, pediatric or pediatric/adolescent dosage, 2 dose schedule"
+            }
+          ],
+          "text": "Hepatitis A vaccine"
+        },
+        "patient": {
+          "reference": "Patient/example-106",
+          "display": "Frank Patel"
+        },
+        "occurrenceDateTime": "2024-08-03",
+        "recorded": "2024-08-03T16:30:00Z",
+        "primarySource": true
+      }
+    }
+  ]
+}

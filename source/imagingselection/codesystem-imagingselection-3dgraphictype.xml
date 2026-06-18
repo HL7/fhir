@@ -70,4 +70,9 @@
     <display value="ELLIPSOID"/>
     <definition value="a three-dimensional geometric surface whose plane sections are either ellipses or circles and contains three intersecting orthogonal axes, &quot;a&quot;, &quot;b&quot;, and &quot;c&quot;; the ellipsoid is defined by six (x,y,z) triplets, the first and second triplets specifying the endpoints of axis &quot;a&quot;, the third and fourth triplets specifying the endpoints of axis &quot;b&quot;, and the fifth and sixth triplets specifying the endpoints of axis &quot;c&quot;."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="UNKNOWN"/>
+    <definition value="used only when none of the other values apply."/>
+  </concept>
 </CodeSystem>

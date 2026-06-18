@@ -62,4 +62,9 @@
     <display value="Data Exchange"/>
     <definition value="A data exchange report that contains data-of-interest for the measure (i.e. data that is needed to calculate the measure)"/>
   </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Use this code when the report type is known, but it is not one of the enumerated report types."/>
+  </concept>
 </CodeSystem>

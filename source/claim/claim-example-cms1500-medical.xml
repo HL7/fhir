@@ -191,46 +191,54 @@
 
 	<diagnosis>
 		<sequence value="1"/>
-		<diagnosisCodeableConcept>
+		<diagnosis>
+		  <concept>
 			<coding>
 				<system value="http://hl7.org/fhir/sid/icd-10-cm"/>
 				<code value="M96.1"/>
 				<display value="Postlaminectomy syndrome, not elsewhere classified"/>
 			</coding>
-		</diagnosisCodeableConcept>
+		  </concept>
+		</diagnosis>
 	</diagnosis>
 
 	<diagnosis>
 		<sequence value="2"/>
-		<diagnosisCodeableConcept>
+		<diagnosis>
+		  <concept>
 			<coding>
 				<system value="http://hl7.org/fhir/sid/icd-10-cm"/>
 				<code value="G89.4"/>
 				<display value="Chronic pain syndrome"/>
 			</coding>
-		</diagnosisCodeableConcept>
+		  </concept>
+		</diagnosis>
 	</diagnosis>
 
 	<diagnosis>
 		<sequence value="3"/>
-		<diagnosisCodeableConcept>
+		<diagnosis>
+		  <concept>
 			<coding>
 				<system value="http://hl7.org/fhir/sid/icd-10-cm"/>
 				<code value="M53.88"/>
 				<display value="Other specified dorsopathies, sacral and sacrococcygeal region"/>
 			</coding>
-		</diagnosisCodeableConcept>
+		  </concept>
+		</diagnosis>
 	</diagnosis>
 
 	<diagnosis>
 		<sequence value="4"/>
-		<diagnosisCodeableConcept>
+		<diagnosis>
+		  <concept>
 			<coding>
 				<system value="http://hl7.org/fhir/sid/icd-10-cm"/>
 				<code value="M47.816"/>
 				<display value="Spondylosis without myelopathy or radiculopathy, lumbar region"/>
 			</coding>
-		</diagnosisCodeableConcept>
+		  </concept>
+		</diagnosis>
 	</diagnosis>
 
 	<insurance>

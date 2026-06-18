@@ -32,7 +32,7 @@
   <title value="Device Metric"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
-  <publisher value="HL7 International / Health Care Devices"/>
+  <publisher value="HL7 International / Devices"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -42,7 +42,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/healthcaredevices/index.cfm"/>
+      <value value="http://www.hl7.org/Special/committees/healthcaredevices"/>
     </telecom>
   </contact>
   <description value="Describes a measurement, calculation or setting capability of a device. The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable."/>
@@ -185,7 +185,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Describes the category of the metric."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-category"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/metric-category"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -224,7 +224,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="IEEE 11073-10101"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/devicemetric-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/devicemetric-type"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -297,19 +297,19 @@
     </element>
     <element id="DeviceMetric.color">
       <path value="DeviceMetric.color" />
-      <short value="Color name (from CSS4) or #RRGGBB code" />
+      <short value="Preferred color for displaying the metric" />
       <definition value="The preferred color associated with the metric (e.g., display color). This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth; the metrics are displayed in different characteristic colors, such as HR in blue, BP in green, and PR and SpO2 in magenta." />
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false" />
       <meaningWhenMissing value="If absent, there is no preferred color for rendering."/>
       <binding>
-        <strength value="required"/>
-        <description value="Describes the typical color of representation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/color-codes"/>
+        <strength value="extensible"/>
+        <description value="Identifies the typical color of representation."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/color-codes"/>
       </binding>
       <mapping>
         <identity value="DIM"/>
@@ -352,7 +352,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Describes the availability of the metric"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/metric-availability"/>
       </binding>
       <mapping>
         <identity value="BICEPS"/>
@@ -389,7 +389,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Describes the type of a metric calibration."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/metric-calibration-type"/>
       </binding>
       <mapping>
         <identity value="DIM"/>
@@ -398,12 +398,12 @@
     </element>
     <element id="DeviceMetric.calibration.state">
       <path value="DeviceMetric.calibration.state"/>
-      <short value="not-calibrated | calibration-required | calibrated | unspecified"/>
+      <short value="The state of the metric's calibration"/>
       <definition value="Describes the state of the calibration."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="false" />
       <meaningWhenMissing value="If absent, the calibration state is unknown."/>
@@ -411,9 +411,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceMetricCalibrationState"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="Describes the state of a metric calibration."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-state"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/metric-calibration-state"/>
       </binding>
       <mapping>
         <identity value="DIM"/>

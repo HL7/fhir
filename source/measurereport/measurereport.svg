@@ -629,8 +629,8 @@
    id="n1220"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
    id="n1221"
-   xlink:href="valueset-measure-stratifier-example.html"><title
-   id="n1222">null (Strength=Example)</title>MeasureStratifierExample</a>?? »</text>
+   xlink:href="valueset-measure-stratifier-type-example.html"><title
+   id="n1222">null (Strength=Example)</title>MeasureStratifierTypeExample</a>?? »</text>
   </g>
   <g
      id="n1228"
@@ -771,8 +771,8 @@
    id="n1288"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n1289"
-   xlink:href="valueset-measure-stratifier-example.html"><title
-   id="n1290">null (Strength=Example)</title>MeasureStratifierExample</a>?? »</text>
+   xlink:href="valueset-measure-stratifier-type-example.html"><title
+   id="n1290">null (Strength=Example)</title>MeasureStratifierTypeExample</a>?? »</text>
     <text
        id="n1296"
        x="782.12079"

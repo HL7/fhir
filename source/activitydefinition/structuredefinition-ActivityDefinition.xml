@@ -1185,7 +1185,7 @@
 					<valueString value="ActionParticipantFunction"/>
 				</extension>
 				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/action-participant-function-example"/>
 			</binding>
 			<mapping>
 				<identity value="rim"/>

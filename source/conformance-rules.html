@@ -75,13 +75,13 @@ Systems can only claim FHIR Conformance for functionality described in the appli
 <a href="capabilitystatement.html">CapabilityStatement</a>. RESTful Servers are required 
 to provide a <code>CapabilityStatement</code> on request. Other systems or applications
 that wish to assert formal conformance to FHIR MAY choose to publish a CapabilityStatement 
-defining how they conform. Assertions of conformance to FHIR in the absense of a 
+defining how they conform. Assertions of conformance to FHIR in the absence of a 
 CapabilityStatement have little meaning because they cannot be tested/verified.
 </p>
 
 <a name="conflang"></a>
 <h3>Conformance Language</h3>
-<p>This specification uses the conformance verbs SHALL, SHOULD, and MAY as defined in the RFC 8174 clarification of RFC 2119. Unlike RFC 2119, however, this specification allows that different applications might not be able to interoperate because of how they use optional features. In particular:</p>
+<p>This specification uses the conformance verbs SHALL, SHOULD, and MAY as defined in the RFC 8174 clarification of <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a>. Unlike <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC 2119</a>, however, this specification allows that different applications might not be able to interoperate because of how they use optional features. In particular:</p>
 
 <ol><li>SHALL: an absolute requirement for all implementations</li>
 <li>SHALL NOT: an absolute prohibition against inclusion for all implementations</li>
@@ -181,7 +181,7 @@ For example, consider Observation:
 <ul>
  <li><code>Observation.status</code> is a modifier. This element allows the <code>entered-in-error</code> code, which indicates
 that no actual Observation occurred at all. The definition of Observation indicates that it is a measurement that has
-been made - and doesn't allow for the possibility of a measurement that wasn't made.  As a result, if the status
+been made - and does not allow for the possibility of a measurement that was not made.  As a result, if the status
 element were ignored and an Observation were interpreted at face value based on its definition, a system or user
 would infer that an Observation had occurred, which would be false</li>
  <li><code>Observation.subject</code> is not a modifier. If an application ignores the element, it wouldn't know who or what was observed, which
@@ -203,7 +203,7 @@ cause the interpretation of the containing element or its descendants to diverge
 SHALL explicitly declare how such divergence could occur and must be marked as a modifier element.
 Any element not marked <code>is-modifier</code> and without that explanation SHALL NOT be used by an implementer in such a
 manner as to make the element behave as a modifier. For example, using a special "name" on a patient
-to indicate that the subject isn’t a real patient, but is instead an artificial structure used for
+to indicate that the subject is not a real patient, but is instead an artificial structure used for
 non-patient tests would be non-conformant with FHIR because Patient.name is not a modifier element
 </p>
 <p>

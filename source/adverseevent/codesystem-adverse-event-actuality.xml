@@ -47,4 +47,9 @@
     <display value="Potential Adverse Event"/>
     <definition value="A potential adverse event."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The source system does not specify which of the values currently applies for this event."/>
+  </concept>
 </CodeSystem>

@@ -184,12 +184,12 @@
     </element>
     <element id="Condition.verificationStatus">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#11281, GF#16193, J#28458."/>
+        <valueString value="GF#11281, GF#16193, J#28458, J#54914"/>
       </extension>
       <path value="Condition.verificationStatus"/>
       <short value="unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"/>
       <definition value="The verification status to support the clinical status of the condition.  The verification status pertains to the condition, itself, not to any specific condition attribute."/>
-      <comment value="verificationStatus is not required.  For example, when a patient has abdominal pain in the ED, there is not likely going to be a verification status.&#xA;The data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."/>
+      <comment value="Although the terminology binding is required, the data type is CodeableConcept which allows multiple codings. If populated, one code from the binding must be present, but additional codes with greater specificity, drawn from other terminologies, may also be present if needed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -229,10 +229,10 @@
     </element>
     <element id="Condition.category">
 	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#48358"/>
+        <valueString value="J#48358, J#54454"/>
       </extension>
       <path value="Condition.category"/>
-      <short value="problem-list-item | encounter-diagnosis"/>
+      <short value="Classification of type of condition"/>
       <definition value="A category assigned to the condition."/>
       <comment value="The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts."/>
       <min value="0"/>

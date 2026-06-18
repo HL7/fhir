@@ -572,8 +572,8 @@
 					<valueBoolean value="true"/>
 				</extension>
 				<strength value="required"/>
-				<description value="One of the resource types defined as part of this version of FHIR."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+				<description value="One of the current or prior resource types defined as part of FHIR."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
 			</binding>
 		</element>
 		<element id="ImplementationGuide.global.profile">
@@ -772,12 +772,6 @@
 			<type>
 				<code value="BackboneElement"/>
 			</type>
-			<constraint>
-				<key value="ig-3"/>
-				<severity value="error"/>
-				<human value="Source must be absent if 'generated' is generated"/>
-				<expression value="generation='generated' implies source.empty()"/>
-			</constraint>
 		</element>
 		<element id="ImplementationGuide.definition.page.source[x]">
 			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -798,7 +792,6 @@
 			<type>
 				<code value="markdown"/>
 			</type>
-			<condition value="ig-3"/>
 		</element>
 		<element id="ImplementationGuide.definition.page.name">
 			<path value="ImplementationGuide.definition.page.name"/>
@@ -827,13 +820,12 @@
 		<element id="ImplementationGuide.definition.page.generation">
 			<path value="ImplementationGuide.definition.page.generation"/>
 			<short value="html | markdown | xml | generated"/>
-			<definition value="A code that indicates how the page is generated."/>
+			<definition value="A code that indicates how the page is generated. If an implementation guide adopts a future or alternate generation capability not represented directly by this value set, use 'generated' and an extension to describe the specific mechanism used to create the page."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
 				<code value="code"/>
 			</type>
-			<condition value="ig-3"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="GuidePageGeneration"/>

@@ -66,14 +66,14 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Acetaminophin product, pack and tablet (using contained resources)"/>
+      <valueString value="Acetaminophen product, pack and tablet (using contained resources)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="medicinalproductdefinition-acetaminophen-500mg-tablets-box-of-20"/>
     </extension>
     <item>
       <reference value="MedicinalProductDefinition/Acetamin-500-20-generic"/>
-      <display value="Acetaminopen 500mg box of 20 tablets"/>
+      <display value="Acetaminophen 500mg box of 20 tablets"/>
     </item>
   </entry>
   <entry>
