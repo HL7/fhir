@@ -185,7 +185,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Describes the category of the metric."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-category"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/metric-category"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -224,7 +224,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="IEEE 11073-10101"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/devicemetric-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/devicemetric-type"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -307,9 +307,9 @@
       <isSummary value="false" />
       <meaningWhenMissing value="If absent, there is no preferred color for rendering."/>
       <binding>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="Identifies the typical color of representation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/color-codes"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/color-codes"/>
       </binding>
       <mapping>
         <identity value="DIM"/>
@@ -352,7 +352,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Describes the availability of the metric"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-availability"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/metric-availability"/>
       </binding>
       <mapping>
         <identity value="BICEPS"/>
@@ -389,7 +389,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Describes the type of a metric calibration."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/metric-calibration-type"/>
       </binding>
       <mapping>
         <identity value="DIM"/>
@@ -413,7 +413,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="Describes the state of a metric calibration."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/metric-calibration-state"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/metric-calibration-state"/>
       </binding>
       <mapping>
         <identity value="DIM"/>
