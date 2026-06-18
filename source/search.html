@@ -3256,6 +3256,10 @@ Notes:
 </ul>
 </p>
 <p>
+  Instead of <code>Reference.reference</code>, some elements might instead contain the <a href="https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-alternate-reference.html"><code>additionalReference</code></a> extension.
+  <span class="fhir-conformance">Systems SHOULD support indexing and searching against content found in this extension as well unless there are constraints in place that ensure that additionalReference is never present.</span>
+</p>
+<p>
   For example, if the base URL of a server is http://example.org/fhir, the search:
   <span class="http-search-example">
     <span class='http-verb-selector'>Show as unencoded: <a href='#get'>HTTP GET</a> | <a href='#post'>HTTP POST</a></span>
