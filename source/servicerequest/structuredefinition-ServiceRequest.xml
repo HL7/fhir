@@ -584,7 +584,7 @@
     <element id="ServiceRequest.orderDetail.parameterFocus[x]">
       <path value="ServiceRequest.orderDetail.parameterFocus[x]"/>
       <short value="The device, substance, medication, or other item the order details apply to"/>
-      <definition value="Indicates the specific device, substance, medication, or other item involved in the service that the order detail parameters apply to. If the details are more generally about the service itself, this element is omitted."/>
+      <definition value="Indicates the context of the order details by reference or code when the resource instance is not available."/>
       <comment value="parameterFocusReference is the most common choice type for identifying a specific item or a related request. parameterFocusCanonical is used when a definitional resource (such as DeviceDefinition or PlanDefinition) identifies the type of item. parameterFocusCodeableConcept may be used when the item is identified by a coded value such as a device type or medication code; its specificity is implementation dependent."/>
       <min value="0"/>
       <max value="1"/>
@@ -611,7 +611,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ParameterFocusCode"/>
         </extension>
-        <strength value="example"/>
+        <strength value="extensible"/>
         <description value="Coded representation of the item the order detail parameters apply to, such as a device type, medication, or substance."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/servicerequest-parameter-focus"/>
       </binding>
