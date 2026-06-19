@@ -103,6 +103,6 @@
     </member>
   </participant>
   <managingOrganization>
-    <reference value="Organization/west-main-home-health-agency"/>
+      <reference value="Organization/f001"/>
   </managingOrganization>
 </CareTeam>
