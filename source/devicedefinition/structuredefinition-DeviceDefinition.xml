@@ -767,7 +767,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of name the device is referred by."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-nametype"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/device-nametype"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -851,7 +851,7 @@
           <valueString value="DeviceSpecificationCategory"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/device-specification-category"/>
       </binding>
 
     </element>
@@ -1059,6 +1059,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FHIRDeviceVersionType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of version indicated for the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.deviceVersion.component">
       <path value="DeviceDefinition.deviceVersion.component"/>
@@ -1225,7 +1233,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of relation between this and the linked device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-relationtype"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/devicedefinition-relationtype"/>
       </binding>
     </element>
     <element id="DeviceDefinition.link.relatedDevice[x]">
@@ -1326,6 +1334,47 @@
         <code value="boolean"/>
       </type>
     </element>
+    <element id="DeviceDefinition.additive">
+      <path value="DeviceDefinition.additive"/>
+      <short value="Material added to a container device"/>
+      <definition value="Material added to a container device (typically used in specimen collection or initial processing).  The material may be added by the device manufacturer or by a different party subsequent to manufacturing."/>
+      <comment value="A Procedure can be used to document details of the addition of a substance to the device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.additive.type">
+      <path value="DeviceDefinition.additive.type"/>
+      <short value="The additive substance"/>
+      <definition value="The type of the substance added to the container.  This is represented as a concept from a code system or described in a SubstanceDefinition resource."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceDefinitionAdditiveType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Device additive substance type codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
+    </element>
+    <element id="DeviceDefinition.additive.quantity">
+      <path value="DeviceDefinition.additive.quantity"/>
+      <short value="Quantity of additive substance within container"/>
+      <definition value="The quantity of the additive substance in the container; may be volume, dimensions, or other appropriate measurements, depending on the container and additive substance type."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+    </element>
     <element id="DeviceDefinition.productionIdentifierInUDI">
       <path value="DeviceDefinition.productionIdentifierInUDI"/>
       <short value="lot-number | manufactured-date | serial-number | expiration-date | biological-source | software-version"/>
@@ -1342,7 +1391,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The production identifier(s) that are expected to appear in the UDI carrier."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-productidentifierinudi"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/device-productidentifierinudi"/>
       </binding>
     </element>
     <element id="DeviceDefinition.guideline">

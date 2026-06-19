@@ -52,15 +52,13 @@ in order to support consistent definitions for schema and UML derived code.
                     <li><a href="imagingselection.html">ImagingSelection</a></li>
                     <li><a href="imagingstudy.html">ImagingStudy</a></li>
                     <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-MolecularDefinition.html">MolecularDefinition</a></li>
-                    <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a></li>
                 </ul>
             </td>
             <td style="width:33%">
                 <ul>
-                    <li><a href="imagingselection.html">ImagingSelection</a></li>
-                    <li><a href="imagingstudy.html">ImagingStudy</a></li>
                     <li><a href="specimen.html">Specimen</a></li>
                     <li><a href="bodystructure.html">BodyStructure</a></li>
+                    <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a></li>
                 </ul>
             </td>
         </tr>
@@ -111,13 +109,35 @@ in order to support consistent definitions for schema and UML derived code.
 
     <a name="org-dr-obs"></a>
     <h3>Organizing Related DiagnosticReport and Observation Resources</h3>
+    <blockquote class="ballot-note">
+        <p><b>Note to Balloters:</b> The following guidance on DiagnosticReport and Observation grouping patterns has been revised for R6. Balloters are asked to review whether the two patterns, related search guidance, and use of organizer Observations are clear and implementable across all domains. In particular, feedback is requested from laboratory implementers on whether terms such as "panel" and the laboratory result handling guidance are clear and do not hinder current or planned implementations, and from non-laboratory implementers on whether the guidance is too laboratory-centric or needs broader wording. Specific examples and additional content would be welcomed. Balloters are also asked to review this text for consistency with the corresponding DiagnosticReport and Observation resource guidance.</p>
+    </blockquote>
     <p>
-        Many observations need to be grouped together in some fashion to document the relationships necessary for interpretation of the observations. The methods to do so primarily are through DiagnosticReport using
-        DiagnosticReport.result
-        and Observation using Observation.component, Observation.hasMember, and Observation.derivedFrom. Note that
-        Composition may also be used to organize the content of a diagnostic report (in DiagnosticReport.composition), but that is only for purpose of
-        readability,
-        not to record the relationships necessary for interpretation.
+        Many observations need to establish relationships to other observations for proper interpretation. Grouping is a key type of relationship. The primary methods for grouping are DiagnosticReport using
+        <code>DiagnosticReport.result</code>
+        and Observation using <code>Observation.hasMember</code> and <code>Observation.component</code>.
+    </p>
+    <p>
+        <b>There are two major patterns to consider, depending on how the DiagnosticReport resource is used. (Note to reader: when we use "diagnostic report", we are referring to the business notion that the fulfiller assembles, which may consist of one or more "DiagnosticReport" resource instances.)</b>
+    </p>
+    <p>
+        <b>Pattern #1:</b> The entire diagnostic report (as created by the fulfiller of the order(s)) is represented by a bundle containing <b>one</b> DiagnosticReport resource for the patient for a particular point in time. Some concepts, such as panels, are always represented as Observations, where <code>Observation.code</code> equals the panel code, and <code>Observation.organizer</code> is <code>true</code>.
+    </p>
+    <p>
+        In the case of laboratory reports, the <code>DiagnosticReport.code</code> names the report type (e.g. "Pathology Report"). The <code>DiagnosticReport.result</code> element references at least one Observation that can act as an organizer (grouper) for tests commonly performed together, often referred to as a "panel" or "battery". In this organizer, <code>Observation.code</code> names the panel (e.g. "CBC"), <code>Observation.value[x]</code> is not present, and <code>Observation.hasMember</code> lists all the Observation resources that are grouped by it. To clearly indicate this as an organizer, <code>Observation.organizer</code> is set to <code>true</code>. This supports multiple top-level panels or batteries under an instance of a DiagnosticReport.
+    </p>
+    <p>
+        For this pattern, depending on the type of report (e.g. if the report represents only one panel), you may need to search in two places: <code>DiagnosticReport.code</code> and <code>Observation.code</code>. If you always use a grouper observation, then searching can be focused on <code>Observation.code</code>.
+    </p>
+    <p>
+        <b>Pattern #2:</b> The entire diagnostic report (as created by the fulfiller of the order(s)) is represented by a bundle containing <b>one or more</b> DiagnosticReport resource instance(s). The DiagnosticReport resource represents a group of tests (e.g. a panel) usually performed together. 
+    </p>
+    <p>
+        In the case of laboratory reports, the <code>DiagnosticReport.code</code> names the panel (e.g. "CBC"). The <code>DiagnosticReport.code</code> element acts as the organizer (grouper) for tests commonly performed together, often referred to as a "panel" or "battery". The <code>DiagnosticReport.result</code> lists all Observation resources grouped by this DiagnosticReport. These may be a mixture of Observations that present values (e.g. 10 g/L), or organizer (grouper) Observations that further sub-organize lower-level Observation resources, as seen in complex multi-level reports. Each <code>DiagnosticReport.result</code> element repetition references an individual Observation within a panel. This pattern does not support multiple top-level panels or batteries under an instance of a DiagnosticReport. For this pattern, the search parameter will be <code>DiagnosticReport.code</code> for the panel (e.g. "CBC").
+    </p>
+    <p><b>General Notes</b></p>
+	<p>
+        Note that Composition may also be used to organize the content of a diagnostic report (in <code>DiagnosticReport.composition</code>), but that is only for purpose of readability, not to record the relationships necessary for interpretation.
     </p>
     <p>Note: When an observation is not performed and if this needs to be communicated as part of a reporting, the Observation would be used to document that it was not performed and why.  The DiagnosticReport would include such observation when that documentation was necessary. For more information see <a href="https://build.fhir.org/observation.html#cancelled">Observation</a>.</p>
     <h4>Laboratory Results</h4>
@@ -160,7 +180,7 @@ in order to support consistent definitions for schema and UML derived code.
         performance.
     </p>
     <p>
-        The initial observation of a the sample anaerobic culture would be recorded as an Observation and linked to
+        The initial observation of a sample anaerobic culture would be recorded as an Observation and linked to
         using DiagnosticReport.result. The Observation would describe presence of none, one or more growths or patterns.
         Other
         results for, e.g., a stain may be reported as well and linked to DiagnosticReport.result.
@@ -182,7 +202,7 @@ in order to support consistent definitions for schema and UML derived code.
         When susceptibility tests are starting to be performed, an Observation instance is created for the
         Susceptibility Panel, enabling all susceptibility tests to be organized under that Susceptibility Panel. The
         Susceptibility Panel
-        Observation is also linked to through the Obervation.hasMember of the identified organism Observation.
+        Observation is also linked to through the Observation.hasMember of the identified organism Observation.
     </p>
     <p>
         If a new authorization is required:
@@ -302,8 +322,14 @@ in order to support consistent definitions for schema and UML derived code.
     <p>The specific mapping may vary depending on use cases, but the following provides general guidance on how the most common DICOM IEs are typically mapped to FHIR resources:</p>
 
     <div>
-        <img src="diagnostic-module-imaging-fig1.png" alt="Mapping DICOM IEs to FHIR Resources" width="944" />
-        <figure>Figure 1: Mapping DICOM IEs to FHIR Resources.</figure>
+        <figure>
+            <img src="diagnostic-module-imaging-fig1.png" alt="Mapping DICOM IEs to FHIR Resources" width="634" />
+            <figcaption>Figure 1: Mapping DICOM IEs to FHIR Resources.</figcaption>
+            <ol>
+                <li>DICOM Information entities without a corresponding FHIR resource are not shown in this diagram. e.g. Frame of Reference.</li>
+                <li>The DICOM information model includes a separate IE for all instance types. e.g. image, presentation state, radiotherapy object, etc. For simplicity, these are represented as a single "Instance" IE in this diagram.</li>
+            </ol>
+        </figure>
     </div>
 
     <h5>Representation of DICOM SR measurements using FHIR resources</h5>

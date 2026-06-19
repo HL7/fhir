@@ -366,6 +366,12 @@ rules apply:
 The status also relates to properties such as deprecation and retirement date. The status of the concept SHOULD 
 always be consistent with these other properties.
 </p>
+<p>
+Due to variations in editorial process and the uncertainty introduced by distributed lifecycle management, these rules are not always 
+followed, though they should be considered best practice.  When they are not followed we recommend that the status overrides any date 
+related properties when present, and codes should only be considered inactive if the inactive concept property has a value of true or 
+in the presence of editorial intent.
+</p>
 
 <a name="synonyms"></a>
 <h3>Synonyms and Alternate Codes</h3>
@@ -375,8 +381,8 @@ Many code systems define multiple codes for the same real world concept. Some co
 (e.g. case-sensitive vs case insensitive) while others arise over time as the editorial process unfolds. Some 
 established code systems treat these as synonym codes for the same concept, while others treat them as synonym
 concepts - duplicated concepts with the same real world meaning, though the definition sometimes differ. Another 
-reason for duplicated concepts is to deal with implied poly-heirarchical concepts in systems that do not support 
-formal poly-heirarchies.
+reason for duplicated concepts is to deal with implied polyhierarchical concepts in systems that do not support 
+formal polyhierarchies.
 </p>
 <p>
 Whatever the reason, in FHIR code systems, all kinds of synonyms are represented the same way: as 

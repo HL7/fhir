@@ -417,9 +417,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyPrimaryPurposeType"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="Codes for the main intent of the study."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-prim-purp-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/research-study-purpose-type"/>
       </binding>
       <mapping>
         <identity value="BRIDG5.1"/>

@@ -35,10 +35,16 @@
         <p><b>Release Notes (pending alternative process review with FMG):</b></p>
         <ul>
             <li><a href="https://jira.hl7.org/browse/FHIR-53457">FHIR-53457</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54518">FHIR-54518</a></li>
             <li><a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-54518">FHIR-54518</a></li>
             <li><a href="https://jira.hl7.org/browse/FHIR-56188">FHIR-56188</a></li>
-			      <li><a href="https://jira.hl7.org/browse/FHIR-54036">FHIR-54036</a></li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-54036">FHIR-54036</a></li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-53902">FHIR-53902</a></li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-54503">FHIR-54503</a></li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-54508">FHIR-54508</a></li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-54904">FHIR-54904</a></li>
+            <li><a href="https://jira.hl7.org/browse/FHIR-56192">FHIR-56192</a></li>
             <li><a href="https://jira.hl7.org/browse/FHIR-53681">FHIR-53681</a></li>
         </ul>
     </blockquote>
