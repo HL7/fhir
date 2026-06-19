@@ -1,8 +1,10 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
 <h3>Notes</h3>
 <p>
 The <a href="provenance.html">Provenance</a> resource can be used for detailed review information, such as when the care team was last reviewed and by whom. 
 </p>
-
+<p>
+When no patient is specified, CareTeam represents a definitional team rather than an actual CareTeam assembled for an individual. The subject element is omitted, and the resource instead defines a reusable team — organized around a set of participant roles, a condition, program, or organizational unit — that can later be referenced and linked to a specific patient (e.g., via a care plan or encounter) when care is actually provided.
+</p>
+  
 </div>
