@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CareTeam xmlns="http://hl7.org/fhir">
+  <id value="example2"/>
+  <!--   a multi-disciplinary, condition-focused care team for diabetes management,
+   illustrating a team with several participants in different clinical roles,
+   some with standing membership and some with periodic/recurring involvement   -->
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Multidisciplinary diabetes management care team for a patient, with an endocrinologist, diabetes nurse educator, dietitian, podiatrist, ophthalmologist, and clinical pharmacist.</div>
+  </text>
+  <contained>
+    <Practitioner>
+      <id value="pr1"/>
+      <identifier>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+            <code value="NPI"/>
+            <display value="National provider identifier"/>
+          </coding>
+          <text value="HPI-I"/>
+        </type>
+        <system value="http://ns.electronichealth.net.au/id/hi/hpii/1.0"/>
+        <value value="8003619900015717"/>
+      </identifier>
+      <name>
+        <family value="Nguyen"/>
+        <given value="Anh"/>
+        <prefix value="Dr"/>
+      </name>
+      <qualification>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="61894003"/>
+            <display value="Endocrinologist (occupation)"/>
+          </coding>
+        </code>
+      </qualification>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="pr2"/>
+      <identifier>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+            <code value="NPI"/>
+            <display value="National provider identifier"/>
+          </coding>
+          <text value="HPI-I"/>
+        </type>
+        <system value="http://ns.electronichealth.net.au/id/hi/hpii/1.0"/>
+        <value value="8003619900024561"/>
+      </identifier>
+      <name>
+        <family value="Thompson"/>
+        <given value="Sarah"/>
+        <prefix value="RN"/>
+      </name>
+      <qualification>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="224543004"/>
+            <display value="Diabetes specialist nurse (occupation)"/>
+          </coding>
+        </code>
+      </qualification>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="pr3"/>
+      <identifier>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+            <code value="NPI"/>
+            <display value="National provider identifier"/>
+          </coding>
+          <text value="HPI-I"/>
+        </type>
+        <system value="http://ns.electronichealth.net.au/id/hi/hpii/1.0"/>
+        <value value="8003619900033478"/>
+      </identifier>
+      <name>
+        <family value="Kowalski"/>
+        <given value="Maria"/>
+        <prefix value="APD"/>
+      </name>
+      <qualification>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="159033005"/>
+            <display value="Dietitian (occupation)"/>
+          </coding>
+        </code>
+      </qualification>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="pr4"/>
+      <identifier>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+            <code value="NPI"/>
+            <display value="National provider identifier"/>
+          </coding>
+          <text value="HPI-I"/>
+        </type>
+        <system value="http://ns.electronichealth.net.au/id/hi/hpii/1.0"/>
+        <value value="8003619900042391"/>
+      </identifier>
+      <name>
+        <family value="Harrison"/>
+        <given value="James"/>
+      </name>
+      <qualification>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="159034004"/>
+            <display value="Podiatrist (occupation)"/>
+          </coding>
+        </code>
+      </qualification>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="pr5"/>
+      <identifier>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+            <code value="NPI"/>
+            <display value="National provider identifier"/>
+          </coding>
+          <text value="HPI-I"/>
+        </type>
+        <system value="http://ns.electronichealth.net.au/id/hi/hpii/1.0"/>
+        <value value="8003619900051284"/>
+      </identifier>
+      <name>
+        <family value="Patel"/>
+        <given value="Priya"/>
+        <prefix value="Dr"/>
+      </name>
+      <qualification>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="422234006"/>
+            <display value="Ophthalmologist (occupation)"/>
+          </coding>
+        </code>
+      </qualification>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Practitioner>
+      <id value="pr6"/>
+      <identifier>
+        <type>
+          <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+            <code value="NPI"/>
+            <display value="National provider identifier"/>
+          </coding>
+          <text value="HPI-I"/>
+        </type>
+        <system value="http://ns.electronichealth.net.au/id/hi/hpii/1.0"/>
+        <value value="8003619900060177"/>
+      </identifier>
+      <name>
+        <family value="Chen"/>
+        <given value="David"/>
+      </name>
+      <qualification>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="46255001"/>
+            <display value="Pharmacist (occupation)"/>
+          </coding>
+        </code>
+      </qualification>
+    </Practitioner>
+  </contained>
+  <contained>
+    <Organization>
+      <id value="org1"/>
+      <name value="Metropolitan Diabetes Centre"/>
+    </Organization>
+  </contained>
+  <identifier>
+    <system value="http://example.org/id/careteam"/>
+    <value value="CT-DIABETES-0042"/>
+  </identifier>
+  <status value="active"/>
+  <category>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="LA27978-8"/>
+      <display value="Condition-focused care team"/>
+    </coding>
+  </category>
+  <name value="Diabetes Management Care Team"/>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter James Chalmers"/>
+  </subject>
+  <period>
+    <start value="2026-01-15"/>
+  </period>
+  <participant>
+    <role>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="61894003"/>
+        <display value="Endocrinologist (occupation)"/>
+      </coding>
+      <text value="Team Lead - Endocrinologist"/>
+    </role>
+    <member>
+      <reference value="#pr1"/>
+      <display value="Dr Anh Nguyen"/>
+    </member>
+  </participant>
+  <participant>
+    <role>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="224543004"/>
+        <display value="Diabetes specialist nurse (occupation)"/>
+      </coding>
+      <text value="Diabetes Nurse Educator"/>
+    </role>
+    <member>
+      <reference value="#pr2"/>
+      <display value="Sarah Thompson"/>
+    </member>
+  </participant>
+  <participant>
+    <role>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="159033005"/>
+        <display value="Dietitian (occupation)"/>
+      </coding>
+      <text value="Dietitian"/>
+    </role>
+    <member>
+      <reference value="#pr3"/>
+      <display value="Maria Kowalski"/>
+    </member>
+  </participant>
+  <participant>
+    <role>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="159034004"/>
+        <display value="Podiatrist (occupation)"/>
+      </coding>
+      <text value="Podiatrist - Diabetic Foot Care"/>
+    </role>
+    <member>
+      <reference value="#pr4"/>
+      <display value="James Harrison"/>
+    </member>
+  </participant>
+  <!--   the ophthalmologist participates periodically rather than as a standing
+   member, illustrating effectiveTiming as an alternative to effectivePeriod   -->
+  <participant>
+    <role>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="422234006"/>
+        <display value="Ophthalmologist (occupation)"/>
+      </coding>
+      <text value="Ophthalmologist - Diabetic Retinal Screening"/>
+    </role>
+    <member>
+      <reference value="#pr5"/>
+      <display value="Dr Priya Patel"/>
+    </member>
+    <effectiveTiming>
+      <repeat>
+        <frequency value="1"/>
+        <period value="12"/>
+        <periodUnit value="mo"/>
+      </repeat>
+    </effectiveTiming>
+  </participant>
+  <participant>
+    <role>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="46255001"/>
+        <display value="Pharmacist (occupation)"/>
+      </coding>
+      <text value="Clinical Pharmacist - Medication Review"/>
+    </role>
+    <member>
+      <reference value="#pr6"/>
+      <display value="David Chen"/>
+    </member>
+    <effectiveTiming>
+      <repeat>
+        <frequency value="1"/>
+        <period value="6"/>
+        <periodUnit value="mo"/>
+      </repeat>
+    </effectiveTiming>
+  </participant>
+  <reason>
+    <concept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="73211009"/>
+        <display value="Diabetes mellitus"/>
+      </coding>
+    </concept>
+  </reason>
+  <managingOrganization>
+    <reference value="#org1"/>
+    <display value="Metropolitan Diabetes Centre"/>
+  </managingOrganization>
+</CareTeam>
