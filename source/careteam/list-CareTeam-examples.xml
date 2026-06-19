@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <List xmlns="http://hl7.org/fhir">
   <id value="CareTeam-examples"/>
   <status value="current"/>
@@ -14,6 +13,30 @@
     <item>
       <reference value="CareTeam/example"/>
       <display value="Care Team"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Multidisciplinary diabetes management care team for a patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careteam-example2"/>
+    </extension>
+    <item>
+      <reference value="CareTeam/example2"/>
+      <display value="Diabetes Management Care Team"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Home health care team, a definitional team not associated with a specific patient"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="careteam-example3"/>
+    </extension>
+    <item>
+      <reference value="CareTeam/example3"/>
+      <display value="West Main Home Health Agency Home Health Care Team"/>
     </item>
   </entry>
 </List>
