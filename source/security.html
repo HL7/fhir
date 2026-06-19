@@ -17,6 +17,7 @@
     <ul>
     <li>The key changes made since the January 2026 R6 ballot include:</li>
       <ul>
+      <li>relaxed SHALL statements to SHOULD as the context is not always applicable. - <a href="https://jira.hl7.org/browse/FHIR-53381">FHIR-53381</a></li>
       <li>Relaxed statement that security labels are often used. - <a href="https://jira.hl7.org/browse/FHIR-53718">FHIR-53718</a></li>
       <li>Relaxed requirements around FAST Security for Scalable Registration, Authentication, and Authorization. - <a href="https://jira.hl7.org/browse/FHIR-53719">FHIR-53719</a></li>
       <li>Updated scalable security references from UDAP naming to FAST Security naming, and changed corresponding guidance from SHOULD to MAY. - <a href="https://jira.hl7.org/browse/FHIR-53719">FHIR-53719</a></li>
@@ -235,7 +236,7 @@ For scalable security, either <a href="http://hl7.org/fhir/us/udap-security/cons
 The Registration and Discovery sections of <a href="http://hl7.org/fhir/us/udap-security/index.html">FAST Security for Scalable Registration, Authentication, and Authorization</a> MAY also be implemented to securely scale the addition of new client and server endpoints. 
 </p>
 <p>
-All systems SHALL protect authenticator mechanisms, and select the type of credential/strength of authenticator based on use-case and risk management.
+All systems SHOULD protect authenticator mechanisms, and select the type of credential/strength of authenticator based on use-case and risk management.
 </p>
 <a name="binding"></a>
 <h2>
@@ -309,7 +310,7 @@ They include the following:
 <li>FHIR defines several operations that MAY be supported by a server. Security implementations must evaluate whether a client can invoke these operations and what information SHOULD be returned from them. Fetch Encounter Record, Evaluate Measure, Observation Statistics, Find Patient Matches using MPI-based Logic, and Fetch Patient Record specifically provide the ability to disclose patient information.</li>
 <li>Batch and transaction processing provide ways for clients to create and update information in bulk. Security implementations SHOULD consider whether a client can initiate one of these interactions and make authorization decisions on each action in the batch/transaction.</li>
 <li>Security implementations must be aware of the <a href="security-labels.html#break-the-glass">Break the Glass protocol</a> (e.g., break the glass) (<a href="auditevent-example-breakglass-start.html">example</a>). </li>
-<li>Audit of the Access Control Decision: Any Access Control decision to deny an activity SHALL be recorded, and Access Control decisions to permit access SHOULD be recorded. The record SHOULD use the FHIR AuditEvent Resource.</li>
+<li>Audit of the Access Control Decision: Any Access Control decision to deny an activity SHOULD be recorded, and Access Control decisions to permit access SHOULD be recorded. The record SHOULD use the FHIR AuditEvent Resource.</li>
 <li>When an activity is specifically permitted or denied because of Consent terms, the Consent SHOULD be recorded in the AuditEvent as an AuditEvent.entity (<a href="auditevent-example-consent-authz.html">example</a>)</li>
 </ul>
 
