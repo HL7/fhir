@@ -12,15 +12,14 @@
 		</p>	
 		<p>Instances of the Observation resource that contain de-identified data that is no longer associated with a specific patient or measurements coming directly from a device that have not yet been associated with a patient are not required to conform to the Vital Signs profiles.
 		</p>
-		<p><i>[Note: These profiles have been updated and were originally derived from and based on the minimum mandatory conformance requirements for accessing patient data as defined by the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">Argonaut</a> pilot implementations that were developed, balloted, and published in the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">U.S. Data Access Framework (DAF) FHIR Implementation Guide (IG) DSTU2</a> as part of the ONC sponsored <a href="https://oncprojectracking.healthit.gov/wiki/spaces/TechLabSC/pages/16123301/DAF+Home">Data Access Framework (DAF)</a> project.]</i></p>
 	</div>
 	<div>
 		<a name="bnc"></a>
 		<h2>Scope and Usage</h2>
 		<h3>Mandatory Data Elements and Terminology</h3>
-		<p>The following data-elements are mandatory (i.e. data SHALL be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required. The links to the <a href="#content">
-				<strong>Profile Definitions</strong>
-			</a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
+		<p>The following data-elements are mandatory (i.e. data SHALL be present). These are presented below in a simple human-readable explanation.  Profile-specific guidance and valid examples are provided as well. Note that many of the examples capture more than the minimum required.  
+			The links in the table of profile <a href="#vitals-table"><strong>formal views</strong>
+			</a> provide the details of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<ol>
 			<li>a status</li>
 			<li>a 'category' code of 'vital-signs'
@@ -37,11 +36,11 @@
 			<li>a time indicating when the measurement was taken</li>
 			<li>a numeric result value and standard UCUM unit which is taken from the Unit Code column in the table below.
 				<ul>
-					<li>note: if there is no numeric result then you have to supply a data absent reason</li>
+					<li>note: if there is no numeric result available for a required observation or observation component, then you must supply a data absent reason</li>
 				</ul>
 			</li>
 		</ol>
-		<h3>Vital Signs Base Profile Conformance</h3>
+		<h3>Vital Signs Profile Conformance</h3>
 		<p>
 			When a FHIR implementation supports any of the vital signs observations listed in the table below, the implementation <strong>SHALL</strong> conform to the <a href="vitalsigns.html">Vital Signs Base</a> profile 
 			and also the profile for the specific vital sign observation.  The <a href="valueset-observation-vitalsign-measurement.html">observation-vitalsign-measurement</a> value set bound to <code>Observation.code</code> in the Vital Signs Base profile contains the set of <code>code</code> values 
@@ -67,7 +66,7 @@
 	</div>
 	<div>
 		<a name="vitals-table"></a>
-		<h2>Formal View of Specific Vital Signs Profile Content</h2>
+		<h2>Formal View of Vital Signs Profile Content</h2>
 		<ul>
 			<li>The Vital Signs Profiles are intended to be applied only to point-in-time observations as the "Interoperability Standard" codes selected only reflect point-in-time concepts.  Any calculated observations based on two or more point-in-time vital sign observations cannot be based on these Vital Signs profile and its components, thus one cannot add the point-in-time vital sign observation "Interoperability Standard" code in Observation.code.  Separate profiles and appropriate LOINC codes representing such calculated vital sign related observations must be created.</li>
 			<li>While such profiles cannot be derived from the vital signs profile directly or indirectly, they may use the vital-signs observation category "vital-signs" to enable queries for all observations related to vital signs generally, i.e., use <a href="http://terminology.hl7.org/CodeSystem/observation-category">Observation.category = "vital-signs"</a></li>
@@ -87,6 +86,25 @@
 				</tr>
 			</thead>
 			<tbody>
+				<tr>
+					<td>
+						<a href="vitalsigns.html">Vital Signs Base</a>
+					</td>
+					<td>-</td>
+					<td>
+						<em>Vital signs base</em>
+						<p>This is the base profile that all of the specific vital sign profiles (listed below) are derived from.  
+							The use of a base profile provides a common modeling pattern and helps to ensure consistency for all of the specific vital signs profiles.</p></td>
+					<td>-</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>---</td>
+					<td>---</td>
+					<td>---</td>
+					<td>---</td>
+					<td>---</td>
+				</tr>
 				<tr>
 					<td>
 						<a href="vitalspanel.html">Vital Signs Panel</a>
@@ -237,6 +255,7 @@
 				</tr>
 			</tbody>
 		</table>
+		<p><i>[Note: These profiles have been updated and were originally derived from and based on the minimum mandatory conformance requirements for accessing patient data as defined by the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">Argonaut</a> pilot implementations that were developed, balloted, and published in the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">U.S. Data Access Framework (DAF) FHIR Implementation Guide (IG) DSTU2</a> as part of the ONC sponsored <a href="https://oncprojectracking.healthit.gov/wiki/spaces/TechLabSC/pages/16123301/DAF+Home">Data Access Framework (DAF)</a> project.]</i></p>
 		<p></p>
 	</div>
 	<div>
