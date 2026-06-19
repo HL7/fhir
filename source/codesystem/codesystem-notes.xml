@@ -366,6 +366,12 @@ rules apply:
 The status also relates to properties such as deprecation and retirement date. The status of the concept SHOULD 
 always be consistent with these other properties.
 </p>
+<p>
+Due to variations in editorial process and the uncertainty introduced by distributed lifecycle management, these rules are not always 
+followed, though they should be considered best practice.  When they are not followed we recommend that the status overrides any date 
+related properties when present, and codes should only be considered inactive if the inactive concept property has a value of true or 
+in the presence of editorial intent.
+</p>
 
 <a name="synonyms"></a>
 <h3>Synonyms and Alternate Codes</h3>
