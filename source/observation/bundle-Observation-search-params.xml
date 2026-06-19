@@ -482,6 +482,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Observation-supporting-device"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.supportingDevice.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-supporting-device"/>
+        <description value="Device supporting generation of the measurement"/>
+        <code value="supporting-device"/>
+        <type value="reference"/>
+        <expression value="Observation.supportingDevice.reference"/>
+        <processingMode value="normal"/>
+        <target value="Device"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Observation-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>

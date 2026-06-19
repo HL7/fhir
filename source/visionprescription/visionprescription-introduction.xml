@@ -15,6 +15,12 @@
 			<li>Added a product search parameter</li>
 		</ul>
 		</blockquote>
+		<blockquote class="stu-note" style="background-color: lightblue">
+			<p><b>Release Notes (pending alternative process review with FMG):</b></p>
+			<ul>
+				<li><a href="https://jira.hl7.org/browse/FHIR-56359">FHIR-56359</a></li>
+			</ul>
+		</blockquote>
 
 		<p>
 The VisionPrescription resource represents an authorization for corrective optical lenses to be provided to a patient. Eye glasses and contact lenses usually require a prescription for patient-specific lenses. Details about the fulfillment of the authorization are handled by the <a href="task.html">Task</a> resource. For further information about this separation of responsibilities, refer to the link <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
