@@ -6,15 +6,15 @@
                 <li>Breaking changes:
                     <ul>
                         <li>Multiple DeviceAlert-related CodeSystems and ValueSets were moved out of FHIR core to <a href="https://terminology.hl7.org/">HL7 Terminology</a> to align with best practice, resulting in changed canonical URLs. (<a href="https://jira.hl7.org/browse/FHIR-53238">FHIR-53238</a>)</li>
+                        <li>Removed <code>presence</code>; renamed <code>signal.indication</code> to <code>signal.period</code>; removed <code>dateTime</code> from <code>occurrence[x]</code>, leaving it as <code>occurrence</code>; added <code>signal.identifier</code>; and, updated search parameters accordingly. (<a href="https://jira.hl7.org/browse/FHIR-56264">FHIR-56264</a>)</li>
                     </ul>
                 </li>
                 <li>Non-substantive changes:
                     <ul>
                         <li>Updated the DeviceAlert resource's standards status to normative, along with the CodeSystem, ValueSet, and SearchParameters resources it uses. (<a href="https://jira.hl7.org/browse/FHIR-53906">FHIR-53906</a>)</li>
                         <li>Improved the short description and definition of several elements which were previously changed from <code>code</code> to <code>CodeableConcept</code> datatype. (<a href="https://jira.hl7.org/browse/FHIR-57089">FHIR-57089</a>)</li>
-                    </ul>
-                    <ul>
                         <li>Included advisories (e.g. timers, reminders) in the scope of the resource, and <code>DeviceAlert.type</code> element. (<a href="https://jira.hl7.org/browse/FHIR-55740">FHIR-55740</a>)</li>
+                        <li>Updated diagram in <a href="#background-and-context">Background and Context</a> and surrounding text for clarity. (<a href="https://jira.hl7.org/browse/FHIR-56264">FHIR-56264</a>)</li>
                     </ul>
                 </li>
             </ul>
