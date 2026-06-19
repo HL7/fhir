@@ -381,8 +381,8 @@ Many code systems define multiple codes for the same real world concept. Some co
 (e.g. case-sensitive vs case insensitive) while others arise over time as the editorial process unfolds. Some 
 established code systems treat these as synonym codes for the same concept, while others treat them as synonym
 concepts - duplicated concepts with the same real world meaning, though the definition sometimes differ. Another 
-reason for duplicated concepts is to deal with implied poly-heirarchical concepts in systems that do not support 
-formal poly-heirarchies.
+reason for duplicated concepts is to deal with implied polyhierarchical concepts in systems that do not support 
+formal polyhierarchies.
 </p>
 <p>
 Whatever the reason, in FHIR code systems, all kinds of synonyms are represented the same way: as 
