@@ -139,7 +139,6 @@ in order to support consistent definitions for schema and UML derived code.
                             <li><a href="communicationrequest.html">CommunicationRequest</a></li>
                             <li><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
                             <li><a href="devicerequest.html">DeviceRequest</a></li>
-                            <li><a href="enrollmentrequest.html">EnrollmentRequest</a></li>
                         </ul>
                     </td>
                     <td>
@@ -184,7 +183,6 @@ in order to support consistent definitions for schema and UML derived code.
                             <li><a href="diagnosticreport.html">DiagnosticReport</a></li>
                             <li><a href="documentreference.html">DocumentReference</a></li>
                             <li><a href="encounter.html">Encounter</a></li>
-                            <li><a href="enrollmentresponse.html">EnrollmentResponse</a></li>
                             <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
                             <li><a href="explanationofbenefit.html">ExplanationOfBenefit</a></li>
                         </ul>
@@ -236,7 +234,7 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             Note that requests, events and definitions don't exist in a 1:1:1 relationship. Some requests and events have obvious pairings. For example, a
             <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyRequest.html">SupplyRequest</a> will generally always pair with a <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-SupplyDelivery.html">SupplyDelivery</a>. The same goes for
-            <a href="enrollmentrequest.html">EnrollmentRequest</a>/<a href="enrollmentresponse.html">EnrollmentResponse</a>, etc. On the other hand, for other resources there is not a strict pairing. A <a href="servicerequest.html">ServiceRequest</a> might
+            , etc. On the other hand, for other resources there is not a strict pairing. A <a href="servicerequest.html">ServiceRequest</a> might
             be responded to by an <a href="encounter.html">Encounter</a>,
             <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="procedure.html">Procedure</a>, <a href="riskassessment.html">RiskAssessment</a>, etc. Similarly, a <a href="procedure.html">Procedure</a> might be triggered by a <a href="servicerequest.html">ServiceRequest</a>.
             The set of common linkages should be asserted in their respective resources. The specific types of responses for a given request will be governed by the Request.code, any workflow definitions/protocols referenced and local convention.
