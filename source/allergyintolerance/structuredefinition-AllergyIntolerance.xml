@@ -571,8 +571,8 @@
     </element>
 -->
 
-    <element id="AllergyIntolerance.lastReactionOccurrence">
-      <path value="AllergyIntolerance.lastReactionOccurrence"/>
+    <element id="AllergyIntolerance.lastOccurrence">
+      <path value="AllergyIntolerance.lastOccurrence"/>
       <short value="Date(/time) of last known occurrence of a reaction"/>
       <definition value="Represents the date and/or time of the last known occurrence of a reaction event."/>
       <comment value="This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g. 'In Childhood, '10 years ago' the AllergyIntolerance.note element should be used."/>
