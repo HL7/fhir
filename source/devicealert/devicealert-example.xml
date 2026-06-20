@@ -29,9 +29,9 @@
 		<reference value="Patient/pat1"/>
 	</subject>
 	<presence value="true"/>
-	<occurrencePeriod>
+	<occurrence>
 		<start value="2025-10-30T10:00:00Z"/>
-	</occurrencePeriod>
+	</occurrence>
 	<device>
 		<reference value="Device/example" />
 	</device>

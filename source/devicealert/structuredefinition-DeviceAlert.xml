@@ -327,7 +327,7 @@
             <path value="DeviceAlert.occurrence" />
             <short value="When the alert condition occurred/is occurring" />
             <definition value="This element is used to record the time period when the alert condition did occur or is occurring."/>
-            <comment value ="This element is used to record the time period during which the alert condition is or was active. The `DeviceAlert.status` code allows differentiation of whether the timing reflects a historic event or an ongoing event. The absence of `occurrence.end` usually indicates that the alert condition was ongoing at the last update. Coincident `occurrence.start` and `occurrence.end` values allow the expression of instantaneous alert conditions. Implementers should remain aware that partially specified `dateTime` values for `occurrence.start` or `occurrence.end` are ambiguous about what point in time they represent. Corner cases, such representing an alert condition known to be ongoing without knowledge of the start time, may require special handling such as use of [extensions](extensibility.html)&mdash;consult relevant implementation guides." />
+            <comment value ="This element is used to record the time period during which the alert condition is or was active. The `DeviceAlert.status` code allows differentiation of whether the timing reflects a historic event or an ongoing event. The absence of `occurrence.end` usually indicates that the alert condition was ongoing at the last update. Coincident `occurrence.start` and `occurrence.end` values allow the expression of instantaneous alert conditions. Implementers should remain aware that partially specified `dateTime` values for `occurrence.start` or `occurrence.end` are ambiguous about what point in time they represent. Corner cases, such representing an alert condition known to be ongoing without knowledge of the start time, may require special handling such as use of [extensions](extensibility.html)&#x2014;consult relevant implementation guides." />
             <min value="1" />
             <max value="1" />
             <isSummary value="true" />
@@ -578,7 +578,7 @@
         <element id="DeviceAlert.signal.identifier">
             <path value="DeviceAlert.signal.identifier" />
             <short value="Identifier for the logical signal instance" />
-            <definition value="Business identifier for the logical alert signal instance. The same identifier can be used across multiple DeviceAlert.signal elements to represent state changes of the same signal over time" />
+            <definition value="Business identifier for the logical alert signal instance. The same identifier can be used across multiple DeviceAlert.signal elements to represent state changes of the same signal over time." />
             <requirements value="Allows identification of the `signal` as it is known by various participating systems and in a way that remains consistent across servers." />
             <min value="0" />
             <max value="*" />
