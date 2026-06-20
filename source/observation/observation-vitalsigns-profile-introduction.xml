@@ -50,7 +50,7 @@
 		<h3>Support For Additional Terminologies</h3>
 		<p>
 			When the <code>code</code> value in an Observation instance is populated using a code system that is not included in the definition of the <a href="valueset-observation-vitalsign-measurement.html">observation-vitalsign-measurement</a> value set, 
-			any code that is considered to be semantically equivalent to one of the codes that is included in the value set should also be considered to require that Observation instance to conform to both the Vital Signs Base and the corresponding specific 
+			any code that is considered to be semantically equivalent to one of the codes that is included in the value set should also be considered to require that the Observation instance conform to both the Vital Signs Base and the corresponding specific 
 			Vital Signs Profile.
 		</p>
 	</div>
@@ -68,11 +68,18 @@
 		<a name="vitals-table"></a>
 		<h2>Formal View of Vital Signs Profile Content</h2>
 		<ul>
-			<li>The Vital Signs Profiles are intended to be applied only to point-in-time observations as the "Interoperability Standard" codes selected only reflect point-in-time concepts.  Any calculated observations based on two or more point-in-time vital sign observations cannot be based on these Vital Signs profile and its components, thus one cannot add the point-in-time vital sign observation "Interoperability Standard" code in Observation.code.  Separate profiles and appropriate LOINC codes representing such calculated vital sign related observations must be created.</li>
-			<li>While such profiles cannot be derived from the vital signs profile directly or indirectly, they may use the vital-signs observation category "vital-signs" to enable queries for all observations related to vital signs generally, i.e., use <a href="http://terminology.hl7.org/CodeSystem/observation-category">Observation.category = "vital-signs"</a></li>
-			<li>The table below represents the set of vital sign concepts and the profiles that have been defined for representing them in the Observation resource, along with the associated required high level (methodless) LOINC "interoperability standard" codes, and the UCUM units of measure codes that are used for representing the vital signs observations. When a system supports any of these vital signs profiles, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
-			<li>The first column of this table links to the formal views of the individual profile for each vital sign.</li>
-			<li>Other profiles may make rules about which vital sign must be present, or must be present as part of a panel, or may expand the list to include other vital signs.</li>
+			<li>The Vital Signs Profiles are intended to be applied only to point-in-time observations as the "Interoperability Standard" codes selected only reflect point-in-time concepts.
+				<ul>
+					<li>Any calculated observations based on two or more point-in-time vital sign observations cannot be based on one of these Vital Signs profile and its components, thus one cannot add the point-in-time vital sign observation "Interoperability Standard" code in Observation.code.  Separate profiles and appropriate LOINC codes representing such calculated vital sign related observations must be created.</li>
+					<li>While such profiles cannot be derived from the vital signs profile directly or indirectly, they may use the vital-signs observation category "vital-signs" to enable queries for all observations related to vital signs generally, i.e., use <a href="http://terminology.hl7.org/CodeSystem/observation-category">Observation.category = "vital-signs".</a></li>
+				</ul>
+			</li>
+			<li>The table below represents the set of vital sign concepts and the profiles that have been defined for representing them in the Observation resource, along with the associated required high level (methodless) LOINC "interoperability standard" codes, and the UCUM units of measure codes that are used for representing the vital signs observations. When a system supports any of these vital signs profiles, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though, in situations where it is appropriate and necessary, one of the components (usually not both) may have a dataAbsentReason instead of a value.
+				<ul>
+					<li>The first column of this table links to the formal views of the individual profile for each vital sign.</li>
+				</ul>
+			</li>
+			<li>Other profiles may make rules about which vital sign must be present, or must be present as part of a panel, or may expand the list to include additional vital sign observations.</li>
 		</ul>
 		<p></p>
 		<table class="grid">
@@ -93,17 +100,17 @@
 					<td>-</td>
 					<td>
 						<em>Vital signs base</em>
-						<p>This is the base profile that all of the specific vital sign profiles (listed below) are derived from.  
-							The use of a base profile provides a common modeling pattern and helps to ensure consistency for all of the specific vital signs profiles.</p></td>
+						<p>This is the base profile that all of the specific vital sign profiles derive from.  
+							The use of a base profile provides a common pattern and helps ensure consistent representation for all of the specific vital signs profiles (listed below).</p></td>
 					<td>-</td>
 					<td>-</td>
 				</tr>
 				<tr>
-					<td>---</td>
-					<td>---</td>
-					<td>---</td>
-					<td>---</td>
-					<td>---</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td>
@@ -112,7 +119,13 @@
 					<td>85353-1</td>
 					<td>
 						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em>
-						<p>This represents a panel of vital signs, e.g. those listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.  In this panel, Observation.valueQuantity is not present - instead, it uses Observation.hasMember to reference individual vital signs observations (e.g. respiratory rate, heart rate, BP, etc.).</p></td>
+						<p>This represents a panel of vital signs, e.g. those listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.  
+							In this panel, Observation.valueQuantity is not present - instead, it uses Observation.hasMember to reference individual vital signs observations (e.g. respiratory rate, heart rate, BP, etc.).
+							<ul>
+								<li>In the example, the Observation.organizer element is used to further specify that this represents a "panel" of observations (without a value of its own).</li>
+							</ul>
+						</p>
+					</td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-vitals-panel.html">Vital Signs Panel Example</a>
@@ -227,7 +240,7 @@
 					<td>85354-9</td>
 					<td>
 						<em>Blood pressure panel with all children optional</em>
-						<p>This is a multi-component observation.  It has no value in Observation.value[x].  It contains the following component observations for systolic and diastolic blood pressure:</p>
+						<p>This is a multi-component observation.  It has no value in Observation.value[x].  It contains the following required component observations for systolic and diastolic blood pressure:</p>
 						<table>
 							<tr>
 								<th>"Interoperability Standard" Code (LOINC)</th>
@@ -245,7 +258,7 @@
 								<td>mm[Hg]</td>
 							</tr>
 						</table>
-						<p>At least one of the required blood pressure components (usually at least the systolic blood pressure) is expected to be present. If a value is not available for one of the required blood pressure components, then a dataAbsentReason value for that component must be provided.</p>
+						<p>Normally both the systolic and diastolic blood pressure components are expected to be present, though in some less common circumstances a value for one of the blood pressure components (most likely the diastolic) could be absent (and only in very rare circumstances would values for both components be absent).  If a value is not available for one of the required blood pressure components, then a dataAbsentReason for that component must be provided.</p>
 						<p>To supplement this vital sign observation, 8478-0  - <em>Mean blood pressure</em>, 8357-6 - <em>Blood pressure method</em>, 41904-4 - <em>Blood pressure measurement site</em>, 8358-4 - <em>Blood pressure device cuff size</em>, 41901-0 - <em>Type of blood pressure device</em> MAY be used as additional component observations.</p>
 					</td>
 					<td>-</td>
@@ -255,7 +268,6 @@
 				</tr>
 			</tbody>
 		</table>
-		<p><i>[Note: These profiles have been updated and were originally derived from and based on the minimum mandatory conformance requirements for accessing patient data as defined by the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">Argonaut</a> pilot implementations that were developed, balloted, and published in the <a href="https://hl7.org/fhir/DSTU2/daf/daf.html">U.S. Data Access Framework (DAF) FHIR Implementation Guide (IG) DSTU2</a> as part of the ONC sponsored <a href="https://oncprojectracking.healthit.gov/wiki/spaces/TechLabSC/pages/16123301/DAF+Home">Data Access Framework (DAF)</a> project.]</i></p>
 		<p></p>
 	</div>
 	<div>
