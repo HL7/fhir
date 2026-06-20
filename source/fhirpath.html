@@ -109,7 +109,7 @@ Patient.name.given
 The name can also include super types such as DomainResource:
 </p>
 <pre>
-DomainResource.contained(id = 23).exists()
+DomainResource.contained.where(id = 23).exists()
 </pre>
 <p>
 These statements apply to any resource that specializes <a href="domainresource.html">DomainResource</a>.
