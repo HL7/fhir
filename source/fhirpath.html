@@ -191,8 +191,8 @@ exception is the is() operation, where the difference is explicit:
 </p>
 <pre class="fhirpath">
 Patient.name.given.is(FHIR.string)
-Patient.name.given.is(System.string).not()
-Patient.name.given.getValue().is(System.string)
+Patient.name.given.is(System.String).not()
+Patient.name.given.getValue().is(System.String)
 </pre>
 <p>
 This also applies to e.g. Resource.id:
@@ -208,7 +208,7 @@ that ofType() does not have such restrictions - both of the following are valid:
 </p>
 <pre class="fhirpath">
 Patient.name.given.ofType(FHIR.string)
-Patient.name.given.ofType(System.string)
+Patient.name.given.ofType(System.String)
 </pre>
 
 
