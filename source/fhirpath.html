@@ -276,8 +276,6 @@ In addition to the general purpose variables above, additional variables and/or 
 <a name="functions"></a>
 <h4>Additional functions</h4>
 <p>FHIR adds (compatible) functionality to the set of common FHIRPath functions.
-Some of these functions are candidates for elevation to the base version of 
-FHIRPath when the next version is released.
 </p>
 
 <p>
@@ -481,20 +479,6 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 HTML usage</a> are met, and false if they are not.  If invoked on items of type 'string', the contents of the string are
 parsed as the content of a div and the function returns false if the string does not parse as valid HTML or fails the rules around HTML usage.
 The return value is empty on any other kind of element or if invoked on a collection of elements.
-</p>
-
-<hr/>
-<a name="fn-comparable"> </a>
-<h5><b>comparable(quantity) : boolean</b></h5>
-
-<p>
-This function returns true if the engine executing the FHIRPath statement can compare the singleton Quantity
-with the singleton other Quantity and determine their relationship to each other. Comparable means that both 
-have values and that the code and system for the units are the same (irrespective of system) or both have code + system, 
-system is recognized by the FHIRPath implementation and the codes are comparable within that code system.  e.g., days and hours or inches and cm.
-</p>
-<p>
-This function is intended to be added to the core FHIRPath specification in a future version.
 </p>
 
 <hr/>
