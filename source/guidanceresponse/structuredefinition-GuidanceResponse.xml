@@ -339,7 +339,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Claim"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EnrollmentRequest"/>

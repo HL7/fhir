@@ -110,7 +110,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="152" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="127" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="158.0"/>
    <Column ss:Width="285.0"/>
    <Column ss:Width="53.0"/>
@@ -306,10 +306,6 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">subject | actor | grantee</Data></Cell>
     <Cell><Data ss:Type="String">period</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Contract</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Coverage</Data></Cell>
@@ -821,7 +817,7 @@
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">prescriber</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">datewritten	</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">datewritten </Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -840,7 +836,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>64</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

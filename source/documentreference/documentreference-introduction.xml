@@ -13,6 +13,7 @@
         <li>Updates to the following elements:</li>
             <ul>
                 <li>DocumentReference.bodySite has been changed to DocumentReference.bodyStructure</li>
+                <li>FHIR-55563 - Removed reference to Contract from DocumentReference.basedOn</li>
             </ul>
     </ul>
     </blockquote>
