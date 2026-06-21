@@ -65,12 +65,20 @@
 			</coding>
 		</method>
 		<additive>
-			<display value="6 N HCl"/>
+			<type>
+				<concept>
+					<text value="6 N HCl"/>
+				</concept>
+			</type>
 		</additive>
 		<timeDateTime value="2015-08-18T08:10:00Z"/>
 	</processing>
 	<container>
-		<deviceCanonical value="http://hl7.org/fhir/Device/device-example-specimen-container-polycup"/>
+		<device>
+			<reference>
+				<reference value="Device/device-example-specimen-container-polycup"/>
+			</reference>
+		</device>
 		<specimenQuantity>
 			<value value="10"/>
 			<unit value="mls"/>

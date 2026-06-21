@@ -546,22 +546,15 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <map value=".methodCode"/>
       </mapping>
     </element>
-    <element id="Specimen.collection.device[x]">
-      <path value="Specimen.collection.device[x]"/>
+    <element id="Specimen.collection.device">
+      <path value="Specimen.collection.device"/>
       <short value="Device used to perform collection"/>
       <definition value="A coded value specifying the device that is used to perform the procedure."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -569,7 +562,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         </extension>
         <strength value="example"/>
         <description value="The device that was used to obtain the specimen (e.g. a catheter or catheter part used to draw the blood via a central line)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/containerdevice-code"/>
       </binding>
       <mapping>
         <identity value="v2"/>
@@ -737,22 +730,15 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <map value=".participation[typeCode=PFM].role"/>
       </mapping>
     </element>
-    <element id="Specimen.processing.device[x]">
-      <path value="Specimen.processing.device[x]"/>
+    <element id="Specimen.processing.device">
+      <path value="Specimen.processing.device"/>
       <short value="Device used to process the specimen"/>
       <definition value="The device used in the processing of the specimen."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -760,7 +746,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         </extension>
         <strength value="example"/>
         <description value="Codes for devices used in specimen processing."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/processingdevice-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/containerdevice-code"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -769,14 +755,12 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
     </element>
     <element id="Specimen.processing.additive">
       <path value="Specimen.processing.additive"/>
-      <short value="Material used in the processing step"/>
-      <definition value="Material used in the processing step."/>
+      <short value="Material added to a container device"/>
+      <definition value="Material used in the processing step (typically an additive added to a container device, such as a preservative or anticoagulant)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <code value="BackboneElement"/>
       </type>
       <mapping>
         <identity value="v2"/>
@@ -784,7 +768,46 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=CSM].role[classCode=ADTV].code"/>
+        <map value=".participation[typeCode=CSM].role[classCode=ADTV]"/>
+      </mapping>
+    </element>
+    <element id="Specimen.processing.additive.type">
+      <path value="Specimen.processing.additive.type"/>
+      <short value="The additive substance"/>
+      <definition value="The type of the substance used in the processing step.  This is represented as a concept from a code system or described in a Substance or SubstanceDefinition resource."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenProcessingAdditiveType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Specimen processing additive substance type codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Specimen.processing.additive.quantity">
+      <path value="Specimen.processing.additive.quantity"/>
+      <short value="Quantity of additive substance within container"/>
+      <definition value="The quantity of the additive substance in the container; may be volume, dimensions, or other appropriate measurements, depending on the container and additive substance type."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".playedRole[classCode=CONT].quantity"/>
       </mapping>
     </element>
     <element id="Specimen.processing.time[x]">
@@ -824,22 +847,15 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         <map value=".player.scopingRole[classCode=CONT].scoper"/>
       </mapping>
     </element>
-    <element id="Specimen.container.device[x]">
-      <path value="Specimen.container.device[x]"/>
+    <element id="Specimen.container.device">
+      <path value="Specimen.container.device"/>
       <short value="Device resource for the container"/>
       <definition value="The device resource for the the container holding the specimen. If the container is in a holder then the referenced device will point to a parent device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

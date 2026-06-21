@@ -70,18 +70,24 @@
     <processing>
         <description value="Fixed in 10% neutral buffered formalin"/>
         <additive>
-            <concept>
-                <coding>
-                    <system value="http://terminology.hl7.org/CodeSystem/v2-0371"/>
-                    <code value="F10"/>
-                    <display value="10% Formalin"/>
-                </coding>
-            </concept>
+            <type>
+                <concept>
+                    <coding>
+                        <system value="http://terminology.hl7.org/CodeSystem/v2-0371"/>
+                        <code value="F10"/>
+                        <display value="10% Formalin"/>
+                    </coding>
+                </concept>
+            </type>
         </additive>
         <timeDateTime value="2024-03-15T10:45:00Z"/>
     </processing>
     <container>
-        <deviceCanonical value="http://hl7.org/fhir/Device/specimen-container-formalin"/>
+        <device>
+            <concept>
+                <text value="Formalin specimen container"/>
+            </concept>
+        </device>
         <specimenQuantity>
             <value value="1"/>
             <unit value="specimen"/>
