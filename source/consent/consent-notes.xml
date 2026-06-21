@@ -36,7 +36,7 @@ There are context setting parameters:
     <li>Where Required - The <b>location boundary</b> and <b>authority boundary</b> of this consent policy domain.</li>
     <li>Where Accountability Lies -  The organization or performer</li>
     <li>When - The date <b>issued</b> or captured</li>
-    <li>When - The timeframe for which the Consent <b>applies</b>
+    <li>When - The time frame for which the Consent <b>applies</b>
     </li>
     <li>How - The <b>actions</b> covered. (such as purposes of use that are covered)</li>
     <li>Whom - The <b>actor</b> are grantees by the consent. </li>
@@ -53,8 +53,8 @@ consent has been rejected, and consent approved.
     <li>Opt-in: Sharing for some purpose of use is authorized Sharing allowed for Treatment, Payment, and normal Operations; and</li>
     <li>Opt-in with restrictions: Sharing allowed, but the patient may make exceptions.</li>
   </ol>
-  <p>For each of these patterns (positive or negative pattern), there can be exceptions. 
-	  These exceptions are explicitly recorded in the <code>provision</code> element. 
+  <p>For each of these patterns (positive or negative pattern), there can be exceptions or constraints that 
+    may be explicitly recorded in the <code>provision</code> element. 
   </p>
 
 <a name="provisions"></a>
@@ -92,7 +92,7 @@ when matched, will be <code>permit</code>, and so on.
     <li> 
     Provisions at the same level of depth are interpreted as disjunctive (i.e., <em>OR</em>-ed). 
     This means that matching <em>any</em> of the sibling provisions at one level constitutes an exception 
-    to the rule stated in the parent provision.
+    to, or a constraint on the rule stated in the parent provision.
   </li>
 
   <li> 
@@ -140,7 +140,7 @@ In order to match this provision, and therefore for this <em>permit</em> decisio
 applicable, the requestor identifier must match <em>Org A</em> AND the current date must 
 be within the range 01/01/2020-31/12/2022.</p>
 
-  <p>The subsequent child provisions state exceptions to this base rule. 
+  <p>The subsequent child provisions state exceptions to or constraints on this base rule. 
 Matching <em>any</em> of these provisions results in a <em>deny</em> since these 
 are exceptions to a <em>permit</em> parent provision.</p>
 
@@ -271,6 +271,6 @@ necessary consent content derived from a Consent Directive for use in workflow m
     <li>Locally inspect Consent.provision for base policy acceptance/denial with <code>Consent.policyBasis</code></li>
     <li>If <code>Consent.policyBasis</code> not understandable, refer to Privacy Office</li>
     <li>Locally inspect <code>Consent.provision</code> for contexts (e.g., <code>provision.purpose</code>, <code>provision.actor</code>, etc.) as above</li>
-    <li>Inspect nested provisions for exceptions.</li>
+    <li>Inspect nested provisions for exceptions and constraints.</li>
   </ol>
 </div>

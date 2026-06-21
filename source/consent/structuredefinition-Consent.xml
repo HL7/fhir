@@ -444,8 +444,8 @@
         <valueCode value="right"/>
       </extension>
       <path value="Consent.verification"/>
-      <short value="Consent Verified by patient or family"/>
-      <definition value="Whether a treatment instruction (e.g. artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person."/>
+      <short value="Consent verified by patient (or another authorized person)"/>
+      <definition value="Whether the consent instructions/rules (e.g. artificial respiration: yes or no) have been verified with the patient, his/her family, or another authorized person."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -573,8 +573,8 @@
     </element>
     <element id="Consent.provision.period">
       <path value="Consent.provision.period"/>
-      <short value="Timeframe for this provision"/>
-      <definition value="Timeframe for this provision."/>
+      <short value="Time frame for this provision"/>
+      <definition value="Time frame for this provision."/>
       <comment value="This is the bound effective time of the consent and should be in the base provision in the Consent resource."/>
       <min value="0"/>
       <max value="1"/>
@@ -602,12 +602,12 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <meaningWhenMissing value="There is no specific actor associated with the exception"/>
+      <meaningWhenMissing value="There is no specific actor associated with the provision"/>
     </element>
     <element id="Consent.provision.actor.role">
       <path value="Consent.provision.actor.role"/>
       <short value="How the actor is involved"/>
-      <definition value="How the individual is involved in the resources content that is described in the exception."/>
+      <definition value="How the individual is involved in the resources content targeted by this provision."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -664,7 +664,7 @@
     <element id="Consent.provision.securityLabel">
       <path value="Consent.provision.securityLabel"/>
       <short value="Security Labels that define affected resources"/>
-      <definition value="A security label, comprised of 0..* security label fields (Privacy tags), which define which resources are controlled by this exception."/>
+      <definition value="A security label, comprised of 0..* security label fields (Privacy tags), which define which resources are controlled by this provision."/>
       <comment value="If the consent specifies a security label of &quot;R&quot; then it applies to all resources that are labeled &quot;R&quot; or lower. E.g. for Confidentiality, it's a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict."/>
       <min value="0"/>
       <max value="*"/>
@@ -700,7 +700,7 @@
           <valueString value="PurposeOfUse"/>
         </extension>
         <strength value="extensible"/>
-        <description value="What purposes of use are controlled by this exception. If more than one label is specified, operations must have all the specified labels."/>
+        <description value="What purposes of use are controlled by this provision. If more than one label is specified, operations must have all the specified labels."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
       </binding>
     </element>
@@ -721,7 +721,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="The document type a consent provision covers."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
       </binding>
     </element>
     <element id="Consent.provision.resourceType">
@@ -759,7 +759,7 @@
           <valueString value="ConsentContentCode"/>
         </extension>
         <strength value="example"/>
-        <description value="If this code is found in an instance, then the exception applies."/>
+        <description value="If this code is found in an instance, then the provision applies."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/consent-content-code"/>
       </binding>
     </element>
@@ -824,21 +824,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="Consent.provision.expression">
-      <path value="Consent.provision.expression"/>
-      <short value="A computable expression of the consent"/>
-      <definition value="A computable (FHIRPath or other) definition of what is controlled by this consent."/>
-      <comment value="Constraining the expression type for a specific implementation via profile is recommended"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Expression"/>
-      </type>
-    </element>
     <element id="Consent.provision.provision">
       <path value="Consent.provision.provision"/>
       <short value="Nested provisions to further constraint the parent provision"/>
-      <definition value="Nested provisions adding further constraints and exceptions to the parent provision."/>
+      <definition value="Nested provisions adding further constraints on, or exceptions to the parent provision."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Consent.provision"/>

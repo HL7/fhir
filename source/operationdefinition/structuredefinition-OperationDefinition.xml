@@ -603,28 +603,25 @@
     <element id="OperationDefinition.resource">
       <path value="OperationDefinition.resource"/>
       <short value="Types this operation applies to"/>
-      <definition value="The types on which this operation can be executed."/>
+      <definition value="The types on which this operation can be executed. This must be a resource, or a type with a [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics]]] of [[[http://hl7.org/fhir/type-characteristics-code#can-be-target]]]."/>
       <comment value="If the type is an abstract resource (&quot;Resource&quot; or &quot;DomainResource&quot;) then the operation can be invoked on any concrete specialization."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
+			<type>
+				<code value="uri"/>
+			</type>
       <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRTypes"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A type of resource, or a Reference (from all versions)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
-        <additional>
-				  <key value="b-od-1"/>
-          <purpose value="ui"/>
-          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
-          <shortDoco value="This is the value set to use for just R5 resource types"/>
-        </additional>
-      </binding>
+			<binding> 
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRTypes"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+					<valueString value="FHIR"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Either a resource or a data type, including logical model types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
+			</binding>
     </element>
     <element id="OperationDefinition.system">
       <path value="OperationDefinition.system"/>
@@ -834,23 +831,23 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="uri"/>
       </type>
       <condition value="opd-7"/>
       <condition value="opd-1"/>
       <condition value="opd-2"/>
       <condition value="opd-3"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRAllTypes"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A list of all the types defined in this version of the FHIR specification - Abstract Types, Data Types and Resource Types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
-      </binding>
+			<binding> 
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRTypes"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+					<valueString value="FHIR"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Either a resource or a data type, including logical model types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+			</binding>
     </element>
     <element id="OperationDefinition.parameter.allowedType">
       <path value="OperationDefinition.parameter.allowedType"/>

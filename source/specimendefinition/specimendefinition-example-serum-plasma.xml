@@ -37,27 +37,13 @@
     </type>
     <preference value="preferred"/>
     <container>
-      <material>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="61088005"/>
-          <display value="plastic"/>
-        </coding>
-      </material>
-      <type>
+      <deviceCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="702281005"/>
           <display value="Evacuated blood collection tube, thrombin/clot activator/gel separator"/>
         </coding>
-      </type>
-      <cap>
-        <coding>
-          <system value="urn:iso:std:iso:6710:2017"/>
-          <code value="yellow"/>
-          <display value="yellow cap"/>
-        </coding>
-      </cap>
+      </deviceCodeableConcept>
       <minimumVolumeQuantity>
         <value value="2"/>
         <unit value="ml"/>
@@ -126,27 +112,13 @@
     </type>
     <preference value="alternate"/>
     <container>
-      <material>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="32039001"/>
-          <display value="glass"/>
-        </coding>
-      </material>
-      <type>
+      <deviceCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="702281005"/>
           <display value="Evacuated blood collection tube, thrombin/clot activator/gel separator"/>
         </coding>
-      </type>
-      <cap>
-        <coding>
-          <system value="urn:iso:std:iso:6710:2017"/>
-          <code value="green"/>
-          <display value="green cap"/>
-        </coding>
-      </cap>
+      </deviceCodeableConcept>
       <minimumVolumeQuantity>
         <value value="2"/>
         <unit value="ml"/>

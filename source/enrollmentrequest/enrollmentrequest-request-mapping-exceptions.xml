@@ -53,7 +53,7 @@
     <divergentElement patternPath="Request.authoredOn" resourcePath="EnrollmentRequest.created">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="When request was created/transitioned to active"/>
+            <_pattern value="When request was created/transitioned to active (e.g. signed/authorized)"/>
             <resource value="Creation date"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
