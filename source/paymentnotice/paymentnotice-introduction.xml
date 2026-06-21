@@ -3,23 +3,30 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Non-substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53921">FHIR-53918</a> - Changed 'for example' to ' For example,' and removed the following paragraph as it had redundant content.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53920">FHIR-53920</a> - Changed the search description of PaymentNotice-request to 'The request resource' adn 
+				PaymentNotice-response to 'The response to the request resource'</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53921">FHIR-53921</a> - Changed identified to identify in PaymentNotice.recipient requirements</li>
+            </ul>
+    </ul>
+    </blockquote>
 <p>
 The PaymentNotice resource indicates the resource for which the payment has been indicated and 
 reports the current status information of that payment. The payment notice may be used by providers and payers 
 to advise the provider or regulatory bodies of the state of a payment (check in the mail/EFT sent, 
-payment cashed, payment canceled)for example to provide payment status information or to document the forwarding or receipt of payment to support regulatory
+payment cashed, payment cancelled). For example, to provide payment status information or to document the forwarding or receipt of payment to support regulatory
 requirements. Employers or Insurance Exchanges may also use this to advise payers of premium payment.
-</p>
-<p>
-Payers and/or providers may have the need to advise providers and/or regulators of the status of claim settlement and payment completion. 
-This same resource may be used by employers and insurance exchanges to advise payers that premium payments have been 
-issued and settled.
 </p>
 <p>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
 
-		<p>The PaymentNotice resource is a "event" resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event.</a></p>
+		<p>The PaymentNotice resource is an "event" resource from a FHIR workflow perspective - see <a href="workflow.html#event">Workflow Event.</a></p>
 
 <h3>Additional Information</h3>
 <p>
