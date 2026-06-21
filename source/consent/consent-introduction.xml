@@ -52,20 +52,25 @@ The scope of the resource may change when the other possible scopes are investig
             encoding the privacy preferences in the form of machine-readable rules. This enables these preferences to
             be processed by a decision engine to adjudicate whether the consent permits a specific activity 
             such a sharing a particular part of patient information with a requester.</p>
-        <p>The current version of the Consent resource provides two mechanisms for recording computable rules:</p>
+        <p>The current version of the Consent resource provides two elements for recording computable rules:</p>
         <ul>
             <li>
-                the <code>policyBasis</code> attribute which provides a more flexible mechanism to reference a policy encoded 
+                the <code>policyBasis</code> element which provides a flexible mechanism to reference a policy encoded 
                 in a policy language of choice (e.g.,
                 <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=xacml">XACML</a>,
                 <a href="https://www.w3.org/community/odrl/">ODRL</a>, etc.). This is based on the assumption that the enforcers 
                 of the consent will be able to understand and apply the policy language used for encoding these rules.
             </li>
             <li>
-                the <code>provision</code> structure which provides a simple structure for capturing most common privacy rules. 
-                This is further discussed in the <a href="consent.html#provisions">Provisions section</a> below.
+                the <code>provision</code> element (including its nested structure) which provides a hierarchical structure 
+                for capturing common privacy rules. This is further discussed in the 
+                <a href="consent.html#provisions">Provisions section</a> below.
             </li>
         </ul>
+        The <code>policyBasis</code> element, if present, is intended to captures the higher-level policy governing access to the data, 
+        while the <code>provision</code> element encodes the patient-specific preferences. If both elements are populated, 
+        the patient-specific rules override the policy basis, thereby enabling the patient-specific rules to encode further 
+        constraints and exceptions to the overarching data access policy.
     </div>
 
     <div>
