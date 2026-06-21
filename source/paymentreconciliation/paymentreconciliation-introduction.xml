@@ -2,12 +2,21 @@
 
 <div>
 <a name="scope"></a>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54121">FHIR-54121</a> - Removed Invoice from PaymentReconciliation.allocation.target</li>
+            </ul>
+    </ul>
+    </blockquote>
 <h2>Scope and Usage</h2>
 <p>
 The PaymentReconciliation resource provides the bulk payment details 
 associated with a payment by the payer for receivable amounts, such as for goods and services rendered by a provider to patients 
 covered by insurance plans offered by that payer. These are the payment reconciliation details which may
-align to the individual payment amounts indicated on discrete <a href="claimresponse.html">ClaimResponses</a> or <a href="invoice.html">Invoices</a> for example.
+align to the individual payment amounts indicated on discrete <a href="claimresponse.html">ClaimResponses</a> for example.
 </p>
 <p>
 Bulk payments need to provide a means to associate the amounts paid against specific Claims, Invoices, 

@@ -9,6 +9,7 @@
     <ul>
         <li>Non-substantive:</li>
             <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54121">FHIR-54121</a> - Remove InsurancePlan from the narative and element Coverage.insurancePlan</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-54436">FHIR-54436</a> - Change description of Coverage.class.name to "Human readable description of the value"</li>
             </ul>
     </ul>
@@ -43,14 +44,6 @@ a specific individual - essentially the insurance card information. This may alt
 				<td>A Contract resource holds the references to parties who have entered into an agreement of some type, the parties who may sign or witness
 				such an agreement, descriptors of the type of agreement and even the actual text or executable copy of the agreement. The agreement may be of 
 				a variety of types including service contracts, insurance contracts, directives, etc. The contract may be either definitional or actual instances.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="insuranceplan.html">InsurancePlan</a></td>
-				<td>The InsurancePlan resource holds the definition of an insurance plan which an insurer may offer to potential clients through
-				insurance brokers or an online insurance marketplace. This is only the plan definition and does not contain or reference 
-				a list of individuals who have purchased the plan.<br/>
-				TODO: Do we need to reference the InsuranceProduct here instead?		
 				</td>
 			</tr>
 		</table>
