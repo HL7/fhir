@@ -162,7 +162,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.authoredOn" resourcePath="CommunicationRequest.authoredOn">
         <shortUnmatched reason="Unknown">
-            <_pattern value="When request was created/transitioned to active"/>
+            <_pattern value="When request was created/transitioned to active (e.g. signed/authorized)"/>
             <resource value="When request transitioned to being actionable"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
