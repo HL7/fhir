@@ -8,8 +8,8 @@
     <ul>
         <li>Non-substantive:</li>
             <ul>
-                <li><a href="https://jira.hl7.org/browse/FHIR-53921">FHIR-53918</a> - Changed 'for example' to ' For example,' and removed the following paragraph as it had redundant content.</li>
-                <li><a href="https://jira.hl7.org/browse/FHIR-53920">FHIR-53920</a> - Changed the search description of PaymentNotice-request to 'The request resource' adn 
+                <li><a href="https://jira.hl7.org/browse/FHIR-53918">FHIR-53918</a> - Changed 'for example' to ' For example,' and removed the following paragraph as it had redundant content.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53920">FHIR-53920</a> - Changed the search description of PaymentNotice-request to 'The request resource' and 
 				PaymentNotice-response to 'The response to the request resource'</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-53921">FHIR-53921</a> - Changed identified to identify in PaymentNotice.recipient requirements</li>
             </ul>
@@ -42,7 +42,7 @@ Additional information regarding electronic payment notice content and usage may
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-	The PaymentNotice resource is used to indicate that a payment has been initiated. The resource is used commonly when tracking of payment occurences is required for regulatory or business purposes, such as ensuring that payment of claim adjudications occurs within a specific timeframe. The PaymentNotice is not used to report adjudicated amounts (see <a href="claimresponse.html">ClaimResponse</a>) or to reconcile adjudicated amounts against actual payment (see <a href="paymentreconciliation.html">PaymentReconciliation</a>) 
+	The PaymentNotice resource is used to indicate that a payment has been initiated. The resource is used commonly when tracking of payment occurrences is required for regulatory or business purposes, such as ensuring that payment of claim adjudications occurs within a specific timeframe. The PaymentNotice is not used to report adjudicated amounts (see <a href="claimresponse.html">ClaimResponse</a>) or to reconcile adjudicated amounts against actual payment (see <a href="paymentreconciliation.html">PaymentReconciliation</a>) 
 </p>
 
 <p>
