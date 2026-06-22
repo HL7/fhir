@@ -355,7 +355,7 @@
           <valueString value="DeviceAlert.derivedFrom.observation" />
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAlert-derivedFrom" />
-        <description value="Whether the alert is currently occurring" />
+        <description value="The value that is causing the alert condition" />
         <code value="derived-from" />
         <type value="reference" />
         <target value="Observation" />
@@ -389,7 +389,7 @@
         <code value="signal-identifier" />
         <type value="token" />
         <base value="DeviceAlert"/>
-        <expression value="DeviceAlert.identifier" />
+        <expression value="DeviceAlert.signal.identifier" />
         <processingMode value="normal" />
       </SearchParameter>
     </resource>
