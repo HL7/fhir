@@ -67,7 +67,7 @@
     <element id="Linkage">
       <path value="Linkage"/>
       <short value="Links records for 'same' item"/>
-      <definition value="Identifies two or more records (resource instances) that refer to the same real-world &quot;occurrence&quot;."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

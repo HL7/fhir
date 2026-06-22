@@ -82,7 +82,7 @@
     <element id="BodyStructure">
       <path value="BodyStructure"/>
       <short value="Specific and identified anatomical structure"/>
-      <definition value="Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case."/>
+
       <alias value="anatomical location"/>
       <min value="0"/>
       <max value="*"/>

@@ -75,7 +75,7 @@
     <element id="OperationOutcome">
       <path value="OperationOutcome"/>
       <short value="Information about the success/failure of an action"/>
-      <definition value="A collection of error, warning, or information messages that result from a system action."/>
+
       <comment value="Can result from the failure of a REST call or be part of the response message returned from a request message."/>
       <min value="0"/>
       <max value="*"/>

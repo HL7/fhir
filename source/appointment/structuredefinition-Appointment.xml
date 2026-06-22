@@ -82,7 +82,7 @@
     <element id="Appointment">
       <path value="Appointment"/>
       <short value="A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)"/>
-      <definition value="A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

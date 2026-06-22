@@ -81,7 +81,7 @@
     <element id="DeviceMetric">
       <path value="DeviceMetric"/>
       <short value="Measurement, calculation or setting capability of a medical device"/>
-      <definition value="Describes a measurement, calculation or setting capability of a device."/>
+
       <comment value="The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable."/>
       <min value="0"/>
       <max value="*"/>

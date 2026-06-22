@@ -82,7 +82,7 @@
     <element id="DeviceUsage">
       <path value="DeviceUsage"/>
       <short value="Record of use of a device"/>
-      <definition value="A record of a device being used by a patient where the record is the result of a report from the patient or a clinician."/>
+
       <min value="0"/>
       <max value="*"/>
       <mapping>

@@ -48,7 +48,7 @@
 			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
 		</telecom>
 	</contact>
-	<description value="The ActorDefinition resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
+  <description value="Provides a definition of an actor - a system, individual, non-system device, or collective - that plays a role in a process, such as data exchange, along with associated obligations."/>
 	<fhirVersion value="6.0.0"/>
 	<mapping>
 		<identity value="workflow"/>

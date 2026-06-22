@@ -56,7 +56,7 @@
     <element id="DomainResource">
       <path value="DomainResource"/>
       <short value="A resource with narrative, extensions, and contained resources"/>
-      <definition value="A resource that includes narrative, extensions, and contained resources."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

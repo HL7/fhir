@@ -80,7 +80,7 @@
     <element id="ConditionDefinition">
       <path value="ConditionDefinition"/>
       <short value="A definition of a condition"/>
-      <definition value="A definition of a condition and information relevant to managing it."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

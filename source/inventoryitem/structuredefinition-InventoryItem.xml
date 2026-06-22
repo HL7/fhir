@@ -36,7 +36,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="functional description of an inventory item used in inventory and supply-related workflows."/>
+  <description value="A functional description of an inventory item used in inventory and supply-related workflows."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -67,7 +67,7 @@
     <element id="InventoryItem">
       <path value="InventoryItem"/>
       <short value="A functional description of an inventory item used in inventory and supply-related workflows"/>
-      <definition value="A functional description of an inventory item used in inventory and supply-related workflows."/>
+
       <min value="0"/>
       <max value="*"/>
       <mapping>

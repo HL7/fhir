@@ -80,7 +80,7 @@
 		<element id="ObservationDefinition">
 			<path value="ObservationDefinition"/>
 			<short value="Definition of an observation"/>
-			<definition value="Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service."/>
+
 			<comment
 				value="An instance of this resource informs the consumer of a health-related service (such as a lab diagnostic test or panel) about how the observations used or produced by this service will look like."/>
 			<min value="0"/>

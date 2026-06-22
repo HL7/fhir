@@ -79,7 +79,7 @@
 		<element id="EventDefinition">
 			<path value="EventDefinition"/>
 			<short value="A description of when an event can occur"/>
-			<definition value="The EventDefinition resource provides a reusable description of when a particular event can occur."/>
+
 			<min value="0"/>
 			<max value="*"/>
 			<constraint>

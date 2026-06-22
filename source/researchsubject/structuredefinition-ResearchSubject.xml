@@ -77,7 +77,7 @@
     <element id="ResearchSubject">
       <path value="ResearchSubject"/>
       <short value="Participant or object which is the recipient of investigative activities in a study"/>
-      <definition value="A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study."/>
+
       <comment value="Need to make sure we encompass public health studies."/>
       <alias value="Study Subject"/>
       <min value="0"/>

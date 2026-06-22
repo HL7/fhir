@@ -43,7 +43,7 @@
     <element id="Bundle">
       <path value="Bundle" />
       <short value="Represents a FHIR document" />
-      <definition value="A container the resources of a FHIR document." />
+
     </element>
     <element id="Bundle.identifier">
       <path value="Bundle.identifier" />

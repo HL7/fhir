@@ -82,7 +82,7 @@
     <element id="PaymentNotice">
       <path value="PaymentNotice"/>
       <short value="PaymentNotice request"/>
-      <definition value="This resource provides the status of the payment for goods and services rendered, and the request and response resource references."/>
+
       <min value="0"/>
       <max value="*"/>
       <mapping>

@@ -67,7 +67,7 @@
     <element id="Flag">
       <path value="Flag"/>
       <short value="Key information to flag to healthcare providers"/>
-      <definition value="Prospective warnings of potential issues when providing care to the patient."/>
+
       <alias value="Barriers to Care"/>
       <alias value="Alert"/>
       <alias value="Warning"/>
@@ -303,7 +303,7 @@
 		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
       </type>
       <isSummary value="false"/>
-      
+
     </element>
   </differential>
 </StructureDefinition>

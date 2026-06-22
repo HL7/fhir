@@ -80,7 +80,7 @@
     <element id="Observation">
       <path value="Observation"/>
       <short value="FHIR Body Height Profile"/>
-      <definition value="This profile defines  how to represent Body Height observations in FHIR using a standard LOINC code and UCUM units of measure."/>
+
       <constraint>
         <key value="vs-4"/>
         <severity value="error"/>

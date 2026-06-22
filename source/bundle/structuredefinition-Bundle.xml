@@ -79,7 +79,7 @@
 		<element id="Bundle">
 			<path value="Bundle"/>
 			<short value="Contains a collection of resources"/>
-			<definition value="A container for a collection of resources."/>
+
 			<min value="0"/>
 			<max value="*"/>
 			<constraint>

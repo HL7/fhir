@@ -73,7 +73,7 @@
     <element id="Specimen">
       <path value="Specimen"/>
       <short value="Sample for analysis"/>
-      <definition value="A sample to be used for analysis."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

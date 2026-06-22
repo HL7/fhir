@@ -72,7 +72,7 @@
     <element id="Schedule">
       <path value="Schedule"/>
       <short value="A container for slots of time that may be available for booking appointments"/>
-      <definition value="A container for slots of time that may be available for booking appointments."/>
+
       <alias value="Availability"/>
       <min value="0"/>
       <max value="*"/>

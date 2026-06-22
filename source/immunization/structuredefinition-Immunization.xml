@@ -82,7 +82,7 @@
     <element id="Immunization">
       <path value="Immunization"/>
       <short value="Immunization event information"/>
-      <definition value="Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>

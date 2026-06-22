@@ -67,7 +67,7 @@
     <element id="SubscriptionStatus">
       <path value="SubscriptionStatus"/>
       <short value="Status information about a Subscription provided during event notification"/>
-      <definition value="The SubscriptionStatus resource describes the state of a Subscription during notifications."/>
+
       <min value="0"/>
       <max value="*"/>
       <constraint>
