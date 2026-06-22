@@ -756,9 +756,6 @@
       </binding>
     </element>
     <element id="Measure.topic">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/> 
-      </extension> 
       <path value="Measure.topic"/> 
       <short value="The category of the measure, such as Education, Treatment, Assessment, etc"/> 
       <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level
