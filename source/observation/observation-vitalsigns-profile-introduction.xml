@@ -124,9 +124,6 @@
 						<em>Vital signs, weight, height, head circumference, oxygen saturation and BMI panel</em>
 						<p>This represents a panel of vital signs, e.g. those listed in this table.  All members of the panel are optional and note that querying for the panel may miss individual results that are not part of the actual panel.  
 							In this panel, Observation.valueQuantity is not present - instead, it uses Observation.hasMember to reference individual vital signs observations (e.g. respiratory rate, heart rate, BP, etc.).</p>
-						<ul>
-							<li>In the example, the Observation.organizer element is used to further specify that this represents a "panel" of vital signs observations (without a value of its own).</li>
-						</ul>
 					</td>
 					<td>-</td>
 					<td>
