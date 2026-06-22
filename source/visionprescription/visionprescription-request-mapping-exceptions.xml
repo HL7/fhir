@@ -104,7 +104,7 @@
     <divergentElement patternPath="Request.authoredOn" resourcePath="VisionPrescription.dateWritten">
         <lowerCardinality _pattern="0" _resource="1" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="When request was created/transitioned to active"/>
+            <_pattern value="When request was created/transitioned to active (e.g. signed/authorized)"/>
             <resource value="When prescription was authorized"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">

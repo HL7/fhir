@@ -31,7 +31,7 @@ This extension allows exceptional values to be conveyed, as well as for data to 
 In v3, null flavors were often required for data types when particular components were missing.  In the FHIR core specification, there is <b>never</b> an
 automatic requirement to send a null flavor, though profiles may introduce such a requirement.  As well, the need for null flavors is often made
 explicit in the specification by adding relevant null flavors to the value set for coded elements or by introducing a "choice" of data type such that
-either a normal value or a coded special value can be specified.  For example, a resouce might have a <code>quantity[x]</code> element with a type of
+either a normal value or a coded special value can be specified.  For example, a resource might have a <code>quantity[x]</code> element with a type of
 <code>Quantity | code</code> where the value set is limited to TRC, QS or UNK.  In this way, only those null flavors that are relevant to the context are
 included.
 </p>
