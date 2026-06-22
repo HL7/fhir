@@ -84,6 +84,7 @@ jobs:
       trigger_kind: ${{ steps.check.outputs.trigger_kind }}
       build_timeout: ${{ steps.wait.outputs.build_timeout }}
       pr_title: ${{ steps.check.outputs.pr_title }}
+      security_override: ${{ steps.check.outputs.security_override }}
 
     steps:
       - name: Evaluate trigger eligibility
@@ -134,6 +135,41 @@ jobs:
               const comment = context.payload.comment;
               const prAuthor = pr.user.login;
 
+              // Security override path: an admin comment containing
+              // "securityok" (case-insensitive) re-triggers triage and
+              // bypasses the Tier 1 hard-fail in the diff scan. This is
+              // independent of the author-response logic below — it fires
+              // regardless of who the PR author is, as long as the commenter
+              // is a repo admin. Non-admins get no override.
+              if (/securityok/i.test(comment.body || '')) {
+                let commenterPerm = 'none';
+                try {
+                  const { data: perm } = await github.rest.repos.getCollaboratorPermissionLevel({
+                    owner, repo, username: comment.user.login,
+                  });
+                  commenterPerm = perm.permission;
+                } catch (err) {
+                  commenterPerm = 'none';
+                }
+
+                if (commenterPerm === 'admin') {
+                  core.notice(`Security override requested by admin ${comment.user.login}.`);
+                  core.setOutput('should_triage', 'true');
+                  core.setOutput('security_override', 'true');
+                  core.setOutput('pr_number', String(prNumber));
+                  core.setOutput('head_sha', pr.head.sha);
+                  core.setOutput('base_sha', pr.base.sha);
+                  core.setOutput('base_ref', pr.base.ref);
+                  core.setOutput('html_url', pr.html_url);
+                  core.setOutput('trigger_kind', 'security_override');
+                  core.setOutput('pr_title', pr.title || '');
+                  return;
+                } else {
+                  core.notice(`"securityok" comment from non-admin ${comment.user.login} — ignoring override.`);
+                  // Fall through to normal author-response logic below.
+                }
+              }
+
               if (comment.user.login !== prAuthor) {
                 core.notice(`Comment is not from PR author (${comment.user.login} vs ${prAuthor}) — skipping.`);
                 core.setOutput('should_triage', 'false');
@@ -182,6 +218,7 @@ jobs:
             }
 
             core.setOutput('should_triage', 'true');
+            core.setOutput('security_override', 'false');
             core.setOutput('pr_number', String(prNumber));
             core.setOutput('head_sha', pr.head.sha);
             core.setOutput('base_sha', pr.base.sha);
@@ -347,6 +384,7 @@ jobs:
         env:
           BASE_REF: ${{ needs.eligibility.outputs.base_ref }}
           HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
+          SECURITY_OVERRIDE: ${{ needs.eligibility.outputs.security_override }}
         run: |
           set -e
 
@@ -372,6 +410,7 @@ jobs:
 
           base_sha = os.environ["DIFF_BASE"]
           head_sha = os.environ["HEAD_SHA"]
+          security_override = os.environ.get("SECURITY_OVERRIDE", "") == "true"
           gh_output = os.environ.get("GITHUB_OUTPUT", "")
 
           def write_output(key, value):
@@ -533,19 +572,33 @@ jobs:
               return "\n".join(lines)
 
           tier1_text = render_findings(tier1_findings, "### Tier 1 findings (triage skipped)")
+          tier1_overridden_text = render_findings(tier1_findings, "### Tier 1 findings (OVERRIDDEN by securityok)")
           tier2_text = render_findings(tier2_findings, "### Advisory findings")
 
-          if tier1_findings:
+          if tier1_findings and security_override:
+              # Admin used "securityok" to bypass the hard-fail. Proceed with
+              # triage, but record what was overridden so it appears in the
+              # triage email for audit purposes.
+              sys.stderr.write(f"TIER 1 findings present but OVERRIDDEN by securityok: {len(tier1_findings)}\n")
+              for f in tier1_findings:
+                  sys.stderr.write(f"  - (overridden) {f['rule']} in {f['file']}\n")
+              write_output("suspicious", "false")
+              write_output("tier1_findings", "")
+              write_output("tier1_overridden", tier1_overridden_text)
+              write_output("tier2_advisory", tier2_text)
+          elif tier1_findings:
               sys.stderr.write(f"TIER 1 findings: {len(tier1_findings)}\n")
               for f in tier1_findings:
                   sys.stderr.write(f"  - {f['rule']} in {f['file']}\n")
               write_output("suspicious", "true")
               write_output("tier1_findings", tier1_text)
+              write_output("tier1_overridden", "")
               write_output("tier2_advisory", tier2_text)
           else:
               sys.stderr.write(f"No Tier 1 findings. Tier 2: {len(tier2_findings)}\n")
               write_output("suspicious", "false")
               write_output("tier1_findings", "")
+              write_output("tier1_overridden", "")
               write_output("tier2_advisory", tier2_text)
           PY
 
@@ -1077,6 +1130,8 @@ jobs:
                 Evaluate whether the author's reply resolves the concerns that
                 were raised. If it does, recommend approve. If not, restate the
                 unresolved concern.
+              - "security_override": an admin commented to bypass the security
+                scan and re-trigger triage. Do a full triage.
 
             === Jira ticket verification ===
 
@@ -1251,9 +1306,10 @@ jobs:
           echo "link_url=$LINK_URL" >> $GITHUB_OUTPUT
 
           case "$TRIGGER_KIND" in
-            author_responded) SUBJECT_TAG="follow-up" ;;
-            ready_for_review) SUBJECT_TAG="ready for review" ;;
-            *)                SUBJECT_TAG="triage" ;;
+            author_responded)  SUBJECT_TAG="follow-up" ;;
+            ready_for_review)  SUBJECT_TAG="ready for review" ;;
+            security_override) SUBJECT_TAG="security override" ;;
+            *)                 SUBJECT_TAG="triage" ;;
           esac
           echo "subject_tag=$SUBJECT_TAG" >> $GITHUB_OUTPUT
 
@@ -1295,6 +1351,9 @@ jobs:
           SUGGESTED_RESPONSE_MD: ${{ steps.parse.outputs.suggested_response_md }}
           TICKET_BLOCK: ${{ steps.parse.outputs.ticket_block }}
           TIER2_ADVISORY: ${{ steps.scan.outputs.tier2_advisory }}
+          TIER1_OVERRIDDEN: ${{ steps.scan.outputs.tier1_overridden }}
+          SECURITY_OVERRIDE: ${{ needs.eligibility.outputs.security_override }}
+          HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
           CONFIDENCE: ${{ steps.parse.outputs.confidence }}
           RECOMMENDATION: ${{ steps.parse.outputs.recommendation }}
           LINK_URL: ${{ steps.parse.outputs.link_url }}
@@ -1311,6 +1370,9 @@ jobs:
           suggested_md = os.environ.get("SUGGESTED_RESPONSE_MD", "")
           ticket_block = os.environ.get("TICKET_BLOCK", "")
           tier2 = os.environ.get("TIER2_ADVISORY", "")
+          tier1_overridden = os.environ.get("TIER1_OVERRIDDEN", "")
+          security_override = os.environ.get("SECURITY_OVERRIDE", "") == "true"
+          head_sha = os.environ.get("HEAD_SHA", "")
           link_url = os.environ["LINK_URL"]
 
           has_content = suggested_md.strip() and suggested_md.strip().lower() != "null"
@@ -1318,11 +1380,21 @@ jobs:
 
           print(f"Recommendation: {recommendation}")
           print(f"Confidence: {confidence}")
+
+          if security_override:
+              print()
+              print(f"NOTE: Security scan was overridden via securityok for commit {head_sha}.")
+
           print()
           print(body_text)
           print()
           print("--- Jira alignment ---")
           print(ticket_block.strip())
+
+          if tier1_overridden and tier1_overridden.strip():
+              print()
+              print("--- Security findings OVERRIDDEN ---")
+              print(tier1_overridden.strip())
 
           if tier2 and tier2.strip():
               print()
