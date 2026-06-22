@@ -42,23 +42,23 @@
       <system value="http://snomed.info/sct"/>
       <concept>
         <code value="434711009"/>
-        <display value="Specimen container"/>
+        <display value="Specimen container (physical object)"/>
       </concept>
       <concept>
         <code value="434746001"/>
-        <display value="Specimen vial"/>
+        <display value="Specimen vial (physical object)"/>
       </concept>
       <concept>
         <code value="434822004"/>
-        <display value="Specimen well"/>
+        <display value="Specimen well (physical object)"/>
       </concept>
       <concept>
         <code value="713791004"/>
-        <display value="Breath specimen container"/>
+        <display value="Breath specimen container (physical object)"/>
       </concept>
       <concept>
         <code value="1331905008"/>
-        <display value="Preservative liquid based cytology specimen vial"/>
+        <display value="Cytology specimen vial containing preservative fluid (physical object)"/>
       </concept>
       <concept>
         <code value="702281005"/>

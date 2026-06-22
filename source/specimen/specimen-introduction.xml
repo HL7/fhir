@@ -30,9 +30,7 @@
 	<a name="bnc"></a>
 	<h2>Background and Context</h2>
 	<p>
-	The current definition of the specimen resource contains only basic information about specimen containers. It does not
-	address the tracking of the location of a container within its parent container
-	(for instance: a tube in a tray in a rack in a freezer). The recursive nature of container should be expressed via Specimen.device.parent. The frequency with which these elements are tracked may depend on the context
+	The current definition of the specimen resource contains only basic information about specimen containers. The recursive nature of container should be expressed via Specimen.device.parent. The frequency with which these elements are tracked may depend on the context
 	of use; general lab, bio-banking, etc. Comments from reviewers on the appropriate scope for this resource, and the need for tracking
 	related specimen management attributes, are welcomed.
 	</p>
