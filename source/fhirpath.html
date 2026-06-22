@@ -357,6 +357,14 @@ Patient.managingOrganization.resolve().name
 Observation.subject.where(resolve() is Patient)
 </pre>
 
+<p>
+When implementing <code>resolve()</code>, it is at the discretion of the engine what protocols, 
+FHIR formats and versions are supported and whether and which logical models are handled.
+</p>
+<pre class="fhirpath">
+DocumentReference.content.attachment.url.resolve() // When using DocumentReference as an index entry to resources stored elsewhere
+</pre>
+
   <hr/>
 <a name="fn-ofType2"> </a><a name="fn-ofType"> </a>
 <h5><b>ofType(type : type specifier) : collection</b></h5>
