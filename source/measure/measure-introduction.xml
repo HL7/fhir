@@ -6,6 +6,9 @@
             <ul>
                 <li>Non-compatible Changes
                     <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-56502">FHIR-56502</a>: Remove stratifier/supplementalData parameters in $evaluate</li>
+                    </ul>
+                    <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55967">FHIR-55967</a>: Align reporter parameters in $evaluate, $care-gaps, and $collect-data</li>
                     </ul>
                     <ul>
@@ -19,10 +22,13 @@
                 </li>
                 <li>Non-substantive Changes
                     <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-56508">FHIR-56508</a>: Operation to create derived measure</li>
+                    </ul>
+                    <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55080">FHIR-55080</a>: Potentially re-useable THO-candidate value sets in resource Measure</li>
                     </ul>
                     <ul>
-                        <li><a href="https://jira.hl7.org/browse/FHIR-55436">FHIR-55436</a>: Remove deprecated Measure.topic</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55436">FHIR-55436</a>: Un-deprecating Measure.topic</li>
                     </ul>
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55437">FHIR-55437</a>: Remove deprecated Measure.guidance</li>
