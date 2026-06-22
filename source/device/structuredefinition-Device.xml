@@ -1346,12 +1346,13 @@
     <element id="Device.additive.type">
       <path value="Device.additive.type"/>
       <short value="The additive substance"/>
-      <definition value="The type of the substance added to the container.  This is represented as a concept from a code system or described in a Substance resource."/>
+      <definition value="The type of the substance added to the container.  This is represented as a concept from a code system or described in a Substance or SubstanceDefinition resource."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

@@ -10,13 +10,13 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="SpecimenDefinition.typeTested.container.type"/>
+          <valueString value="SpecimenDefinition.typeTested.container.device.ofType(CodeableConcept)"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/SpecimenDefinition-container"/>
         <description value="The type of specimen conditioned in container expected by the lab"/>
         <code value="container"/>
         <type value="token"/>
-        <expression value="SpecimenDefinition.typeTested.container.type"/>
+        <expression value="SpecimenDefinition.typeTested.container.device.ofType(CodeableConcept)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
