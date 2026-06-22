@@ -834,37 +834,6 @@
         <code value="boolean"/>
       </type>
     </element>
-    <element id="Coverage.contract">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="C.35."/>
-      </extension>
-      <path value="Coverage.contract"/>
-      <short value="Contract details"/>
-      <definition value="The policy(s) which constitute this insurance coverage."/>
-      <requirements value="To reference the legally binding contract between the policy holder and the insurer."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
-      </type>
-      <mapping>
-        <identity value="cdanetv4"/>
-        <map value="D01 through D09"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="IN1-16, 18,  19"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-      <mapping>
-        <identity value="cpha3pharm"/>
-        <map value="C.35"/>
-      </mapping>
-    </element>
     <element id="Coverage.insurancePlan">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="C.35."/>

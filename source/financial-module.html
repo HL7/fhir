@@ -37,7 +37,6 @@ See also the <a href="administration-module.html">Administration</a> and <a href
             <td>
                 <ul>
                     <li><a href="account.html">Account</a></li>
-                    <li><a href="contract.html">Contract</a></li>
                     <li><a href="coverage.html">Coverage</a></li>
                     <li><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
                     <li><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
@@ -72,7 +71,6 @@ See also the <a href="administration-module.html">Administration</a> and <a href
     <table class="bare">
         <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
         [%res-item Account%]
-        [%res-item Contract%]
         [%res-item Coverage%]
         [%res-item CoverageEligibilityRequest%]
         [%res-item CoverageEligibilityResponse%]
@@ -247,7 +245,7 @@ a Poll is a Task referring to: a previously undelivered response Resource; a Bun
 contain errors. 
 </p>
 <p>
-A simple Poll request, one which doesn't specify additional .input parameters: origresponse, include, exclude, period or count; would return
+A simple Poll request, one which does not specify additional .input parameters: origresponse, include, exclude, period or count; would return
 any single pended resource. Specific types of business behaviors may be supported by providing values for the
 filtering elements in the .input element, for example:
 </p>
@@ -291,7 +289,7 @@ reprocessing of specified service sub-trees from an already processed resource s
 provides any supporting information for the status request. 
 </p>
 <p>
-This is a formal request for systems which require requisition-level information or transports which don't support a
+This is a formal request for systems which require requisition-level information or transports which do not support a
 'Get Operation', for the processing status of a previously submitted processing request.
 </p>
 <p>
