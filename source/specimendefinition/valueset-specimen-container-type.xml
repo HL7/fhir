@@ -1,31 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="specimen-container-type"/>
+  <id value="specimendefinition-container-type"/>
   <meta>
     
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.470"/>
-  </identifier>
-  <identifier>
-    <use value="old"/>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.463"/>
-  </identifier>
-  <identifier>
-    <use value="old"/>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.2.277"/>
-  </identifier>
+  <url value="http://hl7.org/fhir/ValueSet/specimendefinition-container-type"/>
   <version value="6.0.0"/>
-  <name value="SpecimenContainerType"/>
-  <title value="Specimen Container Type"/>
+  <name value="SpecimenDefinitionContainerType"/>
+  <title value="SpecimenDefinition Container Type"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
