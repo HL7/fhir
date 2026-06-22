@@ -33,8 +33,6 @@ The scope of the resource may change when the other possible scopes are investig
             resource may be the best way to manage the tracking of the changes to Consent. In addition, the
             <a href="https://www.hl7.org/fhir/documentreference.html">DocumentReference</a>
             may be used as an attachment to show the stages of consent ceremony with additional or updated document(s) attached at each stage.
-            <a href="https://www.hl7.org/fhir/contract.html">Contract</a>
-            may also be used in this fashion where as signatures are gathered or conditions applied, the Contract resource can be updated and attached to the Consent.
         </p>
         <h3>Simple vs. Computable Consent</h3>
         <p>
