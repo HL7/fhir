@@ -11,6 +11,7 @@
             	<li>SubstanceDefinition.moiety.identifier, which was made 0..* (previously 0..1)</li>
             	<li>SubstanceDefinition.name.official.authority, value set (and code system) substance-name-authority has been extended with code: "UT", UMC Terminologies</li>
             </ul>
+        <li>Classes moved in from R5 resources SubstanceNucleicAcid, SubstancePolymer and SubstanceProtein</li>
     </ul>
     </blockquote>
 		<p>SubstanceDefinition is used for rich descriptions of substances, of any type, to support the detailed definition of medications, 
