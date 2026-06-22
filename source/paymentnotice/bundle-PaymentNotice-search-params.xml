@@ -89,7 +89,7 @@
           <valueString value="PaymentNotice.request"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-request"/>
-        <description value="The Claim"/>
+        <description value="The request resource"/>
         <code value="request"/>
         <type value="reference"/>
         <expression value="PaymentNotice.request"/>
@@ -108,7 +108,7 @@
           <valueString value="PaymentNotice.response"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-response"/>
-        <description value="The ClaimResponse"/>
+        <description value="The response to the request resource"/>
         <code value="response"/>
         <type value="reference"/>
         <expression value="PaymentNotice.response"/>
