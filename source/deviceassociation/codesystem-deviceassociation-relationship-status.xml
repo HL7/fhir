@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="deviceassociation-relationship-status"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/deviceassociation-relationship-status"/>
+  <version value="6.0.0"/>
+  <name value="DeviceAssociationRelationshipStatusCodes"/>
+  <title value="DeviceAssociation Relationship Status Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <description value="Codes that describe the lifecycle state of a DeviceAssociation relationship."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-relationship-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="planned"/>
+    <display value="Planned"/>
+    <definition value="The relationship is intended or scheduled but is not yet active."/>
+  </concept>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The relationship is currently active."/>
+  </concept>
+  <concept>
+    <code value="suspended"/>
+    <display value="Suspended"/>
+    <definition value="The relationship is temporarily inactive and may resume."/>
+  </concept>
+  <concept>
+    <code value="ended"/>
+    <display value="Ended"/>
+    <definition value="The relationship has concluded."/>
+  </concept>
+  <concept>
+    <code value="removed"/>
+    <display value="Removed"/>
+    <definition value="The relationship ended because the device was removed from the subject, location, or context."/>
+  </concept>
+  <concept>
+    <code value="abandoned"/>
+    <display value="Abandoned"/>
+    <definition value="The relationship has been left in place but is no longer intended to be active."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The relationship status is not known."/>
+  </concept>
+</CodeSystem>
