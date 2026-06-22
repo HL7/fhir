@@ -51,7 +51,7 @@
           <valueString value="PractitionerRole.period"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-date"/>
-        <description value="The period during which the practitioner is authorized to perform in these role(s)"/>
+        <description value="Date(s) within the period during which the practitioner is authorized to perform in these role(s)"/>
         <code value="date"/>
         <type value="date"/>
         <expression value="PractitionerRole.period"/>

@@ -158,6 +158,8 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="This resource is generally assumed to be active if no value is provided for the active element"/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -381,7 +383,7 @@
     <element id="PractitionerRole.contact">
       <path value="PractitionerRole.contact"/>
       <short value="Official contact details relating to this PractitionerRole"/>
-      <definition value="The contact details of communication devices available relevant to the specific PractitionerRole. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
+      <definition value="The contact details of available ways to contact the specific PractitionerRole for specific purposes. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses, web sites and various addresses."/>
       <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these. Sometimes these also include a named person/organization that handles contact for specific purposes, such as a receptionist, or accounts clerk etc."/>
       <min value="0"/>
       <max value="*"/>
