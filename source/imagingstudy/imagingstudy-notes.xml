@@ -139,7 +139,7 @@ see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/se
 <a name="wado-uri"></a>
 <h4>WADO-URI</h4>
 <p>
-  An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies a DICOM WADO-URI service (see <a href="endpoint-example-wado-uri.html">example of DICOM WADO-URI endpoint</a>)).
+  An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies a DICOM WADO-URI service (see <a href="endpoint-example-wado-uri.html">example of DICOM WADO-URI endpoint</a>).
 </p>
 <p>
 The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
