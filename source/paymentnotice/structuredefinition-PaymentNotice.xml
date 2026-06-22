@@ -305,7 +305,7 @@
       <path value="PaymentNotice.recipient"/>
       <short value="Party being notified"/>
       <definition value="The party who is notified of the payment status."/>
-      <requirements value="Needed to identified the recipient of the notification."/>
+      <requirements value="Needed to identify the recipient of the notification."/>
       <min value="1"/>
       <max value="1"/>
       <type>
