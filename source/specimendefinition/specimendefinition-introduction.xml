@@ -3,6 +3,9 @@
 		<p><b>Release Notes (pending alternative process review with FMG):</b></p>
 		<ul>
 			<li><a href="https://jira.hl7.org/browse/FHIR-55277">FHIR-55277</a></li>
+			<li><a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
+			<li><a href="https://jira.hl7.org/browse/FHIR-54840">FHIR-54840</a></li>
+			<li><a href="https://jira.hl7.org/browse/FHIR-54837">FHIR-54837</a></li>
 		</ul>
 	</blockquote>
 	<div>
@@ -18,9 +21,13 @@ SpecimenDefinition will define a kind of specimen, which can be associated with 
 		<p>
 This resource relates to these other resources:		</p>
 		<ul>
-			<li>The SpecimenDefinition resource is referenced by the Catalog resource, which represents a whole catalog, to enable the creation and maintenance of kinds of specimens within a catalog of orderable diagnostic services.
+			<li>The SpecimenDefinition resource is referenced by the <a href="catalog.html">Catalog</a> profile, which represents a whole catalog, to enable the creation and maintenance of kinds of specimens within a catalog of orderable diagnostic services.
 </li>
-			<li>The SpecimenDefinition resource references the SubstanceDefinition resource, in order to describe the type of substance (body fluid, other material) concerned by a kind of specimen. It also references the SubstanceDefinition resource to describe additives to be used in the production of specimens of some kind.
+			<li>The SpecimenDefinition resource references the <a href="substancedefinition.html">SubstanceDefinition</a> resource, in order to describe the type of substance (body fluid, other material) concerned by a kind of specimen. It also references the <a href="substancedefinition.html">SubstanceDefinition</a> resource to describe additives to be used in the production of specimens of some kind.
+</li>
+			<li>The SpecimenDefinition resource is referenced by the <a href="observationdefinition.html">ObservationDefinition</a> resource to indicate what kind(s) of specimen(s) are needed for this type of observation.
+</li>
+			<li>The SpecimenDefinition resource can also be referenced for planning purposes by <a href="activitydefinition.html">ActivityDefinition</a>, <a href="plandefinition.html">PlanDefinition</a>, and <a href="requestorchestration.html">RequestOrchestration</a>.
 </li>
 		</ul>
 	</div>

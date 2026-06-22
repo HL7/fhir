@@ -231,16 +231,13 @@
 			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
 			<isSummary value="true"/>
 		</element>
-		<element id="SpecimenDefinition.subject[x]">
-			<path value="SpecimenDefinition.subject[x]"/>
+		<element id="SpecimenDefinition.subjectReference">
+			<path value="SpecimenDefinition.subjectReference"/>
 			<short value="Type of subject for specimen collection"/>
-			<definition value="A code or group definition that describes the intended subject  from which this kind of specimen is to be collected."/>
-			<comment value="Examples: person, animal, device, water …."/>
+			<definition value="Defines the intended subject type(s) from which this kind of specimen is to be collected."/>
+			<comment value="Use the Group.type code: 'person' if the subject is human; 'animal' if the subject is animal; a choice of 'location', 'medication', 'substance', 'biologicallyDerivedProduct', or 'nutritionProduct' if the subject is environmental.&#xA;&#xA;For more detailed descriptions of the kind of subjects, use Group.characteristic.value to indicate included (or, if Group.characteristic.exclude = true, excluded) subjects based on specific Group.characteristic.code.&#xA;&#xA;For example, to indicate child or adult, use descendants of [410598002 | Person categorized by age (person)](https://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=410598002&amp;edition=MAIN&amp;release=&amp;languages=en) in Group.characteristic.valueCodeableConcept, where .code = https://loinc.org/46251-5/, or report age range in .valueRange where .code = https://loinc.org/35659-2/.&#xA;&#xA;For example, to indicate allowable species or breed, use descendants of [387961004 | Kingdom Animalia (organism)](https://browser.ihtsdotools.org/?perspective=full&amp;conceptId1=387961004&amp;edition=MAIN&amp;release=&amp;languages=en) when Group.type is 'animal'."/>
 			<min value="0"/>
 			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
 			<type>
 				<code value="Reference"/>
 				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>

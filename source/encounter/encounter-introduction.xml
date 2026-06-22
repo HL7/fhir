@@ -45,50 +45,73 @@ resolve complications from an earlier procedure.
 </p>
 
 <h3>Status Management</h3>
+<h4>Tracking Encounter Status</h4>
 <p>
-During the life-cycle of an encounter it will pass through many statuses and subject statuses. Typically these are in order or the
-organization/department's workflow(s) e.g. planned, in-progress, completed/cancelled. In general terms the Encounter and 
-Appointment both align with the <a href="lifecycle.html#clinical">Clinical Workflow Process Life Cycle</a> pattern.<br/>
-The status property tracks the (current) overall status of the encounter, whereas the subjectStatus property more closely tracks
-the patient explicitly. For example in a hospital emergency department the subjectStatus would reflect the patient's status 
-e.g. arrived (when the patient first presents to the ED), triaged (when the patient is assessed by a triage nurse), etc.<br/>
-This status information is often used for other things, and often an analysis of the status history is required for things like billing.
-This could be done by scanning through all the resource history versions of the encounter, checking the period of each,
-and then doing some form of post processing. However, this information is not always completed in real-time (or even in the same system)
-and needs to be updated over time - as a result the resource history is not adequate to satisfy these needs, and subsequently 
-the new <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-EncounterHistory.html">EncounterHistory</a> resource provides this information<br/>
+During the life-cycle of an encounter it will pass through many statuses.  There are a few different types of status that can be tracked:
+</p>
+<ul>
+<li><b>status</b> - The overall current encounter status (e.g., in-progress)</li>
+<li><b>businessStatus</b> - A more granular business status (e.g., pre-admitted for inpatient)</li>
+<li><b>subjectStatus</b> - The status of the patient with respect to the encounter (e.g., arrived)</li>
+</ul>
+<p>
+In general terms the Encounter and Appointment both align with the <a href="https://build.fhir.org/lifecycle.html#clinical">Clinical Workflow Process Life Cycle</a> pattern.
+</p>
+<p>
+Note that the businessStatus may have different value sets based on the specific workflows. 
+For example, it may track check-in and check-out for outpatient visits, but admit and discharge for inpatient visits. 
+The workflows tracked in businessStatus.type are expected to line up with Encounter.class values in most cases.
+</p>
+<p>
+For example in a hospital emergency department the subjectStatus would reflect the patient's status e.g. arrived (when the patient first presents to the ED), triaged (when the patient is assessed by a triage nurse), etc.
+</p>
+<p>
+There is no direct indication purely by the status or subjectStatus field as to whether an encounter is considered "admitted". 
+Thus, a businessStatus.code = "admitted" with a businessStatus.type = "inpatient" can indidate that the patient is admitted in an inpatient context. 
+The context of the encounter and business practices/policies/workflows/types can influence this definition. (e.g., acute care facility, aged care center, outpatient clinic, emergency department, community-based clinic).
+</p>
+<p>
+Subject statuses of "arrived", "triaged" or "receiving-care" could be considered the start of the admission, and also have the presence of the admission sub-component entered.
+The "discharged" status can be used when the patient care is complete but the encounter itself is not yet completed, such as while collating required information for billing or other purposes, or could be skipped and go direct to "completed". 
+Refer to the <a href="appointment.html#status-flow">appointment</a> page for some sample possible workflows.<br/>
+Also note that the binding for subjectStatus is "example" so that local use-cases could also include their own states to capture things like a "waiting" status if they decide to capture this in their specific workflow.
+</p>
+<p>
+Subjects that have left without being seen would have a subjectStatus of departed, or possibly an implementer-specific code, 
+while the Encounter.status could be completed or cancelled, depending on whether the patient had received some care before leaving, 
+or other local business rules that could impact billing.
+</p>
+<p>
+The "on-leave" subject status might or might not be a part of the admission, for example if the patient was permitted to go home for a weekend or some other form of external event.
+During this time the encounter status itself might be marked as "on-hold". 
+Local systems may have multiple different types of leave/hold and these can use appropriate combinations fo the status/subjectStatus fields to represent this.<br/>
+The location is also likely to be filled in with a location status of "active".<br/>
+For other examples such as an outpatient visit (day procedure - colonoscopy), the patient could also be considered to be admitted, 
+hence the encounter doesn't have a fixed definition of admitted. 
+At a minimum, we do believe that a patient IS admitted when the status is in-progress.
+</p>
+<h4>Encounter Class and Encounter Statuses</h4>
+<p>
+The class element describes the setting (in/outpatient etc.) in which the Encounter took place. 
+Since this is important for interpreting the context of the encounter, choosing the appropriate business rules to enforce 
+and for the management of the process, this element should be provided.
+</p>
+<p>
+The context in which the Encounter took place (the class) often defines the business statuses that Encounter can progress through. 
+Therefore, it is expected that Encounter.class and Encounter.businessStatus.type will often be related.
+</p>
+<h4>Tracking Historical Status</h4>
+<p>
+This status information is often used for other things, and often an analysis of the status history is required for things like billing. 
+This could be done by scanning through all the resource history versions of the encounter, checking the period of each, 
+and then doing some form of post processing. 
+However, this information is not always completed in real-time (or even in the same system) and needs to be updated over time - as a result 
+the resource history is not adequate to satisfy these needs, and subsequently the new <a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-EncounterHistory.html">EncounterHistory</a> resource provides this information.
 [%stu-note dstu%]
 In FHIR R4 and earlier this was done using the statusHistory and classHistory backbone elements, however with longer
 duration encounters (where a patient encounter might be considered active for years) this would become increasingly inefficient,
 and EncounterHistory remediates this issue.
 [%end-note%]
-</p>
-<p>
-There is no direct indication purely by the status or subjectStatus field as to whether an encounter is considered "admitted".<br/>
-The context of the encounter and business practices/policies/workflows/types can influence this definition.
-(e.g., acute care facility, aged care center, outpatient clinic, emergency department, community-based clinic).<br/>
-Subject statuses of "arrived", "triaged" or "receiving-care" could be considered the start of the admission, and also have the 
-presence of the admission sub-component entered.<br/>
-The "discharged" status can be used when the patient care is complete but the encounter itself is not yet completed,
-such as while collating required information for billing or other purposes, or could be skipped and go direct to "completed".
-Refer to the <a href="appointment.html#status-flow">appointment</a> page for some sample possible workflows.<br/>
-Also note that the binding for subjectStatus is "example" so that local use-cases could also include their own states to
-capture things like a "waiting" status if they decide to capture this in their specific workflow.
-</p>
-<p>
-Subjects that have left without being seen would have a subjectStatus of departed, or possibly an
-implementer-specific code, while the Encounter.status could be completed or cancelled, depending 
-on whether the patient had received some care before leaving, or other local business rules that could impact billing.
-</p>
-<p>
-The "on-leave" subject status might or might not be a part of the admission, for example if the patient 
-was permitted to go home for a weekend or some other form of external event.<br/>
-During this time the encounter status itself might be marked as "on-hold". Local systems may have multiple different
-types of leave/hold and these can use appropriate combinations for the status/subjectStatus fields to represent this.<br/>
-The location is also likely to be filled in with a location status of "active".<br/>
-For other examples such as an outpatient visit (day procedure - colonoscopy), the patient could also be 
-considered to be admitted, hence the encounter does not have a fixed definition of admitted.
-At a minimum, we do believe that a patient IS admitted when the status is in-progress.
 </p>
 </div>
 
@@ -116,10 +139,6 @@ move to the ward where another part-of encounter may begin.
 Communication resources are used for a simultaneous interaction between a practitioner and a patient where there is no
 direct contact. Examples include a phone message, or transmission of some correspondence documentation.<br/>
 There is no duration recorded for a communication resource, but it could contain sent and received times.
-</p>
-<p>
-Standard Extension: <b>Associated Encounter</b><br/>
-This extension should be used to reference an encounter where there is no property that already defines this association on the resource.
 </p>
 </div>
 
