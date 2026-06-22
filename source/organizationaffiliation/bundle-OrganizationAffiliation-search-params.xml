@@ -119,25 +119,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="OrganizationAffiliation-network"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="OrganizationAffiliation.network"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/OrganizationAffiliation-network"/>
-        <description value="Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined)"/>
-        <code value="network"/>
-        <type value="reference"/>
-        <expression value="OrganizationAffiliation.network"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="OrganizationAffiliation-participating-organization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
