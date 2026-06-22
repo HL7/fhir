@@ -12,6 +12,15 @@
     </ul>
     </blockquote>
 <h2>Scope and Usage</h2>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a> - Removed Contract resource from PaymentReconciliation.allocation.target</li>
+            </ul>
+    </ul>
+    </blockquote>
 <p>
 The PaymentReconciliation resource provides the bulk payment details 
 associated with a payment by the payer for receivable amounts, such as for goods and services rendered by a provider to patients 
