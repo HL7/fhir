@@ -18,7 +18,7 @@ Sequence numbers appear in such element as <b>.careTeam</b> referred to by <b>.c
 <p>
 The <b>.noteNumber</b> element, which appears at the <b>.item</b>, <b>.detail</b> and <b>.subDetail</b> levels in the 
  <b>.item</b> and <b>.addItem</b> structures, contains a list of numbers which match the value of the <b>.number</b> 
- element in the <b>.processNote</b> structure. The process notes are indivdual chunks of text describing a situation 
+ element in the <b>.processNote</b> structure. The process notes are individual chunks of text describing a situation 
  associated with insurer explanation of adjudication results. Rather than repeating the same text in the adjudication of
  line item or detail, the insurer can provide the text once in the <b>.processNote</b> structure then include the associated 
  number value in the list of <b>.noteNumber</b>s for each of the appropriate line items or details.
