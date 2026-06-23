@@ -721,7 +721,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="The way in which a person authenticated a composition."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/composition-attestation-mode"/>
       </binding>
       <mapping>
         <identity value="rim"/>

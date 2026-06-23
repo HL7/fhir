@@ -6,6 +6,7 @@
 <p>Changed the Composition.participant.type short description to &quot;Meaning and purpose of participation, in creation of the clinical document&quot; as a correction.</p>
 <p>Added Composition.classification BackboneElement to provide classification data.</p>
 <p>Updated the descriptions and constraint for the Composition.name element.</p>
+<p>Changed the binding for Composition.attester.mode to be the THO ValueSet and the example now uses the THO CodeSystem.</p>
 </blockquote>
 <blockquote style="background-color: lightblue">
 	<p><b>Release Notes:</b></p>
@@ -18,6 +19,7 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-55225">FHIR-55225</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-57263">FHIR-57263</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-55509">FHIR-55509</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-55339">FHIR-55339</a></li>
 	</ul>
 </blockquote>
 <a name="scope"></a>
