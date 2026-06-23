@@ -834,20 +834,5 @@
         <code value="boolean"/>
       </type>
     </element>
-    <element id="Coverage.insurancePlan">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="C.35."/>
-      </extension>
-      <path value="Coverage.insurancePlan"/>
-      <short value="Insurance plan details"/>
-      <definition value="The insurance plan details, benefits and costs, which constitute this insurance coverage."/>
-      <requirements value="To associate the plan benefits and costs with the coverage which is an instance of that plan."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
-      </type>
-    </element>
   </differential>
 </StructureDefinition>
