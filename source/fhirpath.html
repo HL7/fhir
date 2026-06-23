@@ -30,6 +30,7 @@
       <li><a href="https://jira.hl7.org/browse/FHIR-55495">FHIR-55495</a>: fhirpath pages refers to System.string instead of System.string</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-53958">FHIR-53958</a>: Additional Functions section cleanup - remove comparable (now in fhirpath stu3) and re-organize headings</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-55417">FHIR-55417</a>: missing ".where" in fhirpath example</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53949">FHIR-53949</a>: fhirpath page refers to functions as operations</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-54084">FHIR-54084</a>: FHIRpath resolve() should include an example on its use on uri's</li>
       <li><a href="https://jira.hl7.org/browse/FHIR-36040">FHIR-36040</a>: Include link to ActivityDefinition $apply usage of FHIRPath expressions</li>
     </ul>
@@ -126,18 +127,18 @@ These statements apply to any resource that specializes <a href="domainresource.
 <h4>Using FHIR types in expressions</h4>
 <p>
 The namespace for the types defined in FHIR (primitive datatypes, datatypes, resources) is
-FHIR. So, for example:
+<code>FHIR</code>. So, for example:
 </p>
 <pre>
 Patient.is(FHIR.Patient)
 </pre>
 <p>
-The first element - the type name - is not namespaced, but the parameter to the is() operation is.
+The first element - the type name - is not namespaced, but the parameter to the <code>is()</code> function is.
 </p>
 <p>
-Understanding the primitive types is critical: FHIR.string is a different type to System.String.
-The FHIR.string type specializes FHIR.Element, and has the properties id, extension, and also
-the implicit value property that is actually of type of System.String.
+Understanding the primitive types is critical: <code>FHIR.string</code> is a different type to <code>System.String</code>.
+The <code>FHIR.string</code> type specializes <code>FHIR.Element</code>, and has the properties <code>id</code>, <code>extension</code>, and also
+the implicit <code>value</code> property that is actually of type <code>System.String</code>.
 </p>
 
 <p>
@@ -198,7 +199,7 @@ Patient.name.given.extension.first().value = true     // extension of the primit
 <p>
 The automatic conversion means that in most respects, a FHIR primitive can
 generally be treated as if it was the equivalent FHIRPath system type. The primary
-exception is the is() operation, where the difference is explicit:
+exception is the <code>is()</code> function, where the difference is explicit:
 </p>
 <pre class="fhirpath">
 Patient.name.given.is(FHIR.string)
@@ -213,7 +214,7 @@ Patient.id is System.String
 (Patient.id is FHIR.id).not
 </pre>
 <p>
-As shown, all FHIR primitives have the operation <code>getValue()</code> defined (see below)
+As shown, all FHIR primitives have the function <code>getValue()</code> defined (see below)
 for the few edge cases where the automatic conversion is not appropriate. Note
 that ofType() does not have such restrictions - both of the following are valid:
 </p>
