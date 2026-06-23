@@ -118,7 +118,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	<relatesTo>
 	    <code>
 			<coding>
-			  <system value="http://hl7.org/fhir/document-relationship-type"/>
+			  <system value="http://terminology.hl7.org/ValueSet/document-relationship-type"/>
 			  <code value="appends"/>
 			</coding>
 		</code>

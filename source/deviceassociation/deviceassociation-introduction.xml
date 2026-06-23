@@ -6,7 +6,7 @@
 <ul>
 <li>Collapsed the DeviceAssociation.operation backbone into the other elements (e.g., DeviceAssociation.relationship now includes the operator role).</li>
 <li>DeviceAssociation.category was renamed DeviceAssociation.relationship and given an extensible value set.</li>
-<li>Added DeviceAssociation.associationStatus.</li>
+<li>Added DeviceAssociation.relationshipStatus.</li>
 <li>Updated search parameters to address the changes.</li>
 </ul>
 </blockquote>
@@ -15,22 +15,125 @@
     <ul>
         <li><a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
         <li><a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54470">FHIR-54470</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-53680">FHIR-53680</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54463">FHIR-54463</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-54971">FHIR-54971</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-56544">FHIR-56544</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-57670">FHIR-57670</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-55254">FHIR-55254</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-53674">FHIR-53674</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-53675">FHIR-53675</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-53673">FHIR-53673</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-53676">FHIR-53676</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-50665">FHIR-50665</a></li>
+        <li><a href="https://jira.hl7.org/browse/FHIR-57461">FHIR-57461</a></li>
     </ul>
 </blockquote>
 </div>  
 <div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
-<p>Device Association records the relationship between a device and a subject and/or operator. The relationship may be as the owner, patient, operator or custodian of the device. The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
+<p>DeviceAssociation records a relationship between a device and a subject (or alternatively a focus entity). The relationship might be as an owner, user, maintainer, etc. of the device. The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
 <p>The subjects may include:</p>
 <ul>
 <li><strong>Patient</strong> - the following are often associated with a specific patient: implantables, prosthetics, activity trackers, mobility assistance, care monitoring, etc.</li>
-<li><strong>Group</strong> - some devices may be associated with a family group or treatment group. For example a weight scale or blood pressure cuff.</li>
+<li><strong>Group</strong> - some devices may be associated with a family group or treatment group: a weight scale or blood pressure cuff.</li>
 <li><strong>Practitioner</strong> - a device that is associated with the practitioner: pager, alert monitor, cell phone, laptop/tablet</li>
 <li><strong>Device</strong> - a device may be associated with another device when it is independent of the focal device.  Note: this is different than the containment tree with parent element in the Device resource. For example a RFID tag used to track the location of a wheelchair.</li>
-<li><strong>RelatedPerson</strong> - a device that is associated with another person related to the patient. For example, an alerting device given to a spouse while their partner is in surgery.</li>
+<li><strong>BiologicallyDerivedProduct</strong> - a device may be associated with a biologically derived product for traceability purposes: bioreactors, incubators, storage systems, environmental monitoring devices.</li>
+<li><strong>Substance</strong> - some devices may be associated with a substance: storage systems, transport systems, environmental monitoring devices.</li>
+<li><strong>Specimen</strong> - some devices may be associated with a specimen: collection devices, storage systems, transport systems, laboratory monitoring devices.</li>
 </ul>
 
+<p>In some cases a focus may be specified in addition to the subject, such as:</p>
+<ul>
+<li><strong>RelatedPerson</strong> - a device that is associated with another person related to the patient. For example, an alerting device given to a spouse while their partner (the subject patient) is in surgery.</li>
+</ul>
+<p>DeviceAssociation can be thought of as expressing the statement "[ device ] [ relationship ] with [ subject ]" or "[ device ] [ relationship ] with [ focus ] for [ subject ]." For example:</p>
+<table class="grid">
+  <thead>
+    <tr>
+      <th>Summary</th>
+      <th>Device</th>
+      <th>Relationship</th>
+      <th>Subject</th>
+      <th>Focus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>An endoscope is used by a surgeon on a patient</td>
+      <td>Endoscope</td>
+      <td><code>used-by</code></td>
+      <td><code>Patient/patient</code></td>
+      <td><code>Practitioner/surgeon</code></td>
+    </tr>
+    <tr>
+      <td>A continuous glucose monitor is worn by a patient</td>
+      <td>Continuous glucose monitor</td>
+      <td><code>worn-by</code></td>
+      <td><code>Patient/patient</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>A crib is leased by a parent for an infant</td>
+      <td>Crib</td>
+      <td><code>leased-by</code></td>
+      <td><code>Patient/infant</code></td>
+      <td><code>RelatedPerson/parent</code></td>
+    </tr>
+    <tr>
+      <td>A pager is assigned to the lead nurse of the on-call care team</td>
+      <td>Pager</td>
+      <td><code>assigned-to</code></td>
+      <td><code>CareTeam/care-team</code></td>
+      <td><code>PractitionerRole/nurse</code></td>
+    </tr>
+    <tr>
+      <td>An RFID tag tracks a wheelchair</td>
+      <td>RFID tag</td>
+      <td><code>attached-to</code></td>
+      <td><code>Device/wheelchair</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>A temperature sensor is installed in a clean room</td>
+      <td>Temperature sensor</td>
+      <td><code>installed-at</code></td>
+      <td><code>Location/clean-room</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>A ventilator is maintained by a biomed engineering department</td>
+      <td>Ventilator</td>
+      <td><code>maintained-by</code></td>
+      <td><code>Organization/biomed-engineering</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>A battery backup unit powers a freezer monitor</td>
+      <td>Battery backup unit</td>
+      <td><code>powers</code></td>
+      <td><code>Device/freezer-monitor</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>A bioreactor maintains a biologically derived product culture</td>
+      <td>Bioreactor</td>
+      <td><code>maintains</code></td>
+      <td><code>BiologicallyDerivedProduct/culture1</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>A mixing system maintains a substance during processing</td>
+      <td>Mixing system</td>
+      <td><code>maintains</code></td>
+      <td><code>Substance/substance1</code></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 <div>
@@ -42,7 +145,8 @@
 	<li><strong><a href="procedure.html">Procedure</a></strong> when the device is involved in a clinical action, such as implantation, removal, or adjustment, where details of that intervention need to be recorded.</li>
 </ul>
 <p>These resources may be used together — for example, a procedure may establish or end an association, while DeviceUsage captures continued patient use.</p>
-<p>To track changes in settings, the Observation resource can be used, where <code>Observation.subject</code> references the Device that the settings apply to. If, e.g., the patient that the Device is associated with needs to be identified, then the DeviceAssociation where <code>DeviceAssociation.period</code> includes the <code>Observation.effective[x]</code> would have that patient in <code>DeviceAssociation.subject</code>.</p>
+<p>Events involving devices are primarily recorded using clinical or workflow resources ([Encounter], [Procedure], [Observation], [Task]). Those resource connect the device with the event. DeviceAssociation primarily records the association with the device for administrative or traceability purposes, or for longer term relationships outside a specific event. There may be some overlap between these records to support specific traceability needs for a device, particularly when there are patient safety or contamination concerns present.</p>
+<p>To track changes in settings, the Observation resource can be used, where <code>Observation.subject</code> references the Device that the settings apply to. The patient associated with the device at that time can be determined by searching for DeviceAssociations where <code>DeviceAssociation.period</code> includes the <code>Observation.effective[x]</code>.</p>
 </div>
 
 
