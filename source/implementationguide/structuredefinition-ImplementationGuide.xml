@@ -344,7 +344,7 @@
 			<path value="ImplementationGuide.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the implementation guide (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the implementation guide to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the implementation guide to be used in jurisdictions other than those for which it was originally designed or intended."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -556,23 +556,23 @@
 		<element id="ImplementationGuide.global.type">
 			<path value="ImplementationGuide.global.type"/>
 			<short value="Type this profile applies to"/>
-			<definition value="The type of resource that all instances must conform to."/>
+			<definition value="The type of resource that all instances must conform to. This must be a resource, or a type with a [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics]]] of [[[http://hl7.org/fhir/type-characteristics-code#can-be-target]]]."/>
 			<comment value="The type must match that of the profile that is referred to but is made explicit here as a denormalization so that a system processing the implementation guide resource knows which resources the profile applies to even if the profile itself is not available."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
-				<code value="code"/>
+				<code value="uri"/>
 			</type>
 			<isSummary value="true"/>
-			<binding>
+			<binding> 
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ResourceType"/>
+					<valueString value="FHIRTypes"/>
 				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+					<valueString value="FHIR"/>
 				</extension>
-				<strength value="required"/>
-				<description value="One of the current or prior resource types defined as part of FHIR."/>
+				<strength value="extensible"/>
+				<description value="Either a resource or a data type, including logical model types."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
 			</binding>
 		</element>

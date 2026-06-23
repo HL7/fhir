@@ -543,7 +543,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="A code for the party to be reimbursed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/payeetype"/>
       </binding>
@@ -927,18 +927,22 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="Claim.diagnosis.diagnosis[x]">
-      <path value="Claim.diagnosis.diagnosis[x]"/>
+    <element id="Claim.diagnosis.diagnosis">
+      <path value="Claim.diagnosis.diagnosis"/>
       <short value="Nature of illness or problem"/>
       <definition value="The nature of illness or problem in a coded form or as a reference to an external defined Condition."/>
       <requirements value="Provides health context for the evaluation of the products and/or services."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="clm-0"/>
+        <severity value="error"/>
+        <human value="Either a concept or a reference is provided but not both."/>
+        <expression value="concept.exists() xor reference.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+      </constraint>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
       <binding>
@@ -1048,18 +1052,22 @@
         <code value="dateTime"/>
       </type>
     </element>
-    <element id="Claim.procedure.procedure[x]">
-      <path value="Claim.procedure.procedure[x]"/>
+    <element id="Claim.procedure.procedure">
+      <path value="Claim.procedure.procedure"/>
       <short value="Specific clinical procedure"/>
       <definition value="The code or reference to a Procedure resource which identifies the clinical intervention performed."/>
       <requirements value="This identifies the actual clinical procedure."/>
       <min value="1"/>
       <max value="1"/>
+      <constraint>
+        <key value="clm-1"/>
+        <severity value="error"/>
+        <human value="Either a concept or a reference is provided but not both."/>
+        <expression value="concept.exists() xor reference.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Claim"/>
+      </constraint>
       <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <binding>

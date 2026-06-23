@@ -2,6 +2,15 @@
 <div>
         <a name="scope"></a>
         <h2>Scope and Usage</h2>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a> - Removed reference to Contract from Consent.sourceReference</li>
+            </ul>
+    </ul>
+    </blockquote>
         <p>
 The purpose of this Resource is to be used to express a Consent regarding Healthcare. There are three 
 anticipated uses for the Consent Resource, all of which are written or verbal agreements by a 
@@ -24,8 +33,6 @@ The scope of the resource may change when the other possible scopes are investig
             resource may be the best way to manage the tracking of the changes to Consent. In addition, the
             <a href="https://www.hl7.org/fhir/documentreference.html">DocumentReference</a>
             may be used as an attachment to show the stages of consent ceremony with additional or updated document(s) attached at each stage.
-            <a href="https://www.hl7.org/fhir/contract.html">Contract</a>
-            may also be used in this fashion where as signatures are gathered or conditions applied, the Contract resource can be updated and attached to the Consent.
         </p>
         <h3>Simple vs. Computable Consent</h3>
         <p>
@@ -91,9 +98,9 @@ make rules about what signatures are required, and how they are to be shared and
         <a name="bnc"></a>
         <h2>Background and Context</h2>
         <p>
-The Consent resource is structured with a base policy (represented as Consent.decision) which is either permit or deny, followed by a listing of exceptions to that policy (represented as Consent.provision(s)). The exceptions can be additional positive 
-or negative exceptions upon the base policy. The set of exceptions include a list of data objects, 
-list of authors, list of recipients, list of Organizations, list of purposeOfUse, and Date Range.
+The computable rules in the Consent resource are structured as a base <code>permit</code> or <code>deny</code> decision (<code>Consent.decision</code>), followed by a hierarchical provision structure. 
+The child provisions at each level of this hierarchy narrow down the parent rule by articulating further exceptions or constraints. 
+This is further discussed in the <a href="consent.html#provision">Provisions section</a> below.
         </p>
         <p>
 The enforcement of the Privacy Consent Directive is not included but is expected that 

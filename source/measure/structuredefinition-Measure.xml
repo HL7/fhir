@@ -527,7 +527,7 @@
       <path value="Measure.jurisdiction"/>
       <short value="Jurisdiction of the authority that maintains the measure (if applicable)"/>
       <definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the measure to be used in jurisdictions other than those for which it was originally designed or intended."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -755,6 +755,40 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/frequency-unit"/>
       </binding>
     </element>
+    <element id="Measure.topic">
+      <path value="Measure.topic"/> 
+      <short value="The category of the measure, such as Education, Treatment, Assessment, etc"/> 
+      <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level
+        categorization grouping types of measures that can be useful for filtering and
+        searching."/> 
+      <requirements value="Repositories must be able to determine how to categorize the measure so that it
+        can be found by topical searches."/> 
+      <min value="0"/> 
+      <max value="*"/> 
+      <base> 
+        <path value="Measure.topic"/> 
+        <min value="0"/> 
+        <max value="*"/> 
+      </base> 
+      <type> 
+        <code value="CodeableConcept"/> 
+      </type> 
+      <mustSupport value="false"/> 
+      <isModifier value="false"/> 
+      <isSummary value="false"/> 
+      <binding> 
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DefinitionTopic"/> 
+        </extension> 
+        <strength value="example"/> 
+        <description value="High-level categorization of the definition, used for searching, sorting, and filtering."/> 
+        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/> 
+      </binding> 
+      <mapping> 
+        <identity value="rim"/> 
+        <map value="N/A (to add?)"/> 
+      </mapping> 
+    </element> 
     <element id="Measure.author">
       <path value="Measure.author"/>
       <short value="Who authored the content"/>

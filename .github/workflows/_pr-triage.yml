@@ -79,15 +79,17 @@ jobs:
       pr_number: ${{ steps.check.outputs.pr_number }}
       head_sha: ${{ steps.check.outputs.head_sha }}
       base_sha: ${{ steps.check.outputs.base_sha }}
+      base_ref: ${{ steps.check.outputs.base_ref }}
       html_url: ${{ steps.check.outputs.html_url }}
       trigger_kind: ${{ steps.check.outputs.trigger_kind }}
       build_timeout: ${{ steps.wait.outputs.build_timeout }}
       pr_title: ${{ steps.check.outputs.pr_title }}
+      security_override: ${{ steps.check.outputs.security_override }}
 
     steps:
       - name: Evaluate trigger eligibility
         id: check
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const eventName = context.eventName;
@@ -132,6 +134,41 @@ jobs:
             } else if (eventName === 'issue_comment') {
               const comment = context.payload.comment;
               const prAuthor = pr.user.login;
+
+              // Security override path: an admin comment containing
+              // "securityok" (case-insensitive) re-triggers triage and
+              // bypasses the Tier 1 hard-fail in the diff scan. This is
+              // independent of the author-response logic below — it fires
+              // regardless of who the PR author is, as long as the commenter
+              // is a repo admin. Non-admins get no override.
+              if (/securityok/i.test(comment.body || '')) {
+                let commenterPerm = 'none';
+                try {
+                  const { data: perm } = await github.rest.repos.getCollaboratorPermissionLevel({
+                    owner, repo, username: comment.user.login,
+                  });
+                  commenterPerm = perm.permission;
+                } catch (err) {
+                  commenterPerm = 'none';
+                }
+
+                if (commenterPerm === 'admin') {
+                  core.notice(`Security override requested by admin ${comment.user.login}.`);
+                  core.setOutput('should_triage', 'true');
+                  core.setOutput('security_override', 'true');
+                  core.setOutput('pr_number', String(prNumber));
+                  core.setOutput('head_sha', pr.head.sha);
+                  core.setOutput('base_sha', pr.base.sha);
+                  core.setOutput('base_ref', pr.base.ref);
+                  core.setOutput('html_url', pr.html_url);
+                  core.setOutput('trigger_kind', 'security_override');
+                  core.setOutput('pr_title', pr.title || '');
+                  return;
+                } else {
+                  core.notice(`"securityok" comment from non-admin ${comment.user.login} — ignoring override.`);
+                  // Fall through to normal author-response logic below.
+                }
+              }
 
               if (comment.user.login !== prAuthor) {
                 core.notice(`Comment is not from PR author (${comment.user.login} vs ${prAuthor}) — skipping.`);
@@ -181,9 +218,11 @@ jobs:
             }
 
             core.setOutput('should_triage', 'true');
+            core.setOutput('security_override', 'false');
             core.setOutput('pr_number', String(prNumber));
             core.setOutput('head_sha', pr.head.sha);
             core.setOutput('base_sha', pr.base.sha);
+            core.setOutput('base_ref', pr.base.ref);
             core.setOutput('html_url', pr.html_url);
             core.setOutput('trigger_kind', triggerKind);
             core.setOutput('pr_title', pr.title || '');
@@ -191,7 +230,7 @@ jobs:
       - name: Wait for required check run
         id: wait
         if: steps.check.outputs.should_triage == 'true' && inputs.wait_for_check_run != ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         env:
           CHECK_NAME: ${{ inputs.wait_for_check_run }}
           HEAD_SHA: ${{ steps.check.outputs.head_sha }}
@@ -321,7 +360,7 @@ jobs:
 
     steps:
       - name: Checkout PR code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ needs.eligibility.outputs.head_sha }}
           fetch-depth: 0
@@ -343,17 +382,35 @@ jobs:
       - name: Scan diff for suspicious content
         id: scan
         env:
-          BASE_SHA: ${{ needs.eligibility.outputs.base_sha }}
+          BASE_REF: ${{ needs.eligibility.outputs.base_ref }}
           HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
+          SECURITY_OVERRIDE: ${{ needs.eligibility.outputs.security_override }}
         run: |
           set -e
-          git fetch --no-tags --depth=1 origin "$BASE_SHA" 2>/dev/null || true
+
+          # Fetch the current tip of the base branch so we can compute the
+          # merge base accurately. The recorded pr.base.sha goes stale as
+          # the base branch advances, which makes a straight base..head
+          # diff include unrelated changes the PR has merged in from master.
+          # Diffing from the merge base instead matches what GitHub shows
+          # in the PR "Files changed" tab. The checkout step uses
+          # fetch-depth: 0 so the merge base is already in local history;
+          # we just need origin/BASE_REF as a current ref pointer.
+          git fetch --no-tags origin "$BASE_REF"
+
+          MERGE_BASE=$(git merge-base "origin/$BASE_REF" "$HEAD_SHA")
+          echo "Base branch tip:  $(git rev-parse origin/$BASE_REF)"
+          echo "Merge base:       $MERGE_BASE"
+          echo "Head SHA:         $HEAD_SHA"
+
+          export DIFF_BASE="$MERGE_BASE"
 
           python3 <<'PY'
           import os, re, subprocess, sys
 
-          base_sha = os.environ["BASE_SHA"]
+          base_sha = os.environ["DIFF_BASE"]
           head_sha = os.environ["HEAD_SHA"]
+          security_override = os.environ.get("SECURITY_OVERRIDE", "") == "true"
           gh_output = os.environ.get("GITHUB_OUTPUT", "")
 
           def write_output(key, value):
@@ -367,7 +424,7 @@ jobs:
 
           ALLOWED_EXTS = {
               "json", "xml", "md", "txt", "xlsx", "datestamp", "fhirmap",
-              "svg", "pdf", "jpg", "diagram", "png", "html", "plantuml",
+              "svg", "pdf", "jpg", "diagram", "png", "html", "plantuml", "puml",
               "cql", "gif", "ini", "no-inkscape", "csv", "liquid", "pptx",
               "docx", "doc", "dic", "jstemp", "bak",
           }
@@ -379,9 +436,12 @@ jobs:
               ("Network fetch command",
                re.compile(r"\b(curl|wget) "),
                False),
-              ("Shell command substitution",
-               re.compile(r"\$\(|`[^`]+`"),
-               False),
+              # Shell command substitution rule was removed: PR content is
+              # never fed to a shell or eval'd in our pipeline. The patterns
+              # `$(...)` and backtick-pairs collide constantly with legitimate
+              # technical content (markdown inline code, jQuery, Make variables,
+              # template literals). Other rules + the Claude tool restriction
+              # (`Bash(gh:*)` only) cover the actual threat surface.
               ("Possible base64 payload",
                re.compile(r"[A-Za-z0-9+/=]{100,}"),
                False),
@@ -458,7 +518,7 @@ jobs:
                       })
 
           TEXT_EXTS = {"json", "xml", "md", "txt", "html", "csv", "liquid",
-                       "fhirmap", "plantuml", "cql", "diagram", "ini", "svg",
+                       "fhirmap", "plantuml", "puml", "cql", "diagram", "ini", "svg",
                        "datestamp", "no-inkscape", "dic", "jstemp", "bak"}
 
           for path in changed:
@@ -512,19 +572,33 @@ jobs:
               return "\n".join(lines)
 
           tier1_text = render_findings(tier1_findings, "### Tier 1 findings (triage skipped)")
+          tier1_overridden_text = render_findings(tier1_findings, "### Tier 1 findings (OVERRIDDEN by securityok)")
           tier2_text = render_findings(tier2_findings, "### Advisory findings")
 
-          if tier1_findings:
+          if tier1_findings and security_override:
+              # Admin used "securityok" to bypass the hard-fail. Proceed with
+              # triage, but record what was overridden so it appears in the
+              # triage email for audit purposes.
+              sys.stderr.write(f"TIER 1 findings present but OVERRIDDEN by securityok: {len(tier1_findings)}\n")
+              for f in tier1_findings:
+                  sys.stderr.write(f"  - (overridden) {f['rule']} in {f['file']}\n")
+              write_output("suspicious", "false")
+              write_output("tier1_findings", "")
+              write_output("tier1_overridden", tier1_overridden_text)
+              write_output("tier2_advisory", tier2_text)
+          elif tier1_findings:
               sys.stderr.write(f"TIER 1 findings: {len(tier1_findings)}\n")
               for f in tier1_findings:
                   sys.stderr.write(f"  - {f['rule']} in {f['file']}\n")
               write_output("suspicious", "true")
               write_output("tier1_findings", tier1_text)
+              write_output("tier1_overridden", "")
               write_output("tier2_advisory", tier2_text)
           else:
               sys.stderr.write(f"No Tier 1 findings. Tier 2: {len(tier2_findings)}\n")
               write_output("suspicious", "false")
               write_output("tier1_findings", "")
+              write_output("tier1_overridden", "")
               write_output("tier2_advisory", tier2_text)
           PY
 
@@ -603,7 +677,7 @@ jobs:
 
           set +e
           python3 <<'PY' > jira-tickets.json
-          import json, os, re, subprocess, sys
+          import json, os, re, subprocess, sys, time
           from datetime import datetime, timezone
 
           AUTHORIZING_RESOLUTIONS = {
@@ -619,7 +693,10 @@ jobs:
           def write_output(key, value):
               if gh_output:
                   with open(gh_output, "a") as f:
-                      f.write(f"{key}={value}\n")
+                      if "\n" in value:
+                          f.write(f"{key}<<JIRAOUT_42\n{value}\nJIRAOUT_42\n")
+                      else:
+                          f.write(f"{key}={value}\n")
 
           if not token:
               sys.stderr.write("ERROR: JIRA_API_TOKEN is empty\n")
@@ -690,14 +767,44 @@ jobs:
           authorizing = []
           fetch_errors = []
 
-          for key in keys:
-              url = f"https://jira.hl7.org/rest/api/2/issue/{key}?fields={fields_param}"
+          # Whether we ever successfully talked to Jira (got a 200 with
+          # parseable JSON). Used at the end to decide whether to promote
+          # repeated ELB 403s into an auth_failure alert.
+          successful_jira_reaches = 0
+
+          # ELB 403 retry policy. Backoffs are per-ticket. Total wait across
+          # the whole batch is capped by MAX_RETRY_BUDGET_SECONDS.
+          MAX_RETRY_BUDGET_SECONDS = 3600
+          RETRY_BACKOFFS = [30, 60, 120]
+
+          # Tracks the most recent ELB 403 we saw. If we end the batch with
+          # zero successful fetches, this is promoted to an auth_failure so
+          # the alert email carries the diagnostic info.
+          last_elb_403 = None
+          retry_budget_used = 0
+
+          def split_headers_body(text):
+              # Find the last "\r\n\r\n" or "\n\n" — that's the boundary
+              # between final headers and body. The -i response may include
+              # intermediate header blocks (100 Continue, redirects); we
+              # want the last one.
+              idx_crlf = text.rfind("\r\n\r\n")
+              idx_lf = text.rfind("\n\n")
+              if idx_crlf > idx_lf:
+                  return text[:idx_crlf], text[idx_crlf + 4:]
+              if idx_lf >= 0:
+                  return text[:idx_lf], text[idx_lf + 2:]
+              return "", text
+
+          def fetch_ticket_once(url):
               # User-Agent: HL7's Jira sits behind an AWS ELB that filters
               # requests whose User-Agent doesn't look browser-like. The
               # combination of "Mozilla/5.0", "AppleWebKit", and "Gecko" is
               # what gets us past the filter while still identifying ourselves.
+              # -i: include response headers in output (for diagnostics)
+              # -w: append final status code so we can parse it reliably
               result = subprocess.run(
-                  ["curl", "-s",
+                  ["curl", "-s", "-i",
                    "-w", "\n%{http_code}",
                    "-H", "User-Agent: Mozilla/5.0 (compatible; Lloyd-HL7-PR-Triage-Workflow/1.0; AppleWebKit) like Gecko",
                    "-H", f"Authorization: Bearer {token}",
@@ -705,30 +812,125 @@ jobs:
                   capture_output=True, text=True,
               )
               if result.returncode != 0:
-                  sys.stderr.write(f"{key}: curl exit {result.returncode}: {result.stderr.strip()}\n")
-                  fetch_errors.append(key)
-                  continue
+                  return {"curl_failed": True, "stderr": result.stderr.strip()}
 
               output = result.stdout
               newline_idx = output.rfind("\n")
-              body = output[:newline_idx] if newline_idx >= 0 else ""
               status_str = output[newline_idx + 1:] if newline_idx >= 0 else output
+              content = output[:newline_idx] if newline_idx >= 0 else ""
+              headers_text, body = split_headers_body(content)
+
+              server_header = ""
+              for line in headers_text.splitlines():
+                  if line.lower().startswith("server:"):
+                      server_header = line.split(":", 1)[1].strip()
+                      break
+
               try:
                   status = int(status_str.strip())
               except ValueError:
-                  sys.stderr.write(f"{key}: couldn't parse status from curl output\n")
-                  fetch_errors.append(key)
+                  return {"parse_failed": True}
+
+              return {
+                  "status": status,
+                  "headers_text": headers_text,
+                  "server_header": server_header,
+                  "body": body,
+              }
+
+          for key in keys:
+              url = f"https://jira.hl7.org/rest/api/2/issue/{key}?fields={fields_param}"
+
+              # Retry loop for this ticket. Only ELB 403s are retried; all
+              # other outcomes break out immediately.
+              attempt = 0
+              res = None
+              while True:
+                  res = fetch_ticket_once(url)
+
+                  if res.get("curl_failed"):
+                      sys.stderr.write(f"{key}: curl failed: {res.get('stderr', '')}\n")
+                      fetch_errors.append(key)
+                      break
+
+                  if res.get("parse_failed"):
+                      sys.stderr.write(f"{key}: couldn't parse status from curl output\n")
+                      fetch_errors.append(key)
+                      break
+
+                  status = res["status"]
+                  server = res["server_header"]
+                  is_elb_403 = (status == 403 and "awselb" in server.lower())
+
+                  if not is_elb_403:
+                      break
+
+                  # ELB 403 path: remember it (in case we need to promote
+                  # to auth_failure later) and decide whether to retry.
+                  last_elb_403 = {
+                      "url": url,
+                      "status": status,
+                      "server": server,
+                      "headers_text": res["headers_text"],
+                      "body": res["body"],
+                  }
+
+                  if attempt >= len(RETRY_BACKOFFS):
+                      sys.stderr.write(f"{key}: ELB 403 after {len(RETRY_BACKOFFS)} retries; giving up\n")
+                      fetch_errors.append(key)
+                      break
+
+                  backoff = RETRY_BACKOFFS[attempt]
+                  if retry_budget_used + backoff > MAX_RETRY_BUDGET_SECONDS:
+                      sys.stderr.write(
+                          f"{key}: ELB 403; retry budget exhausted "
+                          f"({retry_budget_used}s used of {MAX_RETRY_BUDGET_SECONDS}s); giving up on this ticket\n"
+                      )
+                      fetch_errors.append(key)
+                      break
+
+                  sys.stderr.write(
+                      f"{key}: ELB 403 (attempt {attempt + 1}); "
+                      f"waiting {backoff}s before retry (budget used so far: {retry_budget_used}s)\n"
+                  )
+                  time.sleep(backoff)
+                  retry_budget_used += backoff
+                  attempt += 1
+                  # loop continues
+
+              # After the retry loop: handle whatever non-retry outcome
+              # the loop ended on.
+              if res is None or "status" not in res:
+                  # curl_failed or parse_failed; already recorded in fetch_errors
                   continue
 
+              status = res["status"]
+              server_header = res["server_header"]
+              headers_text = res["headers_text"]
+              body = res["body"]
+
+              # ELB 403 that exhausted retries / budget: already in fetch_errors
+              if status == 403 and "awselb" in server_header.lower():
+                  continue
+
+              # Any other 401/403: immediate auth failure (token issue, Jira
+              # permission issue, etc.). These won't get better with retries.
               if status in (401, 403):
-                  sys.stderr.write(f"{key}: AUTH FAILURE ({status}). Aborting Jira fetch.\n")
+                  sys.stderr.write(f"{key}: AUTH FAILURE ({status})\n")
+                  sys.stderr.write(f"  Server: {server_header or '(not set)'}\n")
+                  sys.stderr.write(f"  Response headers:\n{headers_text}\n")
+                  sys.stderr.write(f"  Response body (first 1000 chars):\n{body[:1000]}\n")
                   write_output("auth_failure", "true")
                   write_output("auth_failure_status", str(status))
                   write_output("auth_failure_url", url)
+                  write_output("auth_failure_server", server_header)
+                  write_output("auth_failure_body_excerpt", body[:1000])
                   sys.exit(2)
 
               if status >= 400:
                   sys.stderr.write(f"{key}: HTTP {status}\n")
+                  sys.stderr.write(f"  Server: {server_header or '(not set)'}\n")
+                  sys.stderr.write(f"  Response body (first 500 chars):\n{body[:500]}\n")
                   fetch_errors.append(key)
                   continue
 
@@ -738,6 +940,10 @@ jobs:
                   sys.stderr.write(f"{key}: not JSON. First 200 bytes: {body[:200]}\n")
                   fetch_errors.append(key)
                   continue
+
+              # If we got here, Jira itself responded — auth + WAF were OK
+              # for this request, regardless of what's in the response.
+              successful_jira_reaches += 1
 
               fields = raw.get("fields", {}) or {}
               resolution = fields.get("resolution") or {}
@@ -761,6 +967,23 @@ jobs:
               # ticket["changeImpact"] = (fields.get("customfield_10511") or {}).get("value", "")
 
               authorizing.append(ticket)
+
+          # Decide whether to promote repeated ELB 403s into a full
+          # auth_failure alert. This fires only when we never successfully
+          # reached Jira (zero 200s) AND we did observe an ELB 403 along
+          # the way. Mixed results (some 200s, some ELB 403s) fall through
+          # to the normal output with the failures listed in fetchErrors.
+          if successful_jira_reaches == 0 and last_elb_403 is not None:
+              sys.stderr.write(
+                  "All fetch attempts ended without reaching Jira; "
+                  "promoting last ELB 403 to auth_failure.\n"
+              )
+              write_output("auth_failure", "true")
+              write_output("auth_failure_status", str(last_elb_403["status"]))
+              write_output("auth_failure_url", last_elb_403["url"])
+              write_output("auth_failure_server", last_elb_403["server"])
+              write_output("auth_failure_body_excerpt", last_elb_403["body"][:1000])
+              sys.exit(2)
 
           json.dump({
               "tickets": authorizing,
@@ -789,6 +1012,8 @@ jobs:
         env:
           AUTH_STATUS: ${{ steps.jira.outputs.auth_failure_status }}
           AUTH_URL: ${{ steps.jira.outputs.auth_failure_url }}
+          AUTH_SERVER: ${{ steps.jira.outputs.auth_failure_server }}
+          AUTH_BODY: ${{ steps.jira.outputs.auth_failure_body_excerpt }}
           PR_NUMBER: ${{ needs.eligibility.outputs.pr_number }}
           PR_URL: ${{ needs.eligibility.outputs.html_url }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -800,6 +1025,8 @@ jobs:
           import os
           status = os.environ.get("AUTH_STATUS", "unknown")
           url = os.environ.get("AUTH_URL", "")
+          server = os.environ.get("AUTH_SERVER", "")
+          body_excerpt = os.environ.get("AUTH_BODY", "")
           pr_number = os.environ.get("PR_NUMBER", "?")
           pr_url = os.environ.get("PR_URL", "")
           run_url = os.environ.get("RUN_URL", "")
@@ -809,7 +1036,7 @@ jobs:
           elif status == "401":
               cause = "Token rejected (401 Unauthorized) — likely expired or revoked"
           elif status == "403":
-              cause = "Token rejected (403 Forbidden) — token may be valid but lacks permission, or has expired"
+              cause = "Token rejected (403 Forbidden) — token may be valid but lacks permission, or rejected at gateway/WAF before reaching Jira"
           else:
               cause = f"Unexpected auth status: {status}"
 
@@ -824,11 +1051,26 @@ jobs:
               print(f"Failing URL: {url}")
           if run_url:
               print(f"Workflow run: {run_url}")
+
+          if server or body_excerpt:
+              print()
+              print("--- Response diagnostics (forward to admins if needed) ---")
+              if server:
+                  print(f"Server header: {server}")
+                  if "awselb" in server.lower() or "cloudflare" in server.lower():
+                      print("  (Response came from a load balancer / WAF, not Jira itself —")
+                      print("  the request was likely rejected before reaching Jira.)")
+              if body_excerpt:
+                  print()
+                  print("Response body:")
+                  print(body_excerpt.strip())
+              print("--- end diagnostics ---")
+
           print()
           print("Triage was skipped for this PR. Subsequent PRs will continue")
-          print("to fail until the token is rotated.")
+          print("to fail until the underlying problem is resolved.")
           print()
-          print("Rotation procedure:")
+          print("Rotation procedure (if token genuinely expired):")
           print("  1. Log into https://jira.hl7.org as the service account.")
           print("  2. Profile -> Personal Access Tokens.")
           print("  3. Revoke the old token, create a new one (max 1 year).")
@@ -862,6 +1104,12 @@ jobs:
       - name: Claude analyzes PR
         id: claude
         if: steps.scan.outputs.suspicious != 'true' && steps.jira.outputs.auth_failure != 'true'
+        # Note: anthropics/claude-code-action@v1 still bundles Node 20 via
+        # oven-sh/setup-bun. As of June 2026 GitHub runners default to Node 24
+        # and emit deprecation warnings; Node 20 is removed entirely in
+        # September 2026. We are waiting on Anthropic to ship a Node 24 build
+        # (tracked in anthropics/claude-code-action#1050). The @v1 tag will
+        # pick up the fix automatically once released — no change needed here.
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -882,6 +1130,8 @@ jobs:
                 Evaluate whether the author's reply resolves the concerns that
                 were raised. If it does, recommend approve. If not, restate the
                 unresolved concern.
+              - "security_override": an admin commented to bypass the security
+                scan and re-trigger triage. Do a full triage.
 
             === Jira ticket verification ===
 
@@ -1056,9 +1306,10 @@ jobs:
           echo "link_url=$LINK_URL" >> $GITHUB_OUTPUT
 
           case "$TRIGGER_KIND" in
-            author_responded) SUBJECT_TAG="follow-up" ;;
-            ready_for_review) SUBJECT_TAG="ready for review" ;;
-            *)                SUBJECT_TAG="triage" ;;
+            author_responded)  SUBJECT_TAG="follow-up" ;;
+            ready_for_review)  SUBJECT_TAG="ready for review" ;;
+            security_override) SUBJECT_TAG="security override" ;;
+            *)                 SUBJECT_TAG="triage" ;;
           esac
           echo "subject_tag=$SUBJECT_TAG" >> $GITHUB_OUTPUT
 
@@ -1100,6 +1351,9 @@ jobs:
           SUGGESTED_RESPONSE_MD: ${{ steps.parse.outputs.suggested_response_md }}
           TICKET_BLOCK: ${{ steps.parse.outputs.ticket_block }}
           TIER2_ADVISORY: ${{ steps.scan.outputs.tier2_advisory }}
+          TIER1_OVERRIDDEN: ${{ steps.scan.outputs.tier1_overridden }}
+          SECURITY_OVERRIDE: ${{ needs.eligibility.outputs.security_override }}
+          HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
           CONFIDENCE: ${{ steps.parse.outputs.confidence }}
           RECOMMENDATION: ${{ steps.parse.outputs.recommendation }}
           LINK_URL: ${{ steps.parse.outputs.link_url }}
@@ -1116,6 +1370,9 @@ jobs:
           suggested_md = os.environ.get("SUGGESTED_RESPONSE_MD", "")
           ticket_block = os.environ.get("TICKET_BLOCK", "")
           tier2 = os.environ.get("TIER2_ADVISORY", "")
+          tier1_overridden = os.environ.get("TIER1_OVERRIDDEN", "")
+          security_override = os.environ.get("SECURITY_OVERRIDE", "") == "true"
+          head_sha = os.environ.get("HEAD_SHA", "")
           link_url = os.environ["LINK_URL"]
 
           has_content = suggested_md.strip() and suggested_md.strip().lower() != "null"
@@ -1123,11 +1380,21 @@ jobs:
 
           print(f"Recommendation: {recommendation}")
           print(f"Confidence: {confidence}")
+
+          if security_override:
+              print()
+              print(f"NOTE: Security scan was overridden via securityok for commit {head_sha}.")
+
           print()
           print(body_text)
           print()
           print("--- Jira alignment ---")
           print(ticket_block.strip())
+
+          if tier1_overridden and tier1_overridden.strip():
+              print()
+              print("--- Security findings OVERRIDDEN ---")
+              print(tier1_overridden.strip())
 
           if tier2 and tier2.strip():
               print()

@@ -21,6 +21,17 @@ in order to support consistent definitions for schema and UML derived code.
 
 <a name="intro"></a>
 <h3>Introduction</h3>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-57373">FHIR-57373</a> - The resources Contract, EnrollmentRequest, 
+				EnrollmentResponse, Invoice, InsurancePlan and InsuranceProduct have been moved from the R6 specification to a separate
+				FM Incubator Implementation Guide.</li>
+            </ul>
+    </ul>
+    </blockquote>
 <p>
 The Financial module covers the resources and services provided by FHIR to support the costing, contracting, financial transactions and billing which occur within
 a healthcare provider as well as the eligibility, enrollment, authorizations, claims, contracts and payments which occur between healthcare providers
@@ -37,7 +48,6 @@ See also the <a href="administration-module.html">Administration</a> and <a href
             <td>
                 <ul>
                     <li><a href="account.html">Account</a></li>
-                    <li><a href="contract.html">Contract</a></li>
                     <li><a href="coverage.html">Coverage</a></li>
                     <li><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></li>
                     <li><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></li>
@@ -45,8 +55,6 @@ See also the <a href="administration-module.html">Administration</a> and <a href
             </td>
             <td>
                 <ul>
-                    <li><a href="enrollmentrequest.html">EnrollmentRequest</a></li>
-                    <li><a href="enrollmentresponse.html">EnrollmentResponse</a></li>
                     <li><a href="claim.html">Claim</a></li>
                     <li><a href="claimresponse.html">ClaimResponse</a></li>
                 </ul>
@@ -72,12 +80,9 @@ See also the <a href="administration-module.html">Administration</a> and <a href
     <table class="bare">
         <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
         [%res-item Account%]
-        [%res-item Contract%]
         [%res-item Coverage%]
         [%res-item CoverageEligibilityRequest%]
         [%res-item CoverageEligibilityResponse%]
-        [%res-item EnrollmentRequest%]
-        [%res-item EnrollmentResponse%]
         [%res-item VisionPrescription%]
     </table>
 
@@ -191,7 +196,6 @@ Note: This definition excludes any business associate used to create or receive 
 
  <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
  <tr><td>Eligibility Check</td><td><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></td><td><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></td></tr>
- <tr><td>Enrollment Update</td><td><a href="enrollmentrequest.html">EnrollmentRequest</a></td><td><a href="enrollmentresponse.html">EnrollmentResponse</a></td></tr>
  <tr><td>Claim</td><td><a href="claim.html">Claim</a> (type={discipline}, use=claim)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Claim with attachments</td><td><a href="bundle.html">Bundle</a> containing <a href="claim.html">Claim</a> and the attachments</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Predetermination</td><td><a href="claim.html">Claim</a> (type={discipline}, use=predetermination)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
@@ -247,7 +251,7 @@ a Poll is a Task referring to: a previously undelivered response Resource; a Bun
 contain errors. 
 </p>
 <p>
-A simple Poll request, one which doesn't specify additional .input parameters: origresponse, include, exclude, period or count; would return
+A simple Poll request, one which does not specify additional .input parameters: origresponse, include, exclude, period or count; would return
 any single pended resource. Specific types of business behaviors may be supported by providing values for the
 filtering elements in the .input element, for example:
 </p>
@@ -291,7 +295,7 @@ reprocessing of specified service sub-trees from an already processed resource s
 provides any supporting information for the status request. 
 </p>
 <p>
-This is a formal request for systems which require requisition-level information or transports which don't support a
+This is a formal request for systems which require requisition-level information or transports which do not support a
 'Get Operation', for the processing status of a previously submitted processing request.
 </p>
 <p>

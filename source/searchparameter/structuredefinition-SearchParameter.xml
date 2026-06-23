@@ -393,7 +393,7 @@
 			<path value="SearchParameter.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the search parameter (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the search parameter to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the search parameter to be used in jurisdictions other than those for which it was originally designed or intended."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -505,27 +505,24 @@
 		<element id="SearchParameter.base">
 			<path value="SearchParameter.base"/>
 			<short value="The resource type(s) this search parameter applies to"/>
-			<definition value="The base resource type(s) that this search parameter can be used against."/>
+			<definition value="The base resource type(s) that this search parameter can be used against. This must be a resource, or a type with a [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics]]] of [[[http://hl7.org/fhir/type-characteristics-code#can-be-target]]]."/>
 			<comment value="A search parameter must always apply to at least one resource type. When search parameters apply to more than one resource type, they can be used against any of the listed resource types, or in a cross-type search (see [Cross Resource Search](http.html#xres-search))."/>
 			<min value="1"/>
 			<max value="*"/>
 			<type>
-				<code value="code"/>
+				<code value="uri"/>
 			</type>
 			<isSummary value="true"/>
-			<binding>
+			<binding> 
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="FHIRTypes"/>
 				</extension>
-				<strength value="required"/>
-				<description value="A type of resource, or a Reference (from all versions)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
-				<additional>
-				  <key value="b-sp-1"/>
-					<purpose value="ui"/>
-					<valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
-					<shortDoco value="This is the value set to use for just R5 resource types"/>
-				</additional>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+					<valueString value="FHIR"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Either a resource or a data type, including logical model types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
 			</binding>
 		</element>
 		<element id="SearchParameter.type">
@@ -596,26 +593,23 @@
 		<element id="SearchParameter.target">
 			<path value="SearchParameter.target"/>
 			<short value="Types of resource (if a resource reference)"/>
-			<definition value="Types of resource (if a resource is referenced)."/>
+			<definition value="Types of resource (if a resource is referenced). This must be a resource, or a type with a [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics]]] of [[[http://hl7.org/fhir/type-characteristics-code#can-be-target]]]."/>
 			<comment value="In some cases, targets may exist for a search parameter that do not exist for the specified FHIRPath for all of the resources identified in SearchParameter.base.  For example, the core clinical-encounter search parameter allows both Encounter and EpisodeOfCare as targets, even though not all of the base resources have EpisodeOfCare as a valid target.&#xA;&#xA;However, the list of targets SHOULD cover all targets that might appear that are permitted by the specified FHIRPath."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="code"/>
+				<code value="uri"/>
 			</type>
-			<binding>
+			<binding> 
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="FHIRTypes"/>
 				</extension>
-				<strength value="required"/>
-				<description value="A type of resource, or a Reference (from all versions)"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
-				<additional>
-				  <key value="b-sp-2"/>
-					<purpose value="ui"/>
-					<valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
-					<shortDoco value="This is the value set to use for just R5 resource types"/>
-				</additional>
+				<extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+					<valueString value="FHIR"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Either a resource or a data type, including logical model types."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
 			</binding>
 		</element>
 		<element id="SearchParameter.multipleOr">

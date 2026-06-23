@@ -210,10 +210,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Claim"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EnrollmentRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
@@ -674,6 +672,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+	  <isSummary value="true"/>
       <condition value="docRef-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1010,7 +1009,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of relationship between the documents."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/document-relationship-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/document-relationship-type"/>
       </binding>
       <mapping>
         <identity value="fhircomposition"/>

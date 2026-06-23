@@ -3,6 +3,20 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54492">FHIR-54492</a> - Claim.diagnosis.diagnosis has been changed to a CodeableReference</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54492">FHIR-54492</a> - Claim.procedure.procedure has been changed to a CodeableReference</li>
+            </ul>
+        <li>Non-substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53099">FHIR-53099</a> - Change binding strength of payee.type to Preferred</li>
+            </ul>
+    </ul>
+    </blockquote>
 		<p>
 The Claim is used by providers and payers, insurers, to exchange the financial information, and supporting clinical information, regarding the provision
  of health care services with payers and for reporting to regulatory bodies and firms which provide data analytics. The primary uses of this resource is to support eClaims,
@@ -63,7 +77,7 @@ the provider will settle the claim and potentially recover costs against specifi
 		<p>The Claim resource is used to request the adjudication and/or authorization of a set of healthcare-related goods and services for a patient against the patient's insurance coverages, or
 	to request what the adjudication would be for a supplied set of goods or services should they be actually supplied to the patient.</p>
 
-		<p>When requesting whether the patient's coverage is inforce, whether it is valid at this or a specified date, or requesting the benefit details or preauthorization requirements
+		<p>When requesting whether the patient's coverage is in-force, whether it is valid at this or a specified date, or requesting the benefit details or preauthorization requirements
 	associated with a coverage, then <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a> should be used instead.</p>
 
 		<p>When using the resources for reporting and transferring claims data, which may have originated in some standard other than FHIR, the Claim resource is useful if only the

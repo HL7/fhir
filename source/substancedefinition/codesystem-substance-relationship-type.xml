@@ -20,10 +20,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2088"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="SubstanceRelationshipType"/>
+  <name value="SubstanceRelationshipTypeExample"/>
   <title value="Substance Relationship Type"/>
   <status value="active"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -59,5 +59,30 @@
   <concept>
     <code value="Impurity"/>
     <display value="Impurity of"/>
+  </concept>
+  <concept>
+    <code value="TherapeuticTarget"/>
+    <display value="Therapeutic target"/>
+    <definition value="The substance acts therapeutically on the target."/>
+  </concept>
+  <concept>
+    <code value="MetabolicTarget"/>
+    <display value="Metabolic target"/>
+    <definition value="The substance is metabolised by or interacts with the target as part of metabolism."/>
+  </concept>
+  <concept>
+    <code value="ToxicityTarget"/>
+    <display value="Toxicity target"/>
+    <definition value="The substance interacts with the target in a way that contributes to toxicity."/>
+  </concept>
+  <concept>
+    <code value="TargetUnknownEffect"/>
+    <display value="Target (unknown effect)"/>
+    <definition value="The substance is known to interact with the target, but the effect is not characterised."/>
+  </concept>
+  <concept>
+    <code value="GeneOfOrigin"/>
+    <display value="Gene of origin"/>
+    <definition value="The substance was derived from this gene (used e.g. for recombinant proteins and nucleic acid products)."/>
   </concept>
 </CodeSystem>

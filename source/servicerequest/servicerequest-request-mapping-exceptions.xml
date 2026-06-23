@@ -227,7 +227,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.authoredOn" resourcePath="ServiceRequest.authoredOn">
         <shortUnmatched reason="Unknown">
-            <_pattern value="When request was created/transitioned to active"/>
+            <_pattern value="When request was created/transitioned to active (e.g. signed/authorized)"/>
             <resource value="Date request signed"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
