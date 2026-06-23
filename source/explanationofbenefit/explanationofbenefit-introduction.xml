@@ -84,7 +84,7 @@ the provider will settle the claim and potentially recover costs against specifi
 	to request what the adjudication would be for a supplied set of goods or services should they be actually supplied to the patient.
 		</p>
 
-		<p>When requesting whether the patient's coverage is inforce, whether it is valid at this or a specified date, or requesting the benefit details or preauthorization requirements
+		<p>When requesting whether the patient's coverage is in-force, whether it is valid at this or a specified date, or requesting the benefit details or preauthorization requirements
 	associated with a coverage <a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a> should be used instead.
 		</p>
 
