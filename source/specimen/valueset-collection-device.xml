@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="collection-device"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="informative"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/collection-device"/>
+  <version value="6.0.0"/>
+  <name value="CollectionDevice"/>
+  <title value="Collection Device"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International / Orders and Observations"/>
+  <description value="Codes for devices used in specimen collection."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms (SNOMED CT) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct or info@snomed.org"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="1003474008"/>
+        <display value="Oral specimen collection swab (physical object)"/>
+      </concept>
+      <concept>
+        <code value="20568009"/>
+        <display value="Urinary catheter, device (physical object)"/>
+      </concept>
+      <concept>
+        <code value="706681000"/>
+        <display value="Aspiration needle (physical object)"/>
+      </concept>
+      <concept>
+        <code value="700956008"/>
+        <display value="Blood collection needle, basic (physical object)"/>
+      </concept>
+      <concept>
+        <code value="22566001"/>
+        <display value="Cytology brush, device (physical object)"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

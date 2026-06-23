@@ -358,7 +358,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Consent"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
       </type>
       <mapping>
@@ -407,7 +406,7 @@
       <path value="Consent.policyBasis.reference"/>
       <short value="Reference backing policy resource"/>
       <definition value="A Reference that identifies the policy the organization will enforce for this Consent."/>
-      <comment value="While any resource may be used, Consent, PlanDefinition and Contract would be most frequent"/>
+      <comment value="While any resource may be used, Consent, and PlanDefinition would be most frequent"/>
       <min value="0"/>
       <max value="1"/>
       <type>

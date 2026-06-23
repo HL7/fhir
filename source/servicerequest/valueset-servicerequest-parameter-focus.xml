@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="servicerequest-parameter-focus"/>
+  <meta>
+
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/servicerequest-parameter-focus"/>
+  <version value="6.0.0"/>
+  <name value="ServiceRequestParameterFocusCodes"/>
+  <title value="Service Request Parameter Focus Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="Orders and Observations Workgroup"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="An example value set of coded concepts for identifying the type of item that order detail parameters apply to, such as a device type or medication. This is a union of the Device Type and SNOMED CT Medication Codes value sets."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <compose>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
+    </include>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/medication-codes"/>
+    </include>
+  </compose>
+</ValueSet>

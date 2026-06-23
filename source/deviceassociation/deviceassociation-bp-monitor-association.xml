@@ -71,19 +71,26 @@
   <device>
     <reference value="#bp-monitor"/>
   </device>
-  <status value="active"/>
-  <associationStatus>
+  <relationship>
     <coding>
-      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
-      <code value="attached"/>
-      <display value="Attached"/>
+      <system value="http://hl7.org/fhir/deviceassociation-relationship"/>
+      <code value="used-by"/>
+      <display value="Used By"/>
     </coding>
-  </associationStatus>
+  </relationship>
+  <status value="active"/>
+  <relationshipStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/deviceassociation-relationship-status"/>
+      <code value="ended"/>
+      <display value="Ended"/>
+    </coding>
+  </relationshipStatus>
   <subject>
-    <reference value="#nurse-1"/>
+    <reference value="#example-patient"/>
   </subject>
   <focus>
-    <reference value="#example-patient"/>
+    <reference value="#nurse-1"/>
   </focus>
   <bodyStructure>
     <reference>
@@ -94,15 +101,4 @@
     <start value="2025-06-01"/>
     <end value="2025-06-05"/>
   </period>
-  <operation>
-    <status>
-      <coding>
-        <code value="on"/>
-      </coding>
-    </status>
-    <period>
-      <start value="2025-06-01"/>
-      <end value="2025-06-05"/>
-    </period>
-  </operation>
 </DeviceAssociation>
