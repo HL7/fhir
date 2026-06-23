@@ -43,22 +43,22 @@ The scope of the resource may change when the other possible scopes are investig
         <p>
             In the simplest form, the Consent resource provides the means to record the content and the metadata of 
             a consent to enable consent discovery, search, and retrieval. 
-            
-            <ul>
-                <li>
-                    The <code>sourceAttachment</code> and/or <code>sourceReference</code> elements can be used to 
-                    record the original consent document in the form of a pointer to another resource or as an attachment.
-                </li>
-                <li>
-                    The <code>regulatoryBasis</code> elements is used to record, the broad jurisdictional or organizational 
-                    policy within which the consent is applicable. 
-                </li>
-            </ul>            
-        </p>
+        </p>    
+        <ul>
+            <li>
+                The <code>sourceAttachment</code> and/or <code>sourceReference</code> elements can be used to 
+                record the original consent document in the form of a pointer to another resource or as an attachment.
+            </li>
+            <li>
+                The <code>regulatoryBasis</code> element is used to record, the broad jurisdictional or organizational 
+                policy within which the consent is applicable. 
+            </li>
+        </ul>            
+        
         <p>In a more advanced usage, the Consent resource goes beyond recording metadata and source content by directly
             encoding the privacy preferences in the form of machine-readable rules. This enables these preferences to
             be processed by a decision engine to adjudicate whether the consent permits a specific activity 
-            such a sharing a particular part of patient information with a requester.</p>
+            such as sharing a particular part of patient information with a requester.</p>
         <p>The current version of the Consent resource provides two elements for recording computable rules:</p>
         <ul>
             <li>
@@ -74,7 +74,7 @@ The scope of the resource may change when the other possible scopes are investig
                 <a href="consent.html#provisions">Provisions section</a> below.
             </li>
         </ul>
-        The <code>policyBasis</code> element, if present, is intended to captures the higher-level policy governing access to the data, 
+        The <code>policyBasis</code> element, if present, is intended to capture the higher-level policy governing access to the data, 
         while the <code>provision</code> element encodes the patient-specific preferences. If both elements are populated, 
         the patient-specific rules override the policy basis, thereby enabling the patient-specific rules to encode further 
         constraints and exceptions to the overarching data access policy.
