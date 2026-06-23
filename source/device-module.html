@@ -67,17 +67,29 @@ in order to support consistent definitions for schema and UML derived code.
     <p>Looking into the details of each of the resources on this diagram, though, will reveal a significant amount of detail that can often lead to confusion as to the high-level purposes they are intended to address.  Only the most comprehensive applications will require integration of all the model components.  Most will require only a subset. To sort this out, the following examples are provided to help understand the key concepts and rationale for their implementation.</p>
 
     <a name="deviceinstancevstype"></a>
-    <p><b><u>Device Instance vs. Device Type</u></b></p>
-    <p><b>Resources:</b><a href="device.html">Device</a>, <a href="devicedefinition.html">Device Definition</a></p>
+    <h4>Device Instance vs. Device Type</h4>
+    <p><b>Resources:</b> <a href="device.html">Device</a>, <a href="devicedefinition.html">Device Definition</a></p>
 
     <p>When working with a specific <b>INSTANCE</b> of a device (that can be uniquely identified for example: Company Z Super Ventilator, model SV, serial #123xyz456), a <a href="device.html">Device</a> resource is used. A <a href="device.html">Device</a> may reference a single <a href="devicedefinition.html">DeviceDefinition</a> when additional definitional information about the device is necessary to exchange.</p>
 
     <a name="commonusecases"></a>
     <h4>Common Use Cases</h4>
     <p>The following detailed use cases illustrate common device workflows and the resources most often involved:</p>
+    <style>
+        table.device-use-case {
+            border: 1px solid #999;
+            border-collapse: collapse;
+        }
+
+        table.device-use-case th,
+        table.device-use-case td {
+            border: 1px solid #999;
+            padding: 4px;
+        }
+    </style>
 
     <h5>Detailed Use Case: A - Tracking Defective Device Usage Across Patients</h5>
-    <table class="bare">
+    <table class="bare device-use-case">
         <tr>
             <th>Section</th>
             <th>Details</th>
@@ -125,7 +137,7 @@ in order to support consistent definitions for schema and UML derived code.
     </table>
 
     <h5>Detailed Use Case: B - Tracking Device Settings During Measurement</h5>
-    <table class="bare">
+    <table class="bare device-use-case">
         <tr>
             <th>Section</th>
             <th>Details</th>
@@ -173,7 +185,7 @@ in order to support consistent definitions for schema and UML derived code.
     </table>
 
     <h5>Detailed Use Case: C - Tracking Alarm Settings During a Device Alarm</h5>
-    <table class="bare">
+    <table class="bare device-use-case">
         <tr>
             <th>Section</th>
             <th>Details</th>
@@ -221,7 +233,7 @@ in order to support consistent definitions for schema and UML derived code.
     </table>
 
     <h5>Detailed Use Case: D - Tracking Device Management (Allocation, Dispense, and Return)</h5>
-    <table class="bare">
+    <table class="bare device-use-case">
         <tr>
             <th>Section</th>
             <th>Details</th>
@@ -269,7 +281,7 @@ in order to support consistent definitions for schema and UML derived code.
     </table>
 
     <h5>Detailed Use Case: E - Controlling Device Management (Continuous Monitoring Order)</h5>
-    <table class="bare">
+    <table class="bare device-use-case">
         <tr>
             <th>Section</th>
             <th>Details</th>
@@ -317,7 +329,7 @@ in order to support consistent definitions for schema and UML derived code.
     </table>
 
     <h5>Detailed Use Case: F - Controlling Device Settings via Remote Control</h5>
-    <table class="bare">
+    <table class="bare device-use-case">
         <tr>
             <th>Section</th>
             <th>Details</th>
