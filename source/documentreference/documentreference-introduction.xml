@@ -13,6 +13,8 @@
         <li>Updates to the following elements:</li>
             <ul>
                 <li>DocumentReference.bodySite has been changed to DocumentReference.bodyStructure</li>
+				<li>FHIR-55225 - Removed reference to EnrollmentRequest from DocumentReference.basedOn</li>
+                <li>FHIR-55563 - Removed reference to Contract from DocumentReference.basedOn</li>
             </ul>
     </ul>
     </blockquote>
@@ -28,6 +30,7 @@
           <li><a href="https://jira.hl7.org/browse/FHIR-54618">FHIR-54618</a></li>
 		  <li><a href="https://jira.hl7.org/browse/FHIR-54538">FHIR-54538</a></li>
           <li><a href="https://jira.hl7.org/browse/FHIR-55265">FHIR-55265</a></li>
+          <li><a href="https://jira.hl7.org/browse/FHIR-55264">FHIR-55264</a></li>
         </ul>
     </blockquote>
 

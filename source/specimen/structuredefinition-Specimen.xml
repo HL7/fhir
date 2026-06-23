@@ -346,7 +346,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         </extension>
         <strength value="preferred"/>
         <description value="Codes describing specimen role."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-role"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/specimen-role"/>
       </binding>
       <mapping>
         <identity value="v2"/>
@@ -562,7 +562,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         </extension>
         <strength value="example"/>
         <description value="The device that was used to obtain the specimen (e.g. a catheter or catheter part used to draw the blood via a central line)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/containerdevice-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/collection-device"/>
       </binding>
       <mapping>
         <identity value="v2"/>
@@ -863,7 +863,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         </extension>
         <strength value="example"/>
         <description value="Codes for specimen container devices."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/containerdevice-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
       </binding>
       <mapping>
         <identity value="rim"/>

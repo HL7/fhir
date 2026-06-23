@@ -108,6 +108,11 @@
       <path value="Observation.value[x]"/>
       <max value="0"/>
     </element>
+    <element id="Observation.organizer">
+      <path value="Observation.organizer"/>
+      <min value="1"/>
+      <fixedBoolean value="true"/>
+    </element>
     <element id="Observation.hasMember">
       <path value="Observation.hasMember"/>
       <min value="2"/>
