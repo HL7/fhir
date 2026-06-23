@@ -216,7 +216,7 @@
     <element id="DeviceAssociation.focus">
       <path value="DeviceAssociation.focus"/>
       <short value="The entity or group that the association is with, if not the subject"/>
-      <definition value="The individual, group of individuals, or entity that the target device is actually associated with, if they are not the subject of record. This be a RelatedPerson when a device is rented to a patient's parent, or a Practitioner when a device is operated by a surgeon during a procedure on a patient."/>
+      <definition value="The individual, group of individuals, or entity that the target device is actually associated with, if they are not the subject of record. This may be a RelatedPerson when a device is rented to a patient's parent, or a Practitioner when a device is operated by a surgeon during a procedure on a patient."/>
       <min value="0"/>
       <max value="1"/>
       <type>

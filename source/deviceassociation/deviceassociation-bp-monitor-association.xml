@@ -81,7 +81,7 @@
   <status value="active"/>
   <relationshipStatus>
     <coding>
-      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-relationship-status"/>
+      <system value="http://hl7.org/fhir/deviceassociation-relationship-status"/>
       <code value="ended"/>
       <display value="Ended"/>
     </coding>

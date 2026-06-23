@@ -20,7 +20,7 @@
   <!-- Relationship lifecycle state moved here -->
   <relationshipStatus>
     <coding>
-      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-relationship-status"/>
+      <system value="http://hl7.org/fhir/deviceassociation-relationship-status"/>
       <code value="removed"/>
       <display value="Removed"/>
     </coding>
