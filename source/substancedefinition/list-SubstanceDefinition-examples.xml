@@ -16,4 +16,76 @@
       <display value="General"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Nucleic acid substance: Mipomersen sodium — antisense oligonucleotide targeting APOB-100"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substancedefinition-nucleicacid-mipomersen-example"/>
+    </extension>
+    <item>
+      <reference value="SubstanceDefinition/mipomersen"/>
+      <display value="Nucleic Acid - Mipomersen Sodium"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Protein substance: Trastuzumab — humanised IgG1 monoclonal antibody targeting HER2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substancedefinition-protein-trastuzumab-example"/>
+    </extension>
+    <item>
+      <reference value="SubstanceDefinition/trastuzumab"/>
+      <display value="Protein - Trastuzumab"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Protein substance: HER2 (ErbB2) — the target protein referenced by Trastuzumab"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substancedefinition-protein-her2-example"/>
+    </extension>
+    <item>
+      <reference value="SubstanceDefinition/her2"/>
+      <display value="Protein - HER2 (target of Trastuzumab)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Polymer substance: Polyethylene Glycol 3350 — linear homopolymer of ethylene oxide"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substancedefinition-polymer-peg3350-example"/>
+    </extension>
+    <item>
+      <reference value="SubstanceDefinition/peg3350"/>
+      <display value="Polymer - Polyethylene Glycol 3350"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Chemical substance: Ponatinib hydrochloride — small-molecule tyrosine kinase inhibitor targeting BCR-ABL"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substancedefinition-chemical-ponatinib-example"/>
+    </extension>
+    <item>
+      <reference value="SubstanceDefinition/ponatinib-hcl"/>
+      <display value="Chemical - Ponatinib Hydrochloride"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Structurally diverse substance: Dermatophagoides farinae allergen — house dust mite extract"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substancedefinition-structurally-diverse-dermatophagoides-example"/>
+    </extension>
+    <item>
+      <reference value="SubstanceDefinition/dermatophagoides-farinae"/>
+      <display value="Structurally Diverse - Dermatophagoides farinae"/>
+    </item>
+  </entry>
 </List>
