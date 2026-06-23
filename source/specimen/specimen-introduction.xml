@@ -8,6 +8,9 @@
         <li><a href="https://jira.hl7.org/browse/FHIR-53384">FHIR-53384</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-56301">FHIR-56301</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54598">FHIR-54598</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54488">FHIR-54488</a></li>
     </ul>
 	</blockquote>
 	<p>Any material sample:</p>
@@ -27,9 +30,7 @@
 	<a name="bnc"></a>
 	<h2>Background and Context</h2>
 	<p>
-	The current definition of the specimen resource contains only basic information about specimen containers. It does not
-	address the recursive nature of containers or the tracking of the location of a container within its parent container
-	(for instance: a tube in a tray in a rack in a freezer). The frequency with which these elements are tracked may depend on the context
+	The current definition of the specimen resource contains only basic information about specimen containers. The recursive nature of container should be expressed via Specimen.device.parent. The frequency with which these elements are tracked may depend on the context
 	of use; general lab, bio-banking, etc. Comments from reviewers on the appropriate scope for this resource, and the need for tracking
 	related specimen management attributes, are welcomed.
 	</p>
