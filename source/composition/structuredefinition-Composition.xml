@@ -579,15 +579,22 @@
     </element>
     <element id="Composition.name">
       <path value="Composition.name"/>
-      <short value="Name for this Composition (computer friendly)"/>
-      <definition value="A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <short value="Computer-friendly name"/>
+      <definition value="A machine-friendly identifier suitable for code generation. For example, "ClinicalDocument" or "Composition_v2".See the Constraint description."/>
+      <comment value="The name is not expected to be globally unique. This field is used primarily by computers while the title field includes information for human-display. Composition.type is used to provide a CodeableConcept for the document type when available while Composition.name is an uncoded string. Composition.identifier is used to identify the specific instance of a document."/>
       <requirements value="Support human navigation and code generation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <constraint>
+        <key value="cmp-4"/>
+        <severity value="warning"/>
+        <human value="Name should start with an uppercase letter (A–Z), be 2 to 255 characters long, and contain only letters, digits, and underscores. Whitespace, hyphens, and other punctuation are not permitted"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+      </constraint>
       <isSummary value="true"/>
     </element>
     <element id="Composition.title">
