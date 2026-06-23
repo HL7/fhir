@@ -346,7 +346,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
         </extension>
         <strength value="preferred"/>
         <description value="Codes describing specimen role."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-role"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/specimen-role"/>
       </binding>
       <mapping>
         <identity value="v2"/>
