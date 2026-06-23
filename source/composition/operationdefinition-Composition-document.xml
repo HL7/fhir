@@ -34,7 +34,7 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document&#xA;* this operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question"/>
+    <valueMarkdown value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document"/>
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Composition-document"/>
   <version value="6.0.0"/>
@@ -64,7 +64,7 @@
   </jurisdiction>
   <affectsState value="false"/>
   <code value="document"/>
-  <comment value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document&#xA;* This operation definition does not resolve the question how document signatures are created. This is an open issue during the period of trial use, and feedback is requested regarding this question"/>
+  <comment value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document "/>
   <resource value="Composition"/>
   <system value="false"/>
   <type value="false"/>
