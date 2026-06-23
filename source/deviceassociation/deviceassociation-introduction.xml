@@ -6,7 +6,7 @@
 <ul>
 <li>Collapsed the DeviceAssociation.operation backbone into the other elements (e.g., DeviceAssociation.relationship now includes the operator role).</li>
 <li>DeviceAssociation.category was renamed DeviceAssociation.relationship and given an extensible value set.</li>
-<li>Added DeviceAssociation.associationStatus.</li>
+<li>Added DeviceAssociation.relationshipStatus.</li>
 <li>Updated search parameters to address the changes.</li>
 </ul>
 </blockquote>
