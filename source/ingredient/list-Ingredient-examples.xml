@@ -24,8 +24,8 @@
       <valueString value="ingredient-example-strength-repeat"/>
     </extension>
     <item>
-      <reference value="Ingredient/example"/>
-      <display value="General Example with multiple strenghs"/>
+      <reference value="Ingredient/example-strength-repeat"/>
+      <display value="General Example with multiple strengths"/>
     </item>
   </entry>
 </List>
