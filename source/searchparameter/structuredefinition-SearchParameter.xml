@@ -393,7 +393,7 @@
 			<path value="SearchParameter.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the search parameter (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the search parameter to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the search parameter to be used in jurisdictions other than those for which it was originally designed or intended."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
