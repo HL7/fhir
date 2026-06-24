@@ -56,6 +56,11 @@
     <definition value="This endpoint is available for limited use (for example, it is undergoing internal testing).  I.e. the endpoint is not fully available, might not always be available, or might only be available for some users."/>
   </concept>
   <concept>
+    <code value="test"/>
+    <display value="Test"/>
+    <definition value="This endpoint is not intended for production usage."/>
+  </concept>
+  <concept>
     <code value="suspended"/>
     <display value="Suspended"/>
     <definition value="This endpoint is temporarily unavailable."/>
@@ -74,5 +79,10 @@
     <code value="entered-in-error"/>
     <display value="Entered in error"/>
     <definition value="This instance should not have been part of this patient's medical record."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The endpoint status is unknown."/>
   </concept>
 </CodeSystem>
