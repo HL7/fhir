@@ -89,6 +89,7 @@ Some Composition elements overlap with information that may also be represented 
 <li><b>Attestation and signature:</b> <code>Composition.attester</code> identifies responsibility for the accuracy of the Composition, while <code>Provenance.signature</code> records a signature on the target. <code>relatesTo.type = signs</code> is used only when the Composition itself is a signature artifact for the target, not merely to indicate that the Composition was signed.</li>
 </ul>
 <h3>Grouping Structures</h3>
+<p>
 Composition is a structure for grouping information for purposes of persistence and attestability.  
 The Composition resource defines a set of healthcare-related information that is assembled 
 together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
