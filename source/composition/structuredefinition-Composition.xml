@@ -595,7 +595,7 @@
         <key value="cmp-4"/>
         <severity value="warning"/>
         <human value="Name should start with an uppercase letter (A–Z), be 2 to 255 characters long, and contain only letters, digits, and underscores. Whitespace, hyphens, and other punctuation are not permitted"/>
-        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
+        <expression value="%resource.name.exists() implies %resource.name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
       </constraint>
       <isSummary value="true"/>
@@ -1125,6 +1125,7 @@
         <code value="Narrative"/>
       </type>
       <condition value="cmp-1"/>
+      <condition value="cmp-3"/>
       <mapping>
         <identity value="rim"/>
         <map value=".text"/>
