@@ -8,7 +8,9 @@
 <p>Updated the descriptions and constraint for the Composition.name element.</p>
 <p>Changed the binding for Composition.attester.mode to be the THO ValueSet and the example now uses the THO CodeSystem.</p>
 <p>Updated the "Note to Implementers" section by removing the text about the $document operation and removed a note about document signatures from the "Operation $document on Composition" page.</p>
-<p>In the "Boundaries and Relationships" section a bullet for DiagnosticReport was added.</p>
+<p>Updated the Composition resource description and definition (both the same text).</p>
+<p>Improved the "Scope and Usage" section text.</p>
+<p>In the "Boundaries and Relationships" section a bullet for DiagnosticReport was added and clarified the List boundary on the right axis.</p>
 <p>Clarified text, added a paragraph, and the meaning of "subject" in the "Compositions about multiple entities" section.</p>
 <p>Fixes for the Search on section.code and section.text.div expressions</p>
 <p>Clarified the Composition.version element comment.</p>
@@ -23,30 +25,38 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-54103">FHIR-54103</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54182">FHIR-54182</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54343">FHIR-54343</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-54986">FHIR-54986</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-55225">FHIR-55225</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-57263">FHIR-57263</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-55509">FHIR-55509</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-55339">FHIR-55339</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-54502">FHIR-54502</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54495">FHIR-54495</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54499">FHIR-54499</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54500">FHIR-54500</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54502">FHIR-54502</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54504">FHIR-54504</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54506">FHIR-54506</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54507">FHIR-54507</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54510">FHIR-54510</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54500">FHIR-54858</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54986">FHIR-54986</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-55225">FHIR-55225</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-55339">FHIR-55339</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-55509">FHIR-55509</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-55529">FHIR-55529</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-57263">FHIR-57263</a></li>
 	</ul>
 </blockquote>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-<p> 
-A Composition is the basic structure from which <a href="documents.html">FHIR Documents</a> - 
-immutable bundles with attested narrative - are built. A single logical composition may be 
-associated with a series of derived documents, each of which is a frozen copy of the 
-composition.
+<p>
+ISO defines the term <i>EHR composition</i> as a "set of information committed to one EHR by one agent, as a result of a single clinical encounter or record documentation" and offers these examples: Progress Note, radiology report, referral letter, clinic visit record, discharge summary, functional health assessment, diabetes review.&sup1; FHIR adopts this concept as the Composition resource &mdash; the structural unit that binds a committed set of information to a subject, authors, and context, along with the attested narrative that represents the information. Where ISO frames an EHR composition as the product of one encounter or documentation event, FHIR carries the same structure into two use cases that differ in how they are packaged and how long they persist:
+<ul>
+<li><b><a href="documents.html">FHIR Documents</a></b> &mdash; attestable, immutable Bundles with composed narrative.</li>
+<li><b>Context-Establishing Snapshots</b> &mdash; an annotated, attested list of queryable FHIR resources that represents the current status of the subject.</li>
+</ul>
 </p>
+<p><b>Using Composition for FHIR Documents</b></p>
+<p>A Composition is the basic structure from which FHIR Documents &mdash; immutable bundles with attested narrative &mdash; are built. Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition is the first entry in a Bundle where <code>Bundle.type=document</code>, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example, Patient, Practitioner, Encounter, etc.). A single logical composition may be associated with a series of derived documents, each of which is a frozen copy of the composition. See the <a href="documents.html">FHIR Documents</a> section for more information on the document structure, presentation, and processing.</p>
+<p>The <a href="http://hl7.org/fhir/uv/fhir-clinical-document/ImplementationGuide/hl7.fhir.uv.fhir-clinical-document">Clinical Document profile</a> constrains Composition to specify a clinical document (matching <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>). See also the <a href="comparison-cda.html">comparison with CDA</a>.</p>
+<p><b>Using Composition for Context-Establishing Snapshots</b></p>
+<p>The Composition can be used to record the current status of the subject. This use of Composition supports persistence and clinical attestation beyond simple enumeration. The sections establish the relationship of the entries within the overall context and provide information about the relevant parties involved in assembling the information. Unlike FHIR Documents, this use of Composition serves as the structural backbone for non-document artifacts and changes as the subject's status changes.</p>
+<p>&sup1;: ISO/TR 12773-2:2009(en) Business requirements for health summary records &mdash; Part 2: Environmental scan</p>
 
 <p>
 Note: <a href="http://en.wikipedia.org/wiki/EN_13606">EN 13606</a> uses the term "Composition" 
@@ -58,7 +68,7 @@ to make more granular updates with individual provenance statements.
 </p>
 
 <p>
-The <a href="https://build.fhir.org/ig/HL7/fhir-clinical-document/en/index.html">Clinical Document profile</a> constrains Composition to specify a clinical document
+The <a href="http://hl7.org/fhir/uv/fhir-clinical-document/ImplementationGuide/hl7.fhir.uv.fhir-clinical-document">Clinical Document profile</a> constrains Composition to specify a clinical document
 (matching <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>).  
 See also the <a href="comparison-cda.html">comparison with CDA</a>.
 </p>
@@ -80,20 +90,16 @@ There are several other grouping structures in FHIR with distinct purposes:
 </p>
 <ul>
 <li>
-The <a href="list.html">List</a> resource - enumerates a flat collection of resources and provides features for managing the collection.  
+The <a href="list.html">List</a> resource &mdash; enumerates a flat collection of resources and provides features for managing the collection.  
 While a particular List instance may represent a "snapshot", from a business process perspective, the notion of "list" 
 is dynamic – items are added and removed over time.  The List resource references other resources.  Lists may be 
 curated and have specific business meaning.
 </li>
 <li>
-The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
-or by describing qualities that group members have. The Group resource refers to other resources, possibly implicitly.  
-Groups are intended to be acted upon or observed as a whole (e.g., performing therapy on a group, calculating risk for a group, 
-etc.).  This resource will commonly be used for public health (e.g., describing an at-risk population), clinical trials (e.g., 
-defining a test subject pool) and similar purposes.
+The <a href="group.html">Group</a> resource provides a flat enumeration of resources with per-entry flags (added, removed, deleted) and an optional snapshot/working mode. Composition differs from List in providing annotation and section structure: titled and coded sections, per-section narrative, per-section authorship, and document-level attestation. Use List for flat collections (dynamic or snapshot) where per-entry tracking is the primary need; use Composition for annotated, structured collections (typically packaged as a FHIR document) where sections, narrative, and attestation matter.
 </li>
 <li>
-The <a href="bundle.html">Bundle</a> resource - is an infrastructure container for a group of resources.  It does not have narrative 
+The <a href="bundle.html">Bundle</a> resource &mdash; is an infrastructure container for a group of resources.  It does not have narrative 
 and is used to group collections of resources for transmission, persistence or processing (e.g., messages, documents, transactions, 
 query responses, etc.).  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
 </li>
@@ -102,7 +108,7 @@ A <a href="diagnosticreport.html">DiagnosticReport</a> resource is used strictly
 If you have a highly structured report, then use DiagnosticReport and for more narrative driven reports the Composition resource would be more appropriate.
 </li>
 <li>
-The <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource - is similar to Composition in that both organize collections of items and can have a hierarchical structure. 
+The <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource &mdash; is similar to Composition in that both organize collections of items and can have a hierarchical structure. 
 <a href="questionnaire.html">Questionnaires</a> are also intended to help guide 'human' presentation of data. However, Compositions organize resources, while Questionnaires/QuestionnaireResponses organize specific elements. 
 Also, a Questionnaire represents data 'to be gathered' and is subject-independent, while Compositions represent collections of data that are complete and are about a particular subject. 
 It is possible for <a href="structuredefinition.html">StructureDefinitions</a> to act as 'templates' for FHIR documents that guide what data is collected for a 
@@ -131,12 +137,12 @@ Every composition has a status element, which describes the status of the conten
 <%codelist http://hl7.org/fhir/composition-status%>
 
 <p>
-Composition status generally only moves down through this list - it moves from <code>registered</code> or <code>preliminary</code> to <code>final</code> and then it may progress to <code>amended</code>. 
+Composition status generally only moves down through this list &mdash; it moves from <code>registered</code> or <code>preliminary</code> to <code>final</code> and then it may progress to <code>amended</code>. 
 Note that in many workflows, only <code>final</code> compositions are made available and the <code>preliminary</code> status is not used. 
 </p>
 <img src="composition-state-machine.svg" alt="Diagram showing typical transitions of clinical status for the Composition resource" style="max-width:100%"/>
 <p>
-A very few compositions are created entirely in error in the workflow - usually the composition concerns the wrong patient or is written by the wrong author,
+A very few compositions are created entirely in error in the workflow &mdash; usually the composition concerns the wrong patient or is written by the wrong author,
 and the error is only detected after the composition has been used or documents have been derived from it. To support resolution of this case, 
 the composition is updated to be marked as <code>entered-in-error</code> and a new derived document can be created. This means that the entire series of derived 
 documents is now considered to be created in error and systems receiving derived documents based on retracted compositions
