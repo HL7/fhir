@@ -78,6 +78,7 @@ See also the <a href="comparison-cda.html">comparison with CDA</a>.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <h3>Relationship of Composition Elements to Provenance</h3>
+<p>
 Some Composition elements overlap with information that may also be represented using Provenance. Composition elements describe information intrinsic to the Composition and <b>SHOULD</b> be used in preference to Provenance. Provenance <b>SHOULD</b> be used when additional information about the activity that created, revised, transformed, removed, or signed the Composition is required. When both are present, the information <b>SHOULD</b> be consistent.
 </p>
 <p>Examples include:</p>
