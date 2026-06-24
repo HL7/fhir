@@ -48,7 +48,7 @@
       <valueString value="composition-example-context-establishing-clinical-snapshot"/>
     </extension>
     <item>
-      <reference value="Composition/example-context-establishing-clinical-snapshotd"/>
+      <reference value="Composition/example-context-establishing-clinical-snapshot"/>
       <display value="Context-Establishing Clinical Snapshot"/>
     </item>
   </entry>
