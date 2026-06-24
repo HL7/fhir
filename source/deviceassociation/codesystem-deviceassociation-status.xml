@@ -10,7 +10,7 @@
   </extension>
   <url value="http://hl7.org/fhir/deviceassociation-status"/>
   <version value="6.0.0"/>
-  <name value="DeviceAssociation"/>
+  <name value="DeviceAssociationStatus"/>
   <title value="DeviceAssociation Status Codes"/>
   <status value="active"/>
   <experimental value="false"/>
