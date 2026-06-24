@@ -393,8 +393,7 @@ Accept: image/jpeg
 
 </pre>
 <p>
-For further details on DICOM WADO-URI capabilities including additional rendering parameters,
-see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/chapter_9.html">DICOM PS3.18 Chapter 9</a>.
+For further details on DICOM WADO-URI capabilities including additional rendering parameters, see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/chapter_9.html">DICOM PS3.18 Chapter 9</a>.
 </p>
 
   <a name="laterality"></a>
