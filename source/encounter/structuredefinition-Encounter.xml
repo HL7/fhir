@@ -580,7 +580,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ParticipantType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Role of participant in encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-participant-type"/>
       </binding>
