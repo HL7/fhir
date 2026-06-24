@@ -603,7 +603,7 @@
       <path value="Composition.title"/>
       <short value="Human Readable name/title"/>
       <definition value="Official human-readable label for the composition."/>
-      <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;). Feedback on this requirement is welcome during the trial use period."/>
+      <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
