@@ -8,6 +8,7 @@
 <p>Updated the descriptions and constraint for the Composition.name element.</p>
 <p>Changed the binding for Composition.attester.mode to be the THO ValueSet and the example now uses the THO CodeSystem.</p>
 <p>Updated the "Note to Implementers" section by removing the text about the $document operation and removed a note about document signatures from the "Operation $document on Composition" page.</p>
+<p>In the "Boundaries and Relationships" section a bullet for DiagnosticReport was added.</p>
 </blockquote>
 <blockquote style="background-color: lightblue">
 	<p><b>Release Notes:</b></p>
@@ -22,6 +23,7 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-55509">FHIR-55509</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-55339">FHIR-55339</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54502">FHIR-54502</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54495">FHIR-54495</a></li>
 	</ul>
 </blockquote>
 <a name="scope"></a>
@@ -81,6 +83,10 @@ defining a test subject pool) and similar purposes.
 The <a href="bundle.html">Bundle</a> resource - is an infrastructure container for a group of resources.  It does not have narrative 
 and is used to group collections of resources for transmission, persistence or processing (e.g., messages, documents, transactions, 
 query responses, etc.).  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
+</li>
+<li>
+A <a href="diagnosticreport.html">DiagnosticReport</a> resource is used strictly to compile a collection of diagnostic information and focuses on the discrete data in the report, but may contain or reference a separate rendered version of the report.
+If you have a highly structured report, then use DiagnosticReport and for more narrative driven reports the Composition resource would be more appropriate.
 </li>
 <li>
 The <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource - is similar to Composition in that both organize collections of items and can have a hierarchical structure. 
