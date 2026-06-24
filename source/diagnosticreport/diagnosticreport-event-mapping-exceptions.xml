@@ -132,7 +132,7 @@
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="This indicates when the activity actually occurred or is occurring, not when it was asked/requested/ordered to occur.  For the latter, look at the occurence element of the  Request this {{event}} is &quot;basedOn&quot;.  The status code allows differentiation of whether the timing reflects a historic event or an ongoing event.  Ongoing events should not include an upper bound in the Period or Timing.bounds.&#10;."/>
-            <resource value="See the [notes] (diagnosticreport.html#10.3.6.1) on Clinically Relevant Time in the DiagnosticReport resource notes."/>
+            <resource value="See the [notes](diagnosticreport.html#10.3.6.1) on Clinically Relevant Time in the DiagnosticReport resource notes."/>
         </commentsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="DiagnosticReport.performer">
