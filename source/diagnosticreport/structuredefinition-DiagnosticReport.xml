@@ -414,7 +414,7 @@
       <path value="DiagnosticReport.effective[x]"/>
       <short value="Clinically relevant time/time-period for the results that are included in the report"/>
       <definition value="The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself."/>
-      <comment value="See the notes on Clinically Relevant Time in the DiagnosticReport resource notes."/>
+      <comment value="See the [notes] (diagnosticreport.html#10.3.6.1) on Clinically Relevant Time in the DiagnosticReport resource notes."/>
       <requirements value="Need to know where in the patient history to file/present this report."/>
       <alias value="Observation time"/>
       <alias value="Effective Time"/>
