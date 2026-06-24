@@ -9,7 +9,7 @@
 <p>Changed the binding for Composition.attester.mode to be the THO ValueSet and the example now uses the THO CodeSystem.</p>
 <p>Updated the "Note to Implementers" section by removing the text about the $document operation and removed a note about document signatures from the "Operation $document on Composition" page.</p>
 <p>In the "Boundaries and Relationships" section a bullet for DiagnosticReport was added.</p>
-<p>Clarified text and the meaning of "subject" in the "Compositions about multiple entities" section.</p>
+<p>Clarified text, added a paragraph, and the meaning of "subject" in the "Compositions about multiple entities" section.</p>
 </blockquote>
 <blockquote style="background-color: lightblue">
 	<p><b>Release Notes:</b></p>
@@ -26,6 +26,7 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-54502">FHIR-54502</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54495">FHIR-54495</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54499">FHIR-54499</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54500">FHIR-54500</a></li>
 	</ul>
 </blockquote>
 <a name="scope"></a>
