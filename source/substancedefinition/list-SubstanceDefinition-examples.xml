@@ -88,4 +88,16 @@
       <display value="Structurally Diverse - Dermatophagoides farinae"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Mixture substance: D&amp;C Yellow No. 10 Aluminum Lake — pharmaceutical colorant excipient (data from FDA GSRS). Components are inlined as contained resources for example convenience; real-world mixtures would typically reference standalone SubstanceDefinition resources by URL."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="substancedefinition-mixture-dc-yellow-10-al-lake-example"/>
+    </extension>
+    <item>
+      <reference value="SubstanceDefinition/dc-yellow-10-al-lake"/>
+      <display value="Mixture - D&amp;C Yellow No. 10 Aluminum Lake"/>
+    </item>
+  </entry>
 </List>
