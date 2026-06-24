@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Composition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/composition.xsd">
+	<id value="example-context-establishing-clinical-snapshot"/>
+	<status value="final"/>
+	<type>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="60591-5"/>
+			<display value="Patient summary Document"/>
+		</coding>
+		<text value="Current clinical status snapshot"/>
+	</type>
+	<subject>
+		<reference value="Patient/patient-123"/>
+		<display value="Example Patient"/>
+	</subject>
+	<date value="2026-06-24T11:30:00-07:00"/>
+	<author>
+		<reference value="CareTeam/primary-care-team"/>
+		<display value="Example Patient Primary Care Team"/>
+	</author>
+	<title value="Current Clinical Status"/>
+	<attester>
+		<mode>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/composition-attestation-mode"/>
+				<code value="professional"/>
+				<display value="Professional"/>
+			</coding>
+		</mode>
+		<time value="2026-06-24T11:30:00-07:00"/>
+		<party>
+			<reference value="Practitioner/practitioner-1"/>
+			<display value="Some Doctor, MD"/>
+		</party>
+	</attester>
+	<custodian>
+		<reference value="Organization/example-health-system"/>
+		<display value="Example Health System"/>
+	</custodian>
+	<section>
+		<title value="Active Problems"/>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="57852-6"/>
+				<display value="Problem list Narrative - Reported"/>
+			</coding>
+		</code>
+		<text>
+			<status value="generated"/>
+			<div value="&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;Active problems: type 2 diabetes mellitus and essential hypertension.&lt;/p&gt;&lt;/div&gt;"/>
+		</text>
+		<entry>
+			<reference value="Condition/diabetes"/>
+		</entry>
+		<entry>
+			<reference value="Condition/hypertension"/>
+		</entry>
+	</section>
+	<section>
+		<title value="Allergies and Adverse Reactions"/>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="48765-2"/>
+				<display value="Allergies and adverse reactions Document"/>
+			</coding>
+		</code>
+		<text>
+			<status value="generated"/>
+			<div value="&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;Penicillin allergy: urticaria.&lt;/p&gt;&lt;/div&gt;"/>
+		</text>
+		<entry>
+			<reference value="AllergyIntolerance/penicillin"/>
+		</entry>
+	</section>
+	<section>
+		<title value="Current Medications"/>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="10160-0"/>
+				<display value="History of Medication use Narrative"/>
+			</coding>
+		</code>
+		<text>
+			<status value="generated"/>
+			<div value="&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;Current medications: metformin and lisinopril.&lt;/p&gt;&lt;/div&gt;"/>
+		</text>
+		<entry>
+			<reference value="MedicationRequest/metformin"/>
+		</entry>
+		<entry>
+			<reference value="MedicationRequest/lisinopril"/>
+		</entry>
+	</section>
+	<section>
+		<title value="Plan of Care"/>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="18776-5"/>
+				<display value="Plan of care note"/>
+			</coding>
+		</code>
+		<text>
+			<status value="generated"/>
+			<div value="&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;Continue current therapy and reassess blood pressure and glycated hemoglobin at the next visit.&lt;/p&gt;&lt;/div&gt;"/>
+		</text>
+		<entry>
+			<reference value="CarePlan/chronic-care-plan"/>
+		</entry>
+	</section>
+</root>

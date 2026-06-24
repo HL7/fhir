@@ -40,4 +40,16 @@
       <display value="Example - mixed"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of a Context-Establishing Clinical Snapshot"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="composition-example-context-establishing-clinical-snapshot"/>
+    </extension>
+    <item>
+      <reference value="Composition/example-context-establishing-clinical-snapshotd"/>
+      <display value="Context-Establishing Clinical Snapshot"/>
+    </item>
+  </entry>
 </List>
