@@ -40,10 +40,9 @@
 # Because JIRA_API_TOKEN may have write access during the personal-token
 # phase, every PR is scanned for suspicious content before any sensitive
 # step runs. Tier 1 findings (file outside allowlist, secret references,
-# shell command substitution, curl/wget, base64 blobs) hard-fail the run
-# and trigger a dedicated alert email. Tier 2 findings (.bak files,
-# prompt-injection language) are advisory and appended to the normal
-# triage email.
+# network fetch commands) hard-fail the run and trigger a dedicated alert
+# email. Tier 2 findings (.bak files, prompt-injection language) are
+# advisory and appended to the normal triage email.
 # =============================================================================
 
 name: Claude PR Triage (shared)
@@ -423,10 +422,17 @@ jobs:
                       f.write(f"{key}={value}\n")
 
           ALLOWED_EXTS = {
-              "json", "xml", "md", "txt", "xlsx", "datestamp", "fhirmap",
-              "svg", "pdf", "jpg", "diagram", "png", "html", "plantuml", "puml",
-              "cql", "gif", "ini", "no-inkscape", "csv", "liquid", "pptx",
-              "docx", "doc", "dic", "jstemp", "bak",
+              # Text / markup (content-scanned)
+              "cql", "css", "csv", "datestamp", "diagram", "draw", "fhirmap",
+              "g4", "html", "ini", "jstemp", "liquid", "md", "no-inkscape",
+              "plantuml", "puml", "svg", "txt", "xsd", "xslt",
+              # Data (content-scanned)
+              "json", "xml",
+              # Binary documents / images (allowlisted, not content-scanned)
+              "dic", "doc", "docx", "drawio", "eapx", "gif", "ico", "jpeg",
+              "jpg", "pdf", "png", "pptx", "vdx", "vsd", "vsdx", "xcf", "xlsx",
+              # Misc
+              "bak",
           }
 
           TIER1_PATTERNS = [
@@ -442,9 +448,12 @@ jobs:
               # technical content (markdown inline code, jQuery, Make variables,
               # template literals). Other rules + the Claude tool restriction
               # (`Bash(gh:*)` only) cover the actual threat surface.
-              ("Possible base64 payload",
-               re.compile(r"[A-Za-z0-9+/=]{100,}"),
-               False),
+              #
+              # Base64 payload rule was removed: the pipeline never decodes or
+              # evals PR content, so encoded instructions carry no execution
+              # risk. The pattern generates constant false positives against
+              # legitimate FHIR content (protein sequences, encoded binary
+              # data in resource examples).
           ]
 
           TIER2_PATTERNS = [
@@ -517,9 +526,13 @@ jobs:
                           "file": path, "line": None, "excerpt": f"extension: .{ext}", "redact": False,
                       })
 
-          TEXT_EXTS = {"json", "xml", "md", "txt", "html", "csv", "liquid",
-                       "fhirmap", "plantuml", "puml", "cql", "diagram", "ini", "svg",
-                       "datestamp", "no-inkscape", "dic", "jstemp", "bak"}
+          TEXT_EXTS = {
+              "json", "xml", "md", "txt", "html", "csv", "liquid",
+              "fhirmap", "plantuml", "puml", "cql", "diagram", "ini", "svg",
+              "datestamp", "no-inkscape", "dic", "jstemp", "bak",
+              # New plaintext additions
+              "css", "draw", "g4", "xsd", "xslt",
+          }
 
           for path in changed:
               ext = ext_of(path)
@@ -1362,6 +1375,14 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           LABEL: ${{ inputs.label }}
           TO_LIST: ${{ inputs.to }}
+          GH_EVENT_NAME: ${{ github.event_name }}
+          GH_EVENT_ACTION: ${{ github.event.action }}
+          GH_RUN_ID: ${{ github.run_id }}
+          GH_RUN_NUMBER: ${{ github.run_number }}
+          GH_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GH_SERVER_URL: ${{ github.server_url }}
+          GH_REPOSITORY: ${{ github.repository }}
+          TRIGGER_KIND: ${{ needs.eligibility.outputs.trigger_kind }}
         run: |
           BODY=$(python3 <<'PY'
           import os
@@ -1374,6 +1395,16 @@ jobs:
           security_override = os.environ.get("SECURITY_OVERRIDE", "") == "true"
           head_sha = os.environ.get("HEAD_SHA", "")
           link_url = os.environ["LINK_URL"]
+
+          # Debug info
+          event_name    = os.environ.get("GH_EVENT_NAME", "")
+          event_action  = os.environ.get("GH_EVENT_ACTION", "")
+          run_id        = os.environ.get("GH_RUN_ID", "")
+          run_number    = os.environ.get("GH_RUN_NUMBER", "")
+          run_attempt   = os.environ.get("GH_RUN_ATTEMPT", "1")
+          server_url    = os.environ.get("GH_SERVER_URL", "https://github.com")
+          repository    = os.environ.get("GH_REPOSITORY", "")
+          trigger_kind  = os.environ.get("TRIGGER_KIND", "")
 
           has_content = suggested_md.strip() and suggested_md.strip().lower() != "null"
           body_text = suggested_md.strip() if has_content else "No issues found."
@@ -1403,6 +1434,25 @@ jobs:
 
           print()
           print(link_url)
+
+          # Collapsible debug section
+          event_str = event_name
+          if event_action:
+              event_str += f" / {event_action}"
+          run_str = f"#{run_number}"
+          if run_attempt and run_attempt != "1":
+              run_str += f" (attempt {run_attempt} — re-run)"
+          run_url = f"{server_url}/{repository}/actions/runs/{run_id}"
+
+          print()
+          print("<details>")
+          print("<summary>Debug info</summary>")
+          print()
+          print(f"Event:        {event_str}")
+          print(f"Trigger kind: {trigger_kind}")
+          print(f"Run:          {run_str} — {run_url}")
+          print(f"Head SHA:     {head_sha}")
+          print("</details>")
           PY
           )
 
