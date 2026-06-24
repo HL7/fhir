@@ -52,7 +52,11 @@ A few compositions genuinely cover multiple distinct subjects across sections &m
 case, <code>Composition.subject</code> is omitted, and the extension <a href="[%extensions-location%]StructureDefinition-composition-section-subject.html">section-subject</a>
 is used on each section to indicate the subject.
 </p>
-
+<p>
+For documents that contain information about multiple related entities &mdash; such as a family history document with information about multiple family members,
+or a newborn discharge summary referencing the mother &mdash; the recommended pattern is a sub-section per related entity, each with its own Composition.section.focus pointing at the relevant RelatedPerson or other resource.
+This pattern makes each related entity's information independently locatable, attestable, and queryable.
+</p>
 [%stu-note dstu%]
 Feedback is welcome on two issues related to Composition:
 </p>
