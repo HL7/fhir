@@ -18,10 +18,12 @@
 <p>Clarified the Composition.status element comment.</p>
 <p>Removed a sentence from the comment for Composition.title about the  cardinality of the element in an older version.</p>
 <p>Added CareTeam and Group as possible resource types for Composition.participant.party Reference.</p>
+<p>CatalogType CodeSystem/ValueSet ownership moved to Orders and Observations workgroup</p>
 </blockquote>
 <blockquote style="background-color: lightblue">
 	<p><b>Release Notes:</b></p>
 	<ul>
+		<li><a href="https://jira.hl7.org/browse/FHIR-43465">FHIR-43465</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-53695">FHIR-53695</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54103">FHIR-54103</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54182">FHIR-54182</a></li>
