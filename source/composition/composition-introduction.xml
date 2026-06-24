@@ -7,6 +7,7 @@
 <p>Added Composition.classification BackboneElement to provide classification data.</p>
 <p>Updated the descriptions and constraint for the Composition.name element.</p>
 <p>Changed the binding for Composition.attester.mode to be the THO ValueSet and the example now uses the THO CodeSystem.</p>
+<p>Added an example for Context-Establishing Clinical Snapshot.</p>
 <p>Removed the "Note to Implementers" section by removing the text about the $document operation and removed a note about document signatures from the "Operation $document on Composition" page.</p>
 <p>Updated the Composition resource description and definition (both the same text).</p>
 <p>Improved the "Scope and Usage" section text.</p>

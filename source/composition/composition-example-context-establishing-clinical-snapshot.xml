@@ -49,7 +49,9 @@
 		</code>
 		<text>
 			<status value="generated"/>
-			<div value="&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;Active problems: type 2 diabetes mellitus and essential hypertension.&lt;/p&gt;&lt;/div&gt;"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Active problems: type 2 diabetes mellitus and essential hypertension.</p>
+			</div>
 		</text>
 		<entry>
 			<reference value="Condition/diabetes"/>
@@ -69,7 +71,9 @@
 		</code>
 		<text>
 			<status value="generated"/>
-			<div value="&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;Penicillin allergy: urticaria.&lt;/p&gt;&lt;/div&gt;"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Penicillin allergy: urticaria.</p>
+			</div>
 		</text>
 		<entry>
 			<reference value="AllergyIntolerance/penicillin"/>
@@ -86,7 +90,9 @@
 		</code>
 		<text>
 			<status value="generated"/>
-			<div value="&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;Current medications: metformin and lisinopril.&lt;/p&gt;&lt;/div&gt;"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Current medications: metformin and lisinopril.</p>
+			</div>
 		</text>
 		<entry>
 			<reference value="MedicationRequest/metformin"/>
@@ -106,7 +112,9 @@
 		</code>
 		<text>
 			<status value="generated"/>
-			<div value="&lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;p&gt;Continue current therapy and reassess blood pressure and glycated hemoglobin at the next visit.&lt;/p&gt;&lt;/div&gt;"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Continue current therapy and reassess blood pressure and glycated hemoglobin at the next visit.</p>
+			</div>
 		</text>
 		<entry>
 			<reference value="CarePlan/chronic-care-plan"/>
