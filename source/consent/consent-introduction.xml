@@ -50,7 +50,7 @@ The scope of the resource may change when the other possible scopes are investig
                 record the original consent document in the form of a pointer to another resource or as an attachment.
             </li>
             <li>
-                The <code>regulatoryBasis</code> element is used to record, the broad jurisdictional or organizational 
+                The <code>regulatoryBasis</code> element is used to record the broad jurisdictional or organizational 
                 policy within which the consent is applicable. 
             </li>
         </ul>            
