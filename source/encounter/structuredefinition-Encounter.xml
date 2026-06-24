@@ -1119,6 +1119,7 @@
         </extension>
         <strength value="example"/>
         <description value="The reason for re-admission of this admission encounter."/>
+        <comment value="Some systems will use their own ValueSet here where they choose to differentiate reasons/circumstances of the re-admission. Such as 'complications from health conditions', 'treatment non-compliance', 'medication errors',  'discharged against advice'.&#xD;&#xD;This was also modelled as a user defined table in v2, thus permitting easier migration." />
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0092"/>
       </binding>
       <mapping>

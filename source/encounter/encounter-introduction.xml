@@ -11,12 +11,12 @@
   </li>
   <li>Compatible, Substantive Changes
     <ul>
-      <li><a href="https://jira.hl7.org/browse/FHIR-55649">FHIR-55649</a>: Change the Encounter.participant.type binding from extensible to preferred</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55649">FHIR-55649</a>: Change the `Encounter.participant.type` binding from extensible to preferred</li>
     </ul>
   </li>
   <li>Non-substantive Changes
     <ul>
-      <li>(none)</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-54097">FHIR-54097</a>: Add a comment to the `reAdmission` coding to indicate why its a codeable concept and not just a boolean</li>
     </ul>
   </li>
 </ul>
