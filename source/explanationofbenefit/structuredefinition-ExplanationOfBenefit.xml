@@ -935,8 +935,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
       </binding>
     </element>
-    <element id="Claim.supportingInfo.subCategory">
-      <path value="Claim.supportingInfo.subCategory"/>
+    <element id="ExplanationOfBenefit.supportingInfo.subCategory">
+      <path value="ExplanationOfBenefit.supportingInfo.subCategory"/>
       <short value="Finer-grained classification of the supplied information"/>
       <definition value="A finer classification within the more general category."/>
       <requirements value="Required to provide more detailed categorization, for example lab-test grouping: blood, tissue etc."/>
