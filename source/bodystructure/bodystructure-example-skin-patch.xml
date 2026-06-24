@@ -9,9 +9,6 @@
 	<!--	bodystructure marked as no longer active - entered in error
 -->
 	<active value="false"/>
-		<morphology>
-		<text value="Skin patch"/>
-	</morphology>
 	<includedStructure>
 		<structure>
 		  <coding>
@@ -57,6 +54,23 @@
 		  </coding>
 		  <text value="Volar"/>
 		</qualifier>
+		<!-- Two morphologic characteristics coexisting at the same body structure, demonstrating the 0..* cardinality of morphology -->
+		<morphology>
+		  <coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="275265005"/>
+			<display value="Epithelioma basal cell (disorder)"/>
+		  </coding>
+		  <text value="Basal cell carcinoma"/>
+		</morphology>
+		<morphology>
+		  <coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="707136009"/>
+			<display value="Nevus sebaceous (disorder)"/>
+		  </coding>
+		  <text value="Nevus sebaceus"/>
+		</morphology>
 	</includedStructure>
 	<description value="inner surface (volar) of the left forearm"/>
 	<patient>
