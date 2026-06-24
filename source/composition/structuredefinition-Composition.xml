@@ -160,7 +160,7 @@
     <element id="Composition.version">
       <path value="Composition.version"/>
       <short value="An explicitly assigned identifier of a variation of the content in the Composition"/>
-      <comment value="While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the Composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example."/>
+      <comment value="This element is the author-assigned business version of the Composition (analogous to CDA ClinicalDocument.versionNumber). It is distinct from Resource.meta.versionId, which is a server-assigned technical version that every resource carries and that may change whenever the resource is updated on a server. Composition.version reflects the version of a logical document's content and remains constant even if the Composition or its referenced resources are moved between servers and receive new meta.versionId values."/>
       <min value="0"/>
       <max value="1"/>
       <type>

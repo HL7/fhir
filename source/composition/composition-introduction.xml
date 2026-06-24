@@ -11,6 +11,7 @@
 <p>In the "Boundaries and Relationships" section a bullet for DiagnosticReport was added.</p>
 <p>Clarified text, added a paragraph, and the meaning of "subject" in the "Compositions about multiple entities" section.</p>
 <p>Fixes for the Search on section.code and section.text.div expressions</p>
+<p>Clarified the Composition.version element comment.</p>
 </blockquote>
 <blockquote style="background-color: lightblue">
 	<p><b>Release Notes:</b></p>
@@ -29,6 +30,7 @@
 		<li><a href="https://jira.hl7.org/browse/FHIR-54499">FHIR-54499</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54500">FHIR-54500</a></li>
 		<li><a href="https://jira.hl7.org/browse/FHIR-54504">FHIR-54504</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54506">FHIR-54506</a></li>
 	</ul>
 </blockquote>
 <a name="scope"></a>
@@ -149,10 +151,14 @@ CDA is a primary design input to the Composition resource (other principal input
 differences between CDA and the Composition resource:
 </p>
 <ul>
- <li>A composition is a logical construct - its <code>identifier</code> matches to the CDA <code>ClinicalDocument.setId</code>. 
- Composition resources are wrapped into <a href="documents.html">Document</a> structures, for exchange
- of the whole package (the composition and its parts), and this wrapped, sealed entity is equivalent to a CDA document, 
- where the <code>Bundle.identifier</code> is equivalent to <code>ClinicalDocument.id</code> and <code>Bundle.meta.security</code> is equivalent to <code>ClinicalDocument.confidentialityCode</code>.</li>
+ <li>A Composition is a logical construct. Composition and the resources referenced in its sections are wrapped into a document Bundle for exchange of the whole package (the composition and its parts). In FHIR a CDA document is represented as a document Bundle. The CDA document identifiers map as:
+  <ul>
+   <li>ClinicalDocument.id ↔ Bundle.identifier,</li>
+   <li>ClinicalDocument.setId ↔ Composition.identifier,</li>
+   <li>and ClinicalDocument.versionNumber ↔ Composition.version.</li>
+  </ul>
+ </li>
+ <li>In addition, ClinicalDocument.confidentialityCode is equivalent to Bundle.meta.security. For other CDA mappings to Composition, see the <a href="composition-mappings.html">mappings page</a>.</li>
  <li>The composition section defines a section (or sub-section) of the document, but unlike CDA, the section entries are 
    actually references to other <a href="resourcelist.html">resources</a> that hold the supporting data content for the section. 
    This design means that the data can be reused in many other ways. 
