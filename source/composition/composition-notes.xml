@@ -57,14 +57,5 @@ For documents that contain information about multiple related entities &mdash; s
 or a newborn discharge summary referencing the mother &mdash; the recommended pattern is a sub-section per related entity, each with its own Composition.section.focus pointing at the relevant RelatedPerson or other resource.
 This pattern makes each related entity's information independently locatable, attestable, and queryable.
 </p>
-[%stu-note dstu%]
-Feedback is welcome on two issues related to Composition:
-</p>
-<ul>
- <li>For many compositions, the title is the same as the text or a display name of Composition.type (e.g., a "consultation" or "progress note").</li>
-</ul>
-<p>
-Feedback <a href="http://hl7.org/fhir-issues">here</a>.
-[%end-note%]
 
 </div>

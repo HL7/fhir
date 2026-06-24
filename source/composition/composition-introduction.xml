@@ -7,7 +7,7 @@
 <p>Added Composition.classification BackboneElement to provide classification data.</p>
 <p>Updated the descriptions and constraint for the Composition.name element.</p>
 <p>Changed the binding for Composition.attester.mode to be the THO ValueSet and the example now uses the THO CodeSystem.</p>
-<p>Updated the "Note to Implementers" section by removing the text about the $document operation and removed a note about document signatures from the "Operation $document on Composition" page.</p>
+<p>Removed the "Note to Implementers" section by removing the text about the $document operation and removed a note about document signatures from the "Operation $document on Composition" page.</p>
 <p>Updated the Composition resource description and definition (both the same text).</p>
 <p>Improved the "Scope and Usage" section text.</p>
 <p>In the "Boundaries and Relationships" section a bullet for DiagnosticReport was added and clarified the List boundary on the right axis.</p>
@@ -15,7 +15,7 @@
 <p>Fixes for the Search on section.code and section.text.div expressions</p>
 <p>Clarified the Composition.version element comment.</p>
 <p>Clarified the Composition.status element comment.</p>
-<p>Removed a sentence from the comment for Composition.title about the  cardinality of the element in an older version. And the same sentence removal in the "Note to Implementers" in the "Compositions about multiple entities" section.</p>
+<p>Removed a sentence from the comment for Composition.title about the  cardinality of the element in an older version.</p>
 <p>Added CareTeam and Group as possible resource types for Composition.participant.party Reference.</p>
 </blockquote>
 <blockquote style="background-color: lightblue">
@@ -77,7 +77,17 @@ See also the <a href="comparison-cda.html">comparison with CDA</a>.
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
-<p>
+<h3>Relationship of Composition Elements to Provenance</h3>
+Some Composition elements overlap with information that may also be represented using Provenance. Composition elements describe information intrinsic to the Composition and <b>SHOULD</b> be used in preference to Provenance. Provenance <b>SHOULD</b> be used when additional information about the activity that created, revised, transformed, removed, or signed the Composition is required. When both are present, the information <b>SHOULD</b> be consistent.
+</p>
+<p>Examples include:</p>
+<ul>
+<li><b>Amendment or correction:</b> <code>Composition.status</code> describes the clinical standing of the current Composition, while <code>Composition.relatesTo</code> identifies the previous artifact—for example, <code>status = corrected</code> with <code>relatesTo.type = corrects</code>. Provenance may additionally identify the revision activity, prior entity, responsible agents, time, and reason.</li>
+<li><b>Derivation or transformation:</b> <code>relatesTo.type = derived-from</code> or <code>transforms</code> states the relationship between the artifacts. Provenance may describe the activity and the source entities used to produce the Composition.</li>
+<li><b>Retraction:</b> <code>relatesTo.type = retracts</code> states that the Composition retracts another artifact. This is distinct from <code>Provenance.entity.role = removal</code>, which describes how an entity was used in an activity involving its removal.</li>
+<li><b>Attestation and signature:</b> <code>Composition.attester</code> identifies responsibility for the accuracy of the Composition, while <code>Provenance.signature</code> records a signature on the target. <code>relatesTo.type = signs</code> is used only when the Composition itself is a signature artifact for the target, not merely to indicate that the Composition was signed.</li>
+</ul>
+<h3>Grouping Structures</h3>
 Composition is a structure for grouping information for purposes of persistence and attestability.  
 The Composition resource defines a set of healthcare-related information that is assembled 
 together into a single logical document that provides a single coherent statement of meaning, establishes its own context and 
@@ -146,7 +156,7 @@ A very few compositions are created entirely in error in the workflow &mdash; us
 and the error is only detected after the composition has been used or documents have been derived from it. To support resolution of this case, 
 the composition is updated to be marked as <code>entered-in-error</code> and a new derived document can be created. This means that the entire series of derived 
 documents is now considered to be created in error and systems receiving derived documents based on retracted compositions
-SHOULD remove data taken from earlier documents from routine use and/or take other appropriate actions. Systems are not required to 
+<b>SHOULD</b> remove data taken from earlier documents from routine use and/or take other appropriate actions. Systems are not required to 
 provide this workflow or support documents derived from retracted compositions, but they SHALL NOT ignore a status of <code>entered-in-error</code>. 
 Note that systems that handle compositions or derived documents and don't support the error status need to define 
 some other way of handling compositions that are created in error; while this is not a common occurrence, some clinical systems 
