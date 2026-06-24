@@ -35,14 +35,21 @@
   <device>
     <reference value="#tablet-device"/>
   </device>
-  <status value="active"/>
-  <associationStatus>
+  <relationship>
     <coding>
-      <system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
-      <code value="attached"/>
-      <display value="Attached"/>
+      <system value="http://hl7.org/fhir/deviceassociation-relationship"/>
+      <code value="assigned-to"/>
+      <display value="Assigned To"/>
     </coding>
-  </associationStatus>
+  </relationship>
+  <status value="active"/>
+  <relationshipStatus>
+    <coding>
+      <system value="http://hl7.org/fhir/deviceassociation-relationship-status"/>
+      <code value="active"/>
+      <display value="Active"/>
+    </coding>
+  </relationshipStatus>
   <subject>
     <reference value="#example-practitioner"/>
   </subject>
