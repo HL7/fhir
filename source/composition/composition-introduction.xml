@@ -185,7 +185,7 @@ differences between CDA and the Composition resource:
    <li>and ClinicalDocument.versionNumber ↔ Composition.version.</li>
   </ul>
  </li>
- <li>In addition, ClinicalDocument.confidentialityCode is equivalent to Bundle.meta.security. For other CDA mappings to Composition, see the <a href="composition-mappings.html">mappings page</a>.</li>
+ <li>In addition, ClinicalDocument.confidentialityCode is equivalent to Bundle.meta.security. For other CDA mappings to Composition, see the <a href="composition-mappings.html#cda">mappings page</a>.</li>
  <li>The composition section defines a section (or sub-section) of the document, but unlike CDA, the section entries are 
    actually references to other <a href="resourcelist.html">resources</a> that hold the supporting data content for the section. 
    This design means that the data can be reused in many other ways. 
