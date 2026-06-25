@@ -64,7 +64,7 @@
   </jurisdiction>
   <affectsState value="false"/>
   <code value="document"/>
-  <comment value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document "/>
+  <comment value="Notes:&#xA;&#xA;* The server implementing the operation SHOULD determine a 'high-level water-mark' for the document security tags ([Bundle.meta.security](resource.html#Meta))) as a whole, based on an analysis of the resources contained within the document"/>
   <resource value="Composition"/>
   <system value="false"/>
   <type value="false"/>

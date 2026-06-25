@@ -8,7 +8,7 @@
 <p>Updated the descriptions and constraint for the Composition.name element and added an invariant test.</p>
 <p>Changed the binding for Composition.attester.mode to be the THO ValueSet and the example now uses the THO CodeSystem.</p>
 <p>Added an example for Context-Establishing Clinical Snapshot.</p>
-<p>Removed the "Note to Implementers" section by removing the text about the $document operation and removed a note about document signatures from the "Operation $document on Composition" page.</p>
+<p>Removed the "Note to Implementers" section and removed a note about document signatures from the "Operation $document on Composition" page.</p>
 <p>Updated the Composition resource description and definition (both the same text).</p>
 <p>Improved the "Scope and Usage" section text.</p>
 <p>In the "Boundaries and Relationships" section a bullet for DiagnosticReport was added and clarified the List boundary on the right axis.</p>
@@ -16,7 +16,7 @@
 <p>Fixes for the Search on section.code and section.text.div expressions</p>
 <p>Clarified the Composition.version element comment.</p>
 <p>Clarified the Composition.status element comment.</p>
-<p>Removed a sentence from the comment for Composition.title about the  cardinality of the element in an older version.</p>
+<p>Removed a sentence from the comment for Composition.title about the cardinality of the element in an older version.</p>
 <p>Added CareTeam and Group as possible resource types for Composition.participant.party Reference.</p>
 <p>CatalogType CodeSystem/ValueSet ownership moved to Orders and Observations workgroup</p>
 </blockquote>
