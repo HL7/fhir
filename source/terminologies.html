@@ -578,8 +578,8 @@ The following  rules apply when required bindings are used with the <a href="dat
  <li>If the bound value set is defined external to the specification, the binding must specify a value set version.</li>
 </ul>
 <p>
-When an element is bound to a required value set, <a href="profiling.html">derived profiles</a>
-may state rules on which codes can be used, including removing codes from allowed use, but cannot specify additional codes for these elements.
+When an element is bound to a value set with required binding strength, <a href="profiling.html">derived profiles</a>
+can remove concept codes and cannot specify additional concept codes to be used. This does not prevent additional codes for other instances of CodeableConcept.coding in the same element.
 </p>
 <p>
   For examples of Required bindings, see <a href="terminologies-binding-examples.html#required">Terminology Binding Examples</a>.
