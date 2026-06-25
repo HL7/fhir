@@ -285,7 +285,7 @@
     </element>
     <element id="SubstanceDefinition.moiety">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,460"/>
+        <valueCode value="0,446"/>
       </extension>
       <path value="SubstanceDefinition.moiety"/>
       <short value="Moiety, for structural modifications"/>
@@ -930,7 +930,7 @@
     </element>
     <element id="SubstanceDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,620"/>
+        <valueCode value="0,613"/>
       </extension>
       <path value="SubstanceDefinition.code"/>
       <short value="Codes associated with the substance"/>
@@ -1770,7 +1770,7 @@
     </element>
     <element id="SubstanceDefinition.nucleicAcid.subunit">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,1094"/>
+        <valueCode value="0,1092"/>
       </extension>
       <path value="SubstanceDefinition.nucleicAcid.subunit"/>
       <short value="A subunit constituting the nucleic acid"/>
@@ -1951,13 +1951,13 @@
     </element>
     <element id="SubstanceDefinition.nucleicAcid.gene">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="165,982"/>
+        <valueCode value="169,982"/>
       </extension>
       <path value="SubstanceDefinition.nucleicAcid.gene"/>
       <short value="The gene that codes for this substance"/>
       <definition value="The gene that codes for this substance (typically applies to proteins and nucleic acids). Captures the gene's identity and the source organism or lineage of the gene sequence (e.g. humanised mouse, chimeric mouse-human)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
@@ -2167,7 +2167,7 @@
     </element>
     <element id="SubstanceDefinition.polymer.monomerSet">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="390,1379"/>
+        <valueCode value="390,1377"/>
       </extension>
       <path value="SubstanceDefinition.polymer.monomerSet"/>
       <short value="A set of monomers used to build the polymer"/>
@@ -2200,7 +2200,7 @@
     </element>
     <element id="SubstanceDefinition.polymer.monomerSet.startingMaterial">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="377,1477"/>
+        <valueCode value="377,1475"/>
       </extension>
       <path value="SubstanceDefinition.polymer.monomerSet.startingMaterial"/>
       <short value="The starting materials - monomer(s) used in the synthesis of the polymer"/>
@@ -2319,7 +2319,7 @@
     </element>
     <element id="SubstanceDefinition.polymer.repeat.repeatUnit">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="775,1380"/>
+        <valueCode value="775,1378"/>
       </extension>
       <path value="SubstanceDefinition.polymer.repeat.repeatUnit"/>
       <short value="An SRU - Structural Repeat Unit"/>
@@ -2374,7 +2374,7 @@
     </element>
     <element id="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="787,1505"/>
+        <valueCode value="787,1503"/>
       </extension>
       <path value="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation"/>
       <short value="Applies to homopolymer and block co-polymers where the degree of polymerisation within a block can be described"/>
@@ -2500,7 +2500,7 @@
     </element>
     <element id="SubstanceDefinition.protein.subunit">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="383,1094"/>
+        <valueCode value="381,1087"/>
       </extension>
       <path value="SubstanceDefinition.protein.subunit"/>
       <short value="Each subunit constituting the protein. A subunit is a linear sequence of amino acids linked through peptide bonds. Used when the finished protein is a complex of multiple sequences (not for domains within a single sequence). Subunits are listed in order of decreasing length; ties resolved by decreasing molecular weight; identical sequences are repeated"/>
@@ -2585,7 +2585,7 @@
       <short value="The gene that codes for this substance"/>
       <definition value="The gene that codes for this protein substance (typically the source gene). Captures the gene's identity and the source organism or lineage of the gene sequence (e.g. humanised mouse, chimeric mouse-human). Same structure as nucleicAcid.gene."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <contentReference value="#SubstanceDefinition.nucleicAcid.gene"/>
       <isSummary value="true"/>
       <mapping>
