@@ -11,22 +11,25 @@
 [%file newnavbar%]
 
 
-
-  <blockquote class="ballot-note" id="bn1">
-    <p><b>Note to Balloters:</b> To ensure that security page is ready for Normative status, we are seeking ballot comments on the substantive content.</p>
-    <ul>
-    <li>The key changes made since the January 2026 R6 ballot include:</li>
-      <ul>
-      <li>relaxed SHALL statements to SHOULD as the context is not always applicable. - <a href="https://jira.hl7.org/browse/FHIR-53381">FHIR-53381</a></li>
-      <li>Relaxed statement that security labels are often used. - <a href="https://jira.hl7.org/browse/FHIR-53718">FHIR-53718</a></li>
-      <li>Relaxed requirements around FAST Security for Scalable Registration, Authentication, and Authorization. - <a href="https://jira.hl7.org/browse/FHIR-53719">FHIR-53719</a></li>
-      <li>Updated scalable security references from UDAP naming to FAST Security naming, and changed corresponding guidance from SHOULD to MAY. - <a href="https://jira.hl7.org/browse/FHIR-53719">FHIR-53719</a></li>
-      <li>Added a dedicated "Break the Glass" section with BTG definition, implementation considerations, and OAuth/HTTP examples. - <a href="https://jira.hl7.org/browse/FHIR-53885">FHIR-53885</a></li>
-      <li>Refined introductory summary wording, including simplification of Authorization/Access Control text and related list-item phrasing. - <a href="https://jira.hl7.org/browse/FHIR-53717">FHIR-53717</a>, <a href="https://jira.hl7.org/browse/FHIR-53923">FHIR-53923</a></li>
-      <li>Removed intra-page anchor links from the "Input Validation" and "When using OAuth" summary list items. - <a href="https://jira.hl7.org/browse/FHIR-56089">FHIR-56089</a></li>
-      </ul>
-    </ul>
-  </blockquote>
+<div class="ballot-note md"><blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes since 5d67a34a13a5..8c82972d2728 update the Security page narrative for security issue reporting, scalable security guidance, security labels, Break-the-Glass guidance, and Normative-readiness cleanup.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>In the scalable security guidance, the page relaxes premature expectations around FAST Security for Scalable Registration, Authentication, and Authorization, updates references from UDAP-specific naming to FAST Security naming, and changes corresponding guidance from SHOULD to MAY. <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-53719">FHIR-53719</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>The introductory security summary removes unplanned forward-looking statements and simplifies authorization/access-control phrasing for Normative-readiness review. <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-53717">FHIR-53717</a>, <a href="https://jira.hl7.org/browse/FHIR-53923">FHIR-53923</a>]</li>
+    <li>The security labels discussion no longer states that security labels are often used, relaxing that claim to better reflect current usage. <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-53718">FHIR-53718</a>]</li>
+    <li>The page adds a dedicated <b>Break the Glass</b> section with a BTG definition, implementation considerations, and OAuth/HTTP examples. <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-53885">FHIR-53885</a>]</li>
+    <li>The summary list items for <b>Input Validation</b> and <b>When using OAuth</b> remove intra-page anchor links that did not have matching anchors. <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-56089">FHIR-56089</a>]</li>
+  </ul>
+  <p><b>Unclassified</b></p>
+  <ul>
+    <li>The security issue reporting language is revised to clarify how security issues should be reported. [<a href="https://jira.hl7.org/browse/FHIR-34401">FHIR-34401</a>]</li>
+  </ul>
+  <p>Editorial cleanup corrected spelling and abbreviations across the page. <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-55342">FHIR-55342</a>]</p>
+</blockquote></div>
 
 <h1>FHIR Security</h1>
 <table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
