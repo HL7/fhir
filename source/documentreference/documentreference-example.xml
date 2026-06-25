@@ -104,7 +104,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	<attester>
 		<mode>
 			<coding>
-				<system value="http://hl7.org/fhir/composition-attestation-mode"/>
+				<system value="http://terminology.hl7.org/CodeSystem/composition-attestation-mode"/>
 				<code value="official"/>
 			</coding>
 		</mode>
