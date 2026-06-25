@@ -504,7 +504,7 @@
    id="n936"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n937"
-   xlink:href="valueset-composition-attestation-mode.html"><title
+   xlink:href="http://terminology.hl7.org/ValueSet/composition-attestation-mode"><title
    id="title30837">null (Strength=Preferred)</title>CompositionAttestationMode</a>? »</text>
     <text
        id="n942"
