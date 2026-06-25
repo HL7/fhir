@@ -1,5 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-<div>
+
+
+<div class="ballot-note md"><blockquote class="ballot-note" data-augury-generated="true" id="bn2">
+  <p>Changes since <code>5d67a34a13a5..8c82972d2728</code>: Consent was updated to remove Contract-dependent content, clarify provision/decision guidance, and refresh related examples and terminology.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li>Removed <code>Consent.provision.expression</code> <span class="structural-badge" title="Removed: element removed" aria-label="structural change: Removed">structural</span> as part of removing Contract-based expression support from Consent. <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-54637">FHIR-54637</a>]</li>
+    <li>Removed remaining Contract references from Consent, including the existing ballot-note item for <code>Consent.sourceReference</code>. <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a>]</li>
+  </ul>
+  <p><b>Unattributed (needs Jira)</b></p>
+  <ul>
+    <li>Additional window commits updated provision terminology and constraints, Consent decision guidance, examples/example lists, terminology bundles, work-group metadata, and additional Contract-reference cleanup; these changes need Jira attribution before final publication [<a href="https://github.com/HL7/fhir/commit/aaf374fdd98a6bf647d6c6481209844783b517ec">aaf374fdd9</a>, <a href="https://github.com/HL7/fhir/commit/5d929593c97f66a221e937c46332a1b079bb0fe1">5d929593c9</a>, <a href="https://github.com/HL7/fhir/commit/9329ca11558e431b590d068d0b411a412d4d21dc">9329ca1155</a>, <a href="https://github.com/HL7/fhir/commit/7e45e95332c261c33bf17d17a9e46668cb7560a3">7e45e95332</a>, <a href="https://github.com/HL7/fhir/commit/24078e99cf678dcb16c6520d6c8cefea6834c7af">24078e99cf</a>, <a href="https://github.com/HL7/fhir/commit/7963179ac9e7c5eabaef4f91971ba00c102d38e7">7963179ac9</a>, <a href="https://github.com/HL7/fhir/commit/93d72f61c1a3911e1347f2a4e0da1d502fba5472">93d72f61c1</a>, <a href="https://github.com/HL7/fhir/commit/3427c8573285e5b5ab29435de5e12d1e4e79c89c">3427c85732</a>, <a href="https://github.com/HL7/fhir/commit/76b46e24b1edbb733d5aafb5ada1d09ab3eedacc">76b46e24b1</a>, <a href="https://github.com/HL7/fhir/commit/97f41b2cf0cd2ca191bc43f419f321fbd63dbd7c">97f41b2cf0</a>, <a href="https://github.com/HL7/fhir/commit/e64d0f0972c011be7a653b0785aee38ac5eb67a0">e64d0f0972</a>, <a href="https://github.com/HL7/fhir/commit/47e27fb9849d203e1c60adc8cf63181a6ba219ad">47e27fb984</a>]</li>
+  </ul>
+</blockquote></div>
+
         <a name="scope"></a>
         <h2>Scope and Usage</h2>
     <blockquote class="ballot-note" id="bn1">
@@ -137,5 +151,4 @@ such as the rules in place when there is an opt-in consent would be specific abo
 organizational roles have access to what kinds of resources (e.g. role-based access control (RBAC) and attribute-based access control (ABAC)). 
 The specification of these details is not in scope for the Consent resource.
         </p>
-</div>
 </div>
