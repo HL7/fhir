@@ -26,10 +26,20 @@ The Terminology Module provides an overview and guide to the FHIR resources, ope
 </p>
 <p>The primary terminology-related structures and their relationships are shown below:</p>
 <table class="none"><tr><td>
-<img src="terminology-module-relationships.png" alt="Image showing the terminology resources and relationships" width="1000px"/>
+<img src="terminology-module-relationships.png" alt="Image showing the terminology resources and relationships" usemap="#terminology-module-relationships-map"/>
 </td></tr></table>
+<map name="terminology-module-relationships-map">
+    <area alt="terminology-capabilities" href="terminologycapabilities.html" coords="104,26,286,148" shape="rect"/>
+    <area alt="conceptmap" href="conceptmap.html" coords="433,27,818,146" shape="rect"/>
+    <area alt="terminology-service" href="terminology-service.html" coords="77,223,270,346" shape="rect"/>
+    <area alt="codesystem" href="codesystem.html" coords="357,221,511,347" shape="rect"/>
+    <area alt="valueset" href="valueset.html" coords="574,223,728,346" shape="rect"/>
+    <area alt="elementdefinition" href="elementdefinition.html" coords="824,221,978,347" shape="rect"/>
+    <area alt="namingsystem" href="namingsystem.html" coords="310,411,480,532" shape="rect"/>
+    <area alt="element" href="types.html#Element" coords="573,387,727,511" shape="rect"/>
+</map>
 <p><strong>Example: Condition profile with Condition.code slice bound to "SNOMED CT fracture codes" value set</strong></p>
-<p>[Note: The ElementDefinition type (shown with a dotted box) is described elsewhere in the specification in the <a href="foundation-module.html">Foundation</a> and <a href="conformance-module.html">Conformance</a> modules.]
+<p>[Note: Blue boxes denote resources in the Terminology Module and brown boxes denote resources/datatypes outside of it.]
 </p>
 
 <a name="index"></a>
