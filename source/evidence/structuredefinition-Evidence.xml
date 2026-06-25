@@ -812,7 +812,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="StatisticType"/>
 				</extension>
-				<strength value="example"/>
+				<strength value="extensible"/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/statistic-type"/>
 			</binding>
 		</element>
@@ -973,7 +973,7 @@
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 					<valueString value="AttributeEstimateType"/>
 				</extension>
-				<strength value="example"/>
+				<strength value="extensible"/>
 				<valueSet value="http://terminology.hl7.org/ValueSet/attribute-estimate-type"/>
 			</binding>
 		</element>
