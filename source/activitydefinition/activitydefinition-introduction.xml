@@ -11,7 +11,7 @@
                 </li>
                 <li>Compatible, Substantive Changes
                     <ul>
-                        <li>None</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55564">FHIR-55564</a>: Undeprecated topic element</li>
                     </ul>
                 </li>
                 <li>Non-substantive Changes
