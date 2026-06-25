@@ -231,4 +231,15 @@
       <display value="Provenance of verification activity for data transitioned during a patient merge"/>
     </item>
   </entry>
-  </List>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Provenance of an updated Patient resource by the Brother on behalf of their Sister."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="provenance-example-onbehalf-sister"/>
+    </extension>
+    <item>
+      <reference value="Provenance/example-onbehalf-sister"/>
+      <display value="Provenance of an updated Patient resource by the Brother on behalf of their Sister"/>
+    </item>
+  </entry>  </List>
