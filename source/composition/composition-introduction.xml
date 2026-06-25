@@ -17,7 +17,7 @@
 <p>Clarified the Composition.status element comment.</p>
 <p>Removed a sentence from the comment for Composition.title about the cardinality of the element in an older version.</p>
 <p>Added CareTeam and Group as possible resource types for Composition.participant.party Reference.</p>
-<p>CatalogType CodeSystem/ValueSet ownership moved to Orders and Observations workgroup</p>
+<p>CatalogType CodeSystem/ValueSet ownership moved to Orders and Observations workgroup.</p>
 </blockquote>
 <blockquote style="background-color: lightblue">
 	<p><b>Release Notes:</b></p>
@@ -46,7 +46,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-<a href="https://www.iso.org/standard/53599.html">ISO/TR 12773-2:2009</a> defines the term <i>EHR composition</i> as a "set of information committed to one EHR by one agent, as a result of a single clinical encounter or record documentation" and offers these examples: Progress Note, radiology report, referral letter, clinic visit record, discharge summary, functional health assessment, diabetes review. FHIR adopts this concept as the Composition resource &mdash; the structural unit that binds a committed set of information to a subject, authors, and context, along with the attested narrative that represents the information. Where ISO frames an EHR composition as the product of one encounter or documentation event, FHIR carries the same structure into two use cases that differ in how they are packaged and how long they persist:
+<a href="https://www.iso.org/standard/53599.html">ISO/TR 12773-2:2009</a> defines the term <i>EHR composition</i> as a "set of information committed to one EHR by one agent, as a result of a single clinical encounter or record documentation" and offers these examples: progress note, radiology report, referral letter, clinic visit record, discharge summary, functional health assessment, diabetes review. FHIR adopts this concept as the Composition resource &mdash; the structural unit that binds a committed set of information to a subject, authors, and context, along with the attested narrative that represents the information. Where ISO frames an EHR composition as the product of one encounter or documentation event, FHIR carries the same structure into two use cases that differ in how they are packaged and how long they persist:
 </p>
 <ul>
 <li><b><a href="documents.html">FHIR Documents</a></b> &mdash; attestable, immutable Bundles with composed narrative.</li>
@@ -68,7 +68,7 @@ Some Composition elements overlap with information that may also be represented 
 </p>
 <p>Examples include:</p>
 <ul>
-<li><b>Amendment or correction:</b> <code>Composition.status</code> describes the clinical standing of the current Composition, while <code>Composition.relatesTo</code> identifies the previous artifact—for example, <code>status = corrected</code> with <code>relatesTo.type = corrects</code>. Provenance may additionally identify the revision activity, prior entity, responsible agents, time, and reason.</li>
+<li><b>Amendment or correction:</b> <code>Composition.status</code> describes the clinical standing of the current Composition, while <code>Composition.relatesTo</code> identifies the previous artifact &mdash; for example, <code>status = corrected</code> with <code>relatesTo.type = corrects</code>. Provenance may additionally identify the revision activity, prior entity, responsible agents, time, and reason.</li>
 <li><b>Derivation or transformation:</b> <code>relatesTo.type = derived-from</code> or <code>transforms</code> states the relationship between the artifacts. Provenance may describe the activity and the source entities used to produce the Composition.</li>
 <li><b>Retraction:</b> <code>relatesTo.type = retracts</code> states that the Composition retracts another artifact. This is distinct from <code>Provenance.entity.role = removal</code>, which describes how an entity was used in an activity involving its removal.</li>
 <li><b>Attestation and signature:</b> <code>Composition.attester</code> identifies responsibility for the accuracy of the Composition, while <code>Provenance.signature</code> records a signature on the target. <code>relatesTo.type = signs</code> is used only when the Composition itself is a signature artifact for the target, not merely to indicate that the Composition was signed.</li>
@@ -119,7 +119,7 @@ questions that must be asked and answered and rules that guide which questions a
 </ul>
 <p>
 The Composition resource organizes clinical and administrative content into sections, each of which contains a narrative, 
-and references other resources for supporting data. The narrative content of the various sections in a Composition are 
+and references other resources for supporting data. The narrative content of the various sections in a Composition is 
 supported by the resources referenced in the section entries.  The complete set of content to make up a document includes 
 the Composition resource together with various resources pointed to or indirectly
 connected to the Composition. See the <a href="documents.html">FHIR Documents</a> documentation for guidance on how a Composition 
@@ -148,7 +148,7 @@ and the error is only detected after the composition has been used or documents 
 the composition is updated to be marked as <code>entered-in-error</code> and a new derived document can be created. This means that the entire series of derived 
 documents is now considered to be created in error and systems receiving derived documents based on retracted compositions
 <b>SHOULD</b> remove data taken from earlier documents from routine use and/or take other appropriate actions. Systems are not required to 
-provide this workflow or support documents derived from retracted compositions, but they SHALL NOT ignore a status of <code>entered-in-error</code>. 
+provide this workflow or support documents derived from retracted compositions, but they <b>SHALL NOT</b> ignore a status of <code>entered-in-error</code>. 
 Note that systems that handle compositions or derived documents and don't support the error status need to define 
 some other way of handling compositions that are created in error; while this is not a common occurrence, some clinical systems 
 have no provision for removing erroneous information from a patient's record, and there is no way for a user to know that it is not fit for use -
