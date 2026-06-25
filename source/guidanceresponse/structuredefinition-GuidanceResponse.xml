@@ -308,8 +308,9 @@
       <path value="GuidanceResponse.evaluationMessage"/>
       <short value="Messages resulting from the evaluation of the artifact or artifacts"/>
       <definition value="Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element."/>
+      <comment value="Note that the element is multiple cardinality to allow for the possibility of responses from multiple steps in the processing to be provided directly, rather than having to collapse them into a single OperationOutcome."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
