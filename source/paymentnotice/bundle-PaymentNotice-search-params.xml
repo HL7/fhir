@@ -33,7 +33,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-claim-identifier"/>
         <description value="The business identifier of the claim"/>
-        <code value="claim_identifier"/>
+        <code value="claim-identifier"/>
         <type value="token"/>
         <expression value="PaymentNotice.claimIdentifier"/>
         <processingMode value="normal"/>
