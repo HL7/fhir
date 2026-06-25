@@ -1,0 +1,34 @@
+@startuml devicealert-state-machine
+
+hide empty description
+
+state Condition as "Condition states" {
+  state NoCondition as "No Condition" 
+  state ConditionActive as "Condition Active"
+  state ConditionEnded as "Condition Ended"
+  [*]  -right-> NoCondition
+  NoCondition -right-> ConditionActive : condition starts\nresource created\nset ""occurrence.start""\nset ""status=in-progress""
+  ConditionActive -right-> ConditionEnded : condition ends\nset ""occurrence.end"" 
+  ConditionEnded -right-> [*] : signaling ends\nrecord complete\nset ""status=completed""
+}
+state Signal as "Signal states (note 2)" {
+  state SignalOn as "Signal On" 
+  state SignalAck as "Signal Acknowledged"
+  state SignalOff as "Signal Off"
+  state SignalPaused as "Signal Paused"
+  state SignalLatched as "Signal Latched"
+  [*]  --> SignalOn : signal starts\lset ""signal.presence=on""\lset ""signal.activationState=on""
+  SignalOn --> SignalOff : condition ends\lset ""signal.presence=off""
+  SignalOn --> SignalAck : signal acknowledged\lset ""signal.presence=ack""
+  SignalOn --> SignalLatched : condition ends\lset ""signal.presence=latched""
+  SignalOn --> SignalPaused : pause signal\lset ""signal.presence=off""\lset ""signal.activationState=paused""
+  SignalOn --> SignalOff : inactivation detected\lset ""signal.presence=off""\lset ""signal.activationState=off""
+  SignalAck --> SignalOff : condition ends\lset ""signal.presence=off""
+  SignalLatched --> SignalOff : reset latch\lset ""signal.presence=off""
+  SignalPaused --> SignalOff : condition ends\lset ""signal.presence=off""
+  SignalPaused --> SignalOff : inactivation detected\lset ""signal.presence=off""\lset ""signal.activationState=off""
+  SignalPaused --> SignalOn : resume signal\lset ""signal.presence=on""\lset ""signal.activationState=on""
+  SignalOff --> [*] : terminate
+}
+Condition --> Signal  : triggers (note 1)
+@enduml
