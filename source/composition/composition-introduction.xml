@@ -48,7 +48,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-<a href="https://www.iso.org/standard/53599.html">ISO/TR 12773-2:2009</a> defines the term <i>EHR composition</i> as a "set of information committed to one EHR by one agent, as a result of a single clinical encounter or record documentation" and offers these examples: Progress Note, radiology report, referral letter, clinic visit record, discharge summary, functional health assessment, diabetes review.&sup1; FHIR adopts this concept as the Composition resource &mdash; the structural unit that binds a committed set of information to a subject, authors, and context, along with the attested narrative that represents the information. Where ISO frames an EHR composition as the product of one encounter or documentation event, FHIR carries the same structure into two use cases that differ in how they are packaged and how long they persist:
+<a href="https://www.iso.org/standard/53599.html">ISO/TR 12773-2:2009</a> defines the term <i>EHR composition</i> as a "set of information committed to one EHR by one agent, as a result of a single clinical encounter or record documentation" and offers these examples: Progress Note, radiology report, referral letter, clinic visit record, discharge summary, functional health assessment, diabetes review. FHIR adopts this concept as the Composition resource &mdash; the structural unit that binds a committed set of information to a subject, authors, and context, along with the attested narrative that represents the information. Where ISO frames an EHR composition as the product of one encounter or documentation event, FHIR carries the same structure into two use cases that differ in how they are packaged and how long they persist:
 <ul>
 <li><b><a href="documents.html">FHIR Documents</a></b> &mdash; attestable, immutable Bundles with composed narrative.</li>
 <li><b>Context-Establishing Snapshots</b> &mdash; an annotated, attested list of queryable FHIR resources that represents the current status of the subject.</li>
@@ -59,22 +59,6 @@
 <p>The <a href="http://hl7.org/fhir/uv/fhir-clinical-document/ImplementationGuide/hl7.fhir.uv.fhir-clinical-document">Clinical Document profile</a> constrains Composition to specify a clinical document (matching <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>). See also the <a href="comparison-cda.html">comparison with CDA</a>.</p>
 <p><b>Using Composition for Context-Establishing Snapshots</b></p>
 <p>The Composition can be used to record the current status of the subject. This use of Composition supports persistence and clinical attestation beyond simple enumeration. The sections establish the relationship of the entries within the overall context and provide information about the relevant parties involved in assembling the information. Unlike FHIR Documents, this use of Composition serves as the structural backbone for non-document artifacts and changes as the subject's status changes.</p>
-<p>&sup1;: ISO/TR 12773-2:2009(en) Business requirements for health summary records &mdash; Part 2: Environmental scan</p>
-
-<p>
-Note: <a href="http://en.wikipedia.org/wiki/EN_13606">EN 13606</a> uses the term "Composition" 
-to refer to a single commit to an EHR system, and offers some common examples: a composition 
-containing a consultation note, a progress note, a report or a letter, an investigation report, 
-a prescription form or a set of bedside nursing observations. Using Composition for an attested
-EHR commit is a valid use of the Composition resource, but for FHIR purposes, it would be usual
-to make more granular updates with individual provenance statements.
-</p>
-
-<p>
-The <a href="http://hl7.org/fhir/uv/fhir-clinical-document/ImplementationGuide/hl7.fhir.uv.fhir-clinical-document">Clinical Document profile</a> constrains Composition to specify a clinical document
-(matching <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>).  
-See also the <a href="comparison-cda.html">comparison with CDA</a>.
-</p>
 </div>
 
 <div>
@@ -105,13 +89,17 @@ There are several other grouping structures in FHIR with distinct purposes:
 </p>
 <ul>
 <li>
-The <a href="list.html">List</a> resource &mdash; enumerates a flat collection of resources and provides features for managing the collection.  
-While a particular List instance may represent a "snapshot", from a business process perspective, the notion of "list" 
-is dynamic – items are added and removed over time.  The List resource references other resources.  Lists may be 
-curated and have specific business meaning.
+The <a href="list.html">List</a> resource &mdash; provides a flat enumeration of resources with per-entry flags (added, removed, deleted)
+and an optional snapshot/working mode. Composition differs from List in providing annotation and section structure: titled and
+coded sections, per-section narrative, per-section authorship, and document-level attestation. Use List for flat collections (dynamic or snapshot)
+where per-entry tracking is the primary need; use Composition for annotated, structured collections (typically packaged as a FHIR document)
+where sections, narrative, and attestation matter.
 </li>
 <li>
-The <a href="group.html">Group</a> resource provides a flat enumeration of resources with per-entry flags (added, removed, deleted) and an optional snapshot/working mode. Composition differs from List in providing annotation and section structure: titled and coded sections, per-section narrative, per-section authorship, and document-level attestation. Use List for flat collections (dynamic or snapshot) where per-entry tracking is the primary need; use Composition for annotated, structured collections (typically packaged as a FHIR document) where sections, narrative, and attestation matter.
+The <a href="group.html">Group</a> resource &mdash; defines a group of specific people, animals, devices, etc. by enumerating them,
+or by describing qualities that group members have. The Group resource refers to other resources, possibly implicitly. Groups are intended
+to be acted upon or observed as a whole (e.g., performing therapy on a group, calculating risk for a group, etc.). This resource will commonly
+be used for public health (e.g., describing an at-risk population), clinical trials (e.g., defining a test subject pool) and similar purposes.
 </li>
 <li>
 The <a href="bundle.html">Bundle</a> resource &mdash; is an infrastructure container for a group of resources.  It does not have narrative 
@@ -119,7 +107,7 @@ and is used to group collections of resources for transmission, persistence or p
 query responses, etc.).  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
 </li>
 <li>
-A <a href="diagnosticreport.html">DiagnosticReport</a> resource is used strictly to compile a collection of diagnostic information and focuses on the discrete data in the report, but may contain or reference a separate rendered version of the report.
+A <a href="diagnosticreport.html">DiagnosticReport</a> resource &mdash; is used strictly to compile a collection of diagnostic information and focuses on the discrete data in the report, but may contain or reference a separate rendered version of the report.
 If you have a highly structured report, then use DiagnosticReport and for more narrative driven reports the Composition resource would be more appropriate.
 </li>
 <li>
