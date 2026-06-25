@@ -110,6 +110,3 @@ covers "Generation" of "Entity" with respect to FHIR defined resources for creat
 covers "Usage" of "Entity" and all other "Activity" as defined in W3C Provenance. 
 </p>
 </div>
-
-</div>
-
