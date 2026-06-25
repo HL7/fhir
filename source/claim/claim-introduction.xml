@@ -8,6 +8,7 @@
     <ul>
         <li>Substantive:</li>
             <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-50913">FHIR-50913</a> - Change binding on .careTeam.role to extensible from preferred</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-54492">FHIR-54492</a> - Claim.diagnosis.diagnosis has been changed to a CodeableReference</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-54492">FHIR-54492</a> - Claim.procedure.procedure has been changed to a CodeableReference</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-57238">FHIR-57238</a> - Added a constraint to limit .insurance to one and only one entry with focal=true</li>
