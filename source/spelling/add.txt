@@ -1,7 +1,7 @@
 _language
 _query
-excluded_structure
 _in
+claim_identifier
 _security
 _type
 _lastupdated
@@ -9,7 +9,6 @@ _filter
 _list
 lifecycle
 subject_state
-included_structure
 _profile
 _tag
 _has
