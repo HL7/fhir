@@ -405,6 +405,11 @@
 		When referencing genomic analysis from an Observation, the <code>partOf</code> attribute MAY be used to reference the GenomicStudy that led to this observation being made. Another option is that <code>derivedFrom</code> MAY be used to reference a DocumentReference when the observation was derived from the data in the file, even when that file was produced as part of a GenomicStudy output. Also, <code>derivedFrom</code> MAY be used to reference the GenomicStudy where the data was produced.
 		</p>
 
+	  <h3>Extension resource-pertainsToGoal</h3>
+		<p>
+		The core extension <a href="https://hl7.org/fhir/extensions/StructureDefinition-resource-pertainsToGoal.html">resource-pertainsToGoal</a> is used to indicate a resource, such as Observation, is related to either the measurement, achievement, or progress towards the referenced goal.
+		</p>
+
 	<a name="ops"></a>
 		<h2>Operations defined for Observation</h2>
 		<a name="lastn">

@@ -40,10 +40,9 @@
 # Because JIRA_API_TOKEN may have write access during the personal-token
 # phase, every PR is scanned for suspicious content before any sensitive
 # step runs. Tier 1 findings (file outside allowlist, secret references,
-# shell command substitution, curl/wget, base64 blobs) hard-fail the run
-# and trigger a dedicated alert email. Tier 2 findings (.bak files,
-# prompt-injection language) are advisory and appended to the normal
-# triage email.
+# network fetch commands) hard-fail the run and trigger a dedicated alert
+# email. Tier 2 findings (.bak files, prompt-injection language) are
+# advisory and appended to the normal triage email.
 # =============================================================================
 
 name: Claude PR Triage (shared)
@@ -423,10 +422,17 @@ jobs:
                       f.write(f"{key}={value}\n")
 
           ALLOWED_EXTS = {
-              "json", "xml", "md", "txt", "xlsx", "datestamp", "fhirmap",
-              "svg", "pdf", "jpg", "diagram", "png", "html", "plantuml", "puml",
-              "cql", "gif", "ini", "no-inkscape", "csv", "liquid", "pptx",
-              "docx", "doc", "dic", "jstemp", "bak",
+              # Text / markup (content-scanned)
+              "cql", "css", "csv", "datestamp", "diagram", "draw", "fhirmap",
+              "g4", "html", "ini", "jstemp", "liquid", "md", "no-inkscape",
+              "plantuml", "puml", "svg", "txt", "xsd", "xslt",
+              # Data (content-scanned)
+              "json", "xml",
+              # Binary documents / images (allowlisted, not content-scanned)
+              "dic", "doc", "docx", "drawio", "eapx", "gif", "ico", "jpeg",
+              "jpg", "pdf", "png", "pptx", "vdx", "vsd", "vsdx", "xcf", "xlsx",
+              # Misc
+              "bak",
           }
 
           TIER1_PATTERNS = [
@@ -442,9 +448,12 @@ jobs:
               # technical content (markdown inline code, jQuery, Make variables,
               # template literals). Other rules + the Claude tool restriction
               # (`Bash(gh:*)` only) cover the actual threat surface.
-              ("Possible base64 payload",
-               re.compile(r"[A-Za-z0-9+/=]{100,}"),
-               False),
+              #
+              # Base64 payload rule was removed: the pipeline never decodes or
+              # evals PR content, so encoded instructions carry no execution
+              # risk. The pattern generates constant false positives against
+              # legitimate FHIR content (protein sequences, encoded binary
+              # data in resource examples).
           ]
 
           TIER2_PATTERNS = [
@@ -517,9 +526,13 @@ jobs:
                           "file": path, "line": None, "excerpt": f"extension: .{ext}", "redact": False,
                       })
 
-          TEXT_EXTS = {"json", "xml", "md", "txt", "html", "csv", "liquid",
-                       "fhirmap", "plantuml", "puml", "cql", "diagram", "ini", "svg",
-                       "datestamp", "no-inkscape", "dic", "jstemp", "bak"}
+          TEXT_EXTS = {
+              "json", "xml", "md", "txt", "html", "csv", "liquid",
+              "fhirmap", "plantuml", "puml", "cql", "diagram", "ini", "svg",
+              "datestamp", "no-inkscape", "dic", "jstemp", "bak",
+              # New plaintext additions
+              "css", "draw", "g4", "xsd", "xslt",
+          }
 
           for path in changed:
               ext = ext_of(path)
@@ -1101,6 +1114,167 @@ jobs:
             -H "Content-Type: application/json" \
             -d "$PAYLOAD"
 
+      - name: Build PR timeline
+        id: timeline
+        if: steps.scan.outputs.suspicious != 'true' && steps.jira.outputs.auth_failure != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ needs.eligibility.outputs.pr_number }}
+          HEAD_SHA: ${{ needs.eligibility.outputs.head_sha }}
+          BASE_SHA: ${{ needs.eligibility.outputs.base_sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -e
+          python3 <<'PY'
+          import json, os, subprocess, sys
+          from datetime import datetime, timezone
+
+          pr_number = os.environ["PR_NUMBER"]
+          head_sha  = os.environ["HEAD_SHA"]
+          base_sha  = os.environ["BASE_SHA"]
+          repo      = os.environ["GITHUB_REPOSITORY"]
+          gh_output = os.environ.get("GITHUB_OUTPUT", "")
+
+          def write_output(key, value):
+              if gh_output:
+                  with open(gh_output, "a") as f:
+                      if "\n" in str(value):
+                          f.write(f"{key}<<TLEOF_42\n{value}\nTLEOF_42\n")
+                      else:
+                          f.write(f"{key}={value}\n")
+
+          def gh_api(path):
+              result = subprocess.run(
+                  ["gh", "api", "--paginate", path],
+                  capture_output=True, text=True, check=True,
+              )
+              # --paginate may emit multiple JSON arrays; join them
+              text = result.stdout.strip()
+              if text.startswith("["):
+                  combined = []
+                  # naive merge: collect all top-level arrays
+                  for chunk in text.replace("][", "]\n[").splitlines():
+                      chunk = chunk.strip()
+                      if chunk:
+                          combined.extend(json.loads(chunk))
+                  return combined
+              return json.loads(text)
+
+          def parse_dt(s):
+              if not s:
+                  return datetime.min.replace(tzinfo=timezone.utc)
+              s = s.rstrip("Z") + "+00:00" if s.endswith("Z") else s
+              return datetime.fromisoformat(s)
+
+          # ----------------------------------------------------------------
+          # Fetch commits and comments
+          # ----------------------------------------------------------------
+          raw_commits  = gh_api(f"/repos/{repo}/pulls/{pr_number}/commits")
+          raw_comments = gh_api(f"/repos/{repo}/issues/{pr_number}/comments")
+
+          # ----------------------------------------------------------------
+          # Determine admin status for every unique commenter
+          # ----------------------------------------------------------------
+          logins = {c["user"]["login"] for c in raw_comments if c.get("user")}
+          perm_cache = {}
+          for login in logins:
+              try:
+                  result = subprocess.run(
+                      ["gh", "api", f"/repos/{repo}/collaborators/{login}/permission"],
+                      capture_output=True, text=True, check=True,
+                  )
+                  perm_cache[login] = json.loads(result.stdout).get("permission", "none")
+              except subprocess.CalledProcessError:
+                  perm_cache[login] = "none"
+
+          def is_admin(login):
+              return perm_cache.get(login, "none") == "admin"
+
+          # ----------------------------------------------------------------
+          # Build unified timeline entries
+          # ----------------------------------------------------------------
+          timeline = []
+
+          for c in raw_commits:
+              timeline.append({
+                  "type":    "commit",
+                  "sha":     c["sha"],
+                  "ts":      c["commit"]["committer"]["date"],
+                  "author":  (c.get("author") or {}).get("login", "unknown"),
+                  "message": c["commit"]["message"].splitlines()[0],
+              })
+
+          for c in raw_comments:
+              login = (c.get("user") or {}).get("login", "unknown")
+              role  = "admin" if is_admin(login) else "contributor"
+              timeline.append({
+                  "type":   "comment",
+                  "id":     c["id"],
+                  "ts":     c["created_at"],
+                  "author": login,
+                  "role":   role,
+                  "body":   c["body"] or "",
+              })
+
+          timeline.sort(key=lambda e: parse_dt(e["ts"]))
+
+          # ----------------------------------------------------------------
+          # Find the anchor commit:
+          # The most recent commit that has at least one admin comment
+          # following it (before the next commit or end of timeline).
+          #
+          # Algorithm: walk the timeline building a list of (commit_index,
+          # has_trailing_admin_comment). A commit "has trailing admin
+          # comments" if there is at least one admin comment between it
+          # and the next commit (or end of list).
+          # ----------------------------------------------------------------
+          commit_indices = [i for i, e in enumerate(timeline) if e["type"] == "commit"]
+
+          anchor_sha   = None   # commit SHA before the admin conversation
+          diff_base    = base_sha  # default: full PR diff
+
+          if commit_indices:
+              # For each commit position, find the slice of entries between
+              # it and the next commit, and check for admin comments there.
+              for pos in range(len(commit_indices) - 1, -1, -1):
+                  ci = commit_indices[pos]
+                  next_ci = commit_indices[pos + 1] if pos + 1 < len(commit_indices) else len(timeline)
+                  between = timeline[ci + 1 : next_ci]
+                  has_admin_comment = any(
+                      e["type"] == "comment" and e["role"] == "admin"
+                      for e in between
+                  )
+                  if has_admin_comment:
+                      anchor_sha = timeline[ci]["sha"]
+                      diff_base  = anchor_sha
+                      break
+
+          write_output("anchor_sha", anchor_sha or "")
+          write_output("diff_base",  diff_base)
+
+          has_admin_comments = anchor_sha is not None
+          write_output("has_admin_comments", "true" if has_admin_comments else "false")
+
+          # ----------------------------------------------------------------
+          # Write pr-timeline.json for Claude
+          # ----------------------------------------------------------------
+          output = {
+              "has_admin_comments": has_admin_comments,
+              "anchor_sha":         anchor_sha,
+              "diff_base":          diff_base,
+              "head_sha":           head_sha,
+              "timeline":           timeline,
+          }
+          with open("pr-timeline.json", "w") as f:
+              json.dump(output, f, indent=2)
+
+          sys.stderr.write(
+              f"Timeline: {len(raw_commits)} commits, {len(raw_comments)} comments. "
+              f"Anchor: {anchor_sha or '(none — cold triage)'}. "
+              f"Diff base: {diff_base}\n"
+          )
+          PY
+
       - name: Claude analyzes PR
         id: claude
         if: steps.scan.outputs.suspicious != 'true' && steps.jira.outputs.auth_failure != 'true'
@@ -1122,16 +1296,64 @@ jobs:
             Read REVIEW_PROFILE.md for the user's review patterns.
             Analyze PR #${{ needs.eligibility.outputs.pr_number }} against those patterns.
 
-            Trigger context: ${{ needs.eligibility.outputs.trigger_kind }}
-              - "pr_updated": PR was opened non-draft or received new commits. Do a full triage.
-              - "ready_for_review": a draft was just marked ready. Do a full triage.
+            Trigger: ${{ needs.eligibility.outputs.trigger_kind }}
+            (For your information only — does not change the analysis algorithm below.)
+              - "pr_updated": PR was opened non-draft or received new commits.
+              - "ready_for_review": a draft was just marked ready.
               - "author_responded": the PR author replied to a prior admin comment.
-                Use `gh pr view` and `gh api` to fetch the full comment thread.
-                Evaluate whether the author's reply resolves the concerns that
-                were raised. If it does, recommend approve. If not, restate the
-                unresolved concern.
-              - "security_override": an admin commented to bypass the security
-                scan and re-trigger triage. Do a full triage.
+              - "security_override": an admin bypassed the security scan.
+
+            === Review context ===
+
+            Read `pr-timeline.json`. It contains the full chronological history
+            of commits and comments on this PR, with each comment tagged with
+            the commenter's role ("admin" or "contributor"). Its schema:
+
+              {
+                "has_admin_comments": true | false,
+                "anchor_sha": "<sha>" | null,
+                "diff_base": "<sha>",
+                "head_sha": "<sha>",
+                "timeline": [
+                  // commit entry:
+                  { "type": "commit", "sha": "...", "ts": "...",
+                    "author": "...", "message": "..." },
+                  // comment entry:
+                  { "type": "comment", "id": 123, "ts": "...",
+                    "author": "...", "role": "admin" | "contributor",
+                    "body": "..." }
+                ]
+              }
+
+            Use the timeline to understand what analysis has already been done
+            and what the admin has identified as needing attention.
+
+            === Diff scope ===
+
+            The diff you must evaluate is NOT necessarily the full PR diff.
+            It is scoped based on the timeline:
+
+            If has_admin_comments is TRUE:
+              - anchor_sha is the commit immediately before the admin
+                conversation block (the most recent commit followed by at
+                least one admin comment).
+              - Evaluate ONLY the changes introduced after the anchor commit:
+                  git diff <anchor_sha>..<head_sha>
+              - The admin's comments (and the subsequent conversation) are
+                the authoritative statement of what issues need to be
+                addressed. Do NOT re-raise issues from earlier in the PR
+                history that the admin did not mention — those were
+                intentionally set aside.
+              - Evaluate whether the commits and comments after the admin
+                conversation block address the issues raised. Also check
+                whether those new commits introduce any NEW issues not
+                previously present.
+
+            If has_admin_comments is FALSE:
+              - Do a full cold triage of the entire PR diff:
+                  git diff <diff_base>..<head_sha>
+              - No prior review context exists. Evaluate the PR from scratch
+                against the Jira tickets and REVIEW_PROFILE.md.
 
             === Jira ticket verification ===
 
@@ -1362,6 +1584,14 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           LABEL: ${{ inputs.label }}
           TO_LIST: ${{ inputs.to }}
+          GH_EVENT_NAME: ${{ github.event_name }}
+          GH_EVENT_ACTION: ${{ github.event.action }}
+          GH_RUN_ID: ${{ github.run_id }}
+          GH_RUN_NUMBER: ${{ github.run_number }}
+          GH_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GH_SERVER_URL: ${{ github.server_url }}
+          GH_REPOSITORY: ${{ github.repository }}
+          TRIGGER_KIND: ${{ needs.eligibility.outputs.trigger_kind }}
         run: |
           BODY=$(python3 <<'PY'
           import os
@@ -1374,6 +1604,16 @@ jobs:
           security_override = os.environ.get("SECURITY_OVERRIDE", "") == "true"
           head_sha = os.environ.get("HEAD_SHA", "")
           link_url = os.environ["LINK_URL"]
+
+          # Debug info
+          event_name    = os.environ.get("GH_EVENT_NAME", "")
+          event_action  = os.environ.get("GH_EVENT_ACTION", "")
+          run_id        = os.environ.get("GH_RUN_ID", "")
+          run_number    = os.environ.get("GH_RUN_NUMBER", "")
+          run_attempt   = os.environ.get("GH_RUN_ATTEMPT", "1")
+          server_url    = os.environ.get("GH_SERVER_URL", "https://github.com")
+          repository    = os.environ.get("GH_REPOSITORY", "")
+          trigger_kind  = os.environ.get("TRIGGER_KIND", "")
 
           has_content = suggested_md.strip() and suggested_md.strip().lower() != "null"
           body_text = suggested_md.strip() if has_content else "No issues found."
@@ -1403,6 +1643,25 @@ jobs:
 
           print()
           print(link_url)
+
+          # Collapsible debug section
+          event_str = event_name
+          if event_action:
+              event_str += f" / {event_action}"
+          run_str = f"#{run_number}"
+          if run_attempt and run_attempt != "1":
+              run_str += f" (attempt {run_attempt} — re-run)"
+          run_url = f"{server_url}/{repository}/actions/runs/{run_id}"
+
+          print()
+          print("<details>")
+          print("<summary>Debug info</summary>")
+          print()
+          print(f"Event:        {event_str}")
+          print(f"Trigger kind: {trigger_kind}")
+          print(f"Run:          {run_str} — {run_url}")
+          print(f"Head SHA:     {head_sha}")
+          print("</details>")
           PY
           )
 
