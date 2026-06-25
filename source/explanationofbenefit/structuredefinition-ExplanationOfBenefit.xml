@@ -84,6 +84,12 @@
       <alias value="EOB"/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="eob-3"/>
+        <severity value="error"/>
+        <human value="One and only one .insurance entry may have focal=true."/>
+        <expression value="insurance.exists() implies insurance.where(focal=true).count()=1"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
