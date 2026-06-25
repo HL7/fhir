@@ -966,6 +966,9 @@
         <code value="boolean"/>
       </type>
       <type>
+        <code value="Period"/>
+      </type>
+      <type>
         <code value="Quantity"/>
       </type>
       <type>
@@ -973,6 +976,9 @@
       </type>
       <type>
         <code value="Reference"/>
+      </type>
+      <type>
+        <code value="string"/>
       </type>
       <condition value="mrp-2"/>
       <binding>
@@ -1065,6 +1071,9 @@
         <code value="boolean"/>
       </type>
       <type>
+        <code value="Period"/>
+      </type>
+      <type>
         <code value="Quantity"/>
       </type>
       <type>
@@ -1072,6 +1081,9 @@
       </type>
       <type>
         <code value="Reference"/>
+      </type>
+      <type>
+        <code value="string"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
