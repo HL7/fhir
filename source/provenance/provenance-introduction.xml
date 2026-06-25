@@ -5,6 +5,7 @@
   <p><b>Non-compatible</b></p>
   <ul>
     <li><code>Provenance.authorization</code> now uses <code>CodeableConcept</code> rather than <code>CodeableReference</code> <span class="structural-badge" title="Type: type CodeableReference→CodeableConcept" aria-label="structural change: Type">structural</span>, and the relevant-history profile removes <code>Provenance.authorization</code> <span class="structural-badge" title="Removed: element removed" aria-label="structural change: Removed">structural</span> and adds <code>Provenance.why</code> <span class="structural-badge" title="Added: element added" aria-label="structural change: Added">structural</span> <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-54833">FHIR-54833</a>]</li>
+    <li>Bring back <code>Provenance.agent.onBehalfOf</code> support for RelatedPerson references to support delegation to other family members <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-57404">FHIR-57404</a>]</li>
   </ul>
   <p><b>Compatible substantive</b></p>
   <ul>
