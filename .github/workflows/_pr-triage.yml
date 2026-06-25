@@ -1407,9 +1407,12 @@ jobs:
                  fixes are fine; new behavior without ticket backing is not.)
                - Is anything agreed-upon missing from the implementation?
 
-            4. Ignore unrequested changes to files ending `-mapping-exceptions.xml`,
-               files with `example` in their name, or other files that appear to be
-               example instances impacted by authorized changes.
+            4. Ignore unrequested changes to:
+               - Files ending `-mapping-exceptions.xml`
+               - Files with `example` in their name, or other files that appear
+                 to be example instances impacted by authorized changes
+               - Any file under `tools/tx/` or `source/spelling/` — these are
+                 auto-generated and not in the committer's control
 
             5. For any key in fetchErrors, flag that the ticket could not be
                verified.
@@ -1461,6 +1464,9 @@ jobs:
         env:
           HTML_URL: ${{ needs.eligibility.outputs.html_url }}
           TRIGGER_KIND: ${{ needs.eligibility.outputs.trigger_kind }}
+          PR_NUMBER: ${{ needs.eligibility.outputs.pr_number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           LOG_FILE="/home/runner/work/_temp/claude-execution-output.json"
           if [ ! -f "$LOG_FILE" ]; then
@@ -1522,6 +1528,19 @@ jobs:
 
           if [ "$RECOMMENDATION" = "request_changes" ]; then
             LINK_URL="$HTML_URL/files"
+          elif [ "$RECOMMENDATION" = "approve" ]; then
+            # If the PR currently has a "changes requested" review state,
+            # link to /files so the admin can click Approve without
+            # navigating manually.
+            CHANGES_REQUESTED=$(gh api \
+              "/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER/reviews" \
+              --jq '[.[] | select(.state == "CHANGES_REQUESTED")] | length > 0' \
+              2>/dev/null || echo "false")
+            if [ "$CHANGES_REQUESTED" = "true" ]; then
+              LINK_URL="$HTML_URL/files"
+            else
+              LINK_URL="$HTML_URL"
+            fi
           else
             LINK_URL="$HTML_URL"
           fi
