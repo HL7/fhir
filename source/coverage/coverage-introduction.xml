@@ -9,6 +9,12 @@
     <ul>
         <li>Substantive:</li>
             <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54162">FHIR-54162</a> - Changed datatype of Coverage.statusReason to CodeableConcept. 
+				Balloters are invited to propose codes which may be included in the next ballot.</li> 
+                <li><a href="https://jira.hl7.org/browse/FHIR-54234">FHIR-54234</a> - Changed cardinality of .class.value from 1..1 to 0..1, 
+				added element .class.code 0..1 Coding 'Code associated with the type' example binding, 
+				added a condition that either value or code may be specified</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54441">FHIR-54441</a> - Changed datatype of Coverage.network from string to Reference(Organization)</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a> - Removed Coverage.contract</li>
             </ul>
         <li>Non-substantive:</li>
