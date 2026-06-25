@@ -49,11 +49,11 @@
 <h2>Scope and Usage</h2>
 <p>
 <a href="https://www.iso.org/standard/53599.html">ISO/TR 12773-2:2009</a> defines the term <i>EHR composition</i> as a "set of information committed to one EHR by one agent, as a result of a single clinical encounter or record documentation" and offers these examples: Progress Note, radiology report, referral letter, clinic visit record, discharge summary, functional health assessment, diabetes review. FHIR adopts this concept as the Composition resource &mdash; the structural unit that binds a committed set of information to a subject, authors, and context, along with the attested narrative that represents the information. Where ISO frames an EHR composition as the product of one encounter or documentation event, FHIR carries the same structure into two use cases that differ in how they are packaged and how long they persist:
+</p>
 <ul>
 <li><b><a href="documents.html">FHIR Documents</a></b> &mdash; attestable, immutable Bundles with composed narrative.</li>
 <li><b>Context-Establishing Snapshots</b> &mdash; an annotated, attested list of queryable FHIR resources that represents the current status of the subject.</li>
 </ul>
-</p>
 <p><b>Using Composition for FHIR Documents</b></p>
 <p>A Composition is the basic structure from which FHIR Documents &mdash; immutable bundles with attested narrative &mdash; are built. Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition is the first entry in a Bundle where <code>Bundle.type=document</code>, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example, Patient, Practitioner, Encounter, etc.). A single logical composition may be associated with a series of derived documents, each of which is a frozen copy of the composition. See the <a href="documents.html">FHIR Documents</a> section for more information on the document structure, presentation, and processing.</p>
 <p>The <a href="http://hl7.org/fhir/uv/fhir-clinical-document/ImplementationGuide/hl7.fhir.uv.fhir-clinical-document">Clinical Document profile</a> constrains Composition to specify a clinical document (matching <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>). See also the <a href="comparison-cda.html">comparison with CDA</a>.</p>
