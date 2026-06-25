@@ -384,11 +384,11 @@
         <processingMode value="normal"/>
         <component>
           <definition value="section"/>
-          <expression value="code"/>
+          <expression value="section.code"/>
         </component>
         <component>
           <definition value="section-text"/>
-          <expression value="text"/>
+          <expression value="section.text"/>
         </component>
       </SearchParameter>
     </resource>
