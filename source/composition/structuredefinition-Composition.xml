@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/structure/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and has traceability to the author who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.)."/>
+  <description value="Composition provides the structural backbone for assembling a set of healthcare-related information into a single logical package that provides a single coherent statement of meaning, establishes its own context and has traceability to the author who is making the statement."/>
   <purpose value="To support documents, and also to capture the EN13606 notion of an attested commit to the patient EHR, and to allow a set of disparate resources at the information/engineering level to be gathered into a clinical statement."/>
   <fhirVersion value="6.0.0"/>
   <mapping>
@@ -83,7 +83,7 @@
     <element id="Composition">
       <path value="Composition"/>
       <short value="A set of resources composed into a single coherent clinical statement with clinical attestation"/>
-      <definition value="A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and has traceability to the author who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.)."/>
+      <definition value="Composition provides the structural backbone for assembling a set of healthcare-related information into a single logical package that provides a single coherent statement of meaning, establishes its own context and has traceability to the author who is making the statement."/>
       <comment value="While the focus of this specification is on patient-specific clinical statements, this resource can also apply to other healthcare-related statements such as study protocol designs, healthcare invoices and other activities that are not necessarily patient-specific or clinical."/>
       <min value="0"/>
       <max value="*"/>
@@ -160,7 +160,7 @@
     <element id="Composition.version">
       <path value="Composition.version"/>
       <short value="An explicitly assigned identifier of a variation of the content in the Composition"/>
-      <comment value="While each resource, including the composition itself, has its own version identifier, this is a formal identifier for the logical version of the Composition as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example."/>
+      <comment value="This element is the author-assigned business version of the Composition (analogous to CDA ClinicalDocument.versionNumber). It is distinct from Resource.meta.versionId, which is a server-assigned technical version that every resource carries and that may change whenever the resource is updated on a server. Composition.version reflects the version of a logical document's content and remains constant even if the Composition or its referenced resources are moved between servers and receive new meta.versionId values."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -236,7 +236,7 @@
       <path value="Composition.status"/>
       <short value="registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown"/>
       <definition value="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document."/>
-      <comment value="If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;entered-in-error&quot; is why this element is labeled as a modifier of other elements.   &#xA;&#xA;Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required."/>
+      <comment value="See section 2.8.3.2, The workflow/clinical status of the composition, for guidance.  Because the entered-in-error flag changes how this resource and its related elements must be interpreted, status is labeled as a modifier element. Some reporting workflows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The Composition resource has no explicit status for noting whether this business rule is in effect; this would be handled by an extension if required."/>
       <requirements value="Need to be able to mark interim, amended, or withdrawn compositions or documents."/>
       <min value="1"/>
       <max value="1"/>
@@ -575,26 +575,36 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
     </element>
     <element id="Composition.name">
       <path value="Composition.name"/>
-      <short value="Name for this Composition (computer friendly)"/>
-      <definition value="A natural language name identifying the {{title}}. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <short value="Computer friendly name"/>
+      <definition value="A machine-friendly identifier suitable for code generation. For example, 'ClinicalDocument' or 'Composition_v2'. See the Constraint description."/>
+      <comment value="The name is not expected to be globally unique. This field is used primarily by computers while the title field includes information for human-display. Composition.type is used to provide a CodeableConcept for the document type when available while Composition.name is an uncoded string. Composition.identifier is used to identify the specific instance of a document."/>
       <requirements value="Support human navigation and code generation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <condition value="cmp-4"/>
+      <constraint>
+        <key value="cmp-4"/>
+        <severity value="warning"/>
+        <human value="Name should start with an uppercase letter (A–Z), be 2 to 255 characters long, and contain only letters, digits, and underscores. Whitespace, hyphens, and other punctuation are not permitted"/>
+        <expression value="%resource.name.exists() implies %resource.name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+      </constraint>
       <isSummary value="true"/>
     </element>
     <element id="Composition.title">
       <path value="Composition.title"/>
       <short value="Human Readable name/title"/>
       <definition value="Official human-readable label for the composition."/>
-      <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period."/>
+      <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -714,7 +724,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="The way in which a person authenticated a composition."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/composition-attestation-mode"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1115,6 +1125,7 @@
         <code value="Narrative"/>
       </type>
       <condition value="cmp-1"/>
+      <condition value="cmp-3"/>
       <mapping>
         <identity value="rim"/>
         <map value=".text"/>
