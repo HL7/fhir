@@ -1236,15 +1236,15 @@
 				<map value=".quantity {for classCode=SPLY}"/>
 			</mapping>
 		</element>
-		<element id="ActivityDefinition.dosage">
-			<path value="ActivityDefinition.dosage"/>
+		<element id="ActivityDefinition.dosageInstruction">
+			<path value="ActivityDefinition.dosageInstruction"/>
 			<short value="Detailed dosage instructions"/>
 			<definition value="Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources."/>
 			<comment value="If a dosage instruction is used, the definition should not specify timing or quantity."/>
 			<min value="0"/>
-			<max value="*"/>
+			<max value="1"/>
 			<type>
-				<code value="Dosage"/>
+				<code value="DosageDetails"/>
 			</type>
 			<mapping>
 				<identity value="rim"/>

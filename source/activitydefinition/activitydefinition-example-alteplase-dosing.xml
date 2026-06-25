@@ -30,74 +30,79 @@
     </coding>
   </code>
   <intent value="order"/>
-  <dosage>
-    <sequence value="1"/>
-    <text value="give 10% of dose over 1 minute"/>
-    <route>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="47625008"/>
-        <display value="Intravenous use"/>
-      </coding>
-    </route>
-    <doseAndRate>
-      <type>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-          <code value="calculated"/>
-          <display value="Calculated"/>
-        </coding>
-      </type>
-      <doseQuantity>
-        <value value="0.9"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mg/kg"/>
-      </doseQuantity>
-    </doseAndRate>
-    <safety> 
-      <doseLimit>
-        <valueQuantity>
-          <value value="90"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="mg"/>
-        </valueQuantity>
-        <scope value="administration"/>
-      </doseLimit>
-    </safety>
-  </dosage>
-  <dosage>
-    <sequence value="2"/>
-    <text value="give remaining 90% of dose over 1 hour"/>
-    <route>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="47625008"/>
-        <display value="Intravenous use"/>
-      </coding>
-    </route>
-    <doseAndRate>
-      <type>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
-          <code value="calculated"/>
-          <display value="Calculated"/>
-        </coding>
-      </type>
-      <doseQuantity>
-        <value value="0.9"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mg/kg"/>
-      </doseQuantity>
-    </doseAndRate>
-    <safety> 
-      <doseLimit>
-        <valueQuantity>
-          <value value="90"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="mg"/>
-        </valueQuantity>
-        <scope value="administration"/>
+  <dosageInstruction>
+    <renderedInstruction value="give 10% of dose over 1 minute, give remaining 90% of dose over 1 hour"/>
+    <step>
+      <component>
+        <text value="give 10% of dose over 1 minute"/>
+        <route>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="47625008"/>
+            <display value="Intravenous use"/>
+          </coding>
+        </route>
+        <doseAndRate>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+              <code value="calculated"/>
+              <display value="Calculated"/>
+            </coding>
+          </type>
+          <doseQuantity>
+            <value value="0.9"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg/kg"/>
+          </doseQuantity>
+        </doseAndRate>
+        <safety> 
+          <doseLimit>
+            <valueQuantity>
+              <value value="90"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="mg"/>
+            </valueQuantity>
+            <scope value="administration"/>
           </doseLimit>
-    </safety>
-  </dosage>
+        </safety>
+      </component>
+    </step>
+    <step>
+      <component>
+        <text value="give remaining 90% of dose over 1 hour"/>
+        <route>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="47625008"/>
+            <display value="Intravenous use"/>
+          </coding>
+        </route>
+        <doseAndRate>
+          <type>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+              <code value="calculated"/>
+              <display value="Calculated"/>
+            </coding>
+          </type>
+          <doseQuantity>
+            <value value="0.9"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg/kg"/>
+          </doseQuantity>
+        </doseAndRate>
+        <safety> 
+          <doseLimit>
+            <valueQuantity>
+              <value value="90"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="mg"/>
+            </valueQuantity>
+            <scope value="administration"/>
+              </doseLimit>
+        </safety>
+      </component>
+    </step>
+  </dosageInstruction>
 </ActivityDefinition>
