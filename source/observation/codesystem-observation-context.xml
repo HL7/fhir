@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="observation-interpretation-context"/>
+  <id value="observation-context"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="informative"/>
   </extension>
-  <url value="http://hl7.org/fhir/CodeSystem/observation-interpretation-context"/>
+  <url value="http://hl7.org/fhir/CodeSystem/observation-context"/>
   <version value="6.0.0"/>
-  <name value="ObservationInterpretationContextCodes"/>
-  <title value="Observation Interpretation Context Codes"/>
+  <name value="ObservationContextCodes"/>
+  <title value="Observation Context Codes"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="HL7 International / Orders and Observations"/>
@@ -23,7 +23,7 @@
   </contact>
   <description value="Codes identifying contextual factors that affect interpretation of observations. This provides examples of conditions or states that may be critical to understanding the significance of an observation."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation-context"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/observation-context"/>
   <content value="complete"/>
   <concept>
     <code value="diabetic"/>
