@@ -31,7 +31,7 @@
   <version value="6.0.0"/>
   <name value="Consent"/>
   <title value="Consent"/>
-  <status value="draft"/>
+  <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="HL7 International / Security"/>
   <contact>
@@ -528,6 +528,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="consent-1"/>
       <isModifier value="true"/>
       <isModifierReason value="Sets context for the values in .provision"/>
       <isSummary value="true"/>
@@ -568,6 +569,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="consent-1"/>
       <isSummary value="true"/>
     </element>
     <element id="Consent.provision.period">

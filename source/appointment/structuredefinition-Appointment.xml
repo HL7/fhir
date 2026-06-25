@@ -1206,8 +1206,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Appointment.recurrenceTemplate.weeklyTemplate.dayOfWeek">
-      <path value="Appointment.recurrenceTemplate.weeklyTemplate.dayOfWeek"/>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.daysOfWeek">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.daysOfWeek"/>
       <short value="mon | tue | wed | thu | fri | sat | sun"/>
       <definition value="Indicates which days of the week the appointment will occur on."/>
       <min value="1"/>
