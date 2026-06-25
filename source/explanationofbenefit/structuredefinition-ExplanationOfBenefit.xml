@@ -863,7 +863,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="CareTeamRole"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="extensible"/>
         <description value="The role codes for the care team members."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-careteamrole"/>
       </binding>
