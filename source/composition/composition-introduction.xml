@@ -108,7 +108,7 @@ query responses, etc.).  The content of bundles is typically algorithmically det
 </li>
 <li>
 A <a href="diagnosticreport.html">DiagnosticReport</a> resource &mdash; is used strictly to compile a collection of diagnostic information and focuses on the discrete data in the report, but may contain or reference a separate rendered version of the report.
-If you have a highly structured report, then use DiagnosticReport and for more narrative driven reports the Composition resource would be more appropriate.
+If you have a highly structured report, use DiagnosticReport. For narrative-driven reports, the Composition resource would be more appropriate.
 </li>
 <li>
 The <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource &mdash; is similar to Composition in that both organize collections of items and can have a hierarchical structure. 
