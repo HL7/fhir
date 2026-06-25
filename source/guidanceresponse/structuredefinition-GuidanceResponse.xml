@@ -138,7 +138,7 @@
           <valueString value="GuidanceModuleCode"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code-example"/>
       </binding>
     </element>
     <element id="GuidanceResponse.status">

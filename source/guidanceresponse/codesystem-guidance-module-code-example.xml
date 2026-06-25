@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="guidance-module-code"/>
+  <id value="guidance-module-code-example"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
   </meta>
@@ -14,14 +14,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/guidance-module-code"/>
+  <url value="http://hl7.org/fhir/guidance-module-code-example"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2103"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="GuidanceModuleCode"/>
-  <title value="Guidance Module Code"/>
+  <name value="GuidanceModuleCodeExample"/>
+  <title value="Guidance Module Code Example"/>
   <status value="active"/>
   <experimental value="true"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -38,7 +38,7 @@
   </contact>
   <description value="Example guidance module codes."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code-example"/>
   <content value="complete"/>
   <concept>
     <code value="bmi-calculator"/>
