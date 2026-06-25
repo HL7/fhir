@@ -629,21 +629,8 @@ link below) in the interests of interoperability.
 Servers can also create and store <a href="provenance.html">Provenance</a> statements about the expansion, or <a href="auditevent.html">AuditEvent</a> records
 of the expansion process if further transparency is required. These resources can contain considerable
 detail about the various inputs to the process, and any significant decisions by the expansion 
-engine. Further details around this (and profiles on the relevant resources) may be provided
-in future versions of this specification or related implementation guides.
+engine.
 </p>
-
-<a name="limitations"></a>
-[%feedback-note%]
-The existing set of parameters are intended to cover the vast majority of 
-use cases, but there are some cases where the parameters do not provide 
-enough control to a client, particularly with regard to combinations of 
-parameters, and the interplay between code system versions and other parameters.
-Implementers may need to define their own value sets to meet these requirements.
-</p>
-<p>
-Ongoing feedback is welcome at [link to be provided]
-[%end-note%]
 
 <a name="storage"></a>
 <h3>Storing Expansions</h3>

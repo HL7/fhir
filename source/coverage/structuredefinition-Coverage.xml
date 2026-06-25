@@ -390,9 +390,9 @@
         <valueString value="C.35."/>
       </extension>
       <path value="Coverage.beneficiary"/>
-      <short value="Plan beneficiary"/>
-      <definition value="The party who benefits from the insurance coverage; the patient when products and/or services are provided."/>
-      <requirements value="This is the party who receives treatment for which the costs are reimbursed under the coverage."/>
+      <short value="Party receiving treatment"/>
+      <definition value="The party who receives products or services which may be paid for in whole or in part by insurance or through self payment."/>
+      <requirements value="This is the party who receives treatment."/>
       <min value="1"/>
       <max value="1"/>
       <type>
