@@ -243,11 +243,21 @@ sometimes in particular contexts of use. Additional bindings have the following 
 </table>
 
 <p>
-It's possible for there to be multiple applicable required bindings to non-overlapping value sets
-If the data type is CodeableConcept or CodeableReference, then that would mean that multiple Codings
-are needed to satisfy the bindings. For other data types, this would be an error (in way or another).
+In addition, elements may define additional bindings. These additional bindings do not replace or constrain the main binding, which always applies. 
+They provide supplementary guidance or rules for concept code usage, sometimes in specific contexts of use. 
+Additional bindings are not required to be subsets of the main binding; they may overlap with, extend beyond, or differ from it. 
+Additional bindings have the following properties:
 </p>
 
+<p>
+The conceptual spaces of all bindings on an element must be overlapping. 
+For example, it would not be appropriate to have a binding for concepts representing color and a binding for concepts representing shape on the same element unless handled through slices. 
+</p>
+
+<p>
+Note that if the element data type is a code or coding, the value must satisfy all bindings. 
+If the conformance expectations of the bindings are disjoint, it will not be possible to satisfy the bindings and no data will be valid. 
+</p>
 	
 <a name="references"></a>
 
