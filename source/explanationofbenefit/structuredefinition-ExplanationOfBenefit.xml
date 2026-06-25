@@ -501,10 +501,10 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="ExplanationOfBenefit.prescription">
-      <path value="ExplanationOfBenefit.prescription"/>
-      <short value="Prescription authorizing services or products"/>
-      <definition value="Prescription is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought. Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments."/>
+    <element id="ExplanationOfBenefit.request">
+      <path value="ExplanationOfBenefit.request"/>
+      <short value="Request authorizing services or products"/>
+      <definition value="Request is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought. Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments."/>
       <requirements value="Required to authorize the dispensing of controlled substances and devices."/>
       <min value="0"/>
       <max value="1"/>
@@ -512,22 +512,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
-      </type>
-    </element>
-    <element id="ExplanationOfBenefit.originalPrescription">
-      <path value="ExplanationOfBenefit.originalPrescription"/>
-      <short value="Original prescription if superceded by fulfiller"/>
-      <definition value="Original prescription which has been superseded by this prescription to support the dispensing of pharmacy services, medications or products."/>
-      <comment value="For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new prescription for an alternate medication which has the same therapeutic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'."/>
-      <requirements value="Often required when a fulfiller varies what is fulfilled from that authorized on the original prescription."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
