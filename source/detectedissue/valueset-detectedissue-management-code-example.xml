@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="detectedissue-management-code"/>
+  <id value="detectedissue-management-code-example"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -11,10 +11,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/detectedissue-management-code"/>
+  <url value="http://hl7.org/fhir/ValueSet/detectedissue-management-code-example"/>
   <version value="6.0.0"/>
-  <name value="DetectedIssueManagementCode"/>
-  <title value="Detected Issue Management Code"/>
+  <name value="DetectedIssueManagementCodeExample"/>
+  <title value="Detected Issue Management Code Example"/>
   <status value="active"/>
   <experimental value="true"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -33,7 +33,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/detectedissue-management-code"/>
+      <system value="http://hl7.org/fhir/detectedissue-management-code-example"/>
     </include>
   </compose>
 </ValueSet>
