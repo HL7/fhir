@@ -17,6 +17,7 @@
                 <li>Non-substantive Changes
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55072">FHIR-55072</a>: Updating action-participant-function ValueSet to examples</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-54693">FHIR-54693</a>: Updated reference to Decision Support Service specification to point to CRMI versioning discussion</li>
                     </ul>
                 </li>
             </ul>
