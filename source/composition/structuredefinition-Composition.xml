@@ -581,7 +581,7 @@
     </element>
     <element id="Composition.name">
       <path value="Composition.name"/>
-      <short value="Computer-friendly name"/>
+      <short value="Computer friendly name"/>
       <definition value="A machine-friendly identifier suitable for code generation. For example, 'ClinicalDocument' or 'Composition_v2'. See the Constraint description."/>
       <comment value="The name is not expected to be globally unique. This field is used primarily by computers while the title field includes information for human-display. Composition.type is used to provide a CodeableConcept for the document type when available while Composition.name is an uncoded string. Composition.identifier is used to identify the specific instance of a document."/>
       <requirements value="Support human navigation and code generation."/>
