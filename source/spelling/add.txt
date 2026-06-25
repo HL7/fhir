@@ -16,4 +16,3 @@ _source
 _id
 _content
 _text
-hrf

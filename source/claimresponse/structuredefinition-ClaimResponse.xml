@@ -523,7 +523,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.supportingInfo"/>
+        <map value="Event.supportingInfo"/>
       </mapping>
     </element>
     <element id="ClaimResponse.supportingInfo.sequence">

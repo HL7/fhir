@@ -9,21 +9,19 @@
 <body>
 [%file newnavbar%]
 
-
-
-  <blockquote class="ballot-note" id="bn1">
-    <p><b>Note to Balloters:</b> To ensure that security-label page is ready for Normative status, we are seeking ballot comments on the substantive content.</p>
-    <ul>
-    <li>The key changes made since the January 2026 R6 ballot include:</li>
-      <ul>
-      <li>Retitled the "Core Security Labels" section to "Guidance on Security Vocabulary Use" and revised the narrative to emphasize use of HCS vocabulary in context. - <a href="https://jira.hl7.org/browse/FHIR-53884">FHIR-53884</a></li>
-      <li>Clarified usage patterns by explicitly referencing <code>Bundle.meta.security</code>, Request Context, and <code>Resource.meta.security</code>. - <a href="https://jira.hl7.org/browse/FHIR-53884">FHIR-53884</a></li>
-      <li>Removed the standalone "Break the Glass" section, including legacy OAuth and HTTP category examples. - <a href="https://jira.hl7.org/browse/FHIR-53885">FHIR-53885</a></li>
-      <li>Updated the Confidentiality cardinality in the HCS table from <code>1..1</code> to <code>0..1</code>. - <a href="https://jira.hl7.org/browse/FHIR-53928">FHIR-53928</a></li>
-      </ul>
-    </ul>
-  </blockquote>
-
+<div class="ballot-note md"><blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes since 5d67a34a13a5..8c82972d2728 clarify how security-label vocabulary guidance is applied on this page, remove Break-the-Glass material that is not security-labeling guidance, and correct the HCS Confidentiality cardinality.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>The HCS vocabulary table now shows Confidentiality cardinality as <code>0..1</code> rather than <code>1..1</code>, clarifying that Confidentiality is optional rather than mandatory on every labeled resource. <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-53928">FHIR-53928</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>The former <b>Core Security Labels</b> guidance has been retitled and reframed as <b>Guidance on Security Vocabulary Use</b>, emphasizing use of HCS vocabulary in context and explicitly distinguishing <code>Bundle.meta.security</code>, Request Context, and <code>Resource.meta.security</code> usage patterns. <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-53884">FHIR-53884</a>]</li>
+    <li>The standalone <b>Break the Glass</b> section, including legacy OAuth and HTTP category examples, has been removed from this page because that content is not security-labeling guidance for FHIR Core. <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-53885">FHIR-53885</a>]</li>
+  </ul>
+</blockquote></div>
+  
 <h1>Security Labels</h1>
 <table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg sec%]">[%wgt sec%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
