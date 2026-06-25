@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Composition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/composition.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Consultation note example</div>
+	</text>
+	<status value="final"/>
+	<type>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="11488-4"/>
+			<display value="Consult note"/>
+		</coding>
+	</type>
+	<category>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="LP183761-8"/>
+			<display value="Report"/>
+		</coding>
+	</category>
+	<date value="2026-06-24T09:10:14Z"/>
+	<name value="consultation note"/>
+	<title value="Consultation Note"/>
+	<section>
+		<title value="History of present illness"/>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="11348-0"/>
+				<display value="History of Past illness note"/>
+			</coding>
+		</code>
+		<text>
+			<status value="generated"/>
+			<div xmlns="http://www.w3.org/1999/xhtml">Stroke, example, example2</div>
+		</text>
+		<entry>
+			<reference value="Condition/stroke"/>
+		</entry>
+		<entry>
+			<reference value="Condition/example"/>
+		</entry>
+		<entry>
+			<reference value="Condition/example2"/>
+		</entry>
+	</section>
+</Composition>
