@@ -15,6 +15,7 @@
 <p>Clarified text, added a paragraph, and the meaning of "subject" in the "Compositions about multiple entities" section.</p>
 <p>Clarified the Composition.version element comment.</p>
 <p>Clarified the Composition.status element comment.</p>
+<p>Grammatical and spelling errors fixed throughout the Composition pages, including definitions in the Composition StructureDefinition.</p>
 <p>Removed a sentence from the comment for Composition.title about the cardinality of the element in an older version.</p>
 <p>Added CareTeam and Group as possible resource types for Composition.participant.party Reference.</p>
 <p>CatalogType CodeSystem/ValueSet ownership moved to Orders and Observations workgroup.</p>
