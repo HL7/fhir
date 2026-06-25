@@ -36,7 +36,6 @@ in FHIR. Implementers should be familiar with:
  <li>The <a href="operations.html">Operations Framework</a></li>
  <li><a href="https://terminology.hl7.org/">terminology.hl7.org</a></li>
 </ul>
-<p>
 <a name="conformance"></a>
 <h3>Conformance</h3>
 A server that supports the mandatory functionality described in the following subsections can be described as a "FHIR Terminology Service".
@@ -510,6 +509,7 @@ provides <a href="valueset-operation-validate-code.html">a "validate-code" opera
 </ul>
 <p>
 The server returns a true/false (output parameter = result) indicating whether any of the codes are valid, and may return a list of errors and warnings (issues). The server SHOULD also return an appropriate display for the code if one is provided in the ValueSet expansion (e.g. UI context).
+</p>
 <p>
 Note that if the server is passed a CodeableConcept, the server is capable of checking whether any of the codes is valid against the value set, and return true if at least one of them is valid.
 </p>
