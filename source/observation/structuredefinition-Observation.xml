@@ -840,11 +840,11 @@
         <map value="363713009 |Has interpretation|"/>
       </mapping>
     </element>
-    <element id="Observation.interpretationContext">
-      <path value="Observation.interpretationContext"/>
+    <element id="Observation.context">
+      <path value="Observation.context"/>
       <short value="Context for understanding the observation"/>
       <definition value="Contextual information that is relevant to understanding the observation value or interpretation.  The referenced information may be concurrent or precede the observation."/>
-      <comment value="This element provides essential contextual information that affects how the observation should be interpreted. For example, knowing that a patient is diabetic, fasting, or paraplegic may be critical to properly understanding lab results or other observations. Similarly, information about the timing, view, or imaging mode may be relevant to understanding an imaging measurement."/>
+      <comment value="This element provides essential contextual information that affects how the observation should be interpreted. For example, knowing that a patient is diabetic, fasting, or paraplegic may be critical to properly understanding lab results or other observations. Similarly, information about the timing, view, or imaging mode may be relevant to understanding an imaging measurement. This element is intended for interpretive context and not for conveying order, request, or fulfillment workflow information."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -853,11 +853,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationInterpretationContext"/>
+          <valueString value="ObservationContext"/>
         </extension>
         <strength value="example"/>
         <description value="Codes identifying contextual factors that affect interpretation of observations."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-interpretation-context"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-context"/>
       </binding>
       <mapping>
         <identity value="rim"/>

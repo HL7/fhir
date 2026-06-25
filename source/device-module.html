@@ -14,17 +14,23 @@ in order to support consistent definitions for schema and UML derived code.
 
     <table class="colsi"><tr><td id="wg">Responsible Owner: Work Group <a _target="blank" href="[%wg oo%]">[%wgt oo%]</a> &amp; <a _target="blank" href="[%wg dev%]">[%wgt dev%]</a></td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
+    <blockquote style="background-color: lightblue">
+        <p><b>Release Notes:</b></p>
+        <ul>
+            <li><a href="https://jira.hl7.org/browse/FHIR-54472">FHIR-54472</a></li>
+        </ul>
+    </blockquote>
+
     <a name="root"></a>
     <h2>Device Module</h2>
     
     <blockquote class="stu-note">
         <p><b>Note to Implementers:</b> This module page describes the context and usage of the Devices and related resources. HL7 seeks specific feedback on the usefulness of this module page and the implementability of the referenced resources.</p>
-        <p>The future location and navigation links to this module are outstanding items to be revisited in a future FHIR version.</p>
     </blockquote>
     
     <a name="intro"></a>
     <h3>Introduction</h3>
-    <p>This module is concerned with "devices" and how to use the various device-related FHIR resources to address common use cases. Within FHIR a "device" can represent a wide range of equipment including such diverse things as MRIs, beds, tongue depressors, bandages, stents and implants, blood pressure monitors, weight scales, infusions pumps, clinical decision support software, continuous glucose monitor, and bed-side monitors. Because of the range of possible devices and the range of uses, systems may choose to implement a subset of device-related resources.</p>
+    <p>This module is concerned with "devices" and how to use the various device-related FHIR resources to address common use cases. Within FHIR a "device" can represent a wide range of equipment including such diverse things as MRIs, beds, tongue depressors, bandages, stents and implants, blood pressure monitors, weight scales, infusion pumps, clinical decision support software, continuous glucose monitors, and bedside monitors. Because of the range of possible devices and the range of uses, systems may choose to implement a subset of device-related resources.</p>
 
     <p>Device-related resources include:</p>
     <ul>
@@ -57,45 +63,317 @@ in order to support consistent definitions for schema and UML derived code.
     <p>When considering the use of FHIR for the integration of device information and services, many resources may be involved in even the simplest application.  Additionally, given the robust nature of FHIR resources, a single basic capability will have many potential solutions all using valid FHIR resource configurations.  The following diagram captures some of the key device-related FHIR resources and representative relationships.  It is recommended that readers review the respective resources for all valid relationships.</p>
     <img src="DeviceModule.svg" alt="Image showing the Device-related FHIR Resources: The Big picture" width=1000/>
 
-    <p>Looking in to the details of each of the resources on this diagram, though, will reveal a significant amount of detail that can often lead to confusion as to the high-level purposes they are intended to address.  Only the most comprehensive applications will require integration of all the model components.  Most will require only a subset. To sort this out, the following examples are provided to help understand the key concepts and rationale for their implementation.</p>
+    <p>Looking into the details of each of the resources on this diagram, though, will reveal a significant amount of detail that can often lead to confusion as to the high-level purposes they are intended to address.  Only the most comprehensive applications will require integration of all the model components.  Most will require only a subset. To sort this out, the following examples are provided to help understand the key concepts and rationale for their implementation.</p>
 
     <a name="deviceinstancevstype"></a>
-    <p><b><u>Device Instance vs. Device Type</u></b></p>
-    <p><b>Resources:</b><a href="device.html">Device</a>, <a href="devicedefinition.html">Device Definition</a></p>
+    <h4>Device Instance vs. Device Type</h4>
+    <p><b>Resources:</b> <a href="device.html">Device</a>, <a href="devicedefinition.html">Device Definition</a></p>
 
     <p>When working with a specific <b>INSTANCE</b> of a device (that can be uniquely identified for example: Company Z Super Ventilator, model SV, serial #123xyz456), a <a href="device.html">Device</a> resource is used. A <a href="device.html">Device</a> may reference a single <a href="devicedefinition.html">DeviceDefinition</a> when additional definitional information about the device is necessary to exchange.</p>
 
     <a name="commonusecases"></a>
     <h4>Common Use Cases</h4>
-    <p><strong>A - Tracking device usage: Patients using the Device during a period of time</strong></p>
-    <p>Nurse Lisa notices that a blood pressure device is defective and produces incorrect measurement values. The blood pressure device has probably been used to make spot measurements on several patients in the ward. After discussing this with her colleagues, the biomed team gets involved to find out on which patients the defective device has been used since the device's last technical inspection. Then, the measurements on those patients by that device are labelled as suspicious or erroneous in the patients' records.</p>
-    <p><strong>Key FHIR resources: DeviceAssociation and / or DeviceUsage, Device, Patient</strong></p>
+    <p>The following detailed use cases illustrate common device workflows and the resources most often involved:</p>
+    <style>
+        table.device-use-case {
+            border: 1px solid #999;
+            border-collapse: collapse;
+        }
 
-    <p><strong>B - Tracking device settings: Device's Settings during Measurement</strong></p>
-    <p><strong>Narrative</strong></p>
-    <p>Patient Josh lies in the ICU sedated and ventilated. While reviewing his case, doctor Sarah notices that Josh's respiration rate was too low for a few minutes of the last shift. Sarah decides to review the ventilator's data to investigate if the ventilator settings were the cause of the unexpected respiration rate readings. She looks for the device settings effective in the period of time starting one hour before and ending one hour after the awkward readings. Based on that information she discovers that someone changed the ventilation mode and then reverted the change a few minutes later.</p>
-    <p><strong>Key FHIR resources: Observation, DeviceMetric, Device</strong></p>
+        table.device-use-case th,
+        table.device-use-case td {
+            border: 1px solid #999;
+            padding: 4px;
+        }
+    </style>
 
-    <p><strong>C - Tracking alarm settings during a device alarm: Hear Rate thresholds that trigger an alarm</strong></p>
-    <p><strong>Narrative</strong></p>
-    <p>Helen is recovering from a heart failure in the cardiology ward. She wears a portable telemetry monitor 24/7 that continuously measures her EKG. During the night shift, nurse Frank sees a tachycardia alarm coming from Helen's monitor. Helen's heart rate is 97 bpm, which Frank does not generally regard as concerning. Yet, he checks on Helen to make sure she is doing well. After that, Frank consults which were the tachycardia alarm limits when the alarm came up. He finds out that the limit was set to 90 bpm - way below the usual 120-140 bpm limit.</p>
-    <p><strong>Key FHIR resources: DeviceAlert, Patient, Device</strong></p>
+    <h5>Detailed Use Case: A - Tracking Defective Device Usage Across Patients</h5>
+    <table class="bare device-use-case">
+        <tr>
+            <th>Section</th>
+            <th>Details</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Title</b></td>
+            <td>Tracking Defective Device Usage Across Patients (Inpatient Blood Pressure Monitor)</td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Scope</b></td>
+            <td>Inpatient ward / Reusable spot-check vital signs device (communicating blood pressure monitor)</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Scenario / Storyboard</b></td>
+            <td><p>Nurse Lisa notices that a blood pressure device on the ward is defective and is producing incorrect measurement values. The same device has been used to take spot measurements on several patients over the previous days. After discussing the issue with her colleagues, the biomedical engineering team is asked to determine which patients had measurements taken with this device since its last technical inspection.</p><p>Using the device's unique identifier, the team queries the patient records to find every encounter in which the device was used, along with the measurements it produced. The affected measurements are then labeled as suspicious or erroneous in each patient's record, and clinicians are notified so that new measurements can be taken. The captured device-to-patient linkage and the time-bounded usage records make it possible to support future safety reviews, equipment recalls, and quality investigations.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Primary Goal / Problem Statement</b></td>
+            <td>Provide reliable, time-bounded traceability between a specific device instance and every patient on whom it was used, so that erroneous data can be identified, flagged, and remediated, and so that patient safety follow-up actions can be executed.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Operational / Additional Requirements</b></td>
+            <td><ul><li>Support retrospective device recall and safety investigations bounded by a service interval (e.g., last technical inspection to present).</li><li>Allow erroneous observations to be flagged or amended without losing the original record.</li><li>Maintain a maintenance/inspection history of the device sufficient to bound the period of suspect data.</li><li>Support notification workflows so affected patients can be re-measured.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Interoperability Considerations</b></td>
+            <td><ul><li>UDI-based device identification to enable cross-system lookup of the same device instance.</li><li>Linkage between <code>Observation</code>, <code>Device</code>, and <code>Patient</code> that is preserved when data is exchanged between EHR, biomedical asset management, and quality reporting systems.</li><li>Possible reporting to manufacturer or regulatory recall workflows when a defect is confirmed.</li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Implementation Guidance</b></td>
+            <td><ul><li>Use <a href="device.html"><code>Device</code></a> to represent the specific INSTANCE of the blood pressure monitor (uniquely identified, e.g., by UDI or serial number). Use <a href="devicedefinition.html"><code>DeviceDefinition</code></a> only when catalog-level information (make/model capabilities) is needed in addition to the instance.</li><li>Each measurement is recorded as an <a href="observation.html"><code>Observation</code></a> with <code>Observation.device</code> referencing the <code>Device</code> instance and <code>Observation.subject</code> referencing the <code>Patient</code>. This is the primary linkage used to locate suspect measurements.</li><li>For spot measurements with non-communicating devices, <a href="deviceassociation.html"><code>DeviceAssociation</code></a> records the time-bounded association of the device with each patient; <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html"><code>DeviceUsage</code></a> can additionally capture details of how the device was used.</li><li>Distinguish <a href="devicemetric.html"><code>DeviceMetric</code></a> (device-reported settings/metric definitions for communicating devices) from <a href="observation.html"><code>Observation</code></a> (the clinical measurement value). For a simple non-communicating BPM, <code>Observation</code> alone is typically sufficient.</li><li>For longitudinal traceability, bound queries by the device's last inspection/maintenance event and query <code>Observation</code>, <code>DeviceAssociation</code>, and <code>DeviceUsage</code> records referencing the <code>Device</code> within that interval.</li><li>Mark affected <code>Observation</code> records as suspect using <code>Observation.status</code> (e.g., <code>entered-in-error</code>) or by amending with corrected results, preserving audit trail.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Example Artifacts / References</b></td>
+            <td><ul><li><a href="device-examples.html">Device examples</a></li><li><a href="deviceassociation-examples.html">DeviceAssociation examples</a></li><li><a href="observation-examples.html">Observation examples</a></li><li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage (OO Incubator)</a></li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Data Requirements</b></td>
+            <td><ul><li>Device instance identifier (e.g., UDI, serial number) and device type</li><li>Device maintenance / last technical inspection date</li><li>Patient identity for each subject the device was used on</li><li>Measurement values and time of each <code>Observation</code> produced by the device</li><li>Time-bounded association/usage record linking device to patient</li><li>Practitioner who performed the measurement (optional)</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Core FHIR Resources</b></td>
+            <td><code>Device</code>, <code>DeviceAssociation</code>, <code>DeviceUsage</code>, <code>Observation</code>, <code>Patient</code> (optional: <code>Practitioner</code>, <code>DeviceDefinition</code>)</td>
+        </tr>
+    </table>
 
-    <p><strong>D - Tracking device management: Device allocation, dispense, and return</strong></p>
-    <p><strong>Narrative</strong></p>
-    <p>Maria works for the outpatient service contractor of her town's hospital. She is doing administrative work to manage the stock of home ventilators, and notices a device on the list with unknown status. She looks into the historical data to learn more about the device's real status. Searching in the data base, Maria sees that the ventilator was assigned and dispensed to a patient last year and returned two weeks ago. However, for some reason, the device is not yet unassigned from the patient. After double-checking that the device really is in the storage room and is operative, Maria concludes that it can now be used for the next outpatient.</p>
-    <p><strong>Key FHIR resources: Device, Patient, DeviceAssociation, DeviceDispense</strong></p>
+    <h5>Detailed Use Case: B - Tracking Device Settings During Measurement</h5>
+    <table class="bare device-use-case">
+        <tr>
+            <th>Section</th>
+            <th>Details</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Title</b></td>
+            <td>Tracking Device Settings During Measurement (ICU Ventilator Settings Review)</td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Scope</b></td>
+            <td>Inpatient ICU / Communicating ventilator with configurable operating modes and continuously streamed measurements</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Scenario / Storyboard</b></td>
+            <td><p>Patient Josh is sedated and ventilated in the ICU. During a case review, doctor Sarah notices that Josh's respiration rate was unexpectedly low for a few minutes during the previous shift. To investigate whether the ventilator settings were the cause, Sarah retrieves the device settings that were active in the period starting one hour before and ending one hour after the abnormal readings.</p><p>By correlating the time-stamped settings records with the measurement timeline, Sarah discovers that the ventilation mode was changed during that window and then reverted a few minutes later. This insight allows her to attribute the anomalous readings to the transient mode change rather than a clinical deterioration, and to document the finding for the clinical team and for equipment governance review.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Primary Goal / Problem Statement</b></td>
+            <td>Enable retrospective correlation of device operating settings with clinical measurement values over a specified time window, so that clinicians can determine whether an anomalous measurement was caused by a device configuration change rather than a change in the patient's clinical state.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Operational / Additional Requirements</b></td>
+            <td><ul><li>Support time-bounded queries that retrieve both measurement observations and the device settings (metric configurations) effective during a given interval.</li><li>Preserve a complete, timestamped history of device setting changes so that the active configuration at any past point in time can be reconstructed.</li><li>Link setting records unambiguously to the specific device instance and, where applicable, to the patient being treated.</li><li>Support audit and governance workflows that review who changed a setting and when.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Interoperability Considerations</b></td>
+            <td><ul><li>Device settings must be exchanged alongside measurement observations so that receiving systems can reconstruct the full operational context of a measurement.</li><li>Timestamps on settings records must be sufficiently precise (sub-minute resolution) and aligned with the timestamps on <code>Observation</code> resources to allow accurate temporal correlation.</li><li>Settings and measurements originating from different subsystems (e.g., ventilator vs. bedside monitor) must share a common device reference so that queries across systems return a coherent picture.</li><li>Possible integration with clinical incident reporting or equipment governance systems when an unexpected setting change is identified.</li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Implementation Guidance</b></td>
+            <td><ul><li>Use <a href="device.html"><code>Device</code></a> to represent the specific INSTANCE of the ventilator (uniquely identified by UDI or serial number).</li><li>Use <a href="devicemetric.html"><code>DeviceMetric</code></a> to describe each measurable or configurable channel of the device (e.g., ventilation mode, tidal volume setting, respiration rate). Each <code>DeviceMetric</code> references its parent <code>Device</code> and captures the metric's operational state and calibration status.</li><li>Record each clinical measurement produced by the device as an <a href="observation.html"><code>Observation</code></a> with <code>Observation.device</code> referencing the relevant <code>DeviceMetric</code> (or the <code>Device</code> directly). This is the primary resource for measurement values.</li><li>Record device configuration values (settings) also as <a href="observation.html"><code>Observation</code></a> resources, using an appropriate category (e.g., <code>http://terminology.hl7.org/CodeSystem/observation-category|procedure</code> or a device-settings category) and codes that identify the setting being captured. Each settings <code>Observation</code> must carry a precise <code>Observation.effectiveDateTime</code> or <code>Observation.effectivePeriod</code> so that the active configuration at any past moment can be determined.</li><li>To retrieve the settings window, query <code>Observation</code> records with the device reference, the relevant setting codes, and a <code>date</code> (effective time) parameter spanning the desired interval.</li><li>Optionally, use <a href="deviceassociation.html"><code>DeviceAssociation</code></a> to record the time-bounded association of the ventilator with the patient, providing the context needed to scope queries to a specific patient-device pairing.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Example Artifacts / References</b></td>
+            <td><ul><li><a href="device-examples.html">Device examples</a></li><li><a href="devicemetric-examples.html">DeviceMetric examples</a></li><li><a href="observation-examples.html">Observation examples</a></li><li><a href="deviceassociation-examples.html">DeviceAssociation examples</a></li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Data Requirements</b></td>
+            <td><ul><li>Device instance identifier (e.g., UDI, serial number) and device type</li><li><code>DeviceMetric</code> definitions for each measured and configurable channel of the ventilator</li><li>Timestamped <code>Observation</code> records for each clinical measurement (e.g., respiration rate) produced by the device</li><li>Timestamped <code>Observation</code> records for each device setting value, with sufficient precision to reconstruct the active configuration at any past point in time</li><li>Patient identity to scope the clinical context</li><li>Practitioner or user identity associated with setting changes (for audit purposes)</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Core FHIR Resources</b></td>
+            <td><code>Observation</code>, <code>DeviceMetric</code>, <code>Device</code> (optional: <code>DeviceAssociation</code>, <code>Patient</code>, <code>Practitioner</code>)</td>
+        </tr>
+    </table>
 
-    <p><strong>E - Controlling device management: Continuous monitoring of Patient for Basic Vitals for 72 hours</strong></p>
-    <p><strong>Narrative</strong></p>
-    <p>Lizzy is the doctor in charge in the general ward. She has an elderly patient with pulmonary edema who recently suffered a related acute cardiorespiratory event. Given the deterioration risk, Lizzy wants her patient to be continuously monitored by a bedside monitor. She submits an order through the EHR for the patient to receive continuous monitoring of EKG and SPO2 and periodic monitoring of blood pressure for the next 72 hours.</p>
-    <p><strong>Key FHIR Resources: Patient, ServiceRequest (and optionally: DeviceRequest + DeviceDefinition or Device + DeviceAssociation and / or DeviceDispense)</strong></p>
+    <h5>Detailed Use Case: C - Tracking Alarm Settings During a Device Alarm</h5>
+    <table class="bare device-use-case">
+        <tr>
+            <th>Section</th>
+            <th>Details</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Title</b></td>
+            <td>Tracking Alarm Settings During a Device Alarm (Cardiology Telemetry Monitor - Heart Rate Thresholds)</td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Scope</b></td>
+            <td>Inpatient cardiology ward / Communicating portable telemetry monitor with configurable alarm thresholds and continuous EKG measurement</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Scenario / Storyboard</b></td>
+            <td><p>Patient Helen is recovering from heart failure in the cardiology ward. She wears a portable telemetry monitor around the clock that continuously measures her EKG. During the night shift, nurse Frank receives a tachycardia alarm from Helen's monitor. Helen's current heart rate is 97 bpm, which Frank does not consider clinically concerning based on his experience. He checks on Helen, confirms she is comfortable, and returns to the nurses' station.</p><p>Wanting to understand why the alarm triggered at such a low heart rate, Frank queries the alarm record to determine which tachycardia threshold was active at the time the alarm fired. He discovers the limit was configured at 90 bpm - significantly below the typical clinical range of 120-140 bpm. This finding prompts a review of the device's alarm configuration, ensuring thresholds are corrected and appropriate for Helen's care plan going forward.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Primary Goal / Problem Statement</b></td>
+            <td>Enable clinicians to retrospectively determine the exact alarm threshold values that were active on a device at the moment a specific alarm fired, so that clinically inappropriate configurations can be identified, corrected, and documented as part of patient safety and equipment governance processes.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Operational / Additional Requirements</b></td>
+            <td><ul><li>Capture each alarm event with a precise timestamp and a reference to the device and patient involved.</li><li>Record the alarm threshold values (and their source - default, manually set, or care-plan-driven) that were in effect when the alarm fired.</li><li>Preserve a timestamped history of threshold changes so that the active configuration at the moment of any past alarm can be reconstructed.</li><li>Support clinician workflows that allow alarm configuration review without disrupting active monitoring.</li><li>Support quality and safety investigations by linking alarm events to the responsible practitioner, care plan, and device instance.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Interoperability Considerations</b></td>
+            <td><ul><li>Alarm events and alarm threshold settings must be exchangeable alongside the measurement observations that triggered them, so that receiving systems can reconstruct the full alarm context.</li><li>Timestamps on alarm records and threshold records must be precisely aligned with measurement <code>Observation</code> timestamps to allow accurate temporal correlation.</li><li>Device identity must be consistently represented across alarm management, clinical documentation, and biomedical engineering systems.</li><li>Potential integration with clinical escalation, incident reporting, and alarm fatigue monitoring systems.</li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Implementation Guidance</b></td>
+            <td><ul><li>Use <a href="device.html"><code>Device</code></a> to represent the specific INSTANCE of the telemetry monitor (uniquely identified by UDI or serial number).</li><li>Use <a href="devicealert.html"><code>DeviceAlert</code></a> to record each alarm event. <code>DeviceAlert</code> captures the alarm type, priority, status, the device that raised it, the patient it concerns, and the precise time at which the alarm fired.</li><li>Record the alarm threshold values active at the time of the alarm as <a href="observation.html"><code>Observation</code></a> resources (or as components within the <code>DeviceAlert</code> if the implementation guide supports it), referencing the corresponding <a href="devicemetric.html"><code>DeviceMetric</code></a> that describes the configurable alarm channel (e.g., tachycardia upper limit).</li><li>Use <a href="devicemetric.html"><code>DeviceMetric</code></a> to describe each alarm-capable channel of the monitor, including its current operational state and threshold definitions. Each <code>DeviceMetric</code> references its parent <code>Device</code>.</li><li>To reconstruct the active threshold at the time of an alarm, query the threshold <code>Observation</code> records for the relevant <code>DeviceMetric</code> with an effective time at or before the alarm timestamp.</li><li>Link <code>DeviceAlert</code> to the patient via <code>DeviceAlert.subject</code> and to the device via <code>DeviceAlert.device</code> to enable scoped queries across both dimensions.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Example Artifacts / References</b></td>
+            <td><ul><li><a href="device-examples.html">Device examples</a></li><li><a href="devicealert-examples.html">DeviceAlert examples</a></li><li><a href="devicemetric-examples.html">DeviceMetric examples</a></li><li><a href="observation-examples.html">Observation examples</a></li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Data Requirements</b></td>
+            <td><ul><li>Device instance identifier (e.g., UDI, serial number) and device type</li><li><code>DeviceMetric</code> definitions for each alarm-capable channel (e.g., tachycardia upper limit, bradycardia lower limit)</li><li><code>DeviceAlert</code> record for each alarm event, including alarm type, priority, status, and precise timestamp</li><li>Timestamped threshold configuration records (as <code>Observation</code> resources or <code>DeviceAlert</code> components) for each alarm channel, enabling reconstruction of the active threshold at any past point in time</li><li><code>Patient</code> identity to scope the clinical context</li><li><code>Practitioner</code> or user identity associated with threshold changes (for audit purposes)</li><li>Measurement <code>Observation</code> that triggered the alarm (e.g., the heart rate value that exceeded the threshold)</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Core FHIR Resources</b></td>
+            <td><code>DeviceAlert</code>, <code>Device</code>, <code>Patient</code> (optional: <code>DeviceMetric</code>, <code>Observation</code>, <code>Practitioner</code>)</td>
+        </tr>
+    </table>
 
-    <p><strong>F - Controlling device settings: Change to device's settings via remote control{}</strong></p>
-    <p><strong>Narrative</strong></p>
-    <p>F1 (PHD scenario) - Deborah works for an outpatient cardiac monitoring service. Her managed patients continuously wear Holter monitors and take daily weight and blood pressure measurements. Due to some recent incidents of fast deterioration, Deborah's employer has decided to have weight scale and blood pressure devices report their recorded measurements more frequently than just three times a week. Hence, Deborah configures all of those devices types out on the field to report any stored readings daily.</p>
-    <p>F2 (PoCD scenario) - Rob works at a central monitoring unit and is remotely watching over dozens of patients across two hospital wards. He notices that post-surgery patient Jingze has all vitals within normal range but seems restless in the video feed. Since Jingze's sedation medication dosage has been low in the last 12 hours, Rob remotely configures the benzodiazepine infusion pump to administer Jingze a bolus.</p>
-    <p><strong>Key FHIR Resources: Device, ServiceRequest (and optionally: DeviceMetric + Observation)</strong></p>
+    <h5>Detailed Use Case: D - Tracking Device Management (Allocation, Dispense, and Return)</h5>
+    <table class="bare device-use-case">
+        <tr>
+            <th>Section</th>
+            <th>Details</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Title</b></td>
+            <td>Tracking Device Management - Allocation, Dispense, and Return (Home Ventilator Stock)</td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Scope</b></td>
+            <td>Outpatient / home care / Reusable durable medical equipment (home ventilator) managed by a hospital contractor</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Scenario / Storyboard</b></td>
+            <td><p>Maria works for the outpatient service contractor of her town's hospital and is responsible for managing the stock of home ventilators. While reviewing the device inventory, she notices a ventilator with an unknown status. To investigate, she queries the device's historical records in the system.</p><p>The records show that the ventilator was assigned and dispensed to a patient the previous year and was returned to the storage room two weeks ago. However, the device has not yet been administratively unassigned from that patient, leaving its status ambiguous. After physically confirming that the device is present in the storage room and is in operative condition, Maria updates the device's association record to reflect that it has been returned and is now available for the next outpatient.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Primary Goal / Problem Statement</b></td>
+            <td>Provide a complete, accurate, and up-to-date lifecycle record of a reusable device - covering allocation, dispensing, active use, and return - so that administrative staff can determine the true current availability of any device in the inventory and ensure it is correctly assigned or released for re-use.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Operational / Additional Requirements</b></td>
+            <td><ul><li>Record each stage of the device lifecycle (allocated, dispensed, in use, returned, available) with precise timestamps.</li><li>Maintain an association record that links the device to the patient for the duration of the loan and is explicitly closed when the device is returned.</li><li>Support retrospective queries over the full history of a device's assignments and returns, enabling stock reconciliation and dispute resolution.</li><li>Support status corrections when the physical state of the device (e.g., returned to storage) and the electronic record are out of sync.</li><li>Prevent a device from being re-assigned while it is still electronically associated with a previous patient.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Interoperability Considerations</b></td>
+            <td><ul><li>Device identity (UDI or serial number) must be consistently represented across the EHR, the contractor's stock management system, and any biomedical engineering systems to enable cross-system lifecycle queries.</li><li>Patient identity must be linked to device association and dispense records in a way that is preserved when data is exchanged between the hospital and the outpatient contractor.</li><li>Status updates (e.g., return events) originating in one system must be propagated to all systems that hold a copy of the association record to avoid stale data.</li><li>Possible integration with procurement and maintenance systems for end-of-life or repair workflows.</li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Implementation Guidance</b></td>
+            <td><ul><li>Use <a href="device.html"><code>Device</code></a> to represent the specific INSTANCE of the home ventilator (uniquely identified by UDI or serial number). The <code>Device.availabilityStatus</code> element reflects the device's availability for use (e.g., <code>available</code>).</li><li>Use <a href="deviceassociation.html"><code>DeviceAssociation</code></a> to record the time-bounded relationship between the device and the patient. When the device is returned, <code>DeviceAssociation.period.end</code> and <code>DeviceAssociation.status</code> must be updated to reflect the end of the loan.</li><li>Use <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html"><code>DeviceDispense</code></a> to record the dispensing event (when the device was physically handed to the patient) and, where supported, the return event. <code>DeviceDispense.status</code> tracks the current state of the dispense transaction.</li><li>To reconstruct the full lifecycle of a device, query <code>DeviceAssociation</code> and <code>DeviceDispense</code> resources filtered by the device identifier, ordered by date, to obtain a chronological history of all allocation, dispense, and return events.</li><li>When a discrepancy between the physical state and the electronic record is identified, update <code>DeviceAssociation.status</code> and <code>Device.availabilityStatus</code> to reflect the corrected state, preserving the original records for audit purposes.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Example Artifacts / References</b></td>
+            <td><ul><li><a href="device-examples.html">Device examples</a></li><li><a href="deviceassociation-examples.html">DeviceAssociation examples</a></li><li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense examples</a></li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Data Requirements</b></td>
+            <td><ul><li>Device instance identifier (e.g., UDI, serial number), type, and current availability</li><li>Patient identity for each patient the device was assigned to</li><li><code>DeviceAssociation</code> records covering each allocation period, with start and end timestamps</li><li><code>DeviceDispense</code> records for each dispense and return event, with timestamps and status</li><li>Practitioner or staff identity responsible for each lifecycle transition (for audit purposes)</li><li>Location (e.g., storage room) when the device is not associated with a patient</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Core FHIR Resources</b></td>
+            <td><code>Device</code>, <code>DeviceAssociation</code>, <code>DeviceDispense</code>, <code>Patient</code> (optional: <code>Practitioner</code>, <code>Location</code>)</td>
+        </tr>
+    </table>
+
+    <h5>Detailed Use Case: E - Controlling Device Management (Continuous Monitoring Order)</h5>
+    <table class="bare device-use-case">
+        <tr>
+            <th>Section</th>
+            <th>Details</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Title</b></td>
+            <td>Controlling Device Management - Ordering Continuous Patient Monitoring for 72 Hours (General Ward Bedside Monitor)</td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Scope</b></td>
+            <td>Inpatient general ward / Bedside monitor with continuous EKG, SpO2, and periodic blood pressure measurement capabilities</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Scenario / Storyboard</b></td>
+            <td><p>Lizzy is the attending physician in a general ward. She has an elderly patient with pulmonary edema who recently experienced an acute cardiorespiratory event. Given the patient's risk of rapid deterioration, Lizzy decides that continuous monitoring is necessary.</p><p>Through the hospital's EHR, Lizzy submits a monitoring order specifying continuous EKG and SpO2 surveillance and periodic blood pressure measurements for the next 72 hours. The order is communicated to the nursing staff and, where the infrastructure supports it, to the biomedical equipment management system so that an appropriate bedside monitor can be allocated and associated with the patient. The resulting device assignment, any dispense event, and the observations produced during the monitoring period are all traceable back to the original order.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Primary Goal / Problem Statement</b></td>
+            <td>Enable a clinician to place a structured order for device-based monitoring, ensure the required device is allocated and associated with the correct patient, and maintain traceability between the clinical order, the device assignment, and the observations produced during the monitoring period.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Operational / Additional Requirements</b></td>
+            <td><ul><li>Support specification of monitoring type (continuous vs. periodic), measured parameters, and monitoring duration in the order.</li><li>Allow the order to drive device allocation workflows, including selection of a device type or specific device instance.</li><li>Maintain a traceable link between the order, the device association or dispense event, and the observations produced.</li><li>Support modification or cancellation of the monitoring order and propagation of those changes to active device assignments.</li><li>Allow the order to be fulfilled by either a specific device instance or any device conforming to a defined device type.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Interoperability Considerations</b></td>
+            <td><ul><li>The monitoring order must be communicated from the EHR to nursing workflow systems and, where applicable, to biomedical equipment management systems.</li><li>Device type specifications in the order must be expressed in a way that can be matched against the device inventory (using <code>DeviceDefinition</code> or coded device type).</li><li><code>Observation</code> resources produced during the monitoring period must reference both the fulfilling device and the originating order to support clinical and operational reporting.</li><li>Possible integration with scheduling systems for periodic measurements and with alarm management systems for threshold configuration.</li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Implementation Guidance</b></td>
+            <td><ul><li>Use <a href="servicerequest.html"><code>ServiceRequest</code></a> as the primary resource to represent the monitoring order. <code>ServiceRequest.code</code> specifies the type of monitoring (e.g., continuous cardiac monitoring); <code>ServiceRequest.occurrence</code> captures the 72-hour duration.</li><li>Where the order must specify a device type rather than a specific instance, use a coded service or a related <a href="devicerequest.html"><code>DeviceRequest</code></a> that references the relevant <a href="devicedefinition.html"><code>DeviceDefinition</code></a> or specific <a href="device.html"><code>Device</code></a>.</li><li>Once a device is allocated, use <a href="deviceassociation.html"><code>DeviceAssociation</code></a> to record the time-bounded association of the specific <a href="device.html"><code>Device</code></a> instance with the patient, referencing the fulfilling order where supported.</li><li>Where a device is formally dispensed (e.g., attached or handed over by biomedical staff), use <a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html"><code>DeviceDispense</code></a> to record the dispense event.</li><li>Each <a href="observation.html"><code>Observation</code></a> produced during the monitoring period should reference the device via <code>Observation.device</code> and may reference the order via <code>Observation.basedOn</code> to maintain full traceability.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Example Artifacts / References</b></td>
+            <td><ul><li><a href="servicerequest-examples.html">ServiceRequest examples</a></li><li><a href="devicerequest-examples.html">DeviceRequest examples</a></li><li><a href="device-examples.html">Device examples</a></li><li><a href="deviceassociation-examples.html">DeviceAssociation examples</a></li><li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense examples</a></li><li><a href="observation-examples.html">Observation examples</a></li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Data Requirements</b></td>
+            <td><ul><li>Patient identity and clinical context (diagnosis, risk level) driving the order</li><li><code>ServiceRequest</code> specifying monitoring parameters, mode (continuous/periodic), and duration</li><li>Device type or specific device instance selected to fulfill the order</li><li><code>DeviceAssociation</code> record linking the device instance to the patient for the monitoring period</li><li><code>DeviceDispense</code> record for the allocation/dispense event (where applicable)</li><li><code>Observation</code> resources produced during the monitoring period, referencing the device and the order</li><li>Ordering clinician and responsible practitioner identities</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Core FHIR Resources</b></td>
+            <td><code>Patient</code>, <code>ServiceRequest</code> (optional: <code>DeviceRequest</code>, <code>DeviceDefinition</code>, <code>Device</code>, <code>DeviceAssociation</code>, <code>DeviceDispense</code>, <code>Observation</code>, <code>Practitioner</code>)</td>
+        </tr>
+    </table>
+
+    <h5>Detailed Use Case: F - Controlling Device Settings via Remote Control</h5>
+    <table class="bare device-use-case">
+        <tr>
+            <th>Section</th>
+            <th>Details</th>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Title</b></td>
+            <td>Controlling Device Settings via Remote Control (F1: PHD Reporting Frequency; F2: PoCD Infusion Pump Bolus)</td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Scope</b></td>
+            <td>F1 - Outpatient / home care / Personal health devices (Holter monitors, weight scales, blood pressure devices) with configurable reporting schedules. F2 - Inpatient / central monitoring unit / Point-of-care device (benzodiazepine infusion pump) with remotely configurable bolus delivery.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Scenario / Storyboard</b></td>
+            <td><p><b>F1 (PHD scenario):</b> Deborah manages a cohort of outpatient cardiac monitoring patients who wear Holter monitors and take daily weight and blood pressure measurements at home. Following recent incidents of rapid clinical deterioration, her employer decides that all weight scale and blood pressure devices in the field should upload their stored readings daily rather than three times per week. Deborah remotely reconfigures the reporting schedule on all affected device types so that any stored readings are transmitted every day.</p><p><b>F2 (PoCD scenario):</b> Rob is a nurse working at a central monitoring unit overseeing dozens of patients in two hospital wards. He notices that post-surgery patient Jingze has all vitals within normal range but appears restless in the video feed. Given that Jingze's sedation dosage has been low for the past 12 hours, Rob raises a remote command to configure the benzodiazepine infusion pump at Jingze's bedside to administer a bolus dose. The command is issued through the clinical system, delivered to the pump, and the resulting administration is recorded as an observation.</p></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Primary Goal / Problem Statement</b></td>
+            <td>Enable authorized clinicians or administrators to issue structured remote commands that change the operating configuration or trigger an action on a device, and to record those commands and their outcomes in a way that is auditable, traceable to the issuing clinician, and linked to the affected patient and device.</td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Operational / Additional Requirements</b></td>
+            <td><ul><li>Support issuance of device configuration commands (e.g., change reporting frequency, trigger bolus) by authorized users only, with appropriate access control.</li><li>Record each command with its originating clinician, target device, target patient (where applicable), requested setting or action, and timestamp.</li><li>Capture the outcome of the command (accepted, rejected, executed, failed) and link it back to the original command record.</li><li>For F1: support bulk reconfiguration of all devices of a given type across a patient cohort.</li><li>For F2: ensure that drug administration commands are subject to clinical safety checks (dosage limits, allergy checks) before execution.</li><li>Preserve an immutable audit trail of all remote configuration changes for safety and regulatory purposes.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Interoperability Considerations</b></td>
+            <td><ul><li>Remote commands must be expressed in a standardized format that can be interpreted by the receiving device gateway or device management system.</li><li>Device identity must be consistently represented across the clinical system, the device gateway, and the device itself.</li><li>For F2, the command and its resulting drug administration must integrate with medication administration and clinical decision support systems.</li><li><code>Observation</code> resources reflecting the outcome of a configuration change (e.g., confirmed new reporting schedule, bolus delivered) must reference the originating command for traceability.</li><li>Possible integration with alarm and escalation systems if a command fails or the device does not respond.</li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Implementation Guidance</b></td>
+            <td><ul><li>Use <a href="device.html"><code>Device</code></a> to represent the specific instance (F2) or the device type cohort (F1) targeted by the command. For F1, where the command targets a device type rather than a single instance, reference a <a href="devicedefinition.html"><code>DeviceDefinition</code></a>.</li><li>Use <a href="servicerequest.html"><code>ServiceRequest</code></a> to represent the remote configuration command or action request. <code>ServiceRequest.code</code> identifies the action (e.g., change reporting schedule, administer bolus); <code>ServiceRequest.subject</code> references the patient; the target device is identified by the request details or by a related <code>DeviceRequest</code> or <code>DeviceAssociation</code>, as appropriate.</li><li>Where the command targets a specific metric or operational channel of the device, reference the relevant <a href="devicemetric.html"><code>DeviceMetric</code></a> to provide the configuration context.</li><li>Record the outcome of the command (e.g., confirmed new setting, bolus administered) as an <a href="observation.html"><code>Observation</code></a> with <code>Observation.basedOn</code> referencing the <code>ServiceRequest</code>, providing end-to-end traceability from command to clinical effect.</li><li>For F2, ensure the <code>ServiceRequest</code> is routed through the appropriate clinical safety and authorization workflow before the command is delivered to the device gateway.</li><li>For F1 bulk reconfiguration, one <code>ServiceRequest</code> per device instance (or a group-level request if the implementation supports it) should be created to maintain per-device audit records.</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Example Artifacts / References</b></td>
+            <td><ul><li><a href="servicerequest-examples.html">ServiceRequest examples</a></li><li><a href="device-examples.html">Device examples</a></li><li><a href="devicemetric-examples.html">DeviceMetric examples</a></li><li><a href="observation-examples.html">Observation examples</a></li></ul></td>
+        </tr>
+        <tr bgcolor="#EFEFEF">
+            <td valign="top"><b>Data Requirements</b></td>
+            <td><ul><li>Device instance or device type identifier for the target device(s)</li><li>Patient identity (where the command is patient-specific, as in F2)</li><li><code>ServiceRequest</code> encoding the command type, target setting or action, and requested value</li><li>Authorizing clinician or administrator identity</li><li>Timestamp of command issuance and outcome timestamp</li><li>Command outcome status (accepted, executed, failed, rejected)</li><li><code>Observation</code> recording the resulting device state or clinical effect (e.g., updated reporting schedule, bolus administered), referencing the originating <code>ServiceRequest</code></li><li>For F2: medication details (drug, dose, route) for the bolus command</li></ul></td>
+        </tr>
+        <tr>
+            <td valign="top"><b>Core FHIR Resources</b></td>
+            <td><code>Device</code>, <code>ServiceRequest</code> (optional: <code>DeviceMetric</code>, <code>Observation</code>, <code>DeviceDefinition</code>, <code>Patient</code>, <code>Practitioner</code>)</td>
+        </tr>
+    </table>
 
     <a name="devicerelatedresources"></a>
     <h3>Device-related Resources</h3>
@@ -111,7 +389,7 @@ in order to support consistent definitions for schema and UML derived code.
             </td>
             <td>
                 <p>A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device, and might or might not be capable of communicating. A device may be a physical object or virtual, such as software.</p>
-                <p>An instrument, apparatus, implement, machine, appliance, implant, reagent for in vitro use, software, material or other similar or related article, intended by the manufacturer (3.33) to be used, alone or in combination, for human beings, for one of more of the specific medical purpose(s) of ....</p>
+                <p>An instrument, apparatus, implement, machine, appliance, implant, reagent for in vitro use, software, material or other similar or related article, intended by the manufacturer (3.33) to be used, alone or in combination, for human beings, for one or more of the specific medical purpose(s) of ....</p>
             </td>
         </tr>
         <tr>
@@ -133,7 +411,7 @@ in order to support consistent definitions for schema and UML derived code.
             <td valign="top">
                 <a href="devicedefinition.html">Device Definition</a>
             </td>
-            <td>The DeviceDefinition provides a description of all instances of a particular model of device.Description/Relationship.</td>
+            <td>The DeviceDefinition provides a description of all instances of a particular model of device.</td>
         </tr>
         <tr bgcolor="#EFEFEF">
             <td valign="top">
@@ -161,7 +439,7 @@ in order to support consistent definitions for schema and UML derived code.
             </td>
             <td><ul>
                 <li>Record of use by patient, whereas DeviceAssociation is more record of association or dissociation of the device with patient;</li>
-                <li>DeviceUsage has details about how it was used; DeviceAssociation doesn't</li>
+                <li>DeviceUsage has details about how it was used; DeviceAssociation does not</li>
             </ul></td>
 
         </tr>
@@ -243,7 +521,7 @@ in order to support consistent definitions for schema and UML derived code.
     <table class="bare">
         <tr>
             <th>Name</th>
-            <th>Matutity Level</th>
+            <th>Maturity Level</th>
             <th>Known changes</th>
         </tr>
         <tr bgcolor="#EFEFEF">
