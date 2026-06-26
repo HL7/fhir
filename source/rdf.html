@@ -165,7 +165,7 @@ Web Health Care and Life Sciences Interest Group</a>.
           <li><b><code class="rdf"># effective[x]</code></b> indicates
             a polymorphic property (<a href="#propertyNames">see below</a>),
             whose value (in this example) may be a fhir:DateTime,
-            fhir:Period, fhir:Timing or fhir:Instant.
+            <code>fhir:Period</code>, <code>fhir:Timing</code> or <code>fhir:Instant</code>.
 </li>
         </ul>
         <p>Note that examples in this specification show Turtle that is
@@ -184,18 +184,18 @@ Web Health Care and Life Sciences Interest Group</a>.
   fhir:id [ fhir:v "bgpanel"] ;   # Its id is bgpanel.
   fhir:status [ fhir:v "final"] ; # It has an (extensible) status of final.
   fhir:code [                     # It has code,
-     fhir:coding ( [              # given by a list of Codings,
-       a loinc:34532-2 ;          # each having an OPTIONAL concept IRI (see below)
-       fhir:system [              # plus a code system URI
-         fhir:l &lt;http://loinc.org&gt; ;               # (as an OPTIONAL RDF node,
-         fhir:v "http://loinc.org"^^xsd:anyURI ] ; # but always as a literal),
-                                  # and a code:
+    a loinc:34532-2 ;          # each having an OPTIONAL concept IRI (see below)
+    fhir:coding ( [              # given by a list of Codings,
+      fhir:system [              # plus a code system URI
+        fhir:l &lt;http://loinc.org&gt; ;               # (as an OPTIONAL RDF node,
+        fhir:v "http://loinc.org"^^xsd:anyURI ] ; # but always as a literal),
+                                 # and a code:
        fhir:code [ fhir:v "34532-2" ]
      ] )
   ] ;
   fhir:subject [
-     fhir:l &lt;http://hl7.org/fhir/Patient/infant&gt; ;
-     fhir:reference [ fhir:v "Patient/infant" ]
+    fhir:l &lt;http://hl7.org/fhir/Patient/infant&gt; ;
+    fhir:reference [ fhir:v "Patient/infant" ]
   ] ; #
   …
 </pre>
@@ -260,14 +260,14 @@ href="fhir.shex">fhir.shex</a>
             Resource nodes are <a href="https://www.rfc-editor.org/rfc/rfc3987">IRIs</a>. For example, this Turtle:
           </p>
 
-          <pre class="rdf">
-          &lt;http://example.org/fhir/Observation/bgpanel&gt; fhir:status [ fhir:v "final" ]
-          </pre>
+<pre class="rdf">
+&lt;http://example.org/fhir/Observation/bgpanel&gt; fhir:status [ fhir:v "final" ] .
+</pre>
 
           <p>asserts that: </p>
           <ul>
             <li><code class="rdf">&lt;http://example.org/fhir/Observation/bgpanel&gt;</code>
-                has a <code class="rdf">status</code> of some anonymous node.</li>
+                has a <code class="rdf">fhir:status</code> of some anonymous node.</li>
             <li>That anonymous node has a value
               of <code class="rdf">"final"</code> (a literal),
               indicated by the <code class="rdf">fhir:v</code> property.
@@ -304,28 +304,28 @@ href="fhir.shex">fhir.shex</a>
             But in FHIR RDF, it is written as a polymorphic <code class="rdf">fhir:value</code> property,
             and the object asserts its type explicitly, as shown in the
             following excerpt from an <a href="observation-example.ttl.html">Observation body weight example</a>.
-            Confusingly, this excerpt happens to include a second (nested) <code class="rdf">fhir:value</code>
+            This example happens to include a second (nested) <code class="rdf">fhir:value</code>
             property, which is a property of the
             <a href="datatypes.html#Quantity">Quantity</a> datatype (i.e., Quantity.value),
             and whose type
-            is indicated directly by the xsd:decimal datatype attached to
+            is indicated directly by the <code>xsd:decimal</code> datatype attached to
             its <code class="rdf">fhir:v</code> literal value.
           </p>
-          <pre class="rdf">
-  <b>fhir:value</b> [  # From Observation.value[x] (Observation.valueQuantity)
-     <b>a fhir:Quantity ;</b>
-     fhir:value [ fhir:v "185"^^xsd:decimal ] ;   # From Quantity.value
-     fhir:unit [ fhir:v "lbs" ] ;
-     fhir:system [ fhir:l &lt;http://unitsofmeasure.org&gt; ;
-                   fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
-     fhir:code [ fhir:v "[lb_av]" ]
-  ] ;
+<pre class="rdf">
+<b>fhir:value</b> [  # From Observation.value[x] (Observation.valueQuantity)
+  <b>a fhir:Quantity ;</b>
+  fhir:value [ fhir:v "185"^^xsd:decimal ] ;   # From Quantity.value
+  fhir:unit [ fhir:v "lbs" ] ;
+  fhir:system [ fhir:l &lt;http://unitsofmeasure.org&gt; ;
+                fhir:v "http://unitsofmeasure.org"^^xsd:anyURI ] ;
+  fhir:code [ fhir:v "[lb_av]" ]
+] ;
 </pre>
 
         <a name="caseSensitivity"></a>
           <h4>Case Sensitivity</h4>
           <p> While RDF property names are case-sensitive, FHIR avoids
-            confusion by assuring that there are no properties that
+            confusion by ensuring that there are no properties that
             differ only in case.
           </p>
 
@@ -335,10 +335,12 @@ href="fhir.shex">fhir.shex</a>
             (officially called "RDF collections") in order to retain the
             order of their elements.  For example this
             <code>fhir:coding</code> property holds a list of two members: </p>
-          <pre class="rdf">    fhir:coding <b>(</b>
-      [ a &lt;http://loinc.org/rdf/29463-7&gt; … ]
-      [ a &lt;http://loinc.org/rdf/3141-9&gt; … ]
-    <b>)</b></pre>
+<pre class="rdf">
+fhir:coding <b>(</b>
+  [ a &lt;http://loinc.org/rdf/29463-7&gt; … ]
+  [ a &lt;http://loinc.org/rdf/3141-9&gt; … ]
+<b>)</b>
+</pre>
           <p> Since RDF lists can cause problems for OWL users, a
             <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a> can
             convert RDF lists to an alternate representation.
@@ -394,7 +396,7 @@ href="fhir.shex">fhir.shex</a>
           <li>A <code class="rdf">fhir:v</code> literal has two parts:
             a quoted string that contains
             the value, and an XSD or RDF type:<br/>
-          <pre class="rdf">  fhir:v "[value]"^^xsd:type</pre>
+<pre class="rdf">fhir:v "[value]"^^xsd:type</pre>
           <p>
             The XSD type is one of the following
             <a href="https://www.w3.org/TR/xmlschema11-2/">XML Schema Datatypes (XSD)</a>, typically written with an <code class="rdf">xsd:</code> or <code class="rdf">xs:</code> prefix:
@@ -418,11 +420,12 @@ href="fhir.shex">fhir.shex</a>
             is an anonymous node with a
             <code class="rdf">fhir:v</code> assertion and possibly a
             type assertion, like one of the following: </p>
-          <pre class="rdf">
-    [ fhir:v "2"^^xsd:positiveInteger ]                       # With implied FHIR type
-    [ a fhir:PositiveInt ; fhir:v "2"^^xsd:positiveInteger ]  # With explicit FHIR type</pre>
+<pre class="rdf">
+[ fhir:v "2"^^xsd:positiveInteger ]                       # With implied FHIR type
+[ a fhir:PositiveInt ; fhir:v "2"^^xsd:positiveInteger ]  # With explicit FHIR type
+</pre>
 
-          <p> The fhir:v property can never be empty. Either the
+          <p> The <code class="rdf">fhir:v</code> property can never be empty. Either the
             relationship is absent, or it is present with at least one
             character of content. XHTML is represented as an escaped
             xsd:string.&nbsp; <br/>
@@ -435,9 +438,9 @@ href="fhir.shex">fhir.shex</a>
             of multiple XML Schema datatypes:
           </p>
             <ul>
-              <li>FHIR <a href="datatypes.html#date">date</a> (union of xsd:date, xsd:gYearMonth, xsd:gYear);</li>
-              <li>FHIR <a href="datatypes.html#dateTime">dateTime</a> (union of xsd:dateTime, xsd:date, xsd:gYearMonth, xsd:gYear); and</li>
-              <li>FHIR <a href="datatypes.html#decimal">decimal</a> (union of xsd:decimal, xsd:double).</li>
+              <li>FHIR <a href="datatypes.html#date">date</a> (union of <code>xsd:date</code>, <code>xsd:gYearMonth</code>, <code>xsd:gYear</code>);</li>
+              <li>FHIR <a href="datatypes.html#dateTime">dateTime</a> (union of <code>xsd:dateTime</code>, <code>xsd:date</code>, <code>xsd:gYearMonth</code>, <code>xsd:gYear</code>); and</li>
+              <li>FHIR <a href="datatypes.html#decimal">decimal</a> (union of <code>xsd:decimal</code>, <code>xsd:double</code>).</li>
             </ul>
             <p> In such cases, the correct XSD type
             must be determined by inspecting the literal value for
@@ -447,10 +450,9 @@ href="fhir.shex">fhir.shex</a>
               href="https://www.w3.org/TR/xmlschema-2/#decimal">xsd:decimal</a>
             and <a href="https://www.w3.org/TR/xmlschema-2/#double">xsd:double</a>,
             any value with an 'e' or 'E' in it is an xsd:double, otherwise it
-            is an xsd:decimal. For example, for a property whose value
+            is an <code>xsd:decimal</code>. For example, for a property whose value
             is a FHIR <a href="datatypes.html#decimal">decimal</a>,
-            an literal value of <code
-              class="rdf">"185"</code> must be given the XSD datatype <code>xsd:decimal</code>
+            a literal value of <code>"185"</code> must be given the XSD datatype <code>xsd:decimal</code>
             because it does not contain 'e' or 'E'.
             Values of other FHIR union types --
             <a href="datatypes.html#date">date</a> or <a href="datatypes.html#dateTime">dateTime</a>
@@ -462,8 +464,8 @@ href="fhir.shex">fhir.shex</a>
           <h4>Turtle Shorthand for Primitive Literals</h4>
 
           <p>Literal values that can be represented using Turtle shorthand
-            notation for xsd:string, xsd:integer, xsd:decimal, xsd:double
-            or xsd:boolean MAY optionally use shorthand instead of the long
+            notation for <code>xsd:string</code>, <code>xsd:integer</code>, <code>xsd:decimal</code>, <code>xsd:double</code>
+            or <code>xsd:boolean</code> MAY optionally use shorthand instead of the long
             form described above.  However, authors of FHIR Turtle
             serializers are advised to be aware that there are
             some differences between what is permitted in FHIR,
@@ -481,10 +483,10 @@ href="fhir.shex">fhir.shex</a>
                 value of 185 must either have a decimal point explicitly
                 added, like 185.0, or the type must be explicitly indicated,
                 like <code class="rdf">"185"^^xsd:decimal</code>.
-                Otherwise 185 in Turtle would be parsed as an xsd:integer.</li>
+                Otherwise 185 in Turtle would be parsed as an <code>xsd:integer</code>.</li>
               <li>Neither the FHIR
                 <a href="datatypes.html#boolean">boolean</a> datatype nor the
-                Turtle shorthand for an xsd:boolean allows a literal value of
+                Turtle shorthand for an <code>xsd:boolean</code> allows a literal value of
                 0 or 1, though
                 <a href="https://www.w3.org/TR/xmlschema11-2/#boolean">xsd:boolean</a> does.</li>
             </ul>
@@ -496,8 +498,8 @@ href="fhir.shex">fhir.shex</a>
             if a primitive has FHIR type <a href="datatypes.html#uri">uri</a>
             or one of its subtypes (url, canonical, uuid, oid), then
             a <code class="rdf">fhir:l</code> property --
-            previously called <code class="rdf">fhir:link</code>, in FHIR R5 --
-            is RECOMMENDED as a sibling of the
+            previously called <code class="rdf">fhir:link</code>, in previous FHIR versions --
+            SHOULD be added as a sibling of the
             <code class="rdf">fhir:v</code> property.
             The value of the <code class="rdf">fhir:l</code> property is
             an RDF node having the same URI as the URI given in the
@@ -507,48 +509,49 @@ href="fhir.shex">fhir.shex</a>
             version indicator, which is stripped off and converted into
             a "?version=" query string, like this:</p>
 
-          <pre class="rdf">
+<pre class="rdf">
 &lt;http://example.org/fhir/MeasureReport/measurereport-cms146-cat3-example&gt; fhir:measure [
-      a fhir:Canonical ;
-       fhir:l &lt;http://example.org/fhir/Measure/CMS146?version=v123&gt; ;
-       fhir:v "http://example.org/fhir/Measure/CMS146|v123"^^xsd:anyURI ;
-    ] ;
-          </pre>
+  a fhir:Canonical ;
+  fhir:l &lt;http://example.org/fhir/Measure/CMS146?version=v123&gt; ;
+  fhir:v "http://example.org/fhir/Measure/CMS146|v123"^^xsd:anyURI ;
+] ;
+</pre>
 
         <a name="reference"></a>
           <h4>References</h4>
           <p> A <a href="references.html#Reference">Reference</a>
             element is represented using the same rules as above: </p>
-          <pre class="rdf">  fhir:subject [
-     # a fhir:Reference ;
-     fhir:reference [ fhir:v "Patient/example" ];
-     fhir:display [ fhir:v "Example Patient" ];
-  ];</pre>
+<pre class="rdf">
+fhir:subject [
+  # a fhir:Reference ;
+  fhir:reference [ fhir:v "Patient/example" ];
+  fhir:display [ fhir:v "Example Patient" ];
+];
+</pre>
           <p> This allows faithful round tripping of the resource
             between the Turtle format and the JSON and XML formats.
-            However, it's very useful for an RDF processor if the RDF
+            However, it's useful for an RDF processor if the RDF
             graph links to the target of the reference directly. This
-            can be represented using the OPTIONAL fhir:l property:
+            MAY be represented using the optional <code>fhir:l</code> property:
           </p>
-          <pre class="rdf">  fhir:subject [
-     # a fhir:Reference ;
-     <b>fhir:l &lt;http://example.org/fhir/Patient/example&gt; ;</b>
-     fhir:reference [ fhir:v "Patient/example" ];
-     fhir:display [ fhir:v "Example Patient" ];
-  ];</pre>
-          <p> The correct value for the fhir:l relationship must be
-            determined by resolving the <a href="references.html">rules
-              for resolving references</a>, for the various reference
-            types, to a literal URL that refers to the correct content in
-            the local RDF context.  Although the target type of the
+<pre class="rdf">
+fhir:subject [
+  # a fhir:Reference ;
+  <b>fhir:l &lt;http://example.org/fhir/Patient/example&gt; ;</b>
+  fhir:reference [ fhir:v "Patient/example" ];
+  fhir:display [ fhir:v "Example Patient" ];
+];</pre>
+          <p> The correct value for <code>fhir:l</code> should refer to the referenced resource and must be
+            determined according to the <a href="references.html">rules
+            for resolving FHIR references</a>. Although the target type of the
             <code class="rdf">fhir:reference</code> property is specified
-            as xsd:string, it is
+            as <code>xsd:string</code>, it is
             <a href="references.html#literal">
               required to be an absolute or relative URI or fragment
-              identifier,</a> so it can always be used for a fhir:l link.
+              identifier,</a> so it can always be used for a <code>fhir:l</code> link.
           </p>
 
-          <p> The fhir:l relationship can be added automatically as
+          <p> The <code>fhir:l</code> relationship can be added automatically as
             part of generating the resource representation, or it can be
             injected by a post-processor that knows how to convert the
             raw references into RDF-suitable references. </p>
@@ -568,13 +571,13 @@ href="fhir.shex">fhir.shex</a>
           <p> The following example (derived from
             <a href="bundle-references.ttl.html">this example</a>) shows a
             <a href="bundle.html">Bundle</a>. The Bundle holds a list
-            of <code class="rdf">fhir:entry</code>s, each of which specifies
-            a Resource that is a member of that Bundle.  Although Turtle
+            of <code class="rdf">fhir:entry</code> elements, each of which specifies
+            a Resource that is an entry of that Bundle.  Although Turtle
             serializes each Resource separately, they are logically all
             part of the same Bundle.
             </p>
 
-<pre>
+<pre class="rdf">
 # This is the parent Bundle resource:
 &lt;http://hl7.org/fhir/Bundle/bundle-references&gt; a fhir:Bundle ;
   fhir:nodeRole fhir:treeRoot ;
@@ -587,7 +590,7 @@ href="fhir.shex">fhir.shex</a>
       fhir:resource &lt;http://example.org/fhir/Patient/23&gt;
     ] )
 …
-# This is a member of the above Bundle:
+# This is an entry of the above Bundle:
 <b>&lt;http://example.org/fhir/Patient/23&gt;</b> a fhir:Patient ;
   fhir:id [ fhir:v "23"] ;
   fhir:text [
@@ -606,7 +609,7 @@ href="fhir.shex">fhir.shex</a>
             <a href="http.html#transaction">transactions and batches</a>, each entry in a Bundle
             <a href="bundle.html#bundle-unique">
               has a URI</a> that is determined from its
-            <a href="bundle-definitions.html#Bundle.entry.fullUrl">fhir:fullUrl property</a>
+            <a href="bundle-definitions.html#Bundle.entry.fullUrl"><code>fhir:fullUrl</code> property</a>
             as described in
             <a href="bundle.html#references">Resolving references in Bundles</a>.
             Systems are responsible for
@@ -625,14 +628,14 @@ href="fhir.shex">fhir.shex</a>
             <li>presenting terse and readable examples.</li>
           </ul>
           <p>
-            URLs are constructed from the fhir:id property if it is given in the example.
+            URLs are constructed from the <code>fhir:id</code> property if it is given in the example.
             These are presumed to be Resources in a server compliant with the FHIR REST API served from <code>http://example.org/</code>.
             Thusly, a <code>PlanDefinition</code> with id "KDN5" is assumed to have a URL of <code>http://example.org/PlanDefinition/KDN5</code>.
           </p>
 
           <p>If a
             <a href="domainresource-definitions.html#DomainResource.contained">contained</a>
-            resource has a fhir:id property, then its value MAY be used
+            resource has a <code>fhir:id</code> property, then its value MAY be used
             in generating a URI for that contained resource, following
             <a href="references.html#contained">
               rules for Contained Resources</a>. Local references
@@ -641,33 +644,33 @@ href="fhir.shex">fhir.shex</a>
             represent that resource's URI in Turtle as a relative URI.</p>
 
           <p>In the following example (derived from the <a href="plandefinition-example-kdn5-simplified.ttl.html">KDN5 example</a>), the FHIR id is given ("KDN5") so we assume a base URL of <code>http://example.org/PlanDefinition/KDN5</code>.
-            The contained resource (having fhir:id "1111") is given a URL relative to that base.
-            As in HTML, a "#" character is prepended to the child's <code class="rdf">fhir:id</code> when it is used as a local reference.
-            Given the asssumed base, the contained <code>ActivityDefintion</code> and the <code>fhir:l</code> and <code>fhir:contained</code> properties which reference it could be written as <code>&lt;#1111&gt;</code> but they are resolved here to their absolute URI, <code>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</code> for clarity:
+            The contained resource (having <code>fhir:id</code> "1111") is given a URL relative to that base.
+            As in HTML, a "#" character is prepended to the child's <code>fhir:id</code> when it is used as a local reference.
+            Given the assumed base, the contained <code>ActivityDefinition</code> and the <code>fhir:l</code> and <code>fhir:contained</code> properties which reference it could be written as <code>&lt;#1111&gt;</code> but they are resolved here to their absolute URI, <code>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</code> for clarity:
           </p>
 
-<pre>
+<pre class="rdf">
 # KDN5 is the parent resource in this example:
 &lt;http://example.org/PlanDefinition/KDN5&gt; a fhir:PlanDefinition ; # Known URI
   fhir:nodeRole fhir:treeRoot ;
   fhir:id [ fhir:v "KDN5"] ;
   # fhir:contained gives a list of resources that are logically contained
   # inside this (KDN5) resource, though Turtle serializes them separately:
-fhir:contained ( <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ) ; # assertion of containership
+  fhir:contained ( <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ) ; # assertion of containership
   fhir:action ( [
     fhir:textEquivalent [ fhir:v "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" ] ;
     fhir:definition [
       a fhir:Canonical ;
       # Here the KDN5 parent references the contained resource:
-fhir:l <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ; # use of the contained Resource
+      fhir:l <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ; # use of the contained Resource
       fhir:v "#1111"^^xsd:anyURI ;     # Local reference starts with "#"
     ]
   ] ) ;
 …
 # The definition of the (logically) contained resource #1111 is here:
 <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> a fhir:ActivityDefinition ;
-     fhir:id [ fhir:v "1111" ] ;   # Local identifier
-     fhir:status [ fhir:v "draft" ] .
+  fhir:id [ fhir:v "1111" ] ;   # Local identifier
+  fhir:status [ fhir:v "draft" ] .
 …
 </pre>
 
@@ -677,13 +680,13 @@ fhir:l <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> ; # use of the
           </p>
 
 <a name="example-no-parent-id"></a>
-<pre>
+<pre class="rdf">
 # KDN5 is the parent resource in this example:
 &lt;&gt; a fhir:PlanDefinition ; # URI is relative to unspecified base URI
   fhir:nodeRole fhir:treeRoot ;
   # fhir:contained gives a list of resources that are logically contained
   # inside this (KDN5) resource, though Turtle serializes them separately:
-fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
+  fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
   fhir:action ( [
     fhir:textEquivalent [ fhir:v "Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" ] ;
     fhir:definition [
@@ -697,8 +700,8 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
 # The body of the (logically) contained resource 2222 is here, and receives
 # a URI derived from its parent's URI:
 <b>&lt;#2222&gt;</b> a fhir:ActivityDefinition ;
-     fhir:id [ fhir:v "2222" ] ;   # Local identifier
-     fhir:status [ fhir:v "draft" ] .
+  fhir:id [ fhir:v "2222" ] ;   # Local identifier
+  fhir:status [ fhir:v "draft" ] .
 …
 </pre>
 
@@ -824,32 +827,42 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
           represented as an RDF list like this:
           </p>
 
-          <pre class="rdf">&lt;http://example.org/fhir/MedicationRequest/MR321&gt; a fhir:Observation;
-  fhir:nodeRole fhir:treeRoot;
-  <b>fhir:extension (</b>
-    [ fhir:url [
-         fhir:l &lt;http://example.org/fhir/StructureDefinition/observation-bodyPosition&gt; ;
-         fhir:v "http://example.org/fhir/StructureDefinition/observation-bodyPosition"^^xsd:anyURI ] ;
-      fhir:value [
-        fhir:coding (
-          a sct:33586001;
-          fhir:system [ fhir:l &lt;http://snomed.info/sct&gt; ;
-                        fhir:v "http://snomed.info/sct"^^xsd:anyURI ];
-          fhir:code [ fhir:v "33586001" ];
-          fhir:display [ fhir:v "Sitting position (finding)" ]
-        ) ] ]
-    [ fhir:url [
-        fhir:l &lt;http://example.org/fhir/StructureDefinition/observation-delta&gt; ;
-        fhir:v "http://example.org/fhir/StructureDefinition/observation-delta"^^xsd:anyURI ] ;
-      fhir:value [
-        fhir:coding (
-          a sct:1250004;
-          fhir:system [ fhir:l &lt;http://snomed.info/sct&gt; ;
-                        fhir:v "http://snomed.info/sct"^^xsd:anyURI ];
-          fhir:code [ fhir:v "1250004" ];
-          fhir:display [ fhir:v "Decreased (qualifier value)" ]
-        ) ] ]
-  <b>)</b>
+<pre class="rdf">
+&lt;http://example.org/fhir/MedicationRequest/MR321&gt; a fhir:MedicationRequest;
+  fhir: nodeRole fhir:treeRoot;
+  fhir:extension ( [
+     fhir:url [
+       fhir:l &lt;http://example.org/fhir/StructureDefinition/observation-bodyPosition&gt; ;
+       fhir:v "http://example.org/fhir/StructureDefinition/observation-bodyPosition"^^xsd:anyURI
+     ] ;
+     fhir:value [
+       fhir:coding ( [
+         a sct:33586001 ;
+         fhir:system [
+           fhir:l &lt;http://snomed.info/sct&gt; ;
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI
+         ];
+         fhir:code [ fhir:v "33586001" ] ;
+         fhir:display [ fhir:v "Sitting position (finding)" ]
+       ] )
+     ]
+  ] [
+     fhir:url [
+       fhir:l &lt;http://example.org/fhir/StructureDefinition/observation-delta&gt; ;
+       fhir:v "http://example.org/fhir/StructureDefinition/observation-delta"^^xsd:anyURI
+     ];
+     fhir:value [
+       fhir:coding ( [
+         a sct:1250004 ;
+         fhir:system [ 
+           fhir:l &lt;http://snomed.info/sct&gt; ;
+           fhir:v "http://snomed.info/sct"^^xsd:anyURI 
+         ];
+         fhir:code [ fhir:v "1250004" ] ;
+         fhir:display [ fhir:v "Decreased (qualifier value)" ]
+       ] ) 
+     ]
+  ] )
   …
 </pre>
 
@@ -857,21 +870,22 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
           <p>A primitive element such as <code>fhir:birthDate</code> can have a list of extensions attached like this:
           </p>
 
-          <pre>
-   …
-     fhir:birthDate [
-       fhir:v "2016-05-18"^^xsd:date ;
-       <b>fhir:extension (</b> [
-         fhir:url [
-           fhir:l &lt;http://hl7.org/fhir/StructureDefinition/patient-birthTime&gt; ;
-           fhir:v "http://hl7.org/fhir/StructureDefinition/patient-birthTime"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:DateTime ;
-           fhir:v "2016-05-18T10:28:45Z"^^xsd:dateTime
-         ]
-       ] <b>)</b>
-     ]
-          </pre>
+<pre class="rdf">
+…
+fhir:birthDate [
+  fhir:v "2016-05-18"^^xsd:date ;
+  <b>fhir:extension (</b> [
+    fhir:url [
+      fhir:l &lt;http://hl7.org/fhir/StructureDefinition/patient-birthTime&gt; ;
+      fhir:v "http://hl7.org/fhir/StructureDefinition/patient-birthTime"^^xsd:anyURI
+    ] ;
+    fhir:value [
+      a fhir:DateTime ;
+      fhir:v "2016-05-18T10:28:45Z"^^xsd:dateTime
+    ]
+  ] <b>)</b>
+]
+</pre>
 
           <p>See <a href="extensibility.html">Extensibility</a> for additional guidance on FHIR extensibility.
           </p>
@@ -892,17 +906,17 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
           the original semantics.&nbsp; The structure of the
           element is otherwise unchanged.  Note the underscore at the
           beginning of "_MedicationRequest" in the following example:<br/> </p>
-          <pre class="rdf">&lt;http://example.org/fhir/MedicationRequest/MR321&gt; a <b>fhir:_MedicationRequest;</b>
+<pre class="rdf">
+&lt;http://example.org/fhir/MedicationRequest/MR321&gt; a <b>fhir:_MedicationRequest;</b>
   fhir:nodeRole fhir:treeRoot;
   fhir:extension ( ... );           <span class="xmlcomment"># above bodyPosition and delta extensions</span>
-  <b>fhir:modifierExtension</b> (
-    [
-      fhir:url [
-        fhir:l &lt;http://example.org/fhir/StructureDefinition/anti-prescription&gt; ;
-        fhir:v "http://example.org/fhir/StructureDefinition/anti-prescription"^^xsd:anyURI ] ;
-      fhir:value [ a fhir:Boolean ; fhir:v true ]
-    ]
-  )
+  <b>fhir:modifierExtension</b> ( [
+    fhir:url [
+      fhir:l &lt;http://example.org/fhir/StructureDefinition/anti-prescription&gt; ;
+      fhir:v "http://example.org/fhir/StructureDefinition/anti-prescription"^^xsd:anyURI
+    ] ;
+    fhir:value [ a fhir:Boolean ; fhir:v true ]
+  ] )
   …
 </pre>
 
@@ -914,7 +928,7 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
           to look for the leading underscore:
           </p>
 
-<pre>
+<pre class="rdf">
 fhir:MedicationRequest <b>fhir:modifierExtensionClass</b> fhir:_MedicationRequest .
 </pre>
 
@@ -951,7 +965,7 @@ fhir:MedicationRequest <b>fhir:modifierExtensionClass</b> fhir:_MedicationReques
           that relates each unmodified property to its corresponding modified property:
           </p>
 
-<pre>
+<pre class="rdf">
 fhir:value <b>fhir:modifierExtensionProperty</b> fhir:_value .
 </pre>
 
@@ -1071,9 +1085,9 @@ additional requirements around modifier extensions.
         </ol>
 
         <a name="fhir-rdf-with-owl"></a>
-        <p><b>OWL Caveat:</b> RDF lists use a ladder of rdf:first and rdf:rest properties.
-           This can cause problems in OWL DL, which disallows axioms
-           over the rdf: namespace.  To work around this problem, OWL users
+        <p><b>OWL Caveat:</b> RDF lists use a ladder of <code>rdf:first</code> and <code>rdf:rest</code> properties.
+           This can cause problems in OWL 2, which disallows axioms
+           over the <code>rdf:</code> namespace.  To work around this problem, OWL users
            can convert RDF lists in their FHIR data to a different list
            representation.
            A <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a>
@@ -1354,13 +1368,13 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
                 <p>LOINC: <code><span>http://loinc.org</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>https://loinc.org/rdf/</span></code></p>
+                <p><code><span>http://loinc.org/rdf/</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
                 <p><code><span>35217-9</span></code></p>
               </td>
               <td colspan="1" rowspan="1" style="border: 1px solid gray; padding: 2px; ">
-                <p><code><span>https://loinc.org/rdf/35217-9</span></code></p>
+                <p><code><span>http://loinc.org/rdf/35217-9</span></code></p>
               </td>
             </tr>
             <tr>
@@ -1403,7 +1417,7 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
           </tbody>
         </table>
 <p>
-*As of this writing (5-Sep-2022) it is not clear what IRI stem is most appropriate when writing a SNOMED CT post-coordinated code expression.
+*It is not yet clear what IRI stem is most appropriate when writing a SNOMED CT post-coordinated code expression.
 </p>
 
         <a name="registering-iri-stems"></a>
@@ -1468,7 +1482,7 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
           <li>
           The IRI stem MUST be intended to be used by concatenating it
           with a FHIR code as described in the
-          <a href="#concept-iri-algorithm">Appendix 1: Algorithm for creating a Concept IRI"</a>.
+          <a href="#concept-iri-algorithm">Appendix 1: Algorithm for creating a Concept IRI</a>.
           Therefore, care must be taken
           to ensure that the code can be concatenated to the IRI stem
           without altering the IRI stem's meaning, including:
@@ -1509,9 +1523,9 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
            considered a minor change under the <a href="https://confluence.hl7.org/display/VOC/Documented+Execution+of+UTG+Versioning">UTG Versioning policy</a>.
            </p>
 
-           <p>As of this writing (17-Dec-2022), the change proposal
+           <p>At the time this section was last revised, the change proposal
            process for doing this included the following steps.  However,
-           since the process may have later changed, readers are advised to
+           since the process may have changed since then, readers are advised to
            <a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">verify it</a>
            prior to proceeding.  You can also see an example of such
            a change proposal, including the associated changes in the
