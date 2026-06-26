@@ -1,8 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
 <blockquote class="ballot-note" id="bn1">
   <p><b>Note to Balloters for Ballot5</b>: Changes are summarized below for DiagnosticReport.</p>
   <p>Reviewers should pay particular attention to the DiagnosticReport and Observation organizer/grouping guidance, including consistency with the Diagnostics Module guidance.</p>
@@ -34,6 +32,8 @@
     <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a>.</li>
   </ul>
 </blockquote>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
 <p>
 A diagnostic report is the set of information that is typically provided by a diagnostic service
 when investigations are complete. The information includes a mix of atomic results, text reports, images,

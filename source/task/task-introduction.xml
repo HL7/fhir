@@ -1,8 +1,5 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
-    <a name="scope"></a>
-    <h2>Scope and Usage</h2>
-
     <blockquote class="ballot-note" id="bn1">
         <p><b>Note to Balloters for Ballot5</b>: Changes focus on Task status/statusReason behavior, Task terminology display cleanup, and mapping/intro maintenance.</p>
         <p>This resource is referenced from the <a href="workflow-module.html">Workflow Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
@@ -23,6 +20,8 @@
             <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-55279">FHIR-55279</a>.</li>
         </ul>
     </blockquote>
+    <a name="scope"></a>
+    <h2>Scope and Usage</h2>
 
     <p>
       A Task resource describes an activity that can be performed and tracks the state of
@@ -78,7 +77,7 @@
       to by various agents, enabling automation of workflows in FHIR using existing search and subscription
       mechanisms.  Owners, requesters, other agents (e.g. workflow managers) can thus be ready to
       initiate the next steps in a complex workflow.</p>
-    
+
   </div>
   <div>
     <a name="bnr"></a>

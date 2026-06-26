@@ -24,13 +24,11 @@
     <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54866">FHIR-54866</a>, <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a>, <a href="https://jira.hl7.org/browse/FHIR-56063">FHIR-56063</a>, <a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a>, <a href="https://jira.hl7.org/browse/FHIR-54863">FHIR-54863</a> and <a href="https://jira.hl7.org/browse/FHIR-54864">FHIR-54864</a>.</li>
   </ul>
 </blockquote>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
 </blockquote>
-</div>  
-<div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
 <p>
 The DeviceDefinition resource is used to describe the common characteristics and capabilities of a device of a certain type or kind, e.g., a certain model or class of a device such as a x-ray model or personal wearable device model, whereas a Device resource documents an actual instance of a device such as the actual x-ray machine that is installed or the personal wearable device being worn. Devices include durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health, as well as devices such as a machine, cellphone, computer, software, application, etc.
 </p>
@@ -119,5 +117,5 @@ Note that in some jurisdictions, a regulated product might not be classified as 
 </ul>
 
 </div>
- 
+
 </div>

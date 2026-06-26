@@ -1,9 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
-        
 	<blockquote class="ballot-note" id="bn1">
 		<p><b>Note to Balloters for Ballot5</b>: NutritionIntake had one compatible substantive terminology correction in this window <a href="https://jira.hl7.org/browse/FHIR-55266">FHIR-55266</a>.</p>
 		<p>This resource is referenced from the <a href="nutrition-module.html">Nutrition Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
@@ -12,6 +9,9 @@
 			<li>Updated the <code>nutritionintake-status-reason</code> CodeSystem/ValueSet materials associated with <code>NutritionIntake.statusReason</code> to address reusable THO-candidate terminology for NutritionIntake <a href="https://jira.hl7.org/browse/FHIR-55266">FHIR-55266</a></li>
 		</ul>
 	</blockquote>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
+
 
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Nutrition domain, also see the <a href="nutrition-module.html">module page</a>.
