@@ -483,10 +483,10 @@
         <code value="Identifier"/>
       </type>
     </element>
-    <element id="Claim.prescription">
-      <path value="Claim.prescription"/>
-      <short value="Prescription authorizing services and products"/>
-      <definition value="Prescription is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought. Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments."/>
+    <element id="Claim.request">
+      <path value="Claim.request"/>
+      <short value="Request authorizing services and products"/>
+      <definition value="Request is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought. Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments."/>
       <requirements value="Required to authorize the dispensing of controlled substances and devices."/>
       <min value="0"/>
       <max value="1"/>
@@ -494,6 +494,8 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
       </type>
