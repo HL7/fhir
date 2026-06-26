@@ -17,6 +17,25 @@ service that lets healthcare applications make use of codes and value sets witho
 experts in the fine details of code system, value set and concept map resources, and the underlying
 code systems and terminological principles.
 </p>
+<a name="concepts"></a>
+<h3>Basic Concepts</h3>
+<p>
+A FHIR terminology service is simply a set of functions built on the definitions
+provided by a collection of <a href="codesystem.html">CodeSystem</a>,  <a href="valueset.html">ValueSet</a>  and
+<a href="conceptmap.html">ConceptMap</a> resources, with additional inherently known terminologies providing support.
+</p>
+<p>
+The terminology service builds on the basic principles for using terminologies
+in FHIR. Implementers should be familiar with:
+</p>
+<ul>
+ <li><a href="terminologies.html">Using codes in FHIR</a></li>
+ <li>The <a href="codesystem.html">CodeSystem</a> resource</li>
+ <li>The <a href="valueset.html">ValueSet</a> resource</li>
+ <li>The <a href="conceptmap.html">ConceptMap</a> resource</li>
+ <li>The <a href="operations.html">Operations Framework</a></li>
+ <li><a href="https://terminology.hl7.org/">terminology.hl7.org</a></li>
+</ul>
 <a name="conformance"></a>
 <h3>Conformance</h3>
 A server that supports the mandatory functionality described in the following subsections can be described as a "FHIR Terminology Service".
@@ -26,7 +45,7 @@ A server that supports the mandatory functionality described in the following su
 A FHIR terminology service SHALL support:
 </p>
 <ul>
-  <li>the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> FHIR formats.</li>
+  <li>the <a href="xml.html">XML</a> and <a href="json.html">JSON</a> FHIR formats</li>
   <li>the <a href="http.html#read">READ</a> and <a href="http.html#search">SEARCH</a> interactions for <code>CodeSystem</code>, <code>ValueSet</code> and <code>ConceptMap</code></li>
   <li>the following elements as search parameters for <code>CodeSystem</code>, <code>ValueSet</code> and <code>ConceptMap</code>
     <ul>
@@ -78,7 +97,7 @@ A FHIR Terminology Service SHALL support the following operations with the assoc
     <td><b>System Level</b></td>
     <td><b>Type Level</b></td>
     <td><b>Instance Level</b></td>
-    <td><b>Required input parameters</b></td>
+    <td><b>Input parameters that must be supported</b></td>
   </tr>
   <tr>
     <td><a href="codesystem-operation-lookup.html">CodeSystem-lookup</a></td>
@@ -175,8 +194,8 @@ Implementers should note that additional requirements are made on terminology se
 <a name="examples"></a>
 <h4>CapabilityStatement and TerminologyCapabilities examples</h4>
 <ul>
-  <li><a href="capabilitystatement-terminology-server.html">FHIR Terminology Service Capability Statement</a></li>
-  <li><a href="terminologycapabilities-terminology-server.html">FHIR Terminology Service Terminology Capabilities</a>. Note that in this example the code systems referenced in TerminologyCapabilities.codeSystem data elements are examples and support for these should not be considered a mandatory requirement for a FHIR Terminology Service.</li>
+  <li><a href="capabilitystatement-terminology-server.html">Capability Statement for a FHIR Terminology Service</a></li>
+  <li><a href="terminologycapabilities-terminology-server.html">TerminologyCapabilities for a FHIR Terminology Service</a>. Note that in this example the code systems referenced in TerminologyCapabilities.codeSystem data elements are examples and support for these should not be considered a mandatory requirement for a FHIR Terminology Service.</li>
 </ul>
 <a name="security"></a>
 <h3>Security</h3>
@@ -194,71 +213,10 @@ For a value set maintenance server that allows terminologies to be edited,
 some form of <a href="security.html">authorization and/or authentication would be appropriate</a>.
 This specification does not require any particular approach to security.
 </p>
-<a name="concepts"></a>
-<h3>Basic Concepts</h3>
-<p>
-A FHIR terminology service is simply a set of functions built on the definitions
-provided by a collection of <a href="codesystem.html">CodeSystem</a>,  <a href="valueset.html">ValueSet</a>  and
-<a href="conceptmap.html">ConceptMap</a> resources, with additional inherently known terminologies providing support.
-</p>
-<p>
-The terminology service builds on the basic principles for using terminologies
-in FHIR. Implementers should be familiar with:
-</p>
-<ul>
- <li><a href="terminologies.html">Using codes in FHIR</a></li>
- <li>The <a href="codesystem.html">CodeSystem</a> resource</li>
- <li>The <a href="valueset.html">ValueSet</a> resource</li>
- <li>The <a href="conceptmap.html">ConceptMap</a> resource</li>
-</ul>
-<p>
-In addition, implementers should be familiar with the <a href="operations.html">operations
-framework</a>. Further useful information about terminologies may be found in:
-</p>
-<ul>
- <li>Underlying Principles: <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a></li>
- <li>SNOMED CT <a href="http://ihtsdo.org/fileadmin/user_upload/doc/">technical documentation</a>. Note: "namespace" is used differently here from the way it is used by IHTSDO (see <a href="terminologies.html">discussion here</a>)</li>
-</ul>
-
-<a name="externals"></a>
-<h4>External Code Systems</h4>
-<p>
-In order to be used with a value set, code systems and their content must be defined somewhere. They can be defined explicitly
-using the <a href="codesystem.html">code system resource</a>, or they can be defined elsewhere, and then used in a value set
-by referencing the correct system url. HL7 Terminology defines a <a href="https://terminology.hl7.org/external_terminologies_csti.html">set of
-technical identifiers</a> for commonly encountered code systems, and defines how some work with FHIR (e.g.
-<a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a>, <a href="https://terminology.hl7.org/LOINC.html">LOINC</a>, and <a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a>).
-These code systems are often large and have many internally defined properties that are part of their
-formal definitions. The CodeSystem resource is not an appropriate way to distribute the contents of
-these code systems; the standard FHIR code system resource simply represents the properties of
-the code system. Instead, these terminologies provide their own distribution formats, and it is assumed that the
-content of these code systems are externally known to the terminology server.
-</p>
-<p>
-Most useful terminology servers will make one or more of these external code systems available for use
-within the value sets that they manage. The list of additional terminologies that a terminology server supports
-beyond those defined in its value sets is published to clients by referencing code system resources in
-the server's <a href="capabilitystatement.html">Capability Statement</a>.
-</p>
-<pre class="json">
-{
- "resourceType" : "CapabilityStatement",
- "extension" : [
-   {
-     "url" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-supported-system",
-     "valueUri" : "http://loinc.org"
-   }]
-}
-</pre>
-<p>
-This extension is added to the root <a href="capabilitystatement.html">Capability Statement</a>.
-</p>
-
 <a name="impl1"></a>
 <h4>Implementation Note</h4>
 <p>When a terminology server exposes an external code system, it makes a set of services available
-internally that serve the operational interfaces below (starting in <a href="#expand">Value Set Expansion</a>). The internal server depends on the following
-logical information for a terminology:
+internally that serve the operational interfaces below (starting in <a href="#expand">Value Set Expansion</a>). The internal server depends on the following logical information for a code system:
 </p>
 <ul>
   <li> its URL (namespace, and how versioning works)</li>
@@ -271,11 +229,6 @@ HL7 Terminology defines these things for common terminologies (including
 <a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a>, <a href="https://terminology.hl7.org/LOINC.html">LOINC</a>, and <a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a>),
   and the FHIR specification itself provides the <a href="codesystem.html">CodeSystem</a> infrastructure for supporting typical relatively simple small code systems.
 </p>
-[%impl-note%]
-<i>Implementers interested in working with existing published terminologies for
-which the CodeSystem infrastructure is not suitable should discuss their needs with HL7 to get the
-list above extended.</i>
-[%end-note%]
 
 <p>
 Note: A terminology service may choose to expose additional external code system specific
@@ -286,12 +239,15 @@ outside the scope of the FHIR terminology service.
 <a name="maint"></a>
 <h4>Terminology Maintenance</h4>
 <p>
-The terminology service uses the code systems and value set resources defined on the system - both
-the implicit ones associated with the external code systems and those explicitly
+The terminology service uses the code system, value set, concept map and naming system resources available on the server - both the implicit ones associated with the external code systems and those explicitly
 available at the /CodeSystem and /ValueSet endpoints - to serve the operational interface defined below (starting in <a href="#expand">Value Set Expansion</a>).
 As code systems and value sets are created, updated or deleted, the outcomes of the operational
 services change. A terminology server should validate incoming resources and ensure integrity
-of the terminology services. Typically, servers provide a test and production
+of the terminology services.
+</p>
+
+<p>
+Typically, servers provide a test and production
 environment, but there is no explicit notion of this in the interface itself.
 </p>
 
@@ -337,10 +293,10 @@ but the offset element SHALL only exist when paging is being used. Expansions th
 trees of concepts are not subject to paging and the server simply returns the entire expansion.
 </p>
 <p>
-Some example uses for the expansion operation:
+Some examples for the $expand operation:
 </p>
 <ul>
- <li> get a list of codes to display in a User interface (e.g., a drop-down interface)</li>
+ <li> get a list of concept designations to display in a user interface (e.g. a drop-down interface)</li>
  <li> a variation on this is to offer the user a text box to type in. As the user types, call the expand operation to provide the user with a list of matching codes/concepts (like a browser search) </li>
  <li> fetch a list of codes to use when generating software programming instructions</li>
  <li> get a list of codes so that software can check whether a code is valid or not in a specific context</li>
@@ -401,7 +357,7 @@ HTTP/1.1 200 OK
 </div>
 
 <a name="lookup"></a>
-<h3>Concept Lookup / Decomposition</h3>
+<h3>Concept Lookup</h3>
 <p>
 A system can ask a terminology server to return a set of information about a particular system/code
 combination using <a href="codesystem-operation-lookup.html">the lookup operation</a>. The server returns information for both display and processing
@@ -410,7 +366,7 @@ purposes. The client passes the server the following information:
 <ul>
  <li> the code value (either a code, or a Coding datatype)</li>
  <li> (Optionally) the id or the url of the code system in which the code is being checked</li>
- <li> (Optionally) a date at which the code information should be returned (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
+ <li> (Optionally) a date may be provided for those code systems that associate a date with a concept; this is the date to use when evaluating the code. (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
  <li> (Optionally) a set of properties to return about the code</li>
 </ul>
 <p>
@@ -422,7 +378,7 @@ The server returns some or all of the following information:
  <li> properties of the code (e.g., status) </li>
  <li> other designations for the code (a value, optionally with language and/or a use code)</li>
  <li> relationships between this code and other codes (parent/child properties, etc.)</li>
- <li> Component properties of the specified code (e.g., to support reasoning) (e.g., decomposition)</li>
+ <li> component properties of the specified code</li>
 </ul>
 <p>
 The recommended display for the code is a text representation of the code that the
@@ -558,14 +514,10 @@ provides <a href="valueset-operation-validate-code.html">a "validate-code" opera
  <li> (Optionally) a date at which the expansion should be evaluated (usually, and by default, this is the current date/time, but there are circumstances where that is not appropriate)</li>
 </ul>
 <p>
-The server returns a true/false indicating whether the code/concept is valid, and a list
-of errors and warnings associated with it. The server should also return an appropriate
-display for the concept for use in a UI context.
+The server returns a true/false (output parameter = result) indicating whether any of the codes are valid, and may return a list of errors and warnings (issues). The server SHOULD also return an appropriate display for the code if one is provided in the ValueSet expansion (e.g. UI context).
 </p>
 <p>
-Note that if the server is passed a CodeableConcept, the server is able to check
-whether any of the codes are valid against the value set, and also check whether
-multiple codings are allowed and/or the codings provided are consistent with each other.
+Note that if the server is passed a CodeableConcept, the server is capable of checking whether any of the codes is valid against the value set, and return true if at least one of them is valid.
 </p>
 <p>
 Every code system has an implicit value set that is "all the concepts defined
@@ -641,9 +593,9 @@ HTTP/1.1 200 OK
 </div>
 
 <a name="subsumes"></a>
-<h3>Subsumption testing</h3>
+<h3>Subsumption Testing</h3>
 <p>
-To test the subsumption relationship between <i>code/Coding A</i> and <i>code/Coding B</i>, perform a $subsumes operation.
+To test the subsumption relationship between <i>code/Coding A</i> and <i>code/Coding B</i>, perform a <a href="codesystem-operation-subsumes.html">$subsumes operation.</a>
 Subsumption testing is based on <a href="codesystem.html#subsumption">the CodeSystem definition of subsumption</a>.
 The client passes the server the following information:
 </p>
@@ -653,7 +605,7 @@ The client passes the server the following information:
  <li> (Optionally) the version of the code system to use (mostly, this should not matter)</li>
 </ul>
 <p>
-If the client passes Codings, it is allowed to use code system values that are different from the code system in which subsumption testing is to be performed.  In this case, the server SHALL return an error unless the relationships between the various code systems is well defined.
+If the client passes Codings, it is allowed to use code system values that are different from the code system in which subsumption testing is to be performed.  In this case, the server SHALL return an error unless the relationships between the code systems are well defined.
 </p>
 <p>
 If the concepts can be compared, then the server returns an outcome code:
@@ -813,7 +765,7 @@ HTTP/1.1 200 OK
 <p>
 A client can ask a server to translate a concept from one value set to another. Typically, this
 is used to translate between code systems (e.g., from LOINC to SNOMED CT, or from a <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 V3</a> code to
-a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> code). The client calls <a href="conceptmap-operation-translate.html">the translate operation</a> and passes the following parameters:
+a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> code). The client calls <a href="conceptmap-operation-translate.html">the $translate operation</a> and passes the following parameters:
 </p>
 <ul>
   <li>a code + system, Coding, or CodeableConcept</li>
@@ -825,8 +777,7 @@ a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=1
 The client passes either a concept map, or the value sets for the source and destination context.
 If there is no concept map, then the server may determine the appropriate map to use from
 context provided in the value sets.
-If there is no particular context, the appropriate value sets would be the value sets for the
-entire coding system at question (e.g., from http://snomed.info/sct to http://loinc.org/vs).
+If there is no context (e.g. value set) provided, the value sets are the value sets for the entire code systems (e.g., from http://snomed.info/sct to http://loinc.org/vs).
 The server performs the translation as it is able based on the concept maps that it knows about.
 If no single mapping can be determined, then the
 server returns an error. Some servers may require a concept map to use for the translation.
