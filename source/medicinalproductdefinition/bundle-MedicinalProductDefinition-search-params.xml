@@ -359,7 +359,7 @@
         <description value="Operaton organization and type, as a reference"/>
         <code value="operation-organization-type"/>
         <type value="composite"/>
-        <expression value="MedicinalProductDefinition"/>
+        <expression value="MedicinalProductDefinition.operation"/>
         <processingMode value="normal"/>
         <component>
           <definition value="operation-organization"/>
@@ -385,7 +385,7 @@
         <description value="Operaton organization and type, as a code"/>
         <code value="operation-organization-type-code"/>
         <type value="composite"/>
-        <expression value="MedicinalProductDefinition"/>
+        <expression value="MedicinalProductDefinition.operation"/>
         <processingMode value="normal"/>
         <component>
           <definition value="operation-organization"/>
