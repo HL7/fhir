@@ -85,4 +85,9 @@
     <display value="Gene of origin"/>
     <definition value="The substance was derived from this gene (used e.g. for recombinant proteins and nucleic acid products)."/>
   </concept>
+  <concept>
+    <code value="Component"/>
+    <display value="Component"/>
+    <definition value="The substance is a component (constituent) of a mixture substance. Used to relate a mixture's component substances to the mixture itself."/>
+  </concept>
 </CodeSystem>

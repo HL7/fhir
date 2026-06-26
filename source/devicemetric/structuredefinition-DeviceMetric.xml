@@ -398,7 +398,7 @@
     </element>
     <element id="DeviceMetric.calibration.state">
       <path value="DeviceMetric.calibration.state"/>
-      <short value="The state of the metric's calibration"/>
+      <short value="Calibration state of the metric (e.g., calibration needed)"/>
       <definition value="Describes the state of the calibration."/>
       <min value="0"/>
       <max value="1"/>
