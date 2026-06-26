@@ -656,6 +656,6 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
   <concept>
     <code value="property-value-of"/>
     <display value="Property Value Of"/>
-    <definition value=" Includes the concepts that are used as property values from the set of concepts in the provided filter.value element value (comma-separated list or value set).  If the provided filter.value element value is a value set, any concepts not in the filter defining code system are ignored."/>
+    <definition value="Includes the concepts that are used as property values from the set of concepts in the provided filter.value element value (comma-separated list or value set).  If the provided filter.value element value is a value set, any concepts not in the filter defining code system are ignored."/>
   </concept>
 </CodeSystem>
