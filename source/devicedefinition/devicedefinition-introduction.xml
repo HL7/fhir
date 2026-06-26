@@ -2,30 +2,30 @@
 
 <div>
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> To ensure the DeviceDefinition resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p> 
-<ul>
-<li>Updated DeviceDefinition to a CanonicalResource and the necessary element and search parameter changes.</li>
-<li>Removed DeviceDefinition.owner.</li>
-</ul>
-<p>All OO Resources were updated to use the canonical, however other Resources (not owned by the OO Work Group) might not have the canonical reference to DeviceDefinition.</p>
+  <p><b>Note to Balloters for Ballot5</b>: Changes focused on DeviceDefinition packaging/additive data, regulatory identifier flexibility, selected status/narrative clarifications, and example terminology maintenance.</p>
+  <p>This resource is referenced from the <a href="device-module.html">Device Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li><code>DeviceDefinition.regulatoryIdentifier.type</code> changed from <code>code</code> to <code>CodeableConcept</code> to provide an extensible escape valve for regulatory identifier types <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a></li>
+    <li><code>DeviceDefinition.packaging.identifier</code> now repeats (<code>0..*</code>) so multiple package identifiers can be represented <a href="https://jira.hl7.org/browse/FHIR-55260">FHIR-55260</a></li>
+    <li><code>DeviceDefinition.additive</code> was added, with <code>type</code> and <code>quantity</code> children, to carry additional container/additive information <a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
+  </ul>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>DeviceDefinition was included in the Orders and Observations status cleanup to avoid using background workflow status values as data resource status values <a href="https://jira.hl7.org/browse/FHIR-54892">FHIR-54892</a></li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>The DeviceDefinition introduction and related narrative were clarified/wordsmithened, including relationship language and wording around nested containers and device references <a href="https://jira.hl7.org/browse/FHIR-54837">FHIR-54837</a>, <a href="https://jira.hl7.org/browse/FHIR-54598">FHIR-54598</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li>The binding mismatch around <code>collection.device[x]</code> was corrected in the OO bulk update touching this artifact <a href="https://jira.hl7.org/browse/FHIR-54488">FHIR-54488</a></li>
+  </ul>
+  <p><b>Additional changes</b></p>
+  <ul>
+    <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54866">FHIR-54866</a>, <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a>, <a href="https://jira.hl7.org/browse/FHIR-56063">FHIR-56063</a>, <a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a>, <a href="https://jira.hl7.org/browse/FHIR-54863">FHIR-54863</a> and <a href="https://jira.hl7.org/browse/FHIR-54864">FHIR-54864</a>.</li>
+  </ul>
 </blockquote>
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
-</blockquote>
-<blockquote class="stu-note" style="background-color: lightblue">
-    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
-    <ul>
-        <li><a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54866">FHIR-54866</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-55260">FHIR-55260</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-56063">FHIR-56063</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54863">FHIR-54863</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54864">FHIR-54864</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
-    </ul>
 </blockquote>
 </div>  
 <div>

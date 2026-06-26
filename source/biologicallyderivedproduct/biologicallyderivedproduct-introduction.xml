@@ -4,31 +4,28 @@
 		<h2>Scope and Usage</h2>
 
         <blockquote class="ballot-note" id="bn1">
-        <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
-        <ul>
-			<li>Change to the .collection backbone with respect to the collection source.  This includes updates to the corresponding search parameters.</li>
-			<li>Addition of a Notes section: <a href="biologicallyderivedproduct.html#8.25.5">biologicallyderivedproduct.html#8.25.5</a> to include information on how to handle information about the intended recipient.</li>
-			
-			<li>The following artifacts have been moved to the [OO Incubator IG|<a href="https://build.fhir.org/ig/HL7/oo-incubator">https://build.fhir.org/ig/HL7/oo-incubator</a>]</li>
-			<ul>
-				<li>The Medical Product of Human Origin (MPHO) Profile is still under development.</li>
-				<li>The BiologicallyDerivedProductDispense resource.  Additional work needs to be done on dispensing and administering biologically derived products.</li>
-
-			</ul>
-        </ul>
+            <p><b>Note to Balloters for Ballot5</b>: BiologicallyDerivedProduct received substantive core-readiness updates across its core definition, narrative, search parameters, examples, and artifact-scoped terminology. The most balloter-relevant changes are summarized by Jira change-impact classification below.</p>
+            <p>This resource is referenced from the <a href="biologically-derived-product-module.html">Biologically Derived Product Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+            <p><b>Compatible substantive</b></p>
+            <ul>
+                <li>The Medical Product of Human Origin (MPHO) profile and related examples were moved out of FHIR Core to the OO Incubator IG, and the core MPHO profile differential constraints were removed (see also <a href="https://jira.hl7.org/browse/FHIR-49665">FHIR-49665</a>) <a href="https://jira.hl7.org/browse/FHIR-54998">FHIR-54998</a>, <a href="https://jira.hl7.org/browse/FHIR-52021">FHIR-52021</a></li>
+                <li><code>BiologicallyDerivedProduct.therapyIdentifier</code> was added to support grouping or hierarchical instances of biologically derived products <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a></li>
+                <li>Search support for <code>collection.sourceOrganization</code> was added or updated alongside the collection-source narrative <a href="https://jira.hl7.org/browse/FHIR-56179">FHIR-56179</a></li>
+            </ul>
+            <p><b>Non-substantive</b></p>
+            <ul>
+                <li>The <code>.subject</code> short description was clarified without an identified structural delta <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+                <li>The BiologicallyDerivedProduct example page typo was corrected <a href="https://jira.hl7.org/browse/FHIR-55001">FHIR-55001</a></li>
+            </ul>
+            <p><b>Additional changes</b></p>
+            <ul>
+                <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-55252">FHIR-55252</a>.</li>
+            </ul>
         </blockquote>
 
 		<blockquote class="stu-note">
 		<p><b>Note to Implementers:</b> For an overview of this resource and others in the Biologically Derived Product domain, also see the <a href="biologically-derived-product-module.html">module page</a>.
 		</p>
-		</blockquote>
-		<blockquote class="stu-note" style="background-color: lightblue">
-			<p><b>Release Notes (pending alternative process review with FMG):</b></p>
-			<ul>
-				<li><a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a></li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-56179">FHIR-56179</a></li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-55252">FHIR-55252</a></li>
-			</ul>
 		</blockquote>
 		<p>
 			This is a base resource that represents a material substance originating from a biological entity intended to be clinically applied (e.g., transplanted, infused, grafted) to another (possibly the same) biological entity. Examples include:

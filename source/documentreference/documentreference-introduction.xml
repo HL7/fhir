@@ -4,34 +4,27 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
     <blockquote class="ballot-note" id="bn1">
-    <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
-    <ul>
-        <li>Addition of the following elements:</li>
-            <ul>
-                <li>DocumentReference.related</li>
-            </ul>
-        <li>Updates to the following elements:</li>
-            <ul>
-                <li>DocumentReference.bodySite has been changed to DocumentReference.bodyStructure</li>
-				<li>FHIR-55225 - Removed reference to EnrollmentRequest from DocumentReference.basedOn</li>
-                <li>FHIR-55563 - Removed reference to Contract from DocumentReference.basedOn</li>
-            </ul>
-    </ul>
-    </blockquote>
-    <blockquote class="stu-note" style="background-color: lightblue">
-        <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+        <p><b>Note to Balloters for Ballot5</b>: Changes include structural updates to DocumentReference relationships, status handling, request targeting, terminology alignment, examples, and related narrative/search material.</p>
+        <p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+        <p><b>Non-compatible</b></p>
         <ul>
-          <li>DocumentReference.docStatus -> modifier should be false. - <a href="https://jira.hl7.org/browse/FHIR-54537">FHIR-54537</a></li>
-          <li>DocumentReference.basedOn points to requests not events - <a href="https://jira.hl7.org/browse/FHIR-54536">FHIR-54536</a></li>
-          <li>DocumentReference.related changed to backbone with target and code, relatesTo clarified, with search adjustments - <a href="https://jira.hl7.org/browse/FHIR-53824">FHIR-53824</a>, <a href="https://jira.hl7.org/browse/FHIR-53550">FHIR-53550</a></li>
-		  <li>DocumentReference.attester.mode binding is now to THO ValueSet - <a href="https://jira.hl7.org/browse/FHIR-53824">FHIR-53824</a></li>
-          <li>DocumentReference.context definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54170">FHIR-54170</a></li>
-          <li>DocumentReference.basedOn definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54167">FHIR-54167</a></li>
-          <li>DocumentReference.custodian definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54169">FHIR-54169</a></li>
-          <li><a href="https://jira.hl7.org/browse/FHIR-54618">FHIR-54618</a></li>
-		  <li><a href="https://jira.hl7.org/browse/FHIR-54538">FHIR-54538</a></li>
-          <li><a href="https://jira.hl7.org/browse/FHIR-55265">FHIR-55265</a></li>
-          <li><a href="https://jira.hl7.org/browse/FHIR-55264">FHIR-55264</a></li>
+            <li><code>DocumentReference.related</code> is now a backbone relationship with explicit <code>target</code> and <code>code</code> parts rather than a direct reference <a href="https://jira.hl7.org/browse/FHIR-53824">FHIR-53824</a>, <a href="https://jira.hl7.org/browse/FHIR-53550">FHIR-53550</a></li>
+            <li>Document relationship type terminology no longer relies on the resource-local core reference after movement toward THO <a href="https://jira.hl7.org/browse/FHIR-55264">FHIR-55264</a></li>
+            <li><code>DocumentReference.basedOn</code> no longer includes Contract as a target resource <a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a></li>
+        </ul>
+        <p><b>Compatible substantive</b></p>
+        <ul>
+            <li><code>DocumentReference.status</code> includes an <code>unknown</code> status escape valve <a href="https://jira.hl7.org/browse/FHIR-55265">FHIR-55265</a></li>
+            <li><code>DocumentReference.docStatus</code> is no longer a modifier <a href="https://jira.hl7.org/browse/FHIR-54537">FHIR-54537</a></li>
+            <li>Search and summary handling was aligned with the relationship changes; <code>DocumentReference.practiceSetting</code> is now summary content <a href="https://jira.hl7.org/browse/FHIR-56179">FHIR-56179</a></li>
+        </ul>
+        <p><b>Non-substantive</b></p>
+        <ul>
+            <li>The definition of <code>DocumentReference.basedOn</code> was clarified to point to request resources rather than event resources <a href="https://jira.hl7.org/browse/FHIR-54536">FHIR-54536</a></li>
+        </ul>
+        <p><b>Additional changes</b></p>
+        <ul>
+            <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54170">FHIR-54170</a>, <a href="https://jira.hl7.org/browse/FHIR-54167">FHIR-54167</a>, <a href="https://jira.hl7.org/browse/FHIR-54169">FHIR-54169</a>, <a href="https://jira.hl7.org/browse/FHIR-54618">FHIR-54618</a> and <a href="https://jira.hl7.org/browse/FHIR-54538">FHIR-54538</a>.</li>
         </ul>
     </blockquote>
 

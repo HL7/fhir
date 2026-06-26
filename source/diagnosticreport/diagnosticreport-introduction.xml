@@ -4,35 +4,35 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
-<p>Addition of the following elements:</p>
-<ul>
- <li>DiagnosticReport.relatesTo</li>
- <li>DiagnosticReport.procedure</li>
- <li>DiagnosticReport.recommendation</li>
- <li>DiagnosticReport.communication</li>
- <li>DiagnosticReport.comparison</li>
-</ul>
-<p>Changes to the following elements:</p>
-<ul>
- <li>DiagnosticReport.conclusionCode datatype</li>
-</ul>
-</blockquote>
-<blockquote style="background-color: lightblue">
-    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
-    <ul>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54554">FHIR-54554</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54163">FHIR-54163</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-56192">FHIR-56192</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54545">FHIR-54545</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54552">FHIR-54552</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54548">FHIR-54548</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54543">FHIR-54543</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54164">FHIR-54164</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54546">FHIR-54546</a></li>        
-    </ul>
+  <p><b>Note to Balloters for Ballot5</b>: Changes are summarized below for DiagnosticReport.</p>
+  <p>Reviewers should pay particular attention to the DiagnosticReport and Observation organizer/grouping guidance, including consistency with the Diagnostics Module guidance.</p>
+  <p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li>Marked <code>DiagnosticReport.focus</code> as modifier so consumers recognize that the report focus can change interpretation of the resource <a href="https://jira.hl7.org/browse/FHIR-54620">FHIR-54620</a></li>
+    <li>Adjusted summary handling by removing <code>DiagnosticReport.media</code> from the summary set and adding <code>DiagnosticReport.conclusion</code> to the summary set <a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a></li>
+  </ul>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Added and clarified <code>DiagnosticReport.statusReason</code> with artifact-scoped status-reason CodeSystem and ValueSet support, and aligned the status and availability-status wording <a href="https://jira.hl7.org/browse/FHIR-56192">FHIR-56192</a>, <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a></li>
+    <li>Removed unsafe narrative guidance that could duplicate or conflict with generated narrative content <a href="https://jira.hl7.org/browse/FHIR-54548">FHIR-54548</a></li>
+    <li>Clarified <code>DiagnosticReport.subject</code> guidance to remove conflicting language about subject use <a href="https://jira.hl7.org/browse/FHIR-54552">FHIR-54552</a></li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Clarified identifier mapping and narrative guidance so PLAX and FILL are not treated as report identifiers <a href="https://jira.hl7.org/browse/FHIR-54545">FHIR-54545</a></li>
+    <li>Removed GenomicStudy references from <code>DiagnosticReport.study</code> and corrected study reference guidance <a href="https://jira.hl7.org/browse/FHIR-54164">FHIR-54164</a></li>
+    <li>Replaced a SHALL statement for <code>DiagnosticReport.effective[x]</code> with best-practice guidance to align narrative with resource cardinality <a href="https://jira.hl7.org/browse/FHIR-54546">FHIR-54546</a></li>
+    <li>Corrected the misspelled <code>DiagnosticReport.recomendation</code> element name to <code>DiagnosticReport.recommendation</code> <a href="https://jira.hl7.org/browse/FHIR-54163">FHIR-54163</a></li>
+    <li>Added <code>DiagnosticReport.conclusionCode</code> to the summary set, overlapping with the broader summary review <a href="https://jira.hl7.org/browse/FHIR-54554">FHIR-54554</a></li>
+    <li>Clarified observation/report narrative and vital-sign guidance touched by the shared Orders and Observations batch <a href="https://jira.hl7.org/browse/FHIR-54543">FHIR-54543</a>, <a href="https://jira.hl7.org/browse/FHIR-53902">FHIR-53902</a>, <a href="https://jira.hl7.org/browse/FHIR-54503">FHIR-54503</a>, <a href="https://jira.hl7.org/browse/FHIR-54508">FHIR-54508</a></li>
+    <li>Clarified support for multiple Observation context and/or method details in the shared Orders and Observations narrative updates <a href="https://jira.hl7.org/browse/FHIR-54904">FHIR-54904</a></li>
+    <li>Applied the DeviceDefinition device-version type binding update from the shared batch; no separate DiagnosticReport-specific semantic delta is exposed in the hydrated evidence <a href="https://jira.hl7.org/browse/FHIR-56063">FHIR-56063</a></li>
+  </ul>
+  <p><b>Additional changes</b></p>
+  <ul>
+    <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a>.</li>
+  </ul>
 </blockquote>
 <p>
 A diagnostic report is the set of information that is typically provided by a diagnostic service

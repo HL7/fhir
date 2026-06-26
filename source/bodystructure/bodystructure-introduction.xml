@@ -4,25 +4,25 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> Key changes in this ballot include compatible substantive updates to BodyStructure cardinalities and included-structure detail, plus clarification updates to narrative guidance, examples, 5Ws mappings, and artifact-scoped terminology.</p>
-<p>Reviewers should pay particular attention to the included-structure changes and the change making <code>BodyStructure.patient</code> optional, because these affect how anatomical and pathological structures can be represented, reused, and tracked.</p>
-<p>BodyStructure is listed in the <a href="diagnostics-module.html">Diagnostics Module</a>. Reviewers should also consider the Diagnostics Module updates, including imaging guidance and DiagnosticReport/Observation grouping guidance, when reviewing related resource guidance.</p>
-<p><b>Compatible substantive</b></p>
-<ul>
- <li><code>BodyStructure.includedStructure.morphology</code> now permits multiple morphology values. <a href="https://jira.hl7.org/browse/FHIR-56262">FHIR-56262</a></li>
- <li><code>BodyStructure.includedStructure.origin</code> was added to record origin information for an included structure. <a href="https://jira.hl7.org/browse/FHIR-53864">FHIR-53864</a></li>
- <li><code>BodyStructure.patient</code> was relaxed from required to optional. <a href="https://jira.hl7.org/browse/FHIR-54450">FHIR-54450</a></li>
-</ul>
-<p><b>Non-substantive</b></p>
-<ul>
- <li>The BodyStructure introduction and boundaries guidance was clarified, including when to reference BodyStructure and how body structure and laterality fit with imaging selection guidance. <a href="https://jira.hl7.org/browse/FHIR-54747">FHIR-54747</a>, <a href="https://jira.hl7.org/browse/FHIR-54845">FHIR-54845</a>, <a href="https://jira.hl7.org/browse/FHIR-54872">FHIR-54872</a></li>
- <li>Additional BodyStructure example material was added, including a breast-mass example and examples-list updates. <a href="https://jira.hl7.org/browse/FHIR-57518">FHIR-57518</a></li>
- <li>The 5Ws mapping exceptions and artifact-scoped terminology/display content received cleanup updates. <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a>, <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
-</ul>
-<p><b>Additional changes</b></p>
-<ul>
- <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54873">FHIR-54873</a> and <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a>.</li>
-</ul>
+  <p><b>Note to Balloters for Ballot5</b>: Changes include compatible substantive updates to BodyStructure cardinalities and included-structure detail, plus clarification updates to narrative guidance, examples, search-parameter wording, 5Ws mappings, and artifact-scoped terminology.</p>
+  <p>Reviewers should pay particular attention to the included-structure changes and the change making <code>BodyStructure.patient</code> optional, because these affect how anatomical and pathological structures can be represented, reused, and tracked.</p>
+  <p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li><code>BodyStructure.includedStructure.morphology</code> now permits multiple morphology values <a href="https://jira.hl7.org/browse/FHIR-56262">FHIR-56262</a></li>
+    <li><code>BodyStructure.includedStructure.origin</code> was added to record origin information for an included structure <a href="https://jira.hl7.org/browse/FHIR-53864">FHIR-53864</a></li>
+    <li><code>BodyStructure.patient</code> was relaxed from required to optional <a href="https://jira.hl7.org/browse/FHIR-54450">FHIR-54450</a></li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>The BodyStructure introduction and boundaries guidance was clarified, including when to reference BodyStructure and how body structure and laterality fit with imaging selection guidance <a href="https://jira.hl7.org/browse/FHIR-54747">FHIR-54747</a>, <a href="https://jira.hl7.org/browse/FHIR-54845">FHIR-54845</a>, <a href="https://jira.hl7.org/browse/FHIR-54872">FHIR-54872</a></li>
+    <li>Additional BodyStructure example material was added, including a breast-mass example and examples-list updates <a href="https://jira.hl7.org/browse/FHIR-57518">FHIR-57518</a></li>
+    <li>The 5Ws mapping exceptions and artifact-scoped terminology/display content received cleanup updates <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a>, <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
+  </ul>
+  <p><b>Additional changes</b></p>
+  <ul>
+    <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54873">FHIR-54873</a> and <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a>.</li>
+  </ul>
 </blockquote>
 <p>The BodyStructure resource contains details about an anatomical or pathological structure (e.g. a cyst) and may include patient information, identifiers, text descriptions, images, and spatially relevant characteristics.
 </p>

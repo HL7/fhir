@@ -2,46 +2,30 @@
 
 <div>
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> To ensure the Device resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p>
-<p>For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">Device Module</a> page.</p>
-<p>The Device scope and usage has been revised.  A majority of content has been moved DeviceDefinition to describe the types of devices in scope.</p>
-<p>The following element was added:</p>
-<ul>
-<li>Device.additive as a backbone.</li>
-</ul>
-<p>The following elements have been revised:</p>
-<ul>
-<li>Updated Device.definition datatype to canonical(DeviceDefinition).</li>
-<li>Updated Device.version to Device.deviceVersion.</li>
-</ul> 
-<p>The following elements have been removed from Device:</p>
-<ul>
-<li>Device.displayName as it was duplicated in Device.name backbone.</li>
-<li>Device.owner has been removed and was moved to DeviceAssociation.relationship of the subject. Please comment on the revision if there are issues with removing the identification of individuals in the Device resource.</li>
-<li>Device.mode, Device.cycle, Device.duration, Device.gateway, Device.endpoint have been removed and the following extensions were added: device-mode, device-cycle, device-duration, device-gateway, and device-endpoint.</li>
-</ul>
-<p>The following extensions were added:</p>
-<ul>
-<li>device-alertDetection to describe the alert detection activation states for the overall device.</li>
-<li>device-conformsTo-source – represents the source of the device specification.</li>
-</ul>
+  <p><b>Note to Balloters for Ballot5</b>: The Device changes in this window focus on Device-specific cleanup: a modifier correction on <code>Device.name.display</code>, alignment of <code>Device.conformsTo</code> source guidance with DeviceDefinition, Five Ws mapping cleanup, and artifact-scoped Device property terminology/display cleanup.</p>
+  <p>This resource is referenced from the <a href="device-module.html">Device Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li>Container-related Device context and artifact terminology were refreshed in the OO ticket batch touching Device narrative and device-property terminology <a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
+  </ul>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li><code>Device.name.display</code> is no longer marked as a modifier <a href="https://jira.hl7.org/browse/FHIR-55372">FHIR-55372</a></li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li><code>Device.conformsTo</code> guidance was aligned with DeviceDefinition by adding source-related clarification in the Device materials <a href="https://jira.hl7.org/browse/FHIR-56683">FHIR-56683</a></li>
+    <li>Device Five Ws mapping exceptions were updated as part of the Orders &amp; Observations mapping cleanup <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
+    <li>Device property type terminology/display names were cleaned up in the artifact-scoped CodeSystem and ValueSet <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
+    <li>Extension guidance involving overlap with <code>Device.specialization</code> was clarified; the hydrated evidence reported no core-element replacement extension for this artifact <a href="https://jira.hl7.org/browse/FHIR-52979">FHIR-52979</a></li>
+  </ul>
+  <p><b>Additional changes</b></p>
+  <ul>
+    <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-52946">FHIR-52946</a>, <a href="https://jira.hl7.org/browse/FHIR-54323">FHIR-54323</a>, <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a> and <a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a>.</li>
+  </ul>
 </blockquote>
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
-</blockquote>
-<blockquote style="background-color: lightblue">
-	<p><b>Release Notes (pending alternative process review with FMG):</b></p>
-	<ul>
-		<li><a href="https://jira.hl7.org/browse/FHIR-55372">FHIR-55372</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-52979">FHIR-52979</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-52946">FHIR-52946</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-54323">FHIR-54323</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-56683">FHIR-56683</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
-	</ul>
 </blockquote>
 </div>  
 <div>  

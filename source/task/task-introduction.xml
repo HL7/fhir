@@ -4,22 +4,25 @@
     <h2>Scope and Usage</h2>
 
     <blockquote class="ballot-note" id="bn1">
-      <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
-      <ul>
-        <li>Removed the Task.instantiatesCanonical and Task.instantiatesURI; and advise implementers to use the <a href="workflow-extensions.html">workflow instantiates extensions</a></li>
-        <li>Made the Task.focus element a new backbone</li>
-        <li>Consolidated the Task State Machine sections to the Notes section:<a href="task.html#statemachine">task.html#statemachine</a></li>
-      </ul>
+        <p><b>Note to Balloters for Ballot5</b>: Changes focus on Task status/statusReason behavior, Task terminology display cleanup, and mapping/intro maintenance.</p>
+        <p>This resource is referenced from the <a href="workflow-module.html">Workflow Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+        <p><b>Compatible substantive</b></p>
+        <ul>
+            <li>Clarified <code>Task.statusReason</code> by adding <code>Any</code> as the previously missing reference target for the empty reference case <a href="https://jira.hl7.org/browse/FHIR-54564">FHIR-54564</a></li>
+            <li>Added an <code>unknown</code> escape-valve code for <code>Task.status</code> and the Task status value set <a href="https://jira.hl7.org/browse/FHIR-55280">FHIR-55280</a></li>
+            <li>A shared Orders &amp; Observations batch touched Task StructureDefinition, terminology, and narrative files while applying compatible substantive tickets whose titles target related OO artifacts; the hydrated evidence does not isolate a separate Task-specific semantic delta for those tickets <a href="https://jira.hl7.org/browse/FHIR-55277">FHIR-55277</a>, <a href="https://jira.hl7.org/browse/FHIR-54450">FHIR-54450</a></li>
+        </ul>
+        <p><b>Non-substantive</b></p>
+        <ul>
+            <li>Cleaned Task terminology display names across artifact-scoped value set and code system files <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
+            <li>Updated Task Five Ws/request/event mapping exception support as part of OO mapping clarification work <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
+            <li>The same shared OO batch touched Task files while applying non-substantive clarification/correction tickets that primarily target other OO artifacts; reviewers should verify any Task-specific ballot significance from the hydrated evidence <a href="https://jira.hl7.org/browse/FHIR-54593">FHIR-54593</a>, <a href="https://jira.hl7.org/browse/FHIR-54323">FHIR-54323</a>, <a href="https://jira.hl7.org/browse/FHIR-53457">FHIR-53457</a></li>
+        </ul>
+        <p><b>Additional changes</b></p>
+        <ul>
+            <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-55279">FHIR-55279</a>.</li>
+        </ul>
     </blockquote>
-    <blockquote style="background-color: lightblue">
-    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
-    <ul>
-        <li><a href="https://jira.hl7.org/browse/FHIR-55280">FHIR-55280</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54564">FHIR-54564</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-55279">FHIR-55279</a></li>
-    </ul>
-</blockquote>
 
     <p>
       A Task resource describes an activity that can be performed and tracks the state of

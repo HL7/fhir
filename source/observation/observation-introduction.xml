@@ -1,58 +1,31 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
     <blockquote class="ballot-note" id="bn1">
-    <p><b>Note to Balloters:</b> To ensure that the Observation resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p>
-    <ul>
-    <li>Multiple updates to the <a href="observation-vitalsigns.html">Vital Signs</a> profiles (including the <a href="vitalsigns.html">Vital Signs Base</a> profile and the set of specific Vital Signs profiles).  The primary changes include:</li>
-      <ul>
-      <li>Removed references to the LOINC "magic value" code, and instead refer to it as the "interoperability category".</li>
-      <li>Created value sets of the specific LOINC codes that should apply for each vital sign profile, and create a 'preferred' binding from Observation.code to the value set for that profile.  </li>
-      <li>Renamed the main vital signs page to "Observation Vital Signs Profiles", and adjust other names and text accordingly.</li>
-      <li>Renamed the title of the "base" vital signs profile (which the other specific vital sign profiles are based on) to "Vital Signs Base Profile", to help make this clear.</li>
-      <li>Move the reference and link to the "Vital Signs Base Profile" to a more prominently visible location on the Observation Vital Signs Profiles page (as the "header" for the requirements list).</li>
-      <li>Made additional text changes needed for overall clarity and consistency.</li>
-      <li>Updated the vital signs examples where needed to be consistent with the updated profiles.</li>
-      </ul>
-    <li>The Observation.bodySite element has been deprecated, corresponding with the change to make Observation.bodyStructure a CodeableReference.</li>
-    <li>The 'instantiates[x]' element (with the 'instantiatesCanonical' and 'instantiatesReference' choices) has been removed and is replaced with the workflow instantiation extensions: https://build.fhir.org/workflow-extensions.html.</li>
-    <li>These elements previously marked as 'Trial Use' (TU) are now Normative candidates:</li>
-      <ul>
-      <li>Observation.triggeredBy</li>
-      <li>Observation.focus</li>
-      <li>Observation.bodyStructure</li>
-      <li>Observation.referenceRange.normalValue</li>
-      <li>Observation.referenceRange.type</li>
-      <li>Observation.organizer</li>
+        <p><b>Note to Balloters for Ballot5</b>: Observation changes in this window include structural updates to status reason, body-structure cardinality, supporting device traceability, and Vital Signs Panel organizer handling, plus terminology and narrative cleanup.</p>
+        <p>Reviewers should pay particular attention to the organizer/grouping guidance for Observation and DiagnosticReport, including use of organizer Observations and consistency with the Diagnostics Module guidance.</p>
+        <p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+        <p><b>Non-compatible</b></p>
         <ul>
-        <li>
-        The 'organizer' element was newly added to the Observation resource in the previous R6 3rd Draft ballot cycle (2025-04-03), so there has been less time available for it to be reviewed, but it is now also a Normative candidate. The 'organizer' element is intended to help clarify and make explicit when an instance of the Observation resource is used for organizing/grouping sets of sub-observations (e.g., for laboratory panel/battery result reporting).  This capability is particularly applicable for use in laboratory result reporting, but it can also be used as appropriate with other types of observations.
-        </li>
+            <li>The Vital Signs Panel profile now explicitly uses <code>Observation.organizer</code> to identify the panel as an organizer/grouping Observation, and the panel example was updated to match. <a href="https://jira.hl7.org/browse/FHIR-54525">FHIR-54525</a></li>
+            <li>Observation focus handling was updated to address the ticketed concern that <code>Observation.focus</code> was not clearly marked as modifier-sensitive content. <a href="https://jira.hl7.org/browse/FHIR-54620">FHIR-54620</a></li>
+            <li>Observation reference-range normal-value terminology was split so the ValueSet remains artifact-scoped while the CodeSystem is moved toward THO stewardship. <a href="https://jira.hl7.org/browse/FHIR-55269">FHIR-55269</a></li>
         </ul>
-      </ul>
-    </ul>
-    </blockquote>
-    <blockquote class="stu-note" style="background-color: lightblue">
-        <p><b>Release Notes (pending alternative process review with FMG):</b></p>
+        <p><b>Compatible substantive</b></p>
         <ul>
-            <li><a href="https://jira.hl7.org/browse/FHIR-53457">FHIR-53457</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54518">FHIR-54518</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-56188">FHIR-56188</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54036">FHIR-54036</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-53902">FHIR-53902</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54503">FHIR-54503</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54508">FHIR-54508</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54904">FHIR-54904</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-56192">FHIR-56192</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-53681">FHIR-53681</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54892">FHIR-54892</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-32051">FHIR-32051</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-54525">FHIR-54525</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-55269">FHIR-55269</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-55034">FHIR-55034</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-57447">FHIR-57447</a></li>
-            <li><a href="https://jira.hl7.org/browse/FHIR-57418">FHIR-57418</a></li>
+            <li>A new <code>Observation.statusReason</code> element and supporting status-reason terminology were added so implementations can record why an Observation has a particular status. <a href="https://jira.hl7.org/browse/FHIR-56192">FHIR-56192</a></li>
+            <li>Observation status guidance and related status terminology were aligned with the ticketed clarification around <code>unknown</code> status/availability semantics and background workflow status use. <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a>, <a href="https://jira.hl7.org/browse/FHIR-54892">FHIR-54892</a></li>
+            <li>BodyStructure-related Observation guidance was updated in the same after-applied window that relaxed <code>Observation.bodyStructure</code> multiplicity; reviewers should verify the BodyStructure linkage text against the final differential. <a href="https://jira.hl7.org/browse/FHIR-54450">FHIR-54450</a></li>
+        </ul>
+        <p><b>Non-substantive</b></p>
+        <ul>
+            <li>A new <code>Observation.supportingDevice</code> element was added, with the associated search-parameter coverage, to improve traceability to devices supporting the observation. <a href="https://jira.hl7.org/browse/FHIR-53681">FHIR-53681</a></li>
+            <li>Vital Signs profile narrative, table text, systolic blood-pressure value-set content, and examples were cleaned up, including the removal of the systolic BP LOINC code from the systolic-BP value set and clarification of interoperability-code placement. <a href="https://jira.hl7.org/browse/FHIR-32051">FHIR-32051</a>, <a href="https://jira.hl7.org/browse/FHIR-53902">FHIR-53902</a>, <a href="https://jira.hl7.org/browse/FHIR-54503">FHIR-54503</a>, <a href="https://jira.hl7.org/browse/FHIR-54508">FHIR-54508</a>, <a href="https://jira.hl7.org/browse/FHIR-54518">FHIR-54518</a></li>
+            <li>Observation narrative and mapping text were clarified for subject guidance, <code>hasMember</code>/<code>derivedFrom</code> headings, obsolete core-extension references, <code>biologicalSourceEvent</code>, context/method details, and 5Ws mappings. <a href="https://jira.hl7.org/browse/FHIR-54036">FHIR-54036</a>, <a href="https://jira.hl7.org/browse/FHIR-54040">FHIR-54040</a>, <a href="https://jira.hl7.org/browse/FHIR-54323">FHIR-54323</a>, <a href="https://jira.hl7.org/browse/FHIR-54904">FHIR-54904</a>, <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
+            <li>Observation terminology presentation was cleaned up, including removal of the <code>bodySite</code> terminology binding row and minor ValueSet display-name updates. <a href="https://jira.hl7.org/browse/FHIR-53457">FHIR-53457</a>, <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
+        </ul>
+        <p><b>Additional changes</b></p>
+        <ul>
+            <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a>, <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a>, <a href="https://jira.hl7.org/browse/FHIR-56188">FHIR-56188</a>, <a href="https://jira.hl7.org/browse/FHIR-55034">FHIR-55034</a>, <a href="https://jira.hl7.org/browse/FHIR-57447">FHIR-57447</a> and <a href="https://jira.hl7.org/browse/FHIR-57418">FHIR-57418</a>.</li>
         </ul>
     </blockquote>
     <h2>Scope and Usage</h2>
