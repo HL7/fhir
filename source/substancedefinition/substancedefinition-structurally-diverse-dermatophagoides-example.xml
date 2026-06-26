@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example: Dermatophagoides farinae allergen — a structurally diverse
+     substance (an allergen derived from a house dust mite). From ISO 11238 IG
+     examples. Demonstrates SubstanceDefinition for a structurally-diverse
+     substance: classification, sourceMaterial (taxonomy), no chemical
+     structure or sequence. -->
+<SubstanceDefinition xmlns="http://hl7.org/fhir">
+   <id value="dermatophagoides-farinae"/>
+   <identifier>
+      <system value="http://example.europa.eu/fhir/SMSId"/>
+      <value value="DERMFAR1S"/>
+   </identifier>
+   <status>
+      <coding>
+         <system value="http://hl7.org/fhir/publication-status"/>
+         <code value="active"/>
+         <display value="Active"/>
+      </coding>
+   </status>
+   <classification>
+      <coding>
+         <system value="http://example.europa.eu/fhir/SubstanceType"/>
+         <code value="structurally-diverse"/>
+         <display value="Structurally Diverse"/>
+      </coding>
+   </classification>
+   <domain>
+      <coding>
+         <system value="http://example.europa.eu/fhir/Domain"/>
+         <code value="human"/>
+         <display value="Human use"/>
+      </coding>
+   </domain>
+   <description value="Dermatophagoides farinae — American house dust mite allergen extract. A structurally diverse substance defined by its source organism rather than a discrete chemical structure, used in allergen immunotherapy products."/>
+   <code>
+      <code>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Substance"/>
+            <code value="DERMFAR1S"/>
+         </coding>
+      </code>
+   </code>
+   <name>
+      <name value="Dermatophagoides farinae"/>
+      <preferred value="true"/>
+      <language>
+         <coding>
+            <system value="urn:ietf:bcp:47"/>
+            <code value="en"/>
+            <display value="English"/>
+         </coding>
+      </language>
+      <official>
+         <authority>
+            <coding>
+               <system value="http://hl7.org/fhir/substance-name-authority"/>
+               <code value="USAN"/>
+               <display value="USAN"/>
+            </coding>
+         </authority>
+         <status>
+            <coding>
+               <system value="http://hl7.org/fhir/publication-status"/>
+               <code value="active"/>
+               <display value="Active"/>
+            </coding>
+         </status>
+      </official>
+   </name>
+   <name>
+      <name value="American house dust mite"/>
+      <preferred value="false"/>
+   </name>
+   <sourceMaterial>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-source-material-type"/>
+            <code value="Animal"/>
+            <display value="Animal"/>
+         </coding>
+      </type>
+      <genus>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Genus"/>
+            <code value="Dermatophagoides"/>
+            <display value="Dermatophagoides"/>
+         </coding>
+      </genus>
+      <species>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Species"/>
+            <code value="farinae"/>
+            <display value="D. farinae"/>
+         </coding>
+      </species>
+      <part>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Part"/>
+            <code value="whole-organism"/>
+            <display value="Whole organism"/>
+         </coding>
+      </part>
+   </sourceMaterial>
+</SubstanceDefinition>
