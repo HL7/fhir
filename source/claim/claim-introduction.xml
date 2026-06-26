@@ -8,6 +8,7 @@
     <ul>
         <li>Substantive:</li>
             <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-43308">FHIR-43308</a> - Rename .prescription to .request, added RequestOrchestration and NutritionOrder to the .request, and removed originalPrescription</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-50913">FHIR-50913</a> - Change binding on .careTeam.role to extensible from preferred</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-54492">FHIR-54492</a> - Claim.diagnosis.diagnosis has been changed to a CodeableReference</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-54492">FHIR-54492</a> - Claim.procedure.procedure has been changed to a CodeableReference</li>
