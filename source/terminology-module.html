@@ -22,9 +22,9 @@ in order to support consistent definitions for schema and UML derived code.
 <a name="intro"></a>
 <h3>Introduction</h3>
 <p>
-The Terminology Module provides an overview and guide to the FHIR resources, operations, coded datatypes and externally-defined standard and FHIR-defined terminologies that are used for representing and communicating coded, structured data in the FHIR core specification and profiles.  Collectively, these capabilities are used to provide the terminology service functionality required for supporting the use of coded data in FHIR resources throughout the specification as described in the other modules.
+The Terminology Module is a foundational component of core FHIR specification. Any terminology related resource type, operation or datatype is part of the Terminology Module.
 </p>
-<p>The primary terminology-related structures and their relationships are shown below:</p>
+<p>The diagram below shows the relationship between terminology-related artifacts.</p>
 <table class="none"><tr><td>
 <img src="terminology-module-relationships.png" alt="Image showing the terminology resources and relationships" usemap="#terminology-module-relationships-map"/>
 </td></tr></table>
@@ -73,7 +73,7 @@ The Terminology Module covers the following:
  </tr>
 </table>
 <p>
-<b>Operations</b>
+<b>Terminology Specific Operations</b>
 </p>
 <table class="none">
  <tr>
@@ -97,6 +97,13 @@ The Terminology Module covers the following:
  </ul>
  <ul>
   <li><a href="conceptmap-operation-translate.html">$translate</a></li>
+ </ul></td>
+ <td><ul style="list-style: none;">
+  <li><b>NamingSystem</b></li>
+ </ul>
+ <ul>
+  <li><a href="namingsystem-operation-preferred-id">$preferred-id</a></li>
+  <li><a href="namingsystem-operation-translate-id">$translate-id</a></li>
  </ul></td>
 </tr></table>
 
@@ -126,7 +133,7 @@ The Terminology Module covers the following:
  </ul></td>
  <td><ul>
   <li><a href="terminologies-conceptmaps.html">Mappings (FHIR-defined) Between Related Value Set Concepts</a></li>
-  <li><a href="identifier-registry.html">Known Identifier Systems</a></li>
+  <li><a href="identifier-registry.html">Identifier Systems</a></li>
  </ul></td>
 </tr></table>
 
@@ -141,41 +148,33 @@ For security considerations for terminology services, see the <a href="terminolo
 <p>
 <ul>
 <li>Create or reference a code system</li>
-<li>Create or reference a value set</li>
-<li>Record data using pre-coordinated codes</li>
-<li>Record data using post-coordinated expressions</li>
-<li>Record data using multiple local or standard code systems (translations)</li>
+<li>Create, reference or expand a value set</li>
+<li>Record codes, expressions and translations</li>
 <li>Expand a value set</li>
-<li>Validate a code</li>
-<li>Look up a display term for a code</li>
+<li>Validate or look up a display term for a code</li>
 <li>Translate a code from one value set to another</li>
 <li>Test subsumption between concepts</li>
-<li>Map data between different terminologies</li>
-<li>Declare the capabilities of a terminology service</li>
+<li>Create or reference a concept map</li>
+<li>Formally describing the capabilities of a terminology service</li>
+<li>Operate a terminology service</li>
 </ul>
 </p>
 
 <a name="roadmap"></a>
 <h3>Development Roadmap</h3>
-    <p>The following terminology resources have been tested and are being used in production tooling and now are normative or
-        are expected soon to progress to normative.
+    <p>The following terminology resources have been tested and are being used in production tooling and are normative.
 	</p>
     <ul>
         <li><a href="valueset.html" title="A value set specifies a set of codes drawn from one or more code systems.">ValueSet</a>[%fmmshort ValueSet%]</li>
 		<li><a href="codesystem.html" title="The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content.">CodeSystem</a>[%fmmshort CodeSystem%]</li>
 		<li><a href="conceptmap.html" title="A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models.">ConceptMap</a>[%fmmshort ConceptMap%]</li>
+        <li><a href="namingsystem.html" title="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding datatypes.">NamingSystem</a>[%fmmshort NamingSystem%]</li>
+		<li><a href="terminologycapabilities.html" title="Resource to document a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.">TerminologyCapabilities</a>[%fmmshort TerminologyCapabilities%]</li>
     </ul>
 
     <p>Other terminology resources are still in earlier stages of development.  We intend to continue to develop and test these 
         resources and advance them through the <a href="versions.html#maturity">Maturity Levels</a> 
         at Connectathons and elsewhere.</p>
-    <ul>
-		<li><a href="namingsystem.html" title="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding datatypes.">NamingSystem</a>[%fmmshort NamingSystem%]</li>
-		<li><a href="terminologycapabilities.html" title="Resource to document a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.">TerminologyCapabilities</a>[%fmmshort TerminologyCapabilities%]</li>
-    </ul>
-	<p>
-	  
-	</p>
 
 [%file newfooter%]
 </body>
