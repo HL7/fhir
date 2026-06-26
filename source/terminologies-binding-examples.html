@@ -390,24 +390,15 @@ For example, the language element in FHIR has a required binding to the all-lang
 </p>
 <pre class="json">
 {
-  "path" : "CodeSystem.status",
-  "definition" : "The status of this code system. Enables tracking the life-cycle of the content.",
-  "binding" : {
-    "strength" : "required",
-    "description" : "The lifecycle status of an artifact.",
-    "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|6.0.0"
-  }
-}
-{
   "path": "Patient.communication.language",
   "definition" : "The language which may be used to communicate with the individual.",
   "binding" : {
     "strength" : "required",
-    "valueSetCanonical" : "http://hl7.org/fhir/ValueSet/all-languages",
+    "valueSet" : "http://hl7.org/fhir/ValueSet/all-languages",
 	"additional" : [
 	  {
 	    "purpose" : "starter",
-	    "valueSetCanonical" : "http://hl7.org/fhir/ValueSet/languages"
+	    "valueSet" : "http://hl7.org/fhir/ValueSet/languages"
 	  }
 	]
   }
