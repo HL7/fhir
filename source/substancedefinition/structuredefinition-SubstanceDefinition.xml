@@ -1412,6 +1412,9 @@
         <code value="Ratio"/>
       </type>
       <type>
+        <code value="RatioRange"/>
+      </type>
+      <type>
         <code value="string"/>
       </type>
       <type>
@@ -1421,21 +1424,6 @@
       <mapping>
         <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Amount.Quantity"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.relationship.ratioHighLimitAmount">
-      <path value="SubstanceDefinition.relationship.ratioHighLimitAmount"/>
-      <short value="For use when the numeric has an uncertain range"/>
-      <definition value="For use when the numeric has an uncertain range."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp-substance"/>
-        <map value="Substance_Relationship.Amount.Quantity.High_Limit"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.relationship.comparator">

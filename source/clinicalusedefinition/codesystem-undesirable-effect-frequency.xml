@@ -20,8 +20,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1995"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="UndesirablEffectFrequencyExample"/>
-  <title value="Undesirabl Effect Frequency"/>
+  <name value="UndesirableEffectFrequencyExample"/>
+  <title value="Undesirable Effect Frequency"/>
   <status value="active"/>
   <experimental value="true"/>
   <date value="2021-01-05T10:01:24+11:00"/>
