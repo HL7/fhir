@@ -15,7 +15,7 @@
                         <li>Improved the short description and definition of several elements which were previously changed from <code>code</code> to <code>CodeableConcept</code> datatype. (<a href="https://jira.hl7.org/browse/FHIR-57089">FHIR-57089</a>)</li>
                         <li>Included advisories (e.g. timers, reminders) in the scope of the resource, and <code>DeviceAlert.type</code> element. (<a href="https://jira.hl7.org/browse/FHIR-55740">FHIR-55740</a>)</li>
                         <li>Updated diagram in <a href="#background-and-context">Background and Context</a> and surrounding text for clarity. (<a href="https://jira.hl7.org/browse/FHIR-56264">FHIR-56264</a>)</li>
-                        <li>Updated mappings for <code>identifier</code> and <code>signal.identifier</code>elements</li>
+                        <li>Updated mappings for <code>identifier</code> and <code>signal.identifier</code> elements. (<a href="https://jira.hl7.org/browse/57729">FHIR-57729</a>)</li>
                     </ul>
                 </li>
             </ul>
