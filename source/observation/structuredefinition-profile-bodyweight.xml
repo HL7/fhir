@@ -2,12 +2,9 @@
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="bodyweight"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
-  </text>
+
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
-    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'29463-7'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'kg', 'g', '[lb_av]' or '[oz_av]'**"/>
+    <valueMarkdown value="#### Summary of the Mandatory Requirements&#xD;&#xD;1.  One instance of `Observation.code.coding` which must have&#xD;    -   a fixed `Observation.code.coding.system` = **'http://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code` = **'29463-7'**&#xD;    -   additional Coding repetitions representing a more specific code for the measurement obtained MAY be included in `Observation.code`.&#xD;1. Either one `Observation.valueQuantity` or, if there is no value, one code in `Observation.dataAbsentReason`&#xD;   - Each `Observation.valueQuantity` must have:&#xD;     - one numeric value in `Observation.valueQuantity.value`&#xD;     - a fixed `Observation.valueQuantity.system` = **'http://unitsofmeasure.org'**&#xD;     - a UCUM unit code in `Observation.valueQuantity.code` = **'kg'**, **'g'**, **'[lb_av]'** or **'[oz_av]'**"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="4"/>
@@ -19,7 +16,7 @@
     <valueCode value="normative"/>
   </extension>
   <extension url="http://hl7.org/fhir/tools/StructureDefinition/profile-summary">
-    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.category` which must have&#xD;    -   a fixed `Observation.category.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.category.coding.code`= **'29463-7'**&#xD;    -   The code (or codes) for the measurement obtained  in `Observation.code`. All codes&#xD;        SHALL have a system value&#xD;1. Either one Observation.valueQuantity or, if there is no value, one code in Observation.DataAbsentReason&#xD;   - Each Observation.valueQuantity must have:&#xD;     - One numeric value in Observation.valueQuantity.value&#xD;     - a fixed Observation.valueQuantity.system=&quot;http://unitsofmeasure.org&quot;&#xD;     - a UCUM unit code in Observation.valueQuantity.code = **'kg', 'g', '[lb_av]' or '[oz_av]'**"/>
+    <valueString value="#### Summary of the Mandatory Requirements&#xD;&#xD;1.  One instance of `Observation.code.coding` which must have&#xD;    -   a fixed `Observation.code.coding.system` = **'http://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code` = **'29463-7'**&#xD;    -   additional Coding repetitions representing a more specific code for the measurement obtained MAY be included in `Observation.code`.&#xD;1. Either one `Observation.valueQuantity` or, if there is no value, one code in `Observation.dataAbsentReason`&#xD;   - Each `Observation.valueQuantity` must have:&#xD;     - one numeric value in `Observation.valueQuantity.value`&#xD;     - a fixed `Observation.valueQuantity.system` = **'http://unitsofmeasure.org'**&#xD;     - a UCUM unit code in `Observation.valueQuantity.code` = **'kg'**, **'g'**, **'[lb_av]'** or **'[oz_av]'**"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/bodyweight"/>
   <identifier>
