@@ -215,10 +215,10 @@ When a ValueSet definition includes other ValueSets, use the <a href="[%extensio
 The VSD Partition aligns with FHIR <a href="codesystem.html#fragments">CodeSystem Fragments</a>.
 </p>
 <p>
-Code System fragments are a unique and identifiable distinct segment of an overall Code System namespace. While most Code Systems are in essence one fragment and, therefore, do not have identifiable fragments, some Code Systems can be made up of a collection of distinct segments. SNOMED CT is an example of such a Code System. The SNOMED CT International Edition is the base fragment and can be used alone, but there are many distinct additional fragments that can be added to the international core to create what is known as a SNOMED CT Edition.
+A CodeSystem fragment MAY be used to generate an expansion in the absence of the complete code system.  
 </p>
 <p>
-The CodeSystem referenced in a <code>ValueSet.compose</code> may reference a CodeSystem fragment.
+A CodeSystem fragment cannot be referenced directly. ValueSet definitions reference fragments in the same way the CodeSystem is referenced. For fragments represented as FHIR CodeSystem resources, CodeSystem.content = fragment indicates the CodeSystem resource represents a fragment. 
 </p>
 
 <a name="vsd"></a>
@@ -507,6 +507,7 @@ the following process should be followed:
    </ul></li>
    <li>For each <code>valueSet</code>, find the referenced value set by ValueSet.url, expand that (e.g., using the <a href="valueset-operations.html#expand">$expand</a> operation: GET [base]/ValueSet/$expand$url=[compose.include.valueSet]), to produce a collection of result sets. This means that expansion across imports is a recursive process.</li>
    <li>Add the intersection of the result set from the system (step 1) and all of the result sets from the value sets (step 2) to the expansion</li>
+   <li>If the server cannot determine that the expansion based on the fragments is complete, the server SHALL include the output parameter in ValueSet.expansion.parameter. The parameter value SHOULD be the CodeSystem fragment uri. The parameter name SHOULD be used-fragment.</li>
   </ol>
  </li>
  <li>For each <i>compose.exclude</i>, follow the same process as for <i>compose.include</i>, but remove codes from the expansion in step 3 instead of adding them.</li>
@@ -618,6 +619,7 @@ expansion:
 <table class="grid">
  <tr><td><code>used-system</code></td><td><a href="datatypes.html#uri">uri</a></td><td>The canonical URL (system | {version} if available) of a code system that was used during the expansion of the value set </td></tr>
  <tr><td><code>used-supplement</code></td><td><a href="datatypes.html#uri">uri</a></td><td>The canonical URL (system | {version} if available) of a code system supplement that was used during the expansion of the value set </td></tr>
+ <tr><td><code>used-fragment</code></td><td><a href="datatypes.html#uri">uri</a></td><td>The canonical URL (system | {version} if available) of a code system that was used based on a fragment during the expansion of the value set. This parameter SHALL be provided if the server cannot guarantee that the use of this and other fragments resulted in a complete expansion. If the server can guarantee that the expansion is complete, this parameter SHALL NOT be provided even if fragments were used </td></tr>
  <tr><td><code>used-valueset</code></td><td><a href="datatypes.html#uri">uri</a></td><td>The canonical URL (system | {version} if available) of a different value set that was used during the expansion of the value set </td></tr>
 </table>
 <p>
@@ -629,21 +631,8 @@ link below) in the interests of interoperability.
 Servers can also create and store <a href="provenance.html">Provenance</a> statements about the expansion, or <a href="auditevent.html">AuditEvent</a> records
 of the expansion process if further transparency is required. These resources can contain considerable
 detail about the various inputs to the process, and any significant decisions by the expansion 
-engine. Further details around this (and profiles on the relevant resources) may be provided
-in future versions of this specification or related implementation guides.
+engine.
 </p>
-
-<a name="limitations"></a>
-[%feedback-note%]
-The existing set of parameters are intended to cover the vast majority of 
-use cases, but there are some cases where the parameters do not provide 
-enough control to a client, particularly with regard to combinations of 
-parameters, and the interplay between code system versions and other parameters.
-Implementers may need to define their own value sets to meet these requirements.
-</p>
-<p>
-Ongoing feedback is welcome at [link to be provided]
-[%end-note%]
 
 <a name="storage"></a>
 <h3>Storing Expansions</h3>

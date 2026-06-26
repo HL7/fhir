@@ -714,7 +714,7 @@
     <element id="ImagingSelection.instance.frameNumber">
       <path value="ImagingSelection.instance.frameNumber"/>
       <short value="Selected frames"/>
-      <definition value="A list of frame numbers selected from a multiframe SOP Instance (See [DICOM PS 3.3 Table 10.3](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html#table_10-3))."/>
+      <definition value="A list of frame numbers selected from a multiframe SOP Instance (See [DICOM PS3.3 Table 10.3](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_10.3.html#table_10-3))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a multiframe SOP Class."/>
       <min value="0"/>
       <max value="*"/>
@@ -727,7 +727,7 @@
     <element id="ImagingSelection.instance.referencedContentItemIdentifier">
       <path value="ImagingSelection.instance.referencedContentItemIdentifier"/>
       <short value="Selected content items"/>
-      <definition value="A list of Referenced Content Item Identifier values selected from a DICOM SR or other structured document SOP Instance (See [DICOM PS 3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html))."/>
+      <definition value="A list of Referenced Content Item Identifier values selected from a DICOM SR or other structured document SOP Instance (See [DICOM PS3.3 C.17.3.2.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a DICOM SR or other structured document SOP Class."/>
       <min value="0"/>
       <max value="*"/>
@@ -740,7 +740,7 @@
     <element id="ImagingSelection.instance.segmentNumber">
       <path value="ImagingSelection.instance.segmentNumber"/>
       <short value="Selected segments"/>
-      <definition value="A list of segment numbers selected from a segmentation SOP Instance (See [DICOM PS 3.3 Table C.8.20-4](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.20.4.html#table_C.8.20-4))."/>
+      <definition value="A list of segment numbers selected from a segmentation SOP Instance (See [DICOM PS3.3 Table C.8.20-4](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.20.4.html#table_C.8.20-4))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a segmentation SOP Class."/>
       <min value="0"/>
       <max value="*"/>
@@ -753,7 +753,7 @@
     <element id="ImagingSelection.instance.regionOfInterest">
       <path value="ImagingSelection.instance.regionOfInterest"/>
       <short value="Selected regions of interest"/>
-      <definition value="A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance (See [DICOM PS 3.3 C.8.8.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html))."/>
+      <definition value="A list of Region of Interest (ROI) numbers selected from a radiotherapy structure set SOP Instance (See [DICOM PS3.3 C.8.8.5](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.8.5.html))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a radiotherapy structure set SOP Class."/>
       <min value="0"/>
       <max value="*"/>
@@ -766,7 +766,7 @@
     <element id="ImagingSelection.instance.waveFormChannel">
       <path value="ImagingSelection.instance.waveFormChannel"/>
       <short value="Selected waveform channel"/>
-      <definition value="A list of channels in a Waveform selected from an instance of a waveform SOP Class.&#xA;Each channel is specified as a pair of values where the first value is the Multiplex Group Number, and the second value is the Channel Number within the multiplex group (See [DICOM PS 3.3 C.18.5.1.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.5.html#sect_C.18.5.1.1))."/>
+      <definition value="A list of channels in a Waveform selected from an instance of a waveform SOP Class.&#xA;Each channel is specified as a pair of values where the first value is the Multiplex Group Number, and the second value is the Channel Number within the multiplex group (See [DICOM PS3.3 C.18.5.1.1](https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.5.html#sect_C.18.5.1.1))."/>
       <requirements value="Only allowed if the value of `instance.sopClass` corresponds to a waveform  structure set SOP Class."/>
       <min value="0"/>
       <max value="*"/>
@@ -824,7 +824,7 @@
       <path value="ImagingSelection.instance.imageRegion2D.coordinate"/>
       <short value="The coordinates that define the image region"/>
       <definition value="The coordinates defining the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.&#xA;The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values SHALL be within the range 0\0 to the number of columns\rows in the image / frames."/>
-      <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS 3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html)."/>
+      <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html)."/>
       <requirements value="The number of values SHALL be a multiple of two."/>
       <alias value="GraphicData"/>
       <min value="1"/>

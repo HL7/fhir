@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example transcribed/adapted from ISO 11238 Implementation Guide §D.5.2.1
+     (Table D.1 — Mipomersen sodium). Demonstrates the new SubstanceDefinition
+     nucleic-acid backbones added for FHIR-57660. Sequence chemistry is the
+     published Mipomersen 20-mer antisense oligonucleotide; identifiers are
+     illustrative. -->
+<SubstanceDefinition xmlns="http://hl7.org/fhir">
+   <id value="mipomersen"/>
+   <identifier>
+      <system value="http://example.europa.eu/fhir/SMSId"/>
+      <value value="MIPO78654S"/>
+   </identifier>
+   <status>
+      <coding>
+         <system value="http://hl7.org/fhir/publication-status"/>
+         <code value="active"/>
+      </coding>
+   </status>
+   <classification>
+      <coding>
+         <system value="http://example.europa.eu/fhir/SubstanceType"/>
+         <code value="nucleic-acid"/>
+         <display value="Nucleic Acid"/>
+      </coding>
+   </classification>
+   <domain>
+      <coding>
+         <system value="http://example.europa.eu/fhir/Domain"/>
+         <code value="human"/>
+         <display value="Human use"/>
+      </coding>
+   </domain>
+   <description value="Mipomersen sodium — a synthetic second-generation 2'-methoxyethyl antisense oligonucleotide that inhibits the molecular target apolipoprotein B-100 (APOB-100). 20-mer phosphorothioate-linked sequence with 2'-MOE wing chemistry."/>
+   <code>
+      <code>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Substance"/>
+            <code value="MIPO78654S"/>
+         </coding>
+      </code>
+   </code>
+   <name>
+      <name value="Mipomersen Sodium"/>
+      <preferred value="true"/>
+      <language>
+         <coding>
+            <system value="urn:ietf:bcp:47"/>
+            <code value="en"/>
+            <display value="English"/>
+         </coding>
+      </language>
+      <official>
+         <authority>
+            <coding>
+               <system value="http://hl7.org/fhir/substance-name-authority"/>
+               <code value="INN"/>
+               <display value="INN"/>
+            </coding>
+         </authority>
+         <status>
+            <coding>
+               <system value="http://hl7.org/fhir/publication-status"/>
+               <code value="active"/>
+               <display value="Active"/>
+            </coding>
+         </status>
+      </official>
+   </name>
+   <nucleicAcid>
+      <sequenceType>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-sequence-type"/>
+            <code value="complete"/>
+            <display value="Complete"/>
+         </coding>
+      </sequenceType>
+      <numberOfSubunits value="1"/>
+      <oligoNucleotideType>
+         <coding>
+            <system value="http://hl7.org/fhir/oligo-nucleotide-type"/>
+            <code value="antisense"/>
+            <display value="Antisense oligonucleotide"/>
+         </coding>
+      </oligoNucleotideType>
+      <subunit>
+         <subunit value="1"/>
+         <sequence value="GCCUCAGTCTGCTTCGCACC"/>
+         <length value="20"/>
+         <fivePrime>
+            <coding>
+               <system value="http://hl7.org/fhir/nucleotide-terminus"/>
+               <code value="G"/>
+               <display value="Guanosine"/>
+            </coding>
+         </fivePrime>
+         <threePrime>
+            <coding>
+               <system value="http://hl7.org/fhir/nucleotide-terminus"/>
+               <code value="C"/>
+               <display value="Cytidine"/>
+            </coding>
+         </threePrime>
+         <linkage>
+            <connectivity>
+               <coding>
+                  <system value="http://example.europa.eu/fhir/LinkageConnectivity"/>
+                  <code value="phosphorothioate"/>
+                  <display value="Phosphorothioate"/>
+               </coding>
+            </connectivity>
+            <substance>
+               <concept>
+                  <coding>
+                     <system value="http://example.europa.eu/fhir/LinkageSubstance"/>
+                     <code value="phosphorothioate"/>
+                     <display value="Phosphorothioate linkage"/>
+                  </coding>
+               </concept>
+            </substance>
+            <residueSite value="1-19"/>
+         </linkage>
+         <sugar>
+            <substance>
+               <concept>
+                  <coding>
+                     <system value="http://example.europa.eu/fhir/SugarSubstance"/>
+                     <code value="2-MOE"/>
+                     <display value="2'-O-(2-methoxyethyl) ribose"/>
+                  </coding>
+               </concept>
+            </substance>
+            <residueSite value="1-5,16-20"/>
+         </sugar>
+         <sugar>
+            <substance>
+               <concept>
+                  <coding>
+                     <system value="http://example.europa.eu/fhir/SugarSubstance"/>
+                     <code value="deoxyribose"/>
+                     <display value="2'-deoxyribose"/>
+                  </coding>
+               </concept>
+            </substance>
+            <residueSite value="6-15"/>
+         </sugar>
+      </subunit>
+      <gene>
+         <sequenceOrigin>
+            <coding>
+               <system value="http://hl7.org/fhir/gene-sequence-origin"/>
+               <code value="human"/>
+               <display value="Human"/>
+            </coding>
+         </sequenceOrigin>
+         <gene>
+            <concept>
+               <coding>
+                  <system value="http://www.genenames.org"/>
+                  <code value="APOB"/>
+                  <display value="apolipoprotein B"/>
+               </coding>
+            </concept>
+         </gene>
+      </gene>
+   </nucleicAcid>
+   <relationship>
+      <substanceDefinitionCodeableConcept>
+         <coding>
+            <system value="https://www.uniprot.org"/>
+            <code value="P04114"/>
+            <display value="apolipoprotein B-100"/>
+         </coding>
+      </substanceDefinitionCodeableConcept>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-relationship-type"/>
+            <code value="TherapeuticTarget"/>
+            <display value="Therapeutic target"/>
+         </coding>
+      </type>
+      <interaction>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-interaction-type"/>
+            <code value="inhibition"/>
+            <display value="Inhibition"/>
+         </coding>
+      </interaction>
+   </relationship>
+</SubstanceDefinition>

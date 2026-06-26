@@ -199,7 +199,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ClinicalUseDefinitionCategory"/>
         </extension>
-        <strength value="preferred"/>
+        <strength value="example"/>
         <description value="A categorisation for a clinical use information item."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-definition-category"/>
       </binding>
@@ -350,7 +350,7 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="UndesirablEffectFrequency"/>
+          <valueString value="UndesirableEffectFrequency"/>
         </extension>
         <strength value="example"/>
         <description value="A categorisation for a frequency of occurrence of an undesirable effect."/>
