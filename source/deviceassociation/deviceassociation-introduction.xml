@@ -10,6 +10,9 @@
 <li>Updated search parameters to address the changes.</li>
 </ul>
 </blockquote>
+<blockquote class="stu-note">
+<p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
+</blockquote>
 <blockquote class="stu-note" style="background-color: lightblue">
     <p><b>Release Notes (pending alternative process review with FMG):</b></p>
     <ul>

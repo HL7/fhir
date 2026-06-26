@@ -6,6 +6,14 @@
     <blockquote class="ballot-note" id="bn1">
     <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
     <ul>
+        <li>Substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-45962">FHIR-45962</a> - Add Patient and RelatedPerson to .payee.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-45962">FHIR-45962</a> - Add Patient and RelatedPerson to .recipient.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-45962">FHIR-45962</a> - Add .patient as the optional subject of care.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-45962">FHIR-45962</a> - Add .claimIdentifier as the optional business identifers of the claim.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-45962">FHIR-45962</a> - Added search parameters for each of the above elements.</li>
+            </ul>
         <li>Non-substantive:</li>
             <ul>
                 <li><a href="https://jira.hl7.org/browse/FHIR-53918">FHIR-53918</a> - Changed 'for example' to ' For example,' and removed the following paragraph as it had redundant content.</li>

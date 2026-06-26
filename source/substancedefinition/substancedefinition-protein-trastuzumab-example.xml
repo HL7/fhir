@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example: Trastuzumab (humanised monoclonal antibody against HER2).
+     Demonstrates the new SubstanceDefinition protein backbones added for
+     FHIR-57660: .protein.subunit (heavy + light chains), disulfide linkages,
+     N/C-terminal modifications, .protein.gene with humanised mouse origin,
+     and .relationship typed as TherapeuticTarget (HER2). -->
+<SubstanceDefinition xmlns="http://hl7.org/fhir">
+   <id value="trastuzumab"/>
+   <identifier>
+      <system value="http://example.europa.eu/fhir/SMSId"/>
+      <value value="TRAS9123H"/>
+   </identifier>
+   <status>
+      <coding>
+         <system value="http://hl7.org/fhir/publication-status"/>
+         <code value="active"/>
+         <display value="Active"/>
+      </coding>
+   </status>
+   <classification>
+      <coding>
+         <system value="http://example.europa.eu/fhir/SubstanceType"/>
+         <code value="protein"/>
+         <display value="Protein"/>
+      </coding>
+   </classification>
+   <domain>
+      <coding>
+         <system value="http://example.europa.eu/fhir/Domain"/>
+         <code value="human"/>
+         <display value="Human use"/>
+      </coding>
+   </domain>
+   <description value="Trastuzumab — humanised IgG1 monoclonal antibody targeting the human epidermal growth factor receptor 2 (HER2/ErbB2). Variable regions derived from murine antibody 4D5, grafted onto human IgG1 framework. Produced in Chinese hamster ovary (CHO) cells."/>
+   <code>
+      <code>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Substance"/>
+            <code value="TRAS9123H"/>
+         </coding>
+      </code>
+   </code>
+   <name>
+      <name value="Trastuzumab"/>
+      <preferred value="true"/>
+      <language>
+         <coding>
+            <system value="urn:ietf:bcp:47"/>
+            <code value="en"/>
+            <display value="English"/>
+         </coding>
+      </language>
+      <official>
+         <authority>
+            <coding>
+               <system value="http://hl7.org/fhir/substance-name-authority"/>
+               <code value="INN"/>
+               <display value="INN"/>
+            </coding>
+         </authority>
+         <status>
+            <coding>
+               <system value="http://hl7.org/fhir/publication-status"/>
+               <code value="active"/>
+               <display value="Active"/>
+            </coding>
+         </status>
+      </official>
+   </name>
+   <name>
+      <name value="Herceptin"/>
+      <preferred value="false"/>
+   </name>
+   <protein>
+      <sequenceType>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-sequence-type"/>
+            <code value="complete"/>
+            <display value="Complete"/>
+         </coding>
+      </sequenceType>
+      <numberOfSubunits value="2"/>
+      <disulfideLinkage value="HC22-HC96; HC144-HC200; HC222-LC214; HC228-HC228'; HC231-HC231'; HC265-HC325; HC371-HC429"/>
+      <subunit>
+         <subunit value="1"/>
+         <sequence value="EVQLVESGGGLVQPGGSLRLSCAASGFNIKDTYIHWVRQAPGKGLEWVARIYPTNGYTRYADSVKGRFTISADTSKNTAYLQMNSLRAEDTAVYYCSRWGGDGFYAMDYWGQGTLVTVSS..."/>
+         <length value="450"/>
+         <nTerminalModification>
+            <concept>
+               <coding>
+                  <system value="http://example.europa.eu/fhir/Modification"/>
+                  <code value="pyroglutamate"/>
+                  <display value="Pyroglutamic acid (pE)"/>
+               </coding>
+            </concept>
+         </nTerminalModification>
+         <cTerminalModification>
+            <concept>
+               <coding>
+                  <system value="http://example.europa.eu/fhir/Modification"/>
+                  <code value="lysine-clipped"/>
+                  <display value="C-terminal lysine clipping"/>
+               </coding>
+            </concept>
+         </cTerminalModification>
+      </subunit>
+      <subunit>
+         <subunit value="2"/>
+         <sequence value="DIQMTQSPSSLSASVGDRVTITCRASQDVNTAVAWYQQKPGKAPKLLIYSASFLYSGVPSRFSGSRSGTDFTLTISSLQPEDFATYYCQQHYTTPPTFGQGTKVEIK..."/>
+         <length value="214"/>
+      </subunit>
+      <gene>
+         <sequenceOrigin>
+            <coding>
+               <system value="http://hl7.org/fhir/gene-sequence-origin"/>
+               <code value="humanised-mouse"/>
+               <display value="Humanised mouse"/>
+            </coding>
+         </sequenceOrigin>
+         <gene>
+            <concept>
+               <coding>
+                  <system value="http://www.genenames.org"/>
+                  <code value="IGHG1"/>
+                  <display value="Immunoglobulin heavy constant gamma 1"/>
+               </coding>
+            </concept>
+         </gene>
+      </gene>
+   </protein>
+   <relationship>
+      <substanceDefinitionReference>
+         <reference value="SubstanceDefinition/her2"/>
+         <display value="Receptor tyrosine-protein kinase erbB-2 (HER2)"/>
+      </substanceDefinitionReference>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-relationship-type"/>
+            <code value="TherapeuticTarget"/>
+            <display value="Therapeutic target"/>
+         </coding>
+      </type>
+      <interaction>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-interaction-type"/>
+            <code value="binding"/>
+            <display value="Binding"/>
+         </coding>
+      </interaction>
+      <measurementType>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-measurement-type"/>
+            <code value="kd"/>
+            <display value="Kd"/>
+         </coding>
+      </measurementType>
+      <amountQuantity>
+         <value value="0.1"/>
+         <unit value="nM"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="nmol/L"/>
+      </amountQuantity>
+   </relationship>
+</SubstanceDefinition>
