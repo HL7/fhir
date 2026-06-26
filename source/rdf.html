@@ -184,8 +184,8 @@ Web Health Care and Life Sciences Interest Group</a>.
   fhir:id [ fhir:v "bgpanel"] ;   # Its id is bgpanel.
   fhir:status [ fhir:v "final"] ; # It has an (extensible) status of final.
   fhir:code [                     # It has code,
+     a loinc:34532-2 ;          # each having an OPTIONAL concept IRI (see below)
      fhir:coding ( [              # given by a list of Codings,
-       a loinc:34532-2 ;          # each having an OPTIONAL concept IRI (see below)
        fhir:system [              # plus a code system URI
          fhir:l &lt;http://loinc.org&gt; ;               # (as an OPTIONAL RDF node,
          fhir:v "http://loinc.org"^^xsd:anyURI ] ; # but always as a literal),
@@ -335,10 +335,12 @@ href="fhir.shex">fhir.shex</a>
             (officially called "RDF collections") in order to retain the
             order of their elements.  For example this
             <code>fhir:coding</code> property holds a list of two members: </p>
-          <pre class="rdf">    fhir:coding <b>(</b>
-      [ a &lt;http://loinc.org/rdf/29463-7&gt; … ]
-      [ a &lt;http://loinc.org/rdf/3141-9&gt; … ]
-    <b>)</b></pre>
+<pre class="rdf">
+fhir:coding <b>(</b>
+  [ fhir:system … ]
+  [ fhir:system … ]
+<b>)</b>
+</pre>
           <p> Since RDF lists can cause problems for OWL users, a
             <a href="https://github.com/w3c/hcls-fhir-rdf/tree/gh-pages/scripts/owl-safe-lists">script</a> can
             convert RDF lists to an alternate representation.
@@ -704,32 +706,53 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
 
           <a name="identifying-concepts"></a>
           <a name="representing-concepts"></a> <!-- Keep old anchor too -->
-          <h4>Identifying Concepts in a Terminology</h4>
-          <p> The same logic applies to the <a
-              href="datatypes.html#Coding">Coding</a> data type. These
-            are represented directly in Turtle by serializing their
-            properties as above.
-            However, for reasoners using the RDF graph, it's also useful to
-            make the implicit concept references in these Codings
-            explicit, by specifying an OPTIONAL <i>concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a></i> in an
-            rdf:type assertion, written using shorthand <b><code class="rdf" style="font-size: larger">a</code></b> in
-            Turtle: </p>
-          <pre class="rdf">fhir:code [
-    fhir:coding (
-        [
-            <b>a loinc:29463-7</b>;    # OPTIONAL, but RECOMMENDED
-            fhir:system [ fhir:v "http://loinc.org" ];
-            fhir:code [ fhir:v "29463-7" ];
-            fhir:display [ fhir:v "Body Weight" ]
-        ]
-        [
-            <b>a sct:27113001</b>;    # OPTIONAL, but RECOMMENDED
-            fhir:system [ fhir:v "http://snomed.info/sct" ];
-            fhir:code [ fhir:v "27113001" ];
-            fhir:display [ fhir:v "Body weight" ]
-        ]
-    )
-];</pre>
+          <h4>Identifying Concepts in Terminologies & Ontologies</h4>
+          <p> The <a href="datatypes.html#Coding">Coding</a> data type is
+            represented directly in Turtle by serializing its properties like any other FHIR element.
+            However, it's also useful to make the implicit concept references in these Codings
+            explicit for RDF graph querying and formal reasoning. 
+            To support these use cases, an optional <i>concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a></i> MAY 
+            be added to the <a href="datatypes.html#CodeableConcept">CodeableConcept</a> for the Coding, if this is appropriate for meaning of the concept, using a <code>rdf:type</code> assertion or 
+            written using shorthand <b><code class="rdf" style="font-size: larger">a</code></b> in
+            Turtle.</p>
+            <p>The use of <code>rdf:type</code> also supports limited, automated testing of whether multiple Codings are properly used for a single CodeableConcept. In (uncommon) cases where the concepts referenced in a Coding are disjoint (having no intersection of extensions), an OWL reasoner will detect an inconsistency.</p>
+            <p>The following example shows concept IRIs added to an Observation.code (type CodeableConcept): </p>
+<pre class="rdf">
+&lt;http://example.org/o1&gt; a fhir:Observation ;
+  fhir:code ( [
+    <b>a loinc:29463-7</b>;   # OPTIONAL, but RECOMMENDED
+    <b>a sct:27113001</b>;    # OPTIONAL, but RECOMMENDED
+    fhir:coding ( [
+      fhir:system [ fhir:v "http://loinc.org" ];
+      fhir:code [ fhir:v "29463-7" ];
+      fhir:display [ fhir:v "Body Weight" ]
+    ] [
+      fhir:system [ fhir:v "http://snomed.info/sct" ];
+      fhir:code [ fhir:v "27113001" ];
+      fhir:display [ fhir:v "Body weight" ]
+    ] ) ;
+  ] ) ;
+</pre>
+
+          <p>The optional concept IRI MAY also be added using the <a href="http://hl7.org/fhir/StructureDefinition/rdf-concept-iri">RDF Concept IRI Extension</a> on the Coding that it was derived from. 
+            This support cases where the concept IRI needs to be preserved in JSON or XML serialization, cases where Coding elements are used directly outside of CodeableConcepts, and cases where the <code>rdf:type</code> relation is not appropriate for the meaning of the concept.
+            In this example of a Questionnaire.code (type Coding), <code>fhir:l</code> is rendered to show that the concept IRI is still directly resolvable with SPARQL or OWL.
+          </p>
+<pre class="rdf">
+&lt;http://example.org/q1&gt; a fhir:Questionnaire ;
+  fhir:code ( [
+    fhir:system [ fhir:v "http://loinc.org"^^xsd:anyURI ] ;
+    fhir:code [ fhir:v "100280-7" ] ;
+    fhir:extension ( [   # OPTIONAL extension
+      fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/rdf-concept-iri"^^xsd:anyURI ] ;
+      fhir:value [ 
+        rdf:type fhir:Uri ;
+        fhir:v "http://loinc.org/rdf/100280-7"^^xsd:anyURI ;
+        fhir:l &lt;http://loinc.org/rdf/100280-7&gt; ;     # OPTIONAL RDF link
+      ] ;
+    ] ) ;
+  ] ) ;
+</pre>
 
         <a name="iri-stem"></a>
           <h4>Concept IRIs and IRI Stems</h4>
@@ -831,8 +854,9 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
          fhir:l &lt;http://example.org/fhir/StructureDefinition/observation-bodyPosition&gt; ;
          fhir:v "http://example.org/fhir/StructureDefinition/observation-bodyPosition"^^xsd:anyURI ] ;
       fhir:value [
+        a sct:33586001;
         fhir:coding (
-          a sct:33586001;
+
           fhir:system [ fhir:l &lt;http://snomed.info/sct&gt; ;
                         fhir:v "http://snomed.info/sct"^^xsd:anyURI ];
           fhir:code [ fhir:v "33586001" ];
@@ -842,8 +866,8 @@ fhir:contained ( <b>&lt;#2222&gt;</b> ) ; # Relative URI
         fhir:l &lt;http://example.org/fhir/StructureDefinition/observation-delta&gt; ;
         fhir:v "http://example.org/fhir/StructureDefinition/observation-delta"^^xsd:anyURI ] ;
       fhir:value [
+        a sct:1250004;
         fhir:coding (
-          a sct:1250004;
           fhir:system [ fhir:l &lt;http://snomed.info/sct&gt; ;
                         fhir:v "http://snomed.info/sct"^^xsd:anyURI ];
           fhir:code [ fhir:v "1250004" ];
