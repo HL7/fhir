@@ -110,7 +110,7 @@
             </mapping>
             <mapping>
                 <identity value="DIM" />
-                <map value="AlertCondition/alert-info-id" />
+                <map value="Alert/Handle" />
             </mapping>
             <mapping>
                 <identity value="BICEPS" />
@@ -586,6 +586,11 @@
             <type>
                 <code value="Identifier" />
             </type>
+            <mapping>
+                <identity value="BICEPS" />
+                <map value="AlertSignalDescriptor/Handle" />
+            </mapping>
+
         </element>
         <element id="DeviceAlert.signal.activationState">
             <path value="DeviceAlert.signal.activationState" />
