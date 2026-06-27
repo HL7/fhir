@@ -221,8 +221,8 @@
     </element>
     <element id="RiskAssessment.code">
       <path value="RiskAssessment.code"/>
-      <short value="Type of risk assessment"/>
-      <definition value="The classification of the type of risk assessment performed."/>
+      <short value="Type of risk"/>
+      <definition value="The type or classification of the risk being assessed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
