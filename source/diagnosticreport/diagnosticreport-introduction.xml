@@ -7,25 +7,22 @@
   <p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
   <p><b>Non-compatible</b></p>
   <ul>
-    <li>Marked <code>DiagnosticReport.focus</code> as modifier so consumers recognize that the report focus can change interpretation of the resource <a href="https://jira.hl7.org/browse/FHIR-54620">FHIR-54620</a></li>
-    <li>Adjusted summary handling by removing <code>DiagnosticReport.media</code> from the summary set and adding <code>DiagnosticReport.conclusion</code> to the summary set <a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a></li>
+    <li>Summary set reworked: <code>DiagnosticReport.media</code> removed from the summary, and <code>DiagnosticReport.conclusion</code> and <code>DiagnosticReport.conclusionCode</code> added to the summary <a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a></li>
   </ul>
   <p><b>Compatible substantive</b></p>
   <ul>
-    <li>Added and clarified <code>DiagnosticReport.statusReason</code> with artifact-scoped status-reason CodeSystem and ValueSet support, and aligned the status and availability-status wording <a href="https://jira.hl7.org/browse/FHIR-56192">FHIR-56192</a>, <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a></li>
-    <li>Removed unsafe narrative guidance that could duplicate or conflict with generated narrative content <a href="https://jira.hl7.org/browse/FHIR-54548">FHIR-54548</a></li>
-    <li>Clarified <code>DiagnosticReport.subject</code> guidance to remove conflicting language about subject use <a href="https://jira.hl7.org/browse/FHIR-54552">FHIR-54552</a></li>
+    <li>Added a status-reason capability for DiagnosticReport, backed by a new <code>diagnostic-report-status-reason</code> CodeSystem and ValueSet <a href="https://jira.hl7.org/browse/FHIR-56192">FHIR-56192</a></li>
+    <li>Removed a conflicting requirement from the <code>DiagnosticReport.subject</code> definition <a href="https://jira.hl7.org/browse/FHIR-54552">FHIR-54552</a></li>
+    <li>Removed narrative guidance that encouraged potentially unsafe duplication of clinically significant content into the narrative <a href="https://jira.hl7.org/browse/FHIR-54548">FHIR-54548</a></li>
   </ul>
   <p><b>Non-substantive</b></p>
   <ul>
-    <li>Clarified identifier mapping and narrative guidance so PLAX and FILL are not treated as report identifiers <a href="https://jira.hl7.org/browse/FHIR-54545">FHIR-54545</a></li>
-    <li>Removed GenomicStudy references from <code>DiagnosticReport.study</code> and corrected study reference guidance <a href="https://jira.hl7.org/browse/FHIR-54164">FHIR-54164</a></li>
-    <li>Replaced a SHALL statement for <code>DiagnosticReport.effective[x]</code> with best-practice guidance to align narrative with resource cardinality <a href="https://jira.hl7.org/browse/FHIR-54546">FHIR-54546</a></li>
-    <li>Corrected the misspelled <code>DiagnosticReport.recomendation</code> element name to <code>DiagnosticReport.recommendation</code> <a href="https://jira.hl7.org/browse/FHIR-54163">FHIR-54163</a></li>
-    <li>Added <code>DiagnosticReport.conclusionCode</code> to the summary set, overlapping with the broader summary review <a href="https://jira.hl7.org/browse/FHIR-54554">FHIR-54554</a></li>
-    <li>Clarified observation/report narrative and vital-sign guidance touched by the shared Orders and Observations batch <a href="https://jira.hl7.org/browse/FHIR-54543">FHIR-54543</a>, <a href="https://jira.hl7.org/browse/FHIR-53902">FHIR-53902</a>, <a href="https://jira.hl7.org/browse/FHIR-54503">FHIR-54503</a>, <a href="https://jira.hl7.org/browse/FHIR-54508">FHIR-54508</a></li>
-    <li>Clarified support for multiple Observation context and/or method details in the shared Orders and Observations narrative updates <a href="https://jira.hl7.org/browse/FHIR-54904">FHIR-54904</a></li>
-    <li>Applied the DeviceDefinition device-version type binding update from the shared batch; no separate DiagnosticReport-specific semantic delta is exposed in the hydrated evidence <a href="https://jira.hl7.org/browse/FHIR-56063">FHIR-56063</a></li>
+    <li>Relaxed <code>DiagnosticReport.effective[x]</code> guidance from SHALL to a best-practice recommendation and reconciled element cardinality with the descriptive text <a href="https://jira.hl7.org/browse/FHIR-54546">FHIR-54546</a></li>
+    <li>Removed <code>GenomicStudy</code> from the allowed reference targets of <code>DiagnosticReport.study</code> so the types match the element description <a href="https://jira.hl7.org/browse/FHIR-54164">FHIR-54164</a></li>
+    <li>Clarified that placer/filler (PLAX/FILL) values are not identifiers of the report; adjusted <code>DiagnosticReport.identifier</code> mapping and notes <a href="https://jira.hl7.org/browse/FHIR-54545">FHIR-54545</a></li>
+    <li>Clarified resource scope that DiagnosticReport is used mostly for clinical results <a href="https://jira.hl7.org/browse/FHIR-54543">FHIR-54543</a></li>
+    <li>Corrected the misspelled element name <code>DiagnosticReport.recomendation</code> to <code>recommendation</code> <a href="https://jira.hl7.org/browse/FHIR-54163">FHIR-54163</a></li>
+    <li>Added <code>DiagnosticReport.conclusionCode</code> to the element summary (see also <a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a>) <a href="https://jira.hl7.org/browse/FHIR-54554">FHIR-54554</a></li>
   </ul>
   <p><b>Additional changes</b></p>
   <ul>

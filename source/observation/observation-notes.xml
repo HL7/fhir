@@ -4,14 +4,14 @@
 		<h2>Notes:</h2>
 	  <a name="profiling"></a>
 		<h3>Profiling Observation</h3>
-		<p>   At its simplest, a resource instance can consist of only a code and a value, and status flag.    The relevance of other properties will vary based on the type of observation.
+		<p>   At its simplest, a resource instance can consist of only a code and a value, and a status flag.    The relevance of other properties will vary based on the type of observation.
 
 			<a href="observation-profiles.html">Profiles</a> are created to provide guidance on capturing certain types of observations for a given use case.  The Observation resource focuses on the level of detail    captured by most systems.  However, for a given use case there may be additional constraints and additional information relevant in certain circumstances.  As with other resources, <a href="extensibility.html">extensions</a> can be used to introduce this additional complexity. </p>
 				<a name="observationsubject">
 		</a>
 	  <h3>Subject of an Observation</h3>
 		<p>
-		Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately.  However, two attributes may be used for representing the focus of the observation if it is not the subject itself.  The <code>specimen</code>, and <code>bodyStructure</code> elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and  <code>focus</code> represents specific aspect of the subject that are the point of attention such as another observation or a device implanted in a patient.
+		Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately.  However, two attributes may be used for representing the focus of the observation if it is not the subject itself.  The <code>specimen</code>, and <code>bodyStructure</code> elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and  <code>focus</code> represents specific aspects of the subject that are the points of attention such as another observation or a device implanted in a patient.
 		</p>
 		<p>
 		There may be some confusion about what to record in the subject, focus, and device elements, and the observation-recording extension, particularly involving Devices.
@@ -130,7 +130,7 @@
 		}
 
 				</pre>
-		<p>When a coded answer list includes a concept code for &quot;other&quot; and there is a free text description of the concept, the <code>valueCodeableConcept.text</code> element should be used to capture the full meaning of the source.  In the example below, the answer code &quot;Other&quot; is provided in the <code>valueCodeableConcept</code> element and the text value supplied value in the <code>CodeableConcept.text</code> element.</p>
+		<p>When a coded answer list includes a concept code for &quot;other&quot; and there is a free text description of the concept, the <code>valueCodeableConcept.text</code> element should be used to capture the full meaning of the source.  In the example below, the answer code &quot;Other&quot; is provided in the <code>valueCodeableConcept</code> element and the text value supplied in the <code>CodeableConcept.text</code> element.</p>
 		<a name="usingcodepairs">
 		</a>
 		<pre class="json">
@@ -165,7 +165,7 @@
 	  <a name="code-interop"></a>
 		<h4>Interoperability Issues using code value pairs in FHIR</h4>
 		<p>A recurring issue for many observation events, regardless of the particular pattern, is determining how to populate observation.code and observation.value. While this is typically straight-forward for laboratory observations, it can get blurry for other types of observations, such as findings and disorders, family history observations, etc. This discussion focuses on the way in which the coded representation of such statements is expressed using the <code>Observation.code</code> and <code>Observation.value</code> elements. </p>
-		<p>There are two distinct facets that are central to a FHIR Observations:</p>
+		<p>There are two distinct facets that are central to a FHIR Observation:</p>
 		<ul>
 			<li>The action taken to make the finding and/or the property about which the property was observed.  For example: measurement of blood hemoglobin.
 		  </li>
@@ -175,7 +175,7 @@
 		<p>Several different ways of representing the same information exist using different combinations of the <code>Observation.code</code> and <code>Observation.value</code>. Unconstrained use of the alternatives presents a major challenge for computation of semantic equivalence and for safe interpretation of observations originating from different applications and users. The following four patterns could reasonably represent the same case. Considering that the Observation resource needs to support many use cases, the appropriate place to define the specific pattern is expected to be done through  profiles and implementation guides as specified by the jurisdictions and/or organizations implementing FHIR:</p>
 		<ol>
 			<li>
-				<code>Observation.code</code> represents the nature of the observation and the <code>Observation.value</code> a code represents the non-numeric result value. These are two distinct facets that are central to a FHIR Observations.  For example:
+				<code>Observation.code</code> represents the nature of the observation and the <code>Observation.value</code>, as a code, represents the non-numeric result value. These are two distinct facets that are central to a FHIR Observation.  For example:
 				<ul>
 					<li> code=[Examination] </li>
 					<li>value=[Abdomen tender]</li>
@@ -196,7 +196,7 @@
 				</ul>
 			</li>
 			<li>
-		    in this example the <code>Observation.code</code> is expressed in a way that does not specify the observation action but indicates a statement about findings reduced to a single name (or term). In this particular example in that context, the <code>Observation.value</code> is omitted.  For example:
+		    In this example, the <code>Observation.code</code> is expressed in a way that does not specify the observation action but indicates a statement about findings reduced to a single name (or term). In this particular example in that context, the <code>Observation.value</code> is omitted.  For example:
 				<ul>
 					<li> code=[Abdominal tenderness]</li>
 					<li>value element is omitted</li>
@@ -210,7 +210,7 @@
 		    <ul>
 					<li>The Observation.code is preferably a <a href="https://loinc.org/">LOINC</a> concept code.
 		        <ul>
-							<li>If a <a href="http://snomed.info/sct">SNOMED CT</a> concept code is used, the expression SHOULD represent a 363787002 (Observable entity(Observable entity)) or 386053000 (Evaluation procedure(evaluation procedure))
+							<li>If a <a href="http://snomed.info/sct">SNOMED CT</a> concept code is used, the expression SHOULD represent a 363787002 (Observable entity (observable entity)) or 386053000 (Evaluation procedure(evaluation procedure))
 		          </li>
 						</ul>
 					</li>
@@ -222,7 +222,7 @@
 		    <ul>
 					<li>The Observation.code is preferably a LOINC or SNOMED CT concept code.
 					<ul>
-					<li>If a SNOMED CT concept code is used, the expression SHOULD represent a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
+					<li>If a SNOMED CT concept code is used, the expression SHOULD represent a 404684003 (Clinical finding (finding)), 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
 					</li>
 					</ul>
 		      </li>
@@ -248,7 +248,7 @@
 			</li>
 			<li>Recommended rules for case 4 pattern:
 		    <ul>
-					<li>The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
+					<li>The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)), 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
 		      </li>
 					<li>The Observation.value is omitted. The default interpretation is the concept (single code or expression) represented in Observation.code is present in the patient. An Observation.dataAbsentReason value of 'clinical-finding' SHOULD be used to indicate why the expected value is missing.</li>
 				</ul>
@@ -258,7 +258,7 @@
 		<a name="refine">
 		</a>
 			<h3>Refining the interpretation of an Observation using additional codes or Observations</h3>
-			<p>The following list provides guidance on using codes or other observations to provide additional context that may alter how an observation is interpreted.: </p>
+			<p>The following list provides guidance on using codes or other observations to provide additional context that may alter how an observation is interpreted: </p>
 			<ol>
 			<li>
 			<p>If possible, use the most specific code you can</p>
@@ -339,8 +339,8 @@
 			<li> The Attachment data type is used to represent an observation result value if the <em>actual</em> value is a binary file such as an image. If the observation result value is <em>derived</em> from the binary file (for example 'X' detected and here is the proof in this image), the binary file may be directly represented using DocumentReference and referenced in the Observation with <code>derivedFrom</code>.  Images that are referenced as part of a report should be represented with <code>DiagnosticReport.media</code> or, if the entire report is in a binary format such as pdf,  with <code>DiagnosticReport.presentedForm</code>.<br/>
 
 			</li>
-			<li>		The Boolean data type is rarely used for <code>value[x]</code> because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead and select codes from <a href="http://terminology.hl7.org/ValueSet/v2-0136">http://terminology.hl7.org/ValueSet/v2-0136</a> (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed")	  </li>
-			<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However, when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ('error' or 'NaN').		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the <code>valueQuantity</code> would be:
+			<li>		The Boolean data type is rarely used for <code>value[x]</code> because most observation result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead and select codes from <a href="http://terminology.hl7.org/ValueSet/v2-0136">http://terminology.hl7.org/ValueSet/v2-0136</a> (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed)	  </li>
+			<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used in the SampledData data type. However, when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ('error' or 'NaN').		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the <code>valueQuantity</code> would be:
 
 	<pre class="json">
 		"valueQuantity": {

@@ -6,7 +6,7 @@
         <p>This resource is referenced from the <a href="nutrition-module.html">Nutrition Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
         <p><b>Compatible substantive</b></p>
         <ul>
-            <li>Clarified NutritionOrder code-system and terminology guidance in the StructureDefinition for jurisdiction and implementation-community use; the processor reported no structural element delta for this change <a href="https://jira.hl7.org/browse/FHIR-55651">FHIR-55651</a></li>
+            <li>Clarified the NutritionOrder terminology bindings so a referenced code system is not presumed mandatory for jurisdictions or implementation communities that do not use it; affects the diet-type, consistency-type, and nutrient-code value sets and their NutritionOrder bindings. Snapshot regeneration required. <a href="https://jira.hl7.org/browse/FHIR-55651">FHIR-55651</a></li>
         </ul>
     </blockquote>
 <a name="scope"></a>

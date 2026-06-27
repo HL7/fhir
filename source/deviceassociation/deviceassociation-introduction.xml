@@ -6,16 +6,21 @@
   <p>This resource is referenced from the <a href="device-module.html">Device Module</a> and <a href="workflow-module.html">Workflow Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
   <p><b>Non-compatible</b></p>
   <ul>
-    <li>The relationship/status model was tightened: <code>DeviceAssociation.relationship</code> is now required, <code>DeviceAssociation.relationshipStatus</code> was added, <code>DeviceAssociation.status</code> is now a modifier, and <code>DeviceAssociation.associationStatus</code> was removed <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a></li>
+    <li><code>DeviceAssociation.relationship</code> made required and single (0..* to 1..1) and promoted to the summary view <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li><code>DeviceAssociation.subject</code> made required (0..1 to 1..1) and promoted to the summary view <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li><code>DeviceAssociation.statusReason</code> restricted to a single value (0..* to 0..1) <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li><code>DeviceAssociation.status</code> promoted to a modifier element and to the summary view <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li><code>DeviceAssociation.bodyStructure</code> retyped from <code>Reference</code> to <code>CodeableReference</code> (and relaxed to 0..*) <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li><code>DeviceAssociation.associationStatus</code> removed <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
   </ul>
   <p><b>Compatible substantive</b></p>
   <ul>
-    <li>Key elements were promoted into the summary view, including <code>DeviceAssociation.identifier</code>, <code>device</code>, <code>relationship</code>, <code>status</code>, <code>subject</code>, <code>focus</code>, and <code>period</code> <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a></li>
-    <li><code>DeviceAssociation.bodyStructure</code> is now a repeatable <code>CodeableReference</code> rather than a single <code>Reference</code> <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a></li>
+    <li>New element <code>DeviceAssociation.relationshipStatus</code> added, backed by the new artifact-scoped <code>deviceassociation-relationship-status</code> value set and code system <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a></li>
+    <li><code>DeviceAssociation.identifier</code>, <code>.device</code>, <code>.focus</code> and <code>.period</code> promoted to the summary view <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a></li>
   </ul>
   <p><b>Non-substantive</b></p>
   <ul>
-    <li>The <code>DeviceAssociation.subject</code> wording was clarified while the element is now required in the after-applied definition <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li><code>DeviceAssociation.subject</code> short description clarified <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
   </ul>
   <p><b>Additional changes</b></p>
   <ul>

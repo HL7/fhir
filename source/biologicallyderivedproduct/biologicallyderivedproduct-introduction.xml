@@ -5,18 +5,17 @@
             <p>This resource is referenced from the <a href="biologically-derived-product-module.html">Biologically Derived Product Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
             <p><b>Compatible substantive</b></p>
             <ul>
-                <li>The Medical Product of Human Origin (MPHO) profile and related examples were moved out of FHIR Core to the OO Incubator IG, and the core MPHO profile differential constraints were removed (see also <a href="https://jira.hl7.org/browse/FHIR-49665">FHIR-49665</a>) <a href="https://jira.hl7.org/browse/FHIR-54998">FHIR-54998</a>, <a href="https://jira.hl7.org/browse/FHIR-52021">FHIR-52021</a></li>
-                <li><code>BiologicallyDerivedProduct.therapyIdentifier</code> was added to support grouping or hierarchical instances of biologically derived products <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a></li>
-                <li>Search support for <code>collection.sourceOrganization</code> was added or updated alongside the collection-source narrative <a href="https://jira.hl7.org/browse/FHIR-56179">FHIR-56179</a></li>
+              <li>Added <code>BiologicallyDerivedProduct.therapyIdentifier</code>, a grouping identifier that lets hierarchical or related product instances (e.g. products arising from the same therapy) be associated with one another <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a></li>
+              <li>Added support for searching by the collection source organization via a new search parameter on the <code>collection</code> backbone targeting <code>collection.sourceOrganization</code> <a href="https://jira.hl7.org/browse/FHIR-56179">FHIR-56179</a></li>
+              <li>Removed the MedicalProductOfHumanOrigin (MPHO) profile (including its category slicing and supporting examples) from FHIR Core; this content has migrated to the <a href="https://build.fhir.org/ig/HL7/oo-incubator">OO Incubator IG</a> (see also <a href="https://jira.hl7.org/browse/FHIR-49665">FHIR-49665</a>) <a href="https://jira.hl7.org/browse/FHIR-54998">FHIR-54998</a>, <a href="https://jira.hl7.org/browse/FHIR-52021">FHIR-52021</a></li>
             </ul>
             <p><b>Non-substantive</b></p>
             <ul>
-                <li>The <code>.subject</code> short description was clarified without an identified structural delta <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
-                <li>The BiologicallyDerivedProduct example page typo was corrected <a href="https://jira.hl7.org/browse/FHIR-55001">FHIR-55001</a></li>
+              <li>Corrected a typo on the BiologicallyDerivedProduct example page <a href="https://jira.hl7.org/browse/FHIR-55001">FHIR-55001</a></li>
             </ul>
             <p><b>Additional changes</b></p>
             <ul>
-                <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-55252">FHIR-55252</a>.</li>
+              <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-55252">FHIR-55252</a>.</li>
             </ul>
         </blockquote>
 		<a name="scope"></a>

@@ -7,15 +7,16 @@
   <p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
   <p><b>Compatible substantive</b></p>
   <ul>
-    <li><code>BodyStructure.includedStructure.morphology</code> now permits multiple morphology values <a href="https://jira.hl7.org/browse/FHIR-56262">FHIR-56262</a></li>
-    <li><code>BodyStructure.includedStructure.origin</code> was added to record origin information for an included structure <a href="https://jira.hl7.org/browse/FHIR-53864">FHIR-53864</a></li>
-    <li><code>BodyStructure.patient</code> was relaxed from required to optional <a href="https://jira.hl7.org/browse/FHIR-54450">FHIR-54450</a></li>
+    <li>Cardinality of <code>BodyStructure.includedStructure.morphology</code> relaxed to 0..* so that multiple morphology concepts can be recorded for an included structure <a href="https://jira.hl7.org/browse/FHIR-56262">FHIR-56262</a></li>
+    <li>Added <code>BodyStructure.includedStructure.origin</code> to capture the origin of the included structure, backed by a new artifact-scoped <code>codesystem-bodystructure-origin</code> and <code>valueset-bodystructure-origin</code> <a href="https://jira.hl7.org/browse/FHIR-53864">FHIR-53864</a></li>
+    <li>Cardinality of <code>BodyStructure.patient</code> relaxed to 0..1, allowing the patient reference to be omitted <a href="https://jira.hl7.org/browse/FHIR-54450">FHIR-54450</a></li>
   </ul>
   <p><b>Non-substantive</b></p>
   <ul>
-    <li>The BodyStructure introduction and boundaries guidance was clarified, including when to reference BodyStructure and how body structure and laterality fit with imaging selection guidance <a href="https://jira.hl7.org/browse/FHIR-54747">FHIR-54747</a>, <a href="https://jira.hl7.org/browse/FHIR-54845">FHIR-54845</a>, <a href="https://jira.hl7.org/browse/FHIR-54872">FHIR-54872</a></li>
-    <li>Additional BodyStructure example material was added, including a breast-mass example and examples-list updates <a href="https://jira.hl7.org/browse/FHIR-57518">FHIR-57518</a></li>
-    <li>The 5Ws mapping exceptions and artifact-scoped terminology/display content received cleanup updates <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a>, <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
+    <li>The Boundaries-and-Relationships narrative was rewritten to explain when, and how, other resources should reference BodyStructure <a href="https://jira.hl7.org/browse/FHIR-54872">FHIR-54872</a>, <a href="https://jira.hl7.org/browse/FHIR-54845">FHIR-54845</a>, <a href="https://jira.hl7.org/browse/FHIR-54747">FHIR-54747</a></li>
+    <li>Added a mammography breast-mass example and linked it from the BodyStructure examples list <a href="https://jira.hl7.org/browse/FHIR-57518">FHIR-57518</a>, <a href="https://jira.hl7.org/browse/FHIR-54747">FHIR-54747</a></li>
+    <li>Updated the BodyStructure Five Ws mapping exceptions <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
+    <li>Cleaned up value-set display names for BodyStructure-scoped value sets <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
   </ul>
   <p><b>Additional changes</b></p>
   <ul>

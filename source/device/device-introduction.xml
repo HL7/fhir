@@ -4,20 +4,16 @@
 <blockquote class="ballot-note" id="bn1">
   <p><b>Note to Balloters for Ballot5</b>: The Device changes in this window focus on Device-specific cleanup: a modifier correction on <code>Device.name.display</code>, alignment of <code>Device.conformsTo</code> source guidance with DeviceDefinition, Five Ws mapping cleanup, and artifact-scoped Device property terminology/display cleanup.</p>
   <p>This resource is referenced from the <a href="device-module.html">Device Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
-  <p><b>Non-compatible</b></p>
-  <ul>
-    <li>Container-related Device context and artifact terminology were refreshed in the OO ticket batch touching Device narrative and device-property terminology <a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
-  </ul>
   <p><b>Compatible substantive</b></p>
   <ul>
-    <li><code>Device.name.display</code> is no longer marked as a modifier <a href="https://jira.hl7.org/browse/FHIR-55372">FHIR-55372</a></li>
+    <li><code>Device.name.display</code> is no longer a modifier element (<code>isModifier</code> true to false) <a href="https://jira.hl7.org/browse/FHIR-55372">FHIR-55372</a></li>
   </ul>
   <p><b>Non-substantive</b></p>
   <ul>
-    <li><code>Device.conformsTo</code> guidance was aligned with DeviceDefinition by adding source-related clarification in the Device materials <a href="https://jira.hl7.org/browse/FHIR-56683">FHIR-56683</a></li>
-    <li>Device Five Ws mapping exceptions were updated as part of the Orders &amp; Observations mapping cleanup <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
-    <li>Device property type terminology/display names were cleaned up in the artifact-scoped CodeSystem and ValueSet <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
-    <li>Extension guidance involving overlap with <code>Device.specialization</code> was clarified; the hydrated evidence reported no core-element replacement extension for this artifact <a href="https://jira.hl7.org/browse/FHIR-52979">FHIR-52979</a></li>
+    <li><code>Device.conformsTo</code> updated to carry a source, aligning it with the equivalent element on DeviceDefinition <a href="https://jira.hl7.org/browse/FHIR-56683">FHIR-56683</a></li>
+    <li>Device five-Ws mappings refreshed (<code>device-fivews-mapping-exceptions.xml</code>) <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
+    <li>Device property-type terminology display names cleaned up (<code>codesystem-device-property-type</code>, <code>valueset-device-property-type</code>) <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
+    <li>Clarified the relationship between the R4-and-earlier specialization extension and the <code>Device.specialization</code> element to avoid purpose overlap <a href="https://jira.hl7.org/browse/FHIR-52979">FHIR-52979</a></li>
   </ul>
   <p><b>Additional changes</b></p>
   <ul>

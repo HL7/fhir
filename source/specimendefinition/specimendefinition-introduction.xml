@@ -5,20 +5,25 @@
 			<p>This resource is referenced from the <a href="administration-module.html">Administration Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
 			<p><b>Non-compatible</b></p>
 			<ul>
-				<li><code>SpecimenDefinition.subject[x]</code> is replaced by <code>SpecimenDefinition.subjectReference</code> to resolve the subject binding issue <a href="https://jira.hl7.org/browse/FHIR-54840">FHIR-54840</a></li>
-				<li>The container model is reorganized so additional container details are represented through added container/device and additive detail elements while the prior container detail fields are removed <a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
+			  <li>Specimen subject re-modelled: the <code>SpecimenDefinition.subject[x]</code> choice element was removed and <code>SpecimenDefinition.subjectReference</code> added with a value set binding supplied <a href="https://jira.hl7.org/browse/FHIR-54840">FHIR-54840</a></li>
+			  <li>The <code>SpecimenDefinition.typeTested.container</code> model was restructured to carry additional container information - added <code>container.device[x]</code>, <code>container.additive.type</code>, <code>container.additive.quantity</code>; removed <code>container.material</code>, <code>container.type</code>, <code>container.cap</code>, <code>container.description</code>, <code>container.capacity</code>, <code>container.additive.additive[x]</code> <a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
 			</ul>
 			<p><b>Compatible substantive</b></p>
 			<ul>
-				<li><code>SpecimenDefinition.identifier</code> is now repeatable (<code>0..*</code>) <a href="https://jira.hl7.org/browse/FHIR-55277">FHIR-55277</a></li>
-				<li>Status guidance is aligned to avoid encoding background workflow state in data resource status values <a href="https://jira.hl7.org/browse/FHIR-54892">FHIR-54892</a></li>
+			  <li><code>SpecimenDefinition.identifier</code> cardinality relaxed from <code>0..1</code> to <code>0..*</code> so the resource can carry multiple identifiers <a href="https://jira.hl7.org/browse/FHIR-55277">FHIR-55277</a></li>
+			  <li>The status value set was revised to keep background workflow statuses out of the data-resource <code>status</code> value <a href="https://jira.hl7.org/browse/FHIR-54892">FHIR-54892</a></li>
+			  <li><code>BodyStructure.patient</code> may now be omitted - applied in the same Orders &amp; Observations commit batch; appears to target the BodyStructure resource (see Notes for Reviewer) <a href="https://jira.hl7.org/browse/FHIR-54450">FHIR-54450</a></li>
 			</ul>
 			<p><b>Non-substantive</b></p>
 			<ul>
-				<li>The introduction adds clarification of SpecimenDefinition relationships to other resources <a href="https://jira.hl7.org/browse/FHIR-54837">FHIR-54837</a></li>
-				<li>Container nesting narrative is clarified in the same area as the container model update <a href="https://jira.hl7.org/browse/FHIR-54598">FHIR-54598</a></li>
-				<li><code>SpecimenDefinition.typeTested.container.device[x]</code> is present as an added container device element <a href="https://jira.hl7.org/browse/FHIR-54488">FHIR-54488</a></li>
-				<li>Specimen container type value set display names receive non-substantive cleanup <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
+			  <li>Introduction narrative expanded with bullets describing SpecimenDefinition's relationship to other resources <a href="https://jira.hl7.org/browse/FHIR-54837">FHIR-54837</a></li>
+			  <li>Narrative clarified around nesting of specimen containers <a href="https://jira.hl7.org/browse/FHIR-54598">FHIR-54598</a></li>
+			  <li>Definition of <code>.biologicalSourceEvent</code> updated <a href="https://jira.hl7.org/browse/FHIR-54323">FHIR-54323</a></li>
+			  <li>5 Ws mappings updated <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
+			  <li>Minor cleanup of value set display names <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
+			  <li><code>collection.device[x]</code> binding mismatch corrected - appears to target the Specimen resource (see Notes for Reviewer) <a href="https://jira.hl7.org/browse/FHIR-54488">FHIR-54488</a></li>
+			  <li>Missing value set binding added for codedConcept in <code>ObservationDefinition.performerType</code> - appears to target ObservationDefinition (see Notes for Reviewer) <a href="https://jira.hl7.org/browse/FHIR-54593">FHIR-54593</a></li>
+			  <li>Removed <code>.bodySite</code> from terminology bindings in Observation - appears to target the Observation resource (see Notes for Reviewer) <a href="https://jira.hl7.org/browse/FHIR-53457">FHIR-53457</a></li>
 			</ul>
 		</blockquote>
 		<a name="bnc"> </a>

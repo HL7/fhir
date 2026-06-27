@@ -6,7 +6,7 @@
 			<p>This resource is referenced from the <a href="nutrition-module.html">Nutrition Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
 			<p><b>Compatible substantive</b></p>
 			<ul>
-				<li>Relaxed cardinality of <code>NutritionProduct.status</code> from required to optional (1..1 to 0..1), giving implementations an escape valve when status is not known or applicable <a href="https://jira.hl7.org/browse/FHIR-55268">FHIR-55268</a></li>
+				<li>Cardinality of <code>NutritionProduct.status</code> relaxed from 1..1 to 0..1, giving the element an "escape valve" so a status need not always be asserted <a href="https://jira.hl7.org/browse/FHIR-55268">FHIR-55268</a></li>
 			</ul>
 		</blockquote>
 	<a name="scope"></a>
