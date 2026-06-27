@@ -221,8 +221,8 @@
     </element>
     <element id="RiskAssessment.code">
       <path value="RiskAssessment.code"/>
-      <short value="Type of assessment"/>
-      <definition value="The type of the risk assessment performed."/>
+      <short value="Type of risk"/>
+      <definition value="The type or classification of the risk being assessed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -235,7 +235,7 @@
         </extension>
         <strength value="example"/>
         <description value="The type of risk assessment performed."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-method-example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-type-example"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

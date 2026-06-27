@@ -17,6 +17,7 @@
                 <li>Non-substantive Changes
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55072">FHIR-55072</a>: Potentially re-useable THO-candidate value sets in resource RequestOrchestration</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55073">FHIR-55073</a>: Listed usable extensions for option elements in RequestOrchestration</li>
                     </ul>
                 </li>
             </ul>

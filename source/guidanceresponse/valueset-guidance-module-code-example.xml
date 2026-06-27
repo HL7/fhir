@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="detectedissue-management-code"/>
+  <id value="guidance-module-code-example"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -9,12 +12,16 @@
     <valueCode value="informative"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
+    <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/detectedissue-management-code"/>
+  <url value="http://hl7.org/fhir/ValueSet/guidance-module-code-example"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3266"/>
+  </identifier>
   <version value="6.0.0"/>
-  <name value="DetectedIssueManagementCode"/>
-  <title value="Detected Issue Management Code"/>
+  <name value="GuidanceModuleCodeExample"/>
+  <title value="Guidance Module Code Example"/>
   <status value="active"/>
   <experimental value="true"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -29,11 +36,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Example value set illustrating the type action (management) required."/>
+  <description value="Example guidance module codes."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/detectedissue-management-code"/>
+      <system value="http://hl7.org/fhir/guidance-module-code-example"/>
     </include>
   </compose>
 </ValueSet>
