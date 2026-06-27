@@ -6,7 +6,7 @@
 		<p>This resource is referenced from the <a href="nutrition-module.html">Nutrition Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
 		<p><b>Compatible substantive</b></p>
 		<ul>
-			<li>Reviewed and updated potentially re-useable, THO-candidate value sets scoped to NutritionIntake (<code>edible-substance-type</code>, <code>food-type</code>, <code>not-consumed-reason</code>, <code>nutritionintake-status-reason</code>); these may belong in UTG and are flagged for terminology review <a href="https://jira.hl7.org/browse/FHIR-55266">FHIR-55266</a></li>
+			<li>Reviewed and updated potentially reusable, THO-candidate value sets scoped to NutritionIntake (<code>edible-substance-type</code>, <code>food-type</code>, <code>not-consumed-reason</code>, <code>nutritionintake-status-reason</code>); these may belong in UTG and are flagged for terminology review <a href="https://jira.hl7.org/browse/FHIR-55266">FHIR-55266</a></li>
 		</ul>
 	</blockquote>
 <a name="scope"></a>

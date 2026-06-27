@@ -850,7 +850,7 @@ For accession identifiers, the Accession Identifier code, ACSN, should be used i
     <element id="Specimen.container.device">
       <path value="Specimen.container.device"/>
       <short value="Device resource for the container"/>
-      <definition value="The device resource for the the container holding the specimen. If the container is in a holder then the referenced device will point to a parent device."/>
+      <definition value="The device resource for the container holding the specimen. If the container is in a holder then the referenced device will point to a parent device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
