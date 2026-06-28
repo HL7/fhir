@@ -489,16 +489,12 @@
 			</mapping>
 		</element>
 		<element id="ValueSet.topic">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
 				<valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
 			</extension>
 			<path value="ValueSet.topic"/>
 			<short value="E.g. Education, Treatment, Assessment, etc"/>
 			<definition value="Descriptions related to the content of the ValueSet. Topics provide a high-level categorization as well as keywords for the ValueSet that can be useful for filtering and searching."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
 			<requirements value="Repositories must be able to determine how to categorize the ValueSet so that it can be found by topical and keyword searches."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -892,7 +888,7 @@
 		</element>
 		<element id="ValueSet.compose.include.filter.op">
 			<path value="ValueSet.compose.include.filter.op"/>
-			<short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendent-leaf | exists"/>
+			<short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendent-leaf | exists | property-value-of"/>
 			<definition value="The kind of operation to perform as a part of the filter criteria."/>
 			<comment value="In case filter.property represents a property of the system, the operation applies to the selected property. In case filter.property represents a filter of the system, the operation SHALL match one of the CodeSystem.filter.operator values."/>
 			<min value="1"/>

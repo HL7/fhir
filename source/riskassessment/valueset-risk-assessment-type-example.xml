@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="devicealert-signalType"/>
+  <id value="risk-assessment-type-example"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="dev"/>
+    <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/>
+    <valueCode value="informative"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
-  </extension>
-  <url value="http://hl7.org/fhir/ValueSet/devicealert-signalType"/>
+  <url value="http://hl7.org/fhir/ValueSet/risk-assessment-type-example"/>
   <version value="6.0.0"/>
-  <name value="DeviceAlertSignalTypeCodes"/>
-  <title value="DeviceAlert Signal Type Codes"/>
+  <name value="RiskAssessmentTypeExample"/>
+  <title value="Risk Assessment Type Example"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
@@ -24,10 +21,10 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="DeviceAlert Signal Type Codes"/>
+  <description value="Example value set illustrating possible codes for identifying the types of risk assessment; e.g. Renal, Cardiovascular, or Hepatic risk."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/devicealert-signalType"/>
+      <system value="http://hl7.org/fhir/risk-assessment-type-example"/>
     </include>
   </compose>
 </ValueSet>

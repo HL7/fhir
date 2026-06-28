@@ -19,6 +19,9 @@
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55979">FHIR-55979</a>: MeasureReport should include .compositeScoring element on .group</li>
                     </ul>
+                    <ul>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-56802">FHIR-56802</a>: Added Period and string as possible choices for stratum.value and stratum.component.value elements.</li>
+                    </ul>
                 </li>
                 <li>Non-substantive Changes
                     <ul>

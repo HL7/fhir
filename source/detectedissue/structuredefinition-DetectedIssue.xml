@@ -183,7 +183,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Codes for high level detected issue categories."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-category"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/detectedissue-category"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -215,7 +215,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Codes identifying the type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-code"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/detectedissue-code"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -254,7 +254,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Indicates the potential degree of impact of the identified issue on the patient."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-severity"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/detectedissue-severity"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -464,7 +464,7 @@
         </extension>
         <strength value="example"/>
         <description value="Codes that describes the types of evidence for a detected issue."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/manifestation-or-symptom"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/manifestation-or-symptom-example"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -564,7 +564,7 @@
         </extension>
         <strength value="example"/>
         <description value="Example codes illustrating expected onset type"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-expected-onset-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/detectedissue-expected-onset-type"/>
       </binding>
     </element>
     <element id="DetectedIssue.medicationClass">
@@ -601,7 +601,7 @@
         </extension>
         <strength value="example"/>
         <description value=""/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-management-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-management-code-example"/>
       </binding>
     </element>
     <element id="DetectedIssue.mitigation">
@@ -637,7 +637,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. 'added concurrent therapy', 'prior therapy documented', etc."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-mitigation-action"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/detectedissue-mitigation-action"/>
       </binding>
       <mapping>
         <identity value="rim"/>

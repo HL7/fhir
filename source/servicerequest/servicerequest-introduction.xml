@@ -5,9 +5,6 @@
 		<p>
 			ServiceRequest represents an order or proposal or plan to perform a diagnostic or other service on or for a patient (including non-human patients in veterinary settings). Examples of the types of services that may be ordered by a ServiceRequest are:
 		</p>
-		<blockquote class="stu-note">
-			<p><b>Note to Balloters:</b>The new 'servicerequest-specimenSuggestion' extension is expected to be available soon in an upcoming release of the Extensions Pack.</p>
-		</blockquote>
 		<blockquote style="background-color: lightblue">
 			<p><b>Release Notes (pending alternative process review with FMG):</b></p>
 			<ul>
@@ -65,13 +62,11 @@
         ServiceRequest and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a ServiceRequest would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist. For example, upon receiving a CommunicationRequest a practitioner might initiate a ServiceRequest.
         </p>
 		<blockquote class="stu-note">
-		<p><b>Note to Implementers:</b>
+		<p><b>Note to Balloters:</b>
 		</p>
 		<p>
 		The ServiceRequest.orderDetail structure is subject to further feedback based on use as the modeling creates a challenge when there is no focus, while an alternate structure would yield a requirement to repeat the focus attribute on each code/value pair.
 		</p>
-		<p>
-		Provide feedback <a href="http://hl7.org/fhir-issues">here</a>.
-		</p></blockquote>
+		</blockquote>
 	</div>
 </div>

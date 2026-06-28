@@ -26,6 +26,9 @@
 <li>device-conformsTo-source – represents the source of the device specification.</li>
 </ul>
 </blockquote>
+<blockquote class="stu-note">
+<p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
+</blockquote>
 <blockquote style="background-color: lightblue">
 	<p><b>Release Notes (pending alternative process review with FMG):</b></p>
 	<ul>
@@ -63,14 +66,9 @@ When a device gets replaced by another device of the same type. In this case, a 
 </div>
 
 
-<div>  
+<div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
-
-[%stu-note dstu%]
-The module pages under development by Orders and Observations will further describe the variations of device use cases across the device resources, e.g., Device, DeviceDefinition, DeviceAssociation, DeviceDispense, DeviceMetric, DeviceRequest, and Device Usage.
-</p>
-[%end-note-np%]
 
 <p>There are several resources that can be used to represent device related events, requests or definitions.  The following Resources should be used in the following manner: </p>
 <ul>

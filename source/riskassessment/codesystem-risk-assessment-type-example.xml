@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="risk-assessment-method-example"/>
+  <id value="risk-assessment-type-example"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
   </meta>
@@ -14,10 +14,10 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/risk-assessment-method-example"/>
+  <url value="http://hl7.org/fhir/risk-assessment-type-example"/>
   <version value="6.0.0"/>
-  <name value="RiskAssessmentMethodExample"/>
-  <title value="Risk Assessment Method Example"/>
+  <name value="RiskAssessmentTypeExample"/>
+  <title value="Risk Assessment Type Example"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -31,23 +31,28 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Example code system illustrating possible codes for identifying the mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
+  <description value="Example code system illustrating possible codes for identifying the types of risk assessment; e.g. Renal, Cardiovascular, or Hepatic risk."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-method-example"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/risk-assessment-type-example"/>
   <content value="complete"/>
   <concept>
-    <code value="timi"/>
-    <display value="TIMI"/>
-    <definition value="Thrombolysis in Myocardial Infarction Risk"/>
+    <code value="renal-risk"/>
+    <display value="Renal Risk"/>
+    <definition value="Assessment of Renal Risk"/>
   </concept>
   <concept>
-    <code value="prism"/>
-    <display value="PRISM"/>
-    <definition value="Pediatric risk of mortality (PRISM)"/>
+    <code value="cardiovascular-risk"/>
+    <display value="Cardiovascular Risk"/>
+    <definition value="Assessment of Cardiovascular Risk"/>
   </concept>
   <concept>
-    <code value="cardiff-t2d"/>
-    <display value="Cardiff T2D"/>
-    <definition value="Cardiff Type 2 Diabetes Risk"/>
+    <code value="hepatic-risk"/>
+    <display value="Hepatic Risk"/>
+    <definition value="Assessment of Hepatic Risk"/>
+  </concept>
+  <concept>
+    <code value="breast-cancer-risk"/>
+    <display value="Breast Cancer Risk"/>
+    <definition value="Assessment of Breast Cancer Risk"/>
   </concept>
 </CodeSystem>
