@@ -14,10 +14,9 @@
     <li>Device five-Ws mappings refreshed (<code>device-fivews-mapping-exceptions.xml</code>) <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
     <li>Device property-type terminology display names cleaned up (<code>codesystem-device-property-type</code>, <code>valueset-device-property-type</code>) <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
     <li>Clarified the relationship between the R4-and-earlier specialization extension and the <code>Device.specialization</code> element to avoid purpose overlap <a href="https://jira.hl7.org/browse/FHIR-52979">FHIR-52979</a></li>
-  </ul>
-  <p><b>Additional changes</b></p>
-  <ul>
-    <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-52946">FHIR-52946</a>, <a href="https://jira.hl7.org/browse/FHIR-54323">FHIR-54323</a>, <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a> and <a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a>.</li>
+	<li>Clarified the definition of <code>Device.biologicalSourceEvent</code> to improve clarity <a href="https://jira.hl7.org/browse/FHIR-54323">FHIR-54323</a></li>
+	<li>Changed <code>Device.availabilityStatus</code> to be a preferred binding to enable flexibility for implementation <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a></li>
+	<li>Moved various code systems and value sets to THO to align with coding guidance from FMG <a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a></li>
   </ul>
 </blockquote>
 <a name="scope"></a>

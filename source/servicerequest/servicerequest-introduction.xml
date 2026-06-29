@@ -7,20 +7,18 @@
 			<ul>
 			  <li>Removed the deprecated <code>ServiceRequest.specimen</code> element <a href="https://jira.hl7.org/browse/FHIR-55444">FHIR-55444</a></li>
 			  <li>Bound <code>ServiceRequest.orderDetail.parameterFocus[x]</code> to a ValueSet (explicit union of device-type and medication codes) with improved definitions and added orderDetail/parameterFocus guidance in the notes; the parameter-focus ValueSet is marked experimental <a href="https://jira.hl7.org/browse/FHIR-54847">FHIR-54847</a></li>
+			  <li><code>ServiceRequest.focus</code> has been marked as a modifier as it can change the target of the request <a href="https://jira.hl7.org/browse/FHIR-54620">FHIR-54620</a></li>
 			</ul>
 			<p><b>Compatible substantive</b></p>
 			<ul>
 			  <li>Added <code>DocumentReference</code> to <code>ServiceRequest.replaces</code> and aligned the allowed reference types of <code>basedOn</code> and <code>replaces</code> <a href="https://jira.hl7.org/browse/FHIR-54619">FHIR-54619</a></li>
-			  <li>Marked <code>codesystem-servicerequest-status-reason</code> as experimental, flagging it a THO/UTG promotion candidate <a href="https://jira.hl7.org/browse/FHIR-55273">FHIR-55273</a></li>
-			  <li>Marked <code>valueset-request-orderdetail-parameter-code</code> as experimental, flagging it a THO/UTG promotion candidate (shared with DeviceRequest) <a href="https://jira.hl7.org/browse/FHIR-55261">FHIR-55261</a></li>
+			  <li>Marked <code>codesystem-servicerequest-status-reason</code> as experimental as a part of evaluation for THO/UTG promotion <a href="https://jira.hl7.org/browse/FHIR-55273">FHIR-55273</a></li>
+			  <li>Marked <code>valueset-request-orderdetail-parameter-code</code> as experimental as a part of evaluation for THO/UTG promotion <a href="https://jira.hl7.org/browse/FHIR-55261">FHIR-55261</a></li>
+			  <li>Cardinality of <code>ServiceRequest.bodyStructure</code> has been changed to 0..* as a part of broader OO alignment on supporting bodyStructure reference through multiple codings or, where necessary from a modeling standpoint, multiple instances <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
 			</ul>
 			<p><b>Non-substantive</b></p>
 			<ul>
 			  <li>Corrected the <code>ServiceRequest.statusReason</code> definition to remove a reference to a non-existent status <a href="https://jira.hl7.org/browse/FHIR-54624">FHIR-54624</a></li>
-			</ul>
-			<p><b>Additional changes</b></p>
-			<ul>
-			  <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a> and <a href="https://jira.hl7.org/browse/FHIR-54620">FHIR-54620</a>.</li>
 			</ul>
 		</blockquote>
 		<a name="scope"></a>

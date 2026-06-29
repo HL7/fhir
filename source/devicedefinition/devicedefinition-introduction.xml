@@ -10,9 +10,11 @@
     <li>Cardinality of <code>DeviceDefinition.packaging.identifier</code> relaxed from 0..1 to 0..* to allow multiple identifiers per packaging instance <a href="https://jira.hl7.org/browse/FHIR-55260">FHIR-55260</a></li>
     <li>Type of <code>DeviceDefinition.regulatoryIdentifier.type</code> changed from <code>code</code> to <code>CodeableConcept</code> to provide an escape valve for values outside the fixed set <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a></li>
   </ul>
-  <p><b>Additional changes</b></p>
+  <p><b>Non-substantive</b></p>
   <ul>
-    <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54866">FHIR-54866</a>, <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a>, <a href="https://jira.hl7.org/browse/FHIR-56063">FHIR-56063</a>, <a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a>, <a href="https://jira.hl7.org/browse/FHIR-54863">FHIR-54863</a> and <a href="https://jira.hl7.org/browse/FHIR-54864">FHIR-54864</a>.</li>
+	<li>Changed <code>Device.availabilityStatus</code> to be a preferred binding to enable flexibility for implementation <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a></li>
+	<li>Moved various code systems and value sets to THO to align with coding guidance from FMG <a href="https://jira.hl7.org/browse/FHIR-55255">FHIR-55255</a></li>
+	<li>Added example bindings to <code>Device.deviceVersion.type</code> and elements within the <code>Device.guideline</code> backbone <a href="https://jira.hl7.org/browse/FHIR-54866">FHIR-54866</a>, <a href="https://jira.hl7.org/browse/FHIR-56063">FHIR-56063</a>, <a href="https://jira.hl7.org/browse/FHIR-54863">FHIR-54863</a> and <a href="https://jira.hl7.org/browse/FHIR-54864">FHIR-54864</a>.</li>
   </ul>
 </blockquote>
 <a name="scope"></a>

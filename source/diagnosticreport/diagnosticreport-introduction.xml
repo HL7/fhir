@@ -23,10 +23,7 @@
     <li>Clarified resource scope that DiagnosticReport is used mostly for clinical results <a href="https://jira.hl7.org/browse/FHIR-54543">FHIR-54543</a></li>
     <li>Corrected the misspelled element name <code>DiagnosticReport.recomendation</code> to <code>recommendation</code> <a href="https://jira.hl7.org/browse/FHIR-54163">FHIR-54163</a></li>
     <li>Added <code>DiagnosticReport.conclusionCode</code> to the element summary (see also <a href="https://jira.hl7.org/browse/FHIR-55448">FHIR-55448</a>) <a href="https://jira.hl7.org/browse/FHIR-54554">FHIR-54554</a></li>
-  </ul>
-  <p><b>Additional changes</b></p>
-  <ul>
-    <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a>.</li>
+	<li>Guidance has been added to clarify intent behind DiagnosticReport and Observation organizer/grouping <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
   </ul>
 </blockquote>
 <a name="scope"></a>

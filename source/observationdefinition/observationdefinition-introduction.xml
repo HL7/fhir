@@ -7,6 +7,7 @@
 <ul>
 <li>Cardinality of <code>ObservationDefinition.identifier</code> relaxed to <code>0..*</code> so a definition can carry more than one business identifier <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a></li>
 <li>Added the missing value-set binding for <code>ObservationDefinition.subjectType</code> <a href="https://jira.hl7.org/browse/FHIR-54594">FHIR-54594</a></li>
+<li>Cardinality of <code>ObservationDefinition.bodyStructure</code> has been changed to 0..* as a part of broader OO alignment on supporting bodyStructure reference through multiple codings or, where necessary from a modeling standpoint, multiple instances <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
 </ul>
 <p><b>Non-substantive</b></p>
 <ul>
@@ -15,10 +16,7 @@
 <li>Clarified the short description of <code>ObservationDefinition.subject</code> <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
 <li>Updated the Five Ws mappings <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
 <li>Minor cleanup of value-set display names <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
-</ul>
-<p><b>Additional changes</b></p>
-<ul>
-<li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a> and <a href="https://jira.hl7.org/browse/FHIR-53681">FHIR-53681</a>.</li>
+<li>A new <code>ObservationDefinition.supportingDevice</code> element was added, with the associated search-parameter coverage, to improve traceability to devices supporting the observation. <a href="https://jira.hl7.org/browse/FHIR-53681">FHIR-53681</a></li>
 </ul>
 </blockquote>
 </div>

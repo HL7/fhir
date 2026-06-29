@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
         <blockquote class="ballot-note" id="bn1">
-            <p><b>Note to Balloters for Ballot5</b>: BiologicallyDerivedProduct received substantive core-readiness updates across its core definition, narrative, search parameters, examples, and artifact-scoped terminology. The most balloter-relevant changes are summarized by Jira change-impact classification below.</p>
+            <p><b>Note to Balloters for Ballot5</b>: BiologicallyDerivedProduct received substantive core-readiness updates across its core definition, narrative, search parameters, examples, and artifact-scoped terminology.</p>
             <p>This resource is referenced from the <a href="biologically-derived-product-module.html">Biologically Derived Product Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
             <p><b>Compatible substantive</b></p>
             <ul>
@@ -11,11 +11,7 @@
             </ul>
             <p><b>Non-substantive</b></p>
             <ul>
-              <li>Corrected a typo on the BiologicallyDerivedProduct example page <a href="https://jira.hl7.org/browse/FHIR-55001">FHIR-55001</a></li>
-            </ul>
-            <p><b>Additional changes</b></p>
-            <ul>
-              <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-55252">FHIR-55252</a>.</li>
+			  <li>Marked example code systems as experimental to note that implementers should expect to provide their own coding schemes <a href="https://jira.hl7.org/browse/FHIR-55252">FHIR-55252</a></li>
             </ul>
         </blockquote>
 		<a name="scope"></a>

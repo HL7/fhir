@@ -1,11 +1,11 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
 	<blockquote class="ballot-note" id="bn1">
-		<p><b>Note to Balloters for Ballot5</b>: Changes update Specimen's focus, collection, processing, container, search-parameter, example, and terminology surfaces for the current ballot window.</p>
+		<p><b>Note to Balloters for Ballot5</b>: Changes include Specimen's focus, collection, processing, container, search-parameter, example, and terminology surfaces for the current ballot window.</p>
 		<p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
 		<p><b>Non-compatible</b></p>
 		<ul>
-		  <li>Added <code>Specimen.focus</code> (<code>CodeableReference</code>) to identify the entity that is the focus of testing <a href="https://jira.hl7.org/browse/FHIR-53384">FHIR-53384</a></li>
+		  <li>Added <code>Specimen.focus</code> (<code>CodeableReference</code>) to identify the entity that is the focus of testing <a href="https://jira.hl7.org/browse/FHIR-53384">FHIR-53384</a>, <a href="https://jira.hl7.org/browse/FHIR-56301">FHIR-56301</a></li>
 		  <li><code>Specimen.processing.additive</code> promoted from <code>CodeableReference</code> to a <code>BackboneElement</code> with new <code>additive.type</code> and <code>additive.quantity</code>, and <code>container.device</code> added for richer container detail <a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
 		  <li>Removed the FHIR-defined <code>specimen-role</code> ValueSet and CodeSystem and rebound the element to a THO (terminology.hl7.org) value set; an explanatory note was added to the introduction <a href="https://jira.hl7.org/browse/FHIR-55481">FHIR-55481</a>, <a href="https://jira.hl7.org/browse/FHIR-55276">FHIR-55276</a></li>
 		  <li>Added a value set binding for <code>SpecimenDefinition.subject[x]</code> (affects the sibling SpecimenDefinition resource) <a href="https://jira.hl7.org/browse/FHIR-54840">FHIR-54840</a></li>
@@ -13,16 +13,12 @@
 		<p><b>Compatible substantive</b></p>
 		<ul>
 		  <li>Refined the <code>Specimen.status</code> value set to avoid conflating background workflow status with the resource's own data status <a href="https://jira.hl7.org/browse/FHIR-54892">FHIR-54892</a></li>
+		  <li>Cardinality of <code>Specimen.bodyStructure</code> has been changed to 0..* as a part of broader OO alignment on supporting bodyStructure reference through multiple codings or, where necessary from a modeling standpoint, multiple instances <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
 		</ul>
 		<p><b>Non-substantive</b></p>
 		<ul>
 		  <li>Corrected the binding mismatch on the collection device element; <code>collection.device[x]</code> replaced by <code>collection.device</code> <a href="https://jira.hl7.org/browse/FHIR-54488">FHIR-54488</a></li>
 		  <li>Revised the narrative around nesting specimen containers <a href="https://jira.hl7.org/browse/FHIR-54598">FHIR-54598</a></li>
-		  <li>Added narrative bullets describing how SpecimenDefinition relates to other resources (affects the sibling SpecimenDefinition resource) <a href="https://jira.hl7.org/browse/FHIR-54837">FHIR-54837</a></li>
-		</ul>
-		<p><b>Additional changes</b></p>
-		<ul>
-		  <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-56301">FHIR-56301</a> and <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a>.</li>
 		</ul>
 	</blockquote>
 	<a name="scope"></a>

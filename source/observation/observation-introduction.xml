@@ -15,6 +15,7 @@
             <li><code>Observation.interpretationContext</code> was renamed to <code>Observation.context</code> to reflect its observation-wide scope; reviewers should also consider the related context ticket. <a href="https://jira.hl7.org/browse/FHIR-57418">FHIR-57418</a>, <a href="https://jira.hl7.org/browse/FHIR-54461">FHIR-54461</a></li>
             <li>A new <code>Observation.statusReason</code> element was added so implementations can record why an Observation has a particular status. <a href="https://jira.hl7.org/browse/FHIR-56192">FHIR-56192</a></li>
             <li>Observation status guidance was aligned for <code>unknown</code> status/availability semantics and to avoid recording background workflow status in <code>Observation.status</code>. <a href="https://jira.hl7.org/browse/FHIR-54324">FHIR-54324</a>, <a href="https://jira.hl7.org/browse/FHIR-54892">FHIR-54892</a></li>
+			<li>Cardinality of <code>Observation.bodyStructure</code> has been changed to 0..* as a part of broader OO alignment on supporting bodyStructure reference through multiple codings or, where necessary from a modeling standpoint, multiple instances <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
         </ul>
         <p><b>Non-substantive</b></p>
         <ul>
@@ -23,11 +24,9 @@
             <li>Observation context and/or method guidance was clarified to support recording multiple details. <a href="https://jira.hl7.org/browse/FHIR-54904">FHIR-54904</a></li>
             <li><code>Observation.bodySite</code> was removed from the terminology bindings list. <a href="https://jira.hl7.org/browse/FHIR-53457">FHIR-53457</a></li>
             <li>Vital Signs profile text, binding-strength wording, diastolic/systolic component obligations, mandatory-requirements wording, interoperability-code placement, and examples were clarified or corrected. <a href="https://jira.hl7.org/browse/FHIR-54503">FHIR-54503</a>, <a href="https://jira.hl7.org/browse/FHIR-54508">FHIR-54508</a>, <a href="https://jira.hl7.org/browse/FHIR-55034">FHIR-55034</a>, <a href="https://jira.hl7.org/browse/FHIR-54521">FHIR-54521</a>, <a href="https://jira.hl7.org/browse/FHIR-53902">FHIR-53902</a>, <a href="https://jira.hl7.org/browse/FHIR-54518">FHIR-54518</a>, <a href="https://jira.hl7.org/browse/FHIR-55001">FHIR-55001</a></li>
-            <li>Observation narrative and mapping text were clarified for goal extension awareness, obsolete core-extension references, subject guidance, 5Ws mappings, and value-set display names. <a href="https://jira.hl7.org/browse/FHIR-57447">FHIR-57447</a>, <a href="https://jira.hl7.org/browse/FHIR-54040">FHIR-54040</a>, <a href="https://jira.hl7.org/browse/FHIR-54036">FHIR-54036</a>, <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a>, <a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
-        </ul>
-        <p><b>Additional changes</b></p>
-        <ul>
-            <li>Additional changes as described in <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a>, <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a> and <a href="https://jira.hl7.org/browse/FHIR-56188">FHIR-56188</a>.</li>
+            <li>Observation narrative and mapping text were clarified for goal extension awareness, obsolete core-extension references, subject guidance, 5Ws mappings, and value-set display names. <a href="https://jira.hl7.org/browse/FHIR-57447">FHIR-57447</a>, <a href="https://jira.hl7.org/browse/FHIR-54040">FHIR-54040</a>, <a href="https://jira.hl7.org/browse/FHIR-54036">FHIR-54036</a>, <a href="https://jira.hl7.org/browse/FHIR-54961">FHIR-54961</a></li>
+			<li>Guidance has been added to clarify intent behind DiagnosticReport and Observation organizer/grouping <a href="https://jira.hl7.org/browse/FHIR-54887">FHIR-54887</a></li>
+			<li>Narrative text providing guidance on the TermInfo pattern has been removed as this content is out of date <a href="https://jira.hl7.org/browse/FHIR-56188">FHIR-56188</a></li>
         </ul>
     </blockquote>
     <h2>Scope and Usage</h2>
