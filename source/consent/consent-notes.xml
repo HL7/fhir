@@ -164,6 +164,13 @@ are exceptions to a <em>permit</em> parent provision.</p>
     </ul>
   </ul>
 
+  <p>
+    Although rare, a request context may match more than one provision within this nested structure. 
+    In such cases, the order of the provisions determines their precedence: if multiple provisions apply, 
+    the provision that appears first in the structure (both vertically and horizontally) takes precedence 
+    and overrides any lower-ranking provisions.
+  </p>
+
   <a name="tracking-changes"></a>
   <h2>Tracking Changes in Consent</h2>
   <p>Tracking changes in consent can be managed in two possible ways:</p>
