@@ -141,6 +141,26 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code-example"/>
       </binding>
     </element>
+		<element id="GuidanceResponse.topic">
+			<path value="GuidanceResponse.topic"/>
+			<short value="E.g. Education, Treatment, Assessment, etc"/>
+			<definition value="Descriptive topics related to the guidance. Topics provide a high-level categorization of the guidance that can be useful for filtering and searching."/>
+      <comment value="When the guidance response was produced by an artifact that has a topic element, the topics from the artifact may be added to the guidance response as appropriate."/>
+			<requirements value="Repositories must be able to determine how to categorize the guidance so that it can be found by topical searches."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="DefinitionTopic"/>
+				</extension>
+				<strength value="example"/>
+				<description value="High-level categorization of the definition, used for searching, sorting, and filtering."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
+			</binding>
+		</element>
     <element id="GuidanceResponse.status">
       <path value="GuidanceResponse.status"/>
       <short value="success | data-requested | data-required | in-progress | failure | entered-in-error"/>

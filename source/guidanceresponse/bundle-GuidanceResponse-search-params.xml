@@ -82,6 +82,7 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="GuidanceResponse-status"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="GuidanceResponse.status"/>
         </extension>
@@ -99,6 +100,7 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="GuidanceResponse-module-code"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="GuidanceResponse.module-code"/>
         </extension>
@@ -116,6 +118,7 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="GuidanceResponse-module-uri"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="GuidanceResponse.module-uri"/>
         </extension>
@@ -133,6 +136,7 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="GuidanceResponse-module-reference"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="GuidanceResponse.module-reference"/>
         </extension>
@@ -150,6 +154,7 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="GuidanceResponse-date"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="GuidanceResponse.date"/>
         </extension>
@@ -160,6 +165,25 @@
         <code value="module-code"/>
         <type value="dateTime"/>
         <expression value="GuidanceResponse.occurrenceDateTime"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="GuidanceResponse-topic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="GuidanceResponse.topic"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GuidanceResponse-topic"/>
+        <description value="Topics associated with the guidance"/>
+        <code value="topic"/>
+        <type value="token"/>
+        <expression value="GuidanceResponse.topic"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
