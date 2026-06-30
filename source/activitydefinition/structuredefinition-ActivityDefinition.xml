@@ -14,7 +14,7 @@
 		<valueInteger value="3"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-		<valueCode value="anonymous"/>
+		<valueCode value="business"/>
 	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="cds"/>
