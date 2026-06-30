@@ -1,25 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
   <div>
+    <blockquote class="ballot-note" id="bn1">
+        <p><b>Note to Balloters for Ballot5</b>: Changes focus on Task status/statusReason behavior, Task terminology display cleanup, and mapping/intro maintenance.</p>
+        <p><b>Compatible substantive</b></p>
+        <ul>
+          <li>Added an <code>unknown</code> code to the <code>Task.status</code> value set / code system to provide an escape valve when the status cannot be determined <a href="https://jira.hl7.org/browse/FHIR-55280">FHIR-55280</a></li>
+          <li>Clarified the reference target for <code>Task.statusReason</code>, allowing a reference to <code>Any</code> resource where the target had been left unconstrained <a href="https://jira.hl7.org/browse/FHIR-54564">FHIR-54564</a></li>
+        </ul>
+        <p><b>Non-substantive</b></p>
+        <ul>
+		  <li>Marked various bindings as example and experimental to note that implementers should expect to provide their own coding schemes <a href="https://jira.hl7.org/browse/FHIR-55279">FHIR-55279</a></li>
+        </ul>
+        </blockquote>
     <a name="scope"></a>
     <h2>Scope and Usage</h2>
-
-    <blockquote class="ballot-note" id="bn1">
-      <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
-      <ul>
-        <li>Removed the Task.instantiatesCanonical and Task.instantiatesURI; and advise implementers to use the <a href="workflow-extensions.html">workflow instantiates extensions</a></li>
-        <li>Made the Task.focus element a new backbone</li>
-        <li>Consolidated the Task State Machine sections to the Notes section:<a href="task.html#statemachine">task.html#statemachine</a></li>
-      </ul>
-    </blockquote>
-    <blockquote style="background-color: lightblue">
-    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
-    <ul>
-        <li><a href="https://jira.hl7.org/browse/FHIR-55280">FHIR-55280</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-56060">FHIR-56060</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54564">FHIR-54564</a></li>
-		<li><a href="https://jira.hl7.org/browse/FHIR-55279">FHIR-55279</a></li>
-    </ul>
-</blockquote>
 
     <p>
       A Task resource describes an activity that can be performed and tracks the state of
@@ -75,7 +69,7 @@
       to by various agents, enabling automation of workflows in FHIR using existing search and subscription
       mechanisms.  Owners, requesters, other agents (e.g. workflow managers) can thus be ready to
       initiate the next steps in a complex workflow.</p>
-    
+
   </div>
   <div>
     <a name="bnr"></a>

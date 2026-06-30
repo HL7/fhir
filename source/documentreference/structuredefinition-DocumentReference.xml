@@ -393,7 +393,7 @@
       <path value="DocumentReference.category"/>
       <short value="Categorization of document"/>
       <definition value="A categorization for the type of document referenced - helps for indexing and searching. This may be implied by or derived from the code specified in the DocumentReference.type."/>
-      <comment value="Key metadata element describing the the category or classification of the document. This is a broader perspective that groups similar documents based on how they would be used. This is a primary key used in searching."/>
+      <comment value="Key metadata element describing the category or classification of the document. This is a broader perspective that groups similar documents based on how they would be used. This is a primary key used in searching."/>
       <alias value="class"/>
       <alias value="classCode"/>
       <min value="0"/>

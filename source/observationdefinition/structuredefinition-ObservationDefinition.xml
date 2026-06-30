@@ -341,7 +341,7 @@
 		<element id="ObservationDefinition.useContext">
 			<path value="ObservationDefinition.useContext"/>
 			<short value="Content intends to support these contexts"/>
-			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate ObservationDefinition instances."/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, etc.) or may be references to specific programs (insurance plans, studies, etc.) and may be used to assist with indexing and searching for appropriate ObservationDefinition instances."/>
 			<comment value="When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply."/>
 			<requirements value="Assist in searching for appropriate content."/>
 			<min value="0"/>
@@ -806,7 +806,7 @@
 		<element id="ObservationDefinition.qualifiedValue">
 			<path value="ObservationDefinition.qualifiedValue"/>
 			<short value="Set of qualified values for observation results"/>
-			<definition value="A set of qualified values associated with a context and a set of conditions -  provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
+			<definition value="A set of qualified values associated with a context and a set of conditions - provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -941,7 +941,7 @@
 		<element id="ObservationDefinition.qualifiedValue.validCodedValueSet">
 			<path value="ObservationDefinition.qualifiedValue.validCodedValueSet"/>
 			<short value="Value set of valid coded values as part of this set of qualified values"/>
-			<definition value="The set of valid coded results for qualitative observations  that match the criteria of this set of qualified values."/>
+			<definition value="The set of valid coded results for qualitative observations that match the criteria of this set of qualified values."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -952,7 +952,7 @@
 		<element id="ObservationDefinition.qualifiedValue.normalCodedValueSet">
 			<path value="ObservationDefinition.qualifiedValue.normalCodedValueSet"/>
 			<short value="Value set of normal coded values as part of this set of qualified values"/>
-			<definition value="The set of normal coded results for qualitative observations  that match the criteria of this set of qualified values."/>
+			<definition value="The set of normal coded results for qualitative observations that match the criteria of this set of qualified values."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -963,7 +963,7 @@
 		<element id="ObservationDefinition.qualifiedValue.abnormalCodedValueSet">
 			<path value="ObservationDefinition.qualifiedValue.abnormalCodedValueSet"/>
 			<short value="Value set of abnormal coded values as part of this set of qualified values"/>
-			<definition value="The set of abnormal coded results for qualitative observations  that match the criteria of this set of qualified values."/>
+			<definition value="The set of abnormal coded results for qualitative observations that match the criteria of this set of qualified values."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -974,7 +974,7 @@
 		<element id="ObservationDefinition.qualifiedValue.criticalCodedValueSet">
 			<path value="ObservationDefinition.qualifiedValue.criticalCodedValueSet"/>
 			<short value="Value set of critical coded values as part of this set of qualified values"/>
-			<definition value="The set of critical coded results for qualitative observations  that match the criteria of this set of qualified values."/>
+			<definition value="The set of critical coded results for qualitative observations that match the criteria of this set of qualified values."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1005,7 +1005,7 @@
 		<element id="ObservationDefinition.hasMember">
 			<path value="ObservationDefinition.hasMember"/>
 			<short value="Definitions of related resources belonging to this kind of observation group"/>
-			<definition value="This ObservationDefinition defines a group  observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group."/>
+			<definition value="This ObservationDefinition defines a group observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1063,7 +1063,7 @@
 		<element id="ObservationDefinition.component.permittedDataType">
 			<path value="ObservationDefinition.component.permittedDataType"/>
 			<short value="Quantity | CodeableConcept | string | boolean | integer | Range | Ratio | SampledData | time | dateTime | Period"/>
-			<definition value="The data types allowed for the value element of the instance of this component observations."/>
+			<definition value="The data types allowed for the value element of the instance of these component observations."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -1110,7 +1110,7 @@
 		<element id="ObservationDefinition.component.qualifiedValue">
 			<path value="ObservationDefinition.component.qualifiedValue"/>
 			<short value="Set of qualified values for observation results"/>
-			<definition value="A set of qualified values associated with a context and a set of conditions -  provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
+			<definition value="A set of qualified values associated with a context and a set of conditions - provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations."/>
 			<min value="0"/>
 			<max value="*"/>
 			<contentReference value="#ObservationDefinition.qualifiedValue"/>

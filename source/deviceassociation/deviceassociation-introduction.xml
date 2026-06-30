@@ -2,41 +2,35 @@
 
 <div>
 <blockquote class="ballot-note" id="bn1">
-<p><b>Note to Balloters:</b> To ensure the DeviceAssociation resource is ready for Normative status, we are seeking ballot comments on the substantive content. The key changes made since R5 include:</p> 
-<ul>
-<li>Collapsed the DeviceAssociation.operation backbone into the other elements (e.g., DeviceAssociation.relationship now includes the operator role).</li>
-<li>DeviceAssociation.category was renamed DeviceAssociation.relationship and given an extensible value set.</li>
-<li>Added DeviceAssociation.relationshipStatus.</li>
-<li>Updated search parameters to address the changes.</li>
-</ul>
+  <p><b>Note to Balloters for Ballot5</b>: DeviceAssociation received substantive structural updates to its relationship, status, subject, and body-structure model; examples, narrative, and artifact-scoped terminology were refreshed to match the after-applied definition. This resource received substantial updates to definitions guiding usage as well as terminology. OO requests detailed review of the changes in this resource and further feedback as we approach normative status.</p>
+  <p>This resource is referenced from the <a href="device-module.html">Device Module</a> and <a href="workflow-module.html">Workflow Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li><code>DeviceAssociation.relationship</code> made required and single (0..* to 1..1) and promoted to the summary view <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a>, <a href="https://jira.hl7.org/browse/FHIR-54463">FHIR-54463</a></li>
+    <li><code>DeviceAssociation.subject</code> made required (0..1 to 1..1) and promoted to the summary view <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a>, <a href="https://jira.hl7.org/browse/FHIR-53680">FHIR-53680</a></li>
+    <li><code>DeviceAssociation.statusReason</code> restricted to a single value (0..* to 0..1) <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li><code>DeviceAssociation.status</code> promoted to a modifier element and to the summary view <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li><code>DeviceAssociation.bodyStructure</code> retyped from <code>Reference</code> to <code>CodeableReference</code> (and relaxed to 0..*) <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+    <li><code>DeviceAssociation.associationStatus</code> and related terminology was renamed to <code>DeviceAssociation.relationshipStatus</code> <a href="https://jira.hl7.org/browse/FHIR-55257">FHIR-55257</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a>, <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+  </ul>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li><code>DeviceAssociation.identifier</code>, <code>.device</code>, <code>.focus</code> and <code>.period</code> promoted to the summary view <a href="https://jira.hl7.org/browse/FHIR-54999">FHIR-54999</a>, <a href="https://jira.hl7.org/browse/FHIR-55272">FHIR-55272</a></li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li><code>DeviceAssociation.subject</code> short description clarified <a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
+  </ul>
+  <p><b>Additional changes</b></p>
+  <ul>
+    <li>In the interest of brevity and release note readability the following tickets were also reflected in the changes above as a part of the broader set of changes to this resource: <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a>, <a href="https://jira.hl7.org/browse/FHIR-54470">FHIR-54470</a>, <a href="https://jira.hl7.org/browse/FHIR-54971">FHIR-54971</a>, <a href="https://jira.hl7.org/browse/FHIR-56544">FHIR-56544</a>, <a href="https://jira.hl7.org/browse/FHIR-57670">FHIR-57670</a>, <a href="https://jira.hl7.org/browse/FHIR-55254">FHIR-55254</a>, <a href="https://jira.hl7.org/browse/FHIR-53674">FHIR-53674</a>, <a href="https://jira.hl7.org/browse/FHIR-53675">FHIR-53675</a>, <a href="https://jira.hl7.org/browse/FHIR-53673">FHIR-53673</a>, <a href="https://jira.hl7.org/browse/FHIR-53676">FHIR-53676</a>, <a href="https://jira.hl7.org/browse/FHIR-50665">FHIR-50665</a> and <a href="https://jira.hl7.org/browse/FHIR-57461">FHIR-57461</a>.</li>
+  </ul>
 </blockquote>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
 </blockquote>
-<blockquote class="stu-note" style="background-color: lightblue">
-    <p><b>Release Notes (pending alternative process review with FMG):</b></p>
-    <ul>
-        <li><a href="https://jira.hl7.org/browse/FHIR-53677">FHIR-53677</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54470">FHIR-54470</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-53680">FHIR-53680</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54463">FHIR-54463</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-54971">FHIR-54971</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-56544">FHIR-56544</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-57670">FHIR-57670</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-55254">FHIR-55254</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-53674">FHIR-53674</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-53675">FHIR-53675</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-53673">FHIR-53673</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-53676">FHIR-53676</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-50665">FHIR-50665</a></li>
-        <li><a href="https://jira.hl7.org/browse/FHIR-57461">FHIR-57461</a></li>
-    </ul>
-</blockquote>
-</div>  
-<div>
-<a name="bnc"></a>
-<h2>Scope and Usage</h2>
 <p>DeviceAssociation records a relationship between a device and a subject (or alternatively a focus entity). The relationship might be as an owner, user, maintainer, etc. of the device. The scope covers all devices including, but not limited to: implantables, wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
 <p>The subjects may include:</p>
 <ul>

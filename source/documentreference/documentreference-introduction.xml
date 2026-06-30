@@ -1,39 +1,33 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+    <blockquote class="ballot-note" id="bn1">
+        <p><b>Note to Balloters for Ballot5</b>: Changes include structural updates to DocumentReference relationships, status handling, request targeting, terminology alignment, examples, and related narrative/search material.</p>
+        <p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+		<p>Note that in future releases of FHIR ownership of this resource will be transitioned to FHIR-I. For ballot purposes this serves as notice only and is not expected to impact the ballot cycle.</p>
+        <p><b>Non-compatible</b></p>
+        <ul>
+          <li><code>DocumentReference.related</code> changed from a plain <code>Reference</code> to a <code>BackboneElement</code>, adding child elements <code>related.code</code> and <code>related.target</code>; <code>relatesTo</code> and the related search parameters were clarified and adjusted to match <a href="https://jira.hl7.org/browse/FHIR-53824">FHIR-53824</a>, <a href="https://jira.hl7.org/browse/FHIR-53550">FHIR-53550</a></li>
+          <li>Artifact value sets were migrated to terminology.hl7.org (THO): <code>DocumentReference.attester.mode</code> now binds to a THO value set, and the core reference to <code>document-relationship-type</code> was removed because it moved to THO <a href="https://jira.hl7.org/browse/FHIR-55264">FHIR-55264</a></li>
+          <li>Removed the reference to the <code>Contract</code> resource from <code>DocumentReference.basedOn</code>, as Contract is not ready to go Normative <a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a></li>
+        </ul>
+        <p><b>Compatible substantive</b></p>
+        <ul>
+          <li>Added an <code>unknown</code> code to <code>DocumentReference.status</code> to provide an escape valve when status cannot be determined <a href="https://jira.hl7.org/browse/FHIR-55265">FHIR-55265</a></li>
+          <li>Added search support for <code>collection.sourceOrganization</code> in the search-parameter bundle <a href="https://jira.hl7.org/browse/FHIR-56179">FHIR-56179</a></li>
+          <li><code>DocumentReference.docStatus</code> is-modifier flag corrected to <code>false</code> <a href="https://jira.hl7.org/browse/FHIR-54537">FHIR-54537</a></li>
+        </ul>
+        <p><b>Non-substantive</b></p>
+        <ul>
+          <li>Clarified that <code>DocumentReference.basedOn</code> points to requests rather than events <a href="https://jira.hl7.org/browse/FHIR-54536">FHIR-54536</a></li>
+		  <li>Clarified the description of <code>DocumentReference.context</code> as additional target references have been added <a href="https://jira.hl7.org/browse/FHIR-54170">FHIR-54170</a></li>
+		  <li>Clarified the description of <code>DocumentReference.basedOn</code> <a href="https://jira.hl7.org/browse/FHIR-54167">FHIR-54167</a></li>
+	      <li>Clarified the description of <code>DocumentReference.custodian</code> <a href="https://jira.hl7.org/browse/FHIR-54169">FHIR-54169</a></li>
+		  <li>Added <code>DocumentReference.practiseSetting</code> as a summary element <a href="https://jira.hl7.org/browse/FHIR-54538">FHIR-54538</a></li>
+        </ul>
+</blockquote>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-    <blockquote class="ballot-note" id="bn1">
-    <p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
-    <ul>
-        <li>Addition of the following elements:</li>
-            <ul>
-                <li>DocumentReference.related</li>
-            </ul>
-        <li>Updates to the following elements:</li>
-            <ul>
-                <li>DocumentReference.bodySite has been changed to DocumentReference.bodyStructure</li>
-				<li>FHIR-55225 - Removed reference to EnrollmentRequest from DocumentReference.basedOn</li>
-                <li>FHIR-55563 - Removed reference to Contract from DocumentReference.basedOn</li>
-            </ul>
-    </ul>
-    </blockquote>
-    <blockquote class="stu-note" style="background-color: lightblue">
-        <p><b>Release Notes (pending alternative process review with FMG):</b></p>
-        <ul>
-          <li>DocumentReference.docStatus -> modifier should be false. - <a href="https://jira.hl7.org/browse/FHIR-54537">FHIR-54537</a></li>
-          <li>DocumentReference.basedOn points to requests not events - <a href="https://jira.hl7.org/browse/FHIR-54536">FHIR-54536</a></li>
-          <li>DocumentReference.related changed to backbone with target and code, relatesTo clarified, with search adjustments - <a href="https://jira.hl7.org/browse/FHIR-53824">FHIR-53824</a>, <a href="https://jira.hl7.org/browse/FHIR-53550">FHIR-53550</a></li>
-		  <li>DocumentReference.attester.mode binding is now to THO ValueSet - <a href="https://jira.hl7.org/browse/FHIR-53824">FHIR-53824</a></li>
-          <li>DocumentReference.context definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54170">FHIR-54170</a></li>
-          <li>DocumentReference.basedOn definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54167">FHIR-54167</a></li>
-          <li>DocumentReference.custodian definition clarified - <a href="https://jira.hl7.org/browse/FHIR-54169">FHIR-54169</a></li>
-          <li><a href="https://jira.hl7.org/browse/FHIR-54618">FHIR-54618</a></li>
-		  <li><a href="https://jira.hl7.org/browse/FHIR-54538">FHIR-54538</a></li>
-          <li><a href="https://jira.hl7.org/browse/FHIR-55265">FHIR-55265</a></li>
-          <li><a href="https://jira.hl7.org/browse/FHIR-55264">FHIR-55264</a></li>
-        </ul>
-    </blockquote>
 
 <p>
 A <code>DocumentReference</code> resource is used to index a document, clinical note, and other binary objects such as a photo, video, or audio recording, including those resulting from diagnostic or care provision procedures, to make them available to a healthcare system. A document is some sequence of bytes that is identifiable, establishes its own context (e.g., what subject, author, etc. can be presented to the user), and has defined update management. The <code>DocumentReference</code> resource can be used with any document format that has a recognized mime type and that conforms to this definition.
