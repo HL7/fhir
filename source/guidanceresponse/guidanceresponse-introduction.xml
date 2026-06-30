@@ -13,6 +13,7 @@
                 <li><a href="https://jira.hl7.org/browse/FHIR-57450">FHIR-57450</a> - Expanded evaluationMessage to multiple cardinality</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-53715">FHIR-53715</a> - Added search parameters for module and date</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-53714">FHIR-53714</a> - Added the ability to capture input parameters in a GuidanceResponse.</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-53712">FHIR-53712</a> - Added GuidanceResponse.indicator, bound extensible to CDS Hooks indicators.</li>
             </ul>
         </li>
         <li>Non-substantive:

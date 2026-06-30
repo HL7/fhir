@@ -338,6 +338,25 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
       </type>
     </element>
+    <element id="GuidanceResponse.indicator">
+      <path value="GuidanceResponse.indicator"/>
+      <short value="Urgency/importance of the response"/>
+      <definition value="An indicator of the urgency or importance of the guidance response."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GuidanceResponseIndicator"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="An indicator code communicating urgency or importance."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/cdshooks-indicator"/>
+      </binding>
+    </element>
     <element id="GuidanceResponse.result">
       <path value="GuidanceResponse.result"/>
       <short value="Proposed actions, if any"/>
