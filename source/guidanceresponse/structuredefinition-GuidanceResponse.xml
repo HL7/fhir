@@ -316,6 +316,17 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
       </type>
     </element>
+    <element id="GuidanceResponse.inputParameters">
+      <path value="GuidanceResponse.inputParameters"/>
+      <short value="What parameters"/>
+      <definition value="The parameters that were provided as input to the operation that provided the guidance response. This is typically a reference to a contained Parameters resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+      </type>
+    </element>
     <element id="GuidanceResponse.outputParameters">
       <path value="GuidanceResponse.outputParameters"/>
       <short value="The output parameters of the evaluation, if any"/>
