@@ -1,0 +1,21 @@
+{
+  "resourceType": "MeasureReport",
+  "status": "complete",
+  "type": "individual",
+  "measure": "http://x/Measure/m",
+  "period": {
+    "start": "2013-01-01",
+    "end": "2013-12-31"
+  },
+  "group": [
+    {
+      "population": [
+        {
+          "code": {
+            "text": "initial-population"
+          }
+        }
+      ]
+    }
+  ]
+}

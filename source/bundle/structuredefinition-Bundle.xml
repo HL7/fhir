@@ -107,7 +107,7 @@
 			<constraint>
 				<key value="bdl-3b"/>
 				<severity value="error"/>
-				<human value="For collections of type history, all entries must contain request or response elements, and resources if the method is POST, PUT or PATCH"/>
+				<human value="For collections of type history, all entries must contain request and response elements, and resources if the method is POST, PUT or PATCH"/>
 				<expression value="type = 'history' implies entry.all(request.exists() and response.exists() and ((request.method in ('POST' | 'PATCH' | 'PUT')) = resource.exists()))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
 			</constraint>
@@ -129,7 +129,7 @@
 				<key value="bdl-7"/>
 				<severity value="error"/>
 				<human value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)"/>
-				<expression value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;iif(resource.meta.versionId.exists(), resource.meta.versionId, '')).isDistinct()"/>
+				<expression value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;'|'&amp;iif(resource.meta.versionId.exists(), resource.meta.versionId, '')).isDistinct()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
 			</constraint>
 			<constraint>
@@ -171,7 +171,7 @@
 				<key value="bdl-14"/>
 				<severity value="error"/>
 				<human value="entry.request.method PATCH not allowed for history"/>
-				<expression value="type = 'history' implies entry.request.method != 'PATCH'"/>
+				<expression value="type = 'history' implies entry.request.all(method != 'PATCH')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
 			</constraint>
 			<constraint>
@@ -185,7 +185,7 @@
 				<key value="bdl-16"/>
 				<severity value="error"/>
 				<human value="Issue.severity for all issues within the OperationOutcome must be either 'information' or 'warning'."/>
-				<expression value="issues.exists() implies (issues.issue.severity = 'information' or issues.issue.severity = 'warning')"/>
+				<expression value="issues.exists() implies issues.issue.all(severity = 'information' or severity = 'warning')"/>
 			</constraint>
 			<constraint>
 				<key value="bdl-17"/>

@@ -1,0 +1,27 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "status": "completed",
+  "item": [
+    {
+      "linkId": "group",
+      "item": [
+        {
+          "linkId": "dup",
+          "answer": [
+            {
+              "valueString": "a"
+            }
+          ]
+        },
+        {
+          "linkId": "dup",
+          "answer": [
+            {
+              "valueString": "b"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "resourceType": "CodeSystem",
+  "url": "http://example.org/cs/csd1nested",
+  "status": "draft",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "parent",
+      "concept": [
+        {
+          "code": "parent"
+        }
+      ]
+    }
+  ]
+}

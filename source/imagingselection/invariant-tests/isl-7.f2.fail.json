@@ -1,0 +1,32 @@
+{
+  "resourceType": "ImagingSelection",
+  "status": "available",
+  "code": {
+    "text": "r"
+  },
+  "instance": [
+    {
+      "uid": "i",
+      "imageRegion2D": [
+        {
+          "regionType": "polyline",
+          "coordinate": [
+            0.1,
+            0.2,
+            0.3
+          ]
+        },
+        {
+          "regionType": "polyline",
+          "coordinate": [
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.5
+          ]
+        }
+      ]
+    }
+  ]
+}

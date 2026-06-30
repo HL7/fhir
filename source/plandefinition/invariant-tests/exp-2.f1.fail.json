@@ -1,0 +1,19 @@
+{
+  "resourceType": "PlanDefinition",
+  "status": "active",
+  "action": [
+    {
+      "title": "a",
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "name": "9-bad name",
+            "language": "text/fhirpath",
+            "expression": "true"
+          }
+        }
+      ]
+    }
+  ]
+}

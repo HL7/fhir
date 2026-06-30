@@ -1,0 +1,34 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "http://example.org/sd/eld21",
+  "name": "Eld21",
+  "status": "draft",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Patient",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient.name",
+        "path": "Patient.name",
+        "constraint": [
+          {
+            "key": "x-1",
+            "severity": "error",
+            "human": "must be set",
+            "_expression": {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                  "valueCode": "unknown"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
