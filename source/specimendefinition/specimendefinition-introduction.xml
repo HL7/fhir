@@ -1,14 +1,21 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-	<blockquote class="stu-note" style="background-color: lightblue">
-		<p><b>Release Notes (pending alternative process review with FMG):</b></p>
-		<ul>
-			<li><a href="https://jira.hl7.org/browse/FHIR-55277">FHIR-55277</a></li>
-			<li><a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
-			<li><a href="https://jira.hl7.org/browse/FHIR-54840">FHIR-54840</a></li>
-			<li><a href="https://jira.hl7.org/browse/FHIR-54837">FHIR-54837</a></li>
-		</ul>
-	</blockquote>
 	<div>
+		<blockquote class="ballot-note" id="bn1">
+			<p><b>Note to Balloters for Ballot5</b>: SpecimenDefinition receives structural updates to subject, identifier, and container detail, plus focused narrative, example, search-parameter, and artifact-scoped terminology cleanup.</p>
+			<p><b>Non-compatible</b></p>
+			<ul>
+			  <li>Specimen subject re-modelled: the <code>SpecimenDefinition.subject[x]</code> choice element was removed and <code>SpecimenDefinition.subjectReference</code> added with a value set binding supplied <a href="https://jira.hl7.org/browse/FHIR-54840">FHIR-54840</a></li>
+			  <li>The <code>SpecimenDefinition.typeTested.container</code> model was restructured to carry additional container information - added <code>container.device[x]</code>, <code>container.additive.type</code>, <code>container.additive.quantity</code>; removed <code>container.material</code>, <code>container.type</code>, <code>container.cap</code>, <code>container.description</code>, <code>container.capacity</code>, <code>container.additive.additive[x]</code> <a href="https://jira.hl7.org/browse/FHIR-53723">FHIR-53723</a></li>
+			</ul>
+			<p><b>Compatible substantive</b></p>
+			<ul>
+			  <li><code>SpecimenDefinition.identifier</code> cardinality relaxed from <code>0..1</code> to <code>0..*</code> so the resource can carry multiple identifiers <a href="https://jira.hl7.org/browse/FHIR-55277">FHIR-55277</a></li>
+			</ul>
+			<p><b>Non-substantive</b></p>
+			<ul>
+			  <li>Introduction narrative expanded with bullets describing SpecimenDefinition's relationship to other resources <a href="https://jira.hl7.org/browse/FHIR-54837">FHIR-54837</a></li>
+			</ul>
+		</blockquote>
 		<a name="bnc"> </a>
 		<h2>Scope and Usage</h2>
 		<p>
