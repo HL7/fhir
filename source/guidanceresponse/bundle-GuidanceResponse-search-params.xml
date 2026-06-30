@@ -162,7 +162,7 @@
           <valueCode value="normative"/>
         </extension>
         <description value="The date on which the guidance was provided"/>
-        <code value="module-code"/>
+        <code value="date"/>
         <type value="date"/>
         <expression value="GuidanceResponse.occurrenceDateTime"/>
         <processingMode value="normal"/>
