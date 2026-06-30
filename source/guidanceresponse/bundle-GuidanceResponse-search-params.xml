@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="GuidanceResponse-module-code"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="GuidanceResponse.module-code"/>
+          <valueString value="GuidanceResponse.module[x]"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -120,7 +120,7 @@
       <SearchParameter>
         <id value="GuidanceResponse-module-uri"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="GuidanceResponse.module-uri"/>
+          <valueString value="GuidanceResponse.module[x]"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -138,7 +138,7 @@
       <SearchParameter>
         <id value="GuidanceResponse-module-reference"/>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="GuidanceResponse.module-reference"/>
+          <valueString value="GuidanceResponse.module[x]"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
@@ -163,7 +163,7 @@
         </extension>
         <description value="The date on which the guidance was provided"/>
         <code value="module-code"/>
-        <type value="dateTime"/>
+        <type value="date"/>
         <expression value="GuidanceResponse.occurrenceDateTime"/>
         <processingMode value="normal"/>
       </SearchParameter>
