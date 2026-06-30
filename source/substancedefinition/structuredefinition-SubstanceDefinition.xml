@@ -203,6 +203,25 @@
         <map value="Substance_Specified_Substance_Group_3.Grade"/>
       </mapping>
     </element>
+    <element id="SubstanceDefinition.glycosylationType">
+      <path value="SubstanceDefinition.glycosylationType"/>
+      <short value="A high-level pattern of glycosylation, typically from the production cell line or source organism"/>
+      <definition value="A categorical pattern of glycosylation for the substance, typically derived from the production cell line or source organism (e.g. human, mammalian, avian, yeast). Applicable to proteins and to structurally diverse substances such as vaccines."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceGlycosylationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A categorical pattern of glycosylation for a substance, typically derived from the production cell line or source organism."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-glycosylation-type"/>
+      </binding>
+    </element>
     <element id="SubstanceDefinition.description">
       <path value="SubstanceDefinition.description"/>
       <short value="Textual description of the substance"/>
@@ -2444,6 +2463,25 @@
       <definition value="Data items specific to proteins."/>
       <min value="0"/>
       <max value="1"/>
+    </element>
+    <element id="SubstanceDefinition.protein.modificationType">
+      <path value="SubstanceDefinition.protein.modificationType"/>
+      <short value="A high-level summary of the kind of modification of the protein, e.g. PEGylated, lipidated, Fc-fused"/>
+      <definition value="A high-level summary of the kind of modification of the protein (e.g. PEGylated, lipidated, Fc-fused, drug-conjugated). Used for general classification of modified biologics; for detailed structural modification chemistry see related elements/extensions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProteinModificationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A high-level summary of how a protein has been modified."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/protein-modification-type"/>
+      </binding>
     </element>
     <element id="SubstanceDefinition.protein.sequenceType">
       <path value="SubstanceDefinition.protein.sequenceType"/>
