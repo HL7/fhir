@@ -958,7 +958,7 @@
       <path value="MedicinalProductDefinition.name.usage.language"/>
       <short value="Language code for this name"/>
       <definition value="Language code for this name."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
