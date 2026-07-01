@@ -13,7 +13,7 @@
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/protein-modification-type"/>
   <version value="6.0.0"/>
-  <name value="ProteinModificationTypeExample"/>
+  <name value="ProteinModificationType"/>
   <title value="Protein Modification Type"/>
   <status value="active"/>
   <experimental value="true"/>

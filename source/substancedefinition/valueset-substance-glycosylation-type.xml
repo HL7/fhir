@@ -13,7 +13,7 @@
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/substance-glycosylation-type"/>
   <version value="6.0.0"/>
-  <name value="SubstanceGlycosylationTypeExample"/>
+  <name value="SubstanceGlycosylationType"/>
   <title value="Substance Glycosylation Type"/>
   <status value="active"/>
   <experimental value="true"/>
