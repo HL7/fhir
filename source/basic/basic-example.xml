@@ -56,8 +56,8 @@ in a future version (todo).
   </identifier>
   <code>
     <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/basic-resource-type"/>
-      <code value="referral"/>
+      <system value="http://hl7.org/fhir/fhir-old-types"/>
+      <code value="ReferralRequest"/>
     </coding>
   </code>
   <subject>

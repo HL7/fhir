@@ -15,7 +15,7 @@
   <publisher value="HL7 (FHIR Project)"/>
   <description value="v3 map for DetectedIssueSeverity"/>
   <group>
-    <source value="http://hl7.org/fhir/detectedissue-severity"/>
+    <source value="http://terminology.hl7.org/CodeSystem/detectedissue-severity"/>
     <target value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
     <element>
       <code value="high"/>

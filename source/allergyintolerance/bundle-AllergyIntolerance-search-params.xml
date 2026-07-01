@@ -144,13 +144,13 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AllergyIntolerance.lastReactionOccurrence"/>
+          <valueString value="AllergyIntolerance.lastOccurrence"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/AllergyIntolerance-last-reaction-date"/>
         <description value="Date(/time) of last known occurrence of a reaction"/>
         <code value="last-reaction-date"/>
         <type value="date"/>
-        <expression value="AllergyIntolerance.lastReactionOccurrence"/>
+        <expression value="AllergyIntolerance.lastOccurrence"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

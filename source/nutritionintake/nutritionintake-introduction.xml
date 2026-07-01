@@ -1,17 +1,12 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+	<blockquote class="ballot-note" id="bn1">
+		<p><b>Note to Balloters for Ballot5</b>: NutritionIntake had no substantive changes in this window.</p>
+		<p>This resource is referenced from the <a href="nutrition-module.html">Nutrition Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+	</blockquote>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-        
-	<blockquote class="ballot-note" id="bn1">
-	<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
-	<ul>
-		<li>Removed the instantiates workflow elements NutritionIntake.instantiatesCanonical and NutritionIntake.instantiatesUri and advise implementers to use the <a href="workflow-extensions.html">workflow instantiates extensions</a></li>
-		<li>Consolidated NutritionIntake.consumedItem and NutritionIntake.ingredientLabel into a NutritionIntake.nutritionItem backbone</li>
-		<li>The <a href="valueset-nutritionintake-status-reason.html">nutritionintake-status-reason</a> code system used in NutritionIntake.statusReason is currently defined in the FHIR specification, but is expected to be moved to <a href="https://terminology.hl7.org/">HL7 Terminology</a> (THO).</li>
-	</ul>
-	</blockquote>
 
 <blockquote class="stu-note">
 <p><b>Note to Implementers:</b> For an overview of this resource and others in the Nutrition domain, also see the <a href="nutrition-module.html">module page</a>.
@@ -49,10 +44,5 @@ As a dietitian, it is important to be able to know what a person is consuming an
 <p>
 Having intake documented within its own resource allows for consistency in documentation across multiple disciplines and settings. In some instances, the Observation resource has been extended to capture intake; while this allows for a quick way to document intake, the Observation resource does not provide all the detail necessary, such as capturing energy and nutrients (including vitamins, minerals, carbohydrates, etc.). Previous implementation attempts of using the Observation resource have noted this is cumbersome and has required too many extensions without being able to document all the necessary details tied to ingredients in food (i.e., solid and/or liquid) products.
 </p>
-<blockquote class="ballot-note" id="bn">
-<p><b>Note to Balloters:</b>
-The <a href="valueset-nutritionintake-status-reason.html">nutritionintake-status-reason</a> code system used in NutritionIntake.statusReason is currently defined in the FHIR specification, but is expected to be moved to <a href="http://terminology.hl7.org">HL7 Terminology</a> (THO).
-</p>
-</blockquote>
 </div>
 </div>

@@ -63,7 +63,7 @@
     <divergentElement patternPath="Request.status" resourcePath="Appointment.status">
         <shortUnmatched reason="Unknown">
             <_pattern value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
-            <resource value="proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist"/>
+            <resource value="proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist | unknown"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The current state of the appointment."/>
@@ -172,7 +172,7 @@
     <divergentElement patternPath="Request.authoredOn" resourcePath="Appointment.created">
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
-            <_pattern value="When request was created/transitioned to active"/>
+            <_pattern value="When request was created/transitioned to active (e.g. signed/authorized)"/>
             <resource value="The date that this appointment was initially created"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">

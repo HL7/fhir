@@ -78,6 +78,18 @@
     <value value="risk-assessment-cardiac"/>
   </identifier>
   <status value="final"/>
+   <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="709510001"/>
+      <display value="Assessment of risk for disease (procedure)"/>
+    </coding>
+    <coding>
+      <system value="http://hl7.org/fhir/risk-assessment-type-example"/>
+      <code value="cardiovascular-risk"/>
+      <display value="Cardiovascular Risk"/>
+    </coding>
+  </code>
   <subject>
     <reference value="Patient/pat2"/>
   </subject>

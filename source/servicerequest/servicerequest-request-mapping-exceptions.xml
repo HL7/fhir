@@ -173,13 +173,14 @@
         <missingTypes _pattern="CodeableReference(BiologicallyDerivedProduct, Device, DeviceDefinition, Medication, NutritionProduct, Substance)" reason="Unknown"/>
         <extraTypes _resource="Reference(Device,DeviceRequest,Medication,MedicationRequest,BiologicallyDerivedProduct,Substance,SubstanceDefinition,MedicinalProductDefinition), canonical(DeviceDefinition), CodeableConcept" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
+        <bindingExistence _pattern="false" _resource="true" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Product requested/ordered"/>
-            <resource value="The context of the order details by reference"/>
+            <resource value="The device, substance, medication, or other item the order details apply to"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="Indicates the product whose supply or manipulation is authorized by this service request."/>
-            <resource value="Indicates the context of the order details by reference."/>
+            <resource value="Indicates the context of the order details by reference or code when the resource instance is not available."/>
         </definitionUnmatched>
     </divergentElement>
     <divergentElement patternPath="Request.subject" resourcePath="ServiceRequest.subject">
@@ -227,7 +228,7 @@
     </divergentElement>
     <divergentElement patternPath="Request.authoredOn" resourcePath="ServiceRequest.authoredOn">
         <shortUnmatched reason="Unknown">
-            <_pattern value="When request was created/transitioned to active"/>
+            <_pattern value="When request was created/transitioned to active (e.g. signed/authorized)"/>
             <resource value="Date request signed"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">

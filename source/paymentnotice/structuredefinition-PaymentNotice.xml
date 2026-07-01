@@ -288,6 +288,29 @@
         <code value="date"/>
       </type>
     </element>
+    <element id="PaymentNotice.claimIdentifier">
+      <path value="PaymentNotice.claimIdentifier"/>
+      <short value="Business Identifier for the claim"/>
+      <definition value="A unique identifier assigned to a claim."/>
+      <requirements value="Allows payment notices to identify the claim context."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="PaymentNotice.payee">
       <path value="PaymentNotice.payee"/>
       <short value="Party being paid"/>
@@ -296,27 +319,42 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
     </element>
     <element id="PaymentNotice.recipient">
       <path value="PaymentNotice.recipient"/>
       <short value="Party being notified"/>
       <definition value="The party who is notified of the payment status."/>
-      <requirements value="Needed to identified the recipient of the notification."/>
+      <requirements value="Needed to identify the recipient of the notification."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
       </mapping>
+    </element>
+    <element id="PaymentNotice.patient">
+      <path value="PaymentNotice.patient"/>
+      <short value="Subject of care"/>
+      <definition value="The party who received or will receive goods or services."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
     </element>
     <element id="PaymentNotice.amount">
       <path value="PaymentNotice.amount"/>

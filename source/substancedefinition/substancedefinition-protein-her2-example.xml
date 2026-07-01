@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example: Human HER2/ErbB2 — the target protein of Trastuzumab.
+     This example demonstrates a target substance that can be referenced
+     by another SubstanceDefinition's .relationship.substanceDefinition. -->
+<SubstanceDefinition xmlns="http://hl7.org/fhir">
+   <id value="her2"/>
+   <identifier>
+      <system value="https://www.uniprot.org"/>
+      <value value="P04626"/>
+   </identifier>
+   <status>
+      <coding>
+         <system value="http://hl7.org/fhir/publication-status"/>
+         <code value="active"/>
+         <display value="Active"/>
+      </coding>
+   </status>
+   <classification>
+      <coding>
+         <system value="http://example.europa.eu/fhir/SubstanceType"/>
+         <code value="protein"/>
+         <display value="Protein"/>
+      </coding>
+   </classification>
+   <domain>
+      <coding>
+         <system value="http://example.europa.eu/fhir/Domain"/>
+         <code value="human"/>
+         <display value="Human use"/>
+      </coding>
+   </domain>
+   <description value="Human HER2 (ErbB2, receptor tyrosine-protein kinase erbB-2). A transmembrane receptor of the EGFR family, frequently overexpressed in breast and gastric cancers. The molecular target of trastuzumab and other HER2-directed therapies."/>
+   <code>
+      <code>
+         <coding>
+            <system value="https://www.uniprot.org"/>
+            <code value="P04626"/>
+            <display value="ERBB2_HUMAN"/>
+         </coding>
+      </code>
+   </code>
+   <name>
+      <name value="Receptor tyrosine-protein kinase erbB-2"/>
+      <preferred value="true"/>
+      <language>
+         <coding>
+            <system value="urn:ietf:bcp:47"/>
+            <code value="en"/>
+            <display value="English"/>
+         </coding>
+      </language>
+   </name>
+   <name>
+      <name value="HER2"/>
+      <preferred value="false"/>
+   </name>
+   <name>
+      <name value="ErbB-2"/>
+      <preferred value="false"/>
+   </name>
+   <name>
+      <name value="CD340"/>
+      <preferred value="false"/>
+   </name>
+   <protein>
+      <sequenceType>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-sequence-type"/>
+            <code value="complete"/>
+            <display value="Complete"/>
+         </coding>
+      </sequenceType>
+      <numberOfSubunits value="1"/>
+      <subunit>
+         <subunit value="1"/>
+         <length value="1255"/>
+      </subunit>
+      <gene>
+         <sequenceOrigin>
+            <coding>
+               <system value="http://hl7.org/fhir/gene-sequence-origin"/>
+               <code value="human"/>
+               <display value="Human"/>
+            </coding>
+         </sequenceOrigin>
+         <gene>
+            <concept>
+               <coding>
+                  <system value="http://www.genenames.org"/>
+                  <code value="ERBB2"/>
+                  <display value="Erb-B2 receptor tyrosine kinase 2"/>
+               </coding>
+            </concept>
+         </gene>
+      </gene>
+   </protein>
+</SubstanceDefinition>

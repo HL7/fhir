@@ -12,6 +12,7 @@
   <li>Compatible, Substantive Changes
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-56201">FHIR-56201</a>: Added lastVersionPresent concept property</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55432">FHIR-55432</a>: Undeprecated topic element</li>
     </ul>
   </li>
   <li>Non-substantive Changes

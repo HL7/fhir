@@ -48,10 +48,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3109"/>
   </identifier>
   <version value="6.0.0"/>
-  <name value="ClinicalUseDefinitionCategory"/>
-  <title value="Clinical Use Definition Category"/>
+  <name value="ClinicalUseDefinitionCategoryExample"/>
+  <title value="Clinical Use Definition Category Example"/>
   <status value="active"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

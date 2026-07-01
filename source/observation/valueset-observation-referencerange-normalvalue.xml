@@ -28,7 +28,7 @@
   <description value="Codes that describe the normal value in the reference range, such as “Negative” or “Absent”"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/observation-referencerange-normalvalue"/>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-referencerange-normalvalue"/>
     </include>
   </compose>
 </ValueSet>

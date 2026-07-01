@@ -71,7 +71,7 @@ Since individual series of a study can be stored on different imaging archive se
 <p>
 Different Endpoint connection types can have different capabilities, protocols or requirements.
 Furthermore, the specified <code><a href="endpoint.html">Endpoint</a>.address</code>
-identifies the DICOM Web Service Base URI (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.2.html">DICOM PS 3.18 Section 8.2</a> ). 
+identifies the DICOM Web Service Base URI (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.2.html">DICOM PS3.18 Section 8.2</a> ).
 The URL to retrieve image data is constructed from this base URL.
 See below for the details on the use of imaging-related Endpoint connection types.
 </p>
@@ -134,12 +134,12 @@ Accept: image/jpeg
 </pre>
 <p>
 For further details on DICOM WADO-RS capabilities including additional rendering parameters,
-see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.4.html">DICOM PS 3.18 Section 10.4</a>.
+see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.4.html">DICOM PS3.18 Section 10.4</a>.
 </p>
 <a name="wado-uri"></a>
 <h4>WADO-URI</h4>
 <p>
-An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies a DICOM WADO-URI service (TODO -- create example of DICOM WADO-URI endpoint).
+  An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies a DICOM WADO-URI service (see <a href="endpoint-example-wado-uri.html">example of DICOM WADO-URI endpoint</a>).
 </p>
 <p>
 The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
@@ -183,7 +183,7 @@ Accept: image/jpeg
 </pre>
 <p>
 For further details on DICOM WADO-URI capabilities including additional rendering parameters,
-see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/chapter_9.html">DICOM PS 3.18 Chapter 9</a>.
+see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/chapter_9.html">DICOM PS3.18 Chapter 9</a>.
 </p>
 
 
@@ -514,12 +514,12 @@ An ImagingStudy might be created to represent the content of:
 <ul>
 <li>A DICOMweb Studies Service Search response
 <ul>
-<li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.6.3.3.html">DICOM PS 3.18 Section 10.6.3.3</a></li>
+<li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.6.3.3.html">DICOM PS3.18 Section 10.6.3.3</a></li>
 </ul>
 </li>
 <li>A DICOM Study Root Query / Retrieve response
 <ul>
-<li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_C.6.2.html#sect_C.6.2.1">DICOM PS 3.4 Section C.6.2.1</a></li>
+<li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_C.6.2.html#sect_C.6.2.1">DICOM PS3.4 Section C.6.2.1</a></li>
 </ul>
 </li>
 <li>An IHE XDS-I Manifest KOS Document

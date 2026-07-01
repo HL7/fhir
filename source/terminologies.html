@@ -217,9 +217,10 @@ The name is not part of the formal definition of the binding, and is not used in
 <a href="https://hl7.org/fhir/extensions/5.3.0-ballot-tc1/StructureDefinition-elementdefinition-bindingName.html">extension Binding name</a>.
 </p>    
 <p>
-In addition, elements may have <a href="elementdefinition-definitions.html#ElementDefinition.binding.additional">additional bindings</a>. These additional bindings do not replace 
-the main binding (the main binding always applies), but provide additional information and/or rules about the use of codes in the element
-sometimes in particular contexts of use. Additional bindings have the following properties:
+In addition, elements may define <a href="elementdefinition-definitions.html#ElementDefinition.binding.additional">additional bindings</a>. These additional bindings do not replace or constrain the main binding, which always applies. 
+They provide supplementary guidance or rules for concept code usage, sometimes in specific contexts of use. 
+Additional bindings are not required to be subsets of the main binding; they may overlap with, extend beyond, or differ from it. 
+Additional bindings have the following properties:
 </p>
 <table class="grid">
   <tr><td><b>purpose</b></td><td>The use of this additional binding. See <a href="#strength">below for details</a>.</td></tr>
@@ -243,11 +244,19 @@ sometimes in particular contexts of use. Additional bindings have the following 
 </table>
 
 <p>
-It's possible for there to be multiple applicable required bindings to non-overlapping value sets
-If the data type is CodeableConcept or CodeableReference, then that would mean that multiple Codings
-are needed to satisfy the bindings. For other data types, this would be an error (in way or another).
+It's possible for there to be multiple applicable required bindings to non-overlapping value sets If the data type is CodeableConcept or CodeableReference, 
+then that would mean that multiple Codings are needed to satisfy the bindings. For other data types, this would be an error (in way or another).
 </p>
 
+<p>
+The conceptual spaces of all bindings on an element must be overlapping. 
+For example, it would not be appropriate to have a binding for concepts representing color and a binding for concepts representing shape on the same element unless handled through slices. 
+</p>
+
+<p>
+Note that if the element data type is a code or coding, the value must satisfy all bindings. 
+If the conformance expectations of the bindings are disjoint, it will not be possible to satisfy the bindings and no data will be valid. 
+</p>
 	
 <a name="references"></a>
 
@@ -513,6 +522,16 @@ will work together to choose actual working value sets.
 <p>
 If the binding strength is required, the data element SHALL contain one of the values in the bound value set.
 </p>
+<p>For these bindings:
+</p>
+<ul>
+  <li><b>code</b>: The code SHALL contain a code from the ValueSet</li>
+  <li><b>Coding</b>: the system/code values SHALL identify one of the codes in the value set</li>
+  <li><b>CodeableConcept</b>: one of the coding elements SHALL contain a system/code that is in the value set</li>
+</ul>
+<p>
+Version may be required - depending on the code system and applicable local policies.
+</p>
 <p>
 For these bindings:
 </p>
@@ -568,8 +587,8 @@ The following  rules apply when required bindings are used with the <a href="dat
  <li>If the bound value set is defined external to the specification, the binding must specify a value set version.</li>
 </ul>
 <p>
-When an element is bound to a required value set, <a href="profiling.html">derived profiles</a>
-may state rules on which codes can be used, including removing codes from allowed use, but cannot specify additional codes for these elements.
+When an element is bound to a value set with required binding strength, <a href="profiling.html">derived profiles</a>
+can remove concept codes and cannot specify additional concept codes to be used. This does not prevent additional codes for other instances of CodeableConcept.coding in the same element.
 </p>
 <p>
   For examples of Required bindings, see <a href="terminologies-binding-examples.html#required">Terminology Binding Examples</a>.

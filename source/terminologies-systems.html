@@ -32,8 +32,6 @@ here, the correct URI may be determined by working through the following list, i
 <b>Important Notes:</b>
 </p>
 <ul>
- <li>This list of names is incomplete and subject to change. Some values may be dropped, and others will likely be added in the coming months as HL7 institutes formal processes around URIs in vocabulary</li>
- <li>The external terminology content provided in the Defined Externally tab is provided for convenience and should not be considered authoritative nor normative.</li>
  <li>Please access the <a href="https://terminology.hl7.org/external_code_systems.html">External Code Systems</a> page of HL7 Terminology for authoritative information regarding the correct use of external terminologies with FHIR and other HL7 standards including HL7 endorsed system URI and OID identifiers.</li>
 <li>Any URL in <code>http://example.org</code> is reserved for testing and documentation purposes.</li>
 </ul>
@@ -41,113 +39,13 @@ here, the correct URI may be determined by working through the following list, i
 <p>
   Note that the HL7 code systems are available as FHIR resources - see the <a href="downloads.html">Downloads Page</a> (as part of the FHIR definitions).
 </p>
-<p>
-<b>Don't see what you're looking for here?</b> See <a href="https://confluence.hl7.org/display/TA/Request+Content+in+External+Terminologies">Registering Code Systems</a> for further advice.
-</p>
-
-<a name="external"> </a>
-<h3>External Code systems</h3>
-
-<table class="grid">
- <tr>
-   <th width="80">URI</th>
-   <th width="80">Source</th>
-   <th width="80">Use with HL7 Standards</th>
-   <th width="80">OID (for non-FHIR systems)</th>
- </tr>
-
- <tr>
-   <td width="80">http://snomed.info/sct <a name="http://snomed.info/sct"></a></td>
-   <td>SNOMED CT (<a href="http://snomed.org">SNOMED International</a>)</td>
-   <td><a href="https://terminology.hl7.org/SNOMEDCT.html">Using SNOMED CT with HL7 Standards</a><br/>See also the <a href="snomedct-usage.html">SNOMED CT Usage Summary</a> which summarizes the use of SNOMED CT in the base FHIR Specification.</td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.96</td>
- </tr>
- <tr>
-   <td>http://www.nlm.nih.gov/research/umls/rxnorm<a name="http://www.nlm.nih.gov/research/umls/rxnorm"></a></td>
-   <td>RxNorm (<a href="http://www.nlm.nih.gov/">US NLM</a>)</td>
-   <td><a href="https://terminology.hl7.org/RxNorm.html">Using RxNorm with HL7 Standards</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.88</td>
- </tr>
- <tr>
-   <td>http://loinc.org <a name="http://loinc.org"></a></td>
-   <td>LOINC (<a href="http://loinc.org">LOINC.org</a>)</td>
-   <td><a href="https://terminology.hl7.org/LOINC.html">Using LOINC with HL7 Standards</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.1</td>
- </tr>
- <tr>
-   <td>https://fhir.infoway-inforoute.ca/CodeSystem/pCLOCD <a name="https://fhir.infoway-inforoute.ca/CodeSystem/pCLOCD"></a></td>
-   <td>pCLOCD (<a href="https://infocentral.infoway-inforoute.ca/en/standards/canadian/pclocd-loinc">pCLOCD</a>)</td>
-   <td><a href="https://terminology.hl7.org/pCLOCD.html">Using pCLOCD with HL7 Standards</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.2.20.5.1</td>
- </tr>
- <tr>
-   <td>http://unitsofmeasure.org <a name="http://unitsofmeasure.org"></a></td>
-   <td>UCUM: (<a href="http://unitsofmeasure.org">UnitsOfMeasure.org</a>) Case Sensitive Codes</td>
-   <td><a href="https://terminology.hl7.org/UCUM.html">Using UCUM with HL7 Standards</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.8</td>
- </tr>
- <tr>
-   <td>http://www.ama-assn.org/go/cpt <a name="http://www.ama-assn.org/go/cpt"></a></td>
-   <td><a href="https://www.ama-assn.org/amaone/cpt-current-procedural-terminology">AMA CPT codes</a></td>
-   <td><a href="https://terminology.hl7.org/CPT.html">Using CPT with HL7 Standards</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.12</td>
- </tr>
- <tr>
-  <td>http://va.gov/terminology/medrt <a name="http://va.gov/terminology/medrt"></a></td>
-  <td><a href="https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/MED-RT/index.html">MED-RT (Medication Reference Terminology)</a></td>
-  <td><a href="https://terminology.hl7.org/MEDRT.html">Using MED-RT with HL7 Standards</a></td>
-  <td style="color : DarkGrey">2.16.840.1.113883.6.345</td>
- </tr>
- <tr>
-   <td>http://fdasis.nlm.nih.gov <a name="http://fdasis.nlm.nih.gov"></a></td>
-   <td><a href="https://www.fda.gov/industry/fda-data-standards-advisory-board/fdas-global-substance-registration-system">Unique Ingredient Identifier (UNII)</a></td>
-   <td><a href="https://terminology.hl7.org/UNII.html">Using UNII with HL7 Standards</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.4.9</td>
- </tr>
- <tr>
-   <td>http://hl7.org/fhir/sid/ndc <a name="http://hl7.org/fhir/sid/ndc"></a></td>
-   <td><a href="http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm">NDC/NHRIC Codes</a></td>
-   <td><a href="https://terminology.hl7.org/NDC.html">Using NDC with HL7 Standards</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.69</td>
- </tr>
- <tr>
-   <td>http://hl7.org/fhir/sid/cvx <a name="http://hl7.org/fhir/sid/cvx"></a></td>
-   <td><a href="http://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx">CVX (Vaccine Administered)</a></td>
-   <td><a href="https://terminology.hl7.org/CVX.html">Using CVX with HL7 Standards</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.12.292</td>
- </tr>
- <tr>
-   <td>urn:iso:std:iso:3166<br/>urn:iso:std:iso:3166:-2<br/>urn:iso:std:iso:3166:-3<a name="urn:iso:std:iso:3166"></a></td>
-   <td><a href="http://www.iso.org/iso/country_codes.htm">ISO Country &amp; Regional Codes</a></td>
-   <td><a href="https://terminology.hl7.org/ISO3166.html">Using ISO 3166 Codes with HL7 Standards</a></td>
-   <td style="color : DarkGrey">n/a</td>
- </tr>
- <tr>
-   <td>
-    <a href="sid-icd-9.html">http://hl7.org/fhir/sid/icd-9-cm</a> and <a href="sid-icd-10.html">http://hl7.org/fhir/sid/icd-10</a>
-   </td>
-   <td><a href="http://www.who.int/classifications/icd/en/">WHO</a> &amp; National Variants</td>
-   <td><a href="https://terminology.hl7.org/ICD.html">Using ICD-[x] with HL7 Standards</a></td>
-   <td>
-     See Using ICD-[x] with HL7 Standards page for details
-   </td>
- </tr>
- <tr>
-   <td>urn:iso:std:iso:11073:10101 <a name="urn:iso:std:iso:11073:10101"></a></td>
-   <td>Medical Device Codes (<a href="https://www.iso.org/standard/77338.html" class="external-link">ISO/IEEE 11073-10101:2020</a>)</td>
-   <td><a href="https://terminology.hl7.org/MDC.html">Using MDC Codes with HL7 Standards</a></td>
-   <td style="color : DarkGrey">2.16.840.1.113883.6.24</td>
- </tr>
-</table>
 
 <p>
-This is a subset of a much larger list of known code systems, and only 
-details code systems for which FHIR specific usage documentation is provided.
-For other code systems, see <a href="https://terminology.hl7.org/external_code_systems.html">terminology.hl7.org</a>.
+For code systems defined external to HL7, see <a href="https://terminology.hl7.org/external_code_systems.html">terminology.hl7.org</a>. Some code system publishers have provided information about how to use their code system with HL7 standards. You will find that information at the same link.
 </p>
 
 
-<a name="external"> </a>
+<a name="internal"> </a>
 <h3>Internal Code systems</h3>
 
 <p>

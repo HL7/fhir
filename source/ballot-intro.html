@@ -74,16 +74,22 @@ Note that there thousands of changes between this version and the last version, 
       <li><a href="https://build.fhir.org/ig/HL7/ebm/StructureDefinition-Citation.html">Citation Resource</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/pc-incubator/StructureDefinition-ClinicalAssessment.html">ClinicalAssessment</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/pc-incubator/StructureDefinition-ConditionDefinition.html">ConditionDefinition</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/fm-incubator/StructureDefinition-Contract.html">Contract</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceDispense.html">DeviceDispense</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-DeviceUsage.html">DeviceUsage</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-EncounterHistory.html">EncounterHistory</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/fm-incubator/StructureDefinition-EnrollmentRequest.html">EnrollmentRequest</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/fm-incubator/StructureDefinition-EnrollmentResponse.html">EnrollmentResponse</a></li>
       <li><a href="https://build.fhir.org/HL7/phx-incubator/StructureDefinition-FormularyItem">FormularyItem</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-GenomicStudy.html">GenomicStudy</a></li>
       <li><a href="https://build.fhir.org/HL7/api-incubator/StructureDefinition-GraphDefinition">GraphDefinition</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationEvaluation.html">ImmunizationEvaluation</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/immunization-incubator/en/StructureDefinition-ImmunizationRecommendation.html">ImmunizationRecommendation</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/fm-incubator/StructureDefinition-InsurancePlan.html">InsurancePlan</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/fm-incubator/StructureDefinition-InsuranceProduct.html">InsuranceProduct</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryItem.html">InventoryItem</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/oo-incubator/StructureDefinition-InventoryReport.html">InventoryReport</a></li>
+      <li><a href="https://build.fhir.org/ig/HL7/fm-incubator/StructureDefinition-Invoice.html">Invoice</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/pc-incubator/StructureDefinition-Linkage.html">Linkage</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/cg-incubator/StructureDefinition-MolecularDefinition.html">MolecularDefinition</a></li>
       <li><a href="https://build.fhir.org/ig/HL7/admin-incubator/StructureDefinition-PersonalRelationship.html">PersonalRelationship</a></li>
@@ -117,18 +123,12 @@ Note that there thousands of changes between this version and the last version, 
 An addition, balloter's attention is drawn to the following requests for balloters attention:
 </p>
 <ul>
-  <li>The resources <a href="invoice.html#bn">Invoice</a>, <a href="insuranceproduct.html#bn">InsuranceProduct</a> and <a href="insuranceplan.html#bn">InsurancePlan</a> are likely
-    to be removed from the specification and moved to being an <a href="resource.html#additional">Additional Resource</a>	after this ballot
-    due to concerns around their readiness, and the thin implementation experience. Ballot comments on this subject are welcome, and on their content.</li>
-
   <li>The way Medication dosage regimes are represented has undergone extensive reorganization. There have been changes to the <a href="medicationrequest.html#bnr">Boundaries for MedicationRequest</a>,
     and dosages in <a href="medicationrequest.html">MedicationRequest</a>, <a href="medicationdispense.html">MedicationDispense</a>, and <a href="medicationstatement.html">MedicationStatement</a>. Balloters should pay careful attention to the <a href="dosage.html">Dosage</a> and the <a href="dosage-examples.html">Dosage Examples</a> pages.
     In addition, there are related changes in <a href="datatypes.html#Timing">Timing</a></li>  
 
   <li>The <a href="medicationstatement.html#bn1">MedicationStatement.medication</a> element now explicitly supports representing statements such as 'no medications are known / taken. Balloters are invited to comment on this approach, impact and possible limitations</li>
   <li>The <a href="medicationstatement.html#bn3">code system used in medication statement category</a> is presented here but is expected to move to <a href="http://terminology.fhr.org">terminology.hl7.org</a></li>
-  <li>The <a href="nutritionintake.html#bn">nutritionintake-status-reason</a> code system used in NutritionIntake.statusReason is currently defined in the FHIR specification, but is expected to be moved to <a href="http://terminology.hl7.org">HL7 Terminology</a> (THO).</li>
-
   <li>A new <code>organizer</code> element is added to the normative Observation resource in this ballot. The OO Work Group is <a href="observation.html#bn">seeking reviewers and implementer feedback</a> on this new element, which is intended to help clarify and make explicit when an instance of the Observation resource is used for organizing/grouping sets of sub-observations (e.g., for laboratory panel/battery result reporting).  This capability is particularly applicable for use in laboratory result reporting, but it can also be used as appropriate with other types of observations.</li>
   <li>Both <a href="searchparameter.html#bn">SearchParameter</a> and <a href="operationdefinition.html#bn">OperationDefinition</a> have comments seeking input about the strength of useability assertions</li>
   <li>There is a request for  <a href="codesystem.html#bn">comments about implicit code systems</a></li>

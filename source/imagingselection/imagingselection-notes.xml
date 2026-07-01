@@ -18,7 +18,7 @@
       <ul>
         <li>Corresponds to the value of DICOM Referenced Content Item Identifier (0040,DB73)</li>
         <li>Each value specifies the node in the DICOM SR tree that is selected at each level</li>
-        <li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html">DICOM PS 3.3 C.17.3.2.5</a></li>
+        <li>See <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.2.5.html">DICOM PS3.3 C.17.3.2.5</a></li>
       </ul>
     </li>
     <li><code>instance.segmentNumber</code> - Segments selected from a segmentation SOP Instance
@@ -281,7 +281,7 @@ Systems can determine if the relevant imaging data is available or offline by in
 Different <a href="endpoint.html">Endpoint</a> connection types can have different capabilities, protocols or requirements.
 Furthermore, the specified 
 <code>Endpoint.address</code>
-identifies the DICOM Web Service Base URI (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.2.html">DICOM PS 3.18 Section 8.2</a> ). 
+identifies the DICOM Web Service Base URI (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.2.html">DICOM PS3.18 Section 8.2</a> ).
 The URL to retrieve image data is from this base URL. See below for the details on the use of imaging-related <a href="endpoint.html">Endpoint</a> connection types.
 </p>
 <a name="wado-rs"></a>
@@ -345,12 +345,12 @@ Accept: image/jpeg
 </pre>
 <p>
 For further details on DICOM WADO-RS capabilities including additional rendering parameters,
-see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.4.html">DICOM PS 3.18 Section 10.4</a>.
+see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.4.html">DICOM PS3.18 Section 10.4</a>.
 </p>
 <a name="wado-uri"></a>
 <h4>WADO-URI</h4>
 <p>
-An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies a DICOM WADO-URI service ((TODO -- create example of DICOM WADO-URI endpoint).
+An <code>Endpoint.connectionType</code> of code <code>dicom-wado-uri</code>, system <code>http://terminology.hl7.org/CodeSystem/endpoint-connection-type</code>, identifies a DICOM WADO-URI service (see <a href="endpoint-example-wado-uri.html">example of DICOM WADO-URI endpoint</a>).
 </p>
 <p>
 The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
@@ -393,8 +393,7 @@ Accept: image/jpeg
 
 </pre>
 <p>
-For further details on DICOM WADO-URI capabilities including additional rendering parameters,
-see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/chapter_9.html">DICOM PS 3.18 Chapter 9</a>.
+For further details on DICOM WADO-URI capabilities including additional rendering parameters, see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/chapter_9.html">DICOM PS3.18 Chapter 9</a>.
 </p>
 
   <a name="laterality"></a>
@@ -424,7 +423,7 @@ see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part18/ch
   <a name="dicom-uids"></a>
   <h3>DICOM UIDs as Identifiers</h3>
   <p>
-    In some cases, the <code>ImagingSelection.identifier</code> will be a DICOM UID, such as an Observation UID (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.4.html#table_C.17-6">DICOM PS 3.3 Table C.17-6</a>).
+    In some cases, the <code>ImagingSelection.identifier</code> will be a DICOM UID, such as an Observation UID (see <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.17.3.4.html#table_C.17-6">DICOM PS3.3 Table C.17-6</a>).
   </p>
   <p>
     When using a DICOM UID as the identifier, use the Identifier system of <code>"urn:dicom:uid"</code>, and prefix the UID value with <code>"urn:oid:"</code>.
