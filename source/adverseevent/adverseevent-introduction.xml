@@ -16,7 +16,7 @@
 		  </li>
 		  <li>Non-Substantive Changes
 			<ul>
-			  <li>None</li>
+			  <li><a href="https://jira.hl7.org/browse/FHIR-46600">FHIR-46600</a>: Retired misspelled code hospital-aquired-infection and added correctly spelled code hospital-acquired-infection in AdverseEvent category CodeSystem</li>
 			</ul>
 		  </li>
 		</ul>
