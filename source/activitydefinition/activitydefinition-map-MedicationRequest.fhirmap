@@ -47,7 +47,7 @@ group createActDef
     "ad.product"   : for src.product  as product  make tgt.medication = product
 //    "ad.quantity"  : for src.quantity as quantity make tgt.quantity as tgt
 //    "ad.bodysite"  : for src.bodySite as bodysite make tgt.bodySite = bodysite
-    "ad.dosage"    : for src.dosage   as dosage   make tgt.dosageInstruction = dosage
+    "ad.dosageInstruction"    : for src.dosageInstruction   as dosageInstruction   make tgt.dosageInstruction = dosageInstruction
 
     dispenseRequest: for src make tgt.dispenseRequest as dispenseRequest then {
         dr.q:   for src.quantity as quantity make dispenseRequest.quantity = quantity

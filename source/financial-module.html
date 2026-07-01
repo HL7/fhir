@@ -21,6 +21,17 @@ in order to support consistent definitions for schema and UML derived code.
 
 <a name="intro"></a>
 <h3>Introduction</h3>
+    <blockquote class="ballot-note" id="bn1">
+    <p><b>Note to Balloters:</b> Changes made since the previous ballot</p>
+    <ul>
+        <li>Substantive:</li>
+            <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-57373">FHIR-57373</a> - The resources Contract, EnrollmentRequest, 
+				EnrollmentResponse, Invoice, InsurancePlan and InsuranceProduct have been moved from the R6 specification to a separate
+				FM Incubator Implementation Guide.</li>
+            </ul>
+    </ul>
+    </blockquote>
 <p>
 The Financial module covers the resources and services provided by FHIR to support the costing, contracting, financial transactions and billing which occur within
 a healthcare provider as well as the eligibility, enrollment, authorizations, claims, contracts and payments which occur between healthcare providers
@@ -44,8 +55,6 @@ See also the <a href="administration-module.html">Administration</a> and <a href
             </td>
             <td>
                 <ul>
-                    <li><a href="enrollmentrequest.html">EnrollmentRequest</a></li>
-                    <li><a href="enrollmentresponse.html">EnrollmentResponse</a></li>
                     <li><a href="claim.html">Claim</a></li>
                     <li><a href="claimresponse.html">ClaimResponse</a></li>
                 </ul>
@@ -74,8 +83,6 @@ See also the <a href="administration-module.html">Administration</a> and <a href
         [%res-item Coverage%]
         [%res-item CoverageEligibilityRequest%]
         [%res-item CoverageEligibilityResponse%]
-        [%res-item EnrollmentRequest%]
-        [%res-item EnrollmentResponse%]
         [%res-item VisionPrescription%]
     </table>
 
@@ -147,6 +154,7 @@ Protected Health Information and as such must be afforded the same protection an
  <tr><td>Claim</td><td>Claim</td><td>Claim</td><td>A request to an Insurer to adjudicate the supplied charges for health care goods and services under the identified policy and to pay the determined Benefit amount, if any.</td></tr>
  <tr><td>Coordination of Benefit</td><td>COB</td><td>n/a</td><td>The rules, usually regionally defined, which govern the order of application of multiple Insurance coverages or Self-Pay to a given suite of health care expenses.</td></tr>
  <tr><td>Dependent</td><td></td><td>Patient, RelatedPerson</td><td>A person who receives their coverage via a policy which is own or subscribed to by another. Typically, these include spouses, partners and minor children but may also include students, parents and disabled persons.</td></tr>
+ <tr><td>In-force</td><td>inforce, in force</td><td>n/a</td><td>An insurance policy is deemed to be 'in force' for the period during which the policy will reimburse claims.</td></tr>
  <tr><td>Insurer</td><td>Payer, Payer</td><td>Organization</td><td>The term ”payer” as used in the transactions is defined as the intended entity that is responsible for one or more of the following:
 
 <ul>
@@ -189,7 +197,6 @@ Note: This definition excludes any business associate used to create or receive 
 
  <tr><td><b>Business Activity</b></td><td><b>Request Resource</b></td><td><b>Response Resource</b></td></tr>
  <tr><td>Eligibility Check</td><td><a href="coverageeligibilityrequest.html">CoverageEligibilityRequest</a></td><td><a href="coverageeligibilityresponse.html">CoverageEligibilityResponse</a></td></tr>
- <tr><td>Enrollment Update</td><td><a href="enrollmentrequest.html">EnrollmentRequest</a></td><td><a href="enrollmentresponse.html">EnrollmentResponse</a></td></tr>
  <tr><td>Claim</td><td><a href="claim.html">Claim</a> (type={discipline}, use=claim)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Claim with attachments</td><td><a href="bundle.html">Bundle</a> containing <a href="claim.html">Claim</a> and the attachments</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Predetermination</td><td><a href="claim.html">Claim</a> (type={discipline}, use=predetermination)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>

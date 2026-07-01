@@ -138,14 +138,14 @@
           <valueString value="GuidanceModuleCode"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code-example"/>
       </binding>
     </element>
     <element id="GuidanceResponse.status">
       <path value="GuidanceResponse.status"/>
       <short value="success | data-requested | data-required | in-progress | failure | entered-in-error"/>
       <definition value="The status of the response. If the evaluation is completed successfully, the status will indicate success. However, in order to complete the evaluation, the engine may require more information. In this case, the status will be data-required, and the response will contain a description of the additional required information. If the evaluation completed successfully, but the engine determines that a potentially more accurate response could be provided if more data was available, the status will be data-requested, and the response will contain a description of the additional requested information."/>
-      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <comment value="This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid. Note that as an event resource, the entered-in-error status is used to provide a way for systems to mark incorrectly entered information without removing the record. In addition, the status of a GuidanceResponse reflects the ability of the delivering system to produce the guidance (i.e. the output of the rule engine or AI), not the ability to deliver or display that guidance, nor of the acceptance of that guidance by the user."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -308,8 +308,9 @@
       <path value="GuidanceResponse.evaluationMessage"/>
       <short value="Messages resulting from the evaluation of the artifact or artifacts"/>
       <definition value="Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element."/>
+      <comment value="Note that the element is multiple cardinality to allow for the possibility of responses from multiple steps in the processing to be provided directly, rather than having to collapse them into a single OperationOutcome."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
@@ -341,7 +342,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EnrollmentRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>

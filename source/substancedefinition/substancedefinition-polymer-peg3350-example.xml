@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example: Polyethylene Glycol 3350 (PEG 3350) — a homopolymer of ethylene
+     oxide with number-average molecular weight ~3350 Da. Demonstrates the new
+     SubstanceDefinition polymer backbones added for FHIR-57660: .polymer.class,
+     .geometry, .monomerSet.startingMaterial, .repeat.repeatUnit with degree
+     of polymerisation. Adapted from ISO 11238 Implementation Guide polymer
+     example for PEG 3350. -->
+<SubstanceDefinition xmlns="http://hl7.org/fhir">
+   <id value="peg3350"/>
+   <identifier>
+      <system value="http://example.europa.eu/fhir/SMSId"/>
+      <value value="PEG3350P"/>
+   </identifier>
+   <status>
+      <coding>
+         <system value="http://hl7.org/fhir/publication-status"/>
+         <code value="active"/>
+         <display value="Active"/>
+      </coding>
+   </status>
+   <classification>
+      <coding>
+         <system value="http://example.europa.eu/fhir/SubstanceType"/>
+         <code value="polymer"/>
+         <display value="Polymer"/>
+      </coding>
+   </classification>
+   <domain>
+      <coding>
+         <system value="http://example.europa.eu/fhir/Domain"/>
+         <code value="human"/>
+         <display value="Human use"/>
+      </coding>
+   </domain>
+   <description value="Polyethylene Glycol 3350 (PEG 3350, Macrogol 3350) — a synthetic polyether of ethylene oxide with number-average molecular weight approximately 3350 Da. Linear homopolymer used as an osmotic laxative and a pharmaceutical excipient."/>
+   <code>
+      <code>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Substance"/>
+            <code value="PEG3350P"/>
+         </coding>
+      </code>
+   </code>
+   <name>
+      <name value="Polyethylene Glycol 3350"/>
+      <preferred value="true"/>
+      <language>
+         <coding>
+            <system value="urn:ietf:bcp:47"/>
+            <code value="en"/>
+            <display value="English"/>
+         </coding>
+      </language>
+      <official>
+         <authority>
+            <coding>
+               <system value="http://hl7.org/fhir/substance-name-authority"/>
+               <code value="USAN"/>
+               <display value="USAN"/>
+            </coding>
+         </authority>
+         <status>
+            <coding>
+               <system value="http://hl7.org/fhir/publication-status"/>
+               <code value="active"/>
+               <display value="Active"/>
+            </coding>
+         </status>
+      </official>
+   </name>
+   <name>
+      <name value="Macrogol 3350"/>
+      <preferred value="false"/>
+   </name>
+   <molecularWeight>
+      <type>
+         <coding>
+            <system value="http://example.europa.eu/fhir/WeightType"/>
+            <code value="number-average"/>
+            <display value="Number average (Mn)"/>
+         </coding>
+      </type>
+      <amount>
+         <value value="3350"/>
+         <unit value="g/mol"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="g/mol"/>
+      </amount>
+   </molecularWeight>
+   <polymer>
+      <class>
+         <coding>
+            <system value="http://hl7.org/fhir/polymer-class"/>
+            <code value="homopolymer"/>
+            <display value="Homopolymer"/>
+         </coding>
+      </class>
+      <geometry>
+         <coding>
+            <system value="http://hl7.org/fhir/polymer-geometry"/>
+            <code value="linear"/>
+            <display value="Linear"/>
+         </coding>
+      </geometry>
+      <monomerSet>
+         <ratioType>
+            <coding>
+               <system value="http://hl7.org/fhir/polymer-monomer-ratio-type"/>
+               <code value="monomer-polymer-ratio"/>
+               <display value="Monomer/Polymer ratio"/>
+            </coding>
+         </ratioType>
+         <startingMaterial>
+            <code>
+               <concept>
+                  <coding>
+                     <system value="http://example.europa.eu/fhir/Substance"/>
+                     <code value="ethylene-oxide"/>
+                     <display value="Ethylene oxide"/>
+                  </coding>
+               </concept>
+            </code>
+            <category>
+               <coding>
+                  <system value="http://hl7.org/fhir/polymer-starting-material-category"/>
+                  <code value="chemical-substance"/>
+                  <display value="Chemical substance"/>
+               </coding>
+            </category>
+            <isDefining value="true"/>
+            <amount>
+               <value value="76"/>
+               <unit value="monomers per polymer"/>
+            </amount>
+         </startingMaterial>
+      </monomerSet>
+      <repeat>
+         <averageMolecularFormula value="(C2H4O)76"/>
+         <repeatUnitAmountType>
+            <coding>
+               <system value="http://hl7.org/fhir/polymer-monomer-ratio-type"/>
+               <code value="sru-polymer-ratio"/>
+               <display value="SRU/Polymer ratio"/>
+            </coding>
+         </repeatUnitAmountType>
+         <repeatUnit>
+            <unit value="-CH2-CH2-O-"/>
+            <orientation>
+               <coding>
+                  <system value="http://hl7.org/fhir/polymerisation-orientation"/>
+                  <code value="head-tail"/>
+                  <display value="Head-to-tail"/>
+               </coding>
+            </orientation>
+            <amount value="76"/>
+            <degreeOfPolymerisation>
+               <type>
+                  <coding>
+                     <system value="http://hl7.org/fhir/degree-of-polymerisation-type"/>
+                     <code value="number-average"/>
+                     <display value="Number average"/>
+                  </coding>
+               </type>
+               <average value="76"/>
+               <low value="70"/>
+               <high value="82"/>
+            </degreeOfPolymerisation>
+         </repeatUnit>
+      </repeat>
+   </polymer>
+</SubstanceDefinition>

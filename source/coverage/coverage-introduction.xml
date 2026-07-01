@@ -9,10 +9,18 @@
     <ul>
         <li>Substantive:</li>
             <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54162">FHIR-54162</a> - Changed datatype of Coverage.statusReason to CodeableConcept. 
+				Balloters are invited to propose codes which may be included in the next ballot.</li> 
+                <li><a href="https://jira.hl7.org/browse/FHIR-54234">FHIR-54234</a> - Changed cardinality of .class.value from 1..1 to 0..1, 
+				added element .class.code 0..1 Coding 'Code associated with the type' example binding, 
+				added a condition that either value or code may be specified</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54441">FHIR-54441</a> - Changed datatype of Coverage.network from string to Reference(Organization)</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a> - Removed Coverage.contract</li>
             </ul>
         <li>Non-substantive:</li>
             <ul>
+                <li><a href="https://jira.hl7.org/browse/FHIR-51885">FHIR-51885</a> - Updated the short and long descriptions and requirements on Coverage.beneficiary</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54121">FHIR-54121</a> - Remove InsurancePlan from the narative and element Coverage.insurancePlan</li>
                 <li><a href="https://jira.hl7.org/browse/FHIR-54436">FHIR-54436</a> - Change description of Coverage.class.name to "Human readable description of the value"</li>
             </ul>
     </ul>
@@ -41,14 +49,6 @@ This resource may also be used to register 'SelfPay' where an individual or orga
 				<td>The Coverage resource is intended to provide the high-level identifiers and descriptors of a specific insurance plan for
 a specific individual - essentially the insurance card information. This may alternately provide the individual or organization, selfpay,
  which will pay for products and services rendered.</td>
-			</tr>
-			<tr>
-				<td><a href="insuranceplan.html">InsurancePlan</a></td>
-				<td>The InsurancePlan resource holds the definition of an insurance plan which an insurer may offer to potential clients through
-				insurance brokers or an online insurance marketplace. This is only the plan definition and does not contain or reference 
-				a list of individuals who have purchased the plan.<br/>
-				TODO: Do we need to reference the InsuranceProduct here instead?		
-				</td>
 			</tr>
 		</table>
 	</div>

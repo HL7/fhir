@@ -338,7 +338,7 @@
       <min value="0"/>
       <max value="1"/>
       <documentation value="The canonical reference to the concept map from which this mapping comes from"/>
-      <type value="uri"/>
+      <type value="canonical"/>
     </part>
   </parameter>
 </OperationDefinition>

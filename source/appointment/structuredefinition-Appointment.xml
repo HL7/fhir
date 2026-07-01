@@ -183,7 +183,7 @@
     </element>
     <element id="Appointment.status">
       <path value="Appointment.status"/>
-      <short value="proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist"/>
+      <short value="proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist | unknown"/>
       <definition value="The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status."/>
       <comment value="If the Appointment's status is &quot;cancelled&quot; then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid."/>
       <min value="1"/>
@@ -1029,7 +1029,7 @@
       <path value="Appointment.participant.status"/>
       <short value="accepted | declined | tentative | needs-action"/>
       <definition value="Participation status of the actor."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
@@ -1206,75 +1206,23 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Appointment.recurrenceTemplate.weeklyTemplate.monday">
-      <path value="Appointment.recurrenceTemplate.weeklyTemplate.monday"/>
-      <short value="Recurs on Mondays"/>
-      <definition value="Indicates that recurring appointments should occur on Mondays."/>
-      <min value="0"/>
-      <max value="1"/>
+    <element id="Appointment.recurrenceTemplate.weeklyTemplate.daysOfWeek">
+      <path value="Appointment.recurrenceTemplate.weeklyTemplate.daysOfWeek"/>
+      <short value="mon | tue | wed | thu | fri | sat | sun"/>
+      <definition value="Indicates which days of the week the appointment will occur on."/>
+      <min value="1"/>
+      <max value="*"/>
       <type>
-        <code value="boolean"/>
+        <code value="code"/>
       </type>
-    </element>
-    <element id="Appointment.recurrenceTemplate.weeklyTemplate.tuesday">
-      <path value="Appointment.recurrenceTemplate.weeklyTemplate.tuesday"/>
-      <short value="Recurs on Tuesday"/>
-      <definition value="Indicates that recurring appointments should occur on Tuesdays."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="Appointment.recurrenceTemplate.weeklyTemplate.wednesday">
-      <path value="Appointment.recurrenceTemplate.weeklyTemplate.wednesday"/>
-      <short value="Recurs on Wednesday"/>
-      <definition value="Indicates that recurring appointments should occur on Wednesdays."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="Appointment.recurrenceTemplate.weeklyTemplate.thursday">
-      <path value="Appointment.recurrenceTemplate.weeklyTemplate.thursday"/>
-      <short value="Recurs on Thursday"/>
-      <definition value="Indicates that recurring appointments should occur on Thursdays."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="Appointment.recurrenceTemplate.weeklyTemplate.friday">
-      <path value="Appointment.recurrenceTemplate.weeklyTemplate.friday"/>
-      <short value="Recurs on Friday"/>
-      <definition value="Indicates that recurring appointments should occur on Fridays."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="Appointment.recurrenceTemplate.weeklyTemplate.saturday">
-      <path value="Appointment.recurrenceTemplate.weeklyTemplate.saturday"/>
-      <short value="Recurs on Saturday"/>
-      <definition value="Indicates that recurring appointments should occur on Saturdays."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="Appointment.recurrenceTemplate.weeklyTemplate.sunday">
-      <path value="Appointment.recurrenceTemplate.weeklyTemplate.sunday"/>
-      <short value="Recurs on Sunday"/>
-      <definition value="Indicates that recurring appointments should occur on Sundays."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DaysOfWeek"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The days of the week."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/days-of-week"/>
+      </binding>
     </element>
     <element id="Appointment.recurrenceTemplate.weeklyTemplate.weekInterval">
       <path value="Appointment.recurrenceTemplate.weeklyTemplate.weekInterval"/>
@@ -1308,12 +1256,12 @@
     </element>
     <element id="Appointment.recurrenceTemplate.monthlyTemplate.nthWeekOfMonth">
       <path value="Appointment.recurrenceTemplate.monthlyTemplate.nthWeekOfMonth"/>
-      <short value="Indicates which week of the month the appointment should occur"/>
+      <short value="first | second | third | fourth | last"/>
       <definition value="Indicates which week within a month the appointments in the series of recurring appointments should occur on."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="code"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1326,13 +1274,13 @@
     </element>
     <element id="Appointment.recurrenceTemplate.monthlyTemplate.dayOfWeek">
       <path value="Appointment.recurrenceTemplate.monthlyTemplate.dayOfWeek"/>
-      <short value="Indicates which day of the week the appointment should occur"/>
+      <short value="mon | tue | wed | thu | fri | sat | sun"/>
       <definition value="Indicates which day of the week the recurring appointments should occur each nth week."/>
       <comment value="This property is intended to be used with Appointment.recurrenceTemplate.monthly.nthWeek."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="code"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

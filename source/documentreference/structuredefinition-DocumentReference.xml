@@ -393,7 +393,7 @@
       <path value="DocumentReference.category"/>
       <short value="Categorization of document"/>
       <definition value="A categorization for the type of document referenced - helps for indexing and searching. This may be implied by or derived from the code specified in the DocumentReference.type."/>
-      <comment value="Key metadata element describing the the category or classification of the document. This is a broader perspective that groups similar documents based on how they would be used. This is a primary key used in searching."/>
+      <comment value="Key metadata element describing the category or classification of the document. This is a broader perspective that groups similar documents based on how they would be used. This is a primary key used in searching."/>
       <alias value="class"/>
       <alias value="classCode"/>
       <min value="0"/>
@@ -862,7 +862,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="The way in which a person authenticated a document."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/composition-attestation-mode"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/composition-attestation-mode"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -1009,7 +1009,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="The type of relationship between the documents."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/document-relationship-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/document-relationship-type"/>
       </binding>
       <mapping>
         <identity value="fhircomposition"/>

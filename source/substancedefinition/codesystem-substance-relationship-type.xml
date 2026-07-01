@@ -60,4 +60,34 @@
     <code value="Impurity"/>
     <display value="Impurity of"/>
   </concept>
+  <concept>
+    <code value="TherapeuticTarget"/>
+    <display value="Therapeutic target"/>
+    <definition value="The substance acts therapeutically on the target."/>
+  </concept>
+  <concept>
+    <code value="MetabolicTarget"/>
+    <display value="Metabolic target"/>
+    <definition value="The substance is metabolised by or interacts with the target as part of metabolism."/>
+  </concept>
+  <concept>
+    <code value="ToxicityTarget"/>
+    <display value="Toxicity target"/>
+    <definition value="The substance interacts with the target in a way that contributes to toxicity."/>
+  </concept>
+  <concept>
+    <code value="TargetUnknownEffect"/>
+    <display value="Target (unknown effect)"/>
+    <definition value="The substance is known to interact with the target, but the effect is not characterised."/>
+  </concept>
+  <concept>
+    <code value="GeneOfOrigin"/>
+    <display value="Gene of origin"/>
+    <definition value="The substance was derived from this gene (used e.g. for recombinant proteins and nucleic acid products)."/>
+  </concept>
+  <concept>
+    <code value="Component"/>
+    <display value="Component"/>
+    <definition value="The substance is a component (constituent) of a mixture substance. Used to relate a mixture's component substances to the mixture itself."/>
+  </concept>
 </CodeSystem>

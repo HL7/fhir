@@ -185,9 +185,16 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CoverageStatusReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A reason code for the current status of the instance."/>
+      </binding>
     </element>
     <element id="Coverage.kind">
       <path value="Coverage.kind"/>
@@ -390,9 +397,9 @@
         <valueString value="C.35."/>
       </extension>
       <path value="Coverage.beneficiary"/>
-      <short value="Plan beneficiary"/>
-      <definition value="The party who benefits from the insurance coverage; the patient when products and/or services are provided."/>
-      <requirements value="This is the party who receives treatment for which the costs are reimbursed under the coverage."/>
+      <short value="Party receiving treatment"/>
+      <definition value="The party who receives products or services which may be paid for in whole or in part by insurance or through self payment."/>
+      <requirements value="This is the party who receives treatment."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -524,7 +531,13 @@
       <requirements value="The codes provided on the health card which identify or confirm the specific policy for the insurer."/>
       <min value="0"/>
       <max value="*"/>
-      <type>
+      <constraint>
+        <key value="cov-classtype"/>
+        <severity value="error"/>
+        <human value="Only one of .value and .code may be specified."/>
+        <expression value="value.exists() xor code.exists()"/>
+      </constraint>
+          <type>
         <code value="BackboneElement"/>
       </type>
     </element>
@@ -554,12 +567,49 @@
       <definition value="The alphanumeric identifier associated with the insurer issued label."/>
       <comment value="For example, the Group or Plan number."/>
       <requirements value="The insurer issued label and identifier are necessary to identify the specific policy, group, etc.."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="cdanetv4"/>
+        <map value="C11 (Division,Section)"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-8"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="IN1-2"/>
+      </mapping>
+      <mapping>
+        <identity value="cpha3pharm"/>
+        <map value="C.31"/>
+      </mapping>
+    </element>
+    <element id="Coverage.class.code">
+      <path value="Coverage.class.code"/>
+      <short value="Code associated with the type"/>
+      <definition value="The coded term associated with the insurer issued label."/>
+      <comment value="For example, Bronze, Silver, Gold."/>
+      <requirements value="The insurer issued label and identifier or code are necessary to identify the specific policy, group, etc.."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CoverageClassTypeCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type classifications, e.g. Bronze, Silver, Gold., etc."/>
+<!--        <valueSet value="http://hl7.org/fhir/ValueSet/coverage-class-type-code"/> -->
+      </binding>
       <mapping>
         <identity value="cdanetv4"/>
         <map value="C11 (Division,Section)"/>
@@ -621,7 +671,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -832,21 +883,6 @@
       <max value="1"/>
       <type>
         <code value="boolean"/>
-      </type>
-    </element>
-    <element id="Coverage.insurancePlan">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="C.35."/>
-      </extension>
-      <path value="Coverage.insurancePlan"/>
-      <short value="Insurance plan details"/>
-      <definition value="The insurance plan details, benefits and costs, which constitute this insurance coverage."/>
-      <requirements value="To associate the plan benefits and costs with the coverage which is an instance of that plan."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
       </type>
     </element>
   </differential>

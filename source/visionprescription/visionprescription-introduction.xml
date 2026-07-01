@@ -1,37 +1,23 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 	<div>
-		<h2>Scope and Usage</h2>
-
 		<blockquote class="ballot-note" id="bn1">
-		<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since R5 include:</p>
+		<p><b>Note to Balloters for Ballot5</b>: VisionPrescription changes in this window are limited to resource maintenance and the addition of an expiration date.</p>
+		<p><b>Compatible substantive</b></p>
 		<ul>
-			<li>Added the following elements to align with the Request workflow pattern</li>
-				<ul>
-					<li>VisionPrescription.basedOn</li>
-					<li>VisionPrescription.groupIdentifier</li>
-					<li>VisionPrescription.priority</li>
-				</ul>
-			<li>Added a product search parameter</li>
+		<li>New element <code>VisionPrescription.effectiveEndDate</code> has been added to record an explicit expiration date for the instance <a href="https://jira.hl7.org/browse/FHIR-56359">FHIR-56359</a></li>
 		</ul>
 		</blockquote>
-		<blockquote class="stu-note" style="background-color: lightblue">
-			<p><b>Release Notes (pending alternative process review with FMG):</b></p>
-			<ul>
-				<li><a href="https://jira.hl7.org/browse/FHIR-56359">FHIR-56359</a></li>
-			</ul>
-		</blockquote>
+
+		<h2>Scope and Usage</h2>
 
 		<p>
-The VisionPrescription resource represents an authorization for corrective optical lenses to be provided to a patient. Eye glasses and contact lenses usually require a prescription for patient-specific lenses. Details about the fulfillment of the authorization are handled by the <a href="task.html">Task</a> resource. For further information about this separation of responsibilities, refer to the link <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
+The VisionPrescription resource represents an authorization for corrective optical lenses to be provided to a patient. Eyeglasses and contact lenses usually require a prescription for patient-specific lenses. Details about the fulfillment of the authorization are handled by the <a href="task.html">Task</a> resource. For further information about this separation of responsibilities, refer to the <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
 		</p>
 		<p>
-Vision prescriptions may only be issued by providers who have optical diagnosis within their scope of practice, typically ophthalmologists  
-and optometrists. The prescription is a time-limited, typically two years, authorization for the provision of an unlimited number of lenses, 
-glasses or contacts, which conform to the authorized specification by providers which have lens provision within their scope of practice, typically ophthalmologists  
-, optometrists and opticians. 
+Vision prescriptions may only be issued by providers who have optical diagnosis within their scope of practice, typically ophthalmologists and optometrists. The prescription is a time-limited, typically two year, authorization for the provision of an unlimited number of lenses, glasses or contacts, which conform to the authorized specification by providers that have lens provision within their scope of practice, typically ophthalmologists, optometrists and opticians.
 		</p>
-		<p>Health insurers typically require a copy of the prescription to ensure that a vision professional has examined the patient and that the power of the lenses exceeds some minimum, such as +- 0.75 diopters, to qualify for reimbursement under the insurance coverage.</p>
+		<p>Health insurers typically require a copy of the prescription to ensure that a vision professional has examined the patient and that the power of the lenses exceeds some minimum, such as +/- 0.75 diopters, to qualify for reimbursement under the insurance coverage.</p>
 		
 		<h3>Additional Information</h3>
 		<p>
@@ -45,8 +31,8 @@ Additional information regarding resources conveying electronic claims content a
 		<a name="bnr"></a>
 		<h2>Boundaries and Relationships</h2>
 
-		<p>The VisionPrescription resource is used to provide the authorized specification of lenses for glasses and contacts which 
-		have well known and internationally consistent requirements, which is distinct from other types of health care authorizations detailed below.
+		<p>The VisionPrescription resource is used to provide the authorized specification of lenses for glasses and contacts which
+		have well-known and internationally consistent requirements, and are distinct from other types of health care authorizations detailed below.
 		</p>
 		<b>The health care domain includes a number of related resources</b>
 
@@ -57,12 +43,12 @@ Additional information regarding resources conveying electronic claims content a
 			</tr>
 			<tr>
 				<td><a href="devicerequest.html">DeviceRequest</a></td>
-				<td>This resource is used to prescribe, authorize, and request provision of a health care device such as a halter monitor or a wheelchair services.
+				<td>This resource is used to prescribe, authorize, and request provision of a health care device such as a Holter monitor or wheelchair services.
 				</td>
 			</tr>			
 			<tr>
 				<td><a href="medicationrequest.html">MedicationRequest</a></td>
-				<td>This resource is used to prescribe, authorize, and request provision of medications such a pharmaceuticals and vaccines.
+				<td>This resource is used to prescribe, authorize, and request provision of medications such as pharmaceuticals and vaccines.
 				</td>
 			</tr>			
 			<tr>
@@ -78,4 +64,4 @@ Additional information regarding resources conveying electronic claims content a
 		</table>
 
 	</div>
-</div>	
+</div>
