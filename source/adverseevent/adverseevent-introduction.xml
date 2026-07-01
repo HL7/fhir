@@ -12,12 +12,11 @@
 		  <li>Compatible, Substantive Changes
 			<ul>
 			  <li><a href="https://jira.hl7.org/browse/FHIR-55315">FHIR-55315</a>: Add unknown code to the AdverseEvent.actuality value set</li>
-			  <li><a href="https://jira.hl7.org/browse/FHIR-46600">FHIR-46600</a>: Retired misspelled code hospital-aquired-infection and added correctly spelled code hospital-acquired-infection in AdverseEvent category CodeSystem</li>
 			</ul>
 		  </li>
 		  <li>Non-Substantive Changes
 			<ul>
-			  <li>None</li>
+			  <li><a href="https://jira.hl7.org/browse/FHIR-46600">FHIR-46600</a>: Retired misspelled code hospital-aquired-infection and added correctly spelled code hospital-acquired-infection in AdverseEvent category CodeSystem</li>
 			</ul>
 		  </li>
 		</ul>
