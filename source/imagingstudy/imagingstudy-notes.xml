@@ -66,7 +66,7 @@ that service for all series in that study that do not have a specified <a href="
 contained instances. That is, an <code>ImagingStudy.series.endpoint</code> overrides an <code>ImagingStudy.endpoint</code>
 of the same connection type. 
 Systems can determine if a particular study, series, or instance is available or offline by interacting with the endpoint.
-Since individual series of a study can be stored on different imaging archive servers, accessing all series of the study may require per-series endpoints.
+Since individual series of a study can be stored on different imaging archive servers, accessing all series of the study might require per-series endpoints.
 </p>
 <p>
 Different Endpoint connection types can have different capabilities, protocols or requirements.

@@ -299,7 +299,7 @@ In addition to the general purpose functions below, additional functions functio
 </ul>
 
 <a name="fn-extension"> </a>
-<h4><b>extension(url : string) : collection</b></h4>
+<h4>extension(url : string) : collection</h4>
 <p>Will filter the input collection for items named "extension" with the given <code>url</code>. 
   This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
   but is simpler to write. If the input collection is empty or the url is empty, 
@@ -311,7 +311,7 @@ Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaiden
 
 <hr/>
 <a name="fn-hasValue"> </a>
-<h4><b>hasValue() : Boolean</b></h4>
+<h4>hasValue() : Boolean</h4>
 <p>If the input collection contains a single value which is a FHIR primitive, then will
   return true if the single value is a primitive value (e.g., as opposed to not having a
   value and just having extensions) and false if not. If the input collection is not a
@@ -330,7 +330,7 @@ Patient.active.hasValue()
 
 <hr/>
 <a name="fn-getValue"> </a>
-<h4><b>getValue() : System.[type]</b></h4>
+<h4>getValue() : System.[type]</h4>
 <p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
   and it has a primitive value (see discussion for hasValue()). Otherwise, the return value is empty.</p>
 
@@ -340,7 +340,7 @@ Patient.birthDate.getValue() // returns just the primitive, does not include ext
 
   <hr/>
 <a name="fn-resolve"> </a>
-<h4><b>resolve() : collection</b></h4>
+<h4>resolve() : collection</h4>
 <p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
    (or <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#url">url</a>), locate the 
    target of the reference, and add it to the resulting collection. If the item does not resolve to a resource, 
@@ -363,14 +363,14 @@ DocumentReference.content.attachment.url.resolve() // When using DocumentReferen
 
   <hr/>
 <a name="fn-elementDefinition"> </a>
-<h4><b>elementDefinition() : collection</b></h4>
+<h4>elementDefinition() : collection</h4>
 <p>Returns the FHIR element definition information for each element in the input collection. If the 
   input collection is empty, the return value will be an empty collection.
 </p>
 
 <hr/>
 <a name="fn-slice"> </a>
-<h4><b>slice(structure : string, name : string) : collection</b></h4>
+<h4>slice(structure : string, name : string) : collection</h4>
 <p>
   Returns the input collection filtered to items that conform to the specified profile slice.
 </p>
@@ -403,14 +403,14 @@ NOTE: not all FHIRPath engines are in a position to implement <code>slice()</cod
 
 <hr/>
 <a name="fn-checkModifiers"> </a>
-<h4><b>checkModifiers(modifier : string) : collection</b></h4>
+<h4>checkModifiers(modifier : string) : collection</h4>
 
 <p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument (comma-separated string). 
   If the check passes, the input collection is returned. Otherwise, an error is thrown, including if modifier is empty.</p>
 
   <hr/>
 <a name="fn-conformsTo"> </a>
-<h4><b>conformsTo(structure : string) : Boolean</b></h4>
+<h4>conformsTo(structure : string) : Boolean</h4>
 <p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, 
   and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
   the return value is empty.</p>
@@ -421,7 +421,7 @@ Patient.conformsTo('http://hl7.org/fhir/StructureDefinition/Patient')
 
   <hr/>
 <a name="fn-memberOf"> </a>
-<h4><b>memberOf(valueset : string) : Boolean</b></h4>
+<h4>memberOf(valueset : string) : Boolean</h4>
 
 <p>
 When invoked on a single code-valued element, returns true if the code is a member of the given <code>valueset</code>.
@@ -443,7 +443,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <hr/>
 <a name="fn-subsumes"> </a>
-<h4><b>subsumes(code : Coding | CodeableConcept) : Boolean</b></h4>
+<h4>subsumes(code : Coding | CodeableConcept) : Boolean</h4>
 
 <p>When invoked on a Coding-valued element and the given <code>code</code> is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e., the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or the return value is empty.</p>
@@ -457,7 +457,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <hr/>
 <a name="fn-subsumedBy"> </a>
-<h4><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b></h4>
+<h4>subsumedBy(code: Coding | CodeableConcept) : Boolean</h4>
 
 <p>When invoked on a Coding-valued element and the given <code>code</code> is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code is subsumed by the given code (i.e., the given code is an ancestor of the source code in a subsumption hierarchy), and false otherwise.</p>
 <p>If the Codings are from different code systems, the relationships between the code systems must be well-defined or a run-time error is thrown.</p>
@@ -467,7 +467,7 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <hr/>
 <a name="fn-htmlChecks"> </a>
-<h4><b>htmlChecks : Boolean</b></h4>
+<h4>htmlChecks : Boolean</h4>
 
 <p>When invoked on a single <a href="narrative.html#xhtml">xhtml</a> element, the function returns true if the <a href="narrative.html#rules">rules around
 HTML usage</a> are met, and false if they are not.  If invoked on items of type 'string', the contents of the string are
@@ -477,11 +477,14 @@ The return value is empty on any other kind of element or if invoked on a collec
 
 <hr/>
 <a name="fn-weight"> </a>
-<h4><b>weight() : decimal</b></h4>
-
-This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the return value is empty. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
-
-This function will typically be used to support scoring of Questionnaires, but it can be used with observations or potentially other elements as well.
+<h4>weight() : decimal</h4>
+<p>
+  This functions returns the ordinal value for an element. This may be based on an <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemWeight extension</a> defined on an element such as QuestionnaireResponse answer, or it may be based on the <a href="codesystem.html#defined-props">weight property</a> defined on a code.  In some cases, this may require looking across resources.  For example, QuestionnaireResponse.item.where(linkId='123').answer.first().weight() may need to find the corresponding item in the Questionnaire and then look up the coding specified in 'answer' with the corresponding answerOption in Questionnaire.item with the same linkId.  If no weight is defined for the context element, the return value is empty. If the FHIRPath engine is unable to resolve the corresponding value set, code system or questionnaire options, it SHOULD cause the expression to fail.
+</p>
+<p>  
+  This function will typically be used to support scoring of Questionnaires, but it can be used with observations or potentially other elements as well.
+</p>
+<hr/>
 
 <a name="overloads"></a>
 <h3>Function Overrides</h3>
@@ -489,7 +492,7 @@ This function will typically be used to support scoring of Questionnaires, but i
 </p>
 
 <a name="fn-toString"> </a>
-<h4><b>toString() : string</b></h4>
+<h4>toString() : string</h4>
 <p>If the input collection contains a single item, this function will return a single String if the type 
   is a FHIR primitive, and it has a value (e.g. if <code>hasValue() = true</code>), and the primitive type 
   has a System type for which <a href="https://hl7.org/fhirpath/N1/#tostring-string">toString() is defined</a>.
@@ -502,7 +505,7 @@ Patient.birthDate.toString()
 
 <hr/>
 <a name="fn-ofType2"> </a><a name="fn-ofType"> </a>
-<h4><b>ofType(type : «type specifier») : collection</b></h4>
+<h4>ofType(type : «type specifier») : collection</h4>
 <p>Returns a collection that contains all items in the input collection that are of the given <code>type</code> or a subclass thereof.
   This is as defined as in the base FHIRPath specification, but implementers should be aware that in FHIR, 
   only concrete core types are allowed as an argument. All primitives are considered to be independent 
@@ -521,7 +524,7 @@ Observation.value.ofType(dateTime) | Observation.value.ofType(Period).start // s
 <h3>Operator Overrides</h3>
 
 <a name="fn-Equivalence"> </a>
-<h4><b>~ (Equivalence)</b></h4>
+<h4>~ (Equivalence)</h4>
 <p>Equivalence works in exactly the same manner, but with the addition that for complex types, equality requires all child properties to be equal, <strong>except for "id" elements</strong>.</p>
 <p>In addition, for Coding values, equivalence is defined based on the code and system elements only. The version, display, and userSelected elements are ignored for the purposes of determining Coding equivalence.</p>
 <p>For CodeableConcept values, equivalence is defined as a non-empty intersection of Coding elements, using equivalence. In other words, two CodeableConcepts are considered equivalent if any Coding in one is equivalent to any Coding in the other.</p>

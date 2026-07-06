@@ -11,6 +11,8 @@
             	<li>SubstanceDefinition.moiety.identifier, which was made 0..* (previously 0..1)</li>
             	<li>SubstanceDefinition.name.official.authority, value set (and code system) substance-name-authority has been extended with code: "UT", UMC Terminologies</li>
             	<li>SubstanceDefinition.relationship.amount[x] now also allows RatioRange, replacing the separate .ratioHighLimitAmount field (which has been removed)</li>
+            	<li>New element SubstanceDefinition.glycosylationType (0..1 CodeableConcept) for the high-level glycosylation pattern of a substance, applicable to proteins and to structurally diverse substances such as vaccines</li>
+            	<li>New element SubstanceDefinition.protein.modificationType (0..1 CodeableConcept) for the high-level kind of protein modification, e.g. PEGylated, lipidated, Fc-fused</li>
             </ul>
         <li>Classes moved in from R5 resources SubstanceNucleicAcid, SubstancePolymer, SubstanceProtein and SubstanceReferenceInformation</li>
     </ul>

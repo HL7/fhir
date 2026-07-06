@@ -440,6 +440,6 @@ For further details on DICOM WADO-URI capabilities including additional renderin
     If the ImagingSelection is incorrect — e.g., due to the wrong images being selected — it might be corrected with an update operation or set to <code>entered-in-error</code> and replaced with a new ImagingSelection.
   </p>
   <p>
-    If the ImagingSelection is no longer valid – e.g., an automated selection was made by an application and deemed not to be relevant by a user – the status should be set to <code>inactive</code>.
+    If the ImagingSelection is no longer valid – e.g., an automated selection was made by an application and deemed not to be relevant by a user – the status is set to <code>inactive</code>.
   </p>
 </div>

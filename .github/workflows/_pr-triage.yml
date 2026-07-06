@@ -84,6 +84,8 @@ jobs:
       build_timeout: ${{ steps.wait.outputs.build_timeout }}
       pr_title: ${{ steps.check.outputs.pr_title }}
       security_override: ${{ steps.check.outputs.security_override }}
+      is_fork: ${{ steps.check.outputs.is_fork }}
+      fork_label: ${{ steps.check.outputs.fork_label }}
 
     steps:
       - name: Evaluate trigger eligibility
@@ -162,6 +164,9 @@ jobs:
                   core.setOutput('html_url', pr.html_url);
                   core.setOutput('trigger_kind', 'security_override');
                   core.setOutput('pr_title', pr.title || '');
+                  const isFork_so = pr.head.repo && pr.head.repo.full_name !== pr.base.repo.full_name;
+                  core.setOutput('is_fork', isFork_so ? 'true' : 'false');
+                  core.setOutput('fork_label', isFork_so ? pr.head.repo.full_name : '');
                   return;
                 } else {
                   core.notice(`"securityok" comment from non-admin ${comment.user.login} — ignoring override.`);
@@ -225,6 +230,9 @@ jobs:
             core.setOutput('html_url', pr.html_url);
             core.setOutput('trigger_kind', triggerKind);
             core.setOutput('pr_title', pr.title || '');
+            const isFork = pr.head.repo && pr.head.repo.full_name !== pr.base.repo.full_name;
+            core.setOutput('is_fork', isFork ? 'true' : 'false');
+            core.setOutput('fork_label', isFork ? pr.head.repo.full_name : '');
 
       - name: Wait for required check run
         id: wait
@@ -239,11 +247,15 @@ jobs:
             const checkName = process.env.CHECK_NAME;
             const headSha = process.env.HEAD_SHA;
 
-            // 120s × 120 attempts = 4 hours
+            // 120s × 120 attempts = 4 hours (for a check that exists but hasn't completed)
+            // If the check never appears at all, bail after NO_SHOW_LIMIT attempts
+            // and let triage proceed with a warning rather than blocking indefinitely.
             const POLL_INTERVAL_MS = 120 * 1000;
             const MAX_ATTEMPTS = 120;
+            const NO_SHOW_LIMIT = 3; // ~6 minutes before declaring check absent
 
             const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+            let everSeen = false;
 
             for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
               const { data } = await github.rest.checks.listForRef({
@@ -257,20 +269,29 @@ jobs:
 
               if (!match) {
                 core.notice(`Attempt ${attempt}/${MAX_ATTEMPTS}: no "${checkName}" check run found yet for ${headSha}. Waiting ${POLL_INTERVAL_MS / 1000}s.`);
-              } else if (match.status === 'completed') {
-                if (match.conclusion === 'success') {
-                  core.notice(`"${checkName}" succeeded. Proceeding with triage.`);
+                if (!everSeen && attempt >= NO_SHOW_LIMIT) {
+                  core.warning(`"${checkName}" has not appeared after ${NO_SHOW_LIMIT} attempts (~${NO_SHOW_LIMIT * POLL_INTERVAL_MS / 60000} min). Proceeding with triage; CI build may not have triggered.`);
                   core.setOutput('should_triage', 'true');
-                  core.setOutput('build_timeout', 'false');
-                  return;
-                } else {
-                  core.notice(`"${checkName}" completed with conclusion="${match.conclusion}". Skipping triage silently.`);
-                  core.setOutput('should_triage', 'false');
-                  core.setOutput('build_timeout', 'false');
+                  core.setOutput('build_timeout', 'true');
                   return;
                 }
               } else {
-                core.notice(`Attempt ${attempt}/${MAX_ATTEMPTS}: "${checkName}" status="${match.status}". Waiting ${POLL_INTERVAL_MS / 1000}s.`);
+                everSeen = true;
+                if (match.status === 'completed') {
+                  if (match.conclusion === 'success') {
+                    core.notice(`"${checkName}" succeeded. Proceeding with triage.`);
+                    core.setOutput('should_triage', 'true');
+                    core.setOutput('build_timeout', 'false');
+                    return;
+                  } else {
+                    core.notice(`"${checkName}" completed with conclusion="${match.conclusion}". Skipping triage silently.`);
+                    core.setOutput('should_triage', 'false');
+                    core.setOutput('build_timeout', 'false');
+                    return;
+                  }
+                } else {
+                  core.notice(`Attempt ${attempt}/${MAX_ATTEMPTS}: "${checkName}" status="${match.status}". Waiting ${POLL_INTERVAL_MS / 1000}s.`);
+                }
               }
 
               if (attempt < MAX_ATTEMPTS) {
@@ -284,7 +305,10 @@ jobs:
 
   build_timeout_alert:
     needs: eligibility
-    if: needs.eligibility.outputs.build_timeout == 'true'
+    # Only fire when the check appeared but stalled for 4 hours (should_triage
+    # will be false in that case). The never-appeared case sets should_triage
+    # true and flows through the normal triage job with a warning in the email.
+    if: needs.eligibility.outputs.build_timeout == 'true' && needs.eligibility.outputs.should_triage == 'false'
     runs-on: ubuntu-latest
     environment: claude-triage
 
@@ -722,6 +746,9 @@ jobs:
           for m in re.findall(r"\bFHIR-(\d+)\b", combined):
               keys.add(f"FHIR-{m}")
           for m in re.findall(r"\bJ#(\d+)\b", combined):
+              keys.add(f"FHIR-{m}")
+          # Also handle full Jira URLs: https://jira.hl7.org/browse/FHIR-NNNN
+          for m in re.findall(r"jira\.hl7\.org/browse/FHIR-(\d+)", combined):
               keys.add(f"FHIR-{m}")
           keys = sorted(keys)
 
@@ -1611,6 +1638,10 @@ jobs:
           GH_SERVER_URL: ${{ github.server_url }}
           GH_REPOSITORY: ${{ github.repository }}
           TRIGGER_KIND: ${{ needs.eligibility.outputs.trigger_kind }}
+          IS_FORK: ${{ needs.eligibility.outputs.is_fork }}
+          FORK_LABEL: ${{ needs.eligibility.outputs.fork_label }}
+          BUILD_TIMEOUT: ${{ needs.eligibility.outputs.build_timeout }}
+          PR_NUMBER_FOR_FORK: ${{ needs.eligibility.outputs.pr_number }}
         run: |
           BODY=$(python3 <<'PY'
           import os
@@ -1623,6 +1654,10 @@ jobs:
           security_override = os.environ.get("SECURITY_OVERRIDE", "") == "true"
           head_sha = os.environ.get("HEAD_SHA", "")
           link_url = os.environ["LINK_URL"]
+          is_fork = os.environ.get("IS_FORK", "") == "true"
+          fork_label = os.environ.get("FORK_LABEL", "")
+          build_timeout = os.environ.get("BUILD_TIMEOUT", "") == "true"
+          pr_number = os.environ.get("PR_NUMBER_FOR_FORK", "")
 
           # Debug info
           event_name    = os.environ.get("GH_EVENT_NAME", "")
@@ -1659,6 +1694,25 @@ jobs:
               print()
               print("--- Advisory ---")
               print(tier2.strip())
+
+          # Fork PR reminder
+          if is_fork:
+              fork_desc = f" ({fork_label})" if fork_label else ""
+              print()
+              print(f"⚠️  FORK PR{fork_desc} — manual steps required before merge:")
+              print(f"  1. Review diff carefully for security issues (fork PRs bypass Azure Pipelines CI).")
+              print(f"  2. Fetch and push to trigger CI build:")
+              print(f"       git fetch origin pull/{pr_number}/head:review/pr-{pr_number}")
+              print(f"       git push origin review/pr-{pr_number}")
+
+          # CI build warning
+          if build_timeout:
+              print()
+              if is_fork:
+                  print("⚠️  No CI build was detected. This is expected for fork PRs — see steps above.")
+              else:
+                  print("⚠️  No CI build was detected within the wait window. The Azure Pipelines build")
+                  print("    may not have triggered, or may require manual approval. Verify before merging.")
 
           print()
           print(link_url)
