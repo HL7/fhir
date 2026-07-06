@@ -10,7 +10,7 @@
   </extension>
   <url value="http://hl7.org/fhir/deviceassociation-status-reason"/>
   <version value="6.0.0"/>
-  <name value="DeviceAssociation"/>
+  <name value="DeviceAssociationStatusReason"/>
   <title value="DeviceAssociation Status Reason Codes"/>
   <status value="active"/>
   <experimental value="false"/>
@@ -19,28 +19,43 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-status-reason"/>
   <content value="complete"/>
   <concept>
-    <code value="attached"/>
-    <display value="Attached"/>
-    <definition value="The device is connected to the patient."/>
+    <code value="lost-to-follow-up"/>
+    <display value="Lost To Follow-Up"/>
+    <definition value="The relationship status changed because follow-up with the subject or responsible party was lost."/>
   </concept>
   <concept>
-    <code value="disconnected"/>
-    <display value="Disconnected"/>
-    <definition value="The device is no longer connected."/>
+    <code value="record-archived"/>
+    <display value="Record Archived"/>
+    <definition value="The relationship status changed because the association record was archived."/>
   </concept>
   <concept>
-    <code value="failed"/>
-    <display value="Failed"/>
-    <definition value="The device has failed to work, or continue to function."/>
+    <code value="superseded"/>
+    <display value="Superseded"/>
+    <definition value="The relationship status changed because the association was replaced by a newer association record."/>
   </concept>
   <concept>
-    <code value="placed"/>
-    <display value="Placed"/>
-    <definition value="The device was placed in the patient."/>
+    <code value="duplicate"/>
+    <display value="Duplicate"/>
+    <definition value="The relationship status changed because the association record was identified as a duplicate."/>
   </concept>
   <concept>
-    <code value="replaced"/>
-    <display value="Replaced"/>
-    <definition value="The device was updated with a new device or device part."/>
+    <code value="patient-deceased"/>
+    <display value="Patient Deceased"/>
+    <definition value="The relationship status changed because the patient associated with the device is deceased."/>
+  </concept>
+  <concept>
+    <code value="device-retired"/>
+    <display value="Device Retired"/>
+    <definition value="The relationship status changed because the device was retired from service."/>
+  </concept>
+  <concept>
+    <code value="association-ended"/>
+    <display value="Association Ended"/>
+    <definition value="The relationship status changed because the association ended."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The reason for the relationship status is not known."/>
   </concept>
 </CodeSystem>

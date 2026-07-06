@@ -9,6 +9,7 @@
 	<p><b>Release Notes:</b></p>
 	<ul>
 		<li><a href="https://jira.hl7.org/browse/FHIR-56390">FHIR-56390</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-54693">FHIR-54693</a>: Updated reference to Decision Support Service specification to point to CRMI versioning discussion</li>
 	</ul>
 </blockquote>
 <a name="bnc"></a>

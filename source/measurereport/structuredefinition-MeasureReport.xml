@@ -957,6 +957,7 @@
       <path value="MeasureReport.group.stratifier.stratum.value[x]"/>
       <short value="The stratum value, e.g. male"/>
       <definition value="The value for this stratum, expressed as a CodeableConcept. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique."/>
+      <comment value="Note that the string choice for stratum values should only be used when the data would not typically be coded; use CodeableConcept for data that would typically be coded, but a code is not known."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -966,6 +967,9 @@
         <code value="boolean"/>
       </type>
       <type>
+        <code value="Period"/>
+      </type>
+      <type>
         <code value="Quantity"/>
       </type>
       <type>
@@ -973,6 +977,9 @@
       </type>
       <type>
         <code value="Reference"/>
+      </type>
+      <type>
+        <code value="string"/>
       </type>
       <condition value="mrp-2"/>
       <binding>
@@ -1056,6 +1063,7 @@
       <path value="MeasureReport.group.stratifier.stratum.component.value[x]"/>
       <short value="The stratum component value, e.g. male"/>
       <definition value="The stratum component value."/>
+      <comment value="Note that the string choice for stratum values should only be used when the data would not typically be coded; use CodeableConcept for data that would typically be coded, but a code is not known."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1065,6 +1073,9 @@
         <code value="boolean"/>
       </type>
       <type>
+        <code value="Period"/>
+      </type>
+      <type>
         <code value="Quantity"/>
       </type>
       <type>
@@ -1072,6 +1083,9 @@
       </type>
       <type>
         <code value="Reference"/>
+      </type>
+      <type>
+        <code value="string"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

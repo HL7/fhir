@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir">
 	<id value="example-observation-device-flowratemetric"/>
 	<type value="collection"/>
@@ -46,14 +46,21 @@
 				<device>
 					<reference value="Device/example-IV-pump"/>
 				</device>
-				<status value="active"/>
-				<associationStatus>
+				<relationship>
 					<coding>
-					<system value="http://hl7.org/fhir/CodeSystem/deviceassociation-association-status"/>
-					<code value="attached"/>
-					<display value="Attached"/>
+					<system value="http://hl7.org/fhir/deviceassociation-relationship"/>
+					<code value="attached-to"/>
+					<display value="Attached To"/>
 					</coding>
-				</associationStatus>
+				</relationship>
+				<status value="active"/>
+				<relationshipStatus>
+					<coding>
+					<system value="http://hl7.org/fhir/deviceassociation-relationship-status"/>
+					<code value="active"/>
+					<display value="Active"/>
+					</coding>
+				</relationshipStatus>
 				<subject>
 					<reference value="Patient/pat1"/>
 					<display value="Donald Duck"/>

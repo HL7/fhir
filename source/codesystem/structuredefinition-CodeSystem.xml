@@ -386,7 +386,7 @@
 			<path value="CodeSystem.jurisdiction"/>
 			<short value="Jurisdiction of the authority that maintains the code system (if applicable)"/>
 			<definition value="A legal or geographic region in which the authority that maintains the resource is operating.  In general, the jurisdiction is also found in the useContext.  The useContext may reference additional jurisdictions because the defining jurisdiction does not necessarily limit the jurisdictions of use."/>
-			<comment value="It may be possible for the code system to be used in jurisdictions other than those for which it was originally designed or intended.&#xa;&#xa;DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'jurisdiction' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)"/>
+			<comment value="It may be possible for the code system to be used in jurisdictions other than those for which it was originally designed or intended."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -512,16 +512,12 @@
 			</mapping>
 		</element>
 		<element id="CodeSystem.topic">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
 				<valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
 			</extension>
 			<path value="CodeSystem.topic"/>
 			<short value="E.g. Education, Treatment, Assessment, etc"/>
 			<definition value="Descriptions related to the content of the CodeSystem. Topics provide a high-level categorization as well as keywords for the CodeSystem that can be useful for filtering and searching."/>
-			<comment value="DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new 'topic' code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)"/>
 			<requirements value="Repositories must be able to determine how to categorize the CodeSystem so that it can be found by topical and keyword searches."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -760,7 +756,7 @@
 		</element>
 		<element id="CodeSystem.filter.operator">
 			<path value="CodeSystem.filter.operator"/>
-			<short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendent-leaf | exists"/>
+			<short value="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | child-of | descendent-leaf | exists | property-value-of"/>
 			<definition value="A list of operators that can be used with the filter."/>
 			<min value="1"/>
 			<max value="*"/>
@@ -845,7 +841,8 @@
 		<element id="CodeSystem.property.type">
 			<path value="CodeSystem.property.type"/>
 			<short value="code | Coding | string | integer | boolean | dateTime | decimal"/>
-			<definition value="The type of the property value. Properties of type &quot;code&quot; contain a code defined by the code system (e.g. a reference to another defined concept)."/>
+			<definition value="The type of the property value. Properties of type &quot;code&quot; contain a code defined by the code system or another code system."/>
+			<comment value="If type is code, and a defined set of codes is to be used, these codes can be specified by using the extension http://hl7.org/fhir/StructureDefinition/codesystem-property-valueset"/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>

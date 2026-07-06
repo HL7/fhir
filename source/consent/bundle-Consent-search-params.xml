@@ -295,7 +295,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-source-reference"/>
         <status value="active"/>
-        <description value="Search by reference to a Consent, DocumentReference, Contract  or QuestionnaireResponse"/>
+        <description value="Search by reference to a Consent, DocumentReference, or QuestionnaireResponse"/>
         <code value="source-reference"/>
         <type value="reference"/>
         <expression value="Consent.sourceReference"/>

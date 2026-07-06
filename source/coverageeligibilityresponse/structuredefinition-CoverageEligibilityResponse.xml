@@ -414,8 +414,8 @@
     </element>
     <element id="CoverageEligibilityResponse.insurance.inforce">
       <path value="CoverageEligibilityResponse.insurance.inforce"/>
-      <short value="Coverage inforce indicator"/>
-      <definition value="Flag indicating if the coverage provided is inforce currently if no service date(s) specified or for the whole duration of the service dates."/>
+      <short value="Coverage in-force indicator"/>
+      <definition value="Flag indicating if the coverage provided is in-force currently if no service date(s) specified or for the whole duration of the service dates."/>
       <requirements value="Needed to convey the answer to the eligibility validation request."/>
       <min value="0"/>
       <max value="1"/>

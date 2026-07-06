@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example: Ponatinib hydrochloride — a tyrosine kinase inhibitor used for
+     chronic myeloid leukemia. Chemical substance from ISO 11238 IG examples.
+     Demonstrates SubstanceDefinition for a small-molecule chemical with
+     moiety (the salt: HCl) and target relationship (BCR-ABL kinase). -->
+<SubstanceDefinition xmlns="http://hl7.org/fhir">
+   <id value="ponatinib-hcl"/>
+   <identifier>
+      <system value="http://example.europa.eu/fhir/SMSId"/>
+      <value value="PONA4321C"/>
+   </identifier>
+   <status>
+      <coding>
+         <system value="http://hl7.org/fhir/publication-status"/>
+         <code value="active"/>
+         <display value="Active"/>
+      </coding>
+   </status>
+   <classification>
+      <coding>
+         <system value="http://example.europa.eu/fhir/SubstanceType"/>
+         <code value="chemical"/>
+         <display value="Chemical"/>
+      </coding>
+   </classification>
+   <domain>
+      <coding>
+         <system value="http://example.europa.eu/fhir/Domain"/>
+         <code value="human"/>
+         <display value="Human use"/>
+      </coding>
+   </domain>
+   <description value="Ponatinib hydrochloride — a small-molecule tyrosine kinase inhibitor (TKI) used in the treatment of chronic myeloid leukemia (CML) and Philadelphia chromosome-positive acute lymphoblastic leukemia (Ph+ ALL). Hydrochloride salt of ponatinib."/>
+   <code>
+      <code>
+         <coding>
+            <system value="http://example.europa.eu/fhir/Substance"/>
+            <code value="PONA4321C"/>
+         </coding>
+      </code>
+   </code>
+   <name>
+      <name value="Ponatinib Hydrochloride"/>
+      <preferred value="true"/>
+      <language>
+         <coding>
+            <system value="urn:ietf:bcp:47"/>
+            <code value="en"/>
+            <display value="English"/>
+         </coding>
+      </language>
+      <official>
+         <authority>
+            <coding>
+               <system value="http://hl7.org/fhir/substance-name-authority"/>
+               <code value="USAN"/>
+               <display value="USAN"/>
+            </coding>
+         </authority>
+         <status>
+            <coding>
+               <system value="http://hl7.org/fhir/publication-status"/>
+               <code value="active"/>
+               <display value="Active"/>
+            </coding>
+         </status>
+      </official>
+   </name>
+   <molecularWeight>
+      <type>
+         <coding>
+            <system value="http://example.europa.eu/fhir/WeightType"/>
+            <code value="exact"/>
+            <display value="Exact"/>
+         </coding>
+      </type>
+      <amount>
+         <value value="569.04"/>
+         <unit value="g/mol"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="g/mol"/>
+      </amount>
+   </molecularWeight>
+   <moiety>
+      <role>
+         <coding>
+            <system value="http://example.europa.eu/fhir/MoietyRole"/>
+            <code value="active-moiety"/>
+            <display value="Active moiety"/>
+         </coding>
+      </role>
+      <name value="Ponatinib"/>
+      <molecularFormula value="C29H27F3N6O"/>
+      <amount>
+         <value value="532.57"/>
+         <unit value="g/mol"/>
+      </amount>
+   </moiety>
+   <moiety>
+      <role>
+         <coding>
+            <system value="http://example.europa.eu/fhir/MoietyRole"/>
+            <code value="counter-ion"/>
+            <display value="Counter-ion (salt)"/>
+         </coding>
+      </role>
+      <name value="Hydrochloride"/>
+      <molecularFormula value="HCl"/>
+      <amount>
+         <value value="36.46"/>
+         <unit value="g/mol"/>
+      </amount>
+   </moiety>
+   <relationship>
+      <substanceDefinitionCodeableConcept>
+         <coding>
+            <system value="https://www.uniprot.org"/>
+            <code value="A9UF07"/>
+            <display value="BCR-ABL1 fusion kinase"/>
+         </coding>
+      </substanceDefinitionCodeableConcept>
+      <type>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-relationship-type"/>
+            <code value="TherapeuticTarget"/>
+            <display value="Therapeutic target"/>
+         </coding>
+      </type>
+      <interaction>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-interaction-type"/>
+            <code value="inhibition"/>
+            <display value="Inhibition"/>
+         </coding>
+      </interaction>
+      <measurementType>
+         <coding>
+            <system value="http://hl7.org/fhir/substance-measurement-type"/>
+            <code value="ic50"/>
+            <display value="IC50"/>
+         </coding>
+      </measurementType>
+      <amountQuantity>
+         <value value="0.37"/>
+         <unit value="nM"/>
+         <system value="http://unitsofmeasure.org"/>
+         <code value="nmol/L"/>
+      </amountQuantity>
+   </relationship>
+</SubstanceDefinition>

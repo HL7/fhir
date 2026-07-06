@@ -13,18 +13,14 @@
 
 <%txheader idsystems%>
 
-<h2>Known Identifier Systems</h2>
-<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<h2>Identifier Systems</h2>
+<table class="colsi"><tr><td id="wg">Responsible Owner: <a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Normative</a></td></tr></table>
 
 <p>
-Identifier systems are URIs that may be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> datatype.  In the past,
-this page included a list of registered URIs approved for use.  However, this content has been migrated to a location that can be maintained more actively.
+Identifier systems are URIs that may be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> datatype. 
 </p>
 <p>
-HL7 Terminology (<a href="http://terminology.hl7.org/identifiers.html">http://terminology.hl7.org</a>) provides a registry of Identifier systems which are actively curated by HL7 International. 
-If a URI is defined in HL7 Terminology, it <b>SHOULD</b> be used in preference to any other Identifier.system.  If the URI was defined in HL7 Terminology prior to an official release 
-of the FHIR core specification, those URIs <b>SHALL</b> be used in preference to any other Identifier.system.  i.e., all system URIs defined on terminology.hl7.org prior to the
-release of FHIR R5 <b>SHALL</b> be used in systems claiming conformance to FHIR R5.
+In the past, this page included a list of registered URIs. However, that content was migrated to <a href="http://terminology.hl7.org/identifiers.html">HL7 Terminology</a> which provides a registry of Identifier systems that is actively curated by HL7 International. If a URI is defined in HL7 Terminology, it <b>SHOULD</b> be used in preference to any other Identifier.system.  For example, all system URIs defined on <a href="http://terminology.hl7.org">HL7 Terminology</a> prior to the release of FHIR R6 are expected to be used in systems claiming conformance to FHIR R6.
 </p>
 <p>
 Many identifier systems are 'local', for example the identifiers used for employee numbers, local medical record numbers, local order and encounter numbers, etc.  The system
@@ -37,7 +33,7 @@ If an identifier system for a 'shared' identifier is not listed in HL7 Terminolo
 process for determining Identifier.system URIs defined by the <a href="https://www.hl7.org/Special/committees/tsmg/index.cfm">HL7 Terminology Services Management Group (TSMG)</a>, as documented in the <a href="https://confluence.hl7.org/x/LKOZCQ">Terminology Expectations in FHIR</a> policy.
 </p>
 <p>
-See also the <a href="terminologies-systems.html">list of known coding systems</a> that can be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> datatype.
+See the <a href="terminologies-systems.html">list of code systems</a> that can be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> datatype.
 </p>
 
 [%file newfooter%]

@@ -31,7 +31,7 @@
   <version value="6.0.0"/>
   <name value="Consent"/>
   <title value="Consent"/>
-  <status value="draft"/>
+  <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="HL7 International / Security"/>
   <contact>
@@ -358,7 +358,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Consent"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
       </type>
       <mapping>
@@ -407,7 +406,7 @@
       <path value="Consent.policyBasis.reference"/>
       <short value="Reference backing policy resource"/>
       <definition value="A Reference that identifies the policy the organization will enforce for this Consent."/>
-      <comment value="While any resource may be used, Consent, PlanDefinition and Contract would be most frequent"/>
+      <comment value="While any resource may be used, Consent, and PlanDefinition would be most frequent"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -529,6 +528,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="consent-1"/>
       <isModifier value="true"/>
       <isModifierReason value="Sets context for the values in .provision"/>
       <isSummary value="true"/>
@@ -569,6 +569,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="consent-1"/>
       <isSummary value="true"/>
     </element>
     <element id="Consent.provision.period">

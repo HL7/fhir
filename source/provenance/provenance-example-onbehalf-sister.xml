@@ -1,0 +1,49 @@
+<!-- This is a Provenance example of a resource created by a brother onbehalf of their sister to show use of the onBehalfOf element using Related Person -->
+<Provenance xmlns="http://hl7.org/fhir">
+    <id value="example-onbehalf-sister"/>
+    <!-- reference to the resource that was created -->
+    <target>
+        <reference value="Patient/example"/>
+    </target>
+    <occurredDateTime value="2024-06-01T12:00:00Z"/>
+    <recorded value="2024-06-01T12:00:00Z"/>
+    <authorization>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+            <code value="FAMRQT"/>
+        </coding>
+    </authorization>
+    <why value="Updated the Patient resource demographics by big Brother acting on behalf of sister to change demographics in Patient resource"/>
+    <patient>
+        <reference value="Patient/example"/>
+    </patient>
+    <!-- agent representing the brother acting on behalf of the sister -->
+    <agent>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+                <code value="INF"/>
+            </coding>
+        </type>
+        <who>
+            <reference value="http://example.org/fhir/RelatedPerson/brother"/>
+        </who>
+        <onBehalfOf>
+            <reference value="http://example.org/fhir/RelatedPerson/sister"/>
+        </onBehalfOf>
+    </agent>
+    <entity>
+        <role value="source"/>
+        <what>
+            <reference value="http://example.org/fhir/DocumentReference/example"/>
+            <display value="Document created by brother on behalf of sister"/>
+        </what>
+    </entity>
+    <entity>
+        <role value="source"/>
+        <what>
+            <reference value="Patient/example"/>
+            <display value="Original Patient resource"/>
+        </what>
+    </entity>
+</Provenance>

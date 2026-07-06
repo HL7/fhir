@@ -2,6 +2,9 @@
 
   <!-- the build tool builds these from the designated snomed server, when it can -->
 <snomed>
+  <concept id="1003474008" display="Oral specimen collection swab">
+    <display value="Oral specimen collection swab"/>
+  </concept>
   <concept id="10206005" display="Hospital-based outpatient dental clinic">
     <display value="Hospital-based outpatient dental clinic"/>
   </concept>
@@ -109,6 +112,9 @@
   </concept>
   <concept id="1297276008" display="Breast milk feeding (regime/therapy)">
     <display value="Breast milk feeding (regime/therapy)"/>
+  </concept>
+  <concept id="1331905008" display="Preservative liquid based cytology specimen vial">
+    <display value="Preservative liquid based cytology specimen vial"/>
   </concept>
   <concept id="133932002" display="Caregiver">
     <display value="Caregiver"/>
@@ -224,6 +230,9 @@
   <concept id="20078004" display="Substance abuse treatment center">
     <display value="Substance abuse treatment center"/>
   </concept>
+  <concept id="20568009" display="Urinary catheter">
+    <display value="Urinary catheter"/>
+  </concept>
   <concept id="2081004" display="Hospital ship">
     <display value="Hospital ship"/>
   </concept>
@@ -259,6 +268,9 @@
   </concept>
   <concept id="225581002" display="Sight deteriorating">
     <display value="Sight deteriorating"/>
+  </concept>
+  <concept id="22566001" display="Cytology brush">
+    <display value="Cytology brush"/>
   </concept>
   <concept id="225732001" display="Community hospital">
     <display value="Community hospital"/>
@@ -1388,6 +1400,9 @@
   <concept id="434746001" display="Specimen vial (physical object)">
     <display value="Specimen vial (physical object)"/>
   </concept>
+  <concept id="434822004" display="Specimen well">
+    <display value="Specimen well"/>
+  </concept>
   <concept id="439091000124107" display="Easy to chew food (substance)">
     <display value="Easy to chew food (substance)"/>
   </concept>
@@ -1604,6 +1619,9 @@
   <concept id="70090004" display="Cowpox">
     <display value="Cowpox"/>
   </concept>
+  <concept id="700956008" display="Blood collection needle, basic">
+    <display value="Blood collection needle, basic"/>
+  </concept>
   <concept id="701945002" display="Blood centrifugation system processing unit">
     <display value="Blood centrifugation system processing unit"/>
   </concept>
@@ -1652,6 +1670,9 @@
   <concept id="706226000" display="Continuous positive airway pressure/Bilevel positive airway pressure mask">
     <display value="Continuous positive airway pressure/Bilevel positive airway pressure mask"/>
   </concept>
+  <concept id="706681000" display="Aspiration needle">
+    <display value="Aspiration needle"/>
+  </concept>
   <concept id="706689003" display="Application programme software">
     <display value="Application programme software"/>
   </concept>
@@ -1675,6 +1696,9 @@
   </concept>
   <concept id="713566001" display="Lack of interest (finding)">
     <display value="Lack of interest (finding)"/>
+  </concept>
+  <concept id="713791004" display="Breath specimen container">
+    <display value="Breath specimen container"/>
   </concept>
   <concept id="713835001" display="Declined consent for use of patient data in risk stratification for unplanned hospital admission">
     <display value="Declined consent for use of patient data in risk stratification for unplanned hospital admission"/>

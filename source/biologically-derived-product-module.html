@@ -20,8 +20,6 @@ in order to support consistent definitions for schema and UML derived code.
     <blockquote class="stu-note">
     <p><b>Note to Implementers:</b> This module page describes the context and usage of the Biologically Derived Product and related resources. This module supports and clarifies the traceability requirements for a biologically derived product, and more specifically, for medical products of human origin that represent a subset of biologically derived products. HL7 seeks specific feedback on the usefulness of this module page and the implementability of the referenced resources.
     </p>
-    <p>The future location and navigation links to this module are outstanding items to be revisited in a future FHIR version.
-    </p>
     </blockquote>
     
     <a name="intro"></a>
@@ -98,7 +96,7 @@ in order to support consistent definitions for schema and UML derived code.
             <td valign="top"><a href="servicerequest.html">Service Request</a></td>
             <td>
                 <p>
-                    The ServiceRequest resource carries the request for clinical application of a BDP from an authorized healthcare provider to the hospital BDP custodian responsible for issuing the required product.  This resource may reference a specific BDP or may request provision at the generic level. This may in the future be modelled as a BDPRequest resource.
+                    The ServiceRequest resource carries the request for clinical application of a BDP from an authorized healthcare provider to the hospital BDP custodian responsible for issuing the required product.  This resource may reference a specific BDP or may request provision at the generic level. This may in the future be modeled as a BDPRequest resource.
                 </p>
             </td>
         </tr>
@@ -197,7 +195,7 @@ in order to support consistent definitions for schema and UML derived code.
             The tissue is delivered to the eye clinic BDP custodian (usually an appointed nurse, or the chief nurse of the operating theatre, or transfusion laboratory staff).
         </li>
         <li>
-            Surgeon implants cornea (Procedure)
+            Surgeon implants cornea (Procedure).
         </li>
     </ol>
 
@@ -236,7 +234,7 @@ in order to support consistent definitions for schema and UML derived code.
             Transfusion laboratory orders blood specimens to be collected from the patient.
         </li>
         <li>
-            Transfusion laboratory performs blood grouping and antibody investigation.  Blood group B RhD positive. Identifies the presence of anti-C and anti Jk(a).
+            Transfusion laboratory performs blood grouping and antibody investigation. The blood group is B RhD positive, and anti-C and anti-Jk(a) are identified.
         </li>
         <li>
             Transfusion laboratory requests supply of Group B or Group O units that are negative for both the C antigen and the Jk(a) antigen.
@@ -245,7 +243,7 @@ in order to support consistent definitions for schema and UML derived code.
             Blood center dispatches the requested units (SupplyDelivery).
         </li>
         <li>
-            Transfusion laboratory crossmatches the units against the patient blood specimen.
+            Transfusion laboratory crossmatches the units against the patient's blood specimen.
         </li>
         <li>
             Compatible units are dispensed for the patient (BiologicallyDerivedProductDispense).
@@ -320,7 +318,7 @@ in order to support consistent definitions for schema and UML derived code.
             The BDP is transported to the ward.
         </li>
         <li>
-            The patient wristband and BDP labels are scanned and electronically checked against the BiologicallyDerivedProductDispense resource, and referenced BiologicallyDerivedProduct resources, to confirm correct allocation
+            The patient's wristband and BDP labels are scanned and electronically checked against the BiologicallyDerivedProductDispense resource, and referenced BiologicallyDerivedProduct resources, to confirm correct allocation.
         </li>
         <li>
             The clinical team caring for the patient carries out identification checks of the patient and the products to ensure correct allocation prior to clinical application.
@@ -329,7 +327,7 @@ in order to support consistent definitions for schema and UML derived code.
     <b>Recording of clinical application of a biologically derived product to a patient.</b>
     <ol>
         <li>
-            Following all necessary identification and verification steps the BDP is clinically applied to the patient
+            Following all necessary identification and verification steps, the BDP is clinically applied to the patient.
         </li>
         <li>
             A Procedure resource is used to capture the event details and includes links to the BiologicallyDerivedProduct resources of the products used.
@@ -371,16 +369,16 @@ in order to support consistent definitions for schema and UML derived code.
             Following a course of BDP treatment, a patient develops symptoms of an infection that is known to be transmissible by BDP.
         </li>
         <li>
-            The patients electronic health record is analysed to identify all Procedures involving BDP in the last 3 months.
+            The patient's electronic health record is analyzed to identify all Procedures involving BDP in the last 3 months.
         </li>
         <li>
             The BiologicallyDerivedProduct resource for each product used is identified, and from this the provider/manufacturer is determined.
         </li>
         <li>
-            All providers/manufacturer involved are notified and given the identification information for the products used.
+            All providers/manufacturers involved are notified and given the identification information for the products used.
         </li>
         <li>
-            Provider/manufacturers identify the donors from their own records and initiate follow-up testing of donors.
+            Providers/manufacturers identify the donors from their own records and initiate follow-up testing of donors.
         </li>
     </ol>
 
@@ -392,13 +390,13 @@ in order to support consistent definitions for schema and UML derived code.
         <li><a href="observation.html">Observation</a></li>
         <li><a href="specimen.html">Specimen</a></li>
     </ul>
-    <p>In the context of blood transfusion, observations based on tests performed on specimens collected from the patient fulfil a number of important roles:</p>
+    <p>In the context of blood transfusion, observations based on tests performed on specimens collected from the patient fulfill a number of important roles:</p>
     <ol>
         <li>To help determine the need for the clinical application of a BDP (e.g., platelet count on patient specimen gives indication if platelet transfusion is required)</li>
         <li>To determine important serological information about the patient prior to transfusion (blood group of patient, presence of atypical antibodies)</li>
         <li>To ensure the selection of safe product for the patient (e.g., blood crossmatch using a patient specimen ensures compatibility between red blood cell units and patient)</li>
         <li>Follow-up specimen collection can provide information on efficacy of treatment and the need for additional clinical support (e.g., post-transfusion platelet count can indicate effectiveness of platelet therapy)</li>
-        <li>Investigation of suspected transfusion reaction will involve the analysis of pre- and post- transfusion specimens</li>
+        <li>Investigation of suspected transfusion reaction will involve the analysis of pre- and post-transfusion specimens</li>
     </ol>
 
     <b>Clinical</b>

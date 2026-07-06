@@ -609,7 +609,27 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
-        <map value="FiveWs.author, FiveWs.source, FiveWs.actor, FiveWs.cause, FiveWs.witness, FiveWs.who"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.source"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.actor"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.cause"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -629,7 +649,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <!-- Device and RelatedPerson are not allowed here. They can act, but have no authority to give to others to act. -->
+        <!-- Device is not allowed here. It can act, but have no authority to give to others to act. -->
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>

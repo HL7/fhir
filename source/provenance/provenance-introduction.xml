@@ -1,16 +1,33 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<div>
-    <blockquote class="ballot-note" id="bn1">
-    <p><b>Note to Balloters:</b> To ensure that the Provenance resource is ready for Normative status, we are seeking ballot comments on the substantive content.</p>
-    <ul>
-    <li>The key changes made since the January 2026 R6 ballot include:</li>
-      <ul>
-      <li>More clear how to do Provenance of Replace and Removal. - <a href="https://jira.hl7.org/browse/FHIR-53917">FHIR-53917</a></li>
-      <li>Added and example of Provenance of correction (replace) - <a href="https://jira.hl7.org/browse/FHIR-53783">FHIR-53783</a></li>
-      </ul>
-    </ul>
-    </blockquote>
+<div class="ballot-note md"><blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes since 5d67a34a13a5..8c82972d2728 updates Provenance's authorization representation, search-parameter behavior, examples, terminology, and guidance for removal, merge, consuming/processing, and non-persisted artifacts.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li><code>Provenance.authorization</code> now uses <code>CodeableConcept</code> rather than <code>CodeableReference</code> <span class="structural-badge" title="Type: type CodeableReference→CodeableConcept" aria-label="structural change: Type">structural</span>, and the relevant-history profile removes <code>Provenance.authorization</code> <span class="structural-badge" title="Removed: element removed" aria-label="structural change: Removed">structural</span> and adds <code>Provenance.why</code> <span class="structural-badge" title="Added: element added" aria-label="structural change: Added">structural</span> <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-54833">FHIR-54833</a>]</li>
+    <li>Bring back <code>Provenance.agent.onBehalfOf</code> support for <code>RelatedPerson</code> references to support delegation to other family members <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-57404">FHIR-57404</a>]</li>
+  </ul>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>The Provenance <code>when</code> search parameter expression now includes <code>Period</code> occurrences so period-valued events are searchable <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-54574">FHIR-54574</a>]</li>
+    <li>Guidance and examples for Provenance of replacement and removal were expanded, including the removal/delete scenario already called out in the existing note <span class="tag">Enhancement</span> [<a href="https://jira.hl7.org/browse/FHIR-53917">FHIR-53917</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li><code>Provenance.entity.role</code> terminology now includes an escape-valve clarification for roles not covered by the existing codes <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-55346">FHIR-55346</a>]</li>
+    <li>Narrative guidance clarifies how Provenance can describe artifacts or actions that are asserted, planned, or otherwise not yet persisted <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-55409">FHIR-55409</a>]</li>
+    <li>Narrative guidance adds consuming and processing as activity/action patterns for Provenance records <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-55410">FHIR-55410</a>]</li>
+    <li>A Patient Merge Provenance example was added and included in the artifact's examples list <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-56165">FHIR-56165</a>]</li>
+  </ul>
+  <p><b>Unclassified</b></p>
+  <ul>
+    <li>The shared search-parameter commit also references <code>AuditEvent.occurred</code>; the hydrated evidence provides no separate Provenance-scoped title, disposition, or impact for this ticket [<a href="https://jira.hl7.org/browse/FHIR-56517">FHIR-56517</a>]</li>
+  </ul>
+  <p><b>Unattributed (needs Jira)</b></p>
+  <ul>
+    <li>Ballot-note maintenance and build-cleanup commits touched Provenance files without attributed Jira keys; reviewers should confirm that no additional substantive artifact change remains unattributed.</li>
+  </ul>
+</blockquote></div>
 
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
@@ -94,6 +111,3 @@ covers "Generation" of "Entity" with respect to FHIR defined resources for creat
 covers "Usage" of "Entity" and all other "Activity" as defined in W3C Provenance. 
 </p>
 </div>
-
-</div>
-

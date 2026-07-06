@@ -36,15 +36,15 @@
         <missingTypes _pattern="Reference(Group)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Individual service was done for/to"/>
-            <resource value="Plan beneficiary"/>
+            <resource value="Party receiving treatment"/>
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The individual or set of individuals the action is being or was performed on."/>
-            <resource value="The party who benefits from the insurance coverage; the patient when products and/or services are provided."/>
+            <resource value="The party who receives products or services which may be paid for in whole or in part by insurance or through self payment."/>
         </definitionUnmatched>
         <requirementsUnmatched reason="Unknown">
             <_pattern value="Links the coverage to the Patient context.  May also affect access control."/>
-            <resource value="This is the party who receives treatment for which the costs are reimbursed under the coverage."/>
+            <resource value="This is the party who receives treatment."/>
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.occurrence[x]" resourcePath="Coverage.period">

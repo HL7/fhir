@@ -17,7 +17,7 @@
   </li>
   <li>Non-Substantive Changes
     <ul>
-      <li>None</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-47301">FHIR-47301</a>: Added notes and examples clarifying definitional CareTeam usage with and without a patient</li>
     </ul>
   </li>
 </ul>

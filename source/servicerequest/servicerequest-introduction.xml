@@ -1,23 +1,32 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
+		<blockquote class="ballot-note" id="bn1">
+			<p><b>Note to Balloters for Ballot5</b>: Changes update ServiceRequest order-detail/focus terminology, remove the deprecated specimen element, align reference targets, and include structural and terminology corrections for this ballot window.</p>
+			<p>This resource is referenced from the <a href="diagnostics-module.html">Diagnostics Module</a> and <a href="workflow-module.html">Workflow Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
+			<p><b>Non-compatible</b></p>
+			<ul>
+			  <li>Removed the deprecated <code>ServiceRequest.specimen</code> element <a href="https://jira.hl7.org/browse/FHIR-55444">FHIR-55444</a></li>
+			  <li>Bound <code>ServiceRequest.orderDetail.parameterFocus[x]</code> to a ValueSet (explicit union of device-type and medication codes) with improved definitions and added orderDetail/parameterFocus guidance in the notes; the parameter-focus ValueSet is marked experimental <a href="https://jira.hl7.org/browse/FHIR-54847">FHIR-54847</a></li>
+			  <li><code>ServiceRequest.focus</code> has been marked as a modifier as it can change the target of the request <a href="https://jira.hl7.org/browse/FHIR-54620">FHIR-54620</a></li>
+			</ul>
+			<p><b>Compatible substantive</b></p>
+			<ul>
+			  <li>Added <code>DocumentReference</code> to <code>ServiceRequest.replaces</code> and aligned the allowed reference types of <code>basedOn</code> and <code>replaces</code> <a href="https://jira.hl7.org/browse/FHIR-54619">FHIR-54619</a></li>
+			  <li>Marked <code>codesystem-servicerequest-status-reason</code> as experimental as a part of evaluation for THO/UTG promotion <a href="https://jira.hl7.org/browse/FHIR-55273">FHIR-55273</a></li>
+			  <li>Marked <code>valueset-request-orderdetail-parameter-code</code> as experimental as a part of evaluation for THO/UTG promotion <a href="https://jira.hl7.org/browse/FHIR-55261">FHIR-55261</a></li>
+			  <li>Cardinality of <code>ServiceRequest.bodyStructure</code> has been changed to 0..* as a part of broader OO alignment on supporting bodyStructure reference through multiple codings or, where necessary from a modeling standpoint, multiple instances <a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
+			</ul>
+			<p><b>Non-substantive</b></p>
+			<ul>
+			  <li>Corrected the <code>ServiceRequest.statusReason</code> definition to remove a reference to a non-existent status <a href="https://jira.hl7.org/browse/FHIR-54624">FHIR-54624</a></li>
+			</ul>
+		</blockquote>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
 			ServiceRequest represents an order or proposal or plan to perform a diagnostic or other service on or for a patient (including non-human patients in veterinary settings). Examples of the types of services that may be ordered by a ServiceRequest are:
 		</p>
-		<blockquote class="stu-note">
-			<p><b>Note to Balloters:</b>The new 'servicerequest-specimenSuggestion' extension is expected to be available soon in an upcoming release of the Extensions Pack.</p>
-		</blockquote>
-		<blockquote style="background-color: lightblue">
-			<p><b>Release Notes (pending alternative process review with FMG):</b></p>
-			<ul>
-				<li><a href="https://jira.hl7.org/browse/FHIR-55444">FHIR-55444</a></li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-54843">FHIR-54843</a></li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-54620">FHIR-54620</a></li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-54624">FHIR-54624</a></li>
-				<li><a href="https://jira.hl7.org/browse/FHIR-54619">FHIR-54619</a></li>
-			</ul>
-		</blockquote>
+
 		<ul>
 			<li>diagnostic tests/studies</li>
 			<li>endoscopic procedures</li>
@@ -57,20 +66,14 @@
 	     ServiceRequest is a record of a proposal/plan or order for a service to be performed that would result in a <a href="procedure.html">Procedure</a>,
 		 <a href="observation.html">Observation</a>, 
 		 <a href="diagnosticreport.html">DiagnosticReport</a>, 
-		 <a href="imagingstudy.html">ImagingStudy</a>, or similar resource. In contrast to ServiceRequest, <a href="task.html">Task</a> spans both intent and event, tracks the execution through to completion, and is intended for "administrative" actions like requesting and tracking things to be done to a record, or keeping track of a checklist of steps such to be performed as part of a fulfilment process. A ServiceRequest can be higher-level authorization that triggered the creation of Task, or it can be the "request" resource Task is seeking to fulfill. For further information about this separation of responsibilities between ServiceRequest and Task, 
+		 <a href="imagingstudy.html">ImagingStudy</a>, or similar resource. In contrast to ServiceRequest, <a href="task.html">Task</a> spans both intent and event, tracks the execution through to completion, and is intended for "administrative" actions like requesting and tracking things to be done to a record, or keeping track of a checklist of steps to be performed as part of a fulfilment process. A ServiceRequest can be a higher-level authorization that triggered the creation of Task, or it can be the "request" resource Task is seeking to fulfill. For further information about this separation of responsibilities between ServiceRequest and Task,
 		 refer to the <a href="request.html#fulfillment">Fulfillment/Execution</a> section of the Request pattern.
 	    </p>
 	    <p>
         ServiceRequest and <a href="communicationrequest.html">CommunicationRequest</a> are related. A CommunicationRequest is a request to merely disclose information. Whereas a ServiceRequest would be used to request information as part of training or counseling - i.e. when the process will involve verification of the patient's comprehension or an attempt to change the patient's mental state. In some workflows both may exist. For example, upon receiving a CommunicationRequest a practitioner might initiate a ServiceRequest.
         </p>
-		<blockquote class="stu-note">
-		<p><b>Note to Implementers:</b>
-		</p>
-		<p>
-		The ServiceRequest.orderDetail structure is subject to further feedback based on use as the modeling creates a challenge when there is no focus, while an alternate structure would yield a requirement to repeat the focus attribute on each code/value pair.
-		</p>
-		<p>
-		Provide feedback <a href="http://hl7.org/fhir-issues">here</a>.
-		</p></blockquote>
+		<blockquote class="ballot-note" id="bn2">
+			<p><b>Note to Balloters for Ballot5</b>: The ServiceRequest.orderDetail structure remains subject to further feedback based on use, because the modeling creates a challenge when there is no focus, while an alternate structure would require repeating the focus attribute on each code/value pair.</p>
+		</blockquote>
 	</div>
 </div>

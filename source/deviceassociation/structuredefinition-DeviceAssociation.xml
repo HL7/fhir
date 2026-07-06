@@ -84,6 +84,7 @@
       <type>
         <code value="Identifier"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceAssociation.device">
       <path value="DeviceAssociation.device"/>
@@ -95,16 +96,18 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceAssociation.relationship">
       <path value="DeviceAssociation.relationship"/>
       <short value="Describes the relationship between the device and subject"/>
-      <definition value="Describes the relationship between the device and subject."/>
-      <min value="0"/>
-      <max value="*"/>
+      <definition value="Describes the relationship between the device and subject (or focus). The codes in this list may vary depending on their context of use, or the kind of subject being described in the relationship."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceAssociationRelationship"/>
@@ -112,7 +115,7 @@
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
           <valueString value="A coded concept specifying the type of association."/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="example"/>
         <description value="Describes the lifecycle of the association."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-relationship"/>
       </binding>
@@ -120,12 +123,15 @@
     <element id="DeviceAssociation.status">
       <path value="DeviceAssociation.status"/>
       <short value="active | inactive | entered-in-error | unknown"/>
-      <definition value="Indicates the state of the Device association."/>
+      <definition value="Indicates the state of the Device Association. The status describes the status of the DeviceAssociation record itself (e.g., administrative or lifecycle reasons for the record state), not the state of the underlying device relationship."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceAssociationStatus"/>
@@ -143,10 +149,10 @@
     </element>
     <element id="DeviceAssociation.statusReason">
       <path value="DeviceAssociation.statusReason"/>
-      <short value="The reasons given for the current association status"/>
-      <definition value="The reasons given for the current association status."/>
+      <short value="The reasons given for the current Device Association status"/>
+      <definition value="The reasons given for the current Device Association status."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -157,37 +163,37 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="A coded concept specifying the reason for status change."/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Describes the reason for changing the status of the association."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-status-reason"/>
       </binding>
     </element> 
-    <element id="DeviceAssociation.associationStatus">
-      <path value="DeviceAssociation.associationStatus"/>
-      <short value="State of the device’s association"/>
-      <definition value="State of the device’s association (e.g., implanted, attached, on, off, standby, defective)."/>
+    <element id="DeviceAssociation.relationshipStatus">
+      <path value="DeviceAssociation.relationshipStatus"/>
+	  <short  value="State of the device association's relationship"/>
+	  <definition value="State of the device association's relationship."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceAssociationAssociationStatus"/>
+          <valueString value="DeviceAssociationRelationshipStatus"/>
         </extension>
         <extension url="http://hl7.org/fhir/tools/StructureDefinition/binding-definition">
-          <valueString value="States that characterize the device’s association/operational state with respect to the subject."/>
+          <valueString value="States that characterize the lifecycle of the relationship between the device and the associated subject."/>
         </extension>
         <strength value="preferred"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-association-status"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-relationship-status"/>
       </binding>
     </element>
     <element id="DeviceAssociation.subject">
       <path value="DeviceAssociation.subject"/>
-      <short value="The entity or group that the device is on or associated with"/>
-      <definition value="The individual, group of individuals or device that the device is on or associated with."/>
-      <comment value="The operation reflects a shorter term indication when the device is actually being used for the subject and who the operator is.  The operator may be the same as the subject, in which case it is less likely to have to document the operation.  Where it is relevant to document periods of use, absence of the operator cannot imply that the subject is the operator, thus would need to be explicitly stated.  If the device is associated with multiple individuals at the same time the Group or CareTeam resource should be utilized."/>
-      <min value="0"/>
+      <short value="The entity or group that, nominally, the association is with"/>
+      <definition value="The individual, group of individuals, entity, or device that the target device is nominally associated with (i.e. subject of record). Where a patient is involved, they are usually the subject."/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>
@@ -202,16 +208,15 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceAssociation.focus">
       <path value="DeviceAssociation.focus"/>
-      <short value="The target of the association"/>
-      <definition value="The entity for which the device is being used, benefitting from the device, or which the device is being operated upon, which is usually distinct from the association subject, such as an operator or similar."/>
-      <comment value="Consider the situation of a procedure, during which an anesthesiologist uses a ventilator on a patient. Two associations would be recorded: one of the ventilator associated to a subject patient with a treatment relationship; in the other, the ventilator associated to the subject anesthesiologist with an operator relationship. In the latter relationship, the patient would be recorded as the `focus` to indicate that the anesthesiologist was using the device for that patient."/>
+      <short value="The entity or group that the association is with, if not the subject"/>
+      <definition value="The individual, group of individuals, or entity that the target device is actually associated with, if they are not the subject of record. This may be a RelatedPerson when a device is rented to a patient's parent, or a Practitioner when a device is operated by a surgeon during a procedure on a patient."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -231,6 +236,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceAssociation.bodyStructure">
       <path value="DeviceAssociation.bodyStructure"/>
@@ -263,6 +269,7 @@
       <type>
         <code value="Period"/>
       </type>
+      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>

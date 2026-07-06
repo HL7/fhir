@@ -10,7 +10,12 @@
 		<value value="0600dcFFFF750001^^^EUI-64_d1130a75-316c-4401-88c4-9c71704cdf6b_d629bc41-0310-4fec-b1a4-41356b66a7eb" />
 	</identifier>
 	<status value="in-progress"/>
-	<type value="physiological" />
+	<type>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/devicealert-type" />
+			<code value="physiological" />
+		</coding>
+	</type>
 	<priority>
 		<coding>
 			<system value="http://hl7.org/fhir/devicealert-priority"/>
@@ -28,13 +33,13 @@
 	<subject>
 		<reference value="Patient/pat1"/>
 	</subject>
-	<presence value="true"/>
-	<occurrencePeriod>
+	<occurrence>
 		<start value="2025-10-30T10:00:00Z"/>
-	</occurrencePeriod>
+	</occurrence>
 	<device>
 		<reference value="Device/example" />
 	</device>
+	<acknowledged value="false"/>
 	<derivedFrom>
 		<observation>
 			<reference value="Observation/f001"/>
@@ -55,7 +60,6 @@
 			</high>
 		</limit>
 	</derivedFrom>
-	<acknowledged value="false"/>
 	<label value="**SpO2   86  &lt;87  "/>
 	<signal>
 		<activationState>
@@ -72,17 +76,6 @@
 				<display value="On"/>
 			</coding>
 		</presence>
-		<indication>
-			<start value="2025-10-30T10:00:00Z"/>
-		</indication>
-		<type>
-			<coding>
-				<system value="urn:iso:std:iso:11073:10101"/>
-				<code value="188420"/>
-				<display value="MDC_TEMP_RECT"/>
-			</coding>
-			<text value="Light annunciator"/>
-		</type>
 		<annunciator>
 			<concept>
 				<coding>
@@ -92,7 +85,9 @@
 				</coding>
 				<text value="Light annunciator"/>
 			</concept>
-			<reference value="Device/example"/>
+			<reference>
+				<reference value="Device/example"/>
+			</reference>
 		</annunciator>
 		<manifestation>
 			<coding>
@@ -102,5 +97,16 @@
 			</coding>
 			<text value="visual alert"/>
 		</manifestation>
+		<type>
+			<coding>
+				<system value="urn:iso:std:iso:11073:10101"/>
+				<code value="188420"/>
+				<display value="MDC_TEMP_RECT"/>
+			</coding>
+			<text value="Light annunciator"/>
+		</type>
+		<period>
+			<start value="2025-10-30T10:00:00Z"/>
+		</period>
 	</signal>
 </DeviceAlert>

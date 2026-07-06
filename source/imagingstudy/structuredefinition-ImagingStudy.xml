@@ -158,7 +158,7 @@
       <short value="Business identifier for imaging study"/>
       <definition value="Business identifiers assigned to this imaging study by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server. Typically this will include the DICOM Study Instance UID."/>
       <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices MAY occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  See discussion under [Imaging Study Implementation Notes](imagingstudy.html#dicom-uids) for encoding of DICOM Study Instance UID."/>
-      <requirements value="Allows identification of the imaging study as it is known by various participating systems and in a way that remains consistent across servers. ImagingStudy.identifier SHALL include exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS 3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html).)"/>
+      <requirements value="Allows identification of the imaging study as it is known by various participating systems and in a way that remains consistent across servers. ImagingStudy.identifier SHALL include exactly one Study Instance UID value if one or more series element values are present (see [DICOM PS3.3 C.7.2](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.7.2.html).)"/>
       <alias value="StudyInstanceUID"/>
       <min value="0"/>
       <max value="*"/>
@@ -589,7 +589,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Number of Study Related Series (0020,1206). See DICOM PS 3.4 Table C.3-1. Additional Query/Retrieve Attributes."/>
+        <map value="Number of Study Related Series (0020,1206). See DICOM PS3.4 Table C.3-1. Additional Query/Retrieve Attributes."/>
       </mapping>
     </element>
     <element id="ImagingStudy.numberOfInstances">
@@ -611,7 +611,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Number of Study Related Instances (0020,1208). See DICOM PS 3.4 Table C.3-1. Additional Query/Retrieve Attributes."/>
+        <map value="Number of Study Related Instances (0020,1208). See DICOM PS3.4 Table C.3-1. Additional Query/Retrieve Attributes."/>
       </mapping>
     </element>
     <element id="ImagingStudy.series">
@@ -763,7 +763,7 @@
       </mapping>
       <mapping>
         <identity value="dicom"/>
-        <map value="Number of Series Related Instances (0020,1209). See DICOM PS 3.4 Table C.3-1. Additional Query/Retrieve Attributes."/>
+        <map value="Number of Series Related Instances (0020,1209). See DICOM PS3.4 Table C.3-1. Additional Query/Retrieve Attributes."/>
       </mapping>
     </element>
     <element id="ImagingStudy.series.endpoint">

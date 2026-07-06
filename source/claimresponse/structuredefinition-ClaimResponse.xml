@@ -466,7 +466,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="A code for the party to be reimbursed."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/payeetype"/>
       </binding>
@@ -523,7 +523,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.supportingInfo"/>
+        <map value="Event.supportingInfo"/>
       </mapping>
     </element>
     <element id="ClaimResponse.supportingInfo.sequence">
@@ -555,6 +555,24 @@
         <strength value="preferred"/>
         <description value="The valuset used for additional information category codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-informationcategory"/>
+      </binding>
+    </element>
+    <element id="ClaimResponse.supportingInfo.subCategory">
+      <path value="ClaimResponse.supportingInfo.subCategory"/>
+      <short value="Finer-grained classification of the supplied information"/>
+      <definition value="A finer classification within the more general category."/>
+      <requirements value="Required to provide more detailed categorization, for example lab-test grouping: blood, tissue etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InformationSubCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The valuset used for additional information subcategory codes."/>
       </binding>
     </element>
     <element id="ClaimResponse.supportingInfo.code">

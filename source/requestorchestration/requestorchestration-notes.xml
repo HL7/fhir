@@ -25,7 +25,13 @@
     elements within the "option" resource for referencing in other "option" resources.  These extensions are:
   </p>
   <ul>
-    <li>TODO</li> <!--This should refer to the relativeTime extension but that is still in progress due to cross-version extension issues-->
+    <li><a href="https://hl7.org/fhir/extensions/StructureDefinition-request-doNotPerform.html">request-doNotPerform</a></li>
+    <li><a href="https://hl7.org/fhir/extensions/StructureDefinition-request-insurance.html">request-insurance</a></li>
+    <li><a href="https://hl7.org/fhir/extensions/StructureDefinition-request-performerOrder.html">request-performerOrder</a></li>
+    <li><a href="https://hl7.org/fhir/extensions/StructureDefinition-request-relevantHistory.html">request-relevantHistory</a></li>
+    <li><a href="https://hl7.org/fhir/extensions/StructureDefinition-request-replaces.html">request-replaces</a></li>
+    <li><a href="https://hl7.org/fhir/extensions/StructureDefinition-request-statusReason.html">request-statusReason</a></li>
+    <li><a href="https://hl7.org/fhir/extensions/StructureDefinition-cqf-relativeDateTime.html">cqf-relativeDateTime</a> (NOTE: This extension will be replaced with the new relative-time extension once that is available.)</li>
   </ul>
   <p>
     The RequestOrchestration and all of its referenced "option" Requests are treated as a single integrated Request whose

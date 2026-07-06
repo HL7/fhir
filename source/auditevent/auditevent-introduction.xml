@@ -1,6 +1,25 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<div>
+<div class="ballot-note md"><blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes since 5d67a34a13a5..8c82972d2728: AuditEvent received targeted search-parameter and clarification updates. The after-applied state corrects the <code>when</code> search-parameter handling for occurrence timing, clarifies the relationship between <code>AuditEvent.agent.role</code> and <code>AuditEvent.agent.type</code>, and includes unattributed mapping/follow-up cleanup that reviewers should tie to Jira before publication.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>The AuditEvent <code>when</code> search parameter expression was corrected to include Period handling for occurrence timing <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-54574">FHIR-54574</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Clarified the intended distinction between <code>AuditEvent.agent.role</code> and <code>AuditEvent.agent.type</code>, reducing wording tied specifically to ISO 21298 <span class="tag">Clarification</span> [<a href="https://jira.hl7.org/browse/FHIR-53882">FHIR-53882</a>]</li>
+  </ul>
+  <p><b>Unclassified</b></p>
+  <ul>
+    <li>Addressed search support for <code>AuditEvent.occurred</code>; the hydrated ticket evidence did not include impact metadata, so this item remains unclassified [<a href="https://jira.hl7.org/browse/FHIR-56517">FHIR-56517</a>]</li>
+  </ul>
+  <p><b>Unattributed (needs Jira)</b></p>
+  <ul>
+    <li>AuditEvent mapping exception/follow-up cleanup was applied in unattributed commits; reviewers should confirm the owning Jira ticket before publication</li>
+  </ul>
+</blockquote></div>
+
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
@@ -79,7 +98,4 @@ in a resource "came to be" in its current state, e.g., whether it was created de
 in whole, part, or by transformation. Provenance resources are prepared by the application that initiates the 
 create/update of the resource and MAY be persisted with the AuditEvent target resource. 
 </p>
-</div>
-
-
 </div>

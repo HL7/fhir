@@ -378,8 +378,32 @@ Some examples of example bindings in this specification:
   <li><a href="encounter-definitions.html#Encounter.type">Encounter.type</a></li>
 </ul>
 
+<a name="additional-binding"></a>
+<h3>Examples of Additional Bindings</h3>
+<p>Some elements may have additional bindings.  When an additional binding is present, it does not replace the main binding, but provides additional information and/or rules for the use of codes in the element.
+</p>
 
-
+<a name="additional-1"></a>
+<h4>Additional Binding Example #1</h4>
+<p>
+For example, the language element in FHIR has a required binding to the all-languages value set.  There is also an additional binding with a purpose of "starter" to the common languages value set, since it represents a good set of codes to start with.
+</p>
+<pre class="json">
+{
+  "path": "Patient.communication.language",
+  "definition" : "The language which may be used to communicate with the individual.",
+  "binding" : {
+    "strength" : "required",
+    "valueSet" : "http://hl7.org/fhir/ValueSet/all-languages",
+	"additional" : [
+	  {
+	    "purpose" : "starter",
+	    "valueSet" : "http://hl7.org/fhir/ValueSet/languages"
+	  }
+	]
+  }
+}
+</pre>
 [%file newfooter%]
 
 </body>

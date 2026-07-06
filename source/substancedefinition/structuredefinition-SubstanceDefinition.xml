@@ -71,7 +71,7 @@
   <differential>
     <element id="SubstanceDefinition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,550"/>
+        <valueCode value="360,550"/>
       </extension>
       <path value="SubstanceDefinition"/>
       <short value="The detailed description of a substance, typically at a level beyond what is used for prescribing"/>
@@ -203,6 +203,25 @@
         <map value="Substance_Specified_Substance_Group_3.Grade"/>
       </mapping>
     </element>
+    <element id="SubstanceDefinition.glycosylationType">
+      <path value="SubstanceDefinition.glycosylationType"/>
+      <short value="A high-level pattern of glycosylation, typically from the production cell line or source organism"/>
+      <definition value="A categorical pattern of glycosylation for the substance, typically derived from the production cell line or source organism (e.g. human, mammalian, avian, yeast). Applicable to proteins and to structurally diverse substances such as vaccines."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceGlycosylationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A categorical pattern of glycosylation for a substance, typically derived from the production cell line or source organism."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-glycosylation-type"/>
+      </binding>
+    </element>
     <element id="SubstanceDefinition.description">
       <path value="SubstanceDefinition.description"/>
       <short value="Textual description of the substance"/>
@@ -285,7 +304,7 @@
     </element>
     <element id="SubstanceDefinition.moiety">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,880"/>
+        <valueCode value="0,446"/>
       </extension>
       <path value="SubstanceDefinition.moiety"/>
       <short value="Moiety, for structural modifications"/>
@@ -450,7 +469,7 @@
     </element>
     <element id="SubstanceDefinition.characterization">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="450,558"/>
+        <valueCode value="770,390"/>
       </extension>
       <path value="SubstanceDefinition.characterization"/>
       <short value="General specifications for this substance"/>
@@ -543,7 +562,7 @@
     </element>
     <element id="SubstanceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="375,835"/>
+        <valueCode value="750,536"/>
       </extension>
       <path value="SubstanceDefinition.property"/>
       <short value="General specifications for this substance"/>
@@ -614,7 +633,7 @@
     </element>
     <element id="SubstanceDefinition.molecularWeight">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,640"/>
+        <valueCode value="815,645"/>
       </extension>
       <path value="SubstanceDefinition.molecularWeight"/>
       <short value="The average mass of a molecule of a compound"/>
@@ -689,7 +708,7 @@
     </element>
     <element id="SubstanceDefinition.structure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="405,690"/>
+        <valueCode value="750,777"/>
       </extension>
       <path value="SubstanceDefinition.structure"/>
       <short value="Structural information"/>
@@ -835,7 +854,7 @@
     </element>
     <element id="SubstanceDefinition.structure.representation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,830"/>
+        <valueCode value="775,950"/>
       </extension>
       <path value="SubstanceDefinition.structure.representation"/>
       <short value="A depiction of the structure of the substance"/>
@@ -930,7 +949,7 @@
     </element>
     <element id="SubstanceDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="290,922"/>
+        <valueCode value="0,613"/>
       </extension>
       <path value="SubstanceDefinition.code"/>
       <short value="Codes associated with the substance"/>
@@ -1032,7 +1051,7 @@
     </element>
     <element id="SubstanceDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="544,350"/>
+        <valueCode value="365,323"/>
       </extension>
       <path value="SubstanceDefinition.name"/>
       <short value="Names applicable to this substance"/>
@@ -1230,7 +1249,7 @@
     </element>
     <element id="SubstanceDefinition.name.official">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="750,525"/>
+        <valueCode value="369,210"/>
       </extension>
       <path value="SubstanceDefinition.name.official"/>
       <short value="Details of the official nature of this name"/>
@@ -1325,7 +1344,7 @@
     </element>
     <element id="SubstanceDefinition.relationship">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,350"/>
+        <valueCode value="15,210"/>
       </extension>
       <path value="SubstanceDefinition.relationship"/>
       <short value="A link between this substance and another"/>
@@ -1412,27 +1431,18 @@
         <code value="Ratio"/>
       </type>
       <type>
+        <code value="RatioRange"/>
+      </type>
+      <type>
         <code value="string"/>
+      </type>
+      <type>
+        <code value="Range"/>
       </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp-substance"/>
         <map value="Substance_Relationship.Amount.Quantity"/>
-      </mapping>
-    </element>
-    <element id="SubstanceDefinition.relationship.ratioHighLimitAmount">
-      <path value="SubstanceDefinition.relationship.ratioHighLimitAmount"/>
-      <short value="For use when the numeric has an uncertain range"/>
-      <definition value="For use when the numeric has an uncertain range."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Ratio"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp-substance"/>
-        <map value="Substance_Relationship.Amount.Quantity.High_Limit"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.relationship.comparator">
@@ -1458,6 +1468,94 @@
         <map value="Substance_Relationship.Amount_Type"/>
       </mapping>
     </element>
+    <element id="SubstanceDefinition.relationship.measurementType">
+      <path value="SubstanceDefinition.relationship.measurementType"/>
+      <short value="The kind of measurement the amount represents (e.g. IC50, Kd, Ki, mole ratio)"/>
+      <definition value="The kind of measurement that the amount represents, e.g. an inhibitory concentration (IC50), dissociation constant (Kd), inhibition constant (Ki), or a ratio expressed by mole or by weight."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceMeasurementType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The kind of numeric measurement (IC50, Kd, Ki, EC50, mole-ratio, weight-ratio, etc.)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-measurement-type"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.relationship.interaction">
+      <path value="SubstanceDefinition.relationship.interaction"/>
+      <short value="For target relationships, the kind of interaction (e.g. binding, inhibition, agonism)"/>
+      <definition value="For target relationships, the kind of interaction between the substance and its target."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceInteractionType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The kind of interaction between a substance and its target."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-interaction-type"/>
+      </binding>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.4.3 Interaction type"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.relationship.organism">
+      <path value="SubstanceDefinition.relationship.organism"/>
+      <short value="For anti-infective target relationships, the specific organism targeted"/>
+      <definition value="For anti-infective target relationships, the specific organism the substance is targeted against (e.g. E. coli, S. aureus). For broad-spectrum agents, organismType may be specified instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceTargetOrganism"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The specific organism that an anti-infective substance is targeted against."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-target-organism"/>
+      </binding>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.4.4 Target organism"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.relationship.organismType">
+      <path value="SubstanceDefinition.relationship.organismType"/>
+      <short value="For anti-infective target relationships, the high-level type of organism targeted"/>
+      <definition value="For anti-infective target relationships, the high-level type of organism the substance is targeted against (e.g. bacterial, viral, fungal). May be used independently of organism, particularly for broad-spectrum agents."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceTargetOrganismType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The high-level type of organism that a substance is targeted against."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-target-organism-type"/>
+      </binding>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.4.5 Target organism type"/>
+      </mapping>
+    </element>
     <element id="SubstanceDefinition.relationship.source">
       <path value="SubstanceDefinition.relationship.source"/>
       <short value="Supporting literature"/>
@@ -1476,7 +1574,7 @@
     </element>
     <element id="SubstanceDefinition.sourceMaterial">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="270,350"/>
+        <valueCode value="710,250"/>
       </extension>
       <path value="SubstanceDefinition.sourceMaterial"/>
       <short value="Material or taxonomic/anatomical source"/>
@@ -1606,6 +1704,920 @@
         <identity value="idmp-substance"/>
         <map value="Source_Material.Country_Of_Origin"/>
       </mapping>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,857"/>
+      </extension>
+      <path value="SubstanceDefinition.nucleicAcid"/>
+      <short value="Data items specific to nucleic acids"/>
+      <definition value="Data items specific to nucleic acids."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.sequenceType">
+      <path value="SubstanceDefinition.nucleicAcid.sequenceType"/>
+      <short value="The type of the sequence (e.g. DNA, RNA)"/>
+      <definition value="The type of the sequence (e.g. DNA, RNA)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceSequenceType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Whether the sequence is complete or partial."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-sequence-type"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.numberOfSubunits">
+      <path value="SubstanceDefinition.nucleicAcid.numberOfSubunits"/>
+      <short value="The number of subunits — strands of nucleic acid that are tightly associated typically through Watson-Crick base pairing"/>
+      <definition value="The number of subunits — strands of nucleic acid that are tightly associated typically through Watson-Crick base pairing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.areaOfHybridisation">
+      <path value="SubstanceDefinition.nucleicAcid.areaOfHybridisation"/>
+      <short value="The area of hybridisation, for double-stranded RNA or DNA. Expressed as the subunit number followed by the residue number, in increasing order"/>
+      <definition value="The area of hybridisation, for double-stranded RNA or DNA. Expressed as the subunit number followed by the residue number, in increasing order."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.oligoNucleotideType">
+      <path value="SubstanceDefinition.nucleicAcid.oligoNucleotideType"/>
+      <short value="Type or class of the oligonucleotide"/>
+      <definition value="The class of oligonucleotide, where relevant (e.g. antisense, siRNA, aptamer)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OligoNucleotideType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The class of oligonucleotide (antisense, siRNA, aptamer, etc.)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/oligo-nucleotide-type"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,1092"/>
+      </extension>
+      <path value="SubstanceDefinition.nucleicAcid.subunit"/>
+      <short value="A subunit constituting the nucleic acid"/>
+      <definition value="A subunit constituting the nucleic acid. Subunits are listed in decreasing length order; ties are ordered by molecular weight; identical sequences are repeated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.subunit">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.subunit"/>
+      <short value="Index of the subunit in decreasing length order"/>
+      <definition value="Index of the subunit. Subunits are numbered in decreasing length order, with ties broken by molecular weight."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.sequence">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.sequence"/>
+      <short value="The nucleotide sequence in 5’→3’ notation using standard single-letter codes"/>
+      <definition value="The nucleotide sequence in 5’→3’ notation using standard single-letter codes. Sugar and linkage type may be expressed alongside, via .sugar and .linkage."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.length">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.length"/>
+      <short value="The length of the sequence"/>
+      <definition value="The length of the sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.sequenceAttachment">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.sequenceAttachment"/>
+      <short value="The sequence as an attached file"/>
+      <definition value="The sequence provided as an attached file (e.g. when too long for inline capture)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.fivePrime">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.fivePrime"/>
+      <short value="The nucleotide present at the 5’ terminus. Since the sequence is represented 5’→3’, this is the first nucleotide in the sequence"/>
+      <definition value="The nucleotide present at the 5’ terminus. Since the sequence is represented 5’→3’, this is the first nucleotide in the sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NucleotideTerminus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The nucleotide present at the 5′ terminus."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/nucleotide-terminus"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.threePrime">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.threePrime"/>
+      <short value="The nucleotide present at the 3’ terminus. Since the sequence is represented 5’→3’, this is the last nucleotide in the sequence"/>
+      <definition value="The nucleotide present at the 3’ terminus. Since the sequence is represented 5’→3’, this is the last nucleotide in the sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NucleotideTerminus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The nucleotide present at the 3′ terminus."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/nucleotide-terminus"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.linkage">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="290,1259"/>
+      </extension>
+      <path value="SubstanceDefinition.nucleicAcid.subunit.linkage"/>
+      <short value="The linkages between sugar residues in the nucleotide sequence"/>
+      <definition value="The linkages between sugar residues in the nucleotide sequence."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.linkage.connectivity">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.linkage.connectivity"/>
+      <short value="The chemistry of the linkage"/>
+      <definition value="The chemistry of the linkage. For naturally occurring nucleic acids the linkage is usually a phosphate group; synthetic oligonucleotides may use phosphorothioate or other modified linkages. Linkage connectivity defaults to 3’-5’; 3’-3’ or 5’-5’ should be stated explicitly."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.linkage.substance">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.linkage.substance"/>
+      <short value="The linkage substance, as a code or a reference to its SubstanceDefinition"/>
+      <definition value="The substance representing the linkage, expressed as a code or a reference to its SubstanceDefinition. Each linkage is registered as a fragment. Reference.identifier may be used to carry an external ID (e.g. ISO 11238 Substance ID) when no resolvable URL is available."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.linkage.residueSite">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.linkage.residueSite"/>
+      <short value="The residue positions at which this linkage applies, in 5’→3’ direction"/>
+      <definition value="The residue positions at which this linkage applies, listed in 5’→3’ direction consistent with the base sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.sugar">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,1259"/>
+      </extension>
+      <path value="SubstanceDefinition.nucleicAcid.subunit.sugar"/>
+      <short value="A sugar component of the nucleotide sequence"/>
+      <definition value="A sugar component of the nucleotide sequence, identifying the sugar substance and the residue positions to which it applies."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.sugar.substance">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.sugar.substance"/>
+      <short value="The sugar substance, as a code or a reference to its SubstanceDefinition"/>
+      <definition value="The substance representing the sugar (or sugar-like component) of the nucleotide, expressed as a code or a reference to its SubstanceDefinition. Reference.identifier may be used to carry an external ID (e.g. ISO 11238 Substance ID) when no resolvable URL is available."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.subunit.sugar.residueSite">
+      <path value="SubstanceDefinition.nucleicAcid.subunit.sugar.residueSite"/>
+      <short value="The residue positions at which this sugar applies, in 5’→3’ direction"/>
+      <definition value="The residue positions at which this sugar applies, listed in 5’→3’ direction consistent with the base sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.gene">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="169,987"/>
+      </extension>
+      <path value="SubstanceDefinition.nucleicAcid.gene"/>
+      <short value="The gene that codes for this substance"/>
+      <definition value="The gene that codes for this substance (typically applies to proteins and nucleic acids). Captures the gene's identity and the source organism or lineage of the gene sequence (e.g. humanised mouse, chimeric mouse-human)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.5 Gene"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.gene.sequenceOrigin">
+      <path value="SubstanceDefinition.nucleicAcid.gene.sequenceOrigin"/>
+      <short value="The species or lineage from which the gene sequence originated"/>
+      <definition value="The species or lineage from which the gene sequence originated (e.g. human, humanised mouse, chimeric mouse-human, bacterial). For recombinant biologics, this is distinct from the production source organism."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GeneSequenceOrigin"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The species or lineage from which a gene sequence originates."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/gene-sequence-origin"/>
+      </binding>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.5.1 Gene sequence origin"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.gene.gene">
+      <path value="SubstanceDefinition.nucleicAcid.gene.gene"/>
+      <short value="The gene itself, as a code or a reference to a SubstanceDefinition"/>
+      <definition value="The gene itself, expressed as a code or as a reference to the SubstanceDefinition describing the gene as a nucleic acid. Reference.identifier may be used to carry an external ID (e.g. NCBI Gene, HGNC symbol) when no resolvable URL is available."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.5 Gene (gene identity)"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.gene.source">
+      <path value="SubstanceDefinition.nucleicAcid.gene.source"/>
+      <short value="Supporting literature for the gene information"/>
+      <definition value="Supporting literature for the gene information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.geneElement">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,737"/>
+      </extension>
+      <path value="SubstanceDefinition.nucleicAcid.geneElement"/>
+      <short value="Gene elements that comprise a nucleic acid construct (used for gene therapy)"/>
+      <definition value="Information about the functional elements (promoter, enhancer, coding sequence, terminator, etc.) that make up a nucleic acid construct used in gene therapy. Each element captures its role and identity."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.6 Gene element"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.geneElement.type">
+      <path value="SubstanceDefinition.nucleicAcid.geneElement.type"/>
+      <short value="The functional role of the element (e.g. promoter, enhancer, coding sequence)"/>
+      <definition value="The functional role of the element within the construct, for example promoter, enhancer, silencer, terminator, or coding sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GeneElementType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The functional role of a DNA element within a gene therapy construct."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/gene-element-type"/>
+      </binding>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.6.1 Gene element type"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.geneElement.element">
+      <path value="SubstanceDefinition.nucleicAcid.geneElement.element"/>
+      <short value="The element itself, as a code or a reference to a SubstanceDefinition"/>
+      <definition value="The element itself, expressed as a code or as a reference to a SubstanceDefinition describing the element as a nucleic acid substance. Reference.identifier may be used to carry an external ID (e.g. addgene plasmid ID, NCBI accession) when no resolvable URL is available."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.6.2 Gene element ID"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.nucleicAcid.geneElement.source">
+      <path value="SubstanceDefinition.nucleicAcid.geneElement.source"/>
+      <short value="Supporting literature for the gene element information"/>
+      <definition value="Supporting literature for the gene element information."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+<element id="SubstanceDefinition.polymer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="665,1075"/>
+      </extension>
+      <path value="SubstanceDefinition.polymer"/>
+      <short value="Data items specific to polymers"/>
+      <definition value="Data items specific to polymers."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.class">
+      <path value="SubstanceDefinition.polymer.class"/>
+      <short value="Overall type of the polymer"/>
+      <definition value="Overall type of the polymer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PolymerClass"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Overall type of the polymer."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/polymer-class"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.polymer.geometry">
+      <path value="SubstanceDefinition.polymer.geometry"/>
+      <short value="Polymer geometry, e.g. linear, branched, cross-linked, network or dendritic"/>
+      <definition value="Polymer geometry, e.g. linear, branched, cross-linked, network or dendritic."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PolymerGeometry"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Polymer geometry e.g. linear, branched."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/polymer-geometry"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.polymer.copolymerConnectivity">
+      <path value="SubstanceDefinition.polymer.copolymerConnectivity"/>
+      <short value="Describes the copolymer sequence type (polymer connectivity)"/>
+      <definition value="Describes the copolymer sequence type (polymer connectivity)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CopolymerConnectivity"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Copolymer sequence/connectivity type."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/copolymer-connectivity"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.polymer.modification">
+      <path value="SubstanceDefinition.polymer.modification"/>
+      <short value="A modification applied to the polymer"/>
+      <definition value="A modification applied to the polymer, e.g. a chemical reaction that alters the structure post-polymerisation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.monomerSet">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="390,1377"/>
+      </extension>
+      <path value="SubstanceDefinition.polymer.monomerSet"/>
+      <short value="A set of monomers used to build the polymer"/>
+      <definition value="A set of monomers used to build the polymer, with their proportions and relationships."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.monomerSet.ratioType">
+      <path value="SubstanceDefinition.polymer.monomerSet.ratioType"/>
+      <short value="Captures the type of ratio to the entire polymer, e.g. Monomer/Polymer ratio, SRU/Polymer Ratio"/>
+      <definition value="Captures the type of ratio to the entire polymer, e.g. Monomer/Polymer ratio, SRU/Polymer Ratio."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PolymerMonomerRatioType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Type of ratio of monomers to the entire polymer."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/polymer-monomer-ratio-type"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.polymer.monomerSet.startingMaterial">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="377,1475"/>
+      </extension>
+      <path value="SubstanceDefinition.polymer.monomerSet.startingMaterial"/>
+      <short value="The starting materials - monomer(s) used in the synthesis of the polymer"/>
+      <definition value="The starting materials - monomer(s) used in the synthesis of the polymer."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.monomerSet.startingMaterial.code">
+      <path value="SubstanceDefinition.polymer.monomerSet.startingMaterial.code"/>
+      <short value="The substance acting as starting material, as a code or a reference to a SubstanceDefinition"/>
+      <definition value="The substance acting as starting material. This may be specified as a code or as a reference to another SubstanceDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SNOMEDCTSubstanceCodes"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for substances acting as polymer starting materials."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-code"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.polymer.monomerSet.startingMaterial.category">
+      <path value="SubstanceDefinition.polymer.monomerSet.startingMaterial.category"/>
+      <short value="Substance high level category, e.g. chemical substance"/>
+      <definition value="Substance high level category, e.g. chemical substance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PolymerStartingMaterialCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="High-level category of polymer starting material."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/polymer-starting-material-category"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.polymer.monomerSet.startingMaterial.isDefining">
+      <path value="SubstanceDefinition.polymer.monomerSet.startingMaterial.isDefining"/>
+      <short value="Whether this starting material is part of what defines the polymer's unique identity"/>
+      <definition value="Whether this starting material is part of what defines the polymer's unique identity."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.monomerSet.startingMaterial.amount">
+      <path value="SubstanceDefinition.polymer.monomerSet.startingMaterial.amount"/>
+      <short value="A percentage"/>
+      <definition value="A percentage."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="680,1248"/>
+      </extension>
+      <path value="SubstanceDefinition.polymer.repeat"/>
+      <short value="Specifies and quantifies the repeated units and their configuration"/>
+      <definition value="Specifies and quantifies the repeated units and their configuration."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.averageMolecularFormula">
+      <path value="SubstanceDefinition.polymer.repeat.averageMolecularFormula"/>
+      <short value="A representation of an (average) molecular formula from a polymer"/>
+      <definition value="A representation of an (average) molecular formula from a polymer."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnitAmountType">
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnitAmountType"/>
+      <short value="How the quantitative amount of Structural Repeat Units is captured (e.g. Exact, Numeric, Average)"/>
+      <definition value="How the quantitative amount of Structural Repeat Units is captured (e.g. Exact, Numeric, Average)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PolymerMonomerRatioType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="How the quantitative amount of Structural Repeat Units is captured."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/polymer-monomer-ratio-type"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="775,1378"/>
+      </extension>
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit"/>
+      <short value="An SRU - Structural Repeat Unit"/>
+      <definition value="An SRU - Structural Repeat Unit."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit.unit">
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit.unit"/>
+      <short value="Identification of the structural repeat unit (SRU)"/>
+      <definition value="Identification of the structural repeat unit (SRU)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit.orientation">
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit.orientation"/>
+      <short value="The orientation of the polymerisation, e.g. head-tail, head-head, random"/>
+      <definition value="The orientation of the polymerisation, e.g. head-tail, head-head, random."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PolymerisationOrientation"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The orientation of the polymerisation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/polymerisation-orientation"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit.amount">
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit.amount"/>
+      <short value="Number of repeats of this unit"/>
+      <definition value="Number of repeats of this unit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="787,1503"/>
+      </extension>
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation"/>
+      <short value="Applies to homopolymer and block co-polymers where the degree of polymerisation within a block can be described"/>
+      <definition value="Applies to homopolymer and block co-polymers where the degree of polymerisation within a block can be described."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation.type">
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation.type"/>
+      <short value="The type of degree of polymerisation, e.g. SRU/Polymer ratio"/>
+      <definition value="The type of degree of polymerisation, e.g. SRU/Polymer ratio."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DegreeOfPolymerisationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of degree of polymerisation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/degree-of-polymerisation-type"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation.average">
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation.average"/>
+      <short value="An average amount of polymerisation"/>
+      <definition value="An average amount of polymerisation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation.low">
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation.low"/>
+      <short value="A low expected limit of the amount"/>
+      <definition value="A low expected limit of the amount."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation.high">
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit.degreeOfPolymerisation.high"/>
+      <short value="A high expected limit of the amount"/>
+      <definition value="A high expected limit of the amount."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.polymer.repeat.repeatUnit.structuralRepresentation">
+      <path value="SubstanceDefinition.polymer.repeat.repeatUnit.structuralRepresentation"/>
+      <short value="A graphical structure for this SRU"/>
+      <definition value="A graphical structure for this SRU."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#SubstanceDefinition.structure.representation"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="313,857"/>
+      </extension>
+      <path value="SubstanceDefinition.protein"/>
+      <short value="Data items specific to proteins"/>
+      <definition value="Data items specific to proteins."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="SubstanceDefinition.protein.sequenceType">
+      <path value="SubstanceDefinition.protein.sequenceType"/>
+      <short value="Whether the sequence is complete or partial"/>
+      <definition value="Whether the sequence provided is complete or partial."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+          <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceSequenceType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Whether the protein sequence is complete or partial."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/substance-sequence-type"/>
+      </binding>
+    </element>
+    <element id="SubstanceDefinition.protein.numberOfSubunits">
+      <path value="SubstanceDefinition.protein.numberOfSubunits"/>
+      <short value="Number of subunits — linear sequences of amino acids linked through peptide bonds"/>
+      <definition value="Number of subunits — linear sequences of amino acids linked through peptide bonds."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein.disulfideLinkage">
+      <path value="SubstanceDefinition.protein.disulfideLinkage"/>
+      <short value="Disulphide bond(s) between cysteine residues on the same subunit or across two different subunits. Positions are listed in increasing order of subunit number and intra-subunit position, followed by the amino-acid abbreviations. The positions should contain Cysteine residues"/>
+      <definition value="Disulphide bond(s) between cysteine residues on the same subunit or across two different subunits. Positions are listed in increasing order of subunit number and intra-subunit position, followed by the amino-acid abbreviations. The positions should contain Cysteine residues."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein.subunit">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="376,1087"/>
+      </extension>
+      <path value="SubstanceDefinition.protein.subunit"/>
+      <short value="Each subunit constituting the protein. A subunit is a linear sequence of amino acids linked through peptide bonds. Used when the finished protein is a complex of multiple sequences (not for domains within a single sequence). Subunits are listed in order of decreasing length; ties resolved by decreasing molecular weight; identical sequences are repeated"/>
+      <definition value="Each subunit constituting the protein. A subunit is a linear sequence of amino acids linked through peptide bonds. Used when the finished protein is a complex of multiple sequences (not for domains within a single sequence). Subunits are listed in order of decreasing length; ties resolved by decreasing molecular weight; identical sequences are repeated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein.subunit.subunit">
+      <path value="SubstanceDefinition.protein.subunit.subunit"/>
+      <short value="Index of primary sequences of amino acids linked through peptide bonds in order of decreasing length. Sequences of the same length will be ordered by molecular weight. Subunits that have identical sequences will be repeated and have sequential subscripts"/>
+      <definition value="Index of primary sequences of amino acids linked through peptide bonds in order of decreasing length. Sequences of the same length will be ordered by molecular weight. Subunits that have identical sequences will be repeated and have sequential subscripts."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein.subunit.sequence">
+      <path value="SubstanceDefinition.protein.subunit.sequence"/>
+      <short value="The amino-acid sequence, listed N- to C-terminal using standard single-letter amino-acid codes. Uppercase denotes L-amino acids, lowercase denotes D-amino acids. Transcribed proteins are described using the translated sequence; for synthetic peptides containing amino acids without a single-letter code, X is used. Modified amino acids are identified by their position in the sequence"/>
+      <definition value="The amino-acid sequence, listed N- to C-terminal using standard single-letter amino-acid codes. Uppercase denotes L-amino acids, lowercase denotes D-amino acids. Transcribed proteins are described using the translated sequence; for synthetic peptides containing amino acids without a single-letter code, X is used. Modified amino acids are identified by their position in the sequence."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein.subunit.length">
+      <path value="SubstanceDefinition.protein.subunit.length"/>
+      <short value="Length of linear sequences of amino acids contained in the subunit"/>
+      <definition value="Length of linear sequences of amino acids contained in the subunit."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein.subunit.sequenceAttachment">
+      <path value="SubstanceDefinition.protein.subunit.sequenceAttachment"/>
+      <short value="The amino-acid sequence as an attached file"/>
+      <definition value="The amino-acid sequence provided as an attached file (e.g. when too long for inline capture, or only available in non-text form such as an image)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein.subunit.nTerminalModification">
+      <path value="SubstanceDefinition.protein.subunit.nTerminalModification"/>
+      <short value="The modification fragment at the N-terminal of the protein"/>
+      <definition value="The molecular fragment modification at the N-terminal of the protein, expressed as a code or a reference to its SubstanceDefinition. Reference.identifier may be used to carry an external ID (e.g. ISO 11238 Substance ID) when no resolvable URL is available."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein.subunit.cTerminalModification">
+      <path value="SubstanceDefinition.protein.subunit.cTerminalModification"/>
+      <short value="The modification fragment at the C-terminal of the protein"/>
+      <definition value="The molecular fragment modification at the C-terminal of the protein, expressed as a code or a reference to its SubstanceDefinition. Reference.identifier may be used to carry an external ID (e.g. ISO 11238 Substance ID) when no resolvable URL is available."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SubstanceDefinition.protein.gene">
+      <path value="SubstanceDefinition.protein.gene"/>
+      <short value="The gene that codes for this substance"/>
+      <definition value="The gene that codes for this protein substance (typically the source gene). Captures the gene's identity and the source organism or lineage of the gene sequence (e.g. humanised mouse, chimeric mouse-human). Same structure as nucleicAcid.gene."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#SubstanceDefinition.nucleicAcid.gene"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp-substance"/>
+        <map value="4.6.5 Gene"/>
+      </mapping>
+    </element>
+    <element id="SubstanceDefinition.protein.modificationType">
+      <path value="SubstanceDefinition.protein.modificationType"/>
+      <short value="A high-level summary of the kind of modification of the protein, e.g. PEGylated, lipidated, Fc-fused"/>
+      <definition value="A high-level summary of the kind of modification of the protein (e.g. PEGylated, lipidated, Fc-fused, drug-conjugated). Used for general classification of modified biologics; for detailed structural modification chemistry see related elements/extensions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ProteinModificationType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A high-level summary of how a protein has been modified."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/protein-modification-type"/>
+      </binding>
     </element>
   </differential>
 </StructureDefinition>

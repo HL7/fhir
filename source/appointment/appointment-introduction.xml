@@ -1,5 +1,31 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 	<div>
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b> Key changes made since FHIR 6.0.0-ballot4:</p>
+<ul>
+  <li>Non-compatible Changes
+    <ul>
+      <li><a href="https://jira.hl7.org/browse/FHIR-56302">FHIR-56302</a>: Appointment.recurrenceTemplate.monthlyTemplate changed from Coding to code</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55285">FHIR-55285</a>: <i>(duplicate of above)</i> Appointment.recurrenceTemplate.monthlyTemplate changed from Coding to code</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-57336">FHIR-57336</a>: Appointment.recurrenceTemplate.weeklyTemplate changed from booleans to code[1..*]</li>
+    </ul>
+  </li>
+  <li>Compatible, Substantive Changes
+    <ul>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55288">FHIR-55288</a>: Make the appointment.participant.status property optional</li>
+      <li><a href="https://jira.hl7.org/browse/FHIR-55287">FHIR-55287</a>: Add code "unknown" to appointment.status</li>
+    </ul>
+  </li>
+  <li>Non-substantive Changes
+    <ul>
+      <li><a href="https://jira.hl7.org/browse/FHIR-53899">FHIR-53899</a>: Remove request for feedback notes</li>
+	  <li><a href="https://jira.hl7.org/browse/FHIR-54400">FHIR-54400</a>: Include extra clarifying documentation on the use of AppointmentResponse resources in a simple chain series</li>
+    </ul>
+  </li>
+</ul>
+</blockquote>
+<p></p>
+
     <a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p>
@@ -171,21 +197,23 @@
 		This style of recurring appointment likely will not use the <code>originatingAppointment</code> property either.
 	</p>
 	<p>
-		As each appointment in a series is a separate appointment and booked as needed, the acceptance of requests here is
-		just as it would be normally if they did not have a sequence.
+		As each appointment in a series is a separate appointment and booked as needed (with no template), the acceptance of requests (via individual AppointmentResponse resources)
+		is the same as it would be normally if they were not part of a series.
 	</p>
 	<p>
 		As each occurrence is booked independently there are no specific issues with timezones, as each instance exactly
 		defines when it occurs (there is no template).
 	</p>
 
-	[%stu-note dstu2%]
+	<blockquote class="ballot-note" id="bn1">
+	<p><b>Note to Balloters:</b> 
 		We are seeking input from the implementer community on the recurring appointment functionality
 		and specifically if there is a need for a "recur forever" or similar flag.
 		</p>
 		<p>
 		Feedback <a href="http://hl7.org/fhir-issues">here</a>.
-	[%end-note%]
+	</p>
+	</blockquote>
 	</div>
 	<div>
 

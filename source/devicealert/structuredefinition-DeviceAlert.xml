@@ -110,7 +110,7 @@
             </mapping>
             <mapping>
                 <identity value="DIM" />
-                <map value="AlertCondition/alert-info-id" />
+                <map value="Alert/Handle" />
             </mapping>
             <mapping>
                 <identity value="BICEPS" />
@@ -323,32 +323,14 @@
                 <map value="Event.encounter" />
             </mapping>
         </element>
-        <element id="DeviceAlert.presence">
-            <path value="DeviceAlert.presence" />
-            <short value="Whether the alert condition is currently active" />
-            <!--       <definition value="" /> -->
+        <element id="DeviceAlert.occurrence">
+            <path value="DeviceAlert.occurrence" />
+            <short value="When the alert condition occurred/is occurring" />
+            <definition value="This element is used to record the time period when the alert condition did occur or is occurring."/>
+            <comment value ="This element is used to record the time period during which the alert condition is or was active. The absence of `occurrence.end` usually indicates that the alert condition was ongoing at the last update. Coincident `occurrence.start` and `occurrence.end` values allow the expression of instantaneous alert conditions. Implementers should remain aware that partially specified `dateTime` values for `occurrence.start` or `occurrence.end` are ambiguous about what point in time they represent. Corner cases, such representing an alert condition known to be ongoing without knowledge of the start time, may require special handling such as use of [extensions](extensibility.html)—consult relevant implementation guides." />
             <min value="1" />
             <max value="1" />
             <isSummary value="true" />
-            <mapping>
-                <identity value="BICEPS" />
-                <map value="AlertConditionState/Presence" />
-            </mapping>
-            <type>
-                <code value="boolean" />
-            </type>
-        </element>
-        <element id="DeviceAlert.occurrence[x]">
-            <path value="DeviceAlert.occurrence[x]" />
-            <short value="When the alert condition occurred/is occurring" />
-            <definition value="This element is used to record the date or time period when the alert condition did occur or is occurring."/>
-            <comment value ="This element is used to record the time period during which the alert condition is or was active. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. A date/time value SHOULD be used for instantaneous conditions. Partial date/time values are ambiguous about whether they represent the condition occurring at some point in the partially specified period, or for all of the period, and (absent additional guidance) SHOULD be avoided. Ongoing events SHOULD not include a Period upper bound." />
-            <min value="0" />
-            <max value="1" />
-            <isSummary value="true" />
-            <type>
-                <code value="dateTime" />
-            </type>
             <type>
                 <code value="Period" />
             </type>
@@ -593,6 +575,23 @@
                 <code value="BackboneElement" />
             </type>
         </element>
+        <element id="DeviceAlert.signal.identifier">
+            <path value="DeviceAlert.signal.identifier" />
+            <short value="Identifier for the logical signal instance" />
+            <definition value="Business identifier for the logical alert signal instance. The same identifier can be used across multiple DeviceAlert.signal elements to represent state changes of the same signal over time." />
+            <requirements value="Allows identification of the `signal` as it is known by various participating systems and in a way that remains consistent across servers." />
+            <min value="0" />
+            <max value="*" />
+            <isSummary value="false" />
+            <type>
+                <code value="Identifier" />
+            </type>
+            <mapping>
+                <identity value="BICEPS" />
+                <map value="AlertSignalDescriptor/Handle" />
+            </mapping>
+
+        </element>
         <element id="DeviceAlert.signal.activationState">
             <path value="DeviceAlert.signal.activationState" />
             <short value="Whether the signal is activated" />
@@ -704,11 +703,10 @@
                 <valueSet value="http://hl7.org/fhir/ValueSet/devicealert-signalType" />
             </binding>
         </element>
-        <element id="DeviceAlert.signal.indication">
-            <path value="DeviceAlert.signal.indication" />
-            <short value="When the signal was being annunciated" />
-            <definition value="The period during which the signal was being annunciated. If there is no indicated period end, the annunciation is on-going." />
-            <comment value="The indication period start when the signal presence is first on (or latched) and ends when the signal becomes off or acknowledged." />
+        <element id="DeviceAlert.signal.period">
+            <path value="DeviceAlert.signal.period" />
+            <short value="The period when the signal was in the indicated state" />
+            <definition value="The period during which the signal was in the indicated state. If no `period.end` is indicated, the signalling state is presumed to be on-going at last update." />
             <min value="0" />
             <max value="1" />
             <isSummary value="false" />

@@ -9,7 +9,10 @@
 <li>Updates to search parameters to address the changes.</li>
 </ul>
 </blockquote>
-</div>  
+<blockquote class="stu-note">
+<p><b>Note to Implementers:</b> For an overview of this resource and others in the Device domain, also see the <a href="device-module.html">module page</a>.</p>
+</blockquote>
+</div>
 	<div style="color:#01538B;">
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>

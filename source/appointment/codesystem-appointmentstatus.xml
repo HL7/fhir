@@ -97,4 +97,9 @@
     <display value="Waitlisted"/>
     <definition value="The appointment has been placed on a waitlist, to be scheduled/confirmed in the future when a slot/service is available.&#xA;A specific time might or might not be pre-allocated."/>
   </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The appointment status is unknown."/>
+  </concept>
 </CodeSystem>

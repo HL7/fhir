@@ -2,6 +2,7 @@
 
 <!-- insert xhtml content here -->
 
+<a name="apply"> </a>
 <h3>Applying an ActivityDefinition</h3>
 
 <p>An ActivityDefinition resource provides a description, or template, of an action to performed. These actions can be purely text-based descriptions of the action to be performed, only interpretable by a human user, or they can be structured definitions with enough information to construct a resource to represent the request or activity directly. This process of converting the ActivityDefinition into a specific resource in a particular context is performed with the <code>$apply</code> operation.</p>

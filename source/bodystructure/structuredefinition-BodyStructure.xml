@@ -425,9 +425,9 @@
       <path value="BodyStructure.includedStructure.morphology"/>
       <short value="Kind of Structure"/>
       <definition value="The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies."/>
-      <comment value="The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology."/>
+      <comment value="The minimum cardinality of 0 supports the use case of specifying a location without defining a morphology. When multiple morphologic characteristics apply to the same body structure, a single pre-coordinated terminology concept or post-coordinated expression may be used when an appropriate representation exists. Multiple repetitions of morphology can be used to represent individual morphologic characteristics when no suitable single concept or expression is available."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>

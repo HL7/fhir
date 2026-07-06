@@ -29,10 +29,10 @@
   <controller>
     <reference value="Organization/f001"/>
   </controller>
-  <sourceReference>
     <!-- This Consent would be the machine usable version of a Contract resource where the original language and signatures are located -->
+<!--  <sourceReference>
     <reference value="Contract/pcd-example-notAuthor"/>
-  </sourceReference>
+  </sourceReference> -->
   <regulatoryBasis>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>

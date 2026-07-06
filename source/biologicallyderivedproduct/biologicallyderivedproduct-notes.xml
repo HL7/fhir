@@ -27,10 +27,6 @@
 
 	<p><strong>Preferred approach:</strong> The second approach is recommended, as it maintains the intended recipient as an intrinsic attribute of the BiologicallyDerivedProduct, supporting long-term traceability even if the original ServiceRequest is no longer available.</p>
 
-	<blockquote class="stu-note">
-		<p><strong>Note to Implementers:</strong> At the time of authorship, the <code>biologicallyderivedproduct-intendedRecipient</code> extension had not yet been published. It will be included in the <a href="https://hl7.org/fhir/extensions/extensions-BiologicallyDerivedProduct.html">FHIR Extension Pack</a> when available. Feedback from implementers is welcomed to inform further refinement and usage guidance.</p>
-	</blockquote>
-	
 	<p><strong>Important:</strong> When PHI from multiple patients (e.g., donor and recipient) is represented within a single BiologicallyDerivedProduct resource, systems should apply appropriate access controls and redaction practices to ensure that users only see the data they are authorized to view. Implementers should follow established standards such as ISBT 128, which governs when donor PHI may be included versus when coded identifiers (e.g., WMDA GRID) should be used.</p>
 
 </div>

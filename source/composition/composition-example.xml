@@ -43,7 +43,7 @@
 	<attester>
 		<mode>
 			<coding>
-				<system value="http://hl7.org/fhir/composition-attestation-mode"/>
+				<system value="http://terminology.hl7.org/CodeSystem/composition-attestation-mode"/>
 				<code value="legal"/>
 				<display value="Legal"/>
 			</coding>

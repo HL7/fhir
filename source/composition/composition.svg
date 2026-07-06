@@ -238,7 +238,7 @@
        class="diagram-class-detail"><a
    id="n943"
    xlink:href="composition-definitions.html#Composition.category"><title
-   id="title21809">A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type</title>category</a> : <a
+   id="title21809">A categorization for the type of the composition - helps with indexing and searching. This may be implied by or derived from the code specified in the Composition Type</title>category</a> : <a
    id="n944"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
    id="n945"
@@ -507,7 +507,7 @@
    id="n1082"
    xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
    id="n1083"
-   xlink:href="valueset-composition-attestation-mode.html"><title
+   xlink:href="http://terminology.hl7.org/ValueSet/composition-attestation-mode"><title
    id="title21919">null (Strength=Preferred)</title>CompositionAttestationMode</a>? »</text>
     <text
        id="n1088"
@@ -667,7 +667,7 @@
        class="diagram-class-detail"><a
    id="n1159"
    xlink:href="composition-definitions.html#Composition.event.detail"><title
-   id="title21973">Represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which case the procedure being documented is necessarily a &quot;History and Physical&quot; act. The events may be included as a code or as a reference to an other resource</title>detail</a> : <a
+   id="title21973">Represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which case the procedure being documented is necessarily a &quot;History and Physical&quot; act. The events may be included as a code or as a reference to another resource</title>detail</a> : <a
    id="n1160"
    xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
    id="n1161"
@@ -768,7 +768,7 @@ The actual author of the section when it is not the author of the composition. I
        class="diagram-class-detail"><a
    id="n1212"
    xlink:href="composition-definitions.html#Composition.section.focus"><title
-   id="title22010">The actual focus of the section when it is not the subject of the composition, but instead represents something or someone associated with the subject such as (for a patient subject) a spouse, parent, fetus, or donor. If not focus is specified, the focus is assumed to be focus of the parent section, or, for a section in the Composition itself, the subject of the composition. Sections with a focus SHALL only include resources where the logical subject (patient, subject, focus, etc.) matches the section focus, or the resources have no logical subject (few resources)</title>focus</a> : <a
+   id="title22010">The actual focus of the section when it is not the subject of the composition, but instead represents something or someone associated with the subject such as (for a patient subject) a spouse, parent, fetus, or donor. If no focus is specified, the focus is assumed to be focus of the parent section, or, for a section in the Composition itself, the subject of the composition. Sections with a focus SHALL only include resources where the logical subject (patient, subject, focus, etc.) matches the section focus, or the resources have no logical subject (few resources)</title>focus</a> : <a
    id="n1213"
    xlink:href="references.html#Reference">Reference</a> [0..1] « <a
    id="n1214"

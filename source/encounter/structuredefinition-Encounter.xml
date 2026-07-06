@@ -213,7 +213,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -336,8 +336,8 @@
     </element>
     <element id="Encounter.serviceType">
       <path value="Encounter.serviceType"/>
-      <short value="Specific type of service"/>
-      <definition value="Broad categorization of the service that is to be provided (e.g. cardiology)."/>
+      <short value="The specific service that is to be performed during this encounter"/>
+      <definition value="The specific service that is to be performed during this encounter."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -567,7 +567,7 @@
       <path value="Encounter.participant.type"/>
       <short value="Role of participant in encounter"/>
       <definition value="Role of participant in encounter."/>
-      <comment value="The participant type indicates how an individual actor participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc."/>
+      <comment value="The participant type indicates how an individual actor participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc. Patient and Groups are not permitted to have types as they are the subject of the encounter (invariant enc-2 enforces this)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -580,7 +580,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ParticipantType"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Role of participant in encounter."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/encounter-participant-type"/>
       </binding>
@@ -601,6 +601,7 @@
       <path value="Encounter.participant.period"/>
       <short value="Period of time during the encounter that the participant participated"/>
       <definition value="The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter's period."/>
+      <comment value="This can overlap or be sub-sets of the overall encounter's period as noted in Encounter.actualPeriod."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -694,7 +695,7 @@
       <path value="Encounter.actualPeriod"/>
       <short value="The actual start and end time of the encounter"/>
       <definition value="The actual start and end time of the encounter."/>
-      <comment value="If not (yet) known, the end of the Period may be omitted."/>
+      <comment value="If not (yet) known, the end of the Period may be omitted. Not all participants/locations in the encounter need to occur within the period defined in actualPeriod. For example, a common use case is actors associated with preparations/cleanup for the encounter."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -773,9 +774,9 @@
         <valueString value="Reason"/>
       </extension>
       <path value="Encounter.reason"/>
-      <short value="The list of medical reasons that are expected to be addressed during the episode of care"/>
-      <definition value="The list of medical reasons that are expected to be addressed during the episode of care."/>
-      <comment value="The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.&#xD;&#xD;Examples:&#xD; * pregnancy would use HealthcareService or a coding as the reason&#xD; * patient home monitoring could use Condition as the reason"/>
+      <short value="The list of medical reasons that are expected to be addressed during the encounter"/>
+      <definition value="The list of medical reasons that are expected to be addressed during the encounter."/>
+      <comment value="The reason communicates what medical problem the patient has that should be addressed during the encounter.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.&#xD;&#xD;Examples:&#xD; * pregnancy would use HealthcareService or a coding as the reason&#xD; * patient home monitoring could use Condition as the reason"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1118,6 +1119,7 @@
         </extension>
         <strength value="example"/>
         <description value="The reason for re-admission of this admission encounter."/>
+        <comment value="Some systems will use their own ValueSet here where they choose to differentiate reasons/circumstances of the re-admission. Such as 'complications from health conditions', 'treatment non-compliance', 'medication errors',  'discharged against advice'.&#xD;&#xD;This was also modelled as a user defined table in v2, thus permitting easier migration." />
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0092"/>
       </binding>
       <mapping>
@@ -1263,6 +1265,7 @@
       <path value="Encounter.location.period"/>
       <short value="Time period during which the patient was present at the location"/>
       <definition value="Time period during which the patient was present at the location."/>
+      <comment value="This can overlap or be sub-sets of the overall encounter's period as noted in Encounter.actualPeriod."/>
       <min value="0"/>
       <max value="1"/>
       <type>

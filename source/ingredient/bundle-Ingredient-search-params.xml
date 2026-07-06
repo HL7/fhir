@@ -324,4 +324,112 @@
     </resource>
   </entry>
   
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-substance-code-strength-presentation-ratio"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-substance-code-strength-presentation-ratio"/>
+        <description value="Ingredient code and presentation strength as ratio, numerator and denominator parameter pair"/>
+        <code value="substance-code-strength-presentation-ratio"/>
+        <type value="composite"/>
+        <expression value="Ingredient.substance"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="code"/>
+          <expression value="substance-code"/>
+        </component>
+        <component>
+          <definition value="numerator"/>
+          <expression value="strength-presentation-numerator"/>
+        </component>
+        <component>
+          <definition value="denominator"/>
+          <expression value="strength-presentation-denominator"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-substance-code-strength-concentration-ratio"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-substance-code-strength-concentration-ratio"/>
+        <description value="Ingredient code and concentration strength as ratio, numerator and denominator parameter pair"/>
+        <code value="substance-code-strength-concentration-ratio"/>
+        <type value="composite"/>
+        <expression value="Ingredient.substance"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="code"/>
+          <expression value="substance-code"/>
+        </component>
+        <component>
+          <definition value="numerator"/>
+          <expression value="strength-concentration-numerator"/>
+        </component>
+        <component>
+          <definition value="denominator"/>
+          <expression value="strength-concentration-denominator"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-substance-code-strength-concentration-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-substance-code-strength-concentration-quantity"/>
+        <description value="Ingredient code and concentration strength as a quantity"/>
+        <code value="substance-code-strength-concentration-quantity"/>
+        <type value="composite"/>
+        <expression value="Ingredient.substance"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="code"/>
+          <expression value="substance-code"/>
+        </component>
+        <component>
+          <definition value="quantity"/>
+          <expression value="strength-concentration-quantity"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Ingredient-substance-code-strength-presentation-quantity"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Ingredient-substance-code-strength-presentation-quantity"/>
+        <description value="Ingredient code and presentation strength as a quantity"/>
+        <code value="substance-code-strength-presentation-quantity"/>
+        <type value="composite"/>
+        <expression value="Ingredient.substance"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="code"/>
+          <expression value="substance-code"/>
+        </component>
+        <component>
+          <definition value="quantity"/>
+          <expression value="strength-presentation-quantity"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
 </Bundle>
