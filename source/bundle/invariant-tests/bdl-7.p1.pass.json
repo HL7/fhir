@@ -1,0 +1,34 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://x/Observation/123",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "123",
+        "status": "final",
+        "code": {
+          "text": "t"
+        },
+        "meta": {
+          "versionId": "4"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://x/Observation/12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "12",
+        "status": "final",
+        "code": {
+          "text": "t"
+        },
+        "meta": {
+          "versionId": "34"
+        }
+      }
+    }
+  ]
+}

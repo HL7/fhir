@@ -1,0 +1,23 @@
+{
+  "resourceType": "ImagingSelection",
+  "status": "available",
+  "code": {
+    "text": "r"
+  },
+  "instance": [
+    {
+      "uid": "a",
+      "waveFormChannel": [
+        1
+      ]
+    },
+    {
+      "uid": "b",
+      "waveFormChannel": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}

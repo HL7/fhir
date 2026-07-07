@@ -1,0 +1,23 @@
+{
+  "resourceType": "ImagingSelection",
+  "status": "available",
+  "code": {
+    "text": "s"
+  },
+  "instance": [
+    {
+      "uid": "a",
+      "frameNumber": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "uid": "b",
+      "segmentNumber": [
+        1
+      ]
+    }
+  ]
+}

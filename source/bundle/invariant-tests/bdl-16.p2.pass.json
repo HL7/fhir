@@ -1,0 +1,24 @@
+{
+  "resourceType": "Bundle",
+  "type": "batch-response",
+  "entry": [
+    {
+      "response": {
+        "status": "200"
+      }
+    }
+  ],
+  "issues": {
+    "resourceType": "OperationOutcome",
+    "issue": [
+      {
+        "severity": "warning",
+        "code": "informational"
+      },
+      {
+        "severity": "warning",
+        "code": "informational"
+      }
+    ]
+  }
+}

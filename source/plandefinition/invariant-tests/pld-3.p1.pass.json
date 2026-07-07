@@ -1,0 +1,27 @@
+{
+  "resourceType": "PlanDefinition",
+  "status": "active",
+  "goal": [
+    {
+      "id": "g1",
+      "description": {
+        "text": "x"
+      }
+    },
+    {
+      "id": "g2",
+      "description": {
+        "text": "y"
+      }
+    }
+  ],
+  "action": [
+    {
+      "title": "a",
+      "goalId": [
+        "g1",
+        "g2"
+      ]
+    }
+  ]
+}

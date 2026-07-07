@@ -1,0 +1,11 @@
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "x",
+      "valueDuration": {
+        "value": 30
+      }
+    }
+  ]
+}

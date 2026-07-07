@@ -1,0 +1,34 @@
+{
+  "resourceType": "CodeSystem",
+  "url": "http://example.org/cs/csd3",
+  "status": "draft",
+  "content": "complete",
+  "property": [
+    {
+      "code": "parent",
+      "type": "code"
+    },
+    {
+      "code": "status",
+      "type": "string"
+    }
+  ],
+  "concept": [
+    {
+      "code": "root"
+    },
+    {
+      "code": "c1",
+      "property": [
+        {
+          "code": "status",
+          "valueString": "a"
+        },
+        {
+          "code": "parent",
+          "valueCode": "root"
+        }
+      ]
+    }
+  ]
+}

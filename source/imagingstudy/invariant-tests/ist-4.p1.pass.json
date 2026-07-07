@@ -1,0 +1,21 @@
+{
+  "resourceType": "ImagingStudy",
+  "status": "available",
+  "subject": {
+    "reference": "Patient/x"
+  },
+  "numberOfInstances": 5,
+  "series": [
+    {
+      "uid": "1.2.3",
+      "modality": {
+        "coding": [
+          {
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "code": "CT"
+          }
+        ]
+      }
+    }
+  ]
+}

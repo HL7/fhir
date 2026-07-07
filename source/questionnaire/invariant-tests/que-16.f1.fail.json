@@ -1,0 +1,10 @@
+{
+  "resourceType": "Questionnaire",
+  "status": "active",
+  "item": [
+    {
+      "linkId": "double  space",
+      "type": "string"
+    }
+  ]
+}

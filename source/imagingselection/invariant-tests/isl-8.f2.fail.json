@@ -1,0 +1,28 @@
+{
+  "resourceType": "ImagingSelection",
+  "status": "available",
+  "code": {
+    "text": "r"
+  },
+  "imageRegion3D": [
+    {
+      "regionType": "polygon",
+      "coordinate": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "regionType": "polygon",
+      "coordinate": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ]
+}

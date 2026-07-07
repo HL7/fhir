@@ -1,0 +1,15 @@
+{
+  "resourceType": "Questionnaire",
+  "status": "active",
+  "item": [
+    {
+      "linkId": "u",
+      "type": "url",
+      "answerOption": [
+        {
+          "valueUri": "http://example.org/a"
+        }
+      ]
+    }
+  ]
+}

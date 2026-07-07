@@ -397,7 +397,7 @@
         <key value="qrs-2"/>
         <severity value="error"/>
         <human value="Repeated answers are combined in the answers array of a single item"/>
-        <expression value="repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()"/>
+        <expression value="item.where(answer.value.exists()).linkId.isDistinct() and repeat(answer|item).select(item.where(answer.value.exists()).linkId.isDistinct()).allTrue()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse"/>
       </constraint>
       <mapping>
@@ -421,7 +421,7 @@
         <key value="qrs-3"/>
         <severity value="error"/>
         <human value="LinkId cannot have leading or trailing spaces or intevening whitespace other than single space characters"/>
-        <expression value="$this.matches('[^\\s]+( [^\\s]+)*')"/>
+        <expression value="$this.matches('^[^\\s]+( [^\\s]+)*$')"/>
       </constraint>
       <mapping>
         <identity value="rim"/>

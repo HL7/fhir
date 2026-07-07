@@ -3457,7 +3457,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The name must be a valid variable name in most computer languages</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">name.hasValue() implies name.matches('[A-Za-z][A-Za-z0-9\\_]{0,63}')</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">name.hasValue() implies name.matches('^[A-Za-z][A-Za-z0-9\\_]{0,63}$')</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">exists(f:expression) or exists(f:reference)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

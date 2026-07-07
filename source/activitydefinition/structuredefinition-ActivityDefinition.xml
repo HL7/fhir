@@ -826,7 +826,7 @@
 				<key value="adf-2"/>
 				<severity value="warning"/>
 				<human value="Dependencies of an ActivityDefinition should reference a resource"/>
-				<expression value="type in ('depends-on' | 'part-of') implies ((resource.exists() xor resourceReference.exists()) or (artifact is canonical xor artifact is Reference))"/>
+				<expression value="type in ('depends-on' | 'part-of') implies (resource.exists() or resourceReference.exists())"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
 			</constraint>
 			<constraint>

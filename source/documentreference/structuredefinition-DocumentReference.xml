@@ -106,7 +106,7 @@
       <constraint>
         <key value="docRef-2"/>
         <severity value="warning"/>
-        <human value="practiceSetting SHALL only be present if context is not present"/>
+        <human value="practiceSetting SHALL only be present if context is not an encounter"/>
         <expression value="practiceSetting.empty() or context.where(resolve() is Encounter).empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </constraint>
