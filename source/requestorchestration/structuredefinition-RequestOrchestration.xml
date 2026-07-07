@@ -1270,7 +1270,6 @@
       <max value="1"/>
       <type>
         <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureMap"/>
       </type>
       <mapping>
         <identity value="rim"/>

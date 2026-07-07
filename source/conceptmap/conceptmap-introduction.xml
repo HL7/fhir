@@ -16,7 +16,7 @@
                 </li>
                 <li>Non-substantive Changes
                     <ul>
-                        <li>None</li>
+                    <li><a href="https://jira.hl7.org/browse/FHIR-54473">FHIR-54473</a>: FHIR Mapping Language not ready for normative (moved to mapping-language IG with StructureMap) - changed link to updated location</li>
                     </ul>
                 </li>
             </ul>
@@ -106,7 +106,7 @@ resources, and provide background knowledge that is useful in many contexts, inc
 <a href="operations.html">operations</a> defined in this specification.
 </p>
 <p>
-In addition to <code>ConceptMap</code>, there is also the <a href="structuremap.html">StructureMap</a>
+In addition to <code>ConceptMap</code>, there is also the <a href="https://build.fhir.org/ig/HL7/mapping-language-ig/StructureDefinition-StructureMap.html">StructureMap</a>
 resource. The ConceptMap resource defines relationships between concepts in their own right,
 along with grading of their equivalencies, while the StructureMap defines an executable 
 transform for instances that conform to a known structure.
@@ -162,4 +162,3 @@ Release 4 and Release 5. Key changes:
 
 
 </div>
-

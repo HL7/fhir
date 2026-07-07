@@ -101,7 +101,7 @@ can still usefully be treated as code systems for the sake of subsetting (e.g. <
 and defining relationships (e.g. <code>ConceptMap</code>). See <a href="codesystem.html#implicit">Implicit Code Systems</a> for further information.
 </p>
 <p>
-Note that this is different from <a href="structuremap.html">StructureMap</a> because 
+Note that this is different from <a href="https://build.fhir.org/ig/HL7/mapping-language-ig/StructureDefinition-StructureMap.html">StructureMap</a> because 
 that is intended to define an executional transform between structures, not a conceptual 
 model.
 </p>

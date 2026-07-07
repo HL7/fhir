@@ -6,7 +6,7 @@
             <ul>
                 <li>Non-compatible Changes
                     <ul>
-                        <li>None</li>
+                    <li><a href="https://jira.hl7.org/browse/FHIR-54473">FHIR-54473</a>: FHIR Mapping Language not ready for normative (moved to mapping-language IG with StructureMap) - removed canonical reference restriction</li>
                     </ul>
                 </li>
                 <li>Compatible, Substantive Changes

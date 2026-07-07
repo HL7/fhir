@@ -177,7 +177,6 @@ have canonical URLs:
 <li><a href="searchparameter.html">SearchParameter</a></li>
 <li><a href="specimendefinition.html">SpecimenDefinition</a></li>
 <li><a href="structuredefinition.html">StructureDefinition</a></li>
-<li><a href="structuremap.html">StructureMap</a></li>
 <li><a href="subscriptiontopic.html">SubscriptionTopic</a></li>
 <li><a href="terminologycapabilities.html">TerminologyCapabilities</a></li>
 <li><a href="valueset.html">ValueSet</a></li>
