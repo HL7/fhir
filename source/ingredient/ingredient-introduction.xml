@@ -1,4 +1,32 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<blockquote class="ballot-note" data-augury-generated="true" id="bn2">
+  <p><b>Note to Balloters:</b> Changes since the previous ballot: the identifier on <code>Ingredient</code> was made repeatable, search was extended to combine substance and strength, the example-only ingredient code systems were marked experimental, and a duplicate example id was fixed. Balloter-relevant changes are grouped below by change impact.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li>Cardinality of <code>Ingredient.identifier</code> changed from 0..1 to 0..* [<a href="https://jira.hl7.org/browse/FHIR-55046">FHIR-55046</a>]</li>
+    <li>Introduction narrative updated to document the repeatable identifier; the same bundled intro-update commit also carried coordinated identifier-cardinality changes for related BR&amp;R resources that live in other artifacts  [<a href="https://jira.hl7.org/browse/FHIR-55046">FHIR-55046</a>]</li>
+  </ul>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Search extended to allow querying <code>Ingredient</code> by both substance and strength together [<a href="https://jira.hl7.org/browse/FHIR-53537">FHIR-53537</a>]</li>
+  </ul>
+  <p><b>Unclassified</b></p>
+  <ul>
+    <li>Example-only ingredient code systems (<code>ingredient-function</code>, <code>ingredient-role</code>) marked <code>experimental</code> and renamed with an &quot;Example&quot; suffix to signal they are example bindings, not candidates for THO/UTG [<a href="https://jira.hl7.org/browse/FHIR-57439">FHIR-57439</a>]</li>
+  </ul>
+</blockquote>
+
+<blockquote class="ballot-note" id="bn1">
+	<p><b>Note to Balloters:</b> To ensure this resource is ready for Normative status, we are seeking ballot comment on the substantive content. The key changes made since the last R6 ballot are:</p>
+	<ul>
+		<li>Updates to the following elements:</li>
+		<ul>
+			<li>Ingredient.identifier, which was made 0..* (previously 0..1)</li>
+		</ul>
+	</ul>
+</blockquote>
+
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
@@ -33,7 +61,7 @@
 			Ingredient is represented as a resource, instead of, for example, a backbone or a datatype within other resources, 
 			due to some practical considerations for certain use cases.
 			In some situations, an ingredient could have been represented "in line" within another resource 
-			(e.g. embedded within MedicinalProductDefiniton or ManufacturedItemDefinition).			
+			(e.g. embedded within MedicinalProductDefinition or ManufacturedItemDefinition).			
 			However there are cases where it is necessary to refer to an ingredient from another resource - for example when the 
 			ingredient associated with a product also has an authorization, or when a multi-part tablet needs to state which ingredient 
 			is contained in which component of that tablet (as well as linking the ingredient to the whole tablet and/or the whole product).

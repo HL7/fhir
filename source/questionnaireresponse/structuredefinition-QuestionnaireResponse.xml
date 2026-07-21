@@ -386,6 +386,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+			<orderMeaning value="The order of the items is the order in which the questions were presented to the user when completing the Questionnaire."/>			
       <constraint>
         <key value="qrs-1"/>
         <severity value="error"/>

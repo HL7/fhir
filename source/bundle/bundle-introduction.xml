@@ -1,6 +1,28 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b>
+  Since the previous ballot the Bundle resource received two non-compatible corrections (withdrawal of the deprecated <code>Bundle.signature</code> element and
+  removal of the entry-reference restriction on <code>Parameters</code> resources), one compatible substantive correction addressing the "escape valve" values
+  on <code>Bundle.type</code>, and editorial spelling/abbreviation fixes.</p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li>Removed the deprecated <code>Bundle.signature</code> element as part of the coordinated R6-wide removal of deprecated elements [<a href="https://jira.hl7.org/browse/FHIR-53722">FHIR-53722</a>]</li>
+    <li>Removed the restriction requiring a <code>Parameters</code> resource in <code>Bundle.entry.resource</code> to be referenced from another entry [<a href="https://jira.hl7.org/browse/FHIR-57354">FHIR-57354</a>]</li>
+  </ul>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Addressed the missing "escape valve" on <code>Bundle.type</code> for bundle types not covered by the current value set (use <code>collection</code>) [<a href="https://jira.hl7.org/browse/FHIR-55145">FHIR-55145</a>]</li>
+  </ul>
+  <p><b>Technical Correction</b></p>
+  <ul>
+    <li>Applied planned spelling and abbreviation corrections across the Bundle notes narrative, transaction/reference examples, and element definitions [<a href="https://jira.hl7.org/browse/FHIR-55143">FHIR-55143</a>]</li>
+  </ul>
+</blockquote>
+</div>
+
+<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 

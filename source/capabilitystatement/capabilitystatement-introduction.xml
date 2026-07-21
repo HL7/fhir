@@ -1,6 +1,20 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> The notable change in this window reverses an earlier deprecation of <code>CapabilityStatement.jurisdiction</code>: the element is no longer marked deprecated, though an explanatory standards-status note is retained on it. Example and invariant-test content was also refreshed to track revised US/GB jurisdiction display names.</p>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li><code>CapabilityStatement.jurisdiction</code> is no longer marked deprecated; an explanatory standards-status note is retained on the element to guide implementers. Snapshot regeneration required. [<a href="https://jira.hl7.org/browse/FHIR-53766">FHIR-53766</a>]</li>
+  </ul>
+  <p><b>Technical Correction</b></p>
+  <ul>
+    <li>Refreshed US and GB jurisdiction display names in the primary example (<code>capabilitystatement-example.xml</code>) and in the <code>cnl-0</code> / <code>cnl-1</code> invariant-test fixtures.</li>
+  </ul>
+</blockquote>
+</div>
+
+<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>

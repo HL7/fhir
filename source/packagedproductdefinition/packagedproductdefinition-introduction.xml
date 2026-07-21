@@ -1,4 +1,17 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes since the last ballot are confined to PackagedProductDefinition's search parameters and its example-only code systems.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Corrected the <code>name</code> search parameter, which was declared as <code>token</code> despite its underlying element being a string; the search parameter type now matches the element it targets [<a href="https://jira.hl7.org/browse/FHIR-57440">FHIR-57440</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Flagged the <code>package-material</code>, <code>package-type</code>, and <code>packaging-type</code> code systems as example-only &mdash; appended an "Example" suffix to each code system name and set <code>experimental="true"</code> &mdash; confirming they are example bindings and not candidates for THO/UTG; the corresponding value sets were not changed [<a href="https://jira.hl7.org/browse/FHIR-57439">FHIR-57439</a>]</li>
+  </ul>
+</blockquote>
+
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>

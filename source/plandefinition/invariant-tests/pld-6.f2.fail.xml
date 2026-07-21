@@ -8,9 +8,9 @@
   <relatedArtifact>
     <type value="depends-on"/>
     <display value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
-    <artifactAttachment>
+    <document>
       <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/> <!-- This should be an error to define an attachment dependency -->
-    </artifactAttachment>
+    </document>
   </relatedArtifact>
    <!-- Actions -->
    <action>

@@ -16,7 +16,7 @@
 		  </li>
 		  <li>Non-Substantive Changes
 			<ul>
-			  <li>None</li>
+			  <li><a href="https://jira.hl7.org/browse/FHIR-57823">FHIR-57823</a>: Update AdverseEvent.category value set definition</li>
 			</ul>
 		  </li>
 		</ul>

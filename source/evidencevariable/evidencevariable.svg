@@ -248,7 +248,7 @@
        class="diagram-class-detail"><a
    id="n1081"
    xlink:href="evidencevariable-definitions.html#EvidenceVariable.author"><title
-   id="title51188">An individiual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
+   id="title51188">An individual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
    id="n1082"
    xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text

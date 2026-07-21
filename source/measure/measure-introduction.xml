@@ -13,7 +13,7 @@
                 </li>
                 <li>Compatible, Substantive Changes
                     <ul>
-                        <li>None</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-53716">FHIR-53716</a>: Changed security category to business</li>
                     </ul>
                 </li>
                 <li>Non-substantive Changes

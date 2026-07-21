@@ -66,4 +66,9 @@
     <display value="Option"/>
     <definition value="The request represents a component or option for a RequestOrchestration that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestOrchestration]]] for additional information on how this status is used."/>
   </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Indicates that the intent value being communicated does not fall within any of the allowed intent codes for the version of FHIR being communicated.  The specific intent concept SHOULD be communicated in an extension.  Systems will not be able to safely process (and might not accept) instances with this code unless they are familiar with the extension communicating the actual intent."/>
+  </concept>
 </CodeSystem>

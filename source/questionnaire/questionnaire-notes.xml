@@ -271,6 +271,20 @@ Where the names are the same (ignoring case), the "answer" must use the specifie
   </tbody>
 </table>
 
+
+<a name="coded"> </a>
+<h3>Using Coded Answers</h3>
+<p>
+It's not uncommon for legacy questionnaires to have "coded" questions that have a code but no system or
+sometimes even just a display value.  While this is not prohibited, it's not good practice.
+</p>
+<p>
+A Coding with no code cannot be meaningfully computed on, and a Coding with no system has no semantic meaning.
+If only a display is available, consider using the <code>string</code> type.  If the codes are 'made up', simply define a
+CodeSystem url based on the Questionnaire url and itemId or some other unique string.
+</p>
+
+
 <a name="alternativetype"> </a>
 <h3>Handling alternative question types</h3>
 <p>In most cases, if there is a need to capture an answer type not in the list of allowed types, the preferred solution is to use a group with child questions that define 

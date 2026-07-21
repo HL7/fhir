@@ -44,5 +44,11 @@
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/adverse-event-category"/>
     </include>
+	<exclude>
+	  <system value="http://terminology.hl7.org/CodeSystem/adverse-event-category"/>
+	  <concept>
+	    <code value="hospital-aquired-infection"/>
+	  </concept>
+	</exclude>
   </compose>
 </ValueSet>

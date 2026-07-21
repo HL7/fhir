@@ -18,6 +18,7 @@
 	</identifier>
 
 	<status value="active"/>
+	<intent value="order"/>
 	<created value="2014-06-15"/>
 	<patient>
 		<reference value="Patient/example"/>

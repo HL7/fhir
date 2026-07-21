@@ -81,6 +81,9 @@
       <concept>
         <code value="JHN"/>
       </concept>
+      <concept>
+        <code value="VN"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

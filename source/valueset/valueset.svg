@@ -417,7 +417,7 @@
        class="diagram-class-detail"><a
    id="n1373"
    xlink:href="valueset-definitions.html#ValueSet.author"><title
-   id="title119985">An individiual or organization primarily involved in the creation and maintenance of the ValueSet</title>author</a> : <a
+   id="title119985">An individual or organization primarily involved in the creation and maintenance of the ValueSet</title>author</a> : <a
    id="n1374"
    xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <rect

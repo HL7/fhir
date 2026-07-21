@@ -1,6 +1,31 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+    <p><b>Note to Balloters:</b> Changes comprise a backward-compatible
+        substantive correction to how <code>CompartmentDefinition.resource.code</code> handles resource codes outside
+        its bound value set, a non-substantive clarification that removes chaining support, and editorial
+        spelling/abbreviation corrections to the supplementary narrative. No search-parameter, operation, or terminology
+        changes were made, and no element cardinality, type, or must-support changes were detected over the window.</p>
+    <p><b>Compatible substantive</b></p>
+    <ul>
+        <li>Provided an escape valve for <code>CompartmentDefinition.resource.code</code> so resource codes not covered
+            by the bound value set can be accommodated; backward compatible but substantive [<a href="https://jira.hl7.org/browse/FHIR-55161">FHIR-55161</a>]</li>
+    </ul>
+    <p><b>Non-substantive</b></p>
+    <ul>
+        <li>Removed chaining support from CompartmentDefinition, clarifying compartment membership semantics with no
+            compatibility impact [<a href="https://jira.hl7.org/browse/FHIR-51730">FHIR-51730</a>]</li>
+    </ul>
+    <p><b>Technical Correction</b></p>
+    <ul>
+        <li>Applied spelling and abbreviation corrections to the CompartmentDefinition supplementary notes narrative - 
+        editorial only, no conformance or structural change [<a href="https://jira.hl7.org/browse/FHIR-55159">FHIR-55159</a>]</li>
+    </ul>
+</blockquote>
+</div>
+
+<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>

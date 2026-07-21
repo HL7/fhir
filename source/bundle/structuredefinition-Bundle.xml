@@ -128,8 +128,8 @@
 			<constraint>
 				<key value="bdl-7"/>
 				<severity value="error"/>
-				<human value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)"/>
-				<expression value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;iif(resource.meta.versionId.exists(), resource.meta.versionId, '')).isDistinct()"/>
+				<human value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history and collection bundles)"/>
+				<expression value="(type = 'history') or (type = 'collection') or entry.where(fullUrl.exists()).select(fullUrl&amp;iif(resource.meta.versionId.exists(), resource.meta.versionId, '')).isDistinct()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
 			</constraint>
 			<constraint>
@@ -241,7 +241,7 @@
 			<path value="Bundle.type"/>
 			<short value="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection | subscription-notification"/>
 			<definition value="Indicates the purpose of this bundle - how it is intended to be used."/>
-			<comment value="It's possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types."/>
+			<comment value="It's possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types. If dealing with some other type of Bundle that doesn't map cleanly to a more specialized type, use 'collection' as it imposes the least constraints and has the most flexible semantic."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -417,7 +417,7 @@
 		<element id="Bundle.entry.resource">
 			<path value="Bundle.entry.resource"/>
 			<short value="A resource in the bundle"/>
-			<definition value="The Resource for the entry. The purpose/meaning of the resource is determined by the Bundle.type. This is allowed to be a Parameters resource if and only if it is referenced by something else within the Bundle that provides context/meaning."/>
+			<definition value="The Resource for the entry. The purpose/meaning of the resource is determined by the Bundle.type."/>
 			<comment value="This may be a resource defined in the FHIR specification, or an [additional resource](resource.html#additional)"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -651,23 +651,6 @@
 			<type>
 				<code value="Resource"/>
 				<profile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="Bundle.signature">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
-					<valueString value="Implementation and anslysis raised many issues around signature verification and workflow, and our guidance is to use Provenance with signature instead"/>
-				</extension>
-				<valueCode value="deprecated"/>
-			</extension>
-			<path value="Bundle.signature"/>
-			<short value="Digital Signature (deprecated: use Provenance Signatures)"/>
-			<definition value="Digital Signature: XML-DSig or JWS. This element is deprecated, and [Provenance based Signatures](signatures.html#Bundle) should be used instead."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Signature"/>
 			</type>
 			<isSummary value="true"/>
 		</element>

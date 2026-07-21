@@ -1,5 +1,24 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> The substantive change in this ballot broadens how an operation identifies its target and its parameter types: <code>OperationDefinition.resource</code> and <code>OperationDefinition.parameter.type</code> are now typed as <code>uri</code> rather than <code>code</code>, so operations can be defined against logical models identified by a canonical URI, not only resource-type codes. The remaining OperationDefinition changes are narrative: escape-valve guidance for <code>kind</code> and <code>parameter.binding.strength</code>, a jurisdiction-status clarification, and editorial corrections.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li><code>OperationDefinition.resource</code> retyped from <code>code</code> to <code>uri</code> so operations can target logical models identified by canonical URI [<a href="https://jira.hl7.org/browse/FHIR-51651">FHIR-51651</a>]</li>
+    <li><code>OperationDefinition.parameter.type</code> retyped from <code>code</code> to <code>uri</code> so a parameter can be typed against a logical model by URI [<a href="https://jira.hl7.org/browse/FHIR-51651">FHIR-51651</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Clarified handling for <code>OperationDefinition.kind</code> values outside the bound value set (escape-valve guidance) [<a href="https://jira.hl7.org/browse/FHIR-55176">FHIR-55176</a>]</li>
+    <li>Clarified handling for <code>OperationDefinition.parameter.binding.strength</code> values outside the bound value set (escape-valve guidance) [<a href="https://jira.hl7.org/browse/FHIR-55178">FHIR-55178</a>]</li>
+    <li>Jurisdiction elements are no longer deprecated but retain a clarifying deprecation note in the resource narrative [<a href="https://jira.hl7.org/browse/FHIR-53766">FHIR-53766</a>]</li>
+  </ul>
+  <p><b>Technical correction</b></p>
+  <ul>
+    <li>Spelling and abbreviation corrections applied to the OperationDefinition narrative [<a href="https://jira.hl7.org/browse/FHIR-55175">FHIR-55175</a>]</li>
+  </ul>
+</blockquote>
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="requirement-category"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/requirement-category"/>
+  <version value="6.0.0-ballot4"/>
+  <name value="RequirementCategory"/>
+  <title value="Requirement Category"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International"/>
+  <description value="Requirement Category"/>
+  <caseSensitive value="true"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <count value="19"/>
+  <concept>
+    <code value="behavioral"/>
+    <definition value="Categories related to how the system behaves"/>
+    <concept>
+      <code value="business"/>
+      <display value="Business"/>
+      <definition value="Requirements relating to the business operations of the entities responsible for a system"/>
+    </concept>
+    <concept>
+      <code value="functional"/>
+      <display value="Functional"/>
+      <definition value="Requirements related to what the system does (inputs turned into outputs)"/>
+      <concept>
+        <code value="exchange"/>
+        <display value="Exchange"/>
+        <definition value="Requirements relating to when, how, or what data is exchanged with other systems"/>
+      </concept>
+      <concept>
+        <code value="processing"/>
+        <display value="Processing"/>
+        <definition value="Requirements related to how data must be analyzed, transformed, considered, or otherwise used within a system"/>
+      </concept>
+      <concept>
+        <code value="storage"/>
+        <display value="Storage"/>
+        <definition value="Requirements related to if or how data is persisted in a system"/>
+      </concept>
+    </concept>
+    <concept>
+      <code value="non-functional"/>
+      <display value="Non-functional"/>
+      <definition value="Requirements related to how the system accomplishes functional requirements"/>
+      <concept>
+        <code value="availability"/>
+        <display value="Availability"/>
+        <definition value="Requirements related to how and when a system needs to be reachable and useable"/>
+      </concept>
+      <concept>
+        <code value="ui"/>
+        <display value="User Interface"/>
+        <definition value="Requirements related to how information is collected from and exposed to humans (or animals)"/>
+        <concept>
+          <code value="ui-accessibility"/>
+          <display value="UI Accessibility"/>
+          <definition value="Requirements around user interface that ensure a satisfactory experience for users from different backgrounds or with varying physical, cognitive, and/or sensory abilities"/>
+        </concept>
+        <concept>
+          <code value="ui-consistency"/>
+          <display value="UI Consistency"/>
+          <definition value="Requirements around ensuring that different implementations have sufficiently aligned appearance and mechanisms of interaction"/>
+        </concept>
+        <concept>
+          <code value="ui-usability"/>
+          <display value="UI Usability"/>
+          <definition value="Requirements related to the intuitiveness, simplicity, and ease-of-use of a user-interface"/>
+        </concept>
+      </concept>
+      <concept>
+        <code value="security"/>
+        <display value="Security/Privacy"/>
+        <definition value="Requirements that ensure that data is appropriately protected from threats and respects rules around what parties are permitted to access or manipulate"/>
+      </concept>
+      <concept>
+        <code value="safety"/>
+        <display value="Safety"/>
+        <definition value="Requirements that ensure that system operation does not negatively impact the wellbeing of people or assets"/>
+      </concept>
+      <concept>
+        <code value="performance"/>
+        <display value="Performance/Scalability"/>
+        <definition value="Requirements that deal with timeliness of processing and/or responsiveness under differing levels of load/volume"/>
+      </concept>
+    </concept>
+  </concept>
+  <concept>
+    <code value="source"/>
+    <definition value="Categories related to where the requirement came from"/>
+    <concept>
+      <code value="user"/>
+      <display value="User"/>
+      <definition value="Requirements originating from the community of individuals expected to use the system/solution"/>
+    </concept>
+    <concept>
+      <code value="legal"/>
+      <display value="Legal"/>
+      <definition value="Requirements originating from regulation or law"/>
+    </concept>
+    <concept>
+      <code value="design"/>
+      <display value="Design decision"/>
+      <definition value="Requirements documenting decisions made in the design of the solution"/>
+    </concept>
+  </concept>
+</CodeSystem>

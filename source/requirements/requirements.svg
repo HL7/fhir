@@ -5,7 +5,7 @@
    width="1538.0"
    height="340.0"
    sodipodi:docname="requirements.svg"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -23,11 +23,11 @@
      showgrid="false"
      inkscape:zoom="0.81014304"
      inkscape:cx="769.61718"
-     inkscape:cy="172.19181"
-     inkscape:window-width="1390"
-     inkscape:window-height="1187"
+     inkscape:cy="171.57464"
+     inkscape:window-width="2096"
+     inkscape:window-height="1241"
      inkscape:window-x="0"
-     inkscape:window-y="40"
+     inkscape:window-y="30"
      inkscape:window-maximized="0"
      inkscape:current-layer="n616" />
   <defs
@@ -346,35 +346,36 @@
    xlink:href="datatypes.html#url">url</a> [0..*]</text>
   </g>
   <g
-     id="n768">
+     id="n768"
+     transform="translate(28.390048,6.1717496)">
     <rect
        id="Requirements.imports"
-       x="320.0"
-       y="0.0"
+       x="320"
+       y="0"
        rx="4"
        ry="4"
-       width="198.00000000000003"
-       height="64.0"
+       width="198"
+       height="64"
        filter="url(#shadow1)"
-       style="fill:#ecffec;stroke:black;stroke-width:1" />
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
        id="n769"
-       x1="320.0"
-       y1="28.0"
-       x2="518.0"
-       y2="28.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       x1="320"
+       y1="28"
+       x2="518"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
     <text
        id="n770"
-       x="419.0"
-       y="20.0"
-       fill="black"
+       x="419"
+       y="20"
+       fill="#000000"
        class="diagram-class-title">Imports</text>
     <text
        id="n771"
-       x="326.0"
-       y="42.0"
-       fill="black"
+       x="326"
+       y="42"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n772"
    xlink:href="requirements-definitions.html#Requirements.imports.reference"><title
@@ -385,9 +386,9 @@
    xlink:href="requirements.html#Requirements">Requirements</a> »</text>
     <text
        id="n779"
-       x="326.0"
-       y="56.0"
-       fill="black"
+       x="326"
+       y="56"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n780"
    xlink:href="requirements-definitions.html#Requirements.imports.key"><title
@@ -397,7 +398,7 @@
   </g>
   <g
      id="n785"
-     transform="translate(-253.04173,307.35313)">
+     transform="translate(-255.51043,343.14928)">
     <rect
        id="Requirements.actor"
        x="560"
@@ -451,8 +452,8 @@
      transform="translate(-70.357943,34.561797)">
     <rect
        id="Requirements.statement"
-       x="436.37112"
-       y="57.856823"
+       x="479.57339"
+       y="72.669022"
        rx="4"
        ry="4"
        width="299.20001"
@@ -461,10 +462,10 @@
        style="fill:#ecffec;stroke:#000000;stroke-width:1" />
     <line
        id="n803"
-       x1="436.37112"
-       y1="85.856827"
-       x2="735.57111"
-       y2="85.856827"
+       x1="494.38559"
+       y1="89.559875"
+       x2="793.58557"
+       y2="89.559875"
        style="stroke:#696969;stroke-width:1" />
     <text
        id="n804"
@@ -607,7 +608,7 @@
   </g>
   <g
      id="n885"
-     transform="translate(-39.499198,16.046543)">
+     transform="translate(-25.921349,14.812193)">
     <rect
        id="Requirements.statement.derivedFrom"
        x="800"
@@ -658,7 +659,7 @@
   </g>
   <g
      id="n902"
-     transform="translate(-278.96308,306.11878)">
+     transform="translate(-266.61958,302.41573)">
     <rect
        id="Requirements.statement.partOf"
        x="1040"

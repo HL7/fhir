@@ -67,7 +67,7 @@ Web Health Care and Life Sciences Interest Group</a>.
             <li><a href="#primitive-uris">Primitive URI Types</a></li>
             <li><a href="#reference">References</a></li>
             <li><a href="#contained">Inline Resources -- Bundled or contained</a></li>
-            <li><a href="#identifying-concepts">Identifying Concepts in a Terminology</a></li>
+            <li><a href="#identifying-concepts">Identifying Concepts in Terminologies and Ontologies</a></li>
             <li><a href="#iri-stem">Concept IRIs and IRI Stems</a></li>
             <li><a href="#extension">Non-modifier Extensions</a></li>
             <li><a href="#modifierExtension">Modifier Extensions</a></li>
@@ -164,7 +164,7 @@ Web Health Care and Life Sciences Interest Group</a>.
             or a <a href="group.html#Group">Group</a>, etc.</li>
           <li><b><code># effective[x]</code></b> indicates
             a polymorphic property (<a href="#propertyNames">see below</a>),
-            whose value (in this example) may be a fhir:DateTime,
+            whose value SHALL assert its type. In this example, the value of <code>fhir:effective</code> could be a <code>fhir:DateTime</code>,
             <code>fhir:Period</code>, <code>fhir:Timing</code> or <code>fhir:Instant</code>.
 </li>
         </ul>
@@ -197,7 +197,7 @@ Web Health Care and Life Sciences Interest Group</a>.
     fhir:l &lt;http://hl7.org/fhir/Patient/infant&gt; ;
     fhir:reference [ fhir:v "Patient/infant" ]
   ] ; #
-  …
+  ...
 </pre>
 
         <p> In this example, </p>
@@ -216,7 +216,7 @@ Web Health Care and Life Sciences Interest Group</a>.
           Serialization Conventions</h3>
         <p>FHIR Turtle imposes additional conventions to simplify recognition
         and manipulation of FHIR RDF graphs.&nbsp; Although RDF graphs
-        in general may be serialized in any RDF format, FHIR RDF
+        in general could be serialized in any RDF format, FHIR RDF
         mandates support specifically for <a
           href="https://www.w3.org/TR/turtle/">Turtle</a>. All FHIR RDF
         documentation is expressed in Turtle.&nbsp;&nbsp; And while the
@@ -249,7 +249,7 @@ href="fhir.shex">fhir.shex</a>
              -- is indicated by having a <code>fhir:nodeRole</code> property with a value
             of <code>fhir:treeRoot</code>. If there is more than one
             node labeled as a 'treeRoot' in a set of Turtle statements,
-            it may be impossible to determine which is the outermost
+            it might be impossible to determine which is the outermost
             Resource. </p>
 
         <a name="nestedNodes"></a>
@@ -277,13 +277,12 @@ href="fhir.shex">fhir.shex</a>
         <a name="propertyNames"></a>
           <h4>Property Names and Polymorphism</h4>
           <p> Property names in FHIR RDF are shared across resources:
-            the same property may be used in several different resources.
-            For example, <code>fhir:status</code> is spelled
-            the same way
+            the same property might be used in several different resources.
+            For example, <code>fhir:status</code> is spelled the same way
             regardless of whether it appears in an Observation,
-            Diagnosis, or any other FHIR Resource. </p>
+            Diagnosis, or any other FHIR Resource. FHIR RDF properties are uniquely identifiable based on which resources they are used in. </p>
           <p> Some properties are polymorphic within a resource:
-            the property may offer a choice of more than one
+            the property might offer a choice of more than one
             permissible object type.
 
             If the Structure tab in a resource's
@@ -337,8 +336,8 @@ href="fhir.shex">fhir.shex</a>
             <code>fhir:coding</code> property holds a list of two members: </p>
 <pre class="rdf">
 fhir:coding <b>(</b>
-  [ fhir:system … ]
-  [ fhir:system … ]
+  [ fhir:system ... ]
+  [ fhir:system ... ]
 <b>)</b>
 </pre>
           <p> Since RDF lists can cause problems for OWL users, a
@@ -371,12 +370,7 @@ fhir:coding <b>(</b>
             <code>fhir:Code</code> .  This is done to avoid
             having a name clash with the
             <code>fhir:code</code> property, since RDF is
-            case sensitive.  For consistency, the RDF class name for the FHIR
-            <a href="narrative.html#xhtml">xhtml</a>
-            is also capitalized <code>fhir:Xhtml</code>
-            even though it is technically a 
-            <a href="datatypes.html">special</a> type.
-            All other FHIR RDF names use the same
+            case sensitive.  All other FHIR RDF names use the same
             capitalization conventions as in the FHIR content model,
             JSON and XML.</li>
 
@@ -428,7 +422,7 @@ fhir:coding <b>(</b>
           <p> The <code>fhir:v</code> property can never be empty. Either the
             relationship is absent, or it is present with at least one
             character of content. XHTML is represented as an escaped
-            xsd:string.&nbsp; <br/>
+            rdf:XMLLiteral.&nbsp; <br/>
           </p>
 
           <a name="union-types"></a>
@@ -498,7 +492,7 @@ fhir:coding <b>(</b>
             if a primitive has FHIR type <a href="datatypes.html#uri">uri</a>
             or one of its subtypes (url, canonical, uuid, oid), then
             a <code>fhir:l</code> property --
-            called <code>fhir:link</code> in previous FHIR versions --
+            previously called <code>fhir:link</code> in FHIR R4 --
             SHOULD be added as a sibling of the
             <code>fhir:v</code> property.
             The value of the <code>fhir:l</code> property is
@@ -589,13 +583,13 @@ fhir:subject [
         fhir:v "http://example.org/fhir/Patient/23"^^xsd:anyURI ] ;
       fhir:resource &lt;http://example.org/fhir/Patient/23&gt;
     ] )
-…
+...
 # This is an entry of the above Bundle:
 <b>&lt;http://example.org/fhir/Patient/23&gt;</b> a fhir:Patient ;
   fhir:id [ fhir:v "23"] ;
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "…"^^rdf:XMLLiteral ]
+     fhir:div [ fhir:v "..."^^rdf:XMLLiteral ]
   ] ;
   fhir:identifier ( [
      fhir:system [
@@ -666,12 +660,12 @@ fhir:subject [
       fhir:v "#1111"^^xsd:anyURI ;     # Local reference starts with "#"
     ]
   ] ) ;
-…
+...
 # The definition of the (logically) contained resource #1111 is here:
 <b>&lt;http://example.org/PlanDefinition/KDN5#1111&gt;</b> a fhir:ActivityDefinition ;
   fhir:id [ fhir:v "1111" ] ;   # Local identifier
   fhir:status [ fhir:v "draft" ] .
-…
+...
 </pre>
 
           <p>
@@ -696,18 +690,18 @@ fhir:subject [
       fhir:v "#2222"^^xsd:anyURI ;     # Local reference starts with "#"
     ]
   ] ) ;
-…
+...
 # The body of the (logically) contained resource 2222 is here, and receives
 # a URI derived from its parent's URI:
 <b>&lt;#2222&gt;</b> a fhir:ActivityDefinition ;
   fhir:id [ fhir:v "2222" ] ;   # Local identifier
   fhir:status [ fhir:v "draft" ] .
-…
+...
 </pre>
 
           <a name="identifying-concepts"></a>
           <a name="representing-concepts"></a> <!-- Keep old anchor too -->
-          <h4>Identifying Concepts in Terminologies & Ontologies</h4>
+          <h4>Identifying Concepts in Terminologies and Ontologies</h4>
           <p> The <a href="datatypes.html#CodeableConcept">CodeableConcept</a> and <a href="datatypes.html#Coding">Coding</a> datatypes are
             represented directly in Turtle by serializing its properties like any other FHIR element.
             However, it's also useful to make the implicit concept references in these explicit for RDF graph querying and formal reasoning. 
@@ -821,12 +815,14 @@ fhir:subject [
           such as LOINC:
           </p>
           <ol>
-            <li>navigate to the <a href="https://terminology.hl7.org/toc.html">
-              Table of Contents</a>; </li>
-            <li>search within the page for an appropriate link that includes
-              "NamingSystem" in its URL, such as this one, for LOINC:
-              <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html">https://terminology.hl7.org/NamingSystem-v3-loinc.html</a> ; then</li>
-            <li>scroll down to the
+            <li>Navigate to the <a href="https://terminology.hl7.org/en/external_code_systems.html">
+              External Content</a> section; </li>
+            <li>In the Owner column of the table, search for the publisher
+              of the desired code system, such as Regenstrief Institute, 
+              as publisher of LOINC, and click on the 
+              <a href= "https://terminology.hl7.org/en/NamingSystem-v3-loinc.html">
+              Identification Record</a> link; then</li>
+            <li>Scroll down to the
               <a href="https://terminology.hl7.org/NamingSystem-v3-loinc.html#identifiers">Identifiers section</a>,
               and look for the "IRI stem" entry: <code>http://loinc.org/rdf/</code> .</li>
           </ol>
@@ -884,7 +880,7 @@ fhir:subject [
        ] ) 
      ]
   ] )
-  …
+  ...
 </pre>
 
           <a name="primitiveExtension"></a>
@@ -892,7 +888,7 @@ fhir:subject [
           </p>
 
 <pre class="rdf">
-…
+...
 fhir:birthDate [
   fhir:v "2016-05-18"^^xsd:date ;
   <b>fhir:extension (</b> [
@@ -916,17 +912,19 @@ fhir:birthDate [
           <p> <a name="underbar-prefix"></a> FHIR allows <code>modifierExtension</code>s
             on <a
               href="domainresource.html#DomainResource">DomainResources</a>,
-            <a href="types.html#BackboneElement">BackboneElements</a>
+            <a href="types.html#BackboneElement">BackboneElement</a>s
             and <a
-              href="types.html#BackboneType">BackboneTypes</a>.
-            The type of any DomainResource with any <code>modifierExtension</code>
+              href="types.html#BackboneType">BackboneType</a>s.</p>
+
+            <p> The type name of any DomainResource with a <code>fhir:modifierExtension</code>
+            -- and <i>only</i> one with a <code>fhir:modifierExtension</code> --
             is prefixed with '_' in RDF.
-        The '_' prefix helps prevent FHIR RDF
+          The '_' prefix helps prevent FHIR RDF
           processors that do not understand a particular modifier
           extension from blindly processing it as though it still had
           the original semantics.&nbsp; The structure of the
           element is otherwise unchanged.  Note the underscore at the
-          beginning of "_MedicationRequest" in the following example:<br/> </p>
+          beginning of "_MedicationRequest" in the following example.<br/> </p>
 <pre class="rdf">
 &lt;http://example.org/fhir/MedicationRequest/MR321&gt; a <b>fhir:_MedicationRequest;</b>
   fhir:nodeRole fhir:treeRoot;
@@ -938,57 +936,53 @@ fhir:birthDate [
     ] ;
     fhir:value [ a fhir:Boolean ; fhir:v true ]
   ] )
-  …
+  ...
 </pre>
 
-          <p> The <a href="#owl-shex-rim">FHIR ontology</a> includes a
-          <code>fhir:modifierExtensionClass</code> property
-          that relates each unmodified resource class to its corresponding
-          modified resource class, so that SPARQL queries can easily
-          find all modified classes without having to parse their URIs
-          to look for the leading underscore:
-          </p>
+          <p> Similarly, any property whose value is derived from 
+            <a href="types.html#BackboneElement">BackboneElement</a>
+            or <a href="types.html#BackboneType">BackboneType</a>,
+            which are object types in FHIR RDF, MAY have a 
+            <code>fhir:modifierExtension</code> attached.
+            In such a case the property name is prefixed with an underscore.
+            Note the underscore at the beginning of "_occurrence" 
+            in the following contrived example, which would have been
+            better to express differently, without using a 
+            <code>fhir:modifierExtension</code>.</p>
 
+<a name="modifiedProperty"></a>
 <pre class="rdf">
-fhir:MedicationRequest <b>fhir:modifierExtensionClass</b> fhir:_MedicationRequest .
-</pre>
-
-          <p> BackboneElements and BackboneTypes are object types. Any
-            RDF property that references a modified BackboneElement or
-            BackboneType is prefixed with a '_'.  Note the underscore
-            at the beginning of "_value" in the following example:</p>
-
-<pre class="rdf">
-&lt;http://example.org/fhir/Observation/Obs123&gt; a fhir:Observation;
-  …
-  fhir:<b>_value</b> [
-    a fhir:Quantity;
-    fhir:value [ fhir:v "185"^^xsd:decimal ];
-    fhir:unit [ fhir:v "lbs" ];
-    fhir:system [
-      fhir:l &lt;http://unitsofmeasure.org&gt; ;
-      fhir:v "http://unitsofmeasure.org"^^xsd:anyURI
-    ];
-    fhir:code [ fhir:v "[lb_av]" ];
+&lt;http://example.org/fhir/Procedure/Proc123&gt; a fhir:Procedure;
+  ...
+  fhir:<b>_occurrence</b> [
+    a fhir:Timing;
+    fhir:repeat [        # Once a day, every day
+      fhir:frequency [ fhir:v "1"^^xsd:positiveInteger ] ;
+      fhir:period [ fhir:v "1.0"^^xsd:decimal ] ;
+      fhir:periodUnit [ fhir:v "d" ]
+    ] ;
     <b>fhir:modifierExtension</b> (
       [
-        fhir:url [
-          fhir:l &lt;http://example.org/fhir/StructureDefinition/anti-observation&gt; ;
-          fhir:v "http://example.org/fhir/StructureDefinition/anti-observation"^^xsd:anyURI ] ;
+        fhir:url [       # Except on Sundays
+          fhir:l &lt;http://example.org/fhir/StructureDefinition/NeverOnSunday&gt; ;
+          fhir:v "http://example.org/fhir/StructureDefinition/NeverOnSunday"^^xsd:anyURI ] ;
         fhir:value [ a fhir:Boolean ; fhir:v true ]
       ]
     ) ;
   ]
 </pre>
 
-          <p> The <a href="#owl-shex-rim">FHIR ontology</a> also includes a
-          <code>fhir:modifierExtensionProperty</code> property
-          that relates each unmodified property to its corresponding modified property:
+         <p>
+            Unmodified properties are not prefixed with an underscore.
+            Furthermore, even though properties with 
+            <code><a href="elementdefinition-definitions.html#ElementDefinition.isModifier">isModifier</a>=true</code> 
+            (such as <a href="observation-definitions.html#Observation.status">Observation.status</a>)
+            can cause non-monotonicity, they are not prefixed with an 
+            underscore, because users are presumed to already understand
+            and expect those properties to be potentially non-monotonic.
+            In contrast, <code>fhir:modifierExtension</code>s are rare and
+            less expected.
           </p>
-
-<pre class="rdf">
-fhir:value <b>fhir:modifierExtensionProperty</b> fhir:_value .
-</pre>
 
 <p>See <a href="extensibility.html#modifierExtension">Modifier Extensions</a> for
 additional requirements around modifier extensions.
@@ -1004,16 +998,33 @@ additional requirements around modifier extensions.
           <a href="downloads.html">downloads page</a>.  While the
           <a href="https://fhir.hl7.org/fhir/downloads.html">fhir.hl7.org site</a>
           holds the official released versions of these artifacts, unreleased
-          INFORMATIVE versions may also be available from the
+          INFORMATIVE versions are also available from the
           <a href="https://build.fhir.org/downloads.html">build.fhir.org site</a>.
         </p>
+
+	  <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+          <a name="modExtNotInShEx"></a>
+          <p> <b>CAVEAT: </b>Because modifier extensions could introduce
+          non-monotonicity and are rarely used,
+          the <code>fhir:modifierExtension</code> property and
+          underscore-prefixed modifier classes and properties are omitted from
+          the <a href="#owl-shex-rim">FHIR ontology</a> and
+          the <a href="#owl-shex-rim">ShEx schema</a>.
+          Implementers using particular modifier extensions might choose to
+          extend the FHIR ontology and/or the ShEx schema to recognize
+          those modifier extensions.</p>
+          </div>
+
+
+
         <ul>
 
-          <li><p>ShEx schema fhir.shex (NORMATIVE).
+          <li><p>ShEx schema fhir.shex (NORMATIVE, <a href="#modExtNotInShEx">except for modifier extensions</a>).
             This schema is intended to help users validate FHIR RDF data.
             It is normative in the sense that
             if some purported FHIR RDF data is
-            inconsistent with the ShEx schema, then that data
+            inconsistent with the ShEx schema, and that data does not use
+            a modifier extension, then that data
             is known to be invalid.
             However, consistency with the ShEx schema does
             not guarantee that the data is fully valid, because there
@@ -1021,14 +1032,15 @@ additional requirements around modifier extensions.
             not captured in the ShEx schema.</p>
 
             <p>Although the logical meaning of the ShEx schema is
-            normative, the <i>expression</i> of that meaning is
+            normative as described, the <i>expression</i> of that meaning is
             <b>INFORMATIVE</b> (i.e., not normative):
             it MAY be changed or enhanced at any
             time.  For example, the schema MAY be refactored, or
             shape names that only appear in the ShEx MAY change.
             </p></li>
 
-          <li><p>OWL Ontology <a href="fhir.rdf.ttl.zip">fhir.ttl</a> (NORMATIVE).
+          <li><p>OWL Ontology <a href="fhir.rdf.ttl.zip">fhir.ttl</a> (NORMATIVE,
+            <a href="#modExtNotInShEx">except for modifier extensions</a>).
             This describes the classes and properties that are used to
             represent FHIR RDF data.  It is normative in the sense that
             if an OWL reasoner finds some purported FHIR RDF data to be
@@ -1056,7 +1068,7 @@ additional requirements around modifier extensions.
           <li><p>v3 RIM ontology <a href="fhir.rdf.ttl.zip">rim.ttl</a> (INFORMATIVE).
             This ontology attempts to capture semantic relationships between
             <a href="https://dev3.hl7.org/implement/standards/product_brief.cfm?product_id=77">HL7 v3 RIM</a>
-            and FHIR.  It has not been well vetted, and may be
+            and FHIR.  It has not been well vetted, and MAY be
             changed at any time.
             </p></li>
         </ul>
@@ -1166,12 +1178,21 @@ additional requirements around modifier extensions.
             conclusions can be invalidated by new data.) For example, a
             modifier extension indicates that the surrounding element's
             meaning will likely be misunderstood if the modifier
-            extension is not understood. </li>
+            extension is not understood. There are at least two kinds
+            of places this kind of non-monotonicity can occur in FHIR:
+            1. <a href="extensibility.html#modifierExtension">Modifier Extensions</a>;
+            and 2. any elements that have the
+            <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">isModifier</a>
+            flag set to <code>true</code>, such as the
+            <a href="observation-definitions.html#Observation.status">Observation.status</a>
+            property, which, if set to
+            <a href="codesystem-observation-status.html#observation-status-entered-in-error">entered-in-error</a>,
+            means that the record should be ignored.</li>
         </ul>
         <p> For both of these reasons, to maintain monotonicity in RDF,
           users are advised to avoid directly interpreting FHIR RDF
           as stating facts.
-          Transformations may be needed to remove or isolate
+          Transformations might be needed to remove or isolate
           non-monotonic elements and reconcile the records across time
           and perspective. </p>
         <p> Application developers are also advised to be aware that some FHIR
@@ -1192,7 +1213,7 @@ additional requirements around modifier extensions.
           FHIR Observations of rheumatoid arthritis, using the <a
             href="https://www.nlm.nih.gov/healthit/snomedct/international.html">SNOMED-CT
             ontology</a>.   <i>Caveat: These slides were based on an earlier
-            version of FHIR, so some specifics may have changed.</i>
+            version of FHIR, so some specifics might have changed.</i>
         <br/>
         </p>
 
@@ -1206,7 +1227,7 @@ href="https://yosemiteproject.org/fhir-rdf-as-a-bridge-to-the-semantic-web-in-he
 href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-web-in-healthcare/">associated
           tutorial</a> details the steps used.&nbsp; <i>Caveat: This
           webinar and tutorial were based on a previous version of FHIR RDF,
-          so some specifics may have changed.<br/>
+          so some specifics might have changed.<br/>
         </i>
         </p>
 
@@ -1252,7 +1273,7 @@ href="https://yosemiteproject.org/tutorial-fhir-rdf-as-a-bridge-to-the-semantic-
               3987</a>.&nbsp; Halt.&nbsp; (Informative comments: The
             purpose of this special case is to permit <code>System.code</code>s
             that are already IRIs to be used directly as Concept IRIs,
-            without any transformation. Note that an absolute-IRI may
+            without any transformation. Note that an absolute-IRI MAY
             also be a URL or a URN.)</li>
           <li>Let <i>cSafe</i> be the IRI-safe version of <i>c</i>, as
             defined by the algorithm in <a
@@ -1452,7 +1473,7 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
           IRI stems have not been standardized for all FHIR
           <code>Coding.system</code>s.  But any that have been
           standardized SHOULD be registered in the HL7 terminology
-          website by adding appropriate CodeSystem and NamingSystem
+          website by adding appropriate NamingSystem
           entries, using the system "urn:ietf:rfc:3987" and
           <a href="valueset-identifier-type.html">identifier type</a>
           of "iri-stem". You can see an
@@ -1527,26 +1548,24 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
             encoded. Thus, if the IRI stem is `http://hospital.org`, a
             code of `.attacker.com` could be used to generate a concept
             IRI of `http://hospital.org.attacker.com`, which if resolved
-            as a URL could provide information to an unexpected server
-            name.
+            as a URL could provide information to an unintended server.
             </li>
             </ol>
          </li>
 
          <li>
            <p>On the HL7 Terminology website (<a href="https://terminology.hl7.org">https://terminology.hl7.org</a>),
-           add the IRI stem to the NamingSystem and CodeSystem records
+           the IRI stem SHOULD be added to the NamingSystem record
            corresponding to the desired Coding.system, by following the
-           <a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">process for submitting a UTG change proposal</a>. The IRI stem
-           SHOULD be added to both the NamingSystem and the CodeSystem.
+           <a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">process for submitting a UTG change proposal</a>. 
            Additions, deletions and modifications of an IRI stem to
-           an existing NamingSystem or CodeSystem will generally be
+           an existing NamingSystem will generally be
            considered a minor change under the <a href="https://confluence.hl7.org/display/VOC/Documented+Execution+of+UTG+Versioning">UTG Versioning policy</a>.
            </p>
 
            <p>At the time this section was last revised, the change proposal
            process for doing this included the following steps.  However,
-           since the process may have changed since then, readers are advised to
+           since the process might have changed since then, readers are advised to
            <a href="https://confluence.hl7.org/display/VMAH/How+To+Submit+a+UTG+Change+Proposal">verify it</a>
            prior to proceeding.  You can also see an example of such
            a change proposal, including the associated changes in the
@@ -1554,17 +1573,6 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
            </p>
 
            <ol>
-             <li>Record the IRI stem in a CodeSystem by adding an identifier with:
-               <ul>
-                 <li> system: urn:ietf:rfc:3987</li>
-                 <li>type: Coding with system=http://terminology.hl7.org/CodeSystem/v2-0203 and code="IRISTEM"</li>
-                 <li>value: <i>[the IRI stem]</i></li>
-                 <li>period: <i>[OPTIONAL: the period during which this IRI stem was in use]</i></li>
-                 <li>assigner:
-                   <ul><li>display: <i>[documentation of the provenance of the IRI stem]</i></li></ul>
-                 </li>
-               </ul>
-             </li>
 
              <li>Record the IRI stem in a NamingSystem by adding a uniqueId with:
                <ul>
@@ -1576,6 +1584,22 @@ href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Miscellaneous_S
                  <li>authoritative: <i>[true if this IRI stem is officially recognized by the NamingSystem authority, false if this IRI stem is generally used in the RDF community but is not officially designated as such]</i></li>
                 </ul>
              </li>
+
+             <li>(<i><b>If applicable.</b> This step is only needed for personal
+               repositories -- not for <a href="https://terminology.hl7.org/">
+               https://terminology.hl7.org/</a> .</i>) 
+               Record the IRI stem in a CodeSystem by adding an identifier with:
+               <ul>
+                 <li> system: urn:ietf:rfc:3987</li>
+                 <li>type: Coding with system=http://terminology.hl7.org/CodeSystem/v2-0203 and code="IRISTEM"</li>
+                 <li>value: <i>[the IRI stem]</i></li>
+                 <li>period: <i>[OPTIONAL: the period during which this IRI stem was in use]</i></li>
+                 <li>assigner:
+                   <ul><li>display: <i>[documentation of the provenance of the IRI stem]</i></li></ul>
+                 </li>
+               </ul>
+             </li>
+
            </ol>
          </li>
 

@@ -133,6 +133,9 @@ considered to be more stable than the resources themselves.  In some cases, ther
 <a href="http://hl7.org/fhir-issues">FHIR Change Request</a> tracker for details.)
 Guidance from early implementation will help address these areas.
 </p>
+<p>
+Note that this table represents a frozen snapshot of the maturity levels maintained by the FHIR Management Group on the <a href="https://confluence.hl7.org/display/FHIR/FHIR+Maturity+Model">FHIR Confluence page</a>.  Further information and discussion about these levels can be found there.
+</p>
 
 <p>
 All artifacts in this specification are assigned a "Maturity Level", known as FMM (after the well-known <a href="http://en.wikipedia.org/wiki/Capability_Maturity_Model">CMM</a> grades).
@@ -155,9 +158,6 @@ The FMM level can be used by implementers to judge how advanced - and therefore 
 </ul>
 <p>
 The Maturity level is strongly related to stability; the higher the maturity level, the more controls are enforced to restrict breaking changes to the resource.
-</p>
-<p>
-The table above represents a frozen snapshot of the maturity levels maintained by the FHIR Management Group on the <a href="https://confluence.hl7.org/display/FHIR/FHIR+Maturity+Model">FHIR Confluence page</a>.  Further information and discussion about these levels can be found there.
 </p>
 <p>
 The maturity model is significantly influenced by the degree and type of implementation activity using an artifact. For this reason, 
@@ -493,8 +493,10 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>Restful interface</td>
       <td>
-      Existing endpoints will not be renamed or removed, nor have their expected behavior changed in a manner that would cause reasonable systems designed
-      against prior versions to be non-interoperable.  Additional endpoints and interactions may be introduced.
+      Where the specification mandates specific names for endpoints or portions thereof (e.g. the <code>Patient</code> or <code>_history</code> portions
+      of <code>[base]/Patient/123/_history/4</code>), future versions will not rename, remove, or change the behavior of invoking those endpoints
+      in a manner that would cause reasonable systems designed against prior versions to be non-interoperable. Additional endpoints and
+      interactions may be introduced.
       </td>
     </tr>
     <tr>
@@ -537,7 +539,8 @@ has a process allowing violation of these rules in <a href="https://confluence.h
 	<tr>
       <td>Conformance Language</td>
       <td>
-      SHALL statements cannot be broken (though they can be clarified) and new SHALL statements cannot be introduced unless they are conditional based on version. e.g., "Instances in version x and higher of FHIR SHALL..." Changes of SHOULD to MAY and vice versa as well as introducing new MAY and SHOULD statements are permitted.
+      SHALL statements cannot be broken (though they can be clarified) and
+      new SHALL statements cannot be introduced unless they a) are conditional based on version (E.g. "Instances in version x and higher of FHIR SHALL..."), or b) depend on a new optional element introduced in that version.
       </td>
     </tr>
   </tbody>
@@ -548,7 +551,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
 
 <p>
 Once content is normative, there is a process for removing it from the standard by marking it as
-<code>deprecated</code> or <code>withdrawn</code> (from the <a href="https://www.w3.org/TR/html4/conform.html">HTML 4.0 Standard</a>):
+<code>deprecated</code> or <code>withdrawn</code> (inspired by 'deprecated' and 'obsolete' from the <a href="https://www.w3.org/TR/html4/conform.html">HTML 4.0 Standard</a>):
 </p>
 <table class="grid">
  <tr><td><b>Deprecated</b></td><td>Systems should continue to support the artifact/feature/concept, but are discouraged from making use of it</td></tr>
@@ -563,17 +566,13 @@ The computable artifact labels (e.g., codes, element names, urls, etc.) associat
 Materials marked "deprecated" may have that marking removed as part of a subsequent ballot at a later moment, while withdrawn materials SHALL NOT.
 </p>
 <p>
-The following artifacts are deprecated in this version of FHIR:
+The following artifacts are marked as deprecated in this version of FHIR (though the deprecation may have occurred in a previous release):
 </p>
 <ul>
- <li><a href="operationoutcome-definitions.html#OperationOutcome.issue.location">OperationOutcome.issue.location</a></li>
+ <li><a href="structuredefinition-definitions.html#StructureDefinition.keyword">StructureDefinition.keyword</a></li>
+ <li><a href="observation-definitions.html#Observation.bodySite">Observation.bodySite</a></li>
+ <li><a href="measure-definitions.html#Measure.subject[x]">Measure.subject[x]</a></li>
 </ul>
-<hr/>
-<p>
-Additional discussion on inter-versioning issues can be found here:
-<a href="https://confluence.hl7.org/display/FHIR/Interversion+Compatibility">https://confluence.hl7.org/display/FHIR/Interversion+Compatibility</a>.
-</p>
-
 
 <a name="studev"></a>
 <h3>Managing Change during the development process</h3>
@@ -772,7 +771,8 @@ This leads to URLs <em>like</em> following:
 Note that some guides linked above will not exist at the time of publication (e.g., extensions based-on or targeting this release). 
 The links will be correct and will resolve once the packages are available.
 </p>
-
+<div class="informative">
+<p>This section is informative.</p>
 <a name="plans"></a>
 <h3>Plans for future releases</h3>
 <p>
@@ -815,7 +815,7 @@ including those provided by HL7 will not support interim versions other than the
  More information on plans for Release 5 can be found on the <a href="https://onfhir.hl7.org/">HL7 product director's blog</a>.
  (Subscribing to this blog is a good way to keep current on significant events in FHIR development, including ballot and publication timelines).
 </p>
-
+</div>
 [%file newfooter%]
 
 

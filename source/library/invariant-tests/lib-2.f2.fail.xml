@@ -23,9 +23,9 @@
   </topic>
   <relatedArtifact>
     <type value="depends-on"/>
-    <artifactAttachment> <!-- This should be an error to depend on an attachment -->
+    <document> <!-- This should be an error to depend on an attachment -->
       <url value="http://example.org/dependency"/>
-    </artifactAttachment>
+    </document>
   </relatedArtifact>
   <dataRequirement>
     <type value="Condition"/>

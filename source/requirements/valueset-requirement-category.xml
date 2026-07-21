@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="requirement-category"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/requirement-category"/>
+  <version value="6.0.0-ballot4"/>
+  <name value="RequirementCategory"/>
+  <title value="Requirement Category"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International"/>
+  <description value="Requirement Category"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/requirement-category"/>
+    </include>
+  </compose>
+</ValueSet>

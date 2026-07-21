@@ -1,6 +1,20 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn5">
+  <p><b>Note to Balloters:</b></p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li>The <code>actor-code</code> CodeSystem (<code>codesystem-actordefinition-actor-code.xml</code>) was updated in connection with flagging it as a re-usable, THO-candidate value set for potential migration to HL7 Terminology (THO); confirm any canonical/identity implications during ballot reconciliation <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-55139">FHIR-55139</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li><code>ActorDefinition.jurisdiction</code> is no longer deprecated; the deprecation flag was removed from the element definition while a clarifying "deprecation note" remains in the definition for historical context <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-53766">FHIR-53766</a>]</li>
+  </ul>
+</blockquote>
+</div>
+
+<div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 

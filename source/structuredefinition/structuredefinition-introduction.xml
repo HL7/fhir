@@ -1,5 +1,21 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+    <p><b>Note to Balloters:</b> Changes since the last ballot are confined to the
+        StructureDefinition resource definition; no elements
+        were added, removed, re-typed, or re-bound, and the snapshot, search-parameter, and operations surfaces are
+        unchanged. The net effect is two non-substantive annotation corrections to the resource definition plus
+        editorial typo fixes.</p>
+    <p><b>Non-substantive</b></p>
+    <ul>
+        <li>Clarified <code>StructureDefinition.kind</code> in response to there being "no escape valve" for a structure
+            that fits none of the bound <code>StructureDefinitionKind</code> categories (primitive-type, complex-type,
+            resource, logical); resolved <i>Not Persuasive with Modification</i> as a definition clarification [<a href="https://jira.hl7.org/browse/FHIR-55191">FHIR-55191</a>]</li>
+        <li>The <code>StructureDefinition.jurisdiction</code> element is no longer marked deprecated, while its
+            accompanying deprecation note is intentionally retained for guidance [<a href="https://jira.hl7.org/browse/FHIR-53766">FHIR-53766</a>]</li>
+    </ul>
+</blockquote>
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>

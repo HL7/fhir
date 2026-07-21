@@ -2,7 +2,11 @@
 
 	<div>
 		<blockquote class="ballot-note" id="bn1">
-		<p><b>Note to Balloters for Ballot5</b>: VisionPrescription changes in this window are limited to resource maintenance and the addition of an expiration date.</p>
+		<p><b>Note to Balloters for Ballot5</b>: VisionPrescription changes in this window are limited to resource maintenance, the addition of the intent element in alignment with the Request pattern, and the addition of an expiration date.</p>
+		<p><b>Non-compatible</b></p>
+		<ul>
+		<li><code>VisionPrescription.intent</code> was added with cardinality 1..1 to better align with the Request pattern <a href="https://jira.hl7.org/browse/FHIR-55995">FHIR-55995</a></li>
+		</ul>
 		<p><b>Compatible substantive</b></p>
 		<ul>
 		<li>New element <code>VisionPrescription.effectiveEndDate</code> has been added to record an explicit expiration date for the instance <a href="https://jira.hl7.org/browse/FHIR-56359">FHIR-56359</a></li>

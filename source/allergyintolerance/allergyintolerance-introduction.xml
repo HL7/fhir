@@ -7,6 +7,7 @@
   <li>Non-Compatible Changes
     <ul>
       <li><a href="https://jira.hl7.org/browse/FHIR-55647">FHIR-55647</a>: AllergyIntolerance.category changed to CodeableConcept with extensible binding strength.</li>
+	  <li>Reverted breaking change to AllergyIntolerance that appears to be an error (fixed: <code>lastReactionOccurrence</code> back to <code>lastOccurrence</code>)</li>
     </ul>
   </li>
   <li>Compatible, Substantive Changes

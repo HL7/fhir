@@ -11,7 +11,7 @@
             <resource value="A unique identifier assigned to this payment reconciliation."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [general discussion](resource.html#identifiers) and [event-specific discussion](event.html#identifier)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -51,7 +51,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="PaymentReconciliation.paymentIssuer">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, CareTeam, Device)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, CareTeam, Device, HealthCareService)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed payment reconciliation"/>
             <resource value="Party generating payment"/>

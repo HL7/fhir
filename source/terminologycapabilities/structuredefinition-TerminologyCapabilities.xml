@@ -559,6 +559,32 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="TerminologyCapabilities.implementation.fragmentSupport">
+      <path value="TerminologyCapabilities.implementation.fragmentSupport"/>
+      <short value="Describes how fragments are supported"/>
+      <definition value="This element provides a description of how fragments are supported (or not)."/>
+      <comment value="Presence of the fragmentSupport element implies that the server supports fragments in some way. This element typically documents whether a server supports multiple fragments of the same code system, or whether an import facility (or similar) is expected to synthesize a single combined code system for internal use; whether fragments are disjoint, may overlap, or may be subsets of each other; and clarify behavior when multiple fragments or a fragment or example code system contain differing information for the same concept."/>
+      <meaningWhenMissing value="If this is not present, the server can be assumed to not support fragments"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="TerminologyCapabilities.implementation.supplementSupport">
+      <path value="TerminologyCapabilities.implementation.supplementSupport"/>
+      <short value="Describes how supplements are supported"/>
+      <definition value="This element provides a description of how supplements are supported (or not)."/>
+      <comment value="Presence of the supplementSupport element implies that the server supports supplements in some way. This element typically documents whether a server supports code system supplements of complete code systems and/or fragments."/>
+      <meaningWhenMissing value="If this is not present, the server can be assumed to not support supplements"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="TerminologyCapabilities.lockedDate">
       <path value="TerminologyCapabilities.lockedDate"/>
       <short value="Whether lockedDate is supported"/>
@@ -588,15 +614,15 @@
       <constraint>
         <key value="tcp-1"/>
         <severity value="error"/>
-        <human value="If there is more than one version, a version code must be defined"/>
-        <expression value="version.count() &gt; 1 implies version.all(code.exists())"/>
+        <human value="If there is more than one version, a version value must be defined"/>
+        <expression value="version.count() &gt; 1 implies version.all(value.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
       <constraint>
         <key value="tcp-7"/>
         <severity value="error"/>
-        <human value="Each version.code element must be distinct for a particular code system."/>
-        <expression value="version.code.isDistinct()"/>
+        <human value="Each version.value element must be distinct for a particular code system."/>
+        <expression value="version.value.isDistinct()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
       <constraint>
@@ -630,6 +656,25 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </type>
     </element>
+		<element id="TerminologyCapabilities.codeSystem.versionAlgorithm[x]">
+			<path value="TerminologyCapabilities.codeSystem.versionAlgorithm[x]"/>
+			<short value="How to compare versions"/>
+			<definition value="Indicates the mechanism used to compare versions to determine which CodeSystem is more current."/>
+			<comment value="This value indicates the version algorithm associated with all instances of the CodeSystem on the server. If the version algorithm is known to be different amongst different instances of the code system, then this element should not be used, and implementers should consider using the artifact-versionAlgorithm extension on the appropriate version descriptors instead.&#xA;&#xA;If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<type>
+				<code value="Coding"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<strength value="extensible"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+			</binding>
+		</element>
     <element id="TerminologyCapabilities.codeSystem.version">
       <path value="TerminologyCapabilities.codeSystem.version"/>
       <short value="Version of Code System supported"/>
@@ -644,9 +689,9 @@
       <condition value="tcp-7"/>
       <condition value="tcp-8"/>
     </element>
-    <element id="TerminologyCapabilities.codeSystem.version.code">
-      <path value="TerminologyCapabilities.codeSystem.version.code"/>
-      <short value="Version identifier for this version"/>
+    <element id="TerminologyCapabilities.codeSystem.version.value">
+      <path value="TerminologyCapabilities.codeSystem.version.value"/>
+      <short value="Code system business version"/>
       <definition value="For version-less code systems, there should be a single version with no identifier."/>
       <min value="0"/>
       <max value="1"/>
@@ -668,6 +713,25 @@
       </type>
       <condition value="tcp-8"/>
       <isSummary value="true"/>
+    </element>
+    <element id="TerminologyCapabilities.codeSystem.version.content">
+      <path value="TerminologyCapabilities.codeSystem.version.content"/>
+      <short value="not-present | example | fragment | complete | supplement"/>
+      <definition value="The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CodeSystemContentMode"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-content-mode|6.0.0"/>
+      </binding>
     </element>
     <element id="TerminologyCapabilities.codeSystem.version.supplement">
       <path value="TerminologyCapabilities.codeSystem.version.supplement"/>
@@ -769,7 +833,7 @@
       <path value="TerminologyCapabilities.codeSystem.content"/>
       <short value="not-present | example | fragment | complete | supplement"/>
       <definition value="The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>

@@ -1,10 +1,10 @@
 [diagram]
-classes=DataType,BackboneType,Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,xhtml,CodeableReference,DosageDetails,DosageCondition,DosageSafety
+classes=DataType,BackboneType,Reference,Narrative,Extension,Meta,ElementDefinition,Dosage,xhtml,DosageDetails,DosageCondition,DosageSafety
 attributes=false
 
 [size]
 width=440
-height=148
+height=260
 
 [directions]
 DataType=0;0
@@ -12,7 +12,6 @@ Reference=120;-50
 Narrative=-70;50
 Extension=10;50
 Meta=70;-50
-CodeableReference=-80;-50
 ElementDefinition=88;50
 BackboneType=110;0
 xhtml=-70;0

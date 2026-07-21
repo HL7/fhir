@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <ValueSet xmlns="http://hl7.org/fhir">
-  <meta>
-    
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="deprecated"/>
-  </extension>
-  <url value="http://cds-hooks.hl7.org/ValueSet/indicator"/>
+  <url value="http://hl7.org/fhir/ValueSet/cdshooks-indicator"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3007"/>
   </identifier>
-  <name value="Indicator"/>
-  <title value="Indicator"/>
-  <status value="retired"/>
-  <experimental value="true"/>
+  <name value="CDSHooksIndicator"/>
+  <title value="CDS Hooks Indicator"/>
+  <status value="active"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -26,7 +19,7 @@
   <description value="This value set captures the set of indicator codes defined by the CDS Hooks specification."/>
   <compose>
     <include>
-      <system value="http://cds-hooks.hl7.org/CodeSystem/indicator"/>
+      <system value="http://terminology.hl7.org/CodeSystem/cdshooks-indicator"/>
     </include>
   </compose>
 </ValueSet>

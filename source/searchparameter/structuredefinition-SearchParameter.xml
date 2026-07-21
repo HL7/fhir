@@ -133,6 +133,13 @@
 				<expression value="aliasCode.empty() or aliasCode.all(matches('^[^.\\$\\|\\s]+$')).allTrue()"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
 			</constraint>
+			<constraint>
+				<key value="spd-6"/>
+				<severity value="warning"/>
+				<human value="Values for multipleOr and multipleAnd should be provided for clarity"/>
+				<expression value="multipleOr.exists() and multipleAnd.exists()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
+			</constraint>
 			<mapping>
 				<identity value="v2"/>
 				<map value="n/a"/>
@@ -529,6 +536,7 @@
 			<path value="SearchParameter.type"/>
 			<short value="number | date | string | token | reference | composite | quantity | uri | special | resource"/>
 			<definition value="The type of value that a search parameter may contain, and how the content is interpreted."/>
+			<comment value="If pre-adopting a new type from a future FHIR version, use the 'special' code and communicate the alternate type as an extension."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -616,6 +624,7 @@
 			<path value="SearchParameter.multipleOr"/>
 			<short value="Allow multiple values per parameter (or)"/>
 			<definition value="Whether multiple values are allowed for each time the parameter exists. Values are separated by commas, and the parameter matches if any of the values match."/>
+			<meaningIfMissing value="If not declared, then it is up to server discretion whether multiple repetitions are allowed."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -627,6 +636,7 @@
 			<path value="SearchParameter.multipleAnd"/>
 			<short value="Allow multiple parameters (and)"/>
 			<definition value="Whether multiple parameters are allowed - e.g. more than one parameter with the same name. The search matches if all the parameters match."/>
+			<meaningIfMissing value="If not declared, then it is up to server discretion whether multiple repetitions are allowed."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

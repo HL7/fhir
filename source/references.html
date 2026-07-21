@@ -740,7 +740,9 @@ Some notes about use and interpretation of contained resources:
   resources. Since there are no nested contained resources, there is only one container resource.</li>
   <li>Fragment-only URL References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
   Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained. To reference a contained resource in a
-  different entry within a Parameters or Bundle (or anywhere else), the reference must include the containing resource. e.g., Observation/123#pat.</li>
+  different entry within a Parameters or Bundle (or anywhere else), the reference must include the containing resource. e.g., Observation/123#pat.
+  The special value <code>#/</code> is a reference to the direct parent resource for Provenance resources in <code>Bundle.entry.resource</code> (this used
+in <a href="signatures.html#Bundles">signatures</a>)</li>
   <li>Both <code>Reference</code> and <code>canonical</code> types may refer to contained resources</li>
   <li>Contained resources SHALL NOT contain additional contained resources.</li>
   <li>Contained resources SHALL NOT contain <code>meta.versionId</code>, <code>meta.lastUpdated</code>, or <code>meta.security</code>.</li>
@@ -773,7 +775,7 @@ there is no confusion as to its significance.
 </p>
 
 <p>
-For a resource that references the container, the reference is "#", like this:
+For a resource that references the container, the reference is <code>#</code>, like this:
 </p>
 <pre class="xml">
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
@@ -789,6 +791,10 @@ For a resource that references the container, the reference is "#", like this:
   &lt;!-- other attributes --&gt;
 &lt;/Patient&gt;
 </pre>
+<p>
+A reference of <code>#</code> in a non-contained resources is a 
+reference to self - this resources. This is occasionally useful e.g. in Signatures.
+</p>
 
 [%stu-note dstu2%]
 There is no way to search for contained resources that reference their container. Is this a problem?

@@ -1,6 +1,28 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" id="bn">
+Request for ballot feedback: We would like the 'SHOULD' assertions above to become 'SHALL' assertions.
+We are invoking our usual implementer outreach process to find out whether anyone else objects, but please file tickets for any rules you do not believe can be enforced that way.
+</blockquote>
+
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Changes since</b> the last ballot: SearchParameter widened how it names resource types - <code>SearchParameter.base</code> and <code>SearchParameter.target</code> are now <code>uri</code> rather than <code>code</code>, so a search parameter can be defined against a logical model or other canonical resource and not only a named resource type. Jurisdiction element(s) are no longer deprecated (they keep an explanatory note), and the definitions of <code>SearchParameter.type</code> and of the missing-value semantics for <code>multipleOr</code> / <code>multipleAnd</code> were clarified.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Type of <code>SearchParameter.base</code> changed from <code>code</code> to <code>uri</code>, allowing a logical model or other canonical resource to be named as the base rather than only a resource-type code [<a href="https://jira.hl7.org/browse/FHIR-51651">FHIR-51651</a>]</li>
+    <li>Type of <code>SearchParameter.target</code> changed from <code>code</code> to <code>uri</code>, same rationale [<a href="https://jira.hl7.org/browse/FHIR-51651">FHIR-51651</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Jurisdiction element(s) are no longer deprecated but retain an explanatory note [<a href="https://jira.hl7.org/browse/FHIR-53766">FHIR-53766</a>]</li>
+    <li>Clarified the handling of <code>SearchParameter.type</code> in response to the request that it &ldquo;has no escape valve&rdquo; - a clarifying note was applied rather than adding a new type option [<a href="https://jira.hl7.org/browse/FHIR-55190">FHIR-55190</a>]</li>
+    <li>Clarified the meaning when <code>SearchParameter.multipleOr</code> and <code>SearchParameter.multipleAnd</code> are absent [<a href="https://jira.hl7.org/browse/FHIR-40328">FHIR-40328</a>]</li>
+  </ul>
+</blockquote>
+</div>
+
+<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>

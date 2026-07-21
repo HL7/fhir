@@ -26,7 +26,7 @@
             
             <p><b>All Changes (including Technical Corrections not listed above):</b></p>
             <ul>
-                <li>None</li>
+                <li><a href="https://jira.hl7.org/browse/FHIR-54119">FHIR-54119</a>: Typo in NamingSystem.author</li>
             </ul>
         </blockquote>
     </div>

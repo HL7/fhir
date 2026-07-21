@@ -2,7 +2,7 @@
 
 <div>
 <blockquote class="ballot-note" id="bn1">
-  <p><b>Note to Balloters for Ballot5</b>: The Device changes in this window focus on Device-specific cleanup: a modifier correction on <code>Device.name.display</code>, alignment of <code>Device.conformsTo</code> source guidance with DeviceDefinition, Five Ws mapping cleanup, and artifact-scoped Device property terminology/display cleanup.</p>
+  <p><b>Note to Balloters for Ballot5</b>: The Device changes in this ballot focus on Device-specific cleanup: a modifier correction on <code>Device.name.display</code>, alignment of <code>Device.conformsTo</code> source guidance with DeviceDefinition, Five Ws mapping cleanup, and artifact-scoped Device property terminology/display cleanup.</p>
   <p>This resource is referenced from the <a href="device-module.html">Device Module</a>; reviewers should also consider related module-page ballot content when reviewing this resource.</p>
   <p><b>Compatible substantive</b></p>
   <ul>

@@ -1,6 +1,25 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b></p>
+  <p><b>Non-compatible</b></p>
+  <ul>
+    <li>Alternative steps may no longer contain their own alternatives; a newly added invariant rejects nested-alternative structures that were previously schema-valid, so instances relying on that nesting must be restructured [<a href="https://jira.hl7.org/browse/FHIR-41502">FHIR-41502</a>]</li>
+  </ul>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Added <code>ExampleScenario.process.step.operation.definition</code>, a reference to <code>OperationDefinition</code>, so a process step can identify the operation it invokes [<a href="https://jira.hl7.org/browse/FHIR-54694">FHIR-54694</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Clarified the definition of <code>ExampleScenario.actor</code> to reduce conceptual overlap with the Actor resource (wording only, no element change) [<a href="https://jira.hl7.org/browse/FHIR-54748">FHIR-54748</a>]</li>
+    <li>Jurisdiction element(s) are no longer marked deprecated, though the explanatory deprecation note is retained [<a href="https://jira.hl7.org/browse/FHIR-53766">FHIR-53766</a>]</li>
+  </ul>
+</blockquote>
+</div>
+
+<div>
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>

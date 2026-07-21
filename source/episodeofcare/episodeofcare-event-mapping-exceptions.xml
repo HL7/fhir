@@ -11,7 +11,7 @@
             <resource value="The EpisodeOfCare may be known by different identifiers for different contexts of use, such as when an external agency is tracking the Episode for funding purposes."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
-            <_pattern value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [general discussion](resource.html#identifiers) and [event-specific discussion](event.html#identifier)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
             <resource value=""/>
         </commentsUnmatched>
         <requirementsUnmatched reason="Unknown">
@@ -93,7 +93,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="EpisodeOfCare.managingOrganization">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, CareTeam, Patient, Device, RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, CareTeam, Patient, Device, RelatedPerson, HealthCareService)" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed episode of care"/>
             <resource value="Organization that assumes responsibility for care coordination"/>
@@ -105,7 +105,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="EpisodeOfCare.careManager">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Organization, CareTeam, Patient, Device, RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Organization, CareTeam, Patient, Device, RelatedPerson, HealthCareService)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed episode of care"/>
@@ -119,7 +119,7 @@
     <divergentElement patternPath="Event.performer.actor" resourcePath="EpisodeOfCare.careTeam">
         <lowerCardinality _pattern="1" _resource="0" reason="Unknown"/>
         <upperCardinality _pattern="1" _resource="*" reason="Unknown"/>
-        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, Patient, Device, RelatedPerson)" reason="Unknown"/>
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, Patient, Device, RelatedPerson, HealthCareService)" reason="Unknown"/>
         <summary _pattern="true" _resource="false" reason="Unknown"/>
         <shortUnmatched reason="Unknown">
             <_pattern value="Who performed episode of care"/>

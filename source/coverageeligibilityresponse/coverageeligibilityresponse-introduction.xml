@@ -1,5 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<div class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes to CoverageEligibilityResponse are limited to non-substantive editorial corrections in narrative and element-definition text &mdash; standardizing the spelling of &quot;payer&quot;, replacing the remaining occurrences of &quot;inforce&quot; with &quot;in-force&quot;, and fixing minor typos. No element, cardinality, type, binding, constraint, search-parameter, operation, example, or terminology changes were made.</p>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Replaced the remaining occurrences of &quot;inforce&quot; with &quot;in-force&quot; in the CoverageEligibilityResponse narrative and element definitions [<a href="https://jira.hl7.org/browse/FHIR-55221">FHIR-55221</a>, <a href="https://jira.hl7.org/browse/FHIR-55217">FHIR-55217</a>]</li>
+    <li>Corrected further typos in the CoverageEligibilityResponse narrative and re-added a definition of &quot;in-force&quot; to the Financial Module glossary [<a href="https://jira.hl7.org/browse/FHIR-55229">FHIR-55229</a>]</li>
+  </ul>
+  <p><b>Technical Correction</b></p>
+  <ul>
+    <li>Standardized the spelling of &quot;payer&quot; in the financial narrative content [<a href="https://jira.hl7.org/browse/FHIR-54022">FHIR-54022</a>]</li>
+  </ul>
+</div>
+
+
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>

@@ -294,7 +294,7 @@
 		<element id="EvidenceVariable.author">
 			<path value="EvidenceVariable.author"/>
 			<short value="Who authored the content"/>
-			<definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
+			<definition value="An individual or organization primarily involved in the creation and maintenance of the content."/>
 			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
 			<min value="0"/>
 			<max value="*"/>

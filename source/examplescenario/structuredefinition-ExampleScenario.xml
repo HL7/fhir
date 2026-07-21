@@ -528,6 +528,7 @@
       <path value="ExampleScenario.actor.title"/>
       <short value="Label for actor when rendering"/>
       <definition value="The human-readable name for the actor used when rendering the scenario."/>
+      <requirements value="The title for a particular actor might be more refined/specific than what's found on the definition, if one is provided"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -542,6 +543,7 @@
       <path value="ExampleScenario.actor.description"/>
       <short value="Details about actor"/>
       <definition value="An explanation of who/what the actor is and its role in the scenario."/>
+      <requirements value="The description for a particular actor might be more refined/specific than what's found on the definition, if one is provided"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -998,11 +1000,18 @@
         <human value="If specified, receiver must be a key of an actor within the ExampleScenario"/>
         <expression value="receiver.exists() implies receiver = 'OTHER' or %resource.actor.where(key=%context.receiver).exists()"/>
       </constraint>
+      <constraint>
+        <key value="exs-26"/>
+        <severity value="error"/>
+        <human value="A definition can only be provided if the type is 'operation'"/>
+        <expression value="definition.exists() implies type.code = 'operation' and type.system = 'http://hl7.org/fhir/restful-interaction'"/>
+      </constraint>
     </element>
     <element id="ExampleScenario.process.step.operation.type">
       <path value="ExampleScenario.process.step.operation.type"/>
       <short value="Kind of action"/>
       <definition value="The standardized type of action (FHIR or otherwise)."/>
+      <comment value="This binding is extensible to provide support for non-FHIR interactions as well"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1021,6 +1030,17 @@
       <max value="1"/>
       <type>
         <code value="string"/>
+      </type>
+    </element>
+    <element id="ExampleScenario.process.step.operation.definition">
+      <path value="ExampleScenario.process.step.operation.definition"/>
+      <short value="Operation invoked"/>
+      <definition value="If this operation represents the invocation of a FHIR operation, points to the canonical definition of that operation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </type>
     </element>
     <element id="ExampleScenario.process.step.operation.initiator">
@@ -1112,6 +1132,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="exs-25"/>
+        <severity value="error"/>
+        <human value="Alternative steps can't have alternatives"/>
+        <expression value="step.alternative.exists().not()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
+      </constraint>
       <orderMeaning value="The order in which these elements appear is the order in which they are expected to be rendered (in a table, in a diagram, etc.)"/>
       <condition value="exs-13"/>
     </element>

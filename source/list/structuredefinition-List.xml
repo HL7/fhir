@@ -342,6 +342,26 @@
         <map value="SubmissionSet.author"/>
       </mapping>
     </element>
+    <element id="List.contributor">
+      <path value="List.contributor"/>
+      <short value="Who helps maintain the list"/>
+      <definition value="Entities who have the ability to adjust the contents of the list."/>
+      <comment value="If both 'source' and 'contributors' are present, then 'source' has primary responsibility.  If contributors are present without source, then all contributors have shared responsibility.   The source SHOULD NOT be also listed as a contributor. To indicate a practitioner working for an organization, use PractitionerRole, even if as a contained resource rather than having separate repetitions of this element for Practitioner and Organization."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="List.orderedBy">
       <path value="List.orderedBy"/>
       <short value="What order the list has"/>

@@ -108,6 +108,7 @@
         </requirementsUnmatched>
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="AuditEvent.agent.who">
+        <missingTypes _pattern="Reference(HealthCareService)" reason="Unknown"/>
         <extraTypes _resource="Reference(DeviceDefinition,Group,HealthcareService)" reason="Use-case allows these additional types"/>
         <shortUnmatched reason="More specific description">
             <_pattern value="Who performed audit event"/>

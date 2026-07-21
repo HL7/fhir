@@ -1,6 +1,20 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b></p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li><code>Flag.supportingInfo</code> now permits <code>DocumentReference</code> and <code>DiagnosticReport</code> as reference targets, in addition to the previously allowed types [<a href="https://jira.hl7.org/browse/FHIR-56379">FHIR-56379</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Editorial and technical corrections applied to the Flag StructureDefinition as part of a multi-resource technical-corrections batch [<a href="https://jira.hl7.org/browse/FHIR-55732">FHIR-55732</a>, <a href="https://jira.hl7.org/browse/FHIR-55319">FHIR-55319</a>, <a href="https://jira.hl7.org/browse/FHIR-55321">FHIR-55321</a>, <a href="https://jira.hl7.org/browse/FHIR-54159">FHIR-54159</a>]</li>
+  </ul>
+</blockquote>
+</div>
+
+<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>

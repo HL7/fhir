@@ -12,15 +12,29 @@
                 <li>Compatible, Substantive Changes
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55446">FHIR-55446</a>: Undeprecated topic element</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-51119">FHIR-51119</a>: Added sub-filters to compose include filters to support specifying lists of concepts as the value for a filter operator. See the Ballot Question below for more.</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-57793">FHIR-57793</a>: Added preferredForLanguage to the designation use value set.</li>
                     </ul>
                 </li>
                 <li>Non-substantive Changes
                     <ul>
-                        <li>None</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-52065">FHIR-52065</a>: Removed the draft and experimental Common UCUM units value set, in favor of the THO Common UCUM units value set.</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-49701">FHIR-49701</a>: Clarified behavior of the `handle-unclosed-expansion` parameter in ValueSet/$expand</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-56404">FHIR-56404</a>: Clarified ValueSet reference search parameter definition</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-51614">FHIR-51614</a>: Clarified use of display and designation for concepts in value sets</li>
                     </ul>
                 </li>
             </ul>
             <p></p>
+        </blockquote>
+        <blockquote class="ballot-note" id="bn2">
+            <p><b>Ballot Question:</b> <a href="https://jira.hl7.org/browse/FHIR-51119">FHIR-51119</a> added 
+            ValueSet.compose.include.filter.filter 0..* @filter to support specifying a set of concept codes 
+            that are the <i>value</i> of a filter operator. The Terminology Infrastructure Work Group would
+            like feedback on this addition. Specifically, Does this add too much complexity, or are there 
+            valid use cases for this new element? Will you implement it? Do you have an example to contribute?
+            See the ValueSet-sub-filter-example for an example of the use of this element.
+            </p>
         </blockquote>
         <blockquote style="background-color: lightblue">
             

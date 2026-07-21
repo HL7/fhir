@@ -538,7 +538,7 @@
 			</extension>
 			<path value="CodeSystem.author"/>
 			<short value="Who authored the CodeSystem"/>
-			<definition value="An individiual or organization primarily involved in the creation and maintenance of the CodeSystem."/>
+			<definition value="An individual or organization primarily involved in the creation and maintenance of the CodeSystem."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -775,8 +775,8 @@
 		</element>
 		<element id="CodeSystem.filter.value">
 			<path value="CodeSystem.filter.value"/>
-			<short value="What to use for the value"/>
-			<definition value="A description of what the value for the filter should be."/>
+			<short value="Code from the system, or regex criteria, or boolean value for exists"/>
+			<definition value="CodeSystem.filter.value is represented as a string, and the string value must be as described in [Using Filter Values](valueset.html#filter-values)."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -820,6 +820,7 @@
 			<path value="CodeSystem.property.uri"/>
 			<short value="Formal identifier for the property"/>
 			<definition value="Reference to the formal meaning of the property. One possible source of meaning is the [Concept Properties](codesystem-concept-properties.html) code system."/>
+			<comment value="The URIs used here SHOULD be drawn from the [Concept Properties](codesystem-concept-properties.html) code system, where the URI string consists of \[code system URL]#\[code]"/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -1037,7 +1038,8 @@
 			</extension>
 			<path value="CodeSystem.concept.property.code"/>
 			<short value="Reference to CodeSystem.property.code or a FHIR defined concept-property"/>
-			<definition value="A code that is a reference to CodeSystem.property.code or is a code from [http://hl7.org/fhir/concept-properties](codesystem.html#defined-props) in the case that there is no corresponding code defined in `CodeSystem.property.code`."/>
+			<definition value="Identifies a property that is either defined in this CodeSystem (`CodeSystem.property.code`) or is a code from [http://hl7.org/fhir/concept-properties](codesystem.html#defined-props)."/>
+			<comment value="Note that when the `CodeSystem.property.code` is defined in the CodeSystem itself, there is no mechanism to create a ValueSet, so there is no terminology binding."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>

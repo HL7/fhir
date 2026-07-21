@@ -12,12 +12,15 @@
                 <li>Compatible, Substantive Changes
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55564">FHIR-55564</a>: Undeprecated topic element</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-53766">FHIR-53766</a>: Undeprecated the jurisdiction elements while retaining an explanatory note</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-53716">FHIR-53716</a>: Changed security category to business</li>
                     </ul>
                 </li>
                 <li>Non-substantive Changes
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55072">FHIR-55072</a>: Updating action-participant-function ValueSet to examples</li>
                         <li><a href="https://jira.hl7.org/browse/FHIR-54693">FHIR-54693</a>: Updated reference to Decision Support Service specification to point to CRMI versioning discussion</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-54473">FHIR-54473</a>: Noted that the FHIR Mapping Language is not ready for normative and moved to the mapping-language IG with StructureMap; the ActivityDefinition-to-MedicationRequest FHIRMap is affected</li>
                     </ul>
                 </li>
             </ul>

@@ -5,7 +5,7 @@
    width="1165.2"
    height="550.0"
    sodipodi:docname="appointment.svg"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,12 +22,12 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.0693444"
-     inkscape:cx="582.59998"
-     inkscape:cy="275.4024"
-     inkscape:window-width="1390"
-     inkscape:window-height="1205"
+     inkscape:cx="582.13238"
+     inkscape:cy="275.40239"
+     inkscape:window-width="2392"
+     inkscape:window-height="1326"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="30"
      inkscape:window-maximized="0"
      inkscape:current-layer="n1035" />
   <defs
@@ -561,7 +561,7 @@ The duration (usually in minutes) could also be provided to indicate the length 
   </g>
   <g
      id="n1330"
-     transform="translate(35.535796,237.52872)">
+     transform="translate(26.184271,248.75055)">
     <rect
        id="Appointment.participant"
        x="419.20001"
@@ -687,7 +687,7 @@ The duration (usually in minutes) could also be provided to indicate the length 
   </g>
   <g
      id="n1401"
-     transform="translate(15.897592,-100.99646)">
+     transform="translate(10.286677,-201.05778)">
     <rect
        id="Appointment.recurrenceTemplate"
        x="419.20001"
@@ -796,35 +796,36 @@ The duration (usually in minutes) could also be provided to indicate the length 
    xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
   </g>
   <g
-     id="n1452">
+     id="n1452"
+     transform="translate(24.313963,3.7406097)">
     <rect
        id="Appointment.recurrenceTemplate.weeklyTemplate"
-       x="320.0"
-       y="0.0"
+       x="320"
+       y="0"
        rx="4"
        ry="4"
-       width="145.20000000000002"
-       height="148.0"
+       width="145.2"
+       height="148"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n1453"
-       x1="320.0"
-       y1="28.0"
-       x2="465.20000000000005"
-       y2="28.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       x1="320"
+       y1="28"
+       x2="465.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
     <text
        id="n1454"
-       x="392.6"
-       y="20.0"
-       fill="black"
+       x="392.60001"
+       y="20"
+       fill="#000000"
        class="diagram-class-title">WeeklyTemplate</text>
     <text
        id="n1455"
-       x="326.0"
-       y="42.0"
-       fill="black"
+       x="326"
+       y="42"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1456"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.monday"><title
@@ -833,9 +834,9 @@ The duration (usually in minutes) could also be provided to indicate the length 
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
        id="n1461"
-       x="326.0"
-       y="56.0"
-       fill="black"
+       x="326"
+       y="56"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1462"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.tuesday"><title
@@ -844,9 +845,9 @@ The duration (usually in minutes) could also be provided to indicate the length 
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
        id="n1467"
-       x="326.0"
-       y="70.0"
-       fill="black"
+       x="326"
+       y="70"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1468"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.wednesday"><title
@@ -855,9 +856,9 @@ The duration (usually in minutes) could also be provided to indicate the length 
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
        id="n1473"
-       x="326.0"
-       y="84.0"
-       fill="black"
+       x="326"
+       y="84"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1474"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.thursday"><title
@@ -866,9 +867,9 @@ The duration (usually in minutes) could also be provided to indicate the length 
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
        id="n1479"
-       x="326.0"
-       y="98.0"
-       fill="black"
+       x="326"
+       y="98"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1480"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.friday"><title
@@ -877,9 +878,9 @@ The duration (usually in minutes) could also be provided to indicate the length 
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
        id="n1485"
-       x="326.0"
-       y="112.0"
-       fill="black"
+       x="326"
+       y="112"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1486"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.saturday"><title
@@ -888,9 +889,9 @@ The duration (usually in minutes) could also be provided to indicate the length 
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
        id="n1491"
-       x="326.0"
-       y="126.0"
-       fill="black"
+       x="326"
+       y="126"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1492"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.sunday"><title
@@ -899,9 +900,9 @@ The duration (usually in minutes) could also be provided to indicate the length 
    xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
        id="n1497"
-       x="326.0"
-       y="140.0"
-       fill="black"
+       x="326"
+       y="140"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1498"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.weekInterval"><title
@@ -912,35 +913,36 @@ e.g. For recurring every second week this interval would be 2, or every third we
    xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
   </g>
   <g
-     id="n1503">
+     id="n1503"
+     transform="translate(74.812194,11.221821)">
     <rect
        id="Appointment.recurrenceTemplate.monthlyTemplate"
-       x="480.0"
-       y="0.0"
+       x="480"
+       y="0"
        rx="4"
        ry="4"
-       width="202.4"
-       height="92.0"
+       width="202.39999"
+       height="92"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n1504"
-       x1="480.0"
-       y1="28.0"
-       x2="682.4"
-       y2="28.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       x1="480"
+       y1="28"
+       x2="682.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
     <text
        id="n1505"
-       x="581.2"
-       y="20.0"
-       fill="black"
+       x="581.20001"
+       y="20"
+       fill="#000000"
        class="diagram-class-title">MonthlyTemplate</text>
     <text
        id="n1506"
-       x="486.0"
-       y="42.0"
-       fill="black"
+       x="486"
+       y="42"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1507"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.monthlyTemplate.dayOfMonth"><title
@@ -949,9 +951,9 @@ e.g. For recurring every second week this interval would be 2, or every third we
    xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
     <text
        id="n1512"
-       x="486.0"
-       y="56.0"
-       fill="black"
+       x="486"
+       y="56"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1513"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.monthlyTemplate.nthWeekOfMonth"><title
@@ -963,9 +965,9 @@ e.g. For recurring every second week this interval would be 2, or every third we
    id="n1516">null (Strength=Required)</title>WeekOfMonth</a>! »</text>
     <text
        id="n1522"
-       x="486.0"
-       y="70.0"
-       fill="black"
+       x="486"
+       y="70"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1523"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.monthlyTemplate.dayOfWeek"><title
@@ -977,9 +979,9 @@ e.g. For recurring every second week this interval would be 2, or every third we
    id="n1526">null (Strength=Required)</title>DaysOfWeek</a>! »</text>
     <text
        id="n1532"
-       x="486.0"
-       y="84.0"
-       fill="black"
+       x="486"
+       y="84"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n1533"
    xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.monthlyTemplate.monthInterval"><title
@@ -989,7 +991,7 @@ e.g. For recurring every second week this interval would be 2, or every third we
   </g>
   <g
      id="n1538"
-     transform="translate(-87.90433,140.27287)">
+     transform="translate(-232.85296,360.0337)">
     <rect
        id="Appointment.recurrenceTemplate.yearlyTemplate"
        x="720"
@@ -1061,11 +1063,11 @@ e.g. For recurring every second week this interval would be 2, or every third we
      class="diagram-class-linkage">[1..*]</text>
   <line
      id="n1553"
-     x1="537.4247191011236"
-     y1="363.0000000000001"
-     x2="429.68314606741575"
-     y2="148.0"
-     style="stroke:navy;stroke-width:1" />
+     x1="539.29504"
+     y1="372.35153"
+     x2="431.55344"
+     y2="157.35152"
+     style="stroke:#000080;stroke-width:1" />
   <polygon
      id="n1554"
      points="537.4247191011236,363.0000000000001 543.4247191011236,367.0000000000001 549.4247191011236,363.0000000000001 543.4247191011236,359.0000000000001 537.4247191011236,363.0000000000001"
@@ -1107,11 +1109,11 @@ e.g. For recurring every second week this interval would be 2, or every third we
      transform="rotate(-88.47843864357068 572.7796875 363.0)" />
   <rect
      id="n1561"
-     x="543.0"
-     y="220.0"
-     width="66.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
+     x="543"
+     y="182.5939"
+     width="66"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
   <text
      id="n1562"
      x="576.0"

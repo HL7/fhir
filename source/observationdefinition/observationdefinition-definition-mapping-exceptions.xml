@@ -210,7 +210,7 @@
         </shortUnmatched>
         <definitionUnmatched reason="Unknown">
             <_pattern value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate observation definitions."/>
-            <resource value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate ObservationDefinition instances."/>
+            <resource value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, etc.) or may be references to specific programs (insurance plans, studies, etc.) and may be used to assist with indexing and searching for appropriate ObservationDefinition instances."/>
         </definitionUnmatched>
         <commentsUnmatched reason="Unknown">
             <_pattern value="When multiple useContexts are specified, there is no expectation that all or even any of the contexts apply."/>

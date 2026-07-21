@@ -270,10 +270,10 @@
           <valueString value="ValueSet.compose.include.system"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ValueSet-reference"/>
-        <description value="A code system included or excluded in the value set or an imported value set"/>
+        <description value="A code system or value set referenced in the ValueSet.compose"/>
         <code value="reference"/>
         <type value="uri"/>
-        <expression value="ValueSet.compose.include.system"/>
+        <expression value="ValueSet.compose.include.system|ValueSet.compose.exclude.system|ValueSet.compose.include.valueSet|ValueSet.compose.exclude.valueSet"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

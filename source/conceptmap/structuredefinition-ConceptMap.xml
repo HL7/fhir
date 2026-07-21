@@ -493,7 +493,7 @@
       </extension>
       <path value="ConceptMap.author"/>
       <short value="Who authored the ConceptMap"/>
-      <definition value="An individiual or organization primarily involved in the creation and maintenance of the ConceptMap."/>
+      <definition value="An individual or organization primarily involved in the creation and maintenance of the ConceptMap."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -719,6 +719,22 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-attribute-type"/>
       </binding>
     </element>
+    <element id="ConceptMap.allowedRelationship">
+      <path value="ConceptMap.allowedRelationship"/>
+      <short value="related-to | equivalent | source-is-narrower-than-target | source-is-broader-than-target | not-related-to"/>
+      <definition value="The only values that can be used to populate the ConceptMap.group.element.target.relationship in this ConceptMap."/>
+      <meaningWhenMissing value="Any relationship can be used"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/concept-map-relationship"/>
+      </binding>
+    </element>  
     <element id="ConceptMap.sourceScope[x]">
       <path value="ConceptMap.sourceScope[x]"/>
       <short value="The source value set that contains the concepts that are being mapped"/>

@@ -5,7 +5,7 @@
    width="1319.85813"
    height="480.0"
    sodipodi:docname="paymentreconciliation.svg"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -21,13 +21,13 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.94404084"
-     inkscape:cx="643.5103"
-     inkscape:cy="234.62968"
-     inkscape:window-width="1920"
-     inkscape:window-height="1187"
+     inkscape:zoom="0.86666666"
+     inkscape:cx="664.61539"
+     inkscape:cy="240"
+     inkscape:window-width="2005"
+     inkscape:window-height="1339"
      inkscape:window-x="0"
-     inkscape:window-y="40"
+     inkscape:window-y="30"
      inkscape:window-maximized="0"
      inkscape:current-layer="n784" />
   <defs
@@ -466,7 +466,7 @@
   </g>
   <g
      id="n1013"
-     transform="translate(-367.56884,12.711314)">
+     transform="translate(-314.49192,27.711314)">
     <rect
        id="PaymentReconciliation.allocation"
        x="805.9397"
@@ -698,7 +698,7 @@
   </g>
   <g
      id="n1144"
-     transform="translate(-333.67201,8.4742097)">
+     transform="translate(-403.84941,52.566524)">
     <rect
        id="PaymentReconciliation.processNote"
        x="895.45813"

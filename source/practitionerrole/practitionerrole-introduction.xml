@@ -1,5 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes since the last ballot: the <code>network</code> element removed and its <code>active</code> element promoted to a modifier element, and received non-substantive clarifications to the <code>date</code> search parameter and the <code>contact</code> element definition.</p>
+  <p><b>Compatible substantive</b></p>
+  <ul>
+    <li>Removed the <code>PractitionerRole.network</code> element [<a href="https://jira.hl7.org/browse/FHIR-53853">FHIR-53853</a>]</li>
+    <li>Promoted <code>PractitionerRole.active</code> to a modifier element (<code>isModifier</code> false&#8594;true), aligning it with <code>Practitioner.active</code> and <code>Patient.active</code> [<a href="https://jira.hl7.org/browse/FHIR-54462">FHIR-54462</a>]</li>
+  </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Clarified the <code>date</code> search-parameter description (the &#8220;Period when&#8230;&#8221; wording) [<a href="https://jira.hl7.org/browse/FHIR-54605">FHIR-54605</a>]</li>
+    <li>Corrected the definition of <code>PractitionerRole.contact</code> [<a href="https://jira.hl7.org/browse/FHIR-54568">FHIR-54568</a>]</li>
+  </ul>
+</blockquote>
+
 [%stu-note dstu%]
 The <code>display</code> property has been added as a denormalized representation of the various core properties of this resource.
 The expected usage would be for easily populating the display field in references to this resource.

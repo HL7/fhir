@@ -438,15 +438,19 @@ server might pre-populate it in the expansion:
 Irrespective of this, the display in the expansion always goes in <a href="datatypes-definitions.html#CodeableConcept.text">CodeableConcept.text</a>.
 </p>
 </div>
+
 <p>
-In addition to the display, a concept can have one or more <code>designation</code> elements. 
-The display is equivalent to a special designation with an implied <code>designation.use</code> of "primary code" 
-and a language equal to the <a href="resource.html#language">Resource Language</a>. The designations can provide 
-additional displays for other languages, as well as designations for other purposes. 
-When using concepts, applications use the <code>display</code> unless the language or usage in context provides a reason
-to use one of the designations.
+The display is equivalent to a designation with an implied <code>designation.use</code> of <i>preferredForLanguage</i> and a language equal to the <a href="resource.html#language">Resource Language</a>.
 </p>
- 
+
+<p>
+In addition to the display, a concept can have one or more <code>designation</code> elements. The designations can reference additional displays for other languages, as well as designations for other purposes. Those displays may originate in a code system or a code system supplement. When using concepts, applications use the <code>display</code> unless the language or usage in context provides a reason to use one of the designations.
+</p>
+
+<p>
+Language translations can be provided in a <a href="codesystem.html#supplements">code system supplement</a> if they cannot be provided in the code system itself.
+</p>
+
 <a name="multiples"></a>
 <h2>Value Sets with multiple code systems</h2> 
 <p>

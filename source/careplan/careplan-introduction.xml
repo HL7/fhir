@@ -1,6 +1,18 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
+<blockquote class="ballot-note" data-augury-generated="true" id="bn1">
+  <p><b>Note to Balloters:</b> Changes are confined to the CarePlan narrative and mapping content: the supplementary notes were updated and the request-pattern mapping exceptions were revised. The CarePlan StructureDefinition, search parameters, operations, examples, and bound value sets are unchanged in this window, and no structural deltas were detected. All applied tickets are non-substantive technical corrections.</p>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Aligned terminology in the CarePlan notes/mappings toward &quot;author&quot; (formerly &quot;performer&quot;); the StructureDefinition was not changed [<a href="https://jira.hl7.org/browse/FHIR-55732">FHIR-55732</a>]</li>
+    <li>Addressed the previously empty &quot;Open Issues&quot; section in the CarePlan notes [<a href="https://jira.hl7.org/browse/FHIR-54159">FHIR-54159</a>]</li>
+    <li>Incidental spelling/abbreviation corrections applied through a cross-page technical-correction batch whose primary targets are CommunicationRequest and CareTeam [<a href="https://jira.hl7.org/browse/FHIR-55321">FHIR-55321</a>, <a href="https://jira.hl7.org/browse/FHIR-55319">FHIR-55319</a>]</li>
+  </ul>
+</blockquote>
+</div>
+
+<div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 

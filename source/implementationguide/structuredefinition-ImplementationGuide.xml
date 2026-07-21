@@ -543,8 +543,8 @@
 				<valueCode value="250,300"/>
 			</extension>
 			<path value="ImplementationGuide.global"/>
-			<short value="Profiles that apply globally"/>
-			<definition value="A set of profiles that all resources covered by this implementation guide must conform to."/>
+			<short value="Set of profiles that apply globally"/>
+			<definition value="A set of profiles that all resources covered by this implementation guide must conform to. If there is more than one profile for a type, then resources SHALL conform to one of them."/>
 			<comment value="See [Default Profiles](implementationguide.html#default) for a discussion of which resources are 'covered' by an implementation guide."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -556,7 +556,7 @@
 		<element id="ImplementationGuide.global.type">
 			<path value="ImplementationGuide.global.type"/>
 			<short value="Type this profile applies to"/>
-			<definition value="The type of resource that all instances must conform to. This must be a resource, or a type with a [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics]]] of [[[http://hl7.org/fhir/type-characteristics-code#can-be-target]]]."/>
+			<definition value="The type of resource for the profile that instances must conform to. This must be a resource, or a type with a [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics]]] of [[[http://hl7.org/fhir/type-characteristics-code#can-be-target]]]."/>
 			<comment value="The type must match that of the profile that is referred to but is made explicit here as a denormalization so that a system processing the implementation guide resource knows which resources the profile applies to even if the profile itself is not available."/>
 			<min value="1"/>
 			<max value="1"/>
@@ -578,8 +578,8 @@
 		</element>
 		<element id="ImplementationGuide.global.profile">
 			<path value="ImplementationGuide.global.profile"/>
-			<short value="Profile that all resources must conform to"/>
-			<definition value="A reference to the profile that all instances must conform to."/>
+			<short value="A profile that all resources must conform to"/>
+			<definition value="A reference to the profile that instances must conform to."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>

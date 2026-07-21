@@ -179,10 +179,10 @@
     </element>
     <element id="AdverseEvent.category">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="FHIR-25396."/>
+        <valueString value="FHIR-25396, FHIR-57823"/>
       </extension>
       <path value="AdverseEvent.category"/>
-      <short value="wrong-patient | procedure-mishap | medication-mishap | device | unsafe-physical-environment | hospital-aquired-infection | wrong-body-site"/>
+      <short value="wrong-patient | procedure-mishap | medication-mishap | device | unsafe-physical-environment | hospital-acquired-infection | wrong-body-site"/>
       <definition value="The overall type of event, intended for search and filtering purposes."/>
       <min value="0"/>
       <max value="*"/>

@@ -580,8 +580,8 @@
 				<valueString value="The author, editor, reviewer, and endorser elements were originally modeled with a Contributor data type and a contributionType for the role, but the use of explicit elements makes the relationship more clear and is easier for implementers to understand and work with. Additional contribution types should be modeled with a specific extension for the contribution type to follow this pattern"/>
 			</extension>
 			<path value="NamingSystem.author"/>
-			<short value="Who authored the CodeSystem"/>
-			<definition value="An individiual or organization primarily involved in the creation and maintenance of the NamingSystem."/>
+			<short value="Who authored the NamingSystem"/>
+			<definition value="An individual or organization primarily involved in the creation and maintenance of the NamingSystem."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>

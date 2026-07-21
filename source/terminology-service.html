@@ -251,6 +251,24 @@ Typically, servers provide a test and production
 environment, but there is no explicit notion of this in the interface itself.
 </p>
 
+<a name="frag-supp"></a>
+<h2>Fragments and Supplements</h2>
+
+<ul>
+ <li>If there is a complete code system and a fragment for the same code system, the server SHALL use the
+   complete code system. A fragment SHOULD be used if it is the only instance of the code system available
+   on the server. </li>
+ <li>If there is a complete code system instance and a fragment instance for the same code system version, the server SHALL use the complete code system.</li>
+ <li>If the only code system instance available on the server is a fragment, the fragment  MAY be used. </li>
+ <li>The server SHALL document how complete code system instances and fragment instances with different versions are handled.
+  For example, whether a server would default to using a newer version of a fragment as opposed to an older version of the complete code system.</li>
+ <li>Servers MAY support multiple fragment instances for the same code system instance version. When adopting this approach,
+  server implementers should take special care to provide a coherent, merged hierarchy reflected in the parent and child properties.</li>
+ <li>Care should be taken to ensure the code system resulting from referring to the multiple fragments is aligned with the complete code system. </li>
+ <li>Supplements MAY be used with fragments. Supplements SHOULD define the version of the code system they supplement if the code system is versioned.</li>
+ <li>Servers must populate TerminologyCapabilities.implementation.fragmentSupport to clarify how fragments are supported in the server implementation.</li>
+</ul>
+
 <a name="expand"></a>
 <h3>Value Set Expansion</h3>
 <p>

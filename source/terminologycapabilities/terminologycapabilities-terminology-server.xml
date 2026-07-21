@@ -19,9 +19,9 @@
   <codeSystem>
     <uri value="http://snomed.info/sct"/>
     <version>
-      <code value="http://snomed.info/sct/32506021000036107/version/20220831"/>
+      <value value="http://snomed.info/sct/32506021000036107/version/20220831"/>
+      <content value="complete"/>
     </version>
-    <content value="complete"/>
   </codeSystem>
   <codeSystem>
     <uri value="http://loinc.org"/>

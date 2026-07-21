@@ -407,7 +407,7 @@
        class="diagram-class-detail"><a
    id="n753"
    xlink:href="namingsystem-definitions.html#NamingSystem.author"><title
-   id="title153223">An individiual or organization primarily involved in the creation and maintenance of the NamingSystem</title>author</a> : <a
+   id="title153223">An individual or organization primarily involved in the creation and maintenance of the NamingSystem</title>author</a> : <a
    id="n754"
    xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
     <text

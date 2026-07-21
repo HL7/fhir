@@ -718,6 +718,7 @@
 			<path value="StructureDefinition.kind"/>
 			<short value="primitive-type | complex-type | resource | logical"/>
 			<definition value="Defines the kind of structure that this definition is describing."/>
+			<comment value="If pre-adopting a new 'kind' from a future version, set the type to 'logical' and specify the details of the new kind as an extension."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>

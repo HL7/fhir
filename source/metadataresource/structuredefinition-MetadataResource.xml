@@ -152,32 +152,14 @@
 				<map value="no-gen-base"/>
 			</mapping>
 		</element>
-		<element id="MetadataResource.topic">
-			<path value="MetadataResource.topic"/>
-			<short value="E.g. Education, Treatment, Assessment, etc"/>
-			<definition value="Descriptive topics related to the content of the {{title}}. Topics provide a high-level categorization as well as keywords for the {{title}} that can be useful for filtering and searching."/>
-			<comment value="This element provides topical categorization and keywords for the {{title}}, as opposed to the more structured context-of-use information provided in the useContext element."/>
-			<requirements value="Repositories must be able to determine how to categorize the {{title}} so that it can be found by topical and keyword searches."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="DefinitionTopic"/>
-				</extension>
-				<strength value="example"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
-			</binding>
-		</element>
 		<element id="MetadataResource.author">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
 				<valueString value="The author, editor, reviewer, and endorser elements were originally modeled with a Contributor data type and a contributionType for the role, but the use of explicit elements makes the relationship more clear and is easier for implementers to understand and work with. Additional contribution types should be modeled with a specific extension for the contribution type to follow this pattern"/>
 			</extension>
 			<path value="MetadataResource.author"/>
 			<short value="Who authored the {{title}}"/>
-			<definition value="An individiual or organization primarily involved in the creation and maintenance of the {{title}}."/>
+			<definition value="An individual or organization primarily involved in the development of the content in the {{title}}."/>
+			<comment value="An author does not necessarily have the authority to manage the actual publication of releases of the resource."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>

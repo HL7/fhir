@@ -365,7 +365,7 @@ generally use JSON signatures with the JSON canonicalization in JSON resources, 
 When the signature is a JWS Digital Signature, the following rules apply:
 </p>
 <ul>
- <li>The Signature.data is base64 encoded JWS-Signature as specified in <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
+ <li>The Signature.data is base64 encoded compact serialization JWS-Signature as specified in <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a>. NOTE: Because JWS is already base-64 encoded, this means that the signature will be double-encoded.</li>
  <li>The value of Signature.sigFormat is <code>application/jose</code> and this SHOULD be populated</li>
  <li>The <code>Signature.targetFormat</code> SHOULD be populated, and the value SHOULD contain a canonicalization URL from those defined above. The custom protected header property <code>canon</code> MAY be also be used to identify the canonicalization method</li>
  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature
@@ -443,9 +443,9 @@ Bundle, then the following rules SHALL be observed:
 <ol>
  <li>Signatures SHALL be in a Provenance resource (there may be more than one such signature)</li>
  <li>The Provenance resources with these signatures SHALL be in entries in the Bundle</li>
- <li>The <code>Provenance.target</code> with a <code>reference</code> value of exactly <code>Bundle/[id]</code> 
+ <li>The <code>Provenance.target</code> with a <code>reference</code> value of exactly <code>#/</code> 
    where id is the id of the Bundle, such that the target identifies that the Bundle itself is being signed. Note that if 
-   the Provenance does not have a target of `Bundle/[id]` it does not represent an embedded signature, does not sign the Bundle, 
+   the Provenance does not have a target of `#/` it does not represent an embedded signature, does not sign the Bundle, 
    and is not subject to the rules documented here</li>
  <li>The Provenance resource SHALL have a <code>Provenance.signature</code> element that contains the signature of the Bundle,
    with all entries that contain embedded signing provenance resources removed (that is, all entries that have a resource which is a Provenance, where the Provenance.target elements includes
@@ -461,16 +461,18 @@ Bundle, then the following rules SHALL be observed:
 </ol>
 
 <p>
-Bundle resources include the <code>Bundle.signature</code>, element, but a number of issues with its use have been
-identified, and the element is deprecated. Applications SHOULD use the method described above to sign Bundles (which may be 
-pre-adopted when working with earlier versions of the FHIR specification).
+Note the difference between a reference of <code>#</code> and <code>#/</code>; the first is references
+the Provenence itself, and the second references the bundle itself.
 </p>
-
 <a name="examples"></a>
 <h2>Worked Examples</h2>
 
-<p>Note: the example below is based on Bundle.signature, and needs to be reworked. Here's a reformatted 
+
+<blockquote class="ballot-note" id="bn1">
+  <p><b>Note to Balloters:</b> the example below is based on the now removed Bundle.signature, and needs to be reworked (and will be prior to the next ballot). Here's a reformatted 
   example of a bundle that is invalid (for now)</p>
+</blockquote>
+
 
 <pre class="json">
 {
@@ -640,7 +642,7 @@ Comments on the contents of the header:
 </ul>
 <p><b>Payload</b></p>
 <p>
-The payload is not provided, since this is a detached signature. In order to verify the signature, the verifying application must rebuild the payload as the signing application did, using the same canonicalization, and with Bundle.signature removed. 
+The payload is not provided, since this is a detached signature. In order to verify the signature, the verifying application must rebuild the payload as the signing application did, using the same canonicalization, and with the signing provenances removed. 
 In this case, that is:
 </p>
 <pre>

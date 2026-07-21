@@ -14,6 +14,21 @@
   <any value="false"/>
 </additional>
 <additional>
+  <key value="uc-bind-age"/>
+  <purpose value="preferred"/>
+  <valueSet value="http://terminology.hl7.org/ValueSet/v3-AgeGroupObservationValue"/>
+  <usage>
+    <code value="UsageContext.code"/>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/usage-context-type"/>
+        <code value="age"/>
+      </coding>
+    </valueCodeableConcept>
+  </usage>
+  <any value="false"/>
+</additional>
+<additional>
   <key value="uc-bind-focus"/>
   <purpose value="starter"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
@@ -90,7 +105,7 @@
 </additional>
 <additional>
   <key value="uc-bind-jurisdiction"/>
-  <purpose value="exetensible"/>
+  <purpose value="extensible"/>
   <valueSet value="http://terminology.hl7.org/ValueSet/jurisdiction"/>
   <usage>
     <code value="UsageContext.code"/>

@@ -53,7 +53,7 @@
     <uri value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
    <!-- ======= Fail tcp-1 invariant ======== -->
     <version>
-    <code value="FOO"/>
+    <value value="FOO"/>
     <!-- <isDefault value="true"/>
     <compositional value="true"/>
     <language value ="en"/>
@@ -71,7 +71,7 @@
       </filter> -->
     </version>
     <version>
-    <!-- <code value="FOO"/> -->
+    <!-- <value value="FOO"/> -->
     <isDefault value="true"/>
     <!-- <compositional value="true"/>
     <language value ="en"/>

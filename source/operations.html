@@ -92,7 +92,8 @@ and the body will be empty.
 </p>
 <p>
 Both the body of the POST and the returned result are always a Resource if any body is present,
-except in the case that the server supports multi-part/form-data (see below). 
+except in the case that the server supports multi-part/form-data (see below). If there are no return parameters,
+an operation may return an empty body or return an empty Parameters resource.
 </p>
 <p>
 Operations MAY be invoked using a <code>GET</code>, with parameters as HTTP URL parameters, if:
@@ -284,7 +285,8 @@ a failure returned by one of these HTTP codes is not wrapped in a Parameters res
 <p>
 In general, an operation response uses the same
 <a href="parameters.html">Parameters</a> format whether there is only one or
-there are multiple named <i>out</i> parameters.
+there are multiple named <i>out</i> parameters. If there are no return parameters,
+an operation may return an empty body or return an empty Parameters resource.
 </p>
 <p>
 If there is only one <i>out</i> parameter, which is a single Resource with the parameter name

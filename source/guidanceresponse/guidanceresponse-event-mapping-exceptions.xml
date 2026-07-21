@@ -1,5 +1,11 @@
 <mappingExceptions pattern="Event" resource="GuidanceResponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../tools/schema/mappingExceptions.xsd">
     <!--For information on the contents of this file and how to properly update it, see https://confluence.hl7.org/display/FHIR/Mapping+to+Patterns.-->
+    <divergentElement patternPath="Event.identifier" resourcePath="GuidanceResponse.identifier">
+        <commentsUnmatched reason="Unknown">
+            <_pattern value="Note: This is a business identifier, not a resource identifier (see [general discussion](resource.html#identifiers) and [event-specific discussion](event.html#identifier)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+            <resource value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+        </commentsUnmatched>
+    </divergentElement>
     <divergentElement patternPath="Event.status" resourcePath="GuidanceResponse.status">
         <shortUnmatched reason="Guidance response statuses are specific to the response to the request for guidance from a service.">
             <_pattern value="preparation | in-progress | not-done | suspended | aborted | completed | entered-in-error | unknown"/>
@@ -36,7 +42,7 @@
     </divergentElement>
     <divergentElement patternPath="Event.performer.actor" resourcePath="GuidanceResponse.performer">
         <lowerCardinality _pattern="1" _resource="0" reason="Not necessarily represented"/>
-        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, CareTeam, Patient, RelatedPerson)" reason="Unknown">
+        <missingTypes _pattern="Reference(Practitioner, PractitionerRole, Organization, CareTeam, Patient, RelatedPerson, HealthCareService)" reason="Unknown">
             <!--Old pattern: Reference(Practitioner,PractitionerRole,Organization,CareTeam,Patient,RelatedPerson)-->
             <!--Old reason: Specifically modeling service response-->
         </missingTypes>

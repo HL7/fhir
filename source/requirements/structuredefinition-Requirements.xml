@@ -654,8 +654,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Category"/>
         </extension>
-        <strength value="example"/>
+        <strength value="preferred"/>
         <description value="e.g., functional, safety, performance, accessibility"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/requirement-category"/>
       </binding>
       <mapping>
         <identity value="w5"/>

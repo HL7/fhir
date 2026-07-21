@@ -5,7 +5,7 @@
    width="930.2679310000001"
    height="294.182061"
    sodipodi:docname="bodystructure.svg"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,12 +22,12 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="1.339399"
-     inkscape:cx="465.50727"
-     inkscape:cy="147.45419"
-     inkscape:window-width="1390"
+     inkscape:cx="465.50729"
+     inkscape:cy="147.08089"
+     inkscape:window-width="2266"
      inkscape:window-height="1205"
      inkscape:window-x="0"
-     inkscape:window-y="31"
+     inkscape:window-y="30"
      inkscape:window-maximized="0"
      inkscape:current-layer="n335" />
   <defs
@@ -152,35 +152,36 @@
    xlink:href="patient.html#Patient">Patient</a> »</text>
   </g>
   <g
-     id="n372">
+     id="n372"
+     transform="translate(40.31659,-5.9728281)">
     <rect
        id="BodyStructure.includedStructure"
-       x="380.169601"
-       y="7.822108200000001"
+       x="380.16959"
+       y="7.8221083"
        rx="4"
        ry="4"
-       width="303.6"
-       height="134.0"
+       width="303.60001"
+       height="134"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
        id="n373"
-       x1="380.169601"
-       y1="35.8221082"
-       x2="683.769601"
-       y2="35.8221082"
-       style="stroke:dimgrey;stroke-width:1" />
+       x1="380.16959"
+       y1="35.822109"
+       x2="683.76959"
+       y2="35.822109"
+       style="stroke:#696969;stroke-width:1" />
     <text
        id="n374"
-       x="531.969601"
-       y="27.822108200000002"
-       fill="black"
+       x="531.9696"
+       y="27.822107"
+       fill="#000000"
        class="diagram-class-title">IncludedStructure</text>
     <text
        id="n375"
-       x="386.169601"
-       y="49.8221082"
-       fill="black"
+       x="386.16959"
+       y="49.822109"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n376"
    xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.structure"><title
@@ -192,9 +193,9 @@
    id="n379">Codes describing anatomical locations. May include laterality. (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
     <text
        id="n385"
-       x="386.169601"
-       y="63.8221082"
-       fill="black"
+       x="386.16959"
+       y="63.822109"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n386"
    xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.laterality"><title
@@ -206,9 +207,9 @@
    id="n389">null (Strength=Example)</title>BodystructureLaterality</a>?? »</text>
     <text
        id="n395"
-       x="386.169601"
-       y="77.8221082"
-       fill="black"
+       x="386.16959"
+       y="77.822105"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n396"
    xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.spatialReference"><title
@@ -219,9 +220,9 @@
    xlink:href="imagingselection.html#ImagingSelection">ImagingSelection</a> »</text>
     <text
        id="n403"
-       x="386.169601"
-       y="91.8221082"
-       fill="black"
+       x="386.16959"
+       y="91.822105"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n404"
    xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.image"><title
@@ -230,9 +231,9 @@
    xlink:href="datatypes.html#Attachment">Attachment</a> [0..*]</text>
     <text
        id="n409"
-       x="386.169601"
-       y="105.8221082"
-       fill="black"
+       x="386.16959"
+       y="105.82211"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n410"
    xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.qualifier"><title
@@ -244,9 +245,9 @@
    id="n413">null (Strength=Example)</title>BodystructureLocationQualifier</a>?? »</text>
     <text
        id="n419"
-       x="386.169601"
-       y="119.8221082"
-       fill="black"
+       x="386.16959"
+       y="119.82211"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n420"
    xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.morphology"><title
@@ -258,16 +259,16 @@
      id="n423">null (Strength=Example)</title></a></text>
     <text
        id="n424"
-       x="406.169601"
-       y="133.8221082"
-       fill="black"
+       x="406.16959"
+       y="133.82211"
+       fill="#000000"
        class="diagram-class-detail"><a
    id="n425"
    xlink:href="valueset-bodystructure-code.html">SNOMEDCTMorphologicAbnormalit...</a>?? »</text>
   </g>
   <g
      id="n433"
-     transform="translate(-0.74660349,61.968089)">
+     transform="translate(40.31659,94.818644)">
     <rect
        id="BodyStructure.includedStructure.bodyLandmarkOrientation"
        x="423.46793"
@@ -360,7 +361,7 @@
   </g>
   <g
      id="n476"
-     transform="translate(12.692259,50.022434)">
+     transform="translate(-9.7058464,50.769038)">
     <rect
        id="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark"
        x="14.11491"

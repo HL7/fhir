@@ -23,7 +23,7 @@
   </topic>
   <relatedArtifact>
     <type value="depends-on"/>
-    <artifactMarkdown value="A markdown description of a dependency"/> <!-- This should be an error to depend on markdown -->
+    <citation value="A markdown description of a dependency"/> <!-- This should be an error to depend on markdown -->
   </relatedArtifact>
   <dataRequirement>
     <type value="Condition"/>

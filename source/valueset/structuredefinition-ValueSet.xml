@@ -515,7 +515,7 @@
 			</extension>
 			<path value="ValueSet.author"/>
 			<short value="Who authored the ValueSet"/>
-			<definition value="An individiual or organization primarily involved in the creation and maintenance of the ValueSet."/>
+			<definition value="An individual or organization primarily involved in the creation and maintenance of the ValueSet."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -862,6 +862,13 @@
 			</type>
 			<condition value="vsd-2"/>
 			<condition value="vsd-3"/>
+			<constraint>
+				<key value="vsd-13"/>
+				<severity value="error"/>
+				<human value="A value set filter SHALL have either a value or sub-filters"/>
+				<expression value="value.exists() xor filter.exists()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+			</constraint>
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="rim"/>
@@ -916,14 +923,28 @@
 			</extension>
 			<path value="ValueSet.compose.include.filter.value"/>
 			<short value="Code from the system, or regex criteria, or boolean value for exists"/>
-			<definition value="ValueSet.compose.include.filter.value is represented as a string, and the string value must be [as described](valueset.html#filter-values)."/>
+			<definition value="ValueSet.compose.include.filter.value is represented as a string, and the string value must be as described in [Using Filter Values](valueset.html#filter-values)."/>
 			<comment value="Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example."/>
-			<min value="1"/>
+			<min value="0"/>
 			<max value="1"/>
 			<type>
 				<code value="string"/>
 			</type>
+			<condition value="vsd-13"/>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="ValueSet.compose.include.filter.filter">
+			<path value="ValueSet.compose.include.filter.filter"/>
+			<short value="Sub-filter to specify the set of codes"/>
+			<definition value="Nested filters which may be used if and only if the operator allows for a list of concept codes or a value set. This element supports defining the outer filter with a value, or by the application of one or more sub-filters. If one or more sub-filters are present, the intersection of the filters specifies the set of concept codes that are the `value` the operator acts on."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#ValueSet.compose.include.filter"/>
+			<condition value="vsd-13"/>
 			<mapping>
 				<identity value="rim"/>
 				<map value="N/A"/>

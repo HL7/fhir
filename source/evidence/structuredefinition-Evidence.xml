@@ -311,7 +311,7 @@
 		<element id="Evidence.author">
 			<path value="Evidence.author"/>
 			<short value="Who authored the content"/>
-			<definition value="An individiual, organization, or device primarily involved in the creation and maintenance of the content."/>
+			<definition value="An individual, organization, or device primarily involved in the creation and maintenance of the content."/>
 			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -370,7 +370,7 @@
 		<element id="Evidence.editor">
 			<path value="Evidence.editor"/>
 			<short value="Who edited the content"/>
-			<definition value="An individiual, organization, or device primarily responsible for internal coherence of the content."/>
+			<definition value="An individual, organization, or device primarily responsible for internal coherence of the content."/>
 			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -381,7 +381,7 @@
 		<element id="Evidence.reviewer">
 			<path value="Evidence.reviewer"/>
 			<short value="Who reviewed the content"/>
-			<definition value="An individiual, organization, or device primarily responsible for review of some aspect of the content."/>
+			<definition value="An individual, organization, or device primarily responsible for review of some aspect of the content."/>
 			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>
@@ -392,7 +392,7 @@
 		<element id="Evidence.endorser">
 			<path value="Evidence.endorser"/>
 			<short value="Who endorsed the content"/>
-			<definition value="An individiual, organization, or device responsible for officially endorsing the content for use in some setting."/>
+			<definition value="An individual, organization, or device responsible for officially endorsing the content for use in some setting."/>
 			<comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html)).&#xa;&#xa;See guidance around (not) making local changes to elements [here](canonicalresource.html#localization)."/>
 			<min value="0"/>
 			<max value="*"/>

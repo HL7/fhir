@@ -5,7 +5,7 @@
    width="1292.4"
    height="304.0"
    sodipodi:docname="coverageeligibilityrequest.svg"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,12 +22,12 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="0.96409778"
-     inkscape:cx="646.20001"
-     inkscape:cy="152.99278"
+     inkscape:cx="646.71863"
+     inkscape:cy="152.47416"
      inkscape:window-width="1390"
      inkscape:window-height="1205"
      inkscape:window-x="0"
-     inkscape:window-y="52"
+     inkscape:window-y="30"
      inkscape:window-maximized="0"
      inkscape:current-layer="n563" />
   <defs
@@ -308,7 +308,7 @@
   </g>
   <g
      id="n691"
-     transform="translate(-369.25715,239.60225)">
+     transform="translate(-374.44335,274.86838)">
     <rect
        id="CoverageEligibilityRequest.supportingInfo"
        x="720"
@@ -579,7 +579,7 @@
   </g>
   <g
      id="n816"
-     transform="translate(7.2606743,40.452328)">
+     transform="translate(7.2606743,74.681221)">
     <rect
        id="CoverageEligibilityRequest.item.diagnosis"
        x="680"

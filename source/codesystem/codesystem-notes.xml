@@ -49,6 +49,20 @@ Code Systems may be distributed in fragments for the following reasons:
  <li>Special purpose modules for specific purposes</li>
  <li>Distribution of proposed content for evaluation</li>
 </ul>
+
+<blockquote class="ballot-note" id="bn1">
+<p><b>Note to Balloters:</b></p>
+<p>
+We have deliberately left certain behaviors up to terminology server implementers given the
+variety of approaches and complexity in dealing with multiple CodeSystem fragments for the
+same CodeSystem. We are interested in hearing from developers and implementers on how they
+have managed this situation.  
+</p>
+<p>
+Also see <a href="terminologycapabilities.html#TerminologyCapabilities.implementation.fragmentSupport">TerminologyCapabilities.implementation.fragmentSupport</a> element definition.
+</p>
+</blockquote>
+
 <p>
 The following rules apply to code system fragments:
 </p>
@@ -58,6 +72,7 @@ The following rules apply to code system fragments:
  <li>Fragments cannot contain any codes, concepts or properties that would not be found in a complete representation of the code system, if one exists. Implementers should note that a "complete representation" of the code system might not exist in a single authoritative publication (e.g., SNOMED International with all modules/extensions)</li>
  <li>Publishing a code system in multiple fragments can create confusion for terminology servers and terminology service consumers.</li>
  <li>The intent, bounds and consequences of the fragmentation are clearly defined in the fragment or the code system documentation.</li>
+ <li>If a fragment is drawn from a versioned code system, the fragment SHOULD provide a value for CodeSystem.version.</li>
 </ul>
 
 <a name="supplements"></a>
@@ -88,13 +103,17 @@ is often longer. All concepts SHOULD have a <code>display</code> and a <code>def
 mandatory because there are many cases where no such properties are provided, in spite of their utility and importance
 for clear and safe communication.
 </p>
+
 <p>
-In addition to the display and definition, a concept can have one or more <code>designation</code> elements. 
-The display is equivalent to a special designation with an implied <code>designation.use</code> meaning "primary code/designation" 
-and a language equal to the <a href="resource.html#language">Resource Language</a>. The designations can provide additional displays
-for other language, as well as designations for other purposes. 
-When using concepts, applications use the <code>display</code> and <code>designation</code> unless the language or usage in context provides a reason
-to use one of the designations.
+The display is equivalent to a designation with an implied <code>designation.use</code> of <i>preferredForLanguage</i> and a language equal to the <a href="resource.html#language">Resource Language</a>.
+</p>
+
+<p>
+In addition to the display and definition, a concept can have one or more <code>designation</code> elements. The designations can provide additional displays for other languages, as well as designations for other purposes. When using concepts, applications use the <code>display</code> unless the language or usage in context provides a reason to use one of the designations.
+</p>
+
+<p>
+Language translations can be provided in a <a href="codesystem.html#supplements">code system supplement</a> if they cannot be provided in the code system itself.
 </p>
 
 <a name="properties"></a>

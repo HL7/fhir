@@ -12,11 +12,16 @@
                 <li>Compatible, Substantive Changes
                     <ul>
                         <li><a href="https://jira.hl7.org/browse/FHIR-55433">FHIR-55433</a>: Undeprecated topic element</li>
+                        <li><a href="https://jira.hl7.org/browse/FHIR-55386">FHIR-55386</a>: <code>ConceptMap.allowedRelationship</code> added, letting a ConceptMap limit the set of relationship codes that are valid for its mappings</li>
                     </ul>
                 </li>
                 <li>Non-substantive Changes
                     <ul>
-                        <li>None</li>
+                    <li><a href="https://jira.hl7.org/browse/FHIR-54473">FHIR-54473</a>: FHIR Mapping Language not ready for normative (moved to mapping-language IG with StructureMap) - changed link to updated location</li>
+                    <li><a href="https://jira.hl7.org/browse/FHIR-53312">FHIR-53312</a>: <code>$translate</code> response now identifies the mapping source by canonical (the source ConceptMap's canonical URL) instead of a bare <code>uri</code>, aligning the operation output with canonical-based resource identification</li>
+                    <li><a href="https://jira.hl7.org/browse/FHIR-53766">FHIR-53766</a>: <code>ConceptMap.jurisdiction</code> undeprecated</li>
+                    <li><a href="https://jira.hl7.org/browse/FHIR-55433">FHIR-55433</a>: <code>ConceptMap.topic</code> undeprecated</li>
+                    <li><a href="https://jira.hl7.org/browse/FHIR-55622">FHIR-55622</a>: Clarified handling of multiple <code>ConceptMap.group</code> entries that share the same source and target</li>
                     </ul>
                 </li>
             </ul>
@@ -106,7 +111,7 @@ resources, and provide background knowledge that is useful in many contexts, inc
 <a href="operations.html">operations</a> defined in this specification.
 </p>
 <p>
-In addition to <code>ConceptMap</code>, there is also the <a href="structuremap.html">StructureMap</a>
+In addition to <code>ConceptMap</code>, there is also the <a href="https://build.fhir.org/ig/HL7/mapping-language-ig/StructureDefinition-StructureMap.html">StructureMap</a>
 resource. The ConceptMap resource defines relationships between concepts in their own right,
 along with grading of their equivalencies, while the StructureMap defines an executable 
 transform for instances that conform to a known structure.
@@ -162,4 +167,3 @@ Release 4 and Release 5. Key changes:
 
 
 </div>
-

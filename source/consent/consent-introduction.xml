@@ -2,16 +2,32 @@
 
 
 <div class="ballot-note md"><blockquote class="ballot-note" data-augury-generated="true" id="bn2">
-  <p>Changes since <code>5d67a34a13a5..8c82972d2728</code>: Consent was updated to remove Contract-dependent content, clarify provision/decision guidance, and refresh related examples and terminology.</p>
+  <p>Changes since last ballot. Consent was updated to remove Contract-dependent content, clarify provision/decision guidance, and refresh related examples and terminology.</p>
   <p><b>Non-compatible</b></p>
   <ul>
-    <li>Removed <code>Consent.provision.expression</code> <span class="structural-badge" title="Removed: element removed" aria-label="structural change: Removed">structural</span> as part of removing Contract-based expression support from Consent. <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-54637">FHIR-54637</a>]</li>
-    <li>Removed remaining Contract references from Consent, including the existing ballot-note item for <code>Consent.sourceReference</code>. <span class="tag">Correction</span> [<a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a>]</li>
+    <li>Removed <code>Consent.provision.expression</code> as part of removing Contract-based expression support from Consent. [<a href="https://jira.hl7.org/browse/FHIR-54637">FHIR-54637</a>]</li>
+    <li>Removed remaining Contract references from Consent, including the existing ballot-note item for <code>Consent.sourceReference</code>. [<a href="https://jira.hl7.org/browse/FHIR-55563">FHIR-55563</a>]</li>
   </ul>
-  <p><b>Unattributed (needs Jira)</b></p>
+
+  <p><b>Compatible substantive</b></p>
   <ul>
-    <li>Additional window commits updated provision terminology and constraints, Consent decision guidance, examples/example lists, terminology bundles, work-group metadata, and additional Contract-reference cleanup; these changes need Jira attribution before final publication [<a href="https://github.com/HL7/fhir/commit/aaf374fdd98a6bf647d6c6481209844783b517ec">aaf374fdd9</a>, <a href="https://github.com/HL7/fhir/commit/5d929593c97f66a221e937c46332a1b079bb0fe1">5d929593c9</a>, <a href="https://github.com/HL7/fhir/commit/9329ca11558e431b590d068d0b411a412d4d21dc">9329ca1155</a>, <a href="https://github.com/HL7/fhir/commit/7e45e95332c261c33bf17d17a9e46668cb7560a3">7e45e95332</a>, <a href="https://github.com/HL7/fhir/commit/24078e99cf678dcb16c6520d6c8cefea6834c7af">24078e99cf</a>, <a href="https://github.com/HL7/fhir/commit/7963179ac9e7c5eabaef4f91971ba00c102d38e7">7963179ac9</a>, <a href="https://github.com/HL7/fhir/commit/93d72f61c1a3911e1347f2a4e0da1d502fba5472">93d72f61c1</a>, <a href="https://github.com/HL7/fhir/commit/3427c8573285e5b5ab29435de5e12d1e4e79c89c">3427c85732</a>, <a href="https://github.com/HL7/fhir/commit/76b46e24b1edbb733d5aafb5ada1d09ab3eedacc">76b46e24b1</a>, <a href="https://github.com/HL7/fhir/commit/97f41b2cf0cd2ca191bc43f419f321fbd63dbd7c">97f41b2cf0</a>, <a href="https://github.com/HL7/fhir/commit/e64d0f0972c011be7a653b0785aee38ac5eb67a0">e64d0f0972</a>, <a href="https://github.com/HL7/fhir/commit/47e27fb9849d203e1c60adc8cf63181a6ba219ad">47e27fb984</a>]</li>
+    <li>Added a constraint (invariant) governing the provision <code>decision</code> element in the StructureDefinition and documented it in the narrative, clarifying when a decision is required. [<a href="https://jira.hl7.org/browse/FHIR-55728">FHIR-55728</a>]</li>
+    <li>Added guidance on how conflicting provisions are resolved and the order in which provisions are processed. [<a href="https://jira.hl7.org/browse/FHIR-54630">FHIR-54630</a>]</li>
+    <li>Relaxed overly strong &quot;Shall&quot; statements in the Consent narrative so they no longer over-constrain every use case. [<a href="https://jira.hl7.org/browse/FHIR-53381">FHIR-53381</a>]</li>
   </ul>
+  <p><b>Non-substantive</b></p>
+  <ul>
+    <li>Replaced remaining uses of &quot;exception&quot; with &quot;provision&quot;/&quot;constraint&quot; terminology and clarified the previously ambiguous provision definition. [<a href="https://jira.hl7.org/browse/FHIR-54629">FHIR-54629</a>, <a href="https://jira.hl7.org/browse/FHIR-54133">FHIR-54133</a>]</li>
+    <li>Clarified how <code>policyBasis</code>, <code>regulatoryBasis</code> and provisions interrelate, including the Policy / Privacy-Rule relationship. [<a href="https://jira.hl7.org/browse/FHIR-53886">FHIR-53886</a>, <a href="https://jira.hl7.org/browse/FHIR-54155">FHIR-54155</a>]</li>
+    <li>General definition clean-up: updated mentions of old / renamed elements, clarified constraint-vs-exception wording for provisions, and refreshed the policy-section explanation. [<a href="https://jira.hl7.org/browse/FHIR-55983">FHIR-55983</a>]</li>
+  </ul>
+  <p><b>Technical Correction</b></p>
+  <ul>
+    <li>Moved Consent work-group ownership from CBCP to Security and refreshed the associated metadata. [<a href="https://jira.hl7.org/browse/FHIR-57218">FHIR-57218</a>]</li>
+    <li>Added <code>Consent.manager</code> to an example so the corresponding search parameter has matching data. [<a href="https://jira.hl7.org/browse/FHIR-50869">FHIR-50869</a>]</li>
+    <li>Examples QA: added a missing example to the examples list and fixed an example typo. [<a href="https://jira.hl7.org/browse/FHIR-57850">FHIR-57850</a>]</li>
+  </ul>
+
 </blockquote></div>
 
         <a name="scope"></a>

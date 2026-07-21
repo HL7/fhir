@@ -1,7 +1,6 @@
 _language
 _query
 _in
-claim_identifier
 _security
 _type
 _lastupdated
@@ -16,3 +15,4 @@ _source
 _id
 _content
 _text
+hrf
