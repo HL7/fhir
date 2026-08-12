@@ -17,7 +17,7 @@
   <description value="DeviceAssociation Status Reason Codes"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/deviceassociation-status-reason"/>
+      <system value="http://terminology.hl7.org/CodeSystem/deviceassociation-status-reason"/>
     </include>
   </compose>
 </ValueSet>
