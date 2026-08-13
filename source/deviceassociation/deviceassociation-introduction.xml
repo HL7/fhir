@@ -29,7 +29,7 @@
 <blockquote class="stu-note" style="background-color: lightblue">
 	<p><b>Changes since 6.0.0-ballot5:</b></p>
 	<ul>
-		<li><a href="https://jira.hl7.org/browse/FHIR-55254">Binding relationship-status, relationship, and status-reason to THO equivalent code systems (FHIR-55254)</a></li>
+		<li><a href="https://jira.hl7.org/browse/FHIR-55254">FHIR-55254</a> - Binding relationship-status, relationship, and status-reason valuesets to THO equivalent code systems</li>
 	</ul>
 </blockquote>
 <a name="bnc"></a>
